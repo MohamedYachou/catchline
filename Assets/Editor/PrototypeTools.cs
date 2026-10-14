@@ -24,6 +24,17 @@ namespace Catchline.EditorTools
             Debug.Log($"[Catchline] Created {ScenePath}");
         }
 
+        // Opens the prototype scene and enters Play mode. Also usable as a launch argument:
+        //   Unity -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.OpenAndPlay
+        [MenuItem("Catchline/Play Deck Prototype %#p")]
+        public static void OpenAndPlay()
+        {
+            if (!File.Exists(ScenePath)) CreateScene();
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            EditorSceneManager.OpenScene(ScenePath);
+            EditorApplication.delayCall += () => EditorApplication.isPlaying = true;
+        }
+
         // Batchmode check: builds the deck, runs the simulation headless, logs a report
         // and renders a PNG.
         //   Unity -batchmode -quit -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.Snapshot
