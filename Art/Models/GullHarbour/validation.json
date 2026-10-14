@@ -25,14 +25,15 @@
     {
       "asset": "CaptainCap",
       "passed": true,
-      "triangles": 444,
+      "triangles": 944,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         0.354,
-        0.381,
-        0.125
+        0.39300001,
+        0.152
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "curved_visor_vertices": 14
     },
     {
       "asset": "DeckhandBeanie",
@@ -73,14 +74,15 @@
     {
       "asset": "FishingRod",
       "passed": true,
-      "triangles": 716,
+      "triangles": 1488,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
-        0.128,
-        0.086,
+        0.1785,
+        0.134,
         1.60000002
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "butt_width_m": 0.052000001072883606
     },
     {
       "asset": "Bobber",
@@ -277,50 +279,54 @@
     {
       "asset": "BreakwaterRockA",
       "passed": true,
-      "triangles": 20,
+      "triangles": 188,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         1.79999995,
         1.39999998,
         1.0
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "flat_sole_vertices": 12
     },
     {
       "asset": "BreakwaterRockB",
       "passed": true,
-      "triangles": 20,
+      "triangles": 188,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         1.29999995,
         1.10000002,
         0.80000001
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "flat_sole_vertices": 12
     },
     {
       "asset": "BreakwaterRockC",
       "passed": true,
-      "triangles": 20,
+      "triangles": 188,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         2.0999999,
         1.5,
         1.20000005
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "flat_sole_vertices": 12
     },
     {
       "asset": "KelpPatch",
       "passed": true,
-      "triangles": 70,
+      "triangles": 168,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
-        0.90105146,
-        0.93630195,
+        1.15755418,
+        0.37510149,
         0.0
       ],
-      "pivots_survive_fbx_roundtrip": true
+      "pivots_survive_fbx_roundtrip": true,
+      "flat_mat_max_height_m": 0.0
     }
   ],
   "cooler_base_mesh_shared": true,

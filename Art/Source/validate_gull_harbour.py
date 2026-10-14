@@ -90,6 +90,31 @@ def main():
         count = sum(kit.B.mesh_stats(o)['triangles'] for o in meshes)
         assert count == asset['triangles']
         special = {}
+        if name.startswith('BreakwaterRock'):
+            assert 150 <= count <= 300
+            near([source_low[2]], [0])
+            sole = [v for o in meshes for v in o.data.vertices if abs(v.co.z) < 1e-6]
+            assert len(sole) >= 12
+            special['flat_sole_vertices'] = len(sole)
+        if name == 'FishingRod':
+            near([source_high[2]], [1.6])
+            rod = bpy.data.objects['RodAndReel']
+            butt = [v.co for v in rod.data.vertices if v.co.z < .025]
+            width = max(v.x for v in butt) - min(v.x for v in butt)
+            assert width >= .03
+            special['butt_width_m'] = width
+            near(bpy.data.objects['ReelHandle'].location, [.107, 0, .24])
+        if name == 'CaptainCap':
+            assert 'AnchorBadge' in bpy.data.objects
+            cap = bpy.data.objects['CaptainCap']
+            visor = [v.co for v in cap.data.vertices if v.co.y < -.17 and v.co.z < .02]
+            assert len(visor) > 10
+            assert max(v.z for v in visor) - min(v.z for v in visor) > .01
+            special['curved_visor_vertices'] = len(visor)
+        if name == 'KelpPatch':
+            near([source_low[2], source_high[2]], [0, 0])
+            assert any('bulbs' in note for note in asset['notes'])
+            special['flat_mat_max_height_m'] = source_high[2]
         if name == 'CrewBody':
             body = bpy.data.objects['CrewBody']
             special['body_topology'] = topology(body)
