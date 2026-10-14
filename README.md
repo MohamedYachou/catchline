@@ -6,7 +6,19 @@ Top-down automation game about a fishing boat that grows from a rowboat into a f
 - Platforms: mobile + PC, landscape
 - Large binaries (models, textures, audio) go through Git LFS, see `.gitattributes`
 
-## Deck prototype
+## Build 1: rowboat voyage (current)
+
+Design: [docs/GAMEPLAY.md](docs/GAMEPLAY.md). Menu **Catchline > Play Voyage** (Ctrl+Shift+P) opens `Assets/Scenes/Voyage.unity` and presses Play. Code lives in `Assets/Scripts/Game/`.
+
+Controls: tap a rod, fish, the cooler or the deck to walk there; the big action button (or Space) does the contextual action (bait, hold to cast, strike, pick up, stow). H heads home. Scroll zooms.
+
+Balance check (a bot plays N voyages and logs each one, then renders a PNG to `Logs/`):
+
+```
+Unity -batchmode -quit -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.VoyageSim -voyages 30
+```
+
+## Deck prototype (old)
 
 Open `Assets/Scenes/DeckPrototype.unity` and press Play. Everything is built from primitives at startup by `Assets/Scripts/Prototype/DeckPrototype.cs`.
 

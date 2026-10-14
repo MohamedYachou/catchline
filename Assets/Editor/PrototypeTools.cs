@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Catchline.Game;
 using Catchline.Prototype;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -19,14 +20,13 @@ namespace Catchline.EditorTools
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             new GameObject("DeckPrototype").AddComponent<DeckPrototype>();
             EditorSceneManager.SaveScene(scene, ScenePath);
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
             AssetDatabase.SaveAssets();
             Debug.Log($"[Catchline] Created {ScenePath}");
         }
 
         // Opens the prototype scene and enters Play mode. Also usable as a launch argument:
         //   Unity -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.OpenAndPlay
-        [MenuItem("Catchline/Play Deck Prototype %#p")]
+        [MenuItem("Catchline/Play Deck Prototype (old)")]
         public static void OpenAndPlay()
         {
             if (!File.Exists(ScenePath)) CreateScene();
@@ -62,6 +62,58 @@ namespace Catchline.EditorTools
             }
 
             Render(deck.Cam, path, 1600, 900);
+            Debug.Log($"[Catchline] Snapshot written to {path}");
+        }
+
+        const string VoyagePath = "Assets/Scenes/Voyage.unity";
+
+        // Build 1 scene: one GameObject with VoyageGame. It becomes the first build scene.
+        [MenuItem("Catchline/Create Voyage Scene")]
+        public static void CreateVoyageScene()
+        {
+            var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            new GameObject("VoyageGame").AddComponent<VoyageGame>();
+            EditorSceneManager.SaveScene(scene, VoyagePath);
+            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(VoyagePath, true), new EditorBuildSettingsScene(ScenePath, true) };
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[Catchline] Created {VoyagePath}");
+        }
+
+        [MenuItem("Catchline/Play Voyage %#p")]
+        public static void PlayVoyage()
+        {
+            if (!File.Exists(VoyagePath)) CreateVoyageScene();
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            EditorSceneManager.OpenScene(VoyagePath);
+            EditorApplication.delayCall += () => EditorApplication.isPlaying = true;
+        }
+
+        // Balance check: a bot plays N voyages headless, logs each voyage and renders a PNG mid-fishing.
+        //   Unity -batchmode -quit -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.VoyageSim
+        //         -voyages 15 [-seed 7] [-snapshotPath out.png]
+        public static void VoyageSim()
+        {
+            int voyages = int.Parse(Arg("-voyages", "15"));
+            string path = Arg("-snapshotPath", Path.GetFullPath("Logs/voyage-snapshot.png"));
+            if (!File.Exists(VoyagePath)) CreateVoyageScene();
+            EditorSceneManager.OpenScene(VoyagePath);
+            var game = UnityEngine.Object.FindFirstObjectByType<VoyageGame>();
+            game.Seed = int.Parse(Arg("-seed", "7"));
+            game.AutoPlay = true;
+            game.Build();
+
+            int logged = 0;
+            while (game.State.Voyage <= voyages && game.SimTime < voyages * 900f)
+            {
+                game.Tick(0.05f);
+                while (logged < game.Log.Count) Debug.Log("[Catchline] " + game.Log[logged++]);
+            }
+            float until = game.SimTime + 600f;
+            while (game.CurrentMode != VoyageGame.Mode.Fishing && game.SimTime < until) game.Tick(0.05f);
+            float shotAt = game.SimTime + 35f;
+            while (game.SimTime < shotAt) game.Tick(0.05f);
+            Debug.Log($"[Catchline] Sim done at {game.SimTime / 60f:0.0} min, coins {game.State.Coins}");
+            Render(game.Cam, path, 1600, 900);
             Debug.Log($"[Catchline] Snapshot written to {path}");
         }
 
