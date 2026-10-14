@@ -80,3 +80,11 @@ Rebuild with Python 3.12+ and Pillow/CairoSVG/fontTools: `python Art/Source/buil
 `Art/Concepts/16-ui-kit.png`: every shipped piece including both states, tails and all 14 icons. `17-hud-fishing.png`: status top left, coin/home top right, crew bottom left, action bubbles and strike bottom centre. `18-hud-harbour.png`: harbour/goal left, five-tab Shop right, Set sail at its foot. Composed from the exported kit using genuine nine-slice raster assembly, not an unrelated painted UI. Example state values are illustrative. Shop prices, names, food and skiff limits follow proto/deck-sim `GameData.cs` / `VoyageHud.cs` as read on 2026-10-14 (47373b7 plus live working copy).
 
 The harbour and fishing panels follow those HUD anchors; the bubble bodies are slightly wider for the requested icon slot. Unity integration, font import, device testing and final interaction behaviour are a later code pass.
+
+## Task 05 — UI pass 2
+
+Additive illustrated sprites in the existing palette and Fredoka. All listed dimensions are final exported pixels, at 2x (logical size is half). Keep alpha gutters and aspect ratios. Title backdrop is an opaque full-screen RGBA scene; all other additions have transparent margins. Lettering in the logo, shop headers, NEW badge and unknown fish is intentionally baked; gameplay labels remain live. Source SVG lettering uses outlines from the bundled Fredoka font. No new M_ materials.
+
+| PNG | Export px | Logical px | Slice L/B/R/T | Use |
+| --- | --- | --- | --- | --- |
+| `logo-catchline.png` | 1024×384 | 512×192 | — | Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio. |
