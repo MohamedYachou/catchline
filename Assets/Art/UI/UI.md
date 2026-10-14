@@ -120,3 +120,9 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `portrait-deckhand.png` | 256×256 | 128×128 | — | Chibi deckhand bust; common face proportions and frame, role hat and clothing, no baked name. |
 | `portrait-fisherman.png` | 256×256 | 128×128 | — | Chibi fisherman bust; common face proportions and frame, role hat and clothing, no baked name. |
 | `portrait-veteran.png` | 256×256 | 128×128 | — | Chibi veteran bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `coin-pop.png` | 256×256 | 128×128 | — | Coin reward burst; animate scale/fade in integration. |
+| `sparkle.png` | 256×256 | 128×128 | — | Warm four-point sparkle. Transparent frame, no timing baked. |
+| `catch-card.png` | 256×320 | 128×160 | 64/64/64/108 | Sliced catch reward card. Header 76px export high; keep title and fish as separate live elements. |
+| `popup-panel.png` | 256×320 | 128×160 | 64/64/64/108 | Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate. |
+| `badge-new.png` | 256×128 | 128×64 | — | Fredoka NEW badge. Baked English label; replace SVG lettering for localization. |
+| `daily-gift.png` | 512×512 | 256×256 | — | Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked. |

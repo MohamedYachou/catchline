@@ -1269,6 +1269,106 @@
       "use": "Chibi veteran bust; common face proportions and frame, role hat and clothing, no baked name.",
       "border_px": null,
       "task": 5
+    },
+    "coin-pop": {
+      "file": "coin-pop.png",
+      "source": "Art/Source/UI/Pass2/coin-pop.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Coin reward burst; animate scale/fade in integration.",
+      "border_px": null,
+      "task": 5
+    },
+    "sparkle": {
+      "file": "sparkle.png",
+      "source": "Art/Source/UI/Pass2/sparkle.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Warm four-point sparkle. Transparent frame, no timing baked.",
+      "border_px": null,
+      "task": 5
+    },
+    "catch-card": {
+      "file": "catch-card.png",
+      "source": "Art/Source/UI/Pass2/catch-card.svg",
+      "intended_size": [
+        128,
+        160
+      ],
+      "export_size": [
+        256,
+        320
+      ],
+      "use": "Sliced catch reward card. Header 76px export high; keep title and fish as separate live elements.",
+      "border_px": {
+        "left": 64,
+        "bottom": 64,
+        "right": 64,
+        "top": 108
+      },
+      "task": 5
+    },
+    "popup-panel": {
+      "file": "popup-panel.png",
+      "source": "Art/Source/UI/Pass2/popup-panel.svg",
+      "intended_size": [
+        128,
+        160
+      ],
+      "export_size": [
+        256,
+        320
+      ],
+      "use": "Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate.",
+      "border_px": {
+        "left": 64,
+        "bottom": 64,
+        "right": 64,
+        "top": 108
+      },
+      "task": 5
+    },
+    "badge-new": {
+      "file": "badge-new.png",
+      "source": "Art/Source/UI/Pass2/badge-new.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "Fredoka NEW badge. Baked English label; replace SVG lettering for localization.",
+      "border_px": null,
+      "task": 5
+    },
+    "daily-gift": {
+      "file": "daily-gift.png",
+      "source": "Art/Source/UI/Pass2/daily-gift.svg",
+      "intended_size": [
+        256,
+        256
+      ],
+      "export_size": [
+        512,
+        512
+      ],
+      "use": "Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked.",
+      "border_px": null,
+      "task": 5
     }
   }
 }

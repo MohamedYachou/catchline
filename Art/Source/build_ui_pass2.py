@@ -209,5 +209,24 @@ def part7():
         emit('portrait-'+n,256,256,placed(portrait(n),0,0,2),'Chibi '+n+' bust; common face proportions and frame, role hat and clothing, no baked name.')
 
 
+def part8():
+    coin=ellipse(64,68,39,39,W)+ellipse(64,62,39,39,G)+ellipse(64,62,28,28,'#F4CD67')+line('M65 43 V82 M77 48 Q48 35 49 56 Q48 65 66 65 Q85 66 75 78 Q64 87 49 77',W,5)
+    b=placed(coin,0,0,2)+line('M38 38 L24 24 M213 44 L225 29 M212 199 L226 213 M35 204 L23 216',G,7)
+    emit('coin-pop',256,256,b,'Coin reward burst; animate scale/fade in integration.')
+    b=path('M128 19 Q133 111 218 128 Q139 137 128 233 Q115 143 33 128 Q117 112 128 19Z',I)+path('M128 48 Q135 116 190 128 Q135 139 128 207 Q117 139 61 128 Q117 116 128 48Z',G)
+    b+=path('M205 25 L210 41 L226 46 L210 51 L205 67 L200 51 L184 46 L200 41Z',G)
+    emit('sparkle',256,256,b,'Warm four-point sparkle. Transparent frame, no timing baked.')
+    b=rect(12,10,232,294,28,I)+rect(22,20,212,274,21,C)+rect(22,20,212,66,21,T)+rect(22,53,212,33,0,T)+line('M40 96 H216',G,4)
+    emit('catch-card',256,320,b,'Sliced catch reward card. Header 76px export high; keep title and fish as separate live elements.',[64,64,64,108])
+    b=rect(12,10,232,294,28,C)+rect(12,10,232,76,28,N)+rect(12,48,232,38,0,N)+line('M36 86 H220',G,4)
+    emit('popup-panel',256,320,b,'Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate.',[64,64,64,108])
+    b=rect(14,15,228,94,30,G)+lettering('NEW',128,83,64,N)
+    emit('badge-new',256,128,b,'Fredoka NEW badge. Baked English label; replace SVG lettering for localization.')
+    b=placed(gift_icon(),36,30,3.5)
+    for x,y,s in [(90,91,1),(413,123,.7),(81,378,.7)]:
+        b+=placed(path('M0 -21 Q3 -3 21 0 Q3 3 0 21 Q-3 3 -21 0 Q-3 -3 0 -21Z',G),x,y,s)
+    emit('daily-gift',512,512,b,'Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked.')
+
+
 if __name__=='__main__':
     globals()['part'+sys.argv[1]](); finish(); print('Built part',sys.argv[1],list(U.MAN))
