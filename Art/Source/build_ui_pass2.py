@@ -204,5 +204,10 @@ def part6():
     emit('sea-chart',1240,520,b,'Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked.',extra={'sea_rect_px':[x0,y0,x1,y1],'areas_normalized':CHART_AREAS,'area_centres_px':{n:[round(x0+v[0]*(x1-x0),2),round(y0+v[1]*(y1-y0),2)] for n,v in CHART_AREAS.items()}})
 
 
+def part7():
+    for n in ['captain','deckhand','fisherman','veteran']:
+        emit('portrait-'+n,256,256,placed(portrait(n),0,0,2),'Chibi '+n+' bust; common face proportions and frame, role hat and clothing, no baked name.')
+
+
 if __name__=='__main__':
     globals()['part'+sys.argv[1]](); finish(); print('Built part',sys.argv[1],list(U.MAN))

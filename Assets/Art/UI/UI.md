@@ -116,3 +116,7 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `icon-trophy.png` | 256×256 | 128×128 | — | 128px logical item icon. trophy. Preserve square frame. |
 | `icon-gift.png` | 256×256 | 128×128 | — | 128px logical item icon. gift. Preserve square frame. |
 | `sea-chart.png` | 1240×520 | 620×260 | — | Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked. |
+| `portrait-captain.png` | 256×256 | 128×128 | — | Chibi captain bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-deckhand.png` | 256×256 | 128×128 | — | Chibi deckhand bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-fisherman.png` | 256×256 | 128×128 | — | Chibi fisherman bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-veteran.png` | 256×256 | 128×128 | — | Chibi veteran bust; common face proportions and frame, role hat and clothing, no baked name. |
