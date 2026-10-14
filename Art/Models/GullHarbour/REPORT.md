@@ -119,6 +119,8 @@ Current measured inventory below supersedes the earlier tier 1 table. All assets
 
 Part A: pointed rowboat bow, flat transom, rising sheer, rope fender and stripe; cooler handles/latch/rim/drain; framed house windows, steps, chimney and eave trim; quay rings/wear plus Quay4mLadder; lighthouse gallery and glazed lamp room. Cooler and IceBox still share the same body geometry.
 
+Part B: six deck props; Plaice (0.36 m, flat) and Cod (0.70 m), each with a separate tail; seven harbour props including MarketStallAwning and 0.4 m perched Seagull with Wing_L/Wing_R; five ShopFront groups; five sea modules. Shop fronts use ground/door-centre roots, face Unity −Z, and leave the central doorway clear. SandBank is exactly flat, 4 × 2 m; CliffSegment8m has matching end profiles at X ±4; DistantShip hull silhouette is 8 m fore-aft.
+
 New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (nets and waterline sand) need two-sided material handling at integration. Unity was not opened; Assets/Scripts and Assets/Scenes were not touched. No requested modelling work remains unfinished in the delivered parts; Unity import/material and animation integration remain for the game branch.
 
 | Asset | Triangles | Width × depth × height (m) |
@@ -150,5 +152,30 @@ New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (
 | BreakwaterRockC | 188 | 2.1000 × 1.5000 × 1.2000 |
 | KelpPatch | 168 | 1.1576 × 0.3751 × 0.0000 |
 | Quay4mLadder | 1274 | 4.0000 × 2.1300 × 1.2800 |
+| RopeCoil | 1216 | 0.6711 × 0.5614 × 0.0450 |
+| TackleBox | 236 | 0.4400 × 0.3140 × 0.3311 |
+| NetBundle | 508 | 0.5590 × 0.3460 × 0.1615 |
+| SmallAnchor | 212 | 0.5800 × 0.1400 × 0.6800 |
+| Fender | 412 | 0.2040 × 0.2040 × 0.5610 |
+| Lantern | 296 | 0.2400 × 0.2400 × 0.4870 |
+| Plaice | 420 | 0.2800 × 0.3600 × 0.0590 |
+| Cod | 284 | 0.3213 × 0.7000 × 0.2385 |
+| Barrel | 688 | 0.5920 × 0.5920 × 0.6560 |
+| CrateStack | 2244 | 0.9850 × 0.4200 × 0.6800 |
+| FishCrate | 1108 | 0.4850 × 0.3400 × 0.3350 |
+| Lifebuoy | 304 | 0.6800 × 0.1510 × 0.6800 |
+| NetRack | 372 | 1.9600 × 0.5000 × 1.6000 |
+| MarketStallAwning | 2500 | 2.4000 × 1.6400 × 2.2900 |
+| Seagull | 632 | 0.2200 × 0.4000 × 0.3400 |
+| ShopFront_FishMarket | 3484 | 2.1850 × 0.5150 × 1.8250 |
+| ShopFront_HarbourMaster | 348 | 2.6300 × 0.3000 × 2.5000 |
+| ShopFront_CrewOffice | 280 | 0.9000 × 0.1250 × 1.6000 |
+| ShopFront_Chandlery | 1600 | 2.3400 × 0.4704 × 0.8000 |
+| ShopFront_Supplies | 1860 | 2.4060 × 1.1560 × 0.6560 |
+| SandBank | 5 | 4.0000 × 2.0000 × 0.0000 |
+| SeaRockCluster | 162 | 2.2658 × 1.3386 × 0.8400 |
+| CliffSegment8m | 46 | 8.0000 × 2.8000 × 2.3000 |
+| ChannelBuoy | 240 | 0.8600 × 0.8600 × 1.5000 |
+| DistantShip | 164 | 2.0000 × 8.0000 × 2.4000 |
 
 Rebuild additions with `build_task04.py -- B` or `-- C`; Part A uses the existing builder. Then run `validate_gull_harbour.py`, `gull_contact_sheets.py` and `task04_report.py`. Detailed part pivots and notes are in build-metrics.json.

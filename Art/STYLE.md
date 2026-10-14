@@ -193,3 +193,9 @@ The [UI handoff](../Assets/Art/UI/UI.md) documents 44 transparent PNG sprites, t
 4. Check models in front, side, top and the intended orthographic gameplay camera. Keep feet, hands, crates and worktops from intersecting.
 5. Check at landscape phone gameplay size: hats, station purpose, carrying state and walkways must read. These concepts do not establish a device-performance benchmark.
 6. During later Unity integration, verify scale, shading, shadows and visibility on the actual prototype and target hardware. No editor or runtime validation is claimed by this art pass.
+
+## Task 04 world dressing
+
+The expanded Gull Harbour inventory is measured in [REPORT.md](Models/GullHarbour/REPORT.md). Dressing reuses the canonical palette, without new material names. Rope coils, coarse nets, a navy tackle box, muted anchor, ivory/orange fender and warm lantern support the boats. Plaice lies flat with both eyes on top; Cod retains a separate tail and a short chin barbel. Perched Seagull is 0.4 m nose-to-tail with separate wing pivots.
+
+ShopFront_FishMarket, ShopFront_HarbourMaster, ShopFront_CrewOffice, ShopFront_Chandlery and ShopFront_Supplies have ground roots at the door centre, front facing Unity −Z; place the root at the building door rather than centring the decoration bounds. They leave a central approach clear. MarketStallAwning is a separate open stall. SandBank is exactly flat at waterline, 4 × 2 m; CliffSegment8m repeats along X with matching ends and a level green top. Two-sided material handling is required for views below flat sea dressing.
