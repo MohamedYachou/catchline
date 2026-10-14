@@ -63,6 +63,10 @@ def topology(obj):
 def main():
     metadata = json.loads((OUT / 'build-metrics.json').read_text())
     assert {a['asset'] for a in metadata['assets']} == set(kit.ASSETS), 'Missing requested asset'
+    baseline = json.loads((ROOT / 'Art/Source/task04-baseline.json').read_text())
+    for original in baseline['assets']:
+        current = next(a for a in metadata['assets'] if a['asset']==original['asset'])
+        assert current['pivots_blender'] == original['pivots_blender'], ('Changed existing names/pivots',original['asset'])
     results = []
     source_hashes = {}
     for asset in metadata['assets']:

@@ -97,14 +97,14 @@ def ring(g, radius, wall, z0, z1, colour, centre=(0, 0), sides=16):
 
 def rowboat():
     outline = [(-.95, 2.1), (.95, 2.1), (1.15, 1.8), (1.2, 1.3), (1.2, 0),
-               (1.2, -1.5), (1., -1.75), (.55, -2.02), (0, -2.1),
-               (-.55, -2.02), (-1., -1.75), (-1.2, -1.5), (-1.2, 0), (-1.2, 1.3), (-1.15, 1.8)]
+               (1.2, -1.5), (1., -1.65), (.45, -1.95), (0, -2.1),
+               (-.45, -1.95), (-1., -1.65), (-1.2, -1.5), (-1.2, 0), (-1.2, 1.3), (-1.15, 1.8)]
     n = len(outline)
     hull = G()
     # Cross-section loops create a closed hollow hull, not a solid painted block.
     levels = [(.55, .88, -.45), (.91, .96, -.10), (1, 1, .43),
               (.94, .97, .43), (.78, .89, -.32)]
-    verts = [(x * sx, y * sy, z) for sx, sy, z in levels for x, y in outline]
+    verts = [(x * sx, y * sy, z + (.07 * (abs(y)/2.1)**2 if z > .4 else 0)) for sx, sy, z in levels for x, y in outline]
     for j in range(len(levels) - 1):
         hull.add(verts[j * n:(j + 2) * n],
                  [(i, (i + 1) % n, (i + 1) % n + n, i + n) for i in range(n)],
@@ -124,8 +124,10 @@ def rowboat():
     rail = G()
     for i, p in enumerate(outline):
         q = outline[(i + 1) % n]
-        rail.beam((p[0] * .97, p[1] * .985, .45), (q[0] * .97, q[1] * .985, .45),
+        rail.beam((p[0] * .97, p[1] * .985, .45 + .07*(abs(p[1])/2.1)**2), (q[0] * .97, q[1] * .985, .45 + .07*(abs(q[1])/2.1)**2),
                   .10, .075, 'M_RailIvory', .014)
+    rope_path = [(x*1.012, y*1.005, .39+.07*(abs(y)/2.1)**2) for x,y in outline]
+    rail.tube(rope_path + [rope_path[0]], [.032]*(len(rope_path)+1), 8, 'M_Rope')
     part('IvoryGunwale', rail)
     thwart = G()
     bevel_box(thwart, (0, 0, .32), (2.05, .28, .09), 'M_DeckWood', .015)
@@ -187,6 +189,10 @@ def cooler(ice=False):
     for sx in (-1, 1):
         bevel_box(body, (sx * .391, 0, .24), (.018, .15, .055), 'M_Steel', .004)
     bevel_box(body, (0, -.245, .34), (.10, .01, .07), 'M_Steel', .003)
+    for sx in (-1,1):
+        body.tube([(sx*.397,-.065,.25),(sx*.397,-.065,.17),(sx*.397,.065,.17),(sx*.397,.065,.25)], [.003]*4, 8, 'M_RailIvory')
+    body.tube([(.25,-.238,.07),(.25,-.25,.07)],[.024,.024],12,'M_Steel')
+    bevel_box(body,(0,-.244,.32),(.065,.012,.10),'M_RailIvory',.003)
     part('CoolerBody', body)
     lid = G()
     bevel_box(lid, (0, 0, .423), (.80, .50, .046 if ice else .054),
@@ -447,6 +453,11 @@ def quay():
     for x in (-1.75, 1.75):
         for y in (-.75, .75):
             g.beam((x, y, -.9), (x, y, -.12), .23, .23, 'M_DeckWood', .025)
+    for x in (-1.5,1.5):
+        g.torus((x,-.90,.04),.075,.018,'M_Steel')
+    for i in range(12):
+        x=-1.75+i*.30
+        g.beam((x,-.66,-.002),(x+.055,-.29,-.002),.012,.004,'M_WoodRecess')
     part('Quay4m', g)
     NOTES.append('Quay pivot is walking surface centreZ=0;4m lengthX,2m depth, piles extend0.9m below.')
 
@@ -498,6 +509,11 @@ def house(second=False):
             fittings.beam((x - .32, -d / 2 - .08, z), (x + .32, -d / 2 - .08, z), .05, .045, 'M_RailIvory', .005)
     for x in (-w / 2 + .045, w / 2 - .045):
         fittings.beam((x, -d / 2 - .02, .03), (x, -d / 2 - .02, wall_h), .08, .075, 'M_DeckWood', .01)
+    bevel_box(fittings,(0,-d/2-.16,.065),(.88,.38,.13),'M_Steel',.025)
+    bevel_box(fittings,(w*.20,.35,height-.10),(.34,.36,.75),'M_RailIvory',.025)
+    bevel_box(fittings,(w*.20,.35,height+.29),(.43,.45,.08),'M_Steel',.01)
+    for side in (-1,1):
+        fittings.beam((side*a,-b,wall_h),(side*a,b,wall_h),.10,.10,'M_WoodHighlight',.01)
     part('DoorsWindowsTrim', fittings)
     NOTES.append('House module ground pivot; roof overhang is included in measured bounds. Front door faces-Y.')
 
@@ -511,13 +527,19 @@ def lighthouse():
                                  (3.9, 4.7, .49, .44, 'M_RailIvory')):
         lathe(g, [(z0, r0), (z1, r1)], 16, colour)
     lathe(g, [(4.68, .70), (4.78, .70)], 16, 'M_HullNavy')
-    lathe(g, [(4.78, .42), (5.55, .42)], 12, 'M_OilskinYellow')
+    lathe(g, [(4.78, .42), (5.55, .42)], 12, 'M_HullBlue')
+    ring(g,.66,.035,5.08,5.12,'M_RailIvory',sides=16)
+    for i in range(16):
+        a=i*math.tau/16
+        g.beam((.64*math.cos(a),.64*math.sin(a),4.78),(.64*math.cos(a),.64*math.sin(a),5.10),.035,.035,'M_RailIvory')
     for i in range(8):
         a = i * math.tau / 8
         g.beam((.44 * math.cos(a), .44 * math.sin(a), 4.78),
                (.44 * math.cos(a), .44 * math.sin(a), 5.55), .04, .04, 'M_HullNavy', .006)
     lathe(g, [(5.55, .65), (5.95, .08), (6.0, .02)], 16, 'M_HullNavy')
     bevel_box(g, (0, -.72, .72), (.39, .03, 1.2), 'M_HullNavy', .015)
+    ring(g,.44,.025,4.79,4.84,'M_RailIvory',sides=12)
+    ring(g,.44,.025,5.47,5.55,'M_RailIvory',sides=12)
     part('Lighthouse', g)
 
 
@@ -563,7 +585,18 @@ def kelp():
     NOTES.append('Exactly flat at waterline Z=0: drift-aligned overlapping leaf silhouettes and four inset flattened bulbs. Planar union avoids z-fighting; no reverse faces. Regenerate JSON with build_kelp_mat.py (Shapely2.1+).')
 
 
+def quay_ladder():
+    quay()
+    g=G()
+    for x in (-.25,.25):
+        g.tube([(x,-.94,.15),(x,-1.10,.15),(x,-1.10,-1.1)],[.03]*3,8,'M_Steel')
+    for i in range(6):
+        g.beam((-.25,-1.10,-.08-i*.19),(.25,-1.10,-.08-i*.19),.035,.04,'M_Steel')
+    part('WaterLadder',g)
+
+
 ASSETS = {
+    'Quay4mLadder': ('Harbour',quay_ladder),
     'Rowboat': ('Boats', rowboat), 'FishingRod': ('Fishing', fishing_rod), 'Bobber': ('Fishing', bobber),
     'Cooler': ('DeckProps', lambda: cooler(False)), 'IceBox': ('DeckProps', lambda: cooler(True)),
     'BaitBucket': ('DeckProps', bait_bucket), 'LunchTin': ('DeckProps', lunch_tin),
