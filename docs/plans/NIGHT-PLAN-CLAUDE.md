@@ -102,4 +102,5 @@ Work top to bottom. Tick boxes as you go, commit after every item, push to `prot
 - [ ] E3. Update `docs/GAMEPLAY.md` and the README.
 
 ## Log
-- (start) Plans written, Codex queue started, hourly check-in scheduled.
+- (start) Plans written, Codex queue started (task 05 running), hourly check-in scheduled (cron :17).
+- A1/A2 merge done (3ddbe1f): 32 new models with metas. Next: add them to ArtLibrary + ArtImport.BuildLibrary and place them (A1 wiring), then B.
