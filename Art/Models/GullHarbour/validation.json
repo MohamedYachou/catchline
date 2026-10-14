@@ -1,6 +1,6 @@
 {
   "blender_version": "5.2.1 LTS",
-  "asset_count": 26,
+  "asset_count": 27,
   "checks": [
     {
       "asset": "CrewBody",
@@ -62,11 +62,11 @@
     {
       "asset": "Rowboat",
       "passed": true,
-      "triangles": 1526,
+      "triangles": 1790,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         4.51999998,
-        4.23646331,
+        4.28500032,
         1.01999998
       ],
       "pivots_survive_fbx_roundtrip": true
@@ -99,7 +99,7 @@
     {
       "asset": "Cooler",
       "passed": true,
-      "triangles": 348,
+      "triangles": 556,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         0.80000001,
@@ -111,7 +111,7 @@
     {
       "asset": "IceBox",
       "passed": true,
-      "triangles": 444,
+      "triangles": 652,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         0.80000001,
@@ -207,12 +207,12 @@
     {
       "asset": "Quay4m",
       "passed": true,
-      "triangles": 842,
+      "triangles": 1114,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         4.0,
         2.0,
-        0.89999998
+        1.03299998
       ],
       "pivots_survive_fbx_roundtrip": true
     },
@@ -243,31 +243,31 @@
     {
       "asset": "HouseA",
       "passed": true,
-      "triangles": 744,
+      "triangles": 932,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
-        3.34437609,
-        2.89999986,
-        3.6416409
+        3.39999986,
+        3.08000004,
+        3.93000007
       ],
       "pivots_survive_fbx_roundtrip": true
     },
     {
       "asset": "HouseB",
       "passed": true,
-      "triangles": 744,
+      "triangles": 932,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
-        3.74088597,
-        3.0999999,
-        3.94219065
+        3.79999995,
+        3.27999997,
+        4.23000002
       ],
       "pivots_survive_fbx_roundtrip": true
     },
     {
       "asset": "Lighthouse",
       "passed": true,
-      "triangles": 772,
+      "triangles": 1284,
       "fbx_version": 7400,
       "dimensions_width_depth_height_m": [
         1.89999998,
@@ -327,6 +327,18 @@
       ],
       "pivots_survive_fbx_roundtrip": true,
       "flat_mat_max_height_m": 0.0
+    },
+    {
+      "asset": "Quay4mLadder",
+      "passed": true,
+      "triangles": 1274,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        4.0,
+        2.13,
+        1.28000003
+      ],
+      "pivots_survive_fbx_roundtrip": true
     }
   ],
   "cooler_base_mesh_shared": true,

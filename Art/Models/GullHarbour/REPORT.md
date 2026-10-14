@@ -112,3 +112,43 @@ python3 Art/Source/gull_contact_sheets.py
 Builder accepts asset-name subsets after `--`. It imports the existing crab builder helpers; both scripts must remain together in Art/Source. The contact composer uses WSL ffmpeg and DejaVu Sans. Actual sources are under `Art/Models/GullHarbour/<Group>/`, exports under `Assets/Art/Models/<Group>/`; sources and images use the repository’s existing Git LFS rules.
 
 Task 03 kelp geometry is preprocessed by `Art/Source/build_kelp_mat.py` (Shapely 2.1+) into `kelp-mat.json`; the Blender builder reads that planar geometry without extra Blender dependencies.
+
+## Task 04 delivery
+
+Current measured inventory below supersedes the earlier tier 1 table. All assets include editable source, FBX and orthographic preview under the existing group directories. Existing asset names, complete part-name sets and pivots are checked against the saved Task 03 baseline, alongside source/FBX round-trip checks.
+
+Part A: pointed rowboat bow, flat transom, rising sheer, rope fender and stripe; cooler handles/latch/rim/drain; framed house windows, steps, chimney and eave trim; quay rings/wear plus Quay4mLadder; lighthouse gallery and glazed lamp room. Cooler and IceBox still share the same body geometry.
+
+New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (nets and waterline sand) need two-sided material handling at integration. Unity was not opened; Assets/Scripts and Assets/Scenes were not touched. No requested modelling work remains unfinished in the delivered parts; Unity import/material and animation integration remain for the game branch.
+
+| Asset | Triangles | Width × depth × height (m) |
+| --- | ---: | --- |
+| CrewBody | 5542 | 1.0655 × 0.3146 × 0.9500 |
+| CaptainCap | 944 | 0.3540 × 0.3930 × 0.1520 |
+| DeckhandBeanie | 452 | 0.3480 × 0.3480 × 0.1352 |
+| OilskinHood | 308 | 0.3600 × 0.2344 × 0.3570 |
+| Rowboat | 1790 | 4.5200 × 4.2850 × 1.0200 |
+| FishingRod | 1488 | 0.1785 × 0.1340 × 1.6000 |
+| Bobber | 184 | 0.0800 × 0.0800 × 0.1200 |
+| Cooler | 556 | 0.8000 × 0.5000 × 0.4500 |
+| IceBox | 652 | 0.8000 × 0.5000 × 0.4500 |
+| BaitBucket | 340 | 0.3000 × 0.3000 × 0.3669 |
+| LunchTin | 132 | 0.2500 × 0.1840 × 0.1200 |
+| Herring | 264 | 0.0575 × 0.2600 × 0.0550 |
+| Mackerel | 672 | 0.0751 × 0.3400 × 0.0679 |
+| Pollock | 264 | 0.1224 × 0.4800 × 0.1241 |
+| SeaBass | 264 | 0.1445 × 0.5000 × 0.1527 |
+| CongerEel | 248 | 0.0655 × 0.8000 × 0.0846 |
+| Quay4m | 1114 | 4.0000 × 2.0000 × 1.0330 |
+| Bollard | 268 | 0.4400 × 0.3200 × 0.4750 |
+| LampPost | 352 | 0.4200 × 0.7600 × 2.8000 |
+| HouseA | 932 | 3.4000 × 3.0800 × 3.9300 |
+| HouseB | 932 | 3.8000 × 3.2800 × 4.2300 |
+| Lighthouse | 1284 | 1.9000 × 1.9000 × 6.0000 |
+| BreakwaterRockA | 188 | 1.8000 × 1.4000 × 1.0000 |
+| BreakwaterRockB | 188 | 1.3000 × 1.1000 × 0.8000 |
+| BreakwaterRockC | 188 | 2.1000 × 1.5000 × 1.2000 |
+| KelpPatch | 168 | 1.1576 × 0.3751 × 0.0000 |
+| Quay4mLadder | 1274 | 4.0000 × 2.1300 × 1.2800 |
+
+Rebuild additions with `build_task04.py -- B` or `-- C`; Part A uses the existing builder. Then run `validate_gull_harbour.py`, `gull_contact_sheets.py` and `task04_report.py`. Detailed part pivots and notes are in build-metrics.json.

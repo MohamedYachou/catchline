@@ -278,20 +278,20 @@
     {
       "asset": "Rowboat",
       "group": "Boats",
-      "triangles": 1526,
+      "triangles": 1790,
       "dimensions_width_depth_height_m": [
         4.51999998,
-        4.23646331,
+        4.28500032,
         1.01999998
       ],
       "bounds_min_blender": [
         -2.259999990463257,
-        -2.1179633140563965,
+        -2.142500162124634,
         -0.44999998807907104
       ],
       "bounds_max_blender": [
         2.259999990463257,
-        2.118499994277954,
+        2.142500162124634,
         0.5699999928474426
       ],
       "parts": [
@@ -307,9 +307,9 @@
           "bounds_max_blender": [
             1.2000000476837158,
             2.0999999046325684,
-            0.4300000071525574
+            0.5
           ],
-          "mesh_sha256": "296ff2c484186793762f5537c1f9958dc75e3136a93d15f2d9638b9d3e03d6ac",
+          "mesh_sha256": "9437b79807cc4b7ae32f7a7634dbfe81835a93900acdc07bbac1f14f8d222698",
           "materials": [
             "M_DeckWood",
             "M_HullNavy",
@@ -338,21 +338,22 @@
         },
         {
           "name": "IvoryGunwale",
-          "triangles": 408,
-          "vertices": 224,
+          "triangles": 672,
+          "vertices": 368,
           "bounds_min_blender": [
-            -1.2139999866485596,
-            -2.1179633140563965,
-            0.4124999940395355
+            -1.246399998664856,
+            -2.142500162124634,
+            0.35800015926361084
           ],
           "bounds_max_blender": [
-            1.2139999866485596,
-            2.118499994277954,
-            0.48749998211860657
+            1.246399998664856,
+            2.142500162124634,
+            0.5575000047683716
           ],
-          "mesh_sha256": "007bed00fd56d11ae6fd822d19c068b9add48b6b5d6e0a521df6ef5f5062622d",
+          "mesh_sha256": "1f7b78035ba55efb71e0d7d646f6f684666428c1d698be9267dc9bfb3303ca85",
           "materials": [
-            "M_RailIvory"
+            "M_RailIvory",
+            "M_Rope"
           ]
         },
         {
@@ -691,7 +692,7 @@
     {
       "asset": "Cooler",
       "group": "DeckProps",
-      "triangles": 348,
+      "triangles": 556,
       "dimensions_width_depth_height_m": [
         0.80000001,
         0.5,
@@ -710,8 +711,8 @@
       "parts": [
         {
           "name": "CoolerBody",
-          "triangles": 304,
-          "vertices": 160,
+          "triangles": 512,
+          "vertices": 272,
           "bounds_min_blender": [
             -0.4000000059604645,
             -0.25,
@@ -722,7 +723,7 @@
             0.25,
             0.4000000059604645
           ],
-          "mesh_sha256": "cb68366bf789357e48791d4cf5c99f01960445847eed1cf828f12d959242bfd1",
+          "mesh_sha256": "9196f365835df9050c24635f5d7dff42ec2952287d501979b707f455c4066eb6",
           "materials": [
             "M_HullNavy",
             "M_RailIvory",
@@ -771,7 +772,7 @@
     {
       "asset": "IceBox",
       "group": "DeckProps",
-      "triangles": 444,
+      "triangles": 652,
       "dimensions_width_depth_height_m": [
         0.80000001,
         0.5,
@@ -790,8 +791,8 @@
       "parts": [
         {
           "name": "CoolerBody",
-          "triangles": 304,
-          "vertices": 160,
+          "triangles": 512,
+          "vertices": 272,
           "bounds_min_blender": [
             -0.4000000059604645,
             -0.25,
@@ -802,7 +803,7 @@
             0.25,
             0.4000000059604645
           ],
-          "mesh_sha256": "cb68366bf789357e48791d4cf5c99f01960445847eed1cf828f12d959242bfd1",
+          "mesh_sha256": "9196f365835df9050c24635f5d7dff42ec2952287d501979b707f455c4066eb6",
           "materials": [
             "M_HullNavy",
             "M_RailIvory",
@@ -1392,11 +1393,11 @@
     {
       "asset": "Quay4m",
       "group": "Harbour",
-      "triangles": 842,
+      "triangles": 1114,
       "dimensions_width_depth_height_m": [
         4.0,
         2.0,
-        0.89999998
+        1.03299998
       ],
       "bounds_min_blender": [
         -2.0,
@@ -1406,13 +1407,13 @@
       "bounds_max_blender": [
         2.0,
         1.0,
-        0.0
+        0.13300000131130219
       ],
       "parts": [
         {
           "name": "Quay4m",
-          "triangles": 842,
-          "vertices": 420,
+          "triangles": 1114,
+          "vertices": 580,
           "bounds_min_blender": [
             -2.0,
             -1.0,
@@ -1421,11 +1422,12 @@
           "bounds_max_blender": [
             2.0,
             1.0,
-            0.0
+            0.13300000131130219
           ],
-          "mesh_sha256": "bf24130bd2eeb6e8b1b3d80ff9432aab9edf4b0d879edfb277d182498cb18bea",
+          "mesh_sha256": "b2ef557acfa50864b1d23eb6c8af076d34896eea2dfe29a0575a87b3c6718dfc",
           "materials": [
             "M_DeckWood",
+            "M_Steel",
             "M_WoodHighlight",
             "M_WoodRecess"
           ]
@@ -1557,21 +1559,21 @@
     {
       "asset": "HouseA",
       "group": "Harbour",
-      "triangles": 744,
+      "triangles": 932,
       "dimensions_width_depth_height_m": [
-        3.34437609,
-        2.89999986,
-        3.6416409
+        3.39999986,
+        3.08000004,
+        3.93000007
       ],
       "bounds_min_blender": [
-        -1.6721880435943604,
-        -1.46999990940094,
+        -1.6999999284744263,
+        -1.6500000953674316,
         0.0
       ],
       "bounds_max_blender": [
-        1.6721880435943604,
+        1.6999999284744263,
         1.4299999475479126,
-        3.6416409015655518
+        3.930000066757202
       ],
       "parts": [
         {
@@ -1616,24 +1618,26 @@
         },
         {
           "name": "DoorsWindowsTrim",
-          "triangles": 468,
-          "vertices": 264,
+          "triangles": 656,
+          "vertices": 368,
           "bounds_min_blender": [
-            -1.4950000047683716,
-            -1.4049999713897705,
+            -1.6999999284744263,
+            -1.6500000953674316,
             0.0
           ],
           "bounds_max_blender": [
-            1.4950000047683716,
-            -1.2825000286102295,
-            2.5
+            1.6999999284744263,
+            1.4299999475479126,
+            3.930000066757202
           ],
-          "mesh_sha256": "77c8c72acd600c7a23a313049cb4f7fa4eaf0e6764fc9a85ae745df4d0760182",
+          "mesh_sha256": "83636e5e1cbb2223045b951351c34180924bb8cf2e949d2dfbcaa03936070066",
           "materials": [
             "M_DeckWood",
             "M_HullBlue",
             "M_HullNavy",
-            "M_RailIvory"
+            "M_RailIvory",
+            "M_Steel",
+            "M_WoodHighlight"
           ]
         }
       ],
@@ -1664,21 +1668,21 @@
     {
       "asset": "HouseB",
       "group": "Harbour",
-      "triangles": 744,
+      "triangles": 932,
       "dimensions_width_depth_height_m": [
-        3.74088597,
-        3.0999999,
-        3.94219065
+        3.79999995,
+        3.27999997,
+        4.23000002
       ],
       "bounds_min_blender": [
-        -1.8704429864883423,
-        -1.5699999332427979,
+        -1.899999976158142,
+        -1.75,
         0.0
       ],
       "bounds_max_blender": [
-        1.8704429864883423,
+        1.899999976158142,
         1.5299999713897705,
-        3.942190647125244
+        4.230000019073486
       ],
       "parts": [
         {
@@ -1723,24 +1727,26 @@
         },
         {
           "name": "DoorsWindowsTrim",
-          "triangles": 468,
-          "vertices": 264,
+          "triangles": 656,
+          "vertices": 368,
           "bounds_min_blender": [
-            -1.6949999332427979,
-            -1.5049999952316284,
+            -1.899999976158142,
+            -1.75,
             0.0
           ],
           "bounds_max_blender": [
-            1.6949999332427979,
-            -1.3824999332427979,
-            2.799999952316284
+            1.899999976158142,
+            1.5299999713897705,
+            4.230000019073486
           ],
-          "mesh_sha256": "effa4dab1ccde8c008074193af887046fe6108ad90758995a0ff618d5272969b",
+          "mesh_sha256": "a65d634767e5f91c175b4cfd0926b688ee1c76342517626c699b07c1de0f1087",
           "materials": [
             "M_DeckWood",
             "M_HullBlue",
             "M_HullNavy",
-            "M_RailIvory"
+            "M_RailIvory",
+            "M_Steel",
+            "M_WoodHighlight"
           ]
         }
       ],
@@ -1771,7 +1777,7 @@
     {
       "asset": "Lighthouse",
       "group": "Harbour",
-      "triangles": 772,
+      "triangles": 1284,
       "dimensions_width_depth_height_m": [
         1.89999998,
         1.89999998,
@@ -1790,8 +1796,8 @@
       "parts": [
         {
           "name": "Lighthouse",
-          "triangles": 772,
-          "vertices": 384,
+          "triangles": 1284,
+          "vertices": 672,
           "bounds_min_blender": [
             -0.949999988079071,
             -0.949999988079071,
@@ -1802,10 +1808,10 @@
             0.949999988079071,
             6.0
           ],
-          "mesh_sha256": "4d976222a73d09c166b3dc62870c1351403f34660be04ecfe40e9ed5e9dd0071",
+          "mesh_sha256": "e1b3ffb2d6d76c52db00e62a2c86d3d8d2fd8de562cfdb3ffd51ddab7440fd40",
           "materials": [
+            "M_HullBlue",
             "M_HullNavy",
-            "M_OilskinYellow",
             "M_RailIvory",
             "M_SafetyOrange"
           ]
@@ -2042,6 +2048,87 @@
       "source": "Art/Models/GullHarbour/Harbour/KelpPatch.blend",
       "fbx": "Assets/Art/Models/Harbour/KelpPatch.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Harbour/KelpPatch.png"
+    },
+    {
+      "asset": "Quay4mLadder",
+      "group": "Harbour",
+      "triangles": 1274,
+      "dimensions_width_depth_height_m": [
+        4.0,
+        2.13,
+        1.28000003
+      ],
+      "bounds_min_blender": [
+        -2.0,
+        -1.1299999952316284,
+        -1.100000023841858
+      ],
+      "bounds_max_blender": [
+        2.0,
+        1.0,
+        0.18000000715255737
+      ],
+      "parts": [
+        {
+          "name": "Quay4m",
+          "triangles": 1114,
+          "vertices": 580,
+          "bounds_min_blender": [
+            -2.0,
+            -1.0,
+            -0.8999999761581421
+          ],
+          "bounds_max_blender": [
+            2.0,
+            1.0,
+            0.13300000131130219
+          ],
+          "mesh_sha256": "b2ef557acfa50864b1d23eb6c8af076d34896eea2dfe29a0575a87b3c6718dfc",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel",
+            "M_WoodHighlight",
+            "M_WoodRecess"
+          ]
+        },
+        {
+          "name": "WaterLadder",
+          "triangles": 160,
+          "vertices": 96,
+          "bounds_min_blender": [
+            -0.2800000011920929,
+            -1.1299999952316284,
+            -1.100000023841858
+          ],
+          "bounds_max_blender": [
+            0.2800000011920929,
+            -0.9399999976158142,
+            0.18000000715255737
+          ],
+          "mesh_sha256": "2f6919d695e7a774ec5e1347ab0fb6ec7afbd5065c4a29ad3a4e1648b6660710",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Quay4m": [
+          0,
+          0,
+          0
+        ],
+        "WaterLadder": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Quay pivot is walking surface centreZ=0;4m lengthX,2m depth, piles extend0.9m below."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/Quay4mLadder.blend",
+      "fbx": "Assets/Art/Models/Harbour/Quay4mLadder.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/Quay4mLadder.png"
     }
   ],
   "palette_srgb": {
