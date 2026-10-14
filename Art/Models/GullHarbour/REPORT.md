@@ -2,6 +2,12 @@
 
 Built with Windows **Blender 5.2.1 LTS**, headless from WSL. This batch contains **26 editable Blender assets, 26 FBXs, 26 orthographic previews**, group contact sheets and [one overview beside the concept](Previews/ContactSheet.png). The [concept sheet](../../Concepts/15-gull-harbour-tier1.png) is generated artwork; the previews show the actual meshes.
 
+## Task 03 review fixes
+
+CaptainCap now has a closed curved crescent visor attached to its navy band, gold cord and an actual anchor badge. BreakwaterRock A/B/C have **188 triangles each**, flat soles and canonical steel/silver grey facets. KelpPatch is a drift-aligned mat of overlapping leaf silhouettes and four inset bulb disks, exactly flat at waterline. FishingRod keeps its 1.6 m height with a **48 mm blank butt, 62 mm cork grip, 14 mm tip**, enlarged reel and a separate handle pivot at Unity `(.107,.24,0)`. The exaggeration keeps it readable in the orthographic gameplay frame. CrewBody source and FBX are byte-for-byte unchanged.
+
+The updated sources, FBXs, individual previews and contact sheets replace the previous versions. All 26 assets passed source/FBX round-trip checks again; the validator now also checks rock budgets/flat soles, curved visor geometry, rod butt width and exact zero kelp height. See the [UI kit handoff](../../../Assets/Art/UI/UI.md) for the separate 2D deliverables.
+
 ## Gameplay reference
 
 Read the live `proto/deck-sim` checkout’s `docs/GAMEPLAY.md` before modelling: Gull Harbour is location 1, Crab Coast location 2. Tier 1 uses manual rod fishing on a rowboat, bait, a cooler and provisions. This document was an uncommitted working file at read time; it was neither merged nor edited. Its SHA-256 at handoff is `cc47a5dedb3aa313c011ca0399cae3675522890f310fd918c37747a6f247eb42`.
@@ -13,11 +19,11 @@ Measured bounding boxes are **width × depth × height in metres** (Unity **X ×
 | Asset / source | Triangles | W × D × H (m) | FBX |
 | --- | ---: | --- | --- |
 | [CrewBody](Crew/CrewBody.blend) | 5542 | 1.065492 × 0.314637 × 0.950000 | [export](../../../Assets/Art/Models/Crew/CrewBody.fbx) |
-| [CaptainCap](Crew/CaptainCap.blend) | 444 | 0.354000 × 0.381000 × 0.125000 | [export](../../../Assets/Art/Models/Crew/CaptainCap.fbx) |
+| [CaptainCap](Crew/CaptainCap.blend) | 944 | 0.354000 × 0.393000 × 0.152000 | [export](../../../Assets/Art/Models/Crew/CaptainCap.fbx) |
 | [DeckhandBeanie](Crew/DeckhandBeanie.blend) | 452 | 0.348000 × 0.348000 × 0.135200 | [export](../../../Assets/Art/Models/Crew/DeckhandBeanie.fbx) |
 | [OilskinHood](Crew/OilskinHood.blend) | 308 | 0.360000 × 0.234379 × 0.357000 | [export](../../../Assets/Art/Models/Crew/OilskinHood.fbx) |
 | [Rowboat](Boats/Rowboat.blend) | 1526 | 4.520000 × 4.236463 × 1.020000 | [export](../../../Assets/Art/Models/Boats/Rowboat.fbx) |
-| [FishingRod](Fishing/FishingRod.blend) | 716 | 0.128000 × 0.086000 × 1.600000 | [export](../../../Assets/Art/Models/Fishing/FishingRod.fbx) |
+| [FishingRod](Fishing/FishingRod.blend) | 1488 | 0.178500 × 0.134000 × 1.600000 | [export](../../../Assets/Art/Models/Fishing/FishingRod.fbx) |
 | [Bobber](Fishing/Bobber.blend) | 184 | 0.080000 × 0.080000 × 0.120000 | [export](../../../Assets/Art/Models/Fishing/Bobber.fbx) |
 | [Cooler](DeckProps/Cooler.blend) | 348 | 0.800000 × 0.500000 × 0.450000 | [export](../../../Assets/Art/Models/DeckProps/Cooler.fbx) |
 | [IceBox](DeckProps/IceBox.blend) | 444 | 0.800000 × 0.500000 × 0.450000 | [export](../../../Assets/Art/Models/DeckProps/IceBox.fbx) |
@@ -34,12 +40,12 @@ Measured bounding boxes are **width × depth × height in metres** (Unity **X ×
 | [HouseA](Harbour/HouseA.blend) | 744 | 3.344376 × 2.900000 × 3.641641 | [export](../../../Assets/Art/Models/Harbour/HouseA.fbx) |
 | [HouseB](Harbour/HouseB.blend) | 744 | 3.740886 × 3.100000 × 3.942191 | [export](../../../Assets/Art/Models/Harbour/HouseB.fbx) |
 | [Lighthouse](Harbour/Lighthouse.blend) | 772 | 1.900000 × 1.900000 × 6.000000 | [export](../../../Assets/Art/Models/Harbour/Lighthouse.fbx) |
-| [BreakwaterRockA](Harbour/BreakwaterRockA.blend) | 20 | 1.800000 × 1.400000 × 1.000000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockA.fbx) |
-| [BreakwaterRockB](Harbour/BreakwaterRockB.blend) | 20 | 1.300000 × 1.100000 × 0.800000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockB.fbx) |
-| [BreakwaterRockC](Harbour/BreakwaterRockC.blend) | 20 | 2.100000 × 1.500000 × 1.200000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockC.fbx) |
-| [KelpPatch](Harbour/KelpPatch.blend) | 70 | 0.901051 × 0.936302 × 0.000000 | [export](../../../Assets/Art/Models/Harbour/KelpPatch.fbx) |
+| [BreakwaterRockA](Harbour/BreakwaterRockA.blend) | 188 | 1.800000 × 1.400000 × 1.000000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockA.fbx) |
+| [BreakwaterRockB](Harbour/BreakwaterRockB.blend) | 188 | 1.300000 × 1.100000 × 0.800000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockB.fbx) |
+| [BreakwaterRockC](Harbour/BreakwaterRockC.blend) | 188 | 2.100000 × 1.500000 × 1.200000 | [export](../../../Assets/Art/Models/Harbour/BreakwaterRockC.fbx) |
+| [KelpPatch](Harbour/KelpPatch.blend) | 168 | 1.157554 × 0.375101 × 0.000000 | [export](../../../Assets/Art/Models/Harbour/KelpPatch.fbx) |
 
-The Rowboat assembly bounds include the outboard oars: the hull itself is **4.2 m fore-aft × 2.4 m beam**, and its usable rectangular deck is **3 m fore-aft × 2 m across**. The deck is at local height zero; the hull extends below it. Quay bounds likewise include supporting piles below its zero-height walking surface. The floating kelp has zero thickness.
+The Rowboat assembly bounds include the outboard oars: the hull itself is **4.2 m fore-aft × 2.4 m beam**, and its usable rectangular deck is **3 m fore-aft × 2 m across**. The deck is at local height zero; the hull extends below it. Quay bounds likewise include supporting piles below its zero-height walking surface. The floating kelp is exactly flat at waterline. Overlapping leaf silhouettes are unioned and four flat bulb disks are inset without overlapping faces, preventing z-fighting.
 
 Exact requested dimensions: rod butt-to-tip 1.6 m; bobber total height 0.12 m; cooler and ice-box 0.80 × 0.50 × 0.45 m; fish nose-to-tail 0.26 / 0.34 / 0.48 / 0.50 / 0.80 m; bare crew 0.95 m. Sizes not supplied by Mo are art choices documented in STYLE.md and the measured table. No additional mesh budgets were imposed on this new kit.
 
@@ -50,7 +56,7 @@ All roots have zero translation/rotation and scale one. All mesh parts have appl
 | Asset | Separate parts / pivot rules |
 | --- | --- |
 | Rowboat | Hull, plank deck, ivory gunwale, centre thwart, oarlocks, two oars, two rod sockets. Oar pivots Unity `(-1.12,.49,0)` / `(1.12,.49,0)`. Port sockets `(-1.115,.44,-1)` / `(-1.115,.44,+1)`: 0.5 / 2.5 m forward of rectangular deck stern Z=-1.5. |
-| Rod | Butt at root, rod upright along +Y for attachment. Separate reel handle at `(.077,.24,0)`. No simulated fishing line is embedded. |
+| Rod | Butt at root, rod upright along +Y for attachment. Separate reel handle at `(.107,.24,0)`. No simulated fishing line is embedded. |
 | Bobber | Root at waterline; bottom Y=-.045, top Y=.075. |
 | Cooler / ice box | Identical CoolerBody mesh; separate HingedLid at `(0,.40,-.25)`, rotate local X to open. Teal variant adds solid ivory frost motifs on its lid. |
 | Lunch tin | Separate lid on its rear hinge. |
@@ -104,3 +110,5 @@ python3 Art/Source/gull_contact_sheets.py
 ```
 
 Builder accepts asset-name subsets after `--`. It imports the existing crab builder helpers; both scripts must remain together in Art/Source. The contact composer uses WSL ffmpeg and DejaVu Sans. Actual sources are under `Art/Models/GullHarbour/<Group>/`, exports under `Assets/Art/Models/<Group>/`; sources and images use the repository’s existing Git LFS rules.
+
+Task 03 kelp geometry is preprocessed by `Art/Source/build_kelp_mat.py` (Shapely 2.1+) into `kelp-mat.json`; the Blender builder reads that planar geometry without extra Blender dependencies.

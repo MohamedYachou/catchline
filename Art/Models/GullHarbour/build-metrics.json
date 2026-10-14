@@ -89,16 +89,16 @@
     {
       "asset": "CaptainCap",
       "group": "Crew",
-      "triangles": 444,
+      "triangles": 944,
       "dimensions_width_depth_height_m": [
         0.354,
-        0.381,
-        0.125
+        0.39300001,
+        0.152
       ],
       "bounds_min_blender": [
         -0.1770000010728836,
-        -0.20399999618530273,
-        -0.004999999888241291
+        -0.2160000056028366,
+        -0.03200000151991844
       ],
       "bounds_max_blender": [
         0.1770000010728836,
@@ -108,23 +108,43 @@
       "parts": [
         {
           "name": "CaptainCap",
-          "triangles": 444,
-          "vertices": 228,
+          "triangles": 636,
+          "vertices": 324,
           "bounds_min_blender": [
             -0.1770000010728836,
-            -0.20399999618530273,
-            -0.004999999888241291
+            -0.2160000056028366,
+            -0.03200000151991844
           ],
           "bounds_max_blender": [
             0.1770000010728836,
             0.1770000010728836,
             0.11999999731779099
           ],
-          "mesh_sha256": "62f715cf254d285ea269e31c49ef3a7fd0343d844e0160da726c011250715c11",
+          "mesh_sha256": "5951759cea22c31bab528c0f15c94011cc8338b1e2f6601d1c06d43c086ea78d",
           "materials": [
             "M_HullNavy",
             "M_OilskinYellow",
             "M_RailIvory"
+          ]
+        },
+        {
+          "name": "AnchorBadge",
+          "triangles": 308,
+          "vertices": 162,
+          "bounds_min_blender": [
+            -0.027000000700354576,
+            -0.18449999392032623,
+            0.04700000211596489
+          ],
+          "bounds_max_blender": [
+            0.027000000700354576,
+            -0.16200000047683716,
+            0.10899999737739563
+          ],
+          "mesh_sha256": "20403cb462a5fb513478eb8aeac06c006d7cb270fb531303d7fe8716e063e626",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow"
           ]
         }
       ],
@@ -133,9 +153,16 @@
           0,
           0,
           0
+        ],
+        "AnchorBadge": [
+          0,
+          0,
+          0
         ]
       },
-      "notes": [],
+      "notes": [
+        "Peaked cap with attached curved crescent visor, navy band, gold cord and anchor badge. Shared mounting-seat root unchanged."
+      ],
       "source": "Art/Models/GullHarbour/Crew/CaptainCap.blend",
       "fbx": "Assets/Art/Models/Crew/CaptainCap.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Crew/CaptainCap.png"
@@ -526,59 +553,61 @@
     {
       "asset": "FishingRod",
       "group": "Fishing",
-      "triangles": 716,
+      "triangles": 1488,
       "dimensions_width_depth_height_m": [
-        0.128,
-        0.086,
+        0.1785,
+        0.134,
         1.60000002
       ],
       "bounds_min_blender": [
-        -0.023000000044703484,
-        -0.05400000140070915,
+        -0.03150000050663948,
+        -0.07999999821186066,
         0.0
       ],
       "bounds_max_blender": [
-        0.10499999672174454,
-        0.03200000151991844,
+        0.1469999998807907,
+        0.05400000140070915,
         1.600000023841858
       ],
       "parts": [
         {
           "name": "RodAndReel",
-          "triangles": 660,
-          "vertices": 338,
+          "triangles": 1424,
+          "vertices": 724,
           "bounds_min_blender": [
-            -0.023000000044703484,
-            -0.03321690484881401,
+            -0.03150000050663948,
+            -0.05400000140070915,
             0.0
           ],
           "bounds_max_blender": [
-            0.07500000298023224,
-            0.03200000151991844,
+            0.10499999672174454,
+            0.05400000140070915,
             1.600000023841858
           ],
-          "mesh_sha256": "1a5ebf3a0a21e545e7f35ee92307c12a08a545cab5decd4d0bd24f4b1f286d37",
+          "mesh_sha256": "d1c906827723ddc6f22676b57bf934091947165a00b013e62f24eb075590c1f7",
           "materials": [
             "M_DeckWood",
             "M_HullNavy",
-            "M_Steel"
+            "M_OilskinYellow",
+            "M_Steel",
+            "M_WoodHighlight"
           ]
         },
         {
           "name": "ReelHandle",
-          "triangles": 56,
-          "vertices": 32,
+          "triangles": 64,
+          "vertices": 36,
           "bounds_min_blender": [
-            0.07249999791383743,
-            -0.05400000140070915,
-            0.19099999964237213
+            0.10000000149011612,
+            -0.07999999821186066,
+            0.17573414742946625
           ],
           "bounds_max_blender": [
-            0.10499999672174454,
-            0.002989636966958642,
-            0.24336333572864532
+            0.1469999998807907,
+            0.0042679752223193645,
+            0.24554836750030518
           ],
-          "mesh_sha256": "323b8e7bf1b518d40cbc91142996298956f5372447722dc64f9857acab6f3d97",
+          "mesh_sha256": "8823190b18ffc07c2234fcbca65768fba98bd798ba576ad9182cd29c64022f12",
           "materials": [
             "M_DeckWood",
             "M_Steel"
@@ -592,13 +621,13 @@
           0
         ],
         "ReelHandle": [
-          0.077,
+          0.107,
           0,
           0.24
         ]
       },
       "notes": [
-        "Rod is upright for authoring: butt at origin, tip Z=1.6; pose the asset root for casting. ReelHandle spins around local X."
+        "1.6m upright rod, 48mm blank butt / 62mm cork grip / 14mm tip; intentionally exaggerated for game zoom. ReelHandle pivot (.107,0,.24), local X spin."
       ],
       "source": "Art/Models/GullHarbour/Fishing/FishingRod.blend",
       "fbx": "Assets/Art/Models/Fishing/FishingRod.fbx",
@@ -1797,7 +1826,7 @@
     {
       "asset": "BreakwaterRockA",
       "group": "Harbour",
-      "triangles": 20,
+      "triangles": 188,
       "dimensions_width_depth_height_m": [
         1.79999995,
         1.39999998,
@@ -1816,8 +1845,8 @@
       "parts": [
         {
           "name": "BreakwaterRock",
-          "triangles": 20,
-          "vertices": 12,
+          "triangles": 188,
+          "vertices": 96,
           "bounds_min_blender": [
             -0.8999999761581421,
             -0.699999988079071,
@@ -1828,9 +1857,9 @@
             0.699999988079071,
             1.0
           ],
-          "mesh_sha256": "32f6ea21faa2eb3ea79f30ecf761fdd89f4f226b203acd7495bf9c377b2107c1",
+          "mesh_sha256": "e5a7d259f13625056c96d2277d39597ca3eba444f40c284f7e129abe99eb46a4",
           "materials": [
-            "M_Rubber",
+            "M_FishSilver",
             "M_Steel"
           ]
         }
@@ -1842,7 +1871,9 @@
           0
         ]
       },
-      "notes": [],
+      "notes": [
+        "188 triangles, flat sole at Z=0, faceted silhouette; canonical steel and silver stone greys."
+      ],
       "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockA.blend",
       "fbx": "Assets/Art/Models/Harbour/BreakwaterRockA.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockA.png"
@@ -1850,7 +1881,7 @@
     {
       "asset": "BreakwaterRockB",
       "group": "Harbour",
-      "triangles": 20,
+      "triangles": 188,
       "dimensions_width_depth_height_m": [
         1.29999995,
         1.10000002,
@@ -1869,8 +1900,8 @@
       "parts": [
         {
           "name": "BreakwaterRock",
-          "triangles": 20,
-          "vertices": 12,
+          "triangles": 188,
+          "vertices": 96,
           "bounds_min_blender": [
             -0.6499999761581421,
             -0.550000011920929,
@@ -1881,9 +1912,9 @@
             0.550000011920929,
             0.800000011920929
           ],
-          "mesh_sha256": "26174db1131554e1f6f3913430a058cac150db350c593a0da32cb6c95245ce30",
+          "mesh_sha256": "2597f066f5a062a481de53cbc1edd25d3b41c17c252b59b620ed9c623697be3e",
           "materials": [
-            "M_Rubber",
+            "M_FishSilver",
             "M_Steel"
           ]
         }
@@ -1895,7 +1926,9 @@
           0
         ]
       },
-      "notes": [],
+      "notes": [
+        "188 triangles, flat sole at Z=0, faceted silhouette; canonical steel and silver stone greys."
+      ],
       "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockB.blend",
       "fbx": "Assets/Art/Models/Harbour/BreakwaterRockB.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockB.png"
@@ -1903,7 +1936,7 @@
     {
       "asset": "BreakwaterRockC",
       "group": "Harbour",
-      "triangles": 20,
+      "triangles": 188,
       "dimensions_width_depth_height_m": [
         2.0999999,
         1.5,
@@ -1922,8 +1955,8 @@
       "parts": [
         {
           "name": "BreakwaterRock",
-          "triangles": 20,
-          "vertices": 12,
+          "triangles": 188,
+          "vertices": 96,
           "bounds_min_blender": [
             -1.0499999523162842,
             -0.75,
@@ -1934,9 +1967,9 @@
             0.75,
             1.2000000476837158
           ],
-          "mesh_sha256": "3653bfb53701bb15811bacd22305f6fd04a1bed8eca85724338d89acd73cbb7b",
+          "mesh_sha256": "c695a1a7ffd3c69250a406b3a9baef0d700e1726071e0cbd9d9597260e6c4404",
           "materials": [
-            "M_Rubber",
+            "M_FishSilver",
             "M_Steel"
           ]
         }
@@ -1948,7 +1981,9 @@
           0
         ]
       },
-      "notes": [],
+      "notes": [
+        "188 triangles, flat sole at Z=0, faceted silhouette; canonical steel and silver stone greys."
+      ],
       "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockC.blend",
       "fbx": "Assets/Art/Models/Harbour/BreakwaterRockC.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockC.png"
@@ -1956,41 +1991,41 @@
     {
       "asset": "KelpPatch",
       "group": "Harbour",
-      "triangles": 70,
+      "triangles": 168,
       "dimensions_width_depth_height_m": [
-        0.90105146,
-        0.93630195,
+        1.15755418,
+        0.37510149,
         0.0
       ],
       "bounds_min_blender": [
-        -0.43105146288871765,
-        -0.4678553640842438,
+        -0.3724556267261505,
+        -0.19563743472099304,
         0.0
       ],
       "bounds_max_blender": [
-        0.4699999988079071,
-        0.4684465825557709,
+        0.7850985527038574,
+        0.17946405708789825,
         0.0
       ],
       "parts": [
         {
           "name": "FloatingKelp",
-          "triangles": 70,
-          "vertices": 84,
+          "triangles": 168,
+          "vertices": 146,
           "bounds_min_blender": [
-            -0.43105146288871765,
-            -0.4678553640842438,
+            -0.3724556267261505,
+            -0.19563743472099304,
             0.0
           ],
           "bounds_max_blender": [
-            0.4699999988079071,
-            0.4684465825557709,
+            0.7850985527038574,
+            0.17946405708789825,
             0.0
           ],
-          "mesh_sha256": "d72cfce2cdaee6cabb8c239c0159da005ec82a1aa91a932783e0c33f49d72420",
+          "mesh_sha256": "7fd37e04a2cbe11ecc44f04b73a3973da32557062be6f29207c6c35bb7e26b37",
           "materials": [
             "M_KelpGreen",
-            "M_SeaTeal"
+            "M_WoodRecess"
           ]
         }
       ],
@@ -2002,7 +2037,7 @@
         ]
       },
       "notes": [
-        "Exactly flat at waterline Z=0, upward faces. Use a two-sided URP material if viewed from below; no overlapping reverse faces."
+        "Exactly flat at waterline Z=0: drift-aligned overlapping leaf silhouettes and four inset flattened bulbs. Planar union avoids z-fighting; no reverse faces. Regenerate JSON with build_kelp_mat.py (Shapely2.1+)."
       ],
       "source": "Art/Models/GullHarbour/Harbour/KelpPatch.blend",
       "fbx": "Assets/Art/Models/Harbour/KelpPatch.fbx",

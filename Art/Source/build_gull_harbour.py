@@ -149,19 +149,24 @@ def rowboat():
 
 def fishing_rod():
     rod = G()
-    rod.tube([(0, 0, .015), (0, 0, .32), (0, 0, .85), (0, 0, 1.25), (0, 0, 1.6)],
-             [.018, .014, .008, .004, .0018], 10, 'M_HullNavy')
-    lathe(rod, [(0, .019), (.02, .023), (.22, .023), (.24, .019)], 12, 'M_DeckWood')
-    for z, r in ((.5, .016), (.85, .012), (1.15, .010), (1.40, .008), (1.58, .006)):
-        ring(rod, r, r * .25, z - .003, z + .003, 'M_Steel', (0, -.018), 10)
-    rod.beam((0, 0, .25), (.045, 0, .25), .016, .018, 'M_Steel', .003)
-    rod.tube([(.03, 0, .24), (.075, 0, .24)], [.032, .032], 12, 'M_HullNavy')
+    rod.tube([(0, 0, .015), (0, 0, .34), (0, 0, .85), (0, 0, 1.25), (0, 0, 1.6)],
+             [.024, .022, .017, .012, .007], 12, 'M_HullNavy')
+    # Exaggerated cork and blank keep the working silhouette at gameplay zoom.
+    lathe(rod, [(0, .026), (.025, .031), (.235, .031), (.255, .025)], 16, 'M_DeckWood')
+    for z in (.03, .09, .15, .21):
+        ring(rod, .0315, .002, z, z + .008, 'M_WoodHighlight', sides=16)
+    lathe(rod, [(.26, .025), (.31, .025)], 12, 'M_Steel')
+    for z, r in ((.5, .027), (.85, .024), (1.15, .021), (1.40, .018), (1.58, .014)):
+        ring(rod, r, .005, z - .005, z + .005, 'M_Steel', (0, -.027), 12)
+    rod.beam((0, 0, .28), (.055, 0, .28), .025, .025, 'M_Steel', .004)
+    rod.tube([(.035, 0, .24), (.105, 0, .24)], [.051, .051], 16, 'M_HullNavy')
+    rod.tube([(.048, 0, .24), (.092, 0, .24)], [.054, .054], 16, 'M_OilskinYellow')
     part('RodAndReel', rod)
     handle = G()
-    handle.beam((.077, 0, .24), (.077, -.045, .20), .009, .009, 'M_Steel', .001)
-    handle.tube([(.077, -.045, .20), (.105, -.045, .20)], [.009, .009], 8, 'M_DeckWood')
-    part('ReelHandle', handle, (.077, 0, .24))
-    NOTES.append('Rod is upright for authoring: butt at origin, tip Z=1.6; pose the asset root for casting. ReelHandle spins around local X.')
+    handle.beam((.107, 0, .24), (.107, -.065, .19), .014, .014, 'M_Steel', .002)
+    handle.tube([(.107, -.065, .19), (.147, -.065, .19)], [.015, .015], 10, 'M_DeckWood')
+    part('ReelHandle', handle, (.107, 0, .24))
+    NOTES.append('1.6m upright rod, 48mm blank butt / 62mm cork grip / 14mm tip; intentionally exaggerated for game zoom. ReelHandle pivot (.107,0,.24), local X spin.')
 
 
 def bobber():
@@ -362,11 +367,36 @@ def crew_body():
 
 def captain_cap():
     g = G()
-    lathe(g, [(0, .15), (.035, .16), (.075, .177), (.11, .15), (.12, .04)], 20, 'M_RailIvory')
-    ring(g, .153, .022, -.005, .028, 'M_HullNavy', sides=20)
-    bevel_box(g, (0, -.139, .004), (.25, .13, .017), 'M_HullNavy', .006)
-    bevel_box(g, (0, -.159, .060), (.043, .009, .043), 'M_OilskinYellow', .006)
+    lathe(g, [(0, .15), (.035, .16), (.075, .177), (.11, .15), (.12, .04)], 24, 'M_RailIvory')
+    ring(g, .154, .022, -.005, .036, 'M_HullNavy', sides=24)
+    # Crescent visor: inner arc intersects the band, outer arc drops toward front.
+    n = 17
+    verts = []
+    for layer in (0, 1):
+        for outer in (False, True):
+            for i in range(n):
+                a = math.radians(-76 + i * 152 / (n - 1))
+                r = .149 + ((.067 * math.cos(a)) if outer else 0)
+                verts.append((math.sin(a) * r, -math.cos(a) * r,
+                              .008 - (.026 * math.cos(a) if outer else 0) - layer * .014))
+    faces = []
+    for i in range(n - 1):
+        faces += [(i, i + 1, n + i + 1, n + i),
+                  (2*n+i, 3*n+i, 3*n+i+1, 2*n+i+1),
+                  (n+i, n+i+1, 3*n+i+1, 3*n+i),
+                  (i, 2*n+i, 2*n+i+1, i+1)]
+    faces += [(0, n, 3*n, 2*n), (n-1, 3*n-1, 4*n-1, 2*n-1)]
+    g.add(verts, faces, 'M_HullNavy')
+    # Fine gold cord and a real anchor badge, both attached to the front.
+    g.tube([(-.128,-.086,.035),(-.07,-.146,.031),(0,-.162,.030),(.07,-.146,.031),(.128,-.086,.035)], [.004]*5, 8, 'M_OilskinYellow')
+    badge = G()
+    badge.ellipsoid((0, -.170, .078), (.027,.008,.031), 16, 6, 'M_HullNavy')
+    badge.tube([(0,-.181,.093),(0,-.181,.057)], [.0035]*2, 8, 'M_OilskinYellow')
+    badge.tube([(-.016,-.181,.069),(-.012,-.181,.058),(0,-.181,.053),(.012,-.181,.058),(.016,-.181,.069)], [.0035]*5, 8, 'M_OilskinYellow')
+    badge.beam((-.012,-.181,.081),(.012,-.181,.081),.004,.004,'M_OilskinYellow')
     part('CaptainCap', g)
+    part('AnchorBadge', badge)
+    NOTES.append('Peaked cap with attached curved crescent visor, navy band, gold cord and anchor badge. Shared mounting-seat root unchanged.')
 
 
 def beanie():
@@ -493,35 +523,44 @@ def lighthouse():
 
 def rock(index):
     size = [(1.8, 1.4, 1.0), (1.3, 1.1, .8), (2.1, 1.5, 1.2)][index]
-    random.seed(100 + index)
+    rng = random.Random(100 + index)
     g = G()
-    g.ico((0, 0, 0), 1, 'M_Steel')
-    g.vertices = [(x * random.uniform(.8, 1.2), y * random.uniform(.8, 1.2), z * random.uniform(.8, 1.2)) for x, y, z in g.vertices]
-    mins = [min(v[i] for v in g.vertices) for i in range(3)]
-    maxs = [max(v[i] for v in g.vertices) for i in range(3)]
-    g.vertices = [tuple((v[i] - (mins[i] if i == 2 else (mins[i] + maxs[i]) / 2)) * size[i] / (maxs[i] - mins[i])
-                        for i in range(3)) for v in g.vertices]
-    for i in range(len(g.faces)):
-        if i % 4 == 0:
-            g.colours[i] = 'M_Rubber'
+    sides = 12
+    # Eight shaped rings: a flat submerged sole and broad, asymmetric shoulders.
+    profile = [(0,.73),(.10,.91),(.28,1),(.48,.96),(.68,.84),(.84,.66),(.95,.42),(1,.19)]
+    radii = [rng.uniform(.87,1.13) for _ in range(sides)]
+    verts = []
+    for j,(z,r) in enumerate(profile):
+        for i in range(sides):
+            a = i * math.tau/sides + .06*math.sin(j+index)
+            rr = r * radii[i] * rng.uniform(.96,1.04)
+            verts.append((math.cos(a)*rr + z*.13, math.sin(a)*rr - z*.08,
+                          z if j in (0,7) else z+rng.uniform(-.035,.035)))
+    faces = []
+    for j in range(7):
+        for i in range(sides):
+            a=j*sides+i; b=j*sides+(i+1)%sides; c=b+sides; d=a+sides
+            faces += [(a,b,c),(a,c,d)]
+    faces += [tuple(reversed(range(sides))),tuple(range(7*sides,8*sides))]
+    g.add(verts, faces, 'M_Steel')
+    mins=[min(v[i] for v in g.vertices) for i in range(3)]
+    maxs=[max(v[i] for v in g.vertices) for i in range(3)]
+    g.vertices=[tuple((v[i]-(mins[i] if i==2 else (mins[i]+maxs[i])/2))*size[i]/(maxs[i]-mins[i]) for i in range(3)) for v in g.vertices]
+    for i,face in enumerate(g.faces):
+        # Broad coherent grey planes; no black speckle.
+        g.colours[i] = 'M_FishSilver' if sum(g.vertices[k][0] for k in face)/len(face)<-.15 else 'M_Steel'
     part('BreakwaterRock', g)
+    NOTES.append('188 triangles, flat sole at Z=0, faceted silhouette; canonical steel and silver stone greys.')
 
 
 def kelp():
     g = G()
-    for j in range(7):
-        angle = j * math.tau / 7
-        direction = Vector((math.cos(angle), math.sin(angle), 0))
-        perp = Vector((-direction.y, direction.x, 0))
-        verts = []
-        for i in range(6):
-            centre = direction * (.07 + .08 * i) + perp * (math.sin(i * 1.7 + j) * .035)
-            width = .035 * math.sin((i + 1) * math.pi / 7)
-            verts += [centre - perp * width, centre + perp * width]
-        faces = [(i * 2, (i + 1) * 2, (i + 1) * 2 + 1, i * 2 + 1) for i in range(5)]
-        g.add(verts, faces, 'M_KelpGreen' if j % 2 else 'M_SeaTeal')
+    # Pre-unioned leaf mat with inset flat bulb disks, no overlapping faces.
+    data = json.loads(Path(__file__).with_name('kelp-mat.json').read_text())
+    for face in data['faces']:
+        g.add(face['triangle'], [(0, 1, 2)], face['material'])
     part('FloatingKelp', g)
-    NOTES.append('Exactly flat at waterline Z=0, upward faces. Use a two-sided URP material if viewed from below; no overlapping reverse faces.')
+    NOTES.append('Exactly flat at waterline Z=0: drift-aligned overlapping leaf silhouettes and four inset flattened bulbs. Planar union avoids z-fighting; no reverse faces. Regenerate JSON with build_kelp_mat.py (Shapely2.1+).')
 
 
 ASSETS = {
