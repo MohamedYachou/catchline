@@ -136,5 +136,30 @@ def portrait(role):
         b+=path('M32 34 Q25 13 61 12 Q98 9 101 37Z',N)+rect(29,31,72,13,5,N)+path('M38 73 Q52 93 64 87 Q79 93 91 71 Q88 105 64 102 Q41 102 38 73Z',S)+path('M48 74 Q57 66 65 73 Q77 67 83 76 L65 79Z',I)+line('M47 51 L58 53 M72 53 L83 51',S,3)
     return b
 
+def part5():
+    icons={}
+    # Mount/socket silhouette is distinct from the free rods.
+    icons['rodholder']=rect(31,94,66,17,5,N)+path('M40 97 L29 57 L53 48 L68 93Z',S)+ellipse(41,53,13,7,N)+line('M48 72 Q61 34 98 13',N,6)+ellipse(68,58,11,11,G)
+    for slug,col in [('bigcooler',N),('icebox',T)]:
+        b=rect(14,44,100,65,12,col)+rect(11,30,106,27,9,I)+rect(21,63,7,27,3,S)+rect(100,63,7,27,3,S)+rect(53,46,22,19,4,S)
+        if slug=='icebox':b+=line('M64 71 V99 M51 78 L77 92 M51 92 L77 78',I,4)
+        else:b+=rect(34,73,60,23,5,'#2A6685')+line('M42 79 H85','#64C7C4',2)
+        icons[slug]=b
+    icons['lunchtin']=rect(21,48,87,58,12,N)+rect(18,38,93,26,10,'#2A6685')+line('M43 37 V25 Q64 16 86 25 V37',S,7)+rect(55,58,18,18,4,S)+placed(anchor_icon(),39,64,.4)
+    for slug,col in [('rod-fibreglass',T),('rod-carbon',N)]:
+        b=line('M25 109 Q47 52 104 15',col,6)+line('M25 109 L42 77',W,13)+ellipse(52,81,14,14,N)+ellipse(52,81,8,8,G if col==N else S)+line('M104 15 L108 78',S,2)+ellipse(108,85,6,9,O)
+        for x,y in [(49,63),(66,45),(83,30)]:b+=ellipse(x,y,4,4,S)+ellipse(x,y,2,2,col)
+        if col==N:b+=line('M32 98 L42 82',I,3)
+        icons[slug]=b
+    icons['chart']=chart_icon()
+    icons['squid']=path('M63 15 Q30 43 38 74 Q63 91 89 74 Q94 43 63 15Z',O)+path('M38 51 L20 71 L40 68 M88 51 L109 71 L87 68',O)+ellipse(52,68,6,7,I)+ellipse(76,68,6,7,I)+ellipse(52,69,3,4,N)+ellipse(76,69,3,4,N)
+    for x in (40,52,65,78,88):icons['squid']+=line(f'M{x} 78 Q{x-18} 108 {x+5} 112',O,7)
+    icons['fuel']=rect(30,31,73,80,12,O)+path('M30 50 L20 36 L39 20 L56 34Z',O)+rect(28,17,24,12,4,N)+rect(67,20,29,22,5,N)+rect(73,26,17,12,3,C)+path('M66 54 Q40 81 64 95 Q91 82 66 54Z',I)
+    icons['net']=net_icon()
+    icons['skiff']=path('M15 69 L28 100 Q65 117 109 85 L116 57 L87 76 L44 76Z',N)+path('M15 69 L41 52 L116 57 L87 78 L43 81Z',I)+path('M29 67 L45 57 L104 60 L83 72 L44 75Z',W)+rect(53,48,25,18,4,I)+rect(57,38,17,16,3,N)+path('M14 70 L8 59 L8 91 L23 97Z',S)+line('M30 94 Q62 105 104 83',O,4)
+    icons['trophy']=path('M33 24 H96 L88 63 Q82 83 65 86 Q46 83 40 63Z',G)+line('M37 33 H20 Q15 64 43 67 M92 33 H109 Q114 64 87 67',G,9)+rect(59,81,13,21,3,W)+rect(39,100,52,13,4,N)+path('M64 34 L70 47 L84 49 L74 59 L76 73 L64 66 L52 73 L54 59 L44 49 L58 47Z',I)
+    icons['gift']=gift_icon()
+    for n,b in icons.items():emit('icon-'+n,256,256,placed(b,0,0,2),'128px logical item icon. '+n.replace('-',' ')+'. Preserve square frame.')
+
 if __name__=='__main__':
     globals()['part'+sys.argv[1]](); finish(); print('Built part',sys.argv[1],list(U.MAN))

@@ -102,3 +102,16 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `fish-plaice.png` | 256×256 | 128×128 | — | plaice side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
 | `fish-cod.png` | 256×256 | 128×128 | — | cod side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
 | `fish-unknown.png` | 256×256 | 128×128 | — | unknown side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `icon-rodholder.png` | 256×256 | 128×128 | — | 128px logical item icon. rodholder. Preserve square frame. |
+| `icon-bigcooler.png` | 256×256 | 128×128 | — | 128px logical item icon. bigcooler. Preserve square frame. |
+| `icon-icebox.png` | 256×256 | 128×128 | — | 128px logical item icon. icebox. Preserve square frame. |
+| `icon-lunchtin.png` | 256×256 | 128×128 | — | 128px logical item icon. lunchtin. Preserve square frame. |
+| `icon-rod-fibreglass.png` | 256×256 | 128×128 | — | 128px logical item icon. rod fibreglass. Preserve square frame. |
+| `icon-rod-carbon.png` | 256×256 | 128×128 | — | 128px logical item icon. rod carbon. Preserve square frame. |
+| `icon-chart.png` | 256×256 | 128×128 | — | 128px logical item icon. chart. Preserve square frame. |
+| `icon-squid.png` | 256×256 | 128×128 | — | 128px logical item icon. squid. Preserve square frame. |
+| `icon-fuel.png` | 256×256 | 128×128 | — | 128px logical item icon. fuel. Preserve square frame. |
+| `icon-net.png` | 256×256 | 128×128 | — | 128px logical item icon. net. Preserve square frame. |
+| `icon-skiff.png` | 256×256 | 128×128 | — | 128px logical item icon. skiff. Preserve square frame. |
+| `icon-trophy.png` | 256×256 | 128×128 | — | 128px logical item icon. trophy. Preserve square frame. |
+| `icon-gift.png` | 256×256 | 128×128 | — | 128px logical item icon. gift. Preserve square frame. |
