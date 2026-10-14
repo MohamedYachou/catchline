@@ -115,7 +115,7 @@ Sources, exports, measured bounds and topology checks are in [the Gull Harbour r
 | Asset | Size / root | Moving parts and placement |
 | --- | --- | --- |
 | Rowboat | Hull 4.2 m fore-aft × 2.4 m beam; deck 3 × 2 m, deck-centre root at Y=0 | Plank deck, centre thwart, separate oars. Oar pivots at (-1.12,.49,0) and (1.12,.49,0). Port sockets (-1.115,.44,-1) and (-1.115,.44,+1): 0.5 m and 2.5 m from **rectangular deck stern** Z=-1.5. Bow taper lies outside the build rectangle. |
-| Fishing rod | Butt root; 1.6 m upright from butt to tip | Separate reel handle, pivot (.077,.24,0). Rotate/attach whole rod for casting. |
+| Fishing rod | Butt root; 1.6 m upright from butt to tip | Separate reel handle, pivot (.107,.24,0). Rotate/attach whole rod for casting. |
 | Bobber | 0.12 m total height, 0.08 m diameter; waterline root | Lower 0.045 m submerged, upper 0.075 m above water; orange-red/ivory bands. |
 | Cooler / ice box | 0.80 × 0.50 × 0.45 m W × D × H; underside root | Identical body mesh; lid origin (0,.40,-.25), rear hinge, rotate local X. Ice variant has teal lid and solid ivory frost motifs. |
 | Bait bucket | 0.30 m diameter; approximately 0.367 m including bail | Underside root; open interior. Art-selected size. |
@@ -124,7 +124,7 @@ Sources, exports, measured bounds and topology checks are in [the Gull Harbour r
 | Shared crew | 0.95 m sole-to-scalp; T-pose, ground root between boots | One connected closed all-quad body with separate face/garment details. No armature. Hat anchor (0,.91,0); cap, beanie and hood roots at their mounting seats. |
 | Quay | 4 m long × 2 m deep; walking surface/root Y=0 | Piles extend below walking plane; end-to-end repeat along X. |
 | Harbour dressing | Bollard, 2.8 m lamp, two houses, 6 m lighthouse, three rocks | Grounded roots. House walls 3×2.6 m and 3.4×2.8 m; roof overhangs included in reported bounds. Art-selected dimensions. |
-| Kelp | Exactly flat at Y=0, floating root | Upward faces, no duplicate reverse faces; use a two-sided material if views from below become necessary. |
+| Kelp | Exactly flat at Y=0, floating root | Drift-aligned overlapping leaf silhouettes and four inset bulb disks; a planar union prevents overlapping faces. Use a two-sided material for underwater views. |
 
 Palette material names extend the prop batch with `M_DeckWood`, `M_WoodHighlight`, `M_WoodRecess`, `M_HullBlue`, `M_OilskinYellow`, `M_Skin`, `M_KelpGreen` and `M_FishSilver`. All use the canonical sRGB colours above. No bitmap textures or Unity `.mat` assets are included. Preview lights/background are source-only and excluded from FBX.
 
@@ -178,6 +178,12 @@ The full pot is a state of the empty pot, and banded crab a state of the crab. M
 | [14-day-boat-deck-grid.png](Concepts/14-day-boat-deck-grid.png) | Exact 10 × 5 deck / 3 across × 2 fore-aft cabin dimensional supplement |
 
 Sheet 15 uses built-in `image_gen` with the existing art references; its [prompt](Source/gull-harbour-concept-prompt.txt) is preserved. Its drawn rod-socket ruler is schematic: the written coordinates above control placement. Sheets 01–13 use the built-in `image_gen` tool with the two approved mockups as style references. Their full prompt set is [Concepts/PROMPTS.json](Concepts/PROMPTS.json). Sheet 14 is a deterministic dimension diagram, supplementing rather than replacing the rendered hull art; its source is in `Source/`. Final images live in this worktree and use the repository's existing Git LFS rules.
+
+## Build 1 UI kit
+
+The [UI handoff](../Assets/Art/UI/UI.md) documents 44 transparent PNG sprites, their logical/export sizes and slice borders, plus Fredoka Medium and its OFL licence. Cream panels, navy text, orange primary, teal secondary and oilskin-gold bite feedback extend the established visual world. Selected cards and action bubbles deliberately use local borders as interaction affordances; world art still has no outlines. Green `#3E9A5B` and red `#C8443A` are the existing prototype's progress/status colours, always accompanied by words or icons.
+
+[16 — kit sheet](Concepts/16-ui-kit.png), [17 — fishing HUD](Concepts/17-hud-fishing.png) and [18 — harbour HUD](Concepts/18-hud-harbour.png) are exact 1920×1080 compositions built from the exported kit, with Blender-rendered project assets behind the two HUDs. They are design mockups, not Unity captures. Reproducible vector geometry, compositors, stage scripts and validation live in `Art/Source/`. The existing crew asset is unchanged; the mockup stage temporarily lowers the copied crew's arms in memory and never saves it back to the model source. Tier 3 skiff UI remains the next task.
 
 ## Modelling acceptance checks
 

@@ -1,0 +1,728 @@
+{
+  "schema_version": 1,
+  "export_scale": 2,
+  "border_units": "source PNG pixels, Unity order left/bottom/right/top",
+  "sprites": {
+    "panel-cream": {
+      "file": "panel-cream.png",
+      "source": "Art/Source/UI/panel-cream.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Reusable panel; keep text in the content inset.",
+      "border_px": {
+        "left": 56,
+        "bottom": 64,
+        "right": 56,
+        "top": 56
+      }
+    },
+    "card-white": {
+      "file": "card-white.png",
+      "source": "Art/Source/UI/card-white.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Reusable panel; keep text in the content inset.",
+      "border_px": {
+        "left": 56,
+        "bottom": 64,
+        "right": 56,
+        "top": 56
+      }
+    },
+    "card-selected": {
+      "file": "card-selected.png",
+      "source": "Art/Source/UI/card-selected.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Reusable panel; keep text in the content inset.",
+      "border_px": {
+        "left": 56,
+        "bottom": 64,
+        "right": 56,
+        "top": 56
+      }
+    },
+    "toast-dark": {
+      "file": "toast-dark.png",
+      "source": "Art/Source/UI/toast-dark.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Reusable panel; keep text in the content inset.",
+      "border_px": {
+        "left": 56,
+        "bottom": 64,
+        "right": 56,
+        "top": 56
+      }
+    },
+    "chip-dark": {
+      "file": "chip-dark.png",
+      "source": "Art/Source/UI/chip-dark.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Reusable panel; keep text in the content inset.",
+      "border_px": {
+        "left": 56,
+        "bottom": 64,
+        "right": 56,
+        "top": 56
+      }
+    },
+    "button-primary-normal": {
+      "file": "button-primary-normal.png",
+      "source": "Art/Source/UI/button-primary-normal.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "primary button normal; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-primary-pressed": {
+      "file": "button-primary-pressed.png",
+      "source": "Art/Source/UI/button-primary-pressed.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "primary button pressed; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-secondary-normal": {
+      "file": "button-secondary-normal.png",
+      "source": "Art/Source/UI/button-secondary-normal.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "secondary button normal; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-secondary-pressed": {
+      "file": "button-secondary-pressed.png",
+      "source": "Art/Source/UI/button-secondary-pressed.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "secondary button pressed; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-disabled-normal": {
+      "file": "button-disabled-normal.png",
+      "source": "Art/Source/UI/button-disabled-normal.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "disabled button normal; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-disabled-pressed": {
+      "file": "button-disabled-pressed.png",
+      "source": "Art/Source/UI/button-disabled-pressed.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "disabled button pressed; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-tab-on-normal": {
+      "file": "button-tab-on-normal.png",
+      "source": "Art/Source/UI/button-tab-on-normal.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "tab-on button normal; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-tab-on-pressed": {
+      "file": "button-tab-on-pressed.png",
+      "source": "Art/Source/UI/button-tab-on-pressed.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "tab-on button pressed; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-tab-off-normal": {
+      "file": "button-tab-off-normal.png",
+      "source": "Art/Source/UI/button-tab-off-normal.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "tab-off button normal; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "button-tab-off-pressed": {
+      "file": "button-tab-off-pressed.png",
+      "source": "Art/Source/UI/button-tab-off-pressed.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "tab-off button pressed; labels are live text.",
+      "border_px": {
+        "left": 44,
+        "bottom": 40,
+        "right": 44,
+        "top": 40
+      }
+    },
+    "bubble-white": {
+      "file": "bubble-white.png",
+      "source": "Art/Source/UI/bubble-white.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "Speech body; reserve left 34px for a separate icon. Tail separate.",
+      "border_px": {
+        "left": 48,
+        "bottom": 40,
+        "right": 48,
+        "top": 40
+      }
+    },
+    "bubble-white-tail": {
+      "file": "bubble-white-tail.png",
+      "source": "Art/Source/UI/bubble-white-tail.svg",
+      "intended_size": [
+        24,
+        18
+      ],
+      "export_size": [
+        48,
+        36
+      ],
+      "use": "Centre under body; overlap 3 logical px to conceal seam.",
+      "border_px": null
+    },
+    "bubble-hot": {
+      "file": "bubble-hot.png",
+      "source": "Art/Source/UI/bubble-hot.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "Speech body; reserve left 34px for a separate icon. Tail separate.",
+      "border_px": {
+        "left": 48,
+        "bottom": 40,
+        "right": 48,
+        "top": 40
+      }
+    },
+    "bubble-hot-tail": {
+      "file": "bubble-hot-tail.png",
+      "source": "Art/Source/UI/bubble-hot-tail.svg",
+      "intended_size": [
+        24,
+        18
+      ],
+      "export_size": [
+        48,
+        36
+      ],
+      "use": "Centre under body; overlap 3 logical px to conceal seam.",
+      "border_px": null
+    },
+    "bar-background": {
+      "file": "bar-background.png",
+      "source": "Art/Source/UI/bar-background.svg",
+      "intended_size": [
+        64,
+        24
+      ],
+      "export_size": [
+        128,
+        48
+      ],
+      "use": "Progress track; always pair state colour with a text value or icon.",
+      "border_px": {
+        "left": 24,
+        "bottom": 18,
+        "right": 24,
+        "top": 18
+      }
+    },
+    "bar-teal": {
+      "file": "bar-teal.png",
+      "source": "Art/Source/UI/bar-teal.svg",
+      "intended_size": [
+        64,
+        24
+      ],
+      "export_size": [
+        128,
+        48
+      ],
+      "use": "teal progress fill; use clipping at low values, never squash the caps.",
+      "border_px": {
+        "left": 24,
+        "bottom": 18,
+        "right": 24,
+        "top": 18
+      }
+    },
+    "bar-green": {
+      "file": "bar-green.png",
+      "source": "Art/Source/UI/bar-green.svg",
+      "intended_size": [
+        64,
+        24
+      ],
+      "export_size": [
+        128,
+        48
+      ],
+      "use": "green progress fill; use clipping at low values, never squash the caps.",
+      "border_px": {
+        "left": 24,
+        "bottom": 18,
+        "right": 24,
+        "top": 18
+      }
+    },
+    "bar-red": {
+      "file": "bar-red.png",
+      "source": "Art/Source/UI/bar-red.svg",
+      "intended_size": [
+        64,
+        24
+      ],
+      "export_size": [
+        128,
+        48
+      ],
+      "use": "red progress fill; use clipping at low values, never squash the caps.",
+      "border_px": {
+        "left": 24,
+        "bottom": 18,
+        "right": 24,
+        "top": 18
+      }
+    },
+    "strike-water": {
+      "file": "strike-water.png",
+      "source": "Art/Source/UI/strike-water.svg",
+      "intended_size": [
+        460,
+        220
+      ],
+      "export_size": [
+        920,
+        440
+      ],
+      "use": "Strike close-up; no bobber baked in. Export is exactly 920\u00d7440.",
+      "border_px": null
+    },
+    "bobber-floating": {
+      "file": "bobber-floating.png",
+      "source": "Art/Source/UI/bobber-floating.svg",
+      "intended_size": [
+        80,
+        80
+      ],
+      "export_size": [
+        160,
+        160
+      ],
+      "use": "Strike bobber floating; share an 80\u00d780 frame and bottom-centre anchor.",
+      "border_px": null
+    },
+    "bobber-dipped": {
+      "file": "bobber-dipped.png",
+      "source": "Art/Source/UI/bobber-dipped.svg",
+      "intended_size": [
+        80,
+        80
+      ],
+      "export_size": [
+        160,
+        160
+      ],
+      "use": "Strike bobber dipped; share an 80\u00d780 frame and bottom-centre anchor.",
+      "border_px": null
+    },
+    "bobber-underwater": {
+      "file": "bobber-underwater.png",
+      "source": "Art/Source/UI/bobber-underwater.svg",
+      "intended_size": [
+        80,
+        80
+      ],
+      "export_size": [
+        160,
+        160
+      ],
+      "use": "Strike bobber underwater; share an 80\u00d780 frame and bottom-centre anchor.",
+      "border_px": null
+    },
+    "fish-shadow": {
+      "file": "fish-shadow.png",
+      "source": "Art/Source/UI/fish-shadow.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "Fish shadow beneath bobber, rotate around centre. Fixed size; no outlines.",
+      "border_px": null
+    },
+    "ripple-ring": {
+      "file": "ripple-ring.png",
+      "source": "Art/Source/UI/ripple-ring.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Scale uniformly and fade; transparent centre.",
+      "border_px": null
+    },
+    "tap-burst": {
+      "file": "tap-burst.png",
+      "source": "Art/Source/UI/tap-burst.svg",
+      "intended_size": [
+        128,
+        96
+      ],
+      "export_size": [
+        256,
+        192
+      ],
+      "use": "Bite-only TAP! burst. Lettering rendered from bundled Fredoka.",
+      "border_px": null
+    },
+    "icon-coin": {
+      "file": "icon-coin.png",
+      "source": "Art/Source/UI/icon-coin.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-fish": {
+      "file": "icon-fish.png",
+      "source": "Art/Source/UI/icon-fish.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-bait-worm": {
+      "file": "icon-bait-worm.png",
+      "source": "Art/Source/UI/icon-bait-worm.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-food": {
+      "file": "icon-food.png",
+      "source": "Art/Source/UI/icon-food.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-cooler": {
+      "file": "icon-cooler.png",
+      "source": "Art/Source/UI/icon-cooler.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-ice": {
+      "file": "icon-ice.png",
+      "source": "Art/Source/UI/icon-ice.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-rod": {
+      "file": "icon-rod.png",
+      "source": "Art/Source/UI/icon-rod.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-crew": {
+      "file": "icon-crew.png",
+      "source": "Art/Source/UI/icon-crew.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-contract-scroll": {
+      "file": "icon-contract-scroll.png",
+      "source": "Art/Source/UI/icon-contract-scroll.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-map-pin": {
+      "file": "icon-map-pin.png",
+      "source": "Art/Source/UI/icon-map-pin.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-home-anchor": {
+      "file": "icon-home-anchor.png",
+      "source": "Art/Source/UI/icon-home-anchor.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-clock": {
+      "file": "icon-clock.png",
+      "source": "Art/Source/UI/icon-clock.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-star": {
+      "file": "icon-star.png",
+      "source": "Art/Source/UI/icon-star.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    },
+    "icon-lock": {
+      "file": "icon-lock.png",
+      "source": "Art/Source/UI/icon-lock.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
+      "border_px": null
+    }
+  }
+}
