@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 namespace Catchline.Game
 {
     // Input and the IMGUI HUD for the voyage game (placeholder until the real UI kit).
+    // On the water everything is one tap: bubbles above rods and fish, and a strike minigame.
     public partial class VoyageGame
     {
         public enum HudTab { Catch, Map, Contracts, Crew, Shop }
@@ -13,8 +14,6 @@ namespace Catchline.Game
         HudTab hudTab = HudTab.Catch;
         Vector2 scroll;
         readonly List<Rect> hudRects = new();
-        Rect actionRect;
-        bool actionHeld, pressOnHud;
 
         float GuiScale => Screen.height / 720f;
         float VW => Screen.width / GuiScale;
@@ -29,8 +28,7 @@ namespace Catchline.Game
             var kb = Keyboard.current;
             if (kb != null && CurrentMode == Mode.Fishing)
             {
-                if (kb.spaceKey.wasPressedThisFrame) ActionPress();
-                if (kb.spaceKey.wasReleasedThisFrame) ActionRelease();
+                if (kb.spaceKey.wasPressedThisFrame) StrikeTap();
                 if (kb.hKey.wasPressedThisFrame) HeadHome();
             }
 
@@ -41,50 +39,10 @@ namespace Catchline.Game
                 if (Mathf.Abs(s) > 0.01f) Cam.orthographicSize = Mathf.Clamp(Cam.orthographicSize - Mathf.Sign(s) * 0.3f, 2.4f, 7f);
             }
 
+            // While the minigame is up, a tap anywhere that isn't a button strikes (on press, so it feels instant).
             var pointer = Pointer.current;
-            if (pointer == null) return;
-            var screen = pointer.position.ReadValue();
-            var gui = ToGui(screen);
-            if (pointer.press.wasPressedThisFrame)
-            {
-                pressOnHud = OverHud(gui);
-                if (CurrentMode == Mode.Fishing && actionRect.Contains(gui))
-                {
-                    actionHeld = true;
-                    ActionPress();
-                }
-            }
-            if (!pointer.press.wasReleasedThisFrame) return;
-            if (actionHeld)
-            {
-                actionHeld = false;
-                ActionRelease();
-                return;
-            }
-            if (pressOnHud || OverHud(gui) || CurrentMode != Mode.Fishing) return;
-
-            // Fish beat the cooler beat the rods beat the deck floor.
-            var hits = Physics.RaycastAll(Cam.ScreenPointToRay(screen), 200f);
-            Tappable best = null;
-            Vector3 point = default;
-            int bestRank = 99;
-            foreach (var h in hits)
-            {
-                var t = h.collider.GetComponent<Tappable>();
-                if (t == null) continue;
-                int rank = t.Fish != null ? 0 : t.Cooler ? 1 : t.Rod != null ? 2 : 3;
-                if (rank < bestRank)
-                {
-                    bestRank = rank;
-                    best = t;
-                    point = h.point;
-                }
-            }
-            if (best == null) return;
-            if (best.Fish != null) TapFish(best.Fish);
-            else if (best.Cooler) TapCooler();
-            else if (best.Rod != null) TapRod(best.Rod);
-            else TapDeck(point);
+            if (pointer == null || !pointer.press.wasPressedThisFrame) return;
+            if (CurrentMode == Mode.Fishing && MinigameRod != null && !OverHud(ToGui(pointer.position.ReadValue()))) StrikeTap();
         }
 
         // ---- drawing ------------------------------------------------------------------------
@@ -94,8 +52,7 @@ namespace Catchline.Game
             if (!built) return;
             Ui.Init();
             GUI.matrix = Matrix4x4.Scale(new Vector3(GuiScale, GuiScale, 1f));
-            hudRects.Clear();
-            actionRect = default;
+            if (Event.current.type == EventType.Layout) hudRects.Clear();
 
             switch (CurrentMode)
             {
@@ -113,26 +70,20 @@ namespace Catchline.Game
 
         Rect Panel(Rect r, GUIStyle style = null)
         {
-            hudRects.Add(r);
+            Track(r);
             GUI.Box(r, GUIContent.none, style ?? Ui.Panel);
             return r;
+        }
+
+        void Track(Rect r)
+        {
+            if (Event.current.type == EventType.Layout) hudRects.Add(r);
         }
 
         void CoinChip(float y = 16f)
         {
             var r = Panel(new Rect(VW - 196f, y, 180f, 46f), Ui.Chip);
-            GUI.Label(new Rect(r.x, r.y, r.width, r.height), $"<b>{State.Coins}</b> coins", ChipText());
-        }
-
-        GUIStyle chipText;
-        GUIStyle ChipText()
-        {
-            if (chipText == null || chipText.normal.textColor != Color.white)
-            {
-                chipText = new GUIStyle(Ui.Center) { fontSize = 20, richText = true };
-                chipText.normal.textColor = Color.white;
-            }
-            return chipText;
+            GUI.Label(r, $"<b>{State.Coins}</b> coins", Ui.WhiteCenter);
         }
 
         void DrawSailing()
@@ -148,7 +99,7 @@ namespace Catchline.Game
         {
             // Status panel, top left.
             int lines = State.Active.Count + Rods.Count(r => r.Unlocked);
-            var p = Panel(new Rect(16f, 16f, 330f, 170f + lines * 22f));
+            var p = Panel(new Rect(16f, 16f, 330f, 150f + lines * 22f));
             float x = p.x + 16, y = p.y + 12, w = p.width - 32;
             GUI.Label(new Rect(x, y, w, 26), GameData.Spots[ActiveSpot].Name, Ui.H2);
             y += 32;
@@ -170,7 +121,7 @@ namespace Catchline.Game
 
             CoinChip();
             var homeRect = new Rect(VW - 196f, 70f, 180f, 50f);
-            hudRects.Add(homeRect);
+            Track(homeRect);
             if (GUI.Button(homeRect, "Head home", Ui.BtnAlt)) HeadHome();
 
             // Crew chips, bottom left.
@@ -178,59 +129,101 @@ namespace Catchline.Game
             if (Hand != null)
             {
                 cy -= 54f;
-                var hr = Panel(new Rect(16f, cy, 340f, 50f), Ui.Chip);
-                GUI.Label(new Rect(hr.x + 14, hr.y + 6, hr.width - 28, 40), $"<b>{Hand.Name}</b> ({GameData.GradeName(Hand.Contract.Grade)}, {Hand.Contract.VoyagesLeft} voyage{(Hand.Contract.VoyagesLeft == 1 ? "" : "s")} left)\n{Hand.State}", ChipSmall());
+                var hr = Panel(new Rect(16f, cy, 330f, 50f), Ui.Chip);
+                GUI.Label(new Rect(hr.x + 14, hr.y + 6, hr.width - 28, 40), $"<b>{Hand.Name}</b> ({GameData.GradeName(Hand.Contract.Grade)}, {Hand.Contract.VoyagesLeft} voyage{(Hand.Contract.VoyagesLeft == 1 ? "" : "s")} left)\n{Hand.State}", Ui.WhiteSmall);
                 cy -= 6f;
             }
             cy -= 50f;
-            var cr = Panel(new Rect(16f, cy, 340f, 50f), Ui.Chip);
-            GUI.Label(new Rect(cr.x + 14, cr.y + 6, cr.width - 28, 40), $"<b>Captain</b> (you)\n{Captain.State}", ChipSmall());
+            var cr = Panel(new Rect(16f, cy, 330f, 50f), Ui.Chip);
+            GUI.Label(new Rect(cr.x + 14, cr.y + 6, cr.width - 28, 40), $"<b>Captain</b> (you)\n{Captain.State}", Ui.WhiteSmall);
 
-            // The action button, bottom right.
-            var a = Context();
-            actionRect = new Rect(VW - 296f, 720f - 136f, 280f, 120f);
-            hudRects.Add(actionRect);
-            var style = a.Kind == ActionKind.None ? Ui.ActionOff : a.Hot ? (Mathf.Repeat(SimTime * 5f, 1f) < 0.6f ? Ui.ActionHot : Ui.Action) : Ui.Action;
-            GUI.Box(actionRect, a.Label, style);
-            if (IsCharging)
+            // Speech bubbles in the world.
+            foreach (var r in Rods.Where(r => r.Unlocked))
             {
-                var pr = new Rect(actionRect.x, actionRect.y - 34f, actionRect.width, 22f);
-                Ui.Bar(pr, ChargePower, ChargePower > 0.95f ? Ui.BarWarn : Ui.BarGood);
-                GUI.Label(new Rect(pr.x, pr.y - 22f, pr.width, 20f), ChargePower < 0.35f ? "short: small fish, quick bites" : ChargePower < 0.75f ? "medium" : "long: bigger fish, slower bites", Ui.Mutedish);
+                if (!CanCommandRod(r)) continue;
+                string label = r.State == RodState.Bite ? "!" : r.InWater ? "Watch" : "Fish";
+                if (Bubble(Boat.TransformPoint(r.TipLocal + Vector3.up * 0.25f), label, r.State == RodState.Bite)) CommandRod(r);
             }
+            foreach (var f in OnDeck.ToList())
+                if (CanCarry(f) && Bubble(f.Root.position + Vector3.up * 0.35f, "Carry", f.Age > GameData.DeckFishLifetime - 8f))
+                    CommandCarry(f);
 
-            // First voyages: a one-line hint.
-            if (State.Voyage <= 3)
+            DrawMinigame();
+
+            if (State.Voyage <= 3 && MinigameRod == null)
             {
-                var hint = Hint(a);
-                if (hint != null)
-                {
-                    var hr = new Rect(VW / 2f - 260f, 720f - 64f, 520f, 44f);
-                    GUI.Box(hr, hint, Ui.ToastStyle);
-                }
+                string hint = Hint();
+                if (hint != null) GUI.Box(new Rect(VW / 2f - 260f, 720f - 64f, 520f, 44f), hint, Ui.ToastStyle);
             }
         }
 
-        string Hint(ActionInfo a) => a.Kind switch
+        string Hint()
         {
-            ActionKind.Bait => "Bait the hook (action button or Space).",
-            ActionKind.Cast => "Hold the button, release to cast. Longer casts catch bigger fish but bite slower.",
-            ActionKind.Strike => a.Hot ? "NOW! Strike while the bobber is under!" : "Wait. Strike only when the bobber goes fully under, not on a nibble.",
-            ActionKind.PickUp => "Pick up the fish before it flops back overboard.",
-            ActionKind.Stow => "Carry it to the cooler.",
-            ActionKind.GoToRod => "Tap a rod (or the button) to walk there.",
-            _ => null,
-        };
+            if (OnDeck.Any(CanCarry)) return "Tap Carry to take the fish to the cooler before it flops overboard.";
+            if (Captain.Busy || Captain.Walking || Captain.Carrying != null) return null;
+            if (Rods.Any(CanCommandRod)) return "Tap the Fish bubble: the captain baits and casts.";
+            return null;
+        }
 
-        GUIStyle chipSmall;
-        GUIStyle ChipSmall()
+        bool Bubble(Vector3 world, string label, bool hot)
         {
-            if (chipSmall == null || chipSmall.normal.textColor != Color.white)
+            var sp = Cam.WorldToScreenPoint(world);
+            if (sp.z < 0f) return false;
+            var g = ToGui(sp);
+            float bob = Mathf.Sin(SimTime * 3f + world.x) * 3f;
+            var r = new Rect(g.x - 44f, g.y - 50f + bob, 88f, 42f);
+            Track(r);
+            GUI.Box(new Rect(g.x - 7f, r.yMax - 5f, 14f, 14f), GUIContent.none, hot ? Ui.DotGold : Ui.DotWhite);
+            return GUI.Button(r, label, hot && Mathf.Repeat(SimTime * 4f, 1f) < 0.6f ? Ui.BubbleHot : Ui.Bubble);
+        }
+
+        // The strike minigame: a close-up of the bobber with the fish circling in.
+        void DrawMinigame()
+        {
+            var rod = MinigameRod;
+            if (rod == null) return;
+            var p = new Rect(VW / 2f - 230f, 720f - 16f - 220f, 460f, 220f);
+            GUI.Box(p, GUIContent.none, Ui.Water);
+            var c = new Vector2(p.center.x, p.y + 118f);
+            string title = rod.State switch
             {
-                chipSmall = new GUIStyle(Ui.Small) { richText = true };
-                chipSmall.normal.textColor = Color.white;
+                RodState.Flying => "Casting...",
+                RodState.Waiting => rod.Nibbling ? "Nibble... not yet!" : "Wait for the bite...",
+                RodState.Bite => "TAP NOW!",
+                RodState.Reeling => $"Reeling in a {GameData.Get(rod.HookedSpecies).Name.ToLower()}!",
+                _ => "",
+            };
+            GUI.Label(new Rect(p.x, p.y + 12f, p.width, 34f), title, rod.State == RodState.Bite ? Ui.MiniHot : Ui.MiniTitle);
+
+            float time = SimTime;
+            if (rod.State is RodState.Waiting or RodState.Bite)
+            {
+                float dist = rod.State == RodState.Bite ? 4f : Mathf.Lerp(150f, 50f, rod.WaitProgress) * (rod.Nibbling ? 0.25f : 1f);
+                float ang = rod.SwimAngle * Mathf.Deg2Rad;
+                var fpos = new Vector2(c.x + Mathf.Cos(ang) * dist, c.y + 22f + Mathf.Sin(ang) * dist * 0.35f);
+                GUI.Box(new Rect(fpos.x - 30f, fpos.y - 10f, 60f, 20f), GUIContent.none, Ui.FishShape);
             }
-            return chipSmall;
+            if (rod.State == RodState.Bite)
+            {
+                float ring = 30f + Mathf.Repeat(time * 2.5f, 1f) * 70f;
+                GUI.Box(new Rect(c.x - ring / 2f, c.y - ring / 2f + 6f, ring, ring), GUIContent.none, Ui.Ring);
+                GUI.Box(new Rect(c.x - 9f, c.y + 2f, 18f, 18f), GUIContent.none, Ui.DotRed);
+                Ui.Bar(new Rect(p.x + 40f, p.yMax - 30f, p.width - 80f, 12f), 1f - rod.BiteProgress, Ui.BarWarn);
+            }
+            else if (rod.State == RodState.Reeling)
+            {
+                float fy = Mathf.Lerp(c.y + 30f, p.y + 64f, rod.ReelProgress);
+                GUI.Box(new Rect(c.x - 34f, fy - 11f, 68f, 22f), GUIContent.none, Ui.FishShape);
+                Ui.Bar(new Rect(p.x + 40f, p.yMax - 30f, p.width - 80f, 12f), rod.ReelProgress, Ui.BarGood);
+            }
+            else
+            {
+                float dip = rod.Nibbling ? 7f : Mathf.Sin(time * 2.2f) * 2f;
+                GUI.Box(new Rect(c.x - 13f, c.y - 6f + dip, 26f, 26f), GUIContent.none, Ui.DotWhite);
+                GUI.Box(new Rect(c.x - 13f, c.y - 18f + dip, 26f, 26f), GUIContent.none, Ui.DotRed);
+                if (rod.State == RodState.Waiting)
+                    GUI.Label(new Rect(p.x, p.yMax - 36f, p.width, 24f), "Tap anywhere when the bobber goes under. Not on a nibble!", Ui.WhiteCenterSmall);
+            }
         }
 
         void Row(ref float y, float x, float w, string label, float t, GUIStyle fill)

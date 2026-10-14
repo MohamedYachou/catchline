@@ -135,17 +135,19 @@ Unlocking a location's whole map enables prestige: sell the company and start at
 
 ## Build 1: tier 1-2 vertical slice (current)
 
-Rowboat 3x2, the captain, one rod, a cooler.
+Rowboat 3x2, the captain, one rod, a cooler. The camera stays on the boat.
+
+**Interaction model: one tap per action.** Speech bubbles float above whatever needs you; there is no walking around by hand.
 
 - **Rod cycle:**
-  1. Bait the hook (1.2 s)
-  2. Hold to cast (power sets distance: further means bigger fish but a longer wait)
-  3. Wait 6-14 s, with fake nibbles along the way
-  4. Strike inside the bite window (0.9 s). Striking on a nibble spooks the fish, and missing the window lets it get away; both cost the bait.
-  5. Reel (1-2.5 s by weight)
-  6. The fish lands on deck. Pick it up and carry it to the cooler.
+  1. Tap the **Fish** bubble above a rod. The captain walks there, baits the hook (1.2 s; skipped when the deckhand already baited it) and casts by himself.
+  2. The **strike minigame** opens: a close-up of the bobber with a fish circling closer. Fish shadows also swim in the water around the boat.
+  3. Wait 6-14 s through 1-3 nibbles (the bobber twitches and the fish darts in).
+  4. When the bobber goes fully under, **tap anywhere once** inside the bite window (0.9 s). Tapping on a nibble spooks the fish, and missing the window lets it get away; both cost the bait.
+  5. Reel (1-2.5 s by weight). The captain tosses the fish onto the deck next to him.
+  6. **Solo:** tap the fish's **Carry** bubble and the captain takes it to the cooler. **With a deckhand (tier 2+):** they fetch it and bait the hook, and the rod's Fish bubble comes back for your next cast.
 
-  A fish left on deck flops back overboard after 25 s.
+  A fish left on deck flops back overboard after 25 s. A rod nobody is standing at shows a **Watch** bubble (and **!** on a bite): tap it to go there.
 - **Cooler:** 10 fish. Without the ice box, fish lose value the longer they sit (down to 60%).
 - **Food:** bought before sailing in minutes. Out of food means 70% speed.
 - **Spots:**
@@ -155,7 +157,7 @@ Rowboat 3x2, the captain, one rod, a cooler.
 - **Upgrades (coins):**
   - Big cooler: 16 fish
   - Ice box
-  - Rod holder: second rod. Bites on a rod you are not standing at hook themselves 35% of the time.
+  - Rod holder: second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling, and sometimes steals the bait.
   - Lunch tin: more food
 - **Crew board:** deckhand contracts (hand, sometimes experienced, rarely a veteran). A deckhand baits hooks and carries fish to the cooler. That is tier 2.
 - **Harbour contracts** (3 offers), a reactive market and spot depletion.

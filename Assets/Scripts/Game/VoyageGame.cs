@@ -42,7 +42,8 @@ namespace Catchline.Game
         readonly List<(Transform t, float age)> splashes = new();
         float modeTimer, modeDuration, voyageStart, lidPop;
         bool built, hungryWarned, fullWarned;
-        Rod charging;
+        public static readonly Color ShadowColor = new(0.03f, 0.22f, 0.27f);
+        readonly List<(Transform t, float speed, float radius, float phase)> school = new();
         string toast;
         float toastUntil;
 
@@ -108,6 +109,12 @@ namespace Catchline.Game
                 var w = Visuals.Box("Wave", world, Vector3.zero, new Vector3(0.5f + (float)rng.NextDouble() * 0.6f, 0.01f, 0.05f), new Color(0.85f, 0.95f, 0.97f));
                 w.transform.position = new Vector3(-14f + (float)rng.NextDouble() * 30f, -0.315f, -9f + (float)rng.NextDouble() * 14f);
                 waves.Add(w.transform);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                float len = 0.25f + (float)rng.NextDouble() * 0.25f;
+                var f = Visuals.Prim(PrimitiveType.Sphere, "SchoolFish", world, Vector3.zero, new Vector3(len * 0.35f, 0.01f, len), ShadowColor);
+                school.Add((f.transform, (rng.Next(2) == 0 ? -1f : 1f) * (0.15f + (float)rng.NextDouble() * 0.2f), 2.4f + (float)rng.NextDouble() * 2.5f, (float)rng.NextDouble() * 6.28f));
             }
         }
 
@@ -291,6 +298,7 @@ namespace Catchline.Game
                 hudTab = HudTab.Catch;
             }
             SyncCrew();
+            Manning = null;
             Captain.Rowing = false;
             Captain.Place(SeatTile);
             Captain.Face(Vector3.forward);
@@ -341,7 +349,7 @@ namespace Catchline.Game
                 Visuals.Kill(f.Root.gameObject);
             }
             OnDeck.Clear();
-            charging = null;
+            Manning = null;
             foreach (var r in Rods) r.ResetForTrip();
             BeginTransition(Mode.SailingHome, -1);
         }
@@ -379,8 +387,7 @@ namespace Catchline.Game
             if (CurrentMode == Mode.SailingOut)
             {
                 CurrentMode = Mode.Fishing;
-                Toast($"Arrived at {GameData.Spots[ActiveSpot].Name}. Tap the rod to walk to it.");
-                Captain.WalkTo(Grid, Rods[0].Tile, () => Captain.Face(Vector3.back));
+                Toast($"Arrived at {GameData.Spots[ActiveSpot].Name}. Tap the Fish bubble above the rod.");
             }
             else EnterHarbour(true);
         }
@@ -432,11 +439,7 @@ namespace Catchline.Game
                     float mult = WorkMult;
                     foreach (var r in Rods)
                         if (r.Unlocked) r.Tick(this, dt, mult, Attending(r));
-                    if (charging != null && (charging.State != RodState.Charging || Captain.Tile != charging.Tile || Captain.Walking))
-                    {
-                        charging.CancelCharge();
-                        charging = null;
-                    }
+                    ManRod();
                     if (Hand != null && Hand.Idle) HandThink(Hand);
                     if (AutoPlay) BotFish();
                     TickDeckFish(dt);
@@ -468,6 +471,14 @@ namespace Catchline.Game
             {
                 var f = OnDeck[i];
                 f.Age += dt;
+                if (f.Age < 0.4f)
+                {
+                    // Tossed from the rod tip onto the deck.
+                    float a = f.Age / 0.4f;
+                    f.Root.localPosition = Vector3.Lerp(f.SpawnFrom, f.RestPos, a) + Vector3.up * Mathf.Sin(a * Mathf.PI) * 0.5f;
+                    f.Root.localRotation = Quaternion.Euler(a * 360f, 0f, 0f);
+                    continue;
+                }
                 float flop = Mathf.Max(0f, Mathf.Sin(f.Age * 7f + i)) * 0.1f;
                 f.Root.localPosition = f.RestPos + Vector3.up * flop;
                 f.Root.localRotation = Quaternion.Euler(0f, f.Age * 40f % 360f, Mathf.Sin(f.Age * 9f) * 25f);
@@ -506,6 +517,20 @@ namespace Catchline.Game
                 }
                 else splashes[i] = (t, age);
             }
+            // Fish swimming around the boat; they keep their distance while sailing.
+            bool sailing = CurrentMode is Mode.SailingOut or Mode.SailingHome;
+            for (int i = 0; i < school.Count; i++)
+            {
+                var (t, speed, radius, phase) = school[i];
+                t.gameObject.SetActive(!sailing && CurrentMode != Mode.Harbour);
+                float ang = phase + SimTime * speed;
+                var c = new Vector3(1f, 0f, 0.5f);
+                var pos = c + new Vector3(Mathf.Cos(ang) * radius * 1.4f, 0f, Mathf.Sin(ang) * radius);
+                var next = c + new Vector3(Mathf.Cos(ang + 0.05f * Mathf.Sign(speed)) * radius * 1.4f, 0f, Mathf.Sin(ang + 0.05f * Mathf.Sign(speed)) * radius);
+                t.position = new Vector3(pos.x, -0.314f, pos.z);
+                t.rotation = Quaternion.LookRotation(next - pos);
+            }
+
             lidPop = Mathf.Max(0f, lidPop - frameDt * 3f);
             coolerLid.localRotation = Quaternion.Euler(-lidPop * 70f, 0f, 0f);
             coolerLabel.text = $"{Cooler.Count}/{State.CoolerCapacity}";
@@ -526,44 +551,87 @@ namespace Catchline.Game
             toastUntil = SimTime + 3.2f;
         }
 
-        // ---- deck actions -----------------------------------------------------------------
+        // ---- deck actions (one tap each) -------------------------------------------------------
+        //
+        // Tap a rod's bubble: the captain walks there, baits if needed and casts by himself.
+        // While he mans that rod the strike minigame is on screen; one tap strikes.
+        // The fish lands next to him. Solo you tap its bubble to carry it to the cooler;
+        // with a deckhand they fetch it and the rod's bubble comes back for the next cast.
 
-        bool Attending(Rod r) => !Captain.Walking && Captain.Tile == r.Tile;
-        Rod RodAt(Vector2Int tile) => Rods.FirstOrDefault(r => r.Unlocked && r.Tile == tile);
+        public Rod Manning { get; private set; }
+
+        public bool Attending(Rod r) => !Captain.Walking && Captain.Tile == r.Tile;
+
+        // The rod whose strike minigame is on screen, if any.
+        public Rod MinigameRod => Manning != null && Attending(Manning) && Manning.State is RodState.Flying or RodState.Waiting or RodState.Bite or RodState.Reeling ? Manning : null;
+
+        public bool CanCommandRod(Rod r) =>
+            CurrentMode == Mode.Fishing && r.Unlocked && Manning != r
+            && (r.State is RodState.Waiting or RodState.Bite || r.State == RodState.Ready || r.State == RodState.Unbaited && (State.Bait > 0 || r.BaitingBy != null));
+
+        public bool CanCarry(DeckFish f) => CurrentMode == Mode.Fishing && f.ClaimedBy == null && f.Age > 0.4f && (Hand == null || Hand.Carrying != null);
+
+        public void CommandRod(Rod r)
+        {
+            if (!CanCommandRod(r)) return;
+            if (Captain.Carrying != null) Toast("Stow your fish first.");
+            Manning = r;
+            if (!Attending(r)) Captain.WalkTo(Grid, r.Tile, () => Captain.Face(Vector3.back));
+        }
+
+        public void CommandCarry(DeckFish f)
+        {
+            if (!CanCarry(f)) return;
+            if (Captain.Carrying != null) { Toast("Your hands are full."); return; }
+            if (Manning != null && Manning.State is RodState.Ready or RodState.Unbaited) Manning = null;
+            Fetch(Captain, f);
+        }
+
+        // One tap during the minigame strikes. Too early on a nibble or too late both cost the bait.
+        public void StrikeTap()
+        {
+            var r = MinigameRod;
+            if (r != null && r.State is RodState.Waiting or RodState.Bite) Toast(r.Strike(this));
+        }
+
+        // The captain runs the rod he was sent to: bait, then cast.
+        void ManRod()
+        {
+            var r = Manning;
+            if (r == null || !Captain.Idle || Captain.Carrying != null || !Attending(r)) return;
+            switch (r.State)
+            {
+                case RodState.Unbaited:
+                    if (r.BaitingBy != null) return; // the deckhand is on it
+                    if (State.Bait <= 0)
+                    {
+                        Toast("Out of bait. Head home and buy more.");
+                        Manning = null;
+                        return;
+                    }
+                    Bait(Captain, r);
+                    break;
+                case RodState.Ready:
+                    Captain.Face(Vector3.back);
+                    Captain.Do("Casting", GameData.CastTime, () => r.Cast(this, 0.35f + (float)State.Rng.NextDouble() * 0.4f));
+                    break;
+            }
+        }
 
         public void LandFish(Rod rod, Species s, float kg)
         {
             State.OnCatch(ActiveSpot);
             Stats.Landed++;
             var f = new DeckFish { Species = s, Kg = kg, Tile = rod.Tile };
-            f.Root = DeckFish_Build(f);
+            f.Root = DeckFish.BuildModel(s, kg, Boat);
             int n = OnDeck.Count(o => o.Tile == rod.Tile);
-            f.RestPos = DeckGrid.ToLocal(rod.Tile) + new Vector3(-0.2f + n * 0.18f, 0.07f, 0.28f);
-            f.Root.localPosition = f.RestPos;
+            f.RestPos = DeckGrid.ToLocal(rod.Tile) + new Vector3(-0.22f + n * 0.18f, 0.07f, 0.3f);
+            f.SpawnFrom = rod.TipLocal;
+            f.Root.localPosition = f.SpawnFrom;
             OnDeck.Add(f);
-        }
-
-        Transform DeckFish_Build(DeckFish f)
-        {
-            var holder = Catchline.Game.DeckFish.BuildModel(f.Species, f.Kg, Boat);
-            var bc = holder.gameObject.AddComponent<BoxCollider>();
-            bc.size = new Vector3(0.55f, 0.35f, 0.55f);
-            holder.gameObject.AddComponent<Tappable>().Fish = f;
-            return holder;
-        }
-
-        public void TapRod(Rod r)
-        {
-            if (CurrentMode != Mode.Fishing || !r.Unlocked) return;
-            Captain.WalkTo(Grid, r.Tile, () => Captain.Face(Vector3.back));
-        }
-
-        public void TapFish(DeckFish f)
-        {
-            if (CurrentMode != Mode.Fishing) return;
-            if (Captain.Carrying != null) { Toast("Your hands are full. Stow this fish in the cooler first."); return; }
-            if (f.ClaimedBy != null && f.ClaimedBy != Captain) { Toast($"{f.ClaimedBy.Name} is already on it."); return; }
-            Fetch(Captain, f);
+            if (rod == Manning) Manning = null;
+            var def = GameData.Get(s);
+            Toast($"{def.Name}, {kg:0.0} kg");
         }
 
         void Fetch(Person p, DeckFish f)
@@ -577,16 +645,9 @@ namespace Catchline.Game
         {
             if (!OnDeck.Contains(f)) return;
             OnDeck.Remove(f);
-            f.Root.GetComponent<Collider>().enabled = false;
             f.Root.SetParent(p.Root, false);
             p.Carrying = f;
-        }
-
-        public void TapCooler()
-        {
-            if (CurrentMode != Mode.Fishing) return;
-            if (Captain.Carrying == null) { Toast("Carry a fish here to put it in the cooler."); return; }
-            Stow(Captain);
+            if (p == Captain) Stow(p);
         }
 
         void Stow(Person p)
@@ -613,23 +674,9 @@ namespace Catchline.Game
             return true;
         }
 
-        public void TapDeck(Vector3 worldPoint)
-        {
-            if (CurrentMode != Mode.Fishing) return;
-            var tile = DeckGrid.ToTile(Boat.InverseTransformPoint(worldPoint));
-            tile.x = Mathf.Clamp(tile.x, 0, Grid.Width - 1);
-            tile.y = Mathf.Clamp(tile.y, 0, Grid.Height - 1);
-            if (Grid.IsBlocked(tile)) return;
-            Captain.WalkTo(Grid, tile, null);
-        }
-
         void Bait(Person p, Rod rod)
         {
-            if (State.Bait <= 0)
-            {
-                if (p == Captain) Toast("Out of bait. Head home and buy more.");
-                return;
-            }
+            if (State.Bait <= 0) return;
             rod.BaitingBy = p;
             p.Do("Baiting", GameData.BaitTime, () =>
             {
@@ -652,7 +699,7 @@ namespace Catchline.Game
                 else h.Do("Waiting", 1f, null);
                 return;
             }
-            var f = OnDeck.FirstOrDefault(x => x.ClaimedBy == null);
+            var f = OnDeck.FirstOrDefault(x => x.ClaimedBy == null && x.Age > 0.4f);
             if (f != null)
             {
                 Fetch(h, f);
@@ -669,82 +716,6 @@ namespace Catchline.Game
             else h.Do("Resting", 0.5f, null);
         }
 
-        // ---- the action button ----------------------------------------------------------------
-
-        public enum ActionKind { None, Strike, Cast, Bait, Stow, PickUp, GoToRod }
-
-        public struct ActionInfo
-        {
-            public ActionKind Kind;
-            public string Label;
-            public bool Hot;
-            public Rod Rod;
-            public DeckFish Fish;
-        }
-
-        public ActionInfo Context()
-        {
-            var a = new ActionInfo { Kind = ActionKind.None, Label = "" };
-            if (CurrentMode != Mode.Fishing) return a;
-            if (Captain.Carrying != null) return new ActionInfo { Kind = ActionKind.Stow, Label = "Put in cooler" };
-            if (Captain.Busy) return new ActionInfo { Label = Captain.BusyLabel + "..." };
-
-            var here = Captain.Walking ? null : RodAt(Captain.Tile);
-            if (here != null)
-            {
-                switch (here.State)
-                {
-                    case RodState.Waiting: return new ActionInfo { Kind = ActionKind.Strike, Label = "Strike!", Rod = here };
-                    case RodState.Bite: return new ActionInfo { Kind = ActionKind.Strike, Label = "STRIKE!", Hot = true, Rod = here };
-                    case RodState.Ready: return new ActionInfo { Kind = ActionKind.Cast, Label = "Hold to cast", Rod = here };
-                    case RodState.Charging: return new ActionInfo { Kind = ActionKind.Cast, Label = "Release to cast", Rod = here };
-                    case RodState.Flying: return new ActionInfo { Label = "Casting..." };
-                    case RodState.Reeling: return new ActionInfo { Label = "Reeling in..." };
-                    case RodState.Unbaited:
-                        if (here.BaitingBy != null) return new ActionInfo { Label = $"{here.BaitingBy.Name} is baiting" };
-                        if (State.Bait > 0) return new ActionInfo { Kind = ActionKind.Bait, Label = "Bait hook", Rod = here };
-                        break;
-                }
-            }
-            var fish = OnDeck.FirstOrDefault(x => x.ClaimedBy == null || x.ClaimedBy == Captain);
-            if (fish != null) return new ActionInfo { Kind = ActionKind.PickUp, Label = "Pick up fish", Fish = fish };
-            var target = Rods.Where(r => r.Unlocked && r != here)
-                .OrderByDescending(r => r.State switch { RodState.Bite => 3, RodState.Ready => 2, RodState.Unbaited => 1, _ => 0 })
-                .FirstOrDefault();
-            if (here == null && target == null) target = Rods[0];
-            if (target != null && (here == null || target.State is RodState.Ready or RodState.Bite or RodState.Unbaited))
-                return new ActionInfo { Kind = ActionKind.GoToRod, Label = $"Go to rod {target.Index + 1}", Rod = target };
-            if (State.Bait <= 0 && here != null && here.State == RodState.Unbaited) return new ActionInfo { Label = "Out of bait" };
-            return a;
-        }
-
-        public void ActionPress()
-        {
-            var a = Context();
-            switch (a.Kind)
-            {
-                case ActionKind.Strike: Toast(a.Rod.Strike(this)); break;
-                case ActionKind.Cast:
-                    a.Rod.BeginCharge();
-                    charging = a.Rod;
-                    break;
-                case ActionKind.Bait: Bait(Captain, a.Rod); break;
-                case ActionKind.Stow: Stow(Captain); break;
-                case ActionKind.PickUp: TapFish(a.Fish); break;
-                case ActionKind.GoToRod: TapRod(a.Rod); break;
-            }
-        }
-
-        public void ActionRelease()
-        {
-            if (charging == null) return;
-            if (charging.State == RodState.Charging) charging.Cast(this, charging.Power);
-            charging = null;
-        }
-
-        public bool IsCharging => charging != null && charging.State == RodState.Charging;
-        public float ChargePower => charging != null ? charging.Power : 0f;
-
         // ---- events from the rods (the bot listens here too) --------------------------------
 
         Rod botStrikeRod;
@@ -752,66 +723,41 @@ namespace Catchline.Game
 
         public void OnNibble(Rod r)
         {
-            if (AutoPlay && Attending(r) && State.Rng.NextDouble() < 0.05) Toast(r.Strike(this));
+            if (AutoPlay && r == MinigameRod && State.Rng.NextDouble() < 0.05) StrikeTap();
         }
 
         public void OnBite(Rod r)
         {
-            if (!AutoPlay || !Attending(r)) return;
+            if (!AutoPlay || r != MinigameRod) return;
             botStrikeRod = r;
             botStrikeAt = SimTime + (State.Rng.NextDouble() < 0.12 ? 1.0f : 0.25f + (float)State.Rng.NextDouble() * 0.5f);
         }
 
-        // ---- autoplay (headless balance checks) -----------------------------------------------
+        // ---- autoplay (headless balance checks): only uses the same taps a player has --------
 
         void BotFish()
         {
             if (botStrikeRod != null && SimTime >= botStrikeAt)
             {
-                Toast(botStrikeRod.Strike(this));
+                if (botStrikeRod == MinigameRod) StrikeTap();
                 botStrikeRod = null;
             }
             var c = Captain;
-            if (!c.Idle) return;
+            if (!c.Idle || c.Carrying != null || MinigameRod != null) return;
 
             bool handBusy = Hand != null && (Hand.Carrying != null || !Hand.Idle && Hand.BusyLabel == "Picking up");
             bool full = Cooler.Count >= State.CoolerCapacity;
             bool noBait = State.Bait <= 0 && Rods.All(r => !r.Unlocked || r.State == RodState.Unbaited);
-            if (full && c.Carrying == null || noBait && c.Carrying == null && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
+            if (full || noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
             {
                 HeadHome();
                 return;
             }
-            if (c.Carrying != null)
-            {
-                if (full) HeadHome();
-                else Stow(c);
-                return;
-            }
-            if (Hand == null)
-            {
-                var f = OnDeck.FirstOrDefault(x => x.ClaimedBy == null);
-                if (f != null) { Fetch(c, f); return; }
-            }
-            var here = RodAt(c.Tile);
-            if (here != null)
-            {
-                if (here.State == RodState.Ready) { here.Cast(this, 0.5f + (float)State.Rng.NextDouble() * 0.4f); return; }
-                if (here.State == RodState.Unbaited && Hand == null && State.Bait > 0 && here.BaitingBy == null) { Bait(c, here); return; }
-            }
-            var ready = Rods.FirstOrDefault(r => r.Unlocked && r != here && r.State == RodState.Ready);
-            var unbaited = Hand == null ? Rods.FirstOrDefault(r => r.Unlocked && r != here && r.State == RodState.Unbaited && State.Bait > 0) : null;
-            var next = ready ?? unbaited;
-            if (next != null && (here == null || here.State is not (RodState.Bite or RodState.Reeling or RodState.Flying)))
-            {
-                TapRod(next);
-                return;
-            }
-            if (here == null)
-            {
-                var waiting = Rods.Where(r => r.Unlocked && r.State == RodState.Waiting).OrderBy(r => r.WaitRemaining).FirstOrDefault();
-                if (waiting != null) TapRod(waiting);
-            }
+            var f = OnDeck.FirstOrDefault(CanCarry);
+            if (f != null) { CommandCarry(f); return; }
+            if (Manning != null || Hand == null && OnDeck.Any(x => x.ClaimedBy == null)) return;
+            var rod = Rods.Where(CanCommandRod).OrderByDescending(r => r.State == RodState.Ready).FirstOrDefault();
+            if (rod != null) CommandRod(rod);
         }
 
         void BotHarbour()

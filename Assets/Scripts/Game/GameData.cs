@@ -109,7 +109,7 @@ namespace Catchline.Game
 
         // Rod cycle (seconds)
         public const float BaitTime = 1.2f;
-        public const float FullChargeTime = 1.1f;
+        public const float CastTime = 0.45f;
         public const float FlightTime = 0.6f;
         public const float BiteWindow = 0.9f;
         public const float SelfHookChance = 0.35f;

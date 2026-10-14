@@ -23,7 +23,7 @@ namespace Catchline.Game
         public Vector2Int Tile;
         public Person ClaimedBy;
         public float Age;
-        public Vector3 RestPos;
+        public Vector3 RestPos, SpawnFrom;
 
         public static Transform BuildModel(Species s, float kg, Transform parent)
         {
@@ -229,9 +229,10 @@ namespace Catchline.Game
         }
     }
 
-    public enum RodState { Unbaited, Ready, Charging, Flying, Waiting, Bite, Reeling }
+    public enum RodState { Unbaited, Ready, Flying, Waiting, Bite, Reeling }
 
     // One fishing rod on the gunwale: bait, cast, wait through nibbles, strike, reel.
+    // A fish shadow circles the bobber while you wait, darts in on nibbles and sits on it when it bites.
     public class Rod
     {
         public readonly int Index;
@@ -244,12 +245,13 @@ namespace Catchline.Game
         public float HookedKg;
 
         public Transform Root { get; private set; }
-        Transform bobber, marker, splash;
+        public Vector3 TipLocal => tipLocal;
+        Transform bobber, splash, shadow;
         TextMesh alert;
         LineRenderer line;
         Vector3 tipLocal;
         Vector3 castFrom, castTo;
-        float t, waitTotal, waitTimer, nibbleTimer, reelTotal;
+        float t, waitTotal, waitTimer, nibbleTimer, reelTotal, swimAngle;
         readonly List<float> nibbles = new();
         int nextNibble;
         bool selfHook;
@@ -265,13 +267,16 @@ namespace Catchline.Game
 
         public bool InWater => State is RodState.Waiting or RodState.Bite or RodState.Flying or RodState.Reeling;
         public float WaitRemaining => State == RodState.Waiting ? waitTotal - waitTimer : 999f;
+        public float WaitProgress => State == RodState.Waiting ? Mathf.Clamp01(waitTimer / waitTotal) : State == RodState.Bite ? 1f : 0f;
         public bool Nibbling => nibbleTimer > 0f;
+        public float BiteProgress => State == RodState.Bite ? Mathf.Clamp01(t / GameData.BiteWindow) : 0f;
+        public float ReelProgress => State == RodState.Reeling ? Mathf.Clamp01(t) : 0f;
+        public float SwimAngle => swimAngle;
 
         public string StateText => State switch
         {
             RodState.Unbaited => "needs bait",
             RodState.Ready => "baited",
-            RodState.Charging => "casting",
             RodState.Flying => "casting",
             RodState.Waiting => "waiting for a bite",
             RodState.Bite => "BITE!",
@@ -291,13 +296,6 @@ namespace Catchline.Game
             Visuals.Box("Holder", Root, baseLocal + new Vector3(0f, -0.12f, 0f), new Vector3(0.12f, 0.3f, 0.12f), Palette.Steel);
             Visuals.Prim(PrimitiveType.Cylinder, "Reel", Root, baseLocal + dir.normalized * 0.25f + new Vector3(0f, -0.06f, 0f), new Vector3(0.1f, 0.03f, 0.1f), Palette.Steel);
 
-            var hit = new GameObject("Tap");
-            hit.transform.SetParent(Root, false);
-            hit.transform.localPosition = DeckGrid.ToLocal(Tile) + new Vector3(0f, 0.5f, -0.3f);
-            var bc = hit.AddComponent<BoxCollider>();
-            bc.size = new Vector3(0.8f, 1.2f, 0.9f);
-            hit.AddComponent<Tappable>().Rod = this;
-
             bobber = new GameObject("Bobber").transform;
             bobber.SetParent(world, false);
             Visuals.Prim(PrimitiveType.Sphere, "Top", bobber, new Vector3(0f, 0.04f, 0f), new Vector3(0.12f, 0.08f, 0.12f), Palette.Bad);
@@ -305,8 +303,8 @@ namespace Catchline.Game
 
             splash = Visuals.Prim(PrimitiveType.Cylinder, "Splash", world, Vector3.zero, new Vector3(0.3f, 0.005f, 0.3f), new Color(0.9f, 0.97f, 1f)).transform;
             splash.gameObject.SetActive(false);
-            marker = Visuals.Prim(PrimitiveType.Cylinder, "Aim", world, Vector3.zero, new Vector3(0.35f, 0.005f, 0.35f), Palette.Oilskin).transform;
-            marker.gameObject.SetActive(false);
+            shadow = Visuals.Prim(PrimitiveType.Sphere, "FishShadow", world, Vector3.zero, new Vector3(0.16f, 0.01f, 0.42f), VoyageGame.ShadowColor).transform;
+            shadow.gameObject.SetActive(false);
 
             var lineGo = new GameObject("Line");
             lineGo.transform.SetParent(world, false);
@@ -329,7 +327,7 @@ namespace Catchline.Game
             Root.gameObject.SetActive(on);
             bobber.gameObject.SetActive(on);
             line.gameObject.SetActive(on);
-            if (!on) marker.gameObject.SetActive(false);
+            if (!on) shadow.gameObject.SetActive(false);
         }
 
         public void ResetForTrip()
@@ -338,7 +336,7 @@ namespace Catchline.Game
             BaitingBy = null;
             nibbleTimer = 0f;
             splash.gameObject.SetActive(false);
-            marker.gameObject.SetActive(false);
+            shadow.gameObject.SetActive(false);
         }
 
         Vector3 LandingPoint(Transform boat, float power)
@@ -349,27 +347,14 @@ namespace Catchline.Game
             return new Vector3(p.x, WaterY, p.z);
         }
 
-        public void BeginCharge()
-        {
-            if (State != RodState.Ready) return;
-            State = RodState.Charging;
-            Power = 0f;
-        }
-
-        public void CancelCharge()
-        {
-            if (State == RodState.Charging) State = RodState.Ready;
-        }
-
         public void Cast(VoyageGame g, float power)
         {
-            if (State != RodState.Ready && State != RodState.Charging) return;
+            if (State != RodState.Ready) return;
             Power = Mathf.Clamp01(power);
             castFrom = g.Boat.TransformPoint(tipLocal);
             castTo = LandingPoint(g.Boat, Power);
             t = 0f;
             State = RodState.Flying;
-            marker.gameObject.SetActive(false);
         }
 
         // Player (or bot) strikes. Returns a message for the toast.
@@ -381,17 +366,17 @@ namespace Catchline.Game
                 State = RodState.Unbaited;
                 nibbleTimer = 0f;
                 g.Stats.Spooked++;
-                return nibble ?"Too early! That was a nibble. The fish took the bait." : "Too early! You spooked it and lost the bait.";
+                return nibble ? "Too early! That was only a nibble, and the fish took the bait." : "Too early! You spooked it and lost the bait.";
             }
             if (State == RodState.Bite)
             {
-                StartReel(g);
+                StartReel();
                 return $"Hooked a {GameData.Get(HookedSpecies).Name.ToLower()}!";
             }
             return null;
         }
 
-        void StartReel(VoyageGame g)
+        void StartReel()
         {
             State = RodState.Reeling;
             t = 0f;
@@ -400,33 +385,35 @@ namespace Catchline.Game
             splash.gameObject.SetActive(false);
         }
 
+        void StartWait(VoyageGame g, float scale)
+        {
+            State = RodState.Waiting;
+            waitTotal = g.State.RollBiteWait(g.ActiveSpot, Power) * scale;
+            waitTimer = 0f;
+            nibbles.Clear();
+            nextNibble = 0;
+            int n = 1 + g.State.Rng.Next(3);
+            for (int i = 0; i < n; i++) nibbles.Add(1f + (float)g.State.Rng.NextDouble() * Mathf.Max(0.5f, waitTotal - 2f));
+            nibbles.Sort();
+        }
+
         public void Tick(VoyageGame g, float dt, float mult, bool attended)
         {
             anim += dt;
             var tipWorld = g.Boat.TransformPoint(tipLocal);
             var bobPos = tipWorld + Vector3.down * 0.35f;
+            bool showShadow = false;
+            Vector3 shadowPos = castTo;
 
             switch (State)
             {
-                case RodState.Charging:
-                    Power = Mathf.Min(1f, Power + dt / GameData.FullChargeTime);
-                    marker.gameObject.SetActive(true);
-                    marker.position = LandingPoint(g.Boat, Power) + Vector3.up * 0.01f;
-                    break;
-
                 case RodState.Flying:
                     t += dt / GameData.FlightTime;
                     bobPos = Vector3.Lerp(castFrom, castTo, t) + Vector3.up * Mathf.Sin(Mathf.Clamp01(t) * Mathf.PI) * 1.2f;
                     if (t >= 1f)
                     {
-                        State = RodState.Waiting;
-                        waitTotal = g.State.RollBiteWait(g.ActiveSpot, Power);
-                        waitTimer = 0f;
-                        nibbles.Clear();
-                        nextNibble = 0;
-                        int n = g.State.Rng.Next(4);
-                        for (int i = 0; i < n; i++) nibbles.Add((float)g.State.Rng.NextDouble() * (waitTotal - 1.2f));
-                        nibbles.Sort();
+                        StartWait(g, 1f);
+                        swimAngle = (float)g.State.Rng.NextDouble() * 360f;
                         bobPos = castTo;
                         g.Splash(castTo, 0.25f);
                     }
@@ -437,11 +424,16 @@ namespace Catchline.Game
                     if (nextNibble < nibbles.Count && waitTimer >= nibbles[nextNibble])
                     {
                         nextNibble++;
-                        nibbleTimer = 0.35f;
+                        nibbleTimer = 0.4f;
                         g.OnNibble(this);
                     }
                     nibbleTimer = Mathf.Max(0f, nibbleTimer - dt);
                     bobPos = castTo + Vector3.up * (Mathf.Sin(anim * 2.2f + Index) * 0.015f - (nibbleTimer > 0f ? 0.05f : 0f));
+                    // The fish circles closer as the bite nears, and darts in for a nibble.
+                    swimAngle += dt * 70f;
+                    float radius = Mathf.Lerp(1.0f, 0.35f, WaitProgress) * (nibbleTimer > 0f ? 0.3f : 1f);
+                    showShadow = true;
+                    shadowPos = castTo + Quaternion.Euler(0f, swimAngle, 0f) * Vector3.forward * radius;
                     if (waitTimer >= waitTotal)
                     {
                         State = RodState.Bite;
@@ -459,28 +451,26 @@ namespace Catchline.Game
                     float s = 0.3f + Mathf.Repeat(anim * 1.5f, 1f) * 0.4f;
                     splash.position = castTo + Vector3.up * 0.01f;
                     splash.localScale = new Vector3(s, 0.005f, s);
+                    showShadow = true;
+                    shadowPos = castTo + new Vector3(Mathf.Sin(anim * 30f) * 0.05f, 0f, 0f);
                     if (t >= GameData.BiteWindow)
                     {
                         splash.gameObject.SetActive(false);
                         if (!attended && selfHook)
                         {
-                            StartReel(g);
+                            StartReel();
                             g.Toast($"Rod {Index + 1} hooked a {GameData.Get(HookedSpecies).Name.ToLower()} by itself.");
                         }
                         else if (!attended && g.State.Rng.NextDouble() < 0.6)
                         {
                             // Nobody struck: the fish keeps picking at the bait. Slower, not wasted.
-                            State = RodState.Waiting;
-                            waitTotal = g.State.RollBiteWait(g.ActiveSpot, Power) * 0.6f;
-                            waitTimer = 0f;
-                            nibbles.Clear();
-                            nextNibble = 0;
+                            StartWait(g, 0.6f);
                         }
                         else
                         {
                             State = RodState.Unbaited;
                             g.Stats.Missed++;
-                            g.Toast(attended ? "Too late, it got away with the bait." : "A fish took the bait on an unattended rod.");
+                            g.Toast(attended ? "Too late! It got away with the bait." : $"A fish stole the bait on rod {Index + 1}.");
                         }
                     }
                     break;
@@ -489,15 +479,25 @@ namespace Catchline.Game
                     t += dt * mult / reelTotal;
                     var under = new Vector3(tipWorld.x, WaterY, tipWorld.z);
                     bobPos = Vector3.Lerp(castFrom, under, t) + Vector3.up * Mathf.Abs(Mathf.Sin(anim * 18f)) * 0.04f;
+                    showShadow = true;
+                    shadowPos = bobPos;
                     if (t >= 1f)
                     {
                         State = RodState.Unbaited;
+                        showShadow = false;
                         g.LandFish(this, HookedSpecies, HookedKg);
                     }
                     break;
             }
 
-            if (State != RodState.Charging) marker.gameObject.SetActive(false);
+            shadow.gameObject.SetActive(showShadow && Unlocked);
+            if (showShadow)
+            {
+                var prev = shadow.position;
+                shadow.position = new Vector3(shadowPos.x, -0.312f, shadowPos.z);
+                var move = shadow.position - prev;
+                if (move.sqrMagnitude > 0.00001f) shadow.rotation = Quaternion.LookRotation(move.normalized);
+            }
             bobber.position = bobPos;
             line.SetPosition(0, tipWorld);
             line.SetPosition(1, bobPos + Vector3.up * 0.05f);

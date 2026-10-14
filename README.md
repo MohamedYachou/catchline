@@ -10,7 +10,7 @@ Top-down automation game about a fishing boat that grows from a rowboat into a f
 
 Design: [docs/GAMEPLAY.md](docs/GAMEPLAY.md). Menu **Catchline > Play Voyage** (Ctrl+Shift+P) opens `Assets/Scenes/Voyage.unity` and presses Play. Code lives in `Assets/Scripts/Game/`.
 
-Controls: tap a rod, fish, the cooler or the deck to walk there; the big action button (or Space) does the contextual action (bait, hold to cast, strike, pick up, stow). H heads home. Scroll zooms.
+Controls: one tap per action. Tap the Fish bubble above a rod (the captain baits and casts), tap anywhere once when the bobber goes under (or Space), tap Carry above a landed fish. H heads home, scroll zooms.
 
 Balance check (a bot plays N voyages and logs each one, then renders a PNG to `Logs/`):
 

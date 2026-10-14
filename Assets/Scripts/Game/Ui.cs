@@ -10,7 +10,8 @@ namespace Catchline.Game
         public static readonly Color Muted = new(0.09f, 0.25f, 0.34f, 0.65f);
 
         public static GUIStyle Panel, Card, CardOn, Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn,
-            Action, ActionHot, ActionOff, Chip, ToastStyle, BarBg, BarFill, BarWarn, BarGood;
+            Action, ActionHot, ActionOff, Chip, ToastStyle, BarBg, BarFill, BarWarn, BarGood,
+            WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, DotWhite, DotRed, DotGold, Ring, FishShape, Water, MiniTitle, MiniHot;
 
         static bool ready;
 
@@ -48,6 +49,21 @@ namespace Catchline.Game
             BarFill = Box(Round(Palette.Sea, 6), 0, 6);
             BarWarn = Box(Round(Palette.Bad, 6), 0, 6);
             BarGood = Box(Round(Palette.Good, 6), 0, 6);
+
+            WhiteCenter = Text(20, Color.white, FontStyle.Normal, TextAnchor.MiddleCenter);
+            WhiteSmall = Text(13, Color.white);
+            WhiteCenterSmall = Text(14, new Color(1f, 1f, 1f, 0.9f), FontStyle.Normal, TextAnchor.MiddleCenter);
+            MiniTitle = Text(22, Color.white, FontStyle.Bold, TextAnchor.MiddleCenter);
+            MiniHot = Text(30, Palette.Oilskin, FontStyle.Bold, TextAnchor.MiddleCenter);
+            Bubble = Button(Color.white, Ink, 18);
+            Bubble.normal.background = Round(Color.white, 14, Palette.Accent, 3);
+            BubbleHot = Button(Palette.Oilskin, Ink, 24);
+            DotWhite = Box(Round(Color.white, 13), 0, 13);
+            DotRed = Box(Round(Palette.Bad, 13), 0, 13);
+            DotGold = Box(Round(Palette.Oilskin, 13), 0, 13);
+            Ring = Box(Round(new Color(1f, 1f, 1f, 0.35f), 20), 0, 20);
+            FishShape = Box(Round(new Color(0.04f, 0.2f, 0.25f, 0.85f), 10), 0, 10);
+            Water = Box(Round(new Color(0.08f, 0.5f, 0.58f, 0.93f), 18, new Color(1f, 1f, 1f, 0.5f), 3), 0, 18);
         }
 
         public static void Bar(Rect r, float t, GUIStyle fill = null)
