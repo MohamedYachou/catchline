@@ -88,3 +88,4 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | PNG | Export px | Logical px | Slice L/B/R/T | Use |
 | --- | --- | --- | --- | --- |
 | `logo-catchline.png` | 1024×384 | 512×192 | — | Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio. |
+| `title-backdrop.png` | 1920×1080 | 960×540 | — | Golden-hour harbour. Menu safe rectangle export x=80..650, y=420..940. Full-screen opaque RGBA backdrop; preserve aspect ratio. |

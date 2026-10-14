@@ -738,6 +738,22 @@
       "use": "Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio.",
       "border_px": null,
       "task": 5
+    },
+    "title-backdrop": {
+      "file": "title-backdrop.png",
+      "source": "Art/Source/render_title_backdrop.py",
+      "intended_size": [
+        960,
+        540
+      ],
+      "export_size": [
+        1920,
+        1080
+      ],
+      "border_px": null,
+      "task": 5,
+      "opaque": true,
+      "use": "Golden-hour harbour. Menu safe rectangle export x=80..650, y=420..940. Full-screen opaque RGBA backdrop; preserve aspect ratio."
     }
   }
 }
