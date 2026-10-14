@@ -89,3 +89,8 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | --- | --- | --- | --- | --- |
 | `logo-catchline.png` | 1024×384 | 512×192 | — | Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio. |
 | `title-backdrop.png` | 1920×1080 | 960×540 | — | Golden-hour harbour. Menu safe rectangle export x=80..650, y=420..940. Full-screen opaque RGBA backdrop; preserve aspect ratio. |
+| `header-market.png` | 1240×220 | 620×110 | — | Fish Market illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-harbourmaster.png` | 1240×220 | 620×110 | — | Harbour Master illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-crewoffice.png` | 1240×220 | 620×110 | — | Crew Office illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-chandlery.png` | 1240×220 | 620×110 | — | Chandlery illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-supplies.png` | 1240×220 | 620×110 | — | Supplies illustrated counter banner. Fredoka shop name baked; no slice. |
