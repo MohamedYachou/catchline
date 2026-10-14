@@ -32,9 +32,14 @@ base='3ddbe1f'
 def git(*args):return subprocess.check_output(['git',*args],cwd=ROOT,text=True)
 assert not git('diff',base,'--name-only','--','Assets/Scripts','Assets/Scenes','Assets/Art/Models','Art/Models')
 old=json.loads(git('show',base+':Assets/Art/UI/slices.json'))
-for n,m in old['sprites'].items():
+requests=[base+':Assets/Art/UI/'+m['file'] for m in old['sprites'].values()]
+raw=subprocess.check_output(['git','cat-file','--batch'],input=('\n'.join(requests)+'\n').encode(),cwd=ROOT)
+contents=[]; offset=0
+for request in requests:
+    end=raw.index(b'\n',offset); size=int(raw[offset:end].split()[-1]); offset=end+1
+    contents.append(raw[offset:offset+size]);offset+=size+1
+for (n,m),content in zip(old['sprites'].items(),contents):
     assert data['sprites'][n]==m
-    content=subprocess.check_output(['git','show',base+':Assets/Art/UI/'+m['file']],cwd=ROOT)
     # Git stores LFS pointers: compare the declared oid when present.
     payload=(UI/m['file']).read_bytes()
     if content.startswith(b'version https://git-lfs'):assert ('oid sha256:'+hashlib.sha256(payload).hexdigest()).encode() in content

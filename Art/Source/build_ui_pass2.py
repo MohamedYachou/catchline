@@ -68,11 +68,14 @@ def fishshape(species='herring'):
     b=path(f'M14 64 Q40 {top-19} 89 52 L116 37 L109 64 L116 91 L88 77 Q42 105 14 64Z',back)
     if species=='unknown':return b+lettering('?',58,78,43,I)
     b+=path('M16 65 Q49 63 89 66 L88 77 Q43 102 16 65Z','#BAC9C6')
-    b+=path(f'M47 {top+4} L57 {top-15} L66 {top-2} L78 {top-10} L84 50Z',back)
+    fin={'herring':'M50 47 L62 31 L73 48Z','mackerel':'M43 46 L53 31 L64 47 L76 40 L84 51Z','pollock':'M39 47 Q53 29 64 43 L72 34 L86 52Z','seabass':'M40 42 L44 28 L50 34 L54 21 L61 31 L65 20 L72 33 L78 28 L87 50Z','cod':'M40 45 Q44 24 54 39 L62 46 Q65 23 77 41 L84 50 Q88 35 93 52Z'}
+    b+=path(fin[species],back)
     b+=path('M52 77 L65 94 L69 78Z',S)+ellipse(28,59,5,5,I)+ellipse(27,59,2.8,3,N)+line('M37 54 Q46 65 37 77',back,2)+line('M15 67 L24 69',N,2)
     if species=='mackerel':
         for x in range(45,89,8): b+=line(f'M{x} 48 l-3 12',N,3)
-    if species=='cod':b+=line('M29 79 Q23 93 33 90',W,3)+path('M72 45 L79 25 L89 49Z',back)
+    if species=='cod':b+=line('M29 79 Q23 93 33 90',W,3)
+    if species=='herring':b=f'<g transform="translate(0 18) scale(1 .72)">{b}</g>'
+    if species=='pollock':b=f'<g transform="translate(-7 10) scale(1.06 .84)">{b}</g>'+line('M43 66 Q63 57 91 64',I,2)
     return b
 
 def part3():

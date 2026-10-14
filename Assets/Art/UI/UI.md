@@ -94,3 +94,11 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `header-crewoffice.png` | 1240×220 | 620×110 | — | Crew Office illustrated counter banner. Fredoka shop name baked; no slice. |
 | `header-chandlery.png` | 1240×220 | 620×110 | — | Chandlery illustrated counter banner. Fredoka shop name baked; no slice. |
 | `header-supplies.png` | 1240×220 | 620×110 | — | Supplies illustrated counter banner. Fredoka shop name baked; no slice. |
+| `fish-herring.png` | 256×256 | 128×128 | — | herring side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-mackerel.png` | 256×256 | 128×128 | — | mackerel side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-pollock.png` | 256×256 | 128×128 | — | pollock side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-seabass.png` | 256×256 | 128×128 | — | seabass side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-conger.png` | 256×256 | 128×128 | — | conger side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-plaice.png` | 256×256 | 128×128 | — | plaice side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-cod.png` | 256×256 | 128×128 | — | cod side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-unknown.png` | 256×256 | 128×128 | — | unknown side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
