@@ -62,7 +62,13 @@ def topology(obj):
 
 def main():
     metadata = json.loads((OUT / 'build-metrics.json').read_text())
-    assert {a['asset'] for a in metadata['assets']} == set(kit.ASSETS), 'Missing requested asset'
+    additions_spec = importlib.util.spec_from_file_location('task04', Path(__file__).with_name('build_task04.py'))
+    additions = importlib.util.module_from_spec(additions_spec); additions_spec.loader.exec_module(additions)
+    additions.register()
+    kit.ASSETS.update(additions.B_ASSETS); kit.ASSETS.update(additions.C_ASSETS)
+    kit.FISH.update(additions.K.FISH)
+    expected = set(kit.ASSETS)
+    assert {a['asset'] for a in metadata['assets']} == expected, 'Missing requested asset'
     baseline = json.loads((ROOT / 'Art/Source/task04-baseline.json').read_text())
     for original in baseline['assets']:
         current = next(a for a in metadata['assets'] if a['asset']==original['asset'])
@@ -119,6 +125,56 @@ def main():
             near([source_low[2], source_high[2]], [0, 0])
             assert any('bulbs' in note for note in asset['notes'])
             special['flat_mat_max_height_m'] = source_high[2]
+        if name in additions.B_ASSETS and not name.startswith('ShopFront_') and name!='SandBank':
+            near([source_low[2]],[0])
+        if name.startswith('ShopFront_'):
+            near([source_low[2]],[0])
+            # No geometry in the central 0.7m door approach.
+            points=[o.matrix_world@v.co for o in meshes for v in o.data.vertices]
+            assert not any(abs(v.x)<.35 and v.y>.05 and v.z<.9 for v in points)
+        if name == 'Skiff':
+            lo,hi=bounds([next(o for o in meshes if o.name=='PlankDeck')])
+            near(lo,[-1.5,-2.5,-.05]); near(hi,[1.5,2.5,0])
+            lo,hi=bounds([next(o for o in meshes if o.name=='Hull')])
+            near([hi[0]-lo[0],hi[1]-lo[1]],[3.5,6.5])
+            required={'Propeller','HoldLid','RodSocket_1','RodSocket_2','RodSocket_3','FishHold','Console'}
+            assert required<={o.name for o in meshes}
+            near(kit.bpy.data.objects['HoldLid'].location,[0,-.5,.025])
+            for i,y in enumerate((1.75,0,-1.75),1):near(kit.bpy.data.objects['RodSocket_'+str(i)].location,[-1.68,y,.45])
+            lo,hi=bounds([kit.bpy.data.objects['Console']])
+            assert .5<=lo[0]<hi[0]<=1.5 and 1.5<=lo[1]<hi[1]<=2.5
+            deck=kit.bpy.data.objects['PlankDeck']
+            # No deck face closes the opening below the animated hold lid.
+            for polygon in deck.data.polygons:
+                if polygon.normal.z>.5:
+                    centre=deck.matrix_world@polygon.center
+                    assert not (-.399<centre.x<.399 and -1.499<centre.y<-.501)
+            lid=kit.bpy.data.objects['HoldLid'];before=lid.matrix_world.copy()
+            lid.rotation_euler.x=-1.745329252;kit.bpy.context.view_layer.update()
+            lo,hi=bounds([lid]);assert hi[2]>.9
+            lid.matrix_world=before;kit.bpy.context.view_layer.update()
+            special['hold_lid_open_pose_checked']=True
+        if name in ('HandWinch','SortTable'):
+            footprint=(1,1) if name=='HandWinch' else (2,1)
+            assert all(source_low[i]>=-footprint[i]/2-1e-5 and source_high[i]<=footprint[i]/2+1e-5 for i in (0,1))
+            near([source_low[2]],[0])
+            if name=='HandWinch':assert 'Crank' in kit.bpy.data.objects
+        if name in ('GillNetFloatLine','GillNetSection'):
+            near([source_low[0],source_high[0]],[-1,1])
+        if name == 'SandBank':
+            near(source_low, [-2,-1,0]); near(source_high, [2,1,0])
+        if name == 'CliffSegment8m':
+            near([source_low[0],source_high[0]],[-4,4])
+            vertices=[o.matrix_world@v.co for o in meshes for v in o.data.vertices]
+            left=sorted((round(v.y,5),round(v.z,5)) for v in vertices if abs(v.x+4)<1e-5)
+            right=sorted((round(v.y,5),round(v.z,5)) for v in vertices if abs(v.x-4)<1e-5)
+            assert left==right
+        if name in ('Plaice','Seagull','DistantShip'):
+            near([source_high[1]-source_low[1]],[{'Plaice':.36,'Seagull':.4,'DistantShip':8}[name]])
+            if name=='Seagull': assert {'Wing_L','Wing_R'} <= {o.name for o in meshes}
+            if name=='Plaice':
+                assert source_high[2]-source_low[2]<.08
+                assert 'PlaiceTail' in kit.bpy.data.objects
         if name == 'CrewBody':
             body = bpy.data.objects['CrewBody']
             special['body_topology'] = topology(body)

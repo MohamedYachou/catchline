@@ -650,9 +650,16 @@ def build(name):
     # The reusable prop stage is scaled for larger harbour modules and below-deck hulls.
     scale = max(1, max(high[i] - low[i] for i in range(3)) / .8)
     camera = scene.camera
-    target = Vector((0, 0, (low[2] + high[2]) * .48))
-    direction = (camera.location - target).normalized()
+    target = Vector(((low[0]+high[0])/2, (low[1]+high[1])/2, (low[2]+high[2])*.48))
+    yaw, elevation = math.radians(35), math.radians(45)
+    direction = Vector((math.sin(yaw)*math.cos(elevation),
+                        (1 if name.startswith('ShopFront_') else -1)*math.cos(yaw)*math.cos(elevation),
+                        math.sin(elevation)))
     camera.location = target + direction * (3 * scale)
+    camera.rotation_euler = (target-camera.location).to_track_quat('-Z','Y').to_euler()
+    bpy.context.view_layer.update()
+    projected = [camera.matrix_world.inverted() @ (o.matrix_world @ Vector(p)) for o in meshes for p in o.bound_box]
+    camera.data.ortho_scale = max(max(v[i] for v in projected)-min(v[i] for v in projected) for i in (0,1))*1.30
     for light in bpy.data.collections['PREVIEW_ONLY_NOT_EXPORTED'].objects:
         if light.type == 'LIGHT':
             light.location *= scale
