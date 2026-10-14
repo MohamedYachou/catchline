@@ -119,7 +119,7 @@ Current measured inventory below supersedes the earlier tier 1 table. All assets
 
 Part A: pointed rowboat bow, flat transom, rising sheer, rope fender and stripe; cooler handles/latch/rim/drain; framed house windows, steps, chimney and eave trim; quay rings/wear plus Quay4mLadder; lighthouse gallery and glazed lamp room. Cooler and IceBox still share the same body geometry.
 
-Part B: six deck props; Plaice (0.36 m, flat) and Cod (0.70 m), each with a separate tail; seven harbour props including MarketStallAwning and 0.4 m perched Seagull with Wing_L/Wing_R; five ShopFront groups; five sea modules. Shop fronts use ground/door-centre roots, face Unity −Z, and leave the central doorway clear. SandBank is exactly flat, 4 × 2 m; CliffSegment8m has matching end profiles at X ±4; DistantShip hull silhouette is 8 m fore-aft.
+Part B: six deck props; Plaice (0.36 m, flat) and Cod (0.70 m), each with a separate tail; seven harbour props including MarketStallAwning and 0.4 m perched Seagull with Wing_L/Wing_R; five ShopFront groups; five sea modules. Shop fronts use ground/door-centre roots, face Unity −Z, and leave the central doorway clear. Their previews are framed from the water-facing side to show papers, charts and rope displays. SandBank is exactly flat, 4 × 2 m; CliffSegment8m has matching end profiles at X ±4; DistantShip hull silhouette is 8 m fore-aft.
 
 New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (nets and waterline sand) need two-sided material handling at integration. Unity was not opened; Assets/Scripts and Assets/Scenes were not touched. No requested modelling work remains unfinished in the delivered parts; Unity import/material and animation integration remain for the game branch.
 
@@ -168,7 +168,7 @@ New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (
 | MarketStallAwning | 2500 | 2.4000 × 1.6400 × 2.2900 |
 | Seagull | 632 | 0.2200 × 0.4000 × 0.3400 |
 | ShopFront_FishMarket | 3484 | 2.1850 × 0.5150 × 1.8250 |
-| ShopFront_HarbourMaster | 348 | 2.6300 × 0.3000 × 2.5000 |
+| ShopFront_HarbourMaster | 392 | 2.6300 × 0.3000 × 2.5000 |
 | ShopFront_CrewOffice | 280 | 0.9000 × 0.1250 × 1.6000 |
 | ShopFront_Chandlery | 1600 | 2.3400 × 0.4704 × 0.8000 |
 | ShopFront_Supplies | 1860 | 2.4060 × 1.1560 × 0.6560 |

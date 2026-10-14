@@ -172,9 +172,16 @@ def board(g,x,y,width= .70,height=.90,chart=False):
     for dx in (-width*.42,width*.42):g.beam((x+dx,y,0),(x+dx,y,1.45),.055,.055,WOOD)
     box(g,(x,y,1.10),(width,.09,height),WOOD,.012)
     box(g,(x,y+.052,1.10),(width-.08,.016,height-.08),TEAL if chart else 'M_WoodRecess',.004)
-    for dx,dz in ((-.14,.14),(.12,.18),(-.06,-.19)):
-        box(g,(x+dx,y+.065,1.10+dz),(.18,.015,.23),IVORY,.004)
-        g.beam((x+dx-.06,y+.076,1.1+dz),(x+dx+.055,y+.076,1.1+dz),.008,.006,NAVY)
+    if chart:
+        box(g,(x,y+.065,1.1),(width-.12,.015,height-.12),IVORY,.004)
+        route=[(x-.22,y+.078,.85),(x-.08,y+.078,.94),(x-.12,y+.078,1.08),(x+.13,y+.078,1.17),(x+.21,y+.078,1.37)]
+        g.tube(route,[.012]*len(route),6,TEAL)
+        for px,py,pz in (route[0],route[-1]):g.ellipsoid((px,py+.004,pz),(.025,.006,.025),8,2,ORANGE)
+        for z in (.90,1.05,1.20,1.35):g.beam((x-.24,y+.077,z),(x+.24,y+.077,z),.004,.004,STEEL)
+    else:
+        for dx,dz in ((-.14,.14),(.12,.18),(-.06,-.19)):
+            box(g,(x+dx,y+.065,1.10+dz),(.18,.015,.23),IVORY,.004)
+            g.beam((x+dx-.06,y+.076,1.1+dz),(x+dx+.055,y+.076,1.1+dz),.008,.006,NAVY)
 
 def shop(name):
     g=G()
