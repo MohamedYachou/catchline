@@ -1,6 +1,6 @@
 # Catchline — art style and modelling contract
 
-Status: concept handoff for `art/style-pass`. These are modelling references, not imported game assets. Unity was not opened for this pass. The gameplay prototype and its scenes/scripts are outside this branch's changes.
+Status: concept and first-prop handoff for `art/style-pass`. The PNG sheets are modelling references. Six actual Blender meshes and FBX exports now accompany them; see [the prop pipeline report](Models/Props/REPORT.md). Unity was not opened for either pass. The gameplay prototype and its scenes/scripts are outside this branch's changes.
 
 ## Visual authority
 
@@ -65,7 +65,7 @@ Generated multiview sheets can contain small view-to-view differences or mislead
 - Unity convention: `+Y` up, `+Z` toward bow, `+X` toward starboard. Blender modelling is Z-up; verify export conversion so the imported Unity result follows this convention.
 - Hull pivot: centre of its rectangular build deck at deck height, `(0, 0, 0)` in local Unity coordinates. Deck walking plane is `Y = 0`; hull extends below it.
 - Station pivot: footprint centre at deck contact, `Y = 0`. Front working edge faces local `-Z`. Define working/interaction points separately from visual meshes.
-- Crew root: floor between boots, facing local `+Z`. Hand attachment points are on the shared rig. Crate pivot: centre of underside. Crab pivot: ground centre. Buoy pivot: centre of base.
+- Crew root: floor between boots, facing local `+Z`. Hand attachment points are on the shared rig. Crate pivot: centre of underside. Crab pivot: ground centre. Buoy pivot: centre of base. Pot pivot: centre of underside. Prop roots use their horizontal bounding-box centre with minimum height at zero; variant parts share the same root origin.
 - Footprint borders, dimension arrows, labels and scale figures are guides, never mesh geometry.
 
 ## Crew: one shared body

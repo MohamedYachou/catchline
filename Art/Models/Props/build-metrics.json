@@ -1,0 +1,333 @@
+{
+  "blender_version": "5.2.1 LTS",
+  "props": [
+    {
+      "prop": "Crab",
+      "triangles": 672,
+      "budget": 800,
+      "dimensions_width_depth_height_m": [
+        0.28,
+        0.24765967,
+        0.08610087
+      ],
+      "bounds_min_blender": [
+        -0.14000000059604645,
+        -0.12382983416318893,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.14000000059604645,
+        0.12382983416318893,
+        0.08610086888074875
+      ],
+      "parts": [
+        {
+          "name": "CrabBody",
+          "triangles": 672,
+          "vertices": 376,
+          "bounds_min_blender": [
+            -0.14000000059604645,
+            -0.12382983416318893,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.14000000059604645,
+            0.12382983416318893,
+            0.08610086888074875
+          ],
+          "mesh_sha256": "a33f031ea5af952bd8c79cc01858d0f704bc36f8757ff418bb1c6d9732aaaa80",
+          "materials": [
+            "M_BandIvory",
+            "M_Rubber",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/Crab.blend",
+      "fbx": "Assets/Art/Models/Props/Crab.fbx",
+      "preview": "Art/Models/Props/Previews/Crab.png"
+    },
+    {
+      "prop": "BandedCrab",
+      "triangles": 800,
+      "budget": 800,
+      "dimensions_width_depth_height_m": [
+        0.28,
+        0.24765967,
+        0.08610087
+      ],
+      "bounds_min_blender": [
+        -0.14000000059604645,
+        -0.12382983416318893,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.14000000059604645,
+        0.12382983416318893,
+        0.08610086888074875
+      ],
+      "parts": [
+        {
+          "name": "CrabBody",
+          "triangles": 672,
+          "vertices": 376,
+          "bounds_min_blender": [
+            -0.14000000059604645,
+            -0.12382983416318893,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.14000000059604645,
+            0.12382983416318893,
+            0.08610086888074875
+          ],
+          "mesh_sha256": "a33f031ea5af952bd8c79cc01858d0f704bc36f8757ff418bb1c6d9732aaaa80",
+          "materials": [
+            "M_BandIvory",
+            "M_Rubber",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "ClawBands",
+          "triangles": 128,
+          "vertices": 64,
+          "bounds_min_blender": [
+            -0.11694403737783432,
+            -0.11082983762025833,
+            0.015100865624845028
+          ],
+          "bounds_max_blender": [
+            0.11696964502334595,
+            -0.09682983160018921,
+            0.05710086598992348
+          ],
+          "mesh_sha256": "d39b58ce8221f7f18028c12b3528af2f442931a3397665ad5e0404bb5d0dcb7d",
+          "materials": [
+            "M_BandIvory"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/BandedCrab.blend",
+      "fbx": "Assets/Art/Models/Props/BandedCrab.fbx",
+      "preview": "Art/Models/Props/Previews/BandedCrab.png"
+    },
+    {
+      "prop": "EmptyPot",
+      "triangles": 980,
+      "budget": 1500,
+      "dimensions_width_depth_height_m": [
+        0.69999999,
+        0.54999998,
+        0.34999999
+      ],
+      "bounds_min_blender": [
+        -0.3499999940395355,
+        -0.2750000059604645,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.3499999940395355,
+        0.2749999761581421,
+        0.3499999940395355
+      ],
+      "parts": [
+        {
+          "name": "PotBody",
+          "triangles": 980,
+          "vertices": 608,
+          "bounds_min_blender": [
+            -0.3499999940395355,
+            -0.2750000059604645,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.3499999940395355,
+            0.2749999761581421,
+            0.3499999940395355
+          ],
+          "mesh_sha256": "3a6662354163d563df498d098b3494ee29fd1786106d954ab6d9a7d0bd352162",
+          "materials": [
+            "M_HullNavy",
+            "M_Rope",
+            "M_Rubber",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/EmptyPot.blend",
+      "fbx": "Assets/Art/Models/Props/EmptyPot.fbx",
+      "preview": "Art/Models/Props/Previews/EmptyPot.png"
+    },
+    {
+      "prop": "FullPot",
+      "triangles": 1460,
+      "budget": 1500,
+      "dimensions_width_depth_height_m": [
+        0.69999999,
+        0.54999998,
+        0.34999999
+      ],
+      "bounds_min_blender": [
+        -0.3499999940395355,
+        -0.2750000059604645,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.3499999940395355,
+        0.2749999761581421,
+        0.3499999940395355
+      ],
+      "parts": [
+        {
+          "name": "PotBody",
+          "triangles": 980,
+          "vertices": 608,
+          "bounds_min_blender": [
+            -0.3499999940395355,
+            -0.2750000059604645,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.3499999940395355,
+            0.2749999761581421,
+            0.3499999940395355
+          ],
+          "mesh_sha256": "3a6662354163d563df498d098b3494ee29fd1786106d954ab6d9a7d0bd352162",
+          "materials": [
+            "M_HullNavy",
+            "M_Rope",
+            "M_Rubber",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "CrabLoad",
+          "triangles": 480,
+          "vertices": 306,
+          "bounds_min_blender": [
+            -0.28797465562820435,
+            -0.14419999718666077,
+            0.025000976398587227
+          ],
+          "bounds_max_blender": [
+            0.28830644488334656,
+            0.1054999977350235,
+            0.07079999893903732
+          ],
+          "mesh_sha256": "47bbecbc44795cce0cc87cb4bafe2dc9d8eaa530a96f2c5164f04c93e69751af",
+          "materials": [
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/FullPot.blend",
+      "fbx": "Assets/Art/Models/Props/FullPot.fbx",
+      "preview": "Art/Models/Props/Previews/FullPot.png"
+    },
+    {
+      "prop": "Crate",
+      "triangles": 396,
+      "budget": 400,
+      "dimensions_width_depth_height_m": [
+        0.44999999,
+        0.31999999,
+        0.25
+      ],
+      "bounds_min_blender": [
+        -0.22499999403953552,
+        -0.1599999964237213,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.22499999403953552,
+        0.1599999964237213,
+        0.25
+      ],
+      "parts": [
+        {
+          "name": "CrateBody",
+          "triangles": 396,
+          "vertices": 232,
+          "bounds_min_blender": [
+            -0.22499999403953552,
+            -0.1599999964237213,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.22499999403953552,
+            0.1599999964237213,
+            0.25
+          ],
+          "mesh_sha256": "c8d3dbe2cfa04cd97b77eea1f7db341141056583b07c298e68769f35c22c011a",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/Crate.blend",
+      "fbx": "Assets/Art/Models/Props/Crate.fbx",
+      "preview": "Art/Models/Props/Previews/Crate.png"
+    },
+    {
+      "prop": "Buoy",
+      "triangles": 256,
+      "budget": 300,
+      "dimensions_width_depth_height_m": [
+        0.25,
+        0.25,
+        0.38
+      ],
+      "bounds_min_blender": [
+        -0.125,
+        -0.125,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.125,
+        0.125,
+        0.3799999952316284
+      ],
+      "parts": [
+        {
+          "name": "BuoyBody",
+          "triangles": 256,
+          "vertices": 132,
+          "bounds_min_blender": [
+            -0.125,
+            -0.125,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.125,
+            0.125,
+            0.3799999952316284
+          ],
+          "mesh_sha256": "b362e3d0c13207b7d30421439a3653bc643c16114bd587ce9f73fbb7ee1d262c",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rope",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "source": "Art/Models/Props/Buoy.blend",
+      "fbx": "Assets/Art/Models/Props/Buoy.fbx",
+      "preview": "Art/Models/Props/Previews/Buoy.png"
+    }
+  ],
+  "palette_srgb": {
+    "M_HullNavy": "#173F57",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Rope": "#D1AF76",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B",
+    "M_SeaTeal": "#168F9F",
+    "M_BandIvory": "#F3DEA1"
+  }
+}
