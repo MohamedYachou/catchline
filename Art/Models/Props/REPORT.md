@@ -10,14 +10,14 @@ Dimensions below are world bounding boxes in metres: **width × depth × height*
 | --- | ---: | ---: | --- | --- |
 | Crab | **672** | 800 | **0.280000 × 0.247660 × 0.086101** | `Catchline_Crab` → `CrabBody` |
 | Banded crab | **800** | 800 | **0.280000 × 0.247660 × 0.086101** | `Catchline_BandedCrab` → identical `CrabBody` + separate `ClawBands` (128 tris) |
-| Empty pot | **980** | 1500 | **0.700000 × 0.550000 × 0.350000** | `Catchline_EmptyPot` → `PotBody` |
-| Full pot | **1460** | 1500 | **0.700000 × 0.550000 × 0.350000** | `Catchline_FullPot` → identical `PotBody` + separate `CrabLoad` (480 tris) |
+| Empty pot | **1064** | 1500 | **0.700000 × 0.550000 × 0.350000** | `Catchline_EmptyPot` → `PotBody` |
+| Full pot | **1496** | 1500 | **0.700000 × 0.550000 × 0.350000** | `Catchline_FullPot` → identical `PotBody` + separate `CrabLoad` (432 tris) |
 | Crate | **396** | 400 | **0.450000 × 0.320000 × 0.250000** | `Catchline_Crate` → `CrateBody` |
 | Buoy | **256** | 300 | **0.250000 × 0.250000 × 0.380000** | `Catchline_Buoy` → `BuoyBody` |
 
 The crab's STYLE.md measurement of **0.18 m is the shell/body length**, not the total envelope including forward claws and legs. The shell is 0.18 m fore-aft and the complete animal is exactly 0.28 m across the legs. Its total depth/height are reported above rather than silently substituting them for body length.
 
-`CrabBody` geometry is identical between crab and banded crab, verified by mesh hash. `PotBody` is likewise identical between empty and full pot. `CrabLoad` contains three simplified cargo crabs at **160 triangles each**; it can be disabled as one child. The cargo deliberately uses simpler geometry than the standalone crab so the full pot, including its catch, remains below 1500 triangles. All state parts are siblings under an identity asset root, avoiding nested mesh-parent axis-bake errors.
+`CrabBody` geometry is identical between crab and banded crab, verified by mesh hash. `PotBody` is likewise identical between empty and full pot. `CrabLoad` contains three simplified cargo crabs at **144 triangles each**; it can be disabled as one child. The cargo deliberately uses simpler geometry than the standalone crab so the full pot, including its catch, remains below 1500 triangles. All state parts are siblings under an identity asset root, avoiding nested mesh-parent axis-bake errors.
 
 All asset roots and mesh objects have applied transforms: location zero, rotation zero, scale one. Geometry is positioned in mesh data. Roots sit at the horizontal bounds centre, with the lowest point at ground zero. Bands and cargo share their parent asset's origin. There are no unapplied modifiers or armatures.
 
@@ -59,7 +59,7 @@ Saved checks: [build metrics](build-metrics.json), [validation results](validati
 
 Previews use an **orthographic camera 45° down, 35° yaw from the front**, cream floor/background, broad area lights, a neutral Standard view transform and Cycles CPU rendering at 32 samples with denoising. Each prop is framed individually; the contact sheet is a visual comparison, not a common-scale lineup. Actual size comes from the table and meshes.
 
-The shapes deliberately use fewer lattice bars, simpler rope, broader faces and less surface detail than the concept illustration to meet the explicit triangle budgets without textures. The material families, claw/band states, rectangular pot, slotted navy/ivory crate and orange/ivory buoy follow the reference. These are a first small-prop pipeline pass, not finished boat or crew assets.
+The updated pots use 0.036 m chunky rails/posts, four closed solid rope lashings and a broad teal latch over a dark recess. Both state variants share the updated frame. The shapes deliberately use fewer lattice bars, simpler rope, broader faces and less surface detail than the concept illustration to meet the explicit triangle budgets without textures. The material families, claw/band states, rectangular pot, slotted navy/ivory crate and orange/ivory buoy follow the reference. These are a first small-prop pipeline pass, with the starting boat and crew now supplied separately in the Gull Harbour batch. Crab Coast is location 2.
 
 ## Rebuild from WSL
 

@@ -244,48 +244,58 @@ def cargo_crab():
         for y in (-.045, -.015, .018, .047):
             g.tube([(side * .05, y, .034), (side * .125, y + .012, .005)],
                    [.009, .003], 3, 'M_SafetyOrange')
-        g.ellipsoid((side * .07, -.076, .029), (.024, .03, .018), 8, 2, 'M_SafetyOrange')
+        g.ellipsoid((side * .07, -.076, .029), (.024, .03, .018), 6, 2, 'M_SafetyOrange')
     return g
 
 
 def pot_geometry():
     g = Geometry()
-    x, y, radius = .338, .263, .012
-    for z in (.012, .334):
+    x, y = .3275, .242
+    for z in (.0225, .316):
         for sign in (-1, 1):
-            g.beam((-.325, sign * y, z), (.325, sign * y, z), .022, .022, 'M_HullNavy', .005)
-            g.beam((sign * x, -.250, z), (sign * x, .250, z), .022, .022, 'M_HullNavy', .005)
+            g.beam((-.325, sign * y, z), (.325, sign * y, z), .036, .036, 'M_HullNavy', .008)
+            g.beam((sign * x, -.250, z), (sign * x, .250, z), .036, .036, 'M_HullNavy', .008)
     for sx in (-1, 1):
         for sy in (-1, 1):
-            g.beam((sx * x, sy * y, .012), (sx * x, sy * y, .338), .022, .022, 'M_HullNavy', .005)
-            g.beam((sx * .335, sy * .260, .318), (sx * .335, sy * .260, .350),
-                   .030, .030, 'M_HullNavy', .005)
-            g.box((sx * .335, sy * .260, .015), (.030, .030, .030), 'M_HullNavy')
+            g.beam((sx * x, sy * .2525, .0225), (sx * x, sy * .2525, .3275), .036, .036, 'M_HullNavy', .008)
+            g.beam((sx * .3275, sy * .2525, .305), (sx * .3275, sy * .2525, .350),
+                   .045, .045, 'M_HullNavy', .008)
+            g.box((sx * .3275, sy * .2525, .0225), (.045, .045, .045), 'M_HullNavy')
     # Coarse closed solid lattice rather than texture/alpha planes or dense netting.
     for sy in (-1, 1):
-        for a in (-.225, -.075, .075, .225):
+        for a in (-.20, 0, .20):
             g.beam((a, sy * y, .025), (a, sy * y, .325), .006, .006, 'M_Steel')
         for z in (.115, .230):
             g.beam((-.325, sy * y, z), (.325, sy * y, z), .006, .006, 'M_Steel')
     for sx in (-1, 1):
-        for a in (-.15, 0, .15):
+        for a in (-.13, .13):
             g.beam((sx * x, a, .025), (sx * x, a, .325), .006, .006, 'M_Steel')
         for z in (.115, .230):
             g.beam((sx * x, -.25, z), (sx * x, .25, z), .006, .006, 'M_Steel')
-    for a in (-.225, -.075, .075, .225):
-        g.beam((a, -.25, .338), (a, .25, .338), .006, .006, 'M_Steel')
+    for a in (-.20, 0, .20):
+        g.beam((a, -.25, .316), (a, .25, .316), .006, .006, 'M_Steel')
     for a in (-.15, 0, .15):
-        g.beam((-.325, a, .338), (.325, a, .338), .006, .006, 'M_Steel')
+        g.beam((-.325, a, .316), (.325, a, .316), .006, .006, 'M_Steel')
     for a in (-.10, .10):
         g.beam((-.325, a, .012), (.325, a, .012), .006, .006, 'M_Steel')
-    g.beam((-.035, -.266, .295), (.035, -.266, .295), .018, .038, 'M_SeaTeal', .003)
-    g.box((0, -.275 + .004, .294), (.018, .006, .008), 'M_Rubber')
+    g.beam((-.0475, -.266, .282), (.0475, -.266, .282), .018, .065, 'M_SeaTeal', .005)
+    g.box((0, -.275 + .004, .282), (.025, .006, .014), 'M_Rubber')
     for sx in (-1, 1):
-        g.box((sx * .20, .263, .334), (.025, .022, .012), 'M_SeaTeal')
-        # Small cream lashings stay within the agreed outside dimensions.
+        g.box((sx * .20, .242, .320), (.025, .022, .012), 'M_SeaTeal')
+        # Closed six-sided rope loops wrap the top rails, four per pot.
         for sy in (-1, 1):
-            g.beam((sx * .245, sy * .252, .328), (sx * .245, sy * .252, .350),
-                   .012, .010, 'M_Rope')
+            vertices = []
+            for i in range(6):
+                a = i * math.tau / 6
+                for j in range(4):
+                    b = j * math.tau / 4
+                    radius = .027 + .006 * math.cos(b)
+                    vertices.append((sx * .245 + .006 * math.sin(b),
+                                     sy * y + radius * math.cos(a), .316 + radius * math.sin(a)))
+            faces = [(i * 4 + j, ((i + 1) % 6) * 4 + j,
+                      ((i + 1) % 6) * 4 + (j + 1) % 4, i * 4 + (j + 1) % 4)
+                     for i in range(6) for j in range(4)]
+            g.add(vertices, faces, 'M_Rope')
     return g
 
 

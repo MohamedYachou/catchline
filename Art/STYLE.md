@@ -1,6 +1,6 @@
 # Catchline — art style and modelling contract
 
-Status: concept and first-prop handoff for `art/style-pass`. The PNG sheets are modelling references. Six actual Blender meshes and FBX exports now accompany them; see [the prop pipeline report](Models/Props/REPORT.md). Unity was not opened for either pass. The gameplay prototype and its scenes/scripts are outside this branch's changes.
+Status: concept and first-prop handoff for `art/style-pass`. The PNG sheets are modelling references. Actual Blender meshes and FBX exports now accompany them: the [six Crab Coast props](Models/Props/REPORT.md) and [26 Gull Harbour assets](Models/GullHarbour/REPORT.md). Unity was not opened for either pass. The gameplay prototype and its scenes/scripts are outside this branch's changes.
 
 ## Visual authority
 
@@ -30,6 +30,8 @@ These are proposed canonical **sRGB base colours**, chosen to match the mockups'
 | Rubber / deepest shadow | `#28343B` | Boots, roller, rope recesses |
 | Rope | `#D1AF76` | Warm rope; `M_Rope` |
 | Band ivory | `#F3DEA1` | Pale yellow crab safety bands; `M_BandIvory` |
+| Kelp green | `#477A56` | Kelp and pollock back; `M_KelpGreen` |
+| Fish silver | `#BAC9C6` | Fish flank; `M_FishSilver` |
 | Skin base | `#B9784B` | Initial shared reference; later variants reuse body |
 | Sheet / UI cream | `#F4EFE3` | Reference background and future panel family |
 
@@ -70,7 +72,7 @@ Generated multiview sheets can contain small view-to-view differences or mislead
 
 ## Crew: one shared body
 
-Body height is **0.95 m sole to bare scalp**. Hats add approximately 0.06–0.10 m; do not stretch different roles to fit their hats. Proposed shoulder width 0.34 m, head width about 0.30 m, head height about 0.33 m. Short thick legs, rounded mitten gloves with a thumb, chunky rubber boots, a small nose and very simple eyes. Keep fingers, ears and facial features economical. Initial proportions are art targets, not anatomy measurements.
+Body height is **0.95 m sole to bare scalp**. Hats add approximately 0.06–0.10 m above the scalp (module origins overlap the head); do not stretch different roles to fit their hats. Proposed shoulder width 0.34 m, head width about 0.30 m, head height about 0.33 m. Short thick legs, rounded mitten gloves with a thumb, chunky rubber boots, a small nose and very simple eyes. Keep fingers, ears and facial features economical. Initial proportions are art targets, not anatomy measurements.
 
 All five jobs share body geometry, proportions, skeleton, hand positions and animation set. Hats are removable modules; role clothing primarily uses recoloured material regions on the shared garment silhouette. Initial sheets use the same skin/hair to make this relationship obvious. Later skin/hair variants do not require a new body or job rig.
 
@@ -102,6 +104,30 @@ Proposed day-boat outer hull extends to `X = ±2.9`, `Z = [-5.5, +6.5]`. Keep th
 
 Keep cabins, rail sections, motor, oars, hatch covers and fittings modular. Empty hull references intentionally omit stations so equipment arrangement stays a gameplay choice. Avoid decorative props blocking walkways or hiding job animations.
 
+## Location order
+
+**Location 1 is Gull Harbour**, beginning with manual rod fishing on the 3 × 2 m rowboat deck, then progressing towards nets. Harbour Mouth supplies herring/mackerel, Kelpbank pollock/sea bass, and Rocky Point the rare conger eel. Cooler storage, bait and voyage provisions support the active gameplay loop. **Crab Coast is location 2.** The older crab sheets remain valid asset references, but do not describe the starting location. This follows the live `proto/deck-sim` checkout’s `docs/GAMEPLAY.md`, read before this modelling pass; that working document was not yet committed when read.
+
+## Gull Harbour tier 1 — built asset contract
+
+Sources, exports, measured bounds and topology checks are in [the Gull Harbour report](Models/GullHarbour/REPORT.md). Source Blender axes are X right, -Y forward, Z up; exported Unity axes are X right, +Z forward, +Y up. Part origins listed below are **Unity local metres**, relative to the asset root. Rotations are zero and scales one; offset part translations deliberately locate animation pivots. Moving parts are siblings under one empty root. No rig or animation clips are included.
+
+| Asset | Size / root | Moving parts and placement |
+| --- | --- | --- |
+| Rowboat | Hull 4.2 m fore-aft × 2.4 m beam; deck 3 × 2 m, deck-centre root at Y=0 | Plank deck, centre thwart, separate oars. Oar pivots at (-1.12,.49,0) and (1.12,.49,0). Port sockets (-1.115,.44,-1) and (-1.115,.44,+1): 0.5 m and 2.5 m from **rectangular deck stern** Z=-1.5. Bow taper lies outside the build rectangle. |
+| Fishing rod | Butt root; 1.6 m upright from butt to tip | Separate reel handle, pivot (.077,.24,0). Rotate/attach whole rod for casting. |
+| Bobber | 0.12 m total height, 0.08 m diameter; waterline root | Lower 0.045 m submerged, upper 0.075 m above water; orange-red/ivory bands. |
+| Cooler / ice box | 0.80 × 0.50 × 0.45 m W × D × H; underside root | Identical body mesh; lid origin (0,.40,-.25), rear hinge, rotate local X. Ice variant has teal lid and solid ivory frost motifs. |
+| Bait bucket | 0.30 m diameter; approximately 0.367 m including bail | Underside root; open interior. Art-selected size. |
+| Lunch tin | 0.25 × 0.18 × 0.12 m body; latch adds 0.004 m depth | Underside root; separate lid. Art-selected size. |
+| Herring / mackerel / pollock / sea bass / conger | Exact nose-to-tail lengths 0.26 / 0.34 / 0.48 / 0.50 / 0.80 m | Face +Z, grounded root; separate tail at body-tail join. Mackerel stripes are geometry, no textures. |
+| Shared crew | 0.95 m sole-to-scalp; T-pose, ground root between boots | One connected closed all-quad body with separate face/garment details. No armature. Hat anchor (0,.91,0); cap, beanie and hood roots at their mounting seats. |
+| Quay | 4 m long × 2 m deep; walking surface/root Y=0 | Piles extend below walking plane; end-to-end repeat along X. |
+| Harbour dressing | Bollard, 2.8 m lamp, two houses, 6 m lighthouse, three rocks | Grounded roots. House walls 3×2.6 m and 3.4×2.8 m; roof overhangs included in reported bounds. Art-selected dimensions. |
+| Kelp | Exactly flat at Y=0, floating root | Upward faces, no duplicate reverse faces; use a two-sided material if views from below become necessary. |
+
+Palette material names extend the prop batch with `M_DeckWood`, `M_WoodHighlight`, `M_WoodRecess`, `M_HullBlue`, `M_OilskinYellow`, `M_Skin`, `M_KelpGreen` and `M_FishSilver`. All use the canonical sRGB colours above. No bitmap textures or Unity `.mat` assets are included. Preview lights/background are source-only and excluded from FBX.
+
 ## Crab Coast stations
 
 Footprint is reserved occupancy, not a demand that every mesh touches its tile border. Listed visual envelopes leave inset margins. Work positions and routes live in adjacent walkable tiles and are not included in the station occupancy. Do not place another machine over those access positions.
@@ -122,7 +148,7 @@ One-metre clear aisles are the layout target. Keep operator-facing edges accessi
 
 | Prop | Proposed envelope | Shared parts / treatment |
 | --- | --- | --- |
-| Empty pot | 0.70 × 0.55 × 0.35 m | Navy frame, coarse mesh, teal hatch latch |
+| Empty pot | 0.70 × 0.55 × 0.35 m | Chunky 0.036 m navy rails/posts, coarse mesh, four closed rope lashings, broad teal hatch latch |
 | Full pot | Same as empty | Same pot mesh, toggle a small crab load inside |
 | Crab | 0.28 m width across legs, 0.18 m body length | Orange-red, two broad claws, four short walking legs per side |
 | Banded crab | Same as crab | Same crab mesh plus ivory-yellow band on each closed pincer |
@@ -148,9 +174,10 @@ The full pot is a state of the empty pot, and banded crab a state of the crab. M
 | [11-station-live-tank.png](Concepts/11-station-live-tank.png) | Live tank, 2 × 1 |
 | [12-station-pot-rack.png](Concepts/12-station-pot-rack.png) | Pot rack, 2 × 1 |
 | [13-crab-coast-props.png](Concepts/13-crab-coast-props.png) | Six props with state variants |
-| [14-day-boat-deck-grid.png](Concepts/14-day-boat-deck-grid.png) | Exact 10 × 5 deck / 2 × 3 cabin dimensional supplement |
+| [15-gull-harbour-tier1.png](Concepts/15-gull-harbour-tier1.png) | Starting harbour, rowboat, fishing gear, shared crew, fish and deck props |
+| [14-day-boat-deck-grid.png](Concepts/14-day-boat-deck-grid.png) | Exact 10 × 5 deck / 3 across × 2 fore-aft cabin dimensional supplement |
 
-Sheets 01–13 use the built-in `image_gen` tool with the two approved mockups as style references. Their full prompt set is [Concepts/PROMPTS.json](Concepts/PROMPTS.json). Sheet 14 is a deterministic dimension diagram, supplementing rather than replacing the rendered hull art; its source is in `Source/`. Final images live in this worktree and use the repository's existing Git LFS rules.
+Sheet 15 uses built-in `image_gen` with the existing art references; its [prompt](Source/gull-harbour-concept-prompt.txt) is preserved. Its drawn rod-socket ruler is schematic: the written coordinates above control placement. Sheets 01–13 use the built-in `image_gen` tool with the two approved mockups as style references. Their full prompt set is [Concepts/PROMPTS.json](Concepts/PROMPTS.json). Sheet 14 is a deterministic dimension diagram, supplementing rather than replacing the rendered hull art; its source is in `Source/`. Final images live in this worktree and use the repository's existing Git LFS rules.
 
 ## Modelling acceptance checks
 
