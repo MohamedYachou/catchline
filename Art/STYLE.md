@@ -1,0 +1,160 @@
+# Catchline — art style and modelling contract
+
+Status: concept handoff for `art/style-pass`. These are modelling references, not imported game assets. Unity was not opened for this pass. The gameplay prototype and its scenes/scripts are outside this branch's changes.
+
+## Visual authority
+
+Mo's [Day 3 small-boat](Concepts/References/day03-small-boat.png) and [Day 28 tuna-boat](Concepts/References/day28-tuna-boat.png) mockups are the visual targets. Preserve their inviting miniature working-boat character: navy hulls, warm timber, ivory rails, orange safety equipment, small busy sailors, sea teal and soft sunlight. Aim for their shape language and material warmth as closely as possible. The PNGs in `Concepts/` adapt that look into isolated orthographic references for modelling; they are not screenshots of a finished Unity build.
+
+Use chunky silhouettes, broad bevels, a few deliberate planar facets and clean colour blocks. Low-poly does not mean every surface is triangulated visibly. Round heads, gloves and boots can use smooth normals; hull corners, tools and machinery retain selected flat planes. Keep most detail in silhouettes and large parts rather than texture noise, tiny rivets, scratches or complicated piping.
+
+**Outline decision: no global outlines.** Separate shapes using value, colour, bevel highlights and restrained contact shading. Do not add black inverted-hull or screen-space outlines to every object. A selection ring or local interaction highlight is a separate gameplay affordance.
+
+## Palette
+
+These are proposed canonical **sRGB base colours**, chosen to match the mockups' visual families. They are not pixel samples from lit renders. Exact values here override generated colour-chip text and image sampling. Lighting will change their apparent colour.
+
+| Use | Hex | Notes |
+| --- | --- | --- |
+| Deck wood | `#C58B50` | Warm honey timber; broad planks, sparse seams |
+| Wood highlight | `#DFB77A` | Restrained lighter plank variation |
+| Wood recess | `#8C5A36` | Seams and sheltered underside only |
+| Hull navy | `#173F57` | Hull, frames, captain garments |
+| Hull lit blue | `#2A6685` | Optional secondary painted panel |
+| Rail white / ivory | `#F3F0DC` | Rails, cabin, crate rims; avoid pure white |
+| Safety orange-red | `#E36A35` | Equipment, beanie, buoy, lifering, trim |
+| Sea teal | `#168F9F` | Sea, sorter bib and trays |
+| Shallow-water highlight | `#64C7C4` | Broad moving accents, not glitter |
+| Yellow oilskins | `#E6AD38` | Deckhand and engineer helmet |
+| Steel | `#8FA6AC` | Sorting surface, simple metal details |
+| Rubber / deepest shadow | `#28343B` | Boots, roller, rope recesses |
+| Skin base | `#B9784B` | Initial shared reference; later variants reuse body |
+| Sheet / UI cream | `#F4EFE3` | Reference background and future panel family |
+
+Reserve orange for useful accents rather than painting every station orange. Role readability also comes from hat silhouette. Status indicators need icons/shape as well as colour; hat colours alone do not communicate station state.
+
+## Materials and light
+
+- Timber: matte, wide planks, subtle broad value variation, little grain. Planks follow the boat's fore-aft axis. Do not model every seam as a gap.
+- Painted hull and equipment: clean opaque painted surfaces with small bevels. The navy hull should still read blue in shadow. Keep metallic response low on paint.
+- Steel worktops: muted satin rather than mirrored chrome. Rubber is dark matte. Glass uses dark blue opaque/low-complexity glazing for early models; avoid needing cabin interiors.
+- Nets and pot mesh: sparse coarse openings, thick readable outer frames. Treat tiny knots as texture or omit them; do not create thousands of strands for a concept-matching first asset.
+- Water: teal base with restrained broad highlights, gentle motion and a narrow foam/contact treatment around the hull. Avoid physically simulated waves or dense reflections as prerequisites for this style.
+
+Lighting target: soft warm sunlight from the upper-left of the gameplay frame, cooler ambient fill, short soft shadows, lightly darkened contacts. Maintain readable equipment in shadow. Avoid crushed blacks, strong bloom, depth of field, film grain, sharp specular glitter and excessive ambient occlusion. Begin with restrained neutral colour grading; saturated palette colours do the work.
+
+**Moving-boat caveat:** a boat that changes layout or moves through world space must not rely on a world-fixed scene lightmap for its changing shadows. Achieve the baked-light *look* with controlled materials, optional asset-local baked AO/vertex shading, ambient fill and a small real-time lighting setup. Evaluate actual scene baking only for genuinely fixed geometry. Moving crew need a compatible dynamic lighting path. Do not stack strong baked AO with strong screen-space AO.
+
+URP implementation is a later integration step, not part of these concepts. [Unity 6.3 URP Baked Lit reference](https://docs.unity3d.com/6000.3/Documentation/Manual/urp/baked-lit-shader.html) and [Unity light probes](https://docs.unity3d.com/6000.3/Documentation/Manual/LightProbes.html) describe available lighting mechanisms; the aesthetic recommendations above are this project's art direction, not a claim that lightmaps can follow arbitrary changing layouts.
+
+## Camera and reference conventions
+
+- Game: landscape, fixed orthographic 3/4 camera. Starting art-review angle: about 45 degrees down from horizontal, yaw about 35 degrees off the stern axis; tune later for readable jobs and clear walkways.
+- Model sheets: true orthographic front/right/back/top, plus an orthographic 3/4 where helpful. A 3/4 view is still parallel-projected, never a perspective hero shot.
+- Rendered hull top plans and starboard side elevations: bow to the right, stern to the left. In those top plans port is up and starboard down. The exact grid supplement deliberately uses bow-up for coordinate readability and labels its orientation. Hull plan and elevation must agree about cabin, motor and rails.
+- Station front: the operator-facing edge. For the hauler, the plan labels its sea edge on the right and worker edge below; mount that sea edge against the rail. Rotation on deck is allowed; dimensions rotate with it.
+- Neutral background and soft contact shadow are presentation only; do not bake either into albedo.
+
+Generated multiview sheets can contain small view-to-view differences or misleading ruler/grid marks. **Written dimensions, the exact grid supplement and a single coherent model take precedence.** Treat views as shape/colour references and reconcile them in Blender; they are not CAD or guaranteed multiview reconstruction inputs. For image-to-3D, isolate one subject/view rather than feeding an entire labelled sheet as a single object. Inspect resulting topology, scale and hidden surfaces manually.
+
+## World scale and axes
+
+- One deck tile = **1 m × 1 m**. Model in metres, apply transforms before export, use positive unit scale.
+- Unity convention: `+Y` up, `+Z` toward bow, `+X` toward starboard. Blender modelling is Z-up; verify export conversion so the imported Unity result follows this convention.
+- Hull pivot: centre of its rectangular build deck at deck height, `(0, 0, 0)` in local Unity coordinates. Deck walking plane is `Y = 0`; hull extends below it.
+- Station pivot: footprint centre at deck contact, `Y = 0`. Front working edge faces local `-Z`. Define working/interaction points separately from visual meshes.
+- Crew root: floor between boots, facing local `+Z`. Hand attachment points are on the shared rig. Crate pivot: centre of underside. Crab pivot: ground centre. Buoy pivot: centre of base.
+- Footprint borders, dimension arrows, labels and scale figures are guides, never mesh geometry.
+
+## Crew: one shared body
+
+Body height is **0.95 m sole to bare scalp**. Hats add approximately 0.06–0.10 m; do not stretch different roles to fit their hats. Proposed shoulder width 0.34 m, head width about 0.30 m, head height about 0.33 m. Short thick legs, rounded mitten gloves with a thumb, chunky rubber boots, a small nose and very simple eyes. Keep fingers, ears and facial features economical. Initial proportions are art targets, not anatomy measurements.
+
+All five jobs share body geometry, proportions, skeleton, hand positions and animation set. Hats are removable modules; role clothing primarily uses recoloured material regions on the shared garment silhouette. Initial sheets use the same skin/hair to make this relationship obvious. Later skin/hair variants do not require a new body or job rig.
+
+| Role | Hat silhouette | Main clothing | Readable cue |
+| --- | --- | --- | --- |
+| Captain | White peaked cap, navy band | Navy with ivory trim | Wide white cap |
+| Deckhand | Orange rolled beanie | Yellow oilskin bib, navy sleeves | Orange + yellow |
+| Sorter | Navy baseball cap | Teal bib, navy sleeves | Forward cap peak + teal |
+| Bander | Short-brim orange-red cap | Orange-red bib, navy sleeves, ivory gloves | Red-orange workwear |
+| Engineer | Yellow hard hat | Muted steel-grey bib, navy sleeves | Helmet dome + brim |
+
+The six reference actions are **walk, carry crate, work at table, idle, cheer and panic**. Use one animation library for all roles. For carry, two hands support a 0.45 × 0.32 × 0.25 m crate near waist height; use an attachment constraint/pose rather than letting the crate intersect the belly. For table work, the 0.55 m worktop is deliberately low enough for a 0.95 m sailor. Cheer and panic must remain distinct at gameplay zoom. Pose sheet drawings are key-pose intent, not animation timing or a final rig.
+
+## Hulls
+
+Hull 1 and 2 dimensions below are proposed for the art pass because Mo specified exact dimensions only for hull 3. Confirm them against prototype progression before producing final meshes. Keep hull topology, rail thickness, timber treatment and navy/ivory/orange material family consistent across tiers.
+
+| Hull | Overall hull length × beam | Rectangular build deck, fore-aft × across | Fixed content |
+| --- | --- | --- | --- |
+| 1 — Rowboat | 4.2 × 2.4 m | 3 × 2 tiles | Removable rowing bench, separate oars; no motor/cabin |
+| 2 — Outboard skiff | 6.5 × 3.5 m, excluding motor | 5 × 3 tiles | One-tile forward console, outboard outside stern |
+| 3 — Day boat | 12.0 × 5.8 m | **10 × 5 tiles** | **2 × 3 tile wheelhouse at bow**, low white rails |
+
+Day boat: deck rectangle includes the wheelhouse. It has 50 tiles total, of which 6 are cabin, leaving 44 before equipment and aisle allocations. Do not interpret the requirement as a 10 × 5 aft work area plus another cabin area. The tapered bow and hull margins are outside the build rectangle.
+
+Exact day-boat deck in local Unity coordinates: `X = [-2.5, +2.5]`, `Z = [-5, +5]`, `Y = 0`. Tile columns `c = 0..4` run port to starboard; rows `r = 0..9` run stern to bow. Tile centre is `(c - 2.0, 0, r - 4.5)`. The wheelhouse occupies **columns 2 and 3, rows 7, 8 and 9**: `X = [-0.5, +1.5]`, `Z = [+2, +5]`. This slight starboard offset allows the cabin to sit on whole tiles, with two port-side columns and one starboard-side column beside it.
+
+Proposed day-boat outer hull extends to `X = ±2.9`, `Z = [-5.5, +6.5]`. Keep the full build rectangle inside the hull; start the bow taper ahead of `Z = +5`. Wheelhouse body height: 1.65 m above deck, with roof, fittings and small mast above. Rail height: about 0.60 m. These chibi-scale proportions prioritise a visible deck and matching the references over real vessel certification.
+
+Keep cabins, rail sections, motor, oars, hatch covers and fittings modular. Empty hull references intentionally omit stations so equipment arrangement stays a gameplay choice. Avoid decorative props blocking walkways or hiding job animations.
+
+## Crab Coast stations
+
+Footprint is reserved occupancy, not a demand that every mesh touches its tile border. Listed visual envelopes leave inset margins. Work positions and routes live in adjacent walkable tiles and are not included in the station occupancy. Do not place another machine over those access positions.
+
+| Station | Footprint | Visual envelope W × D × H | Design and operation |
+| --- | --- | --- | --- |
+| Pot hauler | **1 × 1** | 0.85 × 0.85 × 1.25 m | Navy pedestal, compact orange davit, rubber roller; back at rail, worker inboard |
+| Sorting table | **2 × 1** | 1.80 × 0.80 × 0.55 m | Satin steel top, two teal trays, navy legs; front edge along long side |
+| Banding bench | **1 × 1** | 0.80 × 0.80 × 0.55 m worktop; tool to 0.85 m | Wood top, ivory restraint pad, orange applicator, teal band spool |
+| Live tank | **2 × 1** | 1.80 × 0.80 × 0.65 m | Navy tub, ivory rim, teal water, two compartments; aerator inside envelope |
+| Pot rack | **2 × 1** | 1.80 × 0.80 × 1.10 m | Navy open frame, timber shelves; four pot slots, two wide × two high |
+
+Pot hauler's rigid structure stays inside its tile. Rope and a suspended moving pot may travel outboard into water during the hauling animation; neither reserves an extra deck equipment tile. Avoid an oversized crane boom that visually sweeps through neighbouring stations. Station plan drawings must not imply additional pipework, handles or stored pots projecting into an aisle.
+
+One-metre clear aisles are the layout target. Keep operator-facing edges accessible; two-tile machines can rotate by 90 degrees. Animated parts get separate meshes/pivots: hauler roller, banding applicator, tank surface, pot rack contents. Do not join crabs, water, rope and machine into one uneditable object.
+
+## Crab Coast props
+
+| Prop | Proposed envelope | Shared parts / treatment |
+| --- | --- | --- |
+| Empty pot | 0.70 × 0.55 × 0.35 m | Navy frame, coarse mesh, teal hatch latch |
+| Full pot | Same as empty | Same pot mesh, toggle a small crab load inside |
+| Crab | 0.28 m width across legs, 0.18 m body length | Orange-red, two broad claws, four short walking legs per side |
+| Banded crab | Same as crab | Same crab mesh plus ivory-yellow band on each closed pincer |
+| Crate | 0.45 × 0.32 × 0.25 m | Navy slotted box, ivory chunky rim, integrated handles |
+| Buoy | 0.25 m diameter × 0.38 m height | Orange-red, broad ivory stripe, small rope eye |
+
+The full pot is a state of the empty pot, and banded crab a state of the crab. Match their silhouettes and transforms. The prop sheet is the canonical prop design: reuse that pot and crab mesh in station content slots rather than modelling each small station thumbnail as a different species or trap. Keep the crate small enough to carry with the shared rig; do not use a 1 m cube for a 0.95 m worker. Optional pots/crabs in station views are content examples, not permanently fused station geometry.
+
+## Concept index and reproducibility
+
+| PNG | Contents |
+| --- | --- |
+| [01-style-sheet.png](Concepts/01-style-sheet.png) | Palette families, material samples, lighting and outline decision |
+| [02-crew-turnaround.png](Concepts/02-crew-turnaround.png) | Shared deckhand body: front, right side, back, orthographic 3/4 |
+| [03-crew-roles.png](Concepts/03-crew-roles.png) | Five shared-body role treatments and hat cues |
+| [04-crew-poses.png](Concepts/04-crew-poses.png) | Walk, carry, work, idle, cheer, panic |
+| [05-hull-01-rowboat.png](Concepts/05-hull-01-rowboat.png) | Rowboat plan, side and 3/4 |
+| [06-hull-02-skiff.png](Concepts/06-hull-02-skiff.png) | Skiff plan, side and 3/4 |
+| [07-hull-03-day-boat.png](Concepts/07-hull-03-day-boat.png) | Day boat plan, side and 3/4 |
+| [08-station-pot-hauler.png](Concepts/08-station-pot-hauler.png) | Rail hauler, 1 × 1 |
+| [09-station-sorting-table.png](Concepts/09-station-sorting-table.png) | Sorting table, 2 × 1 |
+| [10-station-banding-bench.png](Concepts/10-station-banding-bench.png) | Banding bench, 1 × 1 |
+| [11-station-live-tank.png](Concepts/11-station-live-tank.png) | Live tank, 2 × 1 |
+| [12-station-pot-rack.png](Concepts/12-station-pot-rack.png) | Pot rack, 2 × 1 |
+| [13-crab-coast-props.png](Concepts/13-crab-coast-props.png) | Six props with state variants |
+| [14-day-boat-deck-grid.png](Concepts/14-day-boat-deck-grid.png) | Exact 10 × 5 deck / 2 × 3 cabin dimensional supplement |
+
+Sheets 01–13 use the built-in `image_gen` tool with the two approved mockups as style references. Their full prompt set is [Concepts/PROMPTS.json](Concepts/PROMPTS.json). Sheet 14 is a deterministic dimension diagram, supplementing rather than replacing the rendered hull art; its source is in `Source/`. Final images live in this worktree and use the repository's existing Git LFS rules.
+
+## Modelling acceptance checks
+
+1. Compare silhouettes and colours to the Day 3/28 references; maintain softness without turning objects into glossy toys or flat icons.
+2. Check body height, deck grid and station bounds numerically in Blender. Written values and the exact grid supplement override generated dimension marks.
+3. Keep role body/rig shared, hats separate, pot/crab state variants reusable, and animated station components separate.
+4. Check models in front, side, top and the intended orthographic gameplay camera. Keep feet, hands, crates and worktops from intersecting.
+5. Check at landscape phone gameplay size: hats, station purpose, carrying state and walkways must read. These concepts do not establish a device-performance benchmark.
+6. During later Unity integration, verify scale, shading, shadows and visibility on the actual prototype and target hardware. No editor or runtime validation is claimed by this art pass.
