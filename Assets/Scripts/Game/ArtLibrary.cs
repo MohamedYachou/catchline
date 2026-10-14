@@ -8,7 +8,7 @@ namespace Catchline.Game
     public class ArtLibrary : ScriptableObject
     {
         public GameObject Rowboat, FishingRod, Bobber, Cooler, IceBox, BaitBucket, LunchTin;
-        public GameObject Quay, Bollard, LampPost, HouseA, HouseB, Lighthouse, RockA, RockB, RockC, Kelp;
+        public GameObject Quay, QuayLadder, Bollard, LampPost, HouseA, HouseB, Lighthouse, RockA, RockB, RockC, Kelp;
         public GameObject[] Fish = new GameObject[7]; // indexed by Species
         public Texture2D[] Ui;                         // Codex's UI kit, looked up by file name
         public Font UiFont;

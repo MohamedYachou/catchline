@@ -19,7 +19,7 @@ namespace Catchline.Game
         Vector2 scroll;
         readonly List<Rect> hudRects = new();
 
-        float GuiScale => Screen.height / 720f;
+        float GuiScale => Screen.height / 720f * UiScales[UiScaleIndex];
         float VW => Screen.width / GuiScale;
 
         Vector2 ToGui(Vector2 screen) => new(screen.x / GuiScale, (Screen.height - screen.y) / GuiScale);
@@ -30,6 +30,12 @@ namespace Catchline.Game
         void HandleInput()
         {
             var kb = Keyboard.current;
+            if (kb != null && kb.escapeKey.wasPressedThisFrame && !showTitle)
+            {
+                if (showSettings) showSettings = false;
+                else paused = !paused;
+            }
+            if (MenuOpen) return;
             if (kb != null && CurrentMode == Mode.Fishing)
             {
                 if (kb.spaceKey.wasPressedThisFrame) StrikeTap();
@@ -57,6 +63,10 @@ namespace Catchline.Game
             Ui.Init();
             GUI.matrix = Matrix4x4.Scale(new Vector3(GuiScale, GuiScale, 1f));
             if (Event.current.type == EventType.Layout) hudRects.Clear();
+
+            // Menus replace the HUD so nothing underneath can be clicked.
+            if (showTitle) { DrawTitle(); return; }
+            if (paused) { DrawPause(); return; }
 
             switch (CurrentMode)
             {
@@ -87,7 +97,17 @@ namespace Catchline.Game
         void CoinChip(float y = 16f)
         {
             var r = Panel(new Rect(VW - 196f, y, 180f, 46f), Ui.Chip);
-            GUI.Label(r, $"<b>{State.Coins}</b> coins", Ui.WhiteCenter);
+            Icon(new Rect(r.x + 14f, r.y + 10f, 26f, 26f), "icon-coin");
+            GUI.Label(new Rect(r.x + 20f, r.y, r.width - 20f, r.height), $"<b>{State.Coins}</b> coins", Ui.WhiteCenter);
+            var pause = new Rect(r.x - 56f, y, 46f, 46f);
+            Track(pause);
+            if (GUI.Button(pause, "II", Ui.Tab)) paused = true;
+        }
+
+        static void Icon(Rect r, string name)
+        {
+            var t = Ui.Tex(name);
+            if (t != null) GUI.DrawTexture(r, t, ScaleMode.ScaleToFit, true);
         }
 
         void DrawSailing()
@@ -107,19 +127,22 @@ namespace Catchline.Game
             float x = p.x + 16, y = p.y + 12, w = p.width - 32;
             GUI.Label(new Rect(x, y, w, 26), GameData.Spots[ActiveSpot].Name, Ui.H2);
             y += 32;
-            Row(ref y, x, w, $"Cooler  {Cooler.Count}/{State.CoolerCapacity}", Cooler.Count / (float)State.CoolerCapacity, Cooler.Count >= State.CoolerCapacity ? Ui.BarWarn : Ui.BarFill);
-            Row(ref y, x, w, State.FoodMinutes > 0 ? $"Food  {State.FoodMinutes:0.0} min" : "Food  none: 70% speed", State.FoodMinutes / State.FoodCapacity, State.FoodMinutes < 1f ? Ui.BarWarn : Ui.BarGood);
-            GUI.Label(new Rect(x, y, w, 20), $"Bait  {State.Bait}   Squid  {State.Squid}     Stocks here  {State.Richness[ActiveSpot] * 100f:0}%", Ui.Small);
+            Row(ref y, x, w, "icon-cooler", $"Cooler  {Cooler.Count}/{State.CoolerCapacity}", Cooler.Count / (float)State.CoolerCapacity, Cooler.Count >= State.CoolerCapacity ? Ui.BarWarn : Ui.BarFill);
+            Row(ref y, x, w, "icon-food", State.FoodMinutes > 0 ? $"Food  {State.FoodMinutes:0.0} min" : "Food  none: 70% speed", State.FoodMinutes / State.FoodCapacity, State.FoodMinutes < 1f ? Ui.BarWarn : Ui.BarGood);
+            Icon(new Rect(x, y, 20, 20), "icon-bait-worm");
+            GUI.Label(new Rect(x + 26, y, w - 26, 20), $"Bait  {State.Bait}   Squid  {State.Squid}     Stocks here  {State.Richness[ActiveSpot] * 100f:0}%", Ui.Small);
             y += 26;
             foreach (var r in Rods.Where(r => r.Unlocked))
             {
-                GUI.Label(new Rect(x, y, w, 20), $"Rod {r.Index + 1}:  {(r.State == RodState.Bite ? "<b>BITE!</b>" : r.StateText)}", Ui.Small);
+                Icon(new Rect(x, y, 20, 20), "icon-rod");
+                GUI.Label(new Rect(x + 26, y, w - 26, 20), $"Rod {r.Index + 1}:  {(r.State == RodState.Bite ? "<b>BITE!</b>" : r.StateText)}", Ui.Small);
                 y += 22;
             }
             foreach (var c in State.Active)
             {
                 int have = c.Delivered + Cooler.Count(f => f.Species == c.Species);
-                GUI.Label(new Rect(x, y, w, 20), $"Contract {c.Title}:  {Mathf.Min(have, c.Count)}/{c.Count}  ({c.VoyagesLeft} voyage{(c.VoyagesLeft == 1 ? "" : "s")} left)", Ui.Mutedish);
+                Icon(new Rect(x, y, 20, 20), "icon-contract-scroll");
+                GUI.Label(new Rect(x + 26, y, w - 26, 20), $"Contract {c.Title}:  {Mathf.Min(have, c.Count)}/{c.Count}  ({c.VoyagesLeft} voyage{(c.VoyagesLeft == 1 ? "" : "s")} left)", Ui.Mutedish);
                 y += 22;
             }
 
@@ -154,7 +177,7 @@ namespace Catchline.Game
 
             DrawMinigame();
 
-            if (State.Voyage <= 3 && MinigameRod == null)
+            if (ShowTips && MinigameRod == null)
             {
                 string hint = Hint();
                 if (hint != null) GUI.Box(new Rect(VW / 2f - 260f, 720f - 64f, 520f, 44f), hint, Ui.ToastStyle);
@@ -169,7 +192,7 @@ namespace Catchline.Game
             return null;
         }
 
-        bool Bubble(Vector3 world, string label, bool hot, float width = 88f, string icon = null)
+        bool Bubble(Vector3 world, string label, bool hot, float width = 88f, string icon = null, bool badge = false)
         {
             var sp = Cam.WorldToScreenPoint(world);
             if (sp.z < 0f) return false;
@@ -184,6 +207,12 @@ namespace Catchline.Game
                 GUI.Box(new Rect(g.x - 7f, r.yMax - 5f, 14f, 14f), GUIContent.none, hot ? Ui.DotGold : Ui.DotWhite);
             bool clicked = GUI.Button(r, tex != null ? "      " + label : label, flash ? Ui.BubbleHot : Ui.Bubble);
             if (tex != null) GUI.DrawTexture(new Rect(r.x + 14f, r.y + 9f, 24f, 24f), tex, ScaleMode.ScaleToFit, true);
+            if (badge)
+            {
+                var b = new Rect(r.xMax - 16f, r.y - 8f, 24f, 24f);
+                GUI.Box(b, GUIContent.none, Ui.DotRed);
+                GUI.Label(b, "!", Ui.WhiteCenter);
+            }
             return clicked;
         }
 
@@ -240,10 +269,11 @@ namespace Catchline.Game
             }
         }
 
-        void Row(ref float y, float x, float w, string label, float t, GUIStyle fill)
+        void Row(ref float y, float x, float w, string icon, string label, float t, GUIStyle fill)
         {
-            GUI.Label(new Rect(x, y, 150, 20), label, Ui.Small);
-            Ui.Bar(new Rect(x + 150, y + 3, w - 150, 13), t, fill);
+            Icon(new Rect(x, y - 1, 20, 20), icon);
+            GUI.Label(new Rect(x + 26, y, 130, 20), label, Ui.Small);
+            Ui.Bar(new Rect(x + 160, y + 1, w - 160, 18), t, fill);
             y += 24;
         }
 
@@ -283,7 +313,7 @@ namespace Catchline.Game
 
             // Shop bubbles over the buildings.
             foreach (var (anchor, tab) in Shops)
-                if (Bubble(anchor.position, TabName(tab), false, tab == HudTab.HarbourMaster ? 150f : 116f, ShopIcon(tab)))
+                if (Bubble(anchor.position, TabName(tab), false, tab == HudTab.HarbourMaster ? 150f : 116f, ShopIcon(tab), ShopHasNews(tab)))
                     OpenShop(tab);
 
             if (!panelOpen) return;
@@ -349,6 +379,32 @@ namespace Catchline.Game
                 GUILayout.Label($"That's {earned / Mathf.Max(0.1f, s.Minutes):0} coins per minute.", Ui.Mutedish);
                 if (!State.Has(UpgradeId.IceBox) && s.FishSold > 0) GUILayout.Label("Without an ice box, fish lose value the longer they sit in the cooler.", Ui.Mutedish);
                 foreach (var line in s.Lines) GUILayout.Label("• " + line, Ui.Body);
+            }
+
+            State.UnseenSale = false;
+
+            // Fish log: every species in Gull Harbour, with your record. Unknown ones hint at where they live.
+            GUILayout.Space(12);
+            int found = State.LogCount.Count(c => c > 0);
+            GUILayout.Label($"Fish log  <size=14>{found}/{GameData.Fish.Length}</size>", Ui.H2);
+            foreach (var f in GameData.Fish)
+            {
+                int i = (int)f.Species;
+                GUILayout.BeginHorizontal(Ui.Card);
+                if (State.LogCount[i] > 0)
+                {
+                    GUILayout.Label($"<b>{f.Name}</b>", Ui.Body, GUILayout.Width(150));
+                    GUILayout.Label($"caught {State.LogCount[i]} · record {State.LogBest[i]:0.00} kg", Ui.Mutedish);
+                }
+                else
+                {
+                    var seas = Enumerable.Range(0, GameData.Spots.Length)
+                        .Where(s => GameData.Spots[s].Table.Any(e => e.species == f.Species))
+                        .Select(s => GameData.Spots[s].Name);
+                    GUILayout.Label("<b>???</b>", Ui.Body, GUILayout.Width(150));
+                    GUILayout.Label("Lives at: " + string.Join(", ", seas), Ui.Mutedish);
+                }
+                GUILayout.EndHorizontal();
             }
 
             GUILayout.Space(12);

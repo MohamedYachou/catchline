@@ -11,7 +11,8 @@ namespace Catchline.Game
 
         public static GUIStyle Panel, Card, CardOn, Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn,
             Action, ActionHot, ActionOff, Chip, ToastStyle, BarBg, BarFill, BarWarn, BarGood,
-            WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, DotWhite, DotRed, DotGold, Ring, FishShape, Water, MiniTitle, MiniHot;
+            WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, DotWhite, DotRed, DotGold, Ring, FishShape, Water, MiniTitle, MiniHot,
+            LogoStyle, TitleCenter, MutedCenter;
 
         static bool ready;
 
@@ -64,6 +65,9 @@ namespace Catchline.Game
             Ring = Box(Round(new Color(1f, 1f, 1f, 0.35f), 20), 0, 20);
             FishShape = Box(Round(new Color(0.04f, 0.2f, 0.25f, 0.85f), 10), 0, 10);
             Water = Box(Round(new Color(0.08f, 0.5f, 0.58f, 0.93f), 18, new Color(1f, 1f, 1f, 0.5f), 3), 0, 18);
+            LogoStyle = Text(64, Palette.HullNavy, FontStyle.Bold, TextAnchor.MiddleCenter);
+            TitleCenter = Text(28, Ink, FontStyle.Bold, TextAnchor.MiddleCenter);
+            MutedCenter = Text(14, Muted, FontStyle.Normal, TextAnchor.MiddleCenter);
 
             ApplyKit();
         }
@@ -81,7 +85,7 @@ namespace Catchline.Game
             if (lib == null) return;
             KitFont = lib.UiFont;
             if (KitFont != null)
-                foreach (var s in new[] { Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn, Chip, ToastStyle, WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, MiniTitle, MiniHot })
+                foreach (var s in new[] { Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn, Chip, ToastStyle, WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, MiniTitle, MiniHot, LogoStyle, TitleCenter, MutedCenter })
                 {
                     s.font = KitFont;
                     if (s.fontStyle == FontStyle.Bold) s.fontStyle = FontStyle.Normal; // Fredoka Medium is already heavy

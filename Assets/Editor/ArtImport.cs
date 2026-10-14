@@ -63,6 +63,7 @@ namespace Catchline.EditorTools
             lib.BaitBucket = Model("DeckProps/BaitBucket");
             lib.LunchTin = Model("DeckProps/LunchTin");
             lib.Quay = Model("Harbour/Quay4m");
+            lib.QuayLadder = Model("Harbour/Quay4mLadder");
             lib.Bollard = Model("Harbour/Bollard");
             lib.LampPost = Model("Harbour/LampPost");
             lib.HouseA = Model("Harbour/HouseA");

@@ -51,6 +51,10 @@ namespace Catchline.Game
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
         public readonly float[] Market;
+        // Fish log: how many of each species you have landed, and the biggest one.
+        public readonly int[] LogCount;
+        public readonly float[] LogBest;
+        public bool UnseenSale;
         public CrewMember Deckhand;
         public readonly List<CrewMember> Board = new();
         public readonly List<Contract> Offers = new();
@@ -63,6 +67,8 @@ namespace Catchline.Game
             Rng = new System.Random(seed);
             Richness = new float[GameData.Spots.Length];
             Market = new float[GameData.Fish.Length];
+            LogCount = new int[GameData.Fish.Length];
+            LogBest = new float[GameData.Fish.Length];
             for (int i = 0; i < Richness.Length; i++) Richness[i] = 1f;
             for (int i = 0; i < Market.Length; i++) Market[i] = 1f;
             RollBoard();
@@ -193,6 +199,14 @@ namespace Catchline.Game
                 Active.RemoveAt(i);
             }
             BestVoyageFish = Mathf.Max(BestVoyageFish, catchList.Count);
+            foreach (var f in catchList)
+            {
+                int i = (int)f.Species;
+                if (LogCount[i] == 0) r.Lines.Insert(0, $"New in your fish log: {GameData.Get(f.Species).Name}!");
+                LogCount[i]++;
+                LogBest[i] = Mathf.Max(LogBest[i], f.Kg);
+            }
+            UnseenSale = true;
             LastSale = r;
             return r;
         }
@@ -311,7 +325,8 @@ namespace Catchline.Game
             public bool UseSquid;
             public float FoodMinutes;
             public List<int> Owned = new(), Charts = new();
-            public float[] Richness, Market;
+            public float[] Richness, Market, LogBest;
+            public int[] LogCount;
             public bool HasDeckhand;
             public CrewMember Deckhand;
             public List<CrewMember> Board = new();
@@ -325,7 +340,7 @@ namespace Catchline.Game
             var d = new SaveData
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, UseSquid = UseSquid,
-                FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
+                FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
             foreach (var u in Owned) d.Owned.Add((int)u);
             d.Charts.AddRange(Charts);
@@ -351,6 +366,8 @@ namespace Catchline.Game
                 // Arrays can grow between versions (new seas, new fish): copy what fits.
                 if (d.Richness != null) System.Array.Copy(d.Richness, s.Richness, Mathf.Min(d.Richness.Length, s.Richness.Length));
                 if (d.Market != null) System.Array.Copy(d.Market, s.Market, Mathf.Min(d.Market.Length, s.Market.Length));
+                if (d.LogCount != null) System.Array.Copy(d.LogCount, s.LogCount, Mathf.Min(d.LogCount.Length, s.LogCount.Length));
+                if (d.LogBest != null) System.Array.Copy(d.LogBest, s.LogBest, Mathf.Min(d.LogBest.Length, s.LogBest.Length));
                 s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
                 s.Board.Clear(); s.Board.AddRange(d.Board);
                 s.Offers.Clear(); s.Offers.AddRange(d.Offers);

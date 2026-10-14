@@ -58,7 +58,7 @@ namespace Catchline.Game
         void Update()
         {
             if (!built) return;
-            Tick(Time.deltaTime);
+            Tick(paused ? 0f : Time.deltaTime); // the harbour keeps bobbing behind the title screen
             HandleInput();
         }
 
@@ -68,7 +68,10 @@ namespace Catchline.Game
         {
             if (built) return;
             built = true;
-            State = (AutoPlay ? null : GameState.Load()) ?? new GameState(Seed);
+            var loaded = AutoPlay ? null : GameState.Load();
+            hadSave = loaded != null;
+            showTitle = !AutoPlay;
+            State = loaded ?? new GameState(Seed);
             Grid = new DeckGrid(3, 2);
             Grid.Block(new RectInt(CoolerTile.x, CoolerTile.y, 1, 1));
             BuildWorld();
@@ -252,7 +255,7 @@ namespace Catchline.Game
                 Shops.Clear();
                 const float quayTop = 0.35f;
                 if (lib != null && lib.Quay != null)
-                    for (float x = -22f; x <= 26f; x += 4f) Place(lib.Quay, new Vector3(x, quayTop, 3.3f));
+                    for (float x = -22f; x <= 26f; x += 4f) Place(x == 2f && lib.QuayLadder != null ? lib.QuayLadder : lib.Quay, new Vector3(x, quayTop, 3.3f)); // ladder down to our berth
                 else Visuals.Box("QuayEdge", root, new Vector3(1f, quayTop - 0.45f, 3.3f), new Vector3(50f, 0.9f, 2f), stone);
                 Visuals.Box("QuayBack", root, new Vector3(1f, quayTop - 0.47f, 8.5f), new Vector3(50f, 0.9f, 8.5f), stone);
 
