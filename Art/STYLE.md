@@ -28,6 +28,8 @@ These are proposed canonical **sRGB base colours**, chosen to match the mockups'
 | Yellow oilskins | `#E6AD38` | Deckhand and engineer helmet |
 | Steel | `#8FA6AC` | Sorting surface, simple metal details |
 | Rubber / deepest shadow | `#28343B` | Boots, roller, rope recesses |
+| Rope | `#D1AF76` | Warm rope; `M_Rope` |
+| Band ivory | `#F3DEA1` | Pale yellow crab safety bands; `M_BandIvory` |
 | Skin base | `#B9784B` | Initial shared reference; later variants reuse body |
 | Sheet / UI cream | `#F4EFE3` | Reference background and future panel family |
 
@@ -84,17 +86,17 @@ The six reference actions are **walk, carry crate, work at table, idle, cheer an
 
 ## Hulls
 
-Hull 1 and 2 dimensions below are proposed for the art pass because Mo specified exact dimensions only for hull 3. Confirm them against prototype progression before producing final meshes. Keep hull topology, rail thickness, timber treatment and navy/ivory/orange material family consistent across tiers.
+Hull 1's 3 × 2 tile deck and hull 2's 5 × 3 tile deck are confirmed by Mo. Their outer hull dimensions remain proposed art envelopes; hull 3's deck and centred wheelhouse footprints are authoritative. Keep hull topology, rail thickness, timber treatment and navy/ivory/orange material family consistent across tiers.
 
 | Hull | Overall hull length × beam | Rectangular build deck, fore-aft × across | Fixed content |
 | --- | --- | --- | --- |
 | 1 — Rowboat | 4.2 × 2.4 m | 3 × 2 tiles | Removable rowing bench, separate oars; no motor/cabin |
 | 2 — Outboard skiff | 6.5 × 3.5 m, excluding motor | 5 × 3 tiles | One-tile forward console, outboard outside stern |
-| 3 — Day boat | 12.0 × 5.8 m | **10 × 5 tiles** | **2 × 3 tile wheelhouse at bow**, low white rails |
+| 3 — Day boat | 12.0 × 5.8 m | **10 × 5 tiles** | **3 across × 2 fore-aft tile wheelhouse, centred at bow**, low white rails |
 
 Day boat: deck rectangle includes the wheelhouse. It has 50 tiles total, of which 6 are cabin, leaving 44 before equipment and aisle allocations. Do not interpret the requirement as a 10 × 5 aft work area plus another cabin area. The tapered bow and hull margins are outside the build rectangle.
 
-Exact day-boat deck in local Unity coordinates: `X = [-2.5, +2.5]`, `Z = [-5, +5]`, `Y = 0`. Tile columns `c = 0..4` run port to starboard; rows `r = 0..9` run stern to bow. Tile centre is `(c - 2.0, 0, r - 4.5)`. The wheelhouse occupies **columns 2 and 3, rows 7, 8 and 9**: `X = [-0.5, +1.5]`, `Z = [+2, +5]`. This slight starboard offset allows the cabin to sit on whole tiles, with two port-side columns and one starboard-side column beside it.
+Exact day-boat deck in local Unity coordinates: `X = [-2.5, +2.5]`, `Z = [-5, +5]`, `Y = 0`. Tile columns `c = 0..4` run port to starboard; rows `r = 0..9` run stern to bow. Tile centre is `(c - 2.0, 0, r - 4.5)`. The wheelhouse is **centred**, occupying **columns 1, 2 and 3, rows 8 and 9**: **3 m across × 2 m fore-aft**, `X = [-1.5, +1.5]`, `Z = [+3, +5]`. One clear tile column remains on each side. Its centre is `(0, 0, 4)` on the deck plane.
 
 Proposed day-boat outer hull extends to `X = ±2.9`, `Z = [-5.5, +6.5]`. Keep the full build rectangle inside the hull; start the bow taper ahead of `Z = +5`. Wheelhouse body height: 1.65 m above deck, with roof, fittings and small mast above. Rail height: about 0.60 m. These chibi-scale proportions prioritise a visible deck and matching the references over real vessel certification.
 
