@@ -115,3 +115,4 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `icon-skiff.png` | 256×256 | 128×128 | — | 128px logical item icon. skiff. Preserve square frame. |
 | `icon-trophy.png` | 256×256 | 128×128 | — | 128px logical item icon. trophy. Preserve square frame. |
 | `icon-gift.png` | 256×256 | 128×128 | — | 128px logical item icon. gift. Preserve square frame. |
+| `sea-chart.png` | 1240×520 | 620×260 | — | Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked. |

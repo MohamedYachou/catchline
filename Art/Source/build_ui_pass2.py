@@ -161,5 +161,48 @@ def part5():
     icons['gift']=gift_icon()
     for n,b in icons.items():emit('icon-'+n,256,256,placed(b,0,0,2),'128px logical item icon. '+n.replace('-',' ')+'. Preserve square frame.')
 
+CHART_AREAS={'Harbour mouth':[.30,.55],'Kelp bank':[.42,.25],'Sandbar':[.50,.78],'Rocky point':[.70,.18],'Deep channel':[.88,.55]}
+def part6():
+    # Harbour region ends at x=280; area coordinates use x=280..1216,y=24..496.
+    x0,y0,x1,y1=280,24,1216,496
+    b=rect(10,10,1220,500,32,C)+rect(24,24,1192,472,24,'#64C7C4')
+    b+='<defs><clipPath id="chart"><rect x="24" y="24" width="1192" height="472" rx="24"/></clipPath></defs><g clip-path="url(#chart)">'
+    b+=path('M24 24 H215 Q264 93 235 159 Q205 204 270 260 Q307 316 234 380 Q208 424 256 496 H24Z','#DFB77A')
+    b+=path('M24 24 H190 Q236 106 207 167 Q182 212 240 274 Q267 317 208 373 Q176 433 221 496 H24Z','#477A56')
+    b+=path('M1216 24 Q1060 80 1031 218 Q1000 304 1081 496 H1216Z','#2A6685')
+    b+=path('M1216 72 Q1102 131 1090 253 Q1082 357 1143 496 H1216Z',N)
+    # Soft contour lines are navigational drawing, no grid or game pins baked in.
+    for d in ['M299 46 Q350 183 306 258 T306 468','M970 34 Q899 161 948 274 T991 484','M1028 32 Q955 168 1008 280 T1052 488']:
+        b+=line(d,T,2)
+    for i in range(22):
+        x=330+(i*117)%830;y=52+(i*71)%412
+        b+=line(f'M{x} {y} q14 -6 29 0',I,2)
+    # Miniature town on land at left, with quay and moored navy boat.
+    b+=rect(128,208,102,74,7,W)
+    for x,y,col in [(71,142,O),(134,126,N),(73,227,N),(140,323,O),(61,336,N)]:
+        b+=rect(x,y,44,39,4,I)+path(f'M{x-5} {y+3} L{x+22} {y-23} L{x+49} {y+3}Z',col)+rect(x+17,y+17,12,22,2,N)
+    b+=path('M235 219 Q260 228 247 262 Q231 258 235 219Z',N)
+    for n,(nx,ny) in CHART_AREAS.items():
+        x=x0+nx*(x1-x0);y=y0+ny*(y1-y0)
+        if n=='Harbour mouth':
+            body=ellipse(0,20,52,20,'#DFB77A')+path('M-14 14 L-11 -45 H11 L14 14Z',I)+rect(-12,-18,24,12,1,O)+rect(-16,-49,32,10,3,N)+path('M-17 -49 L0 -66 L17 -49Z',O)+rect(-5,-42,10,12,2,G)
+        elif n=='Kelp bank':
+            body=ellipse(0,0,75,42,T)
+            for dx in (-42,-18,8,33):
+                body+=line(f'M{dx} 23 Q{dx+19} 2 {dx+3} -28','#477A56',7)
+                body+=ellipse(dx-7,-12,13,6,'#477A56')+ellipse(dx+15,4,14,6,'#477A56')
+        elif n=='Sandbar':body=path('M-90 15 Q-55 -36 10 -18 Q75 -20 94 9 Q41 39 -15 26 Q-55 35 -90 15Z','#DFB77A')+path('M-63 10 Q-15 -21 64 5 Q6 21 -63 10Z',I)
+        elif n=='Rocky point':
+            body=''
+            for dx,dy,sz in [(-32,13,32),(8,-8,42),(47,15,24)]:body+=path(f'M{dx-sz} {dy+13} L{dx-sz*.7} {dy-15} L{dx+sz*.1} {dy-27} L{dx+sz} {dy+3} L{dx+sz*.5} {dy+22}Z',S)+path(f'M{dx-sz*.7} {dy-15} L{dx+sz*.1} {dy-27} L{dx+sz*.1} {dy+3}Z',I)
+        else:
+            body=ellipse(0,0,64,47,N)+line('M-35 -11 Q0 -26 35 -11 M-35 10 Q0 -5 35 10 M-25 29 Q0 17 25 29','#2A6685',5)
+        b+=placed(body,x,y)
+    # Compass rose intentionally has no letter labels.
+    b+=placed(path('M0 -28 L8 -7 L28 0 L8 7 L0 28 L-8 7 L-28 0 L-8 -7Z',N)+path('M0 -28 L0 0 L-8 -7Z',I),1137,87)
+    b+='</g>'
+    emit('sea-chart',1240,520,b,'Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked.',extra={'sea_rect_px':[x0,y0,x1,y1],'areas_normalized':CHART_AREAS,'area_centres_px':{n:[round(x0+v[0]*(x1-x0),2),round(y0+v[1]*(y1-y0),2)] for n,v in CHART_AREAS.items()}})
+
+
 if __name__=='__main__':
     globals()['part'+sys.argv[1]](); finish(); print('Built part',sys.argv[1],list(U.MAN))
