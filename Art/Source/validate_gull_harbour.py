@@ -132,6 +132,35 @@ def main():
             # No geometry in the central 0.7m door approach.
             points=[o.matrix_world@v.co for o in meshes for v in o.data.vertices]
             assert not any(abs(v.x)<.35 and v.y>.05 and v.z<.9 for v in points)
+        if name == 'Skiff':
+            lo,hi=bounds([next(o for o in meshes if o.name=='PlankDeck')])
+            near(lo,[-1.5,-2.5,-.05]); near(hi,[1.5,2.5,0])
+            lo,hi=bounds([next(o for o in meshes if o.name=='Hull')])
+            near([hi[0]-lo[0],hi[1]-lo[1]],[3.5,6.5])
+            required={'Propeller','HoldLid','RodSocket_1','RodSocket_2','RodSocket_3','FishHold','Console'}
+            assert required<={o.name for o in meshes}
+            near(kit.bpy.data.objects['HoldLid'].location,[0,-.5,.025])
+            for i,y in enumerate((1.75,0,-1.75),1):near(kit.bpy.data.objects['RodSocket_'+str(i)].location,[-1.68,y,.45])
+            lo,hi=bounds([kit.bpy.data.objects['Console']])
+            assert .5<=lo[0]<hi[0]<=1.5 and 1.5<=lo[1]<hi[1]<=2.5
+            deck=kit.bpy.data.objects['PlankDeck']
+            # No deck face closes the opening below the animated hold lid.
+            for polygon in deck.data.polygons:
+                if polygon.normal.z>.5:
+                    centre=deck.matrix_world@polygon.center
+                    assert not (-.399<centre.x<.399 and -1.499<centre.y<-.501)
+            lid=kit.bpy.data.objects['HoldLid'];before=lid.matrix_world.copy()
+            lid.rotation_euler.x=-1.745329252;kit.bpy.context.view_layer.update()
+            lo,hi=bounds([lid]);assert hi[2]>.9
+            lid.matrix_world=before;kit.bpy.context.view_layer.update()
+            special['hold_lid_open_pose_checked']=True
+        if name in ('HandWinch','SortTable'):
+            footprint=(1,1) if name=='HandWinch' else (2,1)
+            assert all(source_low[i]>=-footprint[i]/2-1e-5 and source_high[i]<=footprint[i]/2+1e-5 for i in (0,1))
+            near([source_low[2]],[0])
+            if name=='HandWinch':assert 'Crank' in kit.bpy.data.objects
+        if name in ('GillNetFloatLine','GillNetSection'):
+            near([source_low[0],source_high[0]],[-1,1])
         if name == 'SandBank':
             near(source_low, [-2,-1,0]); near(source_high, [2,1,0])
         if name == 'CliffSegment8m':

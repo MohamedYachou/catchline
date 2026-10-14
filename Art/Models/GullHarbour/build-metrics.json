@@ -3612,6 +3612,616 @@
       "source": "Art/Models/GullHarbour/Sea/DistantShip.blend",
       "fbx": "Assets/Art/Models/Sea/DistantShip.fbx",
       "preview": "Art/Models/GullHarbour/Previews/Sea/DistantShip.png"
+    },
+    {
+      "asset": "Skiff",
+      "group": "Boats",
+      "triangles": 2494,
+      "dimensions_width_depth_height_m": [
+        3.58741546,
+        7.03550005,
+        1.48250002
+      ],
+      "bounds_min_blender": [
+        -1.7937077283859253,
+        -3.5455000400543213,
+        -0.800000011920929
+      ],
+      "bounds_max_blender": [
+        1.7937077283859253,
+        3.490000009536743,
+        0.6825000047683716
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 104,
+          "vertices": 63,
+          "bounds_min_blender": [
+            -1.75,
+            -3.5,
+            -0.6499999761581421
+          ],
+          "bounds_max_blender": [
+            1.75,
+            3.0,
+            0.5299999713897705
+          ],
+          "mesh_sha256": "f9914515fe5e810d4481c917852255c253c5cb62be1953dd25a384109f90fb5b",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 768,
+          "vertices": 368,
+          "bounds_min_blender": [
+            -1.5,
+            -2.5,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            1.5,
+            2.5,
+            0.0
+          ],
+          "mesh_sha256": "383f48ff249ac851b68e20e6424bd5813e865dbf81a136887a06f51d4e388f94",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "IvoryGunwale",
+          "triangles": 408,
+          "vertices": 224,
+          "bounds_min_blender": [
+            -1.7937077283859253,
+            -3.5455000400543213,
+            0.4009186029434204
+          ],
+          "bounds_max_blender": [
+            1.7937077283859253,
+            3.0440001487731934,
+            0.5999934077262878
+          ],
+          "mesh_sha256": "dd8a9b7e0d2e341c971574e31dd3511c40c54e3b0d8ea76d6a190cee1796edf5",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope"
+          ]
+        },
+        {
+          "name": "OutboardMotor",
+          "triangles": 172,
+          "vertices": 96,
+          "bounds_min_blender": [
+            -0.23000000417232513,
+            2.755493640899658,
+            -0.6200000047683716
+          ],
+          "bounds_max_blender": [
+            0.33062562346458435,
+            3.490000009536743,
+            0.5575000047683716
+          ],
+          "mesh_sha256": "494e63dcef3674837b82484136119013cdb8ba33dbfdb38d0df5e1315e6ccd2a",
+          "materials": [
+            "M_HullNavy",
+            "M_Rubber",
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Propeller",
+          "triangles": 228,
+          "vertices": 121,
+          "bounds_min_blender": [
+            -0.20000000298023224,
+            3.2699999809265137,
+            -0.800000011920929
+          ],
+          "bounds_max_blender": [
+            0.20000000298023224,
+            3.4700000286102295,
+            -0.4000000059604645
+          ],
+          "mesh_sha256": "ba7c699b3543863b35b49beef382bc1b01a730ceb1792f8a1ca556ec3c249826",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Console",
+          "triangles": 230,
+          "vertices": 124,
+          "bounds_min_blender": [
+            0.6200000047683716,
+            1.5759999752044678,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.3799999952316284,
+            2.309999942779541,
+            0.6825000047683716
+          ],
+          "mesh_sha256": "bab490bcf462278d49e222e9a3b4ec5849e7e478b7ed4c2449c0c6f3aa4a8e7a",
+          "materials": [
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_1",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            1.684999942779541,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            1.815000057220459,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "da140f548f2b30e804cc334853bf511cbb23b779d87a9304798b9713ab0e2756",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_2",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            -0.06499999761581421,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            0.06499999761581421,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "80accfe3b538e6fcc8045c37aac1baa10d890119506253be8ee8d7743435976d",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_3",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            -1.815000057220459,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            -1.684999942779541,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "da140f548f2b30e804cc334853bf511cbb23b779d87a9304798b9713ab0e2756",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "FishHold",
+          "triangles": 172,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.44999998807907104,
+            -1.5499999523162842,
+            -0.429999977350235
+          ],
+          "bounds_max_blender": [
+            0.44999998807907104,
+            -0.44999998807907104,
+            0.02500000037252903
+          ],
+          "mesh_sha256": "5410e17ff417b6ca65eb28fb60f57fe945b8440c29572fac1ef3d42940f38a25",
+          "materials": [
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HoldLid",
+          "triangles": 124,
+          "vertices": 72,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -1.5,
+            0.02500000037252903
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            -0.5,
+            0.09749999642372131
+          ],
+          "mesh_sha256": "1dc9a39ae2038b1d5ae557685ce901224c22c3500c627ba8bbdd039923a9cf5e",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel",
+            "M_WoodRecess"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "IvoryGunwale": [
+          0,
+          0,
+          0
+        ],
+        "OutboardMotor": [
+          0,
+          0,
+          0
+        ],
+        "Propeller": [
+          0,
+          3.4,
+          -0.6
+        ],
+        "Console": [
+          0,
+          0,
+          0
+        ],
+        "RodSocket_1": [
+          -1.68,
+          1.75,
+          0.45
+        ],
+        "RodSocket_2": [
+          -1.68,
+          0,
+          0.45
+        ],
+        "RodSocket_3": [
+          -1.68,
+          -1.75,
+          0.45
+        ],
+        "FishHold": [
+          0,
+          0,
+          0
+        ],
+        "HoldLid": [
+          0,
+          -0.5,
+          0.025
+        ]
+      },
+      "notes": [
+        "Hull 6.5m fore-aft x3.5m beam (motor excluded), pointed bow, flat transom. Deck 5x3m at Z=0, with genuine hold opening. Console tile c=2,r=0, Unity centre(1,0,-2). HoldLid pivot Unity(0,.025,.5), open with negative local-X rotation. Port sockets Unity(-1.68,.45,-1.75/0/+1.75). Propeller pivot Unity(0,-.60,-3.40), spins local Z. No standalone FishHold FBX needed."
+      ],
+      "source": "Art/Models/GullHarbour/Boats/Skiff.blend",
+      "fbx": "Assets/Art/Models/Boats/Skiff.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Boats/Skiff.png"
+    },
+    {
+      "asset": "HandWinch",
+      "group": "Stations",
+      "triangles": 1400,
+      "dimensions_width_depth_height_m": [
+        0.79999998,
+        0.62,
+        0.58000004
+      ],
+      "bounds_min_blender": [
+        -0.3499999940395355,
+        -0.3100000023841858,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.44999998807907104,
+        0.3100000023841858,
+        0.5800000429153442
+      ],
+      "parts": [
+        {
+          "name": "WinchFrameAndDrum",
+          "triangles": 1336,
+          "vertices": 680,
+          "bounds_min_blender": [
+            -0.3499999940395355,
+            -0.3100000023841858,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.3499999940395355,
+            0.3100000023841858,
+            0.5800000429153442
+          ],
+          "mesh_sha256": "2ad603f5a465e123a0c3e538fe5079bcb1587a671798f02437cffe3c9ea21c77",
+          "materials": [
+            "M_HullNavy",
+            "M_Rope",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Crank",
+          "triangles": 64,
+          "vertices": 36,
+          "bounds_min_blender": [
+            0.26999998092651367,
+            0.0,
+            0.3695662021636963
+          ],
+          "bounds_max_blender": [
+            0.44999998807907104,
+            0.24199999868869781,
+            0.43043380975723267
+          ],
+          "mesh_sha256": "a635b250971cb18a238b77b666d044e0155e4ddf2f5aa9bf74609d3b1a69e741",
+          "materials": [
+            "M_Rubber",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "WinchFrameAndDrum": [
+          0,
+          0,
+          0
+        ],
+        "Crank": [
+          0.29,
+          0,
+          0.4
+        ]
+      },
+      "notes": [
+        "1x1m reserved footprint; Crank Unity pivot(.29,.40,0), spin local X. Drum is static in this first kit."
+      ],
+      "source": "Art/Models/GullHarbour/Stations/HandWinch.blend",
+      "fbx": "Assets/Art/Models/Stations/HandWinch.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Stations/HandWinch.png"
+    },
+    {
+      "asset": "GillNetCoil",
+      "group": "Fishing",
+      "triangles": 904,
+      "dimensions_width_depth_height_m": [
+        0.74150002,
+        0.54598081,
+        0.18198146
+      ],
+      "bounds_min_blender": [
+        -0.3707500100135803,
+        -0.2729904055595398,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.3707500100135803,
+        0.2729904055595398,
+        0.18198145925998688
+      ],
+      "parts": [
+        {
+          "name": "GillNetCoil",
+          "triangles": 904,
+          "vertices": 558,
+          "bounds_min_blender": [
+            -0.3707500100135803,
+            -0.2729904055595398,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.3707500100135803,
+            0.2729904055595398,
+            0.18198145925998688
+          ],
+          "mesh_sha256": "f2306d4108df069ebd07112fe5733ef958253ada15c3827d08d3e8251b37544f",
+          "materials": [
+            "M_Rope",
+            "M_SafetyOrange",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "GillNetCoil": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Fishing/GillNetCoil.blend",
+      "fbx": "Assets/Art/Models/Fishing/GillNetCoil.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fishing/GillNetCoil.png"
+    },
+    {
+      "asset": "GillNetFloatLine",
+      "group": "Fishing",
+      "triangles": 588,
+      "dimensions_width_depth_height_m": [
+        2.0,
+        0.114,
+        0.114
+      ],
+      "bounds_min_blender": [
+        -1.0,
+        -0.05700000002980232,
+        -0.05700000002980232
+      ],
+      "bounds_max_blender": [
+        1.0,
+        0.05700000002980232,
+        0.05700000002980232
+      ],
+      "parts": [
+        {
+          "name": "GillNetFloatLine",
+          "triangles": 588,
+          "vertices": 312,
+          "bounds_min_blender": [
+            -1.0,
+            -0.05700000002980232,
+            -0.05700000002980232
+          ],
+          "bounds_max_blender": [
+            1.0,
+            0.05700000002980232,
+            0.05700000002980232
+          ],
+          "mesh_sha256": "1eb0ac9fc4ca497a1e0d886d41cac2cdecd94fc9037fc34a709bb6933250fad7",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "GillNetFloatLine": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "2m repeat along X, float line at waterline Z=0; four floats centred between module ends."
+      ],
+      "source": "Art/Models/GullHarbour/Fishing/GillNetFloatLine.blend",
+      "fbx": "Assets/Art/Models/Fishing/GillNetFloatLine.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fishing/GillNetFloatLine.png"
+    },
+    {
+      "asset": "GillNetSection",
+      "group": "Fishing",
+      "triangles": 332,
+      "dimensions_width_depth_height_m": [
+        2.0,
+        1.52999997,
+        0.03
+      ],
+      "bounds_min_blender": [
+        -1.0,
+        -0.7649999856948853,
+        -0.19500000774860382
+      ],
+      "bounds_max_blender": [
+        1.0,
+        0.7649999856948853,
+        -0.16500000655651093
+      ],
+      "parts": [
+        {
+          "name": "GillNetSection",
+          "triangles": 332,
+          "vertices": 216,
+          "bounds_min_blender": [
+            -1.0,
+            -0.7649999856948853,
+            -0.19500000774860382
+          ],
+          "bounds_max_blender": [
+            1.0,
+            0.7649999856948853,
+            -0.16500000655651093
+          ],
+          "mesh_sha256": "a4291b9940867d9873bbb35076f872750151118c0ca6f598b0e9f8ed9b38e57d",
+          "materials": [
+            "M_Rope",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "GillNetSection": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "2m repeat along X, 1.5m laid span; submerged at source Z=-.18, root is waterline. Coarse strands are geometry, no cloth simulation."
+      ],
+      "source": "Art/Models/GullHarbour/Fishing/GillNetSection.blend",
+      "fbx": "Assets/Art/Models/Fishing/GillNetSection.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fishing/GillNetSection.png"
+    },
+    {
+      "asset": "SortTable",
+      "group": "Stations",
+      "triangles": 536,
+      "dimensions_width_depth_height_m": [
+        1.82999998,
+        0.75999999,
+        0.63999999
+      ],
+      "bounds_min_blender": [
+        -0.9100000262260437,
+        -0.3799999952316284,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.9199999570846558,
+        0.3799999952316284,
+        0.6399999856948853
+      ],
+      "parts": [
+        {
+          "name": "SortTableFrameTrayChute",
+          "triangles": 536,
+          "vertices": 288,
+          "bounds_min_blender": [
+            -0.9100000262260437,
+            -0.3799999952316284,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.9199999570846558,
+            0.3799999952316284,
+            0.6399999856948853
+          ],
+          "mesh_sha256": "b0e760cd46eca42feec24d12f5a01969cab2876ab8ad3edf27a95b3a746f236d",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SortTableFrameTrayChute": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "2x1m reserved footprint, .55m worktop. Teal tray and descending steel chute feed an open navy bin within the same footprint; front/operator edge Unity -Z."
+      ],
+      "source": "Art/Models/GullHarbour/Stations/SortTable.blend",
+      "fbx": "Assets/Art/Models/Stations/SortTable.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Stations/SortTable.png"
     }
   ],
   "palette_srgb": {

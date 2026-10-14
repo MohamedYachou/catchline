@@ -1,6 +1,6 @@
 {
   "blender_version": "5.2.1 LTS",
-  "asset_count": 52,
+  "asset_count": 58,
   "checks": [
     {
       "asset": "CrewBody",
@@ -637,6 +637,79 @@
         2.0,
         8.0,
         2.4000001
+      ],
+      "pivots_survive_fbx_roundtrip": true
+    },
+    {
+      "asset": "Skiff",
+      "passed": true,
+      "triangles": 2494,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        3.58741546,
+        7.03550005,
+        1.48250002
+      ],
+      "pivots_survive_fbx_roundtrip": true,
+      "hold_lid_open_pose_checked": true
+    },
+    {
+      "asset": "HandWinch",
+      "passed": true,
+      "triangles": 1400,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        0.79999998,
+        0.62,
+        0.58000004
+      ],
+      "pivots_survive_fbx_roundtrip": true
+    },
+    {
+      "asset": "GillNetCoil",
+      "passed": true,
+      "triangles": 904,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        0.74150002,
+        0.54598081,
+        0.18198146
+      ],
+      "pivots_survive_fbx_roundtrip": true
+    },
+    {
+      "asset": "GillNetFloatLine",
+      "passed": true,
+      "triangles": 588,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        2.0,
+        0.114,
+        0.114
+      ],
+      "pivots_survive_fbx_roundtrip": true
+    },
+    {
+      "asset": "GillNetSection",
+      "passed": true,
+      "triangles": 332,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        2.0,
+        1.52999997,
+        0.03
+      ],
+      "pivots_survive_fbx_roundtrip": true
+    },
+    {
+      "asset": "SortTable",
+      "passed": true,
+      "triangles": 536,
+      "fbx_version": 7400,
+      "dimensions_width_depth_height_m": [
+        1.82999998,
+        0.75999999,
+        0.63999999
       ],
       "pivots_survive_fbx_roundtrip": true
     }

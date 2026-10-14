@@ -1,6 +1,6 @@
 # Gull Harbour — tier 1 modelling handoff
 
-Built with Windows **Blender 5.2.1 LTS**, headless from WSL. This batch contains **26 editable Blender assets, 26 FBXs, 26 orthographic previews**, group contact sheets and [one overview beside the concept](Previews/ContactSheet.png). The [concept sheet](../../Concepts/15-gull-harbour-tier1.png) is generated artwork; the previews show the actual meshes.
+Built with Windows **Blender 5.2.1 LTS**, headless from WSL. This batch contains **58 editable Blender assets, 58 FBXs, 58 individual orthographic previews**, group contact sheets and [one overview beside the concept](Previews/ContactSheet.png). The [concept sheet](../../Concepts/15-gull-harbour-tier1.png) is generated artwork; the previews show the actual meshes.
 
 ## Task 03 review fixes
 
@@ -121,61 +121,69 @@ Part A: pointed rowboat bow, flat transom, rising sheer, rope fender and stripe;
 
 Part B: six deck props; Plaice (0.36 m, flat) and Cod (0.70 m), each with a separate tail; seven harbour props including MarketStallAwning and 0.4 m perched Seagull with Wing_L/Wing_R; five ShopFront groups; five sea modules. Shop fronts use ground/door-centre roots, face Unity −Z, and leave the central doorway clear. Their previews are framed from the water-facing side to show papers, charts and rope displays. SandBank is exactly flat, 4 × 2 m; CliffSegment8m has matching end profiles at X ±4; DistantShip hull silhouette is 8 m fore-aft.
 
+Part C: Skiff with 5 × 3 m deck at height zero, 6.5 × 3.5 m hull (motor excluded), Propeller, HoldLid and RodSocket_1..3. Console occupies starboard/stern tile c=2, r=0 (zero-based, columns port→starboard; rows stern→bow), Unity centre (1,0,−2); this overrides the earlier forward-console suggestion in STYLE.md. HandWinch fits 1 × 1 m with Crank. GillNetCoil, GillNetFloatLine and GillNetSection provide deck storage and 2 m water modules. SortTable fits 2 × 1 m with tray, chute and bin. FishHold is included in Skiff: HoldLid rotates local X at its rear hinge; no redundant standalone hatch is supplied. No animation clips are included. Front/side/top boat views and an open-hold render accompany the focused SkiffKit and BoatViews contact sheets.
+
 New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (nets and waterline sand) need two-sided material handling at integration. Unity was not opened; Assets/Scripts and Assets/Scenes were not touched. No requested modelling work remains unfinished in the delivered parts; Unity import/material and animation integration remain for the game branch.
 
 | Asset | Triangles | Width × depth × height (m) |
 | --- | ---: | --- |
-| CrewBody | 5542 | 1.0655 × 0.3146 × 0.9500 |
-| CaptainCap | 944 | 0.3540 × 0.3930 × 0.1520 |
-| DeckhandBeanie | 452 | 0.3480 × 0.3480 × 0.1352 |
-| OilskinHood | 308 | 0.3600 × 0.2344 × 0.3570 |
-| Rowboat | 1790 | 4.5200 × 4.2850 × 1.0200 |
-| FishingRod | 1488 | 0.1785 × 0.1340 × 1.6000 |
-| Bobber | 184 | 0.0800 × 0.0800 × 0.1200 |
-| Cooler | 556 | 0.8000 × 0.5000 × 0.4500 |
-| IceBox | 652 | 0.8000 × 0.5000 × 0.4500 |
-| BaitBucket | 340 | 0.3000 × 0.3000 × 0.3669 |
-| LunchTin | 132 | 0.2500 × 0.1840 × 0.1200 |
-| Herring | 264 | 0.0575 × 0.2600 × 0.0550 |
-| Mackerel | 672 | 0.0751 × 0.3400 × 0.0679 |
-| Pollock | 264 | 0.1224 × 0.4800 × 0.1241 |
-| SeaBass | 264 | 0.1445 × 0.5000 × 0.1527 |
-| CongerEel | 248 | 0.0655 × 0.8000 × 0.0846 |
-| Quay4m | 1114 | 4.0000 × 2.0000 × 1.0330 |
-| Bollard | 268 | 0.4400 × 0.3200 × 0.4750 |
-| LampPost | 352 | 0.4200 × 0.7600 × 2.8000 |
-| HouseA | 932 | 3.4000 × 3.0800 × 3.9300 |
-| HouseB | 932 | 3.8000 × 3.2800 × 4.2300 |
-| Lighthouse | 1284 | 1.9000 × 1.9000 × 6.0000 |
-| BreakwaterRockA | 188 | 1.8000 × 1.4000 × 1.0000 |
-| BreakwaterRockB | 188 | 1.3000 × 1.1000 × 0.8000 |
-| BreakwaterRockC | 188 | 2.1000 × 1.5000 × 1.2000 |
-| KelpPatch | 168 | 1.1576 × 0.3751 × 0.0000 |
-| Quay4mLadder | 1274 | 4.0000 × 2.1300 × 1.2800 |
-| RopeCoil | 1216 | 0.6711 × 0.5614 × 0.0450 |
-| TackleBox | 236 | 0.4400 × 0.3140 × 0.3311 |
-| NetBundle | 508 | 0.5590 × 0.3460 × 0.1615 |
-| SmallAnchor | 212 | 0.5800 × 0.1400 × 0.6800 |
-| Fender | 412 | 0.2040 × 0.2040 × 0.5610 |
-| Lantern | 296 | 0.2400 × 0.2400 × 0.4870 |
-| Plaice | 420 | 0.2800 × 0.3600 × 0.0590 |
-| Cod | 284 | 0.3213 × 0.7000 × 0.2385 |
-| Barrel | 688 | 0.5920 × 0.5920 × 0.6560 |
-| CrateStack | 2244 | 0.9850 × 0.4200 × 0.6800 |
-| FishCrate | 1108 | 0.4850 × 0.3400 × 0.3350 |
-| Lifebuoy | 304 | 0.6800 × 0.1510 × 0.6800 |
-| NetRack | 372 | 1.9600 × 0.5000 × 1.6000 |
-| MarketStallAwning | 2500 | 2.4000 × 1.6400 × 2.2900 |
-| Seagull | 632 | 0.2200 × 0.4000 × 0.3400 |
-| ShopFront_FishMarket | 3484 | 2.1850 × 0.5150 × 1.8250 |
-| ShopFront_HarbourMaster | 392 | 2.6300 × 0.3000 × 2.5000 |
-| ShopFront_CrewOffice | 280 | 0.9000 × 0.1250 × 1.6000 |
-| ShopFront_Chandlery | 1600 | 2.3400 × 0.4704 × 0.8000 |
-| ShopFront_Supplies | 1860 | 2.4060 × 1.1560 × 0.6560 |
-| SandBank | 5 | 4.0000 × 2.0000 × 0.0000 |
-| SeaRockCluster | 162 | 2.2658 × 1.3386 × 0.8400 |
-| CliffSegment8m | 46 | 8.0000 × 2.8000 × 2.3000 |
-| ChannelBuoy | 240 | 0.8600 × 0.8600 × 1.5000 |
-| DistantShip | 164 | 2.0000 × 8.0000 × 2.4000 |
+| [CrewBody](Crew/CrewBody.blend) | 5542 | 1.0655 × 0.3146 × 0.9500 |
+| [CaptainCap](Crew/CaptainCap.blend) | 944 | 0.3540 × 0.3930 × 0.1520 |
+| [DeckhandBeanie](Crew/DeckhandBeanie.blend) | 452 | 0.3480 × 0.3480 × 0.1352 |
+| [OilskinHood](Crew/OilskinHood.blend) | 308 | 0.3600 × 0.2344 × 0.3570 |
+| [Rowboat](Boats/Rowboat.blend) | 1790 | 4.5200 × 4.2850 × 1.0200 |
+| [FishingRod](Fishing/FishingRod.blend) | 1488 | 0.1785 × 0.1340 × 1.6000 |
+| [Bobber](Fishing/Bobber.blend) | 184 | 0.0800 × 0.0800 × 0.1200 |
+| [Cooler](DeckProps/Cooler.blend) | 556 | 0.8000 × 0.5000 × 0.4500 |
+| [IceBox](DeckProps/IceBox.blend) | 652 | 0.8000 × 0.5000 × 0.4500 |
+| [BaitBucket](DeckProps/BaitBucket.blend) | 340 | 0.3000 × 0.3000 × 0.3669 |
+| [LunchTin](DeckProps/LunchTin.blend) | 132 | 0.2500 × 0.1840 × 0.1200 |
+| [Herring](Fish/Herring.blend) | 264 | 0.0575 × 0.2600 × 0.0550 |
+| [Mackerel](Fish/Mackerel.blend) | 672 | 0.0751 × 0.3400 × 0.0679 |
+| [Pollock](Fish/Pollock.blend) | 264 | 0.1224 × 0.4800 × 0.1241 |
+| [SeaBass](Fish/SeaBass.blend) | 264 | 0.1445 × 0.5000 × 0.1527 |
+| [CongerEel](Fish/CongerEel.blend) | 248 | 0.0655 × 0.8000 × 0.0846 |
+| [Quay4m](Harbour/Quay4m.blend) | 1114 | 4.0000 × 2.0000 × 1.0330 |
+| [Bollard](Harbour/Bollard.blend) | 268 | 0.4400 × 0.3200 × 0.4750 |
+| [LampPost](Harbour/LampPost.blend) | 352 | 0.4200 × 0.7600 × 2.8000 |
+| [HouseA](Harbour/HouseA.blend) | 932 | 3.4000 × 3.0800 × 3.9300 |
+| [HouseB](Harbour/HouseB.blend) | 932 | 3.8000 × 3.2800 × 4.2300 |
+| [Lighthouse](Harbour/Lighthouse.blend) | 1284 | 1.9000 × 1.9000 × 6.0000 |
+| [BreakwaterRockA](Harbour/BreakwaterRockA.blend) | 188 | 1.8000 × 1.4000 × 1.0000 |
+| [BreakwaterRockB](Harbour/BreakwaterRockB.blend) | 188 | 1.3000 × 1.1000 × 0.8000 |
+| [BreakwaterRockC](Harbour/BreakwaterRockC.blend) | 188 | 2.1000 × 1.5000 × 1.2000 |
+| [KelpPatch](Harbour/KelpPatch.blend) | 168 | 1.1576 × 0.3751 × 0.0000 |
+| [Quay4mLadder](Harbour/Quay4mLadder.blend) | 1274 | 4.0000 × 2.1300 × 1.2800 |
+| [RopeCoil](DeckProps/RopeCoil.blend) | 1216 | 0.6711 × 0.5614 × 0.0450 |
+| [TackleBox](DeckProps/TackleBox.blend) | 236 | 0.4400 × 0.3140 × 0.3311 |
+| [NetBundle](DeckProps/NetBundle.blend) | 508 | 0.5590 × 0.3460 × 0.1615 |
+| [SmallAnchor](DeckProps/SmallAnchor.blend) | 212 | 0.5800 × 0.1400 × 0.6800 |
+| [Fender](DeckProps/Fender.blend) | 412 | 0.2040 × 0.2040 × 0.5610 |
+| [Lantern](DeckProps/Lantern.blend) | 296 | 0.2400 × 0.2400 × 0.4870 |
+| [Plaice](Fish/Plaice.blend) | 420 | 0.2800 × 0.3600 × 0.0590 |
+| [Cod](Fish/Cod.blend) | 284 | 0.3213 × 0.7000 × 0.2385 |
+| [Barrel](Harbour/Barrel.blend) | 688 | 0.5920 × 0.5920 × 0.6560 |
+| [CrateStack](Harbour/CrateStack.blend) | 2244 | 0.9850 × 0.4200 × 0.6800 |
+| [FishCrate](Harbour/FishCrate.blend) | 1108 | 0.4850 × 0.3400 × 0.3350 |
+| [Lifebuoy](Harbour/Lifebuoy.blend) | 304 | 0.6800 × 0.1510 × 0.6800 |
+| [NetRack](Harbour/NetRack.blend) | 372 | 1.9600 × 0.5000 × 1.6000 |
+| [MarketStallAwning](Harbour/MarketStallAwning.blend) | 2500 | 2.4000 × 1.6400 × 2.2900 |
+| [Seagull](Harbour/Seagull.blend) | 632 | 0.2200 × 0.4000 × 0.3400 |
+| [ShopFront_FishMarket](Harbour/ShopFront_FishMarket.blend) | 3484 | 2.1850 × 0.5150 × 1.8250 |
+| [ShopFront_HarbourMaster](Harbour/ShopFront_HarbourMaster.blend) | 392 | 2.6300 × 0.3000 × 2.5000 |
+| [ShopFront_CrewOffice](Harbour/ShopFront_CrewOffice.blend) | 280 | 0.9000 × 0.1250 × 1.6000 |
+| [ShopFront_Chandlery](Harbour/ShopFront_Chandlery.blend) | 1600 | 2.3400 × 0.4704 × 0.8000 |
+| [ShopFront_Supplies](Harbour/ShopFront_Supplies.blend) | 1860 | 2.4060 × 1.1560 × 0.6560 |
+| [SandBank](Sea/SandBank.blend) | 5 | 4.0000 × 2.0000 × 0.0000 |
+| [SeaRockCluster](Sea/SeaRockCluster.blend) | 162 | 2.2658 × 1.3386 × 0.8400 |
+| [CliffSegment8m](Sea/CliffSegment8m.blend) | 46 | 8.0000 × 2.8000 × 2.3000 |
+| [ChannelBuoy](Sea/ChannelBuoy.blend) | 240 | 0.8600 × 0.8600 × 1.5000 |
+| [DistantShip](Sea/DistantShip.blend) | 164 | 2.0000 × 8.0000 × 2.4000 |
+| [Skiff](Boats/Skiff.blend) | 2494 | 3.5874 × 7.0355 × 1.4825 |
+| [HandWinch](Stations/HandWinch.blend) | 1400 | 0.8000 × 0.6200 × 0.5800 |
+| [GillNetCoil](Fishing/GillNetCoil.blend) | 904 | 0.7415 × 0.5460 × 0.1820 |
+| [GillNetFloatLine](Fishing/GillNetFloatLine.blend) | 588 | 2.0000 × 0.1140 × 0.1140 |
+| [GillNetSection](Fishing/GillNetSection.blend) | 332 | 2.0000 × 1.5300 × 0.0300 |
+| [SortTable](Stations/SortTable.blend) | 536 | 1.8300 × 0.7600 × 0.6400 |
 
-Rebuild additions with `build_task04.py -- B` or `-- C`; Part A uses the existing builder. Then run `validate_gull_harbour.py`, `gull_contact_sheets.py` and `task04_report.py`. Detailed part pivots and notes are in build-metrics.json.
+Rebuild additions with `build_task04.py -- B` or `-- C`; Part A uses the existing builder. Then run `validate_gull_harbour.py`, `gull_contact_sheets.py` and `task04_report.py`. Additional boat views use `render_task04_boat_views.py` before composing contacts. Detailed part pivots and notes are in build-metrics.json.

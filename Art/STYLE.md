@@ -199,3 +199,9 @@ The [UI handoff](../Assets/Art/UI/UI.md) documents 44 transparent PNG sprites, t
 The expanded Gull Harbour inventory is measured in [REPORT.md](Models/GullHarbour/REPORT.md). Dressing reuses the canonical palette, without new material names. Rope coils, coarse nets, a navy tackle box, muted anchor, ivory/orange fender and warm lantern support the boats. Plaice lies flat with both eyes on top; Cod retains a separate tail and a short chin barbel. Perched Seagull is 0.4 m nose-to-tail with separate wing pivots.
 
 ShopFront_FishMarket, ShopFront_HarbourMaster, ShopFront_CrewOffice, ShopFront_Chandlery and ShopFront_Supplies have ground roots at the door centre, front facing Unity −Z; place the root at the building door rather than centring the decoration bounds. They leave a central approach clear. MarketStallAwning is a separate open stall. SandBank is exactly flat at waterline, 4 × 2 m; CliffSegment8m repeats along X with matching ends and a level green top. Two-sided material handling is required for views below flat sea dressing.
+
+## Task 04 skiff kit
+
+Skiff keeps hull 2’s 5 × 3 m build deck centred at Y=0, with bow +Z and a 6.5 × 3.5 m hull envelope excluding the motor. Task 04 supersedes the forward-console proposal: the low console occupies stern-starboard tile c=2, r=0 (zero-based columns port→starboard, rows stern→bow), Unity centre (1,0,−2). Three port rod sockets sit at Unity Z=−1.75, 0, +1.75. Propeller spins around local Z. The open hold is built into the deck; HoldLid rotates about local X, from its hinge at Unity (0,.025,.5).
+
+HandWinch reserves 1 × 1 m with a separate Crank. SortTable reserves 2 × 1 m; its .55 m worktop, tray, chute and open bin stay within that footprint. GillNetCoil sits on deck; GillNetFloatLine and GillNetSection repeat every 2 m along local X. The float-line root is at waterline, and laid mesh lies .18 m below it. The kit has coarse visible geometry and no simulation or animation clips.

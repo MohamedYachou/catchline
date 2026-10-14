@@ -252,7 +252,120 @@ B_ASSETS={
  **{'ShopFront_'+n:('Harbour',lambda n=n:shop(n)) for n in ('FishMarket','HarbourMaster','CrewOffice','Chandlery','Supplies')},
  **{n:('Sea',lambda n=n:sea(n)) for n in ('SandBank','SeaRockCluster','CliffSegment8m','ChannelBuoy','DistantShip')},
 }
-C_ASSETS={}
+def skiff():
+    outline=[(-1.48,3), (1.48,3),(1.75,2.5),(1.75,-2.5),(.95,-3.13),(0,-3.5),(-.95,-3.13),(-1.75,-2.5),(-1.75,2.5)]
+    n=len(outline);g=G()
+    levels=[(.60,.88,-.65),(.88,.96,-.18),(1,1,.44),(.94,.97,.44),(.78,.90,-.55)]
+    verts=[(x*sx,y*sy,z+(.09*(abs(y)/3.5)**2 if z>.4 else 0)) for sx,sy,z in levels for x,y in outline]
+    for j in range(4):g.add(verts[j*n:(j+2)*n],[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)],NAVY if j<2 else WOOD)
+    g.add(verts[:n],[tuple(reversed(range(n)))],NAVY);g.add(verts[-n:],[tuple(range(n))],WOOD)
+    v=[(x*sx,y*sy,z) for sx,sy,z in ((.85,.95,-.28),(.91,.973,-.18)) for x,y in outline]
+    g.add(v,[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)],ORANGE)
+    part('Hull',g)
+    deck=G()
+    def plank(x0,x1,y0,y1,col):
+        if x1-x0>1e-6:box(deck,((x0+x1)/2,(y0+y1)/2,-.025),(x1-x0,y1-y0,.05),col,.003)
+    for i in range(12):
+        x0=-1.5+i*.25;x1=x0+.25;col=WOOD if i%3 else 'M_WoodHighlight'
+        if x1<=-.4 or x0>=.4:plank(x0,x1,-2.5,2.5,col)
+        else:
+            plank(x0,x1,-2.5,-1.5,col);plank(x0,x1,-.5,2.5,col)
+            if x0<-.4:plank(x0,-.4,-1.5,-.5,col)
+            if x1>.4:plank(.4,x1,-1.5,-.5,col)
+    part('PlankDeck',deck)
+    rail=G()
+    for i,(x,y) in enumerate(outline):
+        q=outline[(i+1)%n]
+        rail.beam((x*.97,y*.985,.47+.09*(abs(y)/3.5)**2),(q[0]*.97,q[1]*.985,.47+.09*(abs(q[1])/3.5)**2),.11,.08,IVORY,.012)
+    path=[(x*1.005,y*1.003,.39+.09*(abs(y)/3.5)**2) for x,y in outline]
+    rail.tube(path+[path[0]],[.035]*(len(path)+1),8,ROPE);part('IvoryGunwale',rail)
+    motor=G();box(motor,(0,3.22,.35),(.45,.42,.40),NAVY,.06)
+    box(motor,(0,3.22,.51),(.46,.43,.095),ORANGE,.025)
+    motor.beam((0,3.24,.18),(0,3.32,-.60),.13,.15,STEEL,.015)
+    box(motor,(0,3.33,-.58),(.23,.32,.08),NAVY,.018)
+    motor.beam((0,3.0,.29),(.32,2.77,.30),.035,.04,'M_Rubber');part('OutboardMotor',motor)
+    prop=G();prop.tube([(0,3.27,-.60),(0,3.47,-.60)],[.045,.03],10,STEEL)
+    for x,z,rx,rz in ((.10,-.60,.10,.045),(-.10,-.60,.10,.045),(0,-.50,.045,.10),(0,-.70,.045,.10)):
+        prop.ellipsoid((x,3.40,z),(rx,.015,rz),8,3,STEEL)
+    part('Propeller',prop,(0,3.40,-.60))
+    console=G();box(console,(1,2,.32),(.72,.62,.64),IVORY,.055)
+    box(console,(1,1.98,.65),(.76,.65,.065),NAVY,.018)
+    box(console,(1,1.65,.57),(.32,.035,.14),'M_HullBlue',.01)
+    console.torus((1,1.60,.48),.17,.024,STEEL)
+    for dx,dz in ((-.14,0),(.14,0),(0,.14)):console.beam((1,1.60,.48),(1+dx,1.60,.48+dz),.02,.02,STEEL)
+    part('Console',console)
+    for i,y in enumerate((1.75,0,-1.75),1):
+        sock=G();ring(sock,.065,.016,.45,.61,STEEL,(-1.68,y),12)
+        part('RodSocket_'+str(i),sock,(-1.68,y,.45))
+    hold=G();tub=G();tub.rectangle_ring(.86,1.06,.035,-.40,.018,.03,TEAL)
+    box(tub,(0,0,-.415),(.86,1.06,.03),TEAL,.008)
+    tub.rectangle_ring(.90,1.10,.045,.002,.025,.03,STEEL);hold.merge(tub,(0,-1,0));part('FishHold',hold)
+    lid=G();box(lid,(0,-1,.046),(.80,1,.042),WOOD,.008)
+    for x in (-.25,0,.25):lid.beam((x,-1.45,.069),(x,-.55,.069),.006,.004,'M_WoodRecess')
+    box(lid,(0,-1.32,.08),(.16,.07,.035),STEEL,.008)
+    part('HoldLid',lid,(0,-.5,.025))
+    K.NOTES.append('Hull 6.5m fore-aft x3.5m beam (motor excluded), pointed bow, flat transom. Deck 5x3m at Z=0, with genuine hold opening. Console tile c=2,r=0, Unity centre(1,0,-2). HoldLid pivot Unity(0,.025,.5), open with negative local-X rotation. Port sockets Unity(-1.68,.45,-1.75/0/+1.75). Propeller pivot Unity(0,-.60,-3.40), spins local Z. No standalone FishHold FBX needed.')
+
+def winch():
+    g=G();box(g,(0,0,.055),(.70,.62,.11),NAVY,.02)
+    for x in (-.26,.26):
+        box(g,(x,0,.25),(.07,.44,.39),NAVY,.015)
+    g.tube([(-.22,0,.40),(.22,0,.40)],[.135,.135],16,ROPE)
+    for x in (-.23,.20):g.tube([(x,0,.40),(x+.03,0,.40)],[.18,.18],16,STEEL)
+    for i in range(8):
+        x=-.18+i*.05
+        a=G();ring(a,.14,.01,x,x+.02,ROPE,sides=16)
+        a.vertices=[(z,y,.40+xx) for xx,y,z in a.vertices];g.merge(a)
+    part('WinchFrameAndDrum',g)
+    crank=G();crank.beam((.29,0,.40),(.29,.21,.40),.04,.04,ORANGE,.008)
+    crank.tube([(.29,.21,.40),(.45,.21,.40)],[.032,.032],10,'M_Rubber')
+    part('Crank',crank,(.29,0,.40))
+    K.NOTES.append('1x1m reserved footprint; Crank Unity pivot(.29,.40,0), spin local X. Drum is static in this first kit.')
+
+def gillnet(name):
+    g=G()
+    if name=='GillNetCoil':
+        for i in range(6):net(g,.72-i*.025,.38,.025+i*.025,offset=(.025*(i%2),0,0))
+        for x in (-.22,0,.22):g.ellipsoid((x,-.21,.11),(.045,.045,.075),10,4,ORANGE)
+        for x in (-.22,.22):g.tube([(x,-.27,.04),(x,-.27,.19),(x,.25,.19),(x,.25,.04)],[.015]*4,6,ROPE)
+        grounded(g)
+    elif name=='GillNetFloatLine':
+        g.tube([(-1,0,0),(1,0,0)],[.012,.012],8,ROPE)
+        for x in (-.75,-.25,.25,.75):
+            g.ellipsoid((x,0,0),(.09,.055,.055),12,4,ORANGE)
+            g.tube([(x-.016,0,0),(x+.016,0,0)],[.057,.057],12,IVORY)
+        K.NOTES.append('2m repeat along X, float line at waterline Z=0; four floats centred between module ends.')
+    else:
+        net(g,2,1.5,-.18)
+        for y in (-.75,.75):g.tube([(-1,y,-.18),(1,y,-.18)],[.015,.015],8,ROPE)
+        # Exact 2m longitudinal span despite the mesh's thick border strands.
+        lo=min(v[0] for v in g.vertices);hi=max(v[0] for v in g.vertices)
+        g.vertices=[((x-(lo+hi)/2)*2/(hi-lo),y,z) for x,y,z in g.vertices]
+        K.NOTES.append('2m repeat along X, 1.5m laid span; submerged at source Z=-.18, root is waterline. Coarse strands are geometry, no cloth simulation.')
+    part(name,g)
+
+def sort_table():
+    g=G()
+    for x in (-.80,.22):
+        for y in (-.28,.28):box(g,(x,y,.25),(.09,.09,.50),NAVY,.008)
+    box(g,(-.3,0,.525),(1.22,.76,.05),STEEL,.02)
+    tray=G();box(tray,(0,0,.568),(1.03,.57,.025),TEAL,.008)
+    tray.rectangle_ring(1.03,.57,.03,.572,.64,.04,TEAL);g.merge(tray,(-.3,0,0))
+    chute=G();chute.extrude_polygon([(.17,-.16),(.48,-.16),(.48,.16),(.17,.16)],.49,.52,STEEL)
+    chute.vertices=[(x,y,z-.10*(x-.17)/.31) for x,y,z in chute.vertices];g.merge(chute)
+    for y in (-.16,.16):g.beam((.17,y,.56),(.48,y,.46),.025,.025,IVORY)
+    bin_geom=G();box(bin_geom,(0,0,.025),(.50,.63,.05),NAVY,.01)
+    bin_geom.rectangle_ring(.50,.63,.025,.04,.39,.035,NAVY)
+    bin_geom.rectangle_ring(.54,.67,.03,.38,.42,.035,IVORY);g.merge(bin_geom,(.65,0,0))
+    part('SortTableFrameTrayChute',g)
+    K.NOTES.append('2x1m reserved footprint, .55m worktop. Teal tray and descending steel chute feed an open navy bin within the same footprint; front/operator edge Unity -Z.')
+
+C_ASSETS={
+    'Skiff':('Boats',skiff),'HandWinch':('Stations',winch),
+    **{n:('Fishing',lambda n=n:gillnet(n)) for n in ('GillNetCoil','GillNetFloatLine','GillNetSection')},
+    'SortTable':('Stations',sort_table),
+}
+
 
 def register():
     K.FISH['Cod']=(.70,.145,.135,'M_KelpGreen')
