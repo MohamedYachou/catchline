@@ -111,6 +111,20 @@ namespace Catchline.EditorTools
             // A shot of the harbour before the bot sails.
             game.Tick(0.2f);
             Render(game.Cam, path.Replace(".png", "-harbour.png"), 1600, 900);
+            if (Arg("-showcase", "0") == "1")
+            {
+                // One shot per sea at the fishing camera, then the harbour wide and the deck close.
+                for (int k = 0; k < GameData.Spots.Length; k++)
+                {
+                    game.Showcase(k, 0f);
+                    Render(game.Cam, path.Replace(".png", $"-sea{k}.png"), 1600, 900);
+                }
+                game.Showcase(-1, 3f);
+                Render(game.Cam, path.Replace(".png", "-harbour-wide.png"), 1600, 900);
+                game.Showcase(-2, -1.4f);
+                Render(game.Cam, path.Replace(".png", "-deck.png"), 1600, 900);
+                game.Showcase(-1, 0f);
+            }
             game.Tick(0.3f);
 
             int logged = 0;

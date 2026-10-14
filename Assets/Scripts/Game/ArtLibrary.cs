@@ -12,8 +12,23 @@ namespace Catchline.Game
         public GameObject[] Fish = new GameObject[7]; // indexed by Species
         public Texture2D[] Ui;                         // Codex's UI kit, looked up by file name
         public Font UiFont;
+        public GameObject[] Models;                    // every FBX under Assets/Art/Models, looked up by file name
 
         System.Collections.Generic.Dictionary<string, Texture2D> uiByName;
+        System.Collections.Generic.Dictionary<string, GameObject> modelByName;
+
+        // Any model by its FBX file name ("Barrel", "ShopFront_Chandlery"); null when Codex hasn't delivered it yet.
+        public GameObject M(string name)
+        {
+            if (modelByName == null)
+            {
+                modelByName = new();
+                if (Models != null)
+                    foreach (var m in Models)
+                        if (m != null) modelByName[m.name] = m;
+            }
+            return modelByName.TryGetValue(name, out var go) ? go : null;
+        }
 
         public Texture2D UiTex(string name)
         {

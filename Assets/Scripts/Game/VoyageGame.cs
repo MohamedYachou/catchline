@@ -168,6 +168,7 @@ namespace Catchline.Game
                 iceBoxModel = ArtLibrary.Spawn(lib.IceBox, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
                 if (lib.BaitBucket != null) ArtLibrary.Spawn(lib.BaitBucket, Boat, new Vector3(0.25f, 0f, 1.25f), Quaternion.identity);
                 if (lib.LunchTin != null) ArtLibrary.Spawn(lib.LunchTin, Boat, new Vector3(1.75f, 0f, 1.3f), Quaternion.Euler(0f, 20f, 0f));
+                DressDeck(lib);
             }
             else
             {
@@ -264,7 +265,7 @@ namespace Catchline.Game
                     if (lib != null && lib.Bollard != null) Place(lib.Bollard, new Vector3(x, quayTop, 2.6f));
                     else Visuals.Prim(PrimitiveType.Cylinder, "Bollard", root, new Vector3(x, quayTop + 0.2f, 2.6f), new Vector3(0.25f, 0.2f, 0.25f), Palette.Rubber);
                 }
-                foreach (float x in new[] { -6.5f, -0.6f, 5.5f })
+                foreach (float x in new[] { -3.8f, 3.4f, 10.6f })
                 {
                     if (lib != null && lib.LampPost != null) Place(lib.LampPost, new Vector3(x, quayTop, 4.0f));
                     else Visuals.Prim(PrimitiveType.Cylinder, "Lamp", root, new Vector3(x, quayTop + 0.75f, 4.0f), new Vector3(0.07f, 0.75f, 0.07f), Palette.Rubber);
@@ -294,8 +295,16 @@ namespace Catchline.Game
                         roof.transform.localRotation = Quaternion.Euler(45f, 0f, 0f);
                         Visuals.Box("Door", root, new Vector3(x, quayTop + 0.45f, 5.38f), new Vector3(0.5f, 0.9f, 0.05f), Palette.HullNavy);
                     }
-                    var board = Visuals.Box("Sign", root, new Vector3(x, quayTop + 1.55f, 5.05f), new Vector3(2.2f, 0.42f, 0.06f), Palette.HullNavy);
-                    var label = Visuals.Label("SignText", board.transform.parent, new Vector3(x, quayTop + 1.42f, 5.0f), 0.032f);
+                    // Codex's shop front (awning, displays, door frame) on the water-facing wall; the sign sits above it.
+                    var front = lib?.M(ShopFronts[i]);
+                    float signY = 1.55f;
+                    if (front != null)
+                    {
+                        Place(front, new Vector3(x, quayTop, 4.95f));
+                        signY = Mathf.Max(signY, ModelHeight(front) + 0.35f);
+                    }
+                    var board = Visuals.Box("Sign", root, new Vector3(x, quayTop + signY, 5.05f), new Vector3(2.2f, 0.42f, 0.06f), Palette.HullNavy);
+                    var label = Visuals.Label("SignText", board.transform.parent, new Vector3(x, quayTop + signY - 0.13f, 5.0f), 0.032f);
                     label.text = sign;
                     label.color = Palette.Cream;
                     label.fontStyle = FontStyle.Bold;
@@ -306,66 +315,12 @@ namespace Catchline.Game
                     Shops.Add((anchor, tab));
                 }
                 // A neighbour's boat moored further along, crates on the quay.
-                if (lib != null && lib.Rowboat != null) Place(lib.Rowboat, new Vector3(-6f, 0f, 1.3f), -90f);
+                var neighbour = lib?.M("Rowboat_VariantRed") ?? lib?.Rowboat;
+                if (neighbour != null) Place(neighbour, new Vector3(-6.5f, 0f, 0.75f), -90f).AddComponent<Floater>();
                 else Visuals.Box("OtherBoat", root, new Vector3(-6.5f, -0.25f, 1.2f), new Vector3(3.6f, 0.55f, 1.6f), Palette.Hex("B8473A"));
-                Visuals.Box("Crates", root, new Vector3(3.0f, quayTop + 0.2f, 3.6f), new Vector3(0.5f, 0.4f, 0.4f), Palette.HullNavy);
-                Visuals.Box("Crates2", root, new Vector3(3.5f, quayTop + 0.2f, 3.8f), new Vector3(0.5f, 0.4f, 0.4f), Palette.Rail);
+                DressHarbour(root, lib, quayTop, R);
             }
-            else if (kind == 0)
-            {
-                for (int i = 0; i < 14; i++) Rock(new Vector3(-9f + i * 1.1f, R(-0.2f, 0.1f), 6.5f + R(-0.3f, 0.3f)), R(0.9f, 1.4f));
-                if (lib != null && lib.Lighthouse != null) Place(lib.Lighthouse, new Vector3(7f, 0.2f, 6.6f));
-                else
-                {
-                    Visuals.Prim(PrimitiveType.Cylinder, "Lighthouse", root, new Vector3(7f, 1.6f, 6.6f), new Vector3(1f, 1.8f, 1f), Palette.Rail);
-                    Visuals.Prim(PrimitiveType.Cylinder, "Band", root, new Vector3(7f, 2.0f, 6.6f), new Vector3(1.04f, 0.3f, 1.04f), Palette.Bad);
-                }
-                Visuals.Box("Pier", root, new Vector3(7f, -0.1f, 5.5f), new Vector3(2.4f, 0.6f, 2.4f), stone);
-                Visuals.Prim(PrimitiveType.Sphere, "Buoy", root, new Vector3(-3f, -0.25f, -3.5f), Vector3.one * 0.35f, Palette.Accent);
-            }
-            else if (kind == 1)
-            {
-                var kelp = Palette.Hex("3F6B38");
-                for (int i = 0; i < 24; i++)
-                {
-                    var p = new Vector3(R(-10f, 13f), -0.305f, R(-8f, 7f));
-                    if (p.x > -2f && p.x < 4f && p.z > -1.4f && p.z < 2.4f) continue;
-                    if (lib != null && lib.Kelp != null) Place(lib.Kelp, new Vector3(p.x, -0.31f, p.z), R(0f, 360f), R(1.2f, 2.6f));
-                    else
-                    {
-                        var k = Visuals.Prim(PrimitiveType.Cylinder, "Kelp", root, p, new Vector3(R(0.8f, 2.2f), 0.004f, R(0.5f, 1.4f)), i % 3 == 0 ? kelp * 1.2f : kelp);
-                        k.transform.localRotation = Quaternion.Euler(0f, R(0f, 180f), 0f);
-                    }
-                }
-                Rock(new Vector3(8f, -0.1f, 4f), 1.3f);
-            }
-            else if (kind == 2)
-            {
-                // Sandbar: pale sand banks just breaking the surface.
-                var sand = Palette.Hex("E3CF9C");
-                for (int i = 0; i < 8; i++)
-                {
-                    var p = new Vector3(R(-10f, 13f), -0.33f, R(3f, 8f));
-                    var bank = Visuals.Prim(PrimitiveType.Sphere, "SandBank", root, p, new Vector3(R(2.5f, 5f), 0.12f, R(1.2f, 2.4f)), sand);
-                    bank.transform.localRotation = Quaternion.Euler(0f, R(-20f, 20f), 0f);
-                }
-                for (int i = 0; i < 3; i++) Rock(new Vector3(R(-8f, 10f), -0.2f, R(4f, 7f)), R(0.6f, 0.9f));
-            }
-            else if (kind == 3)
-            {
-                for (int i = 0; i < 9; i++) Rock(new Vector3(R(-10f, 12f), R(-0.2f, 0.3f), R(4f, 7f)), R(1.2f, 2.6f));
-                for (int i = 0; i < 4; i++) Rock(new Vector3(R(-9f, 10f), -0.2f, R(-8f, -5f)), R(0.8f, 1.4f));
-                Visuals.Box("Cliff", root, new Vector3(1f, 1.2f, 9.5f), new Vector3(40f, 3.4f, 3f), Palette.Hex("7C7A6E"));
-                Visuals.Box("CliffTop", root, new Vector3(1f, 2.95f, 9.5f), new Vector3(40f, 0.15f, 3f), Palette.Hex("6C8F4A"));
-            }
-            else
-            {
-                // Deep channel: open water, a channel buoy and a ship on the horizon.
-                Visuals.Prim(PrimitiveType.Cylinder, "ChannelBuoy", root, new Vector3(-4f, 0.1f, -3f), new Vector3(0.45f, 0.45f, 0.45f), Palette.Bad);
-                Visuals.Prim(PrimitiveType.Sphere, "BuoyTop", root, new Vector3(-4f, 0.65f, -3f), Vector3.one * 0.3f, Palette.Oilskin);
-                Visuals.Box("FarShip", root, new Vector3(9f, 0.2f, 9f), new Vector3(6f, 1.2f, 1.4f), Palette.Hex("5A6670"));
-                Visuals.Box("FarShipHouse", root, new Vector3(10.5f, 1.2f, 9f), new Vector3(1.6f, 1f, 1.2f), Palette.Rail);
-            }
+            else BuildSea(kind, root, lib, R, Rock);
             return root;
         }
 

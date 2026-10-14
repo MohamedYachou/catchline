@@ -73,7 +73,13 @@ namespace Catchline.EditorTools
             lib.RockB = Model("Harbour/BreakwaterRockB");
             lib.RockC = Model("Harbour/BreakwaterRockC");
             lib.Kelp = Model("Harbour/KelpPatch");
-            lib.Fish = new[] { Model("Fish/Herring"), Model("Fish/Mackerel"), Model("Fish/Pollock"), Model("Fish/SeaBass"), Model("Fish/CongerEel"), null, null };
+            lib.Fish = new[] { Model("Fish/Herring"), Model("Fish/Mackerel"), Model("Fish/Pollock"), Model("Fish/SeaBass"), Model("Fish/CongerEel"), Model("Fish/Plaice"), Model("Fish/Cod") };
+            lib.Models = Directory.GetFiles(Path.GetFullPath("Assets/Art/Models"), "*.fbx", SearchOption.AllDirectories)
+                .Select(p => "Assets/Art/Models/" + Path.GetRelativePath(Path.GetFullPath("Assets/Art/Models"), p).Replace('\\', '/'))
+                .Select(p => AssetDatabase.LoadAssetAtPath<GameObject>(p))
+                .Where(g => g != null)
+                .ToArray();
+            Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
             var pngs = Directory.GetFiles(Path.GetFullPath(UiFolder), "*.png");
             lib.Ui = pngs
                 .Select(p => UiFolder + Path.GetFileName(p))
