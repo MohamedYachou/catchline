@@ -1,0 +1,2030 @@
+{
+  "blender_version": "5.2.1 LTS",
+  "assets": [
+    {
+      "asset": "CrewBody",
+      "group": "Crew",
+      "triangles": 5542,
+      "dimensions_width_depth_height_m": [
+        1.06549186,
+        0.31463689,
+        0.94999999
+      ],
+      "bounds_min_blender": [
+        -0.5322136282920837,
+        -0.17032738029956818,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.533278226852417,
+        0.14430950582027435,
+        0.949999988079071
+      ],
+      "parts": [
+        {
+          "name": "CrewBody",
+          "triangles": 4884,
+          "vertices": 2444,
+          "bounds_min_blender": [
+            -0.5322136282920837,
+            -0.17032738029956818,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.533278226852417,
+            0.14430950582027435,
+            0.949999988079071
+          ],
+          "mesh_sha256": "eed929aa0b26afd61c92c980940ae2927ce73f968807f9d3d1c5047c7dcac1a9",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_Rubber",
+            "M_Skin"
+          ]
+        },
+        {
+          "name": "FaceAndButtons",
+          "triangles": 658,
+          "vertices": 349,
+          "bounds_min_blender": [
+            -0.12700000405311584,
+            -0.16200000047683716,
+            0.531000018119812
+          ],
+          "bounds_max_blender": [
+            0.12700000405311584,
+            -0.07511492073535919,
+            0.9279999732971191
+          ],
+          "mesh_sha256": "d18746def15d26b8c8e1dbcd3a9e69354e0074a9443c083e03658a75b15eedba",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_Rubber"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CrewBody": [
+          0,
+          0,
+          0
+        ],
+        "FaceAndButtons": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "One continuous closed all-quad CrewBody, symmetric T-pose,0.95m feet-to-scalp. No armature. Separate face/buttons. Hat seat anchor source(0,0,0.91), Unity(0,0.91,0). Mixamo service not run."
+      ],
+      "source": "Art/Models/GullHarbour/Crew/CrewBody.blend",
+      "fbx": "Assets/Art/Models/Crew/CrewBody.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Crew/CrewBody.png",
+      "crew_quads": 2442,
+      "crew_nonquads": 0
+    },
+    {
+      "asset": "CaptainCap",
+      "group": "Crew",
+      "triangles": 444,
+      "dimensions_width_depth_height_m": [
+        0.354,
+        0.381,
+        0.125
+      ],
+      "bounds_min_blender": [
+        -0.1770000010728836,
+        -0.20399999618530273,
+        -0.004999999888241291
+      ],
+      "bounds_max_blender": [
+        0.1770000010728836,
+        0.1770000010728836,
+        0.11999999731779099
+      ],
+      "parts": [
+        {
+          "name": "CaptainCap",
+          "triangles": 444,
+          "vertices": 228,
+          "bounds_min_blender": [
+            -0.1770000010728836,
+            -0.20399999618530273,
+            -0.004999999888241291
+          ],
+          "bounds_max_blender": [
+            0.1770000010728836,
+            0.1770000010728836,
+            0.11999999731779099
+          ],
+          "mesh_sha256": "62f715cf254d285ea269e31c49ef3a7fd0343d844e0160da726c011250715c11",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CaptainCap": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Crew/CaptainCap.blend",
+      "fbx": "Assets/Art/Models/Crew/CaptainCap.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Crew/CaptainCap.png"
+    },
+    {
+      "asset": "DeckhandBeanie",
+      "group": "Crew",
+      "triangles": 452,
+      "dimensions_width_depth_height_m": [
+        0.34799999,
+        0.34799999,
+        0.13520001
+      ],
+      "bounds_min_blender": [
+        -0.17399999499320984,
+        -0.17399999499320984,
+        -0.007799999788403511
+      ],
+      "bounds_max_blender": [
+        0.17399999499320984,
+        0.17399999499320984,
+        0.1274000108242035
+      ],
+      "parts": [
+        {
+          "name": "DeckhandBeanie",
+          "triangles": 452,
+          "vertices": 230,
+          "bounds_min_blender": [
+            -0.17399999499320984,
+            -0.17399999499320984,
+            -0.007799999788403511
+          ],
+          "bounds_max_blender": [
+            0.17399999499320984,
+            0.17399999499320984,
+            0.1274000108242035
+          ],
+          "mesh_sha256": "297e29da6f4211b4b2a3ca1561ddfdcd3e3b628f8ce72b7c9c876dd669f84a52",
+          "materials": [
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "DeckhandBeanie": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Crew/DeckhandBeanie.blend",
+      "fbx": "Assets/Art/Models/Crew/DeckhandBeanie.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Crew/DeckhandBeanie.png"
+    },
+    {
+      "asset": "OilskinHood",
+      "group": "Crew",
+      "triangles": 308,
+      "dimensions_width_depth_height_m": [
+        0.36000001,
+        0.23437931,
+        0.35699979
+      ],
+      "bounds_min_blender": [
+        -0.18000000715255737,
+        -0.08437930047512054,
+        -0.25699979066848755
+      ],
+      "bounds_max_blender": [
+        0.18000000715255737,
+        0.15000000596046448,
+        0.10000000149011612
+      ],
+      "parts": [
+        {
+          "name": "OilskinHood",
+          "triangles": 308,
+          "vertices": 160,
+          "bounds_min_blender": [
+            -0.18000000715255737,
+            -0.08437930047512054,
+            -0.25699979066848755
+          ],
+          "bounds_max_blender": [
+            0.18000000715255737,
+            0.15000000596046448,
+            0.10000000149011612
+          ],
+          "mesh_sha256": "b16754fc7e1b7dceb8ad67bde35abfb8c03f2d7f47eba42c2b2864d47c1bc643",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_Rope"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "OilskinHood": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Headgear pivot is common head seat, not ground. Attach at source CrewBody(0,0,0.91); hood extends down toward shoulders."
+      ],
+      "source": "Art/Models/GullHarbour/Crew/OilskinHood.blend",
+      "fbx": "Assets/Art/Models/Crew/OilskinHood.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Crew/OilskinHood.png"
+    },
+    {
+      "asset": "Rowboat",
+      "group": "Boats",
+      "triangles": 1526,
+      "dimensions_width_depth_height_m": [
+        4.51999998,
+        4.23646331,
+        1.01999998
+      ],
+      "bounds_min_blender": [
+        -2.259999990463257,
+        -2.1179633140563965,
+        -0.44999998807907104
+      ],
+      "bounds_max_blender": [
+        2.259999990463257,
+        2.118499994277954,
+        0.5699999928474426
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 176,
+          "vertices": 105,
+          "bounds_min_blender": [
+            -1.2000000476837158,
+            -2.0999999046325684,
+            -0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            1.2000000476837158,
+            2.0999999046325684,
+            0.4300000071525574
+          ],
+          "mesh_sha256": "296ff2c484186793762f5537c1f9958dc75e3136a93d15f2d9638b9d3e03d6ac",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 338,
+          "vertices": 164,
+          "bounds_min_blender": [
+            -1.0,
+            -1.5,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            1.0,
+            1.5,
+            0.0
+          ],
+          "mesh_sha256": "b1e2f73979678d4baedb0ef8ed14ff45b91d4030931ee3091cf8267eae27c006",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "IvoryGunwale",
+          "triangles": 408,
+          "vertices": 224,
+          "bounds_min_blender": [
+            -1.2139999866485596,
+            -2.1179633140563965,
+            0.4124999940395355
+          ],
+          "bounds_max_blender": [
+            1.2139999866485596,
+            2.118499994277954,
+            0.48749998211860657
+          ],
+          "mesh_sha256": "007bed00fd56d11ae6fd822d19c068b9add48b6b5d6e0a521df6ef5f5062622d",
+          "materials": [
+            "M_RailIvory"
+          ]
+        },
+        {
+          "name": "CentreThwart",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.024999976158142,
+            -0.14000000059604645,
+            0.2749999761581421
+          ],
+          "bounds_max_blender": [
+            1.024999976158142,
+            0.14000000059604645,
+            0.36500000953674316
+          ],
+          "mesh_sha256": "d4dfc1fac6c810af931c9f91e42d53f1e7fc18a0f8ebd2b94b2db0821b63787a",
+          "materials": [
+            "M_DeckWood"
+          ]
+        },
+        {
+          "name": "Oarlock_Port",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1749999523162842,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            -1.065000057220459,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "594ef30bf472902ac288cf7cf9730092ecdd99978e0d6eb7a5d5bf29f9b9ed98",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Port",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.259999990463257,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            -0.339169442653656,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "35491c670adec5f9dfcdf752948796b4dd8913c2c1c4ba9a3cd949ad16eda8fc",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "Oarlock_Starboard",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            1.065000057220459,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            1.1749999523162842,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "9f2d8cf7e396ead09862ca61dc4018ddba97af37e894588802a90787fb5429e9",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Starboard",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            0.339169442653656,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            2.259999990463257,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "89e0ff1029e5cb9f5b903077f1784d45b05f928b980fdd0c31e6fd11bd1537d6",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Stern",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            0.9480000138282776,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            1.0520000457763672,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "1a5c8f45f40462fffb6043da9a4d00d091622951a840c64dbcc12adeeb0e6b8a",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Bow",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            -1.0520000457763672,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            -0.9480000138282776,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "704990e681facf7e8165bea3063f539be93eed887e2fada2971bb982237116a6",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "IvoryGunwale": [
+          0,
+          0,
+          0
+        ],
+        "CentreThwart": [
+          0,
+          0,
+          0
+        ],
+        "Oarlock_Port": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Port": [
+          -1.12,
+          0,
+          0.49
+        ],
+        "Oarlock_Starboard": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Starboard": [
+          1.12,
+          0,
+          0.49
+        ],
+        "RodSocket_Port_Stern": [
+          -1.115,
+          1.0,
+          0.44
+        ],
+        "RodSocket_Port_Bow": [
+          -1.115,
+          -1.0,
+          0.44
+        ]
+      },
+      "notes": [
+        "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5."
+      ],
+      "source": "Art/Models/GullHarbour/Boats/Rowboat.blend",
+      "fbx": "Assets/Art/Models/Boats/Rowboat.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Boats/Rowboat.png"
+    },
+    {
+      "asset": "FishingRod",
+      "group": "Fishing",
+      "triangles": 716,
+      "dimensions_width_depth_height_m": [
+        0.128,
+        0.086,
+        1.60000002
+      ],
+      "bounds_min_blender": [
+        -0.023000000044703484,
+        -0.05400000140070915,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.10499999672174454,
+        0.03200000151991844,
+        1.600000023841858
+      ],
+      "parts": [
+        {
+          "name": "RodAndReel",
+          "triangles": 660,
+          "vertices": 338,
+          "bounds_min_blender": [
+            -0.023000000044703484,
+            -0.03321690484881401,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.07500000298023224,
+            0.03200000151991844,
+            1.600000023841858
+          ],
+          "mesh_sha256": "1a5ebf3a0a21e545e7f35ee92307c12a08a545cab5decd4d0bd24f4b1f286d37",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "ReelHandle",
+          "triangles": 56,
+          "vertices": 32,
+          "bounds_min_blender": [
+            0.07249999791383743,
+            -0.05400000140070915,
+            0.19099999964237213
+          ],
+          "bounds_max_blender": [
+            0.10499999672174454,
+            0.002989636966958642,
+            0.24336333572864532
+          ],
+          "mesh_sha256": "323b8e7bf1b518d40cbc91142996298956f5372447722dc64f9857acab6f3d97",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "RodAndReel": [
+          0,
+          0,
+          0
+        ],
+        "ReelHandle": [
+          0.077,
+          0,
+          0.24
+        ]
+      },
+      "notes": [
+        "Rod is upright for authoring: butt at origin, tip Z=1.6; pose the asset root for casting. ReelHandle spins around local X."
+      ],
+      "source": "Art/Models/GullHarbour/Fishing/FishingRod.blend",
+      "fbx": "Assets/Art/Models/Fishing/FishingRod.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fishing/FishingRod.png"
+    },
+    {
+      "asset": "Bobber",
+      "group": "Fishing",
+      "triangles": 184,
+      "dimensions_width_depth_height_m": [
+        0.08,
+        0.08,
+        0.12
+      ],
+      "bounds_min_blender": [
+        -0.03999999910593033,
+        -0.03999999910593033,
+        -0.04500000178813934
+      ],
+      "bounds_max_blender": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.07500000298023224
+      ],
+      "parts": [
+        {
+          "name": "BobberBody",
+          "triangles": 184,
+          "vertices": 104,
+          "bounds_min_blender": [
+            -0.03999999910593033,
+            -0.03999999910593033,
+            -0.04500000178813934
+          ],
+          "bounds_max_blender": [
+            0.03999999910593033,
+            0.03999999910593033,
+            0.07500000298023224
+          ],
+          "mesh_sha256": "8070bdc20742ad7e9098ee38296d02fe9d21f92b5d922f86f4278f9b1bafa2e7",
+          "materials": [
+            "M_RailIvory",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "BobberBody": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Overall height0.12m, waterline pivot Z=0; body extends0.045m below water."
+      ],
+      "source": "Art/Models/GullHarbour/Fishing/Bobber.blend",
+      "fbx": "Assets/Art/Models/Fishing/Bobber.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fishing/Bobber.png"
+    },
+    {
+      "asset": "Cooler",
+      "group": "DeckProps",
+      "triangles": 348,
+      "dimensions_width_depth_height_m": [
+        0.80000001,
+        0.5,
+        0.45000002
+      ],
+      "bounds_min_blender": [
+        -0.4000000059604645,
+        -0.25,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.4000000059604645,
+        0.25,
+        0.45000001788139343
+      ],
+      "parts": [
+        {
+          "name": "CoolerBody",
+          "triangles": 304,
+          "vertices": 160,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -0.25,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            0.25,
+            0.4000000059604645
+          ],
+          "mesh_sha256": "cb68366bf789357e48791d4cf5c99f01960445847eed1cf828f12d959242bfd1",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HingedLid",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -0.25,
+            0.3959999978542328
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            0.25,
+            0.45000001788139343
+          ],
+          "mesh_sha256": "ad9b9107abd28ff3d51cf5a5f998d77f96b2c8d30aa737ad027c9e1c85ddab9a",
+          "materials": [
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CoolerBody": [
+          0,
+          0,
+          0
+        ],
+        "HingedLid": [
+          0,
+          0.25,
+          0.4
+        ]
+      },
+      "notes": [
+        "Lid origin at rear hinge (0,+0.25,+0.40); local X rotation opens front edge. IceBox shares CoolerBody geometry."
+      ],
+      "source": "Art/Models/GullHarbour/DeckProps/Cooler.blend",
+      "fbx": "Assets/Art/Models/DeckProps/Cooler.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/DeckProps/Cooler.png"
+    },
+    {
+      "asset": "IceBox",
+      "group": "DeckProps",
+      "triangles": 444,
+      "dimensions_width_depth_height_m": [
+        0.80000001,
+        0.5,
+        0.45000002
+      ],
+      "bounds_min_blender": [
+        -0.4000000059604645,
+        -0.25,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.4000000059604645,
+        0.25,
+        0.45000001788139343
+      ],
+      "parts": [
+        {
+          "name": "CoolerBody",
+          "triangles": 304,
+          "vertices": 160,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -0.25,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            0.25,
+            0.4000000059604645
+          ],
+          "mesh_sha256": "cb68366bf789357e48791d4cf5c99f01960445847eed1cf828f12d959242bfd1",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HingedLid",
+          "triangles": 140,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -0.25,
+            0.4000000059604645
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            0.25,
+            0.45000001788139343
+          ],
+          "mesh_sha256": "fd4e07945ce57b0a3ea5ceb59854e3c3e830f06babea3c47f87771a26463f9da",
+          "materials": [
+            "M_RailIvory",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CoolerBody": [
+          0,
+          0,
+          0
+        ],
+        "HingedLid": [
+          0,
+          0.25,
+          0.4
+        ]
+      },
+      "notes": [
+        "Lid origin at rear hinge (0,+0.25,+0.40); local X rotation opens front edge. IceBox shares CoolerBody geometry."
+      ],
+      "source": "Art/Models/GullHarbour/DeckProps/IceBox.blend",
+      "fbx": "Assets/Art/Models/DeckProps/IceBox.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/DeckProps/IceBox.png"
+    },
+    {
+      "asset": "BaitBucket",
+      "group": "DeckProps",
+      "triangles": 340,
+      "dimensions_width_depth_height_m": [
+        0.30000001,
+        0.30000001,
+        0.36692822
+      ],
+      "bounds_min_blender": [
+        -0.15000000596046448,
+        -0.15000000596046448,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.36692821979522705
+      ],
+      "parts": [
+        {
+          "name": "BaitBucketBody",
+          "triangles": 340,
+          "vertices": 158,
+          "bounds_min_blender": [
+            -0.15000000596046448,
+            -0.15000000596046448,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.15000000596046448,
+            0.15000000596046448,
+            0.36692821979522705
+          ],
+          "mesh_sha256": "8b6bf22b098c5ab71cb2c1136de3c67417131fc2678198076261b8c5ef47b593",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "BaitBucketBody": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/DeckProps/BaitBucket.blend",
+      "fbx": "Assets/Art/Models/DeckProps/BaitBucket.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/DeckProps/BaitBucket.png"
+    },
+    {
+      "asset": "LunchTin",
+      "group": "DeckProps",
+      "triangles": 132,
+      "dimensions_width_depth_height_m": [
+        0.25,
+        0.18400001,
+        0.12
+      ],
+      "bounds_min_blender": [
+        -0.125,
+        -0.09400000423192978,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.125,
+        0.09000000357627869,
+        0.11999999731779099
+      ],
+      "parts": [
+        {
+          "name": "LunchTinBody",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -0.125,
+            -0.09400000423192978,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.125,
+            0.09000000357627869,
+            0.10000000149011612
+          ],
+          "mesh_sha256": "455abe0f3336a752e698449df1fb0d18329d97775c6f78418a01ad223b689fdb",
+          "materials": [
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "LunchTinLid",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -0.125,
+            -0.09000000357627869,
+            0.10000000149011612
+          ],
+          "bounds_max_blender": [
+            0.125,
+            0.09000000357627869,
+            0.11999999731779099
+          ],
+          "mesh_sha256": "589f1db8dc2efd1f8c25d6f458d084272a97440dc6c89b89d023170b61dadcd1",
+          "materials": [
+            "M_HullBlue"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "LunchTinBody": [
+          0,
+          0,
+          0
+        ],
+        "LunchTinLid": [
+          0,
+          0.09,
+          0.1
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/DeckProps/LunchTin.blend",
+      "fbx": "Assets/Art/Models/DeckProps/LunchTin.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/DeckProps/LunchTin.png"
+    },
+    {
+      "asset": "Herring",
+      "group": "Fish",
+      "triangles": 264,
+      "dimensions_width_depth_height_m": [
+        0.05746,
+        0.25999999,
+        0.05499
+      ],
+      "bounds_min_blender": [
+        -0.0287299994379282,
+        -0.12999999523162842,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.0287299994379282,
+        0.12999999523162842,
+        0.054990001022815704
+      ],
+      "parts": [
+        {
+          "name": "HerringBody",
+          "triangles": 252,
+          "vertices": 138,
+          "bounds_min_blender": [
+            -0.0287299994379282,
+            -0.12999999523162842,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0287299994379282,
+            0.07280000299215317,
+            0.054990001022815704
+          ],
+          "mesh_sha256": "99434c77e867c831f425123d492631af13d2e4299e61f4bd9c91c65c4dbffdee",
+          "materials": [
+            "M_FishSilver",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HerringTail",
+          "triangles": 12,
+          "vertices": 8,
+          "bounds_min_blender": [
+            -0.0010400000028312206,
+            0.07280000299215317,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0010400000028312206,
+            0.12999999523162842,
+            0.046799998730421066
+          ],
+          "mesh_sha256": "0a8354282c5734c92c63bf50befa88e5ff7ec20712e49926fab6b175ec43bd6c",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "HerringBody": [
+          0,
+          0,
+          0
+        ],
+        "HerringTail": [
+          0,
+          0.0728,
+          0.0234
+        ]
+      },
+      "notes": [
+        "Fish faces -Y, nose-to-tail length 0.26m; separate tail with origin at join."
+      ],
+      "source": "Art/Models/GullHarbour/Fish/Herring.blend",
+      "fbx": "Assets/Art/Models/Fish/Herring.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fish/Herring.png"
+    },
+    {
+      "asset": "Mackerel",
+      "group": "Fish",
+      "triangles": 672,
+      "dimensions_width_depth_height_m": [
+        0.07514,
+        0.34,
+        0.067915
+      ],
+      "bounds_min_blender": [
+        -0.03756999969482422,
+        -0.17000000178813934,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.03756999969482422,
+        0.17000000178813934,
+        0.06791500002145767
+      ],
+      "parts": [
+        {
+          "name": "MackerelBody",
+          "triangles": 660,
+          "vertices": 354,
+          "bounds_min_blender": [
+            -0.03756999969482422,
+            -0.17000000178813934,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.03756999969482422,
+            0.09520000219345093,
+            0.06791500002145767
+          ],
+          "mesh_sha256": "c432123f16860274488fc1decd3ba3ce5f2c8073bebb7dd677badcb43c773ab4",
+          "materials": [
+            "M_FishSilver",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "MackerelTail",
+          "triangles": 12,
+          "vertices": 8,
+          "bounds_min_blender": [
+            -0.0013599999947473407,
+            0.09520000219345093,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0013599999947473407,
+            0.17000000178813934,
+            0.05779999867081642
+          ],
+          "mesh_sha256": "e600f8f578daea4e980b40f88c524a59d25e98458fb5740bf02614ce8e3c84ef",
+          "materials": [
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "MackerelBody": [
+          0,
+          0,
+          0
+        ],
+        "MackerelTail": [
+          0,
+          0.09520000000000002,
+          0.028900000000000006
+        ]
+      },
+      "notes": [
+        "Fish faces -Y; nose to tail is 0.34m. Tail origin is the body/tail join; rotate local X/Z for a flop. Mackerel stripes are geometry."
+      ],
+      "source": "Art/Models/GullHarbour/Fish/Mackerel.blend",
+      "fbx": "Assets/Art/Models/Fish/Mackerel.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fish/Mackerel.png"
+    },
+    {
+      "asset": "Pollock",
+      "group": "Fish",
+      "triangles": 264,
+      "dimensions_width_depth_height_m": [
+        0.1224,
+        0.47999999,
+        0.12408
+      ],
+      "bounds_min_blender": [
+        -0.06120000034570694,
+        -0.23999999463558197,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.06120000034570694,
+        0.23999999463558197,
+        0.12408000230789185
+      ],
+      "parts": [
+        {
+          "name": "PollockBody",
+          "triangles": 252,
+          "vertices": 138,
+          "bounds_min_blender": [
+            -0.06120000034570694,
+            -0.23999999463558197,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.06120000034570694,
+            0.13439999520778656,
+            0.12408000230789185
+          ],
+          "mesh_sha256": "bdbbd8d5233cbb4e899148dd6250deb21613343e2f2e84c27140adbe24be36b1",
+          "materials": [
+            "M_FishSilver",
+            "M_KelpGreen",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "PollockTail",
+          "triangles": 12,
+          "vertices": 8,
+          "bounds_min_blender": [
+            -0.0019199999514967203,
+            0.13439999520778656,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0019199999514967203,
+            0.23999999463558197,
+            0.10559999942779541
+          ],
+          "mesh_sha256": "1fcde8e6496bcbc675382c73033852c211170757236e26bdf82cbad0693151b3",
+          "materials": [
+            "M_KelpGreen"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "PollockBody": [
+          0,
+          0,
+          0
+        ],
+        "PollockTail": [
+          0,
+          0.13440000000000002,
+          0.0528
+        ]
+      },
+      "notes": [
+        "Fish faces -Y, nose-to-tail length 0.48m; separate tail with origin at join."
+      ],
+      "source": "Art/Models/GullHarbour/Fish/Pollock.blend",
+      "fbx": "Assets/Art/Models/Fish/Pollock.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fish/Pollock.png"
+    },
+    {
+      "asset": "SeaBass",
+      "group": "Fish",
+      "triangles": 264,
+      "dimensions_width_depth_height_m": [
+        0.1445,
+        0.5,
+        0.15275
+      ],
+      "bounds_min_blender": [
+        -0.07225000113248825,
+        -0.25,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.07225000113248825,
+        0.25,
+        0.15275000035762787
+      ],
+      "parts": [
+        {
+          "name": "SeaBassBody",
+          "triangles": 252,
+          "vertices": 138,
+          "bounds_min_blender": [
+            -0.07225000113248825,
+            -0.25,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.07225000113248825,
+            0.14000000059604645,
+            0.15275000035762787
+          ],
+          "mesh_sha256": "26b01fa24f34353f5a50ac7e918f8e7e6fd67da78a205f39a859e18547261e02",
+          "materials": [
+            "M_FishSilver",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "SeaBassTail",
+          "triangles": 12,
+          "vertices": 8,
+          "bounds_min_blender": [
+            -0.0020000000949949026,
+            0.14000000059604645,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0020000000949949026,
+            0.25,
+            0.12999999523162842
+          ],
+          "mesh_sha256": "f1cddcd51534ea2253d3cd0ef2d9154376dd9ce5f1714b4d44e47780f776ca14",
+          "materials": [
+            "M_HullNavy"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SeaBassBody": [
+          0,
+          0,
+          0
+        ],
+        "SeaBassTail": [
+          0,
+          0.14,
+          0.065
+        ]
+      },
+      "notes": [
+        "Fish faces -Y, nose-to-tail length 0.5m; separate tail with origin at join."
+      ],
+      "source": "Art/Models/GullHarbour/Fish/SeaBass.blend",
+      "fbx": "Assets/Art/Models/Fish/SeaBass.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fish/SeaBass.png"
+    },
+    {
+      "asset": "CongerEel",
+      "group": "Fish",
+      "triangles": 248,
+      "dimensions_width_depth_height_m": [
+        0.06545014,
+        0.80000001,
+        0.0846
+      ],
+      "bounds_min_blender": [
+        -0.02831999957561493,
+        -0.4000000059604645,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.037130143493413925,
+        0.4000000059604645,
+        0.08460000157356262
+      ],
+      "parts": [
+        {
+          "name": "CongerEelBody",
+          "triangles": 236,
+          "vertices": 126,
+          "bounds_min_blender": [
+            -0.02831999957561493,
+            -0.4000000059604645,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.037130143493413925,
+            0.2639999985694885,
+            0.08460000157356262
+          ],
+          "mesh_sha256": "263a7c412e5c26b7b2bd173ff1303ff288cc1bb8e28915410ec71ba612439589",
+          "materials": [
+            "M_FishSilver",
+            "M_HullBlue",
+            "M_RailIvory",
+            "M_Rubber"
+          ]
+        },
+        {
+          "name": "CongerEelTail",
+          "triangles": 12,
+          "vertices": 8,
+          "bounds_min_blender": [
+            -0.0031999999191612005,
+            0.2639999985694885,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.0031999999191612005,
+            0.4000000059604645,
+            0.07199999690055847
+          ],
+          "mesh_sha256": "789f5985c6c40c14f5e363ba497032bbe9ea462f9399aa151c7bc0410b202444",
+          "materials": [
+            "M_HullBlue"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CongerEelBody": [
+          0,
+          0,
+          0
+        ],
+        "CongerEelTail": [
+          0,
+          0.264,
+          0.036
+        ]
+      },
+      "notes": [
+        "Fish faces -Y, nose-to-tail length 0.8m; separate tail with origin at join."
+      ],
+      "source": "Art/Models/GullHarbour/Fish/CongerEel.blend",
+      "fbx": "Assets/Art/Models/Fish/CongerEel.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Fish/CongerEel.png"
+    },
+    {
+      "asset": "Quay4m",
+      "group": "Harbour",
+      "triangles": 842,
+      "dimensions_width_depth_height_m": [
+        4.0,
+        2.0,
+        0.89999998
+      ],
+      "bounds_min_blender": [
+        -2.0,
+        -1.0,
+        -0.8999999761581421
+      ],
+      "bounds_max_blender": [
+        2.0,
+        1.0,
+        0.0
+      ],
+      "parts": [
+        {
+          "name": "Quay4m",
+          "triangles": 842,
+          "vertices": 420,
+          "bounds_min_blender": [
+            -2.0,
+            -1.0,
+            -0.8999999761581421
+          ],
+          "bounds_max_blender": [
+            2.0,
+            1.0,
+            0.0
+          ],
+          "mesh_sha256": "bf24130bd2eeb6e8b1b3d80ff9432aab9edf4b0d879edfb277d182498cb18bea",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight",
+            "M_WoodRecess"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Quay4m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Quay pivot is walking surface centreZ=0;4m lengthX,2m depth, piles extend0.9m below."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/Quay4m.blend",
+      "fbx": "Assets/Art/Models/Harbour/Quay4m.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/Quay4m.png"
+    },
+    {
+      "asset": "Bollard",
+      "group": "Harbour",
+      "triangles": 268,
+      "dimensions_width_depth_height_m": [
+        0.44,
+        0.31999999,
+        0.47499999
+      ],
+      "bounds_min_blender": [
+        -0.2199999988079071,
+        -0.1599999964237213,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.2199999988079071,
+        0.1599999964237213,
+        0.4749999940395355
+      ],
+      "parts": [
+        {
+          "name": "Bollard",
+          "triangles": 268,
+          "vertices": 140,
+          "bounds_min_blender": [
+            -0.2199999988079071,
+            -0.1599999964237213,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.2199999988079071,
+            0.1599999964237213,
+            0.4749999940395355
+          ],
+          "mesh_sha256": "96dea0bd4b99bc85a40b4eb8eeef4a487fd0c5dc14ef67d5d7ed20f89b7ba9e2",
+          "materials": [
+            "M_HullNavy",
+            "M_Rope"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Bollard": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Harbour/Bollard.blend",
+      "fbx": "Assets/Art/Models/Harbour/Bollard.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/Bollard.png"
+    },
+    {
+      "asset": "LampPost",
+      "group": "Harbour",
+      "triangles": 352,
+      "dimensions_width_depth_height_m": [
+        0.41999999,
+        0.76000002,
+        2.79999995
+      ],
+      "bounds_min_blender": [
+        -0.20999999344348907,
+        -0.6100000143051147,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.20999999344348907,
+        0.15000000596046448,
+        2.799999952316284
+      ],
+      "parts": [
+        {
+          "name": "HarbourLamp",
+          "triangles": 352,
+          "vertices": 188,
+          "bounds_min_blender": [
+            -0.20999999344348907,
+            -0.6100000143051147,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.20999999344348907,
+            0.15000000596046448,
+            2.799999952316284
+          ],
+          "mesh_sha256": "e55cf5422762ec5c4438671e4e8501c53ab457e8b7ee6d7094183523241a68cf",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "HarbourLamp": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Lamp is mesh only; no actual Light exported."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/LampPost.blend",
+      "fbx": "Assets/Art/Models/Harbour/LampPost.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/LampPost.png"
+    },
+    {
+      "asset": "HouseA",
+      "group": "Harbour",
+      "triangles": 744,
+      "dimensions_width_depth_height_m": [
+        3.34437609,
+        2.89999986,
+        3.6416409
+      ],
+      "bounds_min_blender": [
+        -1.6721880435943604,
+        -1.46999990940094,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.6721880435943604,
+        1.4299999475479126,
+        3.6416409015655518
+      ],
+      "parts": [
+        {
+          "name": "HouseWalls",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.5,
+            -1.2999999523162842,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.5,
+            1.2999999523162842,
+            2.5
+          ],
+          "mesh_sha256": "501cd7d378d985805254b34e873d10887757da622991f566dedf42bd9a1ba817",
+          "materials": [
+            "M_RailIvory"
+          ]
+        },
+        {
+          "name": "HouseRoof",
+          "triangles": 232,
+          "vertices": 134,
+          "bounds_min_blender": [
+            -1.6721880435943604,
+            -1.46999990940094,
+            2.4667179584503174
+          ],
+          "bounds_max_blender": [
+            1.6721880435943604,
+            1.4299999475479126,
+            3.6416409015655518
+          ],
+          "mesh_sha256": "ade102a924460070a8e7ed7c58e22b30fbe8857ad38a07ca48e8e983dc79a11a",
+          "materials": [
+            "M_DeckWood",
+            "M_HullBlue",
+            "M_HullNavy"
+          ]
+        },
+        {
+          "name": "DoorsWindowsTrim",
+          "triangles": 468,
+          "vertices": 264,
+          "bounds_min_blender": [
+            -1.4950000047683716,
+            -1.4049999713897705,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.4950000047683716,
+            -1.2825000286102295,
+            2.5
+          ],
+          "mesh_sha256": "77c8c72acd600c7a23a313049cb4f7fa4eaf0e6764fc9a85ae745df4d0760182",
+          "materials": [
+            "M_DeckWood",
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "HouseWalls": [
+          0,
+          0,
+          0
+        ],
+        "HouseRoof": [
+          0,
+          0,
+          0
+        ],
+        "DoorsWindowsTrim": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "House module ground pivot; roof overhang is included in measured bounds. Front door faces-Y."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/HouseA.blend",
+      "fbx": "Assets/Art/Models/Harbour/HouseA.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/HouseA.png"
+    },
+    {
+      "asset": "HouseB",
+      "group": "Harbour",
+      "triangles": 744,
+      "dimensions_width_depth_height_m": [
+        3.74088597,
+        3.0999999,
+        3.94219065
+      ],
+      "bounds_min_blender": [
+        -1.8704429864883423,
+        -1.5699999332427979,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.8704429864883423,
+        1.5299999713897705,
+        3.942190647125244
+      ],
+      "parts": [
+        {
+          "name": "HouseWalls",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.7000000476837158,
+            -1.399999976158142,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.7000000476837158,
+            1.399999976158142,
+            2.799999952316284
+          ],
+          "mesh_sha256": "cb04407d3000804164c6a0cb340a7f7a151bb817ef1b1abe3d8dc6c93c2fb1ac",
+          "materials": [
+            "M_SeaTeal"
+          ]
+        },
+        {
+          "name": "HouseRoof",
+          "triangles": 232,
+          "vertices": 134,
+          "bounds_min_blender": [
+            -1.8704429864883423,
+            -1.5699999332427979,
+            2.7656185626983643
+          ],
+          "bounds_max_blender": [
+            1.8704429864883423,
+            1.5299999713897705,
+            3.942190647125244
+          ],
+          "mesh_sha256": "35e046bf0e5f325d9afb38e63c347aef184ca7d54fecf080487658754d248ad8",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "DoorsWindowsTrim",
+          "triangles": 468,
+          "vertices": 264,
+          "bounds_min_blender": [
+            -1.6949999332427979,
+            -1.5049999952316284,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.6949999332427979,
+            -1.3824999332427979,
+            2.799999952316284
+          ],
+          "mesh_sha256": "effa4dab1ccde8c008074193af887046fe6108ad90758995a0ff618d5272969b",
+          "materials": [
+            "M_DeckWood",
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "HouseWalls": [
+          0,
+          0,
+          0
+        ],
+        "HouseRoof": [
+          0,
+          0,
+          0
+        ],
+        "DoorsWindowsTrim": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "House module ground pivot; roof overhang is included in measured bounds. Front door faces-Y."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/HouseB.blend",
+      "fbx": "Assets/Art/Models/Harbour/HouseB.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/HouseB.png"
+    },
+    {
+      "asset": "Lighthouse",
+      "group": "Harbour",
+      "triangles": 772,
+      "dimensions_width_depth_height_m": [
+        1.89999998,
+        1.89999998,
+        6.0
+      ],
+      "bounds_min_blender": [
+        -0.949999988079071,
+        -0.949999988079071,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.949999988079071,
+        0.949999988079071,
+        6.0
+      ],
+      "parts": [
+        {
+          "name": "Lighthouse",
+          "triangles": 772,
+          "vertices": 384,
+          "bounds_min_blender": [
+            -0.949999988079071,
+            -0.949999988079071,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.949999988079071,
+            0.949999988079071,
+            6.0
+          ],
+          "mesh_sha256": "4d976222a73d09c166b3dc62870c1351403f34660be04ecfe40e9ed5e9dd0071",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_RailIvory",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Lighthouse": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Harbour/Lighthouse.blend",
+      "fbx": "Assets/Art/Models/Harbour/Lighthouse.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/Lighthouse.png"
+    },
+    {
+      "asset": "BreakwaterRockA",
+      "group": "Harbour",
+      "triangles": 20,
+      "dimensions_width_depth_height_m": [
+        1.79999995,
+        1.39999998,
+        1.0
+      ],
+      "bounds_min_blender": [
+        -0.8999999761581421,
+        -0.699999988079071,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.8999999761581421,
+        0.699999988079071,
+        1.0
+      ],
+      "parts": [
+        {
+          "name": "BreakwaterRock",
+          "triangles": 20,
+          "vertices": 12,
+          "bounds_min_blender": [
+            -0.8999999761581421,
+            -0.699999988079071,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.8999999761581421,
+            0.699999988079071,
+            1.0
+          ],
+          "mesh_sha256": "32f6ea21faa2eb3ea79f30ecf761fdd89f4f226b203acd7495bf9c377b2107c1",
+          "materials": [
+            "M_Rubber",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "BreakwaterRock": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockA.blend",
+      "fbx": "Assets/Art/Models/Harbour/BreakwaterRockA.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockA.png"
+    },
+    {
+      "asset": "BreakwaterRockB",
+      "group": "Harbour",
+      "triangles": 20,
+      "dimensions_width_depth_height_m": [
+        1.29999995,
+        1.10000002,
+        0.80000001
+      ],
+      "bounds_min_blender": [
+        -0.6499999761581421,
+        -0.550000011920929,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.6499999761581421,
+        0.550000011920929,
+        0.800000011920929
+      ],
+      "parts": [
+        {
+          "name": "BreakwaterRock",
+          "triangles": 20,
+          "vertices": 12,
+          "bounds_min_blender": [
+            -0.6499999761581421,
+            -0.550000011920929,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.6499999761581421,
+            0.550000011920929,
+            0.800000011920929
+          ],
+          "mesh_sha256": "26174db1131554e1f6f3913430a058cac150db350c593a0da32cb6c95245ce30",
+          "materials": [
+            "M_Rubber",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "BreakwaterRock": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockB.blend",
+      "fbx": "Assets/Art/Models/Harbour/BreakwaterRockB.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockB.png"
+    },
+    {
+      "asset": "BreakwaterRockC",
+      "group": "Harbour",
+      "triangles": 20,
+      "dimensions_width_depth_height_m": [
+        2.0999999,
+        1.5,
+        1.20000005
+      ],
+      "bounds_min_blender": [
+        -1.0499999523162842,
+        -0.75,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.0499999523162842,
+        0.75,
+        1.2000000476837158
+      ],
+      "parts": [
+        {
+          "name": "BreakwaterRock",
+          "triangles": 20,
+          "vertices": 12,
+          "bounds_min_blender": [
+            -1.0499999523162842,
+            -0.75,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.0499999523162842,
+            0.75,
+            1.2000000476837158
+          ],
+          "mesh_sha256": "3653bfb53701bb15811bacd22305f6fd04a1bed8eca85724338d89acd73cbb7b",
+          "materials": [
+            "M_Rubber",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "BreakwaterRock": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [],
+      "source": "Art/Models/GullHarbour/Harbour/BreakwaterRockC.blend",
+      "fbx": "Assets/Art/Models/Harbour/BreakwaterRockC.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/BreakwaterRockC.png"
+    },
+    {
+      "asset": "KelpPatch",
+      "group": "Harbour",
+      "triangles": 70,
+      "dimensions_width_depth_height_m": [
+        0.90105146,
+        0.93630195,
+        0.0
+      ],
+      "bounds_min_blender": [
+        -0.43105146288871765,
+        -0.4678553640842438,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.4699999988079071,
+        0.4684465825557709,
+        0.0
+      ],
+      "parts": [
+        {
+          "name": "FloatingKelp",
+          "triangles": 70,
+          "vertices": 84,
+          "bounds_min_blender": [
+            -0.43105146288871765,
+            -0.4678553640842438,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.4699999988079071,
+            0.4684465825557709,
+            0.0
+          ],
+          "mesh_sha256": "d72cfce2cdaee6cabb8c239c0159da005ec82a1aa91a932783e0c33f49d72420",
+          "materials": [
+            "M_KelpGreen",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "FloatingKelp": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Exactly flat at waterline Z=0, upward faces. Use a two-sided URP material if viewed from below; no overlapping reverse faces."
+      ],
+      "source": "Art/Models/GullHarbour/Harbour/KelpPatch.blend",
+      "fbx": "Assets/Art/Models/Harbour/KelpPatch.fbx",
+      "preview": "Art/Models/GullHarbour/Previews/Harbour/KelpPatch.png"
+    }
+  ],
+  "palette_srgb": {
+    "M_HullNavy": "#173F57",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Rope": "#D1AF76",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B",
+    "M_SeaTeal": "#168F9F",
+    "M_BandIvory": "#F3DEA1",
+    "M_DeckWood": "#C58B50",
+    "M_WoodHighlight": "#DFB77A",
+    "M_WoodRecess": "#8C5A36",
+    "M_HullBlue": "#2A6685",
+    "M_OilskinYellow": "#E6AD38",
+    "M_Skin": "#B9784B",
+    "M_KelpGreen": "#477A56",
+    "M_FishSilver": "#BAC9C6"
+  }
+}
