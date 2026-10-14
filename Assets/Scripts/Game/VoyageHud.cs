@@ -9,9 +9,13 @@ namespace Catchline.Game
     // On the water everything is one tap: bubbles above rods and fish, and a strike minigame.
     public partial class VoyageGame
     {
-        public enum HudTab { Catch, Map, Contracts, Crew, Shop }
+        public enum HudTab { Market, HarbourMaster, CrewOffice, Chandlery, Supplies }
 
-        HudTab hudTab = HudTab.Catch;
+        static string TabName(HudTab t) => t switch { HudTab.Market => "Market", HudTab.HarbourMaster => "Harbour Master", HudTab.CrewOffice => "Crew Office", HudTab.Chandlery => "Chandlery", _ => "Supplies" };
+        bool panelOpen = true;
+        bool confirmNewGame;
+
+        HudTab hudTab = HudTab.Market;
         Vector2 scroll;
         readonly List<Rect> hudRects = new();
 
@@ -36,7 +40,7 @@ namespace Catchline.Game
             if (mouse != null)
             {
                 float s = mouse.scroll.ReadValue().y;
-                if (Mathf.Abs(s) > 0.01f) Cam.orthographicSize = Mathf.Clamp(Cam.orthographicSize - Mathf.Sign(s) * 0.3f, 2.4f, 7f);
+                if (Mathf.Abs(s) > 0.01f) ZoomOffset = Mathf.Clamp(ZoomOffset - Mathf.Sign(s) * 0.3f, -1.5f, 3f);
             }
 
             // While the minigame is up, a tap anywhere that isn't a button strikes (on press, so it feels instant).
@@ -105,7 +109,7 @@ namespace Catchline.Game
             y += 32;
             Row(ref y, x, w, $"Cooler  {Cooler.Count}/{State.CoolerCapacity}", Cooler.Count / (float)State.CoolerCapacity, Cooler.Count >= State.CoolerCapacity ? Ui.BarWarn : Ui.BarFill);
             Row(ref y, x, w, State.FoodMinutes > 0 ? $"Food  {State.FoodMinutes:0.0} min" : "Food  none: 70% speed", State.FoodMinutes / State.FoodCapacity, State.FoodMinutes < 1f ? Ui.BarWarn : Ui.BarGood);
-            GUI.Label(new Rect(x, y, w, 20), $"Bait  {State.Bait}     Stocks here  {State.Richness[ActiveSpot] * 100f:0}%", Ui.Small);
+            GUI.Label(new Rect(x, y, w, 20), $"Bait  {State.Bait}   Squid  {State.Squid}     Stocks here  {State.Richness[ActiveSpot] * 100f:0}%", Ui.Small);
             y += 26;
             foreach (var r in Rods.Where(r => r.Unlocked))
             {
@@ -142,10 +146,10 @@ namespace Catchline.Game
             {
                 if (!CanCommandRod(r)) continue;
                 string label = r.State == RodState.Bite ? "!" : r.InWater ? "Watch" : "Fish";
-                if (Bubble(Boat.TransformPoint(r.TipLocal + Vector3.up * 0.25f), label, r.State == RodState.Bite)) CommandRod(r);
+                if (Bubble(Boat.TransformPoint(r.TipLocal + Vector3.up * 0.25f), label, r.State == RodState.Bite, 88f, "icon-rod")) CommandRod(r);
             }
             foreach (var f in OnDeck.ToList())
-                if (CanCarry(f) && Bubble(f.Root.position + Vector3.up * 0.35f, "Carry", f.Age > GameData.DeckFishLifetime - 8f))
+                if (CanCarry(f) && Bubble(f.Root.position + Vector3.up * 0.35f, "Carry", f.Age > GameData.DeckFishLifetime - 8f, 88f, "icon-fish"))
                     CommandCarry(f);
 
             DrawMinigame();
@@ -165,16 +169,22 @@ namespace Catchline.Game
             return null;
         }
 
-        bool Bubble(Vector3 world, string label, bool hot)
+        bool Bubble(Vector3 world, string label, bool hot, float width = 88f, string icon = null)
         {
             var sp = Cam.WorldToScreenPoint(world);
             if (sp.z < 0f) return false;
             var g = ToGui(sp);
             float bob = Mathf.Sin(SimTime * 3f + world.x) * 3f;
-            var r = new Rect(g.x - 44f, g.y - 50f + bob, 88f, 42f);
+            var tex = icon != null ? Ui.Tex(icon) : null;
+            if (tex != null) width += 26f;
+            var r = new Rect(g.x - width / 2f, g.y - 52f + bob, width, 46f);
             Track(r);
-            GUI.Box(new Rect(g.x - 7f, r.yMax - 5f, 14f, 14f), GUIContent.none, hot ? Ui.DotGold : Ui.DotWhite);
-            return GUI.Button(r, label, hot && Mathf.Repeat(SimTime * 4f, 1f) < 0.6f ? Ui.BubbleHot : Ui.Bubble);
+            bool flash = hot && Mathf.Repeat(SimTime * 4f, 1f) < 0.6f;
+            if (!Ui.Sprite(new Rect(g.x - 12f, r.yMax - 6f, 24f, 18f), flash ? "bubble-hot-tail" : "bubble-white-tail"))
+                GUI.Box(new Rect(g.x - 7f, r.yMax - 5f, 14f, 14f), GUIContent.none, hot ? Ui.DotGold : Ui.DotWhite);
+            bool clicked = GUI.Button(r, tex != null ? "      " + label : label, flash ? Ui.BubbleHot : Ui.Bubble);
+            if (tex != null) GUI.DrawTexture(new Rect(r.x + 14f, r.y + 9f, 24f, 24f), tex, ScaleMode.ScaleToFit, true);
+            return clicked;
         }
 
         // The strike minigame: a close-up of the bobber with the fish circling in.
@@ -183,7 +193,7 @@ namespace Catchline.Game
             var rod = MinigameRod;
             if (rod == null) return;
             var p = new Rect(VW / 2f - 230f, 720f - 16f - 220f, 460f, 220f);
-            GUI.Box(p, GUIContent.none, Ui.Water);
+            if (!Ui.Sprite(p, "strike-water")) GUI.Box(p, GUIContent.none, Ui.Water);
             var c = new Vector2(p.center.x, p.y + 118f);
             string title = rod.State switch
             {
@@ -201,26 +211,30 @@ namespace Catchline.Game
                 float dist = rod.State == RodState.Bite ? 4f : Mathf.Lerp(150f, 50f, rod.WaitProgress) * (rod.Nibbling ? 0.25f : 1f);
                 float ang = rod.SwimAngle * Mathf.Deg2Rad;
                 var fpos = new Vector2(c.x + Mathf.Cos(ang) * dist, c.y + 22f + Mathf.Sin(ang) * dist * 0.35f);
-                GUI.Box(new Rect(fpos.x - 30f, fpos.y - 10f, 60f, 20f), GUIContent.none, Ui.FishShape);
+                if (!Ui.Sprite(new Rect(fpos.x - 44f, fpos.y - 22f, 88f, 44f), "fish-shadow", 0.85f)) GUI.Box(new Rect(fpos.x - 30f, fpos.y - 10f, 60f, 20f), GUIContent.none, Ui.FishShape);
             }
             if (rod.State == RodState.Bite)
             {
                 float ring = 30f + Mathf.Repeat(time * 2.5f, 1f) * 70f;
-                GUI.Box(new Rect(c.x - ring / 2f, c.y - ring / 2f + 6f, ring, ring), GUIContent.none, Ui.Ring);
-                GUI.Box(new Rect(c.x - 9f, c.y + 2f, 18f, 18f), GUIContent.none, Ui.DotRed);
+                if (!Ui.Sprite(new Rect(c.x - ring / 2f, c.y - ring / 2f + 6f, ring, ring), "ripple-ring", 1f - (ring - 30f) / 90f)) GUI.Box(new Rect(c.x - ring / 2f, c.y - ring / 2f + 6f, ring, ring), GUIContent.none, Ui.Ring);
+                if (!Ui.Sprite(new Rect(c.x - 36f, c.y - 30f, 72f, 72f), "bobber-underwater")) GUI.Box(new Rect(c.x - 9f, c.y + 2f, 18f, 18f), GUIContent.none, Ui.DotRed);
+                Ui.Sprite(new Rect(c.x + 70f, c.y - 50f, 120f, 90f), "tap-burst");
                 Ui.Bar(new Rect(p.x + 40f, p.yMax - 30f, p.width - 80f, 12f), 1f - rod.BiteProgress, Ui.BarWarn);
             }
             else if (rod.State == RodState.Reeling)
             {
                 float fy = Mathf.Lerp(c.y + 30f, p.y + 64f, rod.ReelProgress);
-                GUI.Box(new Rect(c.x - 34f, fy - 11f, 68f, 22f), GUIContent.none, Ui.FishShape);
+                if (!Ui.Sprite(new Rect(c.x - 48f, fy - 24f, 96f, 48f), "fish-shadow")) GUI.Box(new Rect(c.x - 34f, fy - 11f, 68f, 22f), GUIContent.none, Ui.FishShape);
                 Ui.Bar(new Rect(p.x + 40f, p.yMax - 30f, p.width - 80f, 12f), rod.ReelProgress, Ui.BarGood);
             }
             else
             {
                 float dip = rod.Nibbling ? 7f : Mathf.Sin(time * 2.2f) * 2f;
-                GUI.Box(new Rect(c.x - 13f, c.y - 6f + dip, 26f, 26f), GUIContent.none, Ui.DotWhite);
-                GUI.Box(new Rect(c.x - 13f, c.y - 18f + dip, 26f, 26f), GUIContent.none, Ui.DotRed);
+                if (!Ui.Sprite(new Rect(c.x - 36f, c.y - 40f + dip, 72f, 72f), rod.Nibbling ? "bobber-dipped" : "bobber-floating"))
+                {
+                    GUI.Box(new Rect(c.x - 13f, c.y - 6f + dip, 26f, 26f), GUIContent.none, Ui.DotWhite);
+                    GUI.Box(new Rect(c.x - 13f, c.y - 18f + dip, 26f, 26f), GUIContent.none, Ui.DotRed);
+                }
                 if (rod.State == RodState.Waiting)
                     GUI.Label(new Rect(p.x, p.yMax - 36f, p.width, 24f), "Tap anywhere when the bobber goes under. Not on a nibble!", Ui.WhiteCenterSmall);
             }
@@ -234,112 +248,178 @@ namespace Catchline.Game
         }
 
         // ---- harbour ------------------------------------------------------------------------
+        //
+        // The quay has five shops. Tap a building's bubble (or a tab) to open its panel.
+
+        static string ShopIcon(HudTab t) => t switch { HudTab.Market => "icon-coin", HudTab.HarbourMaster => "icon-map-pin", HudTab.CrewOffice => "icon-crew", HudTab.Chandlery => "icon-home-anchor", _ => "icon-food" };
+
+        void OpenShop(HudTab tab)
+        {
+            hudTab = tab;
+            panelOpen = true;
+            scroll = Vector2.zero;
+            confirmNewGame = false;
+        }
 
         void DrawHarbour()
         {
-            // Left: harbour title and the hull goal.
+            // Left: harbour card with the hull goal.
             var l = Panel(new Rect(16f, 16f, 360f, 150f));
             GUI.Label(new Rect(l.x + 16, l.y + 12, l.width - 32, 34), GameData.HarbourName, Ui.Title);
             GUI.Label(new Rect(l.x + 16, l.y + 50, l.width - 32, 22), $"Voyage {State.Voyage}  ·  <b>{State.Coins}</b> coins", Ui.Body);
-            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), $"Next hull: skiff refit", Ui.Small);
+            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), "Next hull: skiff refit", Ui.Small);
             float goal = Mathf.Min(State.BestVoyageFish / (float)GameData.SkiffFishGoal, 1f) * 0.5f + Mathf.Min(State.Coins / (float)GameData.SkiffCost, 1f) * 0.5f;
             Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), goal);
             GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 20), $"Land {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) + {GameData.SkiffCost} coins", Ui.Mutedish);
 
-            // Right: tabbed panel.
+            // Bottom left: set sail toward the chosen sea.
+            var blocker = SailBlocker();
+            var sail = new Rect(16f, 720f - 16f - 70f, 360f, 70f);
+            Track(sail);
+            if (GUI.Button(sail, blocker ?? $"Set sail  →  {GameData.Spots[SelectedSpot].Name}", blocker == null ? Ui.Btn : Ui.BtnOff) && blocker == null) SetSail();
+            var change = new Rect(16f, sail.y - 40f, 360f, 34f);
+            Track(change);
+            if (GUI.Button(change, "Change sea at the Harbour Master", Ui.Tab)) OpenShop(HudTab.HarbourMaster);
+
+            // Shop bubbles over the buildings.
+            foreach (var (anchor, tab) in Shops)
+                if (Bubble(anchor.position, TabName(tab), false, tab == HudTab.HarbourMaster ? 150f : 116f, ShopIcon(tab)))
+                    OpenShop(tab);
+
+            if (!panelOpen) return;
+
+            // Right: the open shop.
             float pw = Mathf.Min(620f, VW - 410f);
             var p = Panel(new Rect(VW - pw - 16f, 16f, pw, 720f - 32f));
             float x = p.x + 16, w = p.width - 32;
             var tabs = (HudTab[])System.Enum.GetValues(typeof(HudTab));
-            float tw = (w - (tabs.Length - 1) * 6f) / tabs.Length;
+            float closeW = 44f;
+            float tw = (w - closeW - 6f - (tabs.Length - 1) * 6f) / tabs.Length;
             for (int i = 0; i < tabs.Length; i++)
-            {
-                string name = tabs[i] switch { HudTab.Catch => "Catch", HudTab.Map => "Map", HudTab.Contracts => "Contracts", HudTab.Crew => "Crew", _ => "Shop" };
-                if (GUI.Button(new Rect(x + i * (tw + 6f), p.y + 14, tw, 40), name, hudTab == tabs[i] ? Ui.TabOn : Ui.Tab))
-                {
-                    hudTab = tabs[i];
-                    scroll = Vector2.zero;
-                }
-            }
+                if (GUI.Button(new Rect(x + i * (tw + 6f), p.y + 14, tw, 40), TabName(tabs[i]), hudTab == tabs[i] ? Ui.TabOn : Ui.Tab))
+                    OpenShop(tabs[i]);
+            if (GUI.Button(new Rect(p.xMax - 16 - closeW, p.y + 14, closeW, 40), "X", Ui.Tab)) panelOpen = false;
 
-            var content = new Rect(x, p.y + 66, w, p.height - 66 - 92);
+            var content = new Rect(x, p.y + 66, w, p.height - 80);
             GUILayout.BeginArea(content);
             scroll = GUILayout.BeginScrollView(scroll, false, false, GUIStyle.none, GUI.skin.verticalScrollbar);
             switch (hudTab)
             {
-                case HudTab.Catch: TabCatch(); break;
-                case HudTab.Map: TabMap(); break;
-                case HudTab.Contracts: TabContracts(); break;
-                case HudTab.Crew: TabCrew(); break;
-                case HudTab.Shop: TabShop(); break;
+                case HudTab.Market: TabMarket(); break;
+                case HudTab.HarbourMaster: TabHarbourMaster(); break;
+                case HudTab.CrewOffice: TabCrew(); break;
+                case HudTab.Chandlery: TabChandlery(); break;
+                case HudTab.Supplies: TabSupplies(); break;
             }
             GUILayout.EndScrollView();
             GUILayout.EndArea();
-
-            // Set sail.
-            var blocker = SailBlocker();
-            var spot = GameData.Spots[SelectedSpot];
-            var sail = new Rect(x, p.yMax - 80, w, 64);
-            if (GUI.Button(sail, blocker ?? $"Set sail  →  {spot.Name}", blocker == null ? Ui.Btn : Ui.BtnOff) && blocker == null) SetSail();
         }
 
-        void TabCatch()
+        bool ShopButton(string label, bool can, float width = 120f)
+        {
+            bool clicked = GUILayout.Button(label, can ? Ui.Btn : Ui.BtnOff, GUILayout.Width(width), GUILayout.Height(44)) && can;
+            return clicked;
+        }
+
+        void TabMarket()
         {
             var s = State.LastSale;
             if (s == null)
             {
-                GUILayout.Label("Welcome aboard", Ui.H2);
+                GUILayout.Label("Welcome to Gull Harbour", Ui.H2);
                 GUILayout.Space(6);
                 GUILayout.Label(
-                    "You start with a rowboat, one rod and a cooler.\n\n" +
-                    "<b>On the water:</b> tap the rod to walk to it, then use the action button (or Space):\n" +
-                    "  1. Bait the hook.\n  2. Hold to cast, release. Longer casts catch bigger fish but bite slower.\n" +
-                    "  3. Watch the bobber. Little twitches are nibbles: wait. When it goes fully under, <b>strike</b>.\n" +
-                    "  4. Pick the fish up and carry it to the cooler before it flops back overboard.\n\n" +
-                    "When the cooler is full, head home. Fish sell automatically when you arrive.\n\n" +
-                    "<b>Next:</b> pick a spot on the Map tab, then Set sail.", Ui.Body);
-                return;
+                    "You have a rowboat, one rod and a cooler. Fish sell here automatically when you come home.\n\n" +
+                    "<b>On the water</b>, everything is one tap:\n" +
+                    "  • Tap the <b>Fish</b> bubble above the rod. The captain baits and casts.\n" +
+                    "  • Watch the bobber. Twitches are nibbles: wait. When it goes fully under, <b>tap anywhere</b>.\n" +
+                    "  • Tap <b>Carry</b> above a landed fish to take it to the cooler before it flops away.\n\n" +
+                    "<b>In the harbour</b>, tap a building: the Harbour Master sells sea charts and contracts, the Crew Office hires deckhands, " +
+                    "the Chandlery sells boat upgrades and rods, Supplies sells bait and food.\n\n" +
+                    "Your progress saves in the harbour.", Ui.Body);
             }
-            GUILayout.Label($"Voyage {State.Voyage - 1} result", Ui.H2);
-            GUILayout.Space(6);
-            GUILayout.Label($"Caught {s.Caught} fish in {s.Minutes:0.0} minutes.", Ui.Body);
-            GUILayout.Label($"Sold {s.FishSold} fish for <b>{s.Coins}</b> coins." + (s.ToContracts > 0 ? $"  {s.ToContracts} went to contracts." : ""), Ui.Body);
-            if (s.ContractCoins > 0) GUILayout.Label($"Contract rewards: <b>{s.ContractCoins}</b> coins.", Ui.Body);
-            int earned = s.Coins + s.ContractCoins;
-            GUILayout.Label($"That's {earned / Mathf.Max(0.1f, s.Minutes):0} coins per minute.", Ui.Mutedish);
-            if (!State.Has(UpgradeId.IceBox) && s.FishSold > 0) GUILayout.Label("Without an ice box, fish lose value the longer they sit in the cooler.", Ui.Mutedish);
-            GUILayout.Space(8);
-            foreach (var line in s.Lines) GUILayout.Label("• " + line, Ui.Body);
+            else
+            {
+                GUILayout.Label($"Voyage {State.Voyage - 1}: sold", Ui.H2);
+                GUILayout.Space(4);
+                GUILayout.Label($"Caught {s.Caught} fish in {s.Minutes:0.0} minutes.", Ui.Body);
+                GUILayout.Label($"Sold {s.FishSold} fish for <b>{s.Coins}</b> coins." + (s.ToContracts > 0 ? $"  {s.ToContracts} went to contracts." : ""), Ui.Body);
+                if (s.ContractCoins > 0) GUILayout.Label($"Contract rewards: <b>{s.ContractCoins}</b> coins.", Ui.Body);
+                int earned = s.Coins + s.ContractCoins;
+                GUILayout.Label($"That's {earned / Mathf.Max(0.1f, s.Minutes):0} coins per minute.", Ui.Mutedish);
+                if (!State.Has(UpgradeId.IceBox) && s.FishSold > 0) GUILayout.Label("Without an ice box, fish lose value the longer they sit in the cooler.", Ui.Mutedish);
+                foreach (var line in s.Lines) GUILayout.Label("• " + line, Ui.Body);
+            }
+
+            GUILayout.Space(12);
+            GUILayout.Label("Today's prices", Ui.H2);
+            GUILayout.Label("Selling a lot of one fish pushes its price down. Prices recover over a few voyages.", Ui.Mutedish);
+            foreach (var f in GameData.Fish)
+            {
+                float m = State.Market[(int)f.Species];
+                GUILayout.Label($"{f.Name}: {State.PricePerKg(f.Species):0.0} per kg  <size=12>({(m >= 0.995f ? "normal" : $"{(1f - m) * 100f:0}% down")})</size>", Ui.Body);
+            }
+
+            GUILayout.Space(16);
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button(confirmNewGame ? "Tap again to wipe the save" : "Start a new game", confirmNewGame ? Ui.Btn : Ui.Tab, GUILayout.Width(220), GUILayout.Height(34)))
+            {
+                if (confirmNewGame) { NewGame(); confirmNewGame = false; }
+                else confirmNewGame = true;
+            }
+            GUILayout.EndHorizontal();
         }
 
-        void TabMap()
+        void TabHarbourMaster()
         {
-            GUILayout.Label("Pick a fishing spot. Stocks drop as you fish a spot and recover every voyage.", Ui.Mutedish);
-            GUILayout.Space(6);
+            GUILayout.Label("Sea chart", Ui.H2);
+            GUILayout.Label("Tap a sea to select it. New seas need a chart. Stocks drop as you fish a sea and recover every voyage.", Ui.Mutedish);
+
+            // The chart: land on the left (the harbour), seas as pins.
+            var map = GUILayoutUtility.GetRect(10, 230, GUILayout.ExpandWidth(true));
+            GUI.Box(map, GUIContent.none, Ui.Water);
+            GUI.Box(new Rect(map.x + 6, map.y + 30, 70, map.height - 60), GUIContent.none, Ui.Card);
+            GUI.Label(new Rect(map.x + 6, map.y + map.height / 2f - 10, 70, 20), "Gull\nHarbour", Ui.Center);
             for (int i = 0; i < GameData.Spots.Length; i++)
             {
                 var s = GameData.Spots[i];
-                GUILayout.BeginVertical(i == SelectedSpot ? Ui.CardOn : Ui.Card);
-                GUILayout.Label($"{s.Name}   <size=13>{s.RowSeconds:0} s row</size>", Ui.H2);
-                GUILayout.Label(s.Blurb, Ui.Body);
-                GUILayout.Label(string.Join(", ", s.Table.Select(e => GameData.Get(e.species).Name)), Ui.Mutedish);
-                var r = GUILayoutUtility.GetRect(10, 16, GUILayout.ExpandWidth(true));
-                GUI.Label(new Rect(r.x, r.y, 110, 16), $"Stocks {State.Richness[i] * 100f:0}%", Ui.Small);
-                Ui.Bar(new Rect(r.x + 110, r.y + 2, r.width - 110, 12), State.Richness[i], State.Richness[i] < 0.6f ? Ui.BarWarn : Ui.BarGood);
-                GUILayout.EndVertical();
-                if (Event.current.type == EventType.MouseUp && GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
-                {
-                    SelectedSpot = i;
-                    Event.current.Use();
-                }
-                GUILayout.Space(8);
+                var pos = new Vector2(map.x + 90 + s.MapPos.x * (map.width - 140), map.y + 20 + s.MapPos.y * (map.height - 60));
+                bool known = State.Known(i);
+                var pin = new Rect(pos.x - 13, pos.y - 13, 26, 26);
+                GUI.Box(pin, GUIContent.none, i == SelectedSpot ? Ui.DotGold : known ? Ui.DotWhite : Ui.FishShape);
+                GUI.Label(new Rect(pos.x - 70, pos.y + 14, 140, 20), known ? s.Name : $"{s.Name} (locked)", Ui.WhiteCenterSmall);
+                if (GUI.Button(new Rect(pos.x - 40, pos.y - 20, 80, 56), GUIContent.none, GUIStyle.none)) chartFocus = i;
             }
-        }
 
-        void TabContracts()
-        {
+            // Detail card for the focused sea.
+            var f = GameData.Spots[chartFocus];
+            bool k = State.Known(chartFocus);
+            GUILayout.Space(8);
+            GUILayout.BeginVertical(chartFocus == SelectedSpot ? Ui.CardOn : Ui.Card);
+            GUILayout.Label($"{f.Name}   <size=13>{f.RowSeconds:0} s row</size>", Ui.H2);
+            GUILayout.Label(f.Blurb, Ui.Body);
+            GUILayout.Label("Fish: " + string.Join(", ", f.Table.Select(e => GameData.Get(e.species).Name)), Ui.Mutedish);
+            var r = GUILayoutUtility.GetRect(10, 16, GUILayout.ExpandWidth(true));
+            GUI.Label(new Rect(r.x, r.y, 110, 16), $"Stocks {State.Richness[chartFocus] * 100f:0}%", Ui.Small);
+            Ui.Bar(new Rect(r.x + 110, r.y + 2, r.width - 110, 12), State.Richness[chartFocus], State.Richness[chartFocus] < 0.6f ? Ui.BarWarn : Ui.BarGood);
+            GUILayout.Space(6);
+            if (k)
+            {
+                if (chartFocus == SelectedSpot) GUILayout.Label("<b>Selected.</b> Set sail from the quay.", Ui.Body);
+                else if (ShopButton("Fish here", true, 160f)) SelectedSpot = chartFocus;
+            }
+            else if (ShopButton($"Buy chart: {f.ChartCost}", State.Coins >= f.ChartCost, 200f) && State.BuyChart(chartFocus))
+            {
+                SelectedSpot = chartFocus;
+                Toast($"You can now fish {f.Name}.");
+                SaveGame();
+            }
+            GUILayout.EndVertical();
+
+            GUILayout.Space(14);
             GUILayout.Label($"Your contracts ({State.Active.Count}/{GameData.MaxActiveContracts})", Ui.H2);
-            if (State.Active.Count == 0) GUILayout.Label("None yet. Take one below. Fish that match a contract go to it instead of the market.", Ui.Mutedish);
+            if (State.Active.Count == 0) GUILayout.Label("None yet. Fish that match a contract go to it instead of the market.", Ui.Mutedish);
             foreach (var c in State.Active)
             {
                 GUILayout.BeginVertical(Ui.Card);
@@ -348,29 +428,26 @@ namespace Catchline.Game
                 GUILayout.EndVertical();
                 GUILayout.Space(4);
             }
-            GUILayout.Space(10);
-            GUILayout.Label("Harbour board", Ui.H2);
+            GUILayout.Space(8);
+            GUILayout.Label("Contract board", Ui.H2);
             foreach (var c in State.Offers.ToList())
             {
                 GUILayout.BeginHorizontal(Ui.Card);
                 GUILayout.BeginVertical();
                 GUILayout.Label($"Deliver {c.Title}", Ui.Body);
-                GUILayout.Label($"within {c.VoyagesLeft} voyages · reward <b>{c.Reward}</b> coins (market value about {Mathf.RoundToInt(c.Count * GameData.Get(c.Species).AvgValue)})", Ui.Mutedish);
+                GUILayout.Label($"within {c.VoyagesLeft} voyages · reward <b>{c.Reward}</b> (market value about {Mathf.RoundToInt(c.Count * GameData.Get(c.Species).AvgValue)})", Ui.Mutedish);
                 GUILayout.EndVertical();
-                bool can = State.Active.Count < GameData.MaxActiveContracts;
-                if (GUILayout.Button("Take", can ? Ui.Btn : Ui.BtnOff, GUILayout.Width(90), GUILayout.Height(44)) && can) State.TakeContract(c);
+                if (ShopButton("Take", State.Active.Count < GameData.MaxActiveContracts, 90f))
+                {
+                    State.TakeContract(c);
+                    SaveGame();
+                }
                 GUILayout.EndHorizontal();
                 GUILayout.Space(4);
             }
-            GUILayout.Space(10);
-            GUILayout.Label("Market prices", Ui.H2);
-            GUILayout.Label("Selling a lot of one fish pushes its price down. Prices recover over a few voyages.", Ui.Mutedish);
-            foreach (var f in GameData.Fish)
-            {
-                float m = State.Market[(int)f.Species];
-                GUILayout.Label($"{f.Name}: {State.PricePerKg(f.Species):0.0} per kg  <size=12>({(m >= 0.995f ? "normal" : $"{(1f - m) * 100f:0}% down")})</size>", Ui.Body);
-            }
         }
+
+        int chartFocus;
 
         void TabCrew()
         {
@@ -386,9 +463,9 @@ namespace Catchline.Game
             else GUILayout.Label("Just you. The rowboat has room for one deckhand: they bait hooks and carry fish to the cooler, so you only cast and strike.", Ui.Mutedish);
 
             GUILayout.Space(10);
-            GUILayout.Label("Crew board", Ui.H2);
-            GUILayout.Label("Who's available changes every voyage. Nobody signs on for good.", Ui.Mutedish);
-            if (State.Board.Count == 0) GUILayout.Label("Nobody is looking for work today.", Ui.Body);
+            GUILayout.Label("Looking for work", Ui.H2);
+            GUILayout.Label("Who's here changes every voyage. Nobody signs on for good: contracts run for a few voyages.", Ui.Mutedish);
+            if (State.Board.Count == 0) GUILayout.Label("Nobody is looking for work today. Try after your next voyage.", Ui.Body);
             foreach (var c in State.Board.ToList())
             {
                 GUILayout.BeginHorizontal(Ui.Card);
@@ -396,57 +473,75 @@ namespace Catchline.Game
                 GUILayout.Label($"{c.Name}, {GameData.GradeName(c.Grade)}" + (c.Grade == Grade.Veteran ? "  <size=12>(rare)</size>" : ""), Ui.Body);
                 GUILayout.Label($"{GameData.Speed(c.Grade):0.0}x speed · {c.VoyagesLeft} voyages · fee <b>{c.Fee}</b> coins", Ui.Mutedish);
                 GUILayout.EndVertical();
-                bool can = State.Deckhand == null && State.Coins >= c.Fee;
-                if (GUILayout.Button("Hire", can ? Ui.Btn : Ui.BtnOff, GUILayout.Width(90), GUILayout.Height(44)) && can)
+                if (ShopButton("Hire", State.Deckhand == null && State.Coins >= c.Fee, 90f))
                 {
                     State.Hire(c);
                     SyncCrew();
+                    SaveGame();
                 }
                 GUILayout.EndHorizontal();
                 GUILayout.Space(4);
             }
         }
 
-        void TabShop()
+        void UpgradeCards(string shop)
         {
-            GUILayout.Label("Supplies", Ui.H2);
-            GUILayout.BeginHorizontal(Ui.Card);
-            GUILayout.Label($"Bait: {State.Bait}\n<size=12>One per cast. A spooked or missed fish takes the bait.</size>", Ui.Body);
-            bool canBait = State.Coins >= GameData.BaitPackCost;
-            if (GUILayout.Button($"+{GameData.BaitPackSize} for {GameData.BaitPackCost}", canBait ? Ui.Btn : Ui.BtnOff, GUILayout.Width(150), GUILayout.Height(44)) && canBait) State.BuyBait();
-            GUILayout.EndHorizontal();
-            GUILayout.Space(4);
-            GUILayout.BeginHorizontal(Ui.Card);
-            GUILayout.Label($"Food: {State.FoodMinutes:0.0}/{State.FoodCapacity:0} min\n<size=12>Each crew member eats one minute per minute. No food: 70% speed.</size>", Ui.Body);
-            int cost = State.FoodFillCost;
-            bool canFood = cost > 0 && State.Coins >= cost;
-            if (GUILayout.Button(cost > 0 ? $"Fill up for {cost}" : "Full", canFood ? Ui.Btn : Ui.BtnOff, GUILayout.Width(150), GUILayout.Height(44)) && canFood) State.FillFood();
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(12);
-            GUILayout.Label("Boat upgrades", Ui.H2);
-            foreach (var u in GameData.Upgrades)
+            foreach (var u in GameData.Upgrades.Where(u => u.Shop == shop))
             {
                 GUILayout.BeginHorizontal(Ui.Card);
                 GUILayout.BeginVertical();
                 GUILayout.Label(u.Name, Ui.Body);
-                GUILayout.Label(u.Desc, Ui.Mutedish);
+                GUILayout.Label(u.Desc + (u.Requires.HasValue && !State.Has(u.Requires.Value) ? $" Needs {GameData.Upgrade(u.Requires.Value).Name.ToLower()} first." : ""), Ui.Mutedish);
                 GUILayout.EndVertical();
                 bool owned = State.Has(u.Id);
-                bool can = !owned && State.Coins >= u.Cost;
-                if (GUILayout.Button(owned ? "Owned" : $"{u.Cost}", can ? Ui.Btn : Ui.BtnOff, GUILayout.Width(110), GUILayout.Height(44)) && can)
+                bool can = !owned && State.Coins >= u.Cost && (!u.Requires.HasValue || State.Has(u.Requires.Value));
+                if (ShopButton(owned ? "Owned" : $"{u.Cost}", can, 110f) && State.TryBuy(u.Id))
                 {
-                    State.TryBuy(u.Id);
                     SyncUpgrades();
+                    Toast($"Bought: {u.Name}.");
+                    SaveGame();
                 }
                 GUILayout.EndHorizontal();
                 GUILayout.Space(4);
             }
+        }
+
+        void TabChandlery()
+        {
+            GUILayout.Label("Boat and gear", Ui.H2);
+            GUILayout.Space(4);
+            UpgradeCards("Chandlery");
             GUILayout.Space(12);
             GUILayout.BeginVertical(Ui.Card);
             GUILayout.Label("Skiff refit", Ui.Body);
             GUILayout.Label($"Land {GameData.SkiffFishGoal} fish in one voyage and pay {GameData.SkiffCost} coins. Your boat becomes a skiff: room for a fisherman and the first net. Arrives in the next build.", Ui.Mutedish);
             GUILayout.EndVertical();
+        }
+
+        void TabSupplies()
+        {
+            GUILayout.Label("Bait", Ui.H2);
+            GUILayout.BeginHorizontal(Ui.Card);
+            GUILayout.Label($"Worms: {State.Bait}\n<size=12>One per hook. A spooked or missed fish takes the bait.</size>", Ui.Body);
+            if (ShopButton($"+{GameData.BaitPackSize} for {GameData.BaitPackCost}", State.Coins >= GameData.BaitPackCost, 150f) && State.BuyBait()) SaveGame();
+            GUILayout.EndHorizontal();
+            GUILayout.Space(4);
+            GUILayout.BeginHorizontal(Ui.Card);
+            GUILayout.Label($"Squid: {State.Squid}\n<size=12>Draws bigger fish and bigger species. Used first when you have it.</size>", Ui.Body);
+            if (ShopButton($"+{GameData.SquidPackSize} for {GameData.SquidPackCost}", State.Coins >= GameData.SquidPackCost, 150f) && State.BuySquid()) SaveGame();
+            GUILayout.EndHorizontal();
+            bool use = GUILayout.Toggle(State.UseSquid, "  Use squid first when I have it", GUILayout.Height(24));
+            if (use != State.UseSquid) { State.UseSquid = use; SaveGame(); }
+
+            GUILayout.Space(12);
+            GUILayout.Label("Food", Ui.H2);
+            GUILayout.BeginHorizontal(Ui.Card);
+            GUILayout.Label($"Food: {State.FoodMinutes:0.0}/{State.FoodCapacity:0} min\n<size=12>Each crew member eats one minute per minute. No food: 70% speed.</size>", Ui.Body);
+            int cost = State.FoodFillCost;
+            if (ShopButton(cost > 0 ? $"Fill up for {cost}" : "Full", cost > 0 && State.Coins >= cost, 150f) && State.FillFood()) SaveGame();
+            GUILayout.EndHorizontal();
+            GUILayout.Space(4);
+            UpgradeCards("Supplies");
         }
     }
 }

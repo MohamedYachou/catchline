@@ -64,13 +64,88 @@ namespace Catchline.Game
             Ring = Box(Round(new Color(1f, 1f, 1f, 0.35f), 20), 0, 20);
             FishShape = Box(Round(new Color(0.04f, 0.2f, 0.25f, 0.85f), 10), 0, 10);
             Water = Box(Round(new Color(0.08f, 0.5f, 0.58f, 0.93f), 18, new Color(1f, 1f, 1f, 0.5f), 3), 0, 18);
+
+            ApplyKit();
+        }
+
+        // ---- Codex's UI kit (Assets/Art/UI), imported at 1x. Borders are the slices.json values halved. ----
+
+        public static Font KitFont;
+        static ArtLibrary lib;
+
+        public static Texture2D Tex(string name) => lib != null ? lib.UiTex(name) : null;
+
+        static void ApplyKit()
+        {
+            lib = ArtLibrary.Get();
+            if (lib == null) return;
+            KitFont = lib.UiFont;
+            if (KitFont != null)
+                foreach (var s in new[] { Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn, Chip, ToastStyle, WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, MiniTitle, MiniHot })
+                {
+                    s.font = KitFont;
+                    if (s.fontStyle == FontStyle.Bold) s.fontStyle = FontStyle.Normal; // Fredoka Medium is already heavy
+                }
+
+            Skin(Panel, "panel-cream", 28, 28, 28, 32);
+            Skin(Card, "card-white", 28, 28, 28, 32);
+            Skin(CardOn, "card-selected", 28, 28, 28, 32);
+            Skin(Chip, "chip-dark", 28, 28, 28, 32);
+            Skin(ToastStyle, "toast-dark", 28, 28, 28, 32);
+            Button(Btn, "button-primary");
+            Button(BtnAlt, "button-secondary");
+            Button(BtnOff, "button-disabled");
+            Button(Tab, "button-tab-off");
+            Button(TabOn, "button-tab-on");
+            Skin(Bubble, "bubble-white", 24, 24, 20, 20);
+            Skin(BubbleHot, "bubble-hot", 24, 24, 20, 20);
+            Skin(BarBg, "bar-background", 12, 12, 9, 9);
+            Skin(BarFill, "bar-teal", 12, 12, 9, 9);
+            Skin(BarGood, "bar-green", 12, 12, 9, 9);
+            Skin(BarWarn, "bar-red", 12, 12, 9, 9);
+            // Kit panels carry a drop shadow at the bottom: keep content clear of it.
+            foreach (var s in new[] { Card, CardOn })
+                s.padding = new RectOffset(16, 16, 12, 16);
+        }
+
+        static void Skin(GUIStyle s, string tex, int left, int right, int top, int bottom)
+        {
+            var t = Tex(tex);
+            if (t == null) return;
+            s.normal.background = t;
+            s.hover.background = t;
+            s.border = new RectOffset(left, right, top, bottom);
+        }
+
+        static void Button(GUIStyle s, string prefix)
+        {
+            var normal = Tex(prefix + "-normal");
+            var pressed = Tex(prefix + "-pressed");
+            if (normal == null) return;
+            s.normal.background = s.hover.background = normal;
+            s.active.background = pressed != null ? pressed : normal;
+            s.border = new RectOffset(22, 22, 20, 20);
+            s.padding = new RectOffset(14, 14, 6, 10);
+        }
+
+        // Draws a kit sprite scaled to a rect; returns false when the kit is missing so callers can fall back.
+        public static bool Sprite(Rect r, string name, float alpha = 1f)
+        {
+            var t = Tex(name);
+            if (t == null) return false;
+            var prev = GUI.color;
+            GUI.color = new Color(1f, 1f, 1f, alpha);
+            GUI.DrawTexture(r, t, ScaleMode.StretchToFill, true);
+            GUI.color = prev;
+            return true;
         }
 
         public static void Bar(Rect r, float t, GUIStyle fill = null)
         {
+            if (Tex("bar-background") != null) r.height = Mathf.Max(r.height, 18f);
             GUI.Box(r, GUIContent.none, BarBg);
             t = Mathf.Clamp01(t);
-            if (t > 0.01f) GUI.Box(new Rect(r.x, r.y, Mathf.Max(12f, r.width * t), r.height), GUIContent.none, fill ?? BarFill);
+            if (t > 0.01f) GUI.Box(new Rect(r.x, r.y, Mathf.Max(24f, r.width * t), r.height), GUIContent.none, fill ?? BarFill);
         }
 
         static GUIStyle Box(Texture2D bg, int pad, int radius)

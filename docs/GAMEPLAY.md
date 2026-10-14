@@ -149,16 +149,42 @@ Rowboat 3x2, the captain, one rod, a cooler. The camera stays on the boat.
 
   A fish left on deck flops back overboard after 25 s. A rod nobody is standing at shows a **Watch** bubble (and **!** on a bite): tap it to go there.
 - **Cooler:** 10 fish. Without the ice box, fish lose value the longer they sit (down to 60%).
-- **Food:** bought before sailing in minutes. Out of food means 70% speed.
-- **Spots:**
-  - Harbour mouth: near; herring and mackerel
-  - Kelp bank: mid; mackerel, pollock, sometimes sea bass
-  - Rocky point: far; pollock, sea bass, rare conger
-- **Upgrades (coins):**
-  - Big cooler: 16 fish
-  - Ice box
-  - Rod holder: second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling, and sometimes steals the bait.
-  - Lunch tin: more food
-- **Crew board:** deckhand contracts (hand, sometimes experienced, rarely a veteran). A deckhand baits hooks and carries fish to the cooler. That is tier 2.
-- **Harbour contracts** (3 offers), a reactive market and spot depletion.
+- **Food:** bought at Supplies before sailing, in minutes. Out of food means 70% speed.
+- **Bait:** worms (1 per hook) and squid (draws bigger fish and bigger species; used first when you have it).
+- **Rod holder:** a second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling, and sometimes steals the bait.
+- **Deckhand (tier 2):** baits hooks and carries fish to the cooler.
+
+### Gull Harbour, the first world
+
+The harbour is a quay with five shops. Tap a building's bubble to open it:
+
+| Shop | What it does |
+|---|---|
+| Fish Market | Your last sale and today's prices (the market reacts to what you sell). Start a new game |
+| Harbour Master | The sea chart (pick a sea, buy charts for new seas) and the contract board (3 offers) |
+| Crew Office | Deckhand contracts: hands, sometimes experienced, rarely a veteran. Nobody signs on for good |
+| Chandlery | Rod holder, big cooler (16 fish), ice box, fibreglass rods (1.15 s strike window, faster reel), carbon rods (1.4 s, self-hook 45%), and the skiff refit goal |
+| Supplies | Worms, squid, food, lunch tin |
+
+Five seas, each with its own look and fish. Stocks drop as you fish a sea and recover every voyage.
+
+| Sea | Chart | Row | Fish |
+|---|---|---|---|
+| Harbour mouth | free | 5 s | herring, mackerel |
+| Kelp bank | free | 9 s | mackerel, pollock, some herring and sea bass |
+| Sandbar | 120 | 11 s | plaice, mackerel, sea bass |
+| Rocky point | 220 | 14 s | pollock, sea bass, mackerel, conger |
+| Deep channel | 500 | 20 s | cod, conger, pollock (slow bites, bring food) |
+
+Progress saves in the harbour (after selling and after every purchase). A voyage in progress is not saved.
+
+Bot balance run (30 voyages):
+- Sandbar chart at about 30 min
+- Rocky point at about 50 min
+- all gear by about 90 min
+- Deep channel at about 100 min
+- skiff money at about 2.5-3 hours
+
+Earnings climb from about 25 to 40 coins per minute as seas unlock.
+
 - **Skiff licence goal** visible (16 fish in one voyage + 1,500 coins), refit coming in build 2.

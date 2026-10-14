@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.IO;
+using System.Linq;
 using Catchline.Game;
 using Catchline.Prototype;
 using UnityEditor;
@@ -82,6 +83,7 @@ namespace Catchline.EditorTools
         [MenuItem("Catchline/Play Voyage %#p")]
         public static void PlayVoyage()
         {
+            ArtImport.BuildLibrary();
             if (!File.Exists(VoyagePath)) CreateVoyageScene();
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             EditorSceneManager.OpenScene(VoyagePath);
@@ -95,12 +97,21 @@ namespace Catchline.EditorTools
         {
             int voyages = int.Parse(Arg("-voyages", "15"));
             string path = Arg("-snapshotPath", Path.GetFullPath("Logs/voyage-snapshot.png"));
+            ArtImport.BuildLibrary();
             if (!File.Exists(VoyagePath)) CreateVoyageScene();
             EditorSceneManager.OpenScene(VoyagePath);
             var game = UnityEngine.Object.FindFirstObjectByType<VoyageGame>();
             game.Seed = int.Parse(Arg("-seed", "7"));
             game.AutoPlay = true;
             game.Build();
+            var shaders = UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None)
+                .SelectMany(r => r.sharedMaterials.Select(m => m == null ? $"{r.name}:null" : $"{m.name}:{m.shader.name}"))
+                .Distinct().Take(25);
+            Debug.Log("[Catchline] Materials: " + string.Join(" | ", shaders));
+            // A shot of the harbour before the bot sails.
+            game.Tick(0.2f);
+            Render(game.Cam, path.Replace(".png", "-harbour.png"), 1600, 900);
+            game.Tick(0.3f);
 
             int logged = 0;
             while (game.State.Voyage <= voyages && game.SimTime < voyages * 900f)

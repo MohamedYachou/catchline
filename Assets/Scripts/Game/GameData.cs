@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Catchline.Game
 {
-    public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger }
-    public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin }
+    public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger, Plaice, Cod }
+    public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin, RodFibreglass, RodCarbon }
     public enum Grade { Hand, Experienced, Veteran }
 
     public class FishDef
@@ -23,6 +23,8 @@ namespace Catchline.Game
         public string Name, Blurb;
         public float RowSeconds;
         public float BiteWait = 1f; // multiplier on time to a bite
+        public int ChartCost;       // 0 = known from the start
+        public Vector2 MapPos;      // 0..1 on the harbour master's chart
         public Color Water;
         public (Species species, float weight)[] Table;
     }
@@ -32,6 +34,8 @@ namespace Catchline.Game
         public UpgradeId Id;
         public string Name, Desc;
         public int Cost;
+        public UpgradeId? Requires;
+        public string Shop = "Chandlery";
     }
 
     public static class Palette
@@ -64,11 +68,13 @@ namespace Catchline.Game
 
         public static readonly FishDef[] Fish =
         {
-            new() { Species = Species.Herring, Name = "Herring", MinKg = 0.12f, MaxKg = 0.3f, PricePerKg = 12f, Color = Palette.Hex("9DB8C9"), Length = 0.26f, Heaviness = 0f },
-            new() { Species = Species.Mackerel, Name = "Mackerel", MinKg = 0.3f, MaxKg = 0.7f, PricePerKg = 10f, Color = Palette.Hex("3F8C8A"), Length = 0.34f, Heaviness = 0.2f },
-            new() { Species = Species.Pollock, Name = "Pollock", MinKg = 0.8f, MaxKg = 2.5f, PricePerKg = 6f, Color = Palette.Hex("8C7A4E"), Length = 0.48f, Heaviness = 0.5f },
-            new() { Species = Species.SeaBass, Name = "Sea bass", MinKg = 1.0f, MaxKg = 3.0f, PricePerKg = 9f, Color = Palette.Hex("A9B4B8"), Length = 0.5f, Heaviness = 0.7f },
-            new() { Species = Species.Conger, Name = "Conger eel", MinKg = 3f, MaxKg = 8f, PricePerKg = 4f, Color = Palette.Hex("4A4E52"), Length = 0.8f, Heaviness = 1f },
+            new() { Species = Species.Herring, Name = "Herring", MinKg = 0.12f, MaxKg = 0.3f, PricePerKg = 17f, Color = Palette.Hex("9DB8C9"), Length = 0.26f, Heaviness = 0f },
+            new() { Species = Species.Mackerel, Name = "Mackerel", MinKg = 0.3f, MaxKg = 0.7f, PricePerKg = 14f, Color = Palette.Hex("3F8C8A"), Length = 0.34f, Heaviness = 0.2f },
+            new() { Species = Species.Pollock, Name = "Pollock", MinKg = 0.8f, MaxKg = 2.5f, PricePerKg = 8.5f, Color = Palette.Hex("8C7A4E"), Length = 0.48f, Heaviness = 0.5f },
+            new() { Species = Species.SeaBass, Name = "Sea bass", MinKg = 1.0f, MaxKg = 3.0f, PricePerKg = 12.5f, Color = Palette.Hex("A9B4B8"), Length = 0.5f, Heaviness = 0.7f },
+            new() { Species = Species.Conger, Name = "Conger eel", MinKg = 3f, MaxKg = 8f, PricePerKg = 5.5f, Color = Palette.Hex("4A4E52"), Length = 0.8f, Heaviness = 1f },
+            new() { Species = Species.Plaice, Name = "Plaice", MinKg = 0.4f, MaxKg = 1.4f, PricePerKg = 15f, Color = Palette.Hex("B59A6A"), Length = 0.36f, Heaviness = 0.35f },
+            new() { Species = Species.Cod, Name = "Cod", MinKg = 2f, MaxKg = 7f, PricePerKg = 7f, Color = Palette.Hex("8E9A6C"), Length = 0.7f, Heaviness = 0.85f },
         };
 
         public static FishDef Get(Species s) => Fish[(int)s];
@@ -77,18 +83,33 @@ namespace Catchline.Game
         {
             new()
             {
-                Name = "Harbour mouth", Blurb = "Close by. Small fish, quick bites.", RowSeconds = 5f, BiteWait = 0.85f, Water = Palette.Hex("1E9AA8"),
+                Name = "Harbour mouth", Blurb = "Close by, behind the lighthouse. Small fish, quick bites.", RowSeconds = 5f, BiteWait = 0.85f, Water = Palette.Hex("1E9AA8"),
+                MapPos = new Vector2(0.3f, 0.55f),
                 Table = new[] { (Species.Herring, 60f), (Species.Mackerel, 40f) },
             },
             new()
             {
                 Name = "Kelp bank", Blurb = "Mackerel schools in the kelp, pollock below.", RowSeconds = 9f, BiteWait = 1f, Water = Palette.Hex("2A8C80"),
+                MapPos = new Vector2(0.42f, 0.25f),
                 Table = new[] { (Species.Herring, 15f), (Species.Mackerel, 50f), (Species.Pollock, 28f), (Species.SeaBass, 7f) },
             },
             new()
             {
+                Name = "Sandbar", Blurb = "Warm, shallow and sandy. Flatfish lie on the bottom.", RowSeconds = 11f, BiteWait = 1.05f, Water = Palette.Hex("3FB3B0"),
+                ChartCost = 120, MapPos = new Vector2(0.5f, 0.78f),
+                Table = new[] { (Species.Mackerel, 30f), (Species.Plaice, 45f), (Species.SeaBass, 25f) },
+            },
+            new()
+            {
                 Name = "Rocky point", Blurb = "A long row. Big fish hide between the rocks.", RowSeconds = 14f, BiteWait = 1.3f, Water = Palette.Hex("1A7591"),
+                ChartCost = 220, MapPos = new Vector2(0.7f, 0.18f),
                 Table = new[] { (Species.Mackerel, 20f), (Species.Pollock, 42f), (Species.SeaBass, 28f), (Species.Conger, 10f) },
+            },
+            new()
+            {
+                Name = "Deep channel", Blurb = "Open water past the point. Cod and big eels, slow bites. Bring food.", RowSeconds = 20f, BiteWait = 1.5f, Water = Palette.Hex("15587A"),
+                ChartCost = 500, MapPos = new Vector2(0.88f, 0.55f),
+                Table = new[] { (Species.Pollock, 30f), (Species.Cod, 45f), (Species.Conger, 25f) },
             },
         };
 
@@ -97,7 +118,9 @@ namespace Catchline.Game
             new() { Id = UpgradeId.RodHolder, Name = "Rod holder", Cost = 250, Desc = "A second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling." },
             new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 200, Desc = "Holds 16 fish instead of 10, so you stay out longer." },
             new() { Id = UpgradeId.IceBox, Name = "Ice box", Cost = 250, Desc = "Fish keep full value. Without ice they lose up to 40% the longer they sit." },
-            new() { Id = UpgradeId.LunchTin, Name = "Lunch tin", Cost = 100, Desc = "Carry 12 minutes of food instead of 6." },
+            new() { Id = UpgradeId.LunchTin, Name = "Lunch tin", Cost = 100, Desc = "Carry 12 minutes of food instead of 6.", Shop = "Supplies" },
+            new() { Id = UpgradeId.RodFibreglass, Name = "Fibreglass rods", Cost = 180, Desc = "Longer strike window (1.15 s) and 25% faster reeling." },
+            new() { Id = UpgradeId.RodCarbon, Name = "Carbon rods", Cost = 450, Requires = UpgradeId.RodFibreglass, Desc = "Strike window 1.4 s, 50% faster reeling, and an unattended rod hooks the fish itself 45% of the time." },
         };
 
         public static UpgradeDef Upgrade(UpgradeId id)
@@ -123,7 +146,9 @@ namespace Catchline.Game
         public const int StartCoins = 40;
         public const int StartBait = 15;
         public const int BaitPackSize = 10, BaitPackCost = 10;
-        public const int FoodCostPerMinute = 2;
+        public const int SquidPackSize = 5, SquidPackCost = 15; // squid draws bigger fish
+        public const float SquidPowerBonus = 0.4f;
+        public const int FoodCostPerMinute = 1;
         public const float RichnessPerCatch = 0.035f;
         public const float RichnessRecovery = 0.2f;
         public const float MarketDropPerFish = 0.97f;

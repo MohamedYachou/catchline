@@ -37,7 +37,13 @@ namespace Catchline.Game
         TextMesh coolerLabel;
         Material seaMat;
         Color seaFrom, seaTo;
-        GameObject oarPort, oarStarboard;
+        GameObject oarPort, oarStarboard, coolerModel, iceBoxModel;
+        Quaternion oarPortBase = Quaternion.identity, oarStarboardBase = Quaternion.identity;
+        bool modelOars;
+        float bowSign = 1f; // +1: bow toward +X (primitive hull), -1: toward -X (model)
+
+        // Harbour buildings you tap to open a shop.
+        public readonly List<(Transform anchor, HudTab tab)> Shops = new();
         readonly List<Transform> waves = new();
         readonly List<(Transform t, float age)> splashes = new();
         float modeTimer, modeDuration, voyageStart, lidPop;
@@ -62,7 +68,7 @@ namespace Catchline.Game
         {
             if (built) return;
             built = true;
-            State = new GameState(Seed);
+            State = (AutoPlay ? null : GameState.Load()) ?? new GameState(Seed);
             Grid = new DeckGrid(3, 2);
             Grid.Block(new RectInt(CoolerTile.x, CoolerTile.y, 1, 1));
             BuildWorld();
@@ -85,7 +91,8 @@ namespace Catchline.Game
             Cam.backgroundColor = Palette.Sea;
             Cam.nearClipPlane = 0.1f;
             Cam.farClipPlane = 120f;
-            camGo.transform.rotation = Quaternion.Euler(50f, 24f, 0f);
+            // Same angle as the art previews (45 down, 35 yaw): every hull is placed bow toward -X, which reads as 8 o'clock on screen.
+            camGo.transform.rotation = Quaternion.Euler(45f, 35f, 0f);
             camGo.transform.position = new Vector3(1.1f, 0f, -1.3f) - camGo.transform.forward * 40f;
 
             var sun = new GameObject("Sun").AddComponent<Light>();
@@ -123,6 +130,65 @@ namespace Catchline.Game
             Boat = new GameObject("Rowboat").transform;
             Boat.SetParent(world, false);
 
+            var lib = ArtLibrary.Get();
+            if (lib != null && lib.Rowboat != null)
+            {
+                // Model: deck centred on its origin, bow +Z. Turned so the port gunwale (rods) faces the camera;
+                // the bow then points to -X, so the boat rows toward -X.
+                var rb = ArtLibrary.Spawn(lib.Rowboat, Boat, new Vector3(1f, 0f, 0.5f), Quaternion.Euler(0f, -90f, 0f));
+                bowSign = -1f;
+                oarPort = ArtLibrary.Find(rb, "Oar_Port")?.gameObject;
+                oarStarboard = ArtLibrary.Find(rb, "Oar_Starboard")?.gameObject;
+                modelOars = oarPort != null && oarStarboard != null;
+                if (modelOars)
+                {
+                    oarPortBase = oarPort.transform.localRotation;
+                    oarStarboardBase = oarStarboard.transform.localRotation;
+                }
+            }
+            else BuildPrimitiveHull();
+
+            var floor = new GameObject("DeckFloor");
+            floor.transform.SetParent(Boat, false);
+            var fc = floor.AddComponent<BoxCollider>();
+            fc.center = new Vector3(1f, -0.02f, 0.5f);
+            fc.size = new Vector3(3f, 0.06f, 2f);
+            floor.AddComponent<Tappable>().Deck = true;
+
+            // Cooler on the starboard middle tile.
+            var cooler = new GameObject("Cooler");
+            cooler.transform.SetParent(Boat, false);
+            cooler.transform.localPosition = DeckGrid.ToLocal(CoolerTile);
+            if (lib != null && lib.Cooler != null && lib.IceBox != null)
+            {
+                coolerModel = ArtLibrary.Spawn(lib.Cooler, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
+                iceBoxModel = ArtLibrary.Spawn(lib.IceBox, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
+                if (lib.BaitBucket != null) ArtLibrary.Spawn(lib.BaitBucket, Boat, new Vector3(0.25f, 0f, 1.25f), Quaternion.identity);
+                if (lib.LunchTin != null) ArtLibrary.Spawn(lib.LunchTin, Boat, new Vector3(1.75f, 0f, 1.3f), Quaternion.Euler(0f, 20f, 0f));
+            }
+            else
+            {
+                Visuals.Box("Body", cooler.transform, new Vector3(0f, 0.22f, 0f), new Vector3(0.8f, 0.42f, 0.55f), Palette.Rail);
+                Visuals.Box("Handle", cooler.transform, new Vector3(0f, 0.3f, -0.29f), new Vector3(0.3f, 0.05f, 0.04f), Palette.Rubber);
+                coolerLid = new GameObject("LidHinge").transform;
+                coolerLid.SetParent(cooler.transform, false);
+                coolerLid.localPosition = new Vector3(0f, 0.43f, 0.28f);
+                Visuals.Box("Lid", coolerLid, new Vector3(0f, 0.04f, -0.28f), new Vector3(0.84f, 0.08f, 0.59f), Palette.Accent);
+            }
+            var cc = cooler.AddComponent<BoxCollider>();
+            cc.center = new Vector3(0f, 0.3f, 0f);
+            cc.size = new Vector3(0.9f, 0.6f, 0.7f);
+            cooler.AddComponent<Tappable>().Cooler = true;
+            coolerLabel = Visuals.Label("Count", cooler.transform, new Vector3(0f, 0.75f, 0f), 0.045f);
+            coolerLabel.color = Palette.Rail;
+
+            Rods.Add(new Rod(0, new Vector2Int(0, 0)));
+            Rods.Add(new Rod(1, new Vector2Int(2, 0)));
+            foreach (var r in Rods) r.Build(Boat, world);
+        }
+
+        void BuildPrimitiveHull()
+        {
             // Hull with a pointed bow (cube turned 45 degrees) and a flat transom.
             Visuals.Box("Hull", Boat, new Vector3(0.9f, -0.33f, 0.5f), new Vector3(3.0f, 0.6f, 2.3f), Palette.HullNavy);
             Visuals.Box("Stripe", Boat, new Vector3(0.9f, -0.12f, 0.5f), new Vector3(3.04f, 0.07f, 2.34f), Palette.Accent);
@@ -152,106 +218,150 @@ namespace Catchline.Game
             Visuals.Box("Shaft", oarStarboard.transform, new Vector3(0f, 0f, 0.8f), new Vector3(0.06f, 0.06f, 1.9f), Palette.DeckWoodDark);
             Visuals.Box("Blade", oarStarboard.transform, new Vector3(0f, 0f, 1.8f), new Vector3(0.2f, 0.03f, 0.45f), Palette.Accent);
 
-            var floor = new GameObject("DeckFloor");
-            floor.transform.SetParent(Boat, false);
-            var fc = floor.AddComponent<BoxCollider>();
-            fc.center = new Vector3(1f, -0.02f, 0.5f);
-            fc.size = new Vector3(3f, 0.06f, 2f);
-            floor.AddComponent<Tappable>().Deck = true;
-
-            // Cooler on the starboard middle tile.
-            var cooler = new GameObject("Cooler");
-            cooler.transform.SetParent(Boat, false);
-            cooler.transform.localPosition = DeckGrid.ToLocal(CoolerTile);
-            Visuals.Box("Body", cooler.transform, new Vector3(0f, 0.22f, 0f), new Vector3(0.8f, 0.42f, 0.55f), Palette.Rail);
-            Visuals.Box("Handle", cooler.transform, new Vector3(0f, 0.3f, -0.29f), new Vector3(0.3f, 0.05f, 0.04f), Palette.Rubber);
-            coolerLid = new GameObject("LidHinge").transform;
-            coolerLid.SetParent(cooler.transform, false);
-            coolerLid.localPosition = new Vector3(0f, 0.43f, 0.28f);
-            Visuals.Box("Lid", coolerLid, new Vector3(0f, 0.04f, -0.28f), new Vector3(0.84f, 0.08f, 0.59f), Palette.Accent);
-            var cc = cooler.AddComponent<BoxCollider>();
-            cc.center = new Vector3(0f, 0.3f, 0f);
-            cc.size = new Vector3(0.9f, 0.6f, 0.7f);
-            cooler.AddComponent<Tappable>().Cooler = true;
-            coolerLabel = Visuals.Label("Count", cooler.transform, new Vector3(0f, 0.75f, 0f), 0.045f);
-            coolerLabel.color = Palette.Rail;
-
-            Rods.Add(new Rod(0, new Vector2Int(0, 0)));
-            Rods.Add(new Rod(1, new Vector2Int(2, 0)));
-            foreach (var r in Rods) r.Build(Boat, world);
         }
 
-        // -1 = harbour quay, otherwise the fishing spot index.
+        // -1 = Gull Harbour quay with the shops, otherwise the fishing spot index.
         Transform BuildScenery(int kind)
         {
             var root = new GameObject(kind < 0 ? "Scenery Harbour" : $"Scenery {GameData.Spots[kind].Name}").transform;
             root.SetParent(world, false);
             var rng = new System.Random(100 + kind);
             float R(float a, float b) => a + (float)rng.NextDouble() * (b - a);
+            var lib = ArtLibrary.Get();
             var stone = Palette.Hex("8E8A80");
-            var rock = Palette.Hex("6F7270");
+            var rockColor = Palette.Hex("6F7270");
 
             void Rock(Vector3 p, float s)
             {
-                var g = Visuals.Box("Rock", root, p, new Vector3(s, s * 0.7f, s * 0.9f), rock);
-                g.transform.localRotation = Quaternion.Euler(R(-15f, 15f), R(0f, 90f), R(-10f, 10f));
+                var rot = Quaternion.Euler(0f, R(0f, 360f), 0f);
+                var models = lib != null ? new[] { lib.RockA, lib.RockB, lib.RockC } : null;
+                var prefab = models?[rng.Next(3)];
+                if (prefab != null) ArtLibrary.Spawn(prefab, root, new Vector3(p.x, -0.45f, p.z), rot, s * 0.9f);
+                else
+                {
+                    var g = Visuals.Box("Rock", root, p, new Vector3(s, s * 0.7f, s * 0.9f), rockColor);
+                    g.transform.localRotation = Quaternion.Euler(R(-15f, 15f), R(0f, 90f), R(-10f, 10f));
+                }
             }
+
+            GameObject Place(GameObject prefab, Vector3 p, float yaw = 0f, float scale = 1f)
+                => ArtLibrary.Spawn(prefab, root, p, Quaternion.Euler(0f, yaw, 0f), scale);
 
             if (kind < 0)
             {
-                Visuals.Box("Quay", root, new Vector3(1f, -0.1f, 4.4f), new Vector3(40f, 0.9f, 4.4f), stone);
-                Visuals.Box("QuayEdge", root, new Vector3(1f, 0.37f, 2.3f), new Vector3(40f, 0.06f, 0.25f), Palette.Hex("A7A398"));
-                foreach (float x in new[] { -4f, 0.2f, 4.5f, 9f })
-                    Visuals.Prim(PrimitiveType.Cylinder, "Bollard", root, new Vector3(x, 0.55f, 2.7f), new Vector3(0.25f, 0.2f, 0.25f), Palette.Rubber);
+                Shops.Clear();
+                const float quayTop = 0.35f;
+                if (lib != null && lib.Quay != null)
+                    for (float x = -22f; x <= 26f; x += 4f) Place(lib.Quay, new Vector3(x, quayTop, 3.3f));
+                else Visuals.Box("QuayEdge", root, new Vector3(1f, quayTop - 0.45f, 3.3f), new Vector3(50f, 0.9f, 2f), stone);
+                Visuals.Box("QuayBack", root, new Vector3(1f, quayTop - 0.47f, 8.5f), new Vector3(50f, 0.9f, 8.5f), stone);
+
+                foreach (float x in new[] { -4.5f, -0.6f, 3.4f, 7.5f })
+                {
+                    if (lib != null && lib.Bollard != null) Place(lib.Bollard, new Vector3(x, quayTop, 2.6f));
+                    else Visuals.Prim(PrimitiveType.Cylinder, "Bollard", root, new Vector3(x, quayTop + 0.2f, 2.6f), new Vector3(0.25f, 0.2f, 0.25f), Palette.Rubber);
+                }
+                foreach (float x in new[] { -6.5f, -0.6f, 5.5f })
+                {
+                    if (lib != null && lib.LampPost != null) Place(lib.LampPost, new Vector3(x, quayTop, 4.0f));
+                    else Visuals.Prim(PrimitiveType.Cylinder, "Lamp", root, new Vector3(x, quayTop + 0.75f, 4.0f), new Vector3(0.07f, 0.75f, 0.07f), Palette.Rubber);
+                }
+
+                // The shops along the quay. Each gets a sign and a tap bubble.
+                var shops = new[]
+                {
+                    (HudTab.Market, "FISH MARKET", -5.6f),
+                    (HudTab.HarbourMaster, "HARBOUR MASTER", -2.0f),
+                    (HudTab.CrewOffice, "CREW OFFICE", 1.6f),
+                    (HudTab.Chandlery, "CHANDLERY", 5.2f),
+                    (HudTab.Supplies, "SUPPLIES", 8.8f),
+                };
                 Color[] walls = { Palette.Hex("E9D8B4"), Palette.Hex("C9DDE0"), Palette.Hex("E7B9A0"), Palette.Hex("D9E3C5"), Palette.Rail };
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < shops.Length; i++)
                 {
-                    float x = -7f + i * 2.6f;
-                    float h = R(1.6f, 2.6f);
-                    var wall = walls[i % walls.Length];
-                    Visuals.Box("House", root, new Vector3(x, 0.35f + h / 2f, 6.6f), new Vector3(2.3f, h, 2.2f), wall);
-                    var roof = Visuals.Box("Roof", root, new Vector3(x, 0.35f + h, 6.6f), new Vector3(2.4f, 1.1f, 1.1f), i % 2 == 0 ? Palette.Accent : Palette.HullNavy);
-                    roof.transform.localRotation = Quaternion.Euler(45f, 0f, 0f);
-                    Visuals.Box("Door", root, new Vector3(x, 0.75f, 5.48f), new Vector3(0.4f, 0.8f, 0.05f), Palette.HullNavy);
+                    var (tab, sign, x) = shops[i];
+                    var house = i % 2 == 0 ? lib?.HouseA : lib?.HouseB;
+                    float height = 3.8f;
+                    if (house != null) Place(house, new Vector3(x, quayTop, 6.6f), 180f, 0.95f);
+                    else
+                    {
+                        height = 2.4f + i % 2 * 0.4f;
+                        Visuals.Box("House", root, new Vector3(x, quayTop + height / 2f, 6.6f), new Vector3(3f, height, 2.4f), walls[i % walls.Length]);
+                        var roof = Visuals.Box("Roof", root, new Vector3(x, quayTop + height, 6.6f), new Vector3(3.1f, 1.2f, 1.2f), i % 2 == 0 ? Palette.Accent : Palette.HullNavy);
+                        roof.transform.localRotation = Quaternion.Euler(45f, 0f, 0f);
+                        Visuals.Box("Door", root, new Vector3(x, quayTop + 0.45f, 5.38f), new Vector3(0.5f, 0.9f, 0.05f), Palette.HullNavy);
+                    }
+                    var board = Visuals.Box("Sign", root, new Vector3(x, quayTop + 1.55f, 5.05f), new Vector3(2.2f, 0.42f, 0.06f), Palette.HullNavy);
+                    var label = Visuals.Label("SignText", board.transform.parent, new Vector3(x, quayTop + 1.42f, 5.0f), 0.032f);
+                    label.text = sign;
+                    label.color = Palette.Cream;
+                    label.fontStyle = FontStyle.Bold;
+                    label.transform.localRotation = Quaternion.identity;
+                    var anchor = new GameObject($"{sign} bubble").transform;
+                    anchor.SetParent(root, false);
+                    anchor.localPosition = new Vector3(x, quayTop + height + 0.6f, 6.0f);
+                    Shops.Add((anchor, tab));
                 }
-                for (int i = 0; i < 3; i++)
-                {
-                    float x = -3f + i * 5f;
-                    Visuals.Prim(PrimitiveType.Cylinder, "Lamp", root, new Vector3(x, 1.1f, 3.4f), new Vector3(0.07f, 0.75f, 0.07f), Palette.Rubber);
-                    Visuals.Box("LampHead", root, new Vector3(x, 1.9f, 3.4f), new Vector3(0.22f, 0.18f, 0.22f), Palette.Oilskin);
-                }
-                // A neighbour's boat moored further along.
-                Visuals.Box("OtherBoat", root, new Vector3(7.2f, -0.25f, 1.1f), new Vector3(3.6f, 0.55f, 1.6f), Palette.Hex("B8473A"));
-                Visuals.Box("OtherDeck", root, new Vector3(7.2f, 0.04f, 1.1f), new Vector3(3.4f, 0.05f, 1.4f), Palette.DeckWood);
-                Visuals.Box("Crates", root, new Vector3(3.2f, 0.55f, 3.2f), new Vector3(0.5f, 0.4f, 0.4f), Palette.HullNavy);
-                Visuals.Box("Crates2", root, new Vector3(3.7f, 0.55f, 3.4f), new Vector3(0.5f, 0.4f, 0.4f), Palette.Rail);
+                // A neighbour's boat moored further along, crates on the quay.
+                if (lib != null && lib.Rowboat != null) Place(lib.Rowboat, new Vector3(-6f, 0f, 1.3f), -90f);
+                else Visuals.Box("OtherBoat", root, new Vector3(-6.5f, -0.25f, 1.2f), new Vector3(3.6f, 0.55f, 1.6f), Palette.Hex("B8473A"));
+                Visuals.Box("Crates", root, new Vector3(3.0f, quayTop + 0.2f, 3.6f), new Vector3(0.5f, 0.4f, 0.4f), Palette.HullNavy);
+                Visuals.Box("Crates2", root, new Vector3(3.5f, quayTop + 0.2f, 3.8f), new Vector3(0.5f, 0.4f, 0.4f), Palette.Rail);
             }
             else if (kind == 0)
             {
-                for (int i = 0; i < 16; i++) Rock(new Vector3(-9f + i * 0.9f, R(-0.2f, 0.1f), 6.5f + R(-0.3f, 0.3f)), R(0.8f, 1.3f));
-                Visuals.Prim(PrimitiveType.Cylinder, "Lighthouse", root, new Vector3(6f, 1.6f, 6.6f), new Vector3(1f, 1.8f, 1f), Palette.Rail);
-                Visuals.Prim(PrimitiveType.Cylinder, "Band", root, new Vector3(6f, 2.0f, 6.6f), new Vector3(1.04f, 0.3f, 1.04f), Palette.Bad);
-                Visuals.Prim(PrimitiveType.Cylinder, "Top", root, new Vector3(6f, 3.6f, 6.6f), new Vector3(0.8f, 0.25f, 0.8f), Palette.Oilskin);
+                for (int i = 0; i < 14; i++) Rock(new Vector3(-9f + i * 1.1f, R(-0.2f, 0.1f), 6.5f + R(-0.3f, 0.3f)), R(0.9f, 1.4f));
+                if (lib != null && lib.Lighthouse != null) Place(lib.Lighthouse, new Vector3(7f, 0.2f, 6.6f));
+                else
+                {
+                    Visuals.Prim(PrimitiveType.Cylinder, "Lighthouse", root, new Vector3(7f, 1.6f, 6.6f), new Vector3(1f, 1.8f, 1f), Palette.Rail);
+                    Visuals.Prim(PrimitiveType.Cylinder, "Band", root, new Vector3(7f, 2.0f, 6.6f), new Vector3(1.04f, 0.3f, 1.04f), Palette.Bad);
+                }
+                Visuals.Box("Pier", root, new Vector3(7f, -0.1f, 5.5f), new Vector3(2.4f, 0.6f, 2.4f), stone);
                 Visuals.Prim(PrimitiveType.Sphere, "Buoy", root, new Vector3(-3f, -0.25f, -3.5f), Vector3.one * 0.35f, Palette.Accent);
             }
             else if (kind == 1)
             {
                 var kelp = Palette.Hex("3F6B38");
-                for (int i = 0; i < 22; i++)
+                for (int i = 0; i < 24; i++)
                 {
                     var p = new Vector3(R(-10f, 13f), -0.305f, R(-8f, 7f));
-                    if (p.x > -1.5f && p.x < 4f && p.z > -1.2f && p.z < 2.2f) continue;
-                    var k = Visuals.Prim(PrimitiveType.Cylinder, "Kelp", root, p, new Vector3(R(0.8f, 2.2f), 0.004f, R(0.5f, 1.4f)), i % 3 == 0 ? kelp * 1.2f : kelp);
-                    k.transform.localRotation = Quaternion.Euler(0f, R(0f, 180f), 0f);
+                    if (p.x > -2f && p.x < 4f && p.z > -1.4f && p.z < 2.4f) continue;
+                    if (lib != null && lib.Kelp != null) Place(lib.Kelp, new Vector3(p.x, -0.31f, p.z), R(0f, 360f), R(1.2f, 2.6f));
+                    else
+                    {
+                        var k = Visuals.Prim(PrimitiveType.Cylinder, "Kelp", root, p, new Vector3(R(0.8f, 2.2f), 0.004f, R(0.5f, 1.4f)), i % 3 == 0 ? kelp * 1.2f : kelp);
+                        k.transform.localRotation = Quaternion.Euler(0f, R(0f, 180f), 0f);
+                    }
                 }
-                Rock(new Vector3(8f, -0.1f, 4f), 1.2f);
+                Rock(new Vector3(8f, -0.1f, 4f), 1.3f);
+            }
+            else if (kind == 2)
+            {
+                // Sandbar: pale sand banks just breaking the surface.
+                var sand = Palette.Hex("E3CF9C");
+                for (int i = 0; i < 8; i++)
+                {
+                    var p = new Vector3(R(-10f, 13f), -0.33f, R(3f, 8f));
+                    var bank = Visuals.Prim(PrimitiveType.Sphere, "SandBank", root, p, new Vector3(R(2.5f, 5f), 0.12f, R(1.2f, 2.4f)), sand);
+                    bank.transform.localRotation = Quaternion.Euler(0f, R(-20f, 20f), 0f);
+                }
+                for (int i = 0; i < 3; i++) Rock(new Vector3(R(-8f, 10f), -0.2f, R(4f, 7f)), R(0.6f, 0.9f));
+            }
+            else if (kind == 3)
+            {
+                for (int i = 0; i < 9; i++) Rock(new Vector3(R(-10f, 12f), R(-0.2f, 0.3f), R(4f, 7f)), R(1.2f, 2.6f));
+                for (int i = 0; i < 4; i++) Rock(new Vector3(R(-9f, 10f), -0.2f, R(-8f, -5f)), R(0.8f, 1.4f));
+                Visuals.Box("Cliff", root, new Vector3(1f, 1.2f, 9.5f), new Vector3(40f, 3.4f, 3f), Palette.Hex("7C7A6E"));
+                Visuals.Box("CliffTop", root, new Vector3(1f, 2.95f, 9.5f), new Vector3(40f, 0.15f, 3f), Palette.Hex("6C8F4A"));
             }
             else
             {
-                for (int i = 0; i < 9; i++) Rock(new Vector3(R(-10f, 12f), R(-0.2f, 0.3f), R(4f, 7f)), R(1f, 2.4f));
-                for (int i = 0; i < 4; i++) Rock(new Vector3(R(-9f, 10f), -0.2f, R(-8f, -5f)), R(0.6f, 1.2f));
-                Visuals.Box("Cliff", root, new Vector3(1f, 1.2f, 9.5f), new Vector3(40f, 3.4f, 3f), Palette.Hex("7C7A6E"));
-                Visuals.Box("CliffTop", root, new Vector3(1f, 2.95f, 9.5f), new Vector3(40f, 0.15f, 3f), Palette.Hex("6C8F4A"));
+                // Deep channel: open water, a channel buoy and a ship on the horizon.
+                Visuals.Prim(PrimitiveType.Cylinder, "ChannelBuoy", root, new Vector3(-4f, 0.1f, -3f), new Vector3(0.45f, 0.45f, 0.45f), Palette.Bad);
+                Visuals.Prim(PrimitiveType.Sphere, "BuoyTop", root, new Vector3(-4f, 0.65f, -3f), Vector3.one * 0.3f, Palette.Oilskin);
+                Visuals.Box("FarShip", root, new Vector3(9f, 0.2f, 9f), new Vector3(6f, 1.2f, 1.4f), Palette.Hex("5A6670"));
+                Visuals.Box("FarShipHouse", root, new Vector3(10.5f, 1.2f, 9f), new Vector3(1.6f, 1f, 1.2f), Palette.Rail);
             }
             return root;
         }
@@ -276,8 +386,45 @@ namespace Catchline.Game
         public void SyncUpgrades()
         {
             Rods[1].SetUnlocked(State.Has(UpgradeId.RodHolder));
-            var lid = coolerLid.GetComponentInChildren<Renderer>();
-            lid.sharedMaterial = Visuals.Mat(State.Has(UpgradeId.IceBox) ? Palette.Hex("4FB3C4") : Palette.Accent);
+            bool ice = State.Has(UpgradeId.IceBox);
+            if (coolerModel != null)
+            {
+                coolerModel.SetActive(!ice);
+                iceBoxModel.SetActive(ice);
+                coolerLid = ArtLibrary.Find(ice ? iceBoxModel : coolerModel, "HingedLid");
+            }
+            else coolerLid.GetComponentInChildren<Renderer>().sharedMaterial = Visuals.Mat(ice ? Palette.Hex("4FB3C4") : Palette.Accent);
+        }
+
+        void SetRowing(bool on)
+        {
+            if (modelOars)
+            {
+                oarPort.transform.localRotation = oarPortBase;
+                oarStarboard.transform.localRotation = oarStarboardBase;
+            }
+            else
+            {
+                oarPort.SetActive(on);
+                oarStarboard.SetActive(on);
+            }
+        }
+
+        // Saves after selling and after every harbour purchase. The bot never touches the save file.
+        public void SaveGame()
+        {
+            if (!AutoPlay && Application.isPlaying) State.Save();
+        }
+
+        public void NewGame()
+        {
+            GameState.DeleteSave();
+            State = new GameState(System.Environment.TickCount);
+            SelectedSpot = 0;
+            SyncCrew();
+            SyncUpgrades();
+            hudTab = HudTab.Market;
+            Toast("New game started.");
         }
 
         void EnterHarbour(bool arrived)
@@ -295,7 +442,8 @@ namespace Catchline.Game
                         $"spooked {Stats.Spooked} missed {Stats.Missed} lost {Stats.Lost}  hand {(Hand != null ? GameData.GradeName(Hand.Contract.Grade) : "-")}  " +
                         $"upgrades [{string.Join(",", State.Owned)}]");
                 Cooler.Clear();
-                hudTab = HudTab.Catch;
+                hudTab = HudTab.Market;
+                panelOpen = true;
             }
             SyncCrew();
             Manning = null;
@@ -304,15 +452,16 @@ namespace Catchline.Game
             Captain.Face(Vector3.forward);
             Hand?.Place(HandRest);
             foreach (var r in Rods) r.ResetForTrip();
-            oarPort.SetActive(false);
-            oarStarboard.SetActive(false);
+            SetRowing(false);
+            if (!State.Known(SelectedSpot)) SelectedSpot = 0;
+            SaveGame();
             botHarbourAt = SimTime + 0.5f;
         }
 
         public string SailBlocker()
         {
             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
-            if (State.Bait <= 0 && Rods.All(r => r.State != RodState.Ready)) return "Buy bait first";
+            if (!State.HasAnyBait && Rods.All(r => r.State != RodState.Ready)) return "Buy bait first";
             return null;
         }
 
@@ -362,17 +511,16 @@ namespace Catchline.Game
             if (oldScenery != null) Visuals.Kill(oldScenery.gameObject);
             oldScenery = scenery;
             scenery = BuildScenery(sceneryKind);
-            scenery.localPosition = new Vector3(30f, 0f, 0f);
+            scenery.localPosition = new Vector3(30f * bowSign, 0f, 0f);
             seaFrom = seaMat.color;
             seaTo = sceneryKind < 0 ? Palette.Sea : GameData.Spots[sceneryKind].Water;
             Captain.Stop();
             Captain.Place(SeatTile);
-            Captain.Face(Vector3.right);
+            Captain.Face(new Vector3(-bowSign, 0f, 0f)); // rowers face the stern
             Captain.Rowing = true;
             Hand?.Stop();
             Hand?.Place(HandRest);
-            oarPort.SetActive(true);
-            oarStarboard.SetActive(true);
+            SetRowing(true);
         }
 
         void FinishTransition()
@@ -382,8 +530,7 @@ namespace Catchline.Game
             scenery.localPosition = Vector3.zero;
             seaMat.color = seaTo;
             Captain.Rowing = false;
-            oarPort.SetActive(false);
-            oarStarboard.SetActive(false);
+            SetRowing(false);
             if (CurrentMode == Mode.SailingOut)
             {
                 CurrentMode = Mode.Fishing;
@@ -425,12 +572,12 @@ namespace Catchline.Game
                     Eat(dt);
                     modeTimer += dt * WorkMult;
                     float p = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(modeTimer / modeDuration));
-                    if (oldScenery != null) oldScenery.localPosition = new Vector3(-30f * p, 0f, 0f);
-                    scenery.localPosition = new Vector3(30f * (1f - p), 0f, 0f);
+                    if (oldScenery != null) oldScenery.localPosition = new Vector3(-30f * p * bowSign, 0f, 0f);
+                    scenery.localPosition = new Vector3(30f * (1f - p) * bowSign, 0f, 0f);
                     seaMat.color = Color.Lerp(seaFrom, seaTo, p);
                     float stroke = Mathf.Sin(SimTime * 3.2f);
-                    oarPort.transform.localRotation = Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
-                    oarStarboard.transform.localRotation = Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
+                    oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
+                    oarStarboard.transform.localRotation = oarStarboardBase * Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
                     if (modeTimer >= modeDuration) FinishTransition();
                     break;
 
@@ -479,6 +626,7 @@ namespace Catchline.Game
                     f.Root.localRotation = Quaternion.Euler(a * 360f, 0f, 0f);
                     continue;
                 }
+                if (f.Tail != null) f.Tail.localRotation = Quaternion.Euler(0f, Mathf.Sin(f.Age * 14f) * 35f, 0f);
                 float flop = Mathf.Max(0f, Mathf.Sin(f.Age * 7f + i)) * 0.1f;
                 f.Root.localPosition = f.RestPos + Vector3.up * flop;
                 f.Root.localRotation = Quaternion.Euler(0f, f.Age * 40f % 360f, Mathf.Sin(f.Age * 9f) * 25f);
@@ -492,15 +640,30 @@ namespace Catchline.Game
             }
         }
 
+        Vector3 camCenter = new(1.0f, 0f, -0.7f);
+        public float ZoomOffset;
+        bool snapCamera = true;
+
         void Visual(float frameDt)
         {
+            // Camera: wide on the harbour (shifted left of the shop panel), close on the water.
+            bool harbour = CurrentMode == Mode.Harbour;
+            var center = harbour ? new Vector3(0.3f, 0f, 3.4f) : new Vector3(1.0f, 0f, -0.7f);
+            if (harbour && panelOpen) center += Cam.transform.right * 1.5f;
+            float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
+            snapCamera = false;
+            camCenter = Vector3.Lerp(camCenter, center, k);
+            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, (harbour ? 5.6f : 3.2f) + ZoomOffset, k);
+            Cam.transform.position = camCenter - Cam.transform.forward * 40f;
+
             Boat.localRotation = Quaternion.Euler(Mathf.Sin(SimTime * 0.6f) * 1.2f, 0f, Mathf.Sin(SimTime * 0.9f) * 1.6f);
             Boat.localPosition = new Vector3(0f, Mathf.Sin(SimTime * 1.1f) * 0.03f, 0f);
             float waveSpeed = CurrentMode is Mode.SailingOut or Mode.SailingHome ? 3.5f : 0.25f;
             foreach (var w in waves)
             {
                 var p = w.position;
-                p.x -= waveSpeed * frameDt;
+                p.x -= waveSpeed * frameDt * bowSign;
+                if (p.x > 15f) p.x -= 30f;
                 if (p.x < -15f) p.x += 30f;
                 w.position = p;
             }
@@ -532,7 +695,7 @@ namespace Catchline.Game
             }
 
             lidPop = Mathf.Max(0f, lidPop - frameDt * 3f);
-            coolerLid.localRotation = Quaternion.Euler(-lidPop * 70f, 0f, 0f);
+            if (coolerLid != null) coolerLid.localRotation = Quaternion.Euler(-lidPop * 70f, 0f, 0f);
             coolerLabel.text = $"{Cooler.Count}/{State.CoolerCapacity}";
             coolerLabel.color = Cooler.Count >= State.CoolerCapacity ? Palette.Oilskin : Palette.Rail;
             coolerLabel.transform.rotation = Cam.transform.rotation;
@@ -567,7 +730,7 @@ namespace Catchline.Game
 
         public bool CanCommandRod(Rod r) =>
             CurrentMode == Mode.Fishing && r.Unlocked && Manning != r
-            && (r.State is RodState.Waiting or RodState.Bite || r.State == RodState.Ready || r.State == RodState.Unbaited && (State.Bait > 0 || r.BaitingBy != null));
+            && (r.State is RodState.Waiting or RodState.Bite || r.State == RodState.Ready || r.State == RodState.Unbaited && (State.HasAnyBait || r.BaitingBy != null));
 
         public bool CanCarry(DeckFish f) => CurrentMode == Mode.Fishing && f.ClaimedBy == null && f.Age > 0.4f && (Hand == null || Hand.Carrying != null);
 
@@ -603,7 +766,7 @@ namespace Catchline.Game
             {
                 case RodState.Unbaited:
                     if (r.BaitingBy != null) return; // the deckhand is on it
-                    if (State.Bait <= 0)
+                    if (!State.HasAnyBait)
                     {
                         Toast("Out of bait. Head home and buy more.");
                         Manning = null;
@@ -627,6 +790,8 @@ namespace Catchline.Game
             int n = OnDeck.Count(o => o.Tile == rod.Tile);
             f.RestPos = DeckGrid.ToLocal(rod.Tile) + new Vector3(-0.22f + n * 0.18f, 0.07f, 0.3f);
             f.SpawnFrom = rod.TipLocal;
+            foreach (var t in f.Root.GetComponentsInChildren<Transform>())
+                if (t.name.EndsWith("Tail")) f.Tail = t;
             f.Root.localPosition = f.SpawnFrom;
             OnDeck.Add(f);
             if (rod == Manning) Manning = null;
@@ -676,14 +841,14 @@ namespace Catchline.Game
 
         void Bait(Person p, Rod rod)
         {
-            if (State.Bait <= 0) return;
+            if (!State.HasAnyBait) return;
             rod.BaitingBy = p;
             p.Do("Baiting", GameData.BaitTime, () =>
             {
                 rod.BaitingBy = null;
-                if (rod.State == RodState.Unbaited && State.Bait > 0)
+                if (rod.State == RodState.Unbaited && State.TakeBait(out bool squid))
                 {
-                    State.Bait--;
+                    rod.Squid = squid;
                     rod.State = RodState.Ready;
                 }
             }, () => rod.BaitingBy = null);
@@ -706,7 +871,7 @@ namespace Catchline.Game
                 return;
             }
             var rod = Rods.FirstOrDefault(r => r.Unlocked && r.State == RodState.Unbaited && r.BaitingBy == null);
-            if (rod != null && State.Bait > 0)
+            if (rod != null && State.HasAnyBait)
             {
                 rod.BaitingBy = h;
                 h.WalkTo(Grid, rod.Tile, () => Bait(h, rod), () => rod.BaitingBy = null);
@@ -747,7 +912,7 @@ namespace Catchline.Game
 
             bool handBusy = Hand != null && (Hand.Carrying != null || !Hand.Idle && Hand.BusyLabel == "Picking up");
             bool full = Cooler.Count >= State.CoolerCapacity;
-            bool noBait = State.Bait <= 0 && Rods.All(r => !r.Unlocked || r.State == RodState.Unbaited);
+            bool noBait = !State.HasAnyBait && Rods.All(r => !r.Unlocked || r.State == RodState.Unbaited);
             if (full || noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
             {
                 HeadHome();
@@ -764,16 +929,27 @@ namespace Catchline.Game
         {
             botHarbourAt = float.MaxValue;
             while (State.Active.Count < GameData.MaxActiveContracts && State.Offers.Count > 0) State.TakeContract(State.Offers[0]);
-            foreach (var id in new[] { UpgradeId.RodHolder, UpgradeId.IceBox, UpgradeId.BigCooler, UpgradeId.LunchTin })
+            // Buy in a fixed order, saving up for the next item (negative numbers are sea charts).
+            foreach (int step in new[] { (int)UpgradeId.RodHolder, -2, (int)UpgradeId.IceBox, -3, (int)UpgradeId.RodFibreglass, (int)UpgradeId.BigCooler, (int)UpgradeId.LunchTin, (int)UpgradeId.RodCarbon, -4 })
             {
+                if (step < 0)
+                {
+                    int spot = -step;
+                    if (State.Known(spot)) continue;
+                    if (State.Coins < GameData.Spots[spot].ChartCost + 30) break;
+                    State.BuyChart(spot);
+                    continue;
+                }
+                var id = (UpgradeId)step;
                 if (State.Has(id)) continue;
                 if (State.Coins < GameData.Upgrade(id).Cost + 30) break;
                 State.TryBuy(id);
             }
+            if (State.Coins > 150 && State.Squid < 5) State.BuySquid();
             SyncUpgrades();
             if (State.Deckhand == null && State.Has(UpgradeId.RodHolder))
             {
-                var pick = State.Board.Where(b => State.Coins >= b.Fee + 30).OrderByDescending(b => b.Grade).FirstOrDefault();
+                var pick = State.Board.Where(b => State.Coins >= b.Fee + 80).OrderByDescending(b => b.Grade).FirstOrDefault();
                 if (pick != null) State.Hire(pick);
                 SyncCrew();
             }
@@ -783,6 +959,7 @@ namespace Catchline.Game
             float best = -1f;
             for (int i = 0; i < GameData.Spots.Length; i++)
             {
+                if (!State.Known(i)) continue;
                 var s = GameData.Spots[i];
                 float total = 0f, value = 0f;
                 foreach (var e in s.Table)

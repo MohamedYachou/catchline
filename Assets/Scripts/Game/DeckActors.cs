@@ -24,11 +24,21 @@ namespace Catchline.Game
         public Person ClaimedBy;
         public float Age;
         public Vector3 RestPos, SpawnFrom;
+        public Transform Tail;
 
         public static Transform BuildModel(Species s, float kg, Transform parent)
         {
             var def = GameData.Get(s);
             float k = Mathf.Lerp(0.85f, 1.25f, Mathf.InverseLerp(def.MinKg, def.MaxKg, kg));
+            var prefab = ArtLibrary.Get()?.FishFor(s);
+            if (prefab != null)
+            {
+                // Modelled fish: nose +Z, upright. Lay it on its side inside an unrotated holder.
+                var h = new GameObject(def.Name + " (holder)").transform;
+                h.SetParent(parent, false);
+                ArtLibrary.Spawn(prefab, h, Vector3.zero, Quaternion.Euler(0f, 0f, 90f), k * 1.3f);
+                return h;
+            }
             float len = def.Length * k;
             bool eel = s == Species.Conger;
             var root = new GameObject(def.Name).transform;
@@ -243,6 +253,7 @@ namespace Catchline.Game
         public bool Unlocked = true;
         public Species HookedSpecies;
         public float HookedKg;
+        public bool Squid; // baited with squid: bigger fish
 
         public Transform Root { get; private set; }
         public Vector3 TipLocal => tipLocal;
@@ -251,7 +262,7 @@ namespace Catchline.Game
         LineRenderer line;
         Vector3 tipLocal;
         Vector3 castFrom, castTo;
-        float t, waitTotal, waitTimer, nibbleTimer, reelTotal, swimAngle;
+        float t, waitTotal, waitTimer, nibbleTimer, reelTotal, swimAngle, biteWindow = GameData.BiteWindow;
         readonly List<float> nibbles = new();
         int nextNibble;
         bool selfHook;
@@ -269,7 +280,7 @@ namespace Catchline.Game
         public float WaitRemaining => State == RodState.Waiting ? waitTotal - waitTimer : 999f;
         public float WaitProgress => State == RodState.Waiting ? Mathf.Clamp01(waitTimer / waitTotal) : State == RodState.Bite ? 1f : 0f;
         public bool Nibbling => nibbleTimer > 0f;
-        public float BiteProgress => State == RodState.Bite ? Mathf.Clamp01(t / GameData.BiteWindow) : 0f;
+        public float BiteProgress => State == RodState.Bite ? Mathf.Clamp01(t / biteWindow) : 0f;
         public float ReelProgress => State == RodState.Reeling ? Mathf.Clamp01(t) : 0f;
         public float SwimAngle => swimAngle;
 
@@ -288,18 +299,34 @@ namespace Catchline.Game
         {
             Root = new GameObject($"Rod {Index + 1}").transform;
             Root.SetParent(boat, false);
-            var baseLocal = DeckGrid.ToLocal(Tile) + new Vector3(0f, 0.32f, -0.42f);
-            tipLocal = baseLocal + new Vector3(0.15f, 0.85f, -1.25f);
-            var dir = tipLocal - baseLocal;
-            var pole = Visuals.Prim(PrimitiveType.Cylinder, "Pole", Root, (baseLocal + tipLocal) / 2f, new Vector3(0.035f, dir.magnitude / 2f, 0.035f), Palette.Rubber);
-            pole.transform.localRotation = Quaternion.FromToRotation(Vector3.up, dir);
-            Visuals.Box("Holder", Root, baseLocal + new Vector3(0f, -0.12f, 0f), new Vector3(0.12f, 0.3f, 0.12f), Palette.Steel);
-            Visuals.Prim(PrimitiveType.Cylinder, "Reel", Root, baseLocal + dir.normalized * 0.25f + new Vector3(0f, -0.06f, 0f), new Vector3(0.1f, 0.03f, 0.1f), Palette.Steel);
+            var lib = ArtLibrary.Get();
+            bool model = lib != null && lib.FishingRod != null;
+            // With the rowboat model the rod sits in its gunwale socket.
+            var baseLocal = DeckGrid.ToLocal(Tile) + (model ? new Vector3(0f, 0.44f, -0.615f) : new Vector3(0f, 0.32f, -0.42f));
+            var dir = new Vector3(0.05f, 1.6f, -0.6f).normalized; // nearly upright with a lean over the water: reads as a rod from the game camera
+            tipLocal = baseLocal + dir * (model ? 1.6f : 1.52f);
+            if (model)
+            {
+                var rod = ArtLibrary.Spawn(lib.FishingRod, Root, baseLocal, Quaternion.identity);
+                ArtLibrary.AimAlong(rod, dir, 2f);
+                tipLocal = baseLocal + dir * 2f;
+            }
+            else
+            {
+                var pole = Visuals.Prim(PrimitiveType.Cylinder, "Pole", Root, (baseLocal + tipLocal) / 2f, new Vector3(0.035f, (tipLocal - baseLocal).magnitude / 2f, 0.035f), Palette.Rubber);
+                pole.transform.localRotation = Quaternion.FromToRotation(Vector3.up, dir);
+                Visuals.Box("Holder", Root, baseLocal + new Vector3(0f, -0.12f, 0f), new Vector3(0.12f, 0.3f, 0.12f), Palette.Steel);
+                Visuals.Prim(PrimitiveType.Cylinder, "Reel", Root, baseLocal + dir * 0.25f + new Vector3(0f, -0.06f, 0f), new Vector3(0.1f, 0.03f, 0.1f), Palette.Steel);
+            }
 
             bobber = new GameObject("Bobber").transform;
             bobber.SetParent(world, false);
-            Visuals.Prim(PrimitiveType.Sphere, "Top", bobber, new Vector3(0f, 0.04f, 0f), new Vector3(0.12f, 0.08f, 0.12f), Palette.Bad);
-            Visuals.Prim(PrimitiveType.Sphere, "Bottom", bobber, new Vector3(0f, -0.01f, 0f), new Vector3(0.12f, 0.08f, 0.12f), Palette.Rail);
+            if (lib != null && lib.Bobber != null) ArtLibrary.Spawn(lib.Bobber, bobber, Vector3.zero, Quaternion.identity, 1.8f);
+            else
+            {
+                Visuals.Prim(PrimitiveType.Sphere, "Top", bobber, new Vector3(0f, 0.04f, 0f), new Vector3(0.12f, 0.08f, 0.12f), Palette.Bad);
+                Visuals.Prim(PrimitiveType.Sphere, "Bottom", bobber, new Vector3(0f, -0.01f, 0f), new Vector3(0.12f, 0.08f, 0.12f), Palette.Rail);
+            }
 
             splash = Visuals.Prim(PrimitiveType.Cylinder, "Splash", world, Vector3.zero, new Vector3(0.3f, 0.005f, 0.3f), new Color(0.9f, 0.97f, 1f)).transform;
             splash.gameObject.SetActive(false);
@@ -438,8 +465,9 @@ namespace Catchline.Game
                     {
                         State = RodState.Bite;
                         t = 0f;
-                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power);
-                        selfHook = (float)g.State.Rng.NextDouble() < GameData.SelfHookChance;
+                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f));
+                        biteWindow = g.State.BiteWindow;
+                        selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
                         splash.gameObject.SetActive(true);
                         g.OnBite(this);
                     }
@@ -453,7 +481,7 @@ namespace Catchline.Game
                     splash.localScale = new Vector3(s, 0.005f, s);
                     showShadow = true;
                     shadowPos = castTo + new Vector3(Mathf.Sin(anim * 30f) * 0.05f, 0f, 0f);
-                    if (t >= GameData.BiteWindow)
+                    if (t >= biteWindow)
                     {
                         splash.gameObject.SetActive(false);
                         if (!attended && selfHook)
@@ -476,7 +504,7 @@ namespace Catchline.Game
                     break;
 
                 case RodState.Reeling:
-                    t += dt * mult / reelTotal;
+                    t += dt * mult * g.State.ReelSpeed / reelTotal;
                     var under = new Vector3(tipWorld.x, WaterY, tipWorld.z);
                     bobPos = Vector3.Lerp(castFrom, under, t) + Vector3.up * Mathf.Abs(Mathf.Sin(anim * 18f)) * 0.04f;
                     showShadow = true;

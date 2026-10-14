@@ -10,6 +10,7 @@ namespace Catchline.Game
         public float StowedAt;
     }
 
+    [System.Serializable]
     public class CrewMember
     {
         public string Name;
@@ -19,6 +20,7 @@ namespace Catchline.Game
         public int Fee => GameData.Fee(Grade);
     }
 
+    [System.Serializable]
     public class Contract
     {
         public Species Species;
@@ -40,6 +42,9 @@ namespace Catchline.Game
     {
         public int Coins = GameData.StartCoins;
         public int Bait = GameData.StartBait;
+        public int Squid;
+        public bool UseSquid = true;
+        public readonly HashSet<int> Charts = new();
         public float FoodMinutes = 4f;
         public int Voyage = 1;
         public int BestVoyageFish;
@@ -51,7 +56,7 @@ namespace Catchline.Game
         public readonly List<Contract> Offers = new();
         public readonly List<Contract> Active = new();
         public SaleReport LastSale;
-        public readonly System.Random Rng;
+        public System.Random Rng;
 
         public GameState(int seed)
         {
@@ -67,6 +72,10 @@ namespace Catchline.Game
         public bool Has(UpgradeId id) => Owned.Contains(id);
         public int CoolerCapacity => Has(UpgradeId.BigCooler) ? 16 : 10;
         public float FoodCapacity => Has(UpgradeId.LunchTin) ? 12f : 6f;
+        public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
+        public float BiteWindow => Has(UpgradeId.RodCarbon) ? 1.4f : Has(UpgradeId.RodFibreglass) ? 1.15f : GameData.BiteWindow;
+        public float ReelSpeed => Has(UpgradeId.RodCarbon) ? 1.5f : Has(UpgradeId.RodFibreglass) ? 1.25f : 1f;
+        public float SelfHookChance => Has(UpgradeId.RodCarbon) ? 0.45f : GameData.SelfHookChance;
         public int FoodFillCost => Mathf.CeilToInt(FoodCapacity - FoodMinutes) * GameData.FoodCostPerMinute;
 
         public float PricePerKg(Species s) => GameData.Get(s).PricePerKg * Market[(int)s];
@@ -86,7 +95,7 @@ namespace Catchline.Game
         public bool TryBuy(UpgradeId id)
         {
             var u = GameData.Upgrade(id);
-            if (Has(id) || Coins < u.Cost) return false;
+            if (Has(id) || Coins < u.Cost || u.Requires.HasValue && !Has(u.Requires.Value)) return false;
             Coins -= u.Cost;
             Owned.Add(id);
             return true;
@@ -98,6 +107,34 @@ namespace Catchline.Game
             Coins -= GameData.BaitPackCost;
             Bait += GameData.BaitPackSize;
             return true;
+        }
+
+        public bool BuySquid()
+        {
+            if (Coins < GameData.SquidPackCost) return false;
+            Coins -= GameData.SquidPackCost;
+            Squid += GameData.SquidPackSize;
+            return true;
+        }
+
+        public bool BuyChart(int spot)
+        {
+            int cost = GameData.Spots[spot].ChartCost;
+            if (Known(spot) || Coins < cost) return false;
+            Coins -= cost;
+            Charts.Add(spot);
+            return true;
+        }
+
+        public bool HasAnyBait => Bait > 0 || Squid > 0;
+
+        // Takes one bait for a hook. Returns true when it was squid.
+        public bool TakeBait(out bool squid)
+        {
+            squid = UseSquid && Squid > 0 || Bait <= 0 && Squid > 0;
+            if (squid) { Squid--; return true; }
+            if (Bait > 0) { Bait--; return true; }
+            return false;
         }
 
         public bool FillFood()
@@ -206,9 +243,10 @@ namespace Catchline.Game
         {
             // Pick a species that lives in one of the spots, weighted by how common it is.
             var pool = new List<(Species, float)>();
-            foreach (var spot in GameData.Spots)
-                foreach (var e in spot.Table)
-                    pool.Add(e);
+            for (int i = 0; i < GameData.Spots.Length; i++)
+                if (Known(i))
+                    foreach (var e in GameData.Spots[i].Table)
+                        pool.Add(e);
             float total = 0f;
             foreach (var e in pool) total += e.Item2;
             float roll = Rand() * total;
@@ -261,5 +299,74 @@ namespace Catchline.Game
             => (5f + Rand() * 4f + power * 5f) * GameData.Spots[spot].BiteWait / Mathf.Max(0.3f, Richness[spot]);
 
         public void OnCatch(int spot) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - GameData.RichnessPerCatch);
+
+        // ---- save / load ----------------------------------------------------------------
+        // Saved in the harbour (after selling, after every purchase). A voyage in progress is not saved.
+
+        [System.Serializable]
+        class SaveData
+        {
+            public int Version = 1;
+            public int Coins, Bait, Squid, Voyage, BestVoyageFish;
+            public bool UseSquid;
+            public float FoodMinutes;
+            public List<int> Owned = new(), Charts = new();
+            public float[] Richness, Market;
+            public bool HasDeckhand;
+            public CrewMember Deckhand;
+            public List<CrewMember> Board = new();
+            public List<Contract> Offers = new(), Active = new();
+        }
+
+        public static string SavePath => System.IO.Path.Combine(Application.persistentDataPath, "catchline-save.json");
+
+        public void Save()
+        {
+            var d = new SaveData
+            {
+                Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, UseSquid = UseSquid,
+                FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
+            };
+            foreach (var u in Owned) d.Owned.Add((int)u);
+            d.Charts.AddRange(Charts);
+            d.Board.AddRange(Board);
+            d.Offers.AddRange(Offers);
+            d.Active.AddRange(Active);
+            try { System.IO.File.WriteAllText(SavePath, JsonUtility.ToJson(d, true)); }
+            catch (System.Exception e) { Debug.LogWarning("[Catchline] Save failed: " + e.Message); }
+        }
+
+        public static GameState Load()
+        {
+            try
+            {
+                if (!System.IO.File.Exists(SavePath)) return null;
+                var d = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(SavePath));
+                if (d == null || d.Version != 1) return null;
+                var s = new GameState(System.Environment.TickCount);
+                s.Coins = d.Coins; s.Bait = d.Bait; s.Squid = d.Squid; s.Voyage = d.Voyage; s.BestVoyageFish = d.BestVoyageFish;
+                s.UseSquid = d.UseSquid; s.FoodMinutes = d.FoodMinutes;
+                foreach (var u in d.Owned) s.Owned.Add((UpgradeId)u);
+                foreach (var c in d.Charts) s.Charts.Add(c);
+                // Arrays can grow between versions (new seas, new fish): copy what fits.
+                if (d.Richness != null) System.Array.Copy(d.Richness, s.Richness, Mathf.Min(d.Richness.Length, s.Richness.Length));
+                if (d.Market != null) System.Array.Copy(d.Market, s.Market, Mathf.Min(d.Market.Length, s.Market.Length));
+                s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
+                s.Board.Clear(); s.Board.AddRange(d.Board);
+                s.Offers.Clear(); s.Offers.AddRange(d.Offers);
+                s.Active.Clear(); s.Active.AddRange(d.Active);
+                return s;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning("[Catchline] Could not load the save: " + e.Message);
+                return null;
+            }
+        }
+
+        public static void DeleteSave()
+        {
+            try { if (System.IO.File.Exists(SavePath)) System.IO.File.Delete(SavePath); } catch { }
+        }
     }
 }
