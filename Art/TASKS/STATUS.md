@@ -8,3 +8,5 @@ The October14 runner incorrectly wrote DONE after two failed attempts. Logs show
 - Task08: not implemented; pending.
 
 No queue process was restarted. Scoped commits are prepared for parent review; no push.
+
+Original task briefs05–08 are retained verbatim for reproducible handoff. Local `codex exec --help` confirms `--approve-for-me` is supported by the installed CLI. Only runner control flow was executed against a stub; a live Codex task was not launched and the queue remains stopped.
