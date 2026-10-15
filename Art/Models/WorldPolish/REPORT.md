@@ -205,7 +205,7 @@ Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root rem
 - `NPC_Sitting_Outfit_Veteran`: (0.0000, 0.0000, 0.0000)
 - `NPC_Sitting_Hat_Beanie`: (0.0000, 0.0000, 0.0000)
 
-Static evaluated Task06 rig pose; no runtime armature/actions. NPC_Sitting adapts Row with horizontal thighs and vertical shins. Bare local seat contact Z=.24; Bench seat top Z=.4625. Place NPC root at UnityY=.2225 above Bench root; short legs dangle. Crew source unchanged.
+Static evaluated Task06 rig pose; no runtime armature/actions. NPC_Sitting adapts Row with horizontal thighs and vertical shins. Bare local outfit seat contact Z=.239; Bench seat top Z=.4625. Place NPC at Unity offset(0,.2235,+.15) relative to Bench root; short legs dangle. Crew source unchanged.
 
 ### RockArch
 
