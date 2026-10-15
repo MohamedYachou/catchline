@@ -102,13 +102,14 @@ def rowboat():
     n = len(outline)
     hull = G()
     # Cross-section loops create a closed hollow hull, not a solid painted block.
-    levels = [(.55, .88, -.45), (.91, .96, -.10), (1, 1, .43),
-              (.94, .97, .43), (.78, .89, -.32)]
+    # ART-010: broad outer shoulder and inner lip bevels retain exact hull extents.
+    levels = [(.55, .88, -.45), (.91, .96, -.10), (.995, .998, .405),
+              (1, 1, .43), (.94, .97, .43), (.935, .965, .405), (.78, .89, -.32)]
     verts = [(x * sx, y * sy, z + (.07 * (abs(y)/2.1)**2 if z > .4 else 0)) for sx, sy, z in levels for x, y in outline]
     for j in range(len(levels) - 1):
         hull.add(verts[j * n:(j + 2) * n],
                  [(i, (i + 1) % n, (i + 1) % n + n, i + n) for i in range(n)],
-                 'M_HullNavy' if j < 2 else 'M_DeckWood')
+                 'M_HullNavy' if j < 3 else 'M_DeckWood')
     hull.add(verts[:n], [tuple(reversed(range(n)))], 'M_HullNavy')
     hull.add(verts[-n:], [tuple(range(n))], 'M_DeckWood')
     # Waterline stripe follows the shell, slightly proud of the navy paint.
@@ -119,18 +120,30 @@ def rowboat():
     deck = G()
     for i in range(8):
         bevel_box(deck, (-.875 + i * .25, 0, -.025), (.25, 3, .05),
-                  'M_DeckWood' if i % 3 else 'M_WoodHighlight', .003)
+                  'M_WoodHighlight' if i in (1, 5) else 'M_DeckWood', .008)
     part('PlankDeck', deck)
     rail = G()
     for i, p in enumerate(outline):
         q = outline[(i + 1) % n]
         rail.beam((p[0] * .97, p[1] * .985, .45 + .07*(abs(p[1])/2.1)**2), (q[0] * .97, q[1] * .985, .45 + .07*(abs(q[1])/2.1)**2),
-                  .10, .075, 'M_RailIvory', .014)
+                  .10, .075, 'M_RailIvory', .022)
     rope_path = [(x*1.012, y*1.005, .39+.07*(abs(y)/2.1)**2) for x,y in outline]
     rail.tube(rope_path + [rope_path[0]], [.032]*(len(rope_path)+1), 8, 'M_Rope')
+    # Broad fastening plates stay on existing gunwale, away from sockets/oarlocks.
+    for side in (-1, 1):
+        for y in (-1.35, 1.35):
+            bevel_box(rail, (side*1.164, y, .49), (.075, .13, .025), 'M_Steel', .009)
     part('IvoryGunwale', rail)
     thwart = G()
     bevel_box(thwart, (0, 0, .32), (2.05, .28, .09), 'M_DeckWood', .015)
+    # End soles close visible dark voids outside the authoritative walking deck.
+    for plan in ([(-.93,1.50),(.93,1.50),(.78,1.82),(-.78,1.82)],
+                 [(-.83,-1.50),(.83,-1.50),(.35,-1.73),(0,-1.85),(-.35,-1.73)]):
+        count=len(plan)
+        vertices=[(x,y,z) for z in (-.05,0) for x,y in plan]
+        faces=[tuple(reversed(range(count))),tuple(range(count,2*count))]
+        faces += [(i,(i+1)%count,(i+1)%count+count,i+count) for i in range(count)]
+        thwart.add(vertices,faces,'M_DeckWood')
     part('CentreThwart', thwart)
     for side, label in ((-1, 'Port'), (1, 'Starboard')):
         pivot = (side * 1.12, 0, .49)
@@ -147,6 +160,7 @@ def rowboat():
         ring(socket, .052, .014, .44, .57, 'M_Steel', (-1.115, y), 12)
         part('RodSocket_Port_' + label, socket, (-1.115, y, .44))
     NOTES.append('Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5.')
+    NOTES.append('ART-010: broad shell/rail bevels, quieter timber variation, end sole panels and four gunwale plates. Original part set/pivots/socket positions retained; end panels are outside the build rectangle. No props fused into hull.')
 
 
 def fishing_rod():

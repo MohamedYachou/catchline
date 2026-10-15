@@ -131,7 +131,7 @@ New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (
 | [CaptainCap](Crew/CaptainCap.blend) | 944 | 0.3540 × 0.3930 × 0.1520 |
 | [DeckhandBeanie](Crew/DeckhandBeanie.blend) | 452 | 0.3480 × 0.3480 × 0.1352 |
 | [OilskinHood](Crew/OilskinHood.blend) | 308 | 0.3600 × 0.2344 × 0.3570 |
-| [Rowboat](Boats/Rowboat.blend) | 1790 | 4.5200 × 4.2850 × 1.0200 |
+| [Rowboat](Boats/Rowboat.blend) | 2054 | 4.5200 × 4.2850 × 1.0200 |
 | [FishingRod](Fishing/FishingRod.blend) | 1488 | 0.1785 × 0.1340 × 1.6000 |
 | [Bobber](Fishing/Bobber.blend) | 184 | 0.0800 × 0.0800 × 0.1200 |
 | [Cooler](DeckProps/Cooler.blend) | 556 | 0.8000 × 0.5000 × 0.4500 |
@@ -187,3 +187,7 @@ New M_ names: **none**. All exports reuse the canonical palette. Open surfaces (
 | [SortTable](Stations/SortTable.blend) | 536 | 1.8300 × 0.7600 × 0.6400 |
 
 Rebuild additions with `build_task04.py -- B` or `-- C`; Part A uses the existing builder. Then run `validate_gull_harbour.py`, `gull_contact_sheets.py` and `task04_report.py`. Additional boat views use `render_task04_boat_views.py` before composing contacts. Detailed part pivots and notes are in build-metrics.json.
+
+## ART-010 — first-voyage rowboat polish
+
+Rowboat now has broader rail/shell bevels, quieter timber, gunwale fastening plates and end sole panels. Original ten parts, root, oars, sockets and 4.2×2.4 m shell / 3×2 m deck contracts remain; 1790 → 2054 triangles. No rig, water texture, UI or Unity settings changes. The inventory above reflects this revision; earlier task tables remain historical snapshots. Matching gameplay-camera before/after, actual FBX validation, desktop/phone renders and lighting/water reproduction notes: [ART-010 target](../FirstVoyage10/TARGET.md). These Blender effects are references, not integrated Unity effects.

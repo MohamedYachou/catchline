@@ -1,0 +1,276 @@
+{
+  "asset": "Rowboat",
+  "group": "Boats",
+  "triangles": 1790,
+  "dimensions_width_depth_height_m": [
+    4.51999998,
+    4.28500032,
+    1.01999998
+  ],
+  "bounds_min_blender": [
+    -2.259999990463257,
+    -2.142500162124634,
+    -0.44999998807907104
+  ],
+  "bounds_max_blender": [
+    2.259999990463257,
+    2.142500162124634,
+    0.5699999928474426
+  ],
+  "parts": [
+    {
+      "name": "Hull",
+      "triangles": 176,
+      "vertices": 105,
+      "bounds_min_blender": [
+        -1.2000000476837158,
+        -2.0999999046325684,
+        -0.44999998807907104
+      ],
+      "bounds_max_blender": [
+        1.2000000476837158,
+        2.0999999046325684,
+        0.5
+      ],
+      "mesh_sha256": "9437b79807cc4b7ae32f7a7634dbfe81835a93900acdc07bbac1f14f8d222698",
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "PlankDeck",
+      "triangles": 338,
+      "vertices": 164,
+      "bounds_min_blender": [
+        -1.0,
+        -1.5,
+        -0.05000000074505806
+      ],
+      "bounds_max_blender": [
+        1.0,
+        1.5,
+        0.0
+      ],
+      "mesh_sha256": "b1e2f73979678d4baedb0ef8ed14ff45b91d4030931ee3091cf8267eae27c006",
+      "materials": [
+        "M_DeckWood",
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "name": "IvoryGunwale",
+      "triangles": 672,
+      "vertices": 368,
+      "bounds_min_blender": [
+        -1.246399998664856,
+        -2.142500162124634,
+        0.35800015926361084
+      ],
+      "bounds_max_blender": [
+        1.246399998664856,
+        2.142500162124634,
+        0.5575000047683716
+      ],
+      "mesh_sha256": "1f7b78035ba55efb71e0d7d646f6f684666428c1d698be9267dc9bfb3303ca85",
+      "materials": [
+        "M_RailIvory",
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "CentreThwart",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        -1.024999976158142,
+        -0.14000000059604645,
+        0.2749999761581421
+      ],
+      "bounds_max_blender": [
+        1.024999976158142,
+        0.14000000059604645,
+        0.36500000953674316
+      ],
+      "mesh_sha256": "d4dfc1fac6c810af931c9f91e42d53f1e7fc18a0f8ebd2b94b2db0821b63787a",
+      "materials": [
+        "M_DeckWood"
+      ]
+    },
+    {
+      "name": "Oarlock_Port",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.1749999523162842,
+        -0.054999999701976776,
+        0.4300000071525574
+      ],
+      "bounds_max_blender": [
+        -1.065000057220459,
+        0.054999999701976776,
+        0.5099999904632568
+      ],
+      "mesh_sha256": "594ef30bf472902ac288cf7cf9730092ecdd99978e0d6eb7a5d5bf29f9b9ed98",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Oar_Port",
+      "triangles": 88,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -2.259999990463257,
+        -0.3369016647338867,
+        0.3651631772518158
+      ],
+      "bounds_max_blender": [
+        -0.339169442653656,
+        0.45500001311302185,
+        0.558966338634491
+      ],
+      "mesh_sha256": "35491c670adec5f9dfcdf752948796b4dd8913c2c1c4ba9a3cd949ad16eda8fc",
+      "materials": [
+        "M_DeckWood",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "Oarlock_Starboard",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        1.065000057220459,
+        -0.054999999701976776,
+        0.4300000071525574
+      ],
+      "bounds_max_blender": [
+        1.1749999523162842,
+        0.054999999701976776,
+        0.5099999904632568
+      ],
+      "mesh_sha256": "9f2d8cf7e396ead09862ca61dc4018ddba97af37e894588802a90787fb5429e9",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Oar_Starboard",
+      "triangles": 88,
+      "vertices": 48,
+      "bounds_min_blender": [
+        0.339169442653656,
+        -0.3369016647338867,
+        0.3651631772518158
+      ],
+      "bounds_max_blender": [
+        2.259999990463257,
+        0.45500001311302185,
+        0.558966338634491
+      ],
+      "mesh_sha256": "89e0ff1029e5cb9f5b903077f1784d45b05f928b980fdd0c31e6fd11bd1537d6",
+      "materials": [
+        "M_DeckWood",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "RodSocket_Port_Stern",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.1670000553131104,
+        0.9480000138282776,
+        0.4399999976158142
+      ],
+      "bounds_max_blender": [
+        -1.062999963760376,
+        1.0520000457763672,
+        0.5699999928474426
+      ],
+      "mesh_sha256": "1a5c8f45f40462fffb6043da9a4d00d091622951a840c64dbcc12adeeb0e6b8a",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_Port_Bow",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.1670000553131104,
+        -1.0520000457763672,
+        0.4399999976158142
+      ],
+      "bounds_max_blender": [
+        -1.062999963760376,
+        -0.9480000138282776,
+        0.5699999928474426
+      ],
+      "mesh_sha256": "704990e681facf7e8165bea3063f539be93eed887e2fada2971bb982237116a6",
+      "materials": [
+        "M_Steel"
+      ]
+    }
+  ],
+  "pivots_blender": {
+    "Hull": [
+      0,
+      0,
+      0
+    ],
+    "PlankDeck": [
+      0,
+      0,
+      0
+    ],
+    "IvoryGunwale": [
+      0,
+      0,
+      0
+    ],
+    "CentreThwart": [
+      0,
+      0,
+      0
+    ],
+    "Oarlock_Port": [
+      0,
+      0,
+      0
+    ],
+    "Oar_Port": [
+      -1.12,
+      0,
+      0.49
+    ],
+    "Oarlock_Starboard": [
+      0,
+      0,
+      0
+    ],
+    "Oar_Starboard": [
+      1.12,
+      0,
+      0.49
+    ],
+    "RodSocket_Port_Stern": [
+      -1.115,
+      1.0,
+      0.44
+    ],
+    "RodSocket_Port_Bow": [
+      -1.115,
+      -1.0,
+      0.44
+    ]
+  },
+  "notes": [
+    "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5."
+  ],
+  "source": "Art/Models/GullHarbour/Boats/Rowboat.blend",
+  "fbx": "Assets/Art/Models/Boats/Rowboat.fbx",
+  "preview": "Art/Models/GullHarbour/Previews/Boats/Rowboat.png"
+}

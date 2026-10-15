@@ -278,7 +278,7 @@
     {
       "asset": "Rowboat",
       "group": "Boats",
-      "triangles": 1790,
+      "triangles": 2054,
       "dimensions_width_depth_height_m": [
         4.51999998,
         4.28500032,
@@ -297,8 +297,8 @@
       "parts": [
         {
           "name": "Hull",
-          "triangles": 176,
-          "vertices": 105,
+          "triangles": 236,
+          "vertices": 135,
           "bounds_min_blender": [
             -1.2000000476837158,
             -2.0999999046325684,
@@ -309,7 +309,7 @@
             2.0999999046325684,
             0.5
           ],
-          "mesh_sha256": "9437b79807cc4b7ae32f7a7634dbfe81835a93900acdc07bbac1f14f8d222698",
+          "mesh_sha256": "64f4bd988522c3056d0e35e9d6848f75be4c817af9217d7bf3fcf35168124eda",
           "materials": [
             "M_DeckWood",
             "M_HullNavy",
@@ -330,7 +330,7 @@
             1.5,
             0.0
           ],
-          "mesh_sha256": "b1e2f73979678d4baedb0ef8ed14ff45b91d4030931ee3091cf8267eae27c006",
+          "mesh_sha256": "b64603789391cac90f76e0407eff1d456998ced58cccd6ba98806a31ad3bfac8",
           "materials": [
             "M_DeckWood",
             "M_WoodHighlight"
@@ -338,8 +338,8 @@
         },
         {
           "name": "IvoryGunwale",
-          "triangles": 672,
-          "vertices": 368,
+          "triangles": 848,
+          "vertices": 464,
           "bounds_min_blender": [
             -1.246399998664856,
             -2.142500162124634,
@@ -350,27 +350,28 @@
             2.142500162124634,
             0.5575000047683716
           ],
-          "mesh_sha256": "1f7b78035ba55efb71e0d7d646f6f684666428c1d698be9267dc9bfb3303ca85",
+          "mesh_sha256": "2d3472961e915a683e6dac01bf028347200f6a82f06d799e997281b87f205a36",
           "materials": [
             "M_RailIvory",
-            "M_Rope"
+            "M_Rope",
+            "M_Steel"
           ]
         },
         {
           "name": "CentreThwart",
-          "triangles": 44,
-          "vertices": 24,
+          "triangles": 72,
+          "vertices": 42,
           "bounds_min_blender": [
             -1.024999976158142,
-            -0.14000000059604645,
-            0.2749999761581421
+            -1.850000023841858,
+            -0.05000000074505806
           ],
           "bounds_max_blender": [
             1.024999976158142,
-            0.14000000059604645,
+            1.8200000524520874,
             0.36500000953674316
           ],
-          "mesh_sha256": "d4dfc1fac6c810af931c9f91e42d53f1e7fc18a0f8ebd2b94b2db0821b63787a",
+          "mesh_sha256": "9ada7d28a79a1abaef0fe69e36eaed48e9c4e8b18583ffb437cc99fa60ab3f9b",
           "materials": [
             "M_DeckWood"
           ]
@@ -545,7 +546,8 @@
         ]
       },
       "notes": [
-        "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5."
+        "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5.",
+        "ART-010: broad shell/rail bevels, quieter timber variation, end sole panels and four gunwale plates. Original part set/pivots/socket positions retained; end panels are outside the build rectangle. No props fused into hull."
       ],
       "source": "Art/Models/GullHarbour/Boats/Rowboat.blend",
       "fbx": "Assets/Art/Models/Boats/Rowboat.fbx",
