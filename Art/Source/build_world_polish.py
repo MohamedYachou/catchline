@@ -105,8 +105,14 @@ def harbour(n):
   T.harbour_prop('MarketStallAwning');g=G();box(g,(.72,0,1.0),(.33,.28,.06),STEEL,.012)
   box(g,(.72,.04,1.2),(.07,.07,.38),NAVY,.01);box(g,(.72,-.015,1.34),(.24,.07,.22),IVORY,.018)
   g.ellipsoid((.72,-.057,1.34),(.08,.012,.08),16,5,STEEL);g.beam((.72,-.072,1.34),(.75,-.072,1.39),.009,.009,NAVY)
-  for x in (-.65,0):
-   box(g,(x,0,.965),(.38,.27,.025),IVORY,.008)
+  # Obvious display on the viewer-facing counter edge, clear of the awning.
+  box(g,(-.28,-.49,.982),(1.20,.48,.075),IVORY,.018)
+  for x,y in [(-.65,-.49),(-.28,-.46),(.09,-.50)]:
+   g.ellipsoid((x,y,1.055),(.075,.18,.035),14,5,'M_FishSilver')
+   g.ellipsoid((x,y+.02,1.079),(.048,.135,.012),12,4,BLUE)
+   g.extrude_polygon([(x,y+.13),(x-.073,y+.26),(x+.073,y+.26)],1.04,1.065,BLUE)
+   g.ellipsoid((x+.046,y-.12,1.078),(.011,.011,.006),8,3,DARK)
+   for dx,dy in [(-.08,-.04),(.075,.05)]:box(g,(x+dx,y+dy,1.04),(.045,.045,.035),IVORY,.006)
   part('ScaleAndIce',g);return
  elif n=='Gangway':
   for i in range(12):box(g,(0,-1.5+i*.27,.025),(.90,.26,.05),WOOD,.003)
@@ -178,6 +184,14 @@ def npc(n):
  for o in loaded:
   if o.name not in bpy.context.scene.objects:K.COLLECTION.objects.link(o)
  arm=next(o for o in loaded if o.type=='ARMATURE');arm.animation_data_create();arm.animation_data.action=dst.actions[0];bpy.context.scene.frame_set(frame);bpy.context.view_layer.update()
+ if n=='NPC_Sitting':
+  # Strong static seated adaptation of Row: horizontal thighs, vertical shins.
+  from mathutils import Quaternion
+  arm.pose.bones['Hips'].location.z=0
+  for side in ('Left','Right'):
+   arm.pose.bones[side+'UpLeg'].rotation_quaternion=Quaternion((1,0,0),-math.pi/2)
+   arm.pose.bones[side+'Leg'].rotation_quaternion=Quaternion((1,0,0),math.pi/2)
+  bpy.context.view_layer.update()
  dg=bpy.context.evaluated_depsgraph_get()
  for ob in [o for o in loaded if o.type=='MESH']:
   ev=ob.evaluated_get(dg);mesh=bpy.data.meshes.new_from_object(ev,depsgraph=dg);g=G()
@@ -188,7 +202,7 @@ def npc(n):
   g.vertices=[tuple(ob.matrix_world@v.co) for v in mesh.vertices];g.faces=[tuple(p.vertices) for p in mesh.polygons];g.colours=[mats[p.material_index] for p in mesh.polygons]
   part(n+'_'+ob.name,g,smooth=True)
  for ob in loaded:bpy.data.objects.remove(ob,do_unlink=True)
- K.NOTES.append('Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips.')
+ K.NOTES.append('Static evaluated Task06 rig pose; no runtime armature/actions. NPC_Sitting adapts Row with horizontal thighs and vertical shins. Bare local outfit seat contact Z=.239; Bench seat top Z=.4625. Place NPC root at UnityY=.2235 above Bench root; short legs dangle. Crew source unchanged.')
 UP=['BigCooler','BigIceBox','RodHolderClamp','FishingRod_Fibreglass','FishingRod_Carbon','Outboard_Small','FuelCan','SquidTub','WormTub']
 HAR=['HillBackdrop','Shed_Shipyard','MarketStall','Rowboat_VariantRed','Rowboat_VariantGreen','Skiff_VariantBlue','Gangway','Ladder','LifebuoyStand','CrabPotStack','Bench']
 NPC=['NPC_Fishmonger','NPC_HarbourMaster','NPC_Sitting']

@@ -846,7 +846,7 @@
       "source": "Art/Models/WorldPolish/Harbour/MarketStall.blend",
       "fbx": "Assets/Art/Models/Harbour/MarketStall.fbx",
       "preview": "Art/Models/WorldPolish/Previews/Harbour/MarketStall.png",
-      "triangles": 2892,
+      "triangles": 3988,
       "bounds_min_blender": [
         -1.2000000476837158,
         -0.8199999928474426,
@@ -890,22 +890,25 @@
         },
         {
           "name": "ScaleAndIce",
-          "triangles": 392,
-          "vertices": 210,
+          "triangles": 1488,
+          "vertices": 792,
           "bounds_min_blender": [
-            -0.8399999737739563,
-            -0.14000000059604645,
-            0.9524999856948853
+            -0.8799999952316284,
+            -0.7300000190734863,
+            0.9444999694824219
           ],
           "bounds_max_blender": [
             0.8850000500679016,
             0.14000000059604645,
             1.4500000476837158
           ],
-          "mesh_sha256": "c0cc18adb33ecb7e199960b2586c0d014f360797ec2baef6dab5106a6b2aa5e5",
+          "mesh_sha256": "22d49461abe254492a51cf6ac3b4a96011b231c9b334dd53a7aa97ad6691acdb",
           "materials": [
+            "M_FishSilver",
+            "M_HullBlue",
             "M_HullNavy",
             "M_RailIvory",
+            "M_Rubber",
             "M_Steel"
           ]
         }
@@ -2300,18 +2303,18 @@
       "triangles": 17816,
       "bounds_min_blender": [
         -0.3387693762779236,
-        -0.12191686779260635,
-        0.08733400702476501
+        -0.26200008392333984,
+        0.1300000101327896
       ],
       "bounds_max_blender": [
         0.3387693762779236,
-        0.31582945585250854,
+        0.16582946479320526,
         1.0749999284744263
       ],
       "dimensions_width_depth_height_m": [
         0.6775387525558472,
-        0.4377463236451149,
-        0.9876659214496613
+        0.4278295487165451,
+        0.9449999183416367
       ],
       "parts": [
         {
@@ -2320,15 +2323,15 @@
           "vertices": 5474,
           "bounds_min_blender": [
             -0.3387693762779236,
-            -0.12191686779260635,
-            0.08733400702476501
+            -0.26200008392333984,
+            0.1300000101327896
           ],
           "bounds_max_blender": [
             0.3387693762779236,
-            0.31582945585250854,
+            0.16582946479320526,
             0.949999988079071
           ],
-          "mesh_sha256": "115471525880beda95385121f86f5b810f263bd8c130acf0c7d531ca7ce515bc",
+          "mesh_sha256": "879da2141aa99a7f3320c7a74bb572d6ad3a99d0d240774ee60e96c789c541ee",
           "materials": [
             "M_HairChestnut",
             "M_HullNavy",
@@ -2342,16 +2345,16 @@
           "triangles": 5784,
           "vertices": 2956,
           "bounds_min_blender": [
-            -0.15400001406669617,
-            -0.034999996423721313,
-            0.2083701342344284
+            -0.15399999916553497,
+            -0.1850000023841858,
+            0.23899999260902405
           ],
           "bounds_max_blender": [
-            0.15399998426437378,
-            0.25200000405311584,
+            0.15399999916553497,
+            0.10199999809265137,
             0.7279999852180481
           ],
-          "mesh_sha256": "1a1906ea398e1d7ef1faa8fd21ae4471bb851b9ff505a01ce9a050375957cefa",
+          "mesh_sha256": "bb755a5ea4046a47ed46682a6ea7eac26e2dd262c122e3d5d9fa1e50bb0d22d2",
           "materials": [
             "M_HairSilver",
             "M_HullNavy"
@@ -2363,15 +2366,15 @@
           "vertices": 606,
           "bounds_min_blender": [
             -0.18199999630451202,
-            -0.0070000686682760715,
+            -0.1570000797510147,
             0.8600000143051147
           ],
           "bounds_max_blender": [
             0.18199999630451202,
-            0.30699995160102844,
+            0.15699993073940277,
             1.0749999284744263
           ],
-          "mesh_sha256": "df992a04e1c795564f037a32354b1c59c86c22e6cfe97b4844b7e85ece940040",
+          "mesh_sha256": "c68309efd55ddeb7dc92f6e6e4587a960948171a8761f643200e9a4a8407ef75",
           "materials": [
             "M_SafetyOrange"
           ]
@@ -2395,7 +2398,7 @@
         ]
       },
       "notes": [
-        "Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips."
+        "Static evaluated Task06 rig pose; no runtime armature/actions. NPC_Sitting adapts Row with horizontal thighs and vertical shins. Bare local seat contact Z=.24; Bench seat top Z=.4625. Place NPC root at UnityY=.2225 above Bench root; short legs dangle. Crew source unchanged."
       ]
     },
     {
