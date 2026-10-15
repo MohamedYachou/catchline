@@ -1,0 +1,623 @@
+{
+  "asset": "GullHarbourMouth",
+  "materials": {
+    "M_CoastStone": "#A99A7C",
+    "M_CoastStoneLight": "#C9B89A",
+    "M_CoastWet": "#696F64",
+    "M_CoastGrass": "#729053",
+    "M_CoastGrassLight": "#98A96B",
+    "M_CoastSand": "#D9C393",
+    "M_SeabedSand": "#BEA77D"
+  },
+  "triangles": 15962,
+  "parts": [
+    {
+      "name": "Land_Headland_ConnectedStrata",
+      "triangles": 1396,
+      "vertices": 700,
+      "bounds_min_blender": [
+        3.439117431640625,
+        -7.427452087402344,
+        -1.4500000476837158
+      ],
+      "bounds_max_blender": [
+        12.498359680175781,
+        3.569943428039551,
+        1.0636447668075562
+      ],
+      "mesh_sha256": "34c7281e8e9ae5d3704b5d6c5c64b213d18446f5c2aee9155ef4f498a1d70551",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_TidalIslet_ConnectedStrata",
+      "triangles": 690,
+      "vertices": 347,
+      "bounds_min_blender": [
+        -6.1031107902526855,
+        -5.938772678375244,
+        -0.6234999895095825
+      ],
+      "bounds_max_blender": [
+        -1.5394166707992554,
+        -1.8260856866836548,
+        0.4554147720336914
+      ],
+      "mesh_sha256": "cfcbc115f52b64360fec3eb1f20dab12b126222047031b325ccf0f7cb9a8e3be",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_OuterShelf_ConnectedStrata",
+      "triangles": 524,
+      "vertices": 264,
+      "bounds_min_blender": [
+        3.2384140491485596,
+        4.658998489379883,
+        -0.36250001192092896
+      ],
+      "bounds_max_blender": [
+        6.456289291381836,
+        8.962125778198242,
+        0.2646772861480713
+      ],
+      "mesh_sha256": "63202fff4fb939317dd0bb4050af11594d5b8293cd897f5ff341ab5c351f5b50",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_AttachedFracture_0",
+      "triangles": 80,
+      "vertices": 42,
+      "bounds_min_blender": [
+        4.245297908782959,
+        -3.2409887313842773,
+        -0.07999999821186066
+      ],
+      "bounds_max_blender": [
+        4.991209030151367,
+        -2.384247303009033,
+        0.8280025124549866
+      ],
+      "mesh_sha256": "102ffdf8487ab56214104f47fd5ca42d421d5f67e4876cf4545bf942dbb4e13b",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_AttachedFracture_1",
+      "triangles": 80,
+      "vertices": 42,
+      "bounds_min_blender": [
+        5.187857627868652,
+        -1.7010161876678467,
+        -0.07999999821186066
+      ],
+      "bounds_max_blender": [
+        5.924659252166748,
+        -0.8400792479515076,
+        0.8865305185317993
+      ],
+      "mesh_sha256": "6bd77477b120c02d8d4a687e41e24cec314ba73ad2f1e29242cec6829359cd66",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_AttachedFracture_2",
+      "triangles": 76,
+      "vertices": 40,
+      "bounds_min_blender": [
+        4.894495010375977,
+        -0.8351969122886658,
+        -0.07999999821186066
+      ],
+      "bounds_max_blender": [
+        5.638829708099365,
+        0.02218753844499588,
+        0.9705638885498047
+      ],
+      "mesh_sha256": "1d7b5fe4357808d912d204d83460549c500eb9ed302921143c5e76b584dcb49b",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Land_AttachedFracture_3",
+      "triangles": 80,
+      "vertices": 42,
+      "bounds_min_blender": [
+        5.9698591232299805,
+        0.6010363698005676,
+        -0.07999999821186066
+      ],
+      "bounds_max_blender": [
+        6.712395668029785,
+        1.4528151750564575,
+        0.8788511753082275
+      ],
+      "mesh_sha256": "76692fade9f4964a6aa02e052041e8c62bf317fd7b53e94d80e2e63d133d8859",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight",
+        "M_CoastWet"
+      ]
+    },
+    {
+      "name": "Bathymetry_ShallowShelves_DeepChannel",
+      "triangles": 6814,
+      "vertices": 3409,
+      "bounds_min_blender": [
+        -10.705780982971191,
+        -12.575052261352539,
+        -3.5
+      ],
+      "bounds_max_blender": [
+        13.772870063781738,
+        11.650794982910156,
+        -0.11999999731779099
+      ],
+      "mesh_sha256": "0e2211fb03f6849629b0651dafa1bdb0ce9431aef5cd9e8c2dd6059e1692dc58",
+      "materials": [
+        "M_CoastWet",
+        "M_SeabedSand"
+      ]
+    },
+    {
+      "name": "Quay_Landing",
+      "triangles": 412,
+      "vertices": 216,
+      "bounds_min_blender": [
+        4.596924781799316,
+        -0.13882920145988464,
+        -0.07999999821186066
+      ],
+      "bounds_max_blender": [
+        5.991177082061768,
+        1.2006136178970337,
+        0.5324999690055847
+      ],
+      "mesh_sha256": "32dc4dfc205b1f52839be6f707dc37e0fa2c94aa53257feb50bfaf172b932e32",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight"
+      ]
+    },
+    {
+      "name": "Jetty_Timber_BracedPosts",
+      "triangles": 388,
+      "vertices": 224,
+      "bounds_min_blender": [
+        4.2745561599731445,
+        -0.29060089588165283,
+        -0.800000011920929
+      ],
+      "bounds_max_blender": [
+        5.347425937652588,
+        0.7794870138168335,
+        0.6974999904632568
+      ],
+      "mesh_sha256": "a86641ed91669f6ff25221464b1f3f2fd2b38c71853159ff43802f32a6a0fa82",
+      "materials": [
+        "M_DeckWood",
+        "M_Rope",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "HarbourBeacon_IvoryOrange",
+      "triangles": 298,
+      "vertices": 165,
+      "bounds_min_blender": [
+        4.9634928703308105,
+        0.2988150119781494,
+        0.47999998927116394
+      ],
+      "bounds_max_blender": [
+        5.543493270874023,
+        0.8788149952888489,
+        1.4016000032424927
+      ],
+      "mesh_sha256": "afcb6cc80619acb1af8ac6966c88612c7f9d2360cd31654431c5af25c40f2d0d",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Landing_StoneSteps",
+      "triangles": 164,
+      "vertices": 84,
+      "bounds_min_blender": [
+        5.603301048278809,
+        -0.2399727702140808,
+        0.05000000074505806
+      ],
+      "bounds_max_blender": [
+        6.53399658203125,
+        0.8327233195304871,
+        1.0299999713897705
+      ],
+      "mesh_sha256": "14f3f5ecdd636edfe8c83da49d99608578ca9854900dd82a1af71f82603eb987",
+      "materials": [
+        "M_CoastStone",
+        "M_CoastStoneLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_01",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        5.420251846313477,
+        -2.4649605751037598,
+        0.931749165058136
+      ],
+      "bounds_max_blender": [
+        6.138197422027588,
+        -1.7700413465499878,
+        1.3667491674423218
+      ],
+      "mesh_sha256": "603867ff0728e592c7c217c018b401416bad5955e7c39bfcf6d51a0d6fd10a22",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_02",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        5.450065612792969,
+        -1.0587384700775146,
+        0.884572446346283
+      ],
+      "bounds_max_blender": [
+        6.120148658752441,
+        -0.41014719009399414,
+        1.2905724048614502
+      ],
+      "mesh_sha256": "2f79377c17185c11fff4ea4113d1f49e39350ad3cd9d48768c0f774c8da6a080",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_03",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        5.930590629577637,
+        -0.5664162635803223,
+        0.8873246312141418
+      ],
+      "bounds_max_blender": [
+        6.792125701904297,
+        0.2674867808818817,
+        1.4093245267868042
+      ],
+      "mesh_sha256": "c2b413c5fc87fc377ab1c67ddeaf11618a07151026f499982ed0c8a0dc283c71",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_04",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        6.31417179107666,
+        0.40953296422958374,
+        0.9303659796714783
+      ],
+      "bounds_max_blender": [
+        6.984254360198975,
+        1.0581241846084595,
+        1.3363659381866455
+      ],
+      "mesh_sha256": "77d6e7e04a66f0ac3e23264a772194622450f5b982ed44113029569574b172e3",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_05",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        7.065637588500977,
+        0.2115638554096222,
+        0.9165136814117432
+      ],
+      "bounds_max_blender": [
+        8.118624687194824,
+        1.230778694152832,
+        1.554513692855835
+      ],
+      "mesh_sha256": "3f16717a3581811fc3bee7a5cdd8ff5cae84ac50fe28ae1e8b223b70c37e7e58",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_06",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        7.537816047668457,
+        1.4305874109268188,
+        0.9198216199874878
+      ],
+      "bounds_max_blender": [
+        8.303625106811523,
+        2.1718344688415527,
+        1.3838216066360474
+      ],
+      "mesh_sha256": "021c645ede809dead234a9836a353dfce6f73cb2a07d5bf28c7f25a9711e5ae0",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_07",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        -3.461907386779785,
+        -3.6734538078308105,
+        0.3530219793319702
+      ],
+      "bounds_max_blender": [
+        -2.7918243408203125,
+        -3.02486252784729,
+        0.7590219378471375
+      ],
+      "mesh_sha256": "c23849008604c9af08981ee0fc92cd7fca6885c28f16dbb7c2f1ea14fecf7862",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_08",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        -3.9262049198150635,
+        -4.446955680847168,
+        0.350058376789093
+      ],
+      "bounds_max_blender": [
+        -3.064669609069824,
+        -3.6130526065826416,
+        0.8720583915710449
+      ],
+      "mesh_sha256": "7dfbb9d6a0439f6c0ad238ca35a9c174d0b1fec2e905772cc7898abe1bc71880",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "Vegetation_AuthoredCluster_09",
+      "triangles": 480,
+      "vertices": 248,
+      "bounds_min_blender": [
+        4.456209182739258,
+        6.005923271179199,
+        0.1717284619808197
+      ],
+      "bounds_max_blender": [
+        5.222018241882324,
+        6.7471699714660645,
+        0.6357284784317017
+      ],
+      "mesh_sha256": "043231efa0e6737f4cd379d31817d9585dd35c3818334c27e8c5ae227446a71e",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "WindTree_1",
+      "triangles": 460,
+      "vertices": 238,
+      "bounds_min_blender": [
+        7.174883842468262,
+        1.8601889610290527,
+        0.9424359798431396
+      ],
+      "bounds_max_blender": [
+        8.654884338378906,
+        2.843189001083374,
+        2.724015474319458
+      ],
+      "mesh_sha256": "e54dda0c9d5f798e407bcb8134fe43a3dafb7acae1751a25cad22e38784cdc7b",
+      "materials": [
+        "M_CoastGrass",
+        "M_CoastGrassLight",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "TidalLedge_GrassTufts",
+      "triangles": 180,
+      "vertices": 120,
+      "bounds_min_blender": [
+        -4.1739583015441895,
+        -4.327767372131348,
+        0.23741109669208527
+      ],
+      "bounds_max_blender": [
+        4.599029541015625,
+        5.935020923614502,
+        0.6867380738258362
+      ],
+      "mesh_sha256": "b58e9658d8ff5f5b2a0a27ac24eebf6fea941b4ff775277687a11d33106c401f",
+      "materials": [
+        "M_CoastGrassLight"
+      ]
+    }
+  ],
+  "waterline_unity_y": 0,
+  "preview_world_offset_unity": [
+    0,
+    -0.32,
+    0
+  ],
+  "coast_plans_screen_ground": {
+    "Headland": [
+      [
+        -0.6,
+        3.4
+      ],
+      [
+        0.3,
+        2.75
+      ],
+      [
+        1.2,
+        2.45
+      ],
+      [
+        2.15,
+        2.55
+      ],
+      [
+        2.55,
+        2.25
+      ],
+      [
+        2.85,
+        1.95
+      ],
+      [
+        3.0,
+        1.25
+      ],
+      [
+        3.5,
+        0.95
+      ],
+      [
+        4.1,
+        1.05
+      ],
+      [
+        4.8,
+        0.85
+      ],
+      [
+        5.8,
+        0.55
+      ],
+      [
+        7.8,
+        0.8
+      ],
+      [
+        8.3,
+        4.6
+      ],
+      [
+        0.0,
+        5.6
+      ]
+    ],
+    "TidalIslet": [
+      [
+        -8,
+        -1.1
+      ],
+      [
+        -6.2,
+        -1.6
+      ],
+      [
+        -5.6,
+        -1.45
+      ],
+      [
+        -5.2,
+        -1
+      ],
+      [
+        -4.6,
+        -0.75
+      ],
+      [
+        -4.15,
+        -0.05
+      ],
+      [
+        -4.4,
+        0.4
+      ],
+      [
+        -5.2,
+        0.75
+      ],
+      [
+        -6.5,
+        1
+      ],
+      [
+        -8,
+        0.6
+      ]
+    ],
+    "OuterShelf": [
+      [
+        5,
+        -2.25
+      ],
+      [
+        5.6,
+        -1.8
+      ],
+      [
+        6.4,
+        -1.7
+      ],
+      [
+        7.8,
+        -2
+      ],
+      [
+        8,
+        -4
+      ],
+      [
+        5.9,
+        -3.7
+      ]
+    ]
+  }
+}
