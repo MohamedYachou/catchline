@@ -215,3 +215,7 @@ Two new canonical sRGB materials: `M_HairChestnut` = `#50392E` and `M_HairSilver
 ## Task07 world and upgrade kit
 
 [WorldPolish report](Models/WorldPolish/REPORT.md) lists31 additive assets: larger coolers, rod/material variants, clamp/motor/bait props, harbour backdrop and dressing, static crew poses, boat repaints and sea landmarks. Prior assets remain untouched; repaints/rods retain exact original part names and pivots. No new palette names. Static NPCs reuse Task06 hair materials. KelpForest is4x4m planar and needs two-sided rendering; waterline modules may extend below their root. WhaleTail has a separate Tail part for consumer-driven rise/sink.
+
+## Task08 day boat and texture kit
+
+[DayBoatKit report](Models/DayBoatKit/REPORT.md) covers the exact 50-tile deck and centred six-tile bow wheelhouse, six rod sockets, port stern-quarter rail gap and nine grid stations. [Station contract](Models/DayBoatKit/Stations/REPORT.md) lists footprints, access and moving pivots. New geometry is additive and uses existing M_* names. [Texture contract](../Assets/Art/Textures/TEXTURES.md) covers three seamless palette water tiles, foam/wake/splash effects and an optional subtle deck-grain overlay. No future-tier gameplay or Unity configuration is included.
