@@ -1,0 +1,213 @@
+{
+  "all_passed": true,
+  "blender": "5.2.1 LTS",
+  "fbx_version": 7400,
+  "triangles_before": 1790,
+  "triangles_after": 2054,
+  "part_count": 10,
+  "original_part_root_pivot_socket_contract_preserved": true,
+  "oars_and_socket_meshes_identical": true,
+  "hull_envelope_m": [
+    4.2,
+    2.4
+  ],
+  "deck_m": [
+    3,
+    2
+  ],
+  "palette": [
+    "M_DeckWood",
+    "M_HullNavy",
+    "M_RailIvory",
+    "M_Rope",
+    "M_SafetyOrange",
+    "M_Steel",
+    "M_WoodHighlight"
+  ],
+  "actual_fbx_reimport_passed": true,
+  "untouched_protected_files": 196,
+  "topology": [
+    {
+      "part": "Hull",
+      "faces": 107,
+      "nonquads": 2,
+      "nonmanifold_edges": 30,
+      "nonmanifold_vertices": 0,
+      "components": 2,
+      "inconsistent_edges": 30
+    },
+    {
+      "part": "PlankDeck",
+      "faces": 201,
+      "nonquads": 64,
+      "nonmanifold_edges": 28,
+      "nonmanifold_vertices": 28,
+      "components": 1,
+      "inconsistent_edges": 28
+    },
+    {
+      "part": "IvoryGunwale",
+      "faces": 376,
+      "nonquads": 64,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 20,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "CentreThwart",
+      "faces": 39,
+      "nonquads": 10,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 3,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "Oarlock_Port",
+      "faces": 48,
+      "nonquads": 0,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 1,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "Oar_Port",
+      "faces": 44,
+      "nonquads": 10,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 2,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "Oarlock_Starboard",
+      "faces": 48,
+      "nonquads": 0,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 1,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "Oar_Starboard",
+      "faces": 44,
+      "nonquads": 10,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 2,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "RodSocket_Port_Stern",
+      "faces": 48,
+      "nonquads": 0,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 1,
+      "inconsistent_edges": 0
+    },
+    {
+      "part": "RodSocket_Port_Bow",
+      "faces": 48,
+      "nonquads": 0,
+      "nonmanifold_edges": 0,
+      "nonmanifold_vertices": 0,
+      "components": 1,
+      "inconsistent_edges": 0
+    }
+  ],
+  "cameras": [
+    {
+      "stage": "before",
+      "projection_matches_unity": true,
+      "camera_matrix": [
+        [
+          0.8191519975662231,
+          0.4055798053741455,
+          -0.40557989478111267,
+          -15.223190307617188
+        ],
+        [
+          -0.5735765099525452,
+          0.579227864742279,
+          -0.5792279839515686,
+          -23.86911964416504
+        ],
+        [
+          2.301876378396628e-08,
+          0.7071068286895752,
+          0.7071067094802856,
+          28.284271240234375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "stage": "after",
+      "projection_matches_unity": true,
+      "camera_matrix": [
+        [
+          0.8191519975662231,
+          0.4055798053741455,
+          -0.40557989478111267,
+          -15.223190307617188
+        ],
+        [
+          -0.5735765099525452,
+          0.579227864742279,
+          -0.5792279839515686,
+          -23.86911964416504
+        ],
+        [
+          2.301876378396628e-08,
+          0.7071068286895752,
+          0.7071067094802856,
+          28.284271240234375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "stage": "refined",
+      "projection_matches_unity": true,
+      "camera_matrix": [
+        [
+          0.8191519975662231,
+          0.4055798053741455,
+          -0.40557989478111267,
+          -14.873189926147461
+        ],
+        [
+          -0.5735765099525452,
+          0.579227864742279,
+          -0.5792279839515686,
+          -22.969118118286133
+        ],
+        [
+          2.301876378396628e-08,
+          0.7071068286895752,
+          0.7071067094802856,
+          28.284271240234375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ]
+}
