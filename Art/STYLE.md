@@ -211,3 +211,7 @@ HandWinch reserves 1 × 1 m with a separate Crank. SortTable reserves 2 × 1 m; 
 `Assets/Art/Models/Crew/CrewRig.fbx` is a new shared chibi rig; the old CrewBody and its exports remain untouched. Source, turnaround renders, three-keyframe animation contact sheets and integration contract: [CrewRig report](Models/CrewRig/REPORT.md). Bare scalp height 0.95m; 0.38m head (40%). Four outfit meshes and three rigid HatMount modules share 20 Mixamo-style bones and eleven in-place actions at 24fps. Select one outfit and one hat; leave Body enabled. There are no root-motion or prop animations.
 
 Two new canonical sRGB materials: `M_HairChestnut` = `#50392E` and `M_HairSilver` = `#ADB6AF`; matte hair / veteran beard. Other materials reuse existing palette names. Hat_Hood uses yellow oilskin; Outfit_Fisherman includes an orange hood-down collar. Importers must set clip loop flags from the report/manifest; Blender action custom properties do not configure Unity import settings.
+
+## Task07 world and upgrade kit
+
+[WorldPolish report](Models/WorldPolish/REPORT.md) lists31 additive assets: larger coolers, rod/material variants, clamp/motor/bait props, harbour backdrop and dressing, static crew poses, boat repaints and sea landmarks. Prior assets remain untouched; repaints/rods retain exact original part names and pivots. No new palette names. Static NPCs reuse Task06 hair materials. KelpForest is4x4m planar and needs two-sided rendering; waterline modules may extend below their root. WhaleTail has a separate Tail part for consumer-driven rise/sink.
