@@ -139,6 +139,20 @@ Rowboat 3x2, the captain, one rod, a cooler. The camera stays on the boat.
 
 **Interaction model: one tap per action.** Speech bubbles float above whatever needs you; there is no walking around by hand.
 
+**First-voyage pass (2026-10-15):** start with an optional goal of three fish
+safely stowed. Hints follow the real state (cast, wait, strike, carry, return)
+and can be disabled in Settings. For the first three landed fish, including
+saved fish-log progress, bite waits are clamped to 4–6 seconds and the strike
+window is at least 1.5 seconds. Normal timings resume afterward. Early strikes
+still lose bait. There is no forced return at the three-fish goal.
+
+Catches show their supplied portrait, weight, approximate current sale value
+and new-species/record feedback. Stowing shows +1; returning shows sale coins.
+The market recommends the next useful upgrade and links to the Chandlery.
+The big cooler now costs **60 coins**, carrying 16 instead of 10 fish, so a full
+first trip can fund storage and replacement bait. Rod holder and later prices
+remain as listed in GameData. Existing owners and saves retain their upgrades.
+
 - **Rod cycle:**
   1. Tap the **Fish** bubble above a rod. The captain walks there, baits the hook (1.2 s; skipped when the deckhand already baited it) and casts by himself.
   2. The **strike minigame** opens: a close-up of the bobber with a fish circling closer. Fish shadows also swim in the water around the boat.

@@ -14,6 +14,23 @@ In the harbour, tap a building (Fish Market, Harbour Master, Crew Office, Chandl
 
 Controls at sea: one tap per action. Tap the Fish bubble above a rod (the captain baits and casts), tap anywhere once when the bobber goes under (or Space), tap Carry above a landed fish. H heads home, scroll zooms.
 
+First trip: aim for three fish safely stowed, then return or keep filling the
+cooler. The first three catches have quicker bites and a 1.5-second strike
+window. Catch portraits show weight and estimated value; the Market points
+to your next upgrade. The 60-coin big cooler is the first storage milestone.
+
+First-voyage checks, including skiff/crew/net/save regressions:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File docs/tools/check.ps1 -Name first-voyage -Method Catchline.EditorTools.FirstVoyageChecks.Regression
+```
+
+Build a Windows preview on the scratch project with the same command and
+`-Method Catchline.EditorTools.FirstVoyageChecks.BuildPreview`. The result is
+`Catchline-sim/Builds/FirstVoyage/Catchline.exe`. This preview starts fresh and
+never loads, writes or deletes the main game's save. It intentionally does
+not persist preview progress between sessions.
+
 Build 2 is playable: return with 16 fish, then buy the 1,500-coin skiff refit at the Chandlery. It adds a 40-fish hold, three rods, an outboard and a gill net. Hire fishermen to work rods and deckhands to carry fish; up to three hired crew fit aboard. Tap Set net, fish during its soak, then Haul net. Supplies sells fuel; return fuel is included at departure. See [the continuation report](docs/CONTINUATION.md).
 
 Balance check (a bot plays N voyages and logs each one, then renders a PNG to `Logs/`):

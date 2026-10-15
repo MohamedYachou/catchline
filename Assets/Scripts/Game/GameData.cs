@@ -129,7 +129,7 @@ namespace Catchline.Game
         public static readonly UpgradeDef[] Upgrades =
         {
             new() { Id = UpgradeId.RodHolder, Name = "Rod holder", Cost = 250, Desc = "A second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling." },
-            new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 200, Desc = "Holds 16 fish instead of 10, so you stay out longer." },
+            new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 60, Desc = "Holds 16 fish instead of 10. Six more catches per trip; your first step toward the skiff." },
             new() { Id = UpgradeId.IceBox, Name = "Ice box", Cost = 250, Desc = "Fish keep full value. Without ice they lose up to 40% the longer they sit." },
             new() { Id = UpgradeId.LunchTin, Name = "Lunch tin", Cost = 100, Desc = "Carry 12 minutes of food instead of 6.", Shop = "Supplies" },
             new() { Id = UpgradeId.RodFibreglass, Name = "Fibreglass rods", Cost = 180, Desc = "Longer strike window (1.15 s) and 25% faster reeling." },

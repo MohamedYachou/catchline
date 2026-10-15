@@ -129,7 +129,7 @@ namespace Catchline.Game
         void DrawFishing()
         {
             // Status panel, top left.
-            int lines = State.Active.Count + Rods.Count(r => r.Unlocked);
+            int lines = State.Active.Count + Rods.Count(r => r.Unlocked) + (FirstVoyage ? 1 : 0);
             var p = Panel(new Rect(16f, 16f, 330f, 150f + lines * 22f));
             float x = p.x + 16, y = p.y + 12, w = p.width - 32;
             GUI.Label(new Rect(x, y, w, 26), GameData.Spots[ActiveSpot].Name, Ui.H2);
@@ -139,6 +139,11 @@ namespace Catchline.Game
             Icon(new Rect(x, y, 20, 20), "icon-bait-worm");
             GUI.Label(new Rect(x + 26, y, w - 26, 20), $"Bait  {State.Bait}   Squid  {State.Squid}     Stocks here  {State.Richness[ActiveSpot] * 100f:0}%", Ui.Small);
             y += 26;
+            if (FirstVoyage)
+            {
+                GUI.Label(new Rect(x, y, w, 22), $"First trip: {Mathf.Min(Cooler.Count, 3)}/3 fish safely stowed", Ui.Body);
+                y += 22;
+            }
             foreach (var r in Rods.Where(r => r.Unlocked))
             {
                 Icon(new Rect(x, y, 20, 20), "icon-rod");
@@ -195,20 +200,8 @@ namespace Catchline.Game
                     CommandCarry(f);
 
             DrawMinigame();
-
-            if (ShowTips && MinigameRod == null)
-            {
-                string hint = Hint();
-                if (hint != null) GUI.Box(new Rect(VW / 2f - 260f, 720f - 64f, 520f, 44f), hint, Ui.ToastStyle);
-            }
-        }
-
-        string Hint()
-        {
-            if (OnDeck.Any(CanCarry)) return "Tap Carry to take the fish to the cooler before it flops overboard.";
-            if (Captain.Busy || Captain.Walking || Captain.Carrying != null) return null;
-            if (Rods.Any(CanCommandRod)) return "Tap the Fish bubble: the captain baits and casts.";
-            return null;
+            DrawCatchFeedback();
+            DrawVoyageGuide();
         }
 
         bool Bubble(Vector3 world, string label, bool hot, float width = 88f, string icon = null, bool badge = false)
@@ -220,6 +213,14 @@ namespace Catchline.Game
             var tex = icon != null ? Ui.Tex(icon) : null;
             if (tex != null) width += 26f;
             var r = new Rect(g.x - width / 2f, g.y - 52f + bob, width, 46f);
+            if (CurrentMode == Mode.Harbour)
+            {
+                // World shop labels must yield to the fixed harbour cards and their controls.
+                float shopWidth = Mathf.Min(620f, VW - 410f);
+                if (r.Overlaps(new Rect(16f, 16f, 360f, 150f))
+                    || r.Overlaps(new Rect(16f, 594f, 360f, 110f))
+                    || panelOpen && r.Overlaps(new Rect(VW - shopWidth - 16f, 16f, shopWidth, 688f))) return false;
+            }
             Track(r);
             bool flash = hot && Mathf.Repeat(SimTime * 4f, 1f) < 0.6f;
             if (!Ui.Sprite(new Rect(g.x - 12f, r.yMax - 6f, 24f, 18f), flash ? "bubble-hot-tail" : "bubble-white-tail"))
@@ -316,10 +317,10 @@ namespace Catchline.Game
             var l = Panel(new Rect(16f, 16f, 360f, 150f));
             GUI.Label(new Rect(l.x + 16, l.y + 12, l.width - 32, 34), GameData.HarbourName, Ui.Title);
             GUI.Label(new Rect(l.x + 16, l.y + 50, l.width - 32, 22), $"Voyage {State.Voyage}  ·  <b>{State.Coins}</b> coins", Ui.Body);
-            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), State.Hull > 0 ? "Skiff · 40-fish hold · outboard" : "Next hull: skiff refit", Ui.Small);
+            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), FirstVoyage ? "First trip: bring home 3 fish" : State.Hull > 0 ? "Skiff · 40-fish hold · outboard" : "Next hull: skiff refit", Ui.Small);
             float goal = Mathf.Min(State.BestVoyageFish / (float)GameData.SkiffFishGoal, 1f) * 0.5f + Mathf.Min(State.Coins / (float)GameData.SkiffCost, 1f) * 0.5f;
-            Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), State.Hull > 0 ? 1f : goal);
-            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 20), State.Hull > 0 ? $"Fuel {State.Fuel} · trip uses {GameData.TripFuel(SelectedSpot)} (return included)" : $"Land {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) + {GameData.SkiffCost} coins", Ui.Mutedish);
+            Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), FirstVoyage ? 0f : State.Hull > 0 ? 1f : goal);
+            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 20), FirstVoyage ? "Bait and food aboard. Set sail when you're ready." : State.Hull > 0 ? $"Fuel {State.Fuel} · trip uses {GameData.TripFuel(SelectedSpot)} (return included)" : $"Land {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) + {GameData.SkiffCost} coins", Ui.Mutedish);
 
             // Bottom left: set sail toward the chosen sea.
             var blocker = SailBlocker();
@@ -378,14 +379,10 @@ namespace Catchline.Game
                 GUILayout.Label("Welcome to Gull Harbour", Ui.H2);
                 GUILayout.Space(6);
                 GUILayout.Label(
-                    "You have a rowboat, one rod and a cooler. Fish sell here automatically when you come home.\n\n" +
-                    "<b>On the water</b>, everything is one tap:\n" +
-                    "  • Tap the <b>Fish</b> bubble above the rod. The captain baits and casts.\n" +
-                    "  • Watch the bobber. Twitches are nibbles: wait. When it goes fully under, <b>tap anywhere</b>.\n" +
-                    "  • Tap <b>Carry</b> above a landed fish to take it to the cooler before it flops away.\n\n" +
-                    "<b>In the harbour</b>, tap a building: the Harbour Master sells sea charts and contracts, the Crew Office hires deckhands, " +
-                    "the Chandlery sells boat upgrades and rods, Supplies sells bait and food.\n\n" +
-                    "Your progress saves in the harbour.", Ui.Body);
+                    "Your rowboat is ready, with bait and food aboard.\n\n" +
+                    "<b>Bring home your first 3 fish.</b> Set sail for the harbour mouth; the hints on the water will show you what to do.\n\n" +
+                    "Fish sell automatically when you return. Spend your catch on a bigger cooler, another rod, and eventually a crew.\n\n" +
+                    "Keep fishing as long as you like. Head home whenever you're ready; progress saves here.", Ui.Body);
             }
             else
             {
@@ -401,6 +398,7 @@ namespace Catchline.Game
             }
 
             State.UnseenSale = false;
+            DrawNextUpgrade();
 
             // Fish log: every species in Gull Harbour, with your record. Unknown ones hint at where they live.
             GUILayout.Space(12);
@@ -410,6 +408,7 @@ namespace Catchline.Game
             {
                 int i = (int)f.Species;
                 GUILayout.BeginHorizontal(Ui.Card);
+                GUILayout.Label(Ui.Tex(State.LogCount[i] > 0 ? FishPortrait(f.Species) : "fish-unknown"), GUILayout.Width(48), GUILayout.Height(48));
                 if (State.LogCount[i] > 0)
                 {
                     GUILayout.Label($"<b>{f.Name}</b>", Ui.Body, GUILayout.Width(150));

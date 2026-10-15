@@ -30,6 +30,8 @@ namespace Catchline.Game
         public VoyageStats Stats = new();
         public float SimTime;
         public bool AutoPlay;
+        // Preview builds and checks can play from scratch without touching the captain's save.
+        [HideInInspector] public bool SessionOnly;
         public int Seed = 7;
         public readonly List<string> Log = new();
 
@@ -77,7 +79,7 @@ namespace Catchline.Game
         {
             if (built) return;
             built = true;
-            var loaded = AutoPlay ? null : GameState.Load();
+            var loaded = AutoPlay || SessionOnly ? null : GameState.Load();
             hadSave = loaded != null;
             showTitle = !AutoPlay;
             State = loaded ?? new GameState(Seed);
@@ -481,12 +483,12 @@ namespace Catchline.Game
         // Saves after selling and after every harbour purchase. The bot never touches the save file.
         public void SaveGame()
         {
-            if (!AutoPlay && Application.isPlaying) State.Save();
+            if (!AutoPlay && !SessionOnly && Application.isPlaying) State.Save();
         }
 
         public void NewGame()
         {
-            GameState.DeleteSave();
+            if (!SessionOnly) GameState.DeleteSave();
             OnDeck.Clear();
             Cooler.Clear();
             State = new GameState(System.Environment.TickCount);
@@ -494,6 +496,7 @@ namespace Catchline.Game
             RebuildBoat(false);
             Stats = new VoyageStats();
             refitUntil = 0f;
+            ResetFeedback();
             if (oldScenery != null) Visuals.Kill(oldScenery.gameObject);
             oldScenery = null;
             if (scenery != null) Visuals.Kill(scenery.gameObject);
@@ -513,6 +516,7 @@ namespace Catchline.Game
                 int spot = ActiveSpot;
                 State.EndVoyage(sale);
                 int earned = sale.Coins + sale.ContractCoins;
+                Toast(earned > 0 ? $"Catch sold! +{earned} coins" : "Back in Gull Harbour. Ready when you are.");
                 Log.Add($"Voyage {State.Voyage - 1,2} {GameData.Spots[spot].Name,-13} {sale.Minutes:0.0} min  fish {sale.Caught,2}  " +
                         $"+{earned,3} ({earned / Mathf.Max(0.1f, sale.Minutes):0}/min)  coins {State.Coins,4}  bait {State.Bait,2}  " +
                         $"spooked {Stats.Spooked} missed {Stats.Missed} lost {Stats.Lost}  hand {(Hand != null ? GameData.GradeName(Hand.Contract.Grade) : "-")}  " +
@@ -550,6 +554,7 @@ namespace Catchline.Game
             if (State.Hull > 0) State.Fuel -= GameData.TripFuel(ActiveSpot);
             voyageStart = SimTime;
             Stats = new VoyageStats();
+            ResetFeedback();
             hungryWarned = State.FoodMinutes <= 0f;
             fullWarned = false;
             BeginTransition(Mode.SailingOut, ActiveSpot);
@@ -889,8 +894,7 @@ namespace Catchline.Game
             f.Root.localPosition = f.SpawnFrom;
             OnDeck.Add(f);
             if (rod == Manning) { Manning = null; Captain.PlayOnce("Cheer"); }
-            var def = GameData.Get(s);
-            Toast($"{def.Name}, {kg:0.0} kg");
+            ShowCatch(s, kg);
         }
 
         void Fetch(Person p, DeckFish f)
@@ -930,6 +934,7 @@ namespace Catchline.Game
             Visuals.Kill(p.Carrying.Root.gameObject);
             p.Carrying = null;
             lidPop = 1f;
+            stowedAt = SimTime;
             return true;
         }
 

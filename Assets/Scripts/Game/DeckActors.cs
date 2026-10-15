@@ -483,6 +483,7 @@ namespace Catchline.Game
         {
             State = RodState.Waiting;
             waitTotal = g.State.RollBiteWait(g.ActiveSpot, Power) * scale;
+            if (g.LearningFishing) waitTotal = Mathf.Clamp(waitTotal, 4f, 6f);
             waitTimer = 0f;
             nibbles.Clear();
             nextNibble = 0;
@@ -533,7 +534,7 @@ namespace Catchline.Game
                         State = RodState.Bite;
                         t = 0f;
                         (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f));
-                        biteWindow = g.State.BiteWindow;
+                        biteWindow = g.StrikeWindow;
                         selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
                         splash.gameObject.SetActive(true);
                         g.OnBite(this);
