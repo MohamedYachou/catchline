@@ -1,0 +1,2934 @@
+{
+  "assets": [
+    {
+      "asset": "BigCooler",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/BigCooler.blend",
+      "fbx": "Assets/Art/Models/DeckProps/BigCooler.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/BigCooler.png",
+      "triangles": 556,
+      "bounds_min_blender": [
+        -0.5,
+        -0.30000001192092896,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.5,
+        0.30000001192092896,
+        0.5
+      ],
+      "dimensions_width_depth_height_m": [
+        1.0,
+        0.6000000238418579,
+        0.5
+      ],
+      "parts": [
+        {
+          "name": "CoolerBody",
+          "triangles": 512,
+          "vertices": 272,
+          "bounds_min_blender": [
+            -0.5,
+            -0.30000001192092896,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.5,
+            0.30000001192092896,
+            0.4444444477558136
+          ],
+          "mesh_sha256": "d18cd86ffd7b40f43bd0f110d42f26b46984ae66efb39fe46508bb9e93be20e4",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HingedLid",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -0.5,
+            -0.30000001192092896,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            0.5,
+            0.30000001192092896,
+            0.5
+          ],
+          "mesh_sha256": "cdbf75e10a16f64b8b35fc73bac956b6b88be5ef9b28cb119773b2495bc267c0",
+          "materials": [
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CoolerBody": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "HingedLid": [
+          0.0,
+          0.30000001192092896,
+          0.4444444477558136
+        ]
+      },
+      "notes": [
+        "Lid origin at rear hinge (0,+0.25,+0.40); local X rotation opens front edge. IceBox shares CoolerBody geometry."
+      ]
+    },
+    {
+      "asset": "BigIceBox",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/BigIceBox.blend",
+      "fbx": "Assets/Art/Models/DeckProps/BigIceBox.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/BigIceBox.png",
+      "triangles": 652,
+      "bounds_min_blender": [
+        -0.5,
+        -0.30000001192092896,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.5,
+        0.30000001192092896,
+        0.5
+      ],
+      "dimensions_width_depth_height_m": [
+        1.0,
+        0.6000000238418579,
+        0.5
+      ],
+      "parts": [
+        {
+          "name": "CoolerBody",
+          "triangles": 512,
+          "vertices": 272,
+          "bounds_min_blender": [
+            -0.5,
+            -0.30000001192092896,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.5,
+            0.30000001192092896,
+            0.4444444477558136
+          ],
+          "mesh_sha256": "d18cd86ffd7b40f43bd0f110d42f26b46984ae66efb39fe46508bb9e93be20e4",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HingedLid",
+          "triangles": 140,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.5,
+            -0.30000001192092896,
+            0.4444444477558136
+          ],
+          "bounds_max_blender": [
+            0.5,
+            0.30000001192092896,
+            0.5
+          ],
+          "mesh_sha256": "f4be9872d727f3cb2101aa1dd222f219ac320075f88bdde3d4a2bff3fe9ea80d",
+          "materials": [
+            "M_RailIvory",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CoolerBody": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "HingedLid": [
+          0.0,
+          0.30000001192092896,
+          0.4444444477558136
+        ]
+      },
+      "notes": [
+        "Lid origin at rear hinge (0,+0.25,+0.40); local X rotation opens front edge. IceBox shares CoolerBody geometry."
+      ]
+    },
+    {
+      "asset": "RodHolderClamp",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/RodHolderClamp.blend",
+      "fbx": "Assets/Art/Models/DeckProps/RodHolderClamp.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/RodHolderClamp.png",
+      "triangles": 196,
+      "bounds_min_blender": [
+        -0.07999999821186066,
+        -0.05000000074505806,
+        -0.06000000238418579
+      ],
+      "bounds_max_blender": [
+        0.12999999523162842,
+        0.08499999344348907,
+        0.23999999463558197
+      ],
+      "dimensions_width_depth_height_m": [
+        0.20999999344348907,
+        0.13499999418854713,
+        0.29999999701976776
+      ],
+      "parts": [
+        {
+          "name": "RodHolderClamp",
+          "triangles": 196,
+          "vertices": 104,
+          "bounds_min_blender": [
+            -0.07999999821186066,
+            -0.05000000074505806,
+            -0.06000000238418579
+          ],
+          "bounds_max_blender": [
+            0.12999999523162842,
+            0.08499999344348907,
+            0.23999999463558197
+          ],
+          "mesh_sha256": "803f2635a4fdfca04a3c64145f69a7f3452095748ff1b6a77ef93ff9bff0cea9",
+          "materials": [
+            "M_HullNavy",
+            "M_Rubber",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "RodHolderClamp": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "FishingRod_Fibreglass",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/FishingRod_Fibreglass.blend",
+      "fbx": "Assets/Art/Models/DeckProps/FishingRod_Fibreglass.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/FishingRod_Fibreglass.png",
+      "triangles": 1488,
+      "bounds_min_blender": [
+        -0.03150000050663948,
+        -0.07999999821186066,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.1469999998807907,
+        0.05400000140070915,
+        1.600000023841858
+      ],
+      "dimensions_width_depth_height_m": [
+        0.1785000003874302,
+        0.1339999996125698,
+        1.600000023841858
+      ],
+      "parts": [
+        {
+          "name": "RodAndReel",
+          "triangles": 1424,
+          "vertices": 724,
+          "bounds_min_blender": [
+            -0.03150000050663948,
+            -0.05400000140070915,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.10499999672174454,
+            0.05400000140070915,
+            1.600000023841858
+          ],
+          "mesh_sha256": "d1c906827723ddc6f22676b57bf934091947165a00b013e62f24eb075590c1f7",
+          "materials": [
+            "M_OilskinYellow",
+            "M_RailIvory",
+            "M_SafetyOrange",
+            "M_Steel",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "ReelHandle",
+          "triangles": 64,
+          "vertices": 36,
+          "bounds_min_blender": [
+            0.10000000149011612,
+            -0.07999999821186066,
+            0.17573414742946625
+          ],
+          "bounds_max_blender": [
+            0.1469999998807907,
+            0.0042679752223193645,
+            0.24554836750030518
+          ],
+          "mesh_sha256": "8823190b18ffc07c2234fcbca65768fba98bd798ba576ad9182cd29c64022f12",
+          "materials": [
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "RodAndReel": [
+          0,
+          0,
+          0
+        ],
+        "ReelHandle": [
+          0.107,
+          0,
+          0.24
+        ]
+      },
+      "notes": [
+        "1.6m upright rod, 48mm blank butt / 62mm cork grip / 14mm tip; intentionally exaggerated for game zoom. ReelHandle pivot (.107,0,.24), local X spin."
+      ]
+    },
+    {
+      "asset": "FishingRod_Carbon",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/FishingRod_Carbon.blend",
+      "fbx": "Assets/Art/Models/DeckProps/FishingRod_Carbon.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/FishingRod_Carbon.png",
+      "triangles": 1488,
+      "bounds_min_blender": [
+        -0.03150000050663948,
+        -0.07999999821186066,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.1469999998807907,
+        0.05400000140070915,
+        1.600000023841858
+      ],
+      "dimensions_width_depth_height_m": [
+        0.1785000003874302,
+        0.1339999996125698,
+        1.600000023841858
+      ],
+      "parts": [
+        {
+          "name": "RodAndReel",
+          "triangles": 1424,
+          "vertices": 724,
+          "bounds_min_blender": [
+            -0.03150000050663948,
+            -0.05400000140070915,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.10499999672174454,
+            0.05400000140070915,
+            1.600000023841858
+          ],
+          "mesh_sha256": "d1c906827723ddc6f22676b57bf934091947165a00b013e62f24eb075590c1f7",
+          "materials": [
+            "M_OilskinYellow",
+            "M_Rubber",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "ReelHandle",
+          "triangles": 64,
+          "vertices": 36,
+          "bounds_min_blender": [
+            0.10000000149011612,
+            -0.07999999821186066,
+            0.17573414742946625
+          ],
+          "bounds_max_blender": [
+            0.1469999998807907,
+            0.0042679752223193645,
+            0.24554836750030518
+          ],
+          "mesh_sha256": "8823190b18ffc07c2234fcbca65768fba98bd798ba576ad9182cd29c64022f12",
+          "materials": [
+            "M_OilskinYellow",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "RodAndReel": [
+          0,
+          0,
+          0
+        ],
+        "ReelHandle": [
+          0.107,
+          0,
+          0.24
+        ]
+      },
+      "notes": [
+        "1.6m upright rod, 48mm blank butt / 62mm cork grip / 14mm tip; intentionally exaggerated for game zoom. ReelHandle pivot (.107,0,.24), local X spin."
+      ]
+    },
+    {
+      "asset": "Outboard_Small",
+      "group": "Boats",
+      "source": "Art/Models/WorldPolish/Boats/Outboard_Small.blend",
+      "fbx": "Assets/Art/Models/Boats/Outboard_Small.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Boats/Outboard_Small.png",
+      "triangles": 400,
+      "bounds_min_blender": [
+        -0.23000000417232513,
+        -0.294506311416626,
+        -1.1500000953674316
+      ],
+      "bounds_max_blender": [
+        0.33062562346458435,
+        0.440000057220459,
+        0.20750001072883606
+      ],
+      "dimensions_width_depth_height_m": [
+        0.5606256276369095,
+        0.734506368637085,
+        1.3575001060962677
+      ],
+      "parts": [
+        {
+          "name": "OutboardMotor",
+          "triangles": 172,
+          "vertices": 96,
+          "bounds_min_blender": [
+            -0.23000000417232513,
+            -0.294506311416626,
+            -0.9700000286102295
+          ],
+          "bounds_max_blender": [
+            0.33062562346458435,
+            0.440000057220459,
+            0.20750001072883606
+          ],
+          "mesh_sha256": "494e63dcef3674837b82484136119013cdb8ba33dbfdb38d0df5e1315e6ccd2a",
+          "materials": [
+            "M_HullNavy",
+            "M_Rubber",
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Propeller",
+          "triangles": 228,
+          "vertices": 121,
+          "bounds_min_blender": [
+            -0.20000000298023224,
+            0.2200000286102295,
+            -1.1500000953674316
+          ],
+          "bounds_max_blender": [
+            0.20000000298023224,
+            0.4200000762939453,
+            -0.75
+          ],
+          "mesh_sha256": "ba7c699b3543863b35b49beef382bc1b01a730ceb1792f8a1ca556ec3c249826",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "OutboardMotor": [
+          0.0,
+          -3.049999952316284,
+          -0.3499999940395355
+        ],
+        "Propeller": [
+          0.0,
+          0.35000014305114746,
+          -0.9500000476837158
+        ]
+      },
+      "notes": [
+        "Root at transom clamp; source propeller pivot (0,.35,-.95), Unity(0,-.95,-.35). Spins source Y / Unity Z."
+      ]
+    },
+    {
+      "asset": "FuelCan",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/FuelCan.blend",
+      "fbx": "Assets/Art/Models/DeckProps/FuelCan.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/FuelCan.png",
+      "triangles": 196,
+      "bounds_min_blender": [
+        -0.14000000059604645,
+        -0.101500004529953,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.14000000059604645,
+        0.09000000357627869,
+        0.4699999988079071
+      ],
+      "dimensions_width_depth_height_m": [
+        0.2800000011920929,
+        0.1915000081062317,
+        0.4699999988079071
+      ],
+      "parts": [
+        {
+          "name": "FuelCan",
+          "triangles": 196,
+          "vertices": 104,
+          "bounds_min_blender": [
+            -0.14000000059604645,
+            -0.101500004529953,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.14000000059604645,
+            0.09000000357627869,
+            0.4699999988079071
+          ],
+          "mesh_sha256": "c766773e57a5ab2b8f3e0c9ef76ea6406c90d63d21b04b0ec5c4a6330cdaf00a",
+          "materials": [
+            "M_RailIvory",
+            "M_Rubber",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "FuelCan": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "SquidTub",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/SquidTub.blend",
+      "fbx": "Assets/Art/Models/DeckProps/SquidTub.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/SquidTub.png",
+      "triangles": 728,
+      "bounds_min_blender": [
+        -0.16500000655651093,
+        -0.16500000655651093,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.16500000655651093,
+        0.16500000655651093,
+        0.18400000035762787
+      ],
+      "dimensions_width_depth_height_m": [
+        0.33000001311302185,
+        0.33000001311302185,
+        0.18400000035762787
+      ],
+      "parts": [
+        {
+          "name": "SquidTub",
+          "triangles": 728,
+          "vertices": 388,
+          "bounds_min_blender": [
+            -0.16500000655651093,
+            -0.16500000655651093,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.16500000655651093,
+            0.16500000655651093,
+            0.18400000035762787
+          ],
+          "mesh_sha256": "f57c5ae54750e43f8e45c05a6c6d3bf0d0a44cd5a16793ffaeb3b9e5ceca42e6",
+          "materials": [
+            "M_RailIvory",
+            "M_Rubber",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SquidTub": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "WormTub",
+      "group": "DeckProps",
+      "source": "Art/Models/WorldPolish/DeckProps/WormTub.blend",
+      "fbx": "Assets/Art/Models/DeckProps/WormTub.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/DeckProps/WormTub.png",
+      "triangles": 432,
+      "bounds_min_blender": [
+        -0.16500000655651093,
+        -0.16500000655651093,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.16500000655651093,
+        0.16500000655651093,
+        0.16877435147762299
+      ],
+      "dimensions_width_depth_height_m": [
+        0.33000001311302185,
+        0.33000001311302185,
+        0.16877435147762299
+      ],
+      "parts": [
+        {
+          "name": "WormTub",
+          "triangles": 432,
+          "vertices": 228,
+          "bounds_min_blender": [
+            -0.16500000655651093,
+            -0.16500000655651093,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.16500000655651093,
+            0.16500000655651093,
+            0.16877435147762299
+          ],
+          "mesh_sha256": "08239a77d072d5dd82edf869c2905f3ccdc95a50afa9890ec685d87916abc969",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rope",
+            "M_Rubber"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "WormTub": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "HillBackdrop",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/HillBackdrop.blend",
+      "fbx": "Assets/Art/Models/Harbour/HillBackdrop.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/HillBackdrop.png",
+      "triangles": 3726,
+      "bounds_min_blender": [
+        -20.0,
+        -4.0,
+        0.0
+      ],
+      "bounds_max_blender": [
+        20.0,
+        5.0,
+        9.0
+      ],
+      "dimensions_width_depth_height_m": [
+        40.0,
+        9.0,
+        9.0
+      ],
+      "parts": [
+        {
+          "name": "SteppedHills",
+          "triangles": 92,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -20.0,
+            -4.0,
+            0.0
+          ],
+          "bounds_max_blender": [
+            20.0,
+            5.0,
+            3.4000000953674316
+          ],
+          "mesh_sha256": "23e79b81e7613e613effc05a73f515258d69f67788455456293e7663071eecce",
+          "materials": [
+            "M_KelpGreen",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HillHouses",
+          "triangles": 1944,
+          "vertices": 1140,
+          "bounds_min_blender": [
+            -16.712499618530273,
+            -0.41999995708465576,
+            2.299999952316284
+          ],
+          "bounds_max_blender": [
+            17.854999542236328,
+            3.5,
+            5.241250038146973
+          ],
+          "mesh_sha256": "7d69713959984317c73478ff0632e24df2ef226fb1e8b46401e9f1952d535ef7",
+          "materials": [
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SafetyOrange",
+            "M_SeaTeal"
+          ]
+        },
+        {
+          "name": "ChurchTower",
+          "triangles": 118,
+          "vertices": 69,
+          "bounds_min_blender": [
+            1.0099999904632568,
+            1.909999966621399,
+            3.4000000953674316
+          ],
+          "bounds_max_blender": [
+            2.990000009536743,
+            3.890000104904175,
+            9.0
+          ],
+          "mesh_sha256": "ea09f663777495f2229d3c7fb054ad028ec8185c4c93c1bc4b62a01424087d13",
+          "materials": [
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "TreesFencesSteps",
+          "triangles": 1572,
+          "vertices": 888,
+          "bounds_min_blender": [
+            -18.41346549987793,
+            -3.4000000953674316,
+            0.0
+          ],
+          "bounds_max_blender": [
+            18.03499984741211,
+            3.393923044204712,
+            5.144000053405762
+          ],
+          "mesh_sha256": "dba07361ff002457c366a7ef404344f28bd8ef8e41339f703acab03bfdc3ef52",
+          "materials": [
+            "M_DeckWood",
+            "M_KelpGreen",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SteppedHills": [
+          0,
+          0,
+          0
+        ],
+        "HillHouses": [
+          0,
+          0,
+          0
+        ],
+        "ChurchTower": [
+          0,
+          0,
+          0
+        ],
+        "TreesFencesSteps": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "40m X repeat, end cross-sections match. Place behind shops; includes separate landscape,houses,tower,dressing."
+      ]
+    },
+    {
+      "asset": "Shed_Shipyard",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Shed_Shipyard.blend",
+      "fbx": "Assets/Art/Models/Harbour/Shed_Shipyard.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Shed_Shipyard.png",
+      "triangles": 802,
+      "bounds_min_blender": [
+        -4.214239597320557,
+        -5.203909397125244,
+        -0.4148823022842407
+      ],
+      "bounds_max_blender": [
+        4.214239597320557,
+        3.0,
+        5.6373796463012695
+      ],
+      "dimensions_width_depth_height_m": [
+        8.428479194641113,
+        8.203909397125244,
+        6.05226194858551
+      ],
+      "parts": [
+        {
+          "name": "ShedShell",
+          "triangles": 426,
+          "vertices": 254,
+          "bounds_min_blender": [
+            -4.214239597320557,
+            -3.0,
+            0.0
+          ],
+          "bounds_max_blender": [
+            4.214239597320557,
+            3.0,
+            5.6373796463012695
+          ],
+          "mesh_sha256": "dae0d60070bc307d6f4e5bbf3d4dc4a4380f51806153509db69761e04977b5d2",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy",
+            "M_SeaTeal"
+          ]
+        },
+        {
+          "name": "Slipway",
+          "triangles": 376,
+          "vertices": 208,
+          "bounds_min_blender": [
+            -1.600000023841858,
+            -5.203909397125244,
+            -0.4148823022842407
+          ],
+          "bounds_max_blender": [
+            1.600000023841858,
+            2.603909492492676,
+            0.35999998450279236
+          ],
+          "mesh_sha256": "861805007108391fb72784cd81aeab44202f43d8805b86a4773621b147523971",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "ShedShell": [
+          0,
+          0,
+          0
+        ],
+        "Slipway": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "8x6m shed shell; open water-facing entrance. Slipway extends2.2m in front, below ground."
+      ]
+    },
+    {
+      "asset": "MarketStall",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/MarketStall.blend",
+      "fbx": "Assets/Art/Models/Harbour/MarketStall.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/MarketStall.png",
+      "triangles": 2892,
+      "bounds_min_blender": [
+        -1.2000000476837158,
+        -0.8199999928474426,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.2000000476837158,
+        0.8199999928474426,
+        2.2899999618530273
+      ],
+      "dimensions_width_depth_height_m": [
+        2.4000000953674316,
+        1.6399999856948853,
+        2.2899999618530273
+      ],
+      "parts": [
+        {
+          "name": "MarketStallAwning",
+          "triangles": 2500,
+          "vertices": 1346,
+          "bounds_min_blender": [
+            -1.2000000476837158,
+            -0.8199999928474426,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.2000000476837158,
+            0.8199999928474426,
+            2.2899999618530273
+          ],
+          "mesh_sha256": "15bae30cf8d0d78eb75f15188f5f0a19e608208e1f478fe4191ea04c05c47e12",
+          "materials": [
+            "M_DeckWood",
+            "M_FishSilver",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_SeaTeal",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "ScaleAndIce",
+          "triangles": 392,
+          "vertices": 210,
+          "bounds_min_blender": [
+            -0.8399999737739563,
+            -0.14000000059604645,
+            0.9524999856948853
+          ],
+          "bounds_max_blender": [
+            0.8850000500679016,
+            0.14000000059604645,
+            1.4500000476837158
+          ],
+          "mesh_sha256": "c0cc18adb33ecb7e199960b2586c0d014f360797ec2baef6dab5106a6b2aa5e5",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "MarketStallAwning": [
+          0,
+          0,
+          0
+        ],
+        "ScaleAndIce": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "Rowboat_VariantRed",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Rowboat_VariantRed.blend",
+      "fbx": "Assets/Art/Models/Harbour/Rowboat_VariantRed.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Rowboat_VariantRed.png",
+      "triangles": 1790,
+      "bounds_min_blender": [
+        -2.259999990463257,
+        -2.142500162124634,
+        -0.44999998807907104
+      ],
+      "bounds_max_blender": [
+        2.259999990463257,
+        2.142500162124634,
+        0.5699999928474426
+      ],
+      "dimensions_width_depth_height_m": [
+        4.519999980926514,
+        4.285000324249268,
+        1.0199999809265137
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 176,
+          "vertices": 105,
+          "bounds_min_blender": [
+            -1.2000000476837158,
+            -2.0999999046325684,
+            -0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            1.2000000476837158,
+            2.0999999046325684,
+            0.5
+          ],
+          "mesh_sha256": "9437b79807cc4b7ae32f7a7634dbfe81835a93900acdc07bbac1f14f8d222698",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 338,
+          "vertices": 164,
+          "bounds_min_blender": [
+            -1.0,
+            -1.5,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            1.0,
+            1.5,
+            0.0
+          ],
+          "mesh_sha256": "b1e2f73979678d4baedb0ef8ed14ff45b91d4030931ee3091cf8267eae27c006",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "IvoryGunwale",
+          "triangles": 672,
+          "vertices": 368,
+          "bounds_min_blender": [
+            -1.246399998664856,
+            -2.142500162124634,
+            0.35800015926361084
+          ],
+          "bounds_max_blender": [
+            1.246399998664856,
+            2.142500162124634,
+            0.5575000047683716
+          ],
+          "mesh_sha256": "1f7b78035ba55efb71e0d7d646f6f684666428c1d698be9267dc9bfb3303ca85",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope"
+          ]
+        },
+        {
+          "name": "CentreThwart",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.024999976158142,
+            -0.14000000059604645,
+            0.2749999761581421
+          ],
+          "bounds_max_blender": [
+            1.024999976158142,
+            0.14000000059604645,
+            0.36500000953674316
+          ],
+          "mesh_sha256": "d4dfc1fac6c810af931c9f91e42d53f1e7fc18a0f8ebd2b94b2db0821b63787a",
+          "materials": [
+            "M_DeckWood"
+          ]
+        },
+        {
+          "name": "Oarlock_Port",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1749999523162842,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            -1.065000057220459,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "594ef30bf472902ac288cf7cf9730092ecdd99978e0d6eb7a5d5bf29f9b9ed98",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Port",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.259999990463257,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            -0.339169442653656,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "35491c670adec5f9dfcdf752948796b4dd8913c2c1c4ba9a3cd949ad16eda8fc",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "Oarlock_Starboard",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            1.065000057220459,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            1.1749999523162842,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "9f2d8cf7e396ead09862ca61dc4018ddba97af37e894588802a90787fb5429e9",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Starboard",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            0.339169442653656,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            2.259999990463257,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "89e0ff1029e5cb9f5b903077f1784d45b05f928b980fdd0c31e6fd11bd1537d6",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Stern",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            0.9480000138282776,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            1.0520000457763672,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "1a5c8f45f40462fffb6043da9a4d00d091622951a840c64dbcc12adeeb0e6b8a",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Bow",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            -1.0520000457763672,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            -0.9480000138282776,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "704990e681facf7e8165bea3063f539be93eed887e2fada2971bb982237116a6",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "IvoryGunwale": [
+          0,
+          0,
+          0
+        ],
+        "CentreThwart": [
+          0,
+          0,
+          0
+        ],
+        "Oarlock_Port": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Port": [
+          -1.12,
+          0,
+          0.49
+        ],
+        "Oarlock_Starboard": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Starboard": [
+          1.12,
+          0,
+          0.49
+        ],
+        "RodSocket_Port_Stern": [
+          -1.115,
+          1.0,
+          0.44
+        ],
+        "RodSocket_Port_Bow": [
+          -1.115,
+          -1.0,
+          0.44
+        ]
+      },
+      "notes": [
+        "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5."
+      ]
+    },
+    {
+      "asset": "Rowboat_VariantGreen",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Rowboat_VariantGreen.blend",
+      "fbx": "Assets/Art/Models/Harbour/Rowboat_VariantGreen.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Rowboat_VariantGreen.png",
+      "triangles": 1790,
+      "bounds_min_blender": [
+        -2.259999990463257,
+        -2.142500162124634,
+        -0.44999998807907104
+      ],
+      "bounds_max_blender": [
+        2.259999990463257,
+        2.142500162124634,
+        0.5699999928474426
+      ],
+      "dimensions_width_depth_height_m": [
+        4.519999980926514,
+        4.285000324249268,
+        1.0199999809265137
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 176,
+          "vertices": 105,
+          "bounds_min_blender": [
+            -1.2000000476837158,
+            -2.0999999046325684,
+            -0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            1.2000000476837158,
+            2.0999999046325684,
+            0.5
+          ],
+          "mesh_sha256": "9437b79807cc4b7ae32f7a7634dbfe81835a93900acdc07bbac1f14f8d222698",
+          "materials": [
+            "M_DeckWood",
+            "M_KelpGreen",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 338,
+          "vertices": 164,
+          "bounds_min_blender": [
+            -1.0,
+            -1.5,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            1.0,
+            1.5,
+            0.0
+          ],
+          "mesh_sha256": "b1e2f73979678d4baedb0ef8ed14ff45b91d4030931ee3091cf8267eae27c006",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "IvoryGunwale",
+          "triangles": 672,
+          "vertices": 368,
+          "bounds_min_blender": [
+            -1.246399998664856,
+            -2.142500162124634,
+            0.35800015926361084
+          ],
+          "bounds_max_blender": [
+            1.246399998664856,
+            2.142500162124634,
+            0.5575000047683716
+          ],
+          "mesh_sha256": "1f7b78035ba55efb71e0d7d646f6f684666428c1d698be9267dc9bfb3303ca85",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope"
+          ]
+        },
+        {
+          "name": "CentreThwart",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.024999976158142,
+            -0.14000000059604645,
+            0.2749999761581421
+          ],
+          "bounds_max_blender": [
+            1.024999976158142,
+            0.14000000059604645,
+            0.36500000953674316
+          ],
+          "mesh_sha256": "d4dfc1fac6c810af931c9f91e42d53f1e7fc18a0f8ebd2b94b2db0821b63787a",
+          "materials": [
+            "M_DeckWood"
+          ]
+        },
+        {
+          "name": "Oarlock_Port",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1749999523162842,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            -1.065000057220459,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "594ef30bf472902ac288cf7cf9730092ecdd99978e0d6eb7a5d5bf29f9b9ed98",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Port",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.259999990463257,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            -0.339169442653656,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "35491c670adec5f9dfcdf752948796b4dd8913c2c1c4ba9a3cd949ad16eda8fc",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "Oarlock_Starboard",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            1.065000057220459,
+            -0.054999999701976776,
+            0.4300000071525574
+          ],
+          "bounds_max_blender": [
+            1.1749999523162842,
+            0.054999999701976776,
+            0.5099999904632568
+          ],
+          "mesh_sha256": "9f2d8cf7e396ead09862ca61dc4018ddba97af37e894588802a90787fb5429e9",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Oar_Starboard",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            0.339169442653656,
+            -0.3369016647338867,
+            0.3651631772518158
+          ],
+          "bounds_max_blender": [
+            2.259999990463257,
+            0.45500001311302185,
+            0.558966338634491
+          ],
+          "mesh_sha256": "89e0ff1029e5cb9f5b903077f1784d45b05f928b980fdd0c31e6fd11bd1537d6",
+          "materials": [
+            "M_DeckWood",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Stern",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            0.9480000138282776,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            1.0520000457763672,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "1a5c8f45f40462fffb6043da9a4d00d091622951a840c64dbcc12adeeb0e6b8a",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_Port_Bow",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.1670000553131104,
+            -1.0520000457763672,
+            0.4399999976158142
+          ],
+          "bounds_max_blender": [
+            -1.062999963760376,
+            -0.9480000138282776,
+            0.5699999928474426
+          ],
+          "mesh_sha256": "704990e681facf7e8165bea3063f539be93eed887e2fada2971bb982237116a6",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "IvoryGunwale": [
+          0,
+          0,
+          0
+        ],
+        "CentreThwart": [
+          0,
+          0,
+          0
+        ],
+        "Oarlock_Port": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Port": [
+          -1.12,
+          0,
+          0.49
+        ],
+        "Oarlock_Starboard": [
+          0,
+          0,
+          0
+        ],
+        "Oar_Starboard": [
+          1.12,
+          0,
+          0.49
+        ],
+        "RodSocket_Port_Stern": [
+          -1.115,
+          1.0,
+          0.44
+        ],
+        "RodSocket_Port_Bow": [
+          -1.115,
+          -1.0,
+          0.44
+        ]
+      },
+      "notes": [
+        "Deck 2 m across x 3 m fore-aft, top at Z=0. Hull length4.2m/beam2.4m; oars extend beyond hull. Sockets measured from build-deck stern Y=+1.5."
+      ]
+    },
+    {
+      "asset": "Skiff_VariantBlue",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Skiff_VariantBlue.blend",
+      "fbx": "Assets/Art/Models/Harbour/Skiff_VariantBlue.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Skiff_VariantBlue.png",
+      "triangles": 2494,
+      "bounds_min_blender": [
+        -1.7937077283859253,
+        -3.5455000400543213,
+        -0.800000011920929
+      ],
+      "bounds_max_blender": [
+        1.7937077283859253,
+        3.490000009536743,
+        0.6825000047683716
+      ],
+      "dimensions_width_depth_height_m": [
+        3.5874154567718506,
+        7.0355000495910645,
+        1.4825000166893005
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 104,
+          "vertices": 63,
+          "bounds_min_blender": [
+            -1.75,
+            -3.5,
+            -0.6499999761581421
+          ],
+          "bounds_max_blender": [
+            1.75,
+            3.0,
+            0.5299999713897705
+          ],
+          "mesh_sha256": "f9914515fe5e810d4481c917852255c253c5cb62be1953dd25a384109f90fb5b",
+          "materials": [
+            "M_DeckWood",
+            "M_HullBlue",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 768,
+          "vertices": 368,
+          "bounds_min_blender": [
+            -1.5,
+            -2.5,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            1.5,
+            2.5,
+            0.0
+          ],
+          "mesh_sha256": "383f48ff249ac851b68e20e6424bd5813e865dbf81a136887a06f51d4e388f94",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "IvoryGunwale",
+          "triangles": 408,
+          "vertices": 224,
+          "bounds_min_blender": [
+            -1.7937077283859253,
+            -3.5455000400543213,
+            0.4009186029434204
+          ],
+          "bounds_max_blender": [
+            1.7937077283859253,
+            3.0440001487731934,
+            0.5999934077262878
+          ],
+          "mesh_sha256": "dd8a9b7e0d2e341c971574e31dd3511c40c54e3b0d8ea76d6a190cee1796edf5",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope"
+          ]
+        },
+        {
+          "name": "OutboardMotor",
+          "triangles": 172,
+          "vertices": 96,
+          "bounds_min_blender": [
+            -0.23000000417232513,
+            2.755493640899658,
+            -0.6200000047683716
+          ],
+          "bounds_max_blender": [
+            0.33062562346458435,
+            3.490000009536743,
+            0.5575000047683716
+          ],
+          "mesh_sha256": "494e63dcef3674837b82484136119013cdb8ba33dbfdb38d0df5e1315e6ccd2a",
+          "materials": [
+            "M_HullBlue",
+            "M_Rubber",
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Propeller",
+          "triangles": 228,
+          "vertices": 121,
+          "bounds_min_blender": [
+            -0.20000000298023224,
+            3.2699999809265137,
+            -0.800000011920929
+          ],
+          "bounds_max_blender": [
+            0.20000000298023224,
+            3.4700000286102295,
+            -0.4000000059604645
+          ],
+          "mesh_sha256": "ba7c699b3543863b35b49beef382bc1b01a730ceb1792f8a1ca556ec3c249826",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Console",
+          "triangles": 230,
+          "vertices": 124,
+          "bounds_min_blender": [
+            0.6200000047683716,
+            1.5759999752044678,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.3799999952316284,
+            2.309999942779541,
+            0.6825000047683716
+          ],
+          "mesh_sha256": "bab490bcf462278d49e222e9a3b4ec5849e7e478b7ed4c2449c0c6f3aa4a8e7a",
+          "materials": [
+            "M_HullBlue",
+            "M_RailIvory",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_1",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            1.684999942779541,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            1.815000057220459,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "da140f548f2b30e804cc334853bf511cbb23b779d87a9304798b9713ab0e2756",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_2",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            -0.06499999761581421,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            0.06499999761581421,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "80accfe3b538e6fcc8045c37aac1baa10d890119506253be8ee8d7743435976d",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_3",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -1.7450000047683716,
+            -1.815000057220459,
+            0.44999998807907104
+          ],
+          "bounds_max_blender": [
+            -1.6150000095367432,
+            -1.684999942779541,
+            0.6100000143051147
+          ],
+          "mesh_sha256": "da140f548f2b30e804cc334853bf511cbb23b779d87a9304798b9713ab0e2756",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "FishHold",
+          "triangles": 172,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.44999998807907104,
+            -1.5499999523162842,
+            -0.429999977350235
+          ],
+          "bounds_max_blender": [
+            0.44999998807907104,
+            -0.44999998807907104,
+            0.02500000037252903
+          ],
+          "mesh_sha256": "5410e17ff417b6ca65eb28fb60f57fe945b8440c29572fac1ef3d42940f38a25",
+          "materials": [
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HoldLid",
+          "triangles": 124,
+          "vertices": 72,
+          "bounds_min_blender": [
+            -0.4000000059604645,
+            -1.5,
+            0.02500000037252903
+          ],
+          "bounds_max_blender": [
+            0.4000000059604645,
+            -0.5,
+            0.09749999642372131
+          ],
+          "mesh_sha256": "1dc9a39ae2038b1d5ae557685ce901224c22c3500c627ba8bbdd039923a9cf5e",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel",
+            "M_WoodRecess"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "IvoryGunwale": [
+          0,
+          0,
+          0
+        ],
+        "OutboardMotor": [
+          0,
+          0,
+          0
+        ],
+        "Propeller": [
+          0,
+          3.4,
+          -0.6
+        ],
+        "Console": [
+          0,
+          0,
+          0
+        ],
+        "RodSocket_1": [
+          -1.68,
+          1.75,
+          0.45
+        ],
+        "RodSocket_2": [
+          -1.68,
+          0,
+          0.45
+        ],
+        "RodSocket_3": [
+          -1.68,
+          -1.75,
+          0.45
+        ],
+        "FishHold": [
+          0,
+          0,
+          0
+        ],
+        "HoldLid": [
+          0,
+          -0.5,
+          0.025
+        ]
+      },
+      "notes": [
+        "Hull 6.5m fore-aft x3.5m beam (motor excluded), pointed bow, flat transom. Deck 5x3m at Z=0, with genuine hold opening. Console tile c=2,r=0, Unity centre(1,0,-2). HoldLid pivot Unity(0,.025,.5), open with negative local-X rotation. Port sockets Unity(-1.68,.45,-1.75/0/+1.75). Propeller pivot Unity(0,-.60,-3.40), spins local Z. No standalone FishHold FBX needed."
+      ]
+    },
+    {
+      "asset": "Gangway",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Gangway.blend",
+      "fbx": "Assets/Art/Models/Harbour/Gangway.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Gangway.png",
+      "triangles": 624,
+      "bounds_min_blender": [
+        -0.5274999737739563,
+        -1.6299999952316284,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.5274999737739563,
+        1.600000023841858,
+        0.8774999976158142
+      ],
+      "dimensions_width_depth_height_m": [
+        1.0549999475479126,
+        3.2300000190734863,
+        0.8774999976158142
+      ],
+      "parts": [
+        {
+          "name": "Gangway",
+          "triangles": 624,
+          "vertices": 352,
+          "bounds_min_blender": [
+            -0.5274999737739563,
+            -1.6299999952316284,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.5274999737739563,
+            1.600000023841858,
+            0.8774999976158142
+          ],
+          "mesh_sha256": "3d84db05b0e55fd6a51d03d7a4795d4749428ef9529be7fe9955b4c0c5e94079",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Gangway": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "Ladder",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Ladder.blend",
+      "fbx": "Assets/Art/Models/Harbour/Ladder.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Ladder.png",
+      "triangles": 184,
+      "bounds_min_blender": [
+        -0.27799999713897705,
+        -0.1418643295764923,
+        0.05000000074505806
+      ],
+      "bounds_max_blender": [
+        0.27799999713897705,
+        0.02800000086426735,
+        1.7674914598464966
+      ],
+      "dimensions_width_depth_height_m": [
+        0.5559999942779541,
+        0.16986433044075966,
+        1.7174914591014385
+      ],
+      "parts": [
+        {
+          "name": "Ladder",
+          "triangles": 184,
+          "vertices": 112,
+          "bounds_min_blender": [
+            -0.27799999713897705,
+            -0.1418643295764923,
+            0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            0.27799999713897705,
+            0.02800000086426735,
+            1.7674914598464966
+          ],
+          "mesh_sha256": "6f857fa465eab5a27a880f2a00897835d61b6fda7a6de48626db3892be1fcc13",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Ladder": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "LifebuoyStand",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/LifebuoyStand.blend",
+      "fbx": "Assets/Art/Models/Harbour/LifebuoyStand.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/LifebuoyStand.png",
+      "triangles": 360,
+      "bounds_min_blender": [
+        -0.3400000035762787,
+        -0.10000000149011612,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.3400000035762787,
+        0.30000001192092896,
+        1.2000000476837158
+      ],
+      "dimensions_width_depth_height_m": [
+        0.6800000071525574,
+        0.4000000134110451,
+        1.2000000476837158
+      ],
+      "parts": [
+        {
+          "name": "Lifebuoy",
+          "triangles": 304,
+          "vertices": 160,
+          "bounds_min_blender": [
+            -0.3400000035762787,
+            -0.0754999965429306,
+            0.5
+          ],
+          "bounds_max_blender": [
+            0.3400000035762787,
+            0.0754999965429306,
+            1.1800000667572021
+          ],
+          "mesh_sha256": "676057293b74717ea402e5c43c98cdda34805c8d88eac9b743d2e998e246922e",
+          "materials": [
+            "M_RailIvory",
+            "M_Rope",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "LifebuoyStand",
+          "triangles": 56,
+          "vertices": 32,
+          "bounds_min_blender": [
+            -0.30000001192092896,
+            -0.10000000149011612,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.30000001192092896,
+            0.30000001192092896,
+            1.2000000476837158
+          ],
+          "mesh_sha256": "5421e081534e1dca05c89a5878764b399c9f37457f2238b1924cdc07faa8a3cb",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Lifebuoy": [
+          0,
+          0,
+          0
+        ],
+        "LifebuoyStand": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "CrabPotStack",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/CrabPotStack.blend",
+      "fbx": "Assets/Art/Models/Harbour/CrabPotStack.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/CrabPotStack.png",
+      "triangles": 3192,
+      "bounds_min_blender": [
+        -0.6599999666213989,
+        -0.2750000059604645,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.7100000381469727,
+        0.3149999976158142,
+        0.7200000286102295
+      ],
+      "dimensions_width_depth_height_m": [
+        1.3700000047683716,
+        0.5900000035762787,
+        0.7200000286102295
+      ],
+      "parts": [
+        {
+          "name": "CrabPotStack",
+          "triangles": 3192,
+          "vertices": 1896,
+          "bounds_min_blender": [
+            -0.6599999666213989,
+            -0.2750000059604645,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.7100000381469727,
+            0.3149999976158142,
+            0.7200000286102295
+          ],
+          "mesh_sha256": "265be040e11ecc28465212f5373362b3120bd7dd708e42ca8a22fc573ab73939",
+          "materials": [
+            "M_HullNavy",
+            "M_Rope",
+            "M_Rubber",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "CrabPotStack": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "Bench",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/Bench.blend",
+      "fbx": "Assets/Art/Models/Harbour/Bench.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/Bench.png",
+      "triangles": 292,
+      "bounds_min_blender": [
+        -0.75,
+        -0.2549999952316284,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.75,
+        0.29249998927116394,
+        1.0
+      ],
+      "dimensions_width_depth_height_m": [
+        1.5,
+        0.5474999845027924,
+        1.0
+      ],
+      "parts": [
+        {
+          "name": "Bench",
+          "triangles": 292,
+          "vertices": 168,
+          "bounds_min_blender": [
+            -0.75,
+            -0.2549999952316284,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.75,
+            0.29249998927116394,
+            1.0
+          ],
+          "mesh_sha256": "cbe35ec95f5e4cc826de59ba3ab86e397d7b79ac0c0b9e0fe4eed2fd67d93a55",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Bench": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "NPC_Fishmonger",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/NPC_Fishmonger.blend",
+      "fbx": "Assets/Art/Models/Harbour/NPC_Fishmonger.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/NPC_Fishmonger.png",
+      "triangles": 12860,
+      "bounds_min_blender": [
+        -0.23712527751922607,
+        -0.24803397059440613,
+        9.313225746154785e-10
+      ],
+      "bounds_max_blender": [
+        0.23712527751922607,
+        0.2033805400133133,
+        1.0098081827163696
+      ],
+      "dimensions_width_depth_height_m": [
+        0.47425055503845215,
+        0.4514145106077194,
+        1.009808181785047
+      ],
+      "parts": [
+        {
+          "name": "NPC_Fishmonger_Body",
+          "triangles": 10804,
+          "vertices": 5446,
+          "bounds_min_blender": [
+            -0.23712527751922607,
+            -0.24803397059440613,
+            9.313225746154785e-10
+          ],
+          "bounds_max_blender": [
+            0.23712527751922607,
+            0.1612100601196289,
+            0.9516074657440186
+          ],
+          "mesh_sha256": "b3b312d71c955ff107e437794dfd02b1900ca52fcaa40619a20130f38180e3c6",
+          "materials": [
+            "M_HairChestnut",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Skin"
+          ]
+        },
+        {
+          "name": "NPC_Fishmonger_Outfit_Fisherman",
+          "triangles": 1720,
+          "vertices": 882,
+          "bounds_min_blender": [
+            -0.15399999916553497,
+            -0.12861940264701843,
+            0.17100000381469727
+          ],
+          "bounds_max_blender": [
+            0.15399999916553497,
+            0.10438060015439987,
+            0.590999960899353
+          ],
+          "mesh_sha256": "45b1836d9bbcb9b4299ed5ff2561d2835737f6eae58554fd88076a0d2e581569",
+          "materials": [
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "NPC_Fishmonger_Hat_Hood",
+          "triangles": 336,
+          "vertices": 170,
+          "bounds_min_blender": [
+            -0.2301758974790573,
+            -0.016619473695755005,
+            0.6860498785972595
+          ],
+          "bounds_max_blender": [
+            0.21770460903644562,
+            0.2033805400133133,
+            1.0098081827163696
+          ],
+          "mesh_sha256": "555205b63906f6fe3864b15b50f8a1cf98c8dcbb1f2867d379bc19f3a7c4686e",
+          "materials": [
+            "M_OilskinYellow"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "NPC_Fishmonger_Body": [
+          0,
+          0,
+          0
+        ],
+        "NPC_Fishmonger_Outfit_Fisherman": [
+          0,
+          0,
+          0
+        ],
+        "NPC_Fishmonger_Hat_Hood": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips."
+      ]
+    },
+    {
+      "asset": "NPC_HarbourMaster",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/NPC_HarbourMaster.blend",
+      "fbx": "Assets/Art/Models/Harbour/NPC_HarbourMaster.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/NPC_HarbourMaster.png",
+      "triangles": 14020,
+      "bounds_min_blender": [
+        -0.23592953383922577,
+        -0.2506106495857239,
+        9.313225746154785e-10
+      ],
+      "bounds_max_blender": [
+        0.23592953383922577,
+        0.16582946479320526,
+        1.0199999809265137
+      ],
+      "dimensions_width_depth_height_m": [
+        0.47185906767845154,
+        0.41644011437892914,
+        1.019999979995191
+      ],
+      "parts": [
+        {
+          "name": "NPC_HarbourMaster_Body",
+          "triangles": 10804,
+          "vertices": 5446,
+          "bounds_min_blender": [
+            -0.23592953383922577,
+            -0.2506106495857239,
+            9.313225746154785e-10
+          ],
+          "bounds_max_blender": [
+            0.23592953383922577,
+            0.16582946479320526,
+            0.949999988079071
+          ],
+          "mesh_sha256": "84fe487881195e1e4296448e74fa8fec8db8ca05e23567face9120727e398bb3",
+          "materials": [
+            "M_HairChestnut",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Skin"
+          ]
+        },
+        {
+          "name": "NPC_HarbourMaster_Outfit_Captain",
+          "triangles": 1872,
+          "vertices": 960,
+          "bounds_min_blender": [
+            -0.15399999916553497,
+            -0.12446175515651703,
+            0.17100000381469727
+          ],
+          "bounds_max_blender": [
+            0.15399999916553497,
+            0.10199999809265137,
+            0.5609999895095825
+          ],
+          "mesh_sha256": "c93c0b407a73d7d089c6be2f3e276d7b5be6aff03acef3127431e5b67012af8c",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_RailIvory"
+          ]
+        },
+        {
+          "name": "NPC_HarbourMaster_Hat_CaptainCap",
+          "triangles": 1344,
+          "vertices": 680,
+          "bounds_min_blender": [
+            -0.18299999833106995,
+            -0.21900008618831635,
+            0.8840000033378601
+          ],
+          "bounds_max_blender": [
+            0.18299999833106995,
+            0.15499992668628693,
+            1.0199999809265137
+          ],
+          "mesh_sha256": "cd91f784e2d0b52117eb67c10b9fd9acb7b452f6dbf15468d92b9c98b76597a1",
+          "materials": [
+            "M_HullNavy",
+            "M_OilskinYellow",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "NPC_HarbourMaster_Body": [
+          0,
+          0,
+          0
+        ],
+        "NPC_HarbourMaster_Outfit_Captain": [
+          0,
+          0,
+          0
+        ],
+        "NPC_HarbourMaster_Hat_CaptainCap": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips."
+      ]
+    },
+    {
+      "asset": "NPC_Sitting",
+      "group": "Harbour",
+      "source": "Art/Models/WorldPolish/Harbour/NPC_Sitting.blend",
+      "fbx": "Assets/Art/Models/Harbour/NPC_Sitting.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Harbour/NPC_Sitting.png",
+      "triangles": 17816,
+      "bounds_min_blender": [
+        -0.3387693762779236,
+        -0.12191686779260635,
+        0.08733400702476501
+      ],
+      "bounds_max_blender": [
+        0.3387693762779236,
+        0.31582945585250854,
+        1.0749999284744263
+      ],
+      "dimensions_width_depth_height_m": [
+        0.6775387525558472,
+        0.4377463236451149,
+        0.9876659214496613
+      ],
+      "parts": [
+        {
+          "name": "NPC_Sitting_Body",
+          "triangles": 10832,
+          "vertices": 5474,
+          "bounds_min_blender": [
+            -0.3387693762779236,
+            -0.12191686779260635,
+            0.08733400702476501
+          ],
+          "bounds_max_blender": [
+            0.3387693762779236,
+            0.31582945585250854,
+            0.949999988079071
+          ],
+          "mesh_sha256": "115471525880beda95385121f86f5b810f263bd8c130acf0c7d531ca7ce515bc",
+          "materials": [
+            "M_HairChestnut",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_Skin"
+          ]
+        },
+        {
+          "name": "NPC_Sitting_Outfit_Veteran",
+          "triangles": 5784,
+          "vertices": 2956,
+          "bounds_min_blender": [
+            -0.15400001406669617,
+            -0.034999996423721313,
+            0.2083701342344284
+          ],
+          "bounds_max_blender": [
+            0.15399998426437378,
+            0.25200000405311584,
+            0.7279999852180481
+          ],
+          "mesh_sha256": "1a1906ea398e1d7ef1faa8fd21ae4471bb851b9ff505a01ce9a050375957cefa",
+          "materials": [
+            "M_HairSilver",
+            "M_HullNavy"
+          ]
+        },
+        {
+          "name": "NPC_Sitting_Hat_Beanie",
+          "triangles": 1200,
+          "vertices": 606,
+          "bounds_min_blender": [
+            -0.18199999630451202,
+            -0.0070000686682760715,
+            0.8600000143051147
+          ],
+          "bounds_max_blender": [
+            0.18199999630451202,
+            0.30699995160102844,
+            1.0749999284744263
+          ],
+          "mesh_sha256": "df992a04e1c795564f037a32354b1c59c86c22e6cfe97b4844b7e85ece940040",
+          "materials": [
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "NPC_Sitting_Body": [
+          0,
+          0,
+          0
+        ],
+        "NPC_Sitting_Outfit_Veteran": [
+          0,
+          0,
+          0
+        ],
+        "NPC_Sitting_Hat_Beanie": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips."
+      ]
+    },
+    {
+      "asset": "RockArch",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/RockArch.blend",
+      "fbx": "Assets/Art/Models/Sea/RockArch.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/RockArch.png",
+      "triangles": 360,
+      "bounds_min_blender": [
+        -2.451754093170166,
+        -0.6105808019638062,
+        -0.25
+      ],
+      "bounds_max_blender": [
+        2.5,
+        0.6105808019638062,
+        3.0299999713897705
+      ],
+      "dimensions_width_depth_height_m": [
+        4.951754093170166,
+        1.2211616039276123,
+        3.2799999713897705
+      ],
+      "parts": [
+        {
+          "name": "RockArch",
+          "triangles": 360,
+          "vertices": 190,
+          "bounds_min_blender": [
+            -2.451754093170166,
+            -0.6105808019638062,
+            -0.25
+          ],
+          "bounds_max_blender": [
+            2.5,
+            0.6105808019638062,
+            3.0299999713897705
+          ],
+          "mesh_sha256": "6978808b3573a3954412604b9880eaea9d5633c0d2b63efc129c65f4f7bd7667",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "RockArch": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "WreckMast",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/WreckMast.blend",
+      "fbx": "Assets/Art/Models/Sea/WreckMast.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/WreckMast.png",
+      "triangles": 84,
+      "bounds_min_blender": [
+        -1.307313323020935,
+        -0.07500000298023224,
+        -0.41382163763046265
+      ],
+      "bounds_max_blender": [
+        1.4572107791900635,
+        0.07500000298023224,
+        2.8155243396759033
+      ],
+      "dimensions_width_depth_height_m": [
+        2.7645241022109985,
+        0.15000000596046448,
+        3.229345977306366
+      ],
+      "parts": [
+        {
+          "name": "WreckMast",
+          "triangles": 84,
+          "vertices": 50,
+          "bounds_min_blender": [
+            -1.307313323020935,
+            -0.07500000298023224,
+            -0.41382163763046265
+          ],
+          "bounds_max_blender": [
+            1.4572107791900635,
+            0.07500000298023224,
+            2.8155243396759033
+          ],
+          "mesh_sha256": "ae847fc7159c7924c7299479dfa5c9da82aa7c384dc98b734c19148c6af5b45a",
+          "materials": [
+            "M_DeckWood",
+            "M_RailIvory",
+            "M_Rope"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "WreckMast": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "KelpForest",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/KelpForest.blend",
+      "fbx": "Assets/Art/Models/Sea/KelpForest.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/KelpForest.png",
+      "triangles": 168,
+      "bounds_min_blender": [
+        -2.0,
+        -2.0,
+        0.0
+      ],
+      "bounds_max_blender": [
+        2.0,
+        2.0,
+        0.0
+      ],
+      "dimensions_width_depth_height_m": [
+        4.0,
+        4.0,
+        0.0
+      ],
+      "parts": [
+        {
+          "name": "FloatingKelp",
+          "triangles": 168,
+          "vertices": 146,
+          "bounds_min_blender": [
+            -2.0,
+            -2.0,
+            0.0
+          ],
+          "bounds_max_blender": [
+            2.0,
+            2.0,
+            0.0
+          ],
+          "mesh_sha256": "332172fd4832d9dce116ad2c8a2728b4ad570c65bba11c94d3b197f2dfff6520",
+          "materials": [
+            "M_KelpGreen",
+            "M_WoodRecess"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "FloatingKelp": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Exactly flat at waterline Z=0: drift-aligned overlapping leaf silhouettes and four inset flattened bulbs. Planar union avoids z-fighting; no reverse faces. Regenerate JSON with build_kelp_mat.py (Shapely2.1+).",
+        "Exactly4x4m planar at waterline; two-sided palette material recommended."
+      ]
+    },
+    {
+      "asset": "SandBank_Large",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/SandBank_Large.blend",
+      "fbx": "Assets/Art/Models/Sea/SandBank_Large.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/SandBank_Large.png",
+      "triangles": 40,
+      "bounds_min_blender": [
+        -3.200000047683716,
+        -1.5,
+        -0.10000000149011612
+      ],
+      "bounds_max_blender": [
+        3.200000047683716,
+        1.5,
+        0.014999999664723873
+      ],
+      "dimensions_width_depth_height_m": [
+        6.400000095367432,
+        3.0,
+        0.11500000115483999
+      ],
+      "parts": [
+        {
+          "name": "SandBank_Large",
+          "triangles": 40,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -3.200000047683716,
+            -1.5,
+            -0.10000000149011612
+          ],
+          "bounds_max_blender": [
+            3.200000047683716,
+            1.5,
+            0.014999999664723873
+          ],
+          "mesh_sha256": "1f7820a0a8ddc9f1e46dddb9d5560012f8ac0e4e44eb0cf7dab86b07cf54d796",
+          "materials": [
+            "M_Rope",
+            "M_WoodHighlight"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SandBank_Large": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "BirdIsland",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/BirdIsland.blend",
+      "fbx": "Assets/Art/Models/Sea/BirdIsland.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/BirdIsland.png",
+      "triangles": 712,
+      "bounds_min_blender": [
+        -1.149999976158142,
+        -0.7608451843261719,
+        -0.12999999523162842
+      ],
+      "bounds_max_blender": [
+        1.149999976158142,
+        0.7608451843261719,
+        0.9200000166893005
+      ],
+      "dimensions_width_depth_height_m": [
+        2.299999952316284,
+        1.5216903686523438,
+        1.050000011920929
+      ],
+      "parts": [
+        {
+          "name": "IslandRock",
+          "triangles": 80,
+          "vertices": 42,
+          "bounds_min_blender": [
+            -1.149999976158142,
+            -0.7608451843261719,
+            -0.12999999523162842
+          ],
+          "bounds_max_blender": [
+            1.149999976158142,
+            0.7608451843261719,
+            0.6700000166893005
+          ],
+          "mesh_sha256": "2e8e98d99ea2d9003f6a529c0aea7504669225cc5df2aa7dcd2052ef85070886",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "SeagullBody",
+          "triangles": 456,
+          "vertices": 248,
+          "bounds_min_blender": [
+            -0.08500000089406967,
+            -0.20000000298023224,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            0.08500000089406967,
+            0.20000000298023224,
+            0.9200000166893005
+          ],
+          "mesh_sha256": "fd808b77e3f67b9c5aec1bc901f4a85fe83d9931807c94d3131b73c6bfa840e8",
+          "materials": [
+            "M_OilskinYellow",
+            "M_RailIvory",
+            "M_Rubber",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "Wing_L",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -0.10999999940395355,
+            -0.06461621820926666,
+            0.7100000381469727
+          ],
+          "bounds_max_blender": [
+            -0.05100000277161598,
+            0.17000000178813934,
+            0.8200000524520874
+          ],
+          "mesh_sha256": "4b0b5dd3ae2e16462111885953f77a99114ea37b405662985d96d5bd8dc662b9",
+          "materials": [
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Wing_R",
+          "triangles": 88,
+          "vertices": 48,
+          "bounds_min_blender": [
+            0.05100000277161598,
+            -0.06461621820926666,
+            0.7100000381469727
+          ],
+          "bounds_max_blender": [
+            0.10999999940395355,
+            0.17000000178813934,
+            0.8200000524520874
+          ],
+          "mesh_sha256": "348e97cbceb32a80a2361e51d790613f1380e539221c593be9d5ad110d824438",
+          "materials": [
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "IslandRock": [
+          0,
+          0,
+          0
+        ],
+        "SeagullBody": [
+          0,
+          0,
+          0
+        ],
+        "Wing_L": [
+          -0.07,
+          -0.025,
+          0.22
+        ],
+        "Wing_R": [
+          0.07,
+          -0.025,
+          0.22
+        ]
+      },
+      "notes": [
+        "Perched seagull 0.4m nose-to-tail; Wing_L/Wing_R shoulder pivots for flap."
+      ]
+    },
+    {
+      "asset": "MarkerBuoy_Green",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/MarkerBuoy_Green.blend",
+      "fbx": "Assets/Art/Models/Sea/MarkerBuoy_Green.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/MarkerBuoy_Green.png",
+      "triangles": 246,
+      "bounds_min_blender": [
+        -0.28200000524520874,
+        -0.28200000524520874,
+        -0.18000000715255737
+      ],
+      "bounds_max_blender": [
+        0.28200000524520874,
+        0.28200000524520874,
+        1.1799999475479126
+      ],
+      "dimensions_width_depth_height_m": [
+        0.5640000104904175,
+        0.5640000104904175,
+        1.35999995470047
+      ],
+      "parts": [
+        {
+          "name": "MarkerBuoy_Green",
+          "triangles": 246,
+          "vertices": 129,
+          "bounds_min_blender": [
+            -0.28200000524520874,
+            -0.28200000524520874,
+            -0.18000000715255737
+          ],
+          "bounds_max_blender": [
+            0.28200000524520874,
+            0.28200000524520874,
+            1.1799999475479126
+          ],
+          "mesh_sha256": "c0b4bf5e4bc5655585e03270c5c6365c12f7a9be79a2093f1df493bab70fd88f",
+          "materials": [
+            "M_HullNavy",
+            "M_KelpGreen",
+            "M_RailIvory"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "MarkerBuoy_Green": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Waterline root, red cylindrical/green conical topmarks; region navigation rules set by game."
+      ]
+    },
+    {
+      "asset": "MarkerBuoy_Red",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/MarkerBuoy_Red.blend",
+      "fbx": "Assets/Art/Models/Sea/MarkerBuoy_Red.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/MarkerBuoy_Red.png",
+      "triangles": 276,
+      "bounds_min_blender": [
+        -0.28200000524520874,
+        -0.28200000524520874,
+        -0.18000000715255737
+      ],
+      "bounds_max_blender": [
+        0.28200000524520874,
+        0.28200000524520874,
+        1.100000023841858
+      ],
+      "dimensions_width_depth_height_m": [
+        0.5640000104904175,
+        0.5640000104904175,
+        1.2800000309944153
+      ],
+      "parts": [
+        {
+          "name": "MarkerBuoy_Red",
+          "triangles": 276,
+          "vertices": 144,
+          "bounds_min_blender": [
+            -0.28200000524520874,
+            -0.28200000524520874,
+            -0.18000000715255737
+          ],
+          "bounds_max_blender": [
+            0.28200000524520874,
+            0.28200000524520874,
+            1.100000023841858
+          ],
+          "mesh_sha256": "43f46665746a8f0898fad015b8c5868421153e22b4fd3a65829c8cb3002180a2",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SafetyOrange"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "MarkerBuoy_Red": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Waterline root, red cylindrical/green conical topmarks; region navigation rules set by game."
+      ]
+    },
+    {
+      "asset": "WhaleTail",
+      "group": "Sea",
+      "source": "Art/Models/WorldPolish/Sea/WhaleTail.blend",
+      "fbx": "Assets/Art/Models/Sea/WhaleTail.fbx",
+      "preview": "Art/Models/WorldPolish/Previews/Sea/WhaleTail.png",
+      "triangles": 236,
+      "bounds_min_blender": [
+        -1.4500000476837158,
+        -0.27297982573509216,
+        -0.26999998092651367
+      ],
+      "bounds_max_blender": [
+        1.4500000476837158,
+        0.2800000011920929,
+        0.8999999761581421
+      ],
+      "dimensions_width_depth_height_m": [
+        2.9000000953674316,
+        0.5529798269271851,
+        1.1699999570846558
+      ],
+      "parts": [
+        {
+          "name": "Tail",
+          "triangles": 236,
+          "vertices": 122,
+          "bounds_min_blender": [
+            -1.4500000476837158,
+            -0.27297982573509216,
+            -0.26999998092651367
+          ],
+          "bounds_max_blender": [
+            1.4500000476837158,
+            0.2800000011920929,
+            0.8999999761581421
+          ],
+          "mesh_sha256": "aaaf1ef264a547c98e98a29f2d9a83909d9a2e931e6db7aeea457540674b9a70",
+          "materials": [
+            "M_HullBlue"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Tail": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": [
+        "Tail pivot at waterline base. Consumer raises/lowers whole Tail mesh for rare event; no baked clip."
+      ]
+    }
+  ],
+  "palette_srgb": {
+    "M_HullNavy": "#173F57",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Rope": "#D1AF76",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B",
+    "M_SeaTeal": "#168F9F",
+    "M_BandIvory": "#F3DEA1",
+    "M_DeckWood": "#C58B50",
+    "M_WoodHighlight": "#DFB77A",
+    "M_WoodRecess": "#8C5A36",
+    "M_HullBlue": "#2A6685",
+    "M_OilskinYellow": "#E6AD38",
+    "M_Skin": "#B9784B",
+    "M_KelpGreen": "#477A56",
+    "M_FishSilver": "#BAC9C6",
+    "M_HairChestnut": "#50392E",
+    "M_HairSilver": "#ADB6AF"
+  }
+}
