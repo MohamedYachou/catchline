@@ -1,5 +1,7 @@
 # ART-011 — Author the complete first fishing location
 
+**Mo clarification, 2026-10-15:** original `Art/Concepts/References/day03-small-boat.png` is the visual target. Current world, water and UI are all rejected. ART-010 simplified targets and ART-011 checkpoint renders are not accepted baselines. See `Art/Models/HarbourMouth11/REFERENCE-REVIEW.md` for directly inspected cues and next-pass criteria. Windows is testing the actual adapted Plunder Boat Attack package in scratch with the orthographic camera; do not substitute an art-water demonstration for runtime acceptance.
+
 Mo's latest direction supersedes ART-010's narrow scenery scope. Finish/checkpoint ART-010 safely if in final delivery, then prioritize this. Work in existing art/style-pass thread; no new subagents. START/DONE in main Catchline/comms.md.
 
 The current runtime water/scattered pale rocks are rejected. Mo wants a beautifully composed complete camera-visible location, like an authored miniature diorama, not generic rock props placed around a plane. His 10x20 m example describes bounded visible scope, not a mandated literal measurement. Match existing goal renders closely and Art/STYLE.md. First voyage is Gull Harbour mouth, temperate working coast.
