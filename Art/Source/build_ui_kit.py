@@ -109,7 +109,11 @@ def build():
     icons['star']=path('M64 10 L80 43 L116 48 L90 74 L97 111 L64 93 L31 111 L38 74 L12 48 L48 43Z',C['gold'])+path('M64 10 L64 72 L12 48 L48 43Z','#F4CD67')
     icons['lock']=path('M32 62 V39 Q32 9 64 9 Q96 9 96 39 V62 H81 V39 Q81 25 64 25 Q47 25 47 39 V62Z',C['steel'])+rect(23,51,82,65,13,C['navy'])+ellipse(64,78,9,9,C['gold'])+rect(60,81,8,17,3,C['gold'])
     for name,body in icons.items(): emit('icon-'+name,128,128,body,'128px intended icon; 256px PNG (2x). Original authored silhouette.')
-    (OUT/'slices.json').write_text(json.dumps({'schema_version':1,'export_scale':2,'border_units':'source PNG pixels, Unity order left/bottom/right/top','sprites':MAN},indent=2)+'\n')
+    # Preserve additive task05 sprites when rebuilding the original kit.
+    manifest_path=OUT/'slices.json'
+    extras={n:m for n,m in json.loads(manifest_path.read_text())['sprites'].items() if m.get('task')==5} if manifest_path.exists() else {}
+    extras.update(MAN)
+    manifest_path.write_text(json.dumps({'schema_version':1,'export_scale':2,'border_units':'source PNG pixels, Unity order left/bottom/right/top','sprites':extras},indent=2)+'\n')
 
 
 def load(n): return Image.open(OUT/(n+'.png')).convert('RGBA')
@@ -252,7 +256,11 @@ def docs():
     'Rebuild with Python 3.12+ and Pillow/CairoSVG/fontTools: `python Art/Source/build_ui_kit.py`. Render the two backgrounds first in Blender 5.2 using `Art/Source/render_ui_backgrounds.py`. Rebuild model fixes separately with the existing Gull Harbour builder and the six asset arguments. `Art/Source/validate_ui_kit.py` verifies manifest coverage, sizes, alpha and slices.','',
     '## Mockups and live layout reference','', '`Art/Concepts/16-ui-kit.png`: every shipped piece including both states, tails and all 14 icons. `17-hud-fishing.png`: status top left, coin/home top right, crew bottom left, action bubbles and strike bottom centre. `18-hud-harbour.png`: harbour/goal left, five-tab Shop right, Set sail at its foot. Composed from the exported kit using genuine nine-slice raster assembly, not an unrelated painted UI. Example state values are illustrative. Shop prices, names, food and skiff limits follow proto/deck-sim `GameData.cs` / `VoyageHud.cs` as read on 2026-10-14 (47373b7 plus live working copy).','',
     'The harbour and fishing panels follow those HUD anchors; the bubble bodies are slightly wider for the requested icon slot. Unity integration, font import, device testing and final interaction behaviour are a later code pass.']
-    (OUT/'UI.md').write_text('\n'.join(lines)+'\n')
+    # Keep the later art pass handoff when regenerating build 1 documentation.
+    doc_path=OUT/'UI.md'; marker='## Task 05 — UI pass 2'
+    existing=doc_path.read_text() if doc_path.exists() else ''
+    if marker in existing: lines+=['',marker+existing.split(marker,1)[1]]
+    doc_path.write_text('\n'.join(lines)+'\n')
 
 if __name__=='__main__':
     build(); sheet(); docs()

@@ -126,3 +126,5 @@ Additive illustrated sprites in the existing palette and Fredoka. All listed dim
 | `popup-panel.png` | 256×320 | 128×160 | 64/64/64/108 | Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate. |
 | `badge-new.png` | 256×128 | 128×64 | — | Fredoka NEW badge. Baked English label; replace SVG lettering for localization. |
 | `daily-gift.png` | 512×512 | 256×256 | — | Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked. |
+
+Task05 review sheets: `Art/Concepts/19-ui-pass2.png` (fish, equipment, portraits), `20-title-screen.png` / `20-title-screen-1280.png` / `20-title-screen-phone.png` (1920x1080, 1280x720, 844x390 landscape fits), and `21-ui-shops-chart-feedback.png` (all shop headers, chart and sliced reward frames). These are compositions of shipped sprites, not Unity captures. Validators passed for all 39 additions / 83 total sprites; the original 44 remain byte-identical. Original-kit rebuild now preserves the additive manifest and documentation.

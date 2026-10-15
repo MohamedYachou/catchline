@@ -16,14 +16,15 @@ expected={
  *[f'bar-{n}' for n in ['background','teal','green','red']],
  *[f'icon-{n}' for n in ['coin','fish','bait-worm','food','cooler','ice','rod','crew','contract-scroll','map-pin','home-anchor','clock','star','lock']]
 }
-assert set(manifest['sprites'])==expected
-assert {p.stem for p in UI.glob('*.png')}==expected
+assert expected<=set(manifest['sprites'])
+assert all(n in expected or m.get('task')==5 for n,m in manifest['sprites'].items())
+assert {p.stem for p in UI.glob('*.png')}==set(manifest['sprites'])
 text=(UI/'UI.md').read_text()
 checks=[]
 for name,m in manifest['sprites'].items():
     im=Image.open(UI/m['file']); assert im.mode=='RGBA'
     assert im.size==tuple(m['export_size'])==tuple(2*x for x in m['intended_size'])
-    lo,hi=im.getchannel('A').getextrema(); assert lo==0 and hi>0,(name,lo,hi)
+    lo,hi=im.getchannel('A').getextrema(); assert hi>0 and (lo==255 if m.get('opaque') else lo==0),(name,lo,hi)
     assert im.info['srgb']==0 and im.info['Source']
     assert (ROOT/m['source']).is_file() and m['file'] in text
     border=m['border_px']
