@@ -4,7 +4,7 @@
 
 Build with Windows Blender5.2 and `Art/Source/build_world_polish.py`; optional arguments after `--` select assets. Run `validate_world_batches.py -- WorldPolish` in Blender; create review sheets with Python/Pillow `world_contact_sheets.py WorldPolish`. Validation checks source topology, materials, roots, finite bounds and zero-area faces; reimports every FBX and compares part names, pivots and bounds. Open surfaces are recorded in validation.json and intentional where noted.
 
-The31 assets cover9 upgrade props,11 harbour modules,3 static crew poses and8 sea modules. BigCooler/BigIceBox are exactly1.0x0.6x0.5m and share body geometry,with HingedLid. Rod variants preserve FishingRod part names/proportions/pivots. Boat repaints preserve their full original part/pivot sets. Outboard_Small root is its transom clamp,not an underside prop root; Propeller remains separate. The40m stepped backdrop repeats along X and belongs behind the shop row. Shed shell is8x6m plus its forward slipway. NPCs are static evaluated Task06 rig poses,not new skeletons; NPC_Sitting uses the seated Row pose and needs a bench/seat placed beneath it. WhaleTail has a separate Tail mesh with waterline/base pivot for consumer-driven rising/sinking; no animation clips are claimed. Buoy red/green topmark geometry communicates the type in addition to colour. KelpForest is exactly4x4m and planar; use a two-sided material. Shore/water modules deliberately extend below their waterline roots.
+The31 assets cover9 upgrade props,11 harbour modules,3 static crew poses and8 sea modules. BigCooler/BigIceBox are exactly1.0x0.6x0.5m and share body geometry,with HingedLid. Rod variants preserve FishingRod part names/proportions/pivots. Boat repaints preserve their full original part/pivot sets. Outboard_Small root is its transom clamp,not an underside prop root; Propeller remains separate. The40m stepped backdrop repeats along X and belongs behind the shop row. Shed shell is8x6m plus its forward slipway. NPCs are static evaluated Task06 rig poses,not new skeletons; NPC_Sitting adapts Row with horizontal thighs/vertical shins. For Bench, place its root at Unity offset(0,0.2235,+0.15) from the bench root: local outfit seat contact0.239m meets seat top0.4625m; short legs dangle. NPC_Sitting-on-Bench.png is a source-only mounting review; no bench is included in the NPC FBX. WhaleTail has a separate Tail mesh with waterline/base pivot for consumer-driven rising/sinking; no animation clips are claimed. Buoy red/green topmark geometry communicates the type in addition to colour. KelpForest is exactly4x4m and planar; use a two-sided material. Shore/water modules deliberately extend below their waterline roots.
 
 Source coordinates X right,-Y forward,Z up. FBX converts to Unity X right,+Y up,+Z forward. Root is ground/deck/waterline centre unless explicitly documented. Part pivot table below uses **Unity local metres** `(x,z,-y)` converted from source offsets. Part rotations zero/scales one; animate each part relative to its listed pivot. Materials are original canonical M_* flat colours,no external textures or embedded preview lights. Texture pack has a separate TEXTURES.md.
 
@@ -21,7 +21,7 @@ Source coordinates X right,-Y forward,Z up. FBX converts to Unity X right,+Y up,
 | [WormTub](DeckProps/WormTub.blend) | DeckProps | 0.330 x 0.330 x 0.169 | 432 |
 | [HillBackdrop](Harbour/HillBackdrop.blend) | Harbour | 40.000 x 9.000 x 9.000 | 3726 |
 | [Shed_Shipyard](Harbour/Shed_Shipyard.blend) | Harbour | 8.428 x 8.204 x 6.052 | 802 |
-| [MarketStall](Harbour/MarketStall.blend) | Harbour | 2.400 x 1.640 x 2.290 | 2892 |
+| [MarketStall](Harbour/MarketStall.blend) | Harbour | 2.400 x 1.640 x 2.290 | 3988 |
 | [Rowboat_VariantRed](Harbour/Rowboat_VariantRed.blend) | Harbour | 4.520 x 4.285 x 1.020 | 1790 |
 | [Rowboat_VariantGreen](Harbour/Rowboat_VariantGreen.blend) | Harbour | 4.520 x 4.285 x 1.020 | 1790 |
 | [Skiff_VariantBlue](Harbour/Skiff_VariantBlue.blend) | Harbour | 3.587 x 7.036 x 1.483 | 2494 |
@@ -32,7 +32,7 @@ Source coordinates X right,-Y forward,Z up. FBX converts to Unity X right,+Y up,
 | [Bench](Harbour/Bench.blend) | Harbour | 1.500 x 0.547 x 1.000 | 292 |
 | [NPC_Fishmonger](Harbour/NPC_Fishmonger.blend) | Harbour | 0.474 x 0.451 x 1.010 | 12860 |
 | [NPC_HarbourMaster](Harbour/NPC_HarbourMaster.blend) | Harbour | 0.472 x 0.416 x 1.020 | 14020 |
-| [NPC_Sitting](Harbour/NPC_Sitting.blend) | Harbour | 0.678 x 0.438 x 0.988 | 17816 |
+| [NPC_Sitting](Harbour/NPC_Sitting.blend) | Harbour | 0.678 x 0.428 x 0.945 | 17816 |
 | [RockArch](Sea/RockArch.blend) | Sea | 4.952 x 1.221 x 3.280 | 360 |
 | [WreckMast](Sea/WreckMast.blend) | Sea | 2.765 x 0.150 x 3.229 | 84 |
 | [KelpForest](Sea/KelpForest.blend) | Sea | 4.000 x 4.000 x 0.000 | 168 |
@@ -205,7 +205,7 @@ Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root rem
 - `NPC_Sitting_Outfit_Veteran`: (0.0000, 0.0000, 0.0000)
 - `NPC_Sitting_Hat_Beanie`: (0.0000, 0.0000, 0.0000)
 
-Static evaluated Task06 mesh pose; no runtime armature/actions. Sitting root remains original floor reference; place seat beneath hips.
+Static evaluated Task06 rig pose; no runtime armature/actions. NPC_Sitting adapts Row with horizontal thighs and vertical shins. Bare local seat contact Z=.24; Bench seat top Z=.4625. Place NPC root at UnityY=.2225 above Bench root; short legs dangle. Crew source unchanged.
 
 ### RockArch
 
