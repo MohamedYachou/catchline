@@ -1,0 +1,110 @@
+{
+  "height_bare_scalp_m": 0.95,
+  "fps": 24,
+  "bones": [
+    "Hips",
+    "Spine",
+    "Spine1",
+    "Neck",
+    "Head",
+    "HatMount",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot"
+  ],
+  "skinned_meshes": [
+    "Body",
+    "Outfit_Captain",
+    "Outfit_Deckhand",
+    "Outfit_Fisherman",
+    "Outfit_Veteran"
+  ],
+  "hats": [
+    "Hat_CaptainCap",
+    "Hat_Beanie",
+    "Hat_Hood"
+  ],
+  "new_materials": {
+    "M_HairChestnut": "#50392E",
+    "M_HairSilver": "#ADB6AF"
+  },
+  "clips": [
+    {
+      "name": "Idle",
+      "start": 1,
+      "end": 49,
+      "loop": true
+    },
+    {
+      "name": "Walk",
+      "start": 1,
+      "end": 25,
+      "loop": true
+    },
+    {
+      "name": "Carry",
+      "start": 1,
+      "end": 25,
+      "loop": true
+    },
+    {
+      "name": "Bait",
+      "start": 1,
+      "end": 49,
+      "loop": true
+    },
+    {
+      "name": "Cast",
+      "start": 1,
+      "end": 33,
+      "loop": false
+    },
+    {
+      "name": "Wait",
+      "start": 1,
+      "end": 49,
+      "loop": true
+    },
+    {
+      "name": "Strike",
+      "start": 1,
+      "end": 19,
+      "loop": false
+    },
+    {
+      "name": "Reel",
+      "start": 1,
+      "end": 25,
+      "loop": true
+    },
+    {
+      "name": "Row",
+      "start": 1,
+      "end": 49,
+      "loop": true
+    },
+    {
+      "name": "Cheer",
+      "start": 1,
+      "end": 49,
+      "loop": false
+    },
+    {
+      "name": "Stow",
+      "start": 1,
+      "end": 49,
+      "loop": false
+    }
+  ]
+}

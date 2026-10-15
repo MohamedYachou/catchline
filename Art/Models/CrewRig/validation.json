@@ -1,0 +1,119 @@
+{
+  "source": {
+    "bones": 20,
+    "skinned_meshes": [
+      "Body",
+      "Outfit_Captain",
+      "Outfit_Deckhand",
+      "Outfit_Fisherman",
+      "Outfit_Veteran"
+    ],
+    "rigid_hats": [
+      "Hat_CaptainCap",
+      "Hat_Beanie",
+      "Hat_Hood"
+    ],
+    "normalized_weights": true,
+    "height_m": 0.95,
+    "actions": 11,
+    "loop_endpoints_match": true
+  },
+  "fbx_roundtrip": {
+    "bones": 20,
+    "mesh_names": [
+      "Body",
+      "Hat_Beanie",
+      "Hat_CaptainCap",
+      "Hat_Hood",
+      "Outfit_Captain",
+      "Outfit_Deckhand",
+      "Outfit_Fisherman",
+      "Outfit_Veteran"
+    ],
+    "imported_action_names": [
+      "CrewRig|CrewRig|Bait",
+      "CrewRig|CrewRig|Carry",
+      "CrewRig|CrewRig|Cast",
+      "CrewRig|CrewRig|Cheer",
+      "CrewRig|CrewRig|Idle",
+      "CrewRig|CrewRig|Reel",
+      "CrewRig|CrewRig|Row",
+      "CrewRig|CrewRig|Stow",
+      "CrewRig|CrewRig|Strike",
+      "CrewRig|CrewRig|Wait",
+      "CrewRig|CrewRig|Walk"
+    ],
+    "frame_ranges_match": true,
+    "curve_checks": [
+      {
+        "action": "Idle",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      },
+      {
+        "action": "Walk",
+        "channels": 209,
+        "samples_per_channel": 25,
+        "duration_seconds": 1.0
+      },
+      {
+        "action": "Carry",
+        "channels": 209,
+        "samples_per_channel": 25,
+        "duration_seconds": 1.0
+      },
+      {
+        "action": "Bait",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      },
+      {
+        "action": "Cast",
+        "channels": 209,
+        "samples_per_channel": 33,
+        "duration_seconds": 1.3333333333333333
+      },
+      {
+        "action": "Wait",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      },
+      {
+        "action": "Strike",
+        "channels": 209,
+        "samples_per_channel": 19,
+        "duration_seconds": 0.75
+      },
+      {
+        "action": "Reel",
+        "channels": 209,
+        "samples_per_channel": 25,
+        "duration_seconds": 1.0
+      },
+      {
+        "action": "Row",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      },
+      {
+        "action": "Cheer",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      },
+      {
+        "action": "Stow",
+        "channels": 209,
+        "samples_per_channel": 49,
+        "duration_seconds": 2.0
+      }
+    ],
+    "metre_scale": true,
+    "normalized_skin_weights": true
+  },
+  "all_passed": true
+}
