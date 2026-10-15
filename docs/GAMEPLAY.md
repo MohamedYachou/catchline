@@ -187,4 +187,20 @@ Bot balance run (30 voyages):
 
 Earnings climb from about 25 to 40 coins per minute as seas unlock.
 
-- **Skiff licence goal** visible (16 fish in one voyage + 1,500 coins), refit coming in build 2.
+- **Skiff refit:** bring home 16 fish in one voyage, then pay 1,500 coins at the Chandlery. This survives saving and loading; older saves remain rowboats.
+
+## Build 2: skiff foundation (2026-10-15)
+
+The refit replaces the boat with the supplied skiff model and changes the walkable deck from 3×2 to 5×3. The console, hold and winch block walking; crew route around them. The skiff has three rod sockets, a 40-fish hold and an outboard that halves travel times. Crew caps are one on the rowboat and three on the skiff, plus the captain.
+
+Supplies sells 10 fuel for 10 coins. A round trip consumes `ceil(spot.RowSeconds / 5)` fuel, reserved at launch, including the return. The shipyard includes the first 10 fuel in the refit price. Food capacity grows fourfold on the skiff (24 minutes, or 48 with the lunch tin), still shared by everyone aboard. The ice-box upgrade continues to preserve fish in the hold.
+
+At the Crew Office, the skiff adds fisherman contracts alongside deckhands. Fishermen occupy one rod each, bait/cast autonomously, and strike 55%/70%/85% of bites by grade. Their fees are twice a deckhand's at the same grade; contract lengths remain 2/3/5 voyages. They leave landed fish for deckhands. Up to three hired crew can be mixed; all eat provisions and expire normally. Role and extra crew survive saves.
+
+**Gill net:** tap Set net with the captain's hands free. The captain walks to the winch and sets it; it soaks for 60–90 seconds while rods keep fishing. Floats bob and the catch count rises. Tap Haul net when ready: the captain cranks for five working seconds, dropping fish onto the deck for carrying. Nets mainly catch herring/mackerel with local bycatch. Fish on deck still flop away after 25 seconds, making transport capacity matter. Returning home clears the deployed net; net fish are only sold after hauling and stowing.
+
+The captain, deckhands and fishermen now use the delivered skinned crew and role outfits. Eleven clips cover idle, walk, carry, bait, cast, wait, strike, reel, row, cheer and stow, sampled using the simulation clock.
+
+The bot buys, hires, fuels, sets and hauls through the same actions as the player. The final seed 7 30-voyage run reached the skiff at voyage 28; its first three voyages earned 86/133/73 gross coins per minute, versus late rowboat voyages around 30–54. Skiff voyages took 6.0/6.0/5.3 minutes, with two deck fish lost on the first haul voyage. The average meets the initial throughput improvement goal; longer voyage pacing and more seeds remain future tuning work.
+
+Verification runs on `Catchline-sim`, never batchmode on the open main project. `docs/tools/check.ps1` syncs assets to that scratch project; use `-Method Catchline.EditorTools.SkiffChecks.Run` for refit/save/fuel/rig checks, `-Method Catchline.EditorTools.SkiffChecks.Automation` for crew/net tests, or its default method for a 30-voyage balance run. The automated checks use a separate temporary save file.

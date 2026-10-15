@@ -25,7 +25,11 @@ namespace Catchline.EditorTools
             ti.npotScale = TextureImporterNPOTScale.None;
             ti.textureCompression = TextureImporterCompression.Uncompressed;
             string name = Path.GetFileNameWithoutExtension(assetPath);
-            ti.maxTextureSize = name.StartsWith("bar-") ? 64 : name == "strike-water" ? 1024 : name.EndsWith("-tail") ? 32 : 128;
+            ti.maxTextureSize = name == "title-backdrop" || name.StartsWith("header-") || name == "sea-chart" ? 2048
+                : name == "logo-catchline" || name == "strike-water" ? 1024
+                : name == "daily-gift" ? 512
+                : name.StartsWith("fish-") && name != "fish-shadow" || name.StartsWith("portrait-") ? 256
+                : name.StartsWith("bar-") ? 64 : name.EndsWith("-tail") ? 32 : 128;
         }
 
         // Models keep their materials inside the FBX (no loose Materials folders); the game remaps them
@@ -36,7 +40,8 @@ namespace Catchline.EditorTools
             var mi = (ModelImporter)assetImporter;
             mi.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
-            mi.importAnimation = false;
+            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx");
+            if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
             mi.importCameras = false;
             mi.importLights = false;
         }
@@ -79,6 +84,8 @@ namespace Catchline.EditorTools
                 .Select(p => AssetDatabase.LoadAssetAtPath<GameObject>(p))
                 .Where(g => g != null)
                 .ToArray();
+            lib.CrewClips = AssetDatabase.LoadAllAssetsAtPath("Assets/Art/Models/Crew/CrewRig.fbx")
+                .OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__")).ToArray();
             Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
             var pngs = Directory.GetFiles(Path.GetFullPath(UiFolder), "*.png");
             lib.Ui = pngs

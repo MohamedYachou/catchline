@@ -80,6 +80,19 @@ namespace Catchline.Game
         Action busyDone, busyCancel;
         public string BusyLabel { get; private set; }
         Transform barFill, barRoot, body;
+        Transform rig;
+        readonly Dictionary<string, AnimationClip> clips = new();
+        public string Pose;
+        string lastPose;
+        float poseTime;
+        string oneShot;
+        float oneShotLeft;
+
+        public void PlayOnce(string pose)
+        {
+            oneShot = pose;
+            oneShotLeft = clips.TryGetValue(pose, out var clip) ? clip.length : 0f;
+        }
         float anim;
         bool moving;
 
@@ -104,6 +117,30 @@ namespace Catchline.Game
 
             body = new GameObject("Body").transform;
             body.SetParent(Root, false);
+            var lib = ArtLibrary.Get();
+            var prefab = lib?.M("CrewRig");
+            if (prefab != null)
+            {
+                rig = ArtLibrary.Spawn(prefab, body, Vector3.zero, Quaternion.identity).transform;
+                // Playback is sampled by the same clock as gameplay, including the balance bot.
+                var automatic = rig.GetComponent<Animation>();
+                if (automatic != null) automatic.enabled = false;
+                string outfit = IsCaptain ? "Outfit_Captain" : Contract?.Grade == Grade.Veteran ? "Outfit_Veteran" : Contract?.Role == CrewRole.Fisherman ? "Outfit_Fisherman" : "Outfit_Deckhand";
+                string roleHat = IsCaptain ? "Hat_CaptainCap" : Contract?.Role == CrewRole.Fisherman ? "Hat_Hood" : "Hat_Beanie";
+                foreach (var child in rig.GetComponentsInChildren<Transform>(true))
+                {
+                    if (child.name.StartsWith("Outfit_")) child.gameObject.SetActive(child.name == outfit);
+                    if (child.name.StartsWith("Hat_")) child.gameObject.SetActive(child.name == roleHat);
+                }
+                if (lib.CrewClips != null)
+                    foreach (var clip in lib.CrewClips)
+                    {
+                        var parts = clip.name.Split('|');
+                        clips[parts[parts.Length - 1]] = clip;
+                    }
+            }
+            else
+            {
             Visuals.Prim(PrimitiveType.Capsule, "Torso", body, new Vector3(0f, 0.3f, 0f), new Vector3(0.34f, 0.3f, 0.28f), suit);
             Visuals.Prim(PrimitiveType.Sphere, "Head", body, new Vector3(0f, 0.74f, 0f), Vector3.one * 0.28f, Palette.Skin);
             Visuals.Box("Nose", body, new Vector3(0f, 0.74f, 0.14f), new Vector3(0.05f, 0.05f, 0.04f), Palette.Skin * 0.92f);
@@ -115,6 +152,7 @@ namespace Catchline.Game
             else
             {
                 Visuals.Prim(PrimitiveType.Sphere, "Beanie", body, new Vector3(0f, 0.83f, 0f), new Vector3(0.29f, 0.19f, 0.29f), hat);
+            }
             }
 
             barRoot = new GameObject("Progress").transform;
@@ -221,6 +259,21 @@ namespace Catchline.Game
             if (Busy) bob = Mathf.Abs(Mathf.Sin(anim * 9f)) * 0.03f;
             Root.localPosition = pos + Vector3.up * bob;
             body.localRotation = Rowing ? Quaternion.Euler(Mathf.Sin(anim * 3.2f) * 18f, 0f, 0f) : Quaternion.identity;
+            if (rig != null)
+            {
+                body.localRotation = Quaternion.identity;
+                oneShotLeft = Mathf.Max(0f, oneShotLeft - dt * Speed * mult);
+                string pose = moving ? Carrying != null ? "Carry" : "Walk"
+                    : Busy ? BusyLabel switch { "Baiting" => "Bait", "Casting" => "Cast", "Stowing" or "Picking up" => "Stow", _ => "Idle" }
+                    : oneShotLeft > 0f ? oneShot : Rowing ? "Row" : Pose ?? "Idle";
+                if (pose != lastPose) { poseTime = 0f; lastPose = pose; }
+                poseTime += dt * Speed * mult;
+                if (clips.TryGetValue(pose, out var clip) && clip.length > 0f)
+                {
+                    bool loop = pose is "Idle" or "Walk" or "Carry" or "Bait" or "Wait" or "Reel" or "Row";
+                    clip.SampleAnimation(rig.gameObject, loop ? Mathf.Repeat(poseTime, clip.length) : Mathf.Min(poseTime, clip.length));
+                }
+            }
 
             barRoot.gameObject.SetActive(Busy);
             if (Busy)
@@ -250,6 +303,8 @@ namespace Catchline.Game
         public RodState State = RodState.Unbaited;
         public float Power;
         public Person BaitingBy;
+        public Person Fisher;
+        public bool FisherAttempted;
         public bool Unlocked = true;
         public Species HookedSpecies;
         public float HookedKg;
@@ -295,19 +350,20 @@ namespace Catchline.Game
             _ => "",
         };
 
-        public void Build(Transform boat, Transform world)
+        public void Build(Transform boat, Transform world, Vector3? socket = null, GameObject upgradedRod = null)
         {
             Root = new GameObject($"Rod {Index + 1}").transform;
             Root.SetParent(boat, false);
             var lib = ArtLibrary.Get();
-            bool model = lib != null && lib.FishingRod != null;
+            var rodPrefab = upgradedRod ?? lib?.FishingRod;
+            bool model = rodPrefab != null;
             // With the rowboat model the rod sits in its gunwale socket.
-            var baseLocal = DeckGrid.ToLocal(Tile) + (model ? new Vector3(0f, 0.44f, -0.615f) : new Vector3(0f, 0.32f, -0.42f));
+            var baseLocal = socket ?? DeckGrid.ToLocal(Tile) + (model ? new Vector3(0f, 0.44f, -0.615f) : new Vector3(0f, 0.32f, -0.42f));
             var dir = new Vector3(0.05f, 1.6f, -0.6f).normalized; // nearly upright with a lean over the water: reads as a rod from the game camera
             tipLocal = baseLocal + dir * (model ? 1.6f : 1.52f);
             if (model)
             {
-                var rod = ArtLibrary.Spawn(lib.FishingRod, Root, baseLocal, Quaternion.identity);
+                var rod = ArtLibrary.Spawn(rodPrefab, Root, baseLocal, Quaternion.identity);
                 ArtLibrary.AimAlong(rod, dir, 2f);
                 tipLocal = baseLocal + dir * 2f;
             }
@@ -357,10 +413,20 @@ namespace Catchline.Game
             if (!on) shadow.gameObject.SetActive(false);
         }
 
+        public void Destroy()
+        {
+            Visuals.Kill(Root.gameObject);
+            Visuals.Kill(bobber.gameObject);
+            Visuals.Kill(shadow.gameObject);
+            Visuals.Kill(splash.gameObject);
+            Visuals.Kill(line.gameObject);
+        }
+
         public void ResetForTrip()
         {
             if (State != RodState.Ready) State = RodState.Unbaited;
             BaitingBy = null;
+            FisherAttempted = false;
             nibbleTimer = 0f;
             splash.gameObject.SetActive(false);
             shadow.gameObject.SetActive(false);
@@ -382,6 +448,7 @@ namespace Catchline.Game
             castTo = LandingPoint(g.Boat, Power);
             t = 0f;
             State = RodState.Flying;
+            FisherAttempted = false;
         }
 
         // Player (or bot) strikes. Returns a message for the toast.
@@ -504,7 +571,7 @@ namespace Catchline.Game
                     break;
 
                 case RodState.Reeling:
-                    t += dt * mult * g.State.ReelSpeed / reelTotal;
+                    t += dt * mult * g.State.ReelSpeed * (Fisher?.Speed ?? 1f) / reelTotal;
                     var under = new Vector3(tipWorld.x, WaterY, tipWorld.z);
                     bobPos = Vector3.Lerp(castFrom, under, t) + Vector3.up * Mathf.Abs(Mathf.Sin(anim * 18f)) * 0.04f;
                     showShadow = true;

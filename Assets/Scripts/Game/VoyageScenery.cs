@@ -60,7 +60,7 @@ namespace Catchline.Game
             // People about the harbour (task 07).
             Put(root, lib.M("NPC_Fishmonger"), new Vector3(-9.0f, q, 3.8f), 180f);
             Put(root, lib.M("NPC_HarbourMaster"), new Vector3(-2.6f, q, 4.3f), 160f);
-            Put(root, lib.M("NPC_Sitting"), new Vector3(3.4f, q, 4.65f), 180f);
+            Put(root, lib.M("NPC_Sitting"), new Vector3(3.4f, q + .2235f, 4.5f), 180f);
 
             // Gulls on bollards, a lamp, roofs and crates.
             var gull = lib.M("Seagull");

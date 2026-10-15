@@ -23,6 +23,8 @@ namespace Catchline.Game
         public readonly List<Rod> Rods = new();
         public Person Captain { get; private set; }
         public Person Hand { get; private set; }
+        public readonly List<Person> ExtraPeople = new();
+        IEnumerable<Person> People => new[] { Captain, Hand }.Where(p => p != null).Concat(ExtraPeople);
         public readonly List<DeckFish> OnDeck = new();
         public readonly List<CaughtFish> Cooler = new();
         public VoyageStats Stats = new();
@@ -31,7 +33,11 @@ namespace Catchline.Game
         public int Seed = 7;
         public readonly List<string> Log = new();
 
-        static readonly Vector2Int CoolerTile = new(1, 1), CoolerAccess = new(1, 0), SeatTile = new(1, 0), HandRest = new(0, 1);
+        Vector2Int CoolerTile => State.HullDef.Hold;
+        Vector2Int CoolerAccess => State.HullDef.HoldAccess;
+        Vector2Int SeatTile => State.HullDef.Seat;
+        Vector2Int HandRest => State.HullDef.Rest;
+        Vector2Int RestFor(Person p) => p == Hand ? HandRest : ExtraPeople.IndexOf(p) == 0 ? new Vector2Int(2, 2) : new Vector2Int(0, 1);
 
         Transform world, scenery, oldScenery, coolerLid;
         TextMesh coolerLabel;
@@ -40,6 +46,9 @@ namespace Catchline.Game
         GameObject oarPort, oarStarboard, coolerModel, iceBoxModel;
         Quaternion oarPortBase = Quaternion.identity, oarStarboardBase = Quaternion.identity;
         bool modelOars;
+        Transform propeller;
+        int boatVisualSignature;
+        int BoatVisualSignature => (State.Has(UpgradeId.BigCooler) ? 1 : 0) | (State.Has(UpgradeId.RodFibreglass) ? 2 : 0) | (State.Has(UpgradeId.RodCarbon) ? 4 : 0) | (State.Has(UpgradeId.RodHolder) ? 8 : 0);
         float bowSign = 1f; // +1: bow toward +X (primitive hull), -1: toward -X (model)
 
         // Harbour buildings you tap to open a shop.
@@ -72,8 +81,7 @@ namespace Catchline.Game
             hadSave = loaded != null;
             showTitle = !AutoPlay;
             State = loaded ?? new GameState(Seed);
-            Grid = new DeckGrid(3, 2);
-            Grid.Block(new RectInt(CoolerTile.x, CoolerTile.y, 1, 1));
+            BuildGrid();
             BuildWorld();
             BuildBoat();
             Captain = new Person("Captain", true, new Vector3(0f, 0f, -0.05f));
@@ -130,11 +138,25 @@ namespace Catchline.Game
 
         void BuildBoat()
         {
-            Boat = new GameObject("Rowboat").transform;
+            var hull = State.HullDef;
+            boatVisualSignature = BoatVisualSignature;
+            Boat = new GameObject(hull.Name).transform;
             Boat.SetParent(world, false);
 
             var lib = ArtLibrary.Get();
-            if (lib != null && lib.Rowboat != null)
+            if (State.Hull > 0)
+            {
+                var prefab = lib?.M(hull.Model);
+                if (prefab != null)
+                {
+                    var skiff = ArtLibrary.Spawn(prefab, Boat, hull.Center, Quaternion.Euler(0f, -90f, 0f));
+                    coolerLid = ArtLibrary.Find(skiff, "HoldLid");
+                    propeller = ArtLibrary.Find(skiff, "Propeller");
+                }
+                else BuildPrimitiveSkiff();
+                bowSign = -1f;
+            }
+            else if (lib != null && lib.Rowboat != null)
             {
                 // Model: deck centred on its origin, bow +Z. Turned so the port gunwale (rods) faces the camera;
                 // the bow then points to -X, so the boat rows toward -X.
@@ -154,18 +176,24 @@ namespace Catchline.Game
             var floor = new GameObject("DeckFloor");
             floor.transform.SetParent(Boat, false);
             var fc = floor.AddComponent<BoxCollider>();
-            fc.center = new Vector3(1f, -0.02f, 0.5f);
-            fc.size = new Vector3(3f, 0.06f, 2f);
+            fc.center = hull.Center + Vector3.down * .02f;
+            fc.size = new Vector3(hull.Width, 0.06f, hull.Height);
             floor.AddComponent<Tappable>().Deck = true;
 
             // Cooler on the starboard middle tile.
             var cooler = new GameObject("Cooler");
             cooler.transform.SetParent(Boat, false);
             cooler.transform.localPosition = DeckGrid.ToLocal(CoolerTile);
-            if (lib != null && lib.Cooler != null && lib.IceBox != null)
+            if (State.Hull > 0)
             {
-                coolerModel = ArtLibrary.Spawn(lib.Cooler, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
-                iceBoxModel = ArtLibrary.Spawn(lib.IceBox, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
+                // The skiff FBX already contains FishHold and its hinged lid.
+            }
+            else if (lib != null && lib.Cooler != null && lib.IceBox != null)
+            {
+                var plain = State.Has(UpgradeId.BigCooler) ? lib.M("BigCooler") ?? lib.Cooler : lib.Cooler;
+                var iced = State.Has(UpgradeId.BigCooler) ? lib.M("BigIceBox") ?? lib.IceBox : lib.IceBox;
+                coolerModel = ArtLibrary.Spawn(plain, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
+                iceBoxModel = ArtLibrary.Spawn(iced, cooler.transform, Vector3.zero, Quaternion.Euler(0f, 180f, 0f));
                 if (lib.BaitBucket != null) ArtLibrary.Spawn(lib.BaitBucket, Boat, new Vector3(0.25f, 0f, 1.25f), Quaternion.identity);
                 if (lib.LunchTin != null) ArtLibrary.Spawn(lib.LunchTin, Boat, new Vector3(1.75f, 0f, 1.3f), Quaternion.Euler(0f, 20f, 0f));
                 DressDeck(lib);
@@ -186,10 +214,74 @@ namespace Catchline.Game
             coolerLabel = Visuals.Label("Count", cooler.transform, new Vector3(0f, 0.75f, 0f), 0.045f);
             coolerLabel.color = Palette.Rail;
 
-            Rods.Add(new Rod(0, new Vector2Int(0, 0)));
-            Rods.Add(new Rod(1, new Vector2Int(2, 0)));
-            foreach (var r in Rods) r.Build(Boat, world);
+            for (int i = 0; i < hull.RodTiles.Length; i++)
+            {
+                var rod = new Rod(i, hull.RodTiles[i]);
+                Rods.Add(rod);
+                var rodModel = State.Has(UpgradeId.RodCarbon) ? lib?.M("FishingRod_Carbon") : State.Has(UpgradeId.RodFibreglass) ? lib?.M("FishingRod_Fibreglass") : null;
+                rod.Build(Boat, world, hull.RodBases[i], rodModel);
+                if (i > 0 && (State.Hull > 0 || State.Has(UpgradeId.RodHolder)))
+                    ArtLibrary.Spawn(lib?.M("RodHolderClamp"), Boat, hull.RodBases[i], Quaternion.identity);
+            }
+            BuildNetKit();
         }
+
+        void BuildGrid()
+        {
+            var hull = State.HullDef;
+            Grid = new DeckGrid(hull.Width, hull.Height);
+            foreach (var tile in hull.Blocked) Grid.Block(new RectInt(tile.x, tile.y, 1, 1));
+        }
+
+        void BuildPrimitiveSkiff()
+        {
+            var h = State.HullDef;
+            Visuals.Box("Hull", Boat, h.Center + Vector3.down * .3f, new Vector3(6.5f, .6f, 3.5f), Palette.HullNavy);
+            Visuals.Box("Deck", Boat, h.Center + Vector3.down * .025f, new Vector3(5f, .05f, 3f), Palette.DeckWood);
+            Visuals.Box("Console", Boat, new Vector3(4f, .32f, 2f), new Vector3(.65f, .64f, .72f), Palette.Rail);
+            Visuals.Box("Motor", Boat, new Vector3(5.25f, .15f, 1f), new Vector3(.45f, .55f, .45f), Palette.HullNavy);
+            coolerLid = Visuals.Box("HoldLid", Boat, new Vector3(1f, .04f, 1f), new Vector3(1f, .08f, .8f), Palette.Steel).transform;
+        }
+
+        void RebuildBoat(bool preserveBait = true)
+        {
+            var baited = Rods.Select(r => (ready: preserveBait && r.State == RodState.Ready, squid: r.Squid)).ToArray();
+            Captain?.Stop();
+            Hand?.Stop();
+            foreach (var p in ExtraPeople) p.Stop();
+            foreach (var rod in Rods) rod.Destroy();
+            Rods.Clear();
+            if (Boat != null) { Boat.gameObject.SetActive(false); Visuals.Kill(Boat.gameObject); }
+            Hand = null;
+            ExtraPeople.Clear();
+            ResetNet();
+            if (netFloats != null) Visuals.Kill(netFloats.gameObject);
+            netFloats = winchCrank = null;
+            Manning = null;
+            coolerLid = propeller = null;
+            coolerModel = iceBoxModel = oarPort = oarStarboard = null;
+            modelOars = false;
+            BuildGrid();
+            BuildBoat();
+            for (int i = 0; i < baited.Length && i < Rods.Count; i++)
+                if (baited[i].ready) { Rods[i].State = RodState.Ready; Rods[i].Squid = baited[i].squid; }
+            Captain = new Person("Captain", true, new Vector3(0f, 0f, -.05f));
+            Captain.Build(Boat, SeatTile, Palette.HullNavy, Palette.Rail);
+            SyncCrew();
+            SyncUpgrades();
+        }
+
+        public bool RefitSkiff()
+        {
+            if (CurrentMode != Mode.Harbour || !State.RefitSkiff()) return false;
+            RebuildBoat();
+            refitUntil = SimTime + 1.2f;
+            Toast("Skiff refitted! A bigger hold, three rod sockets and an outboard. Your first tank is included.");
+            SaveGame();
+            return true;
+        }
+
+        float refitUntil;
 
         void BuildPrimitiveHull()
         {
@@ -326,9 +418,9 @@ namespace Catchline.Game
 
         // ---- flow -----------------------------------------------------------------------
 
-        void SyncCrew()
+        public void SyncCrew()
         {
-            if (State.Deckhand == null && Hand != null)
+            if (Hand != null && Hand.Contract != State.Deckhand)
             {
                 Visuals.Kill(Hand.Root.gameObject);
                 Hand = null;
@@ -339,11 +431,28 @@ namespace Catchline.Game
                 Hand = new Person(c.Name, false, new Vector3(0.12f, 0f, 0.08f)) { Speed = GameData.Speed(c.Grade), Contract = c };
                 Hand.Build(Boat, HandRest, c.Suit, c.Grade == Grade.Veteran ? Palette.HullNavy : Palette.Accent);
             }
+            for (int i = ExtraPeople.Count - 1; i >= 0; i--)
+                if (!State.ExtraCrew.Contains(ExtraPeople[i].Contract))
+                {
+                    var p = ExtraPeople[i];
+                    p.Stop();
+                    foreach (var rod in Rods) if (rod.Fisher == p) rod.Fisher = null;
+                    Visuals.Kill(p.Root.gameObject);
+                    ExtraPeople.RemoveAt(i);
+                }
+            foreach (var c in State.ExtraCrew)
+                if (!ExtraPeople.Any(p => p.Contract == c))
+                {
+                    var p = new Person(c.Name, false, new Vector3(.12f, 0f, .08f)) { Speed = GameData.Speed(c.Grade), Contract = c };
+                    ExtraPeople.Add(p);
+                    p.Build(Boat, RestFor(p), c.Suit, c.Grade == Grade.Veteran ? Palette.HullNavy : Palette.Accent);
+                }
         }
 
         public void SyncUpgrades()
         {
-            Rods[1].SetUnlocked(State.Has(UpgradeId.RodHolder));
+            if (CurrentMode == Mode.Harbour && boatVisualSignature != BoatVisualSignature) { RebuildBoat(); return; }
+            for (int i = 1; i < Rods.Count; i++) Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder));
             bool ice = State.Has(UpgradeId.IceBox);
             if (coolerModel != null)
             {
@@ -351,11 +460,12 @@ namespace Catchline.Game
                 iceBoxModel.SetActive(ice);
                 coolerLid = ArtLibrary.Find(ice ? iceBoxModel : coolerModel, "HingedLid");
             }
-            else coolerLid.GetComponentInChildren<Renderer>().sharedMaterial = Visuals.Mat(ice ? Palette.Hex("4FB3C4") : Palette.Accent);
+            else if (State.Hull == 0 && coolerLid != null) coolerLid.GetComponentInChildren<Renderer>().sharedMaterial = Visuals.Mat(ice ? Palette.Hex("4FB3C4") : Palette.Accent);
         }
 
         void SetRowing(bool on)
         {
+            if (State.Hull > 0) return;
             if (modelOars)
             {
                 oarPort.transform.localRotation = oarPortBase;
@@ -377,10 +487,18 @@ namespace Catchline.Game
         public void NewGame()
         {
             GameState.DeleteSave();
+            OnDeck.Clear();
+            Cooler.Clear();
             State = new GameState(System.Environment.TickCount);
             SelectedSpot = 0;
-            SyncCrew();
-            SyncUpgrades();
+            RebuildBoat(false);
+            Stats = new VoyageStats();
+            refitUntil = 0f;
+            if (oldScenery != null) Visuals.Kill(oldScenery.gameObject);
+            oldScenery = null;
+            if (scenery != null) Visuals.Kill(scenery.gameObject);
+            scenery = BuildScenery(-1);
+            EnterHarbour(false);
             hudTab = HudTab.Market;
             Toast("New game started.");
         }
@@ -409,6 +527,7 @@ namespace Catchline.Game
             Captain.Place(SeatTile);
             Captain.Face(Vector3.forward);
             Hand?.Place(HandRest);
+            foreach (var p in ExtraPeople) p.Place(RestFor(p));
             foreach (var r in Rods) r.ResetForTrip();
             SetRowing(false);
             if (!State.Known(SelectedSpot)) SelectedSpot = 0;
@@ -419,7 +538,8 @@ namespace Catchline.Game
         public string SailBlocker()
         {
             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
-            if (!State.HasAnyBait && Rods.All(r => r.State != RodState.Ready)) return "Buy bait first";
+            if (State.Hull == 0 && !State.HasAnyBait && Rods.All(r => r.State != RodState.Ready)) return "Buy bait first";
+            if (State.Hull > 0 && State.Fuel < GameData.TripFuel(SelectedSpot)) return "Buy fuel at Supplies";
             return null;
         }
 
@@ -427,6 +547,7 @@ namespace Catchline.Game
         {
             if (SailBlocker() != null) return;
             ActiveSpot = SelectedSpot;
+            if (State.Hull > 0) State.Fuel -= GameData.TripFuel(ActiveSpot);
             voyageStart = SimTime;
             Stats = new VoyageStats();
             hungryWarned = State.FoodMinutes <= 0f;
@@ -439,7 +560,7 @@ namespace Catchline.Game
         {
             if (CurrentMode != Mode.Fishing) return;
             // Grab what's on deck if there's room; the rest goes back in the sea.
-            foreach (var p in new[] { Captain, Hand })
+            foreach (var p in People)
             {
                 if (p == null) continue;
                 p.Stop();
@@ -450,6 +571,7 @@ namespace Catchline.Game
                     p.Carrying = null;
                 }
             }
+            ResetNet();
             foreach (var f in OnDeck)
             {
                 if (Cooler.Count < State.CoolerCapacity) Cooler.Add(new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = SimTime });
@@ -466,6 +588,7 @@ namespace Catchline.Game
             CurrentMode = mode;
             modeTimer = 0f;
             modeDuration = sceneryKind < 0 ? GameData.Spots[ActiveSpot].RowSeconds : GameData.Spots[sceneryKind].RowSeconds;
+            modeDuration *= State.HullDef.TravelMultiplier;
             if (oldScenery != null) Visuals.Kill(oldScenery.gameObject);
             oldScenery = scenery;
             scenery = BuildScenery(sceneryKind);
@@ -475,9 +598,10 @@ namespace Catchline.Game
             Captain.Stop();
             Captain.Place(SeatTile);
             Captain.Face(new Vector3(-bowSign, 0f, 0f)); // rowers face the stern
-            Captain.Rowing = true;
+            Captain.Rowing = State.Hull == 0;
             Hand?.Stop();
             Hand?.Place(HandRest);
+            foreach (var p in ExtraPeople) { p.Stop(); p.Place(RestFor(p)); }
             SetRowing(true);
         }
 
@@ -500,7 +624,7 @@ namespace Catchline.Game
         // ---- simulation -------------------------------------------------------------------
 
         public float WorkMult => State.FoodMinutes > 0f ? 1f : GameData.HungrySpeed;
-        int CrewCount => Hand != null ? 2 : 1;
+        int CrewCount => State.CrewCount + 1;
 
         public void Tick(float dt)
         {
@@ -534,8 +658,9 @@ namespace Catchline.Game
                     scenery.localPosition = new Vector3(30f * (1f - p) * bowSign, 0f, 0f);
                     seaMat.color = Color.Lerp(seaFrom, seaTo, p);
                     float stroke = Mathf.Sin(SimTime * 3.2f);
-                    oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
-                    oarStarboard.transform.localRotation = oarStarboardBase * Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
+                    if (oarPort != null) oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
+                    if (oarStarboard != null) oarStarboard.transform.localRotation = oarStarboardBase * Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
+                    if (propeller != null) propeller.Rotate(Vector3.forward, 1000f * dt, Space.Self);
                     if (modeTimer >= modeDuration) FinishTransition();
                     break;
 
@@ -543,9 +668,13 @@ namespace Catchline.Game
                     Eat(dt);
                     float mult = WorkMult;
                     foreach (var r in Rods)
-                        if (r.Unlocked) r.Tick(this, dt, mult, Attending(r));
+                        if (r.Unlocked) r.Tick(this, dt, mult, Attending(r) || FisherAt(r));
                     ManRod();
                     if (Hand != null && Hand.Idle) HandThink(Hand);
+                    foreach (var employee in ExtraPeople)
+                        if (employee.Contract.Role == CrewRole.Fisherman) FisherThink(employee);
+                        else if (employee.Idle) HandThink(employee);
+                    TickNet(dt);
                     if (AutoPlay) BotFish();
                     TickDeckFish(dt);
                     if (!fullWarned && Cooler.Count >= State.CoolerCapacity)
@@ -555,8 +684,10 @@ namespace Catchline.Game
                     }
                     break;
             }
+            Captain.Pose = Manning?.State switch { RodState.Flying => "Cast", RodState.Waiting or RodState.Bite => "Wait", RodState.Reeling => "Reel", _ => "Idle" };
             Captain.Tick(dt, WorkMult, camRot);
             Hand?.Tick(dt, WorkMult, camRot);
+            foreach (var p in ExtraPeople) p.Tick(dt, WorkMult, camRot);
         }
 
         void Eat(float dt)
@@ -606,12 +737,12 @@ namespace Catchline.Game
         {
             // Camera: wide on the harbour (shifted left of the shop panel), close on the water.
             bool harbour = CurrentMode == Mode.Harbour;
-            var center = harbour ? new Vector3(0.3f, 0f, 3.4f) : new Vector3(1.0f, 0f, -0.7f);
+            var center = harbour ? new Vector3(0.3f, 0f, 3.4f) : State.HullDef.Center + new Vector3(0f, 0f, -1.2f);
             if (harbour && panelOpen) center += Cam.transform.right * 1.5f;
             float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
             snapCamera = false;
             camCenter = Vector3.Lerp(camCenter, center, k);
-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, (harbour ? 5.6f : 3.2f) + ZoomOffset, k);
+            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, (harbour ? 5.6f : State.Hull > 0 ? 4.8f : 3.2f) + ZoomOffset, k);
             Cam.transform.position = camCenter - Cam.transform.forward * 40f;
 
             Boat.localRotation = Quaternion.Euler(Mathf.Sin(SimTime * 0.6f) * 1.2f, 0f, Mathf.Sin(SimTime * 0.9f) * 1.6f);
@@ -688,6 +819,7 @@ namespace Catchline.Game
 
         public bool CanCommandRod(Rod r) =>
             CurrentMode == Mode.Fishing && r.Unlocked && Manning != r
+            && r.Fisher == null
             && (r.State is RodState.Waiting or RodState.Bite || r.State == RodState.Ready || r.State == RodState.Unbaited && (State.HasAnyBait || r.BaitingBy != null));
 
         public bool CanCarry(DeckFish f) => CurrentMode == Mode.Fishing && f.ClaimedBy == null && f.Age > 0.4f && (Hand == null || Hand.Carrying != null);
@@ -695,7 +827,7 @@ namespace Catchline.Game
         public void CommandRod(Rod r)
         {
             if (!CanCommandRod(r)) return;
-            if (Captain.Carrying != null) Toast("Stow your fish first.");
+            if (Captain.Carrying != null) { Toast("Stow your fish first."); return; }
             Manning = r;
             if (!Attending(r)) Captain.WalkTo(Grid, r.Tile, () => Captain.Face(Vector3.back));
         }
@@ -704,7 +836,7 @@ namespace Catchline.Game
         {
             if (!CanCarry(f)) return;
             if (Captain.Carrying != null) { Toast("Your hands are full."); return; }
-            if (Manning != null && Manning.State is RodState.Ready or RodState.Unbaited) Manning = null;
+            Manning = null;
             Fetch(Captain, f);
         }
 
@@ -712,7 +844,11 @@ namespace Catchline.Game
         public void StrikeTap()
         {
             var r = MinigameRod;
-            if (r != null && r.State is RodState.Waiting or RodState.Bite) Toast(r.Strike(this));
+            if (r != null && r.State is RodState.Waiting or RodState.Bite)
+            {
+                Captain.PlayOnce("Strike");
+                Toast(r.Strike(this));
+            }
         }
 
         // The captain runs the rod he was sent to: bait, then cast.
@@ -752,7 +888,7 @@ namespace Catchline.Game
                 if (t.name.EndsWith("Tail")) f.Tail = t;
             f.Root.localPosition = f.SpawnFrom;
             OnDeck.Add(f);
-            if (rod == Manning) Manning = null;
+            if (rod == Manning) { Manning = null; Captain.PlayOnce("Cheer"); }
             var def = GameData.Get(s);
             Toast($"{def.Name}, {kg:0.0} kg");
         }
@@ -815,10 +951,11 @@ namespace Catchline.Game
         // Deckhand: carry fish to the cooler first, then bait empty hooks, then rest.
         void HandThink(Person h)
         {
+            var rest = RestFor(h);
             if (h.Carrying != null)
             {
                 if (Cooler.Count < State.CoolerCapacity) Stow(h);
-                else if (h.Tile != HandRest) h.WalkTo(Grid, HandRest, null);
+                else if (h.Tile != rest) h.WalkTo(Grid, rest, null);
                 else h.Do("Waiting", 1f, null);
                 return;
             }
@@ -835,8 +972,36 @@ namespace Catchline.Game
                 h.WalkTo(Grid, rod.Tile, () => Bait(h, rod), () => rod.BaitingBy = null);
                 return;
             }
-            if (h.Tile != HandRest) h.WalkTo(Grid, HandRest, null);
+            if (h.Tile != rest) h.WalkTo(Grid, rest, null);
             else h.Do("Resting", 0.5f, null);
+        }
+
+        bool FisherAt(Rod rod) => rod.Fisher != null && !rod.Fisher.Walking && rod.Fisher.Tile == rod.Tile;
+
+        void FisherThink(Person fisher)
+        {
+            var rod = Rods.FirstOrDefault(r => r.Fisher == fisher);
+            if (rod == null)
+            {
+                rod = Rods.FirstOrDefault(r => r.Unlocked && r != Manning && r.Fisher == null);
+                if (rod == null) return;
+                rod.Fisher = fisher;
+            }
+            fisher.Pose = rod.State switch { RodState.Flying => "Cast", RodState.Waiting or RodState.Bite => "Wait", RodState.Reeling => "Reel", _ => "Idle" };
+            if (!fisher.Idle) return;
+            if (!FisherAt(rod)) { fisher.WalkTo(Grid, rod.Tile, () => fisher.Face(Vector3.back)); return; }
+            if (rod.State == RodState.Unbaited && rod.BaitingBy == null && State.HasAnyBait) Bait(fisher, rod);
+            else if (rod.State == RodState.Ready)
+                fisher.Do("Casting", GameData.CastTime, () => rod.Cast(this, .55f));
+            else if (rod.State == RodState.Bite && !rod.FisherAttempted)
+            {
+                rod.FisherAttempted = true;
+                if (State.Rng.NextDouble() < GameData.StrikeChance(fisher.Contract.Grade))
+                {
+                    fisher.PlayOnce("Strike");
+                    rod.Strike(this);
+                }
+            }
         }
 
         // ---- events from the rods (the bot listens here too) --------------------------------
@@ -860,6 +1025,12 @@ namespace Catchline.Game
 
         void BotFish()
         {
+            if (Cooler.Count >= State.CoolerCapacity) { HeadHome(); return; }
+            if (State.Hull > 0 && Captain.Idle && Captain.Carrying == null && MinigameRod == null && Manning == null)
+            {
+                if (Net == NetState.Ready) { HaulNet(); return; }
+                if (Net == NetState.Stowed && Cooler.Count + OnDeck.Count < State.CoolerCapacity) { SetNet(); return; }
+            }
             if (botStrikeRod != null && SimTime >= botStrikeAt)
             {
                 if (botStrikeRod == MinigameRod) StrikeTap();
@@ -871,7 +1042,7 @@ namespace Catchline.Game
             bool handBusy = Hand != null && (Hand.Carrying != null || !Hand.Idle && Hand.BusyLabel == "Picking up");
             bool full = Cooler.Count >= State.CoolerCapacity;
             bool noBait = !State.HasAnyBait && Rods.All(r => !r.Unlocked || r.State == RodState.Unbaited);
-            if (full || noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
+            if (full || State.Hull == 0 && noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
             {
                 HeadHome();
                 return;
@@ -904,14 +1075,21 @@ namespace Catchline.Game
                 State.TryBuy(id);
             }
             if (State.Coins > 150 && State.Squid < 5) State.BuySquid();
+            if (State.CanRefit && State.Coins >= GameData.SkiffCost + 100) RefitSkiff();
             SyncUpgrades();
             if (State.Deckhand == null && State.Has(UpgradeId.RodHolder))
             {
-                var pick = State.Board.Where(b => State.Coins >= b.Fee + 80).OrderByDescending(b => b.Grade).FirstOrDefault();
+                var pick = State.Board.Where(b => b.Role == CrewRole.Deckhand && State.Coins >= b.Fee + 80).OrderByDescending(b => b.Grade).FirstOrDefault();
                 if (pick != null) State.Hire(pick);
                 SyncCrew();
             }
-            while (State.Bait < (State.Has(UpgradeId.RodHolder) ? 40 : 25) && State.BuyBait()) { }
+            if (State.Hull > 0)
+            {
+                foreach (var candidate in State.Board.OrderByDescending(c => c.Role == CrewRole.Fisherman).ThenByDescending(c => c.Grade).ToList())
+                    if (State.Coins >= candidate.Fee + 70 && (candidate.Role == CrewRole.Deckhand || !State.Crew.Any(c => c.Role == CrewRole.Fisherman))) State.Hire(candidate);
+                SyncCrew();
+            }
+            while (State.Bait < (State.Hull > 0 ? 60 : State.Has(UpgradeId.RodHolder) ? 40 : 25) && State.BuyBait()) { }
             State.FillFood();
 
             float best = -1f;
@@ -928,6 +1106,8 @@ namespace Catchline.Game
                 float score = value / total * State.Richness[i] / (1f + s.RowSeconds / 30f);
                 if (score > best) { best = score; SelectedSpot = i; }
             }
+            if (State.Hull > 0)
+                while (State.Fuel < GameData.TripFuel(SelectedSpot) && State.BuyFuel()) { }
             SetSail();
         }
     }

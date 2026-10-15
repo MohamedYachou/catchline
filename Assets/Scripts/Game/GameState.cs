@@ -15,9 +15,11 @@ namespace Catchline.Game
     {
         public string Name;
         public Grade Grade;
+        public CrewRole Role;
         public int VoyagesLeft;
         public Color Suit;
-        public int Fee => GameData.Fee(Grade);
+        public int Fee => GameData.Fee(Grade) * (Role == CrewRole.Fisherman ? 2 : 1);
+        public string RoleName => Role == CrewRole.Fisherman ? "Fisherman" : "Deckhand";
     }
 
     [System.Serializable]
@@ -48,6 +50,9 @@ namespace Catchline.Game
         public float FoodMinutes = 4f;
         public int Voyage = 1;
         public int BestVoyageFish;
+        public int Hull, Fuel;
+        public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
+        public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
         public readonly float[] Market;
@@ -56,6 +61,12 @@ namespace Catchline.Game
         public readonly float[] LogBest;
         public bool UnseenSale;
         public CrewMember Deckhand;
+        public readonly List<CrewMember> ExtraCrew = new();
+        public IEnumerable<CrewMember> Crew
+        {
+            get { if (Deckhand != null) yield return Deckhand; foreach (var c in ExtraCrew) yield return c; }
+        }
+        public int CrewCount => ExtraCrew.Count + (Deckhand != null ? 1 : 0);
         public readonly List<CrewMember> Board = new();
         public readonly List<Contract> Offers = new();
         public readonly List<Contract> Active = new();
@@ -76,8 +87,8 @@ namespace Catchline.Game
         }
 
         public bool Has(UpgradeId id) => Owned.Contains(id);
-        public int CoolerCapacity => Has(UpgradeId.BigCooler) ? 16 : 10;
-        public float FoodCapacity => Has(UpgradeId.LunchTin) ? 12f : 6f;
+        public int CoolerCapacity => Hull > 0 ? HullDef.Capacity : Has(UpgradeId.BigCooler) ? 16 : 10;
+        public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Hull > 0 ? 4f : 1f);
         public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
         public float BiteWindow => Has(UpgradeId.RodCarbon) ? 1.4f : Has(UpgradeId.RodFibreglass) ? 1.15f : GameData.BiteWindow;
         public float ReelSpeed => Has(UpgradeId.RodCarbon) ? 1.5f : Has(UpgradeId.RodFibreglass) ? 1.25f : 1f;
@@ -97,6 +108,25 @@ namespace Catchline.Game
         float Rand() => (float)Rng.NextDouble();
 
         // ---- harbour actions ----------------------------------------------------------
+
+        public bool RefitSkiff()
+        {
+            if (!CanRefit) return false;
+            Coins -= GameData.SkiffCost;
+            Hull = 1;
+            // The shipyard supplies the first tank, avoiding a stranded first refit.
+            Fuel += GameData.FuelPackSize;
+            RollBoard();
+            return true;
+        }
+
+        public bool BuyFuel()
+        {
+            if (Hull == 0 || Coins < GameData.FuelPackCost) return false;
+            Coins -= GameData.FuelPackCost;
+            Fuel += GameData.FuelPackSize;
+            return true;
+        }
 
         public bool TryBuy(UpgradeId id)
         {
@@ -154,10 +184,11 @@ namespace Catchline.Game
 
         public bool Hire(CrewMember c)
         {
-            if (Deckhand != null || Coins < c.Fee) return false;
+            if (!Board.Contains(c) || CrewCount >= HullDef.CrewCap || c.Role == CrewRole.Fisherman && Hull == 0 || Coins < c.Fee) return false;
             Coins -= c.Fee;
             Board.Remove(c);
-            Deckhand = c;
+            if (c.Role == CrewRole.Deckhand && Deckhand == null) Deckhand = c;
+            else ExtraCrew.Add(c);
             return true;
         }
 
@@ -225,6 +256,17 @@ namespace Catchline.Game
                 r.Lines.Add($"{Deckhand.Name}'s contract ended. Hire someone new on the crew board.");
                 Deckhand = null;
             }
+            for (int i = ExtraCrew.Count - 1; i >= 0; i--)
+                if (--ExtraCrew[i].VoyagesLeft <= 0)
+                {
+                    r.Lines.Add($"{ExtraCrew[i].Name}'s {ExtraCrew[i].RoleName.ToLower()} contract ended.");
+                    ExtraCrew.RemoveAt(i);
+                }
+            if (Deckhand == null)
+            {
+                int i = ExtraCrew.FindIndex(c => c.Role == CrewRole.Deckhand);
+                if (i >= 0) { Deckhand = ExtraCrew[i]; ExtraCrew.RemoveAt(i); }
+            }
             for (int i = 0; i < Richness.Length; i++) Richness[i] = Mathf.Min(1f, Richness[i] + GameData.RichnessRecovery);
             for (int i = 0; i < Market.Length; i++) Market[i] += (1f - Market[i]) * GameData.MarketRecovery;
             RollBoard();
@@ -239,16 +281,22 @@ namespace Catchline.Game
             if (Rand() < 0.75f) Board.Add(NewCrew(Grade.Hand));
             if (Rand() < 0.4f) Board.Add(NewCrew(Grade.Experienced));
             if (Rand() < 0.06f) Board.Add(NewCrew(Grade.Veteran));
+            if (Hull > 0)
+            {
+                if (Rand() < .8f) Board.Add(NewCrew(Grade.Hand, CrewRole.Fisherman));
+                if (Rand() < .5f) Board.Add(NewCrew(Grade.Experienced, CrewRole.Fisherman));
+                if (Rand() < .08f) Board.Add(NewCrew(Grade.Veteran, CrewRole.Fisherman));
+            }
         }
 
-        CrewMember NewCrew(Grade g)
+        CrewMember NewCrew(Grade g, CrewRole role = CrewRole.Deckhand)
         {
             string name;
             do name = GameData.Names[Rng.Next(GameData.Names.Length)];
-            while (Board.Exists(b => b.Name == name) || Deckhand != null && Deckhand.Name == name);
+            while (Board.Exists(b => b.Name == name) || System.Linq.Enumerable.Any(Crew, c => c.Name == name));
             return new CrewMember
             {
-                Name = name, Grade = g, VoyagesLeft = GameData.ContractVoyages(g),
+                Name = name, Grade = g, Role = role, VoyagesLeft = GameData.ContractVoyages(g),
                 Suit = GameData.Suits[Rng.Next(GameData.Suits.Length)],
             };
         }
@@ -321,7 +369,7 @@ namespace Catchline.Game
         class SaveData
         {
             public int Version = 1;
-            public int Coins, Bait, Squid, Voyage, BestVoyageFish;
+            public int Coins, Bait, Squid, Voyage, BestVoyageFish, Hull, Fuel;
             public bool UseSquid;
             public float FoodMinutes;
             public List<int> Owned = new(), Charts = new();
@@ -329,38 +377,43 @@ namespace Catchline.Game
             public int[] LogCount;
             public bool HasDeckhand;
             public CrewMember Deckhand;
+            public List<CrewMember> ExtraCrew = new();
             public List<CrewMember> Board = new();
             public List<Contract> Offers = new(), Active = new();
         }
 
         public static string SavePath => System.IO.Path.Combine(Application.persistentDataPath, "catchline-save.json");
 
-        public void Save()
+        public void Save(string path = null)
         {
             var d = new SaveData
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, UseSquid = UseSquid,
+                Hull = Hull, Fuel = Fuel,
                 FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
             foreach (var u in Owned) d.Owned.Add((int)u);
             d.Charts.AddRange(Charts);
             d.Board.AddRange(Board);
+            d.ExtraCrew.AddRange(ExtraCrew);
             d.Offers.AddRange(Offers);
             d.Active.AddRange(Active);
-            try { System.IO.File.WriteAllText(SavePath, JsonUtility.ToJson(d, true)); }
+            try { System.IO.File.WriteAllText(path ?? SavePath, JsonUtility.ToJson(d, true)); }
             catch (System.Exception e) { Debug.LogWarning("[Catchline] Save failed: " + e.Message); }
         }
 
-        public static GameState Load()
+        public static GameState Load(string path = null)
         {
             try
             {
-                if (!System.IO.File.Exists(SavePath)) return null;
-                var d = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(SavePath));
+                path ??= SavePath;
+                if (!System.IO.File.Exists(path)) return null;
+                var d = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(path));
                 if (d == null || d.Version != 1) return null;
                 var s = new GameState(System.Environment.TickCount);
                 s.Coins = d.Coins; s.Bait = d.Bait; s.Squid = d.Squid; s.Voyage = d.Voyage; s.BestVoyageFish = d.BestVoyageFish;
                 s.UseSquid = d.UseSquid; s.FoodMinutes = d.FoodMinutes;
+                s.Hull = Mathf.Clamp(d.Hull, 0, GameData.Hulls.Length - 1); s.Fuel = Mathf.Max(0, d.Fuel);
                 foreach (var u in d.Owned) s.Owned.Add((UpgradeId)u);
                 foreach (var c in d.Charts) s.Charts.Add(c);
                 // Arrays can grow between versions (new seas, new fish): copy what fits.
@@ -369,6 +422,7 @@ namespace Catchline.Game
                 if (d.LogCount != null) System.Array.Copy(d.LogCount, s.LogCount, Mathf.Min(d.LogCount.Length, s.LogCount.Length));
                 if (d.LogBest != null) System.Array.Copy(d.LogBest, s.LogBest, Mathf.Min(d.LogBest.Length, s.LogBest.Length));
                 s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
+                if (d.ExtraCrew != null) s.ExtraCrew.AddRange(d.ExtraCrew);
                 s.Board.Clear(); s.Board.AddRange(d.Board);
                 s.Offers.Clear(); s.Offers.AddRange(d.Offers);
                 s.Active.Clear(); s.Active.AddRange(d.Active);

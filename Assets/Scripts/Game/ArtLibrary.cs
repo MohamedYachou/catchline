@@ -13,6 +13,7 @@ namespace Catchline.Game
         public Texture2D[] Ui;                         // Codex's UI kit, looked up by file name
         public Font UiFont;
         public GameObject[] Models;                    // every FBX under Assets/Art/Models, looked up by file name
+        public AnimationClip[] CrewClips;
 
         System.Collections.Generic.Dictionary<string, Texture2D> uiByName;
         System.Collections.Generic.Dictionary<string, GameObject> modelByName;
@@ -78,6 +79,7 @@ namespace Catchline.Game
             ["M_Steel"] = "8FA6AC", ["M_Rubber"] = "28343B", ["M_SeaTeal"] = "168F9F", ["M_BandIvory"] = "F3DEA1",
             ["M_DeckWood"] = "C58B50", ["M_WoodHighlight"] = "DFB77A", ["M_WoodRecess"] = "8C5A36", ["M_HullBlue"] = "2A6685",
             ["M_OilskinYellow"] = "E6AD38", ["M_Skin"] = "B9784B", ["M_KelpGreen"] = "477A56", ["M_FishSilver"] = "BAC9C6",
+            ["M_HairChestnut"] = "50392E", ["M_HairSilver"] = "ADB6AF",
         };
 
         static void RemapMaterials(GameObject go)

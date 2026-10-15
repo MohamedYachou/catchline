@@ -149,11 +149,11 @@ namespace Catchline.Game
                 case HudTab.HarbourMaster:
                     return Enumerable.Range(0, GameData.Spots.Length).Any(i => !s.Known(i) && s.Coins >= GameData.Spots[i].ChartCost)
                            || s.Active.Count < GameData.MaxActiveContracts && s.Offers.Count > 0;
-                case HudTab.CrewOffice: return s.Deckhand == null && s.Board.Any(c => s.Coins >= c.Fee) && s.Has(UpgradeId.RodHolder);
+                case HudTab.CrewOffice: return s.CrewCount < s.HullDef.CrewCap && s.Board.Any(c => s.Coins >= c.Fee) && (s.Hull > 0 || s.Has(UpgradeId.RodHolder));
                 case HudTab.Chandlery:
-                    return GameData.Upgrades.Any(u => u.Shop == "Chandlery" && !s.Has(u.Id) && s.Coins >= u.Cost && (!u.Requires.HasValue || s.Has(u.Requires.Value)));
+                    return s.CanRefit || GameData.Upgrades.Any(u => u.Shop == "Chandlery" && !s.Has(u.Id) && s.Coins >= u.Cost && (!u.Requires.HasValue || s.Has(u.Requires.Value)));
                 case HudTab.Supplies:
-                    return !s.HasAnyBait || s.Bait + s.Squid < 8 || s.FoodMinutes < s.FoodCapacity * 0.5f;
+                    return !s.HasAnyBait || s.Bait + s.Squid < 8 || s.FoodMinutes < s.FoodCapacity * 0.5f || s.Hull > 0 && s.Fuel < GameData.TripFuel(SelectedSpot);
             }
             return false;
         }

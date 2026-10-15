@@ -142,7 +142,7 @@ namespace Catchline.EditorTools
             Debug.Log($"[Catchline] Snapshot written to {path}");
         }
 
-        static void Render(Camera cam, string path, int width, int height)
+        public static void Render(Camera cam, string path, int width, int height)
         {
             var rt = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
             cam.aspect = (float)width / height;

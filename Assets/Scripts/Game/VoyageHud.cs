@@ -67,6 +67,12 @@ namespace Catchline.Game
             // Menus replace the HUD so nothing underneath can be clicked.
             if (showTitle) { DrawTitle(); return; }
             if (paused) { DrawPause(); return; }
+            if (SimTime < refitUntil)
+            {
+                Dim(Mathf.Clamp01((refitUntil - SimTime) / 1.2f));
+                GUI.Label(new Rect(VW / 2f - 200f, 310f, 400f, 80f), "Your skiff is ready", Ui.TitleCenter);
+                return;
+            }
 
             switch (CurrentMode)
             {
@@ -115,7 +121,8 @@ namespace Catchline.Game
             CoinChip();
             bool home = CurrentMode == Mode.SailingHome;
             var r = Panel(new Rect(VW / 2f - 220f, 90f, 440f, 92f));
-            GUI.Label(new Rect(r.x + 18, r.y + 14, r.width - 36, 26), home ? $"Rowing home to {GameData.HarbourName}" : $"Rowing out to {GameData.Spots[ActiveSpot].Name}", Ui.H2);
+            string verb = State.Hull > 0 ? "Sailing" : "Rowing";
+            GUI.Label(new Rect(r.x + 18, r.y + 14, r.width - 36, 26), home ? $"{verb} home to {GameData.HarbourName}" : $"{verb} out to {GameData.Spots[ActiveSpot].Name}", Ui.H2);
             Ui.Bar(new Rect(r.x + 18, r.y + 52, r.width - 36, 16), modeTimer / Mathf.Max(0.1f, modeDuration));
         }
 
@@ -150,14 +157,26 @@ namespace Catchline.Game
             var homeRect = new Rect(VW - 196f, 70f, 180f, 50f);
             Track(homeRect);
             if (GUI.Button(homeRect, "Head home", Ui.BtnAlt)) HeadHome();
+            if (State.Hull > 0)
+            {
+                var nr = Panel(new Rect(VW - 266f, 132f, 250f, 140f));
+                string label = Net switch { NetState.Soaking => $"Net soaking · {NetRemaining:0}s · {NetCatch} fish", NetState.Ready => $"Net ready · {NetCatch} fish", NetState.Hauling => "Cranking the hand winch…", NetState.Setting => "Setting the net…", _ => "Gill net · ready to set" };
+                GUI.Label(new Rect(nr.x + 12, nr.y + 12, nr.width - 24, 44), label, Ui.Body);
+                bool enabled = CanWorkNet && Net is NetState.Stowed or NetState.Ready;
+                if (GUI.Button(new Rect(nr.x + 12, nr.y + 62, nr.width - 24, 44), Net == NetState.Ready ? "Haul net" : "Set net", enabled ? Ui.Btn : Ui.BtnOff) && enabled)
+                {
+                    if (Net == NetState.Ready) HaulNet(); else SetNet();
+                }
+                GUI.Label(new Rect(nr.x + 12, nr.y + 112, nr.width - 24, 20), Manning != null ? "Finish the rod action to work the net." : "One tap. The captain does the work.", Ui.Small);
+            }
 
             // Crew chips, bottom left.
             float cy = 720f - 16f;
-            if (Hand != null)
+            foreach (var person in People.Where(p => p != Captain))
             {
                 cy -= 54f;
                 var hr = Panel(new Rect(16f, cy, 330f, 50f), Ui.Chip);
-                GUI.Label(new Rect(hr.x + 14, hr.y + 6, hr.width - 28, 40), $"<b>{Hand.Name}</b> ({GameData.GradeName(Hand.Contract.Grade)}, {Hand.Contract.VoyagesLeft} voyage{(Hand.Contract.VoyagesLeft == 1 ? "" : "s")} left)\n{Hand.State}", Ui.WhiteSmall);
+                GUI.Label(new Rect(hr.x + 14, hr.y + 6, hr.width - 28, 40), $"<b>{person.Name}</b> ({person.Contract.RoleName}, {person.Contract.VoyagesLeft} voyages left)\n{person.State}", Ui.WhiteSmall);
                 cy -= 6f;
             }
             cy -= 50f;
@@ -297,10 +316,10 @@ namespace Catchline.Game
             var l = Panel(new Rect(16f, 16f, 360f, 150f));
             GUI.Label(new Rect(l.x + 16, l.y + 12, l.width - 32, 34), GameData.HarbourName, Ui.Title);
             GUI.Label(new Rect(l.x + 16, l.y + 50, l.width - 32, 22), $"Voyage {State.Voyage}  ·  <b>{State.Coins}</b> coins", Ui.Body);
-            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), "Next hull: skiff refit", Ui.Small);
+            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), State.Hull > 0 ? "Skiff · 40-fish hold · outboard" : "Next hull: skiff refit", Ui.Small);
             float goal = Mathf.Min(State.BestVoyageFish / (float)GameData.SkiffFishGoal, 1f) * 0.5f + Mathf.Min(State.Coins / (float)GameData.SkiffCost, 1f) * 0.5f;
-            Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), goal);
-            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 20), $"Land {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) + {GameData.SkiffCost} coins", Ui.Mutedish);
+            Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), State.Hull > 0 ? 1f : goal);
+            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 20), State.Hull > 0 ? $"Fuel {State.Fuel} · trip uses {GameData.TripFuel(SelectedSpot)} (return included)" : $"Land {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) + {GameData.SkiffCost} coins", Ui.Mutedish);
 
             // Bottom left: set sail toward the chosen sea.
             var blocker = SailBlocker();
@@ -507,16 +526,15 @@ namespace Catchline.Game
 
         void TabCrew()
         {
-            GUILayout.Label("Your crew", Ui.H2);
-            if (State.Deckhand != null)
+            GUILayout.Label($"Your crew ({State.CrewCount}/{State.HullDef.CrewCap})", Ui.H2);
+            foreach (var d in State.Crew)
             {
-                var d = State.Deckhand;
                 GUILayout.BeginVertical(Ui.Card);
-                GUILayout.Label($"{d.Name}, {GameData.GradeName(d.Grade)}", Ui.Body);
+                GUILayout.Label($"{d.Name}, {d.RoleName} · {d.Grade}", Ui.Body);
                 GUILayout.Label($"Works at {GameData.Speed(d.Grade):0.0}x speed · {d.VoyagesLeft} voyage{(d.VoyagesLeft == 1 ? "" : "s")} left on contract", Ui.Mutedish);
                 GUILayout.EndVertical();
             }
-            else GUILayout.Label("Just you. The rowboat has room for one deckhand: they bait hooks and carry fish to the cooler, so you only cast and strike.", Ui.Mutedish);
+            if (State.CrewCount == 0) GUILayout.Label("Just you. Deckhands bait hooks and carry fish. The skiff also has room for fishermen who cast and strike their own rods.", Ui.Mutedish);
 
             GUILayout.Space(10);
             GUILayout.Label("Looking for work", Ui.H2);
@@ -526,10 +544,11 @@ namespace Catchline.Game
             {
                 GUILayout.BeginHorizontal(Ui.Card);
                 GUILayout.BeginVertical();
-                GUILayout.Label($"{c.Name}, {GameData.GradeName(c.Grade)}" + (c.Grade == Grade.Veteran ? "  <size=12>(rare)</size>" : ""), Ui.Body);
+                GUILayout.Label($"{c.Name}, {c.RoleName} · {c.Grade}" + (c.Grade == Grade.Veteran ? "  <size=12>(rare)</size>" : ""), Ui.Body);
                 GUILayout.Label($"{GameData.Speed(c.Grade):0.0}x speed · {c.VoyagesLeft} voyages · fee <b>{c.Fee}</b> coins", Ui.Mutedish);
+                if (c.Role == CrewRole.Fisherman) GUILayout.Label($"Strikes {GameData.StrikeChance(c.Grade) * 100f:0}% of bites; leaves fish for deckhands.", Ui.Mutedish);
                 GUILayout.EndVertical();
-                if (ShopButton("Hire", State.Deckhand == null && State.Coins >= c.Fee, 90f))
+                if (ShopButton("Hire", State.CrewCount < State.HullDef.CrewCap && State.Coins >= c.Fee, 90f))
                 {
                     State.Hire(c);
                     SyncCrew();
@@ -570,7 +589,8 @@ namespace Catchline.Game
             GUILayout.Space(12);
             GUILayout.BeginVertical(Ui.Card);
             GUILayout.Label("Skiff refit", Ui.Body);
-            GUILayout.Label($"Land {GameData.SkiffFishGoal} fish in one voyage and pay {GameData.SkiffCost} coins. Your boat becomes a skiff: room for a fisherman and the first net. Arrives in the next build.", Ui.Mutedish);
+            GUILayout.Label(State.Hull > 0 ? "Refitted: 5 × 3 deck, 40-fish hold, three rods, outboard and gill net. Hire fishermen and deckhands at the Crew Office." : $"Bring home {GameData.SkiffFishGoal} fish in one voyage (best {State.BestVoyageFish}) and pay {GameData.SkiffCost} coins. Refit to a skiff with a 40-fish hold, three rods and an outboard. Includes a gill net and the first tank of fuel.", Ui.Mutedish);
+            if (State.Hull == 0 && ShopButton($"Refit for {GameData.SkiffCost}", State.CanRefit, 180f)) RefitSkiff();
             GUILayout.EndVertical();
         }
 
@@ -598,6 +618,15 @@ namespace Catchline.Game
             GUILayout.EndHorizontal();
             GUILayout.Space(4);
             UpgradeCards("Supplies");
+            if (State.Hull > 0)
+            {
+                GUILayout.Space(12);
+                GUILayout.Label("Fuel", Ui.H2);
+                GUILayout.BeginHorizontal(Ui.Card);
+                GUILayout.Label($"Fuel: {State.Fuel}\n<size=12>This trip uses {GameData.TripFuel(SelectedSpot)}. Return fuel is reserved at launch.</size>", Ui.Body);
+                if (ShopButton($"+{GameData.FuelPackSize} for {GameData.FuelPackCost}", State.Coins >= GameData.FuelPackCost, 150f) && State.BuyFuel()) SaveGame();
+                GUILayout.EndHorizontal();
+            }
         }
     }
 }

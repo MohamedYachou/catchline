@@ -1,6 +1,6 @@
 # Night plan: Codex (models, 2D art)
 
-Codex works on the **art/style-pass** branch in the worktree `C:\Users\momoy\Projects\Catchline-art-style`, running unattended. Claude checks in every hour: it merges what Codex has pushed into `proto/deck-sim`, wires it into the game, and restarts the queue if it stalls.
+**Current status, 2026-10-15:** GPT-6.1 Sol medium completed tasks05–08 on **art/style-pass**, and parent Codex reviewed and merged the results into `proto/deck-sim`. The queue is stopped with no outstanding asset task. The original unattended workflow and briefs are preserved below; see the recovery section for validation and remaining integration work.
 
 ## Queue
 
@@ -16,6 +16,17 @@ The runner is `Art/TASKS/run-queue.sh`, started detached in WSL. It runs one `co
 | 06 | `06-crew-rig.md` | Rigged chibi crew, outfits per role, hats, 11 animation clips | Replaces the capsule people |
 | 07 | `07-upgrade-visuals-and-world-polish.md` | Upgrades visible on the boat, hill backdrop, shipyard shed, NPCs, sea landmarks, a whale tail | A world that feels lived in |
 | 08 | `08-day-boat-and-textures.md` | Day boat (hull 3) and its stations, stylised water textures | The next ships, and nicer water |
+
+## Recovery and completion — 2026-10-15
+
+Mo asked Codex to take over gameplay/design and a GPT-6.1 Sol medium subagent to take the assets. The old queue had incorrectly marked usage-limit failures as completed. Its control flow is fixed and validated; it has not been restarted.
+
+- **05 complete:** recovered UI compositions and all39 additions validated (83 total). Imported into the main art library; title/chart/portrait UI wiring remains on the gameplay plan.
+- **06 complete:** skinned crew, four outfits, three hats,11 clips; Blender/FBX and actual Unity clip/skin checks passed. Captain, deckhands and fishermen now use it.
+- **07 complete:**31 upgrade/world assets validated and merged. World dressing uses the existing scene hooks; big cooler and upgraded rods now visibly replace their starter variants. Market display and bench seating were reviewed and corrected.
+- **08 complete as assets:** day boat plus nine stations, seven textures, sources, previews, reports and round-trip/seam/alpha validation delivered. Day-boat gameplay and applying water textures remain future integration work.
+
+Reports: `Art/Models/CrewRig/REPORT.md`, `Art/Models/WorldPolish/REPORT.md`, `Art/Models/DayBoatKit/REPORT.md`, `Assets/Art/Textures/TEXTURES.md`. New palette names only `M_HairChestnut` and `M_HairSilver`, both added to the runtime remap. Continue the main plan's C and remaining D items next; there is no pending item in this asset queue.
 
 ## Rules Codex follows (in every brief)
 - Blender sources, FBX exports, previews, contact sheets and a REPORT for every batch.

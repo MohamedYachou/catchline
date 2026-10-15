@@ -5,6 +5,19 @@ namespace Catchline.Game
     public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger, Plaice, Cod }
     public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin, RodFibreglass, RodCarbon }
     public enum Grade { Hand, Experienced, Veteran }
+    public enum CrewRole { Deckhand, Fisherman }
+
+    // Deck coordinates follow the game grid: X stern-to-bow (bow at -X), Y port-to-starboard.
+    public class HullDef
+    {
+        public string Name, Model;
+        public int Width, Height, Capacity, CrewCap;
+        public float TravelMultiplier;
+        public Vector2Int Hold, HoldAccess, Seat, Rest;
+        public Vector2Int[] Blocked, RodTiles;
+        public Vector3[] RodBases;
+        public Vector3 Center => new((Width - 1) * 0.5f, 0f, (Height - 1) * 0.5f);
+    }
 
     public class FishDef
     {
@@ -156,13 +169,32 @@ namespace Catchline.Game
         public const float FreshnessLossPerMinute = 0.07f, MinFreshness = 0.6f;
         public const int MaxActiveContracts = 2;
 
-        // Hull goal (refit itself arrives in build 2)
+        public static readonly HullDef[] Hulls =
+        {
+            new() { Name = "Rowboat", Model = "Rowboat", Width = 3, Height = 2, Capacity = 10, CrewCap = 1,
+                TravelMultiplier = 1f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(1, 0), Rest = new(0, 1),
+                Blocked = new[] { new Vector2Int(1, 1) }, RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0) },
+                RodBases = new[] { new Vector3(0f, .44f, -.615f), new Vector3(2f, .44f, -.615f) } },
+            new() { Name = "Skiff", Model = "Skiff", Width = 5, Height = 3, Capacity = 40, CrewCap = 3,
+                TravelMultiplier = .5f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(3, 2), Rest = new(0, 2),
+                Blocked = new[] { new Vector2Int(1, 1), new Vector2Int(2, 1), new Vector2Int(4, 2), new Vector2Int(4, 1) },
+                RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0), new Vector2Int(4, 0) },
+                RodBases = new[] { new Vector3(.25f, .45f, -.68f), new Vector3(2f, .45f, -.68f), new Vector3(3.75f, .45f, -.68f) } },
+        };
+
+        // Fuel is reserved for both legs at launch: returning home is always possible.
+        public const int FuelPackSize = 10, FuelPackCost = 10;
+        public static int TripFuel(int spot) => Mathf.CeilToInt(Spots[spot].RowSeconds / 5f);
+
+        // Hull goal
         public const int SkiffFishGoal = 16, SkiffCost = 1500;
 
         // Crew contracts: experienced costs 2x for 1.5x the voyages, veterans are rare.
         public static float Speed(Grade g) => g switch { Grade.Hand => 1f, Grade.Experienced => 1.5f, _ => 2f };
         public static int ContractVoyages(Grade g) => g switch { Grade.Hand => 2, Grade.Experienced => 3, _ => 5 };
         public static int Fee(Grade g) => g switch { Grade.Hand => 30, Grade.Experienced => 60, _ => 150 };
+        public static float StrikeChance(Grade g) => g switch { Grade.Hand => .55f, Grade.Experienced => .70f, _ => .85f };
+        public const float NetSoakMin = 60f, NetSoakMax = 90f, NetHaulTime = 5f;
         public static string GradeName(Grade g) => g switch { Grade.Hand => "Deckhand", Grade.Experienced => "Experienced", _ => "Veteran" };
 
         public static readonly string[] Names =

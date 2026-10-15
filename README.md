@@ -14,11 +14,15 @@ In the harbour, tap a building (Fish Market, Harbour Master, Crew Office, Chandl
 
 Controls at sea: one tap per action. Tap the Fish bubble above a rod (the captain baits and casts), tap anywhere once when the bobber goes under (or Space), tap Carry above a landed fish. H heads home, scroll zooms.
 
+Build 2 is playable: return with 16 fish, then buy the 1,500-coin skiff refit at the Chandlery. It adds a 40-fish hold, three rods, an outboard and a gill net. Hire fishermen to work rods and deckhands to carry fish; up to three hired crew fit aboard. Tap Set net, fish during its soak, then Haul net. Supplies sells fuel; return fuel is included at departure. See [the continuation report](docs/CONTINUATION.md).
+
 Balance check (a bot plays N voyages and logs each one, then renders a PNG to `Logs/`):
 
 ```
-Unity -batchmode -quit -projectPath . -executeMethod Catchline.EditorTools.PrototypeTools.VoyageSim -voyages 30
+powershell -File docs/tools/check.ps1 -Name balance -Voyages 30
 ```
+
+This runs Unity on the separate `Catchline-sim` scratch project. Do not batchmode the main project while its editor is open.
 
 ## Deck prototype (old)
 
