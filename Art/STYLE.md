@@ -205,3 +205,9 @@ ShopFront_FishMarket, ShopFront_HarbourMaster, ShopFront_CrewOffice, ShopFront_C
 Skiff keeps hull 2’s 5 × 3 m build deck centred at Y=0, with bow +Z and a 6.5 × 3.5 m hull envelope excluding the motor. Task 04 supersedes the forward-console proposal: the low console occupies stern-starboard tile c=2, r=0 (zero-based columns port→starboard, rows stern→bow), Unity centre (1,0,−2). Three port rod sockets sit at Unity Z=−1.75, 0, +1.75. Propeller spins around local Z. The open hold is built into the deck; HoldLid rotates about local X, from its hinge at Unity (0,.025,.5).
 
 HandWinch reserves 1 × 1 m with a separate Crank. SortTable reserves 2 × 1 m; its .55 m worktop, tray, chute and open bin stay within that footprint. GillNetCoil sits on deck; GillNetFloatLine and GillNetSection repeat every 2 m along local X. The float-line root is at waterline, and laid mesh lies .18 m below it. The kit has coarse visible geometry and no simulation or animation clips.
+
+## Task06 rigged crew addition
+
+`Assets/Art/Models/Crew/CrewRig.fbx` is a new shared chibi rig; the old CrewBody and its exports remain untouched. Source, turnaround renders, three-keyframe animation contact sheets and integration contract: [CrewRig report](Models/CrewRig/REPORT.md). Bare scalp height 0.95m; 0.38m head (40%). Four outfit meshes and three rigid HatMount modules share 20 Mixamo-style bones and eleven in-place actions at 24fps. Select one outfit and one hat; leave Body enabled. There are no root-motion or prop animations.
+
+Two new canonical sRGB materials: `M_HairChestnut` = `#50392E` and `M_HairSilver` = `#ADB6AF`; matte hair / veteran beard. Other materials reuse existing palette names. Hat_Hood uses yellow oilskin; Outfit_Fisherman includes an orange hood-down collar. Importers must set clip loop flags from the report/manifest; Blender action custom properties do not configure Unity import settings.

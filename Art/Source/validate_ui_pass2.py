@@ -30,7 +30,9 @@ for n,m in new.items():
 # Compare against the last complete task04 handoff, independent of current HEAD.
 base='3ddbe1f'
 def git(*args):return subprocess.check_output(['git',*args],cwd=ROOT,text=True)
-assert not git('diff',base,'--name-only','--','Assets/Scripts','Assets/Scenes','Assets/Art/Models','Art/Models')
+assert not git('diff',base,'--name-only','--','Assets/Scripts','Assets/Scenes')
+# Later additive model batches do not invalidate the original-model preservation check.
+assert not git('diff',base,'--name-only','--diff-filter=DMRTUXB','--','Assets/Art/Models','Art/Models')
 old=json.loads(git('show',base+':Assets/Art/UI/slices.json'))
 requests=[base+':Assets/Art/UI/'+m['file'] for m in old['sprites'].values()]
 raw=subprocess.check_output(['git','cat-file','--batch'],input=('\n'.join(requests)+'\n').encode(),cwd=ROOT)
