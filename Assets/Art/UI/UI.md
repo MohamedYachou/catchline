@@ -80,3 +80,51 @@ Rebuild with Python 3.12+ and Pillow/CairoSVG/fontTools: `python Art/Source/buil
 `Art/Concepts/16-ui-kit.png`: every shipped piece including both states, tails and all 14 icons. `17-hud-fishing.png`: status top left, coin/home top right, crew bottom left, action bubbles and strike bottom centre. `18-hud-harbour.png`: harbour/goal left, five-tab Shop right, Set sail at its foot. Composed from the exported kit using genuine nine-slice raster assembly, not an unrelated painted UI. Example state values are illustrative. Shop prices, names, food and skiff limits follow proto/deck-sim `GameData.cs` / `VoyageHud.cs` as read on 2026-10-14 (47373b7 plus live working copy).
 
 The harbour and fishing panels follow those HUD anchors; the bubble bodies are slightly wider for the requested icon slot. Unity integration, font import, device testing and final interaction behaviour are a later code pass.
+
+## Task 05 — UI pass 2
+
+Additive illustrated sprites in the existing palette and Fredoka. All listed dimensions are final exported pixels, at 2x (logical size is half). Keep alpha gutters and aspect ratios. Title backdrop is an opaque full-screen RGBA scene; all other additions have transparent margins. Lettering in the logo, shop headers, NEW badge and unknown fish is intentionally baked; gameplay labels remain live. Source SVG lettering uses outlines from the bundled Fredoka font. No new M_ materials.
+
+| PNG | Export px | Logical px | Slice L/B/R/T | Use |
+| --- | --- | --- | --- | --- |
+| `logo-catchline.png` | 1024×384 | 512×192 | — | Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio. |
+| `title-backdrop.png` | 1920×1080 | 960×540 | — | Golden-hour harbour. Menu safe rectangle export x=80..650, y=420..940. Full-screen opaque RGBA backdrop; preserve aspect ratio. |
+| `header-market.png` | 1240×220 | 620×110 | — | Fish Market illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-harbourmaster.png` | 1240×220 | 620×110 | — | Harbour Master illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-crewoffice.png` | 1240×220 | 620×110 | — | Crew Office illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-chandlery.png` | 1240×220 | 620×110 | — | Chandlery illustrated counter banner. Fredoka shop name baked; no slice. |
+| `header-supplies.png` | 1240×220 | 620×110 | — | Supplies illustrated counter banner. Fredoka shop name baked; no slice. |
+| `fish-herring.png` | 256×256 | 128×128 | — | herring side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-mackerel.png` | 256×256 | 128×128 | — | mackerel side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-pollock.png` | 256×256 | 128×128 | — | pollock side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-seabass.png` | 256×256 | 128×128 | — | seabass side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-conger.png` | 256×256 | 128×128 | — | conger side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-plaice.png` | 256×256 | 128×128 | — | plaice side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-cod.png` | 256×256 | 128×128 | — | cod side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `fish-unknown.png` | 256×256 | 128×128 | — | unknown side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale. |
+| `icon-rodholder.png` | 256×256 | 128×128 | — | 128px logical item icon. rodholder. Preserve square frame. |
+| `icon-bigcooler.png` | 256×256 | 128×128 | — | 128px logical item icon. bigcooler. Preserve square frame. |
+| `icon-icebox.png` | 256×256 | 128×128 | — | 128px logical item icon. icebox. Preserve square frame. |
+| `icon-lunchtin.png` | 256×256 | 128×128 | — | 128px logical item icon. lunchtin. Preserve square frame. |
+| `icon-rod-fibreglass.png` | 256×256 | 128×128 | — | 128px logical item icon. rod fibreglass. Preserve square frame. |
+| `icon-rod-carbon.png` | 256×256 | 128×128 | — | 128px logical item icon. rod carbon. Preserve square frame. |
+| `icon-chart.png` | 256×256 | 128×128 | — | 128px logical item icon. chart. Preserve square frame. |
+| `icon-squid.png` | 256×256 | 128×128 | — | 128px logical item icon. squid. Preserve square frame. |
+| `icon-fuel.png` | 256×256 | 128×128 | — | 128px logical item icon. fuel. Preserve square frame. |
+| `icon-net.png` | 256×256 | 128×128 | — | 128px logical item icon. net. Preserve square frame. |
+| `icon-skiff.png` | 256×256 | 128×128 | — | 128px logical item icon. skiff. Preserve square frame. |
+| `icon-trophy.png` | 256×256 | 128×128 | — | 128px logical item icon. trophy. Preserve square frame. |
+| `icon-gift.png` | 256×256 | 128×128 | — | 128px logical item icon. gift. Preserve square frame. |
+| `sea-chart.png` | 1240×520 | 620×260 | — | Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked. |
+| `portrait-captain.png` | 256×256 | 128×128 | — | Chibi captain bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-deckhand.png` | 256×256 | 128×128 | — | Chibi deckhand bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-fisherman.png` | 256×256 | 128×128 | — | Chibi fisherman bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `portrait-veteran.png` | 256×256 | 128×128 | — | Chibi veteran bust; common face proportions and frame, role hat and clothing, no baked name. |
+| `coin-pop.png` | 256×256 | 128×128 | — | Coin reward burst; animate scale/fade in integration. |
+| `sparkle.png` | 256×256 | 128×128 | — | Warm four-point sparkle. Transparent frame, no timing baked. |
+| `catch-card.png` | 256×320 | 128×160 | 64/64/64/108 | Sliced catch reward card. Header 76px export high; keep title and fish as separate live elements. |
+| `popup-panel.png` | 256×320 | 128×160 | 64/64/64/108 | Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate. |
+| `badge-new.png` | 256×128 | 128×64 | — | Fredoka NEW badge. Baked English label; replace SVG lettering for localization. |
+| `daily-gift.png` | 512×512 | 256×256 | — | Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked. |
+
+Task05 review sheets: `Art/Concepts/19-ui-pass2.png` (fish, equipment, portraits), `20-title-screen.png` / `20-title-screen-1280.png` / `20-title-screen-phone.png` (1920x1080, 1280x720, 844x390 landscape fits), and `21-ui-shops-chart-feedback.png` (all shop headers, chart and sliced reward frames). These are compositions of shipped sprites, not Unity captures. Validators passed for all 39 additions / 83 total sprites; the original 44 remain byte-identical. Original-kit rebuild now preserves the additive manifest and documentation.

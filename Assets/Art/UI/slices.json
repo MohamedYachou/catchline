@@ -723,6 +723,652 @@
       ],
       "use": "128px intended icon; 256px PNG (2x). Original authored silhouette.",
       "border_px": null
+    },
+    "logo-catchline": {
+      "file": "logo-catchline.png",
+      "source": "Art/Source/UI/Pass2/logo-catchline.svg",
+      "intended_size": [
+        512,
+        192
+      ],
+      "export_size": [
+        1024,
+        384
+      ],
+      "use": "Fredoka wordmark; cream keyline, C fishing line/hook and orange bobber. Preserve aspect ratio.",
+      "border_px": null,
+      "task": 5
+    },
+    "title-backdrop": {
+      "file": "title-backdrop.png",
+      "source": "Art/Source/render_title_backdrop.py",
+      "intended_size": [
+        960,
+        540
+      ],
+      "export_size": [
+        1920,
+        1080
+      ],
+      "border_px": null,
+      "task": 5,
+      "opaque": true,
+      "use": "Golden-hour harbour. Menu safe rectangle export x=80..650, y=420..940. Full-screen opaque RGBA backdrop; preserve aspect ratio."
+    },
+    "header-market": {
+      "file": "header-market.png",
+      "source": "Art/Source/UI/Pass2/header-market.svg",
+      "intended_size": [
+        620,
+        110
+      ],
+      "export_size": [
+        1240,
+        220
+      ],
+      "use": "Fish Market illustrated counter banner. Fredoka shop name baked; no slice.",
+      "border_px": null,
+      "task": 5
+    },
+    "header-harbourmaster": {
+      "file": "header-harbourmaster.png",
+      "source": "Art/Source/UI/Pass2/header-harbourmaster.svg",
+      "intended_size": [
+        620,
+        110
+      ],
+      "export_size": [
+        1240,
+        220
+      ],
+      "use": "Harbour Master illustrated counter banner. Fredoka shop name baked; no slice.",
+      "border_px": null,
+      "task": 5
+    },
+    "header-crewoffice": {
+      "file": "header-crewoffice.png",
+      "source": "Art/Source/UI/Pass2/header-crewoffice.svg",
+      "intended_size": [
+        620,
+        110
+      ],
+      "export_size": [
+        1240,
+        220
+      ],
+      "use": "Crew Office illustrated counter banner. Fredoka shop name baked; no slice.",
+      "border_px": null,
+      "task": 5
+    },
+    "header-chandlery": {
+      "file": "header-chandlery.png",
+      "source": "Art/Source/UI/Pass2/header-chandlery.svg",
+      "intended_size": [
+        620,
+        110
+      ],
+      "export_size": [
+        1240,
+        220
+      ],
+      "use": "Chandlery illustrated counter banner. Fredoka shop name baked; no slice.",
+      "border_px": null,
+      "task": 5
+    },
+    "header-supplies": {
+      "file": "header-supplies.png",
+      "source": "Art/Source/UI/Pass2/header-supplies.svg",
+      "intended_size": [
+        620,
+        110
+      ],
+      "export_size": [
+        1240,
+        220
+      ],
+      "use": "Supplies illustrated counter banner. Fredoka shop name baked; no slice.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-herring": {
+      "file": "fish-herring.png",
+      "source": "Art/Source/UI/Pass2/fish-herring.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "herring side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-mackerel": {
+      "file": "fish-mackerel.png",
+      "source": "Art/Source/UI/Pass2/fish-mackerel.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "mackerel side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-pollock": {
+      "file": "fish-pollock.png",
+      "source": "Art/Source/UI/Pass2/fish-pollock.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "pollock side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-seabass": {
+      "file": "fish-seabass.png",
+      "source": "Art/Source/UI/Pass2/fish-seabass.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "seabass side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-conger": {
+      "file": "fish-conger.png",
+      "source": "Art/Source/UI/Pass2/fish-conger.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "conger side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-plaice": {
+      "file": "fish-plaice.png",
+      "source": "Art/Source/UI/Pass2/fish-plaice.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "plaice side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-cod": {
+      "file": "fish-cod.png",
+      "source": "Art/Source/UI/Pass2/fish-cod.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "cod side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "fish-unknown": {
+      "file": "fish-unknown.png",
+      "source": "Art/Source/UI/Pass2/fish-unknown.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "unknown side portrait, head left. Species shapes and markings; fixed shared frame, not common physical scale.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-rodholder": {
+      "file": "icon-rodholder.png",
+      "source": "Art/Source/UI/Pass2/icon-rodholder.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. rodholder. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-bigcooler": {
+      "file": "icon-bigcooler.png",
+      "source": "Art/Source/UI/Pass2/icon-bigcooler.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. bigcooler. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-icebox": {
+      "file": "icon-icebox.png",
+      "source": "Art/Source/UI/Pass2/icon-icebox.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. icebox. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-lunchtin": {
+      "file": "icon-lunchtin.png",
+      "source": "Art/Source/UI/Pass2/icon-lunchtin.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. lunchtin. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-rod-fibreglass": {
+      "file": "icon-rod-fibreglass.png",
+      "source": "Art/Source/UI/Pass2/icon-rod-fibreglass.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. rod fibreglass. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-rod-carbon": {
+      "file": "icon-rod-carbon.png",
+      "source": "Art/Source/UI/Pass2/icon-rod-carbon.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. rod carbon. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-chart": {
+      "file": "icon-chart.png",
+      "source": "Art/Source/UI/Pass2/icon-chart.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. chart. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-squid": {
+      "file": "icon-squid.png",
+      "source": "Art/Source/UI/Pass2/icon-squid.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. squid. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-fuel": {
+      "file": "icon-fuel.png",
+      "source": "Art/Source/UI/Pass2/icon-fuel.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. fuel. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-net": {
+      "file": "icon-net.png",
+      "source": "Art/Source/UI/Pass2/icon-net.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. net. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-skiff": {
+      "file": "icon-skiff.png",
+      "source": "Art/Source/UI/Pass2/icon-skiff.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. skiff. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-trophy": {
+      "file": "icon-trophy.png",
+      "source": "Art/Source/UI/Pass2/icon-trophy.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. trophy. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "icon-gift": {
+      "file": "icon-gift.png",
+      "source": "Art/Source/UI/Pass2/icon-gift.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "128px logical item icon. gift. Preserve square frame.",
+      "border_px": null,
+      "task": 5
+    },
+    "sea-chart": {
+      "file": "sea-chart.png",
+      "source": "Art/Source/UI/Pass2/sea-chart.svg",
+      "intended_size": [
+        620,
+        260
+      ],
+      "export_size": [
+        1240,
+        520
+      ],
+      "use": "Unlabelled chart. Harbour left. Five area centres use the documented sea rectangle, no pins/text baked.",
+      "border_px": null,
+      "task": 5,
+      "sea_rect_px": [
+        280,
+        24,
+        1216,
+        496
+      ],
+      "areas_normalized": {
+        "Harbour mouth": [
+          0.3,
+          0.55
+        ],
+        "Kelp bank": [
+          0.42,
+          0.25
+        ],
+        "Sandbar": [
+          0.5,
+          0.78
+        ],
+        "Rocky point": [
+          0.7,
+          0.18
+        ],
+        "Deep channel": [
+          0.88,
+          0.55
+        ]
+      },
+      "area_centres_px": {
+        "Harbour mouth": [
+          560.8,
+          283.6
+        ],
+        "Kelp bank": [
+          673.12,
+          142.0
+        ],
+        "Sandbar": [
+          748.0,
+          392.16
+        ],
+        "Rocky point": [
+          935.2,
+          108.96
+        ],
+        "Deep channel": [
+          1103.68,
+          283.6
+        ]
+      }
+    },
+    "portrait-captain": {
+      "file": "portrait-captain.png",
+      "source": "Art/Source/UI/Pass2/portrait-captain.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Chibi captain bust; common face proportions and frame, role hat and clothing, no baked name.",
+      "border_px": null,
+      "task": 5
+    },
+    "portrait-deckhand": {
+      "file": "portrait-deckhand.png",
+      "source": "Art/Source/UI/Pass2/portrait-deckhand.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Chibi deckhand bust; common face proportions and frame, role hat and clothing, no baked name.",
+      "border_px": null,
+      "task": 5
+    },
+    "portrait-fisherman": {
+      "file": "portrait-fisherman.png",
+      "source": "Art/Source/UI/Pass2/portrait-fisherman.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Chibi fisherman bust; common face proportions and frame, role hat and clothing, no baked name.",
+      "border_px": null,
+      "task": 5
+    },
+    "portrait-veteran": {
+      "file": "portrait-veteran.png",
+      "source": "Art/Source/UI/Pass2/portrait-veteran.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Chibi veteran bust; common face proportions and frame, role hat and clothing, no baked name.",
+      "border_px": null,
+      "task": 5
+    },
+    "coin-pop": {
+      "file": "coin-pop.png",
+      "source": "Art/Source/UI/Pass2/coin-pop.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Coin reward burst; animate scale/fade in integration.",
+      "border_px": null,
+      "task": 5
+    },
+    "sparkle": {
+      "file": "sparkle.png",
+      "source": "Art/Source/UI/Pass2/sparkle.svg",
+      "intended_size": [
+        128,
+        128
+      ],
+      "export_size": [
+        256,
+        256
+      ],
+      "use": "Warm four-point sparkle. Transparent frame, no timing baked.",
+      "border_px": null,
+      "task": 5
+    },
+    "catch-card": {
+      "file": "catch-card.png",
+      "source": "Art/Source/UI/Pass2/catch-card.svg",
+      "intended_size": [
+        128,
+        160
+      ],
+      "export_size": [
+        256,
+        320
+      ],
+      "use": "Sliced catch reward card. Header 76px export high; keep title and fish as separate live elements.",
+      "border_px": {
+        "left": 64,
+        "bottom": 64,
+        "right": 64,
+        "top": 108
+      },
+      "task": 5
+    },
+    "popup-panel": {
+      "file": "popup-panel.png",
+      "source": "Art/Source/UI/Pass2/popup-panel.svg",
+      "intended_size": [
+        128,
+        160
+      ],
+      "export_size": [
+        256,
+        320
+      ],
+      "use": "Sliced dialog with fixed navy header. Content begins at y=108 export; buttons/text separate.",
+      "border_px": {
+        "left": 64,
+        "bottom": 64,
+        "right": 64,
+        "top": 108
+      },
+      "task": 5
+    },
+    "badge-new": {
+      "file": "badge-new.png",
+      "source": "Art/Source/UI/Pass2/badge-new.svg",
+      "intended_size": [
+        128,
+        64
+      ],
+      "export_size": [
+        256,
+        128
+      ],
+      "use": "Fredoka NEW badge. Baked English label; replace SVG lettering for localization.",
+      "border_px": null,
+      "task": 5
+    },
+    "daily-gift": {
+      "file": "daily-gift.png",
+      "source": "Art/Source/UI/Pass2/daily-gift.svg",
+      "intended_size": [
+        256,
+        256
+      ],
+      "export_size": [
+        512,
+        512
+      ],
+      "use": "Daily reward illustration: teal parcel, gold ribbon, orange bow, warm sparkles. No timer/quantity baked.",
+      "border_px": null,
+      "task": 5
     }
   }
 }
