@@ -1,6 +1,6 @@
 # Catchline / DayBoatKit
 
-10 editable Blender sources, binary FBX exports and orthographic game-angle previews. Runtime groups are under `Assets/Art/Models/`; sources and previews stay in this batch directory. No existing asset is overwritten. No Unity, Scripts or Scenes edits. New material names: **none** (NPCs reuse the Task06 hair palette).
+10 editable Blender sources, binary FBX exports and orthographic game-angle previews. Runtime groups are under `Assets/Art/Models/`; sources and previews stay in this batch directory. Six existing models polished in ART-009; see `../VisualPass09/REPORT.md` for compatibility and visual evidence. No Unity, Scripts or Scenes edits. New material names: **none** (NPCs reuse the Task06 hair palette).
 
 Build with Windows Blender5.2 and `Art/Source/build_day_boat.py`; optional arguments after `--` select assets. Run `validate_world_batches.py -- DayBoatKit` in Blender; create review sheets with Python/Pillow `world_contact_sheets.py DayBoatKit`. Validation checks source topology, materials, roots, finite bounds and zero-area faces; reimports every FBX and compares part names, pivots and bounds. Open surfaces are recorded in validation.json and intentional where noted.
 
@@ -10,16 +10,16 @@ Source coordinates X right,-Y forward,Z up. FBX converts to Unity X right,+Y up,
 
 | Asset | Group | Width x depth x height m | Triangles |
 | --- | --- | --- | ---: |
-| [DayBoat](Boats/DayBoat.blend) | Boats | 5.800 x 12.000 x 3.950 | 3258 |
+| [DayBoat](Boats/DayBoat.blend) | Boats | 5.800 x 12.000 x 3.950 | 6442 |
 | [NetDrum](Stations/NetDrum.blend) | Stations | 1.850 x 0.850 x 1.060 | 492 |
-| [PowerHauler](Stations/PowerHauler.blend) | Stations | 0.750 x 0.865 x 1.400 | 328 |
+| [PowerHauler](Stations/PowerHauler.blend) | Stations | 0.750 x 0.865 x 1.400 | 768 |
 | [Conveyor_Straight](Stations/Conveyor_Straight.blend) | Stations | 0.900 x 0.900 x 0.532 | 576 |
 | [Conveyor_Corner](Stations/Conveyor_Corner.blend) | Stations | 0.900 x 0.900 x 0.527 | 256 |
-| [SortingChute](Stations/SortingChute.blend) | Stations | 1.850 x 0.890 x 0.730 | 332 |
+| [SortingChute](Stations/SortingChute.blend) | Stations | 1.850 x 0.890 x 0.732 | 924 |
 | [FishHold](Stations/FishHold.blend) | Stations | 1.940 x 1.940 x 0.812 | 320 |
-| [IceMachine](Stations/IceMachine.blend) | Stations | 0.780 x 0.840 x 1.160 | 320 |
-| [GuttingTable](Stations/GuttingTable.blend) | Stations | 1.850 x 0.830 x 0.680 | 332 |
-| [Crane](Stations/Crane.blend) | Stations | 0.720 x 0.744 x 1.678 | 208 |
+| [IceMachine](Stations/IceMachine.blend) | Stations | 0.840 x 0.891 x 1.160 | 1264 |
+| [GuttingTable](Stations/GuttingTable.blend) | Stations | 1.850 x 0.863 x 0.928 | 900 |
+| [Crane](Stations/Crane.blend) | Stations | 0.720 x 0.785 x 1.755 | 824 |
 
 ## Parts and pivots
 
@@ -37,8 +37,10 @@ Source coordinates X right,-Y forward,Z up. FBX converts to Unity X right,+Y up,
 - `RodSocket_4`: (2.7500, 0.5800, -3.5000)
 - `RodSocket_5`: (2.7500, 0.5800, 0.0000)
 - `RodSocket_6`: (2.7500, 0.5800, 2.0000)
+- `CabinFittings`: (0.0000, 0.0000, 0.0000)
+- `HullFittings`: (0.0000, 0.0000, 0.0000)
 
-Exact deck X[-2.5,2.5],sourceY[-5,5],topZ=0;UnityZ[-5,5]. Cabin X[-1.5,1.5],UnityZ[3,5],3acrossx2fore-aft,rows8/9 columns1/2/3. Port hauler gap UnityZ[-4,-2.5]. 6 sockets are rigid attachment origins. Radar/mast static.
+Pass09 adds CabinFittings and HullFittings only; original boat part geometry, sockets, rail gap and cabin/deck bounds retained. Fittings are static, use existing palette, and stay outside free build tiles. Exact deck X[-2.5,2.5],sourceY[-5,5],topZ=0;UnityZ[-5,5]. Cabin X[-1.5,1.5],UnityZ[3,5],3acrossx2fore-aft,rows8/9 columns1/2/3. Port hauler gap UnityZ[-4,-2.5]. 6 sockets are rigid attachment origins. Radar/mast static.
 
 ### NetDrum
 
@@ -78,6 +80,9 @@ UV-less ridged Belt. Recycle/translate Straight ridges or rotate Corner Belt abo
 ### IceMachine
 
 - `IceMachine`: (0.0000, 0.0000, 0.0000)
+- `OutputIce`: (0.0000, 0.0000, 0.0000)
+
+Pass09 OutputIce is a separate optional mesh at origin; consumer may hide it for an empty collector. No gameplay state or animation is supplied.
 
 ### GuttingTable
 

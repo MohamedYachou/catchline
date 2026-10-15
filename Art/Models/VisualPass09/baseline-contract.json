@@ -1,0 +1,991 @@
+{
+  "assets": [
+    {
+      "asset": "DayBoat",
+      "group": "Boats",
+      "source": "Art/Models/DayBoatKit/Boats/DayBoat.blend",
+      "fbx": "Assets/Art/Models/Boats/DayBoat.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Boats/DayBoat.png",
+      "triangles": 3258,
+      "bounds_min_blender": [
+        -2.9000000953674316,
+        -6.5,
+        -1.100000023841858
+      ],
+      "bounds_max_blender": [
+        2.9000000953674316,
+        5.5,
+        2.8499999046325684
+      ],
+      "dimensions_width_depth_height_m": [
+        5.800000190734863,
+        12.0,
+        3.9499999284744263
+      ],
+      "parts": [
+        {
+          "name": "Hull",
+          "triangles": 66,
+          "vertices": 35,
+          "bounds_min_blender": [
+            -2.9000000953674316,
+            -6.5,
+            -1.100000023841858
+          ],
+          "bounds_max_blender": [
+            2.9000000953674316,
+            5.5,
+            0.6000000238418579
+          ],
+          "mesh_sha256": "ce6798c33193714299cf068492a6b495471c97544d7866b840c46a041e3a55c6",
+          "materials": [
+            "M_DeckWood",
+            "M_HullNavy"
+          ]
+        },
+        {
+          "name": "WaterlineStripe",
+          "triangles": 14,
+          "vertices": 14,
+          "bounds_min_blender": [
+            -2.7260000705718994,
+            -6.389500141143799,
+            -0.4000000059604645
+          ],
+          "bounds_max_blender": [
+            2.7260000705718994,
+            5.406499862670898,
+            -0.25
+          ],
+          "mesh_sha256": "f4eb4f97b6885dd8301c1fa28e8e66768f7f9e3298328fc447042ea8fd79548f",
+          "materials": [
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "PlankDeck",
+          "triangles": 842,
+          "vertices": 404,
+          "bounds_min_blender": [
+            -2.5,
+            -5.0,
+            -0.05000000074505806
+          ],
+          "bounds_max_blender": [
+            2.5,
+            5.0,
+            0.0
+          ],
+          "mesh_sha256": "cf86c3c4b7867b99a7135167ebc823de1b35004d2646527271b3c9d3c02df254",
+          "materials": [
+            "M_DeckWood",
+            "M_WoodHighlight"
+          ]
+        },
+        {
+          "name": "WheelhouseBody",
+          "triangles": 44,
+          "vertices": 24,
+          "bounds_min_blender": [
+            -1.5,
+            -5.0,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.5,
+            -3.0,
+            1.649999976158142
+          ],
+          "mesh_sha256": "89108f053a403705b18a3060a77286ebceeef9f5859b700045c8155100fc8b0e",
+          "materials": [
+            "M_RailIvory"
+          ]
+        },
+        {
+          "name": "RoofWindowsDoorMastRadar",
+          "triangles": 708,
+          "vertices": 390,
+          "bounds_min_blender": [
+            -1.590000033378601,
+            -5.079999923706055,
+            0.0
+          ],
+          "bounds_max_blender": [
+            1.590000033378601,
+            -2.9124999046325684,
+            2.8499999046325684
+          ],
+          "mesh_sha256": "9376f5d1403096f8768a786375d82608b8e86f5ef778b60aa841a6c08f5957cd",
+          "materials": [
+            "M_HullBlue",
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Rails",
+          "triangles": 1008,
+          "vertices": 576,
+          "bounds_min_blender": [
+            -2.865000009536743,
+            -6.344075679779053,
+            0.029999999329447746
+          ],
+          "bounds_max_blender": [
+            2.865000009536743,
+            5.394999980926514,
+            0.6975000500679016
+          ],
+          "mesh_sha256": "dd2c0a24a64e4414c84a28f3f2556846ca377b50a56771f325e8db424a812551",
+          "materials": [
+            "M_RailIvory"
+          ]
+        },
+        {
+          "name": "RodSocket_1",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.813999891281128,
+            1.6859999895095825,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            -2.686000108718872,
+            1.8140000104904175,
+            0.75
+          ],
+          "mesh_sha256": "addddb385e9086f1ba4f70d66c522760f33e0dba4af092e3f6ebbe8546fd5312",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_2",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.813999891281128,
+            -0.06400000303983688,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            -2.686000108718872,
+            0.06400000303983688,
+            0.75
+          ],
+          "mesh_sha256": "ad93922e3f744da35da7169c95a005ad4c1564e4b52ecec32c8de90e366e07c4",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_3",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -2.813999891281128,
+            -2.063999891281128,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            -2.686000108718872,
+            -1.9359999895095825,
+            0.75
+          ],
+          "mesh_sha256": "acbb490e80e82ed8187e349307ee25a45fb9ecbe32cfcc556c6ed723b554b7d1",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_4",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            2.686000108718872,
+            3.436000108718872,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            2.813999891281128,
+            3.563999891281128,
+            0.75
+          ],
+          "mesh_sha256": "2fce374b90a368f4b1daa2d42a4a06f3db90b01391bd74b97565357acfa8d6dc",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_5",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            2.686000108718872,
+            -0.06400000303983688,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            2.813999891281128,
+            0.06400000303983688,
+            0.75
+          ],
+          "mesh_sha256": "ad93922e3f744da35da7169c95a005ad4c1564e4b52ecec32c8de90e366e07c4",
+          "materials": [
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "RodSocket_6",
+          "triangles": 96,
+          "vertices": 48,
+          "bounds_min_blender": [
+            2.686000108718872,
+            -2.063999891281128,
+            0.5799999833106995
+          ],
+          "bounds_max_blender": [
+            2.813999891281128,
+            -1.9359999895095825,
+            0.75
+          ],
+          "mesh_sha256": "acbb490e80e82ed8187e349307ee25a45fb9ecbe32cfcc556c6ed723b554b7d1",
+          "materials": [
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Hull": [
+          0,
+          0,
+          0
+        ],
+        "WaterlineStripe": [
+          0,
+          0,
+          0
+        ],
+        "PlankDeck": [
+          0,
+          0,
+          0
+        ],
+        "WheelhouseBody": [
+          0,
+          0,
+          0
+        ],
+        "RoofWindowsDoorMastRadar": [
+          0,
+          0,
+          0
+        ],
+        "Rails": [
+          0,
+          0,
+          0
+        ],
+        "RodSocket_1": [
+          -2.75,
+          1.75,
+          0.58
+        ],
+        "RodSocket_2": [
+          -2.75,
+          0,
+          0.58
+        ],
+        "RodSocket_3": [
+          -2.75,
+          -2,
+          0.58
+        ],
+        "RodSocket_4": [
+          2.75,
+          3.5,
+          0.58
+        ],
+        "RodSocket_5": [
+          2.75,
+          0,
+          0.58
+        ],
+        "RodSocket_6": [
+          2.75,
+          -2,
+          0.58
+        ]
+      },
+      "notes": [
+        "Exact deck X[-2.5,2.5],sourceY[-5,5],topZ=0;UnityZ[-5,5]. Cabin X[-1.5,1.5],UnityZ[3,5],3acrossx2fore-aft,rows8/9 columns1/2/3. Port hauler gap UnityZ[-4,-2.5]. 6 sockets are rigid attachment origins. Radar/mast static."
+      ]
+    },
+    {
+      "asset": "NetDrum",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/NetDrum.blend",
+      "fbx": "Assets/Art/Models/Stations/NetDrum.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/NetDrum.png",
+      "triangles": 492,
+      "bounds_min_blender": [
+        -0.925000011920929,
+        -0.42500001192092896,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.925000011920929,
+        0.42500001192092896,
+        1.059999942779541
+      ],
+      "dimensions_width_depth_height_m": [
+        1.850000023841858,
+        0.8500000238418579,
+        1.059999942779541
+      ],
+      "parts": [
+        {
+          "name": "Frame",
+          "triangles": 132,
+          "vertices": 72,
+          "bounds_min_blender": [
+            -0.925000011920929,
+            -0.42500001192092896,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.925000011920929,
+            0.42500001192092896,
+            0.7400000095367432
+          ],
+          "mesh_sha256": "4a7e84b3a276fb0de196745b3fed1c770571faa8639b17ec2c1d06bff5cb36ad",
+          "materials": [
+            "M_HullNavy"
+          ]
+        },
+        {
+          "name": "Drum",
+          "triangles": 360,
+          "vertices": 208,
+          "bounds_min_blender": [
+            -0.75,
+            -0.3700000047683716,
+            0.3199999928474426
+          ],
+          "bounds_max_blender": [
+            0.75,
+            0.3700000047683716,
+            1.059999942779541
+          ],
+          "mesh_sha256": "9c547d104a386ab41dae7506fdb0f77c74f2cca58303d287eb354f553792e567",
+          "materials": [
+            "M_Rope",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Frame": [
+          0,
+          0,
+          0
+        ],
+        "Drum": [
+          0,
+          0,
+          0.69
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "PowerHauler",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/PowerHauler.blend",
+      "fbx": "Assets/Art/Models/Stations/PowerHauler.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/PowerHauler.png",
+      "triangles": 328,
+      "bounds_min_blender": [
+        -0.375,
+        -0.49000000953674316,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.375,
+        0.375,
+        1.399999976158142
+      ],
+      "dimensions_width_depth_height_m": [
+        0.75,
+        0.8650000095367432,
+        1.399999976158142
+      ],
+      "parts": [
+        {
+          "name": "Frame",
+          "triangles": 100,
+          "vertices": 56,
+          "bounds_min_blender": [
+            -0.375,
+            -0.375,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.375,
+            0.375,
+            1.2059422731399536
+          ],
+          "mesh_sha256": "846f8afd27ebbab9c81f6a6631fd1d82e14c62b9e0989b40ce7bd908b935e73f",
+          "materials": [
+            "M_HullNavy",
+            "M_SafetyOrange"
+          ]
+        },
+        {
+          "name": "Sheave",
+          "triangles": 228,
+          "vertices": 120,
+          "bounds_min_blender": [
+            -0.09000000357627869,
+            -0.49000000953674316,
+            0.9199999570846558
+          ],
+          "bounds_max_blender": [
+            0.09000000357627869,
+            -0.01000000536441803,
+            1.399999976158142
+          ],
+          "mesh_sha256": "adf03ff3351a81ea5f95c2db9420d76e06f5df7da81d1ed5e53efe1174e53cb3",
+          "materials": [
+            "M_Rubber",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Frame": [
+          0,
+          0,
+          0
+        ],
+        "Sheave": [
+          0,
+          -0.25,
+          1.16
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "Conveyor_Straight",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/Conveyor_Straight.blend",
+      "fbx": "Assets/Art/Models/Stations/Conveyor_Straight.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/Conveyor_Straight.png",
+      "triangles": 576,
+      "bounds_min_blender": [
+        -0.44999998807907104,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.5320000052452087
+      ],
+      "dimensions_width_depth_height_m": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.5320000052452087
+      ],
+      "parts": [
+        {
+          "name": "Frame",
+          "triangles": 92,
+          "vertices": 56,
+          "bounds_min_blender": [
+            -0.44999998807907104,
+            -0.44999998807907104,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.44999998807907104,
+            0.44999998807907104,
+            0.47999998927116394
+          ],
+          "mesh_sha256": "fa159ad9484d100f4c849a91281c50afb51badc3b8a83ba830c3a60d78a463ec",
+          "materials": [
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Belt",
+          "triangles": 484,
+          "vertices": 264,
+          "bounds_min_blender": [
+            -0.3400000035762787,
+            -0.4399999976158142,
+            0.47999998927116394
+          ],
+          "bounds_max_blender": [
+            0.3400000035762787,
+            0.4399999976158142,
+            0.5320000052452087
+          ],
+          "mesh_sha256": "1c8804194e622424cc9647236f35784ee9ff3c5e76bb23f6b98be93a54dc620d",
+          "materials": [
+            "M_Rubber",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Frame": [
+          0,
+          0,
+          0
+        ],
+        "Belt": [
+          0,
+          0,
+          0.5
+        ]
+      },
+      "notes": [
+        "UV-less ridged Belt. Recycle/translate Straight ridges or rotate Corner Belt about centre path in consumer; no texture scrolling baked."
+      ]
+    },
+    {
+      "asset": "Conveyor_Corner",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/Conveyor_Corner.blend",
+      "fbx": "Assets/Art/Models/Stations/Conveyor_Corner.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/Conveyor_Corner.png",
+      "triangles": 256,
+      "bounds_min_blender": [
+        -0.44999998807907104,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.5270000100135803
+      ],
+      "dimensions_width_depth_height_m": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.5270000100135803
+      ],
+      "parts": [
+        {
+          "name": "Frame",
+          "triangles": 92,
+          "vertices": 56,
+          "bounds_min_blender": [
+            -0.44999998807907104,
+            -0.44999998807907104,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.44999998807907104,
+            0.44999998807907104,
+            0.47999998927116394
+          ],
+          "mesh_sha256": "fa159ad9484d100f4c849a91281c50afb51badc3b8a83ba830c3a60d78a463ec",
+          "materials": [
+            "M_HullNavy",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "Belt",
+          "triangles": 164,
+          "vertices": 122,
+          "bounds_min_blender": [
+            -0.40700000524520874,
+            -0.40700000524520874,
+            0.5099999904632568
+          ],
+          "bounds_max_blender": [
+            0.320000022649765,
+            0.320000022649765,
+            0.5270000100135803
+          ],
+          "mesh_sha256": "34b36f91fe3477381f163fb69fa26290b894f80b90b662693235c8f26ead06d4",
+          "materials": [
+            "M_Rubber",
+            "M_SeaTeal"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Frame": [
+          0,
+          0,
+          0
+        ],
+        "Belt": [
+          -0.4,
+          -0.4,
+          0.5
+        ]
+      },
+      "notes": [
+        "UV-less ridged Belt. Recycle/translate Straight ridges or rotate Corner Belt about centre path in consumer; no texture scrolling baked."
+      ]
+    },
+    {
+      "asset": "SortingChute",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/SortingChute.blend",
+      "fbx": "Assets/Art/Models/Stations/SortingChute.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/SortingChute.png",
+      "triangles": 332,
+      "bounds_min_blender": [
+        -0.925000011920929,
+        -0.4099999964237213,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.925000011920929,
+        0.47999998927116394,
+        0.7300000190734863
+      ],
+      "dimensions_width_depth_height_m": [
+        1.850000023841858,
+        0.8899999856948853,
+        0.7300000190734863
+      ],
+      "parts": [
+        {
+          "name": "SortingChute",
+          "triangles": 332,
+          "vertices": 184,
+          "bounds_min_blender": [
+            -0.925000011920929,
+            -0.4099999964237213,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.925000011920929,
+            0.47999998927116394,
+            0.7300000190734863
+          ],
+          "mesh_sha256": "a3a21a4291fc96a3f1a9b8645fc5376cc004f022462f90a606a0bfb6fe12c612",
+          "materials": [
+            "M_HullNavy",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "SortingChute": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "FishHold",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/FishHold.blend",
+      "fbx": "Assets/Art/Models/Stations/FishHold.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/FishHold.png",
+      "triangles": 320,
+      "bounds_min_blender": [
+        -0.9700000286102295,
+        -0.9700000286102295,
+        -0.6599999666213989
+      ],
+      "bounds_max_blender": [
+        0.9700000286102295,
+        0.9700000286102295,
+        0.1525000035762787
+      ],
+      "dimensions_width_depth_height_m": [
+        1.940000057220459,
+        1.940000057220459,
+        0.8124999701976776
+      ],
+      "parts": [
+        {
+          "name": "HoldWell",
+          "triangles": 172,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.9700000286102295,
+            -0.9700000286102295,
+            -0.6599999666213989
+          ],
+          "bounds_max_blender": [
+            0.9700000286102295,
+            0.9700000286102295,
+            0.07000000029802322
+          ],
+          "mesh_sha256": "94fddfd3a61e42280f086c6ec9b67c55baed97f34dcbd574ca170b9a4ff2df7f",
+          "materials": [
+            "M_HullNavy",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        },
+        {
+          "name": "HatchLid",
+          "triangles": 148,
+          "vertices": 88,
+          "bounds_min_blender": [
+            -0.9100000262260437,
+            -0.9100000262260437,
+            0.04000000283122063
+          ],
+          "bounds_max_blender": [
+            0.9100000262260437,
+            0.9100000262260437,
+            0.1525000035762787
+          ],
+          "mesh_sha256": "80361c79225a910994420dd4db4957a1fd20ed2360ea5116270e2a07a0b59c4c",
+          "materials": [
+            "M_DeckWood",
+            "M_Steel",
+            "M_WoodRecess"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "HoldWell": [
+          0,
+          0,
+          0
+        ],
+        "HatchLid": [
+          0,
+          0.91,
+          0.075
+        ]
+      },
+      "notes": [
+        "2x2 footprint, inset below-deck well. Deck must provide a matching opening. HatchLid sourceX hinge at(0,.91,.075)."
+      ]
+    },
+    {
+      "asset": "IceMachine",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/IceMachine.blend",
+      "fbx": "Assets/Art/Models/Stations/IceMachine.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/IceMachine.png",
+      "triangles": 320,
+      "bounds_min_blender": [
+        -0.38999998569488525,
+        -0.3799999952316284,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.38999998569488525,
+        0.4599999785423279,
+        1.159999966621399
+      ],
+      "dimensions_width_depth_height_m": [
+        0.7799999713897705,
+        0.8399999737739563,
+        1.159999966621399
+      ],
+      "parts": [
+        {
+          "name": "IceMachine",
+          "triangles": 320,
+          "vertices": 174,
+          "bounds_min_blender": [
+            -0.38999998569488525,
+            -0.3799999952316284,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.38999998569488525,
+            0.4599999785423279,
+            1.159999966621399
+          ],
+          "mesh_sha256": "8a4fa9c5048989450098d54bddcc7be63aa2d23c7a9cdfda55b8e29270b92258",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "IceMachine": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "GuttingTable",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/GuttingTable.blend",
+      "fbx": "Assets/Art/Models/Stations/GuttingTable.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/GuttingTable.png",
+      "triangles": 332,
+      "bounds_min_blender": [
+        -0.925000011920929,
+        -0.41499999165534973,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.925000011920929,
+        0.41499999165534973,
+        0.6800000071525574
+      ],
+      "dimensions_width_depth_height_m": [
+        1.850000023841858,
+        0.8299999833106995,
+        0.6800000071525574
+      ],
+      "parts": [
+        {
+          "name": "GuttingTable",
+          "triangles": 332,
+          "vertices": 184,
+          "bounds_min_blender": [
+            -0.925000011920929,
+            -0.41499999165534973,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.925000011920929,
+            0.41499999165534973,
+            0.6800000071525574
+          ],
+          "mesh_sha256": "cc214105db391379a3f96b15b841dc6a028d453732a2864ea4603175f438cdff",
+          "materials": [
+            "M_HullNavy",
+            "M_RailIvory",
+            "M_SafetyOrange",
+            "M_SeaTeal",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "GuttingTable": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": []
+    },
+    {
+      "asset": "Crane",
+      "group": "Stations",
+      "source": "Art/Models/DayBoatKit/Stations/Crane.blend",
+      "fbx": "Assets/Art/Models/Stations/Crane.fbx",
+      "preview": "Art/Models/DayBoatKit/Previews/Stations/Crane.png",
+      "triangles": 208,
+      "bounds_min_blender": [
+        -0.36000001430511475,
+        -0.38411083817481995,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.36000001430511475,
+        0.36000001430511475,
+        1.6781033277511597
+      ],
+      "dimensions_width_depth_height_m": [
+        0.7200000286102295,
+        0.7441108524799347,
+        1.6781033277511597
+      ],
+      "parts": [
+        {
+          "name": "Pedestal",
+          "triangles": 92,
+          "vertices": 48,
+          "bounds_min_blender": [
+            -0.36000001430511475,
+            -0.36000001430511475,
+            0.0
+          ],
+          "bounds_max_blender": [
+            0.36000001430511475,
+            0.36000001430511475,
+            0.949999988079071
+          ],
+          "mesh_sha256": "c362f453064933258cbedd19428948e84c1b89846e3931d6e27e0258f666a5d5",
+          "materials": [
+            "M_HullNavy"
+          ]
+        },
+        {
+          "name": "Boom",
+          "triangles": 116,
+          "vertices": 64,
+          "bounds_min_blender": [
+            -0.07000000029802322,
+            -0.38411083817481995,
+            0.7061468362808228
+          ],
+          "bounds_max_blender": [
+            0.10996921360492706,
+            0.06411084532737732,
+            1.6781033277511597
+          ],
+          "mesh_sha256": "a1aac24058eef42452b91700fbd338e4dff16e1bea96acb82d2eefcba7ae9c84",
+          "materials": [
+            "M_Rope",
+            "M_SafetyOrange",
+            "M_Steel"
+          ]
+        }
+      ],
+      "pivots_blender": {
+        "Pedestal": [
+          0,
+          0,
+          0
+        ],
+        "Boom": [
+          0,
+          0,
+          0.92
+        ]
+      },
+      "notes": [
+        "Compact stored Boom inside1x1 footprint; localX hinge. Operational sweep/rope placement require collision handling."
+      ]
+    }
+  ],
+  "palette_srgb": {
+    "M_HullNavy": "#173F57",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Rope": "#D1AF76",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B",
+    "M_SeaTeal": "#168F9F",
+    "M_BandIvory": "#F3DEA1",
+    "M_DeckWood": "#C58B50",
+    "M_WoodHighlight": "#DFB77A",
+    "M_WoodRecess": "#8C5A36",
+    "M_HullBlue": "#2A6685",
+    "M_OilskinYellow": "#E6AD38",
+    "M_Skin": "#B9784B",
+    "M_KelpGreen": "#477A56",
+    "M_FishSilver": "#BAC9C6",
+    "M_HairChestnut": "#50392E",
+    "M_HairSilver": "#ADB6AF"
+  }
+}

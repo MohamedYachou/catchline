@@ -5,7 +5,7 @@
     {
       "asset": "DayBoat",
       "source_and_fbx_passed": true,
-      "parts": 12,
+      "parts": 14,
       "topology": [
         {
           "part": "Hull",
@@ -64,6 +64,16 @@
         },
         {
           "part": "RodSocket_6",
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0
+        },
+        {
+          "part": "CabinFittings",
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0
+        },
+        {
+          "part": "HullFittings",
           "boundary_edges": 0,
           "nonmanifold_edges": 0
         }
@@ -169,10 +179,15 @@
     {
       "asset": "IceMachine",
       "source_and_fbx_passed": true,
-      "parts": 1,
+      "parts": 2,
       "topology": [
         {
           "part": "IceMachine",
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0
+        },
+        {
+          "part": "OutputIce",
           "boundary_edges": 0,
           "nonmanifold_edges": 0
         }
