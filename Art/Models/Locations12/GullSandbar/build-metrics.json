@@ -1,0 +1,87 @@
+{
+  "asset": "GullSandbar",
+  "triangles": 9750,
+  "budget": 24000,
+  "parts": [
+    {
+      "name": "Terrain_ConnectedShoalsAndSeabed",
+      "triangles": 9374,
+      "vertices": 4689,
+      "bounds_min_blender": [
+        -10.705780982971191,
+        -12.575052261352539,
+        -4.199999809265137
+      ],
+      "bounds_max_blender": [
+        13.772870063781738,
+        11.650794982910156,
+        0.4749999940395355
+      ],
+      "mesh_sha256": "1d0c3a5b8f5565c1f6b53eeb53a99cb8c27ab00dedb8c7b8ae62c2f3da02d6a8",
+      "materials": [
+        "M_CoastSand",
+        "M_CoastWet",
+        "M_SeabedSand"
+      ]
+    },
+    {
+      "name": "SandRidge_OldMooring",
+      "triangles": 140,
+      "vertices": 80,
+      "bounds_min_blender": [
+        -1.1865400075912476,
+        -4.710483074188232,
+        0.35557544231414795
+      ],
+      "bounds_max_blender": [
+        -0.34157049655914307,
+        -4.004329681396484,
+        0.8689048886299133
+      ],
+      "mesh_sha256": "aed55d8e74e3cfcf44bd9bcf2249ca5fb55456782125bba19f612141f744b924",
+      "materials": [
+        "M_Rope",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "SandRidge_SparseDuneGrass",
+      "triangles": 180,
+      "vertices": 120,
+      "bounds_min_blender": [
+        -1.4451818466186523,
+        -5.85291051864624,
+        0.29764023423194885
+      ],
+      "bounds_max_blender": [
+        5.92657995223999,
+        -2.271916627883911,
+        0.7352283000946045
+      ],
+      "mesh_sha256": "ff76c25901a93ded4a58a58658211b0918ec651ca5b3aa940252446290ff6ab8",
+      "materials": [
+        "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "SandRidge_GroundedDriftwood",
+      "triangles": 56,
+      "vertices": 32,
+      "bounds_min_blender": [
+        -2.0866565704345703,
+        -3.7210628986358643,
+        0.2446879744529724
+      ],
+      "bounds_max_blender": [
+        -1.209876298904419,
+        -3.23818039894104,
+        0.5585195422172546
+      ],
+      "mesh_sha256": "3737d5d8c8016ae7a3ac2d90e60755629a026be80a623bdfd0dc9733c6d49f9c",
+      "materials": [
+        "M_WoodHighlight"
+      ]
+    }
+  ]
+}

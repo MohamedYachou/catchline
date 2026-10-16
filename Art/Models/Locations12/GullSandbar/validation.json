@@ -1,0 +1,57 @@
+{
+  "all_passed": true,
+  "asset": "GullSandbar",
+  "blender": "5.2.1 LTS",
+  "fbx_version": 7400,
+  "mesh_count": 4,
+  "triangles": 9750,
+  "budget": 24000,
+  "saved_source_and_actual_fbx": true,
+  "unity_x_compensation": true,
+  "blender_roundtrip_x_mirror_normalized": true,
+  "exact_camera_projection": true,
+  "boat_cast_channel_rays": 513,
+  "actual_fbx_channel_rays": 513,
+  "actual_vertex_positions_match": true,
+  "protected_files_unchanged": 197,
+  "plunder_files_unchanged": 5,
+  "terrain_connected_components": 1,
+  "topology": [
+    {
+      "part": "Terrain_ConnectedShoalsAndSeabed",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "SandRidge_OldMooring",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 5
+    },
+    {
+      "part": "SandRidge_SparseDuneGrass",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 15
+    },
+    {
+      "part": "SandRidge_GroundedDriftwood",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 2
+    }
+  ],
+  "waterline_segment_count": 386,
+  "used_materials": {
+    "M_SeabedSand": "#BEA77D",
+    "M_CoastSand": "#D9C393",
+    "M_CoastWet": "#696F64",
+    "M_WoodRecess": "#8C5A36",
+    "M_WoodHighlight": "#DFB77A",
+    "M_Rope": "#D1AF76",
+    "M_CoastGrassLight": "#98A96B"
+  },
+  "fbx_sha256": "e37cfc1d17bda3e91b0bf497f318fa1a554e866e3e90f67772dea86b03c348f0",
+  "native_unity_check": "Deferred to Windows; no ART-012 scratch run or runtime visual acceptance claimed."
+}

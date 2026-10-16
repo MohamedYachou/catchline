@@ -1,0 +1,45 @@
+{
+  "all_passed": true,
+  "asset": "GullDeepChannel",
+  "blender": "5.2.1 LTS",
+  "fbx_version": 7400,
+  "mesh_count": 3,
+  "triangles": 9554,
+  "budget": 24000,
+  "saved_source_and_actual_fbx": true,
+  "unity_x_compensation": true,
+  "blender_roundtrip_x_mirror_normalized": true,
+  "exact_camera_projection": true,
+  "boat_cast_channel_rays": 513,
+  "actual_fbx_channel_rays": 513,
+  "actual_vertex_positions_match": true,
+  "protected_files_unchanged": 197,
+  "plunder_files_unchanged": 5,
+  "terrain_connected_components": 1,
+  "topology": [
+    {
+      "part": "Terrain_ConnectedShoalsAndSeabed",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Channel_SubmergedShoulder_0",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Channel_SubmergedShoulder_1",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    }
+  ],
+  "waterline_segment_count": 0,
+  "used_materials": {
+    "M_CoastWet": "#696F64"
+  },
+  "fbx_sha256": "3470d47fb34c1ccbf9cc2fcffe5b67239d5a624e646481c762b536ee72a84c00",
+  "native_unity_check": "Deferred to Windows; no ART-012 scratch run or runtime visual acceptance claimed."
+}

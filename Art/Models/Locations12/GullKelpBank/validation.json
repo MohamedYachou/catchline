@@ -1,0 +1,74 @@
+{
+  "all_passed": true,
+  "asset": "GullKelpBank",
+  "blender": "5.2.1 LTS",
+  "fbx_version": 7400,
+  "mesh_count": 7,
+  "triangles": 12372,
+  "budget": 24000,
+  "saved_source_and_actual_fbx": true,
+  "unity_x_compensation": true,
+  "blender_roundtrip_x_mirror_normalized": true,
+  "exact_camera_projection": true,
+  "boat_cast_channel_rays": 513,
+  "actual_fbx_channel_rays": 513,
+  "actual_vertex_positions_match": true,
+  "protected_files_unchanged": 197,
+  "plunder_files_unchanged": 5,
+  "terrain_connected_components": 1,
+  "topology": [
+    {
+      "part": "Terrain_ConnectedShoalsAndSeabed",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Kelp_RootedBroadFronds_00",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 9
+    },
+    {
+      "part": "Kelp_RootedBroadFronds_01",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 6
+    },
+    {
+      "part": "Kelp_RootedBroadFronds_02",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 6
+    },
+    {
+      "part": "Kelp_RootedBroadFronds_03",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 9
+    },
+    {
+      "part": "Kelp_RootedBroadFronds_04",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 6
+    },
+    {
+      "part": "Land_KelpReefSpine_ConnectedStrata",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    }
+  ],
+  "waterline_segment_count": 52,
+  "used_materials": {
+    "M_SeabedSand": "#BEA77D",
+    "M_CoastStone": "#A99A7C",
+    "M_CoastWet": "#696F64",
+    "M_KelpGreen": "#477A56",
+    "M_CoastGrass": "#729053",
+    "M_CoastStoneLight": "#C9B89A"
+  },
+  "fbx_sha256": "4a880ddea7835c4b0f07542fc211e313339792275347cc86a3535a66fc8d67ee",
+  "native_unity_check": "Deferred to Windows; no ART-012 scratch run or runtime visual acceptance claimed."
+}

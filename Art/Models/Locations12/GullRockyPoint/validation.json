@@ -1,0 +1,73 @@
+{
+  "all_passed": true,
+  "asset": "GullRockyPoint",
+  "blender": "5.2.1 LTS",
+  "fbx_version": 7400,
+  "mesh_count": 7,
+  "triangles": 11556,
+  "budget": 24000,
+  "saved_source_and_actual_fbx": true,
+  "unity_x_compensation": true,
+  "blender_roundtrip_x_mirror_normalized": true,
+  "exact_camera_projection": true,
+  "boat_cast_channel_rays": 513,
+  "actual_fbx_channel_rays": 513,
+  "actual_vertex_positions_match": true,
+  "protected_files_unchanged": 197,
+  "plunder_files_unchanged": 5,
+  "terrain_connected_components": 1,
+  "topology": [
+    {
+      "part": "Terrain_ConnectedShoalsAndSeabed",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Land_RockyPoint_JoinedCliffSpur_ConnectedStrata",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Land_RockyPoint_LowTidalLedge_ConnectedStrata",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Cliff_AttachedFracture_0",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Cliff_AttachedFracture_1",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "Cliff_AttachedFracture_2",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 1
+    },
+    {
+      "part": "RockyPoint_CrestGrass",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "closed_components": 15
+    }
+  ],
+  "waterline_segment_count": 169,
+  "used_materials": {
+    "M_CoastWet": "#696F64",
+    "M_CoastStone": "#A99A7C",
+    "M_CoastStoneLight": "#C9B89A",
+    "M_CoastGrass": "#729053",
+    "M_CoastGrassLight": "#98A96B"
+  },
+  "fbx_sha256": "b42c3ca41a43ba24b1781adb1eb5bd7deec7cb331a03cd5a66e3f51184b465ca",
+  "native_unity_check": "Deferred to Windows; no ART-012 scratch run or runtime visual acceptance claimed."
+}
