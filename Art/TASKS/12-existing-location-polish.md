@@ -34,7 +34,11 @@ Blender validation explicitly normalizes it. Matching placement manifests carry
 expected local Unity mesh centres and all material names. No new palette slots.
 
 One closed connected terrain per map; bounded coastal parts are rooted in that
-terrain. Kelp has broad underwater rooted leaves and just three surface tips.
+terrain. Kelp review correction: broad blade bodies must sit near the surface and read
+through shallow water, with open cluster gaps. Thirty curved blades on ten
+rooted stems replace the rejected narrow vertical fronds; just three narrow
+tips breach. Inspect a quick draft before final renders. Native visibility
+through Windows coastal water remains a separate required review.
 Sandbar has a single connected exposed ridge, sloping shoals and lagoon contour.
 Rocky point has a connected submerged shelf supporting joined cliff spurs.
 Deep channel has a broad clear trough and only far-edge submerged toe ribs.

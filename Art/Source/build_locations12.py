@@ -106,17 +106,31 @@ def terrain():
         face.use_smooth=face.index<(n-1)*(m-1)
     bm=bmesh.new();bm.from_mesh(me);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(me);bm.free();me.update()
 
-def frond(g,s,t,h,height,width,phase,mat):
-    # Closed curved broad leaf, rooted below actual seabed. Low section count, no planes.
-    rings=[];seg=9
+def frond(g,s,t,h,length,width,phase,mat,tip=False):
+    # Rooted stipe and broad arcing blade. The widest silhouette lives just
+    # under water, not halfway down a vertical spear. Distinct closed volumes.
+    ds,dt=math.cos(phase),math.sin(phase)
+    start=-.17
+    elbow=point(s+.08*ds,t+.08*dt,(h+start)*.5)
+    blade=point(s+.15*ds,t+.15*dt,start)
+    g.beam(point(s,t,h),elbow,.034,.028,'M_KelpGreen')
+    g.beam(elbow,blade,.030,.025,'M_KelpGreen')
+    rings=[];seg=12
     for i in range(seg+1):
         f=i/seg
-        center=Vector(point(s+.18*height*f*f*math.sin(phase+f*2),t+.10*height*f*f,h+height*f))
-        w=max(.009,width*math.sin(math.pi*f)**.7)
-        axis=Vector((math.cos(phase+f*.5),math.sin(phase+f*.5),.05*math.sin(f*4)))
-        thick=.009
-        rings.extend([tuple(center-axis*w+Vector((0,0,-thick))),tuple(center+axis*w+Vector((0,0,-thick))),
-                      tuple(center+axis*w+Vector((0,0,thick))),tuple(center-axis*w+Vector((0,0,thick)))])
+        # Sweep sideways, with a slight curl and a lifted midrib. Broad faces
+        # remain submerged; only three narrow blade ends breach by 3 cm.
+        side=.12*math.sin(math.pi*f)
+        a=s+(.15+length*f)*ds-side*dt
+        b=t+(.15+length*f)*dt+side*ds
+        z=start+.11*math.sin(math.pi*f)-.025*f
+        if tip:z+=.225*f**6
+        w=max(.008,width*math.sin(math.pi*f)**.8)
+        left=Vector(point(a-dt*w,b+ds*w,z-.025*math.sin(math.pi*f)))
+        right=Vector(point(a+dt*w,b-ds*w,z+.025*math.sin(math.pi*f)))
+        thick=.012
+        rings.extend([tuple(left-Vector((0,0,thick))),tuple(right-Vector((0,0,thick))),
+                      tuple(right+Vector((0,0,thick))),tuple(left+Vector((0,0,thick)))])
     fs=[(3,2,1,0)]
     for i in range(seg):
         for k in range(4):fs.append((i*4+k,i*4+(k+1)%4,(i+1)*4+(k+1)%4,(i+1)*4+k))
@@ -124,21 +138,21 @@ def frond(g,s,t,h,height,width,phase,mat):
     g.add(rings,fs,mat)
 
 def kelp():
-    # Five rooted clusters on two shoulders, no mat over the centre or surface discs.
-    clusters=[(-4.1,-.6,[-.3,.1,.38]),(-3.65,1.4,[-.22,.14]),
-              (3.85,1.15,[-.22,.2]),(4.9,-.5,[-.25,.1,.34]),(.7,3.55,[-.3,.2])]
-    for idx,(s,t,offsets) in enumerate(clusters):
+    # Five open fans around the clear channel. Short broad blades near the
+    # surface make a legible bank through native depth/refraction water.
+    clusters=[(-3.55,-1.05,math.pi),(-3.55,1.05,math.pi),
+              (3.55,1.05,0),(3.85,-1.05,0),(.05,2.25,math.pi*.5)]
+    for idx,(s,t,direction) in enumerate(clusters):
         g=G()
-        for k,ds in enumerate(offsets):
-            a,b=s+ds,t+(k%2)*.25;h=depth(a,b)-.06
-            # Mostly underwater. Only three high sheltered tips reach through surface.
-            top=.055 if (idx,k) in ((0,1),(2,0),(4,0)) else -.18-.1*(k%2)
-            for j in range(2):
-                frond(g,a+j*.12,b,h,max(.16,top-h-j*.13),.13+.025*(k%2),idx*1.3+k*.8+j*.7,
-                      'M_KelpGreen' if j==0 else 'M_CoastGrass')
-            g.ellipsoid(point(a,b,h+.06),(.14,.14,.10),8,4,'M_CoastWet')
+        for k in range(2):
+            a,b=s+(k-.5)*.12,t+(k-.5)*.62;h=depth(a,b)-.055
+            for j in range(3):
+                phase=direction+(j-1)*.7+(k-.5)*.18
+                frond(g,a,b,h,(.68 if idx==4 else 1.02)+.13*((idx+k+j)%3),.195+.025*((k+j)%2),phase,
+                      'M_KelpGreen' if j%2==0 else 'M_CoastGrass',
+                      tip=(idx,k,j) in ((0,0,0),(2,1,2),(4,0,1)))
+            g.ellipsoid(point(a,b,h+.06),(.16,.14,.10),8,4,'M_CoastWet')
         mesh('Kelp_RootedBroadFronds_%02d'%idx,g,'Details')
-    # One attached low tide reef spine, rather than floating mats and loose boulders.
     H.land('KelpReefSpine',[(-6.3,.7),(-5.4,.4),(-4.85,.7),(-4.75,1.45),(-5.25,1.95),(-6.6,1.9)],.24)
 
 def sand():
