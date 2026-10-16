@@ -71,9 +71,15 @@ assert not any(e.id in (b'Texture',b'Video') for e in objs.elems)
 assert not any(e.id==b'NodeAttribute' and e.props[-1] in (b'Light',b'Camera') for e in objs.elems)
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.ops.import_scene.fbx(filepath=str(fbx),use_anim=False);bpy.context.view_layer.update()
 imported=[o for o in bpy.context.scene.objects if o.type=='MESH']
+# The Unity-specific FBX compensates Unity's observed X mirror. Undo that mirror
+# in this Blender-only inspection before comparing canonical source geometry.
+for ob in imported:
+    for v in ob.data.vertices:v.co.x=-v.co.x
+    bm=bmesh.new();bm.from_mesh(ob.data)
+    bmesh.ops.reverse_faces(bm,faces=list(bm.faces));bm.to_mesh(ob.data);bm.free();ob.data.update()
 assert {o.name for o in bpy.context.scene.objects}==names
 near(bounds(imported)[0],source_bounds[0]);near(bounds(imported)[1],source_bounds[1])
-assert sum(K.B.mesh_stats(o)['triangles'] for o in imported)==count
+assert sum(K.B.mesh_stats(o)['triangles'] for o in imported)==count, [(o.name,source_stats[o.name]['triangles'],K.B.mesh_stats(o)['triangles']) for o in imported if K.B.mesh_stats(o)['triangles']!=source_stats[o.name]['triangles']]
 for o in bpy.context.scene.objects:
     near(o.matrix_world.translation,(0,0,0))
     if o.type=='MESH':
@@ -96,7 +102,7 @@ for device,w,h in [('desktop',1440,900),('phone',844,390)]:
     footprints[device]=dict(resolution=[w,h],water_plane_corners_unity=corners,vertical_span_m=6.4,horizontal_span_m=half*2)
 manifest=dict(asset='Assets/Art/Models/Environment/GullHarbourMouth.fbx',root='Catchline_GullHarbourMouth',
     roots=['Shoreline','Seabed','Details'],unity_waterline_local_y=0,world_position_unity=[0,K.WATER,0],
-    rotation_euler_unity=[0,0,0],scale=[1,1,1],source_axes='Blender X right, -Y Unity forward, Z up',
+    rotation_euler_unity=[0,0,0],scale=[1,1,1],source_axes='Canonical Blender X right, -Y Unity forward, Z up; Unity-specific FBX vertices (-x,z,-y) compensate measured Unity X mirroring',
     camera_unity=dict(rotation_euler=[45,35,0],orthographic_size=3.2,target=[1.35,0,.20],distance=40),
     camera_footprints=footprints,materials_srgb=materials,waterline_segments_unity_xz=segments,
     channel_clear_screen_ground=dict(x=[-2.6,2.6],y=[-1.8,1.7]),bathymetry_samples=depths,
@@ -106,7 +112,7 @@ serialized=json.dumps(manifest,indent=2)+'\n'
 (OUT/'placement-manifest.json').write_text(serialized)
 (ROOT/'Assets/Art/Models/Environment/GullHarbourMouth-placement.json').write_text(serialized)
 result=dict(all_passed=True,blender=bpy.app.version_string,fbx_version=version,triangles=count,mesh_count=len(meshes),
-    root_count=4,source_and_actual_fbx_roundtrip=True,source_bounds_blender=source_bounds,
+    root_count=4,source_and_actual_fbx_roundtrip=True,unity_x_handedness_compensation=True,blender_roundtrip_x_mirror_normalized=True,source_bounds_blender=source_bounds,
     closed_surface_topology=topology,boat_cast_channel_rays=sample_count,protected_files_unchanged=len(protected),
     plunder_inspected_files_unchanged=True,exact_camera_projection_passed=True,waterline_segment_count=len(segments),
     performance='Triangle counts do not establish visual acceptance or device frame rate.')

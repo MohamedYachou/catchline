@@ -2,10 +2,12 @@
   "all_passed": true,
   "blender": "5.2.1 LTS",
   "fbx_version": 7400,
-  "triangles": 15962,
-  "mesh_count": 23,
+  "triangles": 30516,
+  "mesh_count": 33,
   "root_count": 4,
   "source_and_actual_fbx_roundtrip": true,
+  "unity_x_handedness_compensation": true,
+  "blender_roundtrip_x_mirror_normalized": true,
   "source_bounds_blender": [
     [
       -10.705780982971191,
@@ -131,6 +133,56 @@
     },
     {
       "part": "TidalLedge_GrassTufts",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_PlankedDeck_Joists",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_WetPilings_Braces",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_FittedMooringRopes",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_DrapedFishingNet",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_StackedSlattedCrates",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_SilverFishInTray",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_Barrels_BandedLids",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 28
+    },
+    {
+      "part": "WorkingQuay_DeckRopeCoil",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "WorkingQuay_Lifering_PostTie",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0
+    },
+    {
+      "part": "BeaconJetty_FittedRopes_Caps_WetFeet",
       "boundary_edges": 0,
       "nonmanifold_edges": 0
     }

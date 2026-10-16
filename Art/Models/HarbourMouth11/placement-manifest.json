@@ -22,7 +22,7 @@
     1,
     1
   ],
-  "source_axes": "Blender X right, -Y Unity forward, Z up",
+  "source_axes": "Canonical Blender X right, -Y Unity forward, Z up; Unity-specific FBX vertices (-x,z,-y) compensate measured Unity X mirroring",
   "camera_unity": {
     "rotation_euler": [
       45,
@@ -113,7 +113,9 @@
     "M_SafetyOrange": "#E36A35",
     "M_HullNavy": "#173F57",
     "M_Steel": "#8FA6AC",
-    "M_CoastGrassLight": "#98A96B"
+    "M_CoastGrassLight": "#98A96B",
+    "M_FishSilver": "#BAC9C6",
+    "M_HullBlue": "#2A6685"
   },
   "waterline_segments_unity_xz": [
     [

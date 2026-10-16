@@ -17,3 +17,12 @@ Give honest status, measured camera framing/geometry checks, actual FBX reimport
 ## Artist delivery
 
 Built and validated the bounded Gull Harbour mouth diorama in Art/Models/HarbourMouth11: connected headland, tidal islet, outer shelf, shaped seabed and authored beacon/landing/vegetation. Exact desktop/phone clean and native-HUD-footprint references plus close detail are supplied. Pure environment source and matching FBX use Shoreline/Seabed/Details, waterline0 and explicit world offset(0,-.32,0). Actual FBX/source, camera, channel clearance, protected assets and read-only Plunder checks passed. Full evidence/rebuild/integration notes: Art/Models/HarbourMouth11/REPORT.md; commit and handoff in canonical main comms.md. Unity water/runtime/UI acceptance remains separate. No subagents or Plunder edits.
+
+### Evening working-quay delivery
+
+Extended the same authored coast with constructed quay/pilings/net/cargo and
+beacon jetty detail; 33 meshes/30,516 triangles, sixteen existing mapped material
+colours. Final model imported into main with established GUIDs; no runtime source,
+water or pipeline edits. Actual Unity captures revealed and drove a Unity-specific
+FBX handedness correction; see REPORT.md and NIGHT-DELIVERY.md. Source and review
+camera stay canonical. New original/before/after review makes quality gaps explicit.

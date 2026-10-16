@@ -9,7 +9,7 @@
     "M_CoastSand": "#D9C393",
     "M_SeabedSand": "#BEA77D"
   },
-  "triangles": 15962,
+  "triangles": 30516,
   "parts": [
     {
       "name": "Land_Headland_ConnectedStrata",
@@ -483,6 +483,213 @@
       "mesh_sha256": "b58e9658d8ff5f5b2a0a27ac24eebf6fea941b4ff775277687a11d33106c401f",
       "materials": [
         "M_CoastGrassLight"
+      ]
+    },
+    {
+      "name": "WorkingQuay_PlankedDeck_Joists",
+      "triangles": 2044,
+      "vertices": 1168,
+      "bounds_min_blender": [
+        3.009615182876587,
+        -3.7467477321624756,
+        0.4000000059604645
+      ],
+      "bounds_max_blender": [
+        5.88535737991333,
+        -1.1541236639022827,
+        0.6809999942779541
+      ],
+      "mesh_sha256": "4a87c738aebf28eb5e164c81d522c14fe625769492e9aa71ae80b1fe3d498903",
+      "materials": [
+        "M_DeckWood",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "WorkingQuay_WetPilings_Braces",
+      "triangles": 2516,
+      "vertices": 1304,
+      "bounds_min_blender": [
+        2.9935619831085205,
+        -3.8005597591400146,
+        -1.100000023841858
+      ],
+      "bounds_max_blender": [
+        5.9585113525390625,
+        -1.0999716520309448,
+        0.8849999904632568
+      ],
+      "mesh_sha256": "6da5a8a2acb2c9b66bbc6acfbbcacd055ae8fbd0cb5c9a5aae33aa44c0e447cd",
+      "materials": [
+        "M_CoastWet",
+        "M_DeckWood",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "WorkingQuay_FittedMooringRopes",
+      "triangles": 3204,
+      "vertices": 1620,
+      "bounds_min_blender": [
+        2.9494190216064453,
+        -3.812736749649048,
+        0.31441155076026917
+      ],
+      "bounds_max_blender": [
+        5.970688343048096,
+        -1.0313711166381836,
+        0.8451776504516602
+      ],
+      "mesh_sha256": "2816f445eace58361f8a41aa2e288598116926d60227b85ae4fffda6924c83a0",
+      "materials": [
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "WorkingQuay_DrapedFishingNet",
+      "triangles": 1026,
+      "vertices": 549,
+      "bounds_min_blender": [
+        3.1272408962249756,
+        -2.4976420402526855,
+        0.055489432066679
+      ],
+      "bounds_max_blender": [
+        3.759582996368408,
+        -1.9954782724380493,
+        0.6654698252677917
+      ],
+      "mesh_sha256": "1622fb618487b21b43071b7791d7ecd60410356a1998ed1c308bedf775ae3358",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "WorkingQuay_StackedSlattedCrates",
+      "triangles": 1764,
+      "vertices": 1008,
+      "bounds_min_blender": [
+        4.023944854736328,
+        -2.6183478832244873,
+        0.675000011920929
+      ],
+      "bounds_max_blender": [
+        5.1227874755859375,
+        -1.7029136419296265,
+        1.1399999856948853
+      ],
+      "mesh_sha256": "1371acdb821ab6294fbd16f962789d7a763e370ae0362f468a61cf31eb12acf5",
+      "materials": [
+        "M_DeckWood",
+        "M_SafetyOrange",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "WorkingQuay_SilverFishInTray",
+      "triangles": 504,
+      "vertices": 264,
+      "bounds_min_blender": [
+        4.089669704437256,
+        -2.467949867248535,
+        0.7949999570846558
+      ],
+      "bounds_max_blender": [
+        4.511876583099365,
+        -2.001389741897583,
+        0.875
+      ],
+      "mesh_sha256": "cbe5f716a3aa15cfe6d2a313d69308cd2e9d21b6680e7c3d51f8c766f5eb30e3",
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue"
+      ]
+    },
+    {
+      "name": "WorkingQuay_Barrels_BandedLids",
+      "triangles": 608,
+      "vertices": 312,
+      "bounds_min_blender": [
+        4.951718807220459,
+        -1.97986900806427,
+        0.675000011920929
+      ],
+      "bounds_max_blender": [
+        5.509273052215576,
+        -1.5015549659729004,
+        1.084999918937683
+      ],
+      "mesh_sha256": "08bcec42fdfdd1dfa5ccaa399bc9954e3380023700ef59aa7349c442dcbdcb83",
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_Steel",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "WorkingQuay_DeckRopeCoil",
+      "triangles": 1000,
+      "vertices": 504,
+      "bounds_min_blender": [
+        3.8745217323303223,
+        -3.1490561962127686,
+        0.6798756122589111
+      ],
+      "bounds_max_blender": [
+        4.385632038116455,
+        -2.79190993309021,
+        0.7061243653297424
+      ],
+      "mesh_sha256": "82e1a5de087b51dce98787e663804ff5a546df3f07645f89ea023febdd5eec6a",
+      "materials": [
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "WorkingQuay_Lifering_PostTie",
+      "triangles": 416,
+      "vertices": 210,
+      "bounds_min_blender": [
+        4.887986660003662,
+        -1.2916661500930786,
+        0.125
+      ],
+      "bounds_max_blender": [
+        5.219051837921143,
+        -1.0391851663589478,
+        0.722549557685852
+      ],
+      "mesh_sha256": "1f398aa300d0d93ccd3a7080ff69abc788321c979ba12839392f864d6a00745d",
+      "materials": [
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "BeaconJetty_FittedRopes_Caps_WetFeet",
+      "triangles": 1472,
+      "vertices": 760,
+      "bounds_min_blender": [
+        4.2685112953186035,
+        -0.30280354619026184,
+        -0.10999999940395355
+      ],
+      "bounds_max_blender": [
+        5.3616623878479,
+        0.7974255084991455,
+        0.7049999833106995
+      ],
+      "mesh_sha256": "089a8722cd15a8c02544b01a514f03e21168ba08cf153c970d9f748c02d99eca",
+      "materials": [
+        "M_CoastWet",
+        "M_DeckWood",
+        "M_Rope"
       ]
     }
   ],

@@ -6,13 +6,37 @@ An authored, camera-bounded working-coast location: a connected warm stone headl
 
 This is a new environment delivery for Windows integration and Mo's visual review. Passing geometry checks establishes usable source/export content; it does not establish Unity parity, runtime water quality, device performance or Mo's acceptance. No gameplay/UI/Unity setting, existing water texture, boat, crew or prior model source was changed.
 
-The final model contains **23 meshes / 15,962 triangles**, grouped under the three named roots. All source surfaces have closed boundaries; overlapping attached terrain/detail components are deliberate. Vegetation is grounded by ray-casting against the actual shore mesh; the landing steps form a solid carved stair mass. The complete measured part inventory is in `build-metrics.json`, with actual FBX results in `validation.json`.
+The final model contains **33 meshes / 30,516 triangles**, grouped under the three named roots. All source surfaces have closed boundaries; overlapping attached terrain/detail components are deliberate. Vegetation is grounded by ray-casting against the actual shore mesh; the landing steps form a solid carved stair mass. The complete measured part inventory is in `build-metrics.json`, with actual FBX results in `validation.json`.
+
+## Working-quay revision — evening delivery
+
+Original Day 3 reference now informs a constructed timber working landing in the
+upper camera background: individually bevelled planks/joists, braced wet pilings,
+end caps, fitted mooring ropes/loops, coarse draped net with floats, stacked open
+slatted crates and silver fish, banded blue barrels, a deck rope coil and tied
+lifering. The beacon jetty gains rope wraps, caps and wet feet. Props are grouped
+on the quay, not scattered across the sea. New parts reuse existing mapped palette
+slots; there are no new shader/texture/runtime dependencies.
+
+The working quay moves 0.20 camera-ground metres forward after construction;
+its front net still clears the protected t<=1.7 channel. Cargo is brought toward
+the front of the deck so it reads inside the exact gameplay crop. Crate boards
+remain independent closed solids rather than welding coincident board-contact
+vertices; actual FBX triangle counts match the saved source. No boundary openings (28 shared internal barrel lid/body edges are recorded as nonmanifold; overlapping closed construction is intentional),
+513 channel rays and 197 protected files/Plunder preservation checks passed.
+
+`Working-quay-detail.png` is an additional close reference, not gameplay framing.
+Exact-camera `Beauty-desktop.png` and `Beauty-phone.png` are regenerated for this
+revision. Original simplified reference-water settings are retained solely to
+compare authored geometry under controlled light. They are still far below the
+original Day 3 water richness and are not a replacement for Windows' live water.
+Runtime integration and camera capture evidence are recorded in `NIGHT-DELIVERY.md`.
 
 ## Review images and sources
 
 - `Beauty-desktop.png` / `Beauty-phone.png`: clean exact-camera views at 1440×900 and 844×390.
 - `HUD-overlay-desktop.png` / `HUD-overlay-phone.png`: those same views with the existing POLISH-002 native bite-state HUD footprints. Labelled **reference composites**, not Unity screenshots or new UI designs. Retained `Runtime-HUD-source-*.png` makes their source explicit.
-- `Shore-detail.png`: closer orthographic view of the landing and connected cliff, using the same 45°/35° angle; its horizontal span is 5.4 m. This detail image is not the gameplay framing.
+- `Shore-detail.png`: retained initial checkpoint close view of the beacon landing, before the rope/cap revision. `Working-quay-detail.png` is the current revision close view; both use 45°/35° with horizontal span 5.4 m, not gameplay framing.
 - `Composition-plan.png`: authored coast plans, desktop/phone footprint and reserved channel.
 - `GullHarbourMouth.blend`: pure environment model source, `ENV_EXPORT_ONLY` collection.
 - `Composition-review.blend`: editable exact-camera scene with actual boat/props/existing Captain rig and reference-only water/lights. Never import this as the runtime environment.
@@ -38,9 +62,9 @@ Seabed top depth varies from **0.12 to 2.72 m** below the waterline; the closed 
 
 ## Materials and export
 
-The manifest lists the fourteen material colours actually used by faces. Six new terrain slots are used: `M_CoastStone` #A99A7C, `M_CoastStoneLight` #C9B89A, `M_CoastWet` #696F64, `M_CoastGrass` #729053, `M_CoastGrassLight` #98A96B and `M_SeabedSand` #BEA77D. `M_CoastSand` #D9C393 was included in the seven-slot proposal/palette declaration but is unused by this rocky-coast model. Existing navy, ivory, timber, rope, steel and orange slots supply the working-coast details. No existing material asset is recoloured. The shared mesh helper retains canonical palette slots, including unused ones; the manifest distinguishes the used faces. No external or baked albedo textures are required.
+The manifest lists the sixteen material colours actually used by faces. Six new terrain slots are used: `M_CoastStone` #A99A7C, `M_CoastStoneLight` #C9B89A, `M_CoastWet` #696F64, `M_CoastGrass` #729053, `M_CoastGrassLight` #98A96B and `M_SeabedSand` #BEA77D. `M_CoastSand` #D9C393 was included in the seven-slot proposal/palette declaration but is unused by this rocky-coast model. Existing navy, ivory, timber, rope, steel and orange slots supply the working-coast details. No existing material asset is recoloured. The shared mesh helper retains canonical palette slots, including unused ones; the manifest distinguishes the used faces. No external or baked albedo textures are required.
 
-Model source is in metres, Blender X right, -Y Unity forward, Z up. The FBX contains explicit **(x,z,-y)** vertex conversion, Y-up metadata and identity model-node rotations/scales. This avoids Blender's experimental space-bake double conversion through nested empty groups. The source remains canonical Z-up; conversion happens once in export memory only. Actual FBX reimport checks every mesh's bounds, names, parents, origins and triangle count against the source. No camera, water, preview light, Captain rig or boat is included in the environment export.
+Model source is in metres, Blender X right, -Y Unity forward, Z up. The FBX contains explicit **(-x,z,-y)** vertex conversion for the Unity-specific FBX, Y-up metadata and identity model-node rotations/scales. This avoids Blender's experimental space-bake double conversion through nested empty groups. The source remains canonical Z-up; conversion happens once in export memory only. Actual FBX reimport normalizes the explicit X mirror before checking every mesh's canonical bounds, names, parents, origins and triangle count against source. This compensates actual measured Unity importer X mirroring; the scratch Unity check separately asserts positive-X beacon and working-quay centres against source. The source and review scenes remain canonical; importing this Unity-specific FBX into a different DCC requires the documented X normalization. No camera, water, preview light, Captain rig or boat is included in the environment export.
 
 ## Reference water and lighting
 
