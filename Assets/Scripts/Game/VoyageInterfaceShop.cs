@@ -107,7 +107,7 @@ namespace Catchline.Game
                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
             if (SessionOnly) Product("trial/netboat", "Compact fisher · trial", "Three crew · three rods · stern net. Trial includes fuel and a200coin crew budget. Prices are still being tuned.", "icon-skiff",
                 State.Hull == 2 ? "Trial boat aboard" : "Try net boat", State.Hull != 2, () => TrialCompactFisher());
-            if (SessionOnly) Product("trial/prepboat", "Prep fisher � Tier 4 trial", "Four crew berths, three rods and a stern net. Two-person prep table and front storage. Processing orders coming next.", "icon-skiff",
+            if (SessionOnly) Product("trial/prepboat", "Prep fisher / Tier 4 trial", "Four crew berths, three rods and a stern net. Two-person prep table and front storage. Processing orders coming next.", "icon-skiff",
                 IsPrepFisher ? "Trial boat aboard" : "Try prep boat", !IsPrepFisher, () => TrialPrepFisher());
         }
         void InterfaceUpgrade(UpgradeDef u)

@@ -68,6 +68,10 @@ namespace Catchline.EditorTools
             Check(g.Rods.Count(r=>r.Fisher!=null)==2 && g.Stats.Landed>3 && g.Cooler.Count>0,"real fishermen and deckhands fish and deliver on the new deck");
             Debug.Log($"[Catchline] TIER033120s trace: landed={g.Stats.Landed}, stored={g.Cooler.Count}, kg={g.HoldKg}");
             foreach(var p in new[]{g.Captain,g.Hand}.Concat(g.ExtraPeople))p.Stop();
+            // The timed trace may finish with a fish in hand. Finish that delivery
+            // before testing a separate net allocation; Stop intentionally preserves cargo.
+            foreach(var p in new[]{g.Captain,g.Hand}.Concat(g.ExtraPeople))
+                if(p.Carrying!=null) Call(g,"TryStow",p);
             Call(g,"ResetNet");g.Cooler.Clear();
             Check(g.SetDeckhandWork(g.State.Deckhand,DeckhandWork.Nets),"tier4 net duty selectable");
             Call(g,"HandThink",g.Hand);Work(g.Hand);Check(g.Net==VoyageGame.NetState.Soaking,"hand reaches new stern and sets net");
@@ -81,7 +85,7 @@ namespace Catchline.EditorTools
             Check(loaded.Hull==3 && loaded.CrewCount==4 && loaded.HullDef.Model=="PrepFisherV1","additive hull/four crew save roundtrip");
             Check(GameData.Hulls[0].Model=="Rowboat" && GameData.Hulls[1].Model=="Skiff" && GameData.Hulls[2].Model=="CompactFisherV1","old saved hull IDs unchanged");
             g.State.Coins=3000;g.PrepareInterface(844,390);Field(g,"hudTab",VoyageGame.HudTab.Chandlery);Field(g,"panelOpen",true);Field(g,"toastUntil",0f);g.PrepareInterface(844,390);
-            Check(g.InvokeInterface("trial/netboat/buy") && g.State.Hull==2,"can return to tier3 trial from tier4");
+            Check(g.InvokeInterface("trial/netboat/buy") && g.State.Hull==2 && g.State.CrewCount==3,"tier3 trial downgrade respects three-crew cap");
             g.PrepareInterface(844,390);Check(g.InvokeInterface("trial/prepboat/buy") && g.IsPrepFisher,"native shipyard card selects tier4");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
             CompactFisherChecks.Run();
@@ -91,6 +95,10 @@ namespace Catchline.EditorTools
         public static void ValidateAndBuild()
         {
             Run();
+            BuildPreview();
+        }
+        public static void BuildPreview()
+        {
             var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
             var g=new GameObject("Tier4 save-isolated preview").AddComponent<VoyageGame>();g.SessionOnly=true;
             const string path="Assets/Scenes/Tier033Preview.unity";EditorSceneManager.SaveScene(scene,path);

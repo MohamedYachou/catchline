@@ -114,6 +114,9 @@ namespace Catchline.Game
         {
             if (!SessionOnly || CurrentMode != Mode.Harbour || State.Hull == 2) return false;
             State.Hull = 2;
+            // A layout-trial downgrade releases the extra temporary trial berth.
+            while (State.CrewCount > State.HullDef.CrewCap && State.ExtraCrew.Count > 0)
+                State.ExtraCrew.RemoveAt(State.ExtraCrew.Count - 1);
             State.Fuel = State.FuelCapacity;
             State.FoodMinutes = State.FoodCapacity;
             State.Coins = Mathf.Max(State.Coins, 200); // Explicit isolated trial budget, not progression economy.

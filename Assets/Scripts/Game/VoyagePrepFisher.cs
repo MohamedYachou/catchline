@@ -36,7 +36,8 @@ namespace Catchline.Game
             foreach (var size in new[] { new Vector2Int(1440, 900), new Vector2Int(844, 390) })
             {
                 Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
-                yield return null; yield return null;
+                // Let the native swapchain, shaders and canvas settle after resize.
+                for (int frame = 0; frame < 16; frame++) yield return null;
                 Showcase(0, 0); captureFreeze = true; toastUntil = 0; Tick(.01f);
                 yield return CaptureFrame(directory, "tier4-buckets-" + size.x);
             }
@@ -44,7 +45,8 @@ namespace Catchline.Game
             foreach (var size in new[] { new Vector2Int(1440, 900), new Vector2Int(844, 390) })
             {
                 Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
-                yield return null; yield return null;
+                // Let the native swapchain, shaders and canvas settle after resize.
+                for (int frame = 0; frame < 16; frame++) yield return null;
                 Showcase(0, 0); captureFreeze = true; toastUntil = 0; Tick(.01f);
                 yield return CaptureFrame(directory, "tier4-ice-coolers-" + size.x);
             }

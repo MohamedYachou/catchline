@@ -203,7 +203,7 @@ namespace Catchline.Game
                 Blocked = System.Array.Empty<Vector2Int>(),
                 RodTiles = new[] { new Vector2Int(21, 18), new Vector2Int(21, 3), new Vector2Int(38, 18) },
                 RodBases = new[] { new Vector3(2f, .47f, 2.38f), new Vector3(2f, .47f, -.18f), new Vector3(3.75f, .47f, 2.33f) } },
-            // Tier4 approved BOAT032 hull. Existing saved IDs0–2 stay unchanged.
+            // Tier4 approved BOAT032 hull. Existing saved IDs0-2 stay unchanged.
             // First integration retains tier3 cargo/net capacity; economy unlock is still untuned.
             new() { Name = "Prep fisher", Model = "PrepFisherV1", Width = 57, Height = 29, CellSize = .1f,
                 Capacity = 100, CrewCap = 4, TravelMultiplier = .5f,
