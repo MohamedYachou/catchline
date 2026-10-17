@@ -80,6 +80,8 @@ bpy.ops.export_scene.fbx(filepath=str(GAME/'PrepFisherV1.fbx'),use_selection=Tru
  axis_forward='-Z',axis_up='Y',use_space_transform=True,bake_space_transform=False,
  apply_unit_scale=True,apply_scale_options='FBX_SCALE_UNITS',add_leaf_bones=False,bake_anim=False)
 iced.hide_render=True;iced.hide_viewport=True
+for child in iced.children:
+    child.hide_set(True);child.hide_render=True
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'PrepFisherV1.blend'))
 manifest={'asset':'PrepFisherV1','approved_reference':'BOAT032 6.8 x 3.5 m','hull_dimensions_source':size,
  'source_axes':'X athwartships, -Y bow, Z up','anchors_source':anchors,'front_variants':['RawBuckets','RawIceCoolers'],

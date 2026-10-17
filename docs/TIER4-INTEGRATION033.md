@@ -86,3 +86,10 @@ not functional in this first boat pass. Keep these requirements when adding them
    alone is not the finished processing system.
 
 No commit was created. Existing unrelated dirty work is preserved.
+
+Final delivery verification: tier033-final behaviour suite and tier3 regression
+passed; tier033-delivery build-only check exited0 after punctuation cleanup.
+All four final native captures were inspected, including the corrected desktop
+bucket frame. The installed EXE, game assembly and resource asset hashes match
+the verified build. Desktop shortcut `Catchline - Tier 4 Test` targets the new
+save-isolated installation with `-prepboat-trial -native-display`.
