@@ -10,10 +10,46 @@ namespace Catchline.EditorTools
     public class ArtImport : AssetPostprocessor
     {
         const string UiFolder = "Assets/Art/UI/";
+        static bool rebuildQueued;
+
+        static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom)
+        {
+            if (rebuildQueued || !imported.Any(p => p.StartsWith("Assets/Art/Models/") && p.EndsWith(".fbx")
+                || p.StartsWith("Assets/Art/Water/") && (p.EndsWith(".png") || p.EndsWith(".tif")) || p.EndsWith("/CoastalWater.shader") || p.EndsWith("/PtsWater.shader"))) return;
+            rebuildQueued = true;
+            EditorApplication.delayCall += () =>
+            {
+                rebuildQueued = false;
+                BuildLibrary();
+            };
+        }
 
         // UI sprites are exported at 2x. Import them as IMGUI textures at 1x so 9-slice borders match the HUD sizes.
         void OnPreprocessTexture()
         {
+            if (assetPath.StartsWith("Assets/Art/Water/PTS/"))
+            {
+                var water = (TextureImporter)assetImporter;
+                water.textureType = TextureImporterType.Default;
+                water.sRGBTexture = false;
+                water.mipmapEnabled = true;
+                water.wrapMode = TextureWrapMode.Repeat;
+                water.filterMode = FilterMode.Trilinear;
+                water.maxTextureSize = 2048;
+                return;
+            }
+            if (assetPath.StartsWith("Assets/Art/Textures/"))
+            {
+                var water = (TextureImporter)assetImporter;
+                water.textureType = TextureImporterType.Default;
+                water.textureShape = TextureImporterShape.Texture2D;
+                water.wrapMode = Path.GetFileName(assetPath).StartsWith("water-tile") || assetPath.Contains("deck-planks") ? TextureWrapMode.Repeat : TextureWrapMode.Clamp;
+                water.mipmapEnabled = true;
+                water.alphaIsTransparency = true;
+                water.filterMode = FilterMode.Bilinear;
+                water.maxTextureSize = 1024;
+                return;
+            }
             if (!assetPath.StartsWith(UiFolder)) return;
             var ti = (TextureImporter)assetImporter;
             ti.textureType = TextureImporterType.GUI;
@@ -42,6 +78,7 @@ namespace Catchline.EditorTools
             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
             mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx");
             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
+            if (assetPath.EndsWith("/PrepFisherV1.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
             mi.importCameras = false;
             mi.importLights = false;
         }
@@ -96,6 +133,20 @@ namespace Catchline.EditorTools
             if (lib.Ui.Length == 0 && pngs.Length > 0)
                 Debug.LogWarning($"[Catchline] {pngs.Length} UI pngs on disk but none loaded; first: {UiFolder + Path.GetFileName(pngs[0])} -> {AssetDatabase.LoadMainAssetAtPath(UiFolder + Path.GetFileName(pngs[0]))?.GetType().Name ?? "null"}");
             lib.UiFont = AssetDatabase.LoadAssetAtPath<Font>(UiFolder + "Fonts/Fredoka-Medium.ttf");
+            lib.WaterShader = AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/PtsWater.shader")
+                ?? AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/CoastalWater.shader");
+            lib.PtsWaterNormals = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/PTS/WaterNormals.tif");
+            lib.PtsWaterDither = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/PTS/normalNoise.png");
+            lib.WaterRipples = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/normal-ripples.png");
+            lib.WaterCrossing = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/normal-crossing.png");
+            var waterPaths = Directory.GetFiles(Path.GetFullPath("Assets/Art/Textures"), "*.png")
+                .Select(p => "Assets/Art/Textures/" + Path.GetFileName(p)).ToArray();
+            foreach (var path in waterPaths)
+                if (AssetDatabase.LoadAssetAtPath<Texture2D>(path) == null)
+                    AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+            lib.WaterTextures = waterPaths.Select(p => AssetDatabase.LoadAssetAtPath<Texture2D>(p)).Where(t => t != null).ToArray();
+            if (lib.WaterTextures.Length != waterPaths.Length)
+                throw new System.InvalidOperationException("[Catchline] Water texture import incomplete: " + lib.WaterTextures.Length + "/" + waterPaths.Length);
             EditorUtility.SetDirty(lib);
             AssetDatabase.SaveAssets();
             var mats = lib.Rowboat != null ? lib.Rowboat.GetComponentsInChildren<Renderer>().SelectMany(r => r.sharedMaterials).Select(m => m != null ? m.name : "null").Distinct() : Enumerable.Empty<string>();

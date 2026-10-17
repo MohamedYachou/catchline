@@ -41,8 +41,8 @@ immediate commands and strikes, so it is not a measured human completion time.
 
 Run `Catchline-sim/Builds/FirstVoyage/Catchline.exe`. Play → Set sail → Fish.
 Wait through nibbles; tap clear water or press Space when the bobber goes under.
-Tap Carry after landing. Bring three home, or fill all ten slots. Head home
-sells automatically; visit the Chandlery from the Market to buy the cooler.
+Tap Carry after landing. Bring three home, or fill all ten slots. Head home. Your catch
+stays safely ashore until you tap Sell haul; then visit the Chandlery from the Market to buy the cooler.
 
 Preview progress is intentionally temporary. The main Unity scene uses the
 normal persistent save. The two existing dirty render-pipeline settings remain

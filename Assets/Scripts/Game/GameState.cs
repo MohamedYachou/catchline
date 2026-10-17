@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Catchline.Game
 {
+    [System.Serializable]
     public class CaughtFish
     {
         public Species Species;
@@ -16,6 +17,7 @@ namespace Catchline.Game
         public string Name;
         public Grade Grade;
         public CrewRole Role;
+        public DeckhandWork WorkPreference; // Missing in older saves means Fish.
         public int VoyagesLeft;
         public Color Suit;
         public int Fee => GameData.Fee(Grade) * (Role == CrewRole.Fisherman ? 2 : 1);
@@ -40,17 +42,21 @@ namespace Catchline.Game
 
     // Everything that survives between voyages: money, supplies, upgrades, crew, contracts,
     // spot stocks and market prices. No Unity objects in here.
-    public class GameState
+    public partial class GameState
     {
         public int Coins = GameData.StartCoins;
         public int Bait = GameData.StartBait;
         public int Squid;
         public bool UseSquid = true;
         public readonly HashSet<int> Charts = new();
+        // Legacy save/fixture field only. Early boats have no food mechanic.
         public float FoodMinutes = 4f;
         public int Voyage = 1;
         public int BestVoyageFish;
-        public int Hull, Fuel;
+        public int Hull;
+        public float Fuel;
+        // Includes the fitted net. Successful cycles reuse it; a tear removes one.
+        public int NetInventory = 3;
         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
         public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
@@ -71,6 +77,13 @@ namespace Catchline.Game
         public readonly List<Contract> Offers = new();
         public readonly List<Contract> Active = new();
         public SaleReport LastSale;
+        // Unsold fish are saved at port with StowedAt = negative age on arrival.
+        // Harbour storage freezes freshness; it never silently sells or discards a haul.
+        public readonly List<CaughtFish> UnsoldCatch = new();
+        public float UnsoldMinutes;
+        [System.Serializable]
+        public class CoinCredit { public string Id; public int Amount; }
+        public readonly List<CoinCredit> CoinCredits = new();
         public System.Random Rng;
 
         public GameState(int seed)
@@ -87,7 +100,10 @@ namespace Catchline.Game
         }
 
         public bool Has(UpgradeId id) => Owned.Contains(id);
-        public int CoolerCapacity => Hull > 0 ? HullDef.Capacity : Has(UpgradeId.BigCooler) ? 16 : 10;
+        public float CoolerCapacity => Hull == 0 ? (Has(UpgradeId.BigCooler) ? 35f : 20f) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
+        public float FuelCapacity => Has(UpgradeId.LunchTin) ? 20f : 10f;
+        public float FuelFraction => Mathf.Clamp01(Fuel / FuelCapacity);
+        public int FuelFillCost => Mathf.CeilToInt(Mathf.Max(0, FuelCapacity - Fuel) - .00001f);
         public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Hull > 0 ? 4f : 1f);
         public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
         public float BiteWindow => Has(UpgradeId.RodCarbon) ? 1.4f : Has(UpgradeId.RodFibreglass) ? 1.15f : GameData.BiteWindow;
@@ -100,10 +116,16 @@ namespace Catchline.Game
         public float Freshness(CaughtFish f, float now)
         {
             if (Has(UpgradeId.IceBox)) return 1f;
-            return Mathf.Max(GameData.MinFreshness, 1f - GameData.FreshnessLossPerMinute * (now - f.StowedAt) / 60f);
+            return Mathf.Max(GameData.MinFreshness, 1f - GameData.FreshnessLossPerMinute * Mathf.Max(0f, now - f.StowedAt - GameData.FreshnessGraceSeconds) / 60f);
         }
 
-        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * PricePerKg(f.Species) * Freshness(f, now)));
+        public float SpecimenPricePerKg(Species species, float kg)
+        {
+            var d = GameData.Get(species);
+            float size = Mathf.InverseLerp(d.MinKg, d.MaxKg, kg);
+            return PricePerKg(species) * (1f + .5f * size);
+        }
+        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * SpecimenPricePerKg(f.Species, f.Kg) * Freshness(f, now)));
 
         float Rand() => (float)Rng.NextDouble();
 
@@ -115,41 +137,53 @@ namespace Catchline.Game
             Coins -= GameData.SkiffCost;
             Hull = 1;
             // The shipyard supplies the first tank, avoiding a stranded first refit.
-            Fuel += GameData.FuelPackSize;
+            Fuel = FuelCapacity;
             RollBoard();
             return true;
         }
 
         public bool BuyFuel()
         {
-            if (Hull == 0 || Coins < GameData.FuelPackCost) return false;
-            Coins -= GameData.FuelPackCost;
-            Fuel += GameData.FuelPackSize;
+            int cost = FuelFillCost;
+            if (Hull == 0 || cost <= 0 || Coins < cost) return false;
+            Coins -= cost;
+            Fuel = FuelCapacity;
             return true;
         }
 
         public bool TryBuy(UpgradeId id)
         {
             var u = GameData.Upgrade(id);
-            if (Has(id) || Coins < u.Cost || u.Requires.HasValue && !Has(u.Requires.Value)) return false;
-            Coins -= u.Cost;
+            int cost = UpgradeCost(id);
+            if (!UpgradeAvailable(id) || Has(id) || Coins < cost || u.Requires.HasValue && !Has(u.Requires.Value)) return false;
+            Coins -= cost;
             Owned.Add(id);
             return true;
         }
 
-        public bool BuyBait()
+        public bool BuyBait(bool bulk = false)
         {
-            if (Coins < GameData.BaitPackCost) return false;
-            Coins -= GameData.BaitPackCost;
-            Bait += GameData.BaitPackSize;
+            int cost = bulk ? GameData.BaitBulkCost : GameData.BaitPackCost;
+            if (Coins < cost) return false;
+            Coins -= cost;
+            Bait += bulk ? GameData.BaitBulkSize : GameData.BaitPackSize;
             return true;
         }
 
-        public bool BuySquid()
+        public bool BuyNet()
         {
-            if (Coins < GameData.SquidPackCost) return false;
-            Coins -= GameData.SquidPackCost;
-            Squid += GameData.SquidPackSize;
+            if (NetInventory < 0 || NetInventory >= GameData.NetInventoryCapacity || Coins < GameData.NetReplacementCost) return false;
+            Coins -= GameData.NetReplacementCost;
+            NetInventory++;
+            return true;
+        }
+
+        public bool BuySquid(bool bulk = false)
+        {
+            int cost = bulk ? GameData.SquidBulkCost : GameData.SquidPackCost;
+            if (Coins < cost) return false;
+            Coins -= cost;
+            Squid += bulk ? GameData.SquidBulkSize : GameData.SquidPackSize;
             return true;
         }
 
@@ -162,33 +196,29 @@ namespace Catchline.Game
             return true;
         }
 
-        public bool HasAnyBait => Bait > 0 || Squid > 0;
+        public bool HasPaidBait => Bait > 0 || Squid > 0;
+        public bool WillUseSquid => Squid > 0 && (UseSquid || Bait <= 0);
+        public bool HasAnyBait => true; // Unlimited harbour scraps prevent a bait soft lock.
 
-        // Takes one bait for a hook. Returns true when it was squid.
+        // Takes paid bait if available, otherwise free scraps. Always succeeds; out flag identifies squid.
         public bool TakeBait(out bool squid)
         {
-            squid = UseSquid && Squid > 0 || Bait <= 0 && Squid > 0;
+            squid = WillUseSquid;
             if (squid) { Squid--; return true; }
             if (Bait > 0) { Bait--; return true; }
-            return false;
+            return true; // Free scraps: the rod records this bait type before taking it.
         }
 
-        public bool FillFood()
-        {
-            int cost = FoodFillCost;
-            if (cost <= 0 || Coins < cost) return false;
-            Coins -= cost;
-            FoodMinutes = FoodCapacity;
-            return true;
-        }
+        public bool FillFood() => false; // Retired; cannot charge for inactive food.
 
         public bool Hire(CrewMember c)
         {
-            if (!Board.Contains(c) || CrewCount >= HullDef.CrewCap || c.Role == CrewRole.Fisherman && Hull == 0 || Coins < c.Fee) return false;
+            if (!Board.Contains(c) || CrewCount >= HullDef.CrewCap || Coins < c.Fee) return false;
             Coins -= c.Fee;
             Board.Remove(c);
             if (c.Role == CrewRole.Deckhand && Deckhand == null) Deckhand = c;
             else ExtraCrew.Add(c);
+            EnsureCrewRoleOffers();
             return true;
         }
 
@@ -202,6 +232,17 @@ namespace Catchline.Game
 
         // ---- end of a voyage --------------------------------------------------------------
 
+        public SaleReport QuoteSale(List<CaughtFish> catchList, float now)
+        {
+            var quote = new GameState(0) { Hull = Hull };
+            System.Array.Copy(Market, quote.Market, Market.Length);
+            quote.Owned.UnionWith(Owned);
+            foreach (var c in Active)
+                quote.Active.Add(new Contract { Species = c.Species, Count = c.Count,
+                    Delivered = c.Delivered, VoyagesLeft = c.VoyagesLeft, Reward = c.Reward });
+            return quote.Sell(catchList, now);
+        }
+
         public SaleReport Sell(List<CaughtFish> catchList, float now)
         {
             var r = new SaleReport { Caught = catchList.Count };
@@ -212,13 +253,14 @@ namespace Catchline.Game
                 {
                     c.Delivered++;
                     r.ToContracts++;
-                    continue;
+                    // Contract progress is a bonus objective, never an unpaid fish sink.
+                    // Pay normal market value below even when this contract is unfinished.
                 }
                 int v = ValueOf(f, now);
                 r.Coins += v;
                 r.FishSold++;
                 Coins += v;
-                Market[(int)f.Species] = Mathf.Max(0.5f, Market[(int)f.Species] * GameData.MarketDropPerFish);
+                Market[(int)f.Species] = Mathf.Max(0.5f, Market[(int)f.Species] * Mathf.Pow(GameData.MarketDropPerFish, f.Kg / (Hull >= 2 ? 5f : .5f)));
             }
             for (int i = Active.Count - 1; i >= 0; i--)
             {
@@ -274,7 +316,7 @@ namespace Catchline.Game
             while (Offers.Count < 3) Offers.Add(NewContract());
         }
 
-        // The board is never guaranteed: usually a hand, often someone experienced, rarely a veteran.
+        // Grades vary, but each role always has enough candidates to fill every berth.
         void RollBoard()
         {
             Board.Clear();
@@ -286,6 +328,31 @@ namespace Catchline.Game
                 if (Rand() < .8f) Board.Add(NewCrew(Grade.Hand, CrewRole.Fisherman));
                 if (Rand() < .5f) Board.Add(NewCrew(Grade.Experienced, CrewRole.Fisherman));
                 if (Rand() < .08f) Board.Add(NewCrew(Grade.Veteran, CrewRole.Fisherman));
+            }
+            EnsureCrewRoleOffers();
+        }
+
+        public void EnsureCrewRoleOffers()
+        {
+            int required = HullDef.CrewCap;
+            foreach (CrewRole role in new[] { CrewRole.Deckhand, CrewRole.Fisherman })
+            {
+                int available = Board.FindAll(c => c.Role == role).Count;
+                while (available < required)
+                {
+                    Board.Add(NewCrew(Grade.Hand, role));
+                    available++;
+                }
+            }
+            var deckhands = Board.FindAll(c => c.Role == CrewRole.Deckhand);
+            var fishermen = Board.FindAll(c => c.Role == CrewRole.Fisherman);
+            deckhands.Sort((left, right) => left.Grade.CompareTo(right.Grade));
+            fishermen.Sort((left, right) => left.Grade.CompareTo(right.Grade));
+            Board.Clear();
+            for (int i = 0; i < Mathf.Max(deckhands.Count, fishermen.Count); i++)
+            {
+                if (i < deckhands.Count) Board.Add(deckhands[i]);
+                if (i < fishermen.Count) Board.Add(fishermen[i]);
             }
         }
 
@@ -323,8 +390,8 @@ namespace Catchline.Game
             int count = species switch
             {
                 Species.Herring or Species.Mackerel => 5 + Rng.Next(5),
-                Species.Pollock => 3 + Rng.Next(3),
-                Species.SeaBass => 2 + Rng.Next(2),
+                Species.Pollock or Species.Whiting => 3 + Rng.Next(3),
+                Species.SeaBass or Species.RedMullet => 2 + Rng.Next(2),
                 _ => 1,
             };
             int reward = Mathf.Max(20, Mathf.RoundToInt(count * def.AvgValue * 1.8f / 5f) * 5);
@@ -334,8 +401,15 @@ namespace Catchline.Game
         // ---- fishing rolls ----------------------------------------------------------------
 
         // Longer casts shift the odds toward heavier fish and bigger specimens.
-        public (Species, float) RollFish(int spot, float power)
+        public (Species, float) RollFish(int spot, float power, bool scraps = false, bool squid = false)
         {
+            // Poor bait is unlimited, but cannot roll a large species or specimen.
+            if (scraps)
+            {
+                var small = GameData.Get(Rng.Next(2) == 0 ? Species.Herring : Species.Mackerel);
+                return (small.Species, Mathf.Lerp(small.MinKg, small.MinKg + (small.MaxKg - small.MinKg) * .2f, Rand()));
+            }
+            power = Mathf.Clamp(power, 0f, 1.4f);
             var table = GameData.Spots[spot].Table;
             float total = 0f;
             var weights = new float[table.Length];
@@ -343,6 +417,8 @@ namespace Catchline.Game
             {
                 float h = GameData.Get(table[i].species).Heaviness;
                 weights[i] = table[i].weight * Mathf.Lerp(1f - 0.7f * h, 1f + 1.6f * h, power);
+                // Premium bait targets substantial fish; small schools remain possible, not dominant.
+                if (squid) weights[i] *= h < .35f ? .04f : .65f + h * 1.6f;
                 total += weights[i];
             }
             float roll = Rand() * total;
@@ -353,14 +429,16 @@ namespace Catchline.Game
                 if (roll <= 0f) { pick = i; break; }
             }
             var def = GameData.Get(table[pick].species);
-            float kg = Mathf.Lerp(def.MinKg, def.MaxKg, Mathf.Pow(Rand(), 1.5f - power));
+            float specimen = Mathf.Pow(Rand(), 1.5f - power);
+            if (squid) specimen = Mathf.Lerp(.35f, 1f, specimen);
+            float kg = Mathf.Lerp(def.MinKg, def.MaxKg, specimen);
             return (def.Species, kg);
         }
 
         public float RollBiteWait(int spot, float power)
             => (5f + Rand() * 4f + power * 5f) * GameData.Spots[spot].BiteWait / Mathf.Max(0.3f, Richness[spot]);
 
-        public void OnCatch(int spot) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - GameData.RichnessPerCatch);
+        public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
 
         // ---- save / load ----------------------------------------------------------------
         // Saved in the harbour (after selling, after every purchase). A voyage in progress is not saved.
@@ -369,8 +447,18 @@ namespace Catchline.Game
         class SaveData
         {
             public int Version = 1;
-            public int Coins, Bait, Squid, Voyage, BestVoyageFish, Hull, Fuel;
+            public int Coins, Bait, Squid, Voyage, BestVoyageFish, Hull;
+            public float Fuel;
+            public bool HasTimedFuel;
+            public int NetInventory;
+            // Presence bit distinguishes legacy saves from an explicitly exhausted rack.
+            public bool HasNetInventory;
+            public int SelectedNet;
+            public List<int> DeepNetUses = new();
             public bool UseSquid;
+            public List<CaughtFish> UnsoldCatch = new();
+            public List<CoinCredit> CoinCredits = new();
+            public float UnsoldMinutes;
             public float FoodMinutes;
             public List<int> Owned = new(), Charts = new();
             public float[] Richness, Market, LogBest;
@@ -382,18 +470,54 @@ namespace Catchline.Game
             public List<Contract> Offers = new(), Active = new();
         }
 
-        public static string SavePath => System.IO.Path.Combine(Application.persistentDataPath, "catchline-save.json");
+        public static string SavePath
+        {
+            get
+            {
+                // Standalone verification can never target the real save through this probe.
+                var args = System.Environment.GetCommandLineArgs();
+                int flag = System.Array.IndexOf(args, "-save-check-root");
+                if (Application.isBatchMode && flag >= 0 && flag + 1 < args.Length)
+                {
+                    string root = System.IO.Path.GetFullPath(args[flag + 1]);
+                    System.IO.Directory.CreateDirectory(root);
+                    return System.IO.Path.Combine(root, "catchline-save.json");
+                }
+                return System.IO.Path.Combine(Application.persistentDataPath, "catchline-save.json");
+            }
+        }
 
         public void Save(string path = null)
         {
+            // Preserve an authorized external one-time credit if a live, older in-memory
+            // state saves afterwards. NewGame deletes the save, so credits do not respawn.
+            path ??= SavePath;
+            try
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    var previous = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(path));
+                    if (previous?.CoinCredits != null)
+                        foreach (var credit in previous.CoinCredits)
+                            if (!CoinCredits.Exists(c => c.Id == credit.Id))
+                            {
+                                Coins += credit.Amount;
+                                CoinCredits.Add(credit);
+                            }
+                }
+            }
+            catch (System.Exception e) { Debug.LogWarning("[Catchline] Credit reconciliation failed: " + e.Message); }
             var d = new SaveData
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, UseSquid = UseSquid,
-                Hull = Hull, Fuel = Fuel,
+                Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true,
+                SelectedNet = (int)SelectedNet, DeepNetUses = new List<int>(DeepNetUses),
                 FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
             foreach (var u in Owned) d.Owned.Add((int)u);
             d.Charts.AddRange(Charts);
+            d.UnsoldCatch.AddRange(UnsoldCatch); d.UnsoldMinutes = UnsoldMinutes;
+            d.CoinCredits.AddRange(CoinCredits);
             d.Board.AddRange(Board);
             d.ExtraCrew.AddRange(ExtraCrew);
             d.Offers.AddRange(Offers);
@@ -413,8 +537,15 @@ namespace Catchline.Game
                 var s = new GameState(System.Environment.TickCount);
                 s.Coins = d.Coins; s.Bait = d.Bait; s.Squid = d.Squid; s.Voyage = d.Voyage; s.BestVoyageFish = d.BestVoyageFish;
                 s.UseSquid = d.UseSquid; s.FoodMinutes = d.FoodMinutes;
-                s.Hull = Mathf.Clamp(d.Hull, 0, GameData.Hulls.Length - 1); s.Fuel = Mathf.Max(0, d.Fuel);
+                s.Hull = Mathf.Clamp(d.Hull, 0, GameData.Hulls.Length - 1); s.Fuel = d.Fuel;
+                s.NetInventory = d.HasNetInventory ? Mathf.Clamp(d.NetInventory, 0, GameData.NetInventoryCapacity) : 3;
+                s.SelectedNet = d.SelectedNet == 1 ? NetKind.Deep : NetKind.Shallow;
+                if (d.DeepNetUses != null)
+                    foreach (int uses in d.DeepNetUses)
+                        if (uses > 0 && s.DeepNetUses.Count < GameData.DeepNetRackCapacity)
+                            s.DeepNetUses.Add(Mathf.Clamp(uses, 1, GameData.DeepNetUses));
                 foreach (var u in d.Owned) s.Owned.Add((UpgradeId)u);
+                s.Fuel = Mathf.Clamp(float.IsNaN(s.Fuel) ? 0 : s.Fuel, 0, s.FuelCapacity);
                 foreach (var c in d.Charts) s.Charts.Add(c);
                 // Arrays can grow between versions (new seas, new fish): copy what fits.
                 if (d.Richness != null) System.Array.Copy(d.Richness, s.Richness, Mathf.Min(d.Richness.Length, s.Richness.Length));
@@ -424,6 +555,10 @@ namespace Catchline.Game
                 s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
                 if (d.ExtraCrew != null) s.ExtraCrew.AddRange(d.ExtraCrew);
                 s.Board.Clear(); s.Board.AddRange(d.Board);
+                s.EnsureCrewRoleOffers();
+                if (d.UnsoldCatch != null) s.UnsoldCatch.AddRange(d.UnsoldCatch);
+                s.UnsoldMinutes = d.UnsoldMinutes;
+                if (d.CoinCredits != null) s.CoinCredits.AddRange(d.CoinCredits);
                 s.Offers.Clear(); s.Offers.AddRange(d.Offers);
                 s.Active.Clear(); s.Active.AddRange(d.Active);
                 return s;

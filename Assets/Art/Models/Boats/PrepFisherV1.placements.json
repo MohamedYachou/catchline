@@ -1,0 +1,49 @@
+{
+  "asset": "PrepFisherV1",
+  "approved_reference": "BOAT032 6.8 x 3.5 m",
+  "hull_dimensions_source": [
+    3.499999761581421,
+    6.799999713897705,
+    1.1050000190734863
+  ],
+  "source_axes": "X athwartships, -Y bow, Z up",
+  "anchors_source": {
+    "PrepWorker_1": [
+      -0.36,
+      1.4,
+      0
+    ],
+    "PrepWorker_2": [
+      0.36,
+      1.4,
+      0
+    ],
+    "RawInput_1": [
+      -0.36,
+      0.14,
+      0.24
+    ],
+    "RawInput_2": [
+      0.36,
+      0.14,
+      0.24
+    ],
+    "PreparedOutput_1": [
+      -0.36,
+      2.04,
+      0.24
+    ],
+    "PreparedOutput_2": [
+      0.36,
+      2.04,
+      0.24
+    ]
+  },
+  "front_variants": [
+    "RawBuckets",
+    "RawIceCoolers"
+  ],
+  "prepared_storage": "PreparedHold (always present)",
+  "crew_meshes_exported": false,
+  "gameplay_status": "Hull/routes/trial integration; processing/chum work orders separate next step"
+}

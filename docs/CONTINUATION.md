@@ -14,7 +14,7 @@ Claude last completed harbour dressing and sea landmarks in `2e317ca`. The skiff
 
 ## Next gameplay work
 
-Claude's B1–B5 foundation is implemented. The final 30-voyage automation run reached the skiff at voyage 28 and yielded 86/133/73 gross coins/min in its first three trips (6.0/6.0/5.3 minutes), compared with late rowboat trips around 30–54. A targeted test also confirms fisherman catches without captain taps, haul backlog, role save/load, crew limits and expiring contracts. Broader balance seeds and longer voyage pacing remain tuning work.
+Claude's B1–B5 foundation is implemented. The final 30-voyage automation run reached the skiff at voyage 28 and yielded 86/133/73 gross coins/min in its first three trips (6.0/6.0/5.3 minutes), compared with late rowboat trips around 30–54. A targeted test also confirms fisherman catches without captain taps, haul backlog, role save/load, crew limits and expiring contracts. CREW026 changes role availability, not contract duration. Broader balance seeds and longer voyage pacing remain tuning work.
 
 Continue with C (contracts/rivals/events), D (remaining UI and feedback) and the E morning wrap-up. The full night plan is not yet complete.
 
@@ -24,6 +24,15 @@ The asset queue05–08 is complete and merged. Task07's31 models supply visible 
 
 From Windows, run `powershell -File docs/tools/check.ps1 -Name skiff -Method Catchline.EditorTools.SkiffChecks.Run`. It uses `Catchline-sim`; the main Unity project is never opened in batchmode. The ordinary check method runs the bot (`-Voyages 30`). Logs and scene renders are in the scratch project's `Logs/`; selected renders are copied to `docs/screens/`.
 
-To test through normal play: open Catchline > Play Voyage, return with 16 fish, visit Chandlery and buy the refit, then visit Supplies for fuel and food. Hire a fisherman and deckhands when available. At sea, the fisherman claims a rod; your other rods retain Fish bubbles. Tap Set net with your hands free, fish during the soak, then Haul net and watch the carrying backlog. Save by returning to harbour. The first tank is included. Crew contracts still expire by voyage.
+To test through normal play: open Catchline > Play Voyage, return with 16 fish, visit Chandlery and buy the refit, then visit Supplies for fuel and bait. Choose any fisherman/deckhand mix at Crew Office; both roles remain available after each hire, while contracts still expire by voyage. At sea, the fisherman claims a rod; your other rods retain Fish bubbles. Tap Set net with your hands free, fish during the soak, then Haul net and watch the carrying backlog. Save by returning to harbour. The first tank is included.
 
 Scene renders do not include Unity's IMGUI HUD. They verify model placement and camera framing; interactive title/shop layout review is still outstanding.
+
+## CREW026 update — 2026-10-16
+
+Mo clarified that the intended fix is role availability, not permanent hiring.
+Crew contracts still expire after2/3/5 voyages. Both roles have enough candidates
+to fill the current hull in Real and Test, with a replacement offer after each
+hire. The tier3 Test shortcut starts with an empty roster and1000 isolated coins
+at the Crew Office. The separate `-deep-net-trial` mode remains available. Details
+and evidence: [CREW026.md](CREW026.md).

@@ -40,7 +40,7 @@ namespace Catchline.EditorTools
             game.StrikeTap();
             Check(game.Stats.Spooked == 1 && rod.State == RodState.Unbaited, "early strike still costs bait");
 
-            for (int n = 0; n < 10; n++)
+            for (int n = 0; n < 100 && !game.HoldFull; n++)
             {
                 // Manning recasts after an early strike; following catches need the real Fish command.
                 if (game.CanCommandRod(rod)) game.CommandRod(rod);
@@ -55,21 +55,24 @@ namespace Catchline.EditorTools
                 if (n == 2) Check(!game.LearningFishing && Mathf.Approximately(game.StrikeWindow, game.State.BiteWindow), "normal timing after third landed fish");
             }
             Check(game.VoyageHint().Contains("Cooler full"), "return prompt");
+            int securedCount = game.Cooler.Count;
             game.HeadHome();
             Until(game, () => game.CurrentMode == VoyageGame.Mode.Harbour, "sale at harbour");
-            Check(game.State.LogCount[0] + game.State.LogCount[1] == 10 && game.State.LastSale.Coins > 0, "sale and fish log");
+            Check(game.State.UnsoldCatch.Count == securedCount && game.State.LastSale == null, "arrival keeps the haul unsold");
+            Check(game.SellHaul(), "captain explicitly sells haul");
+            Check(game.State.LogCount[0] + game.State.LogCount[1] == securedCount && game.State.LastSale.Coins > 0, "sale and fish log");
             Debug.Log($"[Catchline] First trip: {game.State.LastSale.Minutes:0.00} min, {game.State.LastSale.Coins} earned, {game.State.Coins} total; cooler costs {GameData.Upgrade(UpgradeId.BigCooler).Cost}");
             Check(!game.FirstVoyage && !game.LearningFishing, "tutorial stays completed after sale");
             int coins = game.State.Coins;
             Check(coins >= GameData.Upgrade(UpgradeId.BigCooler).Cost + GameData.BaitPackCost, "first full trip funds cooler plus replacement bait");
-            Check(game.State.TryBuy(UpgradeId.BigCooler) && game.State.CoolerCapacity == 16, "first upgrade unlocks 16 fish");
+            Check(game.State.TryBuy(UpgradeId.BigCooler) && game.State.CoolerCapacity == 6, "first upgrade unlocks6kg");
             Check(!game.State.TryBuy(UpgradeId.BigCooler), "upgrade spends once");
             string save = Path.GetFullPath("Logs/first-voyage-test-save.json");
             try
             {
                 game.State.Save(save);
                 var loaded = GameState.Load(save);
-                Check(loaded != null && loaded.LogCount[0] + loaded.LogCount[1] == 10, "learning progress survives save");
+                Check(loaded != null && loaded.LogCount[0] + loaded.LogCount[1] == securedCount, "learning progress survives save");
                 Check(ArtLibrary.Get().UiTex("fish-herring") != null && ArtLibrary.Get().UiTex("fish-mackerel") != null, "catch portraits available");
             }
             finally { if (File.Exists(save)) File.Delete(save); }
@@ -81,10 +84,28 @@ namespace Catchline.EditorTools
             Run();
             SkiffChecks.Run();
             SkiffChecks.Automation();
+            UrgentCrewChecks.Run();
+            SalePayoutChecks.Run();
+            FisherFeedbackChecks.Run();
+            CoastalPolishChecks.Run();
+            PtsWaterChecks.Run();
+            MenuSystemChecks.Run();
+            InterfaceChecks.Run();
+            CompactFisherChecks.Run();
+            NetChoiceChecks.Run();
+            ReferenceHudChecks.Run();
+            Check(ArtLibrary.Get().WaterShader != null && !ShaderUtil.ShaderHasError(ArtLibrary.Get().WaterShader), "water shader imports and compiles");
+            Check(ArtLibrary.Get().WaterTextures.Length == 7 && ArtLibrary.Get().WaterTex("water-tile").wrapMode == TextureWrapMode.Repeat, "seven water/effect textures import with repeating sea tile");
             Debug.Log("[Catchline] FIRST VOYAGE REGRESSION PASSED");
         }
 
         // Call on Catchline-sim only. This preview has a separate scene and never loads/saves real progress.
+        public static void ValidateAndBuildPreview()
+        {
+            Regression();
+            BuildPreview();
+        }
+
         public static void BuildPreview()
         {
             ArtImport.BuildLibrary();

@@ -1,0 +1,1033 @@
+--- a/Assets/Scripts/Game/GameData.cs
++++ b/Assets/Scripts/Game/GameData.cs
+@@ -166,12 +166,18 @@
+         public const float RichnessRecovery = 0.2f;
+         public const float MarketDropPerFish = 0.97f;
+         public const float MarketRecovery = 0.35f;
++        // TEMPORARY PLAYTEST OVERRIDE (Mo, 2026-10-15): keep both roles available.
++        // Production design uses the random, voyage-based crew board. Remove this override
++        // after automation testing; see docs/PLAYTEST-OVERRIDES.md.
++        public static readonly bool AlwaysOfferTestCrew = true;
++        public const float FreshnessGraceSeconds = 60f;
+         public const float FreshnessLossPerMinute = 0.07f, MinFreshness = 0.6f;
+         public const int MaxActiveContracts = 2;
+ 
+         public static readonly HullDef[] Hulls =
+         {
+-            new() { Name = "Rowboat", Model = "Rowboat", Width = 3, Height = 2, Capacity = 10, CrewCap = 1,
++            // Current Mo playtest: two hired crew, including fisherman. Production tier intent: see PLAYTEST-OVERRIDES.md.
++            new() { Name = "Rowboat", Model = "Rowboat", Width = 3, Height = 2, Capacity = 10, CrewCap = 2,
+                 TravelMultiplier = 1f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(1, 0), Rest = new(0, 1),
+                 Blocked = new[] { new Vector2Int(1, 1) }, RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0) },
+                 RodBases = new[] { new Vector3(0f, .44f, -.615f), new Vector3(2f, .44f, -.615f) } },
+--- a/Assets/Scripts/Game/GameState.cs
++++ b/Assets/Scripts/Game/GameState.cs
+@@ -3,6 +3,7 @@
+ 
+ namespace Catchline.Game
+ {
++    [System.Serializable]
+     public class CaughtFish
+     {
+         public Species Species;
+@@ -71,6 +72,10 @@
+         public readonly List<Contract> Offers = new();
+         public readonly List<Contract> Active = new();
+         public SaleReport LastSale;
++        // Unsold fish are saved at port with StowedAt = negative age on arrival.
++        // Harbour storage freezes freshness; it never silently sells or discards a haul.
++        public readonly List<CaughtFish> UnsoldCatch = new();
++        public float UnsoldMinutes;
+         public System.Random Rng;
+ 
+         public GameState(int seed)
+@@ -100,7 +105,7 @@
+         public float Freshness(CaughtFish f, float now)
+         {
+             if (Has(UpgradeId.IceBox)) return 1f;
+-            return Mathf.Max(GameData.MinFreshness, 1f - GameData.FreshnessLossPerMinute * (now - f.StowedAt) / 60f);
++            return Mathf.Max(GameData.MinFreshness, 1f - GameData.FreshnessLossPerMinute * Mathf.Max(0f, now - f.StowedAt - GameData.FreshnessGraceSeconds) / 60f);
+         }
+ 
+         public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * PricePerKg(f.Species) * Freshness(f, now)));
+@@ -162,15 +167,16 @@
+             return true;
+         }
+ 
+-        public bool HasAnyBait => Bait > 0 || Squid > 0;
+-
+-        // Takes one bait for a hook. Returns true when it was squid.
++        public bool HasPaidBait => Bait > 0 || Squid > 0;
++        public bool HasAnyBait => true; // Unlimited harbour scraps prevent a bait soft lock.
++
++        // Takes paid bait if available, otherwise free scraps. Always succeeds; out flag identifies squid.
+         public bool TakeBait(out bool squid)
+         {
+             squid = UseSquid && Squid > 0 || Bait <= 0 && Squid > 0;
+             if (squid) { Squid--; return true; }
+             if (Bait > 0) { Bait--; return true; }
+-            return false;
++            return true; // Free scraps: the rod records this bait type before taking it.
+         }
+ 
+         public bool FillFood()
+@@ -184,11 +190,12 @@
+ 
+         public bool Hire(CrewMember c)
+         {
+-            if (!Board.Contains(c) || CrewCount >= HullDef.CrewCap || c.Role == CrewRole.Fisherman && Hull == 0 || Coins < c.Fee) return false;
++            if (!Board.Contains(c) || CrewCount >= HullDef.CrewCap || Coins < c.Fee) return false;
+             Coins -= c.Fee;
+             Board.Remove(c);
+             if (c.Role == CrewRole.Deckhand && Deckhand == null) Deckhand = c;
+             else ExtraCrew.Add(c);
++            EnsureTestCrewOffers();
+             return true;
+         }
+ 
+@@ -201,6 +208,17 @@
+         }
+ 
+         // ---- end of a voyage --------------------------------------------------------------
++
++        public SaleReport QuoteSale(List<CaughtFish> catchList, float now)
++        {
++            var quote = new GameState(0);
++            System.Array.Copy(Market, quote.Market, Market.Length);
++            quote.Owned.UnionWith(Owned);
++            foreach (var c in Active)
++                quote.Active.Add(new Contract { Species = c.Species, Count = c.Count,
++                    Delivered = c.Delivered, VoyagesLeft = c.VoyagesLeft, Reward = c.Reward });
++            return quote.Sell(catchList, now);
++        }
+ 
+         public SaleReport Sell(List<CaughtFish> catchList, float now)
+         {
+@@ -287,6 +305,19 @@
+                 if (Rand() < .5f) Board.Add(NewCrew(Grade.Experienced, CrewRole.Fisherman));
+                 if (Rand() < .08f) Board.Add(NewCrew(Grade.Veteran, CrewRole.Fisherman));
+             }
++            EnsureTestCrewOffers();
++        }
++
++        public void EnsureTestCrewOffers()
++        {
++            if (!GameData.AlwaysOfferTestCrew) return;
++            if (!Board.Exists(c => c.Role == CrewRole.Deckhand)) Board.Add(NewCrew(Grade.Hand));
++            if (!Board.Exists(c => c.Role == CrewRole.Fisherman)) Board.Add(NewCrew(Grade.Hand, CrewRole.Fisherman));
++            // Put the test pair first so landscape phone players can find both roles.
++            var hand = Board.Find(c => c.Role == CrewRole.Deckhand);
++            var fisher = Board.Find(c => c.Role == CrewRole.Fisherman);
++            Board.Remove(hand); Board.Remove(fisher);
++            Board.Insert(0, fisher); Board.Insert(0, hand);
+         }
+ 
+         CrewMember NewCrew(Grade g, CrewRole role = CrewRole.Deckhand)
+@@ -334,8 +365,14 @@
+         // ---- fishing rolls ----------------------------------------------------------------
+ 
+         // Longer casts shift the odds toward heavier fish and bigger specimens.
+-        public (Species, float) RollFish(int spot, float power)
+-        {
++        public (Species, float) RollFish(int spot, float power, bool scraps = false)
++        {
++            // Poor bait is unlimited, but cannot roll a large species or specimen.
++            if (scraps)
++            {
++                var small = GameData.Get(Rng.Next(2) == 0 ? Species.Herring : Species.Mackerel);
++                return (small.Species, Mathf.Lerp(small.MinKg, small.MinKg + (small.MaxKg - small.MinKg) * .2f, Rand()));
++            }
+             var table = GameData.Spots[spot].Table;
+             float total = 0f;
+             var weights = new float[table.Length];
+@@ -371,6 +408,8 @@
+             public int Version = 1;
+             public int Coins, Bait, Squid, Voyage, BestVoyageFish, Hull, Fuel;
+             public bool UseSquid;
++            public List<CaughtFish> UnsoldCatch = new();
++            public float UnsoldMinutes;
+             public float FoodMinutes;
+             public List<int> Owned = new(), Charts = new();
+             public float[] Richness, Market, LogBest;
+@@ -394,6 +433,7 @@
+             };
+             foreach (var u in Owned) d.Owned.Add((int)u);
+             d.Charts.AddRange(Charts);
++            d.UnsoldCatch.AddRange(UnsoldCatch); d.UnsoldMinutes = UnsoldMinutes;
+             d.Board.AddRange(Board);
+             d.ExtraCrew.AddRange(ExtraCrew);
+             d.Offers.AddRange(Offers);
+@@ -424,6 +464,9 @@
+                 s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
+                 if (d.ExtraCrew != null) s.ExtraCrew.AddRange(d.ExtraCrew);
+                 s.Board.Clear(); s.Board.AddRange(d.Board);
++                s.EnsureTestCrewOffers(); // Applies the documented test override to old saves too.
++                if (d.UnsoldCatch != null) s.UnsoldCatch.AddRange(d.UnsoldCatch);
++                s.UnsoldMinutes = d.UnsoldMinutes;
+                 s.Offers.Clear(); s.Offers.AddRange(d.Offers);
+                 s.Active.Clear(); s.Active.AddRange(d.Active);
+                 return s;
+--- a/Assets/Scripts/Game/DeckActors.cs
++++ b/Assets/Scripts/Game/DeckActors.cs
+@@ -23,6 +23,7 @@
+         public Vector2Int Tile;
+         public Person ClaimedBy;
+         public float Age;
++        public float CaughtAt;
+         public Vector3 RestPos, SpawnFrom;
+         public Transform Tail;
+ 
+@@ -309,6 +310,7 @@
+         public Species HookedSpecies;
+         public float HookedKg;
+         public bool Squid; // baited with squid: bigger fish
++        public bool Scraps; // Unlimited poor bait: small species/specimens only.
+ 
+         public Transform Root { get; private set; }
+         public Vector3 TipLocal => tipLocal;
+@@ -533,7 +535,7 @@
+                     {
+                         State = RodState.Bite;
+                         t = 0f;
+-                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f));
++                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps);
+                         biteWindow = g.StrikeWindow;
+                         selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
+                         splash.gameObject.SetActive(true);
+--- a/Assets/Scripts/Game/VoyageGame.cs
++++ b/Assets/Scripts/Game/VoyageGame.cs
+@@ -39,7 +39,7 @@
+         Vector2Int CoolerAccess => State.HullDef.HoldAccess;
+         Vector2Int SeatTile => State.HullDef.Seat;
+         Vector2Int HandRest => State.HullDef.Rest;
+-        Vector2Int RestFor(Person p) => p == Hand ? HandRest : ExtraPeople.IndexOf(p) == 0 ? new Vector2Int(2, 2) : new Vector2Int(0, 1);
++        Vector2Int RestFor(Person p) => p == Hand ? HandRest : ExtraPeople.IndexOf(p) == 0 ? new Vector2Int(2, State.Hull == 0 ? 1 : 2) : new Vector2Int(0, 1);
+ 
+         Transform world, scenery, oldScenery, coolerLid;
+         TextMesh coolerLabel;
+@@ -231,7 +231,7 @@
+                 Rods.Add(rod);
+                 var rodModel = State.Has(UpgradeId.RodCarbon) ? lib?.M("FishingRod_Carbon") : State.Has(UpgradeId.RodFibreglass) ? lib?.M("FishingRod_Fibreglass") : null;
+                 rod.Build(Boat, world, hull.RodBases[i], rodModel);
+-                if (i > 0 && (State.Hull > 0 || State.Has(UpgradeId.RodHolder)))
++                if (i > 0 && (State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman)))
+                     ArtLibrary.Spawn(lib?.M("RodHolderClamp"), Boat, hull.RodBases[i], Quaternion.identity);
+             }
+             BuildNetKit();
+@@ -256,7 +256,7 @@
+ 
+         void RebuildBoat(bool preserveBait = true)
+         {
+-            var baited = Rods.Select(r => (ready: preserveBait && r.State == RodState.Ready, squid: r.Squid)).ToArray();
++            var baited = Rods.Select(r => (ready: preserveBait && r.State == RodState.Ready, squid: r.Squid, scraps: r.Scraps)).ToArray();
+             Captain?.Stop();
+             Hand?.Stop();
+             foreach (var p in ExtraPeople) p.Stop();
+@@ -269,13 +269,14 @@
+             if (netFloats != null) Visuals.Kill(netFloats.gameObject);
+             netFloats = winchCrank = null;
+             Manning = null;
++            AwaitingCast = false;
+             coolerLid = propeller = null;
+             coolerModel = iceBoxModel = oarPort = oarStarboard = null;
+             modelOars = false;
+             BuildGrid();
+             BuildBoat();
+             for (int i = 0; i < baited.Length && i < Rods.Count; i++)
+-                if (baited[i].ready) { Rods[i].State = RodState.Ready; Rods[i].Squid = baited[i].squid; }
++                if (baited[i].ready) { Rods[i].State = RodState.Ready; Rods[i].Squid = baited[i].squid; Rods[i].Scraps = baited[i].scraps; }
+             Captain = new Person("Captain", true, new Vector3(0f, 0f, -.05f));
+             Captain.Build(Boat, SeatTile, Palette.HullNavy, Palette.Rail);
+             SyncCrew();
+@@ -431,6 +432,8 @@
+ 
+         public void SyncCrew()
+         {
++            for (int i = 1; i < Rods.Count; i++)
++                Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
+             if (Hand != null && Hand.Contract != State.Deckhand)
+             {
+                 Visuals.Kill(Hand.Root.gameObject);
+@@ -463,7 +466,7 @@
+         public void SyncUpgrades()
+         {
+             if (CurrentMode == Mode.Harbour && boatVisualSignature != BoatVisualSignature) { RebuildBoat(); return; }
+-            for (int i = 1; i < Rods.Count; i++) Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder));
++            for (int i = 1; i < Rods.Count; i++) Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
+             bool ice = State.Has(UpgradeId.IceBox);
+             if (coolerModel != null)
+             {
+@@ -520,22 +523,20 @@
+             CurrentMode = Mode.Harbour;
+             if (arrived)
+             {
+-                var sale = State.Sell(Cooler, SimTime);
+-                sale.Minutes = (SimTime - voyageStart) / 60f;
+-                int spot = ActiveSpot;
+-                State.EndVoyage(sale);
+-                int earned = sale.Coins + sale.ContractCoins;
+-                Toast(earned > 0 ? $"Catch sold! +{earned} coins" : "Back in Gull Harbour. Ready when you are.");
+-                Log.Add($"Voyage {State.Voyage - 1,2} {GameData.Spots[spot].Name,-13} {sale.Minutes:0.0} min  fish {sale.Caught,2}  " +
+-                        $"+{earned,3} ({earned / Mathf.Max(0.1f, sale.Minutes):0}/min)  coins {State.Coins,4}  bait {State.Bait,2}  " +
+-                        $"spooked {Stats.Spooked} missed {Stats.Missed} lost {Stats.Lost}  hand {(Hand != null ? GameData.GradeName(Hand.Contract.Grade) : "-")}  " +
+-                        $"upgrades [{string.Join(",", State.Owned)}]");
++                State.UnsoldCatch.Clear();
++                foreach (var fish in Cooler)
++                    State.UnsoldCatch.Add(new CaughtFish { Species = fish.Species, Kg = fish.Kg,
++                        StowedAt = -Mathf.Max(0f, SimTime - fish.StowedAt) });
++                State.UnsoldMinutes = (SimTime - voyageStart) / 60f;
+                 Cooler.Clear();
++                if (State.UnsoldCatch.Count == 0) State.EndVoyage(new SaleReport());
++                Toast(State.UnsoldCatch.Count > 0 ? "Haul safely ashore! Tap Sell haul to collect your coins." : "Back in Gull Harbour.");
+                 hudTab = HudTab.Market;
+                 panelOpen = true;
+             }
+             SyncCrew();
+             Manning = null;
++            AwaitingCast = false;
+             Captain.Rowing = false;
+             Captain.Place(SeatTile);
+             Captain.Face(Vector3.forward);
+@@ -548,10 +549,26 @@
+             botHarbourAt = SimTime + 0.5f;
+         }
+ 
++        public bool SellHaul()
++        {
++            if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count == 0) return false;
++            var sale = State.Sell(State.UnsoldCatch, 0f);
++            sale.Minutes = State.UnsoldMinutes;
++            State.UnsoldCatch.Clear(); // Consume once, including across save/reload.
++            State.EndVoyage(sale);
++            int earned = sale.Coins + sale.ContractCoins;
++            Toast($"Haul sold! +{earned} coins");
++            Log.Add($"Voyage {State.Voyage - 1}: {sale.Caught} fish, +{earned} coins, {sale.Minutes:0.0} min");
++            SyncCrew();
++            SyncUpgrades();
++            SaveGame();
++            return true;
++        }
++
+         public string SailBlocker()
+         {
+             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
+-            if (State.Hull == 0 && !State.HasAnyBait && Rods.All(r => r.State != RodState.Ready)) return "Buy bait first";
++            if (State.UnsoldCatch.Count > 0) return "Sell your haul first";
+             if (State.Hull > 0 && State.Fuel < GameData.TripFuel(SelectedSpot)) return "Buy fuel at Supplies";
+             return null;
+         }
+@@ -559,6 +576,7 @@
+         public void SetSail()
+         {
+             if (SailBlocker() != null) return;
++            SyncUpgrades();
+             ActiveSpot = SelectedSpot;
+             if (State.Hull > 0) State.Fuel -= GameData.TripFuel(ActiveSpot);
+             voyageStart = SimTime;
+@@ -580,7 +598,7 @@
+                 p.Stop();
+                 if (p.Carrying != null)
+                 {
+-                    if (Cooler.Count < State.CoolerCapacity) Cooler.Add(new CaughtFish { Species = p.Carrying.Species, Kg = p.Carrying.Kg, StowedAt = SimTime });
++                    if (Cooler.Count < State.CoolerCapacity) Cooler.Add(new CaughtFish { Species = p.Carrying.Species, Kg = p.Carrying.Kg, StowedAt = p.Carrying.CaughtAt });
+                     Visuals.Kill(p.Carrying.Root.gameObject);
+                     p.Carrying = null;
+                 }
+@@ -588,11 +606,12 @@
+             ResetNet();
+             foreach (var f in OnDeck)
+             {
+-                if (Cooler.Count < State.CoolerCapacity) Cooler.Add(new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = SimTime });
++                if (Cooler.Count < State.CoolerCapacity) Cooler.Add(new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.CaughtAt });
+                 Visuals.Kill(f.Root.gameObject);
+             }
+             OnDeck.Clear();
+             Manning = null;
++            AwaitingCast = false;
+             foreach (var r in Rods) r.ResetForTrip();
+             BeginTransition(Mode.SailingHome, -1);
+         }
+@@ -833,6 +852,23 @@
+         // with a deckhand they fetch it and the rod's bubble comes back for the next cast.
+ 
+         public Rod Manning { get; private set; }
++        public bool AwaitingCast { get; private set; }
++        public bool HasDeckhand => State.Crew.Any(c => c.Role == CrewRole.Deckhand);
++
++        public bool ThrowAgain()
++        {
++            if (!AwaitingCast || Manning == null || CurrentMode != Mode.Fishing) return false;
++            AwaitingCast = false;
++            return true;
++        }
++
++        public void LeaveFishing()
++        {
++            // Only leave the between-casts panel; an active cast must resolve first.
++            if (!AwaitingCast) return;
++            AwaitingCast = false;
++            Manning = null;
++        }
+ 
+         public bool Attending(Rod r) => !Captain.Walking && Captain.Tile == r.Tile;
+ 
+@@ -851,6 +887,7 @@
+             if (!CanCommandRod(r)) return;
+             if (Captain.Carrying != null) { Toast("Stow your fish first."); return; }
+             Manning = r;
++            AwaitingCast = false;
+             if (!Attending(r)) Captain.WalkTo(Grid, r.Tile, () => Captain.Face(Vector3.back));
+         }
+ 
+@@ -859,6 +896,7 @@
+             if (!CanCarry(f)) return;
+             if (Captain.Carrying != null) { Toast("Your hands are full."); return; }
+             Manning = null;
++            AwaitingCast = false;
+             Fetch(Captain, f);
+         }
+ 
+@@ -878,16 +916,11 @@
+         {
+             var r = Manning;
+             if (r == null || !Captain.Idle || Captain.Carrying != null || !Attending(r)) return;
++            if (AwaitingCast) return;
+             switch (r.State)
+             {
+                 case RodState.Unbaited:
+                     if (r.BaitingBy != null) return; // the deckhand is on it
+-                    if (!State.HasAnyBait)
+-                    {
+-                        Toast("Out of bait. Head home and buy more.");
+-                        Manning = null;
+-                        return;
+-                    }
+                     Bait(Captain, r);
+                     break;
+                 case RodState.Ready:
+@@ -901,7 +934,7 @@
+         {
+             State.OnCatch(ActiveSpot);
+             Stats.Landed++;
+-            var f = new DeckFish { Species = s, Kg = kg, Tile = rod.Tile };
++            var f = new DeckFish { Species = s, Kg = kg, Tile = rod.Tile, CaughtAt = SimTime };
+             f.Root = DeckFish.BuildModel(s, kg, Boat);
+             int n = OnDeck.Count(o => o.Tile == rod.Tile);
+             f.RestPos = DeckGrid.ToLocal(rod.Tile) + new Vector3(-0.22f + n * 0.18f, 0.07f, 0.3f);
+@@ -910,7 +943,12 @@
+                 if (t.name.EndsWith("Tail")) f.Tail = t;
+             f.Root.localPosition = f.SpawnFrom;
+             OnDeck.Add(f);
+-            if (rod == Manning) { Manning = null; Captain.PlayOnce("Cheer"); }
++            if (rod == Manning)
++            {
++                if (HasDeckhand) AwaitingCast = true;
++                else Manning = null;
++                Captain.PlayOnce("Cheer");
++            }
+             ShowCatch(s, kg);
+         }
+ 
+@@ -947,7 +985,7 @@
+                 if (p == Captain) Toast("The cooler is full! Head home to sell.");
+                 return false;
+             }
+-            Cooler.Add(new CaughtFish { Species = p.Carrying.Species, Kg = p.Carrying.Kg, StowedAt = SimTime });
++            Cooler.Add(new CaughtFish { Species = p.Carrying.Species, Kg = p.Carrying.Kg, StowedAt = p.Carrying.CaughtAt });
+             Visuals.Kill(p.Carrying.Root.gameObject);
+             p.Carrying = null;
+             lidPop = 1f;
+@@ -962,8 +1000,10 @@
+             p.Do("Baiting", GameData.BaitTime, () =>
+             {
+                 rod.BaitingBy = null;
++                bool scraps = !State.HasPaidBait;
+                 if (rod.State == RodState.Unbaited && State.TakeBait(out bool squid))
+                 {
++                    rod.Scraps = scraps;
+                     rod.Squid = squid;
+                     rod.State = RodState.Ready;
+                 }
+@@ -1005,7 +1045,7 @@
+             var rod = Rods.FirstOrDefault(r => r.Fisher == fisher);
+             if (rod == null)
+             {
+-                rod = Rods.FirstOrDefault(r => r.Unlocked && r != Manning && r.Fisher == null);
++                rod = Rods.LastOrDefault(r => r.Unlocked && r != Manning && r.Fisher == null);
+                 if (rod == null) return;
+                 rod.Fisher = fisher;
+             }
+@@ -1058,6 +1098,7 @@
+                 if (botStrikeRod == MinigameRod) StrikeTap();
+                 botStrikeRod = null;
+             }
++            if (AwaitingCast) ThrowAgain();
+             var c = Captain;
+             if (!c.Idle || c.Carrying != null || MinigameRod != null) return;
+ 
+@@ -1079,6 +1120,7 @@
+         void BotHarbour()
+         {
+             botHarbourAt = float.MaxValue;
++            SellHaul();
+             while (State.Active.Count < GameData.MaxActiveContracts && State.Offers.Count > 0) State.TakeContract(State.Offers[0]);
+             // Buy in a fixed order, saving up for the next item (negative numbers are sea charts).
+             foreach (int step in new[] { (int)UpgradeId.RodHolder, -2, (int)UpgradeId.IceBox, -3, (int)UpgradeId.RodFibreglass, (int)UpgradeId.BigCooler, (int)UpgradeId.LunchTin, (int)UpgradeId.RodCarbon, -4 })
+--- a/Assets/Scripts/Game/VoyageHud.cs
++++ b/Assets/Scripts/Game/VoyageHud.cs
+@@ -125,9 +125,15 @@
+         void DrawCrewStrip(Rect r, Person person, string portrait)
+         {
+             Panel(r, Ui.Chip);
+-            Icon(new Rect(r.x + 10f, r.y + 7f, 48f, 48f), portrait);
+-            GUI.Label(new Rect(r.x + 68f, r.y + 9f, r.width - 80f, 25f), person == Captain ? "Captain (you)" : $"{person.Name} · {person.Contract.VoyagesLeft} trips left", Ui.WhiteSmall);
+-            GUI.Label(new Rect(r.x + 68f, r.y + 34f, r.width - 80f, 24f), person.State, Ui.WhiteSmall);
++            bool compact = r.height < 60f;
++            float iconSize = compact ? 32f : 48f;
++            float inset = compact ? 52f : 68f;
++            Icon(new Rect(r.x + 10f, r.y + 7f, iconSize, iconSize), portrait);
++            GUI.Label(new Rect(r.x + inset, r.y + (compact ? 3f : 9f), r.width - inset - 12f, 25f), person == Captain ? "Captain (you)" : $"{person.Name} · {person.Contract.VoyagesLeft} trips left", Ui.WhiteSmall);
++            var employeeRod = Rods.FirstOrDefault(rod => rod.Fisher == person);
++            string activity = employeeRod != null ? employeeRod.StateText : person.State;
++            string status = person == Captain ? activity : $"{person.Contract.RoleName} · {activity}";
++            GUI.Label(new Rect(r.x + inset, r.y + (compact ? 22f : 34f), r.width - inset - 12f, 24f), status, Ui.WhiteSmall);
+         }
+ 
+         void DrawSailing()
+@@ -144,14 +150,20 @@
+         {
+             // One readable resource card. The centre stays clear for the boat.
+             int rods = Rods.Count(r => r.Unlocked);
+-            var p = Panel(new Rect(20f, 20f, 334f, 178f + rods * 26f + State.Active.Count * 28f + (FirstVoyage ? 36f : 0f)));
++            var p = Panel(new Rect(20f, 20f, 334f, 240f + rods * 26f + State.Active.Count * 28f + (FirstVoyage ? 36f : 0f)));
+             float x = p.x + 18f, y = p.y + 16f, w = p.width - 36f;
+             GUI.Label(new Rect(x, y, w, 32f), GameData.Spots[ActiveSpot].Name, Ui.H2);
+             y += 40f;
+             Row(ref y, x, w, "icon-cooler", $"Cooler {Cooler.Count}/{State.CoolerCapacity}", Cooler.Count / (float)State.CoolerCapacity, Cooler.Count >= State.CoolerCapacity ? Ui.BarWarn : Ui.BarFill);
++            var haul = CurrentHaul();
++            var quote = State.QuoteSale(haul, SimTime);
++            GUI.Label(new Rect(x, y, w, 28f), $"Haul {haul.Count} fish · {quote.Coins + quote.ContractCoins} coins", Ui.Body);
++            y += 28f;
++            GUI.Label(new Rect(x, y, w, 26f), FreshnessStatus(haul, SimTime), Ui.Small);
++            y += 30f;
+             Row(ref y, x, w, "icon-food", State.FoodMinutes > 0 ? $"Food {State.FoodMinutes:0.0} min" : "Food empty", State.FoodMinutes / State.FoodCapacity, State.FoodMinutes < 1f ? Ui.BarWarn : Ui.BarGood);
+             Icon(new Rect(x, y, 24f, 24f), "icon-bait-worm");
+-            GUI.Label(new Rect(x + 32f, y, 146f, 26f), $"Bait {State.Bait}" + (State.Squid > 0 ? $" +{State.Squid} squid" : ""), Ui.Small);
++            GUI.Label(new Rect(x + 32f, y, 146f, 26f), State.HasPaidBait ? $"Bait {State.Bait}" + (State.Squid > 0 ? $" +{State.Squid} squid" : "") : "Free scraps ∞", Ui.Small);
+             GUI.Label(new Rect(x + 178f, y, w - 178f, 26f), $"Stocks {State.Richness[ActiveSpot] * 100f:0}%", Ui.Mutedish);
+             y += 30f;
+             foreach (var rod in Rods.Where(r => r.Unlocked))
+@@ -191,16 +203,16 @@
+             // Portrait strips share the same visual grammar as the goal render.
+             float cy = VH - 20f;
+             var visibleCrew = People.Where(person => person != Captain).ToList();
+-            if (VH < 600f && visibleCrew.Count > 1) visibleCrew = visibleCrew.Take(1).ToList();
++            float crewHeight = VH < 600f ? 46f : 66f;
+             foreach (var person in visibleCrew)
+             {
+-                cy -= 66f;
+-                DrawCrewStrip(new Rect(20f, cy, 334f, 66f), person,
++                cy -= crewHeight;
++                DrawCrewStrip(new Rect(20f, cy, 334f, crewHeight), person,
+                     person.Contract.Grade == Grade.Veteran ? "portrait-veteran" : person.Contract.Role == CrewRole.Fisherman ? "portrait-fisherman" : "portrait-deckhand");
+-                cy -= 8f;
+-            }
+-            cy -= 66f;
+-            DrawCrewStrip(new Rect(20f, cy, 334f, 66f), Captain, "portrait-captain");
++                cy -= VH < 600f ? 4f : 8f;
++            }
++            cy -= crewHeight;
++            DrawCrewStrip(new Rect(20f, cy, 334f, crewHeight), Captain, "portrait-captain");
+             // Speech bubbles in the world.
+             foreach (var r in Rods.Where(r => r.Unlocked))
+             {
+@@ -213,6 +225,7 @@
+                     CommandCarry(f);
+ 
+             DrawMinigame();
++            DrawCastChoice();
+             DrawCatchFeedback();
+             DrawVoyageGuide();
+         }
+@@ -334,10 +347,21 @@
+             var l = Panel(new Rect(16f, 16f, 360f, 150f));
+             GUI.Label(new Rect(l.x + 16, l.y + 12, l.width - 32, 34), GameData.HarbourName, Ui.Title);
+             GUI.Label(new Rect(l.x + 16, l.y + 50, l.width - 32, 22), $"Voyage {State.Voyage}  ·  <b>{State.Coins}</b> coins", Ui.Body);
+-            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), FirstVoyage ? "First trip: bring home 3 fish" : State.Hull > 0 ? "Skiff · 40-fish hold · outboard" : "Next hull: skiff refit", Ui.Small);
++            GUI.Label(new Rect(l.x + 16, l.y + 80, l.width - 32, 20), State.UnsoldCatch.Count > 0 ? "Welcome home · your catch is waiting" : FirstVoyage ? "First trip: bring home 3 fish" : State.Hull > 0 ? "Skiff · 40-fish hold · outboard" : "Next hull: skiff refit", Ui.Small);
+             float goal = Mathf.Min(State.BestVoyageFish / (float)GameData.SkiffFishGoal, 1f) * 0.5f + Mathf.Min(State.Coins / (float)GameData.SkiffCost, 1f) * 0.5f;
+             Ui.Bar(new Rect(l.x + 16, l.y + 102, l.width - 32, 12), FirstVoyage ? 0f : State.Hull > 0 ? 1f : goal);
+-            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 24), FirstVoyage ? "Bait and food aboard. Ready to sail." : State.Hull > 0 ? $"Fuel {State.Fuel} · {GameData.TripFuel(SelectedSpot)} per return trip" : $"{GameData.SkiffFishGoal} fish (best {State.BestVoyageFish}) · {GameData.SkiffCost} coins", Ui.Mutedish);
++            GUI.Label(new Rect(l.x + 16, l.y + 118, l.width - 32, 24), State.UnsoldCatch.Count > 0 ? "Sell your haul to collect your earnings." : FirstVoyage ? "Bait aboard · free scraps always available." : State.Hull > 0 ? $"Fuel {State.Fuel} · {GameData.TripFuel(SelectedSpot)} per return trip" : $"{GameData.SkiffFishGoal} fish (best {State.BestVoyageFish}) · {GameData.SkiffCost} coins", Ui.Mutedish);
++
++            if (State.UnsoldCatch.Count > 0)
++            {
++                var quote = State.QuoteSale(State.UnsoldCatch, 0f);
++                var sale = Panel(new Rect(16f, 182f, 360f, 180f));
++                GUI.Label(new Rect(sale.x + 16f, sale.y + 12f, 328f, 30f), $"Your haul · {State.UnsoldCatch.Count} fish", Ui.H2);
++                GUI.Label(new Rect(sale.x + 16f, sale.y + 48f, 328f, 38f), "Safely ashore · value held until sold", Ui.Small);
++                var button = new Rect(sale.x + 16f, sale.y + 100f, 328f, 64f);
++                Track(button);
++                if (GUI.Button(button, $"Sell haul   +{quote.Coins + quote.ContractCoins} coins", Ui.Btn)) SellHaul();
++            }
+ 
+             // Bottom left: set sail toward the chosen sea.
+             var blocker = SailBlocker();
+@@ -393,14 +417,23 @@
+         void TabMarket()
+         {
+             var s = State.LastSale;
+-            if (s == null)
++            if (State.UnsoldCatch.Count > 0)
++            {
++                var quote = State.QuoteSale(State.UnsoldCatch, 0f);
++                GUILayout.Label("Your catch is ready to sell", Ui.H2);
++                GUILayout.Label($"{State.UnsoldCatch.Count} fish safely ashore · <b>{quote.Coins + quote.ContractCoins} coins</b> to collect.", Ui.Body);
++                GUILayout.Label("Tap the big Sell haul button on the left. Your catch stays saved here until you sell it.", Ui.Body);
++                if (quote.ToContracts > 0)
++                    GUILayout.Label($"{quote.ToContracts} fish go to contracts; completed-contract rewards are included in the preview.", Ui.Mutedish);
++            }
++            else if (s == null)
+             {
+                 GUILayout.Label("Welcome to Gull Harbour", Ui.H2);
+                 GUILayout.Space(6);
+                 GUILayout.Label(
+                     "Your rowboat is ready, with bait and food aboard.\n\n" +
+                     "<b>Bring home your first 3 fish.</b> Set sail for the harbour mouth; the hints on the water will show you what to do.\n\n" +
+-                    "Fish sell automatically when you return. Spend your catch on a bigger cooler, another rod, and eventually a crew.\n\n" +
++                    "At port, tap Sell haul to collect your coins. Spend them on a bigger cooler, another rod, or crew. Free scraps are always available when paid bait runs out.\n\n" +
+                     "Keep fishing as long as you like. Head home whenever you're ready; progress saves here.", Ui.Body);
+             }
+             else
+@@ -552,11 +585,12 @@
+                 GUILayout.Label($"Works at {GameData.Speed(d.Grade):0.0}x speed · {d.VoyagesLeft} voyage{(d.VoyagesLeft == 1 ? "" : "s")} left on contract", Ui.Mutedish);
+                 GUILayout.EndVertical();
+             }
+-            if (State.CrewCount == 0) GUILayout.Label("Just you. Deckhands bait hooks and carry fish. The skiff also has room for fishermen who cast and strike their own rods.", Ui.Mutedish);
++            if (State.CrewCount == 0) GUILayout.Label("Just you. This rowboat can hire two crew: deckhands bait and carry; fishermen cast and strike their own rods.", Ui.Mutedish);
+ 
+             GUILayout.Space(10);
+             GUILayout.Label("Looking for work", Ui.H2);
+-            GUILayout.Label("Who's here changes every voyage. Nobody signs on for good: contracts run for a few voyages.", Ui.Mutedish);
++            if (GameData.AlwaysOfferTestCrew) GUILayout.Label("TESTING: a fisherman and deckhand are always available. Normal hiring fees still apply.", Ui.Small);
++            GUILayout.Label(GameData.AlwaysOfferTestCrew ? "Both roles stay on the board for this test. Contracts still run for a few voyages." : "Who's here changes every voyage. Nobody signs on for good: contracts run for a few voyages.", Ui.Mutedish);
+             if (State.Board.Count == 0) GUILayout.Label("Nobody is looking for work today. Try after your next voyage.", Ui.Body);
+             foreach (var c in State.Board.ToList())
+             {
+@@ -617,6 +651,7 @@
+         void TabSupplies()
+         {
+             GUILayout.Label("Bait", Ui.H2);
++            GUILayout.Label("Free scraps · unlimited. Used automatically when worms and squid run out. Only small herring and mackerel; buy bait for better catches.", Ui.Body);
+             GUILayout.BeginHorizontal(Ui.Card);
+             GUILayout.Label($"Worms: {State.Bait}\n<size=12>One per hook. A spooked or missed fish takes the bait.</size>", Ui.Body);
+             if (ShopButton($"+{GameData.BaitPackSize} for {GameData.BaitPackCost}", State.Coins >= GameData.BaitPackCost, 150f) && State.BuyBait()) SaveGame();
+--- /dev/null
++++ b/Assets/Scripts/Game/VoyageHaul.cs
+@@ -0,0 +1,42 @@
++using System.Collections.Generic;
++using System.Linq;
++using UnityEngine;
++
++namespace Catchline.Game
++{
++    public partial class VoyageGame
++    {
++        public List<CaughtFish> CurrentHaul()
++        {
++            var haul = new List<CaughtFish>(Cooler);
++            foreach (var fish in OnDeck.Concat(People.Where(p => p.Carrying != null).Select(p => p.Carrying)))
++                haul.Add(new CaughtFish { Species = fish.Species, Kg = fish.Kg, StowedAt = fish.CaughtAt });
++            return haul;
++        }
++
++        public string FreshnessStatus(List<CaughtFish> haul, float now)
++        {
++            if (haul.Count == 0) return "Fresh for 1 min after each catch";
++            if (State.Has(UpgradeId.IceBox)) return "Iced · full value preserved";
++            float oldest = haul.Max(f => Mathf.Max(0f, now - f.StowedAt));
++            float grace = GameData.FreshnessGraceSeconds - oldest;
++            if (grace > 0f) return $"Value drops in {Mathf.CeilToInt(grace)}s · oldest fish";
++            float freshness = haul.Min(f => State.Freshness(f, now));
++            return freshness <= GameData.MinFreshness ? "Oldest fish: 60% value · minimum" :
++                $"Oldest: {freshness * 100f:0}% value · loses 7%/min";
++        }
++
++        void DrawCastChoice()
++        {
++            if (!AwaitingCast || Manning == null) return;
++            var p = Panel(new Rect(VW / 2f - 230f, VH - 158f, 460f, 138f));
++            GUI.Label(new Rect(p.x + 16f, p.y + 12f, p.width - 32f, 28f), "Deckhand handles bait and carrying", Ui.Center);
++            var cast = new Rect(p.x + 16f, p.y + 52f, 296f, 68f);
++            var leave = new Rect(p.x + 324f, p.y + 52f, 120f, 68f);
++            Track(cast); Track(leave);
++            bool full = Cooler.Count >= State.CoolerCapacity;
++            if (GUI.Button(cast, full ? "Cooler full" : "Throw again", full ? Ui.BtnOff : Ui.Btn) && !full) ThrowAgain();
++            if (GUI.Button(leave, "Leave", Ui.BtnAlt)) LeaveFishing();
++        }
++    }
++}
+--- a/Assets/Scripts/Game/VoyageFeedback.cs
++++ b/Assets/Scripts/Game/VoyageFeedback.cs
+@@ -47,14 +47,14 @@
+                 _ => "Casting… get ready to watch the bobber.",
+             };
+             if (FirstVoyage && Cooler.Count >= 3) return "Three fish safely aboard! Head home to sell, or keep filling the cooler.";
+-            if (!State.HasAnyBait && Rods.All(r => r.State == RodState.Unbaited)) return "Out of bait. Head home; Supplies sells more.";
++            if (!State.HasPaidBait && Rods.All(r => r.State == RodState.Unbaited)) return "Free scraps are unlimited. Tap Fish to catch small fish, or buy better bait at port.";
+             if (Rods.Any(r => CanCommandRod(r) && r.InWater)) return "Tap Watch above a rod to watch its bobber.";
+             return Rods.Any(CanCommandRod) ? "Tap Fish above the rod. The captain baits and casts for you." : null;
+         }
+ 
+         void DrawVoyageGuide()
+         {
+-            if (!ShowTips || MinigameRod != null) return;
++            if (!ShowTips || MinigameRod != null || AwaitingCast) return;
+             var hint = VoyageHint();
+             if (hint == null) return;
+             float width = Mathf.Min(520f, VW - 400f);
+--- a/Assets/Scripts/Game/VoyageMenus.cs
++++ b/Assets/Scripts/Game/VoyageMenus.cs
+@@ -150,7 +150,7 @@
+                 case HudTab.HarbourMaster:
+                     return Enumerable.Range(0, GameData.Spots.Length).Any(i => !s.Known(i) && s.Coins >= GameData.Spots[i].ChartCost)
+                            || s.Active.Count < GameData.MaxActiveContracts && s.Offers.Count > 0;
+-                case HudTab.CrewOffice: return s.CrewCount < s.HullDef.CrewCap && s.Board.Any(c => s.Coins >= c.Fee) && (s.Hull > 0 || s.Has(UpgradeId.RodHolder));
++                case HudTab.CrewOffice: return s.CrewCount < s.HullDef.CrewCap && s.Board.Any(c => s.Coins >= c.Fee);
+                 case HudTab.Chandlery:
+                     return s.CanRefit || GameData.Upgrades.Any(u => u.Shop == "Chandlery" && !s.Has(u.Id) && s.Coins >= u.Cost && (!u.Requires.HasValue || s.Has(u.Requires.Value)));
+                 case HudTab.Supplies:
+--- a/Assets/Scripts/Game/VoyageNet.cs
++++ b/Assets/Scripts/Game/VoyageNet.cs
+@@ -94,7 +94,7 @@
+             int count = netFish.Count;
+             foreach (var (species, kg) in netFish)
+             {
+-                var fish = new DeckFish { Species = species, Kg = kg, Tile = NetAccess };
++                var fish = new DeckFish { Species = species, Kg = kg, Tile = NetAccess, CaughtAt = SimTime };
+                 fish.Root = DeckFish.BuildModel(species, kg, Boat);
+                 int i = OnDeck.Count;
+                 fish.RestPos = DeckGrid.ToLocal(NetAccess) + new Vector3((i % 4 - 1.5f) * .12f, .07f, (i / 4) * .08f);
+--- a/Assets/Scripts/Game/VoyageCapture.cs
++++ b/Assets/Scripts/Game/VoyageCapture.cs
+@@ -16,7 +16,7 @@
+             var args = Environment.GetCommandLineArgs();
+             int flag = Array.IndexOf(args, "-capture-voyage");
+             if (SessionOnly && flag >= 0 && flag + 1 < args.Length)
+-                StartCoroutine(CaptureVoyage(Path.GetFullPath(args[flag + 1])));
++                StartCoroutine(Array.IndexOf(args, "-capture-urgent") >= 0 ? CaptureUrgent(Path.GetFullPath(args[flag + 1])) : CaptureVoyage(Path.GetFullPath(args[flag + 1])));
+         }
+ 
+         void CaptureUntil(Func<bool> done, string state)
+@@ -31,6 +31,52 @@
+             var frame = ScreenCapture.CaptureScreenshotAsTexture();
+             File.WriteAllBytes(Path.Combine(directory, name + ".png"), frame.EncodeToPNG());
+             Destroy(frame);
++        }
++
++        IEnumerator CaptureUrgent(string directory)
++        {
++            Directory.CreateDirectory(directory);
++            Application.runInBackground = true;
++            captureFreeze = true;
++            AutoPlay = false;
++            showTitle = false;
++            Ui.Init();
++            // Save-isolated fixture: fund the ordinary hire actions, then test being broke.
++            State.Coins = 1000;
++            OpenShop(HudTab.CrewOffice);
++            yield return null;
++            yield return CaptureFrame(directory, "01-guaranteed-crew");
++            State.Hire(State.Board.Find(c => c.Role == CrewRole.Deckhand));
++            State.Hire(State.Board.Find(c => c.Role == CrewRole.Fisherman));
++            SyncCrew(); SyncUpgrades();
++            yield return CaptureFrame(directory, "02-two-crew-hired");
++            State.Coins = 0; State.Bait = 0; State.Squid = 0; State.FoodMinutes = 20;
++            SetSail();
++            CaptureUntil(() => CurrentMode == Mode.Fishing, "fishing");
++            Tick(4f);
++            yield return CaptureFrame(directory, "03-free-bait-two-rods");
++            var rod = Rods[0];
++            CommandRod(rod);
++            CaptureUntil(() => rod.State == RodState.Bite, "bite");
++            yield return CaptureFrame(directory, "04-bite");
++            StrikeTap();
++            CaptureUntil(() => AwaitingCast, "throw again choice");
++            Tick(2f);
++            yield return CaptureFrame(directory, "05-throw-or-leave");
++            ThrowAgain();
++            CaptureUntil(() => rod.State == RodState.Bite, "second bite");
++            StrikeTap();
++            CaptureUntil(() => AwaitingCast, "second catch");
++            Tick(5f);
++            yield return CaptureFrame(directory, "06-haul-value");
++            LeaveFishing(); HeadHome();
++            CaptureUntil(() => CurrentMode == Mode.Harbour, "port");
++            Tick(4f);
++            yield return CaptureFrame(directory, "07-sell-preview");
++            SellHaul();
++            yield return CaptureFrame(directory, "08-paid-receipt");
++            Debug.Log($"[Catchline] URGENT PRESENTATION COMPLETE: {Screen.width}x{Screen.height}, {directory}");
++            Application.Quit(0);
+         }
+ 
+         IEnumerator CaptureVoyage(string directory)
+@@ -66,6 +112,8 @@
+             HeadHome();
+             CaptureUntil(() => CurrentMode == Mode.Harbour, "sale");
+             Tick(3.5f);
++            yield return CaptureFrame(directory, "08-unsold");
++            SellHaul();
+             yield return CaptureFrame(directory, "08-sale");
+             OpenShop(HudTab.Chandlery);
+             yield return CaptureFrame(directory, "09-chandlery");
+--- /dev/null
++++ b/Assets/Scripts/Game/VoyageHaul.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: 6a83b200699f41f89c7e5d1f37b1d72a
+--- a/Assets/Editor/FirstVoyageChecks.cs
++++ b/Assets/Editor/FirstVoyageChecks.cs
+@@ -57,6 +57,8 @@
+             Check(game.VoyageHint().Contains("Cooler full"), "return prompt");
+             game.HeadHome();
+             Until(game, () => game.CurrentMode == VoyageGame.Mode.Harbour, "sale at harbour");
++            Check(game.State.UnsoldCatch.Count == 10 && game.State.LastSale == null, "arrival keeps the haul unsold");
++            Check(game.SellHaul(), "captain explicitly sells haul");
+             Check(game.State.LogCount[0] + game.State.LogCount[1] == 10 && game.State.LastSale.Coins > 0, "sale and fish log");
+             Debug.Log($"[Catchline] First trip: {game.State.LastSale.Minutes:0.00} min, {game.State.LastSale.Coins} earned, {game.State.Coins} total; cooler costs {GameData.Upgrade(UpgradeId.BigCooler).Cost}");
+             Check(!game.FirstVoyage && !game.LearningFishing, "tutorial stays completed after sale");
+@@ -81,6 +83,7 @@
+             Run();
+             SkiffChecks.Run();
+             SkiffChecks.Automation();
++            UrgentCrewChecks.Run();
+             Check(ArtLibrary.Get().WaterShader != null && !ShaderUtil.ShaderHasError(ArtLibrary.Get().WaterShader), "water shader imports and compiles");
+             Check(ArtLibrary.Get().WaterTextures.Length == 7 && ArtLibrary.Get().WaterTex("water-tile").wrapMode == TextureWrapMode.Repeat, "seven water/effect textures import with repeating sea tile");
+             Debug.Log("[Catchline] FIRST VOYAGE REGRESSION PASSED");
+--- /dev/null
++++ b/Assets/Editor/UrgentCrewChecks.cs
+@@ -0,0 +1,102 @@
++using System;
++using System.IO;
++using System.Linq;
++using Catchline.Game;
++using UnityEditor.SceneManagement;
++using UnityEngine;
++
++namespace Catchline.EditorTools
++{
++    // Save-isolated regression for Mo's urgent rowboat automation / recovery request.
++    public static class UrgentCrewChecks
++    {
++        static void Check(bool ok, string message)
++        {
++            if (!ok) throw new Exception("[Catchline] First voyage check failed: urgent " + message);
++        }
++        static void Until(VoyageGame game, Func<bool> done, string message, float timeout = 90f)
++        {
++            for (float t = 0; t < timeout && !done(); t += .05f) game.Tick(.05f);
++            Check(done(), message);
++        }
++        public static void Run()
++        {
++            ArtImport.BuildLibrary();
++            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
++            var game = new GameObject("Urgent rowboat checks").AddComponent<VoyageGame>();
++            game.SessionOnly = true;
++            game.Build();
++            var s = game.State;
++            Check(s.HullDef.CrewCap == 2, "rowboat supports two employees plus captain");
++            for (int seed = 0; seed < 30; seed++)
++            {
++                var board = new GameState(seed).Board;
++                Check(board.Any(c => c.Role == CrewRole.Deckhand) && board.Any(c => c.Role == CrewRole.Fisherman), "temporary guaranteed roles across seeds");
++            }
++            s.Coins = 1000;
++            var hand = s.Board.First(c => c.Role == CrewRole.Deckhand);
++            var fisher = s.Board.First(c => c.Role == CrewRole.Fisherman);
++            Check(s.Hire(hand) && s.Hire(fisher), "both roles hired on rowboat");
++            Check(s.Board.Any(c => c.Role == CrewRole.Deckhand) && s.Board.Any(c => c.Role == CrewRole.Fisherman), "offers replenished after hire");
++            Check(!s.Hire(s.Board[0]), "third employee blocked");
++            game.SyncCrew(); game.SyncUpgrades();
++            Check(game.Hand != null && game.ExtraPeople.Count == 1 && game.Rods[1].Unlocked, "two crew and dedicated second rod built");
++            Check(game.Grid.FindPath(new Vector2Int(2,1), game.Rods[1].Tile) != null, "fisherman rests on valid rowboat tile");
++            s.Coins = 0; s.Bait = 0; s.Squid = 0; s.FoodMinutes = 20;
++            Check(game.SailBlocker() == null && s.TakeBait(out bool squid) && !squid && s.Coins == 0, "broke captain can launch and use free bait");
++            for (int n = 0; n < 200; n++)
++            {
++                var (species, kg) = s.RollFish(4, 1.4f, true);
++                var def = GameData.Get(species);
++                Check((species == Species.Herring || species == Species.Mackerel) && kg <= def.MinKg + (def.MaxKg-def.MinKg)*.201f, "scraps cannot catch large fish even in deep water");
++            }
++            game.SetSail();
++            Until(game, () => game.CurrentMode == VoyageGame.Mode.Fishing, "arrive at sea");
++            Until(game, () => game.Cooler.Count >= 1, "fisherman catches and deckhand stows without captain taps", 240f);
++            Check(game.Rods[1].Fisher != null && game.Rods[0].Fisher == null, "fisherman leaves captain's rod free");
++            var rod = game.Rods[0];
++            game.CommandRod(rod);
++            Until(game, () => rod.State == RodState.Bite, "captain bite");
++            game.StrikeTap();
++            Until(game, () => game.AwaitingCast, "deckhand keeps captain in fishing mode");
++            Check(game.Manning == rod && game.CurrentHaul().Count > 0, "haul includes deck and carried fish");
++            game.Tick(3f);
++            Check(game.AwaitingCast && (rod.State == RodState.Ready || rod.State == RodState.Unbaited), "does not silently recast");
++            Check(game.ThrowAgain(), "one big throw action resumes same rod");
++            Until(game, () => rod.State == RodState.Bite, "second cast");
++            game.StrikeTap();
++            Until(game, () => game.AwaitingCast, "second catch retains mode");
++            game.LeaveFishing();
++            Check(game.Manning == null && !game.AwaitingCast, "leave exits fishing interaction");
++            game.HeadHome();
++            Until(game, () => game.CurrentMode == VoyageGame.Mode.Harbour, "port arrival");
++            Check(s.Coins == 0 && s.UnsoldCatch.Count >= 3 && s.LastSale == null, "arrival preserves fish without auto-sale");
++            Check(game.SailBlocker() == "Sell your haul first", "unsold catch cannot be silently lost on departure");
++            var quote = s.QuoteSale(s.UnsoldCatch, 0);
++            int payout = quote.Coins + quote.ContractCoins;
++            Check(payout > 0 && s.Coins == 0 && s.LastSale == null, "quote is valuable and side-effect free");
++            string path = Path.GetFullPath("Logs/urgent-crew-save.json");
++            try
++            {
++                s.Save(path);
++                var loaded = GameState.Load(path);
++                Check(loaded.CrewCount == 2 && loaded.UnsoldCatch.Count == s.UnsoldCatch.Count, "crew and unsold haul survive reload");
++                Check(loaded.QuoteSale(loaded.UnsoldCatch, 0).Coins + loaded.QuoteSale(loaded.UnsoldCatch, 0).ContractCoins == payout, "saved catch retains exact value");
++                // Simulate a pre-override old save with no offers.
++                loaded.Board.Clear(); loaded.Save(path); loaded = GameState.Load(path);
++                Check(loaded.Board.Any(c => c.Role == CrewRole.Fisherman) && loaded.Board.Any(c => c.Role == CrewRole.Deckhand), "old saves get test offers");
++            }
++            finally { if (File.Exists(path)) File.Delete(path); }
++            game.Tick(90f);
++            Check(s.QuoteSale(s.UnsoldCatch,0).Coins + s.QuoteSale(s.UnsoldCatch,0).ContractCoins == payout, "harbour browsing does not degrade haul");
++            Check(game.SellHaul() && s.Coins == payout && s.UnsoldCatch.Count == 0, "explicit sale pays exact preview and clears once");
++            Check(!game.SellHaul() && s.Coins == payout, "double sale blocked");
++            Check(s.LogCount.Sum() >= 3 && s.Voyage == 2, "sale advances log and voyage once");
++            var fish = new CaughtFish { Species = Species.Herring, Kg = .3f, StowedAt = 0 };
++            Check(s.Freshness(fish, 59) == 1f && s.Freshness(fish, 120) < 1f, "freshness grace and degradation match messaging");
++            s.Owned.Add(UpgradeId.IceBox);
++            Check(s.Freshness(fish, 10000) == 1f, "ice preserves value");
++            Debug.Log("[Catchline] URGENT CREW CHECKS PASSED: two crew, automatic fisherman, scraps, persistent cast, pending sale/save, exact payout, freshness");
++        }
++    }
++}
+--- /dev/null
++++ b/Assets/Editor/UrgentCrewChecks.cs.meta
+@@ -0,0 +1,2 @@
++fileFormatVersion: 2
++guid: ff12a6aea33a4751890f74bd84f250ac
+--- a/docs/GAMEPLAY.md
++++ b/docs/GAMEPLAY.md
+@@ -7,6 +7,22 @@
+ Closely match the goal renders, with fishing as the reference standard. Every
+ later mechanic ships using that finished visual language from its first pass.
+ See PRODUCT.md, DESIGN.md and docs/plans/PLAYABILITY-PLAN.md.
++
++## Current urgent playtest slice — 2026-10-15
++
++Mo requests two crew on the starter rowboat, including a fisherman. Both roles
++are guaranteed in the Crew Office **temporarily for automation testing**; normal
++fees and expiring contracts remain. This overrides the production tier ladder and
++random board below for now. See [PLAYTEST-OVERRIDES.md](PLAYTEST-OVERRIDES.md) and
++`GameData.AlwaysOfferTestCrew`; remove the guarantee explicitly after testing.
++
++Free unlimited scraps automatically replace exhausted paid bait and catch only
++small herring/mackerel. Returning to port preserves/saves the haul. The captain
++presses **Sell haul +N coins**, with a preview matching market impact and contract
++rewards, before the next departure. Haul value and oldest-fish freshness are shown
++while fishing: 60 seconds at full value, then 7% loss/min down to 60%, unless iced.
++Harbour storage holds value until sale. With a deckhand the captain stays in
++fishing mode after a catch and can **Throw again** or **Leave**.
+ 
+ ## Pillars
+ 
+@@ -165,7 +181,7 @@
+   3. Wait 6-14 s through 1-3 nibbles (the bobber twitches and the fish darts in).
+   4. When the bobber goes fully under, **tap anywhere once** inside the bite window (0.9 s). Tapping on a nibble spooks the fish, and missing the window lets it get away; both cost the bait.
+   5. Reel (1-2.5 s by weight). The captain tosses the fish onto the deck next to him.
+-  6. **Solo:** tap the fish's **Carry** bubble and the captain takes it to the cooler. **With a deckhand (tier 2+):** they fetch it and bait the hook, and the rod's Fish bubble comes back for your next cast.
++  6. **Solo:** tap the fish's **Carry** bubble and the captain takes it to the cooler. **With a deckhand (tier 2+):** they fetch it and bait the hook; stay in fishing mode and choose Throw again or Leave.
+ 
+   A fish left on deck flops back overboard after 25 s. A rod nobody is standing at shows a **Watch** bubble (and **!** on a bite): tap it to go there.
+ - **Cooler:** 10 fish. Without the ice box, fish lose value the longer they sit (down to 60%).
+@@ -211,11 +227,11 @@
+ 
+ ## Build 2: skiff foundation (2026-10-15)
+ 
+-The refit replaces the boat with the supplied skiff model and changes the walkable deck from 3×2 to 5×3. The console, hold and winch block walking; crew route around them. The skiff has three rod sockets, a 40-fish hold and an outboard that halves travel times. Crew caps are one on the rowboat and three on the skiff, plus the captain.
++The refit replaces the boat with the supplied skiff model and changes the walkable deck from 3×2 to 5×3. The console, hold and winch block walking; crew route around them. The skiff has three rod sockets, a 40-fish hold and an outboard that halves travel times. Crew caps are currently two on the rowboat and three on the skiff, plus the captain (rowboat test-slice override; see PLAYTEST-OVERRIDES.md).
+ 
+ Supplies sells 10 fuel for 10 coins. A round trip consumes `ceil(spot.RowSeconds / 5)` fuel, reserved at launch, including the return. The shipyard includes the first 10 fuel in the refit price. Food capacity grows fourfold on the skiff (24 minutes, or 48 with the lunch tin), still shared by everyone aboard. The ice-box upgrade continues to preserve fish in the hold.
+ 
+-At the Crew Office, the skiff adds fisherman contracts alongside deckhands. Fishermen occupy one rod each, bait/cast autonomously, and strike 55%/70%/85% of bites by grade. Their fees are twice a deckhand's at the same grade; contract lengths remain 2/3/5 voyages. They leave landed fish for deckhands. Up to three hired crew can be mixed; all eat provisions and expire normally. Role and extra crew survive saves.
++For this playtest, the rowboat and skiff both offer fisherman contracts alongside deckhands (production tier intent: skiff introduces fishermen). Fishermen occupy one rod each, bait/cast autonomously, and strike 55%/70%/85% of bites by grade. Their fees are twice a deckhand's at the same grade; contract lengths remain 2/3/5 voyages. They leave landed fish for deckhands. Up to three hired crew can be mixed; all eat provisions and expire normally. Role and extra crew survive saves.
+ 
+ **Gill net:** tap Set net with the captain's hands free. The captain walks to the winch and sets it; it soaks for 60–90 seconds while rods keep fishing. Floats bob and the catch count rises. Tap Haul net when ready: the captain cranks for five working seconds, dropping fish onto the deck for carrying. Nets mainly catch herring/mackerel with local bycatch. Fish on deck still flop away after 25 seconds, making transport capacity matter. Returning home clears the deployed net; net fish are only sold after hauling and stowing.
+ 
+--- a/docs/FIRST-VOYAGE.md
++++ b/docs/FIRST-VOYAGE.md
+@@ -41,8 +41,8 @@
+ 
+ Run `Catchline-sim/Builds/FirstVoyage/Catchline.exe`. Play → Set sail → Fish.
+ Wait through nibbles; tap clear water or press Space when the bobber goes under.
+-Tap Carry after landing. Bring three home, or fill all ten slots. Head home
+-sells automatically; visit the Chandlery from the Market to buy the cooler.
++Tap Carry after landing. Bring three home, or fill all ten slots. Head home. Your catch
++stays safely ashore until you tap Sell haul; then visit the Chandlery from the Market to buy the cooler.
+ 
+ Preview progress is intentionally temporary. The main Unity scene uses the
+ normal persistent save. The two existing dirty render-pipeline settings remain
+--- a/docs/plans/PLAYABILITY-PLAN.md
++++ b/docs/plans/PLAYABILITY-PLAN.md
+@@ -28,3 +28,11 @@
+ Do not mark the full night plan complete from this first-voyage slice. Preserve
+ its outstanding tasks. Native captures and test logs must distinguish actual
+ interactive play, scripted actions and scene-only renders.
++
++## Urgent Mo override — 2026-10-15
++
++Implement two rowboat crew including fisherman, guaranteed test-only crew roles,
++unlimited poor fallback bait, explicit port sale/save and haul/freshness feedback,
++plus persistent Throw again / Leave interaction with deckhand. Production crew
++board stays random by design: see docs/PLAYTEST-OVERRIDES.md and
++GameData.AlwaysOfferTestCrew before future balance changes.
+--- /dev/null
++++ b/docs/PLAYTEST-OVERRIDES.md
+@@ -0,0 +1,38 @@
++# Temporary automation testing — Mo, 2026-10-15
++
++**Do not mistake this for the production hiring design.** Mo explicitly requests
++that the Crew Office always have a fisherman and a deckhand so automation can
++be tested now, including on existing saves.
++
++`GameData.AlwaysOfferTestCrew = true` enables `GameState.EnsureTestCrewOffers()`.
++It fills missing roles when the board rolls, after hiring, and when loading old
++saves. Offers remain visible even when the boat is full; hiring still obeys normal
++fees, two rowboat crew slots, three skiff slots and contract durations. No free
++crew, player money injection, permanent contracts or player-save reset.
++
++For the current test slice the starter rowboat accepts two hired employees plus
++the captain. A fisherman unlocks the existing second rod socket and claims that
++rod, leaving the first rod for the captain. A deckhand carries and baits. The
++captain stays at the rod after a catch with a prominent Throw again / Leave
++choice; Throw starts the next cast without reselecting a world bubble.
++
++To restore the random production board, set `AlwaysOfferTestCrew` to false and
++update `UrgentCrewChecks` and shop testing copy. Existing offers remain until the
++next normal board roll. Decide separately whether to restore the rowboat's old
++one-crew/tier restriction; that capacity is currently changed at Mo's request.
++The intended production progression still introduces fisherman automation on the
++skiff. Preserve that intent in future balance work.
++
++The following recovery/reward improvements are **normal gameplay**, not crew-shop
++test overrides: unlimited poor scraps when paid bait runs out (only small herring
++and mackerel), explicit port selling with an exact payout preview, saved unsold
++haul, live haul value/freshness and a 60-second freshness grace from landing.
++Harbour storage freezes the remaining sale value. Sell before setting sail again;
++crew/contracts advance once at sale (or arrival for an empty trip).
++
++Verification: `FirstVoyageChecks.Regression` includes `UrgentCrewChecks.Run`:
++real fisherman/deckhand simulation without captain input, two-crew limit, test
++board across seeds and old saves, scraps bounds, persistent cast interaction,
++unsold-haul save/reload, quote/sale equality, no duplicate sale and freshness.
++Native preview captures support `-capture-voyage <directory> -capture-urgent`.
++The capture fixture funds its own save-isolated hire actions; normal play does not.

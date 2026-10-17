@@ -3,37 +3,54 @@ using UnityEngine;
 namespace Catchline.Game
 {
     // IMGUI styles in the Catchline palette: cream cards, navy text, orange buttons.
-    // Placeholder until the real UI kit; rounded corners come from generated 9-slice textures.
+    // The supplied sliced artwork and Fredoka font are shared by HUD, shops and menus.
     public static class Ui
     {
         public static readonly Color Ink = Palette.HullNavy;
-        public static readonly Color Muted = new(0.09f, 0.25f, 0.34f, 0.65f);
+        public static readonly Color Muted = Palette.Hex("52747C");
 
         public static GUIStyle Panel, Card, CardOn, Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn,
             Action, ActionHot, ActionOff, Chip, ToastStyle, BarBg, BarFill, BarWarn, BarGood,
             WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, DotWhite, DotRed, DotGold, Ring, FishShape, Water, MiniTitle, MiniHot,
-            LogoStyle, TitleCenter, MutedCenter;
+            LogoStyle, TitleCenter, MutedCenter, Reward, ScrollTrack, ScrollThumb, Slider, SliderThumb;
 
         static bool ready;
+        static System.Collections.Generic.Dictionary<GUIStyle, int> typeSizes;
+        static float typeScale;
+
+        public static void SetTypeScale(float scale)
+        {
+            if (typeSizes == null)
+            {
+                typeSizes = new();
+                foreach (var style in new[] { Title, H2, Body, Small, Mutedish, Center, Btn, BtnAlt, BtnOff, Tab, TabOn, WhiteCenter, WhiteSmall, WhiteCenterSmall, Bubble, BubbleHot, MiniTitle, MiniHot, LogoStyle, TitleCenter, MutedCenter })
+                    typeSizes[style] = style.fontSize;
+            }
+            if (Mathf.Approximately(typeScale, scale)) return;
+            typeScale = scale;
+            foreach (var pair in typeSizes) pair.Key.fontSize = Mathf.RoundToInt(pair.Value * scale);
+        }
 
         public static void Init()
         {
             if (ready && Panel.normal.background != null) return;
             ready = true;
+            typeSizes = null;
+            typeScale = 0f;
             Panel = Box(Round(Palette.Cream, 16, new Color(0.09f, 0.25f, 0.34f, 0.25f)), 16, 16);
             Card = Box(Round(Color.white, 12, new Color(0.09f, 0.25f, 0.34f, 0.15f)), 12, 12);
             CardOn = Box(Round(Color.white, 12, Palette.Accent, 3), 12, 12);
             Title = Text(28, Ink, FontStyle.Bold);
-            H2 = Text(19, Ink, FontStyle.Bold);
-            Body = Text(15, Ink);
-            Small = Text(13, Ink);
-            Mutedish = Text(13, Muted);
-            Center = Text(15, Ink, FontStyle.Normal, TextAnchor.MiddleCenter);
-            Btn = Button(Palette.Accent, Color.white, 16);
-            BtnAlt = Button(Palette.Sea, Color.white, 16);
-            BtnOff = Button(new Color(0.78f, 0.77f, 0.74f), new Color(1f, 1f, 1f, 0.85f), 16);
-            Tab = Button(new Color(0.88f, 0.84f, 0.76f), Ink, 15);
-            TabOn = Button(Palette.HullNavy, Color.white, 15);
+            H2 = Text(23, Ink, FontStyle.Bold);
+            Body = Text(18, Ink);
+            Small = Text(16, Ink);
+            Mutedish = Text(16, Muted);
+            Center = Text(18, Ink, FontStyle.Normal, TextAnchor.MiddleCenter);
+            Btn = Button(Palette.Accent, Ink, 20);
+            BtnAlt = Button(Palette.Sea, Color.white, 20);
+            BtnOff = Button(Palette.Hex("D6D2C4"), Palette.Hex("5F6B68"), 20);
+            Tab = Button(new Color(0.88f, 0.84f, 0.76f), Ink, 17);
+            TabOn = Button(Palette.HullNavy, Color.white, 17);
             Action = Button(Palette.Accent, Color.white, 26);
             ActionHot = Button(Palette.Oilskin, Palette.HullNavy, 30);
             ActionOff = Button(new Color(0.55f, 0.6f, 0.62f, 0.9f), Color.white, 20);
@@ -52,8 +69,8 @@ namespace Catchline.Game
             BarGood = Box(Round(Palette.Good, 6), 0, 6);
 
             WhiteCenter = Text(20, Color.white, FontStyle.Normal, TextAnchor.MiddleCenter);
-            WhiteSmall = Text(13, Color.white);
-            WhiteCenterSmall = Text(14, new Color(1f, 1f, 1f, 0.9f), FontStyle.Normal, TextAnchor.MiddleCenter);
+            WhiteSmall = Text(16, Palette.Cream);
+            WhiteCenterSmall = Text(17, Palette.Cream, FontStyle.Normal, TextAnchor.MiddleCenter);
             MiniTitle = Text(22, Color.white, FontStyle.Bold, TextAnchor.MiddleCenter);
             MiniHot = Text(30, Palette.Oilskin, FontStyle.Bold, TextAnchor.MiddleCenter);
             Bubble = Button(Color.white, Ink, 18);
@@ -67,9 +84,20 @@ namespace Catchline.Game
             Water = Box(Round(new Color(0.08f, 0.5f, 0.58f, 0.93f), 18, new Color(1f, 1f, 1f, 0.5f), 3), 0, 18);
             LogoStyle = Text(64, Palette.HullNavy, FontStyle.Bold, TextAnchor.MiddleCenter);
             TitleCenter = Text(28, Ink, FontStyle.Bold, TextAnchor.MiddleCenter);
-            MutedCenter = Text(14, Muted, FontStyle.Normal, TextAnchor.MiddleCenter);
+            MutedCenter = Text(16, Muted, FontStyle.Normal, TextAnchor.MiddleCenter);
+            Reward = new GUIStyle(Panel);
+            ScrollTrack = Box(Round(Palette.Hex("DFDED0"), 5), 0, 5);
+            ScrollTrack.fixedWidth = 10f;
+            ScrollThumb = Box(Round(Palette.Sea, 5), 0, 5);
+            ScrollThumb.fixedWidth = 10f;
+            ScrollThumb.stretchHeight = true;
 
             ApplyKit();
+            Slider = new GUIStyle(BarBg) { fixedHeight = 12, margin = new RectOffset(0, 0, 10, 0) };
+            SliderThumb = Box(Round(Palette.HullNavy, 10), 0, 10);
+            SliderThumb.fixedWidth = 26;
+            SliderThumb.fixedHeight = 30;
+            SliderThumb.margin = new RectOffset(0, 0, -9, 0);
         }
 
         // ---- Codex's UI kit (Assets/Art/UI), imported at 1x. Borders are the slices.json values halved. ----
@@ -92,6 +120,7 @@ namespace Catchline.Game
                 }
 
             Skin(Panel, "panel-cream", 28, 28, 28, 32);
+            Skin(Reward, "catch-card", 32, 32, 32, 54);
             Skin(Card, "card-white", 28, 28, 28, 32);
             Skin(CardOn, "card-selected", 28, 28, 28, 32);
             Skin(Chip, "chip-dark", 28, 28, 28, 32);
@@ -166,7 +195,9 @@ namespace Catchline.Game
         static GUIStyle Text(int size, Color c, FontStyle fs = FontStyle.Normal, TextAnchor a = TextAnchor.UpperLeft)
         {
             var s = new GUIStyle { fontSize = size, fontStyle = fs, alignment = a, wordWrap = true, richText = true };
-            s.normal.textColor = c;
+            // IMGUI's font pass converts these colours to linear without the matching
+            // output conversion in a linear project. Compensate so kit ink stays navy.
+            s.normal.textColor = QualitySettings.activeColorSpace == ColorSpace.Linear ? c.gamma : c;
             return s;
         }
 
@@ -175,11 +206,13 @@ namespace Catchline.Game
             var s = Box(Round(fill, 12), 10, 12);
             s.hover.background = Round(Color.Lerp(fill, Color.white, 0.12f), 12);
             s.active.background = Round(Color.Lerp(fill, Color.black, 0.12f), 12);
-            s.normal.textColor = s.hover.textColor = s.active.textColor = text;
+            var ink = QualitySettings.activeColorSpace == ColorSpace.Linear ? text.gamma : text;
+            s.normal.textColor = s.hover.textColor = s.active.textColor = ink;
             s.fontSize = size;
             s.fontStyle = FontStyle.Bold;
             s.alignment = TextAnchor.MiddleCenter;
             s.wordWrap = true;
+            s.richText = true;
             return s;
         }
 

@@ -23,6 +23,9 @@ namespace Catchline.Game
         public Vector2Int Tile;
         public Person ClaimedBy;
         public float Age;
+        public float CaughtAt;
+        public bool CaughtByCrew; // Automatic catches stay out of captain reward/toast feedback.
+        public bool FromNetBasket;
         public Vector3 RestPos, SpawnFrom;
         public Transform Tail;
 
@@ -30,13 +33,19 @@ namespace Catchline.Game
         {
             var def = GameData.Get(s);
             float k = Mathf.Lerp(0.85f, 1.25f, Mathf.InverseLerp(def.MinKg, def.MaxKg, kg));
-            var prefab = ArtLibrary.Get()?.FishFor(s);
+            var library = ArtLibrary.Get();
+            // New species also resolve by model name, without replacing the existing indexed library.
+            var prefab = library?.FishFor(s) ?? library?.M(s.ToString());
             if (prefab != null)
             {
                 // Modelled fish: nose +Z, upright. Lay it on its side inside an unrotated holder.
                 var h = new GameObject(def.Name + " (holder)").transform;
                 h.SetParent(parent, false);
-                ArtLibrary.Spawn(prefab, h, Vector3.zero, Quaternion.Euler(0f, 0f, 90f), k * 1.3f);
+                var model = ArtLibrary.Spawn(prefab, h, Vector3.zero, Quaternion.identity);
+                // FBX exporter unit/root transforms vary. Fit the existing species
+                // length, rather than treating centimetre mesh coordinates as metres.
+                ArtLibrary.AimAlong(model, Vector3.forward, def.Length * k * 1.3f);
+                model.transform.localRotation = Quaternion.Euler(0, 0, 90) * model.transform.localRotation;
                 return h;
             }
             float len = def.Length * k;
@@ -73,14 +82,20 @@ namespace Catchline.Game
         public bool Rowing;
 
         Vector3 pos;
+        public DeckGrid Grid;
         readonly Vector3 offset;
         readonly List<Vector2Int> path = new();
         Action arrive, walkCancel;
         float busyLeft, busyTotal;
         Action busyDone, busyCancel;
         public string BusyLabel { get; private set; }
-        Transform barFill, barRoot, body;
-        Transform rig;
+        Transform body;
+        Quaternion facing = Quaternion.identity;
+        public bool Loitering { get; private set; }
+        public bool CarryingBatch;
+        public int PatrolLeg { get; private set; }
+        float lookoutLeft, lookoutDuration;
+        Transform rig, lookoutHead;
         readonly Dictionary<string, AnimationClip> clips = new();
         public string Pose;
         string lastPose;
@@ -103,11 +118,11 @@ namespace Catchline.Game
             this.offset = offset;
         }
 
-        public Vector2Int Tile => DeckGrid.ToTile(pos);
+        public Vector2Int Tile => Grid != null ? Grid.GetTile(pos - offset) : DeckGrid.ToTile(pos);
         public bool Walking => path.Count > 0 || arrive != null;
         public bool Busy => busyTotal > 0f;
         public bool Idle => !Walking && !Busy;
-        public string State => Busy ? BusyLabel : Walking ? "walking" : Carrying != null ? "carrying a fish" : "ready";
+        public string State => Busy ? BusyLabel : Walking ? Loitering ? "strolling" : "walking" : Carrying != null ? "carrying a fish" : Loitering ? "looking overboard" : "ready";
 
         public void Build(Transform boat, Vector2Int tile, Color suit, Color hat)
         {
@@ -129,6 +144,7 @@ namespace Catchline.Game
                 string roleHat = IsCaptain ? "Hat_CaptainCap" : Contract?.Role == CrewRole.Fisherman ? "Hat_Hood" : "Hat_Beanie";
                 foreach (var child in rig.GetComponentsInChildren<Transform>(true))
                 {
+                    if (child.name == "Head") lookoutHead = child;
                     if (child.name.StartsWith("Outfit_")) child.gameObject.SetActive(child.name == outfit);
                     if (child.name.StartsWith("Hat_")) child.gameObject.SetActive(child.name == roleHat);
                 }
@@ -154,25 +170,20 @@ namespace Catchline.Game
                 Visuals.Prim(PrimitiveType.Sphere, "Beanie", body, new Vector3(0f, 0.83f, 0f), new Vector3(0.29f, 0.19f, 0.29f), hat);
             }
             }
-
-            barRoot = new GameObject("Progress").transform;
-            barRoot.SetParent(Root, false);
-            barRoot.localPosition = new Vector3(0f, 1.15f, 0f);
-            Visuals.Box("Back", barRoot, Vector3.zero, new Vector3(0.5f, 0.06f, 0.02f), Palette.Rubber);
-            barFill = Visuals.Box("Fill", barRoot, new Vector3(0f, 0f, -0.012f), new Vector3(0.48f, 0.045f, 0.02f), Palette.Oilskin).transform;
-            barRoot.gameObject.SetActive(false);
         }
 
         public void Place(Vector2Int tile)
         {
+            EndLoiter();
             path.Clear();
             arrive = walkCancel = null;
-            pos = DeckGrid.ToLocal(tile) + offset;
+            pos = (Grid != null ? Grid.GetLocal(tile) : DeckGrid.ToLocal(tile)) + offset;
             if (Root != null) Root.localPosition = pos;
         }
 
         public void Stop()
         {
+            EndLoiter();
             path.Clear();
             var wc = walkCancel;
             arrive = walkCancel = null;
@@ -189,6 +200,7 @@ namespace Catchline.Game
         public bool WalkTo(DeckGrid grid, Vector2Int tile, Action onArrive, Action onCancel = null)
         {
             Stop();
+            Grid = grid;
             var p = grid.FindPath(Tile, tile);
             if (p == null) return false;
             path.AddRange(p);
@@ -199,6 +211,7 @@ namespace Catchline.Game
 
         public void Do(string label, float seconds, Action done, Action cancel = null)
         {
+            EndLoiter();
             BusyLabel = label;
             busyLeft = busyTotal = seconds;
             busyDone = done;
@@ -208,16 +221,40 @@ namespace Catchline.Game
         public void Face(Vector3 dir)
         {
             dir.y = 0f;
-            if (dir.sqrMagnitude > 0.0001f) Root.localRotation = Quaternion.LookRotation(dir);
+            if (dir.sqrMagnitude > 0.0001f) facing = Quaternion.LookRotation(dir);
+        }
+
+        public void FacePoint(Vector3 boatLocal) => Face(boatLocal - pos);
+
+        void EndLoiter()
+        {
+            if (Loitering) Pose = null;
+            Loitering = false;
+            lookoutLeft = 0;
+        }
+
+        public bool PatrolReady => !Walking && lookoutLeft <= 0;
+
+        public void Stroll(DeckGrid grid, Vector2Int tile, Vector3 outward)
+        {
+            int leg = ++PatrolLeg;
+            if (!WalkTo(grid, tile, () =>
+            {
+                Face(outward);
+                // Relaxed hands at the rail; the idle clip supplies subtle breathing.
+                Pose = "Idle";
+                lookoutLeft = lookoutDuration = 3.8f + leg % 3 * .9f;
+            })) return;
+            Loitering = true;
         }
 
         public void Tick(float dt, float mult, Quaternion camRot)
         {
             moving = false;
-            float budget = GameData.WalkSpeed * Speed * mult * dt;
+            float budget = GameData.WalkSpeed * Speed * mult * dt * (Loitering ? .55f : 1f);
             while (path.Count > 0 && budget > 0f)
             {
-                var goal = DeckGrid.ToLocal(path[0]) + offset;
+                var goal = (Grid != null ? Grid.GetLocal(path[0]) : DeckGrid.ToLocal(path[0])) + offset;
                 var d = goal - pos;
                 float dist = d.magnitude;
                 if (dist > 0.001f) Face(d);
@@ -253,35 +290,37 @@ namespace Catchline.Game
                 }
             }
 
-            // Animation: bob while walking, nod while working, sway while rowing.
+            if (Loitering && !Walking) lookoutLeft = Mathf.Max(0, lookoutLeft - dt);
+            Root.localRotation = Quaternion.RotateTowards(Root.localRotation, facing, 420f * dt);
+            // The authored rig already moves its hips. A second whole-body work bob
+            // made resting and working sailors vibrate against the deck.
             anim += dt;
-            float bob = moving ? Mathf.Abs(Mathf.Sin(anim * 13f)) * 0.06f : 0f;
-            if (Busy) bob = Mathf.Abs(Mathf.Sin(anim * 9f)) * 0.03f;
+            float bob = rig == null && moving ? Mathf.Abs(Mathf.Sin(anim * 10f)) * 0.025f : 0f;
             Root.localPosition = pos + Vector3.up * bob;
             body.localRotation = Rowing ? Quaternion.Euler(Mathf.Sin(anim * 3.2f) * 18f, 0f, 0f) : Quaternion.identity;
             if (rig != null)
             {
                 body.localRotation = Quaternion.identity;
                 oneShotLeft = Mathf.Max(0f, oneShotLeft - dt * Speed * mult);
-                string pose = moving ? Carrying != null ? "Carry" : "Walk"
-                    : Busy ? BusyLabel switch { "Baiting" => "Bait", "Casting" => "Cast", "Stowing" or "Picking up" => "Stow", _ => "Idle" }
+                string pose = moving ? Carrying != null || CarryingBatch ? "Carry" : "Walk"
+                    : Busy ? BusyLabel switch { "Baiting" or "Setting net" => "Bait", "Casting" => "Cast", "Winching net" or "Hauling net" => "Reel", "Stowing" or "Picking up" or "Gathering net catch" or "Stowing net catch" => "Stow", _ => "Idle" }
                     : oneShotLeft > 0f ? oneShot : Rowing ? "Row" : Pose ?? "Idle";
                 if (pose != lastPose) { poseTime = 0f; lastPose = pose; }
-                poseTime += dt * Speed * mult;
+                poseTime += dt * Speed * mult * (moving && Loitering ? .55f : 1f);
                 if (clips.TryGetValue(pose, out var clip) && clip.length > 0f)
                 {
                     bool loop = pose is "Idle" or "Walk" or "Carry" or "Bait" or "Wait" or "Reel" or "Row";
                     clip.SampleAnimation(rig.gameObject, loop ? Mathf.Repeat(poseTime, clip.length) : Mathf.Min(poseTime, clip.length));
+                    if (Loitering && !moving && lookoutHead != null)
+                    {
+                        float elapsed = lookoutDuration - lookoutLeft;
+                        float settle = Mathf.SmoothStep(0, 1, Mathf.Min(elapsed, lookoutLeft) * 2f);
+                        // Look down past the rail, with a slow glance along the water.
+                        var down = Quaternion.AngleAxis(14f * settle, Root.right);
+                        var glance = Quaternion.AngleAxis(Mathf.Sin(elapsed * 1.1f) * 9f * settle, Root.up);
+                        lookoutHead.rotation = glance * down * lookoutHead.rotation;
+                    }
                 }
-            }
-
-            barRoot.gameObject.SetActive(Busy);
-            if (Busy)
-            {
-                float t = 1f - Mathf.Clamp01(busyLeft / busyTotal);
-                barFill.localScale = new Vector3(0.48f * t, 0.045f, 0.02f);
-                barFill.localPosition = new Vector3(-0.24f + 0.24f * t, 0f, -0.012f);
-                barRoot.rotation = camRot;
             }
 
             if (Carrying != null)
@@ -309,6 +348,7 @@ namespace Catchline.Game
         public Species HookedSpecies;
         public float HookedKg;
         public bool Squid; // baited with squid: bigger fish
+        public bool Scraps; // Unlimited poor bait: small species/specimens only.
 
         public Transform Root { get; private set; }
         public Vector3 TipLocal => tipLocal;
@@ -316,6 +356,7 @@ namespace Catchline.Game
         TextMesh alert;
         LineRenderer line;
         Vector3 tipLocal;
+        public Vector3 Outward { get; private set; } = Vector3.back;
         Vector3 castFrom, castTo;
         float t, waitTotal, waitTimer, nibbleTimer, reelTotal, swimAngle, biteWindow = GameData.BiteWindow;
         readonly List<float> nibbles = new();
@@ -350,7 +391,7 @@ namespace Catchline.Game
             _ => "",
         };
 
-        public void Build(Transform boat, Transform world, Vector3? socket = null, GameObject upgradedRod = null)
+        public void Build(Transform boat, Transform world, Vector3? socket = null, GameObject upgradedRod = null, Vector3? outward = null)
         {
             Root = new GameObject($"Rod {Index + 1}").transform;
             Root.SetParent(boat, false);
@@ -359,7 +400,8 @@ namespace Catchline.Game
             bool model = rodPrefab != null;
             // With the rowboat model the rod sits in its gunwale socket.
             var baseLocal = socket ?? DeckGrid.ToLocal(Tile) + (model ? new Vector3(0f, 0.44f, -0.615f) : new Vector3(0f, 0.32f, -0.42f));
-            var dir = new Vector3(0.05f, 1.6f, -0.6f).normalized; // nearly upright with a lean over the water: reads as a rod from the game camera
+            Outward = outward ?? Vector3.back;
+            var dir = new Vector3(0.05f, 1.6f, Outward.z * .6f).normalized; // lean over the rod's actual gunwale
             tipLocal = baseLocal + dir * (model ? 1.6f : 1.52f);
             if (model)
             {
@@ -435,7 +477,7 @@ namespace Catchline.Game
         Vector3 LandingPoint(Transform boat, float power)
         {
             var tip = boat.TransformPoint(tipLocal);
-            var outward = boat.TransformDirection(new Vector3(0.12f, 0f, -1f)).normalized;
+            var outward = boat.TransformDirection(new Vector3(0.12f, 0f, Outward.z)).normalized;
             var p = tip + outward * (0.5f + power * 2.3f);
             return new Vector3(p.x, WaterY, p.z);
         }
@@ -510,7 +552,7 @@ namespace Catchline.Game
                         StartWait(g, 1f);
                         swimAngle = (float)g.State.Rng.NextDouble() * 360f;
                         bobPos = castTo;
-                        g.Splash(castTo, 0.25f);
+                        g.Splash(castTo, 0.25f, Fisher == null);
                     }
                     break;
 
@@ -533,7 +575,7 @@ namespace Catchline.Game
                     {
                         State = RodState.Bite;
                         t = 0f;
-                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f));
+                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid);
                         biteWindow = g.StrikeWindow;
                         selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
                         splash.gameObject.SetActive(true);
@@ -555,7 +597,7 @@ namespace Catchline.Game
                         if (!attended && selfHook)
                         {
                             StartReel();
-                            g.Toast($"Rod {Index + 1} hooked a {GameData.Get(HookedSpecies).Name.ToLower()} by itself.");
+                            if (Fisher == null) g.Toast($"Rod {Index + 1} hooked a {GameData.Get(HookedSpecies).Name.ToLower()} by itself.");
                         }
                         else if (!attended && g.State.Rng.NextDouble() < 0.6)
                         {
@@ -566,7 +608,7 @@ namespace Catchline.Game
                         {
                             State = RodState.Unbaited;
                             g.Stats.Missed++;
-                            g.Toast(attended ? "Too late! It got away with the bait." : $"A fish stole the bait on rod {Index + 1}.");
+                            if (Fisher == null) g.Toast(attended ? "Too late! It got away with the bait." : $"A fish stole the bait on rod {Index + 1}.");
                         }
                     }
                     break;
@@ -590,14 +632,14 @@ namespace Catchline.Game
             if (showShadow)
             {
                 var prev = shadow.position;
-                shadow.position = new Vector3(shadowPos.x, -0.312f, shadowPos.z);
+                shadow.position = new Vector3(shadowPos.x, WaterY - .42f, shadowPos.z);
                 var move = shadow.position - prev;
                 if (move.sqrMagnitude > 0.00001f) shadow.rotation = Quaternion.LookRotation(move.normalized);
             }
             bobber.position = bobPos;
             line.SetPosition(0, tipWorld);
             line.SetPosition(1, bobPos + Vector3.up * 0.05f);
-            alert.gameObject.SetActive(State == RodState.Bite && Mathf.Repeat(anim * 6f, 1f) < 0.7f);
+            alert.gameObject.SetActive(State == RodState.Bite && Fisher == null && g.MinigameRod != this && Mathf.Repeat(anim * 6f, 1f) < 0.7f);
             alert.transform.rotation = g.Cam.transform.rotation;
         }
     }

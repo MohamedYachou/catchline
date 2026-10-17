@@ -39,7 +39,7 @@ namespace Catchline.EditorTools
             Check(game.RefitSkiff() && state.Coins == 0 && state.Hull == 1, "refit spends once");
             Check(game.Rods[0].State == RodState.Ready && game.Rods[0].Squid, "refit preserves baited rods");
             Check(!game.RefitSkiff() && state.Coins == 0, "second refit rejected");
-            Check(game.Grid.Width == 5 && game.Grid.Height == 3 && state.CoolerCapacity == 40, "skiff dimensions and hold");
+            Check(game.Grid.Width == 5 && game.Grid.Height == 3 && state.CoolerCapacity == 27, "skiff dimensions and hold");
             Check(game.Rods.Count == 3 && game.Rods.TrueForAll(r => r.Unlocked), "three working rods");
             foreach (var rod in game.Rods)
                 Check(game.Grid.FindPath(state.HullDef.Seat, rod.Tile) != null, "console-to-rod route");
@@ -79,9 +79,9 @@ namespace Catchline.EditorTools
             Check(game.SailBlocker() == "Buy fuel at Supplies", "empty tank blocks departure");
             state.Coins = GameData.FuelPackCost;
             Check(state.BuyFuel() && state.Coins == 0, "fuel purchase");
-            int fuel = state.Fuel;
+            float fuel = state.Fuel;
             game.SetSail();
-            Check(state.Fuel == fuel - GameData.TripFuel(4), "round-trip fuel charged once");
+            Check(state.Fuel == fuel, "fuel burns with elapsed voyage time");
             // Prevent the autoplay bot from interfering during this targeted voyage.
             game.AutoPlay = false;
             game.Tick(11f);
@@ -91,7 +91,7 @@ namespace Catchline.EditorTools
             PrototypeTools.Render(game.Cam, Path.GetFullPath("Logs/skiff-sea-phone.png"), 844, 390);
             Check(!game.RefitSkiff(), "refit rejected at sea");
             game.HeadHome();
-            Check(state.Fuel == fuel - GameData.TripFuel(4), "return uses reserved fuel");
+            Check(state.Fuel < fuel && state.Fuel > fuel - .3f, "elapsed fuel remains for return");
             // Do not complete arrival with AutoPlay false: that would save the test state.
             Debug.Log("[Catchline] SKIFF CHECKS PASSED: refit, models, routes, save migration, fuel and travel");
         }
@@ -131,7 +131,7 @@ namespace Catchline.EditorTools
             game.AutoPlay = false;
             game.Tick(11f);
             Check(game.SetNet(), "captain can set net");
-            game.Tick(3f);
+            NetHaulChecks.FinishCaptainSet(game);
             Check(game.Net == VoyageGame.NetState.Soaking, "set action reaches soaking");
             PrototypeTools.Render(game.Cam, Path.GetFullPath("Logs/skiff-net-soaking.png"), 1440, 900);
             game.Tick(90f);
@@ -139,7 +139,7 @@ namespace Catchline.EditorTools
             Check(game.Stats.Landed > 0 && game.Rods.Any(r => r.Fisher != null), "fisherman lands fish without captain taps");
             int landed = game.Stats.Landed, net = game.NetCatch;
             Check(game.HaulNet(), "one tap starts haul");
-            game.Tick(7f);
+            NetHaulChecks.FinishCaptainHaul(game);
             Check(game.Net == VoyageGame.NetState.Stowed && game.Stats.Landed >= landed + net, "haul deposits net fish on deck");
             Check(game.OnDeck.Count > 0, "haul creates carrying backlog");
             Check(game.ExtraPeople.Where(p => p.Contract.Role == CrewRole.Fisherman).All(p => p.Carrying == null), "fishermen leave carrying to deckhands");

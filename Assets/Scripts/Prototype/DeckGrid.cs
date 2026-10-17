@@ -7,6 +7,7 @@ namespace Catchline.Prototype
     public class DeckGrid
     {
         public readonly int Width, Height;
+        public readonly float CellSize;
         readonly bool[] blocked;
 
         static readonly Vector2Int[] Dirs =
@@ -15,10 +16,11 @@ namespace Catchline.Prototype
             new(1, 1), new(1, -1), new(-1, 1), new(-1, -1),
         };
 
-        public DeckGrid(int width, int height)
+        public DeckGrid(int width, int height, float cellSize = 1f)
         {
             Width = width;
             Height = height;
+            CellSize = cellSize;
             blocked = new bool[width * height];
         }
 
@@ -32,6 +34,8 @@ namespace Catchline.Prototype
 
         public static Vector3 ToLocal(Vector2Int t) => new(t.x, 0f, t.y);
         public static Vector2Int ToTile(Vector3 local) => new(Mathf.RoundToInt(local.x), Mathf.RoundToInt(local.z));
+        public Vector3 GetLocal(Vector2Int t) => ToLocal(t) * CellSize;
+        public Vector2Int GetTile(Vector3 local) => ToTile(local / CellSize);
 
         // Breadth-first search with diagonal moves that never cut a blocked corner.
         // Returns the tiles to walk (excluding the start), or null when unreachable.

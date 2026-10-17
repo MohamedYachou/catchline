@@ -1,0 +1,69 @@
+{
+  "name": "Plaice",
+  "triangles": 1832,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.0162,
+      -0.1692,
+      -0.10858
+    ],
+    [
+      0.02192,
+      0.1872,
+      0.10858
+    ]
+  ],
+  "saved_source_triangles": 1832,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 956,
+  "materials": [
+    "M_BandIvory",
+    "M_RailIvory",
+    "M_Rope",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_WoodRecess"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Plaice",
+    "Tail": "Catchline_Plaice"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1152,
+      0.0
+    ]
+  },
+  "fbx_triangles": 1832,
+  "vertex_max_roundtrip_error_m": 0.0,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Plaice.blend": "dc5ee42cb95582d6f4792a27e902aac8824c1d73015df1d321b824ecaae87db1",
+    "Plaice.fbx": "6012aabfaef6e857e890efb5155eb7974d1031a48d19971fd78f3009c0e80c5b",
+    "fish-plaice.png": "e358f6ea3a4145eae5ff188ac07d556de1c39153a3b80ca41e8a82530a8eba95"
+  },
+  "portrait_alpha_bounds": [
+    64,
+    13,
+    469,
+    243
+  ],
+  "portrait_native_import_size": [
+    256,
+    128
+  ]
+}

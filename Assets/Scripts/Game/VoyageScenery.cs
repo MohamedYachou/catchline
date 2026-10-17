@@ -105,6 +105,34 @@ namespace Catchline.Game
 
         void BuildSea(int kind, Transform root, ArtLibrary lib, System.Func<float, float, float> R, System.Action<Vector3, float> rock)
         {
+            BuildSeaDressing(kind, root, lib, R, rock);
+            ReserveFishingWater(root);
+        }
+
+        void BuildSeaDressing(int kind, Transform root, ArtLibrary lib, System.Func<float, float, float> R, System.Action<Vector3, float> rock)
+        {
+            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel" };
+            if (kind >= 0 && kind < environments.Length && lib?.M(environments[kind]) != null)
+            {
+                var environment = Put(root, lib.M(environments[kind]), new Vector3(0, WaterY, 0));
+                OrientFishingCoast(environment, root);
+                if (kind == 2)
+                {
+                    // Let actual water depth make sand wet. A per-quad colour
+                    // boundary otherwise creates a square staircase at the shore.
+                    var drySand = Visuals.Mat(Palette.Hex("D9C393"));
+                    var seabedSand = Visuals.Mat(Palette.Hex("BEA77D"));
+                    foreach (var renderer in environment.GetComponentsInChildren<Renderer>())
+                    {
+                        if (!renderer.name.Contains("Terrain_Connected")) continue;
+                        var materials = renderer.sharedMaterials;
+                        for (int i = 0; i < materials.Length; i++)
+                            if (materials[i] == seabedSand) materials[i] = drySand;
+                        renderer.sharedMaterials = materials;
+                    }
+                }
+                return;
+            }
             GameObject M(string n) => lib?.M(n);
             GameObject At(string n, float sx, float sy, float yaw = ScreenYaw, float scale = 1f, float y = WaterY)
                 => Put(root, M(n), AtScreen(sx, sy, y), yaw, scale);
@@ -117,15 +145,19 @@ namespace Catchline.Game
             switch (kind)
             {
                 case 0: // Harbour mouth: the breakwater behind, the lighthouse at its end, marker buoys.
-                    for (float sx = -8f; sx <= 2.5f; sx += 1.15f) Rocks((sx, R(2.4f, 2.9f), R(0.9f, 1.4f)));
-                    Rocks((3.4f, 2.9f, 1.3f), (6.6f, 2.6f, 1.2f));
+                    if (M("GullHarbourMouth") != null)
+                    {
+                        Put(root, M("GullHarbourMouth"), new Vector3(0f, WaterY, 0f));
+                        break;
+                    }
+                    for (float sx = -8f; sx <= 2.5f; sx += 1.15f) Rocks((sx, R(3.2f, 3.7f), R(.65f, .95f)));
+                    Rocks((3.4f, 3.6f, .9f), (6.6f, 3.4f, .9f));
                     if (lib?.Lighthouse != null)
                     {
-                        Put(root, lib.Lighthouse, AtScreen(5.2f, 1.9f, 0.15f), ScreenYaw);
-                        Visuals.Box("LighthouseBase", root, AtScreen(5.2f, 1.9f, -0.2f), new Vector3(2.4f, 0.7f, 2.4f), Palette.Hex("8E8A80"))
-                            .transform.localRotation = Quaternion.Euler(0f, ScreenYaw, 0f);
+                        Put(root, lib.Lighthouse, AtScreen(6.8f, 2.6f, .15f), ScreenYaw);
+                        rock(AtScreen(6.8f, 2.6f, -.44f), .95f);
                     }
-                    Floating(At("MarkerBuoy_Red", -4.6f, -2.1f) ?? At("ChannelBuoy", -4.6f, -2.1f, ScreenYaw, 0.6f));
+                    Floating(At("MarkerBuoy_Red", -4.6f, -1.15f) ?? At("ChannelBuoy", -4.6f, -1.15f, ScreenYaw, 0.6f));
                     Floating(At("MarkerBuoy_Green", 4.9f, -1.2f));
                     break;
 
@@ -185,6 +217,17 @@ namespace Catchline.Game
             }
         }
 
+        void SetWaterBiome(int kind)
+        {
+            if (seaMat.HasProperty("_AbsorptionColor")) { PtsWater.SetBiome(seaMat, kind); return; }
+            if (!seaMat.HasProperty("_ShallowColor")) return;
+            string[] shallow = { "21B9C3", "31AA9E", "62D2CB", "2AAABB", "208B9E" };
+            seaMat.SetColor("_ShallowColor", Palette.Hex(kind < 0 ? "54C7BE" : shallow[Mathf.Clamp(kind, 0, 4)]));
+            seaMat.SetFloat("_DepthRange", kind == 2 ? 2.7f : kind == 4 ? 5f : 3.5f);
+            seaMat.SetFloat("_WaveAmplitude", kind == 4 ? .032f : .018f);
+            seaMat.SetFloat("_NormalStrength", kind == 4 ? .48f : .35f);
+        }
+
         // Editor screenshots: puts the boat at a sea (kind >= 0), the harbour (-1) or keeps the scene for a deck close-up (-2).
         public void Showcase(int kind, float zoom)
         {
@@ -196,6 +239,7 @@ namespace Catchline.Game
                 scenery = BuildScenery(kind);
                 CurrentMode = kind < 0 ? Mode.Harbour : Mode.Fishing;
                 seaMat.color = kind < 0 ? Palette.Sea : GameData.Spots[kind].Water;
+                SetWaterBiome(kind);
             }
             else CurrentMode = Mode.Fishing;
             ZoomOffset = zoom;

@@ -1,0 +1,295 @@
+ M AGENTS.md
+ M Assets/Art/Models/Boats/Rowboat.fbx
+ M Assets/Art/Models/Crew/CrewRig.fbx.meta
+ M Assets/Art/Models/Fish/Cod.fbx
+ M Assets/Art/Models/Fish/CongerEel.fbx
+ M Assets/Art/Models/Fish/Herring.fbx
+ M Assets/Art/Models/Fish/Mackerel.fbx
+ M Assets/Art/Models/Fish/Plaice.fbx
+ M Assets/Art/Models/Fish/Pollock.fbx
+ M Assets/Art/Models/Fish/SeaBass.fbx
+ M Assets/Art/Models/Harbour/Quay4m.fbx
+ M Assets/Art/Models/Harbour/Quay4mLadder.fbx
+ M Assets/Art/Textures/deck-planks-detail.png.meta
+ M Assets/Art/Textures/foam-ring.png.meta
+ M Assets/Art/Textures/splash-sheet.png.meta
+ M Assets/Art/Textures/wake-trail.png.meta
+ M Assets/Art/Textures/water-tile-deep.png.meta
+ M Assets/Art/Textures/water-tile-shallow.png.meta
+ M Assets/Art/Textures/water-tile.png.meta
+ M Assets/Art/UI/badge-new.png.meta
+ M Assets/Art/UI/catch-card.png.meta
+ M Assets/Art/UI/coin-pop.png.meta
+ M Assets/Art/UI/daily-gift.png.meta
+ M Assets/Art/UI/fish-cod.png
+ M Assets/Art/UI/fish-cod.png.meta
+ M Assets/Art/UI/fish-conger.png
+ M Assets/Art/UI/fish-conger.png.meta
+ M Assets/Art/UI/fish-herring.png
+ M Assets/Art/UI/fish-herring.png.meta
+ M Assets/Art/UI/fish-mackerel.png
+ M Assets/Art/UI/fish-mackerel.png.meta
+ M Assets/Art/UI/fish-plaice.png
+ M Assets/Art/UI/fish-plaice.png.meta
+ M Assets/Art/UI/fish-pollock.png
+ M Assets/Art/UI/fish-pollock.png.meta
+ M Assets/Art/UI/fish-seabass.png
+ M Assets/Art/UI/fish-seabass.png.meta
+ M Assets/Art/UI/fish-unknown.png.meta
+ M Assets/Art/UI/header-chandlery.png.meta
+ M Assets/Art/UI/header-crewoffice.png.meta
+ M Assets/Art/UI/header-harbourmaster.png.meta
+ M Assets/Art/UI/header-market.png.meta
+ M Assets/Art/UI/header-supplies.png.meta
+ M Assets/Art/UI/icon-bigcooler.png.meta
+ M Assets/Art/UI/icon-chart.png.meta
+ M Assets/Art/UI/icon-fuel.png.meta
+ M Assets/Art/UI/icon-gift.png.meta
+ M Assets/Art/UI/icon-icebox.png.meta
+ M Assets/Art/UI/icon-lunchtin.png.meta
+ M Assets/Art/UI/icon-net.png.meta
+ M Assets/Art/UI/icon-rod-carbon.png.meta
+ M Assets/Art/UI/icon-rod-fibreglass.png.meta
+ M Assets/Art/UI/icon-rodholder.png.meta
+ M Assets/Art/UI/icon-skiff.png.meta
+ M Assets/Art/UI/icon-squid.png.meta
+ M Assets/Art/UI/icon-trophy.png.meta
+ M Assets/Art/UI/logo-catchline.png.meta
+ M Assets/Art/UI/popup-panel.png.meta
+ M Assets/Art/UI/portrait-captain.png.meta
+ M Assets/Art/UI/portrait-deckhand.png.meta
+ M Assets/Art/UI/portrait-fisherman.png.meta
+ M Assets/Art/UI/portrait-veteran.png.meta
+ M Assets/Art/UI/sea-chart.png.meta
+ M Assets/Art/UI/sparkle.png.meta
+ M Assets/Art/UI/title-backdrop.png.meta
+ M Assets/Editor/ArtImport.cs
+ M Assets/Editor/FirstVoyageChecks.cs
+ M Assets/Editor/SkiffChecks.cs
+ M Assets/Resources/ArtLibrary.asset
+ M Assets/Scripts/Game/ArtLibrary.cs
+ M Assets/Scripts/Game/DeckActors.cs
+ M Assets/Scripts/Game/GameData.cs
+ M Assets/Scripts/Game/GameState.cs
+ M Assets/Scripts/Game/Ui.cs
+ M Assets/Scripts/Game/VoyageFeedback.cs
+ M Assets/Scripts/Game/VoyageGame.cs
+ M Assets/Scripts/Game/VoyageHud.cs
+ M Assets/Scripts/Game/VoyageMenus.cs
+ M Assets/Scripts/Game/VoyageNet.cs
+ M Assets/Scripts/Game/VoyageScenery.cs
+ M Assets/Scripts/Prototype/DeckGrid.cs
+ M Assets/Settings/PC_RPAsset.asset
+ M ProjectSettings/URPProjectSettings.asset
+ M README.md
+ M comms.md
+ M docs/CONTINUATION.md
+ M docs/FIRST-VOYAGE.md
+ M docs/GAMEPLAY.md
+ M docs/plans/PLAYABILITY-PLAN.md
+ M docs/tools/check.ps1
+?? Art/Models/FishPolish16/
+?? Art/Models/Tier4Blockout032/
+?? Art/Source/build_fish_polish16.py
+?? Art/Source/build_tier4_blockout032.py
+?? Art/Source/compose_fish_polish16.py
+?? Assets/Art/Models/Boats/CompactFisherV1.fbx
+?? Assets/Art/Models/Boats/CompactFisherV1.fbx.meta
+?? Assets/Art/Models/Boats/CompactFisherV1.placements.json
+?? Assets/Art/Models/Boats/CompactFisherV1.placements.json.meta
+?? Assets/Art/Models/Environment.meta
+?? Assets/Art/Models/Environment/
+?? Assets/Art/Models/Fish/RedMullet.fbx
+?? Assets/Art/Models/Fish/RedMullet.fbx.meta
+?? Assets/Art/Models/Fish/Turbot.fbx
+?? Assets/Art/Models/Fish/Turbot.fbx.meta
+?? Assets/Art/Models/Fish/Whiting.fbx
+?? Assets/Art/Models/Fish/Whiting.fbx.meta
+?? Assets/Art/Shaders.meta
+?? Assets/Art/Shaders/
+?? Assets/Art/UI/fish-redmullet.png
+?? Assets/Art/UI/fish-redmullet.png.meta
+?? Assets/Art/UI/fish-turbot.png
+?? Assets/Art/UI/fish-turbot.png.meta
+?? Assets/Art/UI/fish-whiting.png
+?? Assets/Art/UI/fish-whiting.png.meta
+?? Assets/Art/Water.meta
+?? Assets/Art/Water/
+?? Assets/Editor/CatchRewardChecks.cs
+?? Assets/Editor/CatchRewardChecks.cs.meta
+?? Assets/Editor/ChartChecks.cs
+?? Assets/Editor/ChartChecks.cs.meta
+?? Assets/Editor/ChartPresentationChecks.cs
+?? Assets/Editor/ChartPresentationChecks.cs.meta
+?? Assets/Editor/CoastalPolishChecks.cs
+?? Assets/Editor/CompactFisherChecks.cs
+?? Assets/Editor/CompactFisherChecks.cs.meta
+?? Assets/Editor/CrewPolishChecks.cs
+?? Assets/Editor/CrewPolishChecks.cs.meta
+?? Assets/Editor/FishArtChecks.cs
+?? Assets/Editor/FishArtChecks.cs.meta
+?? Assets/Editor/FishContentChecks.cs
+?? Assets/Editor/FishContentChecks.cs.meta
+?? Assets/Editor/FisherFeedbackChecks.cs
+?? Assets/Editor/FisherFeedbackChecks.cs.meta
+?? Assets/Editor/FuelDepartureChecks.cs
+?? Assets/Editor/FuelDepartureChecks.cs.meta
+?? Assets/Editor/InterfaceChecks.cs
+?? Assets/Editor/InterfaceChecks.cs.meta
+?? Assets/Editor/MenuSystemChecks.cs
+?? Assets/Editor/NetChoiceChecks.cs
+?? Assets/Editor/NetChoiceChecks.cs.meta
+?? Assets/Editor/NetEconomyChecks.cs
+?? Assets/Editor/NetEconomyChecks.cs.meta
+?? Assets/Editor/NetHaulChecks.cs
+?? Assets/Editor/NetHaulChecks.cs.meta
+?? Assets/Editor/NetPlayChecks.cs
+?? Assets/Editor/NetPlayChecks.cs.meta
+?? Assets/Editor/PlaytestReady.cs
+?? Assets/Editor/PlaytestReady.cs.meta
+?? Assets/Editor/PreviewSetupChecks.cs
+?? Assets/Editor/PreviewSetupChecks.cs.meta
+?? Assets/Editor/ProgressionLaunchChecks.cs
+?? Assets/Editor/ProgressionLaunchChecks.cs.meta
+?? Assets/Editor/PtsWaterChecks.cs
+?? Assets/Editor/ReferenceHudChecks.cs
+?? Assets/Editor/ReferenceHudChecks.cs.meta
+?? Assets/Editor/SalePayoutChecks.cs
+?? Assets/Editor/SalePayoutChecks.cs.meta
+?? Assets/Editor/SeaClearanceChecks.cs
+?? Assets/Editor/SeaClearanceChecks.cs.meta
+?? Assets/Editor/UrgentCrewChecks.cs
+?? Assets/Editor/UrgentCrewChecks.cs.meta
+?? Assets/Editor/WeightNetChecks.cs
+?? Assets/Editor/WeightNetChecks.cs.meta
+?? Assets/Resources/Charts.meta
+?? Assets/Resources/Charts/
+?? Assets/Resources/FishReference.meta
+?? Assets/Resources/FishReference/
+?? Assets/Scripts/Game/CatchPresentation.cs
+?? Assets/Scripts/Game/CatchPresentation.cs.meta
+?? Assets/Scripts/Game/CatchRewardGraphic.cs
+?? Assets/Scripts/Game/CatchRewardGraphic.cs.meta
+?? Assets/Scripts/Game/CoastalCanvas.cs
+?? Assets/Scripts/Game/CoastalCanvas.cs.meta
+?? Assets/Scripts/Game/CoastalWater.cs
+?? Assets/Scripts/Game/CoastalWater.cs.meta
+?? Assets/Scripts/Game/FishReferenceStyle.cs
+?? Assets/Scripts/Game/FishReferenceStyle.cs.meta
+?? Assets/Scripts/Game/GameStateNetLoadout.cs
+?? Assets/Scripts/Game/GameStateNetLoadout.cs.meta
+?? Assets/Scripts/Game/GameStateProgression.cs
+?? Assets/Scripts/Game/GameStateProgression.cs.meta
+?? Assets/Scripts/Game/PtsWater.cs
+?? Assets/Scripts/Game/VoyageAudio.cs
+?? Assets/Scripts/Game/VoyageCapture.cs
+?? Assets/Scripts/Game/VoyageCapture.cs.meta
+?? Assets/Scripts/Game/VoyageCatchRewards.cs
+?? Assets/Scripts/Game/VoyageCatchRewards.cs.meta
+?? Assets/Scripts/Game/VoyageChart.cs
+?? Assets/Scripts/Game/VoyageChart.cs.meta
+?? Assets/Scripts/Game/VoyageCompactFisher.cs
+?? Assets/Scripts/Game/VoyageCompactFisher.cs.meta
+?? Assets/Scripts/Game/VoyageCrewLife.cs
+?? Assets/Scripts/Game/VoyageCrewLife.cs.meta
+?? Assets/Scripts/Game/VoyageDeparture.cs
+?? Assets/Scripts/Game/VoyageDeparture.cs.meta
+?? Assets/Scripts/Game/VoyageHaul.cs
+?? Assets/Scripts/Game/VoyageHaul.cs.meta
+?? Assets/Scripts/Game/VoyageIllustratedChart.cs
+?? Assets/Scripts/Game/VoyageIllustratedChart.cs.meta
+?? Assets/Scripts/Game/VoyageInterface.cs
+?? Assets/Scripts/Game/VoyageInterface.cs.meta
+?? Assets/Scripts/Game/VoyageInterfaceCrew.cs
+?? Assets/Scripts/Game/VoyageInterfaceCrew.cs.meta
+?? Assets/Scripts/Game/VoyageInterfaceGoals.cs
+?? Assets/Scripts/Game/VoyageInterfaceGoals.cs.meta
+?? Assets/Scripts/Game/VoyageInterfaceShop.cs
+?? Assets/Scripts/Game/VoyageInterfaceShop.cs.meta
+?? Assets/Scripts/Game/VoyageNetGame.cs
+?? Assets/Scripts/Game/VoyageNetGame.cs.meta
+?? Assets/Scripts/Game/VoyageNetInterface.cs
+?? Assets/Scripts/Game/VoyageNetInterface.cs.meta
+?? Assets/Scripts/Game/VoyageNetLoadout.cs
+?? Assets/Scripts/Game/VoyageNetLoadout.cs.meta
+?? Assets/Scripts/Game/VoyageNetUnload.cs
+?? Assets/Scripts/Game/VoyageNetUnload.cs.meta
+?? Assets/Scripts/Game/VoyageSeaLayout.cs
+?? Assets/Scripts/Game/VoyageSeaLayout.cs.meta
+?? Assets/Scripts/Game/VoyageStorage.cs
+?? Assets/Scripts/Game/VoyageStorage.cs.meta
+?? Assets/Scripts/Game/VoyageTravel.cs
+?? DESIGN.md
+?? PRODUCT.md
+?? TODO.md
+?? docs/ART-012-BRIEF.md
+?? docs/ART-012-REVIEW.md
+?? docs/BACKGROUND-TESTING.md
+?? docs/CATCH018.md
+?? docs/CHART-011-HANDOFF.md
+?? docs/CHART017.md
+?? docs/CLI-ART-019-HANDOFF.md
+?? docs/CLI-ARTIST-HANDOFF.md
+?? docs/CLI-COMPACT-FISHER-021.md
+?? docs/CLI-COMPACT-FISHER-022.md
+?? docs/CLI-FISH-ART-HANDOFF.md
+?? docs/CLI-FISH-CONTENT-REVIEW.md
+?? docs/CLI-HARBOUR-SYSTEMS-BRIEF.md
+?? docs/CLI-HARBOUR-SYSTEMS-REVIEW.md
+?? docs/CLI-MENU-SYSTEMS-BRIEF.md
+?? docs/CLI-MENU-SYSTEMS-REVIEW.md
+?? docs/CLI-QUICK-VERIFY-018.md
+?? docs/CLI-REFERENCE-HUD-024-LEFT.md
+?? docs/CLI-REFERENCE-HUD-024.md
+?? docs/CLI-SKIFF-DIRECTION-020.md
+?? docs/CREW016.md
+?? docs/CREW026.md
+?? docs/FUEL021.md
+?? docs/HUD-008.md
+?? docs/NET-010-HANDOFF.md
+?? docs/NET-012-HANDOFF.md
+?? docs/NET-015-ECONOMY-HANDOFF.md
+?? docs/NET-015-HANDOFF.md
+?? docs/NET023.md
+?? docs/PLAYTEST-OVERRIDES.md
+?? docs/POLISH-002.md
+?? docs/POLISH-003.md
+?? docs/POLISH-004.md
+?? docs/PTS-WATER-NOW.md
+?? docs/TIER4-BLOCKOUT032.md
+?? docs/TOMORROW.md
+?? docs/WEIGHT020.md
+?? docs/WINDOWS-CODEX-HANDOFF.md
+?? docs/checks/
+?? docs/net010-ui-coordination.txt
+?? docs/patches/
+?? docs/plans/PROGRESSION-DISCUSSION-009.md
+?? docs/reference-hud024/
+?? docs/screens/art021/
+?? docs/screens/art022/
+?? docs/screens/catch018/
+?? docs/screens/chart011/
+?? docs/screens/chart017/
+?? docs/screens/crew016/
+?? docs/screens/fuel021/
+?? docs/screens/hud008/
+?? docs/screens/net010/
+?? docs/screens/net015/
+?? docs/screens/net023/
+?? docs/screens/play012/
+?? docs/screens/polish-002/
+?? docs/screens/polish-004/
+?? docs/screens/sea014/
+?? docs/screens/ui024/
+?? docs/screens/urgent-crew/
+?? docs/screens/weight020/
+?? docs/tools/__pycache__/
+?? docs/tools/check-catch018.ps1
+?? docs/tools/check-fuel021.ps1
+?? docs/tools/check-net023.ps1
+?? docs/tools/compare_reference_hud024.py
+?? docs/tools/extract_crew016.py
+?? docs/tools/extract_reference_hud024.py
+?? docs/tools/install-shortcuts.ps1
+?? docs/tools/port_pts_water.py
+?? gemini/

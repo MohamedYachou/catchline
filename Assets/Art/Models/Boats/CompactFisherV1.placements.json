@@ -1,0 +1,126 @@
+{
+  "asset": "CompactFisherV1",
+  "revision": 2,
+  "units": "metres",
+  "source_axes": "X starboard, -Y bow, Z up",
+  "effective_native_axes": "X starboard, Y up, Z bow; values include FBX root conversion",
+  "deck_y": 0,
+  "waterline_y": -0.32,
+  "hull_length": 5.4,
+  "hull_beam": 2.8,
+  "walking_rectangle_source": [
+    -1.1,
+    1.1,
+    -2.1,
+    2.1
+  ],
+  "crew_stations_yup": [
+    [
+      -0.12,
+      0,
+      0.82
+    ],
+    [
+      -0.75,
+      0,
+      -0.1
+    ],
+    [
+      0.75,
+      0,
+      -0.1
+    ],
+    [
+      0,
+      0,
+      -1.3
+    ]
+  ],
+  "rod_sockets_yup": [
+    [
+      -1.28,
+      0.47,
+      0.1
+    ],
+    [
+      1.28,
+      0.47,
+      0.1
+    ],
+    [
+      -1.23,
+      0.47,
+      -1.65
+    ]
+  ],
+  "rod_approaches_yup": [
+    [
+      -0.75,
+      0,
+      -0.05
+    ],
+    [
+      0.75,
+      0,
+      -0.05
+    ],
+    [
+      -0.75,
+      0,
+      -1.65
+    ]
+  ],
+  "net_approach_yup": [
+    0.45,
+    0,
+    -1.75
+  ],
+  "hold_approach_yup": [
+    -0.2,
+    0,
+    -0.75
+  ],
+  "lid_hinge_source": [
+    -0.65,
+    0.35,
+    0.02
+  ],
+  "lid_hinge_yup": [
+    -0.65,
+    0.02,
+    -0.35
+  ],
+  "lid_open_source_local_x_degrees": 90,
+  "propeller_pivot_yup": [
+    -0.53,
+    -0.55,
+    -2.94
+  ],
+  "optional_rod_meshes": [
+    "RodVisual_1",
+    "RodVisual_2",
+    "RodVisual_3"
+  ],
+  "net_meshes": [
+    "SternNet_Stowed",
+    "SternNetRoller",
+    "NetDrum",
+    "NetCrank",
+    "NetMountFittings"
+  ],
+  "net_drum_pivot_source": [
+    0.67,
+    2.65,
+    0.67
+  ],
+  "net_crank_pivot_source": [
+    1.12,
+    2.65,
+    0.67
+  ],
+  "net_drum_and_crank_spin_source_axis": "X",
+  "runtime_grid_mapping": "not implemented; existing Skiff 5x3 grid is not a drop-in fit",
+  "runtime_crew_traffic": "pending native verification",
+  "propeller_spin_source_axis": "Y",
+  "propeller_spin_effective_yup_axis": "Z"
+}

@@ -1,0 +1,135 @@
+{
+  "asset": "Assets/Art/Models/Environment/GullDeepChannel.fbx",
+  "root": "Catchline_GullDeepChannel",
+  "roots": [
+    "Shoreline",
+    "Seabed",
+    "Details"
+  ],
+  "unity_waterline_local_y": 0,
+  "world_position_unity": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation_euler_unity": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "triangles": 9554,
+  "budget": 24000,
+  "materials_srgb": {
+    "M_CoastWet": "#696F64"
+  },
+  "new_palette_slots": [],
+  "camera_unity": {
+    "rotation_euler": [
+      45,
+      35,
+      0
+    ],
+    "orthographic_size": 3.2,
+    "target": [
+      1.35,
+      0,
+      0.2
+    ],
+    "distance": 40
+  },
+  "camera_footprints": {
+    "desktop": {
+      "resolution": [
+        1440,
+        900
+      ],
+      "water_plane_corners_unity": [
+        [
+          -5.256224648232191,
+          -0.32,
+          -0.30821896988340985
+        ],
+        [
+          3.1318922852870847,
+          -0.32,
+          -6.181641678118122
+        ],
+        [
+          8.32331356749686,
+          -0.32,
+          1.2324762782283647
+        ],
+        [
+          -0.06480336602241454,
+          -0.32,
+          7.105898986463076
+        ]
+      ]
+    },
+    "phone": {
+      "resolution": [
+        844,
+        390
+      ],
+      "water_plane_corners_unity": [
+        [
+          -6.7348991076666795,
+          -0.32,
+          0.7271600331707864
+        ],
+        [
+          4.610566744721574,
+          -0.32,
+          -7.217020681172317
+        ],
+        [
+          9.80198802693135,
+          -0.32,
+          0.19709727517416847
+        ],
+        [
+          -1.543477825456903,
+          -0.32,
+          8.141277989517272
+        ]
+      ]
+    }
+  },
+  "channel_clear_screen_ground": {
+    "x": [
+      -2.6,
+      2.6
+    ],
+    "y": [
+      -1.8,
+      1.7
+    ]
+  },
+  "waterline_segments_unity_xz": [],
+  "expected_unity_mesh_bounds_centres_local": {
+    "Terrain_ConnectedShoalsAndSeabed": [
+      1.5335445404052734,
+      -3.5002397298812866,
+      0.4621286392211914
+    ],
+    "Channel_SubmergedShoulder_0": [
+      -2.9757152795791626,
+      -2.1552720069885254,
+      7.080863952636719
+    ],
+    "Channel_SubmergedShoulder_1": [
+      9.718743324279785,
+      -2.0595552921295166,
+      -1.289961189031601
+    ]
+  },
+  "source_axes": "Canonical Blender X,-UnityZ,up. Unity-specific FBX (-x,z,-y) plus reversed winding. Blender inspection normalizes X.",
+  "runtime_water": "None included. Windows owns shader/lighting/depth/foam. Terrain is opaque scene-depth support.",
+  "collision": "Never add whole-root box collider across the clear channel. Seabed terrain includes exposed shores; choose collision per mesh only if needed.",
+  "unity_import_check": "Not run for ART-012: Windows owns scratch. Export handedness follows measured ART-011 positive-X Unity check. Compare expected mesh bounds centres after import."
+}

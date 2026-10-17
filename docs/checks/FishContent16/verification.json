@@ -1,0 +1,21 @@
+{
+  "source_sha256": {
+    "Assets/Scripts/Game/GameData.cs": "9805b20bcca6b12e1f56154c4d012e4ca6b8812bdeb47e20b50b3d8cf90f1f06",
+    "Assets/Scripts/Game/GameState.cs": "d3a662accd853984e33f054b6ee506ec9d8ed2fccd0b409237c71ce0af5476c7",
+    "Assets/Scripts/Game/DeckActors.cs": "b5eb9ded80791db362c9e4b6c5cfaf40d813fb5e754983a9f10b7d677f3e3a14",
+    "Assets/Scripts/Game/VoyageHud.cs": "8013b2f133e64c02d50992f8ac1b6fce2fbed477801dfc5d668b0d19965fd66b",
+    "Assets/Scripts/Game/VoyageAudio.cs": "e88e8c627286d74436aaf3059b5d678cbafbccaecada4893fb048b04055ae411",
+    "Assets/Scripts/Game/VoyageFeedback.cs": "0cb76a2a59a2f2eb8811ae6642d95c1fb4bdd340839552d01b78ada866d59f87",
+    "Assets/Editor/FishContentChecks.cs": "863bcb100b1652cbbd94f4206d5442e2de81b8fadd8f82124129c3d944c54201",
+    "Assets/Editor/FishArtChecks.cs": "15688a1845b54bd3562cee61416f7315da15a5735aca31b096bcbc3abaefbe15",
+    "Art/Source/build_fish_polish16.py": "aaeac5a95aaa86c1c7e64246f51f0e48289cae7cb65cd53d130b4ee4f0ca231f",
+    "Art/Source/compose_fish_polish16.py": "98b2abb4d28d395e4ac92ce97e5861e3d2a591542ce1ca8fa5c741446a4dce69",
+    "docs/CLI-FISH-CONTENT-REVIEW.md": "250538c9aea2af5792e87b506694aecff2606c9244a827fb74619117a01c2147",
+    "docs/CLI-FISH-ART-HANDOFF.md": "862506cf564ba8bcf90e069b3d6a30408c8c86535137b5fc3537f6cae8e00c59"
+  },
+  "compile": "All 26 runtime sources + FishContentChecks, FishArtChecks, ArtImport compiled against Unity references; 0 errors, existing CS0108 warning",
+  "state_harness": "Actual GameData/GameState and FishContentChecks executed with Unity math/data and JSON adapters; pass; native JsonUtility/runtime not executed",
+  "art_delivery": "20 final installed hashes/metadata verified against receipt; 10 saved-source/FBX validations; native Unity appearance pending",
+  "background": "No foreground apps, Unity, scratch, check.ps1 or main git mutations",
+  "checks_log": "docs/checks/FishContent16/"
+}

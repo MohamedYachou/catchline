@@ -10,6 +10,11 @@ Top-down automation game about a fishing boat that grows from a rowboat into a f
 
 Design: [docs/GAMEPLAY.md](docs/GAMEPLAY.md). Menu **Catchline > Play Voyage** (Ctrl+Shift+P) opens `Assets/Scenes/Voyage.unity` and presses Play. Code lives in `Assets/Scripts/Game/`.
 
+Current priority: finish the small playable slice visually before growing
+content. [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md) hold the confirmed
+direction; [POLISH-002](docs/POLISH-002.md) records the menu, HUD, water and
+actual runtime capture workflow. Goal renders remain the visual target.
+
 In the harbour, tap a building (Fish Market, Harbour Master, Crew Office, Chandlery, Supplies) to open its shop; progress saves there. Models and the UI kit come from Codex (`Assets/Art`, branch art/style-pass) through `Assets/Resources/ArtLibrary.asset` (Catchline > Rebuild Art Library).
 
 Controls at sea: one tap per action. Tap the Fish bubble above a rod (the captain baits and casts), tap anywhere once when the bobber goes under (or Space), tap Carry above a landed fish. H heads home, scroll zooms.

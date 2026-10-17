@@ -1,0 +1,80 @@
+using System.Linq;
+using UnityEngine;
+
+namespace Catchline.Game
+{
+    public partial class VoyageGame
+    {
+        bool netOrdersOpen;
+
+        // Kept separate from Codex2's reference HUD. Its lead chooses the hook/placement.
+        void InterfaceNetOrders()
+        {
+            if (State.Hull == 0) return;
+            var access = IsNetFisher ? State.HullDef.NetAccess : new Vector2Int(3, 1);
+            var anchor = Boat.TransformPoint(Grid.GetLocal(access) + new Vector3(.5f, .8f, 0));
+            var view = Cam.WorldToViewportPoint(anchor);
+            var icon = new Rect(Mathf.Clamp(view.x * iw - 34, 14, iw - 82), Mathf.Clamp((1 - view.y) * ih - 64, 16, ih - 114), 68, 64);
+            Block(icon);
+            bool enabled = CanCaptainNet && (Net == NetState.Ready || Net == NetState.Stowed && (NetBasketBlocked || State.ActiveNetStock > 0));
+            coastalUi.Button("net", icon, "", () => CaptainNetAction(), Net == NetState.Ready ? "bubble-hot" : "bubble-white", enabled);
+            coastalUi.Art("net/icon", new Rect(icon.x + 16, icon.y + 12, 36, 36), "icon-net");
+            string status = NetUnloadActive ? "Unloading catch" : Net switch {
+                NetState.Soaking => $"{NetRemaining:0}s", NetState.Ready => $"Haul {NetCatchKg:0.0} kg", NetState.Setting => "Setting…",
+                NetState.Hauling => "Winching…", _ => HoldFull ? "Hold full" : NetBasketBlocked ? "Unload catch" : State.ActiveNetStock == 0 ? "No nets · buy supplies" : DeepNetSelected ? $"Deep {State.DeepNetUses[0]}/3 · {State.ActiveNetStock - 1} spare" : $"Shallow · {State.ActiveNetStock} aboard" };
+            var caption = new Rect(icon.center.x - 76, icon.yMax + 2, 152, 29);
+            coastalUi.Box("net/status/back", caption, "chip-dark");
+            coastalUi.Label("net/status", caption, status, 15, Palette.Cream, TextAnchor.MiddleCenter);
+            if (IsNetFisher)
+            {
+                var hands = State.Crew.Where(c => c.Role == CrewRole.Deckhand).ToList();
+                IButton("net/orders", new Rect(iw - 208, ReferenceCrewBottom + 72, 192, 44), "Crew duties", () => { netOrdersOpen = true; toastUntil = 0; }, false, hands.Count > 0);
+            }
+            if (NetGameActive) InterfaceNetHaulGame();
+            if (!netOrdersOpen || !IsNetFisher) return;
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Box("orders/shade", new Rect(0, 0, iw, ih), "chip-dark", new Color(1, 1, 1, .7f));
+            var crew = State.Crew.Where(c => c.Role == CrewRole.Deckhand).ToList();
+            float height = 174 + crew.Count * 70;
+            var panel = new Rect((iw - 450) / 2, (ih - height) / 2, 450, height);
+            coastalUi.Box("orders/panel", panel);
+            coastalUi.Label("orders/title", new Rect(panel.x + 20, panel.y + 8, 335, 40), "Deckhand duties", 25);
+            IButton("net/orders/close", new Rect(panel.xMax - 70, panel.y + 9, 54, 42), "X", () => netOrdersOpen = false, false);
+            coastalUi.Label("orders/help", new Rect(panel.x + 20, panel.y + 53, 410, 48), "Fish: carry rod catches and bait.\nNets: set, haul and empty the basket.", 16, SeaInk);
+            for (int i = 0; i < crew.Count; i++)
+            {
+                var c = crew[i]; float y = panel.y + 108 + i * 70;
+                coastalUi.Label("orders/" + i + "/name", new Rect(panel.x + 20, y, 166, 52), c.Name, 21);
+                IButton("net/orders/" + i + "/fish", new Rect(panel.x + 190, y, 108, 50), "Fish", () => SetDeckhandWork(c, DeckhandWork.Fish), c.WorkPreference == DeckhandWork.Fish);
+                IButton("net/orders/" + i + "/nets", new Rect(panel.x + 308, y, 122, 50), "Nets", () => SetDeckhandWork(c, DeckhandWork.Nets), c.WorkPreference == DeckhandWork.Nets);
+            }
+            coastalUi.Label("orders/footer", new Rect(panel.x + 20, panel.yMax - 60, 410, 50), "80% safe. Deep failure: catch + one use lost.\nShallow tear: net lost. Captain: timing decides.", 15, SeaInk);
+        }
+
+        Rect NetGamePanel => new Rect((iw - 450) / 2, ih - 234, 450, 216);
+        Rect NetGameCancelRect => new Rect(NetGamePanel.x + 312, NetGamePanel.y + 164, 122, 40);
+
+        void InterfaceNetHaulGame()
+        {
+            var panel = NetGamePanel;
+            float width = panel.width;
+            Block(panel); coastalUi.Box("net/haul/panel", panel);
+            coastalUi.Label("net/haul/title", new Rect(panel.x + 18, panel.y + 8, width - 36, 30), NetGameSetting ? "Spread the net" : "Work the net", 24);
+            string help = NetGameSetting ? "Tap in the green · 3 clean casts" : NetGameTension >= NetHaulRedTension ? "Too tight! Wait — red loses progress." : "Tap to pull · stay close to red, then ease";
+            coastalUi.Label("net/haul/help", new Rect(panel.x + 18, panel.y + 42, width - 36, 28), help, 16, SeaInk);
+            var meter = new Rect(panel.x + 18, panel.y + 80, width - 36, 16);
+            coastalUi.Bar("net/haul/tension", meter, NetGameSetting ? NetGamePhase : NetGameTension, !NetGameSetting && NetGameTension >= NetHaulRedTension);
+            float lo = NetGameSetting ? .35f : .65f, hi = NetGameSetting ? .65f : .84f;
+            coastalUi.Box("net/haul/sweet", new Rect(meter.x + meter.width * lo, meter.y, meter.width * (hi - lo), meter.height), "", new Color(.3f, .75f, .49f, .8f), blocks: false);
+            if (!NetGameSetting) coastalUi.Box("net/haul/red", new Rect(meter.x + meter.width * .85f, meter.y, meter.width * .15f, meter.height), "", new Color(.88f, .28f, .2f, .9f), blocks: false);
+            float cursor = NetGameSetting ? NetGamePhase : NetGameTension;
+            coastalUi.Box("net/haul/cursor", new Rect(meter.x + meter.width * cursor - 2, meter.y - 3, 4, meter.height + 6), "", SeaInk, blocks: false);
+            coastalUi.Label("net/haul/progresslabel", new Rect(panel.x + 18, panel.y + 102, 145, 22), NetGameSetting ? $"Spread {NetGameProgress * 3:0}/3" : $"Net aboard {NetGameProgress * 100:0}%", 14, SeaInk);
+            coastalUi.Bar("net/haul/progress", new Rect(panel.x + 160, panel.y + 108, width - 178, 8), NetGameProgress);
+            coastalUi.Label("net/haul/risk", new Rect(panel.x + 18, panel.y + 127, width - 36, 28), NetGameDamage > 0 ? "Fraying — one more mistake loses this haul!" : DeepNetSelected ? "2 mistakes lose catch + one use · other uses kept" : $"2 mistakes tear it · {State.NetInventory} shallow nets", 15, NetGameDamage > 0 ? Palette.Accent : SeaInk);
+            // Raw press handling gives exactly one pull. UI release never repeats it.
+            IButton("net/haul/tap", new Rect(panel.x + 16, panel.y + 164, 280, 40), "Tap screen or press Space", () => { }, true);
+            IButton("net/haul/cancel", NetGameCancelRect, "Leave net", CancelNetHaulGame, false);
+        }
+    }
+}

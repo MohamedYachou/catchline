@@ -14,6 +14,11 @@ namespace Catchline.Game
         public Font UiFont;
         public GameObject[] Models;                    // every FBX under Assets/Art/Models, looked up by file name
         public AnimationClip[] CrewClips;
+        public Shader WaterShader;
+        public Texture2D WaterRipples, WaterCrossing;
+        public Texture2D PtsWaterNormals, PtsWaterDither;
+        public Texture2D[] WaterTextures;
+        public Texture2D WaterTex(string name) => WaterTextures == null ? null : System.Array.Find(WaterTextures, t => t != null && t.name == name);
 
         System.Collections.Generic.Dictionary<string, Texture2D> uiByName;
         System.Collections.Generic.Dictionary<string, GameObject> modelByName;
@@ -80,6 +85,8 @@ namespace Catchline.Game
             ["M_DeckWood"] = "C58B50", ["M_WoodHighlight"] = "DFB77A", ["M_WoodRecess"] = "8C5A36", ["M_HullBlue"] = "2A6685",
             ["M_OilskinYellow"] = "E6AD38", ["M_Skin"] = "B9784B", ["M_KelpGreen"] = "477A56", ["M_FishSilver"] = "BAC9C6",
             ["M_HairChestnut"] = "50392E", ["M_HairSilver"] = "ADB6AF",
+            ["M_CoastStone"] = "A99A7C", ["M_CoastStoneLight"] = "C9B89A", ["M_CoastWet"] = "696F64",
+            ["M_CoastGrass"] = "729053", ["M_CoastGrassLight"] = "98A96B", ["M_CoastSand"] = "D9C393", ["M_SeabedSand"] = "BEA77D",
         };
 
         static void RemapMaterials(GameObject go)
