@@ -12,7 +12,7 @@ Mo's latest choices and source/check details: [DEEP104](docs/DEEP104.md). Read l
 - [x] G isolated broad regression: final expanded source passed both layouts, all pipelines/saves/UI controls,60000chum-baited deep rolls and older regression suites.
 - [x] G native final review:46actual frames, standard/upgraded/net layouts, desktop/landscape, Crew/chum/input, cloned Real load/departure/return/save; actual save unchanged.
 - [x] H final Test/Real installed; all five launcher modes preserved; installed native smokes passed and real save unchanged. Receipt: docs/screens/deep104/installed-build.json.
-- [ ] GitHub commit/push verification — in progress.
+- [x] GitHub delivery — implementation `ea3b824` pushed to `origin/proto/deck-sim`; remote HEAD verified.
 
 Deep lines require self-made chum. Deep catches: one fish per rod, with5%white/5%green/10%blue/75%purple/3%gold/2%red where local classes exist; missing classes redistribute locally. No nonlocal species. Third rig sits between cage and normal rod, hidden with the entire deep module in side-net layout. Chum uses existing timing/stock targets/voyage expiry; table and150%Tier5preparation preserved. Astra remains parked.
 

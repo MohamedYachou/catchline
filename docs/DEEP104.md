@@ -1,6 +1,6 @@
 # DEEP104 — Tier 5 fishing, crew setup, third rig and chum
 
-Codex 2 (WSL CLI), 21 October 2026. Delivered and installed in Test and Real; all five launchers verified. GitHub commit/push is the remaining delivery step; latest `comms.md` records its result.
+Codex 2 (WSL CLI), 21 October 2026. Delivered and installed in Test and Real; all five launchers verified. Implementation pushed to `origin/proto/deck-sim` as `ea3b824e2ebbb77828b180fbc047167714303e73`; remote HEAD verified. Latest `comms.md` records final delivery.
 
 ## Mo's selected rules
 
