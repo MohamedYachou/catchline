@@ -1,5 +1,27 @@
 # Catchline continuation — 2026-10-15
 
+## Current pickup — 18 October 2026, CREW096
+
+Read latest [comms.md](../comms.md) first; the 15 October continuation below is
+history, not a queue to restart. Tier 5 and Management are implemented, and
+**all five Real/DASH/Tier 3/Tier 4/Tier 5 launchers** use the verified Dash087
+players; each Test retains its original mode. Current handoffs:
+
+- [Tier 5](TIER5-INTEGRATION071.md), [Management math/pipeline](DASH087.md),
+  [all launcher modes and verification](DASH092.md).
+- [Crew ↔ Management integration](CREW-MANAGEMENT-INTEGRATION.md): shared effective
+  rules, exact source hooks, batch/count/cost/cache gaps and acceptance steps.
+- [Canonical crew decisions](CREW-CARDS-DESIGN.md), with latest electrical-only
+  Engineer and net-use overrides; [future machinery proposals](FUTURE-MACHINERY-DESIGN.md).
+
+Crew cards remain design only. Runtime still uses temporary contracts and legacy
+Tier 5 gear condition; do not call the electrical-only redesign implemented.
+Processing-equipped boats route every catch through input → processing → output
+→ separate carrying → main hold. Small boats bypass processing; no phantom traps.
+Preserve accepted DASH artwork and bottom-right actions when adding card effects.
+
+## Historical continuation
+
 Mo assigned Codex ownership of Claude's gameplay/design work and asked for GPT-6.1 Sol at medium reasoning to handle 2D/3D assets. Both original plans remain in `docs/plans/`; gameplay is `docs/GAMEPLAY.md`, asset direction is `Art/STYLE.md`. Main checkout: `Catchline`, branch `proto/deck-sim`; asset worktree: `Catchline-art-style`, branch `art/style-pass`.
 
 ## Recovered state

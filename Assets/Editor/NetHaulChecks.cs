@@ -65,8 +65,8 @@ namespace Catchline.EditorTools
             Tick(g, 3); Check(g.NetGameProgress == 0 && g.NetGameSetting, "setting never completes without taps");
             g.CancelNetHaulGame(); Check(g.Net == VoyageGame.NetState.Stowed && g.State.NetInventory == nets, "cancel preserves reusable net");
             Check(g.SetNet(), "retry setting"); FinishCaptainSet(g);
-            Check(g.State.NetInventory == nets && g.NetRemaining >= 19.9f, "clean setting reuses fitted net and starts20s soak");
-            Call(g, "TickNet", 20f); int fish = g.NetCatch; Check(fish > 0 && g.NetCatchKg >= g.NetWeightRange(g.ActiveSpot, false).x, "schooling mass yield");
+            Check(g.State.NetInventory == nets && g.NetRemaining >= GameData.ShallowNetSoakSeconds - .1f, "clean setting reuses fitted net and starts40s soak");
+            Call(g, "TickNet", GameData.ShallowNetSoakSeconds); int fish = g.NetCatch; Check(fish > 0 && g.NetCatchKg >= g.NetWeightRange(g.ActiveSpot, false).x, "schooling mass yield");
             Check(g.HaulNet(), "claim haul"); ReachCaptainWinch(g); Tick(g, 4);
             Check(g.NetGameProgress == 0 && g.NetCatch == fish, "idle game cannot win");
             Check(g.TapNetGame(), "one tap accepted"); Tick(g, 0);

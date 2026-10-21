@@ -14,7 +14,8 @@ namespace Catchline.Game
         public int NetGameDamage => netCycleMistakes;
         public bool NetGameHeld => netPullFlash > 0; // Visual pulse only, never held input.
         float netGameAge, netTapCooldown, netPullFlash;
-        int netCycleMistakes;
+        int primaryNetCycleMistakes, secondNetCycleMistakes;
+        int netCycleMistakes { get => netGameRig == 1 ? secondNetCycleMistakes : primaryNetCycleMistakes; set { if (netGameRig == 1) secondNetCycleMistakes = value; else primaryNetCycleMistakes = value; } }
         bool netTapPending;
         Person netGamePerson;
         Action netGameComplete, netGameCancel, netGameFail;
@@ -27,8 +28,9 @@ namespace Catchline.Game
             return true;
         }
 
-        void BeginNetGame(Person person, bool setting, Action complete, Action cancel, Action fail)
+        void BeginNetGame(Person person, bool setting, Action complete, Action cancel, Action fail, int rig = 0)
         {
+            netGameRig = rig;
             netGamePerson = person; NetGameSetting = setting;
             netGameComplete = complete; netGameCancel = cancel; netGameFail = fail;
             NetGameProgress = 0; NetGameTension = .22f;
@@ -42,6 +44,7 @@ namespace Catchline.Game
             if (!NetGameActive)
             {
                 if ((Net is NetState.Hauling or NetState.Setting) && netWorker == Captain) Captain.Stop();
+                else if ((SecondNet is NetState.Hauling or NetState.Setting) && secondNetWorker == Captain) Captain.Stop();
                 return;
             }
             var person = netGamePerson; var cancel = netGameCancel;
@@ -69,8 +72,8 @@ namespace Catchline.Game
         void TickNetHaulGame(float dt)
         {
             if (!NetGameActive) return;
-            if (State.Hull == 0 || CurrentMode != Mode.Fishing || netWorker != netGamePerson ||
-                Net != (NetGameSetting ? NetState.Setting : NetState.Hauling))
+            if (State.Hull == 0 || CurrentMode != Mode.Fishing || (netGameRig == 1 ? secondNetWorker : netWorker) != netGamePerson ||
+                (netGameRig == 1 ? SecondNet : Net) != (NetGameSetting ? NetState.Setting : NetState.Hauling))
             { CancelNetHaulGame(); return; }
             while (dt > 0 && NetGameActive)
             {

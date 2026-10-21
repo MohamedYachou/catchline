@@ -1,0 +1,11 @@
+# Astra's preliminary questions — TIER5-102
+
+Research complete for this decision round; no new cards or final balance selected. I will wait for your answers **and your greenlight** before developing the 30-card roster and simulations.
+
+1. **When you say 3 fish, upgraded to 5, is that the catch for the entire deep-line module, or for each physical rig?** I recommend **3 → 5 across the whole module**, with 2 → 3 physical rigs as a separate equipment upgrade. I would initially test your 60–90 seconds as the passive soak, with human baiting/retrieval added; the fisher can do other permitted work during the soak. Per-rig catches instead mean 6 → 15 fish per round, so this choice substantially changes the hauling load.
+
+2. **Should deep lines be independently supplied, or deliberately depend on small catches from the boat?** I recommend **either bought bait or sacrificing small fish**, with comparable costs tuned later, so a deep-line build can operate without running its net. The alternative is an onboard small-fish/chum supply chain as a required part of the build. Current Tier 5 cannot make chum, so choosing that route means deliberately adding it back; existing bait-focused crew skills stay rejected.
+
+3. **How much should a good six-person crew depend on the captain's hands?** I recommend a **self-sustaining specialist build, with the captain noticeably improving earnings by helping the current bottleneck**; an aggressive build can require regular help to reach its advertised output. Alternatively, tune even well-supported builds around the captain continuously working one ordinary job. I will compare both the unattended crew and the same crew with one finite captain workload, never count the captain at several stations at once.
+
+All other settled directions carry forward: no Tier 5 Engineer/new profession; fishers operate rods/nets/cages/deep lines; deckhands haul/process; fixed two rods, two cages and rear net; optional two normal rods plus deep lines **or** a side net; six hired berths baseline; proposed 15 fishers + 15 deckhands, each 7 blue / 4 purple / 4 gold. Selected identities remain the starting point; any proposed replacement will be visibly identified for review.

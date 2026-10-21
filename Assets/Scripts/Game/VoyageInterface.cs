@@ -30,6 +30,7 @@ namespace Catchline.Game
             hudRects.Clear();
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
+            else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagement();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
             else InterfaceTravel();
             if (!departureReady && toast != null && SimTime < toastUntil)
@@ -38,6 +39,9 @@ namespace Catchline.Game
                 coastalUi.Box("toast", r, "toast-dark");
                 coastalUi.Label("toast/text", new Rect(r.x + 14, r.y + 4, r.width - 28, 54), toast, 16, Palette.Cream, TextAnchor.MiddleCenter);
             }
+            InterfaceCrewBait();
+            InterfaceCaptainPrep();
+            if (!ManagementOpen) { InterfaceTier5Operations(); ManagementEntry(); }
             coastalUi.End();
         }
         void Block(Rect rect) => hudRects.Add(rect);
@@ -62,8 +66,7 @@ namespace Catchline.Game
             InterfaceReferenceGoals();
             InterfaceReferenceCrew();
             InterfaceReferenceSupplies();
-            float homeY = ReferenceCrewBottom + 12 * coastalUi.ReferenceScale;
-            IButton("home", new Rect(iw - 208, homeY, 192, 48), "Head home", RequestHeadHome, false);
+            IButton("home", FishingFooter(IsTier5?1:0,1), "Head home", RequestHeadHome, false);
             foreach (var rod in Rods.Where(r => r.Unlocked && CanCommandRod(r)))
                 InterfaceBubble("rod/" + Rods.IndexOf(rod), Boat.TransformPoint(rod.TipLocal + Vector3.up * .25f),
                     rod.State == RodState.Bite ? "Bite!" : rod.InWater ? "Watch" : "Fish", "icon-rod", () => CommandRod(rod), rod.State == RodState.Bite);
@@ -94,6 +97,12 @@ namespace Catchline.Game
             float width = Mathf.Min(390, iw - 530);
             if (width < 270) width = 270;
             float x = (iw - width) / 2;
+            if(IsNetFisher)
+            {
+                // Keep the fishing task clear of the bottom-right action cluster.
+                float right=iw-420,left=Mathf.Min(276,Mathf.Max(16,right-270));
+                width=Mathf.Min(390,Mathf.Max(270,right-left));x=left+Mathf.Max(0,(right-left-width)/2);
+            }
             var rod = MinigameRod;
             if (AwaitingCast)
             {

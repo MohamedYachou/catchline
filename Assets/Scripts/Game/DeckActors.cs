@@ -26,6 +26,7 @@ namespace Catchline.Game
         public float CaughtAt;
         public bool CaughtByCrew; // Automatic catches stay out of captain reward/toast feedback.
         public bool FromNetBasket;
+        public int DeepLineRig = -1; // Normal deck collection, but retain this rig's catch until collected.
         public Vector3 RestPos, SpawnFrom;
         public Transform Tail;
 
@@ -44,8 +45,13 @@ namespace Catchline.Game
                 var model = ArtLibrary.Spawn(prefab, h, Vector3.zero, Quaternion.identity);
                 // FBX exporter unit/root transforms vary. Fit the existing species
                 // length, rather than treating centimetre mesh coordinates as metres.
-                ArtLibrary.AimAlong(model, Vector3.forward, def.Length * k * 1.3f);
-                model.transform.localRotation = Quaternion.Euler(0, 0, 90) * model.transform.localRotation;
+                if (s == Species.Crab) ArtLibrary.AimAlong(model, Vector3.forward, def.Length*k*1.3f);
+                else if ((int)s >= 10) GeminiFishModels.Fit(model, def.Length * k * 1.3f, s);
+                else
+                {
+                    ArtLibrary.AimAlong(model, Vector3.forward, def.Length * k * 1.3f);
+                    model.transform.localRotation = Quaternion.Euler(0, 0, 90) * model.transform.localRotation;
+                }
                 return h;
             }
             float len = def.Length * k;
@@ -147,6 +153,13 @@ namespace Catchline.Game
                     if (child.name == "Head") lookoutHead = child;
                     if (child.name.StartsWith("Outfit_")) child.gameObject.SetActive(child.name == outfit);
                     if (child.name.StartsWith("Hat_")) child.gameObject.SetActive(child.name == roleHat);
+                }
+                if (Contract?.Role == CrewRole.Engineer)
+                {
+                    foreach(var t in rig.GetComponentsInChildren<Transform>(true))
+                        if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(false);
+                    Visuals.Prim(PrimitiveType.Sphere,"Engineer hardhat",body,new Vector3(0,.9f,0),new Vector3(.32f,.16f,.30f),Palette.Hex("E6AD38"));
+                    Visuals.Prim(PrimitiveType.Cylinder,"Engineer hardhat brim",body,new Vector3(0,.87f,0),new Vector3(.36f,.025f,.34f),Palette.Hex("E6AD38"));
                 }
                 if (lib.CrewClips != null)
                     foreach (var clip in lib.CrewClips)
@@ -303,7 +316,7 @@ namespace Catchline.Game
                 body.localRotation = Quaternion.identity;
                 oneShotLeft = Mathf.Max(0f, oneShotLeft - dt * Speed * mult);
                 string pose = moving ? Carrying != null || CarryingBatch ? "Carry" : "Walk"
-                    : Busy ? BusyLabel switch { "Baiting" or "Setting net" => "Bait", "Casting" => "Cast", "Winching net" or "Hauling net" => "Reel", "Stowing" or "Picking up" or "Gathering net catch" or "Stowing net catch" => "Stow", _ => "Idle" }
+                    : Busy ? BusyLabel switch { "Baiting" or "Setting net" or "Maintaining equipment" or "Repairing equipment" => "Bait", "Casting" => "Cast", "Winching net" or "Hauling net" or "Recovering buoy catch" => "Reel", "Taking fish" or "Putting fish away" or "Making chum" or "Preparing fish" or "Stowing" or "Picking up" or "Gathering net catch" or "Stowing net catch" => "Stow", _ => "Idle" }
                     : oneShotLeft > 0f ? oneShot : Rowing ? "Row" : Pose ?? "Idle";
                 if (pose != lastPose) { poseTime = 0f; lastPose = pose; }
                 poseTime += dt * Speed * mult * (moving && Loitering ? .55f : 1f);
@@ -347,6 +360,7 @@ namespace Catchline.Game
         public bool Unlocked = true;
         public Species HookedSpecies;
         public float HookedKg;
+        public bool Chum;
         public bool Squid; // baited with squid: bigger fish
         public bool Scraps; // Unlimited poor bait: small species/specimens only.
 
@@ -466,7 +480,8 @@ namespace Catchline.Game
 
         public void ResetForTrip()
         {
-            if (State != RodState.Ready) State = RodState.Unbaited;
+            if (State != RodState.Ready || Chum) State = RodState.Unbaited;
+            Chum = false;
             BaitingBy = null;
             FisherAttempted = false;
             nibbleTimer = 0f;
@@ -536,6 +551,7 @@ namespace Catchline.Game
 
         public void Tick(VoyageGame g, float dt, float mult, bool attended)
         {
+            if (g.IsTier5) mult *= g.EquipmentEfficiency(Index);
             anim += dt;
             var tipWorld = g.Boat.TransformPoint(tipLocal);
             var bobPos = tipWorld + Vector3.down * 0.35f;
@@ -575,7 +591,7 @@ namespace Catchline.Game
                     {
                         State = RodState.Bite;
                         t = 0f;
-                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid);
+                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid, Chum);
                         biteWindow = g.StrikeWindow;
                         selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
                         splash.gameObject.SetActive(true);

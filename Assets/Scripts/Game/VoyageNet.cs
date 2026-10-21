@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Catchline.Prototype;
 using UnityEngine;
 
@@ -19,8 +20,8 @@ namespace Catchline.Game
         int netClaim;
         public int NetBasketCount => OnDeck.FindAll(f => f.FromNetBasket).Count;
         public bool NetBasketBlocked => NetBasketCount > 0;
-        Vector2Int NetAccess => IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
-        Vector3 NetBasketLocal => IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
+        Vector2Int NetAccess => IsTier5 && tier5RearNetAccess.HasValue ? tier5RearNetAccess.Value : IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
+        Vector3 NetBasketLocal => IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
 
         void BuildNetKit()
         {
@@ -129,7 +130,7 @@ namespace Catchline.Game
         void TickNet(float dt)
         {
             if (State.Hull == 0) return;
-            bool settingGame = NetGameActive && NetGameSetting;
+            bool settingGame = NetGameActive && netGameRig == 0 && NetGameSetting;
             TickNetHaulGame(dt);
             if (settingGame && Net == NetState.Soaking) return;
             float winchDrive = NetGameActive ? NetGameHeld && NetGameTension < NetHaulRedTension ? 1f : 0f : 1f;
@@ -145,17 +146,43 @@ namespace Catchline.Game
             if (netTime >= netSoak)
             {
                 RollCompactCatch(); Net = NetState.Ready;
-                Toast($"Net ready: {NetCatchKg:0.0} kg. Haul it yourself or assign a deckhand.");
+                Toast($"Net ready: {NetCatchKg:0.0} kg. Haul it yourself or enable Nets for a fisher.");
             }
         }
 
-        // Only the deckhand scheduler's Nets preference calls this; soak never owns a worker.
+        readonly Dictionary<CrewMember, int> netAssignments = new();
+        bool NetOperator(CrewMember c) => c != null && (IsTier5
+            ? c.Role == CrewRole.Fisherman && c.Allows(FisherTask.Nets)
+            : c.Role == CrewRole.Deckhand);
+        bool RigBasketBlocked(int rig) => OnDeck.Any(f=>f.FromNetBasket && f.Tile==(rig==1?SecondNetAccess:NetAccess));
+        public int AssignedNet(Person person)
+        {
+            foreach (var crew in new List<CrewMember>(netAssignments.Keys))
+                if (!State.Crew.Contains(crew) || !NetOperator(crew)
+                    || netAssignments[crew] == 1 && !SecondNetActive) netAssignments.Remove(crew);
+            if (person?.Contract == null || !NetOperator(person.Contract)) return -1;
+            if (netAssignments.TryGetValue(person.Contract, out int rig)) return rig;
+            for (rig = 0; rig < (SecondNetActive ? 2 : 1); rig++)
+                if (!netAssignments.ContainsValue(rig)) { netAssignments[person.Contract] = rig; return rig; }
+            return -1;
+        }
+        DeckFish AssignedBasket(Person person)
+        {
+            if(person == netUnloader && NetUnloadRig >= 0)
+                return OnDeck.Find(f=>f.FromNetBasket && f.Tile==(NetUnloadRig==1?SecondNetAccess:NetAccess));
+            if (person.IsCaptain || IsTier5 && person.Contract?.Role == CrewRole.Deckhand)
+                return OnDeck.Find(f=>f.FromNetBasket && f.ClaimedBy==null);
+            int rig=AssignedNet(person); if(rig<0)return null;
+            return OnDeck.Find(f=>f.FromNetBasket && f.ClaimedBy==null && f.Tile==(rig==1?SecondNetAccess:NetAccess));
+        }
         public bool TryNetWork(Person person)
         {
-            if (!IsNetFisher || person == null || person.IsCaptain || person.Contract?.Role != CrewRole.Deckhand)
-                return false;
-            if (Net == NetState.Stowed) return StartCompactNet(person, false);
-            return Net == NetState.Ready && StartCompactNet(person, true);
+            if (!IsNetFisher || person == null || person.IsCaptain || !NetOperator(person.Contract)) return false;
+            int rig=AssignedNet(person);
+            if (rig == 0) return Net == NetState.Ready ? StartCompactNet(person,true)
+                : Net == NetState.Stowed && StartCompactNet(person,false);
+            return rig == 1 && (SecondNet == NetState.Ready ? StartSecondNet(person,true)
+                : SecondNet == NetState.Stowed && StartSecondNet(person,false));
         }
 
         bool StartCompactNet(Person person, bool haul)
@@ -163,8 +190,8 @@ namespace Catchline.Game
             if (CurrentMode != Mode.Fishing || !person.Idle || person.Carrying != null || netWorker != null)
                 return false;
             if (Net != (haul ? NetState.Ready : NetState.Stowed)) return false;
-            if (!haul && State.ActiveNetStock <= 0) return false;
-            if (NetBasketBlocked || (!haul && HoldFull)) return false;
+            if (!haul && AvailableNetStock(0) <= 0) return false;
+            if (RigBasketBlocked(0) || (!haul && HoldFull)) return false;
             netWorker = person;
             int claim = ++netClaim;
             Net = haul ? NetState.Hauling : NetState.Setting;
@@ -180,13 +207,13 @@ namespace Catchline.Game
             {
                 if (!Owns()) return;
                 // One roll per full worker recovery, never one roll per stage.
-                if (haul && !person.IsCaptain && State.Rng.NextDouble() >= .8) { Tear(); return; }
+                if (haul && (IsTier5 ? Tier5EquipmentFailure(4) : !person.IsCaptain && State.Rng.NextDouble() >= .8)) { Tear(); return; }
                 netWorker = null;
                 netClaim++;
-                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); BeginNetUnload(person); return; }
+                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); if (!IsTier5 || person.IsCaptain) BeginNetUnload(person); return; }
                 Net = NetState.Soaking;
                 netTime = 0f;
-                netSoak = DeepNetSelected ? 30f : 20f;
+                netSoak = DeepNetSelected ? GameData.DeepNetSoakSeconds : GameData.ShallowNetSoakSeconds;
                 netFish.Clear();
                 if (netFloats != null) netFloats.gameObject.SetActive(true);
                 Toast($"{(DeepNetSelected ? "Deep" : "Shallow")} net set. {netSoak:0}s soak while the crew works.");
@@ -197,7 +224,7 @@ namespace Catchline.Game
                 bool deep = DeepNetSelected;
                 if (deep) State.SpendDeepNetUse();
                 else State.NetInventory = Mathf.Max(0, State.NetInventory - 1);
-                ResetNet();
+                ResetPrimaryNet();
                 Toast(deep ? $"Deep haul lost — one use spent. {State.NetLoadoutLabel}." : $"Net torn — catch lost. {State.NetInventory} shallow nets left; replacements {GameData.NetReplacementCost} coins.");
             }
             bool walking = person.WalkTo(Grid, NetAccess, () =>
@@ -214,48 +241,8 @@ namespace Catchline.Game
         void RollCompactCatch()
         {
             netFish.Clear();
-            bool large = DeepNetSelected;
-            float target = NetWeightRange(ActiveSpot, large).y;
-            float mass = 0;
-            var table = GameData.Spots[ActiveSpot].Table;
-            // Every added specimen has positive mass. The loop ends on remaining kg,
-            // never a fish-count limit; a fish cannot cross the net's hard weight limit.
-            while (true)
-            {
-                float remaining = target - mass;
-                float total = 0;
-                foreach (var entry in table)
-                {
-                    var d = GameData.Get(entry.species);
-                    if (!large && !SmallSchool(entry.species)) continue;
-                    float min = Mathf.Lerp(d.MinKg, d.MaxKg, large ? .65f : .05f);
-                    if (min > remaining) continue;
-                    total += entry.weight * (large ? .08f + 6f * d.Heaviness * d.Heaviness : 1);
-                }
-                if (total <= 0)
-                {
-                    if (large) { large = false; continue; }
-                    break; // Residual smaller than any local school specimen stays empty.
-                }
-                float roll = (float)State.Rng.NextDouble() * total;
-                Species species = table[0].species;
-                foreach (var entry in table)
-                {
-                    var d = GameData.Get(entry.species);
-                    if (!large && !SmallSchool(entry.species)) continue;
-                    float min = Mathf.Lerp(d.MinKg, d.MaxKg, large ? .65f : .05f);
-                    if (min > remaining) continue;
-                    species = entry.species;
-                    roll -= entry.weight * (large ? .08f + 6f * d.Heaviness * d.Heaviness : 1);
-                    if (roll <= 0) break;
-                }
-                var fish = GameData.Get(species);
-                float low = Mathf.Lerp(fish.MinKg, fish.MaxKg, large ? .65f : .05f);
-                float high = Mathf.Min(remaining, Mathf.Lerp(fish.MinKg, fish.MaxKg, large ? 1f : .25f));
-                float kg = Mathf.Lerp(low, high, (float)State.Rng.NextDouble());
-                if (kg <= 0 || mass + kg > target + .00001f) break;
-                netFish.Add((species, kg)); mass += kg; State.OnCatch(ActiveSpot, kg);
-            }
+            netFish.AddRange(CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,State.Rng));
+            foreach(var f in netFish)State.OnCatch(ActiveSpot,f.kg);
         }
 
         static bool SmallSchool(Species species) => species == Species.Herring || species == Species.Mackerel || species == Species.Whiting || species == Species.Pollock;
@@ -273,22 +260,22 @@ namespace Catchline.Game
                 fish.SpawnFrom = IsNetFisher ? Grid.GetLocal(NetAccess) + new Vector3(.3f, .5f, 0f) : new Vector3(4.4f, .5f, .2f);
                 fish.Root.localPosition = fish.SpawnFrom;
                 OnDeck.Add(fish);
+                RecordLanding(FlowTelemetry.Kind.Net, species, kg);
                 Stats.Landed++;
             }
-            ResetNet();
+            ResetPrimaryNet();
             Toast($"Hauled {count} fish. Bringing the catch into storage.");
         }
 
-        void ResetNet()
+        void ResetPrimaryNet()
         {
-            ClearNetUnload();
             netClaim++;
-            ResetNetHaulGame();
+            if (!NetGameActive || netGameRig == 0) ResetNetHaulGame();
             netWorker = null;
             Net = NetState.Stowed;
             netFish.Clear();
             netTime = 0f;
-            netCycleMistakes = 0;
+            primaryNetCycleMistakes = 0;
             if (netFloats != null) netFloats.gameObject.SetActive(false);
         }
     }

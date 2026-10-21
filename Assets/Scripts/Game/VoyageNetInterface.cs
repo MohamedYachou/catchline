@@ -11,7 +11,7 @@ namespace Catchline.Game
         void InterfaceNetOrders()
         {
             if (State.Hull == 0) return;
-            var access = IsNetFisher ? State.HullDef.NetAccess : new Vector2Int(3, 1);
+            var access = NetAccess;
             var anchor = Boat.TransformPoint(Grid.GetLocal(access) + new Vector3(.5f, .8f, 0));
             var view = Cam.WorldToViewportPoint(anchor);
             var icon = new Rect(Mathf.Clamp(view.x * iw - 34, 14, iw - 82), Mathf.Clamp((1 - view.y) * ih - 64, 16, ih - 114), 68, 64);
@@ -19,7 +19,7 @@ namespace Catchline.Game
             bool enabled = CanCaptainNet && (Net == NetState.Ready || Net == NetState.Stowed && (NetBasketBlocked || State.ActiveNetStock > 0));
             coastalUi.Button("net", icon, "", () => CaptainNetAction(), Net == NetState.Ready ? "bubble-hot" : "bubble-white", enabled);
             coastalUi.Art("net/icon", new Rect(icon.x + 16, icon.y + 12, 36, 36), "icon-net");
-            string status = NetUnloadActive ? "Unloading catch" : Net switch {
+            string status = NetUnloadRig == 0 ? "Unloading catch" : Net switch {
                 NetState.Soaking => $"{NetRemaining:0}s", NetState.Ready => $"Haul {NetCatchKg:0.0} kg", NetState.Setting => "Setting…",
                 NetState.Hauling => "Winching…", _ => HoldFull ? "Hold full" : NetBasketBlocked ? "Unload catch" : State.ActiveNetStock == 0 ? "No nets · buy supplies" : DeepNetSelected ? $"Deep {State.DeepNetUses[0]}/3 · {State.ActiveNetStock - 1} spare" : $"Shallow · {State.ActiveNetStock} aboard" };
             var caption = new Rect(icon.center.x - 76, icon.yMax + 2, 152, 29);
@@ -28,25 +28,41 @@ namespace Catchline.Game
             if (IsNetFisher)
             {
                 var hands = State.Crew.Where(c => c.Role == CrewRole.Deckhand).ToList();
-                IButton("net/orders", new Rect(iw - 208, ReferenceCrewBottom + 72, 192, 44), "Crew duties", () => { netOrdersOpen = true; toastUntil = 0; }, false, hands.Count > 0);
+                if (!IsTier5) IButton("net/orders", FishingFooter(1), "Crew duties", () => { netOrdersOpen = true; PrepOrdersOpen = false; toastUntil = 0; }, false, hands.Count > 0);
             }
+            InterfaceSecondNet();
             if (NetGameActive) InterfaceNetHaulGame();
+            InterfacePrepOrders();
+            if (netOrdersOpen && IsTier5) { netOrdersOpen=false; OpenManagement(); managementTab=2; return; }
             if (!netOrdersOpen || !IsNetFisher) return;
             Block(new Rect(0, 0, iw, ih));
             coastalUi.Box("orders/shade", new Rect(0, 0, iw, ih), "chip-dark", new Color(1, 1, 1, .7f));
             var crew = State.Crew.Where(c => c.Role == CrewRole.Deckhand).ToList();
-            float height = 174 + crew.Count * 70;
-            var panel = new Rect((iw - 450) / 2, (ih - height) / 2, 450, height);
+            float height = 174 + crew.Count * 70 + (IsPrepFisher ? 60 : 0);
+            var panel = new Rect((iw - (IsPrepFisher ? 550 : 450)) / 2, (ih - height) / 2, IsPrepFisher ? 550 : 450, height);
             coastalUi.Box("orders/panel", panel);
             coastalUi.Label("orders/title", new Rect(panel.x + 20, panel.y + 8, 335, 40), "Deckhand duties", 25);
             IButton("net/orders/close", new Rect(panel.xMax - 70, panel.y + 9, 54, 42), "X", () => netOrdersOpen = false, false);
-            coastalUi.Label("orders/help", new Rect(panel.x + 20, panel.y + 53, 410, 48), "Fish: carry rod catches and bait.\nNets: set, haul and empty the basket.", 16, SeaInk);
+            coastalUi.Label("orders/help", new Rect(panel.x + 20, panel.y + 53, 410, 48), "Fish: carry rod catches and bait.\nNets: net work, then fish/bait during soak.", 16, SeaInk);
             for (int i = 0; i < crew.Count; i++)
             {
                 var c = crew[i]; float y = panel.y + 108 + i * 70;
-                coastalUi.Label("orders/" + i + "/name", new Rect(panel.x + 20, y, 166, 52), c.Name, 21);
+                var person = People.FirstOrDefault(h => h.Contract == c);
+                int rig = c.WorkPreference == DeckhandWork.Nets ? AssignedNet(person) : -1;
+                coastalUi.Label("orders/" + i + "/name", new Rect(panel.x + 20, y, 166, 52),
+                    rig >= 0 ? c.Name + " / Net " + (rig + 1) : c.Name, 18);
                 IButton("net/orders/" + i + "/fish", new Rect(panel.x + 190, y, 108, 50), "Fish", () => SetDeckhandWork(c, DeckhandWork.Fish), c.WorkPreference == DeckhandWork.Fish);
                 IButton("net/orders/" + i + "/nets", new Rect(panel.x + 308, y, 122, 50), "Nets", () => SetDeckhandWork(c, DeckhandWork.Nets), c.WorkPreference == DeckhandWork.Nets);
+                if (IsPrepFisher) IButton("net/orders/" + i + "/prep", new Rect(panel.x + 440, y, 90, 50), "Prep", () => SetDeckhandWork(c, DeckhandWork.Prep), c.WorkPreference == DeckhandWork.Prep, c.WorkPreference == DeckhandWork.Prep || crew.Count(h => h.WorkPreference == DeckhandWork.Prep) < 2);
+            }
+            if (IsPrepFisher)
+            {
+                float y = panel.yMax - 118;
+                coastalUi.Label("orders/prep/priority-label", new Rect(panel.x + 20, y, 104, 46), "Prep order:", 15, SeaInk);
+                IButton("net/orders/prep-priority", new Rect(panel.x + 128, y, 208, 46),
+                    State.PrepOrders.ChumFirst ? "Make chum first" : "Prepare fish first", ChangePrepPriority, false);
+                coastalUi.Label("orders/prep/status", new Rect(panel.x + 344, y, 186, 46),
+                    $"{PrepWorkersActive} of 2 deckhands working", 14, SeaInk, TextAnchor.MiddleCenter);
             }
             coastalUi.Label("orders/footer", new Rect(panel.x + 20, panel.yMax - 60, 410, 50), "80% safe. Deep failure: catch + one use lost.\nShallow tear: net lost. Captain: timing decides.", 15, SeaInk);
         }

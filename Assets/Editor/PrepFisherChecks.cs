@@ -53,7 +53,7 @@ namespace Catchline.EditorTools
             var g=new GameObject("TIER033 isolated check").AddComponent<VoyageGame>();g.SessionOnly=true;g.Build();
             Check(g.StartPrepBoatTrial(),"isolated trial can start");
             Check(g.IsPrepFisher && g.IsNetFisher && g.State.CrewCount==4 && g.ExtraPeople.Count==3,"four real temporary workers plus captain");
-            Check(g.Rods.Count==3 && g.State.CoolerCapacity==100,"retain existing capacity and rod count");
+            Check(g.Rods.Count==3 && g.State.CoolerCapacity==160,"production Prep capacity and rod count");
             Deck(g,"buckets");
             g.Showcase(-1,0);g.State.Owned.Add(UpgradeId.IceBox);g.SyncUpgrades();
             // Storage footprints differ; rebuild the physical grid on a port upgrade.
@@ -75,7 +75,7 @@ namespace Catchline.EditorTools
             Call(g,"ResetNet");g.Cooler.Clear();
             Check(g.SetDeckhandWork(g.State.Deckhand,DeckhandWork.Nets),"tier4 net duty selectable");
             Call(g,"HandThink",g.Hand);Work(g.Hand);Check(g.Net==VoyageGame.NetState.Soaking,"hand reaches new stern and sets net");
-            Call(g,"TickNet",20f);g.State.Rng=new System.Random(0);Call(g,"HandThink",g.Hand);Work(g.Hand);
+            Call(g,"TickNet",GameData.ShallowNetSoakSeconds);g.State.Rng=new System.Random(0);Call(g,"HandThink",g.Hand);Work(g.Hand);
             Check(g.NetBasketCount>0,"hand can haul into relocated basket");
             Check(g.OnDeck.Where(f=>f.FromNetBasket).All(f=>f.RestPos.x>5.3f),"net catch stays behind prepared boxes");
             // Clear net work so normal return can run without a modal confirmation.

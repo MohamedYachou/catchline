@@ -1,0 +1,14 @@
+00:00.201  blend            | Read blend: "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Production071/Tier5FisherV1.blend"
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/tier5_deeplines102_preview.py:63: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Review soft coastal sky');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.56,.70,.76,1);world.node_tree.nodes['Background'].inputs[1].default_value=.65;scene.world=world
+00:15.545  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5DeepLines102/01-rod-deepline-beauty.png'
+00:31.264  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5DeepLines102/02-rod-deepline-plan.png'
+00:45.674  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5DeepLines102/03-side-net-beauty.png'
+01:01.213  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5DeepLines102/04-side-net-plan.png'
+Warning: File written by newer Blender binary (502.44), expect loss of data!
+Info: Saved as "Tier5DeepLines102-preview.blend"
+TIER102 PREVIEW COMPLETE
+Blender 5.0.1
+
+Blender quit
+Error: Not freed memory blocks: 56, total unfreed memory 0.002243 MB

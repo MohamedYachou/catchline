@@ -8,11 +8,26 @@ Closely match the goal renders, with fishing as the reference standard. Every
 later mechanic ships using that finished visual language from its first pass.
 See PRODUCT.md, DESIGN.md and docs/plans/PLAYABILITY-PLAN.md.
 
-## Current tier3/net progression — NET023,16October2026
+## Current integration pickup — CREW096, 18 October 2026
+
+Tier 5 and the accepted Income/Operations Management screen are shipped in the
+verified Dash087 Real/Test players; [DASH092](DASH092.md) updates all five active
+launchers. Read [crew/Management integration](CREW-MANAGEMENT-INTEGRATION.md) before
+implementing cards: current source hooks, shared stat rules, batching/counting,
+cache/learned-capacity invalidation, wages and required verification are mapped there.
+Crew cards remain design only. [Canonical crew decisions](CREW-CARDS-DESIGN.md)
+supersede older design text: Engineer upkeep is electrical-only, with no engineering
+wear on bare rods/nets/cages; normal nets unlimited uses, deep nets three uses.
+The shipped legacy Tier 5 condition system has not yet been migrated to that design.
+Future machine tiers remain proposals. Preserve saved hull IDs and distinguish
+current code, selected future design and unselected proposals.
+
+## Current tier3/net progression — NET023 + net stat update,17October2026
 
 Tier3 Compact fisher now has100kg hold,150kg with the existing big-cooler upgrade.
-Both nets have a10kg hard capacity; Heavy net system costs5000coins and raises both
-to15kg. Normal nets favour many small fish; deep nets fewer larger local specimens.
+Net capacity is20kg through Hull2 and30kg on Hull3; Heavy Net System costs5000coins
+and raises those capacities to30kg and44kg. Normal nets favour many small fish;
+deep nets fewer larger local specimens.
 Tier3 upgrade prices scale to1500–3500coins for ordinary equipment. Depletion is
 weight-based and market saturation softer on tier3. Real progression can buy the
 Compact fisher from an owned skiff for4000coins. See [NET023.md](NET023.md) for
@@ -36,7 +51,7 @@ Full crew does not remove the captain's interactive work. The empty-roster Test
 setup lets players hire their own mix using normal contract fees. See
 [CREW026.md](CREW026.md).
 
-## Current fuel/preparation rules — FUEL021,16October2026
+## Current fuel and crew baseline — FUEL021, 16 October 2026
 
 Food is inactive on early boats. Crew works at the former70%pace as its normal
 baseline. Powered boats carry10minutes of fuel,20with the extra tank (the old lunch
@@ -45,6 +60,21 @@ forces a return at10%. Docks do not refill it automatically; rowboats use oars.
 Set sail opens a polished departure manifest with quick bait/fuel purchases before
 explicit Let's go. See [FUEL021.md](FUEL021.md). These rules supersede older food and
 round-trip fuel descriptions below. A later cook/food bonus remains future work.
+
+## Current fish processing — PREP047, 17 October 2026
+
+On the Prep fisher, choose deckhand jobs in **Crew duties** and set which task
+comes first there. The **Prep table** is only for choosing what happens to the
+fish. **Chum settings** turns selected fish into bait, consumes them from the
+hold, and makes more chum from larger fish until the stock target is reached.
+**Fish preparation** keeps selected fish in the hold, sells them for 25% more,
+and stops further freshness loss without restoring quality already lost.
+
+Both selectors use the same saved fish classes: Common (white), Big common
+(green), Rare (blue), Big rare (purple), Legendary (gold), and Big legendary
+(red). Deckhands assigned Prep follow these choices automatically. Net catches
+stay in their own net's basket and are gathered, carried and stowed as one batch;
+deckhands assigned to Nets keep their own rig. See [PREP047.md](PREP047.md).
 
 ## Approved weight-capacity direction — 2026-10-16
 
@@ -68,7 +98,7 @@ elsewhere in this document are historical starting targets where they conflict.
 - A failed deep-net haul loses that haul's catch and consumes one use, preserving
   all remaining uses. It does not destroy the entire remaining deep net. When its
   last use is consumed, another net is needed. WEIGHT020 starts at100coins/3uses,
-  30ssoak and roughly twice shallow target mass, with larger local specimens.
+  60ssoak and roughly twice shallow target mass, with larger local specimens.
   Worker recovery is80%safe; failure spends one use and loses that haul only.
 
 Saved fish weights and purchased upgrades are preserved; storage HUD/shop wording,
@@ -268,7 +298,7 @@ remain as listed in GameData. Existing owners and saves retain their upgrades.
 - **Rod cycle:**
   1. Tap the **Fish** bubble above a rod. The captain walks there, baits the hook (1.2 s; skipped when the deckhand already baited it) and casts by himself.
   2. The **strike minigame** opens: a close-up of the bobber with a fish circling closer. Fish shadows also swim in the water around the boat.
-  3. Wait 6-14 s through 1-3 nibbles (the bobber twitches and the fish darts in).
+  3. Wait up to 15 s through 1-3 nibbles (the bobber twitches and the fish darts in); even depleted grounds never make a bite take longer.
   4. When the bobber goes fully under, **tap anywhere once** inside the bite window (0.9 s). Tapping on a nibble spooks the fish, and missing the window lets it get away; both cost the bait.
   5. Reel (1-2.5 s by weight). The captain tosses the fish onto the deck next to him.
   6. **Solo:** tap the fish's **Carry** bubble and the captain takes it to the cooler. **With a deckhand (tier 2+):** they fetch it and bait the hook; stay in fishing mode and choose Throw again or Leave.
@@ -323,7 +353,7 @@ Supplies sells 10 fuel for 10 coins. A round trip consumes `ceil(spot.RowSeconds
 
 The rowboat, skiff and compact fisher always offer fisherman and deckhand contracts, even after hiring a worker of that role. Fishermen occupy one rod each, bait/cast autonomously, and strike 80%/85%/90% of bites by grade. Fishermen cost twice a deckhand at the same grade. They leave landed fish for deckhands. Up to three hires can be any role mix; workers leave when their 2/3/5-voyage contracts expire.
 
-**Gill net:** tap Set net with the captain's hands free. The captain walks to the winch and sets it; it soaks for 60–90 seconds while rods keep fishing. Floats bob and the catch count rises. Tap Haul net when ready: the captain cranks for five working seconds, dropping fish onto the deck for carrying. Nets mainly catch herring/mackerel with local bycatch. Fish on deck still flop away after 25 seconds, making transport capacity matter. Returning home clears the deployed net; net fish are only sold after hauling and stowing.
+**Gill net:** tap Set net with the captain's hands free. The captain walks to the winch and sets it; a shallow net soaks40seconds and a deep net60seconds while rods keep fishing. Floats bob and the catch count rises. Tap Haul net when ready: the captain cranks for five working seconds, dropping fish onto the deck for carrying. Nets mainly catch herring/mackerel with local bycatch. Fish on deck still flop away after 25 seconds, making transport capacity matter. Returning home clears the deployed net; net fish are only sold after hauling and stowing.
 
 The captain, deckhands and fishermen now use the delivered skinned crew and role outfits. Eleven clips cover idle, walk, carry, bait, cast, wait, strike, reel, row, cheer and stow, sampled using the simulation clock.
 
@@ -362,3 +392,53 @@ when worms run out, remaining squid is used. Fishing HUD now names the next bait
 Catch portraits are rendered from distinct authored fish models; rewards retain
 nonblocking captain-only feedback. Native Unity art/HUD/audio review is pending.
 See CLI-FISH-CONTENT-REVIEW.md for measured checks and integration notes.
+
+## Four signature Big Common species — FISH050,18October2026
+
+Yellowfin tuna, barracuda, mahi-mahi and monkfish join the existing species once
+the Compact fisher is unlocked (saved Hull2). All four use the green Big Common
+class at every size, alongside the existing weight-based Big Common variants.
+Tuna lives in Deep channel; barracuda and mahi-mahi in Kelp bank/Rocky point;
+monkfish in Sandbar/Deep channel. Rods and deep nets share these local pools;
+small shallow nets retain schooling fish only. Harbour mouth is unchanged.
+Prep/chum choices use the same Big Common class; Common-only default chum does
+not consume them. Models and catch portraits come from the same authored3D
+sources. Initial sizes/encounter tuning and verification: docs/FISH050.md.
+
+
+## Tier5 Buoy fisher — BOAT071,18October2026
+
+Mo approved the8.5x4.2m boat and requested implementation. Additive savedHull4,
+six hired crew plus captain. Fixed2rods+2buoys+1net+processor and engineering;
+convertible bay adds2rods ORsecondnet. Default3fishers/1netcollector/1processor/
+1engineer leaves rod4 to captain; net-heavy2fishers/2netcollectors/processor/
+engineer. Processing is a Deckhand duty, Engineer is new role ID2. Buoy catch lands
+on deck and follows the same processing input/output and separate carrying route
+as rods/nets (DASH082/087); processor collects loose fish when no prep input is available.
+
+Tier5 prepared catch sells at150%of raw value and stops losing freshness; no chum
+is produced on this hull. Earlier hulls and previously prepared fish retain their
+existing rules. The legacy shipped Engineer maintains saved equipment condition
+and repairs faults; legacy Tier5 rod/net/buoy failures use condition instead of random
+crew success. This is not the selected future electrical-only maintenance model;
+see the current integration pickup and canonical crew decisions above.
+Crew cards/levels and a bait redesign are separate work, not delivered here.
+
+Initial tuning:18000coin refit fromPrep fisher;240/360kg hold; two buoy stations
+soak65s/recover2s, one0.5–1.8kg ediblecrab each. PortGear switches4rods1net versus
+2rods2nets; two buoys remain. New Tier5 Test desktop shortcut is save-isolated;
+Real Game includes the new progression step. See [delivery and verification](TIER5-INTEGRATION071.md).
+
+
+## DASH082 processing route — Mo approved 2026-10-18
+
+This supersedes older text describing preparation inside the main hold or crab
+recovery straight into storage. Processing-equipped hulls (3/4) now route landed
+rod, net and crab catch through separate table input, processing and finished
+output queues. A second actual carrying job moves finished fish into the main
+hold. Smaller hulls (0–2) haul directly into the hold. Filters retain excluded
+fish in input until orders allow them. Chum consumes input, prepared fish retain
+their premium, cancelled jobs preserve their queue fish, and returning salvages
+only cargo that fits. Captain preparation can help queued input before storage
+fills. Management displays real stage pressure plus probability-based nominal
+income estimates; these estimates neither award coins nor change spoilage rules.

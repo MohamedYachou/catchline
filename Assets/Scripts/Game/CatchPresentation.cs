@@ -13,13 +13,21 @@ namespace Catchline.Game
         public static bool IsBig(Species species, float kg)
         {
             var fish = GameData.Get(species);
-            return kg >= Mathf.Lerp(fish.MinKg, fish.MaxKg, .75f);
+            return kg >= fish.MaxKg * .75f;
         }
-        public static CatchTier Tier(Species species, float kg) => IsRare(species)
+        public static CatchTier Tier(Species species, float kg) => species switch
+        {
+            Species.YellowfinTuna or Species.Barracuda or Species.MahiMahi or Species.Monkfish => CatchTier.BigCommon,
+            Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantSquid => CatchTier.Mythical,
+            Species.ApexReefShark or Species.GoldTipShark or Species.ScallopedHammerhead or Species.PelagicThresherShark => CatchTier.Legendary,
+            Species.SpottedEagleRay or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish => CatchTier.BigRare,
+            Species.GoldenPuffer or Species.BlueSpottedStingray or Species.FlyingFish or Species.Lionfish => CatchTier.Rare,
+            _ => ExistingTier(species, kg)
+        };
+        static CatchTier ExistingTier(Species species, float kg) => IsRare(species)
             ? IsBig(species, kg) ? CatchTier.BigRare : CatchTier.Rare
             : IsBig(species, kg) ? CatchTier.BigCommon : CatchTier.Common;
-        // Gold/red styles are ready for future explicitly legendary species. No current
-        // fish or large common catch is promoted to those tiers by its sale price.
+        // Gold/red belong to explicit UI041 species, never expensive common catches.
         public static Color Accent(CatchTier tier) => Palette.Hex(tier switch
         {
             CatchTier.BigCommon => "7AE0A0", CatchTier.Rare => "76BDFA",
@@ -28,9 +36,9 @@ namespace Catchline.Game
         });
         public static string Label(CatchTier tier) => tier switch
         {
-            CatchTier.BigCommon => "Common · big", CatchTier.Rare => "Rare",
-            CatchTier.BigRare => "Rare · big", CatchTier.Legendary => "Legendary",
-            CatchTier.Mythical => "Mythical", _ => "Common"
+            CatchTier.BigCommon => "Big common", CatchTier.Rare => "Rare",
+            CatchTier.BigRare => "Big rare", CatchTier.Legendary => "Legendary",
+            CatchTier.Mythical => "Big legendary", _ => "Common"
         };
     }
 

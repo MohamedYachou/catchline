@@ -6,7 +6,7 @@ namespace Catchline.Game
     {
         public bool SelectNetLoadout(NetKind kind)
         {
-            if (CurrentMode != Mode.Harbour || State.Hull == 0 || Net != NetState.Stowed || NetUnloadActive || NetBasketBlocked) return false;
+            if (CurrentMode != Mode.Harbour || State.Hull == 0 || !AllNetsStowed || NetUnloadActive || NetBasketBlocked) return false;
             State.SelectedNet = kind; SaveGame(); return true;
         }
         public bool DeepNetSelected => State.SelectedNet == NetKind.Deep;

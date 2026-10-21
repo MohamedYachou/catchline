@@ -7,7 +7,7 @@ namespace Catchline.Game
 {
     public partial class VoyageGame
     {
-        public bool IsPrepFisher => State != null && State.Hull == 3;
+        public bool IsPrepFisher => State != null && State.Hull >= 3;
         public Vector2Int[] PrepWorkerTiles { get; private set; } = System.Array.Empty<Vector2Int>();
         Transform rawBuckets, rawIceCoolers;
 
@@ -63,7 +63,7 @@ namespace Catchline.Game
             State.Fuel = State.FuelCapacity;
             State.EnsureCrewRoleOffers();
             RebuildBoat();
-            Toast("Prep fisher trial · four crew berths. Preparation and chum orders are coming next.");
+            Toast("Prep fisher trial · four crew berths. Assign up to two deckhands to the prep table.");
             return true;
         }
 
@@ -78,7 +78,8 @@ namespace Catchline.Game
                 State.EnsureCrewRoleOffers();
                 State.Hire(State.Board.First(c => c.Role == role));
             }
-            State.Coins = 200;
+            State.ExtraCrew.First(c => c.Role == CrewRole.Deckhand).WorkPreference = DeckhandWork.Prep;
+            State.Coins = 2200; // Save-isolated module trial: buy the2000refit and keep200supplies.
             State.Bait = 60;
             SyncCrew();
             showTitle = paused = showSettings = panelOpen = captureFreeze = netOrdersOpen = false;

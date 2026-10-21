@@ -116,7 +116,7 @@ namespace Catchline.EditorTools
             Call(game, "HandThink", game.Hand);
             Work(game.Hand);
             Check(game.Net == VoyageGame.NetState.Soaking, "net-priority hand sets autonomously");
-            Call(game, "TickNet", 20f);
+            Call(game, "TickNet", GameData.ShallowNetSoakSeconds);
             // Isolate this success-path allocation check from the separate20% tear regression.
             // Seed0's first roll(.726...) is inside the safe band for a completed cycle.
             var safeRoll = new System.Random(0).NextDouble();
@@ -190,7 +190,7 @@ namespace Catchline.EditorTools
             Check(game.InvokeInterface("net"), "captain net action bound"); Work(game.Captain); NetHaulChecks.FinishCaptainSet(game);
             Check(game.Net == VoyageGame.NetState.Soaking, "native set starts real soak");
             Shot("net-soaking-desktop.png", 1440, 900);
-            Call(game, "TickNet", 20f);
+            Call(game, "TickNet", GameData.ShallowNetSoakSeconds);
             Shot("net-ready-phone.png", 844, 390);
             Check(game.InvokeInterface("net"), "captain haul action bound"); NetHaulChecks.FinishCaptainHaul(game);
             Call(game, "TickDeckFish", 1f);

@@ -38,7 +38,7 @@ namespace Catchline.Game
             graphic.Style(accent, halo, alpha);
         }
         void RewardText(string id, Rect r, string text, int size, Color color, TextAnchor anchor = TextAnchor.MiddleLeft)
-            => coastalUi.Label(id, r, text, size, color, anchor);
+            => coastalUi.Label(id, r, text, size, color, anchor, fitted: true);
         void InterfaceCatchRewards()
         {
             if (SimTime < catchUntil) InterfaceCatchSpecimen();
@@ -52,36 +52,45 @@ namespace Catchline.Game
         }
         void InterfaceCatchSpecimen()
         {
-            var tier = CatchPresentation.Tier(lastCatchSpecies, lastCatchKg);
-            var accent = CatchPresentation.Accent(tier);
-            float elapsed = CatchDisplaySeconds - (catchUntil - SimTime);
-            float enter = 1 - Mathf.Pow(1 - Mathf.Clamp01(elapsed / .28f), 3);
-            float width = compactInterface ? 258 : 244, height = compactInterface ? 94 : 210;
-            var r = new Rect(iw - width - 16, ih - height - 12 + (1 - enter) * 12, width, height);
-            RewardSurface("catch", r, accent); Block(r);
-            string title = catchNew ? "New species!" : catchRecord ? "Personal best!" : "Nice catch!";
-            int value = State.ValueOf(new CaughtFish { Species = lastCatchSpecies, Kg = lastCatchKg, StowedAt = SimTime }, SimTime);
-            if (compactInterface)
-            {
-                RewardSurface("catch/glow", new Rect(r.x + 1, r.y + 7, 102, 82), accent, true);
-                coastalUi.Art("catch/portrait", new Rect(r.x + 5, r.y + 20, 93, 59), FishPortrait(lastCatchSpecies));
-                RewardText("catch/tier", new Rect(r.x + 104, r.y + 4, 145, 19), CatchPresentation.Label(tier), 12, accent);
-                RewardText("catch/name", new Rect(r.x + 104, r.y + 23, 145, 28), GameData.Get(lastCatchSpecies).Name, 19, RewardWhite);
-                RewardText("catch/value", new Rect(r.x + 104, r.y + 51, 145, 20), $"{lastCatchKg:0.00} kg · ~{value} coins", 13, RewardMuted);
-                RewardText("catch/achievement", new Rect(r.x + 104, r.y + 70, 145, 18), title, 12, accent);
-            }
-            else
-            {
-                RewardText("catch/achievement", new Rect(r.x + 16, r.y + 9, 212, 26), title, 18, RewardWhite);
-                RewardSurface("catch/glow", new Rect(r.x + 10, r.y + 29, 224, 112), accent, true);
-                coastalUi.Art("catch/portrait", new Rect(r.x + 18, r.y + 43, 208, 85), FishPortrait(lastCatchSpecies));
-                RewardText("catch/name", new Rect(r.x + 16, r.y + 126, 212, 32), GameData.Get(lastCatchSpecies).Name, 23, RewardWhite);
-                RewardText("catch/tier", new Rect(r.x + 16, r.y + 157, 212, 20), CatchPresentation.Label(tier), 13, accent);
-                RewardText("catch/weight", new Rect(r.x + 16, r.y + 180, 98, 23), $"{lastCatchKg:0.00} kg", 17, RewardMuted);
-                coastalUi.Art("catch/coin", new Rect(r.x + 124, r.y + 184, 16, 16), "icon-coin");
-                RewardText("catch/value", new Rect(r.x + 145, r.y + 180, 83, 23), $"~{value}", 19, RewardWhite, TextAnchor.MiddleRight);
-            }
+            var tier=CatchPresentation.Tier(lastCatchSpecies,lastCatchKg);
+            var accent=CatchPresentation.Accent(tier);
+            float elapsed=CatchDisplaySeconds-(catchUntil-SimTime);
+            float enter=1-Mathf.Pow(1-Mathf.Clamp01(elapsed/.28f),3);
+            float width=compactInterface?344:376,height=width*288/688;
+            var r=new Rect(16,ih-height-78+(1-enter)*12,width,height);
+            string title=catchNew?"New species!":catchRecord?"Personal best!":"Nice catch!";
+            DrawGeminiCatch("catch",r,lastCatchSpecies,lastCatchKg,title);
         }
+        void DrawGeminiCatch(string id,Rect r,Species species,float kg,string title)
+        {
+            var tier=CatchPresentation.Tier(species,kg);
+            float width=r.width;
+            coastalUi.Art(id,r,GeminiUiSkin.Card(tier));Block(r);
+            float k=width/688f;
+            Rect Part(float x,float y,float w,float h)=>new Rect(r.x+x*k,r.y+y*k,w*k,h*k);
+            void Text(string key,Rect box,string text,int size,Color color,TextAnchor align=TextAnchor.MiddleLeft) =>
+                RewardText(key,box,text,Mathf.RoundToInt(size*width/376f),color,align);
+            // All portrait pixels stay within the original left window; typography is live and hard-clipped.
+            coastalUi.Art(id+"/portrait",Part(60,61,179,173),FishPortrait(species));
+            var ink=tier==CatchTier.Mythical?RewardWhite:Palette.HullNavy;
+            Text(id+"/tier",Part(286,50,201,26),CatchPresentation.Label(tier),12,Palette.Cream,TextAnchor.MiddleCenter);
+            Text(id+"/achievement",Part(515,50,121,26),title,10,Palette.Cream,TextAnchor.MiddleCenter);
+            Text(id+"/name",Part(282,86,353,48),GameData.Get(species).Name,23,ink);
+            Text(id+"/weight",Part(290,147,150,36),$"{kg:0.00} kg",19,ink);
+            Text(id+"/quality",Part(479,147,154,36),CatchPresentation.IsBig(species,kg)?"Big specimen":"Coastal catch",12,ink);
+            Text(id+"/note",Part(284,205,165,33),"Est. sale value",11,tier==CatchTier.Mythical?RewardMuted:SeaInk);
+            int value=State.ValueOf(new CaughtFish{Species=species,Kg=kg,StowedAt=SimTime},SimTime);
+            coastalUi.Art(id+"/coin",Part(482,208,26,26),"icon-coin");
+            Text(id+"/value",Part(518,204,112,33),$"~{value:N0}",20,Palette.Cream,TextAnchor.MiddleRight);
+        }
+        public void PrepareGeminiCardPreview(int width,int height,Species species,float kg)
+        {
+            if(coastalUi==null)coastalUi=CoastalCanvas.Create(transform,Cam);
+            coastalUi.Begin(width,height,1,new Rect(0,0,width,height));
+            iw=coastalUi.Width;ih=coastalUi.Height;
+            DrawGeminiCatch("preview",new Rect(0,0,iw,ih),species,kg,"Nice catch!");coastalUi.End();
+        }
+        public void RenderGeminiPreview(RenderTexture target) => coastalUi.RenderCapture(target);
         void InterfaceNetReceipt()
         {
             var receipt = LastNetReceipt;

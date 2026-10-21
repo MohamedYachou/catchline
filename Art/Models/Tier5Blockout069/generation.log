@@ -1,0 +1,17 @@
+00:00.340  blend            | Read blend: "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier4Blockout032/tier4-ice-coolers.blend"
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/build_tier5_blockout069.py:35: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*c,1);m.use_nodes=True
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/build_tier5_blockout069.py:99: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=scene.world;world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.73,.8,1);world.node_tree.nodes['Background'].inputs[1].default_value=.7
+00:13.393  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Blockout069/comparison.png'
+00:25.192  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Blockout069/top.png'
+00:36.669  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Blockout069/tier5-detail.png'
+00:48.303  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Blockout069/tier5-net-layout.png'
+00:59.821  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Tier5Blockout069/tier5-net-top.png'
+Warning: File written by newer Blender binary (502.44), expect loss of data!
+Info: Saved as "tier5-size-study.blend"
+BOAT069 SIZE STUDY COMPLETE
+Blender 5.0.1
+
+Blender quit
+Error: Not freed memory blocks: 616, total unfreed memory 0.020035 MB

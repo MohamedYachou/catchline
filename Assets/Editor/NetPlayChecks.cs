@@ -64,8 +64,8 @@ namespace Catchline.EditorTools
             Check(game.InvokeInterface("net"), "stern net icon uses real set action"); Work(game.Captain);
             Shot(game, "setting-taps"); Shot(game, "setting-phone", 844, 390);
             NetHaulChecks.FinishCaptainSet(game);
-            Check(game.Net == VoyageGame.NetState.Soaking && game.NetRemaining == 20, "short20second soak");
-            Call(game, "TickNet", 20f); game.PrepareInterface(1440, 900);
+            Check(game.Net == VoyageGame.NetState.Soaking && game.NetRemaining == GameData.ShallowNetSoakSeconds, "short40second soak");
+            Call(game, "TickNet", GameData.ShallowNetSoakSeconds); game.PrepareInterface(1440, 900);
             Check(game.InvokeInterface("net"), "stern icon starts ready haul");
             NetHaulChecks.ReachCaptainWinch(game);
             Shot(game, "winch-start"); Shot(game, "winch-phone", 844, 390);
@@ -97,7 +97,7 @@ namespace Catchline.EditorTools
             before = game.Cooler.Count; Work(game.Captain); Work(game.Hand);
             Check(game.Cooler.Count == before + 2, "concurrent deliveries each count exactly once");
             UnityEngine.Object.DestroyImmediate(game.gameObject);
-            Debug.Log("[Catchline] NET PLAY CHECKS PASSED: clear hull-growth corridor, stern icon,20s soak,actual winch,automatic batch storage,concurrent deliveries");
+            Debug.Log("[Catchline] NET PLAY CHECKS PASSED: clear hull-growth corridor, stern icon,40s soak,actual winch,automatic batch storage,concurrent deliveries");
             Debug.Log("[Catchline] Snapshot written to Logs/net015");
         }
     }

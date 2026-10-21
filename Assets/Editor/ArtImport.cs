@@ -15,7 +15,7 @@ namespace Catchline.EditorTools
         static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom)
         {
             if (rebuildQueued || !imported.Any(p => p.StartsWith("Assets/Art/Models/") && p.EndsWith(".fbx")
-                || p.StartsWith("Assets/Art/Water/") && (p.EndsWith(".png") || p.EndsWith(".tif")) || p.EndsWith("/CoastalWater.shader") || p.EndsWith("/PtsWater.shader"))) return;
+                || p.StartsWith("Assets/Art/Water/") && (p.EndsWith(".png") || p.EndsWith(".tif")) || p.StartsWith("Assets/gemini/") && (p.EndsWith(".png") || p.EndsWith(".fbx")) || p.EndsWith("/CoastalWater.shader") || p.EndsWith("/PtsWater.shader"))) return;
             rebuildQueued = true;
             EditorApplication.delayCall += () =>
             {
@@ -50,7 +50,7 @@ namespace Catchline.EditorTools
                 water.maxTextureSize = 1024;
                 return;
             }
-            if (!assetPath.StartsWith(UiFolder)) return;
+            if (!assetPath.StartsWith(UiFolder) && !assetPath.StartsWith("Assets/gemini/")) return;
             var ti = (TextureImporter)assetImporter;
             ti.textureType = TextureImporterType.GUI;
             ti.textureShape = TextureImporterShape.Texture2D;
@@ -61,7 +61,7 @@ namespace Catchline.EditorTools
             ti.npotScale = TextureImporterNPOTScale.None;
             ti.textureCompression = TextureImporterCompression.Uncompressed;
             string name = Path.GetFileNameWithoutExtension(assetPath);
-            ti.maxTextureSize = name == "title-backdrop" || name.StartsWith("header-") || name == "sea-chart" ? 2048
+            ti.maxTextureSize = assetPath.StartsWith("Assets/gemini/") ? 1024 : name == "title-backdrop" || name.StartsWith("header-") || name == "sea-chart" ? 2048
                 : name == "logo-catchline" || name == "strike-water" ? 1024
                 : name == "daily-gift" ? 512
                 : name.StartsWith("fish-") && name != "fish-shadow" || name.StartsWith("portrait-") ? 256
@@ -72,13 +72,14 @@ namespace Catchline.EditorTools
         // to its own URP materials by palette name at spawn time anyway.
         void OnPreprocessModel()
         {
-            if (!assetPath.StartsWith("Assets/Art/Models/")) return;
+            if (!assetPath.StartsWith("Assets/Art/Models/") && !assetPath.StartsWith("Assets/gemini/Models/")) return;
             var mi = (ModelImporter)assetImporter;
             mi.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
             mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx");
             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
-            if (assetPath.EndsWith("/PrepFisherV1.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
+            if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx") || assetPath.EndsWith("/Tier5DeepLines103.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
+            if (assetPath.StartsWith("Assets/gemini/Models/")) mi.isReadable = true;
             mi.importCameras = false;
             mi.importLights = false;
         }
@@ -115,12 +116,15 @@ namespace Catchline.EditorTools
             lib.RockB = Model("Harbour/BreakwaterRockB");
             lib.RockC = Model("Harbour/BreakwaterRockC");
             lib.Kelp = Model("Harbour/KelpPatch");
-            lib.Fish = new[] { Model("Fish/Herring"), Model("Fish/Mackerel"), Model("Fish/Pollock"), Model("Fish/SeaBass"), Model("Fish/CongerEel"), Model("Fish/Plaice"), Model("Fish/Cod") };
+            lib.Fish = GameData.Fish.Select(f => AssetDatabase.LoadAssetAtPath<GameObject>("Assets/gemini/Models/"+f.Species+".fbx")
+                ?? Model(f.Species == Species.Crab ? "Props/Crab" : "Fish/"+(f.Species == Species.Conger ? "CongerEel" : f.Species.ToString()))).ToArray();
             lib.Models = Directory.GetFiles(Path.GetFullPath("Assets/Art/Models"), "*.fbx", SearchOption.AllDirectories)
                 .Select(p => "Assets/Art/Models/" + Path.GetRelativePath(Path.GetFullPath("Assets/Art/Models"), p).Replace('\\', '/'))
                 .Select(p => AssetDatabase.LoadAssetAtPath<GameObject>(p))
                 .Where(g => g != null)
                 .ToArray();
+            if (Directory.Exists("Assets/gemini/Models")) lib.Models=lib.Models.Concat(Directory.GetFiles("Assets/gemini/Models","*.fbx")
+                .Select(p=>AssetDatabase.LoadAssetAtPath<GameObject>(p.Replace('\\','/'))).Where(g=>g!=null)).ToArray();
             lib.CrewClips = AssetDatabase.LoadAllAssetsAtPath("Assets/Art/Models/Crew/CrewRig.fbx")
                 .OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__")).ToArray();
             Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
@@ -132,6 +136,9 @@ namespace Catchline.EditorTools
                 .ToArray();
             if (lib.Ui.Length == 0 && pngs.Length > 0)
                 Debug.LogWarning($"[Catchline] {pngs.Length} UI pngs on disk but none loaded; first: {UiFolder + Path.GetFileName(pngs[0])} -> {AssetDatabase.LoadMainAssetAtPath(UiFolder + Path.GetFileName(pngs[0]))?.GetType().Name ?? "null"}");
+            if (Directory.Exists("Assets/gemini"))
+                lib.Ui = lib.Ui.Concat(Directory.GetFiles("Assets/gemini", "*.png", SearchOption.AllDirectories)
+                    .Select(p => AssetDatabase.LoadAssetAtPath<Texture2D>(p.Replace('\\', '/'))).Where(t => t != null)).ToArray();
             lib.UiFont = AssetDatabase.LoadAssetAtPath<Font>(UiFolder + "Fonts/Fredoka-Medium.ttf");
             lib.WaterShader = AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/PtsWater.shader")
                 ?? AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/CoastalWater.shader");

@@ -6,9 +6,18 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         bool departureReady;
+        bool departureCrewWarning;
+
+        public bool ConfirmDeparture()
+        {
+            if (!departureReady || SailBlocker() != null) return false;
+            if (ExcessFishermen > 0) { departureCrewWarning = true; return false; }
+            SetSail(); return true;
+        }
         public void RequestDeparture()
         {
             if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count > 0) return;
+            departureCrewWarning = false;
             departureReady = true;
             toastUntil = 0;
         }
@@ -42,7 +51,7 @@ namespace Catchline.Game
             int fill = State.FuelFillCost;
             string fuelDetail = State.Hull == 0 ? "No fuel needed for this boat." : $"{State.FuelCapacity:0} minute tank · return at 10%";
             coastalUi.Label("depart/fuel/detail", new Rect(left + 18, top + 64, lw - 197, compactInterface ? 21 : 54), fuelDetail, 15, SeaInk);
-            IButton("depart/refuel", new Rect(left + lw - 174, top + (compactInterface ? 43 : 70), 156, 54), State.Hull == 0 ? "Oars ready" : fill > 0 ? $"Fill · {fill} coins" : "Tank full", () => DepartureBuy(State.BuyFuel), false, State.Hull > 0 && fill > 0 && State.Coins >= fill);
+            ModuleButton("depart/refuel", new Rect(left + lw - 174, top + (compactInterface ? 43 : 70), 156, 54), State.Hull == 0 ? "Oars ready" : fill > 0 ? $"Fill · {fill} coins" : "Tank full", () => DepartureBuy(State.BuyFuel), false, State.Hull > 0 && fill > 0 && State.Coins >= fill);
 
             float by = top + fuelH + 16;
             coastalUi.Label("depart/bait/title", new Rect(left + 3, by - 4, lw - 6, 40), "Bait aboard", 23);
@@ -52,7 +61,7 @@ namespace Catchline.Game
                 coastalUi.Art(id + "/icon", new Rect(left + 5, ry + 7, 34, 34), icon);
                 coastalUi.Label(id + "/name", new Rect(left + 52, ry, lw - 235, 28), name, 19);
                 coastalUi.Label(id + "/count", new Rect(left + 52, ry + 25, lw - 235, 25), $"{count} hooks aboard", 15, SeaInk);
-                IButton(id + "/buy", new Rect(left + lw - 174, ry, 174, 54), $"+{size} · {cost} coins", () => DepartureBuy(buy), false, State.Coins >= cost);
+                ModuleButton(id + "/buy", new Rect(left + lw - 174, ry, 174, 54), $"+{size} · {cost} coins", () => DepartureBuy(buy), false, State.Coins >= cost);
             }
             BaitRow("depart/worms", "Worms", "icon-bait-worm", State.Bait, GameData.BaitPackSize, GameData.BaitPackCost, () => State.BuyBait(), by + 40);
             BaitRow("depart/squid", "Squid", "icon-squid", State.Squid, GameData.SquidPackSize, GameData.SquidPackCost, () => State.BuySquid(), by + 40 + row);
@@ -77,9 +86,10 @@ namespace Catchline.Game
 
             float fy = y + h - 77;
             string blocker = SailBlocker();
-            coastalUi.Label("depart/status", new Rect(left, fy - 25, w - 52, 24), blocker ?? (State.Hull > 0 && State.ActiveNetStock == 0 ? "No nets aboard · rods and bait are ready." : "Supplies checked. Your next catch is waiting."), 15, blocker != null ? Palette.Hex("B14535") : SeaInk);
-            IButton("depart/back", new Rect(left, fy + 5, 172, 54), "Back to port", () => departureReady = false, false);
-            IButton("depart/go", new Rect(x + w - 260, fy + 5, 234, 54), "Let's go", () => { if (departureReady) SetSail(); }, true, blocker == null);
+            coastalUi.Label("depart/status", new Rect(left, fy - 25, w - 52, 24), blocker ?? (State.Hull > 0 && State.ActiveNetStock == 0 ? "No nets aboard · rods and bait are ready." : SecondNetActive ? "Loadout: 1 rod / 2 nets. Supplies checked." : "Supplies checked. Your next catch is waiting."), 15, blocker != null ? Palette.Hex("B14535") : SeaInk);
+            ModuleButton("depart/back", new Rect(left, fy + 5, 172, 54), "Back to port", () => departureReady = false, false);
+            ModuleButton("depart/go", new Rect(x + w - 260, fy + 5, 234, 54), "Let's go", () => ConfirmDeparture(), true, blocker == null);
+            if (departureCrewWarning) InterfaceFisherWarning();
         }
     }
 }

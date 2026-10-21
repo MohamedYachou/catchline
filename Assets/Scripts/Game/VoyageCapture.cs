@@ -34,10 +34,22 @@ namespace Catchline.Game
                 else { Debug.LogError("[Catchline] Persistence probe failed"); Application.Quit(4); return; }
                 Application.Quit(0); return;
             }
+            if (SessionOnly && Array.IndexOf(args, "-tier5-trial") >= 0) StartTier5Trial();
+            int deep104=Array.IndexOf(args,"-capture-deep104");
+            if(SessionOnly&&deep104>=0&&deep104+1<args.Length)StartCoroutine(CaptureDeep104(Path.GetFullPath(args[deep104+1])));
+            int correctedDashboard=Array.IndexOf(args,"-capture-dash087");
+            if(SessionOnly&&correctedDashboard>=0&&correctedDashboard+1<args.Length)StartCoroutine(CaptureDashboard087(Path.GetFullPath(args[correctedDashboard+1])));
+            int realDashboard=Array.IndexOf(args,"-dashboard087-probe");
+            if(!SessionOnly&&realDashboard>=0&&realDashboard+1<args.Length&&Path.GetFileName(Path.GetDirectoryName(GameState.SavePath)).StartsWith("dash087-probe-"))
+                StartCoroutine(CaptureDashboard087Real(Path.GetFullPath(args[realDashboard+1])));
+            int managementCapture = Array.IndexOf(args, "-capture-management078");
+            if (SessionOnly && managementCapture >= 0 && managementCapture + 1 < args.Length) StartCoroutine(CaptureManagement(Path.GetFullPath(args[managementCapture + 1])));
+            int tier5Capture = Array.IndexOf(args, "-capture-tier5");
+            if (SessionOnly && tier5Capture >= 0 && tier5Capture + 1 < args.Length) StartCoroutine(CaptureTier5(Path.GetFullPath(args[tier5Capture + 1])));
             if (SessionOnly && Array.IndexOf(args, "-prepboat-trial") >= 0)
             {
                 if (!StartPrepBoatTrial()) Debug.LogError("[Catchline] Could not start Tier4 prep boat trial");
-                else Debug.Log("[Catchline] TIER033 trial: approved6.8x3.5m hull, four temporary crew, no save reads or writes; processing orders pending");
+                else Debug.Log("[Catchline] TIER033 trial: approved6.8x3.5m hull, four temporary crew, no save reads or writes; prep/chum automation active");
                 if (Array.IndexOf(args, "-prepboat-ice") >= 0) { State.Owned.Add(UpgradeId.IceBox); SyncUpgrades(); }
             }
             else if (SessionOnly && Array.IndexOf(args, "-crew-mix-trial") >= 0)
@@ -55,6 +67,21 @@ namespace Catchline.Game
                 if (Array.IndexOf(args, "-netboat-trial") < 0) StartNetBoatTrial();
                 State.SelectedNet = NetKind.Deep; State.DeepNetUses.Clear(); State.DeepNetUses.AddRange(new[] { 3, 3 });
                 Debug.Log($"[Catchline] Weight020 deep net trial: {State.CoolerCapacity:0.#}kg hold, deep3uses+reserve,200coins; save isolated");
+            }
+            int geminiCapture = Array.IndexOf(args, "-capture-gemini-ui");
+            if (SessionOnly && geminiCapture >= 0 && geminiCapture + 1 < args.Length)
+            {
+                if (!IsPrepFisher) StartPrepBoatTrial();
+                StartCoroutine(CaptureGeminiUi(Path.GetFullPath(args[geminiCapture + 1])));
+            }
+            int balanceCapture = Array.IndexOf(args, "-capture-balance045");
+            if (SessionOnly && balanceCapture >= 0 && balanceCapture + 1 < args.Length)
+                StartCoroutine(CaptureBalance045(Path.GetFullPath(args[balanceCapture + 1])));
+            int orderCapture = Array.IndexOf(args, "-capture-prep-orders");
+            if (SessionOnly && orderCapture >= 0 && orderCapture + 1 < args.Length)
+            {
+                if (!IsPrepFisher) StartPrepBoatTrial();
+                StartCoroutine(CapturePrepOrders(Path.GetFullPath(args[orderCapture + 1])));
             }
             int prepCapture = Array.IndexOf(args, "-capture-tier4");
             if (SessionOnly && prepCapture >= 0 && prepCapture + 1 < args.Length)

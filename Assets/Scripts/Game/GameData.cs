@@ -3,11 +3,11 @@ using UnityEngine;
 namespace Catchline.Game
 {
     // Append only: numeric species IDs are stored in existing saves/contracts.
-    public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger, Plaice, Cod, Whiting, RedMullet, Turbot }
-    public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin, RodFibreglass, RodCarbon, NetSystem }
+    public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger, Plaice, Cod, Whiting, RedMullet, Turbot, GoldenPuffer, SpottedEagleRay, ApexReefShark, GoldTipShark, AbyssalGreatWhite, AbyssalLeviathan, BlueSpottedStingray, FlyingFish, Lionfish, GiantDevilManta, AtlanticSwordfish, OceanSunfish, ScallopedHammerhead, PelagicThresherShark, GiantSquid, YellowfinTuna, Barracuda, MahiMahi, Monkfish, Crab }
+    public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin, RodFibreglass, RodCarbon, NetSystem, ThirdDeepLine }
     public enum Grade { Hand, Experienced, Veteran }
-    public enum CrewRole { Deckhand, Fisherman }
-    public enum DeckhandWork { Fish, Nets }
+    public enum CrewRole { Deckhand, Fisherman, Engineer }
+    public enum DeckhandWork { Fish, Nets, Prep }
 
     // Deck coordinates follow the game grid: X stern-to-bow (bow at -X), Y port-to-starboard.
     public class HullDef
@@ -95,6 +95,37 @@ namespace Catchline.Game
             new() { Species = Species.Whiting, Name = "Whiting", MinKg = 0.4f, MaxKg = 1.3f, PricePerKg = 14f, Color = Palette.Hex("BAC9C6"), Length = 0.38f, Heaviness = 0.4f },
             new() { Species = Species.RedMullet, Name = "Red mullet", MinKg = 0.6f, MaxKg = 1.6f, PricePerKg = 18f, Color = Palette.Hex("C77D65"), Length = 0.34f, Heaviness = 0.45f },
             new() { Species = Species.Turbot, Name = "Turbot", MinKg = 1.5f, MaxKg = 5f, PricePerKg = 22f, Color = Palette.Hex("8C7A4E"), Length = 0.58f, Heaviness = 0.9f },
+            new() { Species = Species.GoldenPuffer, Name = "Crown pufferfish", MinKg = .2f, MaxKg = .6f, PricePerKg = 400, Color = Palette.Hex("E6B746"), Length = .32f, Heaviness = .4f },
+            new() { Species = Species.SpottedEagleRay, Name = "Spotted eagle ray", MinKg = 4, MaxKg = 12, PricePerKg = 24, Color = Palette.Hex("467D9D"), Length = .8f, Heaviness = .85f },
+            new() { Species = Species.ApexReefShark, Name = "Sun-gilded reef shark", MinKg = 8, MaxKg = 20, PricePerKg = 24, Color = Palette.Hex("BDA66A"), Length = 1.0f, Heaviness = .95f },
+            new() { Species = Species.GoldTipShark, Name = "Gold-tip shark", MinKg = 12, MaxKg = 30, PricePerKg = 26, Color = Palette.Hex("9D8954"), Length = 1.1f, Heaviness = 1f },
+            new() { Species = Species.AbyssalGreatWhite, Name = "Scarred great white shark", MinKg = 20, MaxKg = 45, PricePerKg = 25, Color = Palette.Hex("5F7382"), Length = 1.25f, Heaviness = 1f },
+            new() { Species = Species.AbyssalLeviathan, Name = "Abyssal killer whale", MinKg = 40, MaxKg = 85, PricePerKg = 24, Color = Palette.Hex("424B59"), Length = 1.45f, Heaviness = 1f },
+            new() { Species = Species.BlueSpottedStingray, Name = "Blue-spotted stingray", MinKg = 1, MaxKg = 5, PricePerKg = 34, Color = Palette.Hex("D1AF76"), Length = .65f, Heaviness = .65f },
+            new() { Species = Species.FlyingFish, Name = "Flying fish", MinKg = .2f, MaxKg = .8f, PricePerKg = 38, Color = Palette.Hex("2A6685"), Length = .4f, Heaviness = .3f },
+            new() { Species = Species.Lionfish, Name = "Lionfish", MinKg = .3f, MaxKg = 1.5f, PricePerKg = 45, Color = Palette.Hex("E36A35"), Length = .42f, Heaviness = .45f },
+            new() { Species = Species.GiantDevilManta, Name = "Giant devil manta", MinKg = 12, MaxKg = 40, PricePerKg = 25, Color = Palette.Hex("28343B"), Length = 1.3f, Heaviness = 1f },
+            new() { Species = Species.AtlanticSwordfish, Name = "Atlantic swordfish", MinKg = 10, MaxKg = 30, PricePerKg = 28, Color = Palette.Hex("2A6685"), Length = 1.15f, Heaviness = .95f },
+            new() { Species = Species.OceanSunfish, Name = "Ocean sunfish", MinKg = 8, MaxKg = 25, PricePerKg = 24, Color = Palette.Hex("8FA6AC"), Length = .85f, Heaviness = .9f },
+            new() { Species = Species.ScallopedHammerhead, Name = "Scalloped hammerhead", MinKg = 12, MaxKg = 35, PricePerKg = 26, Color = Palette.Hex("696F64"), Length = 1.15f, Heaviness = 1f },
+            new() { Species = Species.PelagicThresherShark, Name = "Pelagic thresher shark", MinKg = 10, MaxKg = 30, PricePerKg = 27, Color = Palette.Hex("2A6685"), Length = 1.1f, Heaviness = 1f },
+            new() { Species = Species.GiantSquid, Name = "Giant Architeuthis squid", MinKg = 20, MaxKg = 65, PricePerKg = 30, Color = Palette.Hex("A9433C"), Length = 1.2f, Heaviness = 1f },
+            // FISH050: signature Big Common species, fixed class at every specimen size.
+            new() { Species = Species.YellowfinTuna, Name = "Yellowfin tuna", MinKg = 3f, MaxKg = 10f, PricePerKg = 14f, Color = Palette.Hex("173F57"), Length = .82f, Heaviness = .8f },
+            new() { Species = Species.Barracuda, Name = "Barracuda", MinKg = 1.5f, MaxKg = 5f, PricePerKg = 15f, Color = Palette.Hex("696F64"), Length = .88f, Heaviness = .65f },
+            new() { Species = Species.MahiMahi, Name = "Mahi-mahi", MinKg = 2f, MaxKg = 7f, PricePerKg = 16f, Color = Palette.Hex("168F9F"), Length = .78f, Heaviness = .75f },
+            new() { Species = Species.Monkfish, Name = "Monkfish", MinKg = 1.5f, MaxKg = 6f, PricePerKg = 16f, Color = Palette.Hex("696F64"), Length = .68f, Heaviness = .7f },
+            new() { Species = Species.Crab, Name = "Edible crab", MinKg = .5f, MaxKg = 1.8f, PricePerKg = 28f, Color = Palette.Hex("E36A35"), Length = .28f, Heaviness = .35f },
+        };
+
+        // UI041 append-only IDs: rarity controls presentation; these values are first-pass tuning.
+        public static int MinimumHull(Species s) => s switch
+        {
+            Species.Crab => 4,
+            Species.YellowfinTuna or Species.Barracuda or Species.MahiMahi or Species.Monkfish => 2,
+            Species.GoldenPuffer or Species.SpottedEagleRay or Species.BlueSpottedStingray or Species.FlyingFish or Species.Lionfish => 2,
+            Species.ApexReefShark or Species.GoldTipShark or Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish or Species.ScallopedHammerhead or Species.PelagicThresherShark or Species.GiantSquid => 3,
+            _ => 0
         };
 
         public static FishDef Get(Species s) => Fish[(int)s];
@@ -111,25 +142,25 @@ namespace Catchline.Game
             {
                 Name = "Kelp bank", Blurb = "Mackerel schools in the kelp, pollock below.", RowSeconds = 9f, BiteWait = 1f, Water = Palette.Hex("2A8C80"),
                 MapPos = new Vector2(0.42f, 0.25f),
-                Table = new[] { (Species.Herring, 10f), (Species.Mackerel, 40f), (Species.Pollock, 28f), (Species.SeaBass, 10f), (Species.Whiting, 12f) },
+                Table = new[] { (Species.Herring, 10f), (Species.Mackerel, 40f), (Species.Pollock, 28f), (Species.SeaBass, 10f), (Species.Whiting, 12f), (Species.GoldenPuffer, .6f), (Species.FlyingFish, .8f), (Species.Lionfish, .3f), (Species.Barracuda, 3f), (Species.MahiMahi, 2f) },
             },
             new()
             {
                 Name = "Sandbar", Blurb = "Warm, shallow and sandy. Flatfish lie on the bottom.", RowSeconds = 11f, BiteWait = 1.05f, Water = Palette.Hex("3FB3B0"),
                 ChartCost = 120, MapPos = new Vector2(0.5f, 0.78f),
-                Table = new[] { (Species.Mackerel, 15f), (Species.Plaice, 35f), (Species.SeaBass, 20f), (Species.RedMullet, 22f), (Species.Turbot, 8f) },
+                Table = new[] { (Species.Mackerel, 15f), (Species.Plaice, 35f), (Species.SeaBass, 20f), (Species.RedMullet, 22f), (Species.Turbot, 8f), (Species.GoldenPuffer, .4f), (Species.SpottedEagleRay, .35f), (Species.BlueSpottedStingray, .4f), (Species.FlyingFish, .4f), (Species.Lionfish, .3f), (Species.Monkfish, 4f) },
             },
             new()
             {
                 Name = "Rocky point", Blurb = "A long row. Big fish hide between the rocks.", RowSeconds = 14f, BiteWait = 1.3f, Water = Palette.Hex("1A7591"),
                 ChartCost = 220, MapPos = new Vector2(0.7f, 0.18f),
-                Table = new[] { (Species.Mackerel, 12f), (Species.Pollock, 35f), (Species.SeaBass, 28f), (Species.Conger, 15f), (Species.RedMullet, 10f) },
+                Table = new[] { (Species.Mackerel, 12f), (Species.Pollock, 35f), (Species.SeaBass, 28f), (Species.Conger, 15f), (Species.RedMullet, 10f), (Species.SpottedEagleRay, .5f), (Species.ApexReefShark, .12f), (Species.GoldTipShark, .06f), (Species.GiantDevilManta, .08f), (Species.AtlanticSwordfish, .08f), (Species.ScallopedHammerhead, .04f), (Species.PelagicThresherShark, .04f), (Species.Barracuda, 6f), (Species.MahiMahi, 4f) },
             },
             new()
             {
                 Name = "Deep channel", Blurb = "Open water past the point. Cod and big eels, slow bites. Check your fuel.", RowSeconds = 20f, BiteWait = 1.5f, Water = Palette.Hex("15587A"),
                 ChartCost = 500, MapPos = new Vector2(0.88f, 0.55f),
-                Table = new[] { (Species.Pollock, 25f), (Species.Cod, 40f), (Species.Conger, 25f), (Species.Turbot, 10f) },
+                Table = new[] { (Species.Pollock, 25f), (Species.Cod, 40f), (Species.Conger, 25f), (Species.Turbot, 10f), (Species.SpottedEagleRay, .3f), (Species.ApexReefShark, .12f), (Species.GoldTipShark, .08f), (Species.AbyssalGreatWhite, .04f), (Species.AbyssalLeviathan, .015f), (Species.GiantDevilManta, .08f), (Species.AtlanticSwordfish, .12f), (Species.OceanSunfish, .15f), (Species.ScallopedHammerhead, .06f), (Species.PelagicThresherShark, .06f), (Species.GiantSquid, .012f), (Species.YellowfinTuna, 6f), (Species.Monkfish, 5f) },
             },
         };
 
@@ -141,7 +172,8 @@ namespace Catchline.Game
             new() { Id = UpgradeId.LunchTin, Name = "Extra fuel tank", Cost = 100, Desc = "Double fuel capacity: 20 minutes instead of 10.", Shop = "Supplies" },
             new() { Id = UpgradeId.RodFibreglass, Name = "Fibreglass rods", Cost = 180, Desc = "Longer strike window (1.15 s) and 25% faster reeling." },
             new() { Id = UpgradeId.RodCarbon, Name = "Carbon rods", Cost = 450, Requires = UpgradeId.RodFibreglass, Desc = "Strike window 1.4 s, 50% faster reeling, and an unattended rod hooks the fish itself 45% of the time." },
-            new() { Id = UpgradeId.NetSystem, Name = "Heavy net system", Cost = 5000, Desc = "Strengthen winch, ropes and net support. Both shallow and deep nets carry15kg instead of10kg." },
+            new() { Id = UpgradeId.NetSystem, Name = "Heavy net system", Cost = 5000, Desc = "Increase the capacity of both shallow and deep nets." },
+            new() { Id = UpgradeId.ThirdDeepLine, Name = "Third deep-line rig", Cost = 3500, Desc = "Tier 5: fit a third deep-line rod between the crab cage and normal rod. One self-made chum per rig; one fish after a 60-second soak. Used in the rod / deep-line layout." },
         };
 
         public static UpgradeDef Upgrade(UpgradeId id)
@@ -156,7 +188,11 @@ namespace Catchline.Game
         public const float CastTime = 0.45f;
         public const float FlightTime = 0.6f;
         public const float BiteWindow = 0.9f;
+        public const float MaxBiteWait = 15f;
+        public const float ShallowNetSoakSeconds = 40f;
+        public const float DeepNetSoakSeconds = 60f;
         public const float SelfHookChance = 0.35f;
+        public const float DeckhandHandlingSpeed = 3f;
         public const float PickupTime = 0.5f;
         public const float StowTime = 0.4f;
         public const float DeckFishLifetime = 25f;
@@ -189,7 +225,7 @@ namespace Catchline.Game
                 TravelMultiplier = 1f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(1, 0), Rest = new(0, 1),
                 Blocked = new[] { new Vector2Int(1, 1) }, RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0) },
                 RodBases = new[] { new Vector3(0f, .44f, -.615f), new Vector3(2f, .44f, -.615f) } },
-            new() { Name = "Skiff", Model = "Skiff", Width = 5, Height = 3, Capacity = 18, CrewCap = 3,
+            new() { Name = "Skiff", Model = "Skiff", Width = 5, Height = 3, Capacity = 40, CrewCap = 3,
                 TravelMultiplier = .5f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(3, 2), Rest = new(0, 2),
                 Blocked = new[] { new Vector2Int(1, 1), new Vector2Int(2, 1), new Vector2Int(4, 2), new Vector2Int(4, 1) },
                 RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0), new Vector2Int(4, 0) },
@@ -206,12 +242,20 @@ namespace Catchline.Game
             // Tier4 approved BOAT032 hull. Existing saved IDs0-2 stay unchanged.
             // First integration retains tier3 cargo/net capacity; economy unlock is still untuned.
             new() { Name = "Prep fisher", Model = "PrepFisherV1", Width = 57, Height = 29, CellSize = .1f,
-                Capacity = 100, CrewCap = 4, TravelMultiplier = .5f,
+                Capacity = 160, CrewCap = 4, TravelMultiplier = .5f,
                 Hold = new(29, 14), HoldAccess = new(29, 24), Seat = new(15, 15), Rest = new(42, 18), NetAccess = new(53, 4),
                 CrewRest = new[] { new Vector2Int(42, 18), new Vector2Int(42, 10), new Vector2Int(28, 24), new Vector2Int(28, 4) },
                 Blocked = System.Array.Empty<Vector2Int>(),
                 RodTiles = new[] { new Vector2Int(28, 24), new Vector2Int(28, 4), new Vector2Int(50, 24) },
                 RodBases = new[] { new Vector3(2.8f, .47f, 3f), new Vector3(2.8f, .47f, -.2f), new Vector3(5.0037f, .47f, 2.9375f) } },
+            // Tier5 approved8.5x4.2m model. Two optional rods exchange for a secondnet.
+            new() { Name = "Buoy fisher", Model = "Tier5DeepLines103", Width = 73, Height = 35, CellSize = .1f,
+                Capacity = 240, CrewCap = 6, TravelMultiplier = .5f,
+                Hold = new(61,17), HoldAccess = new(61,30), Seat = new(20,17), Rest = new(63,30), NetAccess = new(65,27),
+                CrewRest = new[] { new Vector2Int(63,30), new Vector2Int(33,30), new Vector2Int(33,4), new Vector2Int(47,4), new Vector2Int(29,10), new Vector2Int(63,4) },
+                Blocked = System.Array.Empty<Vector2Int>(),
+                RodTiles = new[] { new Vector2Int(33,31), new Vector2Int(33,3), new Vector2Int(47,3), new Vector2Int(62,3) },
+                RodBases = new[] { new Vector3(3.25f,.47f,3.6f), new Vector3(3.25f,.47f,-.2f), new Vector3(4.7f,.47f,-.2f), new Vector3(6.15f,.47f,-.2f) } },
         };
 
         // Legacy pack constants retained for fixtures. Timed tanks use GameState.FuelFillCost.

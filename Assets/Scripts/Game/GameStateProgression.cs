@@ -2,8 +2,17 @@ namespace Catchline.Game
 {
     public partial class GameState
     {
-        public float NetCapacityKg => Has(UpgradeId.NetSystem) ? 15f : 10f;
-        public bool UpgradeAvailable(UpgradeId id) => (id != UpgradeId.NetSystem || Hull >= 2) && (id != UpgradeId.RodHolder || Hull == 0);
+        public float NetCapacityKg => Hull >= 3 ? Has(UpgradeId.NetSystem) ? 44f : 30f : Has(UpgradeId.NetSystem) ? 30f : 20f;
+        public const int PrepFisherCost = 9500;
+        public const float PrepFisherKgGoal = 100f;
+        public bool CanRefitPrep => Hull == 2 && BestVoyageKg >= PrepFisherKgGoal && Coins >= PrepFisherCost;
+        public bool RefitPrep()
+        {
+            if (!CanRefitPrep) return false;
+            Coins -= PrepFisherCost; Hull = 3; Fuel = FuelCapacity;
+            EnsureCrewRoleOffers(); return true;
+        }
+        public bool UpgradeAvailable(UpgradeId id) => (id != UpgradeId.ThirdDeepLine || Hull == 4) && (id != UpgradeId.NetSystem || Hull >= 2) && (id != UpgradeId.RodHolder || Hull == 0);
         public const int CompactFisherCost = 4000;
         public bool CanRefitCompact => Hull == 1 && Coins >= CompactFisherCost;
         public bool RefitCompact()
@@ -27,8 +36,10 @@ namespace Catchline.Game
                 _ => GameData.Upgrade(id).Cost
             };
         }
-        public string UpgradeDescription(UpgradeId id) => id == UpgradeId.BigCooler && Hull >= 2
-            ? "Expand the fish hold from100kg to150kg. More room for rods and repeated net hauls."
+        public string UpgradeDescription(UpgradeId id) => id == UpgradeId.BigCooler
+            ? Hull == 0 ? "Expand the hold from 20 kg to 35 kg."
+                : $"Expand the hold from {HullDef.Capacity} kg to {HullDef.Capacity * 1.5f:0} kg."
+            : id == UpgradeId.NetSystem ? $"Raise net capacity from {(Hull >= 3 ? 30 : 20)} kg to {(Hull >= 3 ? 44 : 30)} kg."
             : GameData.Upgrade(id).Desc;
     }
 }

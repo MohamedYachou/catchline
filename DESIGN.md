@@ -153,3 +153,96 @@ and fitted net remain a read-only manifest. Back to port and Let's go are clear 
 actions. Desktop and landscape phone inherit the native safe-area logical canvas.
 Food indicators are replaced by fuel percentage; oar-powered boats explicitly need
 no fuel. No hunger/penalty language or crew/upgrade selling belongs in this sheet.
+
+## Fish cards retained; fishing HUD restored — HUD044
+
+Mo rejected UI041's smaller trip HUD. Keep the original ReferenceGoals, crew,
+hold, day/money, voyage supplies and Head home layouts, original global kit
+panels/buttons/icons and original text sizing. No Gemini instrument rail or
+bottom dock. Retain six new catch cards/glows and authored fish portraits/models;
+fit and parent-clip catch receipt lettering only. Future HUD changes require Mo's
+new direction rather than resuming the discarded UI041 instruments.
+
+## Clear prep orders and action placement — PREP047
+
+Mo's17October correction replaces weight/value prep settings with two explicit
+columns: Chum settings on the left, Fish preparation on the right. Explain the
+outcome in ordinary language before the controls. Independent class dropdowns
+list Common, Big common, Rare, Big rare, Legendary, Big legendary in white,
+green, blue, purple, gold, red; allow explicit inclusion/exclusion of each.
+Worker duties stay in Crew duties. Prep table/chum belongs in the right action
+stack below Head home/Crew duties, leaving the bottom-left catch list clear.
+Retain the existing component art and HUD dimensions. Net activity captions
+must identify the rig actually being unloaded; Nets workers keep stable rigs.
+
+## Live production overview — MANAGEMENT078
+
+Mo requests a player-facing working fish-flow screen. Extend the coastal Canvas
+with cream stage panels, real fish/net/cooler icons, navy numeric hierarchy and
+Fredoka. Three numbered stages distinguish landing, carrying/stowing and optional
+preparation; the shared hold stays explicit. A Fishing tab compares rods/nets/crab
+traps. Traffic bars use labeled green spare/orange near-limit/red bottleneck states;
+unknown capacity is neutral, never a fabricated success state. Teal comparative
+method bars are clearly distinguished from load bars. Rates use actual game events;
+capacity and catch-value estimates say so. The game continues behind the blocking
+modal. Keep the existing fishing HUD, art, crew rail and gameplay intact.
+
+
+## DASH082 — Mo's exact management references (supersedes MANAGEMENT078 layout)
+
+DASH1/DASH2 are the pinned Income/Operations tabs. Use original unchanged artwork
+from Resources/ManagementReference with native live values and interactive fields;
+do not substitute the earlier cream-card management design. Preserve 1672x941
+composition/proportions when fitting the safe area, with original coastal art in
+surplus space. Right-side Management entry; visible back arrow and Escape close.
+Method/stage detail panels expose probability mixes, queues and real duty/order
+controls. Income is expected nominal catch value from probabilities and current
+gear/bait, without freshness/market depletion; Operations measures the actual
+inbound → processing → outbound → main-hold pipeline. Small hulls bypass processing.
+Green/orange/red traffic states include text; unavailable/learning states remain
+neutral. See docs/DASH082.md for definitions and native evidence.
+
+
+## DASH087 — boat-specific values and bottom-right entry
+
+Retain Mo's accepted DASH1/DASH2 artwork and tab composition. Management now
+anchors bottom-right, with Boat / duties immediately to its left in the same
+cluster. Home, Crew and Prep actions have nonoverlapping footer slots; fishing
+hints leave those controls clear. The header identifies the actual saved boat.
+Absent gear shows explicit No nets fitted / No traps fitted, zero income and
+zero share. Fitted but unoperated gear explains the missing worker. Nominal
+raw catch value excludes an assumed processing premium; integer shares sum100
+only when positive income exists. Details distinguish per100catch/perhaul
+potential from staffed income perminute. Existing actual processing/bypass
+routes and text-labeled bottleneck colors remain. See docs/DASH087.md.
+
+
+## CREW096 — crew effects and honest Management numbers
+
+Preserve the accepted DASH1/DASH2 art, interactive details and bottom-right actions.
+Future card effects change the actual work rules and the matching predictions;
+never attach a bonus only to a displayed value. Distinguish expected raw catch
+worth, real completed throughput, estimated capacity, busy workers and actual
+queues. Batches retain original fish/count/mass; partial or changing abilities
+need correct cache invalidation and hauling relearning. Do not retroactively
+rewrite the voyage chart. Gameplay integration and acceptance are mapped in
+[docs/CREW-MANAGEMENT-INTEGRATION.md](docs/CREW-MANAGEMENT-INTEGRATION.md); crew
+choices remain in their canonical design record. No new card UI is specified here.
+
+
+## DEEP104 — Crew setup and working Tier 5 gear
+
+Keep the accepted Income/Operations references and add Crew as the third tab.
+Use the same dashboard lettering, navy, cream and teal, with one clear list of
+crew and a selected worker's settings. Fisher tasks are independent square
+checkboxes; bait permissions sit below. Large native hit targets, selection
+states and Escape remain functional at desktop and landscape sizes. New body
+panels fully cover the former sample content, without exposing background labels.
+
+Income has four live methods including deep lines, with a matching fourth chart
+legend and real local catch-class details. Table orders retain the existing
+side-by-side chum/preparation interface and original working processing station;
+Tier 5 explains its50%preparation premium. Chum labels state white1/green2/blue3,
+with purple/gold/red disabled. Explain that deep lines require self-made chum.
+Preserve the fishing HUD, boat footprint, six hired crew plus captain, both gear
+layouts and the supplied103mesh language; the optional third rig reuses it.

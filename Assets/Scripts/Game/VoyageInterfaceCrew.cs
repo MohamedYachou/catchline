@@ -43,7 +43,7 @@ namespace Catchline.Game
                 float y = ReferenceRowTop(i);
                 bool captain = person == Captain;
                 bool fisher = !captain && person.Contract.Role == CrewRole.Fisherman;
-                string role = captain ? "Captain" : fisher ? "Fisher" : "Deckhand";
+                string role = captain ? "Captain" : person.Contract.Role == CrewRole.Engineer ? "Engineer" : fisher ? "Fisher" : person.Contract.WorkPreference == DeckhandWork.Prep ? "Processor" : "Deckhand";
                 string portrait = captain ? "captain" : fisher ? "fisherman" : "deckhand";
                 var row = ReferenceRightRect(1377, y, 268, i == 0 ? 77 : 78);
                 coastalUi.ReferencePanel($"reference/crew/{i}/row", row, FishReferenceStyle.PanelKind.Row);
@@ -80,7 +80,7 @@ namespace Catchline.Game
             coastalUi.ReferenceLabel("hold/value", ReferenceRect(150, 292, 117, 22), $"~{secured.Coins + secured.ContractCoins} coins", 14, false, TextAnchor.MiddleRight);
             coastalUi.ReferenceBar("hold/bar", ReferenceRect(32, 321, 235, 10), HoldKg / Mathf.Max(.01f, State.CoolerCapacity));
             coastalUi.ReferenceLabel("fuel/text", ReferenceRect(32, 339, 236, 22), State.Hull > 0 ? $"Fuel · {State.FuelFraction:P0} · return at10%" : "Oars ready · no fuel needed", 14);
-            coastalUi.ReferenceLabel("bait/text", ReferenceRect(32, 367, 236, 22), State.WillUseSquid ? $"Bait · {State.Squid} squid" : State.Bait > 0 ? $"Bait · {State.Bait} worms" : "Bait · unlimited scraps", 14);
+            coastalUi.ReferenceLabel("bait/text", ReferenceRect(32, 367, 236, 22), State.Chum > 0 ? $"Chum {State.Chum} / premium hooks" : State.WillUseSquid ? $"Bait · {State.Squid} squid" : State.Bait > 0 ? $"Bait · {State.Bait} worms" : "Bait · unlimited scraps", 14);
             var pending = UnstowedHaul();
             var haul = ReferenceRect(20, 416, 260, pending.Count > 0 ? 100 : 72);
             coastalUi.ReferencePanel("hold/freshness", haul, FishReferenceStyle.PanelKind.Goal); Block(haul);

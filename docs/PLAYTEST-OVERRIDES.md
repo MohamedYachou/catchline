@@ -1,9 +1,11 @@
-# Test and playtest setup — Mo, 2026-10-16
+# Test and playtest setup — Mo, 2026-10-17
 
 **Current storage/net implementation (WEIGHT020, 2026-10-16):** cargo uses kg,
 not fish slots; rowboat4/6kg, skiff18/27kg, compact24/36kg (base/upgraded).
-Shallow nets cost30coins and soak20s; deep nets cost100coins/3uses and soak30s.
-One final whole fish can exceed cargo capacity. Net yields use local mass budgets.
+Shallow nets cost30coins and soak40s; deep nets cost100coins/3uses and soak60s.
+Capacity is20kg through Hull2 and30kg on Hull3; Heavy Net System raises it to
+30kg and44kg respectively. One final whole fish can exceed cargo capacity. Net
+yields use local mass budgets.
 These supersede historical count/yield/replacement numbers below. Full rules and
 native evidence: [WEIGHT020.md](WEIGHT020.md).
 
@@ -56,7 +58,7 @@ Existing Rowboat0/Skiff1 saves retain their IDs and behaviour.
 
 The compact fisher has three rods and a small stationary net. NET015 supersedes
 the old timed setting/hold-to-winch model. Setting is three timed screen taps in
-the green zone, followed by a20second soak yielding3–5local schooling fish.
+the green zone, followed by a40second soak yielding3–5local schooling fish.
 Hauling uses short taps: build tension near the red threshold for best progress;
 slack line loses progress, near-red loses least, and red loses progress rapidly.
 Two mistakes across setting/hauling tear one net and lose the unlanded catch.

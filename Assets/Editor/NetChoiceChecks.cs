@@ -45,14 +45,14 @@ namespace Catchline.EditorTools
             NetHaulChecks.FinishCaptainSet(game);
             Check(game.Net == VoyageGame.NetState.Soaking && a.Idle, "soak releases worker");
             float soak = game.NetRemaining;
-            Check(soak > 19.8f && soak <= 20f, "compact soak remains about20 seconds after final set tap");
+            Check(soak > GameData.ShallowNetSoakSeconds - .2f && soak <= GameData.ShallowNetSoakSeconds, "compact soak remains about40 seconds after final set tap");
             Call(game, "TickNet", soak - 1f);
             Check(game.Net == VoyageGame.NetState.Soaking && game.NetCatch == 0, "no early yield");
             Call(game, "TickNet", 0f);
             Check(Mathf.Abs(game.NetRemaining - 1f) < .001f, "zero time freezes soak");
             Call(game, "TickNet", 1f);
             int count = game.NetCatch;
-            Check(game.Net == VoyageGame.NetState.Ready && count > 0 && game.NetCatchKg >= game.NetWeightRange(game.ActiveSpot, false).x, "bounded yield at 20 seconds");
+            Check(game.Net == VoyageGame.NetState.Ready && count > 0 && game.NetCatchKg >= game.NetWeightRange(game.ActiveSpot, false).x, "bounded yield at 40 seconds");
             Call(game, "TickNet", 600f);
             Check(game.Net == VoyageGame.NetState.Ready && game.NetCatch == count, "ready waits without automatic haul or extra catch");
             for (int i = 0; i < game.State.CoolerCapacity; i++) game.Cooler.Add(new CaughtFish { Kg = 1f });

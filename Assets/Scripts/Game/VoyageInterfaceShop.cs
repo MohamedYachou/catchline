@@ -93,21 +93,30 @@ namespace Catchline.Game
             coastalUi.Label(id + "/title", new Rect(x + 18, y + 83, w - 36, 30), name, 22, null, TextAnchor.MiddleLeft, catalog);
             coastalUi.Label(id + "/description", new Rect(x + 18, y + 115, w - 36, 64), reason ?? description, 15, SeaInk, TextAnchor.UpperLeft, catalog);
             coastalUi.Button(id + "/buy", new Rect(x + 14, y + 184, w - 28, 52), action, () => { onBuy(); audio?.Play(VoyageAudio.Cue.Purchase, .6f); },
-                "button-primary-normal", enabled, catalog, 17);
+                id == "module/second-net" ? "button-primary-pressed" : "button-primary-normal", enabled, catalog, 17);
             catalogItem++;
         }
         void FinishProducts() { catalogY += Mathf.Ceil(catalogItem / 2f) * 264; catalogItem = 0; }
         void InterfaceGear()
         {
+            if (IsPrepFisher) Product("module/second-net", "Second net module",
+                IsTier5 ? State.SecondNetActive ? "Fitted: two rods, two nets and two buoys. Switch at port to four rods and one net." : "Fitted: four rods, one net and two buoys. Switch at port to two rods and two nets." : State.SecondNetActive ? "Fitted: one rod and two independent nets. Switch off at port to restore three rods." : "Replace two rods with a second net. Buy once, then switch the module on or off at port.",
+                "icon-net", State.SecondNetOwned ? State.SecondNetEnabled ? "Switch off / restore rods" : "Switch on / two nets" : "Buy / 2,000 coins",
+                State.SecondNetOwned || State.Coins >= GameState.SecondNetModuleCost,
+                () => { if (State.SecondNetOwned) ToggleSecondNetModule(); else BuySecondNetModule(); });
+            if (State.Hull == 3) Product("refit/tier5", "Buoy fisher / Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
+            if (SessionOnly) Product("trial/tier5", "Buoy fisher / Tier 5 trial", "Approved8.5x4.2m boat. Six crew plus captain; both equipment layouts are included.", "icon-skiff", IsTier5 ? "Trial boat aboard" : "Try Tier 5", !IsTier5, () => TrialTier5());
             foreach (var u in GameData.Upgrades.Where(u => u.Shop == "Chandlery")) InterfaceUpgrade(u);
-            Product("refit", State.Hull > 0 ? State.HullDef.Name : "Skiff refit", State.Hull > 0 ? $"{State.CoolerCapacity:0.#} kg hold · three rods · outboard" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
+            Product("refit", State.Hull > 0 ? State.HullDef.Name : "Skiff refit", State.Hull > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
                 State.Hull > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
                 State.Hull == 0 && State.BestVoyageFish >= GameData.SkiffFishGoal && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
             if (State.Hull == 1) Product("refit/compact", "Compact fisher", "Tier3 ·100kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
+            if (State.Hull == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
+                $"Refit / {GameState.PrepFisherCost:N0} coins", State.CanRefitPrep, () => RefitPrep());
             if (SessionOnly) Product("trial/netboat", "Compact fisher · trial", "Three crew · three rods · stern net. Trial includes fuel and a200coin crew budget. Prices are still being tuned.", "icon-skiff",
                 State.Hull == 2 ? "Trial boat aboard" : "Try net boat", State.Hull != 2, () => TrialCompactFisher());
-            if (SessionOnly) Product("trial/prepboat", "Prep fisher / Tier 4 trial", "Four crew berths, three rods and a stern net. Two-person prep table and front storage. Processing orders coming next.", "icon-skiff",
+            if (SessionOnly) Product("trial/prepboat", "Prep fisher / Tier 4 trial", "Four crew berths, three rods and a stern net. Working two-person prep table, front storage and optional second net module.", "icon-skiff",
                 IsPrepFisher ? "Trial boat aboard" : "Try prep boat", !IsPrepFisher, () => TrialPrepFisher());
         }
         void InterfaceUpgrade(UpgradeDef u)
@@ -116,7 +125,7 @@ namespace Catchline.Game
             int cost = State.UpgradeCost(u.Id);
             bool owned = State.Has(u.Id), prerequisite = !u.Requires.HasValue || State.Has(u.Requires.Value);
             string reason = !owned && !prerequisite ? "Needs " + GameData.Upgrade(u.Requires.Value).Name : !owned && State.Coins < cost ? CoinShortfall(cost) : null;
-            string icon = u.Id switch { UpgradeId.NetSystem => "icon-net", UpgradeId.LunchTin => "icon-fuel", UpgradeId.RodFibreglass => "icon-rod-fibreglass", UpgradeId.RodCarbon => "icon-rod-carbon", _ => "icon-" + u.Id.ToString().ToLowerInvariant() };
+            string icon = u.Id switch { UpgradeId.ThirdDeepLine => "icon-rod-carbon", UpgradeId.NetSystem => "icon-net", UpgradeId.LunchTin => "icon-fuel", UpgradeId.RodFibreglass => "icon-rod-fibreglass", UpgradeId.RodCarbon => "icon-rod-carbon", _ => "icon-" + u.Id.ToString().ToLowerInvariant() };
             Product("upgrade/" + u.Id, u.Name, State.UpgradeDescription(u.Id), icon, owned ? "Owned" : $"Buy · {cost:N0} coins", !owned && prerequisite && State.Coins >= cost,
                 () => { if (State.TryBuy(u.Id)) { SyncUpgrades(); Toast("Bought: " + u.Name); SaveGame(); } }, reason);
         }
@@ -125,8 +134,8 @@ namespace Catchline.Game
             if (IsNetFisher)
             {
                 coastalUi.Label("supplies/net-loadout", new Rect(4, catalogY, catalogWidth - 8, 34), State.NetLoadoutLabel, 18, SeaInk, TextAnchor.MiddleLeft, catalog);
-                coastalUi.Button("supplies/loadout/shallow", new Rect(0, catalogY + 38, catalogWidth * .48f, 48), "Shallow · 20s", () => SelectNetLoadout(NetKind.Shallow), State.SelectedNet == NetKind.Shallow ? "button-primary-normal" : "button-secondary-normal", true, catalog);
-                coastalUi.Button("supplies/loadout/deep", new Rect(catalogWidth * .51f, catalogY + 38, catalogWidth * .48f, 48), "Deep · 30s · 3 uses", () => SelectNetLoadout(NetKind.Deep), State.SelectedNet == NetKind.Deep ? "button-primary-normal" : "button-secondary-normal", State.DeepNetUses.Count > 0, catalog);
+                coastalUi.Button("supplies/loadout/shallow", new Rect(0, catalogY + 38, catalogWidth * .48f, 48), $"Shallow · {GameData.ShallowNetSoakSeconds:0}s", () => SelectNetLoadout(NetKind.Shallow), State.SelectedNet == NetKind.Shallow ? "button-primary-normal" : "button-secondary-normal", true, catalog);
+                coastalUi.Button("supplies/loadout/deep", new Rect(catalogWidth * .51f, catalogY + 38, catalogWidth * .48f, 48), $"Deep · {GameData.DeepNetSoakSeconds:0}s · 3 uses", () => SelectNetLoadout(NetKind.Deep), State.SelectedNet == NetKind.Deep ? "button-primary-normal" : "button-secondary-normal", State.DeepNetUses.Count > 0, catalog);
                 catalogY += 100;
             }
             Product("supplies/worms", "Worms", $"{GameData.BaitPackSize} everyday hooks · {State.Bait} aboard", "icon-bait-worm", $"Buy · {GameData.BaitPackCost} coins", State.Coins >= GameData.BaitPackCost, () => { if (State.BuyBait()) SaveGame(); });
@@ -158,21 +167,13 @@ namespace Catchline.Game
         }
         void InterfaceCrew()
         {
-            CatalogHeading("crew/heading", $"Your crew · {State.CrewCount}/{State.HullDef.CrewCap}", "Deckhands bait and carry. Fishermen work their own rods. Choose the mix; both roles stay available.");
-            foreach (var c in State.Crew)
-                Product("employee/" + c.Name, c.Name, $"{c.RoleName} · {c.Grade}\n{c.VoyagesLeft} voyages remaining" + (IsNetFisher && c.Role == CrewRole.Deckhand ? " · " + c.WorkPreference + " duty" : ""), c.Role == CrewRole.Fisherman ? "portrait-fisherman" : "portrait-deckhand",
-                    IsNetFisher && c.Role == CrewRole.Deckhand ? "Duty: " + c.WorkPreference + " · change" : "Aboard", IsNetFisher && c.Role == CrewRole.Deckhand,
-                    () => SetDeckhandWork(c, c.WorkPreference == DeckhandWork.Fish ? DeckhandWork.Nets : DeckhandWork.Fish));
-            FinishProducts();
-            CatalogHeading("crew/board", "Looking for work", "Temporary contracts · both roles stay available after hiring.");
-            for (int i = 0; i < State.Board.Count; i++)
-            {
-                var c = State.Board[i];
-                bool room = State.CrewCount < State.HullDef.CrewCap;
-                Product("hire/" + i, c.Name, $"{c.RoleName} · {c.Grade}\n{GameData.Speed(c.Grade):0.0}× speed · {c.VoyagesLeft} voyages", c.Grade == Grade.Veteran ? "portrait-veteran" : c.Role == CrewRole.Fisherman ? "portrait-fisherman" : "portrait-deckhand",
-                    $"Hire · {c.Fee} coins", room && State.Coins >= c.Fee, () => { if (State.Hire(c)) { SyncCrew(); SaveGame(); } }, !room ? "All crew berths occupied" : State.Coins < c.Fee ? CoinShortfall(c.Fee) : null);
-            }
+            CatalogHeading("crew/heading", $"Your crew · {State.CrewCount}/{State.HullDef.CrewCap}", IsTier5 ? "Six shared berths. Fishers operate gear; deckhands haul and process catch." : "Add or remove crew here. Both roles share the boat's berths.");
+            InterfaceCrewCounter(CrewRole.Fisherman, "Fisher");
+            InterfaceCrewCounter(CrewRole.Deckhand, "Deckhand");
+
+            MaybeCaptureCrewCounters();
         }
+
         void InterfaceMarket()
         {
             State.UnseenSale = false;

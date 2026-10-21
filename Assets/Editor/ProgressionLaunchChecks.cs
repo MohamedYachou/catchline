@@ -26,12 +26,12 @@ namespace Catchline.EditorTools
         {
             Directory.CreateDirectory("Logs/crew026");
             var s = new GameState(9) { Hull = 2, Coins = 4999 };
-            Check(s.CoolerCapacity == 100 && s.NetCapacityKg == 10, "base tier3 hold100/net10");
-            Check(!s.TryBuy(UpgradeId.NetSystem) && s.Coins == 4999 && s.NetCapacityKg == 10, "net upgrade shortfall atomic");
-            s.Coins = 5000; Check(s.TryBuy(UpgradeId.NetSystem) && s.Coins == 0 && s.NetCapacityKg == 15, "exact5000 upgrade changes both net capacities");
+            Check(s.CoolerCapacity == 100 && s.NetCapacityKg == 20, "base tier3 hold100/net20");
+            Check(!s.TryBuy(UpgradeId.NetSystem) && s.Coins == 4999 && s.NetCapacityKg == 20, "net upgrade shortfall atomic");
+            s.Coins = 5000; Check(s.TryBuy(UpgradeId.NetSystem) && s.Coins == 0 && s.NetCapacityKg == 30, "exact5000 upgrade changes both net capacities");
             Check(!s.TryBuy(UpgradeId.NetSystem), "upgrade cannot charge twice");
             s.Owned.Add(UpgradeId.BigCooler); s.Save("Logs/crew026/state.json"); var loaded = GameState.Load("Logs/crew026/state.json");
-            Check(loaded.CoolerCapacity == 150 && loaded.NetCapacityKg == 15 && loaded.Coins == 0, "owned upgrades persist without repurchase");
+            Check(loaded.CoolerCapacity == 150 && loaded.NetCapacityKg == 30 && loaded.Coins == 0, "owned upgrades persist without repurchase");
             Check(s.UpgradeCost(UpgradeId.BigCooler) == 3000 && s.UpgradeCost(UpgradeId.RodCarbon) == 3500 && s.UpgradeCost(UpgradeId.LunchTin) == 1500, "tier3 authoritative upgrade prices");
             var early = new GameState(9) { Coins = 10000 }; Check(early.UpgradeCost(UpgradeId.BigCooler) == 60 && !early.TryBuy(UpgradeId.NetSystem), "starter economy preserved and net system unavailable early");
             var refit = new GameState(2) { Hull = 1, Coins = 3999 };
@@ -65,7 +65,7 @@ namespace Catchline.EditorTools
                         if (spot == 0 && !deep) Check(batch.Count > 5, "school net genuinely exceeds old five-fish impression");
                     }
                     int index = deep ? 1 : 0; values[index] = val / 200; counts[index] = count / 200;
-                    report.AppendLine($"{GameData.Spots[spot].Name},{(upgraded ? 15 : 10)},{(deep ? "deep" : "shallow")},{count/200:0.00},{kg/200:0.00},{val/200:0.00}");
+                    report.AppendLine($"{GameData.Spots[spot].Name},{(upgraded ? 30 : 20)},{(deep ? "deep" : "shallow")},{count/200:0.00},{kg/200:0.00},{val/200:0.00}");
                 }
                 Check(values[1] > values[0] && counts[0] > counts[1], "same net mass: deep earns more, shallow has more fish");
             }
@@ -96,7 +96,7 @@ namespace Catchline.EditorTools
             g.PrepareInterface(844, 390);
             Check(!g.InvokeInterface("upgrade/NetSystem/buy") && g.State.Coins == 4999, "real shop refuses4999");
             g.State.Coins = 5000; g.PrepareInterface(844, 390);
-            Check(g.InvokeInterface("upgrade/NetSystem/buy") && g.State.Coins == 0 && g.State.NetCapacityKg == 15, "real shop charges5000 and upgrades both nets");
+            Check(g.InvokeInterface("upgrade/NetSystem/buy") && g.State.Coins == 0 && g.State.NetCapacityKg == 30, "real shop charges5000 and upgrades both nets");
             g.State.Owned.Remove(UpgradeId.NetSystem); g.State.Coins = 6000; Field(g, "toastUntil", 0f);
             var shot = typeof(ReferenceHudChecks).GetMethod("Shot", BindingFlags.Static | BindingFlags.NonPublic);
             void Shot(string n, int w, int h) => shot.Invoke(null, new object[] { g, "../crew026/" + n, w, h, 1f });
@@ -112,10 +112,10 @@ namespace Catchline.EditorTools
             g.State.Deckhand = null; g.State.ExtraCrew.Clear(); g.SyncCrew(); foreach (var rod in g.Rods) rod.State = RodState.Ready;
             g.State.SelectedNet = NetKind.Shallow; g.State.Rng = new System.Random(12);
             Check(g.SetNet(), "manyfish real capture starts net"); NetHaulChecks.FinishCaptainSet(g);
-            typeof(VoyageGame).GetMethod("TickNet", H).Invoke(g, new object[] { 20f });
+            typeof(VoyageGame).GetMethod("TickNet", H).Invoke(g, new object[] { GameData.ShallowNetSoakSeconds });
             Check(g.HaulNet(), "manyfish real capture hauls"); NetHaulChecks.FinishCaptainHaul(g);
             for (int i = 0; i < 600 && g.LastNetReceipt == null; i++) g.Tick(.05f);
-            Check(g.LastNetReceipt != null && g.LastNetReceipt.Count > 5 && g.HoldKg <= 10.001f, "manyfish actual storage/capture");
+            Check(g.LastNetReceipt != null && g.LastNetReceipt.Count > 5 && g.HoldKg <= g.State.NetCapacityKg + .001f, "manyfish actual storage respects doubled net capacity");
             Shot("school-net-stowed", 1440, 900); Shot("school-net-stowed-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }

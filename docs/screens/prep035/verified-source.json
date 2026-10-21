@@ -1,0 +1,62 @@
+{
+  "task": "PREP035",
+  "checks": "prep035-final behaviour suite and prep035-capture build-only after capture sequencing fix",
+  "files": [
+    {
+      "path": "Assets/Scripts/Game/DeckActors.cs",
+      "sha256": "5f1ba756623e98c51babb24783b7687a0253d4d9f8d63ea3b9846c6b315edd19"
+    },
+    {
+      "path": "Assets/Scripts/Game/GameData.cs",
+      "sha256": "1e4ea901d923356553bd952388626540a502add024775d11e1555b289716d15d"
+    },
+    {
+      "path": "Assets/Scripts/Game/GameState.cs",
+      "sha256": "d5dc3ee7b1bfdfe9cc96e5ba35cc7ef0c14a03d52c8edbb689a8b0059c6bf902"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageCapture.cs",
+      "sha256": "93cdea6c5665fc84dc2e29b50cc5dbea5894fba85c97e122be1086b164ce4d46"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageCompactFisher.cs",
+      "sha256": "08c1146a6c684857ee3a9e4269443b4cbed0f7271d5f38d4b307ecb280596379"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageGame.cs",
+      "sha256": "2ee8286d7dbc7ad5f15fc96904c6825fb7cfb106ab3740ebb2cda089dc5dde46"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageHaul.cs",
+      "sha256": "10c4b0e872f5c1b10744004ba3a087b3b9c5fdebb109723ea4a84933f8cb9e75"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageHud.cs",
+      "sha256": "42865a88454cf0168b0b2819e74212e6df2099c7f705ec4d9a4c4839054e0638"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageInterfaceCrew.cs",
+      "sha256": "1580cbd0eb6d28255c81a3e87c22dac0468bac2cfd2238584fda3f3399e2f2f7"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageInterfaceShop.cs",
+      "sha256": "db56d6d607a446c20f87a6897a96adb06d7abec2af097222edf2146b96f47ea5"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageNetInterface.cs",
+      "sha256": "53796a25a6f80cd927c81fe1d8d150c0db2588292731a3f959307f13bb55ecdc"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyagePrepFisher.cs",
+      "sha256": "83b1ca9c9d1b61354f13a3b32d4f08d325d1bde7dce8c06fbb4f1cacb45e39ba"
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyagePrepOrders.cs",
+      "sha256": "17995d7e116e88288f3e6f9f2a9c460b74882881ebb1305c8cf3d0a920700ad4"
+    },
+    {
+      "path": "Assets/Editor/PrepOrdersChecks.cs",
+      "sha256": "9f83fceb7e62c86d891b0587e75a847e18935c1c866eb0c1e2f40353180b7f7f"
+    }
+  ]
+}

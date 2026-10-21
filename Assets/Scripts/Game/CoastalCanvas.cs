@@ -124,8 +124,11 @@ namespace Catchline.Game
             if (sprites.TryGetValue(key, out var result)) return result;
             var texture = ArtLibrary.Get()?.UiTex(name);
             if (texture == null) return null;
-            float edge = Mathf.Min(24, Mathf.Min(texture.width, texture.height) / 3f);
-            result = UnityEngine.Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * .5f,
+            var spriteRect = GeminiUiSkin.SpriteRect(texture);
+            bool trimmed = spriteRect.width != texture.width || spriteRect.height != texture.height;
+            float edge = trimmed ? Mathf.Min(14, Mathf.Min(spriteRect.width, spriteRect.height) * .18f)
+                : Mathf.Min(24, Mathf.Min(texture.width, texture.height) / 3f);
+            result = UnityEngine.Sprite.Create(texture, spriteRect, Vector2.one * .5f,
                 100, 0, SpriteMeshType.FullRect, sliced ? new Vector4(edge, edge, edge, edge) : Vector4.zero);
             result.name = name;
             sprites[key] = result;
@@ -137,6 +140,7 @@ namespace Catchline.Game
             if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<Image>();
             e.Image.sprite = Sprite(art, true);
             e.Image.type = e.Image.sprite != null ? Image.Type.Sliced : Image.Type.Simple;
+            e.Image.preserveAspect = false;
             e.Image.color = tint ?? Color.white;
             e.Image.raycastTarget = blocks;
             return e.Rect;
@@ -163,13 +167,30 @@ namespace Catchline.Game
             e.Image.preserveAspect = !stretch; e.Image.color = Color.white; e.Image.raycastTarget = false;
             return e.Rect;
         }
+        Text ClippedText(Element e, string id)
+        {
+            if (e.Text != null) return e.Text;
+            // RectMask2D deliberately ignores a Graphic on its own object in UGUI.
+            // Keep the mask on the retained outer rect and the text in a stretched child.
+            e.Rect.name = id + "/clip";
+            if (e.Rect.GetComponent<RectMask2D>() == null) e.Rect.gameObject.AddComponent<RectMask2D>();
+            var child = new GameObject(id, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+            child.layer = 5; var rect = (RectTransform)child.transform;
+            rect.SetParent(e.Rect, false); rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one;
+            rect.offsetMin = rect.offsetMax = Vector2.zero;
+            e.Text = child.GetComponent<Text>(); return e.Text;
+        }
         public void Label(string id, Rect r, string value, int size = 18, Color? color = null,
-            TextAnchor align = TextAnchor.MiddleLeft, Transform parent = null)
+            TextAnchor align = TextAnchor.MiddleLeft, Transform parent = null, bool fitted = false)
         {
             var e = Get(id, r, parent);
-            if (e.Text == null) e.Text = e.Rect.gameObject.AddComponent<Text>();
+            if (fitted) ClippedText(e, id);
+            else if (e.Text == null) e.Text = e.Rect.gameObject.AddComponent<Text>();
             e.Text.font = font;
             e.Text.fontSize = Mathf.RoundToInt(size * TypeScale);
+            e.Text.resizeTextForBestFit = fitted;
+            e.Text.resizeTextMaxSize = e.Text.fontSize;
+            e.Text.resizeTextMinSize = Mathf.Min(e.Text.fontSize, Mathf.Max(10, Mathf.RoundToInt(size * .72f)));
             e.Text.color = color ?? Palette.HullNavy;
             e.Text.alignment = align; e.Text.supportRichText = true;
             e.Text.horizontalOverflow = HorizontalWrapMode.Wrap;
@@ -338,6 +359,37 @@ namespace Catchline.Game
             e.Action = action; e.Button.interactable = action != null;
             return r;
         }
+        readonly Dictionary<string, Texture2D> dashboardTextures = new();
+        Font dashboardRegular,dashboardBold;
+        public void DashboardRegion(string id,Rect r,string asset,Rect source)
+        {
+            if(!dashboardTextures.TryGetValue(asset,out var texture))
+            { texture=Resources.Load<Texture2D>("ManagementReference/"+asset);dashboardTextures[asset]=texture; }
+            var e=Get(id,r);var raw=e.Rect.GetComponent<RawImage>()??e.Rect.gameObject.AddComponent<RawImage>();
+            raw.texture=texture;raw.color=Color.white;raw.raycastTarget=false;
+            raw.uvRect=new Rect(source.x/1672,1-source.yMax/941,source.width/1672,source.height/941);
+        }
+        public void DashboardText(string id,Rect r,string value,float size,Color color,bool bold=false,TextAnchor align=TextAnchor.MiddleLeft)
+        {
+            if(dashboardRegular==null)dashboardRegular=Resources.Load<Font>("ManagementReference/DashboardRegular");
+            if(dashboardBold==null)dashboardBold=Resources.Load<Font>("ManagementReference/DashboardBold");
+            var e=Get(id,r);if(e.Text==null)e.Text=e.Rect.gameObject.AddComponent<Text>();
+            e.Text.font=(bold?dashboardBold:dashboardRegular)??font;e.Text.fontSize=Mathf.Max(1,Mathf.RoundToInt(size));
+            e.Text.color=color;e.Text.alignment=align;e.Text.supportRichText=true;e.Text.raycastTarget=false;
+            e.Text.horizontalOverflow=HorizontalWrapMode.Wrap;e.Text.verticalOverflow=VerticalWrapMode.Truncate;
+            e.Text.resizeTextForBestFit=true;e.Text.resizeTextMaxSize=e.Text.fontSize;e.Text.resizeTextMinSize=Mathf.Max(1,Mathf.RoundToInt(size*.72f));
+            if(e.Text.text!=value)e.Text.text=value;
+        }
+        public void DashboardShape(string id,Rect r,Color color,float fraction=1,bool ring=false)
+        {
+            var e=Get(id,r);var shape=e.Rect.GetComponent<DashboardGeometry>()??e.Rect.gameObject.AddComponent<DashboardGeometry>();
+            shape.raycastTarget=false;shape.Set(color,fraction,ring,null);
+        }
+        public void DashboardPlot(string id,Rect r,Color color,Vector2[] points)
+        {
+            var e=Get(id,r);var shape=e.Rect.GetComponent<DashboardGeometry>()??e.Rect.gameObject.AddComponent<DashboardGeometry>();
+            shape.raycastTarget=false;shape.Set(color,1,false,points);
+        }
         public bool Invoke(string id)
         {
             if (!elements.TryGetValue(id, out var e) || e.Button == null || !e.Button.interactable || !e.Used) return false;
@@ -345,4 +397,37 @@ namespace Catchline.Game
         }
         void OnDestroy() { foreach (var sprite in sprites.Values) if (sprite != null) Prototype.Visuals.Kill(sprite); }
     }
+    // Native UGUI geometry: round bars, chart strokes and a real data-driven donut.
+    public sealed class DashboardGeometry : MaskableGraphic
+    {
+        float fraction=1;bool ring;Vector2[] points;
+        public void Set(Color tint,float fill,bool isRing,Vector2[] samples)
+        { if(color!=tint||fraction!=fill||ring!=isRing||samples!=null||points!=null){color=tint;fraction=fill;ring=isRing;points=samples;SetVerticesDirty();} }
+        void Quad(VertexHelper vh,Vector2 a,Vector2 b,Vector2 c,Vector2 d)
+        {int n=vh.currentVertCount;vh.AddVert(a,color,Vector2.zero);vh.AddVert(b,color,Vector2.zero);vh.AddVert(c,color,Vector2.zero);vh.AddVert(d,color,Vector2.zero);vh.AddTriangle(n,n+1,n+2);vh.AddTriangle(n,n+2,n+3);}
+        void Disc(VertexHelper vh,Vector2 center,float radius)
+        {for(int n=0;n<16;n++){float a=n*Mathf.PI/8,b=(n+1)*Mathf.PI/8;Quad(vh,center,center+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius,center+new Vector2(Mathf.Cos(b),Mathf.Sin(b))*radius,center);}}
+        protected override void OnPopulateMesh(VertexHelper vh)
+        {
+            vh.Clear();var r=rectTransform.rect;float w=r.width,h=r.height;
+            if(points!=null)
+            {
+                float width=Mathf.Max(1.3f,h*.025f);
+                Vector2 P(Vector2 p)=>new(r.x+p.x*w,r.y+p.y*h);
+                for(int n=1;n<points.Length;n++)
+                {var a=P(points[n-1]);var b=P(points[n]);var normal=new Vector2(-(b-a).y,(b-a).x).normalized*width/2;Quad(vh,a+normal,b+normal,b-normal,a-normal);}
+                foreach(var p in points)Disc(vh,P(p),width*1.35f);
+                return;
+            }
+            if(ring)
+            {
+                var center=r.center;float outer=Mathf.Min(w,h)/2,inner=outer*.78f;int segments=Mathf.CeilToInt(120*Mathf.Clamp01(fraction));
+                for(int n=0;n<segments;n++){float a=Mathf.PI/2-n/120f*Mathf.PI*2,b=Mathf.PI/2-Mathf.Min((n+1)/120f,fraction)*Mathf.PI*2;var u=new Vector2(Mathf.Cos(a),Mathf.Sin(a));var v=new Vector2(Mathf.Cos(b),Mathf.Sin(b));Quad(vh,center+u*outer,center+v*outer,center+v*inner,center+u*inner);}
+                return;
+            }
+            w*=Mathf.Clamp01(fraction);if(w<=0)return;float radius=Mathf.Min(h/2,w/2);var left=new Vector2(r.x+radius,r.y+h/2);var right=new Vector2(r.x+w-radius,r.y+h/2);
+            Quad(vh,new Vector2(left.x,r.y),new Vector2(right.x,r.y),new Vector2(right.x,r.y+h),new Vector2(left.x,r.y+h));Disc(vh,left,radius);Disc(vh,right,radius);
+        }
+    }
+
 }

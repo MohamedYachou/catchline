@@ -1,0 +1,2970 @@
+{
+  "Version": "Deep104 final chum-only",
+  "Checks": "deep104-shipping-regression + release build/native review + installed modes",
+  "Sources": [
+    {
+      "File": "Assets\\Scripts\\Game.meta",
+      "SHA256": "D0077D7283FCB3F6DD516BDDB6D5A197D35F1E3A5A2447D771287B7ACBC8135B"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype.meta",
+      "SHA256": "65E7E43676849F5C73208051274E28000354CD6427A725ABB6D893E122FBF90B"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\ArtLibrary.cs",
+      "SHA256": "E40CA259A6DAD4474E3D91B0031EDD96104281BCCF50129F8B9A4860C015FB4E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\ArtLibrary.cs.meta",
+      "SHA256": "9F010C664ADD0AE4750046A5B43405A25D642C0B5D75EF768CBD9BF7D1D58537"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchExpectation.cs",
+      "SHA256": "38C3A18A141B18A367F0BD443D4CAC7B3697AD7702DBCFE4F9E0EC8F3A55C98A"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchExpectation.cs.meta",
+      "SHA256": "09BB8418C368624B0C28596CC5FA9E3D409543D8DD4D9E2EAE8950D9D690A0C4"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchPresentation.cs",
+      "SHA256": "BB7EBE8D0B6DE065F5EDFCB896447A1F8650870BE96E63AA3DB2B42E43064EA5"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchPresentation.cs.meta",
+      "SHA256": "2109CBBEA47EBCBB90AAB7DD94EE32ECC1CE924B4E0D5F79D869BB9CF5E6D46F"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchRewardGraphic.cs",
+      "SHA256": "0F38274F8907D3B357B299AE7F00AEF0E80E4394788F24F6B1964C7DDB00D551"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CatchRewardGraphic.cs.meta",
+      "SHA256": "358B0E9417ABEB0C1EB9A15139A69EC154587637E368574F0CCC66456416635C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CoastalCanvas.cs",
+      "SHA256": "8E1D0656DB78C4C81B624D5D61FDF4324DF961CC5C1A059FB929D86ED50ADD22"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CoastalCanvas.cs.meta",
+      "SHA256": "8FC6EAFB2CCB12EC852B44C1522D0490363832ECC7E17F6D7DAE2726B69F161D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CoastalWater.cs",
+      "SHA256": "CA86D02EFB3277F4BE5199BFE9B2C5BAE20A0924E5878CA7B7D5942983E1E227"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\CoastalWater.cs.meta",
+      "SHA256": "2A0F99E905A25B3458BBAEE1BC6DC444E407E44A682B6E27C6933B05DB41CE81"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\DeckActors.cs",
+      "SHA256": "EB202BDE166D14AA243434F27E8653D9538970401ACDEFB592589DB05753DEAD"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\DeckActors.cs.meta",
+      "SHA256": "7DD33B1B37A56B4A50856BB87BAB9DFC0E1BBA89C07D256494C961772B69D262"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\DeepLineRules.cs",
+      "SHA256": "D16A67506857E81E276E270B178EDC86229E1DA5CDCB1DCDA92BBEA578BE2AF1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\DeepLineRules.cs.meta",
+      "SHA256": "48B26343EF7EDC5855B3E692C16F259B46361874CE7C8C1013C19213A827CEB4"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\FishReferenceStyle.cs",
+      "SHA256": "1971C27F0CF5443F645ED324E77569A1D9A2304D289A6242C2A93DCDD1E0A424"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\FishReferenceStyle.cs.meta",
+      "SHA256": "1CCF1E88C715985649C4AD3AB4BDE2FB50B8F311F18A61505FA830E37360B480"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\FlowTelemetry.cs",
+      "SHA256": "C19589331705054ADAC79D054A4C3F8D1D7A2652AAF8E53E04BA94CF9D75CEEE"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\FlowTelemetry.cs.meta",
+      "SHA256": "D3B4322783B88E6657E7523289A08C871F50D25EC3B36F4F577715ABAB215779"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameData.cs",
+      "SHA256": "336CE218C613C13425D69FD557E25D55917153FBB4547E04DDE62E3A8E922B53"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameData.cs.meta",
+      "SHA256": "2B942D9713AC140D5A04CF398B115BC2F9B6E0522860F7E3CB6727A279C4BB20"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameState.cs",
+      "SHA256": "57758113275673CA42CD92352D79E77053647F3BB483D95CA3B4C33365FE6BAE"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameState.cs.meta",
+      "SHA256": "8B4363EC0AB4D9ABD7DACC415D911645B4B4D53B62A80D33B533C3A62E7E6B58"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateBoatModules.cs",
+      "SHA256": "8EFFBA1941B7262F60DE278553CB21B0CF82637991040AC0FDA527758559E2B6"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateBoatModules.cs.meta",
+      "SHA256": "93E045D2BE99AAAD5E41C6E4C860934F4C7621FC3C550E1FD454D1C2C2BF1701"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateCrewBait.cs",
+      "SHA256": "237CF26B862C1D4849B688340D069A91A038A4C3FD30C53F5B1FCA2EB8726AA0"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateCrewBait.cs.meta",
+      "SHA256": "24C5F65661E50C6735156D2A3CDE2358E1586426ABEEAE24F3A0583DE9F4379E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateNetLoadout.cs",
+      "SHA256": "79C8B72AB2C330BC1BCE7CCEFB0D0A98917F55FDDEB3DFD98521678C38257194"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateNetLoadout.cs.meta",
+      "SHA256": "1942E86FB3DDA608F2134B9B899526E27F14E4E3118BC2C1744C8E638929E084"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateProgression.cs",
+      "SHA256": "85B31C720D763DF7391E110399F6E1C9008C7C66A0FC680B193B4B45099D5827"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateProgression.cs.meta",
+      "SHA256": "48E748BE9B44B7A1A11F09132D9481BBC0F9A0FD28A44F119C600081FDE3C4E5"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateTier5.cs",
+      "SHA256": "37C9826C0039F1F38FE5B60DBAA4EF578423C13BA4DDDEB7B2A30E012B939BF6"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GameStateTier5.cs.meta",
+      "SHA256": "B0D0D439BEC155FF69030C8BF618E46DF1C150A58D3C973760F31A59A1235F89"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiCapture.cs",
+      "SHA256": "4C96477D0C2BBB1D877FD45AD0398B58450DDD3FA713FE31455734104596E685"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiCapture.cs.meta",
+      "SHA256": "91FCEE90BFAE8C7C11B1E2EF1740D61F07968D1BF1FEC2DCA927EFDA68F1BAFC"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiFishModels.cs",
+      "SHA256": "0616A8257B88011C17BE5D9D8641D11EFA9FAA6E663A2249C03AB4987EB1CFDC"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiFishModels.cs.meta",
+      "SHA256": "6D30B79E834F1B2CFC859DEE79708DF6416166F694A497055CC558A134D69E2C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiUiSkin.cs",
+      "SHA256": "5252AF290C67E97C3DFCE41DB7EA3862D16CBE1A7A51BB9689D4E760D1D9835E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\GeminiUiSkin.cs.meta",
+      "SHA256": "BBD1E5E906176E9ABD8C53A9F6247F71D58FF3EFAF02980E0FD79E054C4F35AB"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\PtsWater.cs",
+      "SHA256": "472FDE835F9BE4873633E0AB524317285260C6A8C3B23AAA19309AD22FCCA5D8"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\SceneryLife.cs",
+      "SHA256": "205FE3579B66E6CB193817C0855D42091572883A5F47A176584BDC8D617161C3"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\SceneryLife.cs.meta",
+      "SHA256": "7635EF5264A1D7F06B460DD7FA6823E69E9949D640A678CAD8D5F70192F624C8"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\Ui.cs",
+      "SHA256": "02711C845C41DBB18109D742BA00F9FD8A2C8D55D5962FC9451CED603DEF411C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\Ui.cs.meta",
+      "SHA256": "6BC2F7BB565EDA29AED38D4BF478FBD1A3995AA97FFD8804D3751A2FB8ED035E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageAudio.cs",
+      "SHA256": "E88E8C627286D74436AAF3059B5D678CBAFBCCAECADA4893FB048B04055AE411"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageBalanceCapture.cs",
+      "SHA256": "2FDD8B96A69B3759C81A3844CF9CFEB23BE63946079381BC220FFA2923D3333B"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageBalanceCapture.cs.meta",
+      "SHA256": "2E208FB9C7ADEB0F51DDAC6EC8AE3D2A1641CDFDD545CD18738D4A865CF41CAF"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCaptainPrep.cs",
+      "SHA256": "FE228BEAD539D6105CE4EFCEAEBD0A529F00125CE797A5AA342F745D415FB359"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCaptainPrep.cs.meta",
+      "SHA256": "ADE4E826A5223D972FB26880E9BA02F4DAD9B8596AF5C9D32F9AF2D51BB4D497"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCapture.cs",
+      "SHA256": "1361A82AAFD1B90B35332139E8D64495462842570BCA738E49B00D57AD3F848C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCapture.cs.meta",
+      "SHA256": "A88402369B0460F58B6B154E8846E4580AC5363457FCD41C5DBD29BD7012EE5A"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCatchRewards.cs",
+      "SHA256": "4608BFDB5E0A1BD4DA8A6CC99FF6A21A1A626537CDA504D21A2A340F6A3E8951"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCatchRewards.cs.meta",
+      "SHA256": "A6A659EB7BE393B04801B7DE2FCF685890C24D10EC90629289B8D38A238D06D0"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageChart.cs",
+      "SHA256": "2A1C2899D62DA9CFA6DB064284395B6A5178BAD63464FBB6BC3FDE9A5C03B2F1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageChart.cs.meta",
+      "SHA256": "895EA199AA088CB55DF7606E02AD7956B700C9BFD66914EFB3C1731580111B5D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCompactFisher.cs",
+      "SHA256": "841496C43F5DFDCCC927FCC32387FF951714B7A82A1635D3FD18EF2072A85AAC"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCompactFisher.cs.meta",
+      "SHA256": "904220E2BAA395287ADA3B48A6359A28CF05BB67E48C1324C77D03BC634129E9"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewBait.cs",
+      "SHA256": "F88EC68A689D05BC967C5FDB7AE907F0807414EF5DA5EA5AB79E6378010843AD"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewBait.cs.meta",
+      "SHA256": "AF1A370386F193CD91F6E416D698FB97BE28FDE3B21911F520C7B89FB1CC89B4"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewCounters.cs",
+      "SHA256": "684F2E0E0C14C09574C4BAA1B7AA9915BDEDBB4EA7B8BE6207DA6B5233F7CE7E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewCounters.cs.meta",
+      "SHA256": "DB7E7C97308E14C96DA75246EDB6BD51E9593AB72A2B402F19610AA114335943"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewFallback.cs",
+      "SHA256": "E968375709A6F3EF3B75B515EF0A2C035AAB512A6975DB645D4C1BBE472D86BB"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewFallback.cs.meta",
+      "SHA256": "05B491FBA5A832E76F232985E3AB4DFA29D84B037D32D1152AC113348F990A75"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewLife.cs",
+      "SHA256": "837EA7C57F0C32A3824160D9691F76FEEAD25C9A165757F97A226062B2C9A666"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageCrewLife.cs.meta",
+      "SHA256": "CFD4E986D74B2AD2B330AB4F8DAB4E22BFB3DD135D41FD495A58C2BBC6AE95A1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageDeepLines.cs",
+      "SHA256": "1B3440C713E09378F82A19AC3242A5EAF7E1EAA20D8DA29507E5BF7188D4ED08"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageDeepLines.cs.meta",
+      "SHA256": "B09E901869E0A9E5CBCDA126F4D9C976EAAD70245D61F71FB29197C2BB26F9EF"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageDeparture.cs",
+      "SHA256": "C858B5CC7AD555B09261F4B79DF467A9A138203BAC2173BAD87C287A22CC76DE"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageDeparture.cs.meta",
+      "SHA256": "3C2B1F1C48AB2B014E4E7366000FA15A40AC12E22F91B2DE946CD24A03FA15BD"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageFeedback.cs",
+      "SHA256": "220F42EDF5408414E15C5EA476B0CC8D71EC8F8A2DDDF96CD520953BEEFF571B"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageFeedback.cs.meta",
+      "SHA256": "616412AA77AF46EADE728FC4483AB7FF5EE3F4F57A3DFC8932DC23677C1185E2"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageGame.cs",
+      "SHA256": "9FB2BEECA69E354EDE18DCEE7E30BC457FFACD4F3BA73B678128C4D7373626EA"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageGame.cs.meta",
+      "SHA256": "7CED585098415CA6AE43E0609EDB05705E1E594F12A03F9A0AA1F17C1420E99F"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageHaul.cs",
+      "SHA256": "8A7D230B59A20E501F615539BDC1B91DAB58E5A6BA88FFB3DB93E41D41FD339F"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageHaul.cs.meta",
+      "SHA256": "4C6C44CAB08BF72B75AAE4ADDD00F69A571167FFFF594DF0EA14BEB9220E92C9"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageHud.cs",
+      "SHA256": "BB971450AB305C5C83A98AAFB14D793D9CA17AFE6FAD3498D101E49D69B014F1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageHud.cs.meta",
+      "SHA256": "07DBE51080C7B40978AE7B4DE6FEB17C443A5A40927AFB8867AF958DD15A1D17"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageIllustratedChart.cs",
+      "SHA256": "6504E0A20F4691C838132C866073A872DC7883116B8856315D43FC2F5E12DF5C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageIllustratedChart.cs.meta",
+      "SHA256": "39AD281D311F13D2548727B6117C116E4BC654B1915FD3C88B949FB730B724CC"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterface.cs",
+      "SHA256": "429873E28DB2B1D5B54C0952B07F0257DB9CE2605110DAD0400E00B5CAE3521D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterface.cs.meta",
+      "SHA256": "696F9D4E87AF48897AE651FFF088A08CEFA44E77B21C946E692CA5BCAF4F08DE"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceCrew.cs",
+      "SHA256": "9D028210337EBA4D52DBA22CEFB0E0B7022E0089ED4C48A74DCEBDE94C1CFE07"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceCrew.cs.meta",
+      "SHA256": "3863B9DFDE9ECF2A31E48AEDF10F94B08C83005EA7789D8B074E14A140016C2D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceGoals.cs",
+      "SHA256": "843C97F8C2F0E92234C3E34B19AA911BD263B442D0BE9EDFA5141A5B0A20F7D7"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceGoals.cs.meta",
+      "SHA256": "1FF9CE1F4200003393D93C5C33846936A104602157B6B5E6C1A74CF0C2E428D5"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceShop.cs",
+      "SHA256": "712D82E782EE2CC8130D2EB4DDA6F1DEF8A5CBE1F162927B5284187ACFF19CAD"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageInterfaceShop.cs.meta",
+      "SHA256": "26539FF71B1CED2AD251CFD7FDCAFD0687FF1E777B2E848E91DD023444D50173"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagement.cs",
+      "SHA256": "8FD32F40DD66F076C2821ACAF33CF523D4A7C9EBDE1518815B728010B9F3717D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagement.cs.meta",
+      "SHA256": "6BDE025262CA771A51CE860A0FDBBAB725B1F97B5F088E578FE58E166010D998"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagementCapture.cs",
+      "SHA256": "F3716910116974F5002D3A48E350BD9D68B539448FD94DB51A3D2F014E1D3AA6"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagementCapture.cs.meta",
+      "SHA256": "D9A1C9E5585873560D3D6BD847FE486A915AC8F2E917397792A3CC7779DD8BBF"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagementForecast.cs",
+      "SHA256": "CD0AD3988698E18B36F25096910F0F9B3A2F78E49FF2C937D241D6D3861A6EC2"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageManagementForecast.cs.meta",
+      "SHA256": "6065ECE292968879B49FED983A66BF51F10CFD30A42C7D9A47C00C6BDC661393"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageMenus.cs",
+      "SHA256": "E85BFB7D7995EFD771BBB5AC549A2F1B33B36A13A849716816371625D9CED74A"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageMenus.cs.meta",
+      "SHA256": "7C8A25ED6639EB61DA3149B08C93B1D862CE39A4627926D0A78C4663F75A264F"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNet.cs",
+      "SHA256": "AB8401B34D67FF54996D9CDC9430418D2CB2AC803D71131B43C7089B3268BE8E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNet.cs.meta",
+      "SHA256": "C7F66BDAA7747521B570B628B1BF5DC111D98078FCDB27E84422A2530A86059D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetGame.cs",
+      "SHA256": "AB896CB460CAFC08011BDE95B600207330FAFCE2F098CA33F027BDAE51F76992"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetGame.cs.meta",
+      "SHA256": "5C55DD58ADB4339B9D58B89CB379DEC5C79C77750779062563AF6DD55852C47B"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetInterface.cs",
+      "SHA256": "D532F7480AA969BF4E0C5332702D9C07F790CFF2B51E6C7473CFF92A14AD3535"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetInterface.cs.meta",
+      "SHA256": "BB00B51717D5E4A7BC9E66415AB404115AECA352FEEAF1D2DE2E281D01FC45FB"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetLoadout.cs",
+      "SHA256": "1CAFA7AE79CAD90DD2CC5B7223CC757AA745EB4B3B13E21BCB43869ECA1FF8DD"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetLoadout.cs.meta",
+      "SHA256": "8BCF7805487E49EE0DADDEF538E0034794C0ED364208CEAE43F10B6EF78ACA2E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetUnload.cs",
+      "SHA256": "82DECAF15ABBC38453B31C72D49008B39443F1B7F2A299F974EBA8EC2EAABA14"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageNetUnload.cs.meta",
+      "SHA256": "9C3ED1E74786097C2BE2D725E041B6FB735F62DE0B96A48E9731D9D44F5EA11D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepFisher.cs",
+      "SHA256": "98D71282658886457C41461BC88A1A78EB16CEFF24090CD9D07EB2C7A94FB734"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepFisher.cs.meta",
+      "SHA256": "4CF350B272D900A5C4CB4137D54C80832BC4CC2B7513249C0C884BD175CF7111"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepOrders.cs",
+      "SHA256": "434B7510614708AE59FB7F9E91688D45E24263660E880119726FB584BB25E9D3"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepOrders.cs.meta",
+      "SHA256": "BC807AF648248A0262DC3CE123123CB9F9FCE86D74BE87751E645AEC6586F9F3"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepRarityCapture.cs",
+      "SHA256": "2040BD96F2ADDBCC01B0A3511699EC1211C3056A7651C8236BECDE28D12C4A77"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyagePrepRarityCapture.cs.meta",
+      "SHA256": "1C4268EB5C20842FB7F7EC30AF932869897F9675B0DB396FA95330C04FA30190"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageProcessingPipeline.cs",
+      "SHA256": "68928801E6A72908FF9341E80800189C375D2A4E077DC2A615B0A52A59BED799"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageProcessingPipeline.cs.meta",
+      "SHA256": "4C23BC6A8323EE800E00F07B746589074B1E144FF1013D01B1BDE967003F6259"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageScenery.cs",
+      "SHA256": "2E9D6B63D89FAE66DD9EEA7E87151C4B01CB7381C9029EEFE85A071D344CC7DE"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageScenery.cs.meta",
+      "SHA256": "C6708FC4F4614D78A7200A38A502CA39A08E35EEDF4EFD2C8994233AE0C6864E"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageSeaLayout.cs",
+      "SHA256": "53084E7EE0AAEFD4A6D6A6E9DA6B927146E757A114D1CD06E73285BF367951A1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageSeaLayout.cs.meta",
+      "SHA256": "D41121989BB3D193BA0C8CBC9B115530A0D87BFCED8D71A7440FC40F28AD3AC0"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageSecondNetModule.cs",
+      "SHA256": "504421B17787F257D4719174E9345C0571775225F593A6DAF59A20343321BE6C"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageSecondNetModule.cs.meta",
+      "SHA256": "A02EBFFB0FA991491B365101FD85845A7601C97CC7265D2A104843A0E9A26BF8"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageStorage.cs",
+      "SHA256": "6336441635FFD0E858428F09C93E9458532F825965E7FB47CC679470A3D0C0F9"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageStorage.cs.meta",
+      "SHA256": "353964B66C59171FEF2FBF61F2BD2C6C601DEC1AC75603AF6CF31557E5FE890B"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageTier5.cs",
+      "SHA256": "FEE0FBBC50AB870224C999E675B599716EFEFE83DCB789FC5B43DCA5240A04B1"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageTier5.cs.meta",
+      "SHA256": "83BE0BFFBB9A0A1485EE53FBE54A355D06D52445EA65CEECCDE82BFC2C13D6CF"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageTier5Capture.cs",
+      "SHA256": "1A8F53BB3863378F10FCE84A03173A8A7CAF1E67B639F9E9BC911D36D1859A4D"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageTier5Capture.cs.meta",
+      "SHA256": "F398FC77BC90C364CCD0EDC97D8B019811DE8C73F24F61F7CAA5A0595B2A0D95"
+    },
+    {
+      "File": "Assets\\Scripts\\Game\\VoyageTravel.cs",
+      "SHA256": "72AC82BC8B3D45C3CBCC60616E6B34936106602D6C7AC7A8A9E91DE43C498D92"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Clickable.cs",
+      "SHA256": "99EFB02E82D95E50B5D139E93214B88AF5EB6C7CB7D728B27F6CE0CCD2CDEEA5"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Clickable.cs.meta",
+      "SHA256": "6EA4CF18C602063B096A4E86B7FFBFE95999CDB80334E2272F93869D7381AD35"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\DeckGrid.cs",
+      "SHA256": "C8256DCF166958E0C6CA9047A8A0956EFD61071082353AC00D9914F09C0DB2B7"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\DeckGrid.cs.meta",
+      "SHA256": "0D365FB779D41383894B66E81B5CDAB2DA5097DE3F342614A140A441D291715F"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\DeckPrototype.cs",
+      "SHA256": "6EE00B1122E31E16E1D15CABC55F94F549366996DD1B0DB2F9F8739E6A9BC13E"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\DeckPrototype.cs.meta",
+      "SHA256": "9BB8C05B68F1A861455F9F548292B2CF5F88ABE5066B30D952B34369E8E3BDE1"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\ItemBuffer.cs",
+      "SHA256": "94942B2B0FB2796BEB4F45C041249083077D861031CAC95A1E493E93B213F054"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\ItemBuffer.cs.meta",
+      "SHA256": "F54DFC09F8B7430E7CFB36464D5893FE6434325929DD6BBBECF4D118FDFA5723"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Items.cs",
+      "SHA256": "BDF8658F29332F0FEEA6A312BDC2BF14C09D05753F8BAD0071323EE1869C7562"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Items.cs.meta",
+      "SHA256": "6DD7CD1E2E699FCA0C61F62B466A000889C13470764138B24738695AFE116D1F"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Station.cs",
+      "SHA256": "AF2DF14F54EAA296FFCB8475D07CCC1B8082FC6B2B3BECEF2EC9A25CFFC6B6BB"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Station.cs.meta",
+      "SHA256": "E6093C366BF27D840215124D25110A6CB8FFC6BDBDB49FE49EDD3C7F83653AD2"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Visuals.cs",
+      "SHA256": "C3E4D34B038A379AA8CAE160901CC7B25AE397BEE1B0B659ED221B8F1B732BFF"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Visuals.cs.meta",
+      "SHA256": "7D8D31046059C6FF1332B28AA6928C2C68180C629D3FC52000F458D38F4EB85E"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Worker.cs",
+      "SHA256": "674E6DF8E746AC8F667747E1D37F7A347451B634E7FC24F565DE41A5BB4BBDD2"
+    },
+    {
+      "File": "Assets\\Scripts\\Prototype\\Worker.cs.meta",
+      "SHA256": "E5EE6AC41E50CB30AD1896A27A3055F32322426BE0FACD6BFD3A0D1DF1FBBDFD"
+    },
+    {
+      "File": "Assets\\Editor\\ArtImport.cs",
+      "SHA256": "DE529AD5A17C38042DC232079E9A0345A00E5CEA10B4AA6232E5469156079D1C"
+    },
+    {
+      "File": "Assets\\Editor\\ArtImport.cs.meta",
+      "SHA256": "8C3B0375894CFA4D57787DF431558B52E30919187509E95300D4EF8B2EFA49A6"
+    },
+    {
+      "File": "Assets\\Editor\\Balance045Checks.cs",
+      "SHA256": "CCE92E3E88ED8D1F2B6FA01E7015B0737BFCEEC6C361915B0E6FCDA3AC8EB45A"
+    },
+    {
+      "File": "Assets\\Editor\\Balance045Checks.cs.meta",
+      "SHA256": "56BE9711B4CB0FF2D3C349CF4AAB5CE3B8B74EEA6B0595B23F819CF8153E6092"
+    },
+    {
+      "File": "Assets\\Editor\\BigCommonFishChecks.cs",
+      "SHA256": "1CFD9F2BCD40C27F82214F3E4B9A15ADCF5726F9B10258848666C46640ACDF5B"
+    },
+    {
+      "File": "Assets\\Editor\\BigCommonFishChecks.cs.meta",
+      "SHA256": "A61716A80DB73055C2BCCE4462EC31459C84EB4A6956DF835A3949DF592924E3"
+    },
+    {
+      "File": "Assets\\Editor\\CatchRewardChecks.cs",
+      "SHA256": "AB0920D9D8D51FCF47341AAE3C295A2CC446B44DFCF76C652D9FAF4BE0223211"
+    },
+    {
+      "File": "Assets\\Editor\\CatchRewardChecks.cs.meta",
+      "SHA256": "EC60A87B4BBCFB46C00431B36151DD3A5F7ED85D08C979F118DBF7FF535D70B3"
+    },
+    {
+      "File": "Assets\\Editor\\ChartChecks.cs",
+      "SHA256": "D49723BEE79DA218FBA88E559D4933CF96C3943B049A05111D6EAA0A74D349BC"
+    },
+    {
+      "File": "Assets\\Editor\\ChartChecks.cs.meta",
+      "SHA256": "864A02E6A23C0F06481057F2F9FE97438CC1C3EF0D282A48593508E0318722F0"
+    },
+    {
+      "File": "Assets\\Editor\\ChartPresentationChecks.cs",
+      "SHA256": "AEA3E09510D5939E00CCC06EB8C5D5C8883E2B5BD3BEE8E9B0C20C8790ED2FC6"
+    },
+    {
+      "File": "Assets\\Editor\\ChartPresentationChecks.cs.meta",
+      "SHA256": "51195720234BACA52044DE738EE0912F6E23AF39380A8BE287360AA1AE76649F"
+    },
+    {
+      "File": "Assets\\Editor\\CoastalPolishChecks.cs",
+      "SHA256": "00071A4F85E233B42D6EB3C1E6937948BF4DE2F2E7AD57FED1E7BD2044B08E4E"
+    },
+    {
+      "File": "Assets\\Editor\\CompactFisherChecks.cs",
+      "SHA256": "6E382E1FCF34732979C1AC7C2967E870FFCE91BD0DBE6EE0BD790375442A7FBE"
+    },
+    {
+      "File": "Assets\\Editor\\CompactFisherChecks.cs.meta",
+      "SHA256": "E71595447ABE8454FD73816A8112109216C65B9B0861D85D345290314164BDB6"
+    },
+    {
+      "File": "Assets\\Editor\\CrewCounterChecks.cs",
+      "SHA256": "0E63E500EE6B91544363A4E39047BED0EE97479ADB0D68E622E10A9F2EC04D8C"
+    },
+    {
+      "File": "Assets\\Editor\\CrewCounterChecks.cs.meta",
+      "SHA256": "304B5AEF1934DCEEDD64B12294B30AB9A4F9EA623AEE845FB2A1E6CF3EAEBCDD"
+    },
+    {
+      "File": "Assets\\Editor\\CrewPolishChecks.cs",
+      "SHA256": "F2F943069AF3B6DB289A8B800F9C21EC92AF3A13087E5BF1005B016A25FCDED0"
+    },
+    {
+      "File": "Assets\\Editor\\CrewPolishChecks.cs.meta",
+      "SHA256": "59DD64B8AF8357D65DB729A6B4E8C3A76D4881A02F7435897EE879611EF1D712"
+    },
+    {
+      "File": "Assets\\Editor\\DashboardChecks.cs",
+      "SHA256": "20B982295B04082CC33D2C0AFFD0A9E77CBD701588D60787C68F099931379A85"
+    },
+    {
+      "File": "Assets\\Editor\\DashboardChecks.cs.meta",
+      "SHA256": "186905ABAA6679CA59E2C7E612D61DE763741FDCC3A3540694820B3085D49FB6"
+    },
+    {
+      "File": "Assets\\Editor\\DashboardMathChecks.cs",
+      "SHA256": "FA9E51EFD5FB836D970D3239ABA5A496C1F208B86E644C8BE563AFA48E934F35"
+    },
+    {
+      "File": "Assets\\Editor\\DashboardMathChecks.cs.meta",
+      "SHA256": "5E28053BF70CF63606A8C1E926488D42E7644B9799F4D8AA5F83F26C730ABDFB"
+    },
+    {
+      "File": "Assets\\Editor\\DeepLine104Checks.cs",
+      "SHA256": "8C890CCC9FF9203813B53004C830643CEA03B796F6D4ED25F7CBCAA7D3CE0805"
+    },
+    {
+      "File": "Assets\\Editor\\DeepLine104Checks.cs.meta",
+      "SHA256": "9CF53EA461B73666FCB64D089A16B4998757E4AF88644E25088D135F2BE97D98"
+    },
+    {
+      "File": "Assets\\Editor\\FirstVoyageChecks.cs",
+      "SHA256": "7D08064176DA29F7A421EBB2559CA129F5E163762FA2DAE7BD4FBCA275A6EB45"
+    },
+    {
+      "File": "Assets\\Editor\\FirstVoyageChecks.cs.meta",
+      "SHA256": "487F983AE4994C2C6BA14B6BCF7C804E69E6C2C5A416C0F5C190CDB1A5C9A1FE"
+    },
+    {
+      "File": "Assets\\Editor\\FishArtChecks.cs",
+      "SHA256": "15688A1845B54BD3562CEE61416F7315DA15A5735ACA31B096BCBC3ABAEFBE15"
+    },
+    {
+      "File": "Assets\\Editor\\FishArtChecks.cs.meta",
+      "SHA256": "991480BFF6C28F2A41D1DA6E6122C39BF521798C7E56A593E205A032294F7D47"
+    },
+    {
+      "File": "Assets\\Editor\\FishContentChecks.cs",
+      "SHA256": "FEB747D6AD9F4FBD5501D57583AA4A265664DF47DE84AC417869C98664309725"
+    },
+    {
+      "File": "Assets\\Editor\\FishContentChecks.cs.meta",
+      "SHA256": "6ECBB8C0BF32EDD6812CB785A98F8D38EC27EA40EB1B52E7EAA2800A60CFC6B3"
+    },
+    {
+      "File": "Assets\\Editor\\FisherFeedbackChecks.cs",
+      "SHA256": "DC048FA1BD8A99B4C1A651F384AD67EE1C8DACDE6B6D02ABD7BF6891F7E04513"
+    },
+    {
+      "File": "Assets\\Editor\\FisherFeedbackChecks.cs.meta",
+      "SHA256": "C610F1E93A671C79959703F20B4591A6918E20AF11DAA79337D6DBDB6E5B0041"
+    },
+    {
+      "File": "Assets\\Editor\\FuelDepartureChecks.cs",
+      "SHA256": "3B88CC7CBF7803538C6D667EB9CDE59332D3046FAE7FB5A8352DE7BA09927AC5"
+    },
+    {
+      "File": "Assets\\Editor\\FuelDepartureChecks.cs.meta",
+      "SHA256": "836510241340479EBA8B86982C8A29B4ED2E8B75C312338D2B58901D084B9505"
+    },
+    {
+      "File": "Assets\\Editor\\GeminiUiChecks.cs",
+      "SHA256": "B0916716A2104A66151C03906244A7E5BCADF583C05B850CD8623423A881EB81"
+    },
+    {
+      "File": "Assets\\Editor\\GeminiUiChecks.cs.meta",
+      "SHA256": "F754D0D376959B51C30BBE1F7234F238079CB25E741F246B07F1D1E144B58A45"
+    },
+    {
+      "File": "Assets\\Editor\\HandlingPaceChecks.cs",
+      "SHA256": "8253426F8A9ABFC1BA70BDEE1938C233C0BCF5DA358968EC1EC6648C8422DA0F"
+    },
+    {
+      "File": "Assets\\Editor\\HandlingPaceChecks.cs.meta",
+      "SHA256": "9DE8C194D0A657CC2A8225B4BBC9D0B6945A1AEF0EE8FD1DE41667233371083C"
+    },
+    {
+      "File": "Assets\\Editor\\InterfaceChecks.cs",
+      "SHA256": "4E5C5133DA3CB63D36C9EC040F69EB9734BBD43A9BA53520C23422A0502F008F"
+    },
+    {
+      "File": "Assets\\Editor\\InterfaceChecks.cs.meta",
+      "SHA256": "8A8773E0E363364E14FBD49B70F7472E16681B6054894FCEA49234DF5814B3D2"
+    },
+    {
+      "File": "Assets\\Editor\\ManagementChecks.cs",
+      "SHA256": "56F21657C47862D2260670926EB2FCA73FE7118F03306A32CB3A1BD929D9E784"
+    },
+    {
+      "File": "Assets\\Editor\\ManagementChecks.cs.meta",
+      "SHA256": "1B951B1C61B970FB8A5849E0ACB867C9C15188DA386998EB58C8EBFA8DBC50BE"
+    },
+    {
+      "File": "Assets\\Editor\\MenuSystemChecks.cs",
+      "SHA256": "EBD544148B310328A981304F58C5AE115FBC52D4E78573AE2B670D3604125502"
+    },
+    {
+      "File": "Assets\\Editor\\NetChoiceChecks.cs",
+      "SHA256": "B60997ACE07CC7903A4A70E3476A1B2F47BDDD4840999ED4A2B81663C24F6086"
+    },
+    {
+      "File": "Assets\\Editor\\NetChoiceChecks.cs.meta",
+      "SHA256": "E2F81A71F5948FB1EF8D310C0E4EB4CC2794A38A1E6838A17CB974F8B69B6D18"
+    },
+    {
+      "File": "Assets\\Editor\\NetEconomyChecks.cs",
+      "SHA256": "39D4175E171A72A30911CF350D9975BCBBF0F8E9B4F0689DDFB861F2C451E1DD"
+    },
+    {
+      "File": "Assets\\Editor\\NetEconomyChecks.cs.meta",
+      "SHA256": "48AA53B6C5D10C5B46AAC5F57CA2BD38FEAD4A10C68FAF833BFE146B725EB97D"
+    },
+    {
+      "File": "Assets\\Editor\\NetHaulChecks.cs",
+      "SHA256": "C459EAA5FFCD11B2CE5EA61B8069226BEC7FD73063382A66B4869859E0328023"
+    },
+    {
+      "File": "Assets\\Editor\\NetHaulChecks.cs.meta",
+      "SHA256": "511F1F488873802E30555F45D8E4B867280314448569288C8836411899FA02EF"
+    },
+    {
+      "File": "Assets\\Editor\\NetPlayChecks.cs",
+      "SHA256": "DCBAC4EC8CD8BE221AB776F99B04D2AEB54A35D08575BC227ED6AD3FB8EF2D8C"
+    },
+    {
+      "File": "Assets\\Editor\\NetPlayChecks.cs.meta",
+      "SHA256": "6155232BFC8F9E948D908B4B7B17C301D7B400A31B4D31C82656A693963D618F"
+    },
+    {
+      "File": "Assets\\Editor\\PlaytestReady.cs",
+      "SHA256": "32354118E22009E36DCE6AABED9F8DC6D085B888656694F45909370ED7476B9C"
+    },
+    {
+      "File": "Assets\\Editor\\PlaytestReady.cs.meta",
+      "SHA256": "E96F8D98C23495AD76858CA7B801B538939D15A20862D27F01BC2E9EE9944FE9"
+    },
+    {
+      "File": "Assets\\Editor\\PrepFisherChecks.cs",
+      "SHA256": "EB93E7421471D939CB48CE38A671E3B6317AA43E3F30083CAB977E510B195BEB"
+    },
+    {
+      "File": "Assets\\Editor\\PrepFisherChecks.cs.meta",
+      "SHA256": "1F6DB714BAD81F8267248F15E0B11EB1A55866CF6757046A72899DA29DC27B95"
+    },
+    {
+      "File": "Assets\\Editor\\PrepOrdersChecks.cs",
+      "SHA256": "A2EC6A1F1F9DD3460019CAC9C316884C86B3A5BAFD43C81AC0930ED4C3FA38C0"
+    },
+    {
+      "File": "Assets\\Editor\\PrepOrdersChecks.cs.meta",
+      "SHA256": "609371A38AA2F550D584AF14A279C959DF99B1A12EAA8C5468E4E9A0A5B78288"
+    },
+    {
+      "File": "Assets\\Editor\\PrepRarityChecks.cs",
+      "SHA256": "79590A4EBD6B6ADC499313BF52B11BCD266E7E8627C329C04500245F5F547361"
+    },
+    {
+      "File": "Assets\\Editor\\PrepRarityChecks.cs.meta",
+      "SHA256": "445B2484CF2D108588CF4BDFAF40B46D972029EB298658490961C009E9281B10"
+    },
+    {
+      "File": "Assets\\Editor\\PreviewSetupChecks.cs",
+      "SHA256": "E5AAA8310B85F64416F4F51A7419742C09C4A6A42A4BE99930D9142183B58C1F"
+    },
+    {
+      "File": "Assets\\Editor\\PreviewSetupChecks.cs.meta",
+      "SHA256": "1D0344657ED44B6215DF34DABFC1C549773D817DA17509AFDEB12D50A5A61DDB"
+    },
+    {
+      "File": "Assets\\Editor\\ProgressionLaunchChecks.cs",
+      "SHA256": "1431AA0DCDE505263D02CABCA9DC81606BFFB9B4BA2DFD3DD238241DD6E4223B"
+    },
+    {
+      "File": "Assets\\Editor\\ProgressionLaunchChecks.cs.meta",
+      "SHA256": "906AB30721930034E828A71223ADBD07B96FA98EFAD0E1822258AB6FBD6F7265"
+    },
+    {
+      "File": "Assets\\Editor\\PrototypeTools.cs",
+      "SHA256": "B1CBE14D4BC443C063BE5AA4D2FB590C00786B4C22C4EE34DB2AEF5846297668"
+    },
+    {
+      "File": "Assets\\Editor\\PrototypeTools.cs.meta",
+      "SHA256": "670B34276CD91E463DED0DED357A902F05CA357AE4758F6E71F87822207FFA35"
+    },
+    {
+      "File": "Assets\\Editor\\PtsWaterChecks.cs",
+      "SHA256": "297F97E2D3C327B57A0AFB730D6E34FCB24FA03387502A0A07102BD9DB6746FF"
+    },
+    {
+      "File": "Assets\\Editor\\ReferenceHudChecks.cs",
+      "SHA256": "C262591A34FEEE124F9D575865328BDD3B8961CD8D3E23A73EC0B1AB6AAA1184"
+    },
+    {
+      "File": "Assets\\Editor\\ReferenceHudChecks.cs.meta",
+      "SHA256": "A3AA58873C1BA1A2BF441B6B210888B093D90CAC7249B0C2649B0DAA2649C80A"
+    },
+    {
+      "File": "Assets\\Editor\\SalePayoutChecks.cs",
+      "SHA256": "A00DFC908D0B058F5900ED07181402B017C65F1EABE712C8ECD4E33A879F6A4B"
+    },
+    {
+      "File": "Assets\\Editor\\SalePayoutChecks.cs.meta",
+      "SHA256": "0975F7D504C7F100F14BC6B157F4839C6D0F579FA5EBCE25A05EABF241B29942"
+    },
+    {
+      "File": "Assets\\Editor\\SeaClearanceChecks.cs",
+      "SHA256": "4BE8A056DCA5461004D52A3072D58E0D0130F0F8074C12C2EC8D5F2F195AB0ED"
+    },
+    {
+      "File": "Assets\\Editor\\SeaClearanceChecks.cs.meta",
+      "SHA256": "F2BBDB204B325683133F0D1A4A79CE5865B4DAA0D3373F879C3EF06D24480987"
+    },
+    {
+      "File": "Assets\\Editor\\SecondNetModuleChecks.cs",
+      "SHA256": "FD75D5DC4C25DE4E413DD38367AB8B24ABCA6AEF4D07FAFD4A6E6EA9BC165255"
+    },
+    {
+      "File": "Assets\\Editor\\SecondNetModuleChecks.cs.meta",
+      "SHA256": "F9FCC1B1AD21ADF3300219E3FB2277DC9DCC91CDC3851B9A9B8C25317DF0F7ED"
+    },
+    {
+      "File": "Assets\\Editor\\SkiffChecks.cs",
+      "SHA256": "5EF4F0D0955B8906685CE7C9D7F04469F56C8C3C8B166B9221199C44CD207B8C"
+    },
+    {
+      "File": "Assets\\Editor\\SkiffChecks.cs.meta",
+      "SHA256": "0F21AE57577380B1AD4564D4C0F32AB342C95A8DF846DCF9CD3058F1484FB8A4"
+    },
+    {
+      "File": "Assets\\Editor\\Tier5Checks.cs",
+      "SHA256": "51C7E4E42365CD2178836D1DD6493E172AA56D03A78C9C5E88B03F37AC2B8620"
+    },
+    {
+      "File": "Assets\\Editor\\Tier5Checks.cs.meta",
+      "SHA256": "C384AD3D3DC29B887C9822EE5E333B70DC49E62D1DA29BF50B18BD3BCB2CB6F2"
+    },
+    {
+      "File": "Assets\\Editor\\UrgentCrewChecks.cs",
+      "SHA256": "BD757CAC0D07066E1479D7570C307A8F8553C87D110EA4F7E5C0AD667A97D569"
+    },
+    {
+      "File": "Assets\\Editor\\UrgentCrewChecks.cs.meta",
+      "SHA256": "49EB320162383D9C7178DD303609F52436E3B4142B5E86390AA1AF16A3165E72"
+    },
+    {
+      "File": "Assets\\Editor\\WeightNetChecks.cs",
+      "SHA256": "7D58B01F20AC927B712D5741DD425183C7244115B4F9584E9DB9A55C0ECF1A5A"
+    },
+    {
+      "File": "Assets\\Editor\\WeightNetChecks.cs.meta",
+      "SHA256": "F9B3DA2C783DB838E8840913101F69732D42D282948B6CEC78DF9538C04FBF03"
+    },
+    {
+      "File": "Assets\\Art\\Models.meta",
+      "SHA256": "49A924DDC2C94D0C05B2917780DB5EB8189E5502B485151349912366374A09E8"
+    },
+    {
+      "File": "Assets\\Art\\Shaders.meta",
+      "SHA256": "81ACA19C0D96436FD58AE80119C2879AC85520A39E57C51D7EFBD2BD7379F44D"
+    },
+    {
+      "File": "Assets\\Art\\Textures.meta",
+      "SHA256": "024A01766E38B669EFA7E9878D511BC5D4EBA27B1506C9AF7A8E86E88C25C2E9"
+    },
+    {
+      "File": "Assets\\Art\\UI.meta",
+      "SHA256": "06ED4AFD918846A1498C3CC176E72A0A38711B32E2F74998E257A8DA575235D0"
+    },
+    {
+      "File": "Assets\\Art\\Water.meta",
+      "SHA256": "FA7526B64B606D0BE618A43FC05224236F6B56562B4A825D67ED9CA03784617E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats.meta",
+      "SHA256": "4F6E9B37B61CAA4C9356C7A41D9ED0562052A58190092490E460846DA550B24A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew.meta",
+      "SHA256": "0EF8A9297562E895D293F4BD0B7C5D1292F8245F2488C9F044A26DD23A604BA6"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps.meta",
+      "SHA256": "F570E86CF105ACFF49AFF0222E4FFBA7A3B79077B84296232989EF6E60D78C2A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment.meta",
+      "SHA256": "D3161F639ADA09BFF249C931FAE2CB15803610CF6D9B99CC3A16C2D3FE2FAB88"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish.meta",
+      "SHA256": "C1BC113BE7943750644F495A0BE0D6D4AF1520D559C36460D6ADD3FA872E0F5F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing.meta",
+      "SHA256": "73BA196274573A2AC4B27EC793B41B1DA91DB61C9BFD2A7430A7C4B4A97681A3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour.meta",
+      "SHA256": "DFD4E873AAACA69FD618B1D18B4F9A15A9B3555B84F25D20CC4811EFAAB17297"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props.meta",
+      "SHA256": "F71B50DF091C9E73BD52BFD2FC9976EC246E756C376DC6D81DDF6BAD4F0F48AC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea.meta",
+      "SHA256": "B1D00AAFF520F2C53557E101DE7449EFAA3A10EFED8D28195F7FE7EA659BA049"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations.meta",
+      "SHA256": "5EFEA7492B5D74F37962E17E7F2E9CF36FA2949230AA86CBD62D5C22501EF115"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\CompactFisherV1.fbx",
+      "SHA256": "DBE3474208EF7C3C83CFD4792D8DEE3DB9D5C361536FE4A4179C44945D756822"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\CompactFisherV1.fbx.meta",
+      "SHA256": "F0D3C2B4BE2816A659637FFA484E9232A99F04BB1FAC847EBFF047070FB66D19"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\CompactFisherV1.placements.json",
+      "SHA256": "091EFF0B02F824A912B1A6413C0322CE37B1A5A0B5971222025B7989F155DF3C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\CompactFisherV1.placements.json.meta",
+      "SHA256": "24BD9C168BF73F2D91A4A1BBE42819EE1811A105E2C3CED422162FD23D5F1728"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\DayBoat.fbx",
+      "SHA256": "25A5737D5530AB01D7E404EBB46FC8AE26667ED544D3A007C92B1B2B4B7AF047"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\DayBoat.fbx.meta",
+      "SHA256": "B92E4CDB841901CBD67E73DA98C1343CC5F5D65D74818C4392A62C65E21263D1"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Outboard_Small.fbx",
+      "SHA256": "0023B8961F1A1A59635A49FCBE733B21E3CD7D17B6A2D44F2789FD5DA7867495"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Outboard_Small.fbx.meta",
+      "SHA256": "8C46F5381C82456AB0A9AFD77F8511898A2BA7EEABE1284F37EB383BAA4C2C3E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\PrepFisherV1.fbx",
+      "SHA256": "5E7CA921E2E661A57CE71D442B2AEBB710184A721023B75CEE3182C76485B099"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\PrepFisherV1.fbx.meta",
+      "SHA256": "65FFA1A6EDECAEDB12CDB2CC5BB8DFDCC5A65962EACE11A9727A9E09977FEA2E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\PrepFisherV1.placements.json",
+      "SHA256": "A8111743FDBD006976B1FD465EB50DF290556D66832A47AB4C1FEC5D0B72B644"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\PrepFisherV1.placements.json.meta",
+      "SHA256": "C83FEB44FB4C2EF34BC34C925F4FCAB158979F029A870E0538E3EF8AE557FF01"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Rowboat.fbx",
+      "SHA256": "383EB68E58A725DF9CE51E134F75CD030EDC5F865AF0A4CFB111FC2B16D605A3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Rowboat.fbx.meta",
+      "SHA256": "E4E0DED72D66B3DD71ED0B07EF277ECC5DFA3385ABDA7334B35C0C8DFCB23709"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Skiff.fbx",
+      "SHA256": "174076B3CA2D4EBA0FA2C3D0D056A701FAD04FC0F1A2C5150D48CDC4ACB06D24"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Skiff.fbx.meta",
+      "SHA256": "42FA2E54EB22B3D27A5B77BF723884F44D8DA33A79860EF65A580A2BE5A04739"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5DeepLineRig103.fbx",
+      "SHA256": "6997AB694FD8A689948418F33C4C1DBD852655216303729FE9880D052DE8C0C5"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5DeepLineRig103.fbx.meta",
+      "SHA256": "B91F270B680279BA76141452905C829E66AE789C4CEB1F34FA763860CD16D228"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5DeepLines103.fbx",
+      "SHA256": "E25E0E3D49F3CAAEB2BBCB4DCC68E09B83CC671F79E7298B9A3CFBF2B69C23AE"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5DeepLines103.fbx.meta",
+      "SHA256": "E00E038F55E8FE0A7278614C40A2333872287F3359313DF3296030501C2BF72E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5FisherV1.fbx",
+      "SHA256": "31C473667F0DD06EFD53A8C8DBE2575D1199B967951524A731D0118FFAA2A715"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Boats\\Tier5FisherV1.fbx.meta",
+      "SHA256": "8831AD8B410D6B149F62AE40AAD5A4C96E645B09693E1A12BC4B9160B0039F68"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CaptainCap.fbx",
+      "SHA256": "AF705CE5FC3ACF22508F38620764B8095911F53104DF96FDFB73BB8B18A39055"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CaptainCap.fbx.meta",
+      "SHA256": "C939E63DDDF4958B1FBD8AE824A301512830EE72B7340903534587BDCB255A81"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CrewBody.fbx",
+      "SHA256": "E26D96950CF7014723172245A0E50804E698BB2F9F273DE38B89EF4A39E3B5ED"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CrewBody.fbx.meta",
+      "SHA256": "86C4CB9BB23B8FF7723FEBEC3C1BBD59B12EE96F663025964053D43C4D3C8FD0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CrewRig.fbx",
+      "SHA256": "C7D338CD9C3614AEE6F4833512F5A399EB1E86629AC5F9C2D7D4392F8BE25838"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\CrewRig.fbx.meta",
+      "SHA256": "B013256D4842C0363F0685EDA280A3CFF5FD6592585EDB5C29ABB2FE25CD084F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\DeckhandBeanie.fbx",
+      "SHA256": "042DCAFF2804AEA16318B743D3F43E2A0461F468B4C09D8BD3083755A6EE1392"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\DeckhandBeanie.fbx.meta",
+      "SHA256": "2F2373B9658E07C179EA9FEBB7F45F1C75DDF29B4C9B095AA3F532BC812B26E0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\OilskinHood.fbx",
+      "SHA256": "4727ABB67C859E5A9D27541649B3951C02E5AED957DCEF46FA7FBE84922146A5"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Crew\\OilskinHood.fbx.meta",
+      "SHA256": "9DB3A60A66CF91CCAB8B4BDA3EB278374C2D64AE3788742BC2837A62E1F8F59B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BaitBucket.fbx",
+      "SHA256": "7D01DCC1A5068D18393B52633D21847E8989AA67E6F82E7ADCE6D1804D3606DC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BaitBucket.fbx.meta",
+      "SHA256": "F32A5CFC7B0ACB0B5199CDFB6EBEA18D68A4BC433E605D7387AAD4618D6C2005"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BigCooler.fbx",
+      "SHA256": "9B2677F3A82446CC6B3D39E34DB6257751A88926E69458D87883295FF48E5873"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BigCooler.fbx.meta",
+      "SHA256": "802663D2D1124FB881A98E80B38394021942C9ACEBAC084054010BEE9244873E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BigIceBox.fbx",
+      "SHA256": "2A7934DACF748978194B3B4824AB5D5D4513D3FD254454CB984FE83DC22EE424"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\BigIceBox.fbx.meta",
+      "SHA256": "B49BF78FF95254D19578DADE1824174ECA854991ED42C7E53DBA00E475F3ED8E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Cooler.fbx",
+      "SHA256": "DF65D52BD364664C7708C956EBF10E49338ADE1752E67ED2A2F6AE9ADC041759"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Cooler.fbx.meta",
+      "SHA256": "DDEE37E2017536163830F22F3BBC2B604B492DEA219991BC4861FF741E75B8F3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Fender.fbx",
+      "SHA256": "D41ABE2FFEF256AD9AFDCCE9C123BA4A90EE4E6BC768A45448D36C35A7750589"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Fender.fbx.meta",
+      "SHA256": "CB59EF618F7F074131F69911BF27DA6DE9811CCDAB2319F56901EB21FC59C2C2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FishingRod_Carbon.fbx",
+      "SHA256": "F92E20F03FBF05B2359FB5F4356A95D1E0AE3608B6678C7F6ABBA6F5D4B234B2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FishingRod_Carbon.fbx.meta",
+      "SHA256": "407E9213E7E37B21B1AF6B2A7750058E32A09EF7C073D49F6B2D702F0D382D7F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FishingRod_Fibreglass.fbx",
+      "SHA256": "7DF9502B18263C3DB30D5FE7B156E46E3DC0E56FAC58EAD1ABE1B570EC1F62FD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FishingRod_Fibreglass.fbx.meta",
+      "SHA256": "F190D08040B13378295F138A47B06E7252ED37806AB889800AF876CB9003FD05"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FuelCan.fbx",
+      "SHA256": "CB8642F8EAAA81162E0434D661DD4D20386F85299458E7F9B1E8CD6A37FF7EA3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\FuelCan.fbx.meta",
+      "SHA256": "7ABEBD3FAB8FD77C72F03121373BB285465D155306705F66C3F3DB0FD37B1C71"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\IceBox.fbx",
+      "SHA256": "66508A678D03D50A8699879724E4392F9E797D3A981040D64D13DFB86AEAD900"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\IceBox.fbx.meta",
+      "SHA256": "0EED7EB283E8C43D9AB7F5477C81A57DD787294B7C04D4F0E9CEA582EC699980"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Lantern.fbx",
+      "SHA256": "E40C8BB7CCC6F5B4F9CEDB82307AFAEDE5E50622612C5A483AB4C33764BEA387"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\Lantern.fbx.meta",
+      "SHA256": "936306CC9899500E0839A293A6BDF3203F9E5BFD33361B32732CA03F13CF604E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\LunchTin.fbx",
+      "SHA256": "6E182388668CF42E4950439358783F3A7AAFE8F1F9C5F0751C37997F6FB1C123"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\LunchTin.fbx.meta",
+      "SHA256": "1E9504279DFA9FE2E07087249040F1CC1B1F077D095B27D918A255534E6A7010"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\NetBundle.fbx",
+      "SHA256": "667B33DD8A2DBFCCC052062F6375681FC33EB6A9587D973F3099F88A22DE5F86"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\NetBundle.fbx.meta",
+      "SHA256": "20B2560513862B6D420A77A61BB87D22BD9692D8E74C5F685E2E3BDA53D66932"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\RodHolderClamp.fbx",
+      "SHA256": "92DE635728055EC4BCDD4BDABB6D2F20D225C413C4630124B89130025BB5EE9C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\RodHolderClamp.fbx.meta",
+      "SHA256": "C5B53C1C3E9F9C5D17EC6F480879EA33859F2D1CDE2D09FF0C4D928619C2B2C4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\RopeCoil.fbx",
+      "SHA256": "BEE175F3C93B777814195DE96D80F3CBAD7CF3E4FD4CBBD4D4E9DDC947D13785"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\RopeCoil.fbx.meta",
+      "SHA256": "A853CB651ABCA5BAE51C5A819E9BF3D8FAEF8C6340D42D23DB75749D47A2BDCA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\SmallAnchor.fbx",
+      "SHA256": "AC106F42AC536478D602F4B50A5AFC628EA5FF3C8409499E028B2FAFF5D833BD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\SmallAnchor.fbx.meta",
+      "SHA256": "3694A43F266DB7C477243B2DAA85FFFB6AF595A50F6939612005EFD1927C2EFA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\SquidTub.fbx",
+      "SHA256": "9FA8F38FE46702EB5AEA20C64D79CFAFF058696F31E992F650EAF8850C414F20"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\SquidTub.fbx.meta",
+      "SHA256": "0DA75A829E025A2793AFE7973FB0057C235AFB4DC68426F5BD4E9DED0DDAD20C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\TackleBox.fbx",
+      "SHA256": "BA353D35AC8113BD3037DE3094D549739A3BDABAB50B5DDD7DEE116E95765F2D"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\TackleBox.fbx.meta",
+      "SHA256": "12D7382BEFDC086F6E9500BAD3BE914E2D40AB399AD1AF9FFBFC02F62B299325"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\WormTub.fbx",
+      "SHA256": "306FA4B90E2A597C54DC17DF3D14393D969DA1F95D03B556F9324F6CAC185EE2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\DeckProps\\WormTub.fbx.meta",
+      "SHA256": "8B9F78E553E829FB50B7A8112C24BC3A7769664854DC012B0134E45605428AB4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullDeepChannel-placement.json",
+      "SHA256": "5F46FD3162B0C3E191DD93AEE439B2D72EB88006D7FE96195AEAB14536B59F88"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullDeepChannel-placement.json.meta",
+      "SHA256": "591B9EF3786866DAFE5126EDBCBDD3A4F2CB5F74B3BD94C89C6C8B5722237654"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullDeepChannel.fbx",
+      "SHA256": "3470D47FB34C1CCBF9CC2FCFFE5B67239D5A624E646481C762B536EE72A84C00"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullDeepChannel.fbx.meta",
+      "SHA256": "E7344ADD6390C743D7EE9816CC058DF7859E386FB93401AB856B58BE9B5CDBB8"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullHarbourMouth-placement.json",
+      "SHA256": "A9F1AFF8C9B689AFD81A044A59CC111E29851F7D980B64152B8778FA8647E98A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullHarbourMouth-placement.json.meta",
+      "SHA256": "8162F60A9AA8494272F8CE98ADBC146957B7B79B99AE02DA986EA6EEC020A775"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullHarbourMouth.fbx",
+      "SHA256": "6EF5D6C72582C693EB0869524C0E000554F03F7FA147635CE25C2347C792B761"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullHarbourMouth.fbx.meta",
+      "SHA256": "84F27C944619C5FF46EB4B90B40B83D75E7496258657FE7DE6128C4B1576EF5C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullKelpBank-placement.json",
+      "SHA256": "C9EFDB7C8F6CDE386062AB6B2E604493E925D5A008B2820405E0FA3C16498ECE"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullKelpBank-placement.json.meta",
+      "SHA256": "14773F8107431889B419B9805118B819F798AD6A06CD1A144875E4652039BE0F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullKelpBank.fbx",
+      "SHA256": "00B8860A32E8B11481D06E63455D64BA52811DA8EF916A8AA26F5F8D33697998"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullKelpBank.fbx.meta",
+      "SHA256": "BB351F58182F5B94B3408B6D5115ED39E00E080F77B2B1C92C3D411422974988"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullRockyPoint-placement.json",
+      "SHA256": "1E101CB6838840F3EB1860FCAB0CC88C9836229282381C05E01C286B56704A9B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullRockyPoint-placement.json.meta",
+      "SHA256": "45641E42EDD60D2E90BB0FAB4551B342F4EFC5D6B043493D6D3CAB4E2F0E414B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullRockyPoint.fbx",
+      "SHA256": "B42C3CA41A43BA24B1781ADB1EB5BD7DEEC7CB331A03CD5A66E3F51184B465CA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullRockyPoint.fbx.meta",
+      "SHA256": "E7953748B18C06033D64390C7E38B5BAB9738D92D4666BC43D9E0EE22C07210A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullSandbar-placement.json",
+      "SHA256": "EC1B8DBE2AC665B6A38B23AC68B1D5D84BCCECB811E6D2439444C35B168A65CD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullSandbar-placement.json.meta",
+      "SHA256": "1F719846A9BBBA4FA97A57B60D921A614BDD89391DDD766C9262E2D81763E100"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullSandbar.fbx",
+      "SHA256": "E37CFC1D17BDA3E91B0BF497F318FA1A554E866E3E90F67772DEA86B03C348F0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Environment\\GullSandbar.fbx.meta",
+      "SHA256": "7F008547F09EE3397E08359071CA6046DE5377EC4DFBF6FD2E9871A1131B605C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Cod.fbx",
+      "SHA256": "0F4D52A076EB1CA58F9F5B0362AFAE1C669BE54C465A05768194DCC3E739C645"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Cod.fbx.meta",
+      "SHA256": "3EC53D86428C91F483A169EF5A4B1B99C0B6A7E741D8FCF612494BBC86904E0F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\CongerEel.fbx",
+      "SHA256": "66115D29C4D036A2CC27036F8489D07B187B21C42B12D229D5EF863EA2EA2A2F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\CongerEel.fbx.meta",
+      "SHA256": "3AA0D134F30B86F19F0597B2EC19B788276271D41E780A8CF2E41AAAD49495C6"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Herring.fbx",
+      "SHA256": "A4750FA6348ED35759F3D406AFA49C8CD1469F60EADB8E0802F8864A8FE98AAB"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Herring.fbx.meta",
+      "SHA256": "E4FAC538E1F31DE003E40688BF404770A3D090A6EF2D28D8B32958053FEF0244"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Mackerel.fbx",
+      "SHA256": "9FC863B97594A7919251BE547F2EC132B88491DDED8212C024DFD31C5C1FF119"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Mackerel.fbx.meta",
+      "SHA256": "100DC3B1D5AF6428A332CFA06D9BCFD4CB462D27924A91CF7E15466AB699E9DC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Plaice.fbx",
+      "SHA256": "6012AABFAEF6E857E890EFB5155EB7974D1031A48D19971FD78F3009C0E80C5B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Plaice.fbx.meta",
+      "SHA256": "47F7B8ED5CECC9D5D0FF21BF9EACA7E9D3486B5C8B908BC0CDF081B4DA51FB09"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Pollock.fbx",
+      "SHA256": "CD615DDD21A01D3FE916E60CFDDB6CA7E16F3CB6E9A007D311A4B4DC06E3AEA6"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Pollock.fbx.meta",
+      "SHA256": "7E0D3ACEB503521B537CE499F95CC14A4742639EC9207803B52F3C6FFF6E202A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\RedMullet.fbx",
+      "SHA256": "5889F403A73B849437AE6A3B728FE35EA60A8B473B4330DF5793498C641A025F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\RedMullet.fbx.meta",
+      "SHA256": "C34C10424713B8F1316CC53BA3DECC1EFAA156D561E4EF2038FC29B5F99FB1AD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\SeaBass.fbx",
+      "SHA256": "9CF5B6CBA199AAEF1F470EC1C6A4642D6AA744D348C78EF2DC78246A74896AC2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\SeaBass.fbx.meta",
+      "SHA256": "2FBC022CA217F0FBEC4B1EED71339208F6473CCEF8F451D29C9802663452A2F8"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Turbot.fbx",
+      "SHA256": "32F3A353721ED7BCF586DE711C83634EE9272493077AB9127F057BEFE2A2CE44"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Turbot.fbx.meta",
+      "SHA256": "8C379806C38332CEA4667282208130E5BD71EB86F2647B2E51EF1EC645EB494C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Whiting.fbx",
+      "SHA256": "FDD15D97F3C1A4FB09B6F82B37184C1FA3DD9B95080CA4505016F07CFC295D2B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fish\\Whiting.fbx.meta",
+      "SHA256": "A4525C0922A4043DD026630F99012A8506814E97E989A34F1FF5468380FE6F3B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\Bobber.fbx",
+      "SHA256": "A3EE2A2C8ECCB67F021EDD33834B0DE1A16CEC39D3CA0AB8C8DCA1A5D0696BCA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\Bobber.fbx.meta",
+      "SHA256": "02E92E082A3AB42BD21ABB96D163E6DCBF3A1FBA13DF2DBA55BF6A03127EBEEA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\FishingRod.fbx",
+      "SHA256": "086866233A638E84FC3314760CC013E845E5E55FCF24380526AEDBAB8686FB94"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\FishingRod.fbx.meta",
+      "SHA256": "B792D09958AE48F535ED65E67F818754021D5635B20368ADF21518D43A2A381D"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetCoil.fbx",
+      "SHA256": "0FC95377BC3AEC7A57146DB2E4CF3CB196B8016DC4E6FBE06968AD4575BB2F1F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetCoil.fbx.meta",
+      "SHA256": "29D23EDE4E05AD664DB510CE9E24BF8746D7564974B27143EC69DC6A5E98B34E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetFloatLine.fbx",
+      "SHA256": "CBBB73B2636E9D7B9AAE7BB82500BFD0B8511F25A98D82E110DDC591C4854AEE"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetFloatLine.fbx.meta",
+      "SHA256": "EECB505A3B0C7DDE6764528287C6B271B8401270A3257AB52D11B88FD18B3804"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetSection.fbx",
+      "SHA256": "F17B5C5AD6C21DD0526160414DDBC13ED13415A496F58C6E9ADF389BCEC5D6CF"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Fishing\\GillNetSection.fbx.meta",
+      "SHA256": "E2CBB6DF3679D963FE96620B13D4F8816DC9AE14AE23F962C36C69345ED0885C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Barrel.fbx",
+      "SHA256": "77FD70F30BCF260263776F216A891271568D003CD0E5C62488CACFD729DE411D"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Barrel.fbx.meta",
+      "SHA256": "A28A7440B92D0076BA2419623F92845D7E9B0976D49ECF1F921A096FFBF26BC9"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Bench.fbx",
+      "SHA256": "8B8804B2F3B72FEA20174290276AA11568571AECE8A7EB470E376991E8FB0152"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Bench.fbx.meta",
+      "SHA256": "F1D2EC0DB7F38304ED75E18437773AB78E60046A0B0CF6F8610709973E089069"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Bollard.fbx",
+      "SHA256": "4173CC8BF270C7C31FE46DC8C463F63CDDB5A6B597DECA6F227C2D64C5594BD4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Bollard.fbx.meta",
+      "SHA256": "14327D0BB6A4413E2DB2EB9AA11F9282334BE6B1B06A530F59E671BF5EF62194"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockA.fbx",
+      "SHA256": "71E77E230BFBFD2BE3B005FC2A79D4951E9F2D157DCD371466E17E1B6A7BB0A5"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockA.fbx.meta",
+      "SHA256": "1AC0BFFB7BAC4C15AE411F4E75431BACA32D353F9714078A371A0F2407157FCA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockB.fbx",
+      "SHA256": "A2BC0F115B68B6C23A22DC980E6AF4763E6AB3A4B827653EEE874A521DEBA5B4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockB.fbx.meta",
+      "SHA256": "913521F4E55B36218E3D3A6FE7D4DBA96FCE6007A5B170620826463E23DBFDD5"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockC.fbx",
+      "SHA256": "572652DFB152561F97F9D81764ED91C278F5BB8C2C19FF4C168DAF2F232734DC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\BreakwaterRockC.fbx.meta",
+      "SHA256": "A88214654C0D5D787F0CE843A0C27908BFC4F7F3A1C499B9336ADF60CAE3DF7F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\CrabPotStack.fbx",
+      "SHA256": "FABD72F18269F9B963D861B0F57A2C10AC560DEECB08429F11263D32DC13FD8B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\CrabPotStack.fbx.meta",
+      "SHA256": "9C498138684974AD1BCE4C883C50774DB34EB0D3B1DADE8D184335C7D8C7C973"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\CrateStack.fbx",
+      "SHA256": "5FAE338C407092534C1FEA516C50D4A22A6AA6B97DFE9C337B4FE6DA505ACC7C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\CrateStack.fbx.meta",
+      "SHA256": "3F544153808FB333D5027039E95906694D6BBA900BB5457B6B5FE2E6AE5D6144"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\FishCrate.fbx",
+      "SHA256": "D21E192CA2274371992605C499159C55093B9AEA52E02D15865043ACB1CBF733"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\FishCrate.fbx.meta",
+      "SHA256": "FA32D86643A89F9DE49151996031DF3E9D23B2DCCDB37B15C3A1D8CEAF80ECBE"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Gangway.fbx",
+      "SHA256": "617791779561148CF3353B854253957FE3CD2C15E0039D5963FB2608ADBDD168"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Gangway.fbx.meta",
+      "SHA256": "80301D0D9C5EE0D2C7B13E013E146C5EF5BCE057300A12FFC3B7C93DC6F24C3E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HillBackdrop.fbx",
+      "SHA256": "E1327B2D54EB597A80306AD9C2239052EA2469FD9DA0F99DD8736B07BE6B16A6"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HillBackdrop.fbx.meta",
+      "SHA256": "568B0E0666DB40AD73A05BF7FC2306714CC4CD4A43736EAC111C412196CED1CF"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HouseA.fbx",
+      "SHA256": "FA293B9B8C5AB18095B71DE31B552AD0EFAEC9D5F652C1E6D2E5506A16B5A958"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HouseA.fbx.meta",
+      "SHA256": "B57D47954FC0D83119D9C35A59FFAF5CF39851DD4AB53111FA7AE73549F0D5E0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HouseB.fbx",
+      "SHA256": "FB72EA8E3668B92BE597B320F0526E636A65574CEDF71283775AEECE21FCDE59"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\HouseB.fbx.meta",
+      "SHA256": "1D8C22F4704C8903EE36CC41D9E854F6195373AA78FC33CC8D33ECA6E16693DC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\KelpPatch.fbx",
+      "SHA256": "A932165C06C3044581148981646A680BE1771E343E1385B52E569A2D8E8E05D0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\KelpPatch.fbx.meta",
+      "SHA256": "5880EC431265B45B49AB18E2A4792F1CD756EDC16711BAAFC74591C06DC9DBA4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Ladder.fbx",
+      "SHA256": "B5871AC8EA0BE74F6B1FF48955933C6091AE813EAD4521706AC4A39E4145B43B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Ladder.fbx.meta",
+      "SHA256": "43E529E99FDF63CFA75D8E2470DC72F24C6A226050FAD6472E44CEB0B09943E4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\LampPost.fbx",
+      "SHA256": "438F65B6AE93FBD9A539B488DDC4F1ADE9560EF2FCE66517A40BBB82CE7C3477"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\LampPost.fbx.meta",
+      "SHA256": "AE4541FE4D93B1CFF8093912D0627DB25E9C5D2D48EEA1B6509CF46499C6F987"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Lifebuoy.fbx",
+      "SHA256": "03E04F8C7A7CC8BAA118FD6053B2C7C623054B9F08E9424A28DA41465F2C3BE1"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Lifebuoy.fbx.meta",
+      "SHA256": "2A29B43DD9C5D9F405FD4AAA3B6F11D8BB4FCCBD6E5C1105E56703274B3E4C3A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\LifebuoyStand.fbx",
+      "SHA256": "AA5437DC8C457F0DDC04A90259B5557CF1ABB3DB2E823B34561D6C447695DA2B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\LifebuoyStand.fbx.meta",
+      "SHA256": "63FDADEC50134DC6E2C7AF372ECE6D739A50EC9523C58E9175B3F4B46F7033AC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Lighthouse.fbx",
+      "SHA256": "F2D44D7B01F228930E2C8D79D4B4FFF18E1D3035BD85E164F8F259BCA62E202D"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Lighthouse.fbx.meta",
+      "SHA256": "02360D576D4641A6693F378412ED942B51D7BCF92E46B2CA2944B72A4B3AB241"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\MarketStall.fbx",
+      "SHA256": "3ED97D75E50DA391A8559C905CC9607D7F654259F0156D0074EF3C8DEF48AF96"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\MarketStall.fbx.meta",
+      "SHA256": "40D5D2A55E282E95B9CFBCA30CD309D798EDEF1F5520FD26342221F0B8371B83"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\MarketStallAwning.fbx",
+      "SHA256": "84B4FA74741709AD482311D0806BEDE004061D5882172444BF0AD4D46814A0AA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\MarketStallAwning.fbx.meta",
+      "SHA256": "BA3C8D0518F7CFC332C42A74931587770DD1E985FFFBB0A6BDBE575EB6485CC6"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NetRack.fbx",
+      "SHA256": "F7D50C064422DF8C99575943B9DC42E8920BE60FC22ABD6C43EA1045FB8183FF"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NetRack.fbx.meta",
+      "SHA256": "A0E0EEADBF2DBB1C04BB7F33FCA959360F1FEEFE979189874DD2EDEA833009B4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_Fishmonger.fbx",
+      "SHA256": "85749146AFB8F5A543039154F93406BDF08A516A60ADD6AEFA53A945809F5A55"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_Fishmonger.fbx.meta",
+      "SHA256": "6531F46A01F7349CB98450B1C6549623064C92E127D4936821B5269D6C49EA53"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_HarbourMaster.fbx",
+      "SHA256": "67DDEA7B42303FAA3DAC0F61885431B34CE325E1673B3208C4467E2AB29A7829"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_HarbourMaster.fbx.meta",
+      "SHA256": "3422F0CBE64BF6EAD1BE5A4779EC429F04DFDD814E5018D11DC65FD9225F3BB2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_Sitting.fbx",
+      "SHA256": "97118063D38132BFEFC08D78558A4E1C6101E95FA55AF54FE972318ABC6A31C4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\NPC_Sitting.fbx.meta",
+      "SHA256": "A7CD89F7F17F7381072D65A1DFDCAF401687D3F5CE888D0C13BCF290F5BDE57E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Quay4m.fbx",
+      "SHA256": "4DEC07BA2AC3BED22F9412AFF58B531FD7EC74ECCB512387FE9D226640521880"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Quay4m.fbx.meta",
+      "SHA256": "BF629AC206B85D6A319D489C25EC5A97BD7E5AC85D8E1CF5159D85EE1FFB3440"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Quay4mLadder.fbx",
+      "SHA256": "D5FE5294D78B42B5B977EE31D3AF6A3A02C2510E11909C0E83E3C350715BC487"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Quay4mLadder.fbx.meta",
+      "SHA256": "B4D9E7E85F6F244F48D3E64C24389192C2436C91ADA51F58CDAC8ABA61A55547"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Rowboat_VariantGreen.fbx",
+      "SHA256": "3C670048EFA9A18A28EBCD317310DACF19F134A9767A71F85A7AA89D3D4651CC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Rowboat_VariantGreen.fbx.meta",
+      "SHA256": "ABE41A9CBC205CC8B4FF15FA773B28B1DAE1A6E7C2B50DCC9D1355A75DCF043F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Rowboat_VariantRed.fbx",
+      "SHA256": "DEE4E5C5B397EEC9CAEB2040256D0D8F9AF2BE25DE410578EEEAE0BBFB007F1C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Rowboat_VariantRed.fbx.meta",
+      "SHA256": "B10054411B95D42D9EDB7C35221BC36836C2C7F7D26254C6AB8CCB45358FC1B4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Seagull.fbx",
+      "SHA256": "D172790F5565636839B34ED58FE7C51C052203F257BB582769F7A3114F71C84C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Seagull.fbx.meta",
+      "SHA256": "D1E817484DD4C1BDA364C3AA4C4D3D1B21E19E1A42B81598F4790A0A72F58FBD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Shed_Shipyard.fbx",
+      "SHA256": "46E3830FC8C135ECD74F0A3D75E7BA078BCBBF0F7B332C8019944B179D861ACD"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Shed_Shipyard.fbx.meta",
+      "SHA256": "C656C6949358B9A87F61124967FA2EE883D89CAFB743031EEE1C19D9CB82F34C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_Chandlery.fbx",
+      "SHA256": "B859734C985B8D5BF3EAC386AF45FB4D10117B2DBAE5283976FF6B5D2B45717C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_Chandlery.fbx.meta",
+      "SHA256": "C4BE4994C34277E60DC1DEC7A8561FB8D9A47FCE59C54B9894AE7F2E46149682"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_CrewOffice.fbx",
+      "SHA256": "CAD29D584089BFDF45F62C9176F8572F7497D8ED72F5DD85B9F7054436FA012B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_CrewOffice.fbx.meta",
+      "SHA256": "678641A7F95D8331A50ECA518AB5343B4D203426FF55F67A9CE8A9E3DD79CD3C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_FishMarket.fbx",
+      "SHA256": "D50DAF3875F34EA3BF9D46D6082ED5A0B0431364D71DF310225F6CF21C094F66"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_FishMarket.fbx.meta",
+      "SHA256": "D9F0ABAEC73761BEEC2776A7750F4A1738E8D42F6D66B1A5B2AF0AC4572A8545"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_HarbourMaster.fbx",
+      "SHA256": "B86A0577F044AA4E8422CAA5A9D9A9FFD782945937585DC4E2F2212A048DCB31"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_HarbourMaster.fbx.meta",
+      "SHA256": "6804E9F968FC78345D901A58F91CA2BF8BC13C71D2BCC5741F2B91DDBB662BC9"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_Supplies.fbx",
+      "SHA256": "CA45053C8D533F797046D95DC013C62290C201E450C65E4D8AEC006341411B91"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\ShopFront_Supplies.fbx.meta",
+      "SHA256": "A9ED608400282FA28CB6E18AB7879366E6EF6DC79DD499A9A2650BC0DED11B86"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Skiff_VariantBlue.fbx",
+      "SHA256": "48B059CE9580DCEF9E82D2FA2774016F63238382875DDD87B51F6390CBFC627C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Harbour\\Skiff_VariantBlue.fbx.meta",
+      "SHA256": "290028907DD2DD73BA8FBC07330D9BE1B36C235651402294494E1C20AE2A64F1"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\BandedCrab.fbx",
+      "SHA256": "5EC2548907DB7D839F65A97586BF9B7351F9F7D0CC8BCBAEE1C35E357090BF67"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\BandedCrab.fbx.meta",
+      "SHA256": "A8488EED833C0C6D53E89CE6B0195B0421A44692E7C58EB9FFAE1072179579B4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Buoy.fbx",
+      "SHA256": "F0A0D27018ACEAAF1DB62779044E2831A35AA20945A673A3FAA90D210893E84A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Buoy.fbx.meta",
+      "SHA256": "72F8A054D5C774D77B8BB0BDB9215AB047459191153F4F6D15D2D72FFDA7C630"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Crab.fbx",
+      "SHA256": "FFD429C6441C02A781D561E94A06ECDB69F5E11FCECD51198A242FCF6F78D3C0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Crab.fbx.meta",
+      "SHA256": "D359A24D9BD9B0A62EC363F33BFAE4C054AC2B8CB2B55215A7A036E937C1E144"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Crate.fbx",
+      "SHA256": "24D47810F10BA34C0375F8B8E94673FA18CBE39EF7BEEE97B8FC3E0E73F0F20E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\Crate.fbx.meta",
+      "SHA256": "88A7B299B3FAA7B8B4D8E5053228286B089A77E8A2EA5656E51083F1F275D028"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\EmptyPot.fbx",
+      "SHA256": "818D4563247F78CF7020CE488A0C873D1C8EB3DE147907856A8749A17C314B72"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\EmptyPot.fbx.meta",
+      "SHA256": "1F22E84D67431784E7B21AB85AEB4C2684AB5D14C7E1A7F6420272BB3C049DC3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\FullPot.fbx",
+      "SHA256": "6D5453A22373748AD1EEA69CF71ECE4A7FB221370D7719A5E9F2D233C0A81158"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Props\\FullPot.fbx.meta",
+      "SHA256": "2A63395AF16D87F5870D426118EBF6673D043F77110E541647AD170DB182AAD2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\BirdIsland.fbx",
+      "SHA256": "55FFC2FD8036926D9435D7E99488128CE3C10F4221A16AA12B6303BC6E469075"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\BirdIsland.fbx.meta",
+      "SHA256": "8A4E701FD06DEF3FF7DD0ABCE381EECFD03B0DAB3DB22520C5EDFA071FFD9F05"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\ChannelBuoy.fbx",
+      "SHA256": "3E8C72C9990A77E1030CB489752D83D2480CB2DF8B981C8DFE98E83C0C6C6CAA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\ChannelBuoy.fbx.meta",
+      "SHA256": "B4C5C85E0387A324BC3730D125EF2CAD7FEFEB56B52D63A5914D08A62C13F8B4"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\CliffSegment8m.fbx",
+      "SHA256": "54EA730A8744100839DA6021D8943A8ABDF18966D0566E2B6E8A0CFA1DAA9977"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\CliffSegment8m.fbx.meta",
+      "SHA256": "B19EC7DAB953DF5890F9D3F491EAD66A30698A860B7795A6054880D6BB0B30C0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\DistantShip.fbx",
+      "SHA256": "5018EFCB3C89310CB38758DBE78007C48390F873013AA1324E41ABB8C0FE4F20"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\DistantShip.fbx.meta",
+      "SHA256": "24782F3F710FE082766691EE9369958A527F18A2958C33D93C06F7714523619A"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\KelpForest.fbx",
+      "SHA256": "2097E1E96CBD1E1CA7E1777132C2022F01F30AD43E88B0DE63685F6BA970FE1F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\KelpForest.fbx.meta",
+      "SHA256": "91BE87CAE8A08A54A1DF13C38609BAD883123F694D9DB23274AB2C2829659D70"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\MarkerBuoy_Green.fbx",
+      "SHA256": "4FA279319602D0A93853009684C1ADE3EEF484D250E4735F52A73603F0FC5C00"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\MarkerBuoy_Green.fbx.meta",
+      "SHA256": "55B877B327C5358C7A716F59376DAA6AA46218B4B0129DFC6BD05575AA94513F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\MarkerBuoy_Red.fbx",
+      "SHA256": "BA9D42BBD6511858FF4719FC1749179C814441267729A85488BD4A794FF773E8"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\MarkerBuoy_Red.fbx.meta",
+      "SHA256": "97AEC9F26AC46E797865DE46037F8E24E9A0FB2EDF6B6C9DBA740FE47B0B5BA8"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\RockArch.fbx",
+      "SHA256": "0B99E81CBFEB97666E0975609187DA5FB5EB6384580181FCFE32109CEE13D74E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\RockArch.fbx.meta",
+      "SHA256": "D5557863B3BE55F4963FD09DCCDCF742EFB3E91D9B568A4BA032A3948E2E9C6E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SandBank.fbx",
+      "SHA256": "BCFD0733E557ABA8066787735DEAF82F2B72F413B2E8A602B4F7C382D1509C2E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SandBank.fbx.meta",
+      "SHA256": "EA3E00B60258D60E5C2E919DD4A0C5430BF862A6A16B2C2BCEEBAD55ECDD2336"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SandBank_Large.fbx",
+      "SHA256": "37CDE09706AACC6C3BD7579CF33406AD95DB3D2FB1CFA45ED3C13884EEADC33E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SandBank_Large.fbx.meta",
+      "SHA256": "E5F8165F219F355958ADF9499FBD031F636729F0E4970F903CAB09282CA2C1AA"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SeaRockCluster.fbx",
+      "SHA256": "93F50A0F871108D5035BC7A0A06EFADAE302BD93DCC1F3E041E45E1823A14C22"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\SeaRockCluster.fbx.meta",
+      "SHA256": "A64D099847F64CD7DD28B4FA06DBDAEABB8461DE8285665B9DD72543B903358C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\WhaleTail.fbx",
+      "SHA256": "EB98460CD571E863D3DCED6209BEC1E47E485C493C2E30F983A1F9B97CEE857C"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\WhaleTail.fbx.meta",
+      "SHA256": "D847B165040AD26F54FB63AC1170B927FDB0431C7A7435D4BA27933247E50D65"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\WreckMast.fbx",
+      "SHA256": "AB4F75400191CF243C311E021FFFAED708ABF0498D5C0CDB73ED5E53B4EB1636"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Sea\\WreckMast.fbx.meta",
+      "SHA256": "5E094ABC124FF396BBDAC8FB307B471D7066A3CD5EF4D9E1C8F64DBA5008FB84"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Conveyor_Corner.fbx",
+      "SHA256": "EBBCA973D7D13616D1246A7E3688FCD014B3CB7CF55FC6D20B55F6929E513531"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Conveyor_Corner.fbx.meta",
+      "SHA256": "41384631A1D769C9B61FD0DFB229506A545A8F007AE952B57D726A61C7E10E08"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Conveyor_Straight.fbx",
+      "SHA256": "33BD1EA0B850EF30B54793F51F530BAE44566A57C7AD92E963C4AC17D9DE12A3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Conveyor_Straight.fbx.meta",
+      "SHA256": "3961002986B6C901E21BFD637D6E807B048A7213CE7E25775B31DC5AB418A856"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Crane.fbx",
+      "SHA256": "AF752EF438DE43477F80D28992452FEAC9528A99E5A743A1AD6058556C69A6F3"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\Crane.fbx.meta",
+      "SHA256": "E6EB1DD7F3C346D11D0FFB4326265EB1A0EE98560B77DA60A5C8C60850BF921B"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\FishHold.fbx",
+      "SHA256": "C9C2532A827CD6F31419E00BA08EA8199DCCCCE5D28A8C9D1C6EB167DA23BFE1"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\FishHold.fbx.meta",
+      "SHA256": "194F59C210B9E01C3BA72AC7B4F4EE5F143CD408AF5915B78E958E706A6BCFF0"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\GuttingTable.fbx",
+      "SHA256": "B46E1942D925943B460E575F8E49BDE57C5BF9AD9B0623999226065B1002BD8E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\GuttingTable.fbx.meta",
+      "SHA256": "CCD7B249DC597DF2014E75EB664765FF7641B6DFF9D076A392F8B99D0862F8EF"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\HandWinch.fbx",
+      "SHA256": "9B170FBB2CE24A69E3BAFA76CB5B5CEDF0D0FF628419A4E1267B408D3BC2BA99"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\HandWinch.fbx.meta",
+      "SHA256": "1B142446ECB5E0FCDC38903D1DA5A46622E8E3A2A9C37BCB85D66F6DC52C2650"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\IceMachine.fbx",
+      "SHA256": "4B037CE7E7ABB87F9CAB129BCF982AD4B2588525C0205459504A2CB206316908"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\IceMachine.fbx.meta",
+      "SHA256": "8CE5E9DF111D7884C5B4AC13CDC92C8EB29C8C45B9AB18D3A894B790789C177F"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\NetDrum.fbx",
+      "SHA256": "27791CBC08488099BA35CF06B374EC74B70C02B04873DF5A2DD54624F1AB5934"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\NetDrum.fbx.meta",
+      "SHA256": "D1E83C0C798FAF89661762355C400AD2C52EC0F240EC28CFA1AA16629DF91EFC"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\PowerHauler.fbx",
+      "SHA256": "6D28673294573813E00319887B1C870F9BD9CC9F076609BFD48034032D51EDCF"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\PowerHauler.fbx.meta",
+      "SHA256": "C206F917F7D227DB0216F2607CE9027BD2198E44F779BA2CD422ADA4AB3745E2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\SortingChute.fbx",
+      "SHA256": "3DAE9392547280590A49ACB28DF52298CB8C7FFC84877D30C7F2519E25753D0E"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\SortingChute.fbx.meta",
+      "SHA256": "8A5DE19A4592C421D64AFDC0DB41870509ACA2BCF17A0ED0569F8A8ACA85E057"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\SortTable.fbx",
+      "SHA256": "DD1394BB77030922D78D03136D5DCA1596590272FF9621F508FF202AA331BED2"
+    },
+    {
+      "File": "Assets\\Art\\Models\\Stations\\SortTable.fbx.meta",
+      "SHA256": "7DD3800B85A696A5CD01F2ACC58C2F3A9F664A478D2ECA25763CDCFD82034A56"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CatchlineWater.shader",
+      "SHA256": "3A4C8D42C811232755AA662DA8ABF151BCD477D0AE5E7A46623D9850006A8262"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CatchlineWater.shader.meta",
+      "SHA256": "FA628C7CC97AF1F504449EA54C3B2A98539799E64E531F37AFE813AE06ABF604"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CoastalUiComposite.shader",
+      "SHA256": "9AA319DF9991924D518666C3BA124AFD858288E81CE221D8A647B7B515CB13E4"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CoastalUiComposite.shader.meta",
+      "SHA256": "F68C34F804C83A8F12294CEC706DFA82E30B0C0E093531140EFA135BEE520D31"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CoastalWater.shader",
+      "SHA256": "3CEA24E968F7CB78584999838AE64669E1BE444B636BE98E6EBFA74795339948"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\CoastalWater.shader.meta",
+      "SHA256": "6068AA894652830255DA5B56F0221986587FD0EDC4D5D1CB9DB90AC87796B1DF"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater.shader",
+      "SHA256": "31A1E508451DB40860D337D745FE495AC436C9F23CE5183F33040B857B726CFD"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater.shader.meta",
+      "SHA256": "8B125EA4A8EE93DB9BAD773BABA850C626344CC621BF1FA769C639C0DFE7E5D3"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\CommonUtilities.hlsl",
+      "SHA256": "9487344E9FA75746A1BBA943842BF4DA4CB61E5F9D51CF598C67B0FE623B8050"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\GerstnerWaves.hlsl",
+      "SHA256": "13A0A9178AB9AE320C57169776D7DDC18CCA7A0AB59050B12A4CDA200B65169F"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\LICENSE.md",
+      "SHA256": "4D3CC782DD90E80C451FAAED3A14A1B159405AB25F59B504FAEF621CEB4D4D88"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\README.md",
+      "SHA256": "D70C477A6CBBB92B63E3E33182244DC2018B25F457EB61E4927FDDC52BFA1899"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\source-sha256.json",
+      "SHA256": "548979637AA8733FC76EC214B0B78D840FD2E253B1C6BA0CC5B96A8E0E86D2F8"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\WaterCommon.hlsl",
+      "SHA256": "788BABBD306D4FD4E2D165DF492D2EBBB629FA068846FF82328557F13CD6405F"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\WaterInput.hlsl",
+      "SHA256": "705CE45AEC10FB6F6B2CD02C5E3F5E552B28BDFF41F128BECFD15946EEE1199C"
+    },
+    {
+      "File": "Assets\\Art\\Shaders\\PtsWater\\WaterLighting.hlsl",
+      "SHA256": "2E162DA93BAFC7291657F1A10DBCE5F9E9316D3A8D7C10C0585330F339736C1E"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\deck-planks-detail.png",
+      "SHA256": "5654C6BD18CC285DF29A67239B7CCFEA60BE685874413E38116DCC319393F940"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\deck-planks-detail.png.meta",
+      "SHA256": "BF2CE5C3097D28001C7590A39289F6CDCCB8D44B4A93CEC68E0D75E8D26DDCEB"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\foam-ring.png",
+      "SHA256": "3DA860269E78B02667B1AC83CC3D3D27793AFFB5E875ABFF4211B7A5BCAF104F"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\foam-ring.png.meta",
+      "SHA256": "2FC53B6BC66A5EFE6002EE6E26F5608BE826AD40A1D9B87B8F245A731AABD250"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\splash-sheet.png",
+      "SHA256": "CD144BE8F7E5B7BD7299AB523ECECE4A4D18ECD2012FF8A04370028BA41A0ACB"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\splash-sheet.png.meta",
+      "SHA256": "5AD260F73F28DC33E8B92E88C95F3EDF69F0923A249AA23C06FD3609C7392CB2"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\TEXTURES.md",
+      "SHA256": "D3694F60367DD6C361D4CD6415DDB2C52416813ABD39981346F6B2F402C6C80E"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\TEXTURES.md.meta",
+      "SHA256": "A3DD304E53AF6C812E9FEAFAE45F8EF9FCFD9AE6BCC5ED192D64A2B94BA05E7D"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\validation.json",
+      "SHA256": "FC805EF16A9D4CAEBC9DB11D3D373C69A10C905B795A044C13C23439ABF801D4"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\validation.json.meta",
+      "SHA256": "FA43D86144BCD0BA7E77240774860F3D1C7109FA7E525011DCD3A8DDEA671D5B"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\wake-trail.png",
+      "SHA256": "2B2EE4C69A8D3C0652A6E4DD422B4CA3CED80F02A967219FB37B23A65AA41DAE"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\wake-trail.png.meta",
+      "SHA256": "051EE2C9A20D3B8EACD770C8B234607340BBED7F6ACFAB8413625365835D6BB4"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile-deep.png",
+      "SHA256": "BDB9C317B75BA2BD291C1A2BD4202BE5D7A3670C83F83C955A068580A707F31D"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile-deep.png.meta",
+      "SHA256": "ABC5C1962010A3F7D87BCCAD7CCB75F3BF933992FE4648DAE694A82EAE3FDF85"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile-shallow.png",
+      "SHA256": "E965CB5E9D22B38E715B77A0D7F23AAD1AA5EF58B4B7D8EE01DEA784CEF86AEF"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile-shallow.png.meta",
+      "SHA256": "3A58B1AABF56AE3AF07F93DFE779493E59EA1D2F86C0E196A5339687E77DE22A"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile.png",
+      "SHA256": "14AFFFA0E657D731FCD09CBD4E20661932283BBCB125523B926920BB99D4311C"
+    },
+    {
+      "File": "Assets\\Art\\Textures\\water-tile.png.meta",
+      "SHA256": "600BC6FBF9D5B01151F33A46B51AE7EA931E293993958F7C1C440F8E93B1A2CD"
+    },
+    {
+      "File": "Assets\\Art\\UI\\badge-new.png",
+      "SHA256": "2EAA432BC7DBFDC194468A01D436A74E8DD07FC9B8EFF52A88114D62BF49E997"
+    },
+    {
+      "File": "Assets\\Art\\UI\\badge-new.png.meta",
+      "SHA256": "E5B5626C85D11AF482051E5C6E7AEF77C60B428E068DDA1AC408BB6079ECFAA1"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-background.png",
+      "SHA256": "FDBE1603D37AF5B6548ABB763A53F05CDD08DE2D5DC3CF8FDF8D453878A37C56"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-background.png.meta",
+      "SHA256": "A45D1B78D22C8B90A10E00F324C36C68695E01461E00A2E82D5EAC52AF5495F3"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-green.png",
+      "SHA256": "3885D7037401E9ABE5BE0EDE251BEE27EB46B2DF9C979A88143D885C1CF78068"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-green.png.meta",
+      "SHA256": "48B6BA45035BA1FE2372A6462CB8FFB177D12527C0A5FC8BB5D20A236F5AF2D3"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-red.png",
+      "SHA256": "F06F5CC2897E3E6CB426556098E61747B9F41A485719DB85B4B11BF2393098BF"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-red.png.meta",
+      "SHA256": "05EB6C9D064E91783904B56E305B3D51682EA4ED660557B1B22B4EFF11FE0C62"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-teal.png",
+      "SHA256": "DA651376256C6FA816F94EE9C50BF3617B90A9E181A6EDE209205B209FEA883D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bar-teal.png.meta",
+      "SHA256": "0FB78336613CCF0E1BA54AE2DFC3232D54F44CF0059DDE4D97145680DF4FE73B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-dipped.png",
+      "SHA256": "02B33C9531A049C8C7AB0F0B8A2996AEB4912FFF7CDFFA7A17B473C92A69BE12"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-dipped.png.meta",
+      "SHA256": "3A50C8EF0A4CCA77620AC222C6249A4A8030BADC308061F6B524BAE49930C3B0"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-floating.png",
+      "SHA256": "153C02990A46AE1DEA72E4731D408AF6EF69FE582BB1B45769C99CAD72A328AC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-floating.png.meta",
+      "SHA256": "ACEE4B24567EFD5A13DD1E4F04255A2E4C9279E661A5FC3A188D00626AFD1633"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-underwater.png",
+      "SHA256": "C5499D3AB5D68FDC78032B555BB8B598DAE691130457ACEE99C15B33A996499C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bobber-underwater.png.meta",
+      "SHA256": "0380F9EFA58A80D3682CD2649DB87C124CE7A86E4F9D642BF3F4179147ADBA09"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-hot-tail.png",
+      "SHA256": "3907EB22B9102E00A68EF0D39B46D17EF87BF9C6109164177DA93276CCC63E9F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-hot-tail.png.meta",
+      "SHA256": "7140982A85ED4704CAB62BA9DC9E63BE4794C7F4AE776F2D38FF3627A7B92832"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-hot.png",
+      "SHA256": "1CB649282CF99D88D1582FFCAA0429426CBCD2BC910A4E3D2CC079B2542F32A8"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-hot.png.meta",
+      "SHA256": "DD66F814874857153F75A697F07F87B6BD7C3FFC5933D922801F3E64FA5C632F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-white-tail.png",
+      "SHA256": "8432868BEF6CA3C28F0A5236407B22FFAB6717F785EE2DE3BFF18F11D03734DD"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-white-tail.png.meta",
+      "SHA256": "05175D036751FE8BB66A26ED2B06A4EAA4D7BE07C1464B701A180A51A32501C1"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-white.png",
+      "SHA256": "15A08177A42A8B4A69E4CC1C03868B23EE5EB72D50218B935E222E069F2B0261"
+    },
+    {
+      "File": "Assets\\Art\\UI\\bubble-white.png.meta",
+      "SHA256": "08DCC770E9DAC5640A5E078ACF693D35DC303EADFAFCDE7D2A8444535EAE818A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-disabled-normal.png",
+      "SHA256": "2E9620ACCE9E5F50C31B844C002EB7989FDA9B2D72F3804C98A3F5A921D4A471"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-disabled-normal.png.meta",
+      "SHA256": "FCD71184CBFD45A2742807A4E77C055EE651DC9D0E98BF4A6B596610EBFD2578"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-disabled-pressed.png",
+      "SHA256": "8594F35E958CA31A858022029A9467D1ECACB83F26CEC557BD23C967C8E1B843"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-disabled-pressed.png.meta",
+      "SHA256": "7D1A40FEE2B5EC100321306D6969000274FF8F4A9523B230048BC3A4D44EFB1C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-primary-normal.png",
+      "SHA256": "91B361452E91A764F1FE8A4E595FF356D0080537D5E4B8A153D78DF58A9D4F8E"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-primary-normal.png.meta",
+      "SHA256": "FD43C06A4F6EBC07010EC327BC62D6D3D2F36193DB42DD01FCD3D7D0AF7C3D8D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-primary-pressed.png",
+      "SHA256": "BF6F3A6A726EAE03F1DB78D54EBA612D62ECEC92C9583D236FBA1D08C5294A7F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-primary-pressed.png.meta",
+      "SHA256": "A44FB37283889464DB3C5ECD4C6A329910EF2ECCEFC1F3769488BA65857599D7"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-secondary-normal.png",
+      "SHA256": "DEBE9E70F5BDB39761CBEF41FB0B55E3B3EDAFD352C84B6A8822F5EA4FD2E999"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-secondary-normal.png.meta",
+      "SHA256": "A67930924295D49823989EC2856251142F7130DC0BA0953979EE6178FA209068"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-secondary-pressed.png",
+      "SHA256": "69F855FE8F65BC494C142D4E946F615F521E689725D41E323FED6AF0154CB583"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-secondary-pressed.png.meta",
+      "SHA256": "6B3E5A2CB5127D712372FEBAD8F62EE670975C4E74AEAAD962205FFD0B06F702"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-off-normal.png",
+      "SHA256": "6273AAEFE4D27909F02150D06D88EE9F6FF3D456D384B7C4D35A0F8B6FB6E28D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-off-normal.png.meta",
+      "SHA256": "7213AB437CECF972F99FD67066559A32AAF4534348315C473A35E46FB09DAE48"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-off-pressed.png",
+      "SHA256": "2B2BF7144FD1F64FE2B1EF401B2B6AA24D1C7D2F476806DE545BA0C3D59BD66F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-off-pressed.png.meta",
+      "SHA256": "E254FB09141A3D0A852BC5C5F777E43E7B9920FDF45C380D23004C3536FD5C80"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-on-normal.png",
+      "SHA256": "F422249411C155ECB43DA904E72C60CFA3DBD10FC6505254A2E1FC6517696205"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-on-normal.png.meta",
+      "SHA256": "7F11553E2B886A0C5D4CE2C4CDCCC2D6FCCCADAC0E76A277120DEAE471A40117"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-on-pressed.png",
+      "SHA256": "98FFF607FC2B02786F59DB6451FA1E3D9D58C2FB69F6981CEF94F0B87AD8EFED"
+    },
+    {
+      "File": "Assets\\Art\\UI\\button-tab-on-pressed.png.meta",
+      "SHA256": "5DC05759195246118286D50F3BAAE022491D10FC2CE280C522671C646FF75228"
+    },
+    {
+      "File": "Assets\\Art\\UI\\card-selected.png",
+      "SHA256": "83B93BAC38C93686BDE1E1A98FAAFE847DFF650724BB928C2F3C935E23E729F2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\card-selected.png.meta",
+      "SHA256": "EC1B4FCD29994F1773E19670A5AD9F8A48F1499D8F47BBFEFC11A1B7F541C132"
+    },
+    {
+      "File": "Assets\\Art\\UI\\card-white.png",
+      "SHA256": "300A1693FB5514B5A17E0E8E6D4C8BE259FA2D6862B58A67370193876EF1F227"
+    },
+    {
+      "File": "Assets\\Art\\UI\\card-white.png.meta",
+      "SHA256": "A9628CFD5538F9B9DDA1902BB2C46E194B11965AC4D0CAEF7718C825A57E37F2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\catch-card.png",
+      "SHA256": "F27AAF60DCD352B1151AAC8E9912E51F6E74A9D4BB314F660F0C221C595BD4BA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\catch-card.png.meta",
+      "SHA256": "61A61D64D70B5A8FF94D2DA6AD3B93AE8206169918C291447EA5BF17C16044C8"
+    },
+    {
+      "File": "Assets\\Art\\UI\\chip-dark.png",
+      "SHA256": "B79BBF6AF648C8BCABC49C8FB08E3D90B7D686365BB8CCDB6F1516B0E35D34B7"
+    },
+    {
+      "File": "Assets\\Art\\UI\\chip-dark.png.meta",
+      "SHA256": "FF75BB97B58C203A5634ADF8AA872CDEB7B1003212B3B6205BFA2F35B502DC83"
+    },
+    {
+      "File": "Assets\\Art\\UI\\coin-pop.png",
+      "SHA256": "711752026ABEA6D84D9BC5DB3CAA431C5FEA335717F9EC26E0B1BC46E726E787"
+    },
+    {
+      "File": "Assets\\Art\\UI\\coin-pop.png.meta",
+      "SHA256": "791D64B8F537AE59EE822D91E16F1B3BB653236A61A45E53874AAAF1C1A5F9CB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\daily-gift.png",
+      "SHA256": "96A02DC9540FA148A6DEF019D4C0F6338272B3F62AD62D83B1083A7C736A4CE2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\daily-gift.png.meta",
+      "SHA256": "483A80707A75EFC1109D454E9D3DD3244F9EAEAA5EBBB5F0592D685D6E22EEFB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-cod.png",
+      "SHA256": "4CA5477D8F5AD5A9626E68D61B84D86B8F8B243197D5A03DA0C77189F05BB067"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-cod.png.meta",
+      "SHA256": "E8C17AD8D006B6711F2B1E4C5B79C1C8C88C84EE830C96A5CFFB10C1DF746815"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-conger.png",
+      "SHA256": "121783820CEAA73DA864C5D5ED61C8A19F865F2FCD38FA7649E1F103E53F31C5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-conger.png.meta",
+      "SHA256": "E8C7AD00ED91879B55FA2D4FEFD421EF8AFE4A8F2C164FCDAD68A5112DA8C25E"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-crab.png",
+      "SHA256": "CB075412491B521E611EB35D0F0C44DE440665F45FA09AD8B759654EE7A89A0B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-crab.png.meta",
+      "SHA256": "845B9A71E463D5B081B986B706D53207B3E5CF88151256C453DF42618E415FDC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-herring.png",
+      "SHA256": "317621D21722E12CA193F9DE133299C33BAA175AF5B2160D9D644F6F6603C1B4"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-herring.png.meta",
+      "SHA256": "B157CF825E1AB781936B60163C2F29B69AB2F5E407BBC5D904366E2A8AD8454D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-mackerel.png",
+      "SHA256": "0664BBE9AA4AD9FFB28772FDF5ACC74E07B64E34EBE2BA6C4BA6163CCD271A65"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-mackerel.png.meta",
+      "SHA256": "C7EA4B94006A0FB78026187212CD532334DDA104CAF9B8E37A8FEAB58250D739"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-plaice.png",
+      "SHA256": "E358F6EA3A4145EAE5FF188AC07D556DE1C39153A3B80CA41E8A82530A8EBA95"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-plaice.png.meta",
+      "SHA256": "81D368C8A1E19659ACB7C5FA77F50112EAC16AC590B9C4F891AAF39DCEA79205"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-pollock.png",
+      "SHA256": "A8FE1CD8BF2467AC3D85ACC1026221F2E5789A2FFA06C2F97613BAFE89E14C18"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-pollock.png.meta",
+      "SHA256": "D83CD4E55019693A79C959B6A86998317AECDBFEED780BC648DBD079D7D1506A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-redmullet.png",
+      "SHA256": "B0389C5CBD3A73349F9C6108BDAE9A0BF5007A79C9B3B6572336C51957ECACD5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-redmullet.png.meta",
+      "SHA256": "BBB6B60E3D7E8F7D23EDD7757B2B763EFCE83DE3587FE332C232BC964ED450A5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-seabass.png",
+      "SHA256": "AF3567C983DB26AE372E85060FE607D5A4A03B6BCB5C003230FB3E0AD90F3CE1"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-seabass.png.meta",
+      "SHA256": "388C9C04F2CF5B19BF3A0599FE1AED72BCE1DFBC9452E7650A8ADA0CD0B2F175"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-shadow.png",
+      "SHA256": "0DD1C783CDF4A4E1CDBAF137CDD2705446FD2603729058376CFC43ED7399CE86"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-shadow.png.meta",
+      "SHA256": "74490A64CD89C698B465CAAC5B75CFDF55DBF228D6EA5D3EE2A8D0F43CBE9208"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-turbot.png",
+      "SHA256": "3DC637F35A501F4AD37BD7295F29A2DB6058648C1E73E30B8F3B86A94EF7FA3D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-turbot.png.meta",
+      "SHA256": "57CD8197271D9C8B0227859FFC2FD061FB62E5B7FE4FF1CE4CCB6292B63ED331"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-unknown.png",
+      "SHA256": "81CDDADA471905286D297E581554CFFBF3D3A568F188C077DAD67784E977AE9D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-unknown.png.meta",
+      "SHA256": "3B04DC00E2E0F6C09BDE7AA62FC92B50D9E983FD17C07DC55545CC5C74F00D50"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-whiting.png",
+      "SHA256": "C34EBA2BDCD848FC53E9E7CC33DD3F370AB51571E39E347B0B5F3676303E7C20"
+    },
+    {
+      "File": "Assets\\Art\\UI\\fish-whiting.png.meta",
+      "SHA256": "F7A9DD79D738DCEB450DABA8885EC5A83A1FE5D57C82ECFD307798C95CDEC748"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts.meta",
+      "SHA256": "2FEAD2352A79F4188D12A2491BD74074A7C89AE93B06B5A3FF2A49FBB0E5015B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-chandlery.png",
+      "SHA256": "B932E67D9CE6F32666D22A88B649E3783E27ADACD408E181A024EF1EC4AE94FA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-chandlery.png.meta",
+      "SHA256": "FEC3C9491757E5A360F83D1607EAC1CC08D1740CFF0811D2749A5E70420A8DFA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-crewoffice.png",
+      "SHA256": "80A209B0144EF0812747AFF1E611E1246A1F57737A1018B7C4E4331DFEF60432"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-crewoffice.png.meta",
+      "SHA256": "92C4AC9B1FB477E4EF8A15CCF075634BEC938FCBC4DD734D91DB5DCC37F10787"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-harbourmaster.png",
+      "SHA256": "57D87FEEF6EAA7AF44495202E8FB06FECCEF5AC456AC6791F4F462BB6F8F7573"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-harbourmaster.png.meta",
+      "SHA256": "FC7DB3E0D654BB2E83DFF0819AD93538C2D2F3BE8F5F14EBE28ECD28FD74E6CC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-market.png",
+      "SHA256": "48C3AEA89AFF9BFB6428BCA69D3B271B5693A95AF112344F233260E06C20E4B0"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-market.png.meta",
+      "SHA256": "80D387625281945D01FF9D8FE216DE7F6D4978DFD6A4B53AD0F539FB2CAC3151"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-supplies.png",
+      "SHA256": "9030B30D2857654905D7CB9013B50C6C2F5EC76CE96A2A5C5BCB44C43DC50DF3"
+    },
+    {
+      "File": "Assets\\Art\\UI\\header-supplies.png.meta",
+      "SHA256": "BEFBD80EF42F837AE65C82E795B16592E212CFE729103FD06127946B5E4081C2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-bait-worm.png",
+      "SHA256": "02516729130786133773EBE9A623A890BBBA12BC3CA36A80FD09D5EB0A8EBD30"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-bait-worm.png.meta",
+      "SHA256": "9F23CEF0A3363630D1FE68B0577B91AD71FF775B874FAED62EBDBC0FB4E840DE"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-bigcooler.png",
+      "SHA256": "E0B5D57385268915223D7F36E9AD76EA65078C10C5F13A3C707F0A8F90FE7428"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-bigcooler.png.meta",
+      "SHA256": "AD62A6978FA76C42E20545D28BDCBAA05D51C6B8FE6EEBBEFEAF95F42357F991"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-chart.png",
+      "SHA256": "1B4C9DA911D4226FFD929B738A5A98EA4A5E6B334047A021A72DE3F5F519BB99"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-chart.png.meta",
+      "SHA256": "410BDCCA6657649F3C4A9625F3371C27B111708F05BA896E9A8199F4915917E7"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-clock.png",
+      "SHA256": "91E35917B24D755F9111DBF4FD94F83A16C9D1642EA45A5B946203B734A6632A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-clock.png.meta",
+      "SHA256": "0023826FE9C245057FCF095B622CB4EFAA971867734E8390A5CEDE8F4739B12F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-coin.png",
+      "SHA256": "5E2C39FBA6CB32B78C563E8FCB8967F84BE566E8C6C8F8D5FE30569BCE0C00E3"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-coin.png.meta",
+      "SHA256": "DB87522469E86DB5A1430B09AA06EC6E473CC09946E4CBDA055298615F842D1C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-contract-scroll.png",
+      "SHA256": "34E56F9A7528A36F2A2189B341DD6171B20712CE8D07C1D54046577C8192BACB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-contract-scroll.png.meta",
+      "SHA256": "D0A2142CD0B2C4ACD3B9FBA7A274EDA53CF8F29745270282FA9020F42F21D742"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-cooler.png",
+      "SHA256": "A1AA7CEC6392D08940F11397BDF6ED8C6C64A8288A1E1F06992580D384B0FBE1"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-cooler.png.meta",
+      "SHA256": "B391AE99BD0D170BDBFD9C8628C9B8BAF1BA2076AC3664AC7A02582C183187F6"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-crew.png",
+      "SHA256": "44DAA034362B35E84CDD38E8B4C690552269C102F8B62CE4EEE8F4384B429A04"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-crew.png.meta",
+      "SHA256": "5507034F050E07078B2DA65F313CD171A1B4F4754651754253595473203ED94C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-fish.png",
+      "SHA256": "2AB22F839E34C6B3160E937A929DA6F13A1ECF10E18D35085DF6F68F20648E96"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-fish.png.meta",
+      "SHA256": "433BA814942D8844528BADB17CC8BFAFAF88D58D359807984148AEE96FDBEB36"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-food.png",
+      "SHA256": "3B6BE154D5FBAD47992333514DD1DFA8DE2197642727E040DC1B1E7B0B3636EC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-food.png.meta",
+      "SHA256": "F8CCCDEAB36A5B4283C7CCAEE8484E4C3D0BB084C1B6663C19A9C77C310EA3CB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-fuel.png",
+      "SHA256": "EE803B0C85B29E7505435915AB994147BC87540A386B73C6DE34C67F72C4AD83"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-fuel.png.meta",
+      "SHA256": "921D28198303975A43C14CE627D5BFAE85B819B1D675BBF51C7F0C2ED9CA25CA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-gift.png",
+      "SHA256": "B9CC3AD867324C1FB675545D10886C37F76D5C7B0E0F291347F4BA9F243A600D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-gift.png.meta",
+      "SHA256": "EDEDB65CD6F2FBD55D6EE631BEB04024A79FBFA093A16CE74A6996150B0D5A6C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-home-anchor.png",
+      "SHA256": "0C868CF44E54E2428D0DEF9CEC3F41B1F7E79C2BD6C8FAEDBCB5BBA23AC24C3A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-home-anchor.png.meta",
+      "SHA256": "93BC5A9F992953B7DDD2C37F5BF9EA75AC25E1EC37690EBA06C1CBEDAB5FEC86"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-ice.png",
+      "SHA256": "FD35227B9712B3E352C64BD51C811F5C434B0C05740210FD7688E19EE6FC57FC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-ice.png.meta",
+      "SHA256": "1D15949F83685084A54077A6A14A2A75D83F626D1FFB95063CE603A62DF40836"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-icebox.png",
+      "SHA256": "C77B66A0C2DC4B446FA9218D88D6B71EB64013CF21181B3BE1F8A9FC045F7A46"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-icebox.png.meta",
+      "SHA256": "A2218A27643EBF5522346C9DF0357A124C3D467A94943BD5152AE5763FE987F8"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-lock.png",
+      "SHA256": "46C13E2201FC96BB07574AA4AD3037FC10235EB774D047233468BC89C3175B6C"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-lock.png.meta",
+      "SHA256": "BFFE50C1C5502621910DEB25C8516FC4A4AFED7C6AA48CD47FBFF9B5479141C2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-lunchtin.png",
+      "SHA256": "7C3C1063F1D0DF2EDE60B364D6210BD5B350E7ECC8163D2DA1F7315FC34E4823"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-lunchtin.png.meta",
+      "SHA256": "6DF6BB0D16F89277A72F51F9AE31294E5F5CCE207D2671DBC91F7F13969CB258"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-map-pin.png",
+      "SHA256": "7D5A26823EA87C1B3CCB27234F92CD6ED2073727AFDF25CB8DE16B549669CA7A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-map-pin.png.meta",
+      "SHA256": "F0E1A55C2781137D88FEB99C9B8FFEAB2D03620A499F2660043D6AC60F2C9C01"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-net.png",
+      "SHA256": "FC4D5D56136A1189050C68BD767043B97AA499353D183AF647923094282FB1D5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-net.png.meta",
+      "SHA256": "1D209B6361F417AE830C24E4729FDB717531A1D024F6178BC94FDC8B6C300E33"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod-carbon.png",
+      "SHA256": "6DA6ECD0B8210120529BA4FABE82A8D7ACD6B350D8079913154D43CE3C8B1A97"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod-carbon.png.meta",
+      "SHA256": "D437802967A8B7B8FA143A9A3D664D5D1EF91AB07656C43497925CE79FB59910"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod-fibreglass.png",
+      "SHA256": "395EAE68ACCFCB73FCF38FE9161BED977517492F6810C09C904EBC76E9D98801"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod-fibreglass.png.meta",
+      "SHA256": "D7ACF7CA758ED0AFFF6810C5A8A1285432AF02BB866CBE33B43CE7B94F38C2F6"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod.png",
+      "SHA256": "6F561F17B8E22CC9107B8330DE039BDB2A69C2B3221000B4CF0B2D72DB9131AA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rod.png.meta",
+      "SHA256": "2ED06C51B8E9A7E08158D4EB400CF083E702BE9C4D3E72EAB389A8150E247FC0"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rodholder.png",
+      "SHA256": "4DF7CF522D6A0E3363AF5317995DCB92C888013A9E3E3BB3BB248020A2E267E5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-rodholder.png.meta",
+      "SHA256": "BF7E12F2E9E92B0215F6F20F676C61C8CA17346533BEA7DB4939026778C0A950"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-skiff.png",
+      "SHA256": "F942FD3BC523BF3AFDC5D13A0D94B75A4E88098F728B38698A6E77C1899FA69D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-skiff.png.meta",
+      "SHA256": "DA020680B519EB04EF89EF0B8637C936AB082E2069A246ADD64EC6F9053D01EB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-squid.png",
+      "SHA256": "4F831D377F4403429EC9D74126C3CB7756644A7E6BB1297000AB12207B477DEE"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-squid.png.meta",
+      "SHA256": "38624E1F86A0FA50FC96CE659369C29ADA05FC7DB581D10E420E745C33B11F54"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-star.png",
+      "SHA256": "EF115892F1880BB7A456E5FE3511E80DA9AFCDA77E815A0E640080BD797144CC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-star.png.meta",
+      "SHA256": "A1B4265569225549515D009570F17B7DF10403F9B4E00AE1A2B3AB068A07F5C8"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-trophy.png",
+      "SHA256": "282FF8930A236272E5B8251DD438F7C94FF8847A3DC51DD30E4522C288062A81"
+    },
+    {
+      "File": "Assets\\Art\\UI\\icon-trophy.png.meta",
+      "SHA256": "117647351686C74CF3CC743C5F4CAD8D0EC971A87F3486E88E6F0528B5BC9191"
+    },
+    {
+      "File": "Assets\\Art\\UI\\logo-catchline.png",
+      "SHA256": "2D49278C99EBC035A64513DD6CD9BF5ED504E622112D8893495FBBE7EAFBADB0"
+    },
+    {
+      "File": "Assets\\Art\\UI\\logo-catchline.png.meta",
+      "SHA256": "FAE6DF3C36D6BC6F3C16FEEA902BE73B8AA192592C5080189C3DC599FADDE676"
+    },
+    {
+      "File": "Assets\\Art\\UI\\panel-cream.png",
+      "SHA256": "605BDB57F425E15C96DE0930233F6C8A140FF7F0EB4B5E14C652114207C3C7FD"
+    },
+    {
+      "File": "Assets\\Art\\UI\\panel-cream.png.meta",
+      "SHA256": "8F723345C13442767007F53362D37DF3F16A85E72829244DAB5D3E3D4D8374C9"
+    },
+    {
+      "File": "Assets\\Art\\UI\\popup-panel.png",
+      "SHA256": "3C73AEFA828B84CD900D887586C27B516F42C9E74A0CD3DAD3904F10C1F0B152"
+    },
+    {
+      "File": "Assets\\Art\\UI\\popup-panel.png.meta",
+      "SHA256": "822A48DF2E766F2A2FF5BE4ACFEBDE9D2C2D2C1E944CADA1B563274862BCBD65"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-captain.png",
+      "SHA256": "0F614C5C9D7FF97C4C85169B0650C75853745FA7BB474626DC67EA8FF06AEC5B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-captain.png.meta",
+      "SHA256": "46BF63A5A9C5489B856517DFCEC94FB4CD1F0E3A91A58838A85BB5C12CEB51C2"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-deckhand.png",
+      "SHA256": "BCC75192C054951F235A8B7F3DC5A937D6B69CB7B40A55B6A23D488D19430517"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-deckhand.png.meta",
+      "SHA256": "92F87B0A066BA97CF34E0AE5DBA711A108A756254F6B032E71852C1B6B6A3F76"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-fisherman.png",
+      "SHA256": "A118D5F240CCD20F8CA7CCEDF3EF77F67E87A88D7CD87E58795579DDAFD2EFAD"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-fisherman.png.meta",
+      "SHA256": "5C0C65558AC4870C396D43836D65C3BF62C9AF8693FFB47945969434B9E4995A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-veteran.png",
+      "SHA256": "C0FC9D8EB674681BE4CB74D95CBFCFF00AFF10CE1EBE28DD98BFE0EAA8B7BA4E"
+    },
+    {
+      "File": "Assets\\Art\\UI\\portrait-veteran.png.meta",
+      "SHA256": "0AC900E06C1F74286B3AC96F64153FEE6E1B75A42BFF480E6E87D5E82992AF72"
+    },
+    {
+      "File": "Assets\\Art\\UI\\ripple-ring.png",
+      "SHA256": "6095AF102214123C2EDBFA3F13BC4558E9E00C5CFEEF79D90B87349BDB68361F"
+    },
+    {
+      "File": "Assets\\Art\\UI\\ripple-ring.png.meta",
+      "SHA256": "59935D8C24B637A01E9A262B433D6B15C54C18FB6B64C478B867E6460D2A5AED"
+    },
+    {
+      "File": "Assets\\Art\\UI\\sea-chart.png",
+      "SHA256": "AC11E16E8683E2821101EB0FBD5061960C46CC27289FEDF3A513E99C31655A23"
+    },
+    {
+      "File": "Assets\\Art\\UI\\sea-chart.png.meta",
+      "SHA256": "526CA5510AB5857CEBE11D264C7A09F53D1DC51EABB8EDFE5F6CC7208E63658D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\slices.json",
+      "SHA256": "FFE1FE554D9DDDDD59DC1A39DEE25C62D97A167AB10E37D2325A4235987B85B5"
+    },
+    {
+      "File": "Assets\\Art\\UI\\slices.json.meta",
+      "SHA256": "95AFFF376D32B577C86DBA0C9C1B32F2FA6AB7937C5EDA391178528D1E4B43EB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\sparkle.png",
+      "SHA256": "1854EFAB19BBBAFF7AD14A89E627759AB7C80F52D5B6A54EBC83E5743A18A8EC"
+    },
+    {
+      "File": "Assets\\Art\\UI\\sparkle.png.meta",
+      "SHA256": "8B168A5F4B87759C8D37C43078A206B46FC88B379B8BA59B6324898334A6A948"
+    },
+    {
+      "File": "Assets\\Art\\UI\\strike-water.png",
+      "SHA256": "1B6F79476D4BB3BD9EC96271FB800E0B744A68AD4E180A2A99FB6D0BE92534F3"
+    },
+    {
+      "File": "Assets\\Art\\UI\\strike-water.png.meta",
+      "SHA256": "4B5134297CAEC9D4BABD6CEC4B7B651EEEBC8AEA7F795C97BC8DD74829CAB146"
+    },
+    {
+      "File": "Assets\\Art\\UI\\tap-burst.png",
+      "SHA256": "A01EB645D1FC903CC531D35B96E4ACFE445C05D633144B85613EE8D4455E24CB"
+    },
+    {
+      "File": "Assets\\Art\\UI\\tap-burst.png.meta",
+      "SHA256": "A3DDE824CCE05BA9C8A52C78E8DE233011931EB48862DD13756E745D2BCCA256"
+    },
+    {
+      "File": "Assets\\Art\\UI\\task05-validation.json",
+      "SHA256": "4F445000B3F46212A64FE9AD003254234EEF213D39748EB1B2784CA07A36955B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\task05-validation.json.meta",
+      "SHA256": "0EDD2C7ACE7B2606906768C1A68F6DC00F3F2721C3E8374929B64D8562F3571D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\title-backdrop.png",
+      "SHA256": "C579BBAB71935DDF85229270129098F9C305149869DE031AA932568BF13B0511"
+    },
+    {
+      "File": "Assets\\Art\\UI\\title-backdrop.png.meta",
+      "SHA256": "3D7D8A62819019A7CF85E7ECEE3926DBB7E484B2B199A3367461BCDC2CECEC02"
+    },
+    {
+      "File": "Assets\\Art\\UI\\toast-dark.png",
+      "SHA256": "6B3A9699BA846E577032FFA51EED46D0D52DDC4346815640B61A6AFBEDBE0F0A"
+    },
+    {
+      "File": "Assets\\Art\\UI\\toast-dark.png.meta",
+      "SHA256": "C83130EF7D3F5A1F5F834A30107365B99E6420E7DC22B070F19CFF3757554B6E"
+    },
+    {
+      "File": "Assets\\Art\\UI\\UI.md",
+      "SHA256": "EDF74656890E594183C3E7D5B6BF3E7F67C04B26123B9C43A72F01A31AC832F9"
+    },
+    {
+      "File": "Assets\\Art\\UI\\UI.md.meta",
+      "SHA256": "51127CE63BF3806741BAA2076C6E4F31C00CB9E29E38F83874E1982C3F07DE5B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\validation.json",
+      "SHA256": "726E28FF7B48E6FB15B5580E15F57BA0AC02160C5DFA03FC767110C01BF75565"
+    },
+    {
+      "File": "Assets\\Art\\UI\\validation.json.meta",
+      "SHA256": "D540543FFFD41F159BA9E04E67BE0C31F36630EB1513F59426F3D88DD70845DA"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\Fredoka-Medium.ttf",
+      "SHA256": "2C671980167952E85EE41F4BA3AECCADDF443F6A3E62CF7975143169ABB8516D"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\Fredoka-Medium.ttf.meta",
+      "SHA256": "73D3609BC4D4AACA2D0C7F7D9F98483E91B566C36863A87215DE5ADF4B03AF77"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\OFL.txt",
+      "SHA256": "C4AE95E05C7EF05A3A749AAD4A6A8FEBA31DCD17BC198F828768366AD7DA770B"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\OFL.txt.meta",
+      "SHA256": "A2175FB70C4D9648EA83524245E602070046DB91EBAFB5A38EC2335C4F364EE9"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\SOURCE.md",
+      "SHA256": "DD85962067FE4CC01F05DCC7057CAFD82F0117136A3F71E523CCEF40F57DE028"
+    },
+    {
+      "File": "Assets\\Art\\UI\\Fonts\\SOURCE.md.meta",
+      "SHA256": "383B5BADB2F9E15B711DEC8DBD639A11938BDB013B405ABFA4CA412C20250178"
+    },
+    {
+      "File": "Assets\\Art\\Water\\LICENSE.txt",
+      "SHA256": "6D1EDE0E89EA768228510DD432ED94B430D907DE4A602307C49821603AEC79DE"
+    },
+    {
+      "File": "Assets\\Art\\Water\\LICENSE.txt.meta",
+      "SHA256": "EC73B9F6D4397FF55DC3302888C13DC2343769FA841D40AD140810FC82828C31"
+    },
+    {
+      "File": "Assets\\Art\\Water\\normal-crossing.png",
+      "SHA256": "14FFE57B51C476662E83D2C440E808F0A6DB4D906493CDC7EF0A7F29321BA914"
+    },
+    {
+      "File": "Assets\\Art\\Water\\normal-crossing.png.meta",
+      "SHA256": "2C79506435D4990308836DCF01FC1C70192ED58F7B0E18604867FC4BCC1EEE26"
+    },
+    {
+      "File": "Assets\\Art\\Water\\normal-ripples.png",
+      "SHA256": "49B823E8072E4848E9AF63440CFB663C40D04A4FC265214792DB00365DD94112"
+    },
+    {
+      "File": "Assets\\Art\\Water\\normal-ripples.png.meta",
+      "SHA256": "BA648E9CDF71983D8EE3793B7E22C23F7FA7D2F9BB02BBBFA63095B6AC0E8EFC"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PROVENANCE.md",
+      "SHA256": "C64059954318B337FF5EC656358515DA6F5CD4A812862FE7AD1E26C87EDB2A69"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PROVENANCE.md.meta",
+      "SHA256": "353338064257C9A4F5563D5C59D61CCACB3CA59BE47F89B039E4C09DCF59CC90"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PTS\\normalNoise.png",
+      "SHA256": "EFA6A00FCB03DC516CFB251759CC7199BA1552BDE5B588F4F494A63E0854FB50"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PTS\\normalNoise.png.meta",
+      "SHA256": "6735B554CDE83BA0ED4372B5972DB16249E167449B55F14B8AA3F81E2A1750A7"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PTS\\README.md",
+      "SHA256": "750EB7380ACF0FCE3CDAA773D5E437B2C58CF422540DD57E18D46FD7A0A77134"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PTS\\WaterNormals.tif",
+      "SHA256": "FC034792EC0381C33F14274DF14E6EB837426EBF9DC3C17D69CDF8A474001F46"
+    },
+    {
+      "File": "Assets\\Art\\Water\\PTS\\WaterNormals.tif.meta",
+      "SHA256": "A2DD0C8954A44F976B710CC03248A1A1AC41CFB412FC49B18BF9CAFBF096A353"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DASH1.png",
+      "SHA256": "AF6C95CA13FD87BB3F7092FD6B7E6514DB7E703DB36F6D476BD825E71B3CCA76"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DASH1.png.meta",
+      "SHA256": "B463C4CB6C2C7713984C4C69242D6D5F49EFD4CEDC69A02CCFDA21D965B8E2DF"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DASH2.png",
+      "SHA256": "6EDB10CCF21E62AF3C4A2E9E1851800EF84869100427877BB844BA41DE24F3A1"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DASH2.png.meta",
+      "SHA256": "9B2F074E432688772D6CDE931BDACDF3639FEC70CA29BCC2096E7793D135409E"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DashboardBold.ttf",
+      "SHA256": "58F9992CD02E290DC40B0D4BC748B958ED3DF59ABCB730F1284D5F0AA3FD8752"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DashboardBold.ttf.meta",
+      "SHA256": "A66F70C786F980574A25930EEA61FF84D8EA7551F9FC3B95891E3B895564772B"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DashboardRegular.ttf",
+      "SHA256": "1E5CC0E9C6FDC4D345D314E7414B9A4B65DA35363CDB676406CECF3D7902D38F"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\DashboardRegular.ttf.meta",
+      "SHA256": "CAD3105B0374F662CE6444BBF9B6DD5F04E7636AD2B7296FF8DF6AC1AC7C606B"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\OFL.txt",
+      "SHA256": "0E4CC6ECE88573545BE2ED25835363662A6182BA4A4C1B5C8FEDA52ADD30E8A6"
+    },
+    {
+      "File": "Assets\\Resources\\ManagementReference\\OFL.txt.meta",
+      "SHA256": "0F54DFB7D7B7A1DD3A12CB23442AA824B330969F5490B00DDC6C84410B5FA10E"
+    }
+  ]
+}

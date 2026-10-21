@@ -15,7 +15,7 @@ namespace Catchline.EditorTools
         public static void Run()
         {
             Check((int)Species.Cod == 6 && (int)Species.Whiting == 7, "legacy species IDs retained");
-            Check(GameData.Fish.Length == 10, "ten species have definitions");
+            Check(GameData.Fish.Length == 29, "twenty-nine species have definitions");
             for (int i = 0; i < GameData.Fish.Length; i++)
                 Check((int)GameData.Fish[i].Species == i, "definition/enum index " + i);
             var all = GameData.Spots.SelectMany(s => s.Table).Select(e => e.species).Distinct().ToArray();

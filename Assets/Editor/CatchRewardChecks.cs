@@ -60,14 +60,14 @@ namespace Catchline.EditorTools
             Check(CatchPresentation.Tier(Species.Turbot, 4.9f) == CatchTier.BigRare, "purple big rare");
             foreach (var fish in GameData.Fish)
             {
-                float cutoff = Mathf.Lerp(fish.MinKg, fish.MaxKg, .75f);
+                float cutoff = fish.MaxKg * .75f;
                 Check(!CatchPresentation.IsBig(fish.Species, cutoff - .0001f) && CatchPresentation.IsBig(fish.Species, cutoff), "size boundary " + fish.Name);
-                Check((int)CatchPresentation.Tier(fish.Species, fish.MaxKg) < (int)CatchTier.Legendary, "no current legendary " + fish.Name);
+                if ((int)fish.Species < 10) Check((int)CatchPresentation.Tier(fish.Species, fish.MaxKg) < (int)CatchTier.Legendary, "legacy fish never promoted by value " + fish.Name);
             }
             Check(Enum.GetValues(typeof(CatchTier)).Cast<CatchTier>().Select(CatchPresentation.Accent).Distinct().Count() == 6, "six distinct future-ready styles");
             var g = Fixture();
             Check(g.SetNet(), "actual captain sets net"); NetHaulChecks.FinishCaptainSet(g);
-            Call(g, "TickNet", 20f); Check(g.HaulNet(), "actual captain hauls"); NetHaulChecks.FinishCaptainHaul(g);
+            Call(g, "TickNet", GameData.ShallowNetSoakSeconds); Check(g.HaulNet(), "actual captain hauls"); NetHaulChecks.FinishCaptainHaul(g);
             var actual = g.OnDeck.Where(f => f.FromNetBasket).ToArray();
             Check(actual.Length > 0 && g.LastNetReceipt == null && g.Cooler.Count == 0, "no storage receipt at landing");
             Until(g, () => g.Captain.BusyLabel == "Gathering net catch" && g.Captain.Busy, "real gathering");

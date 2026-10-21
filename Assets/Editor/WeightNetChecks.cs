@@ -79,7 +79,7 @@ namespace Catchline.EditorTools
             Check(g.SetNet(), "set deep net"); NetHaulChecks.ReachCaptainWinch(g); g.CancelNetHaulGame();
             Check(g.State.DeepNetUses[0] == 3 && g.Net == VoyageGame.NetState.Stowed, "cancel set spends no use");
             Check(g.SetNet(), "retry deep net"); NetHaulChecks.FinishCaptainSet(g);
-            Check(g.NetRemaining >= 29.9f, "deep30second soak"); Call(g, "TickNet", 30f);
+            Check(g.NetRemaining >= GameData.DeepNetSoakSeconds - .1f, "deep60second soak"); Call(g, "TickNet", GameData.DeepNetSoakSeconds);
             float kg = g.NetCatchKg; int count = g.NetCatch; Check(kg > 0 && count > 0, "deep kg batch exists");
             g.Cooler.Add(new CaughtFish { Kg = g.State.CoolerCapacity - .01f });
             Check(g.HaulNet(), "haul deep with one final fish space"); NetHaulChecks.FinishCaptainHaul(g);

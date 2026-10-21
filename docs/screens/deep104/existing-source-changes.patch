@@ -1,0 +1,142 @@
+--- before-deep104/Assets/Scripts/Game/GameData.cs
++++ after-deep104/Assets/Scripts/Game/GameData.cs
+@@ -248,7 +248,7 @@
+                 RodTiles = new[] { new Vector2Int(28, 24), new Vector2Int(28, 4), new Vector2Int(50, 24) },
+                 RodBases = new[] { new Vector3(2.8f, .47f, 3f), new Vector3(2.8f, .47f, -.2f), new Vector3(5.0037f, .47f, 2.9375f) } },
+             // Tier5 approved8.5x4.2m model. Two optional rods exchange for a secondnet.
+-            new() { Name = "Buoy fisher", Model = "Tier5FisherV1", Width = 73, Height = 35, CellSize = .1f,
++            new() { Name = "Buoy fisher", Model = "Tier5DeepLines103", Width = 73, Height = 35, CellSize = .1f,
+                 Capacity = 240, CrewCap = 6, TravelMultiplier = .5f,
+                 Hold = new(61,17), HoldAccess = new(61,30), Seat = new(20,17), Rest = new(63,30), NetAccess = new(65,27),
+                 CrewRest = new[] { new Vector2Int(63,30), new Vector2Int(33,30), new Vector2Int(33,4), new Vector2Int(47,4), new Vector2Int(29,10), new Vector2Int(63,4) },
+--- before-deep104/Assets/Scripts/Game/GameState.cs
++++ after-deep104/Assets/Scripts/Game/GameState.cs
+@@ -24,6 +24,11 @@
+         public BaitPermission AllowedBait;
+         public BaitPermission BaitPolicy => HasBaitPolicy ? AllowedBait & BaitPermission.All : BaitPermission.All;
+         public DeckhandWork WorkPreference; // Missing in older saves means Fish.
++        public bool HasFisherWork;
++        public FisherWork FisherPreference;
++        // Old fishers already worked rods and opportunistic cages; preserve that default.
++        public FisherWork FishingWork => HasFisherWork && System.Enum.IsDefined(typeof(FisherWork), FisherPreference)
++            ? FisherPreference : FisherWork.CrabAndDeepFirst;
+         public int VoyagesLeft;
+         public Color Suit;
+         public int Fee => GameData.Fee(Grade) * (Role == CrewRole.Fisherman ? 2 : 1);
+--- before-deep104/Assets/Scripts/Game/DeckActors.cs
++++ after-deep104/Assets/Scripts/Game/DeckActors.cs
+@@ -26,6 +26,7 @@
+         public float CaughtAt;
+         public bool CaughtByCrew; // Automatic catches stay out of captain reward/toast feedback.
+         public bool FromNetBasket;
++        public int DeepLineRig = -1; // Normal deck collection, but retain this rig's catch until collected.
+         public Vector3 RestPos, SpawnFrom;
+         public Transform Tail;
+ 
+--- before-deep104/Assets/Scripts/Game/VoyageGame.cs
++++ after-deep104/Assets/Scripts/Game/VoyageGame.cs
+@@ -660,6 +660,7 @@
+                     p.Carrying = null;
+                 }
+             }
++            ResetDeepLines(false);
+             ResetNet();
+             ResetSecondNet();
+             foreach (var f in OnDeck)
+@@ -829,7 +830,7 @@
+                 float flop = Mathf.Max(0f, Mathf.Sin(f.Age * 7f + i)) * 0.1f;
+                 f.Root.localPosition = f.RestPos + Vector3.up * flop;
+                 f.Root.localRotation = Quaternion.Euler(0f, f.Age * 40f % 360f, Mathf.Sin(f.Age * 9f) * 25f);
+-                if (f.ClaimedBy == null && f.Age > GameData.DeckFishLifetime)
++                if (f.DeepLineRig < 0 && f.ClaimedBy == null && f.Age > GameData.DeckFishLifetime)
+                 {
+                     Visuals.Kill(f.Root.gameObject);
+                     OnDeck.RemoveAt(i);
+@@ -1177,6 +1178,7 @@
+ 
+         void FisherThink(Person fisher)
+         {
++            if (FisherSpecialThink(fisher)) return;
+             var rod = Rods.FirstOrDefault(r => r.Fisher == fisher);
+             if (rod == null)
+             {
+@@ -1188,7 +1190,7 @@
+             if (!fisher.Idle) return;
+             if (IsTier5 && State.Tier5Broken[rod.Index]) { TryBuoyWork(fisher); return; }
+             if (!FisherAt(rod)) { fisher.WalkTo(Grid, rod.Tile, () => fisher.Face(rod.Outward)); return; }
+-            if (IsTier5 && (rod.State == RodState.Unbaited || rod.State == RodState.Ready || rod.State == RodState.Waiting && rod.WaitRemaining > 9f) && TryBuoyWork(fisher)) return;
++            // Special Tier5 jobs are dispatched before claiming a rod, using saved policy.
+             fisher.Face(rod.Outward);
+             if (rod.State == RodState.Unbaited && !HoldFull && rod.BaitingBy == null && CanBaitRod(rod)) Bait(fisher, rod);
+             else if (rod.State == RodState.Ready && !HoldFull)
+--- before-deep104/Assets/Scripts/Game/VoyageTier5.cs
++++ after-deep104/Assets/Scripts/Game/VoyageTier5.cs
+@@ -28,6 +28,7 @@
+ 
+         void ConfigureTier5(GameObject model)
+         {
++            ConfigureDeepLines(model);
+             var module = ArtLibrary.Find(model,"NetModule2");
+             if (module != null) module.gameObject.SetActive(SecondNetActive);
+             for(int i=3;i<=4;i++)
+@@ -83,6 +84,7 @@
+         void TickTier5(float dt)
+         {
+             if(!IsTier5 || CurrentMode!=Mode.Fishing)return;
++            TickDeepLines(dt);
+             for(int i=0;i<2;i++)
+             {
+                 if(!State.Tier5Broken[i+6])buoyTimers[i]=Mathf.Min(BuoySoakSeconds,buoyTimers[i]+dt*EquipmentEfficiency(i+6));
+--- before-deep104/Assets/Scripts/Game/FlowTelemetry.cs
++++ after-deep104/Assets/Scripts/Game/FlowTelemetry.cs
+@@ -5,7 +5,7 @@
+     // Session-only observation: never calls RNG, changes work, or enters save data.
+     public sealed class FlowTelemetry
+     {
+-        public enum Kind { Rod, Net, Trap, Stored, Prepared, Chum, PrepInput }
++        public enum Kind { Rod, Net, Trap, Stored, Prepared, Chum, PrepInput, DeepLine }
+         public struct Entry { public double At; public Kind Type; public float Kg, Value; }
+         readonly Queue<Entry> entries = new();
+         public double Clock { get; private set; }
+@@ -32,7 +32,7 @@
+         {
+             if (float.IsNaN(kg) || float.IsInfinity(kg) || kg <= 0) return;
+             entries.Enqueue(new Entry { At = Clock, Type = kind, Kg = kg, Value = value });
+-            if (kind <= Kind.Trap) LandedKg += kg;
++            if (kind <= Kind.Trap || kind == Kind.DeepLine) LandedKg += kg;
+             if (kind == Kind.Chum) ChumKg += kg;
+             if (kind == Kind.Stored) OutputSamples++;
+             if (carried) { CarryKg += kg; CarrySamples++; }
+--- before-deep104/Assets/Scripts/Game/VoyageSecondNetModule.cs
++++ after-deep104/Assets/Scripts/Game/VoyageSecondNetModule.cs
+@@ -22,7 +22,7 @@
+         public float SecondNetRemaining => Mathf.Max(0, secondNetSoak - secondNetTime);
+         public float SecondNetCatchKg => secondNetFish.Sum(f => f.kg);
+         public bool AllNetsStowed => Net == NetState.Stowed && SecondNet == NetState.Stowed;
+-        Vector2Int SecondNetAccess => IsTier5 ? new Vector2Int(65, 7) : State.HullDef.RodTiles[1];
++        Vector2Int SecondNetAccess => IsTier5 ? tier5SideNetAccess ?? new Vector2Int(65, 7) : State.HullDef.RodTiles[1];
+         Vector3 SecondNetBasketLocal => IsTier5 ? new Vector3(7.1f,.14f,.35f) : Grid.GetLocal(SecondNetAccess) + new Vector3(.35f, .14f, .1f);
+         Vector3 SecondNetAnchor => IsTier5 ? Grid.GetLocal(SecondNetAccess) + new Vector3(.55f,.35f,0) : new Vector3(2.8f,.35f,-.24f);
+         public int UsableRodCount => Rods.Count(r => r.Unlocked);
+--- before-deep104/Assets/Scripts/Game/VoyageNet.cs
++++ after-deep104/Assets/Scripts/Game/VoyageNet.cs
+@@ -20,7 +20,7 @@
+         int netClaim;
+         public int NetBasketCount => OnDeck.FindAll(f => f.FromNetBasket).Count;
+         public bool NetBasketBlocked => NetBasketCount > 0;
+-        Vector2Int NetAccess => IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
++        Vector2Int NetAccess => IsTier5 && tier5RearNetAccess.HasValue ? tier5RearNetAccess.Value : IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
+         Vector3 NetBasketLocal => IsTier5 ? new Vector3(7.1f,.14f,3.05f) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
+ 
+         void BuildNetKit()
+--- before-deep104/Assets/Editor/ArtImport.cs
++++ after-deep104/Assets/Editor/ArtImport.cs
+@@ -78,7 +78,7 @@
+             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
+             mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx");
+             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
+-            if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
++            if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx") || assetPath.EndsWith("/Tier5DeepLines103.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
+             if (assetPath.StartsWith("Assets/gemini/Models/")) mi.isReadable = true;
+             mi.importCameras = false;
+             mi.importLights = false;

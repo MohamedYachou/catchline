@@ -10,9 +10,14 @@ namespace Catchline.Game
         Person netUnloader;
         readonly List<DeckFish> netUnloadBatch = new();
         public bool NetUnloadActive => netUnloader != null;
+        public int NetUnloadRig { get; private set; } = -1;
         bool IsNetUnloading(Person person) => netUnloader == person;
         void BeginNetUnload(Person person)
         {
+            if (netUnloader != null && netUnloader != person) return; // Existing batch keeps its owner.
+            var basket = AssignedBasket(person);
+            if (basket == null) return;
+            NetUnloadRig = SecondNetActive && basket.Tile == SecondNetAccess ? 1 : 0;
             netUnloader = person;
             Toast($"Bringing {NetBasketCount} net fish into storage.");
         }
@@ -25,7 +30,7 @@ namespace Catchline.Game
                 fish.ClaimedBy = null;
             }
             if (netUnloader != null) netUnloader.CarryingBatch = false;
-            netUnloadBatch.Clear(); netUnloader = null;
+            netUnloadBatch.Clear(); netUnloader = null; NetUnloadRig = -1;
         }
 
         void TickNetUnload(float dt)
@@ -35,13 +40,16 @@ namespace Catchline.Game
             if (person.Root == null) { ClearNetUnload(); return; }
             if (!person.Idle) return;
             if (HoldFull) { ClearNetUnload(); return; }
-            var ready = OnDeck.Where(f => f.FromNetBasket && f.ClaimedBy == null && f.Age >= .4f)
-                .ToList();
+            var basket = AssignedBasket(person);
+            var ready = basket == null ? new List<DeckFish>() : OnDeck.Where(f => f.FromNetBasket
+                && f.Tile == basket.Tile && f.ClaimedBy == null && f.Age >= .4f).ToList();
             if (ready.Count > 0)
             {
+                if (person.Tile != ready[0].Tile)
+                { person.WalkTo(Grid, ready[0].Tile, null); return; }
                 foreach (var fish in ready) { fish.ClaimedBy = person; netUnloadBatch.Add(fish); }
                 person.FacePoint(ready[0].RestPos);
-                person.Do("Gathering net catch", 1.2f, () =>
+                person.Do("Gathering net catch", FishHandlingSeconds(person, 1.2f), () =>
                 {
                     for (int i = 0; i < netUnloadBatch.Count; i++)
                     {
@@ -49,14 +57,14 @@ namespace Catchline.Game
                         f.Root.localPosition = new Vector3((i % 2 - .5f) * .13f, .55f + (i / 4) * .018f, .21f + (i % 4 / 2) * .10f);
                     }
                     person.CarryingBatch = true;
-                    if (!person.WalkTo(Grid, CoolerAccess, () => { FaceHold(person); person.Do("Stowing net catch", 1.8f, () =>
+                    if (!person.WalkTo(Grid, InboundAccess, () => { if(IsPrepFisher)person.FacePoint(PrepSurfaceLocal);else FaceHold(person); person.Do("Stowing net catch", FishHandlingSeconds(person, 1.8f), () =>
                     {
                         var stored = new List<CaughtFish>();
                         foreach (var f in netUnloadBatch.ToArray())
                         {
                             if (HoldFull || !OnDeck.Contains(f)) continue;
                             var secured = new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.CaughtAt };
-                            if (!TryStore(secured)) continue; stored.Add(secured);
+                            if (!DeliverCatch(secured)) continue; stored.Add(secured);
                             OnDeck.Remove(f); Visuals.Kill(f.Root.gameObject);
                         }
                         lidPop = 1f;
@@ -67,7 +75,7 @@ namespace Catchline.Game
                 return;
             }
             // A just-landed batch needs the brief drop animation before pickup.
-            if (!OnDeck.Any(f => f.FromNetBasket)) ClearNetUnload();
+            if (basket == null) ClearNetUnload();
         }
     }
 }

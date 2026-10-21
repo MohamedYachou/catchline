@@ -22,6 +22,8 @@ namespace Catchline.Game
                 if (t.name.StartsWith("RodVisual_")) t.gameObject.SetActive(false);
             compactLidRest = ArtLibrary.Find(model, "HoldLid")?.localRotation ?? Quaternion.identity;
             if (IsPrepFisher) ConfigurePrepFisher(model);
+            if (IsTier5) ConfigureTier5(model);
+            BuildSecondNetModuleVisual(model);
             FitCompactDeck(model);
         }
 
@@ -69,6 +71,12 @@ namespace Catchline.Game
                     var basket = NetBasketLocal;
                     var nearBasket = new Vector2(Mathf.Clamp(local.x, basket.x - .18f, basket.x + .18f), Mathf.Clamp(local.z, basket.z - .24f, basket.z + .24f));
                     if (Vector2.Distance(point, nearBasket) < .28f) blocked = true;
+                    if(IsTier5 && SecondNetActive)
+                    {
+                        var sideBasket=SecondNetBasketLocal;
+                        var nearSide=new Vector2(Mathf.Clamp(local.x,sideBasket.x-.18f,sideBasket.x+.18f),Mathf.Clamp(local.z,sideBasket.z-.24f,sideBasket.z+.24f));
+                        if(Vector2.Distance(point,nearSide)<.28f)blocked=true;
+                    }
                     if (blocked) Grid.Block(new RectInt(x, y, 1, 1));
                     else CompactWalkableTiles++;
                 }
@@ -83,11 +91,15 @@ namespace Catchline.Game
         public bool SetDeckhandWork(CrewMember crew, DeckhandWork preference)
         {
             if (!IsNetFisher || crew == null || crew.Role != CrewRole.Deckhand || !State.Crew.Contains(crew)) return false;
-            crew.WorkPreference = preference;
+            if (preference == DeckhandWork.Prep && (!IsPrepFisher || crew.WorkPreference != DeckhandWork.Prep
+                && State.Crew.Count(c => c.WorkPreference == DeckhandWork.Prep && c.Role == CrewRole.Deckhand) >= 2)) return false;
+            crew.WorkPreference = preference; forecastSignature=flowCrewSignature=null;
             // Complete any fish already in hand. Release a walking/timed job safely;
             // Person cancellation also releases fish, bait and winch claims.
             var person = People.FirstOrDefault(p => p.Contract == crew);
             person?.Stop();
+            if (preference != DeckhandWork.Nets) netAssignments.Remove(crew);
+            if (person != null && preference != DeckhandWork.Prep) prepStations.Remove(person);
             SaveGame();
             return true;
         }

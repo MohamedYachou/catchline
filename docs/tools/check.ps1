@@ -1,7 +1,7 @@
-param([string]$Name = 'resume', [string]$Method = 'Catchline.EditorTools.PrototypeTools.VoyageSim', [int]$Voyages = 30, [int]$Showcase = 0)
+param([string]$Name = 'resume', [string]$Method = 'Catchline.EditorTools.PrototypeTools.VoyageSim', [int]$Voyages = 30, [int]$Showcase = 0, [string]$Scratch = '')
 $ErrorActionPreference = 'Stop'
 $source = 'C:\Users\momoy\Projects\Catchline'
-$scratch = 'C:\Users\momoy\Projects\Catchline-sim'
+$scratch = if ([string]::IsNullOrWhiteSpace($Scratch)) { 'C:\Users\momoy\Projects\Catchline-sim' } else { $Scratch }
 $unity = 'C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Unity.exe'
 if (!(Test-Path "$scratch\ProjectSettings\ProjectVersion.txt")) { throw 'Missing scratch Unity project' }
 robocopy "$source\Assets" "$scratch\Assets" /MIR /XD Resources /NFL /NDL /NJH /NJS | Out-Null
@@ -10,6 +10,9 @@ if ($LASTEXITCODE -ge 8) { throw "Asset copy failed: $LASTEXITCODE" }
 if (Test-Path -LiteralPath "$source\Assets\Resources\FishReference") {
     Copy-Item -LiteralPath "$source\Assets\Resources\FishReference" -Destination "$scratch\Assets\Resources" -Recurse -Force
     Copy-Item -LiteralPath "$source\Assets\Resources\FishReference.meta" -Destination "$scratch\Assets\Resources\FishReference.meta" -Force
+}
+if (Test-Path -LiteralPath "$source\Assets\Resources\ManagementReference") {
+    Copy-Item -LiteralPath "$source\Assets\Resources\ManagementReference" -Destination "$scratch\Assets\Resources" -Recurse -Force
 }
 $log = "$scratch\Logs\check-$Name.log"
 if (Test-Path -LiteralPath "$source\Assets\Resources\Charts") {

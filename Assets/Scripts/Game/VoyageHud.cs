@@ -32,6 +32,27 @@ namespace Catchline.Game
         void HandleInput()
         {
             var kb = Keyboard.current;
+            if (ManagementOpen)
+            {
+                if (kb != null && kb.escapeKey.wasPressedThisFrame) CloseManagement();
+                return;
+            }
+            if (baitSettingsCrew != null)
+            {
+                if (kb != null && kb.escapeKey.wasPressedThisFrame) baitSettingsCrew = null;
+                return;
+            }
+            if (CaptainPrepActive)
+            {
+                if (kb != null && kb.escapeKey.wasPressedThisFrame) CancelCaptainPrep();
+                else if (kb != null && kb.spaceKey.wasPressedThisFrame && !MenuOpen && !confirmHeadHome) TapCaptainPrep();
+                return;
+            }
+            if (PrepOrdersOpen)
+            {
+                if (kb != null && kb.escapeKey.wasPressedThisFrame) { if (prepClassDropdown != 0) prepClassDropdown = 0; else PrepOrdersOpen = false; }
+                return;
+            }
             if (departureReady)
             {
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) departureReady = false;

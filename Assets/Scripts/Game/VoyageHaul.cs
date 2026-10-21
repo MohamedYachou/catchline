@@ -35,7 +35,7 @@ namespace Catchline.Game
         void RequestHeadHome()
         {
             if (CurrentMode != Mode.Fishing) return;
-            if (DepartureOverflow() == 0 && (!IsNetFisher || Net == NetState.Stowed)) { HeadHome(); return; }
+            if (DepartureOverflow() == 0 && (!IsNetFisher || AllNetsStowed)) { HeadHome(); return; }
             confirmHeadHome = true;
             paused = true; // Freeze catches, freshness and crew while the exact loss is displayed.
         }
@@ -62,7 +62,7 @@ namespace Catchline.Game
             GUI.Label(new Rect(p.x + 20f, p.y + 16f, p.width - 40f, 40f), "Leave fish behind?", Ui.H2);
             GUI.Label(new Rect(p.x + 20f, p.y + 64f, p.width - 40f, 90f),
                 (overflow > 0 ? $"{overflow} fish cannot fit in the hold and will go back to sea. " : "") +
-                (IsNetFisher && Net != NetState.Stowed ? Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
+                (IsNetFisher && !AllNetsStowed ? SecondNet != NetState.Stowed ? "Your second net is deployed; leaving forfeits its catch. " : Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
                 "The trip is paused while you choose.", Ui.Body);
             if (GUI.Button(new Rect(p.x + 20f, p.y + 174f, p.width - 40f, 60f), "Keep fishing · Esc", Ui.BtnAlt))
             { CancelHeadHome(); return; }
@@ -73,6 +73,8 @@ namespace Catchline.Game
         {
             if (haul.Count == 0) return "No catch yet";
             if (State.Has(UpgradeId.IceBox)) return "Iced · full value";
+            if (haul.All(f => f.Prepared)) return "Prepared / never spoils";
+            haul = haul.Where(f => !f.Prepared).ToList();
             float oldest = haul.Max(f => Mathf.Max(0f, now - f.StowedAt));
             float grace = GameData.FreshnessGraceSeconds - oldest;
             if (grace > 0f) return $"Value drops in {Mathf.CeilToInt(grace)}s";
