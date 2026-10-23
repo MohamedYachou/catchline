@@ -1,0 +1,723 @@
+{
+ "v2-slab": {
+  "size": [
+   128,
+   128
+  ],
+  "border": [
+   80,
+   80,
+   80,
+   80
+  ],
+  "use": "panel"
+ },
+ "v2-slab-header": {
+  "size": [
+   128,
+   44
+  ],
+  "border": [
+   48,
+   16,
+   48,
+   40
+  ],
+  "use": "header band, top radius"
+ },
+ "v2-slab-titled": {
+  "size": [
+   128,
+   128
+  ],
+  "border": [
+   80,
+   80,
+   80,
+   112
+  ],
+  "use": "slab with 44px navy header band"
+ },
+ "v2-card": {
+  "size": [
+   96,
+   96
+  ],
+  "border": [
+   60,
+   60,
+   60,
+   60
+  ],
+  "use": "soft card"
+ },
+ "v2-card-ink": {
+  "size": [
+   96,
+   96
+  ],
+  "border": [
+   60,
+   60,
+   60,
+   60
+  ],
+  "use": "outlined card"
+ },
+ "v2-card-selected": {
+  "size": [
+   104,
+   104
+  ],
+  "border": [
+   68,
+   68,
+   68,
+   68
+  ],
+  "use": "selected card: 4px blue ring"
+ },
+ "v2-card-alert": {
+  "size": [
+   104,
+   104
+  ],
+  "border": [
+   68,
+   68,
+   68,
+   68
+  ],
+  "use": "backed-up card: red glow"
+ },
+ "v2-inset": {
+  "size": [
+   64,
+   64
+  ],
+  "border": [
+   40,
+   40,
+   40,
+   40
+  ],
+  "use": "recessed well"
+ },
+ "v2-btn-primary": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   52,
+   64,
+   52
+  ],
+  "use": "button"
+ },
+ "v2-btn-primary-pressed": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   52,
+   64,
+   52
+  ],
+  "use": "pressed button"
+ },
+ "v2-btn-secondary": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   52,
+   64,
+   52
+  ],
+  "use": "button"
+ },
+ "v2-btn-secondary-pressed": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   52,
+   64,
+   52
+  ],
+  "use": "pressed button"
+ },
+ "v2-btn-disabled": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   52,
+   64,
+   52
+  ],
+  "use": "disabled"
+ },
+ "v2-btn-card": {
+  "size": [
+   96,
+   56
+  ],
+  "border": [
+   48,
+   44,
+   48,
+   36
+  ],
+  "use": "card button"
+ },
+ "v2-btn-card-pressed": {
+  "size": [
+   96,
+   56
+  ],
+  "border": [
+   48,
+   44,
+   48,
+   36
+  ],
+  "use": "card button pressed"
+ },
+ "v2-btn-round": {
+  "size": [
+   64,
+   64
+  ],
+  "border": null,
+  "use": "round icon button"
+ },
+ "v2-tab-off": {
+  "size": [
+   128,
+   96
+  ],
+  "border": [
+   68,
+   68,
+   68,
+   68
+  ],
+  "use": "tab"
+ },
+ "v2-tab-on": {
+  "size": [
+   128,
+   96
+  ],
+  "border": [
+   68,
+   68,
+   68,
+   68
+  ],
+  "use": "active tab"
+ },
+ "v2-switch": {
+  "size": [
+   96,
+   52
+  ],
+  "border": [
+   52,
+   52,
+   52,
+   52
+  ],
+  "use": "page switch capsule"
+ },
+ "v2-switch-on": {
+  "size": [
+   96,
+   44
+  ],
+  "border": [
+   44,
+   44,
+   44,
+   44
+  ],
+  "use": "active pill"
+ },
+ "v2-bar-track": {
+  "size": [
+   64,
+   16
+  ],
+  "border": [
+   16,
+   16,
+   16,
+   16
+  ],
+  "use": "bar track"
+ },
+ "v2-bar-good": {
+  "size": [
+   64,
+   16
+  ],
+  "border": [
+   16,
+   16,
+   16,
+   16
+  ],
+  "use": "bar fill"
+ },
+ "v2-bar-warn": {
+  "size": [
+   64,
+   16
+  ],
+  "border": [
+   16,
+   16,
+   16,
+   16
+  ],
+  "use": "bar fill"
+ },
+ "v2-bar-bad": {
+  "size": [
+   64,
+   16
+  ],
+  "border": [
+   16,
+   16,
+   16,
+   16
+  ],
+  "use": "bar fill"
+ },
+ "v2-bar-teal": {
+  "size": [
+   64,
+   16
+  ],
+  "border": [
+   16,
+   16,
+   16,
+   16
+  ],
+  "use": "bar fill"
+ },
+ "v2-light-good": {
+  "size": [
+   16,
+   16
+  ],
+  "border": null,
+  "use": "status dot"
+ },
+ "v2-pill-good": {
+  "size": [
+   64,
+   32
+  ],
+  "border": [
+   32,
+   32,
+   32,
+   32
+  ],
+  "use": "status pill"
+ },
+ "v2-light-warn": {
+  "size": [
+   16,
+   16
+  ],
+  "border": null,
+  "use": "status dot"
+ },
+ "v2-pill-warn": {
+  "size": [
+   64,
+   32
+  ],
+  "border": [
+   32,
+   32,
+   32,
+   32
+  ],
+  "use": "status pill"
+ },
+ "v2-light-bad": {
+  "size": [
+   16,
+   16
+  ],
+  "border": null,
+  "use": "status dot"
+ },
+ "v2-pill-bad": {
+  "size": [
+   64,
+   32
+  ],
+  "border": [
+   32,
+   32,
+   32,
+   32
+  ],
+  "use": "status pill"
+ },
+ "v2-pill-cream": {
+  "size": [
+   96,
+   44
+  ],
+  "border": [
+   44,
+   44,
+   44,
+   44
+  ],
+  "use": "price pill"
+ },
+ "v2-pill-lock": {
+  "size": [
+   64,
+   32
+  ],
+  "border": [
+   32,
+   32,
+   32,
+   32
+  ],
+  "use": "lock chip"
+ },
+ "v2-pill-navy": {
+  "size": [
+   128,
+   64
+  ],
+  "border": [
+   64,
+   64,
+   64,
+   56
+  ],
+  "use": "toast"
+ },
+ "v2-chip-white": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-white-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-chip-green": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-green-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-chip-blue": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-blue-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-chip-purple": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-purple-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-chip-gold": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-gold-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-chip-red": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip"
+ },
+ "v2-chip-red-on": {
+  "size": [
+   96,
+   36
+  ],
+  "border": [
+   36,
+   36,
+   36,
+   36
+  ],
+  "use": "class chip on"
+ },
+ "v2-bubble": {
+  "size": [
+   96,
+   56
+  ],
+  "border": [
+   52,
+   48,
+   52,
+   44
+  ],
+  "use": "speech bubble"
+ },
+ "v2-bubble-tail": {
+  "size": [
+   32,
+   20
+  ],
+  "border": null,
+  "use": "bubble tail"
+ },
+ "v2-bubble-hot": {
+  "size": [
+   96,
+   56
+  ],
+  "border": [
+   52,
+   48,
+   52,
+   44
+  ],
+  "use": "speech bubble"
+ },
+ "v2-bubble-hot-tail": {
+  "size": [
+   32,
+   20
+  ],
+  "border": null,
+  "use": "bubble tail"
+ },
+ "v2-portrait-frame": {
+  "size": [
+   64,
+   64
+  ],
+  "border": null,
+  "use": "portrait disc"
+ },
+ "v2-portrait-ring": {
+  "size": [
+   64,
+   64
+  ],
+  "border": null,
+  "use": "portrait ring over art"
+ },
+ "v2-portrait-square": {
+  "size": [
+   96,
+   96
+  ],
+  "border": [
+   60,
+   60,
+   60,
+   60
+  ],
+  "use": "large portrait frame"
+ },
+ "v2-nail": {
+  "size": [
+   16,
+   16
+  ],
+  "border": null,
+  "use": "nail"
+ },
+ "v2-badge-tick": {
+  "size": [
+   40,
+   40
+  ],
+  "border": null,
+  "use": "selected tick badge"
+ },
+ "v2-arrow-flow": {
+  "size": [
+   32,
+   40
+  ],
+  "border": null,
+  "use": "stage flow arrow"
+ },
+ "v2-icon-back": {
+  "size": [
+   40,
+   40
+  ],
+  "border": null,
+  "use": "back chevron"
+ },
+ "v2-icon-goal": {
+  "size": [
+   40,
+   40
+  ],
+  "border": null,
+  "use": "goal target"
+ },
+ "v2-icon-menu": {
+  "size": [
+   40,
+   40
+  ],
+  "border": null,
+  "use": "menu"
+ },
+ "v2-infinity": {
+  "size": [
+   40,
+   24
+  ],
+  "border": null,
+  "use": "infinity glyph, tinted at runtime"
+ },
+ "v2-dim": {
+  "size": [
+   8,
+   8
+  ],
+  "border": null,
+  "use": "modal dim"
+ },
+ "v2-rule": {
+  "size": [
+   8,
+   8
+  ],
+  "border": null,
+  "use": "divider"
+ }
+}

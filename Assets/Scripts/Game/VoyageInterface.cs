@@ -30,14 +30,13 @@ namespace Catchline.Game
             hudRects.Clear();
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
-            else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagement();
+            else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
             else InterfaceTravel();
             if (!departureReady && toast != null && SimTime < toastUntil)
             {
-                var r = new Rect((iw - 430) / 2, CurrentMode == Mode.Fishing ? 76 : 18, 430, 64);
-                coastalUi.Box("toast", r, "toast-dark");
-                coastalUi.Label("toast/text", new Rect(r.x + 14, r.y + 4, r.width - 28, 54), toast, 16, Palette.Cream, TextAnchor.MiddleCenter);
+                if (CurrentMode == Mode.Fishing && !ManagementOpen) coastalUi.Toast("toast", toast, null, Edge, HudGapLeft, HudGapRight);
+                else coastalUi.Toast("toast", toast, null, 18);
             }
             InterfaceCrewBait();
             InterfaceCaptainPrep();
@@ -62,11 +61,7 @@ namespace Catchline.Game
         }
         void InterfaceFishing()
         {
-            coastalUi.ReferenceScale = ih / FishReferenceStyle.Height;
-            InterfaceReferenceGoals();
-            InterfaceReferenceCrew();
-            InterfaceReferenceSupplies();
-            IButton("home", FishingFooter(IsTier5?1:0,1), "Head home", RequestHeadHome, false);
+            InterfaceVoyageHud();
             foreach (var rod in Rods.Where(r => r.Unlocked && CanCommandRod(r)))
                 InterfaceBubble("rod/" + Rods.IndexOf(rod), Boat.TransformPoint(rod.TipLocal + Vector3.up * .25f),
                     rod.State == RodState.Bite ? "Bite!" : rod.InWater ? "Watch" : "Fish", "icon-rod", () => CommandRod(rod), rod.State == RodState.Bite);
@@ -84,13 +79,8 @@ namespace Catchline.Game
         {
             Vector3 view = Cam.WorldToViewportPoint(worldPosition);
             if (view.z <= 0) return;
-            float x = view.x * iw, y = (1 - view.y) * ih;
-            var r = new Rect(Mathf.Clamp(x - 56, 14, iw - 126), Mathf.Clamp(y - 52, 18, ih - 58), 112, 44);
-            Block(r);
-            coastalUi.Art(id + "/tail", new Rect(r.center.x - 10, r.yMax - 4, 20, 16), hot ? "bubble-hot-tail" : "bubble-white-tail");
-            coastalUi.Button(id, r, "", action, hot ? "bubble-hot" : "bubble-white");
-            coastalUi.Art(id + "/icon", new Rect(r.x + 11, r.y + 9, 24, 24), icon);
-            coastalUi.Label(id + "/label", new Rect(r.x + 39, r.y, 64, 39), caption, 18);
+            string art = icon == "icon-rod" ? "v2-icon-rod" : icon == "icon-fish" ? "v2-icon-fish" : icon;
+            Block(coastalUi.Bubble(id, new Vector2(view.x * iw, (1 - view.y) * ih), art, caption, hot, action, icon));
         }
         void InterfaceFishingAction()
         {
@@ -116,11 +106,8 @@ namespace Catchline.Game
             if (rod == null)
             {
                 string hint = ShowTips ? VoyageHint() : null;
-                if (hint != null)
-                {
-                    var r = new Rect(x, ih - 76, width, 58); coastalUi.Box("guide", r, "toast-dark");
-                    coastalUi.Label("guide/text", new Rect(x + 14, r.y + 6, width - 28, 44), hint, 16, Palette.Cream, TextAnchor.MiddleCenter);
-                }
+                // Guidance sits top centre between the status slab and the crew rail; a toast takes its place.
+                if (hint != null && (toast == null || SimTime >= toastUntil)) coastalUi.Toast("guide", hint, "v2-icon-tick", Edge, HudGapLeft, HudGapRight);
                 return;
             }
             float height = compactInterface ? 146 : 172;

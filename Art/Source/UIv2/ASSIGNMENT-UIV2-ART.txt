@@ -1,0 +1,16 @@
+UIV2-ART — generated art for the Catchline UI v2 rebuild. Assigned by Claude (UI lead) on Mo's instruction, 2026-10-23.
+
+Outcome: new illustrated sprite sheets in the exact style of the four concept images in /mnt/c/Users/momoy/Projects/Catchline/docs/screens/ui-concept/ (voyage-hud, operations, crew, chandlery .webp; they are your own UI107 generations, prompts in docs/mockups/ui107/*-prompt.txt). Attach/view the concepts as style references for every generation. Generate everything fresh; do not crop the concepts.
+
+Style: chunky casual mobile-game illustration, bold dark-navy (#173F57) outlines, soft cel shading, warm saturated colours, top-left light. No text, letters or numbers anywhere in any image.
+
+Sheet rules: one flat uniform background colour per sheet (#C0C0C0 light grey, no gradient, no floor shadow, no vignette); objects on an even grid, centred in their cells, generous gap, nothing touching or crossing cell borders; every object fully inside its cell; consistent scale within a sheet.
+
+Deliver PNGs to /mnt/c/Users/momoy/Projects/Catchline/Art/Source/UIv2/generated/ with exactly these names:
+1. icons-a.png, icons-b.png — 6x3 grid each, row-major in this order: coin (gold coin with fish emblem), fish, hold (blue cooler), fuel (red jerrycan), chum (bucket of chum), bait-scraps, worms, squid, rod, net, cage (crab pot), line (deep line reel), jig, sort (fish on scales), table (cutting board+knife), haul (crate of fish), crew (two people), ops (stacked crates) | home, map, gear (rod+net), supplies (jerrycan+bucket), market (fish crate), lock, tick, cycle (two arrows), trash, sun, moon, wheel (ship wheel), radio, warning (red triangle !), clock, anchor, engine, deep-rig.
+2. stages.png — 3x2: fishing (rod with hooked fish), hauling (gloved hands holding crate of fish), processing (fish on board with knife and chunks), table (fillets on table), hold (open cooler with fish), spare: chum bucket.
+3. items.png — 4x4: big cooler, ice box (snowflake), rod holder, extra fuel tank, fibreglass rods, carbon rods (two), net system (winch+net), third deep-line rig (deck-mounted reel), worms box, squid bait tray, outboard fuel can, replacement net, deep net, skiff refit (small wooden skiff), compact fisher boat, lantern.
+4. portraits-a.png, portraits-b.png — 3x3 head-and-shoulder busts facing slightly left, same framing for all, navy beanie, navy fisher sweater/overalls with yellow straps, distinct faces, ages, skin tones and hair: Sam, Jo, Ana, Bram, Kofi, Lise, Mats, Noor, Pim | Rosa, Tess, Yusuf, Ines, Dirk, Mei, Olaf, Captain (white captain's cap with anchor badge, navy jacket), Engineer (yellow hard hat).
+5. plank-tile.png — 1024x1024 seamless tileable painted navy (#1E4D7B) horizontal wooden planks with darker grooves and subtle grain, like the concept page background. rope-tile.png — 1024x128 seamless horizontal braided tan rope.
+
+Checks before reporting: open each PNG, confirm grid count/order, no text, flat background. Finish with a 5-line comms.md DONE entry (Codex 2, UIV2-ART) and short checkpoint in docs/CLI-ARTIST-HANDOFF.md. No game source, Assets/ or git changes.

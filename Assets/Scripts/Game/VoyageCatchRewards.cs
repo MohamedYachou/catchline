@@ -46,7 +46,7 @@ namespace Catchline.Game
             if (SimTime < netReceiptUntil) InterfaceNetReceipt();
             else
             {
-                var review = new Rect(16, ih - 62, 238, 44);
+                var review = compactInterface ? new Rect(16 + 262, ih - 16 - 52, 220, 52) : new Rect(16, ih - 16 - 56, 250, 56);
                 IButton("catch/net/review", review, $"Last net · {LastNetReceipt.Count} fish", () => netReceiptUntil = SimTime + NetReceiptSeconds, false);
             }
         }

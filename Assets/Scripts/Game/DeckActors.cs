@@ -127,6 +127,7 @@ namespace Catchline.Game
         public Vector2Int Tile => Grid != null ? Grid.GetTile(pos - offset) : DeckGrid.ToTile(pos);
         public bool Walking => path.Count > 0 || arrive != null;
         public bool Busy => busyTotal > 0f;
+        public float BusyProgress => busyTotal > 0f ? Mathf.Clamp01(1f - busyLeft / busyTotal) : 0f; // read-only, for the crew rail
         public bool Idle => !Walking && !Busy;
         public string State => Busy ? BusyLabel : Walking ? Loitering ? "strolling" : "walking" : Carrying != null ? "carrying a fish" : Loitering ? "looking overboard" : "ready";
 

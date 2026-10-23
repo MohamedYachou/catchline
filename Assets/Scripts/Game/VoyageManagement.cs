@@ -83,7 +83,7 @@ namespace Catchline.Game
         void ManagementEntry()
         {
             if(CurrentMode!=Mode.Fishing||ManagementOpen||netOrdersOpen||PrepOrdersOpen||CaptainPrepActive||baitSettingsCrew!=null||tier5OperationsOpen||NetGameActive)return;
-            IButton("management/open",FishingFooter(0),"Management",OpenManagement,false);
+            // UI v2: the voyage HUD draws the Ops and Crew entries (VoyageInterfaceVoyage.cs).
         }
         float dashScale,dashX,dashY;
         string dashArt;

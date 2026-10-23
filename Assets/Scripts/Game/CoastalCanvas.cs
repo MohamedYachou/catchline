@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.UI;
 namespace Catchline.Game
 {
     // Retained native UI: shared sliced artwork, typography, input and capture.
-    public sealed class CoastalCanvas : MonoBehaviour
+    public sealed partial class CoastalCanvas : MonoBehaviour
     {
         sealed class Element
         {
@@ -70,6 +70,7 @@ namespace Catchline.Game
             Root.anchorMax = new Vector2(safeArea.xMax / width, safeArea.yMax / height);
             Root.offsetMin = Vector2.zero; Root.offsetMax = Vector2.zero;
             foreach (var e in elements.Values) e.Used = false;
+            bubbles.Clear(); BubbleTop = BubbleLeft = 12; BubbleRight = 0;
         }
         public void Hide() { if (canvas != null) canvas.enabled = false; }
         public void RenderCapture(RenderTexture target)
@@ -134,8 +135,17 @@ namespace Catchline.Game
             sprites[key] = result;
             return result;
         }
+        // Legacy kit names resolve to the UI v2 kit so every screen shares one skin while it is rebuilt.
+        static string V2Equivalent(string art) => art switch
+        {
+            "panel-cream" or "popup-panel" => "v2-slab", "card-white" => "v2-card", "card-selected" => "v2-card-selected",
+            "toast-dark" => "v2-pill-navy", "button-primary-normal" => "v2-btn-primary", "button-secondary-normal" => "v2-btn-secondary",
+            "button-tab-on-normal" => "v2-tab-on", "button-tab-off-normal" => "v2-tab-off", "button-disabled-normal" => "v2-btn-disabled",
+            "bubble-white" => "v2-bubble", "bubble-hot" => "v2-bubble-hot", _ => null
+        };
         public RectTransform Box(string id, Rect r, string art = "panel-cream", Color? tint = null, Transform parent = null, bool blocks = true)
         {
+            if (V2Equivalent(art) is string v2) return Sliced(id, r, v2, parent, tint, blocks);
             var e = Get(id, r, parent);
             if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<Image>();
             e.Image.sprite = Sprite(art, true);
@@ -201,6 +211,8 @@ namespace Catchline.Game
         public void Button(string id, Rect r, string label, Action action, string art = "button-primary-normal",
             bool enabled = true, Transform parent = null, int size = 18)
         {
+            if (art == "button-primary-normal") { Primary(id, r, label, action, null, enabled, parent); return; }
+            if (art == "button-secondary-normal") { Secondary(id, r, label, action, null, enabled, parent); return; }
             Box(id, r, enabled ? art : "button-disabled-normal", null, parent);
             var e = elements[id];
             if (e.Button == null)
@@ -220,6 +232,7 @@ namespace Catchline.Game
         }
         public void Bar(string id, Rect r, float progress, bool warning = false, Transform parent = null)
         {
+            if (V2("v2-bar-track") != null) { ProgressBar(id, r, progress, warning ? Skin.Bar.Bad : Skin.Bar.Teal, parent); return; }
             Box(id, r, "bar-background", null, parent, false);
             if (progress > .001f) Box(id + "/fill", new Rect(r.x, r.y, Mathf.Max(5, r.width * Mathf.Clamp01(progress)), r.height),
                 warning ? "bar-red" : "bar-teal", null, parent, false);
@@ -392,6 +405,7 @@ namespace Catchline.Game
         }
         public bool Invoke(string id)
         {
+            if (!elements.ContainsKey(id) && aliases.TryGetValue(id, out var target)) id = target;
             if (!elements.TryGetValue(id, out var e) || e.Button == null || !e.Button.interactable || !e.Used) return false;
             e.Button.onClick.Invoke(); return true;
         }

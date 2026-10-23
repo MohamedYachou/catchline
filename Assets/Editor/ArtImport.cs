@@ -61,6 +61,13 @@ namespace Catchline.EditorTools
             ti.npotScale = TextureImporterNPOTScale.None;
             ti.textureCompression = TextureImporterCompression.Uncompressed;
             string name = Path.GetFileNameWithoutExtension(assetPath);
+            if (name.StartsWith("v2-"))
+            {
+                // UI v2 kit: 2x authored, never downscaled; planks and rope tile.
+                ti.maxTextureSize = 2048;
+                if (name.StartsWith("v2-plank") || name.StartsWith("v2-rope")) ti.wrapMode = TextureWrapMode.Repeat;
+                return;
+            }
             ti.maxTextureSize = assetPath.StartsWith("Assets/gemini/") ? 1024 : name == "title-backdrop" || name.StartsWith("header-") || name == "sea-chart" ? 2048
                 : name == "logo-catchline" || name == "strike-water" ? 1024
                 : name == "daily-gift" ? 512
@@ -140,6 +147,7 @@ namespace Catchline.EditorTools
                 lib.Ui = lib.Ui.Concat(Directory.GetFiles("Assets/gemini", "*.png", SearchOption.AllDirectories)
                     .Select(p => AssetDatabase.LoadAssetAtPath<Texture2D>(p.Replace('\\', '/'))).Where(t => t != null)).ToArray();
             lib.UiFont = AssetDatabase.LoadAssetAtPath<Font>(UiFolder + "Fonts/Fredoka-Medium.ttf");
+            lib.DisplayFont = AssetDatabase.LoadAssetAtPath<Font>(UiFolder + "Fonts/LilitaOne-Regular.ttf");
             lib.WaterShader = AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/PtsWater.shader")
                 ?? AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/CoastalWater.shader");
             lib.PtsWaterNormals = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/PTS/WaterNormals.tif");

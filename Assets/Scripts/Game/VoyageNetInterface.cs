@@ -14,17 +14,13 @@ namespace Catchline.Game
             var access = NetAccess;
             var anchor = Boat.TransformPoint(Grid.GetLocal(access) + new Vector3(.5f, .8f, 0));
             var view = Cam.WorldToViewportPoint(anchor);
-            var icon = new Rect(Mathf.Clamp(view.x * iw - 34, 14, iw - 82), Mathf.Clamp((1 - view.y) * ih - 64, 16, ih - 114), 68, 64);
-            Block(icon);
             bool enabled = CanCaptainNet && (Net == NetState.Ready || Net == NetState.Stowed && (NetBasketBlocked || State.ActiveNetStock > 0));
-            coastalUi.Button("net", icon, "", () => CaptainNetAction(), Net == NetState.Ready ? "bubble-hot" : "bubble-white", enabled);
-            coastalUi.Art("net/icon", new Rect(icon.x + 16, icon.y + 12, 36, 36), "icon-net");
             string status = NetUnloadRig == 0 ? "Unloading catch" : Net switch {
                 NetState.Soaking => $"{NetRemaining:0}s", NetState.Ready => $"Haul {NetCatchKg:0.0} kg", NetState.Setting => "Setting…",
                 NetState.Hauling => "Winching…", _ => HoldFull ? "Hold full" : NetBasketBlocked ? "Unload catch" : State.ActiveNetStock == 0 ? "No nets · buy supplies" : DeepNetSelected ? $"Deep {State.DeepNetUses[0]}/3 · {State.ActiveNetStock - 1} spare" : $"Shallow · {State.ActiveNetStock} aboard" };
-            var caption = new Rect(icon.center.x - 76, icon.yMax + 2, 152, 29);
-            coastalUi.Box("net/status/back", caption, "chip-dark");
-            coastalUi.Label("net/status", caption, status, 15, Palette.Cream, TextAnchor.MiddleCenter);
+            // One speech bubble on the net: icon and status; tapping it is the captain's net action.
+            Block(coastalUi.Bubble("net", new Vector2(view.x * iw, (1 - view.y) * ih), "v2-icon-net", status, Net == NetState.Ready,
+                enabled ? () => CaptainNetAction() : (System.Action)null, "icon-net"));
             if (IsNetFisher)
             {
                 var hands = State.Crew.Where(c => c.Role == CrewRole.Deckhand).ToList();

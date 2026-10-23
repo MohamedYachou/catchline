@@ -138,7 +138,7 @@ namespace Catchline.Game
         {
             if(!IsTier5 || CurrentMode!=Mode.Fishing || PrepOrdersOpen || netOrdersOpen || CaptainPrepActive || baitSettingsCrew!=null)return;
             // Separate small actions from the seven-person crewrail to keep phone viewusable.
-            IButton("tier5/operations",FishingFooter(1),"Boat / duties",()=>tier5OperationsOpen=!tier5OperationsOpen,false);
+            // UI v2: duties and processing orders are reached through the Crew and Ops pages.
             for(int i=0;i<2;i++)
             {
                 int rig=i;bool ready=BuoyRemaining(i)<=0;

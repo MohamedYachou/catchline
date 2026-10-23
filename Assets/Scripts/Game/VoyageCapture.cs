@@ -35,6 +35,7 @@ namespace Catchline.Game
                 Application.Quit(0); return;
             }
             if (SessionOnly && Array.IndexOf(args, "-tier5-trial") >= 0) StartTier5Trial();
+            StartUiV2Capture(args);
             int deep104=Array.IndexOf(args,"-capture-deep104");
             if(SessionOnly&&deep104>=0&&deep104+1<args.Length)StartCoroutine(CaptureDeep104(Path.GetFullPath(args[deep104+1])));
             int correctedDashboard=Array.IndexOf(args,"-capture-dash087");

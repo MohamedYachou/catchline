@@ -12,6 +12,7 @@ namespace Catchline.Game
         public GameObject[] Fish = new GameObject[7]; // indexed by Species
         public Texture2D[] Ui;                         // Codex's UI kit, looked up by file name
         public Font UiFont;
+        public Font DisplayFont;                       // Lilita One: UI v2 display, numbers, headings
         public GameObject[] Models;                    // every FBX under Assets/Art/Models, looked up by file name
         public AnimationClip[] CrewClips;
         public Shader WaterShader;
