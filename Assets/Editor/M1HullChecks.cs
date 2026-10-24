@@ -79,4 +79,5 @@ namespace Catchline.EditorTools
     }
     public static class M1SkiffChecks { public static void Run() => M1HullChecks.Run(1); }
     public static class M1CompactChecks { public static void Run() => M1HullChecks.Run(2); }
+    public static class M1PrepChecks { public static void Run() => M1HullChecks.Run(3); }
 }

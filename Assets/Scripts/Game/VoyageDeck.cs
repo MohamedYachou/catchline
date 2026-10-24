@@ -16,7 +16,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         // Hull models already running on the deck graph. Grows as each hull migrates.
-        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat", "Skiff", "CompactFisherV1" };
+        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat", "Skiff", "CompactFisherV1", "PrepFisherV1" };
         public DeckGraph DeckGraph { get; private set; }
         public DeckScheduler Scheduler { get; private set; }
         public bool UsesDeckGraph => Scheduler != null;
@@ -49,7 +49,7 @@ namespace Catchline.Game
             Scheduler = new DeckScheduler(DeckGraph)
             {
                 HoldRemainingKg = () => State.CoolerCapacity - HoldKg,
-                OnStowed = f => { HideBasketFish(f); DeliverCatch(f); lidPop = 1f; },
+                OnStowed = f => { HideBasketFish(f); TryStore(f); lidPop = 1f; },
                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
             };
             SyncDeckWorkers();

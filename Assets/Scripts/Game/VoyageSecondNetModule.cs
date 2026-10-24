@@ -188,6 +188,8 @@ namespace Catchline.Game
                 if(DeepNetSelected)State.SpendDeepNetUse();
                 foreach(var (species,kg) in secondNetFish)
                 {
+                    if (UsesDeckGraph && GearStation(Deck.StationKind.Net, 1) is {} station)
+                    { LandOnDeck(station, species, kg); Stats.Landed++; RecordLanding(FlowTelemetry.Kind.Net, species, kg); continue; }
                     var fish=new DeckFish{Species=species,Kg=kg,Tile=SecondNetAccess,CaughtAt=SimTime,FromNetBasket=true};
                     fish.Root=DeckFish.BuildModel(species,kg,Boat);
                     int i=NetBasketCount;
@@ -196,7 +198,7 @@ namespace Catchline.Game
                     OnDeck.Add(fish);Stats.Landed++;
                     RecordLanding(FlowTelemetry.Kind.Net, species, kg);
                 }
-                ResetSecondNet();if(!IsTier5 || person.IsCaptain)BeginNetUnload(person);
+                ResetSecondNet();if(!UsesDeckGraph && (!IsTier5 || person.IsCaptain))BeginNetUnload(person);
             }
             bool walking=person.WalkTo(Grid,SecondNetAccess,()=>
             {
