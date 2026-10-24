@@ -116,7 +116,8 @@ namespace Catchline.Game
         }
         bool FisherSpecialThink(Person fisher)
         {
-            if (!IsTier5) return false;
+            if (!IsTier5 && !UsesDeckGraph) return false;
+            if (State.Hull == 0) return false;
             if (!fisher.Idle) return true;
             var work = fisher.Contract.FishingWork; var rod = Rods.FirstOrDefault(r => r.Fisher == fisher);
             // Finish an already committed cast/strike/reel before applying a new preference.
@@ -142,12 +143,19 @@ namespace Catchline.Game
             for (int rig = 0; rig < FittedDeepLineCount; rig++)
             {
                 var cycle = deepLines[rig];
-                if (cycle.Phase == DeepLinePhase.CatchOnDeck && !OnDeck.Any(f => f.DeepLineRig == rig)) cycle.Collected();
+                if (cycle.Phase == DeepLinePhase.CatchOnDeck && (UsesDeckGraph
+                    ? GearStation(Deck.StationKind.Line, rig)?.Out?.Count == 0
+                    : !OnDeck.Any(f => f.DeepLineRig == rig))) cycle.Collected();
                 if (!cycle.Tick(dt)) continue;
                 for (int n = 0; n < DeepLineRules.CatchCount(rig); n++)
                 {
                     var bait = cycle.Bait;
                     var caught = DeepLineRules.Roll(State,ActiveSpot,bait);
+                    if (UsesDeckGraph && GearStation(Deck.StationKind.Line, rig) is {} station)
+                    {
+                        LandOnDeck(station, caught.Item1, caught.Item2); Stats.Landed++; State.OnCatch(ActiveSpot, caught.Item2);
+                        RecordLanding(FlowTelemetry.Kind.DeepLine, caught.Item1, caught.Item2); continue;
+                    }
                     var fish = new DeckFish { Species = caught.Item1, Kg = caught.Item2, Tile = deepLineTiles[rig], CaughtAt = SimTime, CaughtByCrew = true, DeepLineRig = rig };
                     fish.Root = DeckFish.BuildModel(fish.Species, fish.Kg, Boat);
                     fish.RestPos = Grid.GetLocal(fish.Tile) + new Vector3(.08f + n * .10f, .08f, .08f);

@@ -151,7 +151,7 @@ namespace Catchline.Game
         }
 
         readonly Dictionary<CrewMember, int> netAssignments = new();
-        bool NetOperator(CrewMember c) => c != null && (IsTier5
+        bool NetOperator(CrewMember c) => c != null && (UsesDeckGraph || IsTier5
             ? c.Role == CrewRole.Fisherman && c.Allows(FisherTask.Nets)
             : c.Role == CrewRole.Deckhand);
         bool RigBasketBlocked(int rig) => UsesDeckGraph ? GearStation(Deck.StationKind.Net, rig)?.Out?.Full == true : OnDeck.Any(f=>f.FromNetBasket && f.Tile==(rig==1?SecondNetAccess:NetAccess));

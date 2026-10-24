@@ -90,13 +90,18 @@ namespace Catchline.Game
 
         public bool SetDeckhandWork(CrewMember crew, DeckhandWork preference)
         {
-            if (!IsNetFisher || crew == null || crew.Role != CrewRole.Deckhand || !State.Crew.Contains(crew)) return false;
+            if (crew == null || crew.Role != CrewRole.Deckhand || !State.Crew.Contains(crew)) return false;
             if (preference == DeckhandWork.Prep && (!IsPrepFisher || crew.WorkPreference != DeckhandWork.Prep
                 && State.Crew.Count(c => c.WorkPreference == DeckhandWork.Prep && c.Role == CrewRole.Deckhand) >= 2)) return false;
             crew.WorkPreference = preference; forecastSignature=flowCrewSignature=null;
             // Complete any fish already in hand. Release a walking/timed job safely;
             // Person cancellation also releases fish, bait and winch claims.
             var person = People.FirstOrDefault(p => p.Contract == crew);
+            if (Scheduler != null && person != null && workers.TryGetValue(person, out var worker))
+            {
+                worker.SetDuties(preference == DeckhandWork.Prep ? Deck.Duty.Table : preference == DeckhandWork.Nets ? Deck.Duty.Sort : Deck.Duty.Haul, Deck.Duty.Haul);
+                SaveGame(); return true;
+            }
             person?.Stop();
             if (preference != DeckhandWork.Nets) netAssignments.Remove(crew);
             if (person != null && preference != DeckhandWork.Prep) prepStations.Remove(person);

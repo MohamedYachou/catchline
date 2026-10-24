@@ -102,10 +102,14 @@ namespace Catchline.Game
                 if(HoldFull){Cancel();return;}
                 float kg=Mathf.Lerp(.5f,1.8f,(float)State.Rng.NextDouble());
                 var fish=new CaughtFish{Species=Species.Crab,Kg=kg,StowedAt=SimTime};
-                // Recovery lands aboard. A real carrying job then delivers it to processing.
-                var landed=new DeckFish{Species=fish.Species,Kg=kg,Tile=buoyTiles[i],CaughtAt=SimTime,CaughtByCrew=!p.IsCaptain};
-                landed.Root=DeckFish.BuildModel(fish.Species,kg,Boat);landed.RestPos=Grid.GetLocal(buoyTiles[i])+new Vector3(.08f,.08f,.08f);landed.SpawnFrom=landed.RestPos+Vector3.up*.3f;landed.Root.localPosition=landed.SpawnFrom;
-                OnDeck.Add(landed);RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg);Stats.Landed++;BuoyHauls++;buoyTimers[i]=0;ShowCatch(fish.Species,kg);
+                if (UsesDeckGraph && GearStation(Deck.StationKind.Cage, i) is {} station) LandOnDeck(station, fish.Species, kg);
+                else
+                {
+                    var landed=new DeckFish{Species=fish.Species,Kg=kg,Tile=buoyTiles[i],CaughtAt=SimTime,CaughtByCrew=!p.IsCaptain};
+                    landed.Root=DeckFish.BuildModel(fish.Species,kg,Boat);landed.RestPos=Grid.GetLocal(buoyTiles[i])+new Vector3(.08f,.08f,.08f);landed.SpawnFrom=landed.RestPos+Vector3.up*.3f;landed.Root.localPosition=landed.SpawnFrom;
+                    OnDeck.Add(landed);
+                }
+                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg);Stats.Landed++;BuoyHauls++;buoyTimers[i]=0;ShowCatch(fish.Species,kg);
                 Cancel();
             }
             if(!p.WalkTo(Grid,buoyTiles[i],()=>{p.FacePoint(buoyAnchors[i]);p.Do("Recovering buoy catch",2f,Finish,Cancel);},Cancel)){Cancel();return false;}

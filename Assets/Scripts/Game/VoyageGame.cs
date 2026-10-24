@@ -1150,65 +1150,8 @@ namespace Catchline.Game
             }, () => rod.BaitingBy = null);
         }
 
-        // Deckhand: carry fish to the cooler first, then bait empty hooks, then rest.
-        void HandThink(Person h)
-        {
-            // Migrated decks assign every hauling/sorting/processing act through the scheduler.
-            if (UsesDeckGraph) { IdlePatrol(h); return; }
-            if (IsNetUnloading(h)) return;
-            var rest = RestFor(h);
-            if (h.Carrying != null)
-            {
-                if (!HoldFull) Stow(h);
-                else if (h.Tile != rest) h.WalkTo(Grid, rest, null);
-                else h.Do("Waiting", 1f, null);
-                return;
-            }
-            if (IsPrepFisher && h.Contract.WorkPreference == DeckhandWork.Prep)
-            {
-                if (TryPrepWork(h) || !IsTier5) return; // Tier5 processor helps haul when input is empty.
-            }
-            if (IsTier5 && h.Contract.WorkPreference == DeckhandWork.Nets && !HoldFull && !NetUnloadActive && AssignedBasket(h) != null)
-            { if(h.Loitering)h.Stop(); BeginNetUnload(h); return; }
-            if (!IsTier5 && IsNetFisher && h.Contract.WorkPreference == DeckhandWork.Nets)
-            {
-                var basket = AssignedBasket(h);
-                if (basket != null && !HoldFull)
-                {
-                    // Basket catches have one batch owner; another hand must never
-                    // steal individual fish while that owner approaches the basket.
-                    if (!NetUnloadActive) { if (h.Loitering) h.Stop(); BeginNetUnload(h); }
-                    else IdlePatrol(h);
-                    return;
-                }
-                if (!NetBasketBlocked && !HoldFull)
-                {
-                    if (h.Loitering) h.Stop();
-                    if (TryNetWork(h)) return;
-                }
-                // While gear soaks, cover rod delivery/bait. A ready rig preempts
-                // uncollected work next tick; a fish already held is safely delivered first.
-                if (!NetsSoakingFor(h) || NetReadyForHand(h) || HoldFull) { IdlePatrol(h); return; }
-                netFallbackHands.Add(h);
-            }
-            if (TryCarryProcessed(h)) return;
-            var f = OnDeck.FirstOrDefault(x => !x.FromNetBasket && x.ClaimedBy == null && x.Age > 0.4f);
-            if (f != null)
-            {
-                Fetch(h, f);
-                return;
-            }
-            if (IsTier5 && !HoldFull && !NetUnloadActive && AssignedBasket(h) != null)
-            { if(h.Loitering)h.Stop(); BeginNetUnload(h); return; }
-            var rod = Rods.FirstOrDefault(r => r.Unlocked && r.State == RodState.Unbaited && r.BaitingBy == null && CanBaitRod(r));
-            if (rod != null && State.HasAnyBait)
-            {
-                rod.BaitingBy = h;
-                h.WalkTo(Grid, rod.Tile, () => Bait(h, rod), () => rod.BaitingBy = null);
-                return;
-            }
-            IdlePatrol(h);
-        }
+        // Deck work is owned by the shared scheduler on every hull.
+        void HandThink(Person h) { IdlePatrol(h); }
 
         bool FisherAt(Rod rod) => rod.Fisher != null && !rod.Fisher.Walking && rod.Fisher.Tile == rod.Tile;
 
