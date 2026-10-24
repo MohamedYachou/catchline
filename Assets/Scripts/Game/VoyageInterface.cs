@@ -22,12 +22,12 @@ namespace Catchline.Game
         void RefreshInterface()
         {
             if (coastalUi == null) coastalUi = CoastalCanvas.Create(transform, Cam);
-            if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { coastalUi.Hide(); return; }
             int width = interfaceWidth > 0 ? interfaceWidth : Screen.width;
             int height = interfaceHeight > 0 ? interfaceHeight : Screen.height;
             coastalUi.Begin(width, height, interfaceTextScale > 0 ? interfaceTextScale : UiScales[UiScaleIndex], interfaceWidth > 0 ? new Rect(0, 0, width, height) : Screen.safeArea);
             iw = coastalUi.Width; ih = coastalUi.Height;
             hudRects.Clear();
+            if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); coastalUi.End(); return; }
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
@@ -115,7 +115,7 @@ namespace Catchline.Game
             var box = new Rect(x, ih - height - 18, width, height);
             coastalUi.Box("strike", box); Block(box);
             coastalUi.Art("strike/sea", new Rect(x + 8, box.y + 43, width - 16, height - 52), "strike-water");
-            string title = rod.State == RodState.Bite ? "The bobber is under!" : rod.State == RodState.Waiting ? rod.Nibbling ? "A nibble… wait for it" : "Watch the bobber" : rod.State == RodState.Reeling ? "You've hooked one!" : "Casting your line…";
+            string title = rod.State == RodState.Bite ? "The bobber is under!" : rod.State == RodState.Waiting ? rod.Nibbling ? "A nibbleâ€¦ wait for it" : "Watch the bobber" : rod.State == RodState.Reeling ? "You've hooked one!" : "Casting your lineâ€¦";
             coastalUi.Label("strike/title", new Rect(x + 12, box.y + 6, width - 24, 32), title, 21, null, TextAnchor.MiddleCenter);
             float cy = box.y + height * .60f;
             coastalUi.Art("strike/fish", new Rect(x + width * .25f + Mathf.Sin(SimTime) * 18, cy, 76, 32), "fish-shadow");
@@ -126,7 +126,7 @@ namespace Catchline.Game
                 coastalUi.Bar("strike/time", new Rect(x + 22, box.yMax - 23, width - 44, 9), 1 - rod.BiteProgress, true);
             }
             else if (rod.State == RodState.Reeling) coastalUi.Bar("strike/progress", new Rect(x + 22, box.yMax - 23, width - 44, 9), rod.ReelProgress);
-            else coastalUi.Label("strike/help", new Rect(x + 12, box.yMax - 30, width - 24, 24), "Wait for the dip · then tap or Space", 14, Palette.Cream, TextAnchor.MiddleCenter);
+            else coastalUi.Label("strike/help", new Rect(x + 12, box.yMax - 30, width - 24, 24), "Wait for the dip Â· then tap or Space", 14, Palette.Cream, TextAnchor.MiddleCenter);
         }
         void InterfaceTravel()
         {

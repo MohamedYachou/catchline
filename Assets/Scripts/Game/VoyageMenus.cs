@@ -34,151 +34,140 @@ namespace Catchline.Game
 #endif
         }
 
-        void Dim(float alpha)
+        // ---- menus (UI v2) ----------------------------------------------------------------------
+
+        static readonly float[] VolumeSteps = { 0, .35f, .7f, 1 };
+        static readonly string[] VolumeNames = { "Off", "Low", "Medium", "High" };
+
+        // Title, pause, settings and protected confirmations replace the HUD so nothing underneath can be pressed.
+        void InterfaceMenus()
         {
-            var prev = GUI.color;
-            GUI.color = new Color(0.05f, 0.14f, 0.2f, alpha);
-            GUI.DrawTexture(new Rect(0, 0, VW, VH), Texture2D.whiteTexture);
-            GUI.color = prev;
-        }
-
-        bool MenuButton(Rect r, string label, GUIStyle style = null) => GUI.Button(r, label, style ?? Ui.Btn);
-
-        // ---- title ----------------------------------------------------------------------------
-
-        void DrawTitle()
-        {
-            // HandleInput owns Escape while paused; title settings need their own Back.
-            // OnGUI runs several times per frame, so consume the press only once.
             var keyboard = UnityEngine.InputSystem.Keyboard.current;
-            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame && titleBackFrame != Time.frameCount)
+            if (showTitle && keyboard != null && keyboard.escapeKey.wasPressedThisFrame && titleBackFrame != Time.frameCount)
             {
                 titleBackFrame = Time.frameCount;
                 if (showSettings) showSettings = false;
                 else confirmReset = false;
             }
-            var backdrop = Ui.Tex("title-backdrop");
-            if (backdrop != null)
+            if (showTitle) InterfaceTitle();
+            else if (confirmHeadHome) InterfaceHeadHomeConfirmation();
+            else if (paused) { coastalUi.Scrim("menu/dim"); if (showSettings) InterfaceSettings(); else InterfacePause(); }
+            else if (SimTime < refitUntil)
             {
-                float drift = Mathf.Sin(Time.unscaledTime * .075f) * 8f;
-                GUI.DrawTexture(new Rect(-10f + drift, -6f, VW + 28f, VH + 16f), backdrop, ScaleMode.ScaleAndCrop);
+                coastalUi.Scrim("refit/dim", null, Mathf.Clamp01((refitUntil - SimTime) / 1.2f));
+                coastalUi.Text("refit/title", new Rect(0, ih / 2 - 30, iw, 60), "Your skiff is ready", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleCenter, null, true);
             }
-            if (showSettings) { Dim(.35f); DrawSettings(); return; }
-            bool compact = VH < 600f;
-            float x = compact ? 34f : 52f, w = Mathf.Min(compact ? 354f : 380f, VW - x - 16f);
-            var logo = Ui.Tex("logo-catchline");
-            var logoRect = new Rect(x - 6f, compact ? 12f : 42f, w + 12f, compact ? 90f : 136f);
-            if (logo != null) GUI.DrawTexture(logoRect, logo, ScaleMode.ScaleToFit);
-            else GUI.Label(logoRect, "Catchline", Ui.LogoStyle);
-            var card = new Rect(x, compact ? 110f : 210f, w, 354f);
-            GUI.Box(card, GUIContent.none, Ui.Panel);
-            float inset = 26f, bx = card.x + inset, bw = w - inset * 2f;
-            GUI.Label(new Rect(bx, card.y + 16f, bw, 38f), confirmReset ? "Start over?" : "Gull Harbour", Ui.TitleCenter);
-            if (confirmReset)
-            {
-                GUI.Label(new Rect(bx, card.y + 64f, bw, 96f),
-                    "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.", Ui.MutedCenter);
-                // Separate, explicit actions: opening this confirmation never deletes data.
-                if (MenuButton(new Rect(bx, card.y + 180f, bw, 52f), "Cancel · keep progress", Ui.BtnAlt))
-                { confirmReset = false; return; }
-                if (MenuButton(new Rect(bx, card.y + 246f, bw, 52f), "Erase & start over", Ui.Tab))
-                {
-                    NewGame();
-                    hadSave = false;
-                    confirmReset = showSettings = paused = showTitle = false;
-                    return;
-                }
-                return;
-            }
+        }
+
+        void InterfaceTitle()
+        {
+            coastalUi.Backdrop("title/backdrop", "title-backdrop", Mathf.Sin(Time.unscaledTime * .075f) * 8f);
+            if (showSettings) { coastalUi.Scrim("title/dim", null, .6f); InterfaceSettings(); return; }
+            bool phone = coastalUi.Phone;
+            float x = phone ? 28 : 56, w = Mathf.Min(phone ? 360 : 400, iw - x - 16);
+            float logoY = phone ? 8 : 40, logoH = phone ? 84 : 132;
+            coastalUi.Art("title/logo", new Rect(x - 6, logoY, w + 12, logoH), "logo-catchline");
+            float bh = phone ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight, sh = phone ? 48 : 52, gap = 8;
+            float h = Skin.HeaderBand + 12 + 44 + 8 + bh + gap + (hadSave ? sh + gap : 0) + sh + Skin.SlabPad;
+            var card = new Rect(x, Mathf.Min(logoY + logoH + (phone ? 4 : 16), ih - h - 8), w, h);
+            coastalUi.Slab("title/card", card, "Gull Harbour", true);
+            float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 12;
             string welcome = SessionOnly || AutoPlay ? "Test session · progress is not saved."
-                : CurrentMode != Mode.Harbour ? "Voyage paused. Quit loses fish aboard."
+                : CurrentMode != Mode.Harbour ? "Voyage paused. Quitting loses fish aboard."
                 : hadSave ? $"Voyage {State.Voyage} · ready in harbour." : "A little boat. A sea of possibilities.";
-            GUI.Label(new Rect(bx, card.y + 56f, bw, 48f), welcome, Ui.MutedCenter);
-            float y = card.y + 112f;
-            string start = CurrentMode != Mode.Harbour ? "Resume voyage" : hadSave ? "Continue in harbour" : "Start in harbour";
-            if (MenuButton(new Rect(bx, y, bw, 52f), start))
-            { confirmReset = showSettings = paused = showTitle = false; return; }
-            y += 60f;
+            coastalUi.Text("title/welcome", new Rect(bx, y, bw, 44), welcome, Skin.Type.Body, Skin.InkSoft, TextAnchor.MiddleCenter);
+            y += 52;
+            string start = CurrentMode != Mode.Harbour ? "Resume voyage" : hadSave ? "Continue" : "Start in harbour";
+            coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), start, () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); });
+            y += bh + gap;
             if (hadSave)
             {
-                if (MenuButton(new Rect(bx, y, bw, 48f), "New game", Ui.BtnAlt))
-                { confirmReset = true; return; }
-                y += 56f;
+                coastalUi.Secondary("title/new", new Rect(bx, y, bw, sh), "New game", () => { confirmReset = true; MenuSound(); });
+                y += sh + gap;
             }
-            if (MenuButton(new Rect(bx, y, bw, 44f), "Settings", Ui.Tab))
-            { confirmReset = false; showSettings = true; return; }
-            y += 52f;
-            if (MenuButton(new Rect(bx, y, bw, 44f), CurrentMode != Mode.Harbour ? "Quit (lose trip)" : "Quit", Ui.Tab)) Quit();
+            float half = (bw - gap) / 2;
+            coastalUi.Secondary("title/settings", new Rect(bx, y, half, sh), "Settings", () => { confirmReset = false; showSettings = true; MenuSound(); });
+            coastalUi.Secondary("title/quit", new Rect(bx + half + gap, y, half, sh), CurrentMode != Mode.Harbour ? "Quit trip" : "Quit", Quit);
+            if (confirmReset)
+                coastalUi.Modal("title/reset", "Start over?", "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.",
+                    "Erase & start over", () =>
+                    {
+                        // Separate, explicit action: opening this confirmation never deletes data.
+                        NewGame();
+                        hadSave = false;
+                        confirmReset = showSettings = paused = showTitle = false;
+                    }, "Keep progress", () => confirmReset = false, () => confirmReset = false, null, 560, 320);
         }
-        // ---- pause ----------------------------------------------------------------------------
 
-        void DrawPause()
+        void InterfacePause()
         {
-            Dim(0.5f);
-            if (showSettings) { DrawSettings(); return; }
-            float w = Mathf.Min(420f, VW - 32f), x = VW / 2f - w / 2f;
-            var card = new Rect(x, (VH - 448f) / 2f, w, 448f);
-            GUI.Box(card, GUIContent.none, Ui.Panel);
-            GUI.Label(new Rect(card.x, card.y + 24, w, 40), "Paused", Ui.TitleCenter);
-            float y = card.y + 80, bw = w - 56, bx = card.x + 28;
-            if (MenuButton(new Rect(bx, y, bw, 52), "Resume")) { paused = false; return; }
-            y += 62;
-            if (MenuButton(new Rect(bx, y, bw, 48), "Settings", Ui.Tab)) { showSettings = true; return; }
-            y += 58;
-            if (MenuButton(new Rect(bx, y, bw, 48), "Main menu", Ui.Tab))
+            bool phone = coastalUi.Phone;
+            float bh = phone ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight, sh = phone ? 48 : 52, gap = 8, noteH = phone ? 44 : 56;
+            float w = Mathf.Min(440, iw - 32), h = Skin.HeaderBand + 16 + bh + gap + (sh + gap) * 3 + noteH + Skin.SlabPad;
+            var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
+            coastalUi.Slab("pause/card", card, "Paused", true);
+            float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 16;
+            coastalUi.Primary("pause/resume", new Rect(bx, y, bw, bh), "Resume", () => { paused = false; MenuSound(); });
+            y += bh + gap;
+            coastalUi.Secondary("pause/settings", new Rect(bx, y, bw, sh), "Settings", () => { showSettings = true; MenuSound(); });
+            y += sh + gap;
+            coastalUi.Secondary("pause/menu", new Rect(bx, y, bw, sh), "Main menu", () =>
             {
                 // Keep the in-memory trip frozen behind the title, including freshness/food.
-                paused = true;
-                showTitle = true;
-                hadSave = true;
-                confirmReset = false;
+                paused = true; showTitle = true; hadSave = true; confirmReset = false;
                 SaveGame();
-                return;
-            }
-            y += 58;
-            if (MenuButton(new Rect(bx, y, bw, 48), CurrentMode != Mode.Harbour ? "Quit (lose trip)" : "Quit", Ui.Tab))
-            {
-                SaveGame();
-                Quit();
-            }
-            string saveNote = SessionOnly || AutoPlay ? "Test session · progress is not saved."
-                : CurrentMode != Mode.Harbour ? "Quitting loses this trip and fish aboard. Return to harbour to save your haul."
-                : "Returning to harbour saves your haul. Sell it there to collect your coins.";
-            GUI.Label(new Rect(card.x + 28, card.y + 330, w - 56, 96), saveNote, Ui.MutedCenter);
+            });
+            y += sh + gap;
+            coastalUi.Secondary("pause/quit", new Rect(bx, y, bw, sh), CurrentMode != Mode.Harbour ? "Quit (lose trip)" : "Quit", () => { SaveGame(); Quit(); });
+            y += sh + gap;
+            string note = SessionOnly || AutoPlay ? "Test session · progress is not saved."
+                : CurrentMode != Mode.Harbour ? "Quitting loses this trip and the fish aboard. Return to harbour to keep your haul."
+                : "Your progress is saved in harbour.";
+            coastalUi.Text("pause/note", new Rect(bx, y, bw, noteH), note, Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleCenter);
         }
 
-        // ---- settings ---------------------------------------------------------------------------
-
-        void DrawSettings()
+        void InterfaceSettings()
         {
-            float w = Mathf.Min(460f, VW - 32f), x = VW / 2f - w / 2f;
-            var card = new Rect(x, (VH - 448f) / 2f, w, 448f);
-            GUI.Box(card, GUIContent.none, Ui.Panel);
-            GUI.Label(new Rect(card.x, card.y + 22, w, 40), "Settings", Ui.TitleCenter);
-
-            float y = card.y + 74, ix = card.x + 30, iw = w - 60;
-            GUI.Label(new Rect(ix, y, iw, 32), "Text size", Ui.H2);
-            y += 32;
-            float bw = (iw - 16) / 3f;
-            for (int i = 0; i < 3; i++)
-                if (GUI.Button(new Rect(ix + i * (bw + 8), y, bw, 44), UiScaleNames[i], UiScaleIndex == i ? Ui.TabOn : Ui.Tab))
-                    UiScaleIndex = i;
-            y += 56;
-            GUI.Label(new Rect(ix, y, iw, 32), "Hints on the water", Ui.H2);
-            y += 32;
-            if (GUI.Button(new Rect(ix, y, iw, 44), ShowTips ? "Hints: On" : "Hints: Off", ShowTips ? Ui.TabOn : Ui.Tab)) ShowTips = !ShowTips;
-            y += 56;
-            GUI.Label(new Rect(ix, y, iw, 32), "Coastal sounds", Ui.H2);
-            y += 34f;
+            bool phone = coastalUi.Phone;
+            float row = phone ? 44 : 52, label = phone ? 24 : 30, gap = phone ? 8 : 14, sh = phone ? 48 : 52;
+            float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * 3 + sh + Skin.SlabPad;
+            var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
+            coastalUi.Slab("settings/card", card, "Settings", true);
+            float x = card.x + Skin.SlabPad + 4, cw = w - Skin.SlabPad * 2 - 8, y = card.y + Skin.HeaderBand + 12;
+            void Row(string id, string title, string[] options, int active, System.Action<int> select)
+            {
+                coastalUi.Text($"settings/{id}/label", new Rect(x, y, cw, label), title, Skin.Type.Body, Skin.Ink);
+                y += label;
+                coastalUi.PageSwitch($"settings/{id}", new Rect(x, y, cw, row), options, active, i => { select(i); MenuSound(); });
+                y += row + gap;
+            }
+            Row("text", "Text size", UiScaleNames, UiScaleIndex, i => UiScaleIndex = i);
+            Row("hints", "Hints on the water", new[] { "Off", "On" }, ShowTips ? 1 : 0, i => ShowTips = i == 1);
             if (audio != null)
             {
-                float volume = GUI.HorizontalSlider(new Rect(ix, y, iw - 68f, 38f), audio.Volume, 0, 1, Ui.Slider, Ui.SliderThumb);
-                if (Mathf.Abs(volume - audio.Volume) > .005f) audio.Volume = volume;
-                GUI.Label(new Rect(ix + iw - 62f, y, 62f, 28f), audio.Volume < .01f ? "Off" : $"{audio.Volume * 100:0}%", Ui.Small);
+                int level = 0;
+                for (int i = 1; i < VolumeSteps.Length; i++) if (Mathf.Abs(VolumeSteps[i] - audio.Volume) < Mathf.Abs(VolumeSteps[level] - audio.Volume)) level = i;
+                Row("sound", "Coastal sounds", VolumeNames, level, i => audio.Volume = VolumeSteps[i]);
             }
-            else GUI.Label(new Rect(ix, y, iw, 38f), "Sound unavailable in this session", Ui.Mutedish);
-            if (GUI.Button(new Rect(ix, card.yMax - 66, iw, 48), showTitle ? "Back to main menu" : "Back to pause", Ui.BtnAlt)) showSettings = false;
+            else
+            {
+                coastalUi.Text("settings/sound/label", new Rect(x, y, cw, label + row), "Sound is unavailable in this session.", Skin.Type.Body, Skin.InkSoft);
+                y += label + row + gap;
+            }
+            coastalUi.Secondary("settings/back", new Rect(x, y, cw, sh), showTitle ? "Back to main menu" : "Back to pause", () => { showSettings = false; MenuSound(); });
         }
+
+        void InterfaceHeadHomeConfirmation()
+        {
+            int overflow = DepartureOverflow();
+            string body = (overflow > 0 ? $"{overflow} fish cannot fit in the hold and will go back to sea. " : "") +
+                (IsNetFisher && !AllNetsStowed ? SecondNet != NetState.Stowed ? "Your second net is deployed; leaving forfeits its catch. " : Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
+                "The trip is paused while you choose.";
+            coastalUi.Modal("headhome", "Leave fish behind?", body, overflow > 0 ? $"Leave {overflow} fish" : "Head home", ConfirmHeadHome,
+                "Keep fishing", CancelHeadHome, CancelHeadHome, null, 600, 340);
+        }
+
+        void MenuSound() => audio?.Play(VoyageAudio.Cue.Select, .45f);
 
         // ---- badges -------------------------------------------------------------------------------
 

@@ -100,7 +100,7 @@ namespace Catchline.Game
         void OnGUI()
         {
             if (!built) return;
-            if (coastalUi != null && !MenuOpen && !confirmHeadHome && SimTime >= refitUntil) return;
+            if (coastalUi != null) return;
             Ui.Init();
             Ui.SetTypeScale(UiScales[UiScaleIndex]);
             GUI.skin.verticalScrollbar = Ui.ScrollTrack;
@@ -109,17 +109,6 @@ namespace Catchline.Game
             GUI.skin.verticalScrollbarDownButton = GUIStyle.none;
             GUI.matrix = Matrix4x4.TRS(new Vector3(HudViewport.x, Screen.height - HudViewport.yMax, 0), Quaternion.identity, new Vector3(GuiScale, GuiScale, 1f));
             if (Event.current.type == EventType.Layout) hudRects.Clear();
-
-            // Menus replace the HUD so nothing underneath can be clicked.
-            if (showTitle) { DrawTitle(); return; }
-            if (confirmHeadHome) { DrawHeadHomeConfirmation(); return; }
-            if (paused) { DrawPause(); return; }
-            if (SimTime < refitUntil)
-            {
-                Dim(Mathf.Clamp01((refitUntil - SimTime) / 1.2f));
-                GUI.Label(new Rect(VW / 2f - 200f, 310f, 400f, 80f), "Your skiff is ready", Ui.TitleCenter);
-                return;
-            }
 
             RefreshInterface();
         }

@@ -494,12 +494,31 @@ namespace Catchline.Game
             Text(id + "/text", new Rect(x, 2, w - x - 24, 54), text, Skin.Type.Body, Skin.Cream, TextAnchor.MiddleCenter, pill);
         }
 
+        // Full-screen dim that swallows taps; dismiss runs when the dim itself is tapped.
+        public void Scrim(string id, Action dismiss = null, float alpha = 1)
+        {
+            var dim = Pressable(id, new Rect(-50, -50, Width + 100, Height + 100), null, "v2-dim", null, dismiss, true);
+            dim.Button.transition = Selectable.Transition.None; dim.Image.type = Image.Type.Simple;
+            dim.Image.color = new Color(1, 1, 1, alpha);
+        }
+
+        // Full-bleed picture that covers the screen (crop, never letterbox) and blocks taps to the world.
+        public void Backdrop(string id, string art, float drift = 0)
+        {
+            var texture = ArtLibrary.Get()?.UiTex(art);
+            float aspect = texture != null ? (float)texture.width / texture.height : 16f / 9;
+            float w = Mathf.Max(Width + 40, (Height + 24) * aspect), h = w / aspect;
+            var e = Get(id, new Rect((Width - w) / 2 + drift, (Height - h) / 2, w, h));
+            if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<Image>();
+            e.Image.sprite = Sprite(art, false); e.Image.type = Image.Type.Simple;
+            e.Image.preserveAspect = false; e.Image.color = Color.white; e.Image.raycastTarget = true;
+        }
+
         // Dimmed page with one centred slab; tapping the dim cancels only reversible choices.
         public RectTransform Modal(string id, string title, string body, string primaryLabel, Action primary, string secondaryLabel, Action secondary,
             Action dismiss = null, string primaryIcon = null, float width = 560, float height = 300)
         {
-            var dim = Pressable(id + "/dim", new Rect(-50, -50, Width + 100, Height + 100), null, "v2-dim", null, dismiss, true);
-            dim.Button.transition = Selectable.Transition.None; dim.Image.type = Image.Type.Simple;
+            Scrim(id + "/dim", dismiss);
             width = Mathf.Min(width, Width - 32); height = Mathf.Min(height, Height - 32);
             var r = new Rect((Width - width) / 2, (Height - height) / 2, width, height);
             var slab = Slab(id, r, title, true);

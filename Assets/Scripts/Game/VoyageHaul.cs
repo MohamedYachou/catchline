@@ -53,22 +53,6 @@ namespace Catchline.Game
             HeadHome();
         }
 
-        void DrawHeadHomeConfirmation()
-        {
-            Track(new Rect(0f, 0f, VW, VH));
-            Dim(1f);
-            var p = Panel(new Rect(VW / 2f - Mathf.Min(520f, VW - 32f) / 2f, VH / 2f - 170f, Mathf.Min(520f, VW - 32f), 340f));
-            int overflow = DepartureOverflow();
-            GUI.Label(new Rect(p.x + 20f, p.y + 16f, p.width - 40f, 40f), "Leave fish behind?", Ui.H2);
-            GUI.Label(new Rect(p.x + 20f, p.y + 64f, p.width - 40f, 90f),
-                (overflow > 0 ? $"{overflow} fish cannot fit in the hold and will go back to sea. " : "") +
-                (IsNetFisher && !AllNetsStowed ? SecondNet != NetState.Stowed ? "Your second net is deployed; leaving forfeits its catch. " : Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
-                "The trip is paused while you choose.", Ui.Body);
-            if (GUI.Button(new Rect(p.x + 20f, p.y + 174f, p.width - 40f, 60f), "Keep fishing · Esc", Ui.BtnAlt))
-            { CancelHeadHome(); return; }
-            if (GUI.Button(new Rect(p.x + 20f, p.y + 250f, p.width - 40f, 60f), overflow > 0 ? $"Head home · leave {overflow} fish" : "Head home · abandon net catch", Ui.Btn)) ConfirmHeadHome();
-        }
-
         public string FreshnessStatus(List<CaughtFish> haul, float now)
         {
             if (haul.Count == 0) return "No catch yet";
