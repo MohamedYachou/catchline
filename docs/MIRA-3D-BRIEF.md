@@ -41,7 +41,7 @@ Full-size sheets: `docs/screens/crew-styles/*.png` (Git LFS).
 - **Face:** the portrait's face. Big dark glossy eyes with a white highlight and a small
   winged liner, defined brows, small rounded nose, confident closed-mouth smile, warm
   sun-tanned skin, soft blush. Sculpted or textured. The eyes and smile make it her.
-- **Hair:** dark chocolate-brown, wavy, volumous. Loose waves framing both sides of the face
+- **Hair:** dark chocolate-brown, wavy, voluminous. Loose waves framing both sides of the face
   from under the cap, and a high ponytail falling in big curls down the back. Built as
   sculpted game geometry (cards or chunky strands are fine), not particles.
 - **Cap:** navy officer cap, cream band, brass compass-rose badge on the front, gold side
