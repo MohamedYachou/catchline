@@ -109,7 +109,7 @@ namespace Catchline.Game
                     landed.Root=DeckFish.BuildModel(fish.Species,kg,Boat);landed.RestPos=Grid.GetLocal(buoyTiles[i])+new Vector3(.08f,.08f,.08f);landed.SpawnFrom=landed.RestPos+Vector3.up*.3f;landed.Root.localPosition=landed.SpawnFrom;
                     OnDeck.Add(landed);
                 }
-                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg);Stats.Landed++;BuoyHauls++;buoyTimers[i]=0;ShowCatch(fish.Species,kg);
+                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg,fish.Species,false);Stats.Landed++;BuoyHauls++;buoyTimers[i]=0;ShowCatch(fish.Species,kg);
                 Cancel();
             }
             if(!p.WalkTo(Grid,buoyTiles[i],()=>{p.FacePoint(buoyAnchors[i]);p.Do("Recovering buoy catch",2f,Finish,Cancel);},Cancel)){Cancel();return false;}

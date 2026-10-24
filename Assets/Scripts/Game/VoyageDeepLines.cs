@@ -153,14 +153,14 @@ namespace Catchline.Game
                     var caught = DeepLineRules.Roll(State,ActiveSpot,bait);
                     if (UsesDeckGraph && GearStation(Deck.StationKind.Line, rig) is {} station)
                     {
-                        LandOnDeck(station, caught.Item1, caught.Item2); Stats.Landed++; State.OnCatch(ActiveSpot, caught.Item2);
+                        LandOnDeck(station, caught.Item1, caught.Item2); Stats.Landed++; State.OnCatch(ActiveSpot, caught.Item2, caught.Item1, false);
                         RecordLanding(FlowTelemetry.Kind.DeepLine, caught.Item1, caught.Item2); continue;
                     }
                     var fish = new DeckFish { Species = caught.Item1, Kg = caught.Item2, Tile = deepLineTiles[rig], CaughtAt = SimTime, CaughtByCrew = true, DeepLineRig = rig };
                     fish.Root = DeckFish.BuildModel(fish.Species, fish.Kg, Boat);
                     fish.RestPos = Grid.GetLocal(fish.Tile) + new Vector3(.08f + n * .10f, .08f, .08f);
                     fish.SpawnFrom = deepLineTips[rig]; fish.Root.localPosition = fish.SpawnFrom;
-                    OnDeck.Add(fish); Stats.Landed++; State.OnCatch(ActiveSpot, fish.Kg);
+                    OnDeck.Add(fish); Stats.Landed++; State.OnCatch(ActiveSpot, fish.Kg, fish.Species, false);
                     RecordLanding(FlowTelemetry.Kind.DeepLine, fish.Species, fish.Kg);
                 }
                 DeepLineHauls++;

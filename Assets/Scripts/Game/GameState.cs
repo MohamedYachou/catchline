@@ -81,6 +81,12 @@ namespace Catchline.Game
         public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
+        // M4: richness per ground per species (Grounds.Slot), the ground the boat is anchored at (-1 = none, legacy map tables)
+        // and the school bonus (1.0 to 1.3) at the boat's position. Set each tick by VoyageGame.TickGrounds.
+        public float[] GroundRich = Grounds.NewRichness();
+        public int CurrentGround = -1;
+        public float SchoolBonus = 1f;
+        public bool NightVoyage;
         // Fish log: how many of each species you have landed, and the biggest one.
         public readonly int[] LogCount;
         public readonly float[] LogBest;
@@ -324,7 +330,7 @@ namespace Catchline.Game
                 int i = ExtraCrew.FindIndex(c => c.Role == CrewRole.Deckhand);
                 if (i >= 0) { Deckhand = ExtraCrew[i]; ExtraCrew.RemoveAt(i); }
             }
-            for (int i = 0; i < Richness.Length; i++) Richness[i] = Mathf.Min(1f, Richness[i] + GameData.RichnessRecovery);
+            Grounds.Recover(GroundRich); RefreshLegacyRichness();
             RollBoard();
             if (Offers.Count > 0) Offers.RemoveAt(0);
             while (Offers.Count < 3) Offers.Add(NewContract());
@@ -430,7 +436,7 @@ namespace Catchline.Game
                 return (small.Species, Mathf.Lerp(small.MinKg, small.MinKg + (small.MaxKg - small.MinKg) * .2f, Rand()));
             }
             power = Mathf.Clamp(power, 0f, 1.4f);
-            var table = GameData.Spots[spot].Table;
+            var table = FishTable(spot);
             float total = 0f;
             var weights = new float[table.Length];
             for (int i = 0; i < table.Length; i++)
@@ -460,9 +466,45 @@ namespace Catchline.Game
         }
 
         public float RollBiteWait(int spot, float power)
-            => Mathf.Min(GameData.MaxBiteWait, (5f + Rand() * 4f + power * 5f) * GameData.Spots[spot].BiteWait / Mathf.Max(0.3f, Richness[spot]));
+            => Mathf.Min(GameData.MaxBiteWait, (5f + Rand() * 4f + power * 5f) * GameData.Spots[spot].BiteWait / Mathf.Max(0.3f, BiteRichness(spot)));
+
+        // Bite-rate richness: ground average x school bonus while anchored at a ground, otherwise the legacy per-map value.
+        public float BiteRichness(int spot)
+            => CurrentGround >= 0 && Grounds.Get(spot, CurrentGround) != null ? Grounds.Score(GroundRich, spot, CurrentGround) * SchoolBonus : Richness[spot];
+
+        // The pool a roll draws from: the anchored ground's day or night pool with each species weight scaled by its richness.
+        public (Species species, float weight)[] FishTable(int spot)
+        {
+            var ground = CurrentGround >= 0 ? Grounds.Get(spot, CurrentGround) : null;
+            if (ground == null) return GameData.Spots[spot].Table;
+            var pool = ground.Pool(NightVoyage);
+            var result = new (Species species, float weight)[pool.Length];
+            for (int i = 0; i < pool.Length; i++) result[i] = (pool[i].species, pool[i].weight * Grounds.Richness(GroundRich, spot, CurrentGround, pool[i].species));
+            return result;
+        }
+
+        // Legacy per-map richness is the mean of that map's ground-species richness.
+        public void RefreshLegacyRichness()
+        {
+            for (int m = 0; m < Richness.Length; m++)
+            {
+                var grounds = Grounds.ForMap(m);
+                if (grounds.Length == 0) continue;
+                float sum = 0; int n = 0;
+                for (int g = 0; g < grounds.Length; g++) foreach (var e in grounds[g].Day) { sum += Grounds.Richness(GroundRich, m, g, e.species); n++; }
+                Richness[m] = sum / n;
+            }
+        }
 
         public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
+
+        // M4: at a ground the catch drains that species there: rods and lines -0.02 per catch, nets -0.004 per kg.
+        public void OnCatch(int spot, float kg, Species species, bool net)
+        {
+            if (CurrentGround < 0 || Grounds.Get(spot, CurrentGround) == null) { OnCatch(spot, kg); return; }
+            Grounds.Drain(GroundRich, spot, CurrentGround, species, net ? Grounds.NetDrainPerKg * kg : Grounds.RodDrain);
+            RefreshLegacyRichness();
+        }
 
         // ---- save / load ----------------------------------------------------------------
         // Saved in the harbour (after selling, after every purchase). A voyage in progress is not saved.
@@ -556,7 +598,8 @@ namespace Catchline.Game
             var v2 = new SaveV2 { Coins = Coins, Hull = Hull, Runtime = d,
                 Cards = new List<CardState>(Roster), Deployment = new List<string>(Deployment),
                 Wildcards = (int[])Wildcards.Clone(), PendingXpKg = PendingXpKg,
-                TripDeployment = new List<string>(TripDeployment), CrewSettings = new List<CrewMember>(Crew) };
+                TripDeployment = new List<string>(TripDeployment), CrewSettings = new List<CrewMember>(Crew),
+                GroundRichness = new List<float>(GroundRich) };
             v2.Owned.AddRange(d.Owned);
             try { System.IO.File.WriteAllText(path ?? SavePath, JsonUtility.ToJson(v2, true)); }
             catch (System.Exception e) { Debug.LogWarning("[Catchline] Save failed: " + e.Message); }
@@ -587,6 +630,10 @@ namespace Catchline.Game
                 s.Wildcards = v2.Wildcards; s.PendingXpKg = Mathf.Max(0, v2.PendingXpKg);
                 if (v2.TripDeployment != null) s.TripDeployment.AddRange(v2.TripDeployment);
                 if (v2.CrewSettings != null) s.cardCrew.AddRange(v2.CrewSettings);
+                if (v2.GroundRichness != null)
+                    for (int i = 0; i < Mathf.Min(v2.GroundRichness.Count, s.GroundRich.Length); i++)
+                        s.GroundRich[i] = float.IsNaN(v2.GroundRichness[i]) ? Grounds.Start : Mathf.Clamp(v2.GroundRichness[i], Grounds.Floor, Grounds.Start);
+                s.RefreshLegacyRichness();
                 s.EnsureCards(); s.SyncCardCrew();
                 if (d == null) return s;
                 s.Coins = d.Coins; s.Bait = d.Bait; s.Squid = d.Squid; s.Voyage = d.Voyage; s.BestVoyageFish = d.BestVoyageFish;

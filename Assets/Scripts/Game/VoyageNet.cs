@@ -241,8 +241,8 @@ namespace Catchline.Game
         void RollCompactCatch()
         {
             netFish.Clear();
-            netFish.AddRange(CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,State.Rng));
-            foreach(var f in netFish)State.OnCatch(ActiveSpot,f.kg);
+            netFish.AddRange(CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,State.Rng,State.FishTable(ActiveSpot)));
+            foreach(var f in netFish)State.OnCatch(ActiveSpot,f.kg,f.species,true);
         }
 
         static bool SmallSchool(Species species) => species == Species.Herring || species == Species.Mackerel || species == Species.Whiting || species == Species.Pollock;

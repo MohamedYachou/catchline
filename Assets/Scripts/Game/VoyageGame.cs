@@ -759,6 +759,7 @@ namespace Catchline.Game
         void Step(float dt)
         {
             TickManagement(dt);
+            TickGrounds(dt);
             SimTime += dt;
             var camRot = Cam.transform.rotation;
             switch (CurrentMode)

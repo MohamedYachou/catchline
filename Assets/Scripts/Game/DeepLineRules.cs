@@ -22,7 +22,7 @@ namespace Catchline.Game
             var result=new System.Collections.Generic.List<Option>();
             if(bait!=BaitPermission.Chum)return result;
             float power=.55f+(bait==BaitPermission.Squid?GameData.SquidPowerBonus:0);
-            foreach(var entry in GameData.Spots[spot].Table)
+            foreach(var entry in state.FishTable(spot))
             {
                 if(state.Hull<GameData.MinimumHull(entry.species))continue;
                 var fish=GameData.Get(entry.species);float h=fish.Heaviness;

@@ -67,7 +67,7 @@ namespace Catchline.Game
             if(nets.InstalledCount>0&&State.ActiveNetStock>0)
             {
                 var rng=new System.Random(87087);float kg=0,value=0,fish=0;
-                for(int sample=0;sample<256;sample++)foreach(var f in CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,rng))
+                for(int sample=0;sample<256;sample++)foreach(var f in CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,rng,State.FishTable(ActiveSpot)))
                 {kg+=f.kg/256;value+=NominalValue(f.species,f.kg)/256f;fish+=1f/256;if(!nets.SpeciesCounts.ContainsKey(f.species))nets.SpeciesCounts[f.species]=0;nets.SpeciesCounts[f.species]+=1f/256;}
                 nets.CycleFish=fish;nets.CycleValue=value;
                 foreach(var op in netOps.OrderBy(v=>v.Key).Take(State.ActiveNetStock))

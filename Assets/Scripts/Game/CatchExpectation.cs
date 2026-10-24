@@ -24,7 +24,7 @@ namespace Catchline.Game
             if(bait==BaitPermission.Scraps){result.Probabilities[Species.Herring]=.5f;result.Probabilities[Species.Mackerel]=.5f;}
             else
             {
-                foreach(var e in GameData.Spots[spot].Table)
+                foreach(var e in state.FishTable(spot))
                 {
                     if(state.Hull<GameData.MinimumHull(e.species))continue;
                     float h=GameData.Get(e.species).Heaviness;
@@ -57,17 +57,17 @@ namespace Catchline.Game
             float sum=0;
             for(int n=0;n<512;n++)
             {
-                float wait=Mathf.Min(GameData.MaxBiteWait,(5+(n+.5f)/512*4+power*5)*GameData.Spots[spot].BiteWait/Mathf.Max(.3f,state.Richness[spot]));
+                float wait=Mathf.Min(GameData.MaxBiteWait,(5+(n+.5f)/512*4+power*5)*GameData.Spots[spot].BiteWait/Mathf.Max(.3f,state.BiteRichness(spot)));
                 sum+=(learning?Mathf.Clamp(wait,4,6):wait)/512;
             }
             return sum;
         }
         public static bool SmallSchool(Species s) => s==Species.Herring||s==Species.Mackerel||s==Species.Whiting||s==Species.Pollock;
         // Extracted unchanged from the actual net roll, including float RNG arithmetic and fallback.
-        public static List<(Species species,float kg)> RollNet(int hull,int spot,bool deep,float target,System.Random rng)
+        public static List<(Species species,float kg)> RollNet(int hull,int spot,bool deep,float target,System.Random rng,(Species species,float weight)[] table=null)
         {
             var result=new List<(Species species,float kg)>();bool large=deep;float mass=0;
-            var table=GameData.Spots[spot].Table;
+            table??=GameData.Spots[spot].Table;
             while(true)
             {
                 float remaining=target-mass,total=0;
