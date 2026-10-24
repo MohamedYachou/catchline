@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "map": "GullDeepChannel",
+  "runtimeModelId": "GullDeepChannelGroundsV1",
+  "runtimeFile": "Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelGroundsV1.fbx",
+  "units": "metres",
+  "anchorSpace": "World deck-centre position, deck Y=0 above water Y=-0.32; runtime Boat translation = anchor - rotated HullDef.Center. Never add map root Y offset to boat deck.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "grounds": [
+    {
+      "id": "drop-off",
+      "name": "Drop-off",
+      "position": [
+        1,
+        0,
+        0.5
+      ],
+      "heading": 0,
+      "seabedDepth": 4.2,
+      "seabedDepthKind": "nominal water-colour preset; physical terrain varies",
+      "poolId": "GullDeepChannel/drop-off",
+      "physicalAnchorDepth": 6.375496864318848
+    },
+    {
+      "id": "trench",
+      "name": "Trench",
+      "position": [
+        23,
+        0,
+        0.5
+      ],
+      "heading": 0,
+      "seabedDepth": 14.0,
+      "seabedDepthKind": "nominal water-colour preset; physical terrain varies",
+      "poolId": "GullDeepChannel/trench",
+      "physicalAnchorDepth": 14.018524169921875
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "position": [
+        -21,
+        0,
+        0.5
+      ],
+      "heading": 0,
+      "seabedDepth": 9.0,
+      "seabedDepthKind": "nominal water-colour preset; physical terrain varies",
+      "poolId": "GullDeepChannel/open",
+      "physicalAnchorDepth": 6.428231239318848
+    }
+  ],
+  "paths": [
+    {
+      "fromGround": "drop-off",
+      "toGround": "trench",
+      "polyline": [
+        [
+          1,
+          0,
+          0.5
+        ],
+        [
+          1,
+          0,
+          -27.61746585845947
+        ],
+        [
+          23,
+          0,
+          -27.61746585845947
+        ],
+        [
+          23,
+          0,
+          0.5
+        ]
+      ],
+      "centrelineSamples": 161,
+      "centrelineClear": true,
+      "obstructions": []
+    },
+    {
+      "fromGround": "drop-off",
+      "toGround": "open",
+      "polyline": [
+        [
+          1,
+          0,
+          0.5
+        ],
+        [
+          1,
+          0,
+          -27.61746585845947
+        ],
+        [
+          -21,
+          0,
+          -27.61746585845947
+        ],
+        [
+          -21,
+          0,
+          0.5
+        ]
+      ],
+      "centrelineSamples": 161,
+      "centrelineClear": true,
+      "obstructions": []
+    },
+    {
+      "fromGround": "trench",
+      "toGround": "open",
+      "polyline": [
+        [
+          23,
+          0,
+          0.5
+        ],
+        [
+          23,
+          0,
+          -27.61746585845947
+        ],
+        [
+          -21,
+          0,
+          -27.61746585845947
+        ],
+        [
+          -21,
+          0,
+          0.5
+        ]
+      ],
+      "centrelineSamples": 205,
+      "centrelineClear": true,
+      "obstructions": []
+    }
+  ]
+}

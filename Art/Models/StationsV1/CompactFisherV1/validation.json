@@ -1,0 +1,59 @@
+{
+  "hull": "CompactFisherV1",
+  "allWorkTilesReachable": true,
+  "seed": [
+    34,
+    11
+  ],
+  "reachableCount": 250,
+  "blockedCount": 739,
+  "adjustedWorkTiles": [
+    {
+      "station": "rod1",
+      "from": [
+        21,
+        18
+      ],
+      "to": [
+        20,
+        17
+      ]
+    },
+    {
+      "station": "rod2",
+      "from": [
+        21,
+        3
+      ],
+      "to": [
+        21,
+        6
+      ]
+    },
+    {
+      "station": "net1",
+      "from": [
+        39,
+        6
+      ],
+      "to": [
+        36,
+        9
+      ]
+    },
+    {
+      "station": "bait",
+      "from": [
+        14,
+        5
+      ],
+      "to": [
+        14,
+        6
+      ]
+    }
+  ],
+  "hullSha256": "dbe3474208ef7c3c83cfd4792d8dee3db9d5c361536fe4a4179c44945d756822",
+  "method": "Four-neighbour BFS; new prop mesh slices .20/.55/.95m plus .28m body and basket clearance on all grids; compact also rasterizes hull and persistent hatch opening; legacy grids preserve original blocked cells. Navigator seat is seated interaction.",
+  "nativeM1Checks": "not run: not implemented by code session yet"
+}

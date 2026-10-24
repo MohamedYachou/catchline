@@ -1,0 +1,37 @@
+{
+  "day": {
+    "keyColor": "#FFF2DC",
+    "keyIntensity": 1.3,
+    "ambient": "#BCD6DF",
+    "ambientIntensity": 0.45
+  },
+  "night": {
+    "keyColor": "#FFC875",
+    "keyIntensity": 0.22,
+    "ambient": "#445C8F",
+    "ambientIntensity": 0.24,
+    "deckPools": [
+      {
+        "boatLocal": [
+          0.4,
+          1.6,
+          0.5
+        ],
+        "color": "#FFD593",
+        "range": 3.2,
+        "intensity": 1.2
+      },
+      {
+        "boatLocal": [
+          2,
+          1.6,
+          1
+        ],
+        "color": "#FFD593",
+        "range": 3.2,
+        "intensity": 1.2
+      }
+    ]
+  },
+  "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+}

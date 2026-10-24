@@ -1,0 +1,24 @@
+[
+  {
+    "id": "DeckLightPool",
+    "file": "Assets/Art/Models/StationsV1/DeckLightPool.png",
+    "source": "Art/Models/StationsV1/DeckLightPool.svg",
+    "logicalSize": [
+      256,
+      256
+    ],
+    "use": "Optional soft station light decal; centre pivot, project on XZ deck, bind material/power in code.",
+    "sha256": "bc4ff9447e7d1d6d015dec6dab40534e4a99b13e17adb60a03027f106e5c15dc"
+  },
+  {
+    "id": "SquallOverlay",
+    "file": "Assets/Art/UI/v2/art108-squall-overlay.png",
+    "source": "Art/Models/StationsV1/SquallOverlay.svg",
+    "logicalSize": [
+      1024,
+      512
+    ],
+    "use": "Transparent rain streak sprite; scroll/crossfade by event code, no flashing or baked scene dimming.",
+    "sha256": "2b4b0eb436a40221cc8ecb08f1377de49b0397fcfc7c678c1c9966fb3e9c3319"
+  }
+]

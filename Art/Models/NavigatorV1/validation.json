@@ -1,0 +1,80 @@
+{
+  "sourceRig": "Art/Models/CrewRig/CrewRig.blend",
+  "bones": [
+    "Hips",
+    "Spine",
+    "Spine1",
+    "Neck",
+    "Head",
+    "HatMount",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot"
+  ],
+  "boneCount": 20,
+  "heightBareScalp": 0.95,
+  "clips": [
+    {
+      "id": "Idle",
+      "frames": [
+        1,
+        49
+      ],
+      "fps": 24,
+      "loop": true
+    },
+    {
+      "id": "Point",
+      "frames": [
+        1,
+        37
+      ],
+      "fps": 24,
+      "loop": false
+    },
+    {
+      "id": "Warn",
+      "frames": [
+        1,
+        37
+      ],
+      "fps": 24,
+      "loop": false
+    }
+  ],
+  "triangles": 14828,
+  "boundsSource": [
+    [
+      -0.23248448967933655,
+      -0.25,
+      9.313225746154785e-10
+    ],
+    [
+      0.23248448967933655,
+      0.16582946479320526,
+      1.0199999809265137
+    ]
+  ],
+  "sourceRigSha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "nativeAcceptance": "Pending code-owner Unity import and clip selection; match suffix after last pipe.",
+  "roundTrip": {
+    "boneNamesMatch": true,
+    "trianglesMatch": true,
+    "clips": [
+      "Idle",
+      "Point",
+      "Warn"
+    ]
+  }
+}

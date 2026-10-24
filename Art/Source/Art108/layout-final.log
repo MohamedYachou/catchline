@@ -1,0 +1,24 @@
+C:\Users\momoy\Projects\Catchline\Art\Source\Art108\layout_stations.py:127: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Cool maritime fill');sc.world.use_nodes=True
+00:15.687  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Rowboat\gameplay-camera.png'
+00:36.797  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Rowboat\top-plan.png'
+Traceback (most recent call last):
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\Art108\layout_stations.py", line 199, in <module>
+    for name in (sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else HULLS):build(name)
+                                                                                   ~~~~~^^^^^^
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\Art108\layout_stations.py", line 152, in build
+    assert math.dist(nearest,wanted)*h['cell']<=.65,(name,s['id'],wanted,nearest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Skiff', 'rod1', (0, 0), (3, 0))
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\StationsV1\\Rowboat\\Rowboat-stations-overlay.fbx'
+export finished in 0.0926 sec.
+Info: Saved as "Rowboat-layout.blend"
+ART108 LAYOUT PASSED Rowboat {"hull": "Rowboat", "allWorkTilesReachable": true, "seed": [1, 0], "reachableCount": 5, "blockedCount": 1, "adjustedWorkTiles": [], "hullSha256": "383eb68e58a725df9ce51e134f75cd030edc5f865af0a4cfb111fc2b16d605a3", "method": "Four-neighbour BFS; new prop mesh slices .20/.55/.95m plus .28m body and basket clearance on all grids; compact also rasterizes hull and persistent hatch opening; legacy grids preserve original blocked cells. Navigator seat is seated interaction.", "nativeM1Checks": "not run: not implemented by code session yet"}
+FBX version: 7400
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

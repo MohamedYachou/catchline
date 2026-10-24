@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "hull": "Skiff",
+  "coordinates": "runtime Boat-local metres; Y up; bow -X; workTile is GameData grid (x,z)",
+  "grid": {
+    "width": 5,
+    "height": 3,
+    "cellSize": 1
+  },
+  "modelBinding": {
+    "path": "Assets/Art/Models/Boats/Skiff.fbx",
+    "spawnPosition": [
+      2,
+      0,
+      1
+    ],
+    "yaw": -90,
+    "preserveImporterRoot": true
+  },
+  "stations": [
+    {
+      "id": "sort1",
+      "kind": "SortTable",
+      "pos": [
+        2.3,
+        0,
+        2.2
+      ],
+      "yaw": 0,
+      "workTile": [
+        3,
+        2
+      ],
+      "model": "SortTableSmall",
+      "basketIn": [
+        1.85,
+        0,
+        2.2
+      ],
+      "basketOut": [
+        2.55,
+        0,
+        1.5
+      ],
+      "runtimeModelId": "Art108_SortTableSmall"
+    },
+    {
+      "id": "rod1",
+      "kind": "Rod",
+      "pos": [
+        0.25,
+        0.45,
+        -0.68
+      ],
+      "yaw": 0,
+      "workTile": [
+        0,
+        0
+      ],
+      "existing": true,
+      "basketOut": [
+        0.25,
+        0,
+        -0.52
+      ],
+      "basketModel": "BasketSmall",
+      "runtimeBasketPrefix": "Art108_BasketSmall"
+    },
+    {
+      "id": "rod2",
+      "kind": "Rod",
+      "pos": [
+        2,
+        0.45,
+        -0.68
+      ],
+      "yaw": 0,
+      "workTile": [
+        2,
+        0
+      ],
+      "existing": true,
+      "basketOut": [
+        2,
+        0,
+        -0.52
+      ],
+      "basketModel": "BasketSmall",
+      "runtimeBasketPrefix": "Art108_BasketSmall"
+    },
+    {
+      "id": "rod3",
+      "kind": "Rod",
+      "pos": [
+        3.75,
+        0.45,
+        -0.68
+      ],
+      "yaw": 0,
+      "workTile": [
+        4,
+        0
+      ],
+      "existing": true
+    },
+    {
+      "id": "bait",
+      "kind": "BaitBin",
+      "pos": [
+        0.3,
+        0,
+        2.03
+      ],
+      "yaw": 0,
+      "workTile": [
+        0,
+        1
+      ],
+      "model": "BaitBin",
+      "runtimeModelId": "Art108_BaitBin"
+    },
+    {
+      "id": "hold",
+      "kind": "HoldHatch",
+      "pos": [
+        1,
+        0,
+        1
+      ],
+      "yaw": 0,
+      "workTile": [
+        1,
+        0
+      ],
+      "existing": true
+    },
+    {
+      "id": "lantern",
+      "kind": "Lantern",
+      "pos": [
+        2.45,
+        0.58,
+        2.2
+      ],
+      "yaw": 0,
+      "workTile": [
+        3,
+        2
+      ],
+      "model": "Lantern",
+      "mount": "sort table",
+      "runtimeModelId": "Art108_Lantern"
+    },
+    {
+      "id": "nav",
+      "kind": "NavPost",
+      "pos": [
+        4,
+        0.68,
+        2
+      ],
+      "yaw": 0,
+      "workTile": [
+        3,
+        1
+      ],
+      "model": "NavigatorPost",
+      "mount": "existing console",
+      "runtimeModelId": "Art108_NavigatorPost"
+    }
+  ],
+  "blocked": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ]
+  ],
+  "basketFillStates": [
+    "BasketSmall_0",
+    "BasketSmall_1",
+    "BasketSmall_2",
+    "BasketSmall_3",
+    "BasketLarge_0",
+    "BasketLarge_1",
+    "BasketLarge_2",
+    "BasketLarge_3"
+  ],
+  "notes": [
+    "Existing=true refers to station/gear ownership; model, if present, is an additive trim or post.",
+    "Never spawn both legacy baskets and these replacements. Rod3 on Skiff shares rod2 output basket by design.",
+    "Paths are art validation only; native M1Checks and final Unity import acceptance remain with code owner."
+  ],
+  "runtimeBasketFillStates": [
+    "Art108_BasketSmall_0",
+    "Art108_BasketSmall_1",
+    "Art108_BasketSmall_2",
+    "Art108_BasketSmall_3",
+    "Art108_BasketLarge_0",
+    "Art108_BasketLarge_1",
+    "Art108_BasketLarge_2",
+    "Art108_BasketLarge_3"
+  ]
+}

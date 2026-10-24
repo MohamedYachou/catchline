@@ -1,0 +1,31 @@
+C:\Users\momoy\Projects\Catchline\Art\Source\Art108\layout_stations.py:125: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Cool maritime fill');sc.world.use_nodes=True
+00:14.906  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Rowboat\gameplay-camera.png'
+00:34.703  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Rowboat\top-plan.png'
+00:53.547  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Skiff\gameplay-camera.png'
+01:14.141  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\Skiff\top-plan.png'
+01:34.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\CompactFisherV1\gameplay-camera.png'
+01:53.860  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\StationsV1\CompactFisherV1\top-plan.png'
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\StationsV1\\Rowboat\\Rowboat-stations-overlay.fbx'
+export finished in 0.0939 sec.
+Info: Saved as "Rowboat-layout.blend"
+ART108 LAYOUT PASSED Rowboat {"hull": "Rowboat", "allWorkTilesReachable": true, "seed": [1, 0], "reachableCount": 5, "blockedCount": 1, "adjustedWorkTiles": [], "hullSha256": "383eb68e58a725df9ce51e134f75cd030edc5f865af0a4cfb111fc2b16d605a3", "method": "Four-neighbour BFS; compact mesh slices at .20/.55/.95m plus .28m body clearance, persistent hatch opening and basket clearance; legacy integer grids retain existing blocked cells.", "nativeM1Checks": "not run: not implemented by code session yet"}
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\StationsV1\\Skiff\\Skiff-stations-overlay.fbx'
+export finished in 0.2165 sec.
+Info: Saved as "Skiff-layout.blend"
+ART108 LAYOUT PASSED Skiff {"hull": "Skiff", "allWorkTilesReachable": true, "seed": [3, 1], "reachableCount": 11, "blockedCount": 4, "adjustedWorkTiles": [], "hullSha256": "174076b3ca2d4eba0fa2c3d0d056a701fad04fc0f1a2c5150d48cdc4acb06d24", "method": "Four-neighbour BFS; compact mesh slices at .20/.55/.95m plus .28m body clearance, persistent hatch opening and basket clearance; legacy integer grids retain existing blocked cells.", "nativeM1Checks": "not run: not implemented by code session yet"}
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\StationsV1\\CompactFisherV1\\CompactFisherV1-stations-overlay.fbx'
+export finished in 0.2460 sec.
+Info: Saved as "CompactFisherV1-layout.blend"
+ART108 LAYOUT PASSED CompactFisherV1 {"hull": "CompactFisherV1", "allWorkTilesReachable": true, "seed": [34, 11], "reachableCount": 281, "blockedCount": 708, "adjustedWorkTiles": [{"station": "rod1", "from": [21, 18], "to": [21, 16]}, {"station": "rod2", "from": [21, 3], "to": [21, 6]}, {"station": "rod3", "from": [38, 18], "to": [38, 17]}, {"station": "net1", "from": [39, 6], "to": [39, 9]}, {"station": "bait", "from": [14, 5], "to": [14, 6]}], "hullSha256": "dbe3474208ef7c3c83cfd4792d8dee3db9d5c361536fe4a4179c44945d756822", "method": "Four-neighbour BFS; compact mesh slices at .20/.55/.95m plus .28m body clearance, persistent hatch opening and basket clearance; legacy integer grids retain existing blocked cells.", "nativeM1Checks": "not run: not implemented by code session yet"}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
