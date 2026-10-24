@@ -173,39 +173,6 @@ namespace Catchline.Game
             SaveGame(); // Current jobs finish; new orders choose the new priority.
         }
 
-        IEnumerator CapturePrepOrders(string directory)
-        {
-            Directory.CreateDirectory(directory);
-            Application.runInBackground = true;
-            captureFreeze = true;
-            Cooler.Clear();
-            State.Chum = 9;
-            for (int i = 0; i < 14; i++) Cooler.Add(new CaughtFish { Species = Species.Herring, Kg = .2f, StowedAt = SimTime });
-            Cooler.Add(new CaughtFish { Species = Species.Cod, Kg = 5, StowedAt = SimTime });
-            var hands = People.Where(p => p.Contract?.Role == CrewRole.Deckhand).ToArray();
-            foreach (var h in hands) SetDeckhandWork(h.Contract, DeckhandWork.Prep);
-            foreach (var h in hands) TryPrepWork(h);
-            // Drive real walks until both hands reach their actual table anchors.
-            for (int i = 0; i < 1600 && hands.Any(h => h.BusyLabel is not ("Making chum" or "Sorting fish")); i++)
-                foreach (var h in hands) if (h.BusyLabel is not ("Making chum" or "Sorting fish")) h.Tick(.025f, Cam.transform.rotation);
-            foreach (var size in new[] { new Vector2Int(1440,900), new Vector2Int(844,390) })
-            {
-                Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
-                for (int i = 0; i < 16; i++) yield return null;
-                PrepOrdersOpen = netOrdersOpen = false; toastUntil = 0;
-                yield return null;
-                yield return CaptureFrame(directory, "prep-working-" + size.x);
-                PrepOrdersOpen = true;
-                yield return null;
-                yield return CaptureFrame(directory, "prep-orders-" + size.x);
-                PrepOrdersOpen = false; netOrdersOpen = true;
-                yield return null;
-                yield return CaptureFrame(directory, "prep-duties-" + size.x);
-                netOrdersOpen = false;
-            }
-            Debug.Log("[Catchline] PREP035 NATIVE CAPTURES COMPLETE");
-            Application.Quit(0);
-        }
 
         int prepClassDropdown; // 0 closed, 1 chum.
         static string PrepClassSummary(int mask)
@@ -242,8 +209,7 @@ namespace Catchline.Game
         void InterfacePrepOrders()
         {
             if (!IsPrepFisher) return;
-            MaybeCapturePrepRarity();
-            if (!IsTier5) IButton("prep/open",FishingFooter(1,1),$"Prep table / chum {State.Chum}",()=>
+            if (!IsTier5) IButton("prep/open",FishingFooter(1,1),$"Prep table · chum {State.Chum}",()=>
                 {PrepOrdersOpen=true;prepClassDropdown=0;netOrdersOpen=false;toastUntil=0;},false);
             if (!PrepOrdersOpen) return;
             Block(new Rect(0,0,iw,ih));

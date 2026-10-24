@@ -546,8 +546,7 @@ namespace Catchline.Game
                 // Standalone verification can never target the real save through this probe.
                 var args = System.Environment.GetCommandLineArgs();
                 int flag = System.Array.IndexOf(args, "-save-check-root");
-                if (flag >= 0 && flag + 1 < args.Length && (Application.isBatchMode ||
-                    System.Array.IndexOf(args,"-dashboard087-probe")>=0 && System.IO.Path.GetFileName(System.IO.Path.GetFullPath(args[flag+1]).TrimEnd(System.IO.Path.DirectorySeparatorChar)).StartsWith("dash087-probe-")))
+                if (flag >= 0 && flag + 1 < args.Length && Application.isBatchMode)
                 {
                     string root = System.IO.Path.GetFullPath(args[flag + 1]);
                     System.IO.Directory.CreateDirectory(root);

@@ -225,7 +225,7 @@ namespace Catchline.Game
                 if (deep) State.SpendDeepNetUse();
                 else State.NetInventory = Mathf.Max(0, State.NetInventory - 1);
                 ResetPrimaryNet();
-                Toast(deep ? $"Deep haul lost — one use spent. {State.NetLoadoutLabel}." : $"Net torn — catch lost. {State.NetInventory} shallow nets left; replacements {GameData.NetReplacementCost} coins.");
+                Toast(deep ? $"Deep haul lost â€” one use spent. {State.NetLoadoutLabel}." : $"Net torn â€” catch lost. {State.NetInventory} shallow nets left; replacements {GameData.NetReplacementCost} coins.");
             }
             bool walking = person.WalkTo(Grid, NetAccess, () =>
             {

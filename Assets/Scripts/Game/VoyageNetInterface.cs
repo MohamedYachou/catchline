@@ -46,7 +46,7 @@ namespace Catchline.Game
                 var person = People.FirstOrDefault(h => h.Contract == c);
                 int rig = c.WorkPreference == DeckhandWork.Nets ? AssignedNet(person) : -1;
                 coastalUi.Label("orders/" + i + "/name", new Rect(panel.x + 20, y, 166, 52),
-                    rig >= 0 ? c.Name + " / Net " + (rig + 1) : c.Name, 18);
+                    rig >= 0 ? c.Name + " · Net " + (rig + 1) : c.Name, 18);
                 IButton("net/orders/" + i + "/fish", new Rect(panel.x + 190, y, 108, 50), "Fish", () => SetDeckhandWork(c, DeckhandWork.Fish), c.WorkPreference == DeckhandWork.Fish);
                 IButton("net/orders/" + i + "/nets", new Rect(panel.x + 308, y, 122, 50), "Nets", () => SetDeckhandWork(c, DeckhandWork.Nets), c.WorkPreference == DeckhandWork.Nets);
                 if (IsPrepFisher) IButton("net/orders/" + i + "/prep", new Rect(panel.x + 440, y, 90, 50), "Prep", () => SetDeckhandWork(c, DeckhandWork.Prep), c.WorkPreference == DeckhandWork.Prep, c.WorkPreference == DeckhandWork.Prep || crew.Count(h => h.WorkPreference == DeckhandWork.Prep) < 2);

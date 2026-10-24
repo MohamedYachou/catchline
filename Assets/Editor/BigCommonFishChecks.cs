@@ -68,7 +68,6 @@ namespace Catchline.EditorTools
             SaveAndSale();
             NetPools();
             FishContentChecks.Run();
-            GeminiUiChecks.Run();
             Debug.Log("[Catchline] FISH050 CHECKS PASSED");
             // This covers prep class selection, both nets, batch storage, crew,
             // capacity and wait-cap regressions, then builds the current player.

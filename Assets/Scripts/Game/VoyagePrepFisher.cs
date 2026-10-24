@@ -27,32 +27,6 @@ namespace Catchline.Game
             if (rawIceCoolers != null) rawIceCoolers.gameObject.SetActive(ice);
         }
 
-        IEnumerator CapturePrepBoat(string directory)
-        {
-            Directory.CreateDirectory(directory);
-            Application.runInBackground = true;
-            captureFreeze = true;
-            State.Owned.Remove(UpgradeId.IceBox); SyncUpgrades();
-            foreach (var size in new[] { new Vector2Int(1440, 900), new Vector2Int(844, 390) })
-            {
-                Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
-                // Let the native swapchain, shaders and canvas settle after resize.
-                for (int frame = 0; frame < 16; frame++) yield return null;
-                Showcase(0, 0); captureFreeze = true; toastUntil = 0; Tick(.01f);
-                yield return CaptureFrame(directory, "tier4-buckets-" + size.x);
-            }
-            Showcase(-1, 0); State.Owned.Add(UpgradeId.IceBox); SyncUpgrades();
-            foreach (var size in new[] { new Vector2Int(1440, 900), new Vector2Int(844, 390) })
-            {
-                Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
-                // Let the native swapchain, shaders and canvas settle after resize.
-                for (int frame = 0; frame < 16; frame++) yield return null;
-                Showcase(0, 0); captureFreeze = true; toastUntil = 0; Tick(.01f);
-                yield return CaptureFrame(directory, "tier4-ice-coolers-" + size.x);
-            }
-            Debug.Log("[Catchline] TIER033 NATIVE CAPTURES COMPLETE " + directory);
-            Application.Quit(0);
-        }
 
         // First integration: shipyard trial, not an unbalanced paid progression step.
         // Changing hulls is restricted to port and never touches a real save.

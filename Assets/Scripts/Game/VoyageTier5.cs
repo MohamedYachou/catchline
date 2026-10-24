@@ -39,7 +39,17 @@ namespace Catchline.Game
         public bool RefitTier5()
         {
             if(CurrentMode!=Mode.Harbour || !State.RefitTier5())return false;
-            RebuildBoat(false);SaveGame();Toast("Buoy fisher ready — six crew berths and both equipment layouts.");return true;
+            RebuildBoat(false);SaveGame();Toast("Buoy fisher ready â€” six crew berths and both equipment layouts.");return true;
+        }
+        public bool ConfigureTier5NetTeam()
+        {
+            if(!IsTier5 || CurrentMode!=Mode.Harbour)return false;
+            State.SecondNetEnabled=true;
+            var fishers=State.Crew.Where(c=>c.Role==CrewRole.Fisherman).ToArray();
+            for(int i=0;i<fishers.Length;i++) { fishers[i].HasFisherTasks=true;fishers[i].AllowedTasks=i<2?FisherTask.Nets:FisherTask.Rods|FisherTask.Crabs; }
+            var hands=State.Crew.Where(c=>c.Role==CrewRole.Deckhand).ToArray();
+            for(int i=0;i<hands.Length;i++)hands[i].WorkPreference=i==0?DeckhandWork.Prep:DeckhandWork.Fish;
+            RebuildBoat(false);return true;
         }
         public bool TrialTier5()
         {

@@ -108,7 +108,7 @@ namespace Catchline.Game
             {
                 string id = "crew/roster/" + row.Id; float y = catalogY, w = catalogWidth;
                 coastalUi.Box(id, new Rect(0,y,w,164), "card-white", null, catalog);
-                coastalUi.Label(id+"/name", new Rect(16,y+8,w-190,36), $"{row.Name} / {row.Role}", 23, null, TextAnchor.MiddleLeft, catalog);
+                coastalUi.Label(id+"/name", new Rect(16,y+8,w-190,36), $"{row.Name} · {row.Role}", 23, null, TextAnchor.MiddleLeft, catalog);
                 coastalUi.Label(id+"/detail", new Rect(16,y+46,w-32,35), $"{row.Rarity} / Level {row.Level} / {row.Xp:0} kg / {row.Wage} coins per voyage", 16, SeaInk, TextAnchor.MiddleLeft, catalog);
                 coastalUi.Label(id+"/ability", new Rect(16,y+82,w-32,44), row.Ability, 16, SeaInk, TextAnchor.MiddleLeft, catalog);
                 coastalUi.Button(id+"/deploy", new Rect(w-168,y+8,152,36), row.Deployed ? "Stand down" : "Deploy", () => DeployCard(row.Id,!row.Deployed), "button-secondary-normal", row.Role != "Navigator" && (row.Deployed || report.Deployed<report.Berths), catalog,16);

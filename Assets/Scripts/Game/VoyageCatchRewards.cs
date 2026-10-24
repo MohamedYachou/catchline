@@ -84,35 +84,6 @@ namespace Catchline.Game
             int value = State.ValueOf(new CaughtFish { Species = species, Kg = kg, StowedAt = SimTime }, SimTime);
             coastalUi.PricePill("catch/value", new Rect(r.width - 14 - (compactInterface ? 100 : 116), Skin.HeaderBand + 8 + ph * .5f, compactInterface ? 100 : 116, pw - 6), value, true, slab);
         }
-        void DrawGeminiCatch(string id,Rect r,Species species,float kg,string title)
-        {
-            var tier=CatchPresentation.Tier(species,kg);
-            float width=r.width;
-            coastalUi.Art(id,r,GeminiUiSkin.Card(tier));Block(r);
-            float k=width/688f;
-            Rect Part(float x,float y,float w,float h)=>new Rect(r.x+x*k,r.y+y*k,w*k,h*k);
-            void Text(string key,Rect box,string text,int size,Color color,TextAnchor align=TextAnchor.MiddleLeft) =>
-                RewardText(key,box,text,Mathf.RoundToInt(size*width/376f),color,align);
-            // All portrait pixels stay within the original left window; typography is live and hard-clipped.
-            coastalUi.Art(id+"/portrait",Part(60,61,179,173),FishPortrait(species));
-            var ink=tier==CatchTier.Mythical?RewardWhite:Palette.HullNavy;
-            Text(id+"/tier",Part(286,50,201,26),CatchPresentation.Label(tier),12,Palette.Cream,TextAnchor.MiddleCenter);
-            Text(id+"/achievement",Part(515,50,121,26),title,10,Palette.Cream,TextAnchor.MiddleCenter);
-            Text(id+"/name",Part(282,86,353,48),GameData.Get(species).Name,23,ink);
-            Text(id+"/weight",Part(290,147,150,36),$"{kg:0.00} kg",19,ink);
-            Text(id+"/quality",Part(479,147,154,36),CatchPresentation.IsBig(species,kg)?"Big specimen":"Coastal catch",12,ink);
-            Text(id+"/note",Part(284,205,165,33),"Est. sale value",11,tier==CatchTier.Mythical?RewardMuted:SeaInk);
-            int value=State.ValueOf(new CaughtFish{Species=species,Kg=kg,StowedAt=SimTime},SimTime);
-            coastalUi.Art(id+"/coin",Part(482,208,26,26),"icon-coin");
-            Text(id+"/value",Part(518,204,112,33),$"~{value:N0}",20,Palette.Cream,TextAnchor.MiddleRight);
-        }
-        public void PrepareGeminiCardPreview(int width,int height,Species species,float kg)
-        {
-            if(coastalUi==null)coastalUi=CoastalCanvas.Create(transform,Cam);
-            coastalUi.Begin(width,height,1,new Rect(0,0,width,height));
-            iw=coastalUi.Width;ih=coastalUi.Height;
-            DrawGeminiCatch("preview",new Rect(0,0,iw,ih),species,kg,"Nice catch!");coastalUi.End();
-        }
         public void RenderGeminiPreview(RenderTexture target) => coastalUi.RenderCapture(target);
         void InterfaceNetReceipt()
         {

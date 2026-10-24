@@ -223,22 +223,22 @@ namespace Catchline.Game
         {
             if (IsPrepFisher) Product("module/second-net", "Second net module",
                 IsTier5 ? State.SecondNetActive ? "Fitted: two rods, two nets and two buoys. Switch at port to four rods and one net." : "Fitted: four rods, one net and two buoys. Switch at port to two rods and two nets." : State.SecondNetActive ? "Fitted: one rod and two independent nets. Switch off at port to restore three rods." : "Replace two rods with a second net. Buy once, then switch the module on or off at port.",
-                "icon-net", State.SecondNetOwned ? State.SecondNetEnabled ? "Switch off / restore rods" : "Switch on / two nets" : "Buy / 2,000 coins",
+                "icon-net", State.SecondNetOwned ? State.SecondNetEnabled ? "Switch off · restore rods" : "Switch on / two nets" : "Buy / 2,000 coins",
                 State.SecondNetOwned || State.Coins >= GameState.SecondNetModuleCost,
                 () => { if (State.SecondNetOwned) ToggleSecondNetModule(); else BuySecondNetModule(); });
-            if (State.Hull == 3) Product("refit/tier5", "Buoy fisher / Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
-            if (SessionOnly) Product("trial/tier5", "Buoy fisher / Tier 5 trial", "Approved8.5x4.2m boat. Six crew plus captain; both equipment layouts are included.", "icon-skiff", IsTier5 ? "Trial boat aboard" : "Try Tier 5", !IsTier5, () => TrialTier5());
+            if (State.Hull == 3) Product("refit/tier5", "Buoy fisher · Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
+            if (SessionOnly) Product("trial/tier5", "Buoy fisher · trial", "Approved 8.5 × 4.2 m boat. Six crew plus captain; both equipment layouts are included.", "icon-skiff", IsTier5 ? "Trial boat aboard" : "Try Tier 5", !IsTier5, () => TrialTier5());
             foreach (var u in GameData.Upgrades.Where(u => u.Shop == "Chandlery")) InterfaceUpgrade(u);
             Product("refit", State.Hull > 0 ? State.HullDef.Name : "Skiff refit", State.Hull > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
                 State.Hull > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
                 State.Hull == 0 && State.BestVoyageFish >= GameData.SkiffFishGoal && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
-            if (State.Hull == 1) Product("refit/compact", "Compact fisher", "Tier3 ·100kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
+            if (State.Hull == 1) Product("refit/compact", "Compact fisher", "Tier 3 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
             if (State.Hull == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
                 $"Refit / {GameState.PrepFisherCost:N0} coins", State.CanRefitPrep, () => RefitPrep());
-            if (SessionOnly) Product("trial/netboat", "Compact fisher · trial", "Three crew · three rods · stern net. Trial includes fuel and a200coin crew budget. Prices are still being tuned.", "icon-skiff",
+            if (SessionOnly) Product("trial/netboat", "Compact fisher · trial", "Three crew · three rods · stern net. Trial includes fuel and a 200-coin crew budget. Prices are still being tuned.", "icon-skiff",
                 State.Hull == 2 ? "Trial boat aboard" : "Try net boat", State.Hull != 2, () => TrialCompactFisher());
-            if (SessionOnly) Product("trial/prepboat", "Prep fisher / Tier 4 trial", "Four crew berths, three rods and a stern net. Working two-person prep table, front storage and optional second net module.", "icon-skiff",
+            if (SessionOnly) Product("trial/prepboat", "Prep fisher · trial", "Four crew berths, three rods and a stern net. Working two-person prep table, front storage and optional second net module.", "icon-skiff",
                 IsPrepFisher ? "Trial boat aboard" : "Try prep boat", !IsPrepFisher, () => TrialPrepFisher());
         }
         void InterfaceUpgrade(UpgradeDef u)
@@ -259,7 +259,7 @@ namespace Catchline.Game
             Product("supplies/squid-bulk", "Squid · bulk box", $"{GameData.SquidBulkSize} hooks · favour bigger specimens", "icon-squid", $"Buy · {GameData.SquidBulkCost} coins", State.Coins >= GameData.SquidBulkCost, () => { if (State.BuySquid(true)) SaveGame(); });
             int cost = State.FuelFillCost;
             foreach (var upgrade in GameData.Upgrades.Where(u => u.Shop == "Supplies")) InterfaceUpgrade(upgrade);
-            if (State.Hull > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
+            if (State.Hull > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at 10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
             if (IsNetFisher)
             {
                 bool rackFull = State.NetInventory >= GameData.NetInventoryCapacity;

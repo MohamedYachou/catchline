@@ -27,7 +27,7 @@ namespace Catchline.Game
             coastalUi.Box("crew/bait/shade", new Rect(0,0,iw,ih), "chip-dark", new Color(1,1,1,.8f));
             var p = new Rect((iw-550)/2,(ih-360)/2,550,360);
             coastalUi.Box("crew/bait/panel",p);
-            coastalUi.Label("crew/bait/title",new Rect(p.x+20,p.y+12,430,36),"Bait / " + c.Name,25);
+            coastalUi.Label("crew/bait/title",new Rect(p.x+20,p.y+12,430,36),"Bait · " + c.Name,25);
             IButton("crew/bait/close",new Rect(p.xMax-74,p.y+8,54,48),"X",()=>baitSettingsCrew=null,false);
             coastalUi.Label("crew/bait/help",new Rect(p.x+20,p.y+62,510,50),"Choose what this fisher may use.\nApplies to hooks baited by this fisher or a deckhand.",17,SeaInk);
             var choices = new[]{BaitPermission.Scraps,BaitPermission.Worms,BaitPermission.Squid,BaitPermission.Chum};

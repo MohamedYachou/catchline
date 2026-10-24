@@ -28,47 +28,6 @@ namespace Catchline.Game
         public int UsableRodCount => Rods.Count(r => r.Unlocked);
         public int ExcessFishermen => IsTier5 ? 0 : Mathf.Max(0, State.Crew.Count(c => c.Role == CrewRole.Fisherman) - UsableRodCount);
 
-        void MaybeCaptureSecondNet()
-        {
-            var args=Environment.GetCommandLineArgs();int flag=Array.IndexOf(args,"-capture-second-net");
-            if(Application.isPlaying&&SessionOnly&&flag>=0&&flag+1<args.Length)
-                StartCoroutine(CaptureSecondNetModule(Path.GetFullPath(args[flag+1])));
-        }
-        IEnumerator CaptureSecondNetModule(string directory)
-        {
-            yield return null;
-            Directory.CreateDirectory(directory);Application.runInBackground=true;
-            StartPrepBoatTrial();captureFreeze=true;Showcase(-1,0);State.Coins=2000;
-            hudTab=HudTab.Chandlery;panelOpen=true;toastUntil=0;
-            foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
-            {
-                Screen.SetResolution(size.x,size.y,FullScreenMode.Windowed);
-                for(int i=0;i<16;i++)yield return null;
-                yield return CaptureFrame(directory,"module-buy-"+size.x);
-            }
-            BuySecondNetModule();toastUntil=0;
-            foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
-            {
-                Screen.SetResolution(size.x,size.y,FullScreenMode.Windowed);
-                departureReady=departureCrewWarning=false;hudTab=HudTab.Chandlery;panelOpen=true;
-                for(int i=0;i<16;i++)yield return null;
-                yield return CaptureFrame(directory,"module-equipped-"+size.x);
-                RequestDeparture();ConfirmDeparture();yield return null;
-                yield return CaptureFrame(directory,"fisher-warning-"+size.x);
-            }
-            departureReady=departureCrewWarning=false;Showcase(0,0);toastUntil=0;
-            var hands=People.Where(p=>p.Contract?.Role==CrewRole.Deckhand).ToArray();
-            foreach(var h in hands){h.Stop();SetDeckhandWork(h.Contract,DeckhandWork.Nets);TryNetWork(h);}
-            foreach(var h in hands)for(int i=0;i<3000&&!h.Idle;i++)h.Tick(.02f, Cam.transform.rotation);
-            TickNet(10);TickSecondNet(17);
-            foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
-            {
-                Screen.SetResolution(size.x,size.y,FullScreenMode.Windowed);
-                for(int i=0;i<16;i++)yield return null;
-                yield return CaptureFrame(directory,"two-nets-working-"+size.x);
-            }
-            Debug.Log("[Catchline] MODULE042 NATIVE CAPTURES COMPLETE");Application.Quit(0);
-        }
 
         public bool BuySecondNetModule()
         {

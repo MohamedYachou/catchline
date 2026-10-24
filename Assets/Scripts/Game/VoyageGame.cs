@@ -100,7 +100,6 @@ namespace Catchline.Game
             SyncCrew();
             SyncUpgrades();
             EnterHarbour(false);
-            MaybeCaptureSecondNet();
         }
 
         void BuildWorld()
@@ -324,7 +323,7 @@ namespace Catchline.Game
         {
             if (CurrentMode != Mode.Harbour || !State.RefitCompact()) return false;
             RebuildBoat(); refitUntil = SimTime + 1.2f;
-            Toast("Compact fisher ready ·100kg hold, three rods and stern net. First tank included.");
+            Toast("Compact fisher ready · 100 kg hold, three rods and stern net. First tank included.");
             SaveGame(); return true;
         }
 
@@ -332,7 +331,7 @@ namespace Catchline.Game
         {
             if (CurrentMode != Mode.Harbour || !State.RefitPrep()) return false;
             RebuildBoat(); refitUntil = SimTime + 1.2f;
-            Toast("Prep fisher ready /160kg hold, four crew berths and a two-person table.");
+            Toast("Prep fisher ready · 160 kg hold, four crew berths and a two-person table.");
             SaveGame(); return true;
         }
 

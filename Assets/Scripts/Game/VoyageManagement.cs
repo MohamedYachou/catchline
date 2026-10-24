@@ -135,7 +135,7 @@ namespace Catchline.Game
             var crew=State.Crew.ToArray();
             if(crew.Length==0) { DText("crew/empty",150,250,1300,100,"Hire fishers and deckhands at the Crew Office.",32); return; }
             selectedManagementCrew=Mathf.Clamp(selectedManagementCrew,0,crew.Length-1);
-            DText("crew/heading",135,163,420,56,"Crew · "+crew.Length+" / "+State.HullDef.CrewCap,34,DashInk,true);
+            DText("crew/heading",135,163,420,56,"Crew · "+crew.Length+" · "+State.HullDef.CrewCap,34,DashInk,true);
             for(int i=0;i<crew.Length;i++)
             {
                 int index=i;float y=230+i*108;bool on=i==selectedManagementCrew;
@@ -178,7 +178,7 @@ namespace Catchline.Game
             {
                 DText("crew/hand/help",578,235,980,80,"Choose a duty. Deckhands collect and carry catch; fishers operate gear.",27,DashBody);
                 var duties=new[]{DeckhandWork.Fish,DeckhandWork.Nets,DeckhandWork.Prep};
-                var names=new[]{"Haul catch","Net baskets first","Table / chum"};
+                var names=new[]{"Haul catch","Net baskets first","Table · chum"};
                 var help=new[]{"Collect deck catch and carry prepared fish to the hold.","Collect net baskets, then help haul other catch.","Make chum or prepare fish using the table orders; haul while waiting."};
                 for(int i=0;i<3;i++)
                 {

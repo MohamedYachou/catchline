@@ -120,7 +120,7 @@ namespace Catchline.Game
                 }
                 deep.CycleFish=FittedDeepLineCount;deep.CycleValue=deep.FishPerMinute>0?FittedDeepLineCount*deep.ValuePerMinute/deep.FishPerMinute:0;
                 deep.CycleSeconds=deep.FishPerMinute>0?60*FittedDeepLineCount/deep.FishPerMinute:0;
-                deep.Availability=!HasCarrier?"Needs catch collection":deepOps.Length==0?"Needs self-made chum / operator":FittedDeepLineCount+" rods · 1 fish each";
+                deep.Availability=!HasCarrier?"Needs catch collection":deepOps.Length==0?"Needs self-made chum · operator":FittedDeepLineCount+" rods · 1 fish each";
             }
             var seats=Rods.Where(r=>r.Unlocked&&r.Root!=null&&r.Root.gameObject.activeInHierarchy).ToList();var used=new HashSet<Rod>();
             var assignments=new List<(Person person,Rod rod)>();

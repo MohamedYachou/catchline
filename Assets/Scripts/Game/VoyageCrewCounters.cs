@@ -35,7 +35,7 @@ namespace Catchline.Game
             coastalUi.Label(id+"/price",new Rect(18,y+65,w-36,44),detail,16,SeaInk,TextAnchor.MiddleLeft,catalog);
             for(int i=0;i<members.Length;i++)
             {
-                var c=members[i];string label=role==CrewRole.Engineer ? $"{i+1}. {c.Name} / Maintenance + repairs" : role==CrewRole.Fisherman?$"{i+1}. {c.Name} / Bait":$"{i+1}. {c.Name} / {c.WorkPreference}";
+                var c=members[i];string label=role==CrewRole.Engineer ? $"{i+1}. {c.Name} / Maintenance + repairs" : role==CrewRole.Fisherman?$"{i+1}. {c.Name} · Bait":$"{i+1}. {c.Name} / {c.WorkPreference}";
                 coastalUi.Button(id+"/settings/"+i,new Rect(16,y+112+i*44,w-32,40),label,()=>
                 {
                     if(role==CrewRole.Fisherman)OpenCrewBait(c);
@@ -43,25 +43,6 @@ namespace Catchline.Game
                 },"button-secondary-normal",role!=CrewRole.Engineer && (role==CrewRole.Fisherman || IsNetFisher),catalog,16);
             }
             catalogY+=height+16;
-        }
-        bool crewCounterCaptureStarted;
-        void MaybeCaptureCrewCounters()
-        {
-            if(!Application.isPlaying || !SessionOnly || crewCounterCaptureStarted)return;
-            var args=Environment.GetCommandLineArgs();int i=Array.IndexOf(args,"-capture-crew046");if(i<0 || i+1>=args.Length)return;
-            crewCounterCaptureStarted=true;StartCoroutine(CaptureCrewCounters(args[i+1]));
-        }
-        IEnumerator CaptureCrewCounters(string directory)
-        {
-            System.IO.Directory.CreateDirectory(directory);Application.runInBackground=true;
-            StartPrepBoatTrial();Showcase(-1,0);hudTab=HudTab.CrewOffice;panelOpen=true;
-            captureFreeze=true;toastUntil=0;
-            foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
-            {
-                Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.8f);
-                yield return CaptureFrame(directory,"crew-"+size.x);
-            }
-            Debug.Log("[Catchline] CREW046 NATIVE COMPLETE");Application.Quit();
         }
     }
 }
