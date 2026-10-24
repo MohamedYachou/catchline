@@ -48,11 +48,10 @@ namespace Catchline.EditorTools
             state.Active.Clear();
             state.Active.Add(new Contract { Species = Species.Herring, Count = 9, VoyagesLeft = 3, Reward = 50 });
             int coins = state.Coins;
-            float[] market = (float[])state.Market.Clone();
             var secured = state.QuoteSale(game.Cooler, game.SimTime);
             var total = state.QuoteSale(game.CurrentHaul(), game.SimTime);
             Check(secured.ContractCoins == 0 && total.ContractCoins == 50, "pending contract bonus is separate from secured value");
-            Check(state.Coins == coins && state.Active[0].Delivered == 0 && market.SequenceEqual(state.Market), "quotation never sells or changes the live market/contracts");
+            Check(state.Coins == coins && state.Active[0].Delivered == 0, "quotation never sells or changes the live market/contracts");
             Call(game, "RequestHeadHome");
             Check(Read<bool>(game, "confirmHeadHome") && Read<bool>(game, "paused") && game.CurrentMode == VoyageGame.Mode.Fishing, "player overflow request waits for explicit choice");
             float clock = game.SimTime, food = state.FoodMinutes;

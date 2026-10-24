@@ -14,7 +14,7 @@ namespace Catchline.EditorTools
         static void Check(bool ok, string why) { if (!ok) throw new Exception("Net tap check failed: " + why); }
         static object Call(VoyageGame g, string key, params object[] args) => typeof(VoyageGame).GetMethod(key, Hidden).Invoke(g, args);
         static void Set(VoyageGame g, string key, object value) => typeof(VoyageGame).GetProperty(key).GetSetMethod(true).Invoke(g, new[] { value });
-        static void Tick(VoyageGame g, float dt) { Call(g, "TickNet", dt); g.Captain.Tick(dt, 1, Quaternion.identity); }
+        static void Tick(VoyageGame g, float dt) { Call(g, "TickNet", dt); g.Captain.Tick(dt, Quaternion.identity); }
         static VoyageGame Fixture()
         {
             var g = new GameObject("Isolated tap net").AddComponent<VoyageGame>(); g.SessionOnly = true; g.Build();
@@ -25,7 +25,7 @@ namespace Catchline.EditorTools
         }
         public static void ReachCaptainWinch(VoyageGame g)
         {
-            for (int i = 0; i < 800 && g.Captain.Walking; i++) g.Captain.Tick(.05f, 1, Quaternion.identity);
+            for (int i = 0; i < 800 && g.Captain.Walking; i++) g.Captain.Tick(.05f, Quaternion.identity);
             Check(g.NetGameActive && g.Captain.Busy, "actual cancellable captain activity reached");
         }
         public static void FinishCaptainSet(VoyageGame g)
@@ -110,8 +110,8 @@ namespace Catchline.EditorTools
                 g.State.Rng = new FixedRoll(roll);
                 var hand = new Person("Net hand", false, Vector3.zero) { Grid = g.Grid, Contract = new CrewMember { Role = CrewRole.Deckhand } };
                 hand.Build(g.Boat, g.State.HullDef.NetAccess, Palette.Oilskin, Palette.Accent);
-                Check(g.TryNetWork(hand), "hand claims recovery"); hand.Tick(.01f, 1, Quaternion.identity);
-                hand.Tick(5, 1, Quaternion.identity);
+                Check(g.TryNetWork(hand), "hand claims recovery"); hand.Tick(.01f, Quaternion.identity);
+                hand.Tick(5, Quaternion.identity);
                 Check(g.State.NetInventory == (roll < .8 ? 3 : 2), "worker80/20 boundary consumes net only on tear");
                 Check(g.NetBasketCount == (roll < .8 ? fish : 0), "worker safe batch or lost batch matches risk");
                 foreach (var f in g.OnDeck) UnityEngine.Object.DestroyImmediate(f.Root.gameObject); g.OnDeck.Clear();

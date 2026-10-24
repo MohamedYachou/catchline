@@ -21,10 +21,10 @@ namespace Catchline.EditorTools
             var haul=new List<CaughtFish>();
             for(int i=0;i<3;i++)haul.Add(new CaughtFish {Species=Species.Pollock,Kg=1.2f});
             int originalCoins=state.Coins;
-            float originalPrice=state.Market[(int)Species.Pollock];
+            float originalPrice=state.PricePerKg(Species.Pollock);
             var quote=state.QuoteSale(haul,0);
             Check(quote.Coins>0 && quote.ToContracts==3 && quote.ContractCoins==0,"partial contract haul still earns market coins");
-            Check(state.Coins==originalCoins && pollock.Delivered==0 && state.Market[(int)Species.Pollock]==originalPrice,"counter quote does not consume progress or money");
+            Check(state.Coins==originalCoins && pollock.Delivered==0 && state.PricePerKg(Species.Pollock)==originalPrice,"counter quote does not consume progress or money");
             var sale=state.Sell(haul,0);
             Check(sale.Coins==quote.Coins && state.Coins==originalCoins+quote.Coins && sale.FishSold==3,"every fish paid, including contract fish");
             state.EndVoyage(sale);

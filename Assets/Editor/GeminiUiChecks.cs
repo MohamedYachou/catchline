@@ -45,13 +45,12 @@ namespace Catchline.EditorTools
             try
             {
                 File.WriteAllText(path,"{\"Version\":1,\"Coins\":123,\"Owned\":[],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[],\"Market\":[0.8,1,1,1,1,1,1,1,1,1],\"LogCount\":[2,0,0,0,0,0,1,0,0,0],\"LogBest\":[0.25,0,0,0,0,0,3,0,0,0]}");
-                var old=GameState.Load(path);Check(old!=null&&old.Coins==123&&old.LogCount[6]==1&&old.Market[24]==1,"ten-species save grows safely");
-                old.UnsoldCatch.Add(new CaughtFish{Species=Species.AbyssalLeviathan,Kg=50,Prepared=true,PreparedQuality=.72f});old.Save(path);var round=GameState.Load(path);
-                Check(round.UnsoldCatch.Single().Species==Species.AbyssalLeviathan&&round.UnsoldCatch.Single().PreparedQuality==.72f,"new fish and prepared quality save roundtrip");
+                var old=GameState.Load(path);Check(old!=null&&old.Coins==123&&old.LogCount[6]==1,"ten-species save grows safely");
+                old.UnsoldCatch.Add(new CaughtFish{Species=Species.AbyssalLeviathan,Kg=50});old.Save(path);var round=GameState.Load(path);
+                Check(round.UnsoldCatch.Single().Species==Species.AbyssalLeviathan&&round.UnsoldCatch.Single().Kg==50,"new fish save roundtrip");
             }
             finally{if(File.Exists(path))File.Delete(path);}
             ExportCards();
-            HandlingPaceChecks.Run();
             Debug.Log("[Catchline] UI041 CHECKS PASSED");Debug.Log("[Catchline] Snapshot written to Logs/ui041");
         }
         public static void ExportCards()

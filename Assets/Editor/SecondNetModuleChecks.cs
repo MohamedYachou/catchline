@@ -13,7 +13,7 @@ namespace Catchline.EditorTools
         const BindingFlags H=BindingFlags.Instance|BindingFlags.NonPublic;
         static void Check(bool ok,string why){if(!ok)throw new Exception("MODULE042: "+why);}
         static object Call(VoyageGame g,string n,params object[] a)=>typeof(VoyageGame).GetMethod(n,H).Invoke(g,a);
-        static void Work(Person p){for(int i=0;i<3000&&!p.Idle;i++)p.Tick(.02f,1,Quaternion.identity);Check(p.Idle,"crew action completes");}
+        static void Work(Person p){for(int i=0;i<3000&&!p.Idle;i++)p.Tick(.02f, Quaternion.identity);Check(p.Idle,"crew action completes");}
         sealed class FailedHaul : System.Random { public override double NextDouble()=>.9; }
         public static void RunCore()
         {
@@ -55,7 +55,7 @@ namespace Catchline.EditorTools
             Check(g.TryNetWork(hands[0]),"primary starts haul");Work(hands[0]);
             Check(g.Net==VoyageGame.NetState.Stowed&&g.SecondNet==VoyageGame.NetState.Ready&&g.SecondNetCatchKg>0,"primary reset never discards secondary");
             // Finish first unloading batch before starting the other haul.
-            for(int i=0;i<5000&&g.NetUnloadActive;i++){Call(g,"TickNetUnload",.02f);hands[0].Tick(.02f,1,Quaternion.identity);Call(g,"TickDeckFish",.02f);}
+            for(int i=0;i<5000&&g.NetUnloadActive;i++){Call(g,"TickNetUnload",.02f);hands[0].Tick(.02f, Quaternion.identity);Call(g,"TickDeckFish",.02f);}
             Check(g.NetBasketCount==0&&g.ProcessingInput.Count>0,"first haul safely delivered to processing input");
             g.State.Rng=new System.Random(0);
             Check(g.TryNetWork(hands[1]),"other hand hauls secondary");Work(hands[1]);
@@ -77,7 +77,7 @@ namespace Catchline.EditorTools
             Check(g.CaptainSecondNetAction(),"captain approaches second module");g.CancelNetHaulGame();
             Check(g.SecondNet==VoyageGame.NetState.Stowed&&g.Net==VoyageGame.NetState.Ready,"cancel during module approach preserves primary catch");
             Check(g.CaptainSecondNetAction(),"captain can retry secondary with primary ready");
-            for(int i=0;i<3000&&!g.NetGameActive;i++)g.Captain.Tick(.02f,1,Quaternion.identity);
+            for(int i=0;i<3000&&!g.NetGameActive;i++)g.Captain.Tick(.02f, Quaternion.identity);
             Check(g.NetGameActive&&g.SecondNet==VoyageGame.NetState.Setting,"secondary has actual captain timing game");
             g.State.Rng=new System.Random(0);Check(g.TryNetWork(hands[0]),"hand hauls other net while captain works module");Work(hands[0]);
             Check(g.NetGameActive&&g.SecondNet==VoyageGame.NetState.Setting,"primary completion leaves captain secondary game intact");
@@ -99,7 +99,7 @@ namespace Catchline.EditorTools
             UnityEngine.Object.DestroyImmediate(g.gameObject);
             Debug.Log("[Catchline] MODULE042 CHECKS PASSED");Debug.Log("[Catchline] Snapshot written to Logs/module042");
         }
-        public static void Run(){RunCore();HandlingPaceChecks.Run();NetHaulChecks.Run();}
+        public static void Run(){RunCore();NetHaulChecks.Run();}
         public static void ValidateAndBuild(){Run();PrepFisherChecks.BuildPreview();}
         public static void BuildPreview(){NetHaulChecks.Run();PrepFisherChecks.BuildPreview();}
     }

@@ -17,12 +17,12 @@ namespace Catchline.Game
             foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
             {
                 var hands=People.Where(p=>p.Contract?.Role==CrewRole.Deckhand).ToArray();
-                CancelCaptainPrep();ClearPrepWork();Showcase(0,0);Cooler.Clear();State.Chum=3;
+                ClearPrepWork();Showcase(0,0);Cooler.Clear();State.Chum=3;
                 Screen.SetResolution(size.x,size.y,FullScreenMode.Windowed);
                 for(int i=0;i<16;i++)yield return null;
                 Cooler.Add(new CaughtFish{Species=Species.Pollock,Kg=1.4f,StowedAt=SimTime});
                 Cooler.Add(new CaughtFish{Species=Species.Conger,Kg=7,StowedAt=SimTime});
-                State.PrepOrders.ChumMaxKg=2;State.PrepOrders.PrepareHighestValue=true;
+                State.PrepOrders.ChumMaxKg=2;
                 State.PrepOrders.ChumTarget=10;
                 PrepOrdersOpen=true;netOrdersOpen=false;toastUntil=0;yield return null;
                 yield return CaptureFrame(directory,"prep-priority-"+size.x);
@@ -37,13 +37,12 @@ namespace Catchline.Game
                 baitSettingsCrew=null;Showcase(0,0);Cooler.Clear();State.PrepOrders.ChumTarget=0;
                 foreach(var h in hands){h.Stop();SetDeckhandWork(h.Contract,DeckhandWork.Prep);}
                 for(int n=0;n<4;n++)Cooler.Add(new CaughtFish{Species=Species.Conger,Kg=7,StowedAt=SimTime});
-                Cooler.Add(new CaughtFish{Species=Species.Cod,Kg=State.CoolerCapacity-28,Prepared=true,PreparedQuality=1});
+                Cooler.Add(new CaughtFish{Species=Species.Cod,Kg=State.CoolerCapacity-28,StowedAt=SimTime});
                 foreach(var h in hands)TryPrepWork(h);
-                StartCaptainPrep();for(int n=0;n<3000&&Captain.Walking;n++)Captain.Tick(.02f,1,Cam.transform.rotation);
-                foreach(var h in hands)for(int n=0;n<3000&&h.Walking;n++)h.Tick(.02f,1,Cam.transform.rotation);
-                TickCaptainPrep(.6f);toastUntil=0;yield return null;
+                foreach(var h in hands)for(int n=0;n<3000&&h.Walking;n++)h.Tick(.02f, Cam.transform.rotation);
+                toastUntil=0;yield return null;
                 yield return CaptureFrame(directory,"captain-full-hold-"+size.x);
-                CancelCaptainPrep();ClearPrepWork();Cooler.Clear();Showcase(-1,0);
+                ClearPrepWork();Cooler.Clear();Showcase(-1,0);
                 State.Hull=2;State.Coins=9500;State.BestVoyageKg=100;RebuildBoat();
                 hudTab=HudTab.Chandlery;panelOpen=true;toastUntil=0;yield return null;
                 // Move scroll to the real refit card near the end of the gear catalogue.

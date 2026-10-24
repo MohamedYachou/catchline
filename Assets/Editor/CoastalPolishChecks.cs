@@ -24,7 +24,7 @@ namespace Catchline.EditorTools
                 game.SelectedSpot = spot;
                 var start = game.Boat.TransformPoint(game.State.HullDef.Center);
                 game.SetSail();
-                float duration = GameData.Spots[spot].RowSeconds / game.WorkMult;
+                float duration = GameData.Spots[spot].RowSeconds / WorkSpeed.Rate(game.Captain);
                 game.Tick(duration * .17f);
                 Check(game.Boat.TransformPoint(game.State.HullDef.Center).z < start.z - 1.25f, "clears quay sideways before turn " + spot);
                 Check(Mathf.Abs(Mathf.DeltaAngle(game.Boat.eulerAngles.y, 0)) < 1, "parallel to quay during clearance");

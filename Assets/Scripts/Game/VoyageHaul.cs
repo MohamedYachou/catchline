@@ -73,8 +73,6 @@ namespace Catchline.Game
         {
             if (haul.Count == 0) return "No catch yet";
             if (State.Has(UpgradeId.IceBox)) return "Iced · full value";
-            if (haul.All(f => f.Prepared)) return "Prepared / never spoils";
-            haul = haul.Where(f => !f.Prepared).ToList();
             float oldest = haul.Max(f => Mathf.Max(0f, now - f.StowedAt));
             float grace = GameData.FreshnessGraceSeconds - oldest;
             if (grace > 0f) return $"Value drops in {Mathf.CeilToInt(grace)}s";

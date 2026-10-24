@@ -12,13 +12,13 @@ namespace Catchline.EditorTools
         const BindingFlags H=BindingFlags.Instance|BindingFlags.NonPublic;
         static void Check(bool ok,string why){if(!ok)throw new Exception("PREP047: "+why);}
         static object Call(VoyageGame g,string name,params object[] args)=>typeof(VoyageGame).GetMethod(name,H).Invoke(g,args);
-        static void Work(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.02f,1,Quaternion.identity);Check(p.Idle,"worker action completed");}
+        static void Work(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.02f, Quaternion.identity);Check(p.Idle,"worker action completed");}
         static Person[] Hands(VoyageGame g)=>new[]{g.Hand}.Concat(g.ExtraPeople).Where(p=>p.Contract.Role==CrewRole.Deckhand).ToArray();
         public static void Run()
         {
             Directory.CreateDirectory("Logs/prep047");ArtImport.BuildLibrary();
             var old=JsonUtility.FromJson<PrepOrderSettings>("{\"ChumMaxKg\":2,\"PrepareMinKg\":3}");
-            Check(old.ChumClasses==1&&old.PrepareClasses==63,"legacy filters migrate to safe rarity defaults");
+            Check(old.ChumClasses==1,"legacy filters migrate to safe rarity defaults");
             var depleted=new GameState(4703);
             for(int spot=0;spot<GameData.Spots.Length;spot++)
             {
@@ -30,14 +30,14 @@ namespace Catchline.EditorTools
             for(int c=0;c<6;c++)
             {
                 Check((int)CatchPresentation.Tier(samples[c].Species,samples[c].Kg)==c,"six actual catch classes in order");
-                var o=new PrepOrderSettings{HasClassFilters=true,ChumClassMask=1<<c,PrepareClassMask=1<<c,ChumMaxKg=.001f,PrepareMinKg=999};
-                for(int j=0;j<6;j++)Check(o.Allows(samples[j],true)==(c==j && c<3)&&o.Allows(samples[j],false)==(c==j),"exact classes, no hidden kg/value gate");
+                var o=new PrepOrderSettings{HasClassFilters=true,ChumClassMask=1<<c,ChumMaxKg=.001f};
+                for(int j=0;j<6;j++)Check(o.Allows(samples[j],true)==(c==j && c<3)&&o.Allows(samples[j],false),"exact chum classes, no hidden kg/value gate; sorting takes any class");
             }
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
             var g=new GameObject("PREP047 isolated").AddComponent<VoyageGame>();g.SessionOnly=true;g.Build();Check(g.StartPrepBoatTrial(),"trial");
             var hands=Hands(g);foreach(var h in hands){h.Stop();g.SetDeckhandWork(h.Contract,DeckhandWork.Prep);}
-            g.State.PrepOrders.HasClassFilters=true;g.State.PrepOrders.ChumClassMask=0;g.State.PrepOrders.PrepareClassMask=0;
-            g.DeliverCatch(samples[0]);Check(!g.TryPrepWork(hands[0]),"all-off preserves raw fish");
+            g.State.PrepOrders.HasClassFilters=true;g.State.PrepOrders.ChumClassMask=0;
+            g.DeliverCatch(samples[0]);Check(g.TryPrepWork(hands[0])&&g.ChumBeingMade==0,"all-off chum sorts instead of chumming");hands[0].Stop();
             g.PrepareInterface(844,390);Check(g.InvokeInterface("prep/open"),"open table");g.PrepareInterface(844,390);
             Check(!g.InvokeInterface("prep/worker/0")&&!g.InvokeInterface("prep/input")&&!g.InvokeInterface("prep/minimum")&&!g.InvokeInterface("prep/priority"),"prep table excludes worker, weight and priority controls");
             Check(g.InvokeInterface("prep/close"),"close prep table");g.PrepareInterface(844,390);
@@ -49,13 +49,11 @@ namespace Catchline.EditorTools
             Check(g.InvokeInterface("prep/open"),"reopen prep table");g.PrepareInterface(844,390);
             Check(g.InvokeInterface("prep/chum/classes"),"chum dropdown opens");g.PrepareInterface(844,390);
             Check(g.InvokeInterface("prep/classes/chum/0"),"select actual Common row");g.PrepareInterface(844,390);Check(g.InvokeInterface("prep/classes/chum/done"),"close dropdown");
-            Check(g.State.PrepOrders.ChumClasses==1&&g.State.PrepOrders.PrepareClasses==0,"chum choice independent");
+            Check(g.State.PrepOrders.ChumClasses==1,"chum choice independent");g.State.PrepOrders.ChumFirst=true;
             Check(g.TryPrepWork(hands[0]),"selected fish is processed");Work(hands[0]);Check(g.State.Chum==1&&!g.ProcessingInput.Contains(samples[0]),"chum consumes selected fish");
-            g.PrepareInterface(844,390);Check(g.InvokeInterface("prep/prepare/classes"),"prepare dropdown opens");g.PrepareInterface(844,390);
-            Check(g.InvokeInterface("prep/classes/prepare/3"),"choose Big rare");g.PrepareInterface(844,390);g.InvokeInterface("prep/classes/prepare/done");
-            var purple=samples[3];g.DeliverCatch(purple);g.DeliverCatch(samples[1]);
-            Check(g.TryPrepWork(hands[1]),"selected purple prepares");Work(hands[1]);Check(purple.Prepared&&!samples[1].Prepared&&g.State.Chum==2,"prepare retains fish plus approved purple by-product only");
-            g.State.Save("Logs/prep047/classes.json");var saved=GameState.Load("Logs/prep047/classes.json");Check(saved.PrepOrders.ChumClasses==1&&saved.PrepOrders.PrepareClasses==8,"independent selections persist");
+            var purple=samples[3];g.DeliverCatch(purple);
+            Check(g.TryPrepWork(hands[1]),"unchummable purple is sorted");Work(hands[1]);Check(g.ProcessingOutput.Contains(purple)&&g.State.Chum==1,"sorting retains the fish and makes no by-product");
+            g.State.Save("Logs/prep047/classes.json");var saved=GameState.Load("Logs/prep047/classes.json");Check(saved.PrepOrders.ChumClasses==1,"independent selections persist");
             Call(g,"ClearPrepWork");g.Cooler.Clear();Call(g,"ClearProcessingPipeline",false);g.Showcase(-1,0);g.State.SecondNetOwned=true;g.State.SecondNetEnabled=true;
             Call(g,"RebuildBoat",true);g.Showcase(0,0);hands=Hands(g);
             foreach(var h in hands){h.Stop();g.SetDeckhandWork(h.Contract,DeckhandWork.Nets);}
@@ -73,7 +71,7 @@ namespace Catchline.EditorTools
             for(int n=0;n<5000&&g.NetUnloadActive;n++)
             {
                 if(hands[0].Idle||hands[0].Loitering)Call(g,"HandThink",hands[0]);
-                Call(g,"TickNetUnload",.02f);hands[0].Tick(.02f,1,Quaternion.identity);hands[1].Tick(.02f,1,Quaternion.identity);Call(g,"TickDeckFish",.02f);
+                Call(g,"TickNetUnload",.02f);hands[0].Tick(.02f, Quaternion.identity);hands[1].Tick(.02f, Quaternion.identity);Call(g,"TickDeckFish",.02f);
                 Check(hands[0].Carrying==null&&hands[1].Carrying==null,"no individual fish trips or stealing");
                 batch|=hands[1].CarryingBatch;
                 string label=hands[1].BusyLabel;if(label!=prev){if(label=="Gathering net catch")gather++;if(label=="Stowing net catch")stow++;prev=label;}

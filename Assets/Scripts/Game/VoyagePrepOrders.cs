@@ -15,26 +15,22 @@ namespace Catchline.Game
         public float ChumMaxKg = 1;
         // Derived so old saves with the obsolete10c field cannot retain a dead filter.
         public int ChumMaxValue => ChumMaxKg <= .5f ? 6 : ChumMaxKg <= 1 ? 15 : 35;
-        public bool PrepareHighestValue;
         public static int ChumYield(Species species,float kg) => CatchPresentation.Tier(species,kg) switch
         { CatchTier.Common=>1,CatchTier.BigCommon=>2,CatchTier.Rare=>3,_=>0 };
-        public const float ChumWorkSeconds=3.5f,PrepareWorkSeconds=4.5f,HandlingSeconds=.3f;
-        public float PrepareMinKg;
+        public const float ChumWorkSeconds=GameData.ChumUnitTime,SortWorkSeconds=GameData.TableSortTime,HandlingSeconds=2*GameData.TableHandleTime;
         // Missing flag in old saves deliberately migrates to safe, class-based defaults.
         public bool HasClassFilters;
         public int ChumClassMask = 1;
-        public int PrepareClassMask = 63;
         public int ChumClasses => HasClassFilters ? ChumClassMask & 7 : 1;
-        public int PrepareClasses => HasClassFilters ? PrepareClassMask & 63 : 63;
+        // Only chum has a class filter; every other fish is sorted and stowed at full value.
         public bool Allows(CaughtFish fish, bool chum) =>
-            (((chum ? ChumClasses : PrepareClasses) >> (int)CatchPresentation.Tier(fish.Species, fish.Kg)) & 1) != 0;
+            !chum || ((ChumClasses >> (int)CatchPresentation.Tier(fish.Species, fish.Kg)) & 1) != 0;
         public void ToggleClass(bool chum, CatchTier tier)
         {
-            if(chum && tier>CatchTier.Rare)return;
-            ChumClassMask = ChumClasses; PrepareClassMask = PrepareClasses;
+            if(!chum || tier>CatchTier.Rare)return;
+            ChumClassMask = ChumClasses;
             HasClassFilters = true;
-            if (chum) ChumClassMask ^= 1 << (int)tier;
-            else PrepareClassMask ^= 1 << (int)tier;
+            ChumClassMask ^= 1 << (int)tier;
         }
     }
 
@@ -61,14 +57,14 @@ namespace Catchline.Game
         {
             get
             {
-                float chum=Flow.CountRate(FlowTelemetry.Kind.Chum,60),prepared=Flow.CountRate(FlowTelemetry.Kind.Prepared,60);
-                if(chum+prepared>0)return chum/(chum+prepared);
+                float chum=Flow.CountRate(FlowTelemetry.Kind.Chum,60),sorted=Flow.CountRate(FlowTelemetry.Kind.Sorted,60);
+                if(chum+sorted>0)return chum/(chum+sorted);
                 return State.Chum<State.PrepOrders.ChumTarget && State.PrepOrders.ChumFirst
                     && ProcessingInput.Any(f=>State.PrepOrders.Allows(f,true)) ? 1 : 0;
             }
         }
-        float TableFishCapacity => IsPrepFisher ? People.Where(p=>p.Contract?.Role==CrewRole.Deckhand&&p.Contract.WorkPreference==DeckhandWork.Prep).Take(2).Sum(p=>p.Speed)*WorkMult*60
-            /(PrepOrderSettings.HandlingSeconds+Mathf.Lerp(PrepOrderSettings.PrepareWorkSeconds,PrepOrderSettings.ChumWorkSeconds,EstimatedChumShare)) : 0;
+        float TableFishCapacity => IsPrepFisher ? People.Where(p=>p.Contract?.Role==CrewRole.Deckhand&&p.Contract.WorkPreference==DeckhandWork.Prep).Take(2).Sum(p=>p.Speed)*60
+            /(PrepOrderSettings.HandlingSeconds+Mathf.Lerp(PrepOrderSettings.SortWorkSeconds,PrepOrderSettings.ChumWorkSeconds,EstimatedChumShare)) : 0;
 
         // Reserved fish remain in the input queue until processing commits.
         public bool TryPrepWork(Person hand)
@@ -86,14 +82,11 @@ namespace Catchline.Game
             var order = State.PrepOrders;
             CaughtFish Pick(bool chum)
             {
-                var eligible = ProcessingInput.Where(f => !f.Prepared && f != captainPrepFish && !prepJobs.Any(j => j.Fish == f)
-                    && (chum ? State.Chum + ChumBeingMade < Mathf.Clamp(order.ChumTarget, 0, 99)
-                        && order.Allows(f, true)
-                        : order.Allows(f, false)));
-                // Chum keeps its existing input order. Preparation reserves independently.
-                return chum ? eligible.FirstOrDefault() : order.PrepareHighestValue
-                    ? eligible.OrderByDescending(f => State.ValueOf(f, SimTime)).ThenBy(f => f.StowedAt).FirstOrDefault()
-                    : eligible.OrderBy(f => f.StowedAt).FirstOrDefault();
+                var eligible = ProcessingInput.Where(f => !prepJobs.Any(j => j.Fish == f)
+                    && (!chum || State.Chum + ChumBeingMade < Mathf.Clamp(order.ChumTarget, 0, 99)
+                        && order.Allows(f, true)));
+                // Chum keeps its existing input order. Sorting takes the oldest fish first.
+                return chum ? eligible.FirstOrDefault() : eligible.OrderBy(f => f.StowedAt).FirstOrDefault();
             }
             bool isChum = order.ChumFirst;
             var fish = Pick(isChum);
@@ -120,17 +113,14 @@ namespace Catchline.Game
             void Finish()
             {
                 // A return/duty change cancels reservations; never consume twice.
-                if (prepJobs.Contains(job) && ProcessingInput.Contains(fish) && !fish.Prepared)
+                if (prepJobs.Contains(job) && ProcessingInput.Contains(fish))
                 {
                     if (job.Chum)
                     {
                         if (State.Chum < Mathf.Clamp(State.PrepOrders.ChumTarget, 0, 99))
                         { Flow.Record(FlowTelemetry.Kind.Chum, fish.Kg); ProcessingInput.Remove(fish); RemovePipelineVisual(fish); State.Chum += job.Yield; }
                     }
-                    else
-                    {
-                        PrepareFish(fish);
-                    }
+                    else SortFish(fish);
                 }
                 Release();
                 hand.FacePoint(PrepSurfaceLocal);
@@ -143,15 +133,15 @@ namespace Catchline.Game
                 job.Visual = DeckFish.BuildModel(fish.Species, fish.Kg, Boat);
                 job.Visual.localScale *= .65f;
                 job.Visual.localPosition = IsTier5 ? PrepInputLocal : new Vector3(2.94f, .5f, side);
-                hand.Do("Taking fish", .15f, () =>
+                hand.Do("Taking fish", GameData.TableHandleTime, () =>
                 {
                     job.Visual.localPosition = IsTier5 ? PrepSurfaceLocal : new Vector3(3.6f, .8f, side);
-                    hand.Do(job.Chum ? "Making chum" : "Preparing fish", job.Chum ? PrepOrderSettings.ChumWorkSeconds : PrepOrderSettings.PrepareWorkSeconds, () =>
+                    hand.Do(job.Chum ? "Making chum" : "Sorting fish", job.Chum ? PrepOrderSettings.ChumWorkSeconds : PrepOrderSettings.SortWorkSeconds, () =>
                     {
                         // Turn/reach to the box behind; feet stay on the same tile.
                         hand.FacePoint(IsTier5 ? PreparedOutputLocal : new Vector3(4.84f, .5f, side));
                         job.Visual.localPosition = IsTier5 ? PreparedOutputLocal : new Vector3(4.84f, .5f, side);
-                        hand.Do("Putting fish away", .15f, Finish, Release);
+                        hand.Do("Putting fish away", GameData.TableHandleTime, Finish, Release);
                     }, Release);
                 }, Release);
             }
@@ -160,9 +150,16 @@ namespace Catchline.Game
             return true;
         }
 
+        // Unchummed fish are sorted: they pass through the table at full value and move on to the hold.
+        void SortFish(CaughtFish fish)
+        {
+            if (fish == null || !ProcessingInput.Contains(fish)) return;
+            Flow.Record(FlowTelemetry.Kind.Sorted, fish.Kg);
+            MoveToProcessingOutput(fish);
+        }
+
         void ClearPrepWork()
         {
-            CancelCaptainPrep();
             foreach (var hand in prepStations.Keys.ToArray()) hand.Stop();
             prepJobs.Clear();
             prepStations.Clear();
@@ -189,8 +186,8 @@ namespace Catchline.Game
             foreach (var h in hands) SetDeckhandWork(h.Contract, DeckhandWork.Prep);
             foreach (var h in hands) TryPrepWork(h);
             // Drive real walks until both hands reach their actual table anchors.
-            for (int i = 0; i < 1600 && hands.Any(h => h.BusyLabel is not ("Making chum" or "Preparing fish")); i++)
-                foreach (var h in hands) if (h.BusyLabel is not ("Making chum" or "Preparing fish")) h.Tick(.025f, 1, Cam.transform.rotation);
+            for (int i = 0; i < 1600 && hands.Any(h => h.BusyLabel is not ("Making chum" or "Sorting fish")); i++)
+                foreach (var h in hands) if (h.BusyLabel is not ("Making chum" or "Sorting fish")) h.Tick(.025f, Cam.transform.rotation);
             foreach (var size in new[] { new Vector2Int(1440,900), new Vector2Int(844,390) })
             {
                 Screen.SetResolution(size.x, size.y, FullScreenMode.Windowed);
@@ -210,7 +207,7 @@ namespace Catchline.Game
             Application.Quit(0);
         }
 
-        int prepClassDropdown; // 0 closed, 1 chum, 2 preparation.
+        int prepClassDropdown; // 0 closed, 1 chum.
         static string PrepClassSummary(int mask)
         {
             if (mask == 63) return "All classes";
@@ -220,19 +217,19 @@ namespace Catchline.Game
         }
         void InterfacePrepClassDropdown(Rect column, bool chum)
         {
-            string id = "prep/classes/" + (chum ? "chum" : "prepare");
+            string id = "prep/classes/chum";
             var p = new Rect(column.x, column.y - 136, column.width, 424);
             // Real overlay buttons intercept taps on the controls below them.
             coastalUi.Box(id + "/panel", p, "chip-dark");
             coastalUi.Label(id + "/title", new Rect(p.x+14,p.y+8,p.width-106,52),
-                chum ? "Fish to chum" : "Fish to prepare", 21, Palette.Cream);
+                "Fish to chum", 21, Palette.Cream);
             IButton(id + "/done",new Rect(p.xMax-86,p.y+8,74,54),"Done",()=>prepClassDropdown=0,false);
             coastalUi.Label(id+"/hint",new Rect(p.x+14,p.y+55,p.width-28,20),"Tap classes to include or exclude.",15,Palette.Cream);
             for (int i=0; i<6; i++)
             {
                 var tier=(CatchTier)i;
                 var row=new Rect(p.x+8,p.y+76+i*55,p.width-16,54);
-                bool selected=(((chum ? State.PrepOrders.ChumClasses : State.PrepOrders.PrepareClasses) >> i)&1)!=0;
+                bool selected=((State.PrepOrders.ChumClasses >> i)&1)!=0;
                 string rowId=id+"/"+i;
                 Block(row);
                 coastalUi.Button(rowId,row,"",()=>{State.PrepOrders.ToggleClass(chum,tier);SaveGame();},"chip-dark",!chum || tier<=CatchTier.Rare);
@@ -256,29 +253,24 @@ namespace Catchline.Game
             coastalUi.Label("prep/title",new Rect(p.x+20,p.y+8,620,38),"Prep table",27);
             IButton("prep/close",new Rect(p.xMax-74,p.y+8,54,54),"X",()=>{PrepOrdersOpen=false;prepClassDropdown=0;},false);
             coastalUi.Label("prep/status",new Rect(p.x+20,p.y+48,700,28),
-                $"{ProcessingOutput.Count(f=>f.Prepared)} fish prepared",17,SeaInk);
+                $"{ProcessingOutput.Count} fish sorted",17,SeaInk);
             var o=State.PrepOrders;
             coastalUi.Label("prep/worker-hint",new Rect(p.x+20,p.y+82,IsTier5?360:760,44),
                 "Deckhands follow these choices when assigned Prep in Crew duties.",16,SeaInk);
-            if(IsTier5) IButton("prep/priority",new Rect(p.x+420,p.y+72,360,54),State.PrepOrders.ChumFirst?"Make chum first":"Prepare fish first",ChangePrepPriority,false);
+            if(IsTier5) IButton("prep/priority",new Rect(p.x+420,p.y+72,360,54),State.PrepOrders.ChumFirst?"Make chum first":"Sort fish first",ChangePrepPriority,false);
             float left=p.x+20,right=p.x+420,w=360;
             coastalUi.Box("prep/divider",new Rect(p.x+399,p.y+150,2,278),"",Palette.Hex("D8DED5"),blocks:false);
             coastalUi.Label("prep/chum/title",new Rect(left,p.y+146,w,32),"Chum settings",25);
-            coastalUi.Label("prep/prepare/title",new Rect(right,p.y+146,w,32),"Fish preparation",25);
+            coastalUi.Label("prep/prepare/title",new Rect(right,p.y+146,w,32),"Sorting",25);
             coastalUi.Label("prep/chum/help",new Rect(left,p.y+182,w,44),"Turn selected incoming fish into bait.\nThese fish leave the processing queue.",17,SeaInk);
-            coastalUi.Label("prep/prepare/help",new Rect(right,p.y+182,w,44),IsTier5?"Keep the fish. Sell for 50% more.\nPrepared fish never spoil.":"Keep the fish. Sell for 25% more.\nPrepared fish never spoil.",17,SeaInk);
+            coastalUi.Label("prep/prepare/help",new Rect(right,p.y+182,w,44),"Every other fish is sorted and stowed.\nSelling never changes the price.",17,SeaInk);
             IButton("prep/chum/classes",new Rect(left,p.y+232,w,54),"Fish to chum: "+PrepClassSummary(o.ChumClasses)+"  v",()=>prepClassDropdown=prepClassDropdown==1?0:1,false);
-            IButton("prep/prepare/classes",new Rect(right,p.y+232,w,54),"Fish to prepare: "+PrepClassSummary(o.PrepareClasses)+"  v",()=>prepClassDropdown=prepClassDropdown==2?0:2,false);
             IButton("prep/target",new Rect(left,p.y+294,w,54),o.ChumTarget==0 ? "Make chum: Off" : $"Keep {o.ChumTarget} chum ready",
                 ()=>{o.ChumTarget=o.ChumTarget==10?20:o.ChumTarget==20?0:10;SaveGame();},false);
-            IButton("prep/sort",new Rect(right,p.y+294,w,54),o.PrepareHighestValue ? "Prepare most valuable fish first" : "Prepare oldest fish first",
-                ()=>{o.PrepareHighestValue=!o.PrepareHighestValue;SaveGame();},false);
             coastalUi.Label("prep/chum/stock",new Rect(left,p.y+350,w,26),$"{State.Chum} chum ready  /  {ChumBeingMade} being made",17,SeaInk);
             coastalUi.Label("prep/chum/yield",new Rect(left,p.y+382,w,46),"White 1 · Green 2 · Blue 3 chum.\nPurple, gold and red cannot be chummed.",16,SeaInk);
-            IButton("prep/captain/start",new Rect(right,p.y+382,w,54),"Help prepare incoming fish",
-                ()=>StartCaptainPrep(),true,CanCaptainPrep);
             if (prepClassDropdown!=0)
-                InterfacePrepClassDropdown(new Rect(prepClassDropdown==1?left:right,p.y+148,w,280),prepClassDropdown==1);
+                InterfacePrepClassDropdown(new Rect(left,p.y+148,w,280),true);
         }
     }
 }

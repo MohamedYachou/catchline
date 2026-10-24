@@ -145,7 +145,7 @@ namespace Catchline.Game
             float h = HudButtonHeight, tile = compactInterface ? 64 : 80;
             var ops = new Rect(iw - Edge - tile, ih - Edge - h, tile, h);
             var crew = new Rect(ops.x - 10 - tile, ops.y, tile, h);
-            bool panels = !(ManagementOpen || netOrdersOpen || PrepOrdersOpen || CaptainPrepActive || baitSettingsCrew != null || NetGameActive);
+            bool panels = !(ManagementOpen || netOrdersOpen || PrepOrdersOpen || baitSettingsCrew != null || NetGameActive);
             if (panels)
             {
                 coastalUi.IconButton("management/open", ops, "v2-icon-ops", "Ops", () => { OpenManagement(); managementTab = 1; audio?.Play(VoyageAudio.Cue.Select, .45f); }, null, "icon-crate"); Block(ops);

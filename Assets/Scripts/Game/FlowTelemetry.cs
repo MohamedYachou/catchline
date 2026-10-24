@@ -5,7 +5,7 @@ namespace Catchline.Game
     // Session-only observation: never calls RNG, changes work, or enters save data.
     public sealed class FlowTelemetry
     {
-        public enum Kind { Rod, Net, Trap, Stored, Prepared, Chum, PrepInput, DeepLine }
+        public enum Kind { Rod, Net, Trap, Stored, Sorted, Chum, PrepInput, DeepLine }
         public struct Entry { public double At; public Kind Type; public float Kg, Value; }
         readonly Queue<Entry> entries = new();
         public double Clock { get; private set; }

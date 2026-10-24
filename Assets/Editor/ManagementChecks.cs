@@ -16,8 +16,8 @@ namespace Catchline.EditorTools
         {
             var f=new FlowTelemetry();f.Tick(30,1);f.Record(FlowTelemetry.Kind.Rod,3,60);
             Check(Mathf.Abs(f.Rate(FlowTelemetry.Kind.Rod,60)-6)<.001f,"warmup denominator uses elapsed fishing time");
-            f.Record(FlowTelemetry.Kind.Stored,3,carried:true);f.Record(FlowTelemetry.Kind.Prepared,3);
-            Check(f.LandedKg==3&&f.Sum(FlowTelemetry.Kind.Stored,60)==3&&f.Sum(FlowTelemetry.Kind.Prepared,60)==3,"independent stages without double landed count");
+            f.Record(FlowTelemetry.Kind.Stored,3,carried:true);f.Record(FlowTelemetry.Kind.Sorted,3);
+            Check(f.LandedKg==3&&f.Sum(FlowTelemetry.Kind.Stored,60)==3&&f.Sum(FlowTelemetry.Kind.Sorted,60)==3,"independent stages without double landed count");
             f.Record(FlowTelemetry.Kind.Rod,float.NaN);Check(f.LandedKg==3,"invalid event ignored");
             f.Tick(61,0);Check(f.Rate(FlowTelemetry.Kind.Rod,60)==0&&f.Rate(FlowTelemetry.Kind.Rod,180)>0,"window boundary ages out independently");
             f.Tick(180,0);Check(f.Sum(FlowTelemetry.Kind.Rod,180)==0&&f.LandedKg==3,"bounded rolling entries preserve voyage total");
@@ -48,10 +48,10 @@ namespace Catchline.EditorTools
             float landed=g.Flow.Sum(FlowTelemetry.Kind.Rod,180)+g.Flow.Sum(FlowTelemetry.Kind.Net,180)+g.Flow.Sum(FlowTelemetry.Kind.Trap,180)+g.Flow.Sum(FlowTelemetry.Kind.DeepLine,180);
             Check(g.Flow.LandedKg>0&&g.Flow.Sum(FlowTelemetry.Kind.Trap,180)>0,"real rod/net/trap event stream");
             Check(Mathf.Abs(g.Flow.LandedKg-landed)<.01f,"first180s landed totals reconcile");
-            Check(g.Flow.Sum(FlowTelemetry.Kind.Stored,180)>0&&g.Flow.Sum(FlowTelemetry.Kind.Prepared,180)>0,"real storage and prep event stream");
+            Check(g.Flow.Sum(FlowTelemetry.Kind.Stored,180)>0&&g.Flow.Sum(FlowTelemetry.Kind.Sorted,180)>0,"real storage and prep event stream");
             Check(Mathf.Abs(g.Flow.LandedKg-g.HoldKg-g.ProcessingKg-g.Flow.ChumKg-g.OnDeck.Sum(f=>f.Kg)-new[]{g.Captain,g.Hand}.Concat(g.ExtraPeople).Where(p=>p?.Carrying!=null).Sum(p=>p.Carrying.Kg)-g.Flow.LostKg)<.03f,"mass conservation landed=hold+processing+deck+hands+chum+lost");
             Check(g.Flow.CarryPace>0,"completed jobs teach carrying pace");
-            Debug.Log($"[Catchline] MANAGEMENT078 actual180s landed={g.Flow.LandedKg} stored={g.HoldKg} deck={g.OnDeck.Sum(f=>f.Kg)} lost={g.Flow.LostKg} prep={g.Flow.Sum(FlowTelemetry.Kind.Prepared,180)} pace={g.Flow.CarryPace}");
+            Debug.Log($"[Catchline] MANAGEMENT078 actual180s landed={g.Flow.LandedKg} stored={g.HoldKg} deck={g.OnDeck.Sum(f=>f.Kg)} lost={g.Flow.LostKg} prep={g.Flow.Sum(FlowTelemetry.Kind.Sorted,180)} pace={g.Flow.CarryPace}");
             var clock=g.Flow.Clock;g.Tick(0);Check(g.Flow.Clock==clock,"zero dt does not advance windows");
             g.OpenManagement();g.PrepareInterface(1440,900);Check(g.InvokeInterface("management/close")&&!g.ManagementOpen,"real close callback");
             g.HeadHome();for(int i=0;i<2000&&g.CurrentMode!=VoyageGame.Mode.Harbour;i++)g.Tick(.05f);

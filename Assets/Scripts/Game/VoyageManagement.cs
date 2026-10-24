@@ -61,14 +61,14 @@ namespace Catchline.Game
             float share=totalBusy>1?Mathf.Clamp((float)Flow.CarryBusySeconds/totalBusy,.15f,.85f):.5f;
             int carriers=CarrierCount+(IsTier5?ProcessorCount:0);
             stageCapacity[1]=Flow.CarryFishPace*(carriers+(CaptainHaulingIn?1:0))*(IsPrepFisher?share:1);
-            stageDemand[2]=Flow.CountRate(FlowTelemetry.Kind.PrepInput,flowWindow);stageOutput[2]=Flow.CountRate(FlowTelemetry.Kind.Prepared,flowWindow)+Flow.CountRate(FlowTelemetry.Kind.Chum,flowWindow);
+            stageDemand[2]=Flow.CountRate(FlowTelemetry.Kind.PrepInput,flowWindow);stageOutput[2]=Flow.CountRate(FlowTelemetry.Kind.Sorted,flowWindow)+Flow.CountRate(FlowTelemetry.Kind.Chum,flowWindow);
             stageCapacity[2]=TableFishCapacity;
-            stageDemand[3]=IsPrepFisher?Flow.CountRate(FlowTelemetry.Kind.Prepared,flowWindow):stageOutput[1];stageOutput[3]=Flow.CountRate(FlowTelemetry.Kind.Stored,flowWindow);
+            stageDemand[3]=IsPrepFisher?Flow.CountRate(FlowTelemetry.Kind.Sorted,flowWindow):stageOutput[1];stageOutput[3]=Flow.CountRate(FlowTelemetry.Kind.Stored,flowWindow);
             stageCapacity[3]=IsPrepFisher?Flow.OutputFishPace*(carriers+(CaptainHaulingOut?1:0))*(1-share):stageCapacity[1];
             bool warm=Flow.Clock<15;
             stageStatus[0]=HoldFull||IsPrepFisher&&ProcessingFull?2:warm?-1:0; // Beating a forecast is good play, not an equipment overload.
             stageStatus[1]=FlowTelemetry.Pressure(stageDemand[1],stageCapacity[1],WaitingDeckKg>.01f&&(carriers==0&&!CaptainHaulingIn||HoldFull||IsPrepFisher&&ProcessingFull),warm);
-            stageStatus[2]=IsPrepFisher?FlowTelemetry.Pressure(stageDemand[2],stageCapacity[2],ProcessingInput.Count>0&&(ProcessorCount==0&&!CaptainPrepActive||!ProcessingInput.Any(f=>State.PrepOrders.Allows(f,false)||State.Chum<State.PrepOrders.ChumTarget&&State.PrepOrders.Allows(f,true))),warm):-2;
+            stageStatus[2]=IsPrepFisher?FlowTelemetry.Pressure(stageDemand[2],stageCapacity[2],ProcessingInput.Count>0&&(ProcessorCount==0||!ProcessingInput.Any(f=>State.PrepOrders.Allows(f,false)||State.Chum<State.PrepOrders.ChumTarget&&State.PrepOrders.Allows(f,true))),warm):-2;
             stageStatus[3]=FlowTelemetry.Pressure(stageDemand[3],stageCapacity[3],HoldFull||ProcessingOutput.Count>0&&carriers==0&&!CaptainHaulingOut,warm);
         }
         static Color DashInk => Palette.Hex("080D3E");
@@ -82,7 +82,7 @@ namespace Catchline.Game
         Rect FishingFooter(int column,int row=0) => new Rect(iw-208-column*204,ih-70-row*62,192,54);
         void ManagementEntry()
         {
-            if(CurrentMode!=Mode.Fishing||ManagementOpen||netOrdersOpen||PrepOrdersOpen||CaptainPrepActive||baitSettingsCrew!=null||tier5OperationsOpen||NetGameActive)return;
+            if(CurrentMode!=Mode.Fishing||ManagementOpen||netOrdersOpen||PrepOrdersOpen||baitSettingsCrew!=null||tier5OperationsOpen||NetGameActive)return;
             // UI v2: the voyage HUD draws the Ops and Crew entries (VoyageInterfaceVoyage.cs).
         }
         float dashScale,dashX,dashY;
@@ -263,7 +263,7 @@ namespace Catchline.Game
             {
                 float x=new[]{114f,489f,859f,1229f}[i];
                 DPatch("ops/help/"+i,x+118,267,212,33,x+320,267,4,33);
-                DText("ops/help/"+i,x+127,266,204,35,i==0?"Catch fish at sea.":i==1?IsPrepFisher?"Bring catch to processing.":"Bring catch into the hold.":i==2?IsPrepFisher?"Prepare fish / make chum.":"Bypassed on this boat.":"Transfer to main storage.",21,DashBody);
+                DText("ops/help/"+i,x+127,266,204,35,i==0?"Catch fish at sea.":i==1?IsPrepFisher?"Bring catch to processing.":"Bring catch into the hold.":i==2?IsPrepFisher?"Sort fish / make chum.":"Bypassed on this boat.":"Transfer to main storage.",21,DashBody);
                 DPatch("ops/rate/"+i,x+20,337,300,39,x+280,363,20,12);
                 string rate=i==2&&!IsPrepFisher?"— / —":stageCapacity[i]>0?$"{stageDemand[i]:0.#} / {stageCapacity[i]:0.#}":$"{stageDemand[i]:0.#} / —";
                 DText("ops/rate/"+i,x+23,336,298,43,$"<color=#{ColorUtility.ToHtmlStringRGB(DashColor(stageStatus[i]))}>{rate}</color><size=22> fish/min</size>",32,DashInk,true);

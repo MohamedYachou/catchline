@@ -49,7 +49,7 @@ namespace Catchline.Game
                 { person.WalkTo(Grid, ready[0].Tile, null); return; }
                 foreach (var fish in ready) { fish.ClaimedBy = person; netUnloadBatch.Add(fish); }
                 person.FacePoint(ready[0].RestPos);
-                person.Do("Gathering net catch", FishHandlingSeconds(person, 1.2f), () =>
+                person.Do("Gathering net catch", GameData.NetGatherTime, () =>
                 {
                     for (int i = 0; i < netUnloadBatch.Count; i++)
                     {
@@ -57,7 +57,7 @@ namespace Catchline.Game
                         f.Root.localPosition = new Vector3((i % 2 - .5f) * .13f, .55f + (i / 4) * .018f, .21f + (i % 4 / 2) * .10f);
                     }
                     person.CarryingBatch = true;
-                    if (!person.WalkTo(Grid, InboundAccess, () => { if(IsPrepFisher)person.FacePoint(PrepSurfaceLocal);else FaceHold(person); person.Do("Stowing net catch", FishHandlingSeconds(person, 1.8f), () =>
+                    if (!person.WalkTo(Grid, InboundAccess, () => { if(IsPrepFisher)person.FacePoint(PrepSurfaceLocal);else FaceHold(person); person.Do("Stowing net catch", GameData.StowTime, () =>
                     {
                         var stored = new List<CaughtFish>();
                         foreach (var f in netUnloadBatch.ToArray())

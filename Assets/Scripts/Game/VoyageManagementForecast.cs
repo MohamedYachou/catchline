@@ -30,7 +30,7 @@ namespace Catchline.Game
         {
             var path=Grid.FindPath(from,to);if(path==null)return float.PositiveInfinity;
             float distance=0;var prev=from;foreach(var tile in path){distance+=Vector3.Distance(Grid.GetLocal(prev),Grid.GetLocal(tile));prev=tile;}
-            return distance/Mathf.Max(.01f,GameData.WalkSpeed*speed*WorkMult);
+            return distance/Mathf.Max(.01f,GameData.WalkSpeed*speed);
         }
         int ForecastCaptainNet=>Captain==netWorker?0:Captain==secondNetWorker?1:netUnloader==Captain?NetUnloadRig:-1;
         bool ForecastCaptainTrap=>buoyWorkers.Contains(Captain);
@@ -38,7 +38,7 @@ namespace Catchline.Game
         public void UpdateManagementForecast()
         {
             var people=People.ToArray();
-            string signature=$"{State.Hull}/{ActiveSpot}/{HoldFull}/{FittedRodCount}/{FittedNetCount}/{FittedTrapCount}/{FittedDeepLineCount}/{State.SelectedNet}/{State.ActiveNetStock}/{State.ReelSpeed}/{State.NetCapacityKg}/{State.Richness[ActiveSpot]}/{ForecastCaptainNet}/{ForecastCaptainTrap}/{CaptainPrepActive}/{CaptainHaulingIn}/{CaptainHaulingOut}/{State.SelectBait(null)}/{WorkMult}/{State.PrepOrders.ChumTarget}/{State.PrepOrders.ChumFirst}/{State.PrepOrders.ChumClasses}/{State.PrepOrders.PrepareClasses}/{State.Chum}/"+
+            string signature=$"{State.Hull}/{ActiveSpot}/{HoldFull}/{FittedRodCount}/{FittedNetCount}/{FittedTrapCount}/{FittedDeepLineCount}/{State.SelectedNet}/{State.ActiveNetStock}/{State.ReelSpeed}/{State.NetCapacityKg}/{State.Richness[ActiveSpot]}/{ForecastCaptainNet}/{ForecastCaptainTrap}/{CaptainHaulingIn}/{CaptainHaulingOut}/{State.SelectBait(null)}/{State.PrepOrders.ChumTarget}/{State.PrepOrders.ChumFirst}/{State.PrepOrders.ChumClasses}/{State.Chum}/"+
                 string.Join(",",people.Where(p=>p.Contract!=null).Select(p=>$"{p.Name}:{p.Contract.Role}:{p.Contract.WorkPreference}:{p.Contract.FishingTasks}:{p.Speed}:{State.SelectBait(p.Contract)}"));
             if(signature==forecastSignature&&Forecast.Length==4){UpdateForecastCosts();return;}forecastSignature=signature;
             var rods=new MethodForecast{Name="Rods",InstalledCount=FittedRodCount,Availability=FittedRodCount>0?"No rod operator":"No rods fitted",CycleFish=FittedRodCount>0?100:0};
@@ -73,8 +73,8 @@ namespace Catchline.Game
                 foreach(var op in netOps.OrderBy(v=>v.Key).Take(State.ActiveNetStock))
                 {
                     var p=op.Value;var tile=op.Key==0?NetAccess:SecondNetAccess;
-                    float work=7/Mathf.Max(.01f,p.Speed*WorkMult)+2*ForecastWalk(p.Tile,tile,p.Speed);
-                    float handling=FishHandlingSeconds(p,3)/(p.Speed*WorkMult)+2*ForecastWalk(tile,InboundAccess,p.Speed);
+                    float work=WorkSpeed.Duration(GameData.NetSetTime+GameData.NetHaulTime,p)+2*ForecastWalk(p.Tile,tile,p.Speed);
+                    float handling=WorkSpeed.Duration(GameData.NetGatherTime+GameData.StowTime,p)+2*ForecastWalk(tile,InboundAccess,p.Speed);
                     float chance=IsTier5||p==Captain?1:.8f;
                     float cycle=(DeepNetSelected?GameData.DeepNetSoakSeconds:GameData.ShallowNetSoakSeconds)+work+chance*handling;
                     if(float.IsInfinity(cycle))continue;
@@ -94,7 +94,7 @@ namespace Catchline.Game
                 for(int rig=0;rig<FittedTrapCount;rig++)
                 {
                     var p=crabOps.OrderByDescending(p=>budget[p]).FirstOrDefault();if(p==null)break;
-                    float work=2/(p.Speed*WorkMult)+2*ForecastWalk(p.Tile,buoyTiles[rig],p.Speed);if(float.IsInfinity(work))continue;
+                    float work=WorkSpeed.Duration(2f,p)+2*ForecastWalk(p.Tile,buoyTiles[rig],p.Speed);if(float.IsInfinity(work))continue;
                     float rate=Take(p,60/(BuoySoakSeconds+work),work);crabs.FishPerMinute+=rate;crabs.OperatorSecondsPerMinute+=rate*work;
                 }
                 crabs.Operators=crabOps.Count;crabs.KgPerMinute=crabs.FishPerMinute*1.15f;crabs.ValuePerMinute=crabs.FishPerMinute*crabs.CycleValue;
@@ -109,8 +109,8 @@ namespace Catchline.Game
                 {
                     var p=deepOps.OrderByDescending(p=>budget[p]).FirstOrDefault();if(p==null)break;
                     var bait=State.SelectDeepLineBait(p.Contract);var mix=DeepLineRules.Expectation(State,ActiveSpot,bait);
-                    float work=DeepLineRules.BaitSeconds/(p.Speed*WorkMult)+2*ForecastWalk(p.Tile,deepLineTiles[rig],p.Speed);
-                    float collection=people.Where(h=>h.Contract?.Role==CrewRole.Deckhand).Select(h=>2*ForecastWalk(deepLineTiles[rig],InboundAccess,h.Speed)+FishHandlingSeconds(h,GameData.CompactPickupTime+GameData.CompactStowTime)/(h.Speed*WorkMult)).DefaultIfEmpty(0).Min();
+                    float work=WorkSpeed.Duration(DeepLineRules.BaitSeconds,p)+2*ForecastWalk(p.Tile,deepLineTiles[rig],p.Speed);
+                    float collection=people.Where(h=>h.Contract?.Role==CrewRole.Deckhand).Select(h=>2*ForecastWalk(deepLineTiles[rig],InboundAccess,h.Speed)+WorkSpeed.Duration(GameData.PickupTime+GameData.StowTime,h)).DefaultIfEmpty(0).Min();
                     float count=DeepLineRules.CatchCount(rig),cycle=work+DeepLineRules.DropSeconds+DeepLineRules.SoakSeconds+DeepLineRules.RaiseSeconds+count*collection;
                     if(float.IsInfinity(cycle))continue;
                     float attempts=HasCarrier?Take(p,60/cycle,work):0;AddMix(deep,mix,count*attempts);
@@ -126,14 +126,14 @@ namespace Catchline.Game
             var assignments=new List<(Person person,Rod rod)>();
             foreach(var p in fishers.Where(p=>Permits(p,FisherTask.Rods)))
             {var r=seats.FirstOrDefault(r=>r.Fisher==p&&!used.Contains(r))??seats.LastOrDefault(r=>!used.Contains(r)&&r!=Manning);if(r!=null){used.Add(r);assignments.Add((p,r));}}
-            if(ForecastCaptainNet<0&&!ForecastCaptainTrap&&!CaptainPrepActive&&!CaptainHaulingIn&&!CaptainHaulingOut)
+            if(ForecastCaptainNet<0&&!ForecastCaptainTrap&&!CaptainHaulingIn&&!CaptainHaulingOut)
             {var r=Manning!=null&&!used.Contains(Manning)?Manning:seats.FirstOrDefault(r=>!used.Contains(r));if(r!=null)assignments.Add((Captain,r));}
             foreach(var a in assignments)
             {
                 var p=a.person;var bait=State.SelectBait(p.Contract);if(bait==BaitPermission.None)continue;
                 var mix=CatchExpectation.Rod(State,ActiveSpot,.55f,bait);float chance=p==Captain||IsTier5?1:GameData.StrikeChance(p.Contract.Grade);
-                float cycle=(GameData.BaitTime+GameData.CastTime)/(p.Speed*WorkMult)+GameData.FlightTime+CatchExpectation.BiteWait(State,ActiveSpot,.55f,LearningFishing)+chance*mix.ReelSeconds/(p.Speed*WorkMult*State.ReelSpeed)+(1-chance)*StrikeWindow;
-                if(p==Captain&&!HasCarrier)cycle+=2*ForecastWalk(a.rod.Tile,InboundAccess,p.Speed)+FishHandlingSeconds(p,IsNetFisher?GameData.CompactPickupTime+GameData.CompactStowTime:GameData.PickupTime+GameData.StowTime)/(p.Speed*WorkMult);
+                float cycle=WorkSpeed.Duration(GameData.BaitTime+GameData.CastTime,p)+GameData.FlightTime+CatchExpectation.BiteWait(State,ActiveSpot,.55f,LearningFishing)+chance*mix.ReelSeconds/(p.Speed*State.ReelSpeed)+(1-chance)*StrikeWindow;
+                if(p==Captain&&!HasCarrier)cycle+=2*ForecastWalk(a.rod.Tile,InboundAccess,p.Speed)+WorkSpeed.Duration(GameData.PickupTime+GameData.StowTime,p);
                 if(float.IsInfinity(cycle))continue;float attempts=Take(p,60/cycle,cycle);AddMix(rods,mix,attempts*chance);rods.Operators++;rods.OperatorSecondsPerMinute+=attempts*cycle;rods.CostPerMinute+=attempts*BaitCost(bait);
             }
             foreach(var f in new[]{rods,deep})foreach(var key in f.SpeciesCounts.Keys.ToArray())f.SpeciesCounts[key]/=Mathf.Max(.00001f,f.FishPerMinute);
@@ -155,7 +155,7 @@ namespace Catchline.Game
             }
             float fill=storageRate>0?Mathf.Max(0,State.CoolerCapacity-HoldKg)/storageRate:float.PositiveInfinity;
             float remaining=State.Hull>0?Mathf.Min(fill,Mathf.Max(0,State.Fuel-.1f*State.FuelCapacity)):float.IsInfinity(fill)?0:fill;
-            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Hull>0?1:WorkMult)/60;
+            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Hull>0?1:WorkSpeed.Rate(Captain))/60;
             ForecastVoyageMinutes=Mathf.Max(1,(float)Flow.Clock/60+remaining+travel);
             foreach(var f in Forecast)f.CostPerMinute=f.SupplyCostPerMinute;
             DashboardCosts=new float[4];DashboardCosts[0]=Forecast.Sum(f=>f.SupplyCostPerMinute)+(State.Hull>0?1:0);

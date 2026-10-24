@@ -59,7 +59,7 @@ namespace Catchline.Game
             departureReady=departureCrewWarning=false;Showcase(0,0);toastUntil=0;
             var hands=People.Where(p=>p.Contract?.Role==CrewRole.Deckhand).ToArray();
             foreach(var h in hands){h.Stop();SetDeckhandWork(h.Contract,DeckhandWork.Nets);TryNetWork(h);}
-            foreach(var h in hands)for(int i=0;i<3000&&!h.Idle;i++)h.Tick(.02f,1,Cam.transform.rotation);
+            foreach(var h in hands)for(int i=0;i<3000&&!h.Idle;i++)h.Tick(.02f, Cam.transform.rotation);
             TickNet(10);TickSecondNet(17);
             foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
             {
@@ -140,7 +140,7 @@ namespace Catchline.Game
                 }
             }
             if (SecondNet==NetState.Hauling && secondNetDrum!=null)
-                secondNetDrum.Rotate(Vector3.up, dt*WorkMult*100,Space.Self);
+                secondNetDrum.Rotate(Vector3.up, dt*100,Space.Self);
             if (SecondNet!=NetState.Soaking) return;
             secondNetTime=Mathf.Min(secondNetSoak,secondNetTime+dt);
             if (secondNetTime<secondNetSoak) return;
@@ -178,7 +178,7 @@ namespace Catchline.Game
             void Complete()
             {
                 if(!Owns())return;
-                if(haul && (IsTier5 ? Tier5EquipmentFailure(5) : !person.IsCaptain&&State.Rng.NextDouble()>=.8)){Fail();return;}
+                if(haul && !IsTier5 && !person.IsCaptain&&State.Rng.NextDouble()>=.8){Fail();return;}
                 secondNetWorker=null;secondNetClaim++;
                 if(!haul)
                 {

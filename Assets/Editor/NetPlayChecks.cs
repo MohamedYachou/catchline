@@ -15,7 +15,7 @@ namespace Catchline.EditorTools
         const BindingFlags Hidden = BindingFlags.Instance | BindingFlags.NonPublic;
         static object Call(VoyageGame g, string name, params object[] args) => typeof(VoyageGame).GetMethod(name, Hidden).Invoke(g, args);
         static void Check(bool ok, string why) { if (!ok) throw new Exception("Net play check failed: " + why); }
-        static void Work(Person p) { for (int i = 0; i < 1000 && !p.Idle; i++) p.Tick(.05f, 1, Quaternion.identity); }
+        static void Work(Person p) { for (int i = 0; i < 1000 && !p.Idle; i++) p.Tick(.05f, Quaternion.identity); }
         static void Shot(VoyageGame g, string name, int w = 1440, int h = 900) => typeof(ReferenceHudChecks).GetMethod("Shot", BindingFlags.Static | BindingFlags.NonPublic)
             .Invoke(null, new object[] { g, "../net015/" + name, w, h, 1f });
         public static void ValidateAndBuildPreview()
@@ -91,7 +91,7 @@ namespace Catchline.EditorTools
                 p.Place(game.State.HullDef.HoldAccess);
                 p.Carrying = new DeckFish { Species = Species.Herring, Kg = .3f, CaughtAt = game.SimTime, Root = new GameObject("Concurrent delivery").transform };
                 p.Carrying.Root.SetParent(p.Root, false);
-                Call(game, "Stow", p); p.Tick(.01f, 1, Quaternion.identity);
+                Call(game, "Stow", p); p.Tick(.01f, Quaternion.identity);
             }
             Check(game.Captain.Busy && game.Hand.Busy && game.Captain.BusyLabel == "Stowing" && game.Hand.BusyLabel == "Stowing", "both actors stow at once without a hold lock");
             before = game.Cooler.Count; Work(game.Captain); Work(game.Hand);

@@ -41,7 +41,7 @@ namespace Catchline.EditorTools
             game.State.Bait = 200; game.State.FoodMinutes = 24;
         }
         static void Work(Person p)
-        { for (int i = 0; i < 1000 && !p.Idle; i++) p.Tick(.05f, 1, Quaternion.identity); }
+        { for (int i = 0; i < 1000 && !p.Idle; i++) p.Tick(.05f, Quaternion.identity); }
 
         public static void Run()
         {

@@ -62,7 +62,7 @@ namespace Catchline.EditorTools
             var catchList = new[] { Species.Whiting, Species.RedMullet, Species.Turbot }
                 .Select(f => new CaughtFish { Species = f, Kg = GameData.Get(f).MaxKg, StowedAt = 0 }).ToList();
             var quote = market.QuoteSale(catchList, 0);
-            Check(market.Coins == 0 && market.LogCount.All(n => n == 0) && market.Market.All(m => m == 1), "new fish quote never changes live state");
+            Check(market.Coins == 0 && market.LogCount.All(n => n == 0), "new fish quote never changes live state");
             var sold = market.Sell(catchList, 0);
             Check(sold.FishSold == 3 && sold.Coins == quote.Coins && market.Coins == quote.Coins && market.Coins > 0, "new fish earn the quoted coins");
             Check(catchList.All(f => market.LogCount[(int)f.Species] == 1 && market.LogBest[(int)f.Species] == f.Kg), "new fish update their own log slots");
@@ -71,7 +71,7 @@ namespace Catchline.EditorTools
             {
                 File.WriteAllText(path, "{\"Version\":1,\"Coins\":123,\"Bait\":7,\"Squid\":4,\"Voyage\":5,\"UseSquid\":true,\"Owned\":[],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[],\"Market\":[0.8,1,1,1,1,1,1],\"LogCount\":[2,0,0,0,0,0,1],\"LogBest\":[0.25,0,0,0,0,0,3]}");
                 var loaded = GameState.Load(path);
-                Check(loaded != null && loaded.Coins == 123 && loaded.LogCount[6] == 1 && loaded.LogCount[7] == 0 && loaded.Market[9] == 1, "seven-species save grows without erasure");
+                Check(loaded != null && loaded.Coins == 123 && loaded.LogCount[6] == 1 && loaded.LogCount[7] == 0, "seven-species save grows without erasure");
                 loaded.UnsoldCatch.Add(new CaughtFish { Species = Species.Turbot, Kg = 4, StowedAt = -30 });
                 loaded.Save(path); loaded = GameState.Load(path);
                 Check(loaded != null && loaded.UnsoldCatch.Single().Species == Species.Turbot && loaded.UnsoldCatch.Single().Kg == 4, "new-species unsold haul roundtrips");
@@ -86,13 +86,12 @@ namespace Catchline.EditorTools
         public static void RunBalance()
         {
             float hit = GameData.StrikeChance(Grade.Hand);
-            foreach (var scenario in new[] { (name: "fresh", market: 1f, age: 0f),
-                (name: "depressed", market: .75f, age: 180f), (name: "floor", market: .5f, age: 600f) })
+            foreach (var scenario in new[] { (name: "fresh", age: 0f),
+                (name: "aged", age: 180f), (name: "floor", age: 600f) })
             {
                 for (int spot = 0; spot < GameData.Spots.Length; spot++)
                 {
                     var s = new GameState(8700 + spot);
-                    for (int i = 0; i < s.Market.Length; i++) s.Market[i] = scenario.market;
                     double worms = 0, squid = 0;
                     const int samples = 10000;
                     for (int i = 0; i < samples; i++)

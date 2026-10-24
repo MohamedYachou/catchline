@@ -12,7 +12,7 @@ namespace Catchline.EditorTools
         const BindingFlags H=BindingFlags.Instance|BindingFlags.NonPublic;
         static void Check(bool ok,string why){if(!ok)throw new Exception("BALANCE045: "+why);}
         static object Call(VoyageGame g,string n,params object[] a)=>typeof(VoyageGame).GetMethod(n,H).Invoke(g,a);
-        static void Work(Person p){for(int i=0;i<10000&&!p.Idle;i++)p.Tick(.02f,1,Quaternion.identity);Check(p.Idle,"action finishes");}
+        static void Work(Person p){for(int i=0;i<10000&&!p.Idle;i++)p.Tick(.02f, Quaternion.identity);Check(p.Idle,"action finishes");}
         static CaughtFish Add(VoyageGame g,Species s,float kg,float age=0){var f=new CaughtFish{Species=s,Kg=kg,StowedAt=g.SimTime-age};g.DeliverCatch(f);return f;}
         static void Empty(VoyageGame g){Call(g,"ClearPrepWork");g.Cooler.Clear();Call(g,"ClearProcessingPipeline",false);g.State.Chum=0;}
         public static void Run()
@@ -44,28 +44,16 @@ namespace Catchline.EditorTools
             Check(g.TryPrepWork(hands[0])&&g.ChumBeingMade==1,"white Pollock reserves one chum");Work(hands[0]);Check(g.State.Chum==1&&!g.Cooler.Contains(pollock),"white Pollock makes one chum");
             g.State.Chum=9;Add(g,Species.Pollock,1.4f);Add(g,Species.Pollock,1.4f);
             Check(g.TryPrepWork(hands[0])&&g.TryPrepWork(hands[1])&&g.ChumBeingMade==1,"concurrent scaled reservations bounded at target");Work(hands[0]);Work(hands[1]);Check(g.State.Chum==10,"no target overshoot");
-            Empty(g);g.State.PrepOrders.ChumTarget=0;g.State.PrepOrders.PrepareHighestValue=false;
+            // M0: the table no longer prepares fish. Unchummed fish are sorted (oldest first) at full value.
+            Empty(g);g.State.PrepOrders.ChumTarget=0;
             var fresh=Add(g,Species.Cod,7);var old=Add(g,Species.Herring,.2f,240);
-            Check(g.TryPrepWork(hands[0]),"oldest reservation");Work(hands[0]);Check(old.Prepared&&!fresh.Prepared,"oldest wins despite list order");
-            Empty(g);g.State.PrepOrders.PrepareHighestValue=true;old=Add(g,Species.Herring,.2f,240);fresh=Add(g,Species.Cod,7);
-            Check(g.TryPrepWork(hands[0]),"highest-value reservation");Work(hands[0]);Check(fresh.Prepared&&!old.Prepared,"highest value wins");
+            Check(g.TryPrepWork(hands[0]),"oldest reservation");Work(hands[0]);Check(g.ProcessingOutput.Contains(old)&&g.ProcessingInput.Contains(fresh),"oldest sorted first despite list order");
             Empty(g);var purple=Add(g,Species.Conger,7);float kg=purple.Kg;int value=g.State.ValueOf(purple,g.SimTime);
-            Check(g.TryPrepWork(hands[0]),"purple prep");Work(hands[0]);Check(purple.Prepared&&purple.Kg==kg&&g.State.Chum==1&&g.State.ValueOf(purple,g.SimTime)>value,"purple by-product preserves cargo/value");
-            Call(g,"PrepareFish",purple);Check(g.State.Chum==1,"by-product only once");
-            Empty(g);Add(g,Species.Cod,5);Check(g.StartCaptainPrep(),"captain can help queued input before hold fills");
-            g.CancelCaptainPrep();
-            // Main-hold fullness does not consume the three distinct input reservations.
-            Add(g,Species.Cod,5);Add(g,Species.Cod,5);var filler=new CaughtFish{Species=Species.Cod,Kg=g.State.CoolerCapacity-15,StowedAt=g.SimTime};g.TryStore(filler);filler.Prepared=true;filler.PreparedQuality=1;
+            Check(g.TryPrepWork(hands[0]),"sort reservation");Work(hands[0]);Check(g.ProcessingOutput.Contains(purple)&&purple.Kg==kg&&g.State.Chum==0&&g.State.ValueOf(purple,g.SimTime)==value,"sorting keeps cargo and value, no premium or by-product");
+            // Main-hold fullness does not consume the distinct input reservations.
+            Empty(g);Add(g,Species.Cod,5);Add(g,Species.Cod,5);var filler=new CaughtFish{Species=Species.Cod,Kg=g.State.CoolerCapacity-15,StowedAt=g.SimTime};g.TryStore(filler);
             foreach(var h in hands)Check(g.TryPrepWork(h),"hand reserves full-hold fish");
-            Check(g.StartCaptainPrep()&&g.PrepWorkersActive==2,"captain alongside2workers");
-            for(int i=0;i<3000&&g.Captain.Walking;i++)g.Captain.Tick(.02f,1,Quaternion.identity);
-            Check(g.CaptainPrepActive,"captain reached station");
-            Check(!g.TapCaptainPrep(),"miss preserves fish");
-            for(int i=0;i<100&&g.CaptainPrepPhase<.4f;i++)Call(g,"TickCaptainPrep",.02f);
-            Check(g.TapCaptainPrep(),"green tap starts cut");
-            for(int i=0;i<40;i++)g.Captain.Tick(.02f,1,Quaternion.identity);
-            Check(g.ProcessingOutput.Count(f=>f.Prepared)==1 && g.Cooler.Count(f=>f.Prepared)==1,"exact one captain fish, independent hand reservations");
-            g.CancelCaptainPrep();foreach(var h in hands)Work(h);Check(g.ProcessingOutput.Count==3 && g.ProcessingInput.Count==0,"all workers complete distinct fish to output");
+            foreach(var h in hands)Work(h);Check(g.ProcessingOutput.Count==2 && g.ProcessingInput.Count==0,"all workers sort distinct fish to output");
             g.TryStore(new CaughtFish{Species=Species.Cod,Kg=15,StowedAt=g.SimTime});
             var fullFisher=g.ExtraPeople.First(p=>p.Contract.Role==CrewRole.Fisherman);fullFisher.Stop();
             var fullRod=g.Rods[0];fullRod.Fisher=fullFisher;fullRod.State=RodState.Ready;fullFisher.Place(fullRod.Tile);

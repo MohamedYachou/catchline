@@ -112,7 +112,7 @@ namespace Catchline.EditorTools
                 Call(g, "RollCompactCatch"); Set(g, "Net", VoyageGame.NetState.Ready);
                 g.State.Rng = new FixedRoll(roll); g.Hand.Stop();
                 Check(g.TryNetWork(g.Hand), "worker claims deep haul");
-                for (int i = 0; i < 1200 && g.Net == VoyageGame.NetState.Hauling; i++) g.Hand.Tick(.05f, 1, Quaternion.identity);
+                for (int i = 0; i < 1200 && g.Net == VoyageGame.NetState.Hauling; i++) g.Hand.Tick(.05f, Quaternion.identity);
                 Check(g.State.DeepNetUses.SequenceEqual(new[] { 2, 3 }), "worker spends one use and keeps reserves on either outcome");
                 Check((g.NetBasketCount > 0) == (roll < .8), "worker exact80percent success boundary");
                 Check(g.State.NetInventory == 3, "deep outcomes never consume shallow reserve");
@@ -120,7 +120,7 @@ namespace Catchline.EditorTools
             g.State.DeepNetUses.Clear(); g.State.DeepNetUses.Add(1); g.State.Rng = new FixedRoll(.79);
             Call(g, "RollCompactCatch"); Set(g, "Net", VoyageGame.NetState.Ready);
             Check(g.TryNetWork(g.Hand), "recover last deep use");
-            for (int i = 0; i < 1200 && g.Net == VoyageGame.NetState.Hauling; i++) g.Hand.Tick(.05f, 1, Quaternion.identity);
+            for (int i = 0; i < 1200 && g.Net == VoyageGame.NetState.Hauling; i++) g.Hand.Tick(.05f, Quaternion.identity);
             Call(g, "ClearNetUnload"); g.Hand.Stop();
             Check(g.State.DeepNetUses.Count == 0 && g.CanCaptainNet && g.CaptainNetAction(), "exhausted rack never blocks retrying basket unloading");
             Call(g, "ClearNetUnload"); g.Captain.Stop();
@@ -130,10 +130,10 @@ namespace Catchline.EditorTools
             {
                 person.Place(g.State.HullDef.HoldAccess);
                 person.Carrying = new DeckFish { Kg = 10, Root = new GameObject("Concurrent final fish").transform };
-                Call(g, "Stow", person); person.Tick(.01f, 1, Quaternion.identity);
+                Call(g, "Stow", person); person.Tick(.01f, Quaternion.identity);
             }
             Check(g.Captain.Busy && g.Hand.Busy && g.DepartureOverflow() == 1, "both stow concurrently and departure predicts single overflow");
-            g.Captain.Tick(10, 1, Quaternion.identity); g.Hand.Tick(10, 1, Quaternion.identity);
+            g.Captain.Tick(10, Quaternion.identity); g.Hand.Tick(10, Quaternion.identity);
             Check(g.Cooler.Count == 2 && g.Hand.Carrying != null && g.HoldFull, "same-frame deliveries accept only one final whole fish");
             g.Cooler.Clear(); g.Cooler.Add(new CaughtFish { Kg = 50f }); g.Cooler.Add(new CaughtFish { Kg = 49.999996f });
             Check(!g.HoldFull && g.DepartureOverflow() == 0, "departure uses exact sum even when displayed float rounds to capacity");

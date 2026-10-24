@@ -24,7 +24,7 @@ namespace Catchline.EditorTools
             for (int i = 0; i < legacy.Length; i++) Check(((Species)i).ToString() == legacy[i], "legacy ID " + i);
             for (int i = 0; i < Added.Length; i++) Check((int)Added[i] == 25+i, "append-only new ID");
             Check(GameData.Spots[0].Table.Select(e=>e.species).SequenceEqual(new[] {Species.Herring,Species.Mackerel,Species.Whiting}), "starter harbour pool retained");
-            var orders = new PrepOrderSettings { HasClassFilters=true, ChumClassMask=2, PrepareClassMask=2 };
+            var orders = new PrepOrderSettings { HasClassFilters=true, ChumClassMask=2 };
             foreach (var s in Added)
             {
                 var d = GameData.Get(s);
@@ -81,19 +81,19 @@ namespace Catchline.EditorTools
             string path=Path.Combine(Path.GetTempPath(),"catchline-fish050-"+Guid.NewGuid()+".json");
             try
             {
-                var old=new GameState(5050){Hull=2,Coins=321};old.Market[24]=.8f;old.LogCount[24]=3;old.LogBest[24]=50;
+                var old=new GameState(5050){Hull=2,Coins=321};old.LogCount[24]=3;old.LogBest[24]=50;
                 old.UnsoldCatch.Add(new CaughtFish{Species=Species.GiantSquid,Kg=40});old.Save(path);
                 // Reconstruct a genuine pre-expansion25-slot save using its existing JSON format.
                 var json=JsonUtility.FromJson<LegacyArrays>(File.ReadAllText(path));
-                json.Market=json.Market.Take(25).ToArray();json.LogCount=json.LogCount.Take(25).ToArray();json.LogBest=json.LogBest.Take(25).ToArray();
+                json.LogCount=json.LogCount.Take(25).ToArray();json.LogBest=json.LogBest.Take(25).ToArray();
                 File.WriteAllText(path,JsonUtility.ToJson(json));var loaded=GameState.Load(path);
-                Check(loaded!=null&&loaded.Coins==321&&loaded.LogCount[24]==3&&loaded.LogBest[24]==50&&loaded.Market[24]==.8f,"25-species save preserves prior records");
+                Check(loaded!=null&&loaded.Coins==321&&loaded.LogCount[24]==3&&loaded.LogBest[24]==50,"25-species save preserves prior records");
                 Check(loaded.UnsoldCatch.Single().Species==Species.GiantSquid,"old cargo identity retained");
-                foreach(var s in Added)Check(loaded.Market[(int)s]==1&&loaded.LogCount[(int)s]==0&&loaded.LogBest[(int)s]==0,"new save slots initialized");
-                loaded.UnsoldCatch.Clear();loaded.UnsoldCatch.AddRange(Added.Select(s=>new CaughtFish{Species=s,Kg=GameData.Get(s).MaxKg,Prepared=true,PreparedQuality=.72f}));
-                loaded.PrepOrders.HasClassFilters=true;loaded.PrepOrders.ChumClassMask=2;loaded.PrepOrders.PrepareClassMask=2;loaded.Save(path);loaded=GameState.Load(path);
-                Check(loaded.UnsoldCatch.Select(f=>f.Species).SequenceEqual(Added)&&loaded.UnsoldCatch.All(f=>f.Prepared&&f.PreparedQuality==.72f),"all new prepared catches save roundtrip");
-                Check(loaded.PrepOrders.ChumClasses==2&&loaded.PrepOrders.PrepareClasses==2,"BigCommon selection roundtrip");
+                foreach(var s in Added)Check(loaded.LogCount[(int)s]==0&&loaded.LogBest[(int)s]==0,"new save slots initialized");
+                loaded.UnsoldCatch.Clear();loaded.UnsoldCatch.AddRange(Added.Select(s=>new CaughtFish{Species=s,Kg=GameData.Get(s).MaxKg}));
+                loaded.PrepOrders.HasClassFilters=true;loaded.PrepOrders.ChumClassMask=2;loaded.Save(path);loaded=GameState.Load(path);
+                Check(loaded.UnsoldCatch.Select(f=>f.Species).SequenceEqual(Added)&&loaded.UnsoldCatch.All(f=>f.Kg>0),"all new catches save roundtrip");
+                Check(loaded.PrepOrders.ChumClasses==2,"BigCommon selection roundtrip");
                 var quote=loaded.QuoteSale(loaded.UnsoldCatch,0);int before=loaded.Coins;var sale=loaded.Sell(loaded.UnsoldCatch,0);
                 Check(sale.FishSold==4&&sale.Coins==quote.Coins&&loaded.Coins==before+quote.Coins,"new fish sale equals quote");
                 foreach(var s in Added)Check(loaded.LogCount[(int)s]==1&&loaded.LogBest[(int)s]==GameData.Get(s).MaxKg,"new fish records credited");
@@ -107,7 +107,7 @@ namespace Catchline.EditorTools
             public CrewMember[] Board;
             public Contract[] Offers,Active;
             public CaughtFish[] UnsoldCatch;
-            public float[] Market,LogBest;
+            public float[] LogBest;
             public int[] LogCount;
         }
 

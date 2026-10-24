@@ -42,12 +42,6 @@ namespace Catchline.Game
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) baitSettingsCrew = null;
                 return;
             }
-            if (CaptainPrepActive)
-            {
-                if (kb != null && kb.escapeKey.wasPressedThisFrame) CancelCaptainPrep();
-                else if (kb != null && kb.spaceKey.wasPressedThisFrame && !MenuOpen && !confirmHeadHome) TapCaptainPrep();
-                return;
-            }
             if (PrepOrdersOpen)
             {
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) { if (prepClassDropdown != 0) prepClassDropdown = 0; else PrepOrdersOpen = false; }

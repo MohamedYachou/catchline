@@ -184,20 +184,22 @@ namespace Catchline.Game
         }
 
         // Rod cycle (seconds)
-        public const float BaitTime = 1.2f;
-        public const float CastTime = 0.45f;
+        // Base durations at skill 100, level 1 (CARDS-AND-SPEEDS section 4). WorkSpeed.Duration applies the one work-speed formula.
+        public const float BaitTime = 1.0f;
+        public const float CastTime = 0.5f;
         public const float FlightTime = 0.6f;
         public const float BiteWindow = 0.9f;
         public const float MaxBiteWait = 15f;
         public const float ShallowNetSoakSeconds = 40f;
         public const float DeepNetSoakSeconds = 60f;
         public const float SelfHookChance = 0.35f;
-        public const float DeckhandHandlingSpeed = 3f;
         public const float PickupTime = 0.5f;
-        public const float StowTime = 0.4f;
+        public const float StowTime = 0.6f;
+        public const float NetGatherTime = 0.5f;
+        public const float NetSetTime = 2f;
+        public const float TableHandleTime = 0.2f, TableSortTime = 1.5f, ChumUnitTime = 3f;
         public const float DeckFishLifetime = 25f;
         public const float WalkSpeed = 2.2f;
-        public const float CrewWorkSpeed = 0.7f;
 
         // Economy
         public const int StartCoins = 40;
@@ -212,8 +214,6 @@ namespace Catchline.Game
         public const int FoodCostPerMinute = 1;
         public const float RichnessPerCatch = 0.035f;
         public const float RichnessRecovery = 0.2f;
-        public const float MarketDropPerFish = 0.97f;
-        public const float MarketRecovery = 0.35f;
         public const float FreshnessGraceSeconds = 60f;
         public const float FreshnessLossPerMinute = 0.07f, MinFreshness = 0.6f;
         public const int MaxActiveContracts = 2;
@@ -266,13 +266,10 @@ namespace Catchline.Game
         public const int SkiffFishGoal = 16, SkiffCost = 1500;
 
         // Crew contracts: experienced costs 2x for 1.5x the voyages; veterans are rare.
-        public static float Speed(Grade g) => g switch { Grade.Hand => 1f, Grade.Experienced => 1.5f, _ => 2f };
         public static int ContractVoyages(Grade g) => g switch { Grade.Hand => 2, Grade.Experienced => 3, _ => 5 };
         public static int Fee(Grade g) => g switch { Grade.Hand => 30, Grade.Experienced => 60, _ => 150 };
         public static float StrikeChance(Grade g) => g switch { Grade.Hand => .80f, Grade.Experienced => .85f, _ => .90f };
         public const float NetSoakMin = 60f, NetSoakMax = 90f, NetHaulTime = 5f;
-        // Provisional compact-deck handling: one novice hand is busy serving three rods.
-        public const float CompactPickupTime = 1.4f, CompactStowTime = 3f;
         public static string GradeName(Grade g) => g switch { Grade.Hand => "Deckhand", Grade.Experienced => "Experienced", _ => "Veteran" };
 
         public static readonly string[] Names =

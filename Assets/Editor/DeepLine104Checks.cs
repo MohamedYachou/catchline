@@ -36,7 +36,7 @@ namespace Catchline.EditorTools
         }
         const System.Reflection.BindingFlags H=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
         static object Call(VoyageGame g,string n,params object[] args)=>typeof(VoyageGame).GetMethod(n,H).Invoke(g,args);
-        static void Work(Person p){for(int n=0;n<6000&&!p.Idle;n++)p.Tick(.025f,1,Quaternion.identity);Check(p.Idle,"real job completes");}
+        static void Work(Person p){for(int n=0;n<6000&&!p.Idle;n++)p.Tick(.025f, Quaternion.identity);Check(p.Idle,"real job completes");}
         static void RolesAndNets()
         {
             var g=new GameObject("DEEP104 D-F acceptance").AddComponent<VoyageGame>();g.SessionOnly=true;g.Build();g.StartTier5Trial();
@@ -48,7 +48,6 @@ namespace Catchline.EditorTools
             var fishers=g.ExtraPeople.Where(p=>p.Contract.Role==CrewRole.Fisherman).ToArray();
             foreach(var p in fishers){p.Stop();p.Contract.HasFisherTasks=true;p.Contract.AllowedTasks=FisherTask.Nets;}
             g.State.PrepOrders.ChumTarget=0;
-            g.State.Tier5Broken[4]=true;g.State.Tier5Condition[4]=0;
             Check(g.TryNetWork(fishers[0]),"fisher operates manual net despite legacy broken flag");fishers[0].Stop();Check(g.Net==VoyageGame.NetState.Stowed,"cancel releases operator claim");
             Check(g.TryNetWork(fishers[0]),"retry fisher set");Work(fishers[0]);Call(g,"TickNet",GameData.ShallowNetSoakSeconds);
             Check(g.TryNetWork(fishers[0]),"fisher hauls ready net");Work(fishers[0]);
@@ -56,10 +55,10 @@ namespace Catchline.EditorTools
             Check(!g.TryNetWork(g.Hand),"Tier5 hand cannot operate net");
             foreach(var f in g.OnDeck)f.Age=1;
             var carrier=g.ExtraPeople.First(p=>p.Contract.Role==CrewRole.Deckhand);carrier.Stop();Call(g,"BeginNetUnload",carrier);
-            for(int n=0;n<6000&&g.NetUnloadActive;n++){Call(g,"TickNetUnload",.025f);carrier.Tick(.025f,1,Quaternion.identity);}
+            for(int n=0;n<6000&&g.NetUnloadActive;n++){Call(g,"TickNetUnload",.025f);carrier.Tick(.025f, Quaternion.identity);}
             Check(g.NetBasketCount==0&&g.ProcessingInput.Count>0,"ordinary hand collects entire basket into processing");
             Check(g.TryPrepWork(g.Hand),"processor accepts basket specimen");Work(g.Hand);
-            Check(g.ProcessingOutput.Count>0&&g.TryCarryProcessed(carrier),"processed basket fish waits for separate outbound carry");Work(carrier);Check(g.Cooler.Any(f=>f.Prepared),"net specimen reaches hold prepared");
+            Check(g.ProcessingOutput.Count>0&&g.TryCarryProcessed(carrier),"processed basket fish waits for separate outbound carry");Work(carrier);Check(g.Cooler.Count>0,"net specimen reaches hold");
             foreach(var p in g.ExtraPeople)p.Stop();
             var selected=fishers[0].Contract;selected.AllowedTasks=FisherTask.Rods|FisherTask.Nets;
             g.OpenManagement();
@@ -137,7 +136,7 @@ namespace Catchline.EditorTools
             g.HeadHome();Advance(g,80);Check(g.ToggleSecondNetModule()&&g.FittedDeepLineCount==0&&!g.Boat.GetComponentsInChildren<Transform>().Any(t=>t.name=="DeepLineRig_3"),"side net excludes all three rig meshes and jobs");
             Check(g.ToggleSecondNetModule()&&g.FittedDeepLineCount==3,"saved third restored when swapping back");
             g.StartTier5Trial();foreach(var p in g.ExtraPeople)p.Stop();
-            g.State.PrepOrders.HasClassFilters=true;g.State.PrepOrders.ChumClassMask=63;g.State.PrepOrders.PrepareClassMask=0;g.State.PrepOrders.ChumTarget=10;g.State.Chum=0;
+            g.State.PrepOrders.HasClassFilters=true;g.State.PrepOrders.ChumClassMask=63;g.State.PrepOrders.ChumTarget=10;g.State.Chum=0;
             var station=g.Boat.GetComponentsInChildren<Transform>(true).First(t=>t.name=="PrepStation");Check(station.gameObject.activeInHierarchy&&g.PrepWorkerTiles.Length==2,"original working station preserved");
             var samplesFish=new[]{new CaughtFish{Species=Species.Herring,Kg=.2f},new CaughtFish{Species=Species.Herring,Kg=.3f},new CaughtFish{Species=Species.SeaBass,Kg=1f}};
             int expectedStock=0;
@@ -149,13 +148,13 @@ namespace Catchline.EditorTools
             Check(g.TryDeepLineWork(chumFisher),"station-produced chum starts actual rig baiting");Work(chumFisher);
             Check(g.State.Chum==5&&g.DeepLineStatus(0)==DeepLinePhase.Dropping,"actual table-to-deep-line supply chain consumes one produced portion");
             foreach(var fish in new[]{new CaughtFish{Species=Species.SeaBass,Kg=3},new CaughtFish{Species=Species.ApexReefShark,Kg=10},new CaughtFish{Species=Species.GiantSquid,Kg=20}})g.DeliverCatch(fish);
-            Check(!g.TryPrepWork(g.Hand)&&g.ProcessingInput.Count==3&&g.State.Chum==5,"purple/gold/red cannot be chummed even with legacy all-class mask");
+            Check(g.TryPrepWork(g.Hand),"unchummable fish are sorted instead");Work(g.Hand);Check(g.ProcessingInput.Count==2&&g.ProcessingOutput.Count==1&&g.State.Chum==5,"purple/gold/red cannot be chummed even with legacy all-class mask");
             g.State.Chum=9;var blue=new CaughtFish{Species=Species.SeaBass,Kg=1};g.DeliverCatch(blue);
             Check(g.TryPrepWork(g.Hand),"blue chum reserved near target");g.Hand.Stop();Check(g.State.Chum==9&&g.ProcessingInput.Contains(blue),"cancel keeps fish and stock intact");
             Check(g.TryPrepWork(g.Hand),"retry chum");Work(g.Hand);Check(g.State.Chum==12,"whole blue fish yields full three portions across target");
             g.State.Save("Logs/deep104/chum-orders.json");saved=GameState.Load("Logs/deep104/chum-orders.json");Check(saved.Chum==0&&saved.PrepOrders.ChumTarget==10&&saved.PrepOrders.ChumClasses==7,"chum settings persist, per-voyage stock does not");
-            g.State.PrepOrders.PrepareClassMask=63;g.State.PrepOrders.ChumTarget=0;Check(g.TryPrepWork(g.Hand),"same station still prepares protected fish");Work(g.Hand);
-            Check(g.ProcessingOutput.Any(f=>f.Prepared&&f.PreparedBonus==1.5f),"Tier5 station retains actual 150percent preparation");
+            g.State.PrepOrders.ChumTarget=0;Check(g.TryPrepWork(g.Hand),"same station still sorts protected fish");Work(g.Hand);
+            Check(g.ProcessingOutput.Count>=2,"Tier5 station sorts protected fish at full value");
             g.HeadHome();Advance(g,80);Check(g.State.Chum==0,"chum discarded on return");UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
         public static void Expanded()

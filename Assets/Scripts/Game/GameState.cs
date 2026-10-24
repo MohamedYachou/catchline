@@ -9,9 +9,6 @@ namespace Catchline.Game
         public Species Species;
         public float Kg;
         public float StowedAt;
-        public bool Prepared;
-        public float PreparedQuality;
-        public float PreparedBonus; // Missing in older saves means legacy1.25x.
     }
 
     [System.Serializable]
@@ -83,7 +80,6 @@ namespace Catchline.Game
         public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
-        public readonly float[] Market;
         // Fish log: how many of each species you have landed, and the biggest one.
         public readonly int[] LogCount;
         public readonly float[] LogBest;
@@ -113,11 +109,9 @@ namespace Catchline.Game
         {
             Rng = new System.Random(seed);
             Richness = new float[GameData.Spots.Length];
-            Market = new float[GameData.Fish.Length];
             LogCount = new int[GameData.Fish.Length];
             LogBest = new float[GameData.Fish.Length];
             for (int i = 0; i < Richness.Length; i++) Richness[i] = 1f;
-            for (int i = 0; i < Market.Length; i++) Market[i] = 1f;
             RollBoard();
             while (Offers.Count < 3) Offers.Add(NewContract());
         }
@@ -134,11 +128,11 @@ namespace Catchline.Game
         public float SelfHookChance => Has(UpgradeId.RodCarbon) ? 0.45f : GameData.SelfHookChance;
         public int FoodFillCost => Mathf.CeilToInt(FoodCapacity - FoodMinutes) * GameData.FoodCostPerMinute;
 
-        public float PricePerKg(Species s) => GameData.Get(s).PricePerKg * Market[(int)s];
+        // Selling never moves a price: there is no market saturation.
+        public float PricePerKg(Species s) => GameData.Get(s).PricePerKg;
 
         public float Freshness(CaughtFish f, float now)
         {
-            if (f.Prepared) return f.PreparedQuality > 0 ? f.PreparedQuality : 1f;
             if (Has(UpgradeId.IceBox)) return 1f;
             return Mathf.Max(GameData.MinFreshness, 1f - GameData.FreshnessLossPerMinute * Mathf.Max(0f, now - f.StowedAt - GameData.FreshnessGraceSeconds) / 60f);
         }
@@ -149,7 +143,7 @@ namespace Catchline.Game
             float size = Mathf.InverseLerp(d.MinKg, d.MaxKg, kg);
             return PricePerKg(species) * (1f + .5f * size);
         }
-        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * SpecimenPricePerKg(f.Species, f.Kg) * Freshness(f, now) * (f.Prepared ? f.PreparedBonus >= 1f ? f.PreparedBonus : 1.25f : 1f)));
+        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * SpecimenPricePerKg(f.Species, f.Kg) * Freshness(f, now)));
 
         float Rand() => (float)Rng.NextDouble();
 
@@ -257,7 +251,6 @@ namespace Catchline.Game
         public SaleReport QuoteSale(List<CaughtFish> catchList, float now)
         {
             var quote = new GameState(0) { Hull = Hull };
-            System.Array.Copy(Market, quote.Market, Market.Length);
             quote.Owned.UnionWith(Owned);
             foreach (var c in Active)
                 quote.Active.Add(new Contract { Species = c.Species, Count = c.Count,
@@ -282,7 +275,6 @@ namespace Catchline.Game
                 r.Coins += v;
                 r.FishSold++;
                 Coins += v;
-                Market[(int)f.Species] = Mathf.Max(0.5f, Market[(int)f.Species] * Mathf.Pow(GameData.MarketDropPerFish, f.Kg / (Hull >= 2 ? 5f : .5f)));
             }
             for (int i = Active.Count - 1; i >= 0; i--)
             {
@@ -332,7 +324,6 @@ namespace Catchline.Game
                 if (i >= 0) { Deckhand = ExtraCrew[i]; ExtraCrew.RemoveAt(i); }
             }
             for (int i = 0; i < Richness.Length; i++) Richness[i] = Mathf.Min(1f, Richness[i] + GameData.RichnessRecovery);
-            for (int i = 0; i < Market.Length; i++) Market[i] += (1f - Market[i]) * GameData.MarketRecovery;
             RollBoard();
             if (Offers.Count > 0) Offers.RemoveAt(0);
             while (Offers.Count < 3) Offers.Add(NewContract());
@@ -483,7 +474,6 @@ namespace Catchline.Game
             public float Fuel, BestVoyageKg;
             public bool HasTimedFuel;
             public bool SecondNetOwned, SecondNetEnabled;
-            public bool HasTier5Condition; public float[] Tier5Condition; public bool[] Tier5Broken;
             public int NetInventory;
             // Presence bit distinguishes legacy saves from an explicitly exhausted rack.
             public bool HasNetInventory;
@@ -496,7 +486,7 @@ namespace Catchline.Game
             public float UnsoldMinutes;
             public float FoodMinutes;
             public List<int> Owned = new(), Charts = new();
-            public float[] Richness, Market, LogBest;
+            public float[] Richness, LogBest;
             public int[] LogCount;
             public bool HasDeckhand;
             public CrewMember Deckhand;
@@ -548,10 +538,9 @@ namespace Catchline.Game
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, BestVoyageKg = BestVoyageKg, UseSquid = UseSquid, PrepOrders = PrepOrders,
                 SecondNetOwned = SecondNetOwned, SecondNetEnabled = SecondNetEnabled,
-                HasTier5Condition = true, Tier5Condition = Tier5Condition, Tier5Broken = Tier5Broken,
                 Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true,
                 SelectedNet = (int)SelectedNet, DeepNetUses = new List<int>(DeepNetUses),
-                FoodMinutes = FoodMinutes, Richness = Richness, Market = Market, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
+                FoodMinutes = FoodMinutes, Richness = Richness, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
             foreach (var u in Owned) d.Owned.Add((int)u);
             d.Charts.AddRange(Charts);
@@ -579,7 +568,6 @@ namespace Catchline.Game
                 s.PrepOrders = d.PrepOrders ?? new PrepOrderSettings();
                 s.UseSquid = d.UseSquid; s.FoodMinutes = d.FoodMinutes;
                 s.Hull = Mathf.Clamp(d.Hull, 0, GameData.Hulls.Length - 1); s.Fuel = d.Fuel;
-                s.RestoreTier5Condition(d.HasTier5Condition, d.Tier5Condition, d.Tier5Broken);
                 s.SecondNetOwned = d.SecondNetOwned; s.SecondNetEnabled = d.SecondNetEnabled && d.SecondNetOwned;
                 s.NetInventory = d.HasNetInventory ? Mathf.Clamp(d.NetInventory, 0, GameData.NetInventoryCapacity) : 3;
                 s.SelectedNet = d.SelectedNet == 1 ? NetKind.Deep : NetKind.Shallow;
@@ -592,7 +580,6 @@ namespace Catchline.Game
                 foreach (var c in d.Charts) s.Charts.Add(c);
                 // Arrays can grow between versions (new seas, new fish): copy what fits.
                 if (d.Richness != null) System.Array.Copy(d.Richness, s.Richness, Mathf.Min(d.Richness.Length, s.Richness.Length));
-                if (d.Market != null) System.Array.Copy(d.Market, s.Market, Mathf.Min(d.Market.Length, s.Market.Length));
                 if (d.LogCount != null) System.Array.Copy(d.LogCount, s.LogCount, Mathf.Min(d.LogCount.Length, s.LogCount.Length));
                 if (d.LogBest != null) System.Array.Copy(d.LogBest, s.LogBest, Mathf.Min(d.LogBest.Length, s.LogBest.Length));
                 s.Deckhand = d.HasDeckhand ? d.Deckhand : null;

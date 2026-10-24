@@ -139,8 +139,8 @@ namespace Catchline.Game
                 netFloats.localPosition = new Vector3(0f, Mathf.Sin(SimTime * 1.8f) * .025f, 0f);
                 UpdateNetTowLines();
             }
-            if (Net == NetState.Hauling && winchCrank != null) winchCrank.Rotate(Vector3.right, dt * WorkMult * winchDrive * 300f, Space.Self);
-            if (IsNetFisher && Net == NetState.Hauling && netDrum != null) netDrum.Rotate(Vector3.right, dt * WorkMult * winchDrive * 100f, Space.Self);
+            if (Net == NetState.Hauling && winchCrank != null) winchCrank.Rotate(Vector3.right, dt * winchDrive * 300f, Space.Self);
+            if (IsNetFisher && Net == NetState.Hauling && netDrum != null) netDrum.Rotate(Vector3.right, dt * winchDrive * 100f, Space.Self);
             if (Net != NetState.Soaking) return;
             netTime = Mathf.Min(netTime + dt, netSoak);
             if (netTime >= netSoak)
@@ -207,7 +207,7 @@ namespace Catchline.Game
             {
                 if (!Owns()) return;
                 // One roll per full worker recovery, never one roll per stage.
-                if (haul && (IsTier5 ? Tier5EquipmentFailure(4) : !person.IsCaptain && State.Rng.NextDouble() >= .8)) { Tear(); return; }
+                if (haul && !IsTier5 && !person.IsCaptain && State.Rng.NextDouble() >= .8) { Tear(); return; }
                 netWorker = null;
                 netClaim++;
                 if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); if (!IsTier5 || person.IsCaptain) BeginNetUnload(person); return; }
@@ -232,7 +232,7 @@ namespace Catchline.Game
                 if (!Owns()) return;
                 FaceNet(person);
                 if (person.IsCaptain) BeginNetGame(person, !haul, Complete, Cancel, Tear);
-                else person.Do(haul ? "Hauling net" : "Setting net", haul ? 5f : 2f, Complete, Cancel);
+                else person.Do(haul ? "Hauling net" : "Setting net", haul ? GameData.NetHaulTime : GameData.NetSetTime, Complete, Cancel);
             }, Cancel);
             if (!walking) Cancel();
             return walking;

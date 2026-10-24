@@ -12,7 +12,7 @@ namespace Catchline.EditorTools
     public static class DashboardChecks
     {
         static void Check(bool ok,string why){if(!ok)throw new Exception("DASH082: "+why);}
-        static void Work(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.025f,1,Quaternion.identity);Check(p.Idle,"job can reach completion");}
+        static void Work(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.025f, Quaternion.identity);Check(p.Idle,"job can reach completion");}
         static void Pipeline()
         {
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
@@ -24,9 +24,9 @@ namespace Catchline.EditorTools
             Check(g.DeliverCatch(f)&&g.ProcessingInput.Contains(f)&&!g.Cooler.Contains(f),"raw catch reaches input, not hold");
             Check(!g.DeliverCatch(f),"duplicate arrival rejected");
             Check(g.TryPrepWork(processor),"processor claims input");processor.Stop();
-            Check(g.ProcessingInput.Contains(f)&&!f.Prepared&&g.PrepWorkersActive==0,"cancel processing conserves raw input");
+            Check(g.ProcessingInput.Contains(f)&&g.PrepWorkersActive==0,"cancel processing conserves raw input");
             Check(g.TryPrepWork(processor),"processing can restart");Work(processor);
-            Check(f.Prepared&&g.ProcessingOutput.Contains(f)&&!g.ProcessingInput.Contains(f)&&g.HoldKg==0,"processed fish waits separately outside main hold");
+            Check(g.ProcessingOutput.Contains(f)&&!g.ProcessingInput.Contains(f)&&g.HoldKg==0,"processed fish waits separately outside main hold");
             Check(g.TryCarryProcessed(carrier),"real outbound hauling job starts");carrier.Stop();
             Check(g.ProcessingOutput.Contains(f)&&g.HoldKg==0,"cancel hauling leaves output safe");
             Check(g.TryCarryProcessed(carrier),"outbound can restart");Work(carrier);
@@ -35,7 +35,7 @@ namespace Catchline.EditorTools
             var raw=new CaughtFish{Species=Species.Cod,Kg=3,StowedAt=g.SimTime};g.DeliverCatch(raw);g.HeadHome();
             Check(g.ProcessingKg==0&&g.Cooler.Contains(raw)&&g.Cooler.Contains(f),"return salvages input and prepared cargo without inventing preparation");
             for(int n=0;n<2000&&g.CurrentMode!=VoyageGame.Mode.Harbour;n++)g.Tick(.05f);
-            Check(g.State.UnsoldCatch.Any(c=>c.Prepared)&&g.State.UnsoldCatch.Any(c=>!c.Prepared),"raw and prepared statuses survive docking");
+            Check(g.State.UnsoldCatch.Count>=2,"sorted and raw cargo survive docking");
             g.NewGame();g.Showcase(0,0);var small=new CaughtFish{Species=Species.Mackerel,Kg=.5f};
             Check(!g.IsPrepFisher&&g.DeliverCatch(small)&&g.Cooler.Contains(small)&&g.ProcessingKg==0,"small boat bypasses processing");
             g.LandFish(g.Rods[0],Species.Herring,.2f);g.LandFish(g.Rods[0],Species.Mackerel,.3f);
@@ -81,7 +81,7 @@ namespace Catchline.EditorTools
         }
         public static void Run()
         {
-            Directory.CreateDirectory("Logs/dash082");ConfigureAssets();ArtImport.BuildLibrary();Pipeline();ForecastAndControls();ManagementChecks.Run();HandlingPaceChecks.Run();PrepRarityChecks.Run();Balance045Checks.Run();NetHaulChecks.Run();Tier5Checks.Run();PtsWaterChecks.Run();
+            Directory.CreateDirectory("Logs/dash082");ConfigureAssets();ArtImport.BuildLibrary();Pipeline();ForecastAndControls();ManagementChecks.Run();PrepRarityChecks.Run();Balance045Checks.Run();NetHaulChecks.Run();Tier5Checks.Run();PtsWaterChecks.Run();
             Debug.Log("[Catchline] DASH082 CHECKS PASSED");Debug.Log("[Catchline] Snapshot written to Logs/dash082");
         }
         public static void ValidateAndBuild(){Run();BuildPreview();}

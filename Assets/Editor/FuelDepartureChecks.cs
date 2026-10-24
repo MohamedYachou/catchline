@@ -34,8 +34,8 @@ namespace Catchline.EditorTools
             Check(loaded.Fuel == s.Fuel && loaded.FuelCapacity == 20, "fractional fuel and tank persist exactly");
             s.Fuel = 0; s.Save("Logs/fuel021/save.json"); Check(GameState.Load("Logs/fuel021/save.json").Fuel == 0, "empty saved fuel stays empty");
             s.Fuel = 19; s.Coins = 0; Check(!s.BuyFuel() && s.Fuel == 19, "unaffordable fill atomic");
-            var g = Fixture(); g.State.FoodMinutes = 0; Check(g.WorkMult == .7f, "empty food standard crew pace");
-            g.State.FoodMinutes = 100; Check(g.WorkMult == .7f, "legacy food grants no speed bonus");
+            var g = Fixture(); g.State.FoodMinutes = 0; Check(WorkSpeed.Rate(g.Captain) == 1f, "empty food standard crew pace");
+            g.State.FoodMinutes = 100; Check(WorkSpeed.Rate(g.Captain) == 1f, "legacy food grants no speed bonus");
             g.State.Fuel = 10; g.Tick(60); Check(Mathf.Abs(g.State.Fuel - 9) < .003f, "one minute elapsed burns one minute independent of crew");
             g.State.Fuel = 1.001f; g.Tick(.2f); Check(g.CurrentMode == VoyageGame.Mode.SailingHome, "base tank automatically returns at10percent");
             for (int i = 0; i < 1000 && g.CurrentMode != VoyageGame.Mode.Harbour; i++) g.Tick(.05f);

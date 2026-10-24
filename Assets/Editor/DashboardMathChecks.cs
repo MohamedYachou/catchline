@@ -75,7 +75,7 @@ namespace Catchline.EditorTools
                 Check(g.Forecast[2].ValuePerMinute==0&&g.ForecastShares[2]==0,"no crab income without fitted recovery operators");
                 if(hull<4)Check(g.Forecast[2].InstalledCount==0&&g.Forecast[2].CycleValue==0&&g.Forecast[2].SpeciesCounts.Count==0,"absent traps have zero recovery value and mix, not just hidden UI");
                 Check(g.ForecastShares.Sum()==100&&g.ForecastShares[0]==100,"only active rod method receives income share");
-                var before=g.ForecastIncome;g.State.PrepOrders.ChumTarget=0;g.State.PrepOrders.PrepareClassMask=0;g.UpdateManagementForecast();Check(g.ForecastIncome==before,"no assumed processing premium in raw expected fish value");
+                var before=g.ForecastIncome;g.State.PrepOrders.ChumTarget=0;g.UpdateManagementForecast();Check(g.ForecastIncome==before,"no assumed processing premium in raw expected fish value");
                 foreach(var size in new[]{new Vector2Int(1672,941),new Vector2Int(1440,900),new Vector2Int(844,390),new Vector2Int(1024,768)})
                 {
                     g.PrepareInterface(size.x,size.y);var management=Bounds(g,"management/open");float height=(float)typeof(VoyageGame).GetField("ih",H).GetValue(g);float width=(float)typeof(VoyageGame).GetField("iw",H).GetValue(g);
@@ -98,8 +98,8 @@ namespace Catchline.EditorTools
             g.ToggleFisherTask(netFisher.Contract,FisherTask.Nets);g.UpdateManagementForecast();Check(g.Forecast[1].ValuePerMinute==0,"net tickbox invalidates forecast immediately");
             var models=(Transform[])typeof(VoyageGame).GetField("buoyModels",H).GetValue(g);foreach(var model in models)model.gameObject.SetActive(false);
             g.UpdateManagementForecast();Check(g.FittedTrapCount==0&&g.Forecast[2].ValuePerMinute==0&&g.ForecastShares[2]==0,"hull flag cannot invent missing/deactivated traps");
-            foreach(var model in models)model.gameObject.SetActive(true);g.State.Tier5Broken[6]=g.State.Tier5Broken[7]=true;g.UpdateManagementForecast();Check(g.Forecast[2].ValuePerMinute>0,"legacy broken manual cages no longer penalize output");
-            g.State.Tier5Broken[6]=g.State.Tier5Broken[7]=false;g.State.NetInventory=0;g.UpdateManagementForecast();Check(g.Forecast[1].ValuePerMinute==0,"no net stock contributes zero");
+            foreach(var model in models)model.gameObject.SetActive(true);g.UpdateManagementForecast();Check(g.Forecast[2].ValuePerMinute>0,"restored cages contribute output");
+            g.State.NetInventory=0;g.UpdateManagementForecast();Check(g.Forecast[1].ValuePerMinute==0,"no net stock contributes zero");
             g.Cooler.Add(new CaughtFish{Species=Species.Cod,Kg=g.State.CoolerCapacity});g.UpdateManagementForecast();
             Check(g.ForecastIncome==0&&g.ForecastShares.Sum()==0,"full hold does not promise future catch income");
             Check(g.ForecastVoyageMinutes<=g.State.FuelCapacity+1&&g.ForecastCost>1,"stalled/filled powered boat does not amortize crew over an impossible fill time");
@@ -123,14 +123,14 @@ namespace Catchline.EditorTools
             g.State.PrepOrders.ChumTarget=0;g.State.Rng=new ControlledRecovery();
             var timers=(float[])typeof(VoyageGame).GetField("buoyTimers",H).GetValue(g);timers[0]=g.BuoySoakSeconds;timers[1]=0;
             var fisher=g.ExtraPeople.First(p=>p.Contract.Role==CrewRole.Fisherman);
-            void Finish(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.025f,g.WorkMult,Quaternion.identity);Check(p.Idle,"real job completes");}
+            void Finish(Person p){for(int n=0;n<5000&&!p.Idle;n++)p.Tick(.025f, Quaternion.identity);Check(p.Idle,"real job completes");}
             Check(g.TryBuoyWork(fisher),"real recovered trap job starts");Finish(fisher);
             var crab=g.OnDeck.Single(f=>f.Species==Species.Crab);float kg=crab.Kg;Call(g,"TickDeckFish",.5f);
             Check(g.BuoyHauls==1&&g.Flow.Sum(FlowTelemetry.Kind.Trap,60)==kg,"successful trap lands species and mass exactly once");
             g.CommandCarry(crab);Finish(g.Captain);
             Check(g.ProcessingInput.Count==1&&g.ProcessingInput[0].Species==Species.Crab&&g.Cooler.Count==0,"crab physically reaches table input");
             Check(g.TryPrepWork(g.Hand),"processor claims actual recovered crab");Finish(g.Hand);
-            Check(g.ProcessingOutput.Single().Species==Species.Crab&&g.ProcessingOutput[0].Prepared,"processed crab retains identity outside hold");
+            Check(g.ProcessingOutput.Single().Species==Species.Crab,"processed crab retains identity outside hold");
             Check(g.TryCarryProcessed(g.Captain),"separate outbound carry starts");Finish(g.Captain);
             Check(g.Cooler.Single().Species==Species.Crab&&Mathf.Abs(g.HoldKg-kg)<.00001f&&g.ProcessingKg==0,"real recovered crab finishes in hold without duplication or lost mass");
             UnityEngine.Object.DestroyImmediate(g.gameObject);Debug.Log("[Catchline] DASH087 actual crab recovery-to-hold pipeline passed");

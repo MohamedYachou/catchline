@@ -81,7 +81,9 @@ namespace Catchline.Game
     {
         public readonly string Name;
         public readonly bool IsCaptain;
-        public float Speed = 1f;
+        // One work-speed model: skill 100 and level 1 for the captain and (until cards arrive) every hand. See WorkSpeed.
+        public float Skill = WorkSpeed.SpecialitySkill, LevelMult = WorkSpeed.BaseLevelMult;
+        public float Speed => WorkSpeed.Rate(Skill, LevelMult);
         public CrewMember Contract;
         public Transform Root { get; private set; }
         public DeckFish Carrying;
@@ -262,10 +264,10 @@ namespace Catchline.Game
             Loitering = true;
         }
 
-        public void Tick(float dt, float mult, Quaternion camRot)
+        public void Tick(float dt, Quaternion camRot)
         {
             moving = false;
-            float budget = GameData.WalkSpeed * Speed * mult * dt * (Loitering ? .55f : 1f);
+            float budget = WorkSpeed.Walk(Skill, LevelMult) * dt * (Loitering ? .55f : 1f);
             while (path.Count > 0 && budget > 0f)
             {
                 var goal = (Grid != null ? Grid.GetLocal(path[0]) : DeckGrid.ToLocal(path[0])) + offset;
@@ -294,7 +296,7 @@ namespace Catchline.Game
 
             if (Busy)
             {
-                busyLeft -= dt * Speed * mult;
+                busyLeft -= dt * Speed;
                 if (busyLeft <= 0f)
                 {
                     var done = busyDone;
@@ -315,12 +317,12 @@ namespace Catchline.Game
             if (rig != null)
             {
                 body.localRotation = Quaternion.identity;
-                oneShotLeft = Mathf.Max(0f, oneShotLeft - dt * Speed * mult);
+                oneShotLeft = Mathf.Max(0f, oneShotLeft - dt * Speed);
                 string pose = moving ? Carrying != null || CarryingBatch ? "Carry" : "Walk"
-                    : Busy ? BusyLabel switch { "Baiting" or "Setting net" or "Maintaining equipment" or "Repairing equipment" => "Bait", "Casting" => "Cast", "Winching net" or "Hauling net" or "Recovering buoy catch" => "Reel", "Taking fish" or "Putting fish away" or "Making chum" or "Preparing fish" or "Stowing" or "Picking up" or "Gathering net catch" or "Stowing net catch" => "Stow", _ => "Idle" }
+                    : Busy ? BusyLabel switch { "Baiting" or "Setting net" => "Bait", "Casting" => "Cast", "Winching net" or "Hauling net" or "Recovering buoy catch" => "Reel", "Taking fish" or "Putting fish away" or "Making chum" or "Sorting fish" or "Stowing" or "Picking up" or "Gathering net catch" or "Stowing net catch" => "Stow", _ => "Idle" }
                     : oneShotLeft > 0f ? oneShot : Rowing ? "Row" : Pose ?? "Idle";
                 if (pose != lastPose) { poseTime = 0f; lastPose = pose; }
-                poseTime += dt * Speed * mult * (moving && Loitering ? .55f : 1f);
+                poseTime += dt * Speed * (moving && Loitering ? .55f : 1f);
                 if (clips.TryGetValue(pose, out var clip) && clip.length > 0f)
                 {
                     bool loop = pose is "Idle" or "Walk" or "Carry" or "Bait" or "Wait" or "Reel" or "Row";
@@ -550,9 +552,8 @@ namespace Catchline.Game
             nibbles.Sort();
         }
 
-        public void Tick(VoyageGame g, float dt, float mult, bool attended)
+        public void Tick(VoyageGame g, float dt, bool attended)
         {
-            if (g.IsTier5) mult *= g.EquipmentEfficiency(Index);
             anim += dt;
             var tipWorld = g.Boat.TransformPoint(tipLocal);
             var bobPos = tipWorld + Vector3.down * 0.35f;
@@ -631,7 +632,7 @@ namespace Catchline.Game
                     break;
 
                 case RodState.Reeling:
-                    t += dt * mult * g.State.ReelSpeed * (Fisher?.Speed ?? 1f) / reelTotal;
+                    t += dt * g.State.ReelSpeed * (Fisher?.Speed ?? 1f) / reelTotal;
                     var under = new Vector3(tipWorld.x, WaterY, tipWorld.z);
                     bobPos = Vector3.Lerp(castFrom, under, t) + Vector3.up * Mathf.Abs(Mathf.Sin(anim * 18f)) * 0.04f;
                     showShadow = true;

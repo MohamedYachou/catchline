@@ -484,7 +484,7 @@ namespace Catchline.Game
             if (State.Deckhand != null && Hand == null)
             {
                 var c = State.Deckhand;
-                Hand = new Person(c.Name, false, IsNetFisher ? Vector3.zero : new Vector3(0.12f, 0f, 0.08f)) { Speed = GameData.Speed(c.Grade), Contract = c, Grid = Grid };
+                Hand = new Person(c.Name, false, IsNetFisher ? Vector3.zero : new Vector3(0.12f, 0f, 0.08f)) { Contract = c, Grid = Grid };
                 Hand.Build(Boat, HandRest, c.Suit, c.Grade == Grade.Veteran ? Palette.HullNavy : Palette.Accent);
             }
             for (int i = ExtraPeople.Count - 1; i >= 0; i--)
@@ -499,7 +499,7 @@ namespace Catchline.Game
             foreach (var c in State.ExtraCrew)
                 if (!ExtraPeople.Any(p => p.Contract == c))
                 {
-                    var p = new Person(c.Name, false, IsNetFisher ? Vector3.zero : new Vector3(.12f, 0f, .08f)) { Speed = GameData.Speed(c.Grade), Contract = c, Grid = Grid };
+                    var p = new Person(c.Name, false, IsNetFisher ? Vector3.zero : new Vector3(.12f, 0f, .08f)) { Contract = c, Grid = Grid };
                     ExtraPeople.Add(p);
                     p.Build(Boat, RestFor(p), c.Suit, c.Grade == Grade.Veteran ? Palette.HullNavy : Palette.Accent);
                 }
@@ -575,7 +575,7 @@ namespace Catchline.Game
                 State.UnsoldCatch.Clear();
                 foreach (var fish in Cooler)
                     State.UnsoldCatch.Add(new CaughtFish { Species = fish.Species, Kg = fish.Kg,
-                        StowedAt = -Mathf.Max(0f, SimTime - fish.StowedAt), Prepared = fish.Prepared, PreparedBonus = fish.PreparedBonus, PreparedQuality = fish.PreparedQuality });
+                        StowedAt = -Mathf.Max(0f, SimTime - fish.StowedAt)});
                 State.BestVoyageKg = Mathf.Max(State.BestVoyageKg, State.UnsoldCatch.Sum(f => f.Kg));
                 State.UnsoldMinutes = (SimTime - voyageStart) / 60f;
                 Cooler.Clear();
@@ -721,7 +721,6 @@ namespace Catchline.Game
 
         // ---- simulation -------------------------------------------------------------------
 
-        public float WorkMult => GameData.CrewWorkSpeed;
         int CrewCount => State.CrewCount + 1;
 
         public void Tick(float dt)
@@ -751,7 +750,7 @@ namespace Catchline.Game
                 case Mode.SailingOut:
                 case Mode.SailingHome:
                     BurnFuel(dt);
-                    modeTimer += dt * (State.Hull > 0 ? 1f : WorkMult);
+                    modeTimer += dt * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
                     UpdateTravel();
                     float stroke = Mathf.Sin(SimTime * 3.2f);
                     if (oarPort != null) oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
@@ -763,16 +762,13 @@ namespace Catchline.Game
                 case Mode.Fishing:
                     BurnFuel(dt);
                     if (CurrentMode != Mode.Fishing) break;
-                    float mult = WorkMult;
                     foreach (var r in Rods)
-                        if (r.Unlocked) r.Tick(this, dt, mult, Attending(r) || FisherAt(r));
+                        if (r.Unlocked) r.Tick(this, dt, Attending(r) || FisherAt(r));
                     ManRod();
                     PreemptNetFallback();
-                    TickCaptainPrep(dt);
                     if (Hand != null && (Hand.Idle || Hand.Loitering)) HandThink(Hand);
                     foreach (var employee in ExtraPeople)
-                        if (employee.Contract.Role == CrewRole.Engineer) { if (employee.Idle || employee.Loitering) EngineerThink(employee); }
-                        else if (employee.Contract.Role == CrewRole.Fisherman) FisherThink(employee);
+                        if (employee.Contract.Role == CrewRole.Fisherman) FisherThink(employee);
                         else if (employee.Idle || employee.Loitering) HandThink(employee);
                     TickTier5(dt);
                     TickNet(dt);
@@ -788,9 +784,9 @@ namespace Catchline.Game
                     break;
             }
             Captain.Pose = Manning?.State switch { RodState.Flying => "Cast", RodState.Waiting or RodState.Bite => "Wait", RodState.Reeling => "Reel", _ => "Idle" };
-            Captain.Tick(dt, WorkMult, camRot);
-            Hand?.Tick(dt, WorkMult, camRot);
-            foreach (var p in ExtraPeople) p.Tick(dt, WorkMult, camRot);
+            Captain.Tick(dt, camRot);
+            Hand?.Tick(dt, camRot);
+            foreach (var p in ExtraPeople) p.Tick(dt, camRot);
         }
 
         void BurnFuel(float dt)
@@ -1027,7 +1023,6 @@ namespace Catchline.Game
 
         public void LandFish(Rod rod, Species s, float kg)
         {
-            if (IsTier5 && Tier5EquipmentFailure(rod.Index)) { Stats.Lost++; Toast("Rod fault — engineer service needed."); return; }
             State.OnCatch(ActiveSpot, kg);
             Stats.Landed++;
             var f = new DeckFish { Species = s, Kg = kg, Tile = rod.Tile, CaughtAt = SimTime, CaughtByCrew = rod.Fisher != null };
@@ -1049,9 +1044,6 @@ namespace Catchline.Game
             if (rod.Fisher == null) { ShowCatch(s, kg); audio?.Play(VoyageAudio.Cue.Land, .6f); }
         }
 
-        public static float FishHandlingSeconds(Person person, float seconds)
-            => seconds / (person?.Contract?.Role == CrewRole.Deckhand ? GameData.DeckhandHandlingSpeed : 1f);
-
         void Fetch(Person p, DeckFish f)
         {
             f.ClaimedBy = p;
@@ -1059,7 +1051,7 @@ namespace Catchline.Game
             if (!p.WalkTo(Grid, f.Tile, () =>
             {
                 p.FacePoint(f.RestPos);
-                p.Do("Picking up", FishHandlingSeconds(p, IsNetFisher ? GameData.CompactPickupTime : GameData.PickupTime), () => PickUp(p, f), Release);
+                p.Do("Picking up", GameData.PickupTime, () => PickUp(p, f), Release);
             }, Release)) Release();
         }
 
@@ -1079,7 +1071,7 @@ namespace Catchline.Game
             p.WalkTo(Grid, InboundAccess, () =>
             {
                 if (IsPrepFisher) p.FacePoint(PrepSurfaceLocal); else FaceHold(p);
-                p.Do("Stowing", FishHandlingSeconds(p, IsNetFisher ? GameData.CompactStowTime : GameData.StowTime), () => TryStow(p));
+                p.Do("Stowing", GameData.StowTime, () => TryStow(p));
             });
         }
 

@@ -56,7 +56,7 @@ namespace Catchline.Game
                 float y = panel.yMax - 118;
                 coastalUi.Label("orders/prep/priority-label", new Rect(panel.x + 20, y, 104, 46), "Prep order:", 15, SeaInk);
                 IButton("net/orders/prep-priority", new Rect(panel.x + 128, y, 208, 46),
-                    State.PrepOrders.ChumFirst ? "Make chum first" : "Prepare fish first", ChangePrepPriority, false);
+                    State.PrepOrders.ChumFirst ? "Make chum first" : "Sort fish first", ChangePrepPriority, false);
                 coastalUi.Label("orders/prep/status", new Rect(panel.x + 344, y, 186, 46),
                     $"{PrepWorkersActive} of 2 deckhands working", 14, SeaInk, TextAnchor.MiddleCenter);
             }

@@ -18,7 +18,7 @@ namespace Catchline.EditorTools
         static void Set(VoyageGame game, string property, object value)
             => typeof(VoyageGame).GetProperty(property).GetSetMethod(true).Invoke(game, new[] { value });
         static void Work(Person person)
-        { for (int i = 0; i < 800 && !person.Idle; i++) person.Tick(.05f, 1f, Quaternion.identity); }
+        { for (int i = 0; i < 800 && !person.Idle; i++) person.Tick(.05f, Quaternion.identity); }
 
         public static void Run()
         {
@@ -73,7 +73,7 @@ namespace Catchline.EditorTools
             game.OnDeck.Clear();
             Check(game.SetNet(), "empty basket releases next cycle");
             // Exercise cancellation after arrival, while the active setting game owns the winch.
-            for (int i = 0; i < 400 && a.Walking; i++) a.Tick(.01f, 1f, Quaternion.identity);
+            for (int i = 0; i < 400 && a.Walking; i++) a.Tick(.01f, Quaternion.identity);
             Check(a.Busy && game.NetGameActive && game.NetGameSetting, "active setting game reached");
             a.Stop();
             Check(game.Net == VoyageGame.NetState.Stowed && game.NetCatch == 0, "cancel active set releases ownership");

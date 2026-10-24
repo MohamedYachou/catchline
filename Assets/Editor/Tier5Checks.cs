@@ -14,7 +14,7 @@ namespace Catchline.EditorTools
         const BindingFlags H=BindingFlags.Instance|BindingFlags.NonPublic;
         static void Check(bool ok,string why){if(!ok)throw new Exception("TIER071: "+why);}
         static object Call(VoyageGame g,string n,params object[] args)=>typeof(VoyageGame).GetMethod(n,H).Invoke(g,args);
-        static void Work(Person p){for(int i=0;i<2500&&!p.Idle;i++)p.Tick(.025f,1,Quaternion.identity);}
+        static void Work(Person p){for(int i=0;i<2500&&!p.Idle;i++)p.Tick(.025f, Quaternion.identity);}
         static void Deck(VoyageGame g,string variant)
         {
             var h=g.State.HullDef;
@@ -51,8 +51,7 @@ namespace Catchline.EditorTools
             Deck(g,"rods");
             g.PrepareInterface(844,390);Check(g.InvokeInterface("tier5/operations"),"actualoperationsbutton");
             g.PrepareInterface(844,390);Check(g.InvokeInterface("tier5/processing"),"actualprocessingordersbutton");
-            g.PrepareInterface(844,390);bool oldOrder=g.State.PrepOrders.PrepareHighestValue;
-            Check(g.InvokeInterface("prep/sort")&&g.State.PrepOrders.PrepareHighestValue!=oldOrder,"actualprocessingprioritytoggle");
+            g.PrepareInterface(844,390);
             Check(g.InvokeInterface("prep/close"),"closeprocessing");g.PrepareInterface(844,390);
             Check(g.InvokeInterface("tier5/operations"),"reopenoperations");g.PrepareInterface(844,390);
             Check(g.InvokeInterface("tier5/crew/duties"),"actualcrewdutiesbutton");g.PrepareInterface(844,390);
@@ -63,16 +62,10 @@ namespace Catchline.EditorTools
                 g.Tick(.05f);
                 foreach(var p in new[]{g.Captain,g.Hand}.Concat(g.ExtraPeople).Where(p=>p!=null))Check(!g.Grid.IsBlocked(p.Tile),"actualworkeroncleartile "+p.Name+" "+p.Tile);
             }
-            Debug.Log($"[Catchline] TIER071180s rods landed={g.Stats.Landed} hold={g.HoldKg} buoyhauls={g.BuoyHauls} maintenance={g.MaintenanceJobs} prepared={g.Cooler.Count(f=>f.Prepared)}");
+            Debug.Log($"[Catchline] TIER071180s rods landed={g.Stats.Landed} hold={g.HoldKg} buoyhauls={g.BuoyHauls}");
             Check(g.Stats.Landed>5&&g.Cooler.Count>0,"actualrod/netcatchandstorage");
             Check(g.BuoyHauls>0&&g.Flow.Sum(FlowTelemetry.Kind.Trap,180)>0,"actualbuoycatchlandedandrecorded; storage identity verified through isolated full pipeline");
-            Check(g.MaintenanceJobs==0,"manual gear requires no maintenance worker");
-            Check(g.Cooler.Any(f=>f.Prepared&&f.PreparedBonus==1.5f),"processorproduces150percentcatch");
             Check(g.State.PrepOrders.ChumTarget==10,"Tier5 uses existing station chum orders");
-            var raw=new CaughtFish{Species=Species.Cod,Kg=4,StowedAt=g.SimTime};var processed=new CaughtFish{Species=Species.Cod,Kg=4,StowedAt=g.SimTime,Prepared=true,PreparedBonus=1.5f,PreparedQuality=1};
-            Check(Mathf.Abs(g.State.ValueOf(processed,g.SimTime)-g.State.ValueOf(raw,g.SimTime)*1.5f)<=1,"150percentvaluewithrounding");
-            g.State.Tier5Condition[0]=10;g.State.Tier5Broken[0]=true;
-            Check(g.EquipmentEfficiency(0)==1&&!g.Tier5EquipmentFailure(0)&&!g.CaptainService(),"legacy manual wear has no effect");
             g.State.Save("Logs/tier071/save.json");var loaded=GameState.Load("Logs/tier071/save.json");
             Check(loaded.Hull==4&&loaded.CrewCount==6&&!loaded.Crew.Any(c=>c.Role==CrewRole.Engineer),"six active fisher/deckhand save roundtrip");
             var old=new GameState(9){Hull=3,Coins=GameState.Tier5Cost};Check(old.RefitTier5()&&old.Coins==0&&old.Hull==4&&old.SecondNetOwned,"realprogressionexactcharge");Check(!old.RefitTier5(),"notchargedtwice");

@@ -39,7 +39,6 @@ namespace Catchline.Game
                 else coastalUi.Toast("toast", toast, null, 18);
             }
             InterfaceCrewBait();
-            InterfaceCaptainPrep();
             if (!ManagementOpen) { InterfaceTier5Operations(); ManagementEntry(); }
             coastalUi.End();
         }

@@ -63,12 +63,12 @@ namespace Catchline.Game
             void Collect()
             {
                 hand.FacePoint(IsTier5?PreparedOutputLocal:new Vector3(4.84f,.5f,1.4f));
-                hand.Do("Picking up", FishHandlingSeconds(hand,GameData.CompactPickupTime),()=>
+                hand.Do("Picking up", GameData.PickupTime,()=>
                 {
                     if(pipelineVisuals.TryGetValue(fish,out var v) && v != null)
                     { v.SetParent(hand.Root,false);v.localPosition=new Vector3(0,.6f,.2f); }
                     if(!hand.WalkTo(Grid,CoolerAccess,()=>
-                    {FaceHold(hand);hand.Do("Stowing",FishHandlingSeconds(hand,GameData.CompactStowTime),Finish,Cancel);},Cancel)) Cancel();
+                    {FaceHold(hand);hand.Do("Stowing",GameData.StowTime,Finish,Cancel);},Cancel)) Cancel();
                 },Cancel);
             }
             if(!hand.WalkTo(Grid,ProcessingOutputAccess,Collect,Cancel)) { Cancel();return false; }

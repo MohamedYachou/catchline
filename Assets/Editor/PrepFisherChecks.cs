@@ -16,7 +16,7 @@ namespace Catchline.EditorTools
         static void Check(bool ok, string why) { if (!ok) throw new Exception("TIER033: " + why); }
         static void Field(VoyageGame g, string n, object v) => typeof(VoyageGame).GetField(n, H).SetValue(g, v);
         static void Call(VoyageGame g, string n, params object[] args) => typeof(VoyageGame).GetMethod(n, H).Invoke(g, args);
-        static void Work(Person p) { for (int n = 0; n < 1600 && !p.Idle; n++) p.Tick(.05f, 1, Quaternion.identity); }
+        static void Work(Person p) { for (int n = 0; n < 1600 && !p.Idle; n++) p.Tick(.05f, Quaternion.identity); }
         static Transform Find(VoyageGame g, string name) => g.Boat.GetComponentsInChildren<Transform>(true).Single(t => t.name == name);
         static void Deck(VoyageGame g, string variant)
         {
