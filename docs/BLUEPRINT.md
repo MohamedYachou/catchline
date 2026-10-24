@@ -268,7 +268,7 @@ Unlock order is gated by tier so no card is useful before its gear exists.
 | 3 | Kofi | Fisher · Nets | sets 20% faster | tends a second fisher's net while his soaks (+15% both) | **Back-to-back**: haul and reset in one job |
 | 3 | Ana | Deckhand · Haul | +10% walk | her deliveries arm one half-time sort job | **Clear deck**: clears every loose fish on deck in one sweep |
 | 4 | Mats | Deckhand · Table | +10% table | **Offcuts**: every product job yields one chum | **Batch cut**: processes a basket as one job |
-| 4 | Lise | Fisher · Rods | bite wait −10% | shares squid: fishers next to her get her bait class | **Chain strike**: a bite within 10 s of her landing is auto-hooked |
+| 4 | Lise | Fisher · Jigs (night) | **Lamp eye**: jig cycle +10% | **Shares the light**: the neighbouring station counts as lit at night | **Ink run**: her jig pulls two squid per cycle |
 | 5 | Olaf | Engineer | faults 20% rarer | lights also raise night sort speed to 100% | **Overclock**: +50% power 30 s, breaker risk |
 | 5 | Pim | Fisher · Cages/Lines | baits 30% faster | his raised line arms a free cage rebait | **Double drop**: baits two lines with one chum |
 | 5 | Tove | Deckhand · Sort | +10% sort | crab pinches never take her out | **Grader**: her sorted purple+ fish yield 2 special products |
