@@ -16,7 +16,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         // Hull models already running on the deck graph. Grows as each hull migrates.
-        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat" };
+        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat", "Skiff" };
         public DeckGraph DeckGraph { get; private set; }
         public DeckScheduler Scheduler { get; private set; }
         public bool UsesDeckGraph => Scheduler != null;

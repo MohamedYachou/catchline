@@ -1153,6 +1153,8 @@ namespace Catchline.Game
         // Deckhand: carry fish to the cooler first, then bait empty hooks, then rest.
         void HandThink(Person h)
         {
+            // Migrated decks assign every hauling/sorting/processing act through the scheduler.
+            if (UsesDeckGraph) { IdlePatrol(h); return; }
             if (IsNetUnloading(h)) return;
             var rest = RestFor(h);
             if (h.Carrying != null)

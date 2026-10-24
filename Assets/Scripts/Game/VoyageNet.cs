@@ -18,7 +18,7 @@ namespace Catchline.Game
         float netTowStern, netTowFront, netTowHalfWidth;
         Person netWorker;
         int netClaim;
-        public int NetBasketCount => OnDeck.FindAll(f => f.FromNetBasket).Count;
+        public int NetBasketCount => UsesDeckGraph ? DeckGraph.OfKind(Deck.StationKind.Net).Sum(s => s.Out?.Count ?? 0) : OnDeck.FindAll(f => f.FromNetBasket).Count;
         public bool NetBasketBlocked => NetBasketCount > 0;
         Vector2Int NetAccess => IsTier5 && tier5RearNetAccess.HasValue ? tier5RearNetAccess.Value : IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
         Vector3 NetBasketLocal => IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
@@ -154,7 +154,7 @@ namespace Catchline.Game
         bool NetOperator(CrewMember c) => c != null && (IsTier5
             ? c.Role == CrewRole.Fisherman && c.Allows(FisherTask.Nets)
             : c.Role == CrewRole.Deckhand);
-        bool RigBasketBlocked(int rig) => OnDeck.Any(f=>f.FromNetBasket && f.Tile==(rig==1?SecondNetAccess:NetAccess));
+        bool RigBasketBlocked(int rig) => UsesDeckGraph ? GearStation(Deck.StationKind.Net, rig)?.Out?.Full == true : OnDeck.Any(f=>f.FromNetBasket && f.Tile==(rig==1?SecondNetAccess:NetAccess));
         public int AssignedNet(Person person)
         {
             foreach (var crew in new List<CrewMember>(netAssignments.Keys))
@@ -210,7 +210,7 @@ namespace Catchline.Game
                 if (haul && !IsTier5 && !person.IsCaptain && State.Rng.NextDouble() >= .8) { Tear(); return; }
                 netWorker = null;
                 netClaim++;
-                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); if (!IsTier5 || person.IsCaptain) BeginNetUnload(person); return; }
+                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); if (!UsesDeckGraph && (!IsTier5 || person.IsCaptain)) BeginNetUnload(person); return; }
                 Net = NetState.Soaking;
                 netTime = 0f;
                 netSoak = DeepNetSelected ? GameData.DeepNetSoakSeconds : GameData.ShallowNetSoakSeconds;
@@ -252,6 +252,12 @@ namespace Catchline.Game
             int count = netFish.Count;
             foreach (var (species, kg) in netFish)
             {
+                if (UsesDeckGraph && GearStation(Deck.StationKind.Net, 0) is { } station)
+                {
+                    LandOnDeck(station, species, kg);
+                    RecordLanding(FlowTelemetry.Kind.Net, species, kg); Stats.Landed++;
+                    continue;
+                }
                 var fish = new DeckFish { Species = species, Kg = kg, Tile = NetAccess, CaughtAt = SimTime, FromNetBasket = true };
                 fish.Root = DeckFish.BuildModel(species, kg, Boat);
                 int i = IsNetFisher ? NetBasketCount : OnDeck.Count;
