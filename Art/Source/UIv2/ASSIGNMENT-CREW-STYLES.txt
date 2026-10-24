@@ -1,0 +1,18 @@
+CREW-STYLES-1 — role outfits and more women, 2D style mockups. Assigned by Claude (engineering lead) for Mo, 2026-10-24. You are the designer; this is step 1 of 3 (2D styles now, then 3D-look mocks, then real 3D models matching the images exactly).
+
+Mo's direction: he prefers the ART108 portrait set (Assets/Art/UI/Portraits/art108-<name>.png, attached). Keep each existing character's face, hair, skin and age identical to their art108 portrait; only the clothes change to their role. Mo wants more women in the crew and clearly different outfits per role.
+
+Role outfit language (fixed; readable at 56 px and as a 3D silhouette; colours are the game's material palette):
+- Fisher: navy knit beanie; YELLOW oilskin bib overalls (#E6AD38) over a navy knit sweater (#173F57); navy rubber boots.
+- Deckhand: SAFETY-ORANGE knit beanie (#E36A35); navy knit sweater; TEAL rubber bib apron (#168F9F); orange rubber gloves.
+- Engineer: YELLOW hard hat with a small headlamp; hull-blue coveralls (#2A6685) with cream reflective stripes; tool belt with a wrench.
+- Navigator: navy officer cap with a brass compass badge; navy pea coat with brass buttons; binoculars on a strap.
+- Captain: white captain's cap with anchor badge; navy double-breasted jacket, gold buttons and epaulettes.
+
+Roster and roles: Pim Fisher, Kofi Fisher, Noor Deckhand, Ana Deckhand, Lise Fisher (the redhead), Olaf Engineer, Dirk Fisher, Mats Deckhand, Sam Deckhand, Mira Navigator, Tove Deckhand, Captain (man, as the existing captain). NEW women with no reference yet, design them fresh and distinct: Rosa Fisher (dark curly hair, 30s), Ines Engineer (short black hair, 40s), Tess Fisher (blonde braid, 20s).
+
+Deliver to /mnt/c/Users/momoy/Projects/Catchline/Art/Source/UIv2/crew-styles/ :
+1. portrait-<name>.png for all 15 (lowercase: pim kofi noor ana lise olaf dirk mats sam rosa ines tess mira tove captain). Generate each individually, attaching that character's art108 portrait as the identity reference where one exists. Same bust framing, facing slightly left, as art108; flat uniform #C0C0C0 background; no text.
+2. lineup-2d.png: full-body lineup, 5 roles left to right (Fisher, Deckhand, Engineer, Navigator, Captain), women on the top row and men on the bottom row (10 figures), standing front three-quarter, same chibi proportions as the current 3D crew (attached crew3d.jpg: big head, about 2.5 heads tall), concept illustration style, flat #C0C0C0 background, no text.
+
+Checks: open every PNG; identity matches the art108 reference; outfit matches the role table; no text. Finish with a 5-line comms.md entry (CREW-STYLES-1, Codex 2) and a short checkpoint in docs/CLI-ARTIST-HANDOFF.md. No Assets/, game source or git changes. Claude cuts, composes and shows Mo.
