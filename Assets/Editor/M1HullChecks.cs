@@ -39,7 +39,8 @@ namespace Catchline.EditorTools
                 g.State.EnsureCrewRoleOffers();
                 Check(g.State.Hire(g.State.Board.First(c => c.Role == CrewRole.Deckhand)), "hire two deckhands");
             }
-            g.SyncUpgrades(); g.SyncCrew(); g.SetSail();
+            typeof(VoyageGame).GetMethod("RebuildBoat", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(g, new object[] { false });
+            g.SyncCrew(); g.SetSail();
             for (float t = 0; t < 120 && g.CurrentMode != VoyageGame.Mode.Fishing; t += .05f) g.Tick(.05f);
             Check(g.CurrentMode == VoyageGame.Mode.Fishing && g.UsesDeckGraph, "live hull uses graph");
             var deck = g.DeckGraph; var sched = g.Scheduler;
@@ -63,8 +64,19 @@ namespace Catchline.EditorTools
             // Sustained live trace: sparse arrivals allow every hull to clear without overflowing the hold.
             for (int i = 0; i < 6; i++) { g.LandFish(rod, Species.Mackerel, kg); Advance(g, 20); }
             Check(sched.Stowed == 7 && sched.OnDeck == 0 && hands.All(w => w.Idle), "120 second trace drained with no stuck worker");
+            if (hull == 2)
+            {
+                hands[0].SetDuties(Duty.Haul, Duty.Haul); hands[1].SetDuties(Duty.Sort, Duty.Sort);
+                var field = typeof(VoyageGame).GetField("netFish", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                var pile = (List<(Species, float)>)field.GetValue(g);
+                for (int i = 0; i < 14; i++) pile.Add((Species.Mackerel, kg));
+                typeof(VoyageGame).GetMethod("FinishHaul", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(g, null);
+                Check(g.GearStation(StationKind.Net, 0).Out.Count == 14 && g.OnDeck.Count == 0, "net unload enters graph");
+                Until(g, () => sched.Stowed == 21, "14 fish net pile sorted and stowed by sorter and hauler under 60 seconds", 59.9f);
+            }
             Debug.Log("[Catchline] M1 " + g.State.HullDef.Model.ToUpperInvariant() + " CHECKS PASSED");
         }
     }
     public static class M1SkiffChecks { public static void Run() => M1HullChecks.Run(1); }
+    public static class M1CompactChecks { public static void Run() => M1HullChecks.Run(2); }
 }
