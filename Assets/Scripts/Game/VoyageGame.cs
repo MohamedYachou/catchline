@@ -381,7 +381,7 @@ namespace Catchline.Game
             var lib = ArtLibrary.Get();
             if (kind >= 0 && Navigation != null)
             {
-                Put(root, lib?.M(Navigation.ModelId), new Vector3(0, WaterY, 0));
+                BuildNavigableSea(root, lib);
                 return root;
             }
             var stone = Palette.Hex("8E8A80");
@@ -904,6 +904,7 @@ namespace Catchline.Game
             camCenter = Vector3.Lerp(camCenter, center, k);
             Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, 5.6f, harbourBlend) + ZoomOffset, k);
             Cam.transform.position = camCenter - Cam.transform.forward * 40f;
+            UpdateNavigableSeaVisual(frameDt);
             RefreshInterface();
 
             float waveSpeed = CurrentMode is Mode.SailingOut or Mode.SailingHome ? 3.5f : 0.25f;
@@ -1057,7 +1058,7 @@ namespace Catchline.Game
 
         public void LandFish(Rod rod, Species s, float kg)
         {
-            State.OnCatch(ActiveSpot, kg);
+            State.OnCatch(ActiveSpot, kg, s, false);
             Stats.Landed++;
             if (UsesDeckGraph && GearStation(Deck.StationKind.Rod, rod.Index) is { } rodStation)
             {

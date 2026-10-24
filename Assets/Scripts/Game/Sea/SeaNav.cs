@@ -122,6 +122,7 @@ namespace Catchline.Game.Sea
                     }
         }
         public bool InsideBorder(Vector2 p) => Contains(Border, p, true);
+        public float BorderDistance(Vector2 p) => DistanceToEdges(Border, p);
         public bool Blocked(Vector2 p) => land.Any(poly => Contains(poly, p, true) || DistanceToEdges(poly, p) < Radius + .009f);
         public bool InShallows(Vector2 p) => Shallows.Any(poly => Contains(poly, p, true));
         public Vector2 Snap(Vector2 p)
