@@ -1,0 +1,58 @@
+{
+  "name": "SeaBass",
+  "triangles": 968,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.05505,
+      -0.24,
+      -0.117
+    ],
+    [
+      0.05505,
+      0.26,
+      0.1368
+    ]
+  ],
+  "saved_source_triangles": 968,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 520,
+  "materials": [
+    "M_FishSilver",
+    "M_HullBlue",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_SeaBass",
+    "Tail": "Catchline_SeaBass"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.16,
+      0.0
+    ]
+  },
+  "fbx_triangles": 968,
+  "vertex_max_roundtrip_error_m": 0.0,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "SeaBass.blend": "009f92352cf5e4863645cb608bea0adcd9a5882a96cd7e92b6cb6f51b8660119",
+    "SeaBass.fbx": "35992b7edfe12ced4e912eaeed60d8eb82386b11735e3d8c6ddde37be84fe486",
+    "fish-seabass.png": "26936e003f88d631a2ec1aac395a137922d1b4c2f770748541541cd0c1b7573b"
+  }
+}

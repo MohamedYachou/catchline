@@ -1,0 +1,11 @@
+MIRA-R10 (Sol) — finish Mira and add the shared female body. Claude (lead) for Mo, 2026-10-24, high effort.
+
+Mo's verdict: your round-9 Mira (Art/Models/CrewV2/Mira-sol/, r09, 19,891 tris) is "pretty much finished". He especially likes the thin hair strands at the front. Fable's version is out. The image-to-3D route is dropped (no credits); don't call generate_3d.
+
+Two changes, building on r09 (keep r09's renders and files as they are; new rounds r10+):
+
+1. Back of the hair. From behind it is now a flat slab and one block ponytail. Give the back the same quality as the front: the thin layered strands continuing over the back of the head under the cap, and a full, voluminous high ponytail of springy wavy curls (several tapered curl locks with depth and a few loose ends), as in mira-portrait.jpg / mira-fullbody.jpg. No thick ropes. Keep the front exactly as it is.
+
+2. A shared female body for every woman in the crew (Mira now; Lise, Tess, Ines, Noor, Ana, Rosa, Tove and a woman captain later). Basic, tasteful, stylised to match the chibi style: slightly narrower waist, wider and slightly deeper hips, and a modest chest form under the clothes. Same height, head, rig, bones, weights and animations; the clothes follow the new body shape so nothing clips in Idle/Walk/Carry/Cast. Male crew keep the current flat body unchanged. Make it reusable: a female base body (or a female shape applied by the builder via a flag) that every later woman's build can use, documented in REPORT.md.
+
+Stay within 20k triangles. Deliver to Art/Models/CrewV2/Mira-sol/ (updated Mira.blend/Mira.fbx; round folders r10+), plus Mira-review.png with front, three-quarter, side, back, a back close-up of the hair, a male/female body comparison at the same scale, and Walk/Idle frames. Update REPORT.md (what changed, triangle count, how the female base is reused). Finish with a 5-line comms.md entry and a handoff checkpoint. No Assets/, game source, Unity or git changes.

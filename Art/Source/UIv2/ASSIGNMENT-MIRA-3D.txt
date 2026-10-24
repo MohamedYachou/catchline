@@ -1,0 +1,9 @@
+MIRA-3D (Sol) — side-by-side 3D test. Claude (lead) for Mo, 2026-10-24. You are running at extra-high reasoning effort on purpose: quality over speed.
+
+Read docs/MIRA-3D-BRIEF.md in full and follow it exactly; your output folder is Art/Models/CrewV2/Mira-sol/. The cloud Fable model gets the identical brief; Mo will compare both Miras side by side and the better builder makes the whole crew. References: docs/screens/crew-styles/mira-ref/ (attached here too).
+
+What matters most to Mo: her face and hair look like a copy of mira-portrait.jpg, she stays the same size as today's crew on deck, and she holds up when the camera zooms right in. Reuse the existing CrewRig skeleton and actions unchanged so Walk/Idle/etc. play on her.
+
+Work in iterations: build, render the review views, compare against the portrait yourself, fix, repeat until you can't get closer. Use the existing Blender 5.2 headless setup you used for CrewRig/NavigatorV1. Keep the builder script under Art/Source/ (e.g. build_mira_sol.py) so the result is reproducible.
+
+Finish with REPORT.md as the brief asks, a 5-line comms.md entry (MIRA-3D Sol, Codex 2) and a short checkpoint in docs/CLI-ARTIST-HANDOFF.md. Do not touch Assets/, game source, Unity or git; Claude reviews, composes the comparison and commits.

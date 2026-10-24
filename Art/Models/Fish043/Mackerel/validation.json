@@ -1,0 +1,58 @@
+{
+  "name": "Mackerel",
+  "triangles": 1348,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.03046,
+      -0.1632,
+      -0.05967
+    ],
+    [
+      0.03046,
+      0.1768,
+      0.07344
+    ]
+  ],
+  "saved_source_triangles": 1348,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 740,
+  "materials": [
+    "M_FishSilver",
+    "M_HullNavy",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_SeaTeal"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Mackerel",
+    "Tail": "Catchline_Mackerel"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1088,
+      0.0
+    ]
+  },
+  "fbx_triangles": 1348,
+  "vertex_max_roundtrip_error_m": 1.000240445137024e-05,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Mackerel.blend": "a77d3e3293f9c97ed5b3b69f13158f888e6f18482093d938f4601b747b057f3c",
+    "Mackerel.fbx": "3c86a143468ec618552a324bcc25ec9a8fc49d8c5c79cd2b8b6bc7218097d02c",
+    "fish-mackerel.png": "3ddda3c7666c9bca4e38b5653e2f21b11e53431d7a5e72cac111777df8ae42f1"
+  }
+}

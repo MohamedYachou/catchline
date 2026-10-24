@@ -1,0 +1,52 @@
+{
+  "name": "CongerEel",
+  "triangles": 860,
+  "meshes": 1,
+  "source_bounds": [
+    [
+      -0.06345,
+      -0.384,
+      -0.036
+    ],
+    [
+      0.0814,
+      0.408,
+      0.068
+    ]
+  ],
+  "saved_source_triangles": 860,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 458,
+  "materials": [
+    "M_FishSilver",
+    "M_HullBlue",
+    "M_HullNavy",
+    "M_RailIvory",
+    "M_Rubber"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_CongerEel"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_triangles": 860,
+  "vertex_max_roundtrip_error_m": 0.0,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "none; continuous eel body",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "CongerEel.blend": "dcc5ede009b65d2d776dcafa39eb8ad014518ad06c9c3761bd4f3d7c046cbf76",
+    "CongerEel.fbx": "ab20916d21d58a4de054cb38412fe9e5a903fe88cd69915583be1633703ce8a2",
+    "fish-conger.png": "a1d7cfe7b11138dc09d4489782dbe8d05574e77d2e559d6fc045487381648378"
+  }
+}

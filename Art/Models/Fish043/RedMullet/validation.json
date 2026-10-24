@@ -1,0 +1,59 @@
+{
+  "name": "RedMullet",
+  "triangles": 996,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.03325,
+      -0.1632,
+      -0.07735
+    ],
+    [
+      0.03325,
+      0.1768,
+      0.08925
+    ]
+  ],
+  "saved_source_triangles": 996,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 552,
+  "materials": [
+    "M_BandIvory",
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_Skin"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_RedMullet",
+    "Tail": "Catchline_RedMullet"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1088,
+      0.0
+    ]
+  },
+  "fbx_triangles": 996,
+  "vertex_max_roundtrip_error_m": 1.000240445137024e-05,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "RedMullet.blend": "2e33f40df14d671221fabfe6d70de9fb57343571358df167296f07e2df577cd0",
+    "RedMullet.fbx": "37811545d925e365aab96faff1a8405efecdf57a72c6dd24a727f903e988c85c",
+    "fish-redmullet.png": "acb46e17c1f72bcd796363fa0350e69e333e42c1c4212e4b77d27a117a0c4fb4"
+  }
+}

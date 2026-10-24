@@ -1,0 +1,58 @@
+{
+  "name": "Whiting",
+  "triangles": 908,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.03249,
+      -0.1824,
+      -0.05928
+    ],
+    [
+      0.03249,
+      0.1976,
+      0.06475
+    ]
+  ],
+  "saved_source_triangles": 908,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 494,
+  "materials": [
+    "M_BandIvory",
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Whiting",
+    "Tail": "Catchline_Whiting"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1216,
+      0.0
+    ]
+  },
+  "fbx_triangles": 908,
+  "vertex_max_roundtrip_error_m": 0.0,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Whiting.blend": "ec0b703a8c260bdce98f886fa1ba78adc74edf7b0a019d8ec7e89ad0a932e487",
+    "Whiting.fbx": "da34c9fd6b53a92252dc5fe871dd93d03fc125ee63c11106d1d6406b9f949b3b",
+    "fish-whiting.png": "0076f8abd2a4a19d28db3c7ba8dd51f6f88f4230a26ce0ec6a84e2b6c1e701f3"
+  }
+}

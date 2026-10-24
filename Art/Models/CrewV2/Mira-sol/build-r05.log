@@ -1,0 +1,38 @@
+00:00.500  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:96: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Mira_Face 3126 2300
+PART TRIANGLES Mira_EyesExpression 3312 2500
+PART TRIANGLES Mira_HairSculpt 26676 5799
+PART TRIANGLES Mira_OfficerCap 3966 3300
+PART TRIANGLES Mira_CoatHandsBoots 5592 4300
+PART TRIANGLES Mira_JewelleryBinoculars 2796 1700
+MIRA TRIANGLES 19899
+00:02.812  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.4746 sec.
+RENDER DEVICE [('NVIDIA GeForce RTX 4080 Laptop GPU', 'OPTIX')]
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:746: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:760: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:04.969  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\three-quarter.png'
+00:07.953  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\face.png'
+00:10.000  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\front.png'
+00:12.015  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\side.png'
+00:14.015  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\back.png'
+00:16.062  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\idle.png'
+00:18.109  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\walk.png'
+00:21.969  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r05\same-scale.png'
+Info: Saved as "Mira.blend"
+MIRA BUILD COMPLETE r05 19899 triangles; original contract unchanged
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

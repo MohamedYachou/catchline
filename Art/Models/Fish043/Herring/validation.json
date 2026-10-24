@@ -1,0 +1,57 @@
+{
+  "name": "Herring",
+  "triangles": 896,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.02223,
+      -0.1248,
+      -0.0416
+    ],
+    [
+      0.02223,
+      0.1352,
+      0.04634
+    ]
+  ],
+  "saved_source_triangles": 896,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 484,
+  "materials": [
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Herring",
+    "Tail": "Catchline_Herring"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.0832,
+      0.0
+    ]
+  },
+  "fbx_triangles": 896,
+  "vertex_max_roundtrip_error_m": 1.0000541806221008e-05,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Herring.blend": "6335f9cff0926ec83e9bb2c5175e0de33e83ab5c14c09d67bf81fa54465aef01",
+    "Herring.fbx": "0cb1ccaa74d38fe85839b2dc217da6b68cc1ae85857780bc4920587c838eb3fe",
+    "fish-herring.png": "3ff8534c11347a4967f154e8b0afab685ffb6af027a913cedf11ba6b8ea09524"
+  }
+}

@@ -1,0 +1,20 @@
+CREW3D-MEN (Codex 1, Windows) — build the seven male crew in detailed 3D. Assigned by Claude (engineering lead) for Mo, 2026-10-24. Work through the whole list without stopping to ask; finish each character fully before the next. Run until all seven are done or your budget runs out (then leave a precise checkpoint).
+
+Quality bar and method: Codex 2 built Mira (Art/Models/CrewV2/Mira-sol/, round r09, builder Art/Source/build_mira_sol.py, REPORT.md). Mo approved her as "pretty much finished": the face, the thin layered hair strands at the front, cap and outfit detail. Match that standard and approach for every man. Read docs/MIRA-3D-BRIEF.md (rig, scale, axes, materials, 20k-triangle budget, deliverables) — it applies to every character, not just Mira. Use the unchanged CrewRig (Art/Models/CrewRig/, 20 bones, 11 actions) and the current male (flat) body. Blender: C:\Program Files\Blender Foundation\Blender 5.2\blender.exe headless.
+
+Men, in this order (2D design = Art/Source/UIv2/crew-styles/portrait-<name>.png for face and hair; outfits = docs/screens/crew-styles/lineup-2d.png bottom row and the role table below):
+1. Pim — Fisher
+2. Dirk — Fisher (grey hair, big grey moustache)
+3. Kofi — Fisher (dark skin, short black curls)
+4. Sam — Deckhand
+5. Mats — Deckhand (brown hair, moustache)
+6. Olaf — Engineer (white beard and hair)
+7. Captain — Captain (portrait-captain.png)
+
+Role outfits (fixed): Fisher = navy knit beanie, yellow oilskin bib overalls (#E6AD38) over navy knit sweater, navy rubber boots. Deckhand = safety-orange beanie (#E36A35), navy knit sweater, teal rubber bib apron (#168F9F), orange rubber gloves. Engineer = yellow hard hat with headlamp, hull-blue coveralls (#2A6685) with cream reflective stripes, tool belt with wrench. Captain = white captain's cap with anchor badge, navy double-breasted jacket with gold buttons and epaulettes.
+
+Face and hair are what Mo cares about most: as close to a copy of each portrait as 3D allows, hair in thin layered strands (never thick ropes), detailed from the back too. Beards and moustaches likewise in fine layered clumps.
+
+Ownership (do not cross): you own Art/Models/CrewV2/{Pim,Dirk,Kofi,Sam,Mats,Olaf,Captain}/ and a shared builder Art/Source/build_crew_male.py (+ per-character settings). Read but never modify Mira-sol, build_mira_sol.py, CrewRig, or anything Codex 2 writes (the women: Art/Models/CrewV2/{Lise,Tess,Ines,Noor,Ana,Rosa,Tove,CaptainF}/, build_crew_female.py). No Assets/, game source, Unity scenes or git operations; Claude reviews, composes comparisons and commits.
+
+Per character deliver Art/Models/CrewV2/<Name>/: <Name>.blend, <Name>.fbx, textures, <Name>-review.png (front, three-quarter, side, back, face close-up beside the portrait, same-scale with Mira and the current crew, Walk and Idle frames), REPORT.md (triangles, textures, honest gaps). After each character append one line to comms.md (CREW3D-MEN, Codex 1, <Name> done, triangles). Start with a START entry listing the reservations above.

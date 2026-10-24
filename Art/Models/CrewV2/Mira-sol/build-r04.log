@@ -1,0 +1,32 @@
+00:00.578  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:96: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Mira_Face 3126 2300
+PART TRIANGLES Mira_EyesExpression 3312 2800
+PART TRIANGLES Mira_HairSculpt 26676 6200
+PART TRIANGLES Mira_OfficerCap 3966 3500
+PART TRIANGLES Mira_CoatHandsBoots 5008 3600
+PART TRIANGLES Mira_JewelleryBinoculars 2796 1500
+MIRA TRIANGLES 19900
+00:03.000  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.5082 sec.
+RENDER DEVICE [('NVIDIA GeForce RTX 4080 Laptop GPU', 'OPTIX')]
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:723: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:737: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:05.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r04\three-quarter.png'
+00:07.922  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r04\face.png'
+Info: Saved as "Mira.blend"
+MIRA BUILD COMPLETE r04 19900 triangles; original contract unchanged
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

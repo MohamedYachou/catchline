@@ -1,0 +1,57 @@
+{
+  "name": "Pollock",
+  "triangles": 908,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.05088,
+      -0.2304,
+      -0.08424
+    ],
+    [
+      0.05088,
+      0.2496,
+      0.09202
+    ]
+  ],
+  "saved_source_triangles": 908,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 494,
+  "materials": [
+    "M_FishSilver",
+    "M_KelpGreen",
+    "M_RailIvory",
+    "M_Rubber"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Pollock",
+    "Tail": "Catchline_Pollock"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1536,
+      0.0
+    ]
+  },
+  "fbx_triangles": 908,
+  "vertex_max_roundtrip_error_m": 1.000240445137024e-05,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Pollock.blend": "d15a09d340ae1bfe28097a6a9d910553d6e7a6598f3cea3cd21605beb48f91a9",
+    "Pollock.fbx": "acead90beffef1a7f772789537064f872132884211f8d603917ea4999e8d2e52",
+    "fish-pollock.png": "ff768c4850a22f969b598423dfde5df43a354e677531b8f10e55e450f69d3e58"
+  }
+}

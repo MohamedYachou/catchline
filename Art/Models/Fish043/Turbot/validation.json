@@ -1,0 +1,57 @@
+{
+  "name": "Turbot",
+  "triangles": 1592,
+  "meshes": 2,
+  "source_bounds": [
+    [
+      -0.03445,
+      -0.2726,
+      -0.22202
+    ],
+    [
+      0.04008,
+      0.3016,
+      0.22202
+    ]
+  ],
+  "saved_source_triangles": 1592,
+  "saved_source_vertices_equal": true,
+  "source_vertex_count": 832,
+  "materials": [
+    "M_CoastStone",
+    "M_CoastWet",
+    "M_RailIvory",
+    "M_Rubber"
+  ],
+  "mesh_parents": {
+    "Body": "Catchline_Turbot",
+    "Tail": "Catchline_Turbot"
+  },
+  "source_mesh_pivots": {
+    "Body": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Tail": [
+      0.0,
+      0.1856,
+      0.0
+    ]
+  },
+  "fbx_triangles": 1592,
+  "vertex_max_roundtrip_error_m": 1.000240445137024e-05,
+  "nose": "source -Y; exported Unity +Z",
+  "tail_pivot": "attachment .32 * length on source Y; runtime retains Tail suffix",
+  "texture_dependencies": [],
+  "portrait": [
+    512,
+    256
+  ],
+  "validation": "saved source and actual FBX checked; Unity native appearance pending",
+  "file_sha256": {
+    "Turbot.blend": "a0cf71422242ded1d7ca3712b2da8ee5478fe52c23a8a1d6591b2a9e07c462e0",
+    "Turbot.fbx": "0e1369a981a43894d3a4b6919358d69470a9e6d0bb6a09aa0ef4b69f23899e13",
+    "fish-turbot.png": "a8b3ea83f6a3f36b17882d0afc231d58d3490af5d65aabf431b56df22ce5b7b9"
+  }
+}

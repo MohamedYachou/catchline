@@ -1,0 +1,16 @@
+MIRA-GEN (Sol) — third Mira entry via image-to-3D. Claude (lead) for Mo, 2026-10-24. Mo approved trying the Blender MCP generator; it may spend a generation credit, so use as few generate_3d calls as needed (at most 3).
+
+Why: procedural shapes can't copy the drawing's face and hair closely enough. An image-conditioned generation should carry the hair volume and face from the picture; your job is to make it a proper game character.
+
+Mo's verdict on round 1 (your hand-built Mira-sol vs Fable's): he prefers yours. Your body is good enough and your face is close enough. What he dislikes in both is the hair: thick rope-like strands. He wants detailed, voluminous wavy hair like the drawing: many finer curls and clumps with depth, soft flyaway ends, a full high ponytail of springy curls, and side locks framing the face. Blender is open on Mo's PC now.
+
+Note: Claude interrupted your hand-built MIRA-3D run at round r09 on Mo's request; Art/Models/CrewV2/Mira-sol/Mira.blend (r09, 19,891 tris) is your base. This run is at high effort.
+
+So the goal of this run is the best Mira overall, not a pure generated model: keep your own body, outfit and face, and use the generated model mainly for the hair (and anything else it does clearly better), fitted onto your Mira. If the generated hair is still not good enough, build better hair yourself with alpha-textured hair cards or many thin tapered curl strands; never thick ropes. Show the generated model raw, and your combined result, so Mo can see both.
+
+1. Use your blender MCP (mcp-for-blender). Call get_addon_status first. If Blender isn't running or the addon/generator is off, stop and report exactly what Mo must open or switch on; do not work around it.
+2. generate_3d from docs/screens/crew-styles/mira-ref/mira-fullbody.jpg (front-ish full body). If the first result is weak, one retry with mira-portrait.jpg for the head only is allowed, merged onto the body.
+3. Make it a crew member per docs/MIRA-3D-BRIEF.md: scale to the CrewRig (bare-scalp 0.95 m, floor pivot between the boots, -Y forward), bind to the unchanged 20-bone CrewRig so all 11 actions play (fix weights so arms/legs deform cleanly in Walk), keep it at or under 20k triangles (decimate/retopo; keep the face and hair densest), keep or bake its texture to at most 2048², name materials per the brief.
+4. Output the combined Mira to Art/Models/CrewV2/Mira-gen/ (leave Mira-sol as the round-1 result) with Mira.blend, Mira.fbx, textures, Mira-review.png (same tiles as the brief, plus the raw generated model before cleanup) and REPORT.md (generator used, credits spent, triangle count, what was fixed by hand, honest gaps).
+
+Finish with a 5-line comms.md entry (MIRA-GEN, Codex 2) and a short handoff checkpoint. No Assets/, game source, Unity or git changes.

@@ -1,0 +1,36 @@
+00:00.593  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:96: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Mira_Face 3126 2700
+PART TRIANGLES Mira_EyesExpression 3312 2300
+PART TRIANGLES Mira_HairSculpt 6730 6000
+PART TRIANGLES Mira_OfficerCap 4158 3000
+PART TRIANGLES Mira_CoatHandsBoots 5176 4100
+PART TRIANGLES Mira_JewelleryBinoculars 2796 1800
+MIRA TRIANGLES 19900
+00:02.875  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.4854 sec.
+RENDER DEVICE [('NVIDIA GeForce RTX 4080 Laptop GPU', 'OPTIX')]
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:724: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_sol.py:738: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:03.359  cycles           | WARNING Image file C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\Mira_Face.png does not exist.
+00:03.359  cycles           | ERROR Failed to load 1 image files
+00:05.265  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r03\three-quarter.png'
+00:05.421  cycles           | WARNING Image file C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\Mira_Face.png does not exist.
+00:05.437  cycles           | ERROR Failed to load 1 image files
+00:08.156  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r03\face.png'
+Info: Saved as "Mira.blend"
+MIRA BUILD COMPLETE r03 19900 triangles; original contract unchanged
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

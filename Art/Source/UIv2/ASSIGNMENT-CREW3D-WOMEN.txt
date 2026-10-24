@@ -1,0 +1,19 @@
+CREW3D-WOMEN (Codex 2) — build the remaining women in detailed 3D. Claude (lead) for Mo, 2026-10-24. Work through the whole list without stopping to ask; finish each character fully before the next. Run until all are done or your budget runs out (then leave a precise checkpoint).
+
+Base: your finished Mira (round 10+) and the shared female body you made for her. Same quality bar, method, rig, scale, materials and 20k-triangle budget (docs/MIRA-3D-BRIEF.md applies to every character). Face and hair are what Mo cares about most: as close to a copy of each portrait as 3D allows, thin layered strands front and back (like Mira's front strands), never thick ropes. Build a shared builder Art/Source/build_crew_female.py (+ per-character settings) on the female base so later women are cheap.
+
+Women, in this order (face/hair = Art/Source/UIv2/crew-styles/portrait-<name>.png; outfits = docs/screens/crew-styles/lineup-2d.png top row + role table):
+1. Lise — Fisher (the redhead, curly red hair)
+2. Tess — Fisher (dirty blonde, loose side braid, freckles)
+3. Ines — Engineer (platinum, Daenerys-style long braids under the hard hat)
+4. Noor — Deckhand (straight jet-black bob with fringe)
+5. Ana — Deckhand (chestnut messy top bun)
+6. Rosa — Fisher (short dark-brown pixie cut)
+7. Tove — Deckhand (silver-grey short hair, 60s)
+8. CaptainF — Captain (woman captain, auburn hair in a low bun; design = lineup top row, captain)
+
+Role outfits (fixed): Fisher = navy knit beanie, yellow oilskin bib overalls (#E6AD38) over navy knit sweater, navy boots. Deckhand = safety-orange beanie (#E36A35), navy knit sweater, teal rubber bib apron (#168F9F), orange rubber gloves. Engineer = yellow hard hat with headlamp, hull-blue coveralls (#2A6685) with cream reflective stripes, tool belt with wrench. Captain = white captain's cap with anchor badge, navy double-breasted jacket with gold buttons and epaulettes.
+
+Ownership (do not cross): you own Art/Models/CrewV2/{Mira-sol,Lise,Tess,Ines,Noor,Ana,Rosa,Tove,CaptainF}/ and build_crew_female.py. Codex 1 is building the men in parallel (Art/Models/CrewV2/{Pim,Dirk,Kofi,Sam,Mats,Olaf,Captain}/, build_crew_male.py): read-only for you. No Assets/, game source, Unity or git operations.
+
+Per character deliver Art/Models/CrewV2/<Name>/: <Name>.blend, <Name>.fbx, textures, <Name>-review.png (front, three-quarter, side, back, back close-up of the hair, face close-up beside the portrait, same-scale with Mira, Walk and Idle frames), REPORT.md. After each character append one comms.md line (CREW3D-WOMEN, Codex 2, <Name> done, triangles).
