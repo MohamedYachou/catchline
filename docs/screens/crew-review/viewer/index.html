@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew 3D viewer</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+  :root { --bg: #F4EFE3; --ink: #173F57; --chip: #fff; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 "Segoe UI", system-ui, sans-serif; display: flex; flex-direction: column; height: 100vh; }
+  header { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; align-items: center; }
+  header strong { margin-right: 8px; }
+  button { border: 1px solid #c9bfa8; background: var(--chip); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; font: inherit; }
+  button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  main { flex: 1; display: grid; grid-template-columns: 1fr 2fr; gap: 12px; padding: 0 16px 16px; min-height: 0; }
+  img { width: 100%; height: 100%; object-fit: contain; background: #ddd; border-radius: 12px; }
+  model-viewer { width: 100%; height: 100%; background: #e8e2d4; border-radius: 12px; }
+  .hint { font-size: 13px; opacity: .7; padding: 0 16px 8px; }
+  @media (max-width: 700px) { main { grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; } }
+</style>
+</head>
+<body>
+<header><strong>Crew 3D</strong><span id="names"></span></header>
+<div class="hint">Drag to orbit, scroll to zoom, right-drag to pan. Use the buttons to jump to a head view.
+  <button data-orbit="0deg 80deg">front</button><button data-orbit="90deg 80deg">their left</button>
+  <button data-orbit="180deg 80deg">back</button><button data-orbit="-90deg 80deg">their right</button></div>
+<main><img id="portrait" alt="2D portrait"><model-viewer id="mv" camera-controls shadow-intensity=".6" exposure="1.1" interaction-prompt="none"></model-viewer></main>
+<script>
+const crew = ['Pim','Dirk','Kofi','Sam','Mats','Olaf','Captain','Mira','Lise','Tess','Ines','Noor'];
+const mv = document.getElementById('mv'), img = document.getElementById('portrait'), bar = document.getElementById('names');
+function show(n) {
+  mv.src = 'glb/' + n + '.glb?' + Date.now();
+  img.src = 'portraits/portrait-' + n.toLowerCase() + '.png';
+  bar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.textContent === n));
+  try { localStorage.setItem('crew', n); } catch (e) {}
+}
+crew.forEach(n => { const b = document.createElement('button'); b.textContent = n; b.onclick = () => show(n); bar.append(b); });
+mv.addEventListener('load', () => {
+  const s = mv.getDimensions(); const c = mv.getBoundingBoxCenter();
+  mv.cameraTarget = `${c.x}m ${c.y + s.y * .36}m ${c.z}m`;
+  mv.cameraOrbit = `0deg 80deg ${s.y * .9}m`; mv.fieldOfView = '30deg';
+});
+document.querySelectorAll('[data-orbit]').forEach(b => b.onclick = () => {
+  const s = mv.getDimensions(); mv.cameraOrbit = `${b.dataset.orbit} ${s.y * .9}m`;
+});
+let last = 'Pim'; try { last = localStorage.getItem('crew') || 'Pim'; } catch (e) {}
+show(crew.includes(last) ? last : 'Pim');
+</script>
+</body>
+</html>

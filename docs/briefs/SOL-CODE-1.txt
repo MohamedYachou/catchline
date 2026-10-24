@@ -1,0 +1,46 @@
+SOL-CODE-1 — Sol 6.1 (medium) — finish M1: every hull runs on the deck graph, then wire M2 cards into the game
+
+You are a fresh session; everything you need is in files. Claude (lead) wrote this for Mo and accepts your work.
+
+GOAL
+1. Migrate the remaining four hulls to the deck graph, in this order, one at a time: Skiff, CompactFisherV1,
+   PrepFisherV1, Tier5DeepLines103 (buoy boat). After each, delete that hull's old hull-specific worker code.
+2. Then M2 wiring: roster, deployment, wages at departure, XP at sale and Save v2, using the M2 data layer
+   that already exists and passes its checks.
+
+CONTEXT (read first, nothing else up front)
+- docs/MASTER-PLAN.md sections M1 and M2 (the spec and acceptance lists).
+- How the rowboat was done (copy this pattern): Assets/Scripts/Game/VoyageDeck.cs (DeckGraphHulls = { "Rowboat" },
+  SetupDeckGraph, SyncDeckWorkers, TickDeckGraph, LandOnDeck, FlushDeckGraph), Assets/Scripts/Game/Deck/*.cs,
+  Assets/Editor/M1RowboatChecks.cs and M1GraphChecks.cs.
+- Station files: Assets/Art/Models/Boats/<Hull>.stations.json (all five exist).
+- M2 data: Assets/Scripts/Game/Data/{Cards,CardProgression,CardState,SaveV2}.cs and Assets/Editor/M2DataChecks.cs.
+- The last ~40 lines of comms.md for current reservations.
+
+OWNERSHIP
+- You may write: Assets/Scripts/Game/** (game C#), Assets/Editor/M1*Checks.cs, Assets/Editor/M2*Checks.cs.
+- Never write: Art/**, Assets/Art/**, UI art, scenes, the art agents' files, docs other than your comms lines.
+- Never touch the player's save. Never batchmode or open the main project for checks.
+
+HOW TO CHECK (scratch editor only: C:\Users\momoy\Projects\Catchline-ui2-sim)
+- Sync code: robocopy C:\Users\momoy\Projects\Catchline\Assets C:\Users\momoy\Projects\Catchline-ui2-sim\Assets /E /XF ArtLibrary.asset UiV2Preview.unity
+- unity recompile --project-path C:\Users\momoy\Projects\Catchline-ui2-sim
+- unity command script eval --project-path <same> --code 'Catchline.EditorTools.M1SkiffChecks.Run();' --timeout 600
+  (the Unity CLI skill / `unity --help` explains more; the editor must already be open: `unity status --until-ready`).
+- Every existing check must still pass: M0Checks, M1GraphChecks, M1RowboatChecks, M2DataChecks, M3DataChecks, M5DataChecks.
+
+DONE = EVIDENCE, per hull
+- New M1<Hull>Checks covering MASTER-PLAN M1 acceptance for that hull (reachability, rod → basket → sort → hold with one
+  claim at a time, undersize never in hold, cancel loses no fish, 120 s trace with 0 lost fish and no stuck worker;
+  compact: 14-fish net pile sorted and stowed by one sorter + one hauler in < 60 s).
+- The PASS log line pasted into your comms line.
+- M2: M2Checks per MASTER-PLAN M2 acceptance. Skip the tier-5 berth-count check: it is an open question for Mo
+  (MASTER-PLAN says 6 cards are refused, BLUEPRINT implies 5 hires + navigator). Write QUESTION in comms.md and move on.
+
+RULES
+- One hull at a time; commit after each hull's checks pass (stage only your files; message describes the change,
+  no model or agent names), no push.
+- Do not change gameplay outside M1/M2 scope. If the spec and the code disagree, write a QUESTION line and take the
+  safer reading.
+- comms.md: START line with your reservation, one line per finished hull/step, CHECKPOINT at safe boundaries,
+  DONE/PARTIAL at the end with what is left.

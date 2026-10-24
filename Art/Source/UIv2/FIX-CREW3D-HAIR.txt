@@ -1,0 +1,50 @@
+FIX FIRST — crew hair review by Claude (lead) for Mo, 2026-10-24 16:10. Do this before any new character or map.
+
+Evidence: docs/screens/crew-review/<Name>.png (2D portrait + front, 3/4, their left side, back, their right side), rendered from the
+current .blend files with docs/screens/crew-review/headshots.py:
+  "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe" -b <Name>.blend -P docs/screens/crew-review/headshots.py -- <outprefix>
+Re-render with that script after each fix and look at all five views. Acceptance: no bare scalp/skin anywhere between the hat rim and
+the hairline, all the way round (temple, above and behind the ear, nape); no hard vertical or horizontal cut edges on a hair mass;
+keep the thin layered strands Mo likes; rig, export and validation as in the original assignment.
+
+Mo's words: "the pictures of the front look perfect but the sides are so bad ... right below the hat we have frontal hair strands,
+then bald, then the side hair starts." Holes in the hair read as bald spots. Front-only review sheets hid this; never judge from the
+front alone. The women matter most and get the same standard as the men. Required proof per character: a radial coverage audit
+(rays from the head centre through the band between hat rim and ear bottom, every 10 degrees round the head, several heights) with zero
+rays hitting skin/scalp before hair, the hit list saved in the character folder, plus the five headshots opened and looked at.
+
+Shared defect (every man, Tess, Noor, check every woman too): the hair is a front fringe plus a separate back block that starts BEHIND the ear with a hard
+vertical edge. The temple-to-ear band on both sides is bald. Add side locks from the temple down to and over the top of the ear,
+blending into the back mass, as each portrait shows.
+
+Codex 1 (men, build_crew_male.py):
+- Pim, Sam, Mats: fill both sides as above. They currently share one identical cut: give Sam and Mats the wavier side flicks their
+  portraits show (Mats: wavy flips out over the ears).
+- Kofi: curls must wrap the sides from temple to behind the ear; fill the dark scalp patch visible at the back left.
+- Dirk, Olaf: full grey side tufts above and behind the ears like the portraits; no bald band.
+- Captain: brown curly sides under the cap; remove the hard rectangular cut at the nape. Then finish his review sheet and REPORT.md.
+Codex 2 (women, build_crew_female.py):
+- Tess: fill the sides; back strands denser so no scalp shows between them at the nape.
+- Ines: hair renders near-white; make it platinum (warm pale gold with slightly darker roots/shadows) so it reads as hair, not a white
+  helmet. Close side gaps.
+- Noor: the bob must be one continuous shape round the head: no vertical seam on the side, cover the bare strip in front of the ear.
+  Then finish her review sheet and REPORT.md.
+- Lise: good; only close the small see-through spot by her left ear.
+- Mira: see UPDATE 16:55 below (Mo unlocked her).
+
+UPDATE 16:55 — Mo reviewed the women in a 3D viewer (docs/screens/crew-review/viewer) and answered Claude's questions. This overrides
+the women's lines above where they differ:
+- Tess: re-check after your hair-r02. Mo still saw bald spots on both sides between the hat and the side hair. ALSO rebuild her braid as
+  a round, full 3D braid like Ines's braids (seen from the side it is currently flat, front-facing only, like a 2D card).
+- Ines: strands are good and properly 3D. Only fix the two small bald spots at the front-left and front-right corners just under the
+  hat brim. Keep everything else. (The platinum colour note above still applies.)
+- Noor: same as Ines: only the two small bald spots at the front corners just under the hat. Keep everything else.
+- Mira: UNLOCKED by Mo for a full hair rework; the front may change too if the whole improves. Problems: one massive solid blob on the
+  side instead of strands; bald spots on both sides below the cap; the back needs more defined strands; the ponytail is a flat fan.
+  Target: match her 2D portrait (Art/Source/UIv2/crew-styles/portrait-mira.png, docs/screens/crew-styles/mira-ref/): big voluminous
+  dark-brown waves built from many thin strands, round and full from every angle. Keep face, cap, outfit, body and rig. Save the new
+  work as a new revision; keep r20 archived so it can be compared.
+Order: Ines, Noor (small), Tess, then Mira (big). Show each at all five headshot angles before calling it done.
+
+Then continue the standing order (remaining women Ana, Rosa, Tove, CaptainF; men then A1 maps) with this acceptance built in.
+Append one comms.md line per fixed character.
