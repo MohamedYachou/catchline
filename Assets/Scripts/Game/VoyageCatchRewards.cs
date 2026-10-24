@@ -46,20 +46,43 @@ namespace Catchline.Game
             if (SimTime < netReceiptUntil) InterfaceNetReceipt();
             else
             {
-                var review = compactInterface ? new Rect(16 + 262, ih - 16 - 52, 220, 52) : new Rect(16, ih - 16 - 56, 250, 56);
-                IButton("catch/net/review", review, $"Last net · {LastNetReceipt.Count} fish", () => netReceiptUntil = SimTime + NetReceiptSeconds, false);
+                // Reopen the last receipt from the open-water gap, clear of the bottom action row.
+                var review = new Rect(HudGapLeft, ih - Edge - HudButtonHeight - 12 - 52, compactInterface ? 220 : 250, 52);
+                coastalUi.Secondary("catch/net/review", review, $"Last net · {LastNetReceipt.Count} fish", () => netReceiptUntil = SimTime + NetReceiptSeconds, "v2-icon-net"); Block(review);
             }
+        }
+        // Catch cards drop into the open water under the guidance toast, between the ground slab and the crew rail.
+        Rect CatchCardRect(float height)
+        {
+            float left = HudGapLeft, right = HudGapRight, width = Mathf.Clamp(right - left, 280, 440);
+            return new Rect(left + Mathf.Max(0, (right - left - width) / 2), Edge + (compactInterface ? 56 : 64), width, height);
+        }
+        void TierPill(string id, Rect r, CatchTier tier, Transform parent)
+        {
+            var pill = coastalUi.Sliced(id, r, "v2-pill-cream", parent, Color.Lerp(CatchPresentation.Accent(tier), Color.white, .55f));
+            coastalUi.Text(id + "/label", new Rect(8, 0, r.width - 16, r.height), CatchPresentation.Label(tier), Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleCenter, pill);
         }
         void InterfaceCatchSpecimen()
         {
-            var tier=CatchPresentation.Tier(lastCatchSpecies,lastCatchKg);
-            var accent=CatchPresentation.Accent(tier);
-            float elapsed=CatchDisplaySeconds-(catchUntil-SimTime);
-            float enter=1-Mathf.Pow(1-Mathf.Clamp01(elapsed/.28f),3);
-            float width=compactInterface?344:376,height=width*288/688;
-            var r=new Rect(16,ih-height-78+(1-enter)*12,width,height);
-            string title=catchNew?"New species!":catchRecord?"Personal best!":"Nice catch!";
-            DrawGeminiCatch("catch",r,lastCatchSpecies,lastCatchKg,title);
+            var species = lastCatchSpecies; float kg = lastCatchKg;
+            var tier = CatchPresentation.Tier(species, kg);
+            float elapsed = CatchDisplaySeconds - (catchUntil - SimTime);
+            float enter = 1 - Mathf.Pow(1 - Mathf.Clamp01(elapsed / .28f), 3);
+            float h = compactInterface ? 112 : 132;
+            var r = CatchCardRect(h); r.y -= (1 - enter) * 12;
+            string title = catchNew ? "New species!" : catchRecord ? "Personal best!" : "Nice catch!";
+            var slab = coastalUi.Slab("catch", r, title, true); Block(r);
+            float pw = compactInterface ? 40 : 46, ph = h - Skin.HeaderBand - 16;
+            TierPill("catch/tier", new Rect(r.width - 150, 9, 136, 28), tier, slab);
+            float art = ph * 1.5f;
+            coastalUi.Card("catch/frame", new Rect(12, Skin.HeaderBand + 8, art, ph), Skin.Card.Ink, slab);
+            coastalUi.Icon("catch/portrait", new Rect(18, Skin.HeaderBand + 10, art - 12, ph - 4), FishPortrait(species), slab, null, FishPortrait(species));
+            float x = art + 26, tw = r.width - x - 14;
+            coastalUi.Text("catch/name", new Rect(x, Skin.HeaderBand + 6, tw, ph * .52f), GameData.Get(species).Name, Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, slab);
+            coastalUi.Text("catch/weight", new Rect(x, Skin.HeaderBand + 8 + ph * .52f, tw * .55f, ph * .44f),
+                $"{kg:0.00} kg · {(CatchPresentation.IsBig(species, kg) ? "big" : "coastal")}", Skin.Type.Small, Skin.InkSoft, TextAnchor.UpperLeft, slab);
+            int value = State.ValueOf(new CaughtFish { Species = species, Kg = kg, StowedAt = SimTime }, SimTime);
+            coastalUi.PricePill("catch/value", new Rect(r.width - 14 - (compactInterface ? 100 : 116), Skin.HeaderBand + 8 + ph * .5f, compactInterface ? 100 : 116, pw - 6), value, true, slab);
         }
         void DrawGeminiCatch(string id,Rect r,Species species,float kg,string title)
         {
@@ -95,45 +118,29 @@ namespace Catchline.Game
         {
             var receipt = LastNetReceipt;
             var groups = receipt.Items.GroupBy(f => (f.Species, f.Tier)).OrderByDescending(g => g.Key.Tier).ThenBy(g => g.Key.Species).ToList();
-            bool small = compactInterface;
-            float row = small ? 30 : 40, header = small ? 42 : 54, footer = small ? 32 : 42;
-            // A future five-species batch still clears the left instruments on phones.
-            float available = ih - 26 - ReferenceRect(20, 416, 260, 72).yMax;
-            if (small && groups.Count > 0) row = Mathf.Min(row, (available - header - footer) / groups.Count);
-            float height = header + groups.Count * row + footer;
-            float width = small ? 266 : 288;
+            float row = compactInterface ? 34 : 42, footer = compactInterface ? 34 : 40;
+            float maxH = ih - Edge - HudButtonHeight - 24 - (Edge + (compactInterface ? 56 : 64));
+            float height = Mathf.Min(maxH, Skin.HeaderBand + 10 + groups.Count * row + footer + 8);
+            int shown = Mathf.Max(1, Mathf.Min(groups.Count, Mathf.FloorToInt((height - Skin.HeaderBand - 18 - footer) / row)));
             float elapsed = NetReceiptSeconds - (netReceiptUntil - SimTime);
             float enter = 1 - Mathf.Pow(1 - Mathf.Clamp01(elapsed / .28f), 3);
-            var r = new Rect(16, ih - height - 14 + (1 - enter) * 12, width, height);
-            RewardSurface("catch/net", r, Palette.Hex("78C8BB")); Block(r);
-            coastalUi.Art("catch/net/icon", new Rect(r.x + 13, r.y + (small ? 9 : 14), 27, 27), "icon-net");
-            RewardText("catch/net/title", new Rect(r.x + 49, r.y + 7, width - 65, small ? 27 : 29), "Net catch stowed", small ? 20 : 22, RewardWhite);
-            if (!small) RewardText("catch/net/subtitle", new Rect(r.x + 49, r.y + 33, width - 65, 18), "Safely in your hold", 12, RewardMuted);
-            for (int i = 0; i < groups.Count; i++)
+            var r = CatchCardRect(height); r.y -= (1 - enter) * 12;
+            var slab = coastalUi.Slab("catch/net", r, "Net catch stowed", true); Block(r);
+            float w = r.width;
+            for (int i = 0; i < shown; i++)
             {
-                var group = groups[i]; var tier = group.Key.Tier;
-                float y = r.y + header + i * row;
-                var accent = CatchPresentation.Accent(tier);
-                RewardSurface($"catch/net/{i}/glow", new Rect(r.x + 8, y, 61, row), accent, true);
-                coastalUi.Art($"catch/net/{i}/portrait", new Rect(r.x + 12, y + 3, 54, row - 6), FishPortrait(group.Key.Species));
+                var group = groups[i]; float y = Skin.HeaderBand + 8 + i * row;
+                coastalUi.Icon($"catch/net/{i}/portrait", new Rect(14, y + 2, (row - 4) * 1.5f, row - 4), FishPortrait(group.Key.Species), slab, null, FishPortrait(group.Key.Species));
                 string label = GameData.Get(group.Key.Species).Name + (group.Count() > 1 ? $" ×{group.Count()}" : "");
-                if (small)
-                {
-                    RewardText($"catch/net/{i}/name", new Rect(r.x + 76, y, width - 140, row), label, 15, RewardWhite);
-                    RewardText($"catch/net/{i}/weight", new Rect(r.xMax - 62, y, 46, row), $"{group.Sum(f => f.Kg):0.00} kg", 12, RewardMuted, TextAnchor.MiddleRight);
-                }
-                else
-                {
-                    RewardText($"catch/net/{i}/name", new Rect(r.x + 76, y, width - 148, row * .6f), label, 17, RewardWhite);
-                    RewardText($"catch/net/{i}/weight", new Rect(r.x + 76, y + row * .55f, width - 148, row * .45f), $"{group.Sum(f => f.Kg):0.00} kg", 12, RewardMuted);
-                    RewardText($"catch/net/{i}/value", new Rect(r.xMax - 66, y, 50, row), $"~{group.Sum(f => f.Value)}", 18, accent, TextAnchor.MiddleRight);
-                }
+                float x = 22 + (row - 4) * 1.5f;
+                coastalUi.Text($"catch/net/{i}/name", new Rect(x, y, w * .5f, row), label, Skin.Type.Body, Skin.Ink, TextAnchor.MiddleLeft, slab);
+                coastalUi.Text($"catch/net/{i}/weight", new Rect(w * .5f + x - 20, y, w * .22f, row), $"{group.Sum(f => f.Kg):0.0} kg", Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleRight, slab);
+                coastalUi.Text($"catch/net/{i}/value", new Rect(w - 86, y, 70, row), $"~{group.Sum(f => f.Value)}", Skin.Type.Heading, Skin.Teal, TextAnchor.MiddleRight, slab);
             }
-            float fy = r.yMax - footer;
-            coastalUi.Box("catch/net/divider", new Rect(r.x + 16, fy + 1, width - 32, 1), "", new Color(.7f, .85f, .87f, .16f), blocks: false);
-            RewardText("catch/net/total", new Rect(r.x + 16, fy + 5, width - 103, footer - 9), $"{receipt.Count} fish · {receipt.Kg:0.00} kg", small ? 13 : 15, RewardMuted);
-            coastalUi.Art("catch/net/coin", new Rect(r.xMax - 88, fy + (footer - 18) * .5f, 18, 18), "icon-coin");
-            RewardText("catch/net/value", new Rect(r.xMax - 65, fy + 3, 49, footer - 6), $"~{receipt.Value}", small ? 18 : 21, RewardWhite, TextAnchor.MiddleRight);
+            float fy = r.height - footer - 8;
+            coastalUi.Sliced("catch/net/divider", new Rect(16, fy, w - 32, 2), "v2-rule", slab);
+            coastalUi.Text("catch/net/total", new Rect(28, fy + 2, w * .6f, footer), $"{receipt.Count} fish · {receipt.Kg:0.00} kg", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, slab);
+            coastalUi.Text("catch/net/value", new Rect(w * .5f, fy + 2, w * .5f - 28, footer), $"~{receipt.Value:N0} coins", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleRight, slab);
         }
     }
 }
