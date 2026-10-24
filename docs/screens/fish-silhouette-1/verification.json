@@ -1,0 +1,126 @@
+﻿{
+    "task":  "FISH-SILHOUETTE-1",
+    "owner":  "Codex 1 (Windows app)",
+    "verified_utc":  "2026-10-24T20:19:36.6026632Z",
+    "scratch":  "C:/Users/momoy/Projects/Catchline-lead-sim",
+    "unity":  "6000.3.25f1",
+    "result":  "API + render checks PASS; Unity exit 0",
+    "final_images_individually_opened":  8,
+    "normal_camera_orthographic_size":  3.2011,
+    "gpu_wave_mean_pixel_difference":  0.1299277,
+    "source_files":  [
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame.meta",
+                             "sha256":  "943647A9B2D021612EEB1574C9FB5C846D28C09416E099FBEDD93B5BF0A7C314",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame/FishShadow.cs",
+                             "sha256":  "DC69963DEA30A6C070634C3C1DCA0F4B5874F8C055045F052F6A330DD3097B9D",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame/FishShadow.cs.meta",
+                             "sha256":  "4AF14419AD7011A4A2A26DE74577A9DDED9C7CFE96FB8F3653BE3E9F63A54E02",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame/Resources.meta",
+                             "sha256":  "DC61201D44B305F998505A2269AE85014C730D303EA49EE8B1A6CF1DB06036A0",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame/Resources/FishShadow.shader",
+                             "sha256":  "C75F2F6DB1B59D8D7F41E955D75BEA88903D740FFA0121800A6DCF08CA74CD07",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Scripts/Game/Minigame/Resources/FishShadow.shader.meta",
+                             "sha256":  "1566AB8ABC95DC352A7B313DF97AE5152525636ADCBD1FA4D323BFBB78346226",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Editor/FishShadowChecks.cs",
+                             "sha256":  "71701878BD319C94809B6565B37DD9CB7D36A043246B82D4E65D63AB12A53625",
+                             "matches_checked_scratch":  true
+                         },
+                         {
+                             "path":  "Assets/Editor/FishShadowChecks.cs.meta",
+                             "sha256":  "267015F511848A4D3CF9CD7407BA15C1F3957AB1D53A30DF756D1079C098591A",
+                             "matches_checked_scratch":  true
+                         }
+                     ],
+    "artifacts":  [
+                      {
+                          "path":  "boat-depth-0.2-1440.png",
+                          "sha256":  "494C26B9EC16F16B838BC25906B1F6B7BD0FB42AE744F6211240F8DB7DD111C8",
+                          "bytes":  1064863,
+                          "width":  1440,
+                          "height":  900
+                      },
+                      {
+                          "path":  "boat-depth-0.2-844.png",
+                          "sha256":  "2CC76A24AD949DFF2F0CC26E4F8442C652BEE03DFD421B3DC6C130C83324F61C",
+                          "bytes":  346103,
+                          "width":  844,
+                          "height":  390
+                      },
+                      {
+                          "path":  "boat-depth-0.7-1440.png",
+                          "sha256":  "3CDF00D5E1D03BC15C5AA96CE8428FA8D37F2FC146E808231EF32244325C82D6",
+                          "bytes":  1057970,
+                          "width":  1440,
+                          "height":  900
+                      },
+                      {
+                          "path":  "boat-depth-0.7-844.png",
+                          "sha256":  "972E764E1B2B86CD360328AEC538C978D35DE62FD7934CAE31FAF14AE260629D",
+                          "bytes":  344098,
+                          "width":  844,
+                          "height":  390
+                      },
+                      {
+                          "path":  "close-depth-0.2-1440.png",
+                          "sha256":  "941674574E2BC9A3C9C74DC9F63875CEA5C3D25F9660C3455D184652AD14D052",
+                          "bytes":  1168390,
+                          "width":  1440,
+                          "height":  900
+                      },
+                      {
+                          "path":  "close-depth-0.2-844.png",
+                          "sha256":  "9E6BC9375C7D947A4D70F393AFD2487ACB4D2EFDFB49A61959EB8504C6E91903",
+                          "bytes":  332369,
+                          "width":  844,
+                          "height":  390
+                      },
+                      {
+                          "path":  "close-depth-0.7-1440.png",
+                          "sha256":  "5EFB611E63D9DD0202E4DE47A4D84A2CA6525403563F81556736F67DDDB06960",
+                          "bytes":  1156642,
+                          "width":  1440,
+                          "height":  900
+                      },
+                      {
+                          "path":  "close-depth-0.7-844.png",
+                          "sha256":  "9D1C3BD13137EA604A649C63C8EF126D5135D527BED0CE4D7863B49706A0CC2C",
+                          "bytes":  328271,
+                          "width":  844,
+                          "height":  390
+                      },
+                      {
+                          "path":  "editor-check.log",
+                          "sha256":  "3557AFCC33843A04861B8FE7F9C6274C94EE77C1394D5C655A41F80CAA6E0578",
+                          "bytes":  42508
+                      }
+                  ],
+    "limits":  [
+                   "Editor camera renders; no runtime HUD or installed-player acceptance",
+                   "No gameplay integration or touch acceptance",
+                   "Small species remain small/faint at normal landscape zoom",
+                   "Transparent component surfaces may retain internal mesh detail"
+               ],
+    "no_commit":  true,
+    "subagents":  [
+
+                  ]
+}

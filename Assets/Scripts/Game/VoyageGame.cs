@@ -906,6 +906,7 @@ namespace Catchline.Game
             Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, 5.6f, harbourBlend)) + ZoomOffset, k);
             Cam.transform.position = camCenter - Cam.transform.forward * SeaCameraDistance();
             UpdateNavigableSeaVisual(frameDt);
+            UpdateRodView(frameDt);
             RefreshInterface();
 
             float waveSpeed = CurrentMode is Mode.SailingOut or Mode.SailingHome ? 3.5f : 0.25f;
@@ -1028,11 +1029,12 @@ namespace Catchline.Game
         public void StrikeTap()
         {
             var r = MinigameRod;
-            if (r != null && r.State is RodState.Waiting or RodState.Bite)
+            if (r != null && !r.ReadingResult.HasValue && r.State is RodState.Waiting or RodState.Bite)
             {
                 Captain.PlayOnce("Strike");
                 if (r.State == RodState.Bite) audio?.Play(VoyageAudio.Cue.Reel, .6f);
-                Toast(r.Strike(this));
+                string message = r.Strike(this);
+                if (message != null) Toast(message);
             }
         }
 
@@ -1041,6 +1043,7 @@ namespace Catchline.Game
         {
             var r = Manning;
             if (r == null || !Captain.Idle || Captain.Carrying != null || !Attending(r)) return;
+            if (RodViewActive) return;
             Captain.Face(r.Outward);
             if (AwaitingCast) return;
             switch (r.State)

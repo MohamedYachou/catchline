@@ -18,6 +18,9 @@ namespace Catchline.Game
         void StartUiV2Capture(string[] args)
         {
             if (!SessionOnly) return;
+            int rodCapture = Array.IndexOf(args, "-capture-fish-view");
+            if (rodCapture >= 0 && rodCapture + 1 < args.Length)
+            { StartCoroutine(CaptureFishView(Path.GetFullPath(args[rodCapture + 1]))); return; }
             string dir = null, screens = null;
             int flag = Array.IndexOf(args, "-capture-uiv2");
             if (flag >= 0 && flag + 1 < args.Length) dir = Path.GetFullPath(args[flag + 1]);

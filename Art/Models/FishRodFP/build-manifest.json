@@ -1,0 +1,201 @@
+{
+  "triangles": 5878,
+  "meshes": 1,
+  "bones": [
+    "RodRoot",
+    "Rod_01",
+    "Rod_02",
+    "Rod_03",
+    "Rod_04",
+    "Rod_05",
+    "Rod_06",
+    "Rod_07",
+    "Rod_08",
+    "LineTip",
+    "GripHand.L",
+    "ReelHandle",
+    "ReelHand.R",
+    "ReelSpool"
+  ],
+  "rod_length_m": 2.1,
+  "fps": 40,
+  "clips": {
+    "Idle": {
+      "frames": [
+        0,
+        80
+      ],
+      "seconds": 2.0,
+      "loop": true
+    },
+    "Cast": {
+      "frames": [
+        0,
+        36
+      ],
+      "seconds": 0.9,
+      "loop": false
+    },
+    "Hold": {
+      "frames": [
+        0,
+        40
+      ],
+      "seconds": 1.0,
+      "loop": true
+    },
+    "Twitch": {
+      "frames": [
+        0,
+        16
+      ],
+      "seconds": 0.4,
+      "loop": false
+    },
+    "Strike": {
+      "frames": [
+        0,
+        10
+      ],
+      "seconds": 0.25,
+      "loop": false
+    },
+    "Reel": {
+      "frames": [
+        0,
+        32
+      ],
+      "seconds": 0.8,
+      "loop": true
+    },
+    "Lift": {
+      "frames": [
+        0,
+        48
+      ],
+      "seconds": 1.2,
+      "loop": false
+    }
+  },
+  "atlas": "FishRodFP_Atlas.png",
+  "atlas_size": [
+    256,
+    256
+  ],
+  "camera_source": {
+    "location": [
+      0.34,
+      1.15,
+      0.3
+    ],
+    "target": [
+      0.34,
+      -4,
+      -0.75
+    ],
+    "lens_mm": 24,
+    "sensor_width_mm": 36
+  },
+  "bend_radians_at_1": [
+    0.01,
+    0.035,
+    0.06,
+    0.09,
+    0.13,
+    0.17,
+    0.22,
+    0.26
+  ],
+  "crank_pivot_source": [
+    -0.057999998331069946,
+    0.02500000037252903,
+    -0.1599999964237213
+  ],
+  "crank_knob_source": [
+    -0.1599999964237213,
+    0.0729999989271164,
+    -0.2019999921321869
+  ],
+  "source_axes": "-Y forward, Z up; player screen-right is -X",
+  "fbx_export_axes": {
+    "axis_forward": "-Z",
+    "axis_up": "Y",
+    "global_scale": 1,
+    "unit": "metre"
+  },
+  "unity_import": "Not performed; Codex 1 owns runtime placement and handedness acceptance.",
+  "per_part_triangles": {
+    "RodBlank": 906,
+    "RubberButt": 36,
+    "RearCork": 36,
+    "ReelSeat": 36,
+    "ForeCork": 36,
+    "RearSeatBand": 36,
+    "ForeSeatBand": 36,
+    "ForeGripRing": 36,
+    "CorkRing_0": 36,
+    "CorkRing_1": 36,
+    "CorkRing_2": 36,
+    "CorkRing_3": 36,
+    "CorkRing_4": 36,
+    "CorkRing_5": 36,
+    "Guide_01": 132,
+    "GuideFoot_01": 20,
+    "GuideWrap_01": 28,
+    "Guide_02": 132,
+    "GuideFoot_02": 20,
+    "GuideWrap_02": 28,
+    "Guide_03": 132,
+    "GuideFoot_03": 20,
+    "GuideWrap_03": 28,
+    "Guide_04": 132,
+    "GuideFoot_04": 20,
+    "GuideWrap_04": 28,
+    "Guide_05": 132,
+    "GuideFoot_05": 20,
+    "GuideWrap_05": 28,
+    "Guide_06": 132,
+    "GuideFoot_06": 20,
+    "GuideWrap_06": 28,
+    "ReelStem": 28,
+    "ReelBody": 120,
+    "ReelBodyPanel": 120,
+    "SpoolAxle": 36,
+    "SpoolRimRear": 60,
+    "SpoolLine": 60,
+    "SpoolRimFront": 60,
+    "SpoolCap": 60,
+    "SpoolLine_0": 116,
+    "SpoolLine_1": 116,
+    "SpoolLine_2": 116,
+    "SpoolLine_3": 116,
+    "SpoolLine_4": 116,
+    "ReelBail": 176,
+    "CrankAxle": 36,
+    "CrankArm": 28,
+    "CrankKnob": 44,
+    "OilskinSleeve.L": 164,
+    "CaptainCuffStripe0.L": 44,
+    "CaptainCuffStripe1.L": 44,
+    "GloveCuff.L": 44,
+    "OilskinSleeve.R": 164,
+    "CaptainCuffStripe0.R": 44,
+    "CaptainCuffStripe1.R": 44,
+    "GloveCuff.R": 44,
+    "GlovePalm.L": 120,
+    "GloveBackPanel.L": 120,
+    "GripFinger0.L": 92,
+    "GripFinger1.L": 92,
+    "GripFinger2.L": 92,
+    "GripFinger3.L": 92,
+    "ThumbBase.L": 120,
+    "Thumb.L": 76,
+    "GlovePalm.R": 120,
+    "GloveBackPanel.R": 120,
+    "CrankFinger0.R": 76,
+    "CrankFinger1.R": 76,
+    "CrankFinger2.R": 76,
+    "CrankFinger3.R": 76,
+    "Thumb.R": 76
+  }
+}

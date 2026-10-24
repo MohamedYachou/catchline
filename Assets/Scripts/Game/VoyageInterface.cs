@@ -27,7 +27,13 @@ namespace Catchline.Game
             coastalUi.Begin(width, height, interfaceTextScale > 0 ? interfaceTextScale : UiScales[UiScaleIndex], interfaceWidth > 0 ? new Rect(0, 0, width, height) : Screen.safeArea);
             iw = coastalUi.Width; ih = coastalUi.Height;
             hudRects.Clear();
+            foreach (Transform t in coastalUi.Root)
+            {
+                var group = t.GetComponent<CanvasGroup>();
+                if (group != null) { group.alpha = 1; group.interactable = group.blocksRaycasts = true; }
+            }
             if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); coastalUi.End(); return; }
+            if (RodViewActive) { InterfaceRodView(); coastalUi.End(); return; }
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
@@ -94,6 +100,7 @@ namespace Catchline.Game
         }
         void InterfaceFishingAction()
         {
+            if (RodViewActive) return;
             var rod = MinigameRod;
             if (AwaitingCast)
             {
@@ -112,24 +119,7 @@ namespace Catchline.Game
                 if (hint != null && (toast == null || SimTime >= toastUntil)) coastalUi.Toast("guide", hint, "v2-icon-tick", Edge, HudGapLeft, HudGapRight);
                 return;
             }
-            var box = FishingActionRect(compactInterface ? 150 : 184);
-            var strike = coastalUi.Slab("strike", box, null, true); Block(box);
-            float w = box.width, height = box.height;
-            string title = rod.State == RodState.Bite ? "The bobber is under!" : rod.State == RodState.Waiting ? rod.Nibbling ? "A nibble… wait for it" : "Watch the bobber" : rod.State == RodState.Reeling ? "You've hooked one!" : "Casting your line…";
-            coastalUi.Text("strike/title", new Rect(14, 6, w - 28, 32), title, Skin.Type.Heading, rod.State == RodState.Bite ? Skin.OrangeDeep : Skin.Ink, TextAnchor.MiddleCenter, strike);
-            var sea = new Rect(box.x + 12, box.y + 42, w - 24, height - 80);
-            coastalUi.Art("strike/sea", sea, "strike-water");
-            float cy = sea.y + sea.height * .45f;
-            coastalUi.Art("strike/fish", new Rect(box.x + w * .25f + Mathf.Sin(SimTime) * 18, cy, 76, 32), "fish-shadow");
-            coastalUi.Art("strike/bobber", new Rect(box.x + w / 2 - 25, cy - 24, 50, 50), rod.State == RodState.Bite ? "bobber-underwater" : rod.Nibbling ? "bobber-dipped" : "bobber-floating");
-            var foot = new Rect(20, height - 30, w - 40, 14);
-            if (rod.State == RodState.Bite)
-            {
-                coastalUi.Primary("strike/tap", new Rect(box.xMax - 132, cy - 26, 116, 52), "Strike!", () => { StrikeTap(); MenuSound(); });
-                coastalUi.ProgressBar("strike/time", foot, 1 - rod.BiteProgress, Skin.Bar.Bad, strike);
-            }
-            else if (rod.State == RodState.Reeling) coastalUi.ProgressBar("strike/progress", foot, rod.ReelProgress, Skin.Bar.Good, strike);
-            else coastalUi.Text("strike/help", new Rect(14, height - 34, w - 28, 26), "Wait for the dip · then tap or Space", Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleCenter, strike);
+            // Captain casts are presented by the full-screen rod view. No sprite strike slab.
         }
         void InterfaceTravel()
         {

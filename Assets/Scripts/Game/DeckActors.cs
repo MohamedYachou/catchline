@@ -364,6 +364,15 @@ namespace Catchline.Game
         public bool Unlocked = true;
         public Species HookedSpecies;
         public float HookedKg;
+        // Only a captain-owned cast uses the reading model. Crew retain their original clock.
+        public BiteModel Reading { get; private set; }
+        public StrikeResult? ReadingResult { get; private set; }
+        public float CastAge { get; private set; }
+        public float ResultAge { get; private set; }
+        public Vector3 CastTarget => castTo;
+        public float ThrashSeconds => Mathf.Clamp(1f + HookedKg * .22f, 1f, 2.5f);
+        public const float ViewCastSeconds = 1.2f, LiftSeconds = .9f, HangSeconds = .4f, ReturnSeconds = 1f;
+        public float ReturnAt => ReadingResult == StrikeResult.Hooked ? ThrashSeconds + LiftSeconds + HangSeconds : .7f;
         public bool Chum;
         public bool Squid; // baited with squid: bigger fish
         public bool Scraps; // Unlimited poor bait: small species/specimens only.
@@ -484,6 +493,7 @@ namespace Catchline.Game
 
         public void ResetForTrip()
         {
+            Reading = null; ReadingResult = null;
             if (State != RodState.Ready || Chum) State = RodState.Unbaited;
             Chum = false;
             BaitingBy = null;
@@ -510,11 +520,30 @@ namespace Catchline.Game
             t = 0f;
             State = RodState.Flying;
             FisherAttempted = false;
+            ReadingResult = null;
+            if (g.Manning == this && g.Attending(this) && Fisher == null)
+            {
+                (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid, Chum);
+                Reading = new BiteModel(BiteModel.DifficultyFor(HookedSpecies, HookedKg), g.State.Rng);
+                ReadingResult = null; CastAge = ResultAge = 0;
+                var outward = g.Boat.TransformDirection(Outward).normalized;
+                var origin = g.Captain.Root.position;
+                castTo = origin + outward * 7f; castTo.y = WaterY;
+                g.BeginRodView(this);
+            }
         }
 
         // Player (or bot) strikes. Returns a message for the toast.
         public string Strike(VoyageGame g)
         {
+            if (Reading != null)
+            {
+                if (State is not (RodState.Waiting or RodState.Bite) || ReadingResult.HasValue) return null;
+                ReadingResult = Reading.Strike(); ResultAge = 0;
+                if (ReadingResult == StrikeResult.Hooked) State = RodState.Reeling;
+                else g.Stats.Spooked++;
+                return null; // Diegetic result; catch card is delivered after the return.
+            }
             if (State == RodState.Waiting)
             {
                 bool nibble = Nibbling;
@@ -555,6 +584,7 @@ namespace Catchline.Game
 
         public void Tick(VoyageGame g, float dt, bool attended)
         {
+            if (Reading != null) { TickReading(g, dt); return; }
             anim += dt;
             var tipWorld = g.Boat.TransformPoint(tipLocal);
             var bobPos = tipWorld + Vector3.down * 0.35f;
@@ -660,6 +690,49 @@ namespace Catchline.Game
             line.SetPosition(1, bobPos + Vector3.up * 0.05f);
             alert.gameObject.SetActive(State == RodState.Bite && Fisher == null && g.MinigameRod != this && Mathf.Repeat(anim * 6f, 1f) < 0.7f);
             alert.transform.rotation = g.Cam.transform.rotation;
+        }
+
+        public void ReelInView(VoyageGame g)
+        {
+            if (Reading == null || ReadingResult.HasValue || State == RodState.Flying) return;
+            // This control abandons the cast even during a valid take; it is never a strike shortcut.
+            if (Reading.Phase != FishPhase.Take) Reading.Strike();
+            ReadingResult = StrikeResult.TooEarly; ResultAge = 0; g.Stats.Spooked++;
+        }
+
+        void TickReading(VoyageGame g, float dt)
+        {
+            CastAge += dt;
+            // The full-screen view supplies its own line, bobber and authored silhouette.
+            bobber.gameObject.SetActive(false); line.enabled = false;
+            shadow.gameObject.SetActive(false); splash.gameObject.SetActive(false); alert.gameObject.SetActive(false);
+            if (State == RodState.Flying)
+            {
+                if (CastAge >= ViewCastSeconds) State = RodState.Waiting;
+                return;
+            }
+            var before = Reading.Phase;
+            Reading.Tick(dt);
+            if (!ReadingResult.HasValue)
+            {
+                State = Reading.Phase == FishPhase.Take ? RodState.Bite : RodState.Waiting;
+                if (Reading.Phase == FishPhase.Take && before != FishPhase.Take) g.OnBite(this);
+                if (Reading.Phase == FishPhase.Nibble && before != FishPhase.Nibble) g.OnNibble(this);
+                if (Reading.Phase == FishPhase.Gone)
+                { ReadingResult = StrikeResult.TooLate; ResultAge = 0; g.Stats.Missed++; }
+            }
+            else
+            {
+                ResultAge += dt;
+                if (ResultAge >= ReturnAt + ReturnSeconds)
+                {
+                    bool hooked = ReadingResult == StrikeResult.Hooked;
+                    Reading = null; ReadingResult = null; State = RodState.Unbaited;
+                    bobber.gameObject.SetActive(Unlocked); line.enabled = true;
+                    if (hooked) g.LandFish(this, HookedSpecies, HookedKg);
+                    else g.EndCaptainFishing(this);
+                }
+            }
         }
     }
 }
