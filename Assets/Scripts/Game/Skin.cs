@@ -398,12 +398,19 @@ namespace Catchline.Game
 
         // ---- people ----------------------------------------------------------------------------
 
+        // Cards without generated art yet (new hires) show their role portrait, never an empty ring.
+        public static string PortraitFallback(string key)
+        {
+            key = key.ToLowerInvariant();
+            return key == "captain" || key == "engineer" ? "portrait-captain" : key.EndsWith("-deck") ? "portrait-deckhand" : "portrait-fisherman";
+        }
+
         public void Portrait(string id, Rect r, string key, Transform parent = null)
         {
             var frame = Sliced(id, r, "v2-portrait-frame", parent);
             var mask = frame.GetComponent<Mask>() ?? frame.gameObject.AddComponent<Mask>();
             mask.showMaskGraphic = true;
-            Icon(id + "/art", new Rect(r.width * .02f, r.height * .04f, r.width * .96f, r.height * .96f), "v2-portrait-" + key.ToLowerInvariant(), frame, null, "portrait-" + key.ToLowerInvariant());
+            Icon(id + "/art", new Rect(r.width * .02f, r.height * .04f, r.width * .96f, r.height * .96f), "v2-portrait-" + key.ToLowerInvariant(), frame, null, PortraitFallback(key));
             Icon(id + "/ring", r, "v2-portrait-ring", parent);
         }
 
@@ -421,7 +428,7 @@ namespace Catchline.Game
             bool bar = progress.HasValue;
             float lineH = bar ? (r.height - 22) / 2 : r.height / 2;
             Text(id + "/title", new Rect(x, 4, w, lineH), title, Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, e.Rect);
-            Text(id + "/status", new Rect(x, 4 + lineH, w + right - 8, lineH - 2), status, Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft, e.Rect);
+            Text(id + "/status", new Rect(x, 4 + lineH, w, lineH - 2), status, Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft, e.Rect);
             if (name != null) Text(id + "/name", new Rect(r.width - 90, 6, 82, 20), name, Skin.Type.Caption, Skin.InkSoft, TextAnchor.UpperRight, e.Rect);
             if (specialityIcon != null) Icon(id + "/speciality", new Rect(r.width - 40, name != null ? 26 : (r.height - 30) / 2, 30, 30), specialityIcon, e.Rect);
             if (bar) ProgressBar(id + "/bar", new Rect(x, r.height - 20, r.width - x - 14, 12), progress.Value, Skin.Bar.Good, e.Rect);
@@ -491,13 +498,21 @@ namespace Catchline.Game
         {
             float w = Mathf.Max(96, 56 + text.Length * 11), h = 52;
             float right = BubbleRight > BubbleLeft ? BubbleRight : Width - 12;
-            var r = new Rect(Mathf.Clamp(anchor.x - w / 2, BubbleLeft, right - w), Mathf.Clamp(anchor.y - h - 14, BubbleTop, Height - h - 30), w, h);
-            // Bubbles never stack: step up, then sideways, past any bubble already placed this frame.
-            for (int step = 0; step < 6 && bubbles.Exists(b => b.Overlaps(new Rect(r.x - 4, r.y - 4, r.width + 8, r.height + 8))); step++)
+            float bottom = Height - h - 30;
+            Rect At(float x, float y) => new Rect(Mathf.Clamp(x, BubbleLeft, right - w), Mathf.Clamp(y, BubbleTop, bottom), w, h);
+            bool Free(Rect c) => !bubbles.Exists(b => b.Overlaps(new Rect(c.x - 4, c.y - 4, c.width + 8, c.height + 8)));
+            var r = At(anchor.x - w / 2, anchor.y - h - 14);
+            // Bubbles never stack: take the free spot nearest the anchor (above first, then sideways, then below).
+            if (!Free(r))
             {
-                if (step < 3) r.y -= h + 8;
-                else r.x += (step % 2 == 0 ? 1 : -1) * (w + 8) * (step - 2);
-                r.x = Mathf.Clamp(r.x, BubbleLeft, right - w); r.y = Mathf.Clamp(r.y, BubbleTop, Height - h - 30);
+                float best = float.MaxValue; var home = r;
+                for (int j = -3; j <= 2; j++)
+                    for (int k = -4; k <= 4; k++)
+                    {
+                        var c = At(home.x + k * (w * .5f + 6), home.y + j * (h + 8));
+                        float cost = (c.x - home.x) * (c.x - home.x) + (c.y - home.y) * (c.y - home.y) * (c.y > home.y ? 2.5f : 1.2f);
+                        if (cost < best && Free(c)) { best = cost; r = c; }
+                    }
             }
             bubbles.Add(r);
             bool attached = anchor.y > r.yMax - 4 && anchor.y < r.yMax + 40;
@@ -512,13 +527,15 @@ namespace Catchline.Game
         public void Toast(string id, string text, string icon = null, float y = 18, float left = 0, float right = 0)
         {
             if (right <= left) { left = 24; right = Width - 24; }
-            float w = Mathf.Min(right - left, 140 + text.Length * 10);
-            var r = new Rect(left + (right - left - w) / 2, y, w, 64);
+            float w = Mathf.Min(right - left, 140 + text.Length * 10), h = ToastHeight(text, right - left);
+            var r = new Rect(left + (right - left - w) / 2, y, w, h);
             var pill = Sliced(id, r, "v2-pill-navy");
             float x = 24;
-            if (icon != null) { Icon(id + "/icon", new Rect(x, 14, 30, 30), icon, pill, Skin.Cream); x += 40; }
-            Text(id + "/text", new Rect(x, 2, w - x - 24, 54), text, Skin.Type.Body, Skin.Cream, TextAnchor.MiddleCenter, pill);
+            if (icon != null) { Icon(id + "/icon", new Rect(x, (h - 36) / 2, 30, 30), icon, pill, Skin.Cream); x += 40; }
+            Text(id + "/text", new Rect(x, 2, w - x - 24, h - 10), text, Skin.Type.Body, Skin.Cream, TextAnchor.MiddleCenter, pill);
         }
+        // Text that does not fit one line wraps to two inside a taller pill.
+        public static float ToastHeight(string text, float span) => 140 + text.Length * 10 > span ? 92 : 64;
 
         // Full-screen dim that swallows taps; dismiss runs when the dim itself is tapped.
         public void Scrim(string id, Action dismiss = null, float alpha = 1)

@@ -60,7 +60,7 @@ namespace Catchline.Game
                     : person.Contract.VoyagesLeft / (float)Mathf.Max(1, GameData.ContractVoyages(person.Contract.Grade));
                 var rod = Rods.FirstOrDefault(r => r.Fisher == person);
                 string activity = captain && Manning != null ? AwaitingCast ? "Ready to cast" : Manning.StateText : rod?.StateText ?? person.State;
-                string detail = captain ? State.Hull > 0 ? $"Fuel {State.FuelFraction:P0} · {activity}" : activity : $"{person.Contract.VoyagesLeft} trips · {activity}";
+                string detail = captain ? State.Hull > 0 ? $"Fuel {State.FuelFraction:P0} · {activity}" : activity : $"{Trips(person)} · {activity}";
                 coastalUi.ReferenceLabel($"reference/crew/{i}/detail", ReferenceRightRect(1455, y + 35, 142, 18), detail, 12);
                 coastalUi.ReferenceBar($"reference/crew/{i}/progress", ReferenceRightRect(1455, y + 55, 143, 14), remaining);
                 coastalUi.ReferenceLabel($"reference/crew/{i}/percent", ReferenceRightRect(1605, y + 54, 32, 20),

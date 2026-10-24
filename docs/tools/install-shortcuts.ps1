@@ -1,35 +1,31 @@
+# Installs the latest Catchline build (Catchline/Build Game in a scratch editor) and
+# points exactly two desktop shortcuts at it: the real game and the save-free test.
+param([string]$Built = 'C:\Users\momoy\Projects\Catchline-lead-sim\Builds\Catchline')
 $ErrorActionPreference = 'Stop'
-$built = 'C:\Users\momoy\Projects\Catchline-sim\Builds\Crew026'
-$play = 'C:\Users\momoy\Projects\Catchline-play\Crew026'
+$play = 'C:\Users\momoy\Projects\Catchline-play'
 $desktop = [Environment]::GetFolderPath('Desktop')
 $wsh = New-Object -ComObject WScript.Shell
-$results = @()
-foreach ($mode in @('Real', 'Test')) {
-    $sourceExe = "$built\$mode\Catchline.exe"
-    if (!(Test-Path $sourceExe)) { throw "Verified build missing: $sourceExe" }
+Add-Type -AssemblyName Microsoft.VisualBasic
+# Older Catchline shortcuts (per-tier tests, DASH, ...) go to the Recycle Bin.
+Get-ChildItem $desktop -Filter 'Catchline*.lnk' | Where-Object { $_.Name -notin 'Catchline.lnk', 'Catchline - Test.lnk' } |
+    ForEach-Object { [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($_.FullName, 'OnlyErrorDialogs', 'SendToRecycleBin') }
+foreach ($mode in 'Real', 'Test') {
+    $sourceExe = "$Built\$mode\Catchline.exe"
+    if (!(Test-Path $sourceExe)) { throw "Build missing: $sourceExe" }
     $destination = "$play\$mode"
-    New-Item -ItemType Directory -Force -Path $destination | Out-Null
-    robocopy "$built\$mode" $destination /E /NFL /NDL /NJH /NJS | Out-Null
+    robocopy "$Built\$mode" $destination /MIR /NFL /NDL /NJH /NJS | Out-Null
     if ($LASTEXITCODE -ge 8) { throw "Install $mode failed" }
     $exe = "$destination\Catchline.exe"
     if ((Get-FileHash $exe).Hash -ne (Get-FileHash $sourceExe).Hash) { throw 'Installed executable hash mismatch' }
-    $name = if ($mode -eq 'Real') { 'Catchline - Real Game' } else { 'Catchline - Tier 3 Test' }
-    $linkPath = Join-Path $desktop "$name.lnk"
-    if (Test-Path $linkPath) {
-        $backup = Join-Path $env:TEMP ("crew026-" + [Guid]::NewGuid().ToString() + '.lnk')
-        Copy-Item $linkPath $backup
-        Write-Output "Existing shortcut backed up: $backup"
-    }
-    $link = $wsh.CreateShortcut($linkPath)
+    $name = if ($mode -eq 'Real') { 'Catchline' } else { 'Catchline - Test' }
+    $link = $wsh.CreateShortcut((Join-Path $desktop "$name.lnk"))
     $link.TargetPath = $exe
     $link.WorkingDirectory = $destination
-    $link.Arguments = if ($mode -eq 'Real') { '-native-display' } else { '-crew-mix-trial -native-display' }
+    $link.Arguments = '-native-display'
     $link.IconLocation = "$exe,0"
-    $link.Description = if ($mode -eq 'Real') { 'Play Catchline with temporary crew contracts and persistent progress.' } else { 'Tier 3 crew test: choose any three crew contracts. Isolated from your real save.' }
+    $link.Description = if ($mode -eq 'Real') { 'Play Catchline. Progress is saved.' } else { 'Catchline test build: pick a tier on the title screen. Never reads or writes your save.' }
     $link.Save()
-    $check = $wsh.CreateShortcut($linkPath)
-    if ($check.TargetPath -ne $exe -or $check.Arguments -ne $link.Arguments) { throw 'Shortcut read-back mismatch' }
-    $results += [pscustomobject]@{ Mode=$mode; Shortcut=$linkPath; Target=$check.TargetPath; Arguments=$check.Arguments; Hash=(Get-FileHash $exe).Hash }
+    [pscustomobject]@{ Mode = $mode; Shortcut = "$name.lnk"; Target = $exe; Built = (Get-Item $sourceExe).LastWriteTime }
 }
-$results | ConvertTo-Json | Set-Content 'C:\Users\momoy\Projects\Catchline-sim\Logs\crew026\shortcuts.json'
-$results | Format-List
+
+$global:LASTEXITCODE = 0

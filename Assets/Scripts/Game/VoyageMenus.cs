@@ -68,24 +68,45 @@ namespace Catchline.Game
             float logoY = phone ? 8 : 40, logoH = phone ? 84 : 132;
             coastalUi.Art("title/logo", new Rect(x - 6, logoY, w + 12, logoH), "logo-catchline");
             float bh = phone ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight, sh = phone ? 48 : 52, gap = 8;
-            float h = Skin.HeaderBand + 12 + 44 + 8 + bh + gap + (hadSave ? sh + gap : 0) + sh + Skin.SlabPad;
+            // The test build opens on a tier chooser instead of Start / New game; it never touches the save.
+            bool chooser = SessionOnly && CurrentMode == Mode.Harbour;
+            float h = Skin.HeaderBand + 12 + 44 + 8 + (chooser ? (hadSave ? bh + gap : 0) + (sh + gap) * 3 : bh + gap + (hadSave ? sh + gap : 0)) + sh + Skin.SlabPad;
             var card = new Rect(x, Mathf.Min(logoY + logoH + (phone ? 4 : 16), ih - h - 8), w, h);
             coastalUi.Slab("title/card", card, "Gull Harbour", true);
             float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 12;
-            string welcome = SessionOnly || AutoPlay ? "Test session · progress is not saved."
+            string welcome = chooser ? "Test build · pick a tier. Nothing is saved."
+                : SessionOnly || AutoPlay ? "Test session · progress is not saved."
                 : CurrentMode != Mode.Harbour ? "Voyage paused. Quitting loses fish aboard."
                 : hadSave ? $"Voyage {State.Voyage} · ready in harbour." : "A little boat. A sea of possibilities.";
             coastalUi.Text("title/welcome", new Rect(bx, y, bw, 44), welcome, Skin.Type.Body, Skin.InkSoft, TextAnchor.MiddleCenter);
             y += 52;
-            string start = CurrentMode != Mode.Harbour ? "Resume voyage" : hadSave ? "Continue" : "Start in harbour";
-            coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), start, () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); });
-            y += bh + gap;
-            if (hadSave)
-            {
-                coastalUi.Secondary("title/new", new Rect(bx, y, bw, sh), "New game", () => { confirmReset = true; MenuSound(); });
-                y += sh + gap;
-            }
             float half = (bw - gap) / 2;
+            if (chooser)
+            {
+                if (hadSave)
+                {
+                    coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), "Continue test", () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); });
+                    y += bh + gap;
+                }
+                for (int i = 0; i < TestTiers.Length; i++)
+                {
+                    int tier = i;
+                    var r = i == TestTiers.Length - 1 ? new Rect(bx, y, bw, sh) : new Rect(bx + (i % 2) * (half + gap), y, half, sh);
+                    coastalUi.Secondary("title/tier/" + i, r, TestTiers[i], () => { StartTestTier(tier); MenuSound(); });
+                    if (i % 2 == 1 || i == TestTiers.Length - 1) y += sh + gap;
+                }
+            }
+            else
+            {
+                string start = CurrentMode != Mode.Harbour ? "Resume voyage" : hadSave ? "Continue" : "Start in harbour";
+                coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), start, () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); });
+                y += bh + gap;
+                if (hadSave)
+                {
+                    coastalUi.Secondary("title/new", new Rect(bx, y, bw, sh), "New game", () => { confirmReset = true; MenuSound(); });
+                    y += sh + gap;
+                }
+            }
             coastalUi.Secondary("title/settings", new Rect(bx, y, half, sh), "Settings", () => { confirmReset = false; showSettings = true; MenuSound(); });
             coastalUi.Secondary("title/quit", new Rect(bx + half + gap, y, half, sh), CurrentMode != Mode.Harbour ? "Quit trip" : "Quit", Quit);
             if (confirmReset)
@@ -97,6 +118,22 @@ namespace Catchline.Game
                         hadSave = false;
                         confirmReset = showSettings = paused = showTitle = false;
                     }, "Keep progress", () => confirmReset = false, () => confirmReset = false, null, 560, 320);
+        }
+
+        static readonly string[] TestTiers = { "1 · Rowboat", "2 · Skiff", "3 · Compact", "4 · Prep", "5 · Buoy fisher" };
+        // Test build only: a fresh save-free game on the chosen hull, crewed and stocked for that tier.
+        void StartTestTier(int tier)
+        {
+            if (!SessionOnly) return;
+            bool started = tier == 2 ? StartNetBoatTrial() : tier == 3 ? StartPrepBoatTrial() : tier == 4 ? StartTier5Trial() : true;
+            if (tier < 2)
+            {
+                NewGame();
+                if (tier == 1) { State.Hull = 1; State.Fuel = State.FuelCapacity; State.Bait = 30; RebuildBoat(); }
+            }
+            if (!started) return;
+            confirmReset = showSettings = paused = showTitle = false;
+            Toast($"Test · tier {TestTiers[tier]} · nothing is saved.");
         }
 
         void InterfacePause()

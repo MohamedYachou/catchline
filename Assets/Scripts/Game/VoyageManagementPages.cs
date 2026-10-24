@@ -113,7 +113,7 @@ namespace Catchline.Game
             float big = compactInterface ? Mathf.Min(150, ph - 32) : Mathf.Min(260, ph * .62f);
             coastalUi.Card("management/crew/portrait", new Rect(16, 16, big, big), Skin.Card.Soft, panel);
             string key = c.Role == CrewRole.Engineer ? "engineer" : fisher ? c.Name : c.Name + "-deck";
-            coastalUi.Icon("management/crew/portrait/art", new Rect(24, 22, big - 16, big - 14), "v2-portrait-" + key.ToLowerInvariant(), panel);
+            coastalUi.Icon("management/crew/portrait/art", new Rect(24, 22, big - 16, big - 14), "v2-portrait-" + key.ToLowerInvariant(), panel, null, CoastalCanvas.PortraitFallback(key));
             float x = big + 36, wRight = pw - x - 16;
             coastalUi.Text("management/crew/name", new Rect(x, 8, wRight * .5f, compactInterface ? 40 : 64), c.Name.ToUpperInvariant(), Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, panel);
             if (!compactInterface) coastalUi.SetTextSize("management/crew/name", 56);

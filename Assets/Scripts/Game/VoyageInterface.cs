@@ -32,7 +32,7 @@ namespace Catchline.Game
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
-            else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); }
+            else { InterfaceTravel(); if (UsesDeckGraph) { InterfaceDeckBubbles(); InterfaceSortDecision(); } }
             InterfaceSeaGrounds();
             if (!departureReady && toast != null && SimTime < toastUntil)
             {
@@ -73,6 +73,7 @@ namespace Catchline.Game
             if (UsesDeckGraph) InterfaceDeckBubbles();
             InterfaceFishingAction();
             InterfaceCatchRewards();
+            if (UsesDeckGraph) InterfaceSortDecision();
             // Windows owns net/orders implementation; draw last so its modal stays on top.
             InterfaceNetOrders();
         }

@@ -104,6 +104,8 @@ namespace Catchline.Game
         static string PortraitKey(Person person, Person captain) => person == captain ? "captain"
             : person.Contract.Role == CrewRole.Engineer ? "engineer" : person.Contract.Role == CrewRole.Fisherman ? person.Name : person.Name + "-deck";
 
+        static string Trips(Person person) => person.Contract.VoyagesLeft == int.MaxValue ? "Signed on" : person.Contract.VoyagesLeft == 1 ? "Last trip" : $"{person.Contract.VoyagesLeft} trips";
+
         void InterfaceVoyageCrewRail()
         {
             var people = People.ToList();
@@ -131,7 +133,7 @@ namespace Catchline.Game
                 bool captain = person == Captain;
                 var rod = Rods.FirstOrDefault(rd => rd.Fisher == person);
                 string activity = captain && Manning != null ? AwaitingCast ? "Ready to cast" : Manning.StateText : rod?.StateText ?? person.State;
-                string status = captain ? State.Hull > 0 ? $"Fuel {State.FuelFraction * 100:0}% · {activity}" : activity : $"{person.Contract.VoyagesLeft} trips · {activity}";
+                string status = captain ? State.Hull > 0 ? $"Fuel {State.FuelFraction * 100:0}% · {activity}" : activity : $"{Trips(person)} · {activity}";
                 // The bar shows only a timed job: reeling, a bite window or a busy task.
                 float? job = rod != null && rod.State == RodState.Reeling ? rod.ReelProgress : person.Busy ? person.BusyProgress : (float?)null;
                 coastalUi.CrewCard($"voyage/crew/{i}", new Rect(10, Skin.HeaderBand + 14 + i * (rowH + rowGap), w - 20, rowH), PortraitKey(person, Captain),

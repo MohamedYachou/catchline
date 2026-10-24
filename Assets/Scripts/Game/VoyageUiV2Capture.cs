@@ -54,6 +54,19 @@ namespace Catchline.Game
                     OpenManagement(); managementTab = 2; dashboardDetail = -1;
                     selectedManagementCrew = State.Crew.ToList().FindIndex(c => c.Role == CrewRole.Deckhand);
                     return ManagementOpen;
+                case "title":
+                    NewGame(); hadSave = false; showTitle = true; toastUntil = 0;
+                    return true;
+                case "sort":
+                    // Rowboat with a fish on the sort table under a fresh catch card and a two-line toast.
+                    StartTestTier(0); captureFreeze = true; Showcase(0, 0); SetupDeckGraph();
+                    for (int n = 0; n < 200; n++) Tick(.05f);
+                    var sort = DeckGraph?.OfKind(Catchline.Game.Deck.StationKind.SortTable).FirstOrDefault();
+                    if (sort?.In == null) return false;
+                    sort.In.Put(new CaughtFish { Species = Species.Mackerel, Kg = .62f, StowedAt = SimTime }, false);
+                    lastCatchSpecies = Species.Mackerel; lastCatchKg = .62f; catchUntil = SimTime + CatchDisplaySeconds;
+                    Toast("Mackerel on the sort table. Keep it for the market, or throw it back to the sea.");
+                    return CurrentMode == Mode.Fishing;
                 default: return false;
             }
         }

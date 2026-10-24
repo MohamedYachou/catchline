@@ -191,7 +191,7 @@ namespace Catchline.Game
             Manning = null; AwaitingCast = false;
             return true;
         }
-        // Tier 0 flow in two taps: Carry (rod basket â†’ sort table), then Keep (sorted and stowed) or Throw.
+        // Tier 0 flow in two taps: Carry (rod basket → sort table), then Keep (sorted and stowed) or Throw.
         void CaptainFollowUp()
         {
             if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !keepThenStow) return;
@@ -205,7 +205,7 @@ namespace Catchline.Game
             if (!CaptainKeepAtSort(keep)) return;
             keepThenStow = keep;
         }
-        // Tap bubbles on migrated hulls: Carry at a basket, Keep / Throw at the sort table, Stow from the sorted tray.
+        // Tap bubbles on migrated hulls: Carry at a basket, Stow from the sorted tray. Keep / Throw are screen buttons.
         void InterfaceDeckBubbles()
         {
             if (Scheduler == null || !workers.TryGetValue(Captain, out var cap) || !cap.Idle) return;
@@ -213,16 +213,19 @@ namespace Catchline.Game
                 InterfaceBubble("deck/carry/" + b.Id, Boat.TransformPoint(b.Position + Vector3.up * .35f), b.UnclaimedCount > 1 ? $"Carry {b.UnclaimedCount}" : "Carry", "icon-fish",
                     () => { Manning = null; AwaitingCast = false; CaptainHaulFrom(b); });
             foreach (var s in DeckGraph.OfKind(StationKind.SortTable))
-            {
-                var at = Boat.TransformPoint(s.Position + Vector3.up * .45f);
-                if (s.In != null && s.In.UnclaimedCount > 0)
-                {
-                    InterfaceBubble("deck/keep/" + s.Id, at, "Keep", "icon-fish", () => CommandKeep(true), true);
-                    InterfaceBubble("deck/throw/" + s.Id, at + Boat.right * .01f, "Throw", "icon-fish", () => CommandKeep(false));
-                }
-                else if (s.Out != null && s.Out.UnclaimedCount > 0 && !HasDeckhand)
-                    InterfaceBubble("deck/stow/" + s.Id, at, "Stow", "icon-fish", () => CaptainHaulFrom(s.Out));
-            }
+                if ((s.In == null || s.In.UnclaimedCount == 0) && s.Out != null && s.Out.UnclaimedCount > 0 && !HasDeckhand)
+                    InterfaceBubble("deck/stow/" + s.Id, Boat.TransformPoint(s.Position + Vector3.up * .45f), "Stow", "icon-fish", () => CaptainHaulFrom(s.Out));
+        }
+        // A fish on the sort table: Throw and Keep as big buttons at the left and right of the open water,
+        // drawn after the catch card so it never covers them, and level with the middle of the screen, clear of it.
+        void InterfaceSortDecision()
+        {
+            if (Scheduler == null || !workers.TryGetValue(Captain, out var cap) || !cap.Idle) return;
+            if (!DeckGraph.OfKind(StationKind.SortTable).Any(s => s.In != null && s.In.UnclaimedCount > 0)) return;
+            float w = compactInterface ? 100 : 150, h = compactInterface ? 72 : 96, y = ih / 2 - h / 2;
+            var left = new Rect(HudGapLeft, y, w, h); var right = new Rect(HudGapRight - w, y, w, h);
+            coastalUi.Secondary("deck/throw", left, "Throw", () => { CommandKeep(false); MenuSound(); }); Block(left);
+            coastalUi.Primary("deck/keep", right, "Keep", () => { CommandKeep(true); MenuSound(); }); Block(right);
         }
 
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);

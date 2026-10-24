@@ -55,7 +55,13 @@ namespace Catchline.Game
         Rect CatchCardRect(float height)
         {
             float left = HudGapLeft, right = HudGapRight, width = Mathf.Clamp(right - left, 280, 440);
-            return new Rect(left + Mathf.Max(0, (right - left - width) / 2), Edge + (compactInterface ? 56 : 64), width, height);
+            return new Rect(left + Mathf.Max(0, (right - left - width) / 2), CatchCardTop(), width, height);
+        }
+        // Below whichever pill is up top (a toast, else the guide hint), which grows when its text wraps.
+        float CatchCardTop()
+        {
+            string top = toast != null && SimTime < toastUntil ? toast : ShowTips && MinigameRod == null && !AwaitingCast ? VoyageHint() : null;
+            return Edge + (top != null ? CoastalCanvas.ToastHeight(top, HudGapRight - HudGapLeft) : 64) + 8;
         }
         void TierPill(string id, Rect r, CatchTier tier, Transform parent)
         {
@@ -90,7 +96,7 @@ namespace Catchline.Game
             var receipt = LastNetReceipt;
             var groups = receipt.Items.GroupBy(f => (f.Species, f.Tier)).OrderByDescending(g => g.Key.Tier).ThenBy(g => g.Key.Species).ToList();
             float row = compactInterface ? 34 : 42, footer = compactInterface ? 34 : 40;
-            float maxH = ih - Edge - HudButtonHeight - 24 - (Edge + (compactInterface ? 56 : 64));
+            float maxH = ih - Edge - HudButtonHeight - 24 - CatchCardTop();
             float height = Mathf.Min(maxH, Skin.HeaderBand + 10 + groups.Count * row + footer + 8);
             int shown = Mathf.Max(1, Mathf.Min(groups.Count, Mathf.FloorToInt((height - Skin.HeaderBand - 18 - footer) / row)));
             float elapsed = NetReceiptSeconds - (netReceiptUntil - SimTime);
