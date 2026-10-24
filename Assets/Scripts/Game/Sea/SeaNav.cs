@@ -141,6 +141,7 @@ namespace Catchline.Game.Sea
         }
         public Vector2 Resolve(Vector2 p)
         {
+            var requested = p;
             p = Snap(p);
             for (int pass = 0; pass < 16 && Blocked(p); pass++)
                 foreach (var poly in land)
@@ -152,7 +153,28 @@ namespace Catchline.Game.Sea
                     var outward = new Vector2(d.y, -d.x).normalized * Mathf.Sign(Area(poly));
                     p = q + (inside || (p - q).sqrMagnitude < .000001f ? outward : (p - q).normalized) * (Radius + .04f);
                 }
-            return Snap(p);
+            p = Snap(p);
+            if (!Blocked(p)) return p;
+            // At a concave shore, successive edge projections can alternate between two
+            // banks. Search the clearance outline instead, validating against every bank.
+            // This also handles adjacent shoreline pieces whose inflated outlines overlap.
+            var best = Snap(Harbour);
+            float distance = !Blocked(best) ? (best - requested).sqrMagnitude : float.PositiveInfinity;
+            foreach (var poly in Islands)
+                for (int i = 0; i < poly.Length; i++)
+                {
+                    Consider(poly[i]);
+                    Consider(Closest(poly[i], poly[(i + 1) % poly.Length], requested));
+                }
+            return best;
+
+            void Consider(Vector2 candidate)
+            {
+                candidate = Snap(candidate);
+                float d = (candidate - requested).sqrMagnitude;
+                if (d >= distance || Blocked(candidate) || !InsideBorder(candidate)) return;
+                best = candidate; distance = d;
+            }
         }
         public bool Visible(Vector2 a, Vector2 b)
         {

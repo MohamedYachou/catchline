@@ -13,7 +13,7 @@ namespace Catchline.Game
         public SeaNav Navigation { get; private set; }
         public BoatSailor Sailor { get; private set; }
         public string ActiveGroundId { get; private set; }
-        public bool AtFishingGround => Navigation == null || Navigation.Grounds.Any(g => g.Id == ActiveGroundId && g.Contains(Sailor.Position)) && !Navigation.InShallows(Sailor.Position);
+        public bool AtFishingGround => Navigation == null || !SailMode && Navigation.Grounds.Any(g => g.Id == ActiveGroundId && g.Contains(Sailor.Position)) && !Navigation.InShallows(Sailor.Position);
         Transform seaSurface;
         bool seaRelocating;
         SeaNav.Ground destinationGround;
@@ -22,7 +22,7 @@ namespace Catchline.Game
         {
             Navigation = SeaNav.Load(SeaNav.Maps[ActiveSpot], State.HullDef);
             Sailor = Navigation != null ? new BoatSailor(Navigation, State.HullDef, Navigation.Harbour, Mathf.PI) : null;
-            ActiveGroundId = null; seaRelocating = false;
+            ActiveGroundId = null; seaRelocating = false; SailMode = seaHaulModal = false;
             return Navigation != null;
         }
         bool BeginSeaRoute(Mode mode)
@@ -38,7 +38,7 @@ namespace Catchline.Game
                 oldScenery = null; scenery = BuildScenery(ActiveSpot);
                 SetupDeckGraph();
             }
-            CurrentMode = mode; seaRelocating = false;
+            CurrentMode = mode; seaRelocating = false; SailMode = seaHaulModal = false;
             modeTimer = 0; modeDuration = Mathf.Max(.1f, SeaNav.Length(Sailor.Route) / State.HullDef.SailSpeed);
             seaFrom = seaMat.color; seaTo = mode == Mode.SailingHome ? Palette.Sea : GameData.Spots[ActiveSpot].Water;
             StowSeaGear();
@@ -64,9 +64,9 @@ namespace Catchline.Game
         {
             var blocker = RelocateBlocker();
             if (blocker != null) { Toast(blocker); return false; }
-            var snapped = Navigation.Snap(target);
+            var snapped = Navigation.Resolve(Navigation.Snap(target));
             bool beyond = !Navigation.InsideBorder(target);
-            if (Navigation.InShallows(snapped)) { Toast("Too shallow to anchor here, skipper."); return false; }
+            if (!SailMode && Navigation.InShallows(snapped)) { Toast("Too shallow to anchor here, skipper."); return false; }
             if (!Sailor.SailTo(snapped)) { Toast("No clear sailing route, skipper."); return false; }
             destinationGround = ground ?? Navigation.Grounds.FirstOrDefault(g => g.Contains(snapped));
             StowSeaGear(); seaRelocating = true; CurrentMode = Mode.SailingOut;
@@ -109,29 +109,23 @@ namespace Catchline.Game
                 if (scenery != null) Visuals.Kill(scenery.gameObject);
                 scenery = BuildScenery(-1); Navigation = null; Sailor = null;
                 travelOffset = Vector3.zero; travelYaw = 0;
+                seaMat.SetFloat("_BoatAttack_Water_DistanceBlend", 256);
+                audio?.Play(VoyageAudio.Cue.Moor, .32f);
                 SetWaterBiome(-1); EnterHarbour(true); return;
             }
             SetWaterBiome(ActiveSpot);
             ActiveGroundId = destinationGround != null && destinationGround.Contains(Sailor.Position) ? destinationGround.Id : null;
             CurrentMode = Mode.Fishing; seaRelocating = false;
-            if (Scheduler != null) Scheduler.Sailing = false;
-            Toast(ActiveGroundId != null ? "Anchored at " + destinationGround.Name + "." : "Anchored in open water. Tap a ground to fish.");
+            if (Scheduler != null) Scheduler.Sailing = SailMode;
+            if (SailMode) { Toast("Stopped. Choose Fish here inside a ground, or tap to sail on."); return; }
+            AnchorSeaBoat();
+            Toast(ActiveGroundId != null ? "Anchored at " + destinationGround.Name + "." : "Stopped in open water. Choose Sail to find a ground.");
         }
-        void InterfaceSeaGrounds()
-        {
-            if (Navigation == null || ManagementOpen || CurrentMode == Mode.SailingHome) return;
-            foreach (var ground in Navigation.Grounds)
-            {
-                var target = ground;
-                if (target.Id == ActiveGroundId && CurrentMode == Mode.Fishing) continue;
-                InterfaceBubble("sea/ground/" + target.Id, new Vector3(target.Centre.x, WaterY + .5f, target.Centre.y),
-                    target.Name ?? target.Id, "icon-map-pin", () => Relocate(target.Id));
-            }
-        }
+        void InterfaceSeaGrounds() => InterfaceSeaNavigation();
+
         bool HandleSeaTap(Vector2 screen)
         {
-            if (Navigation == null || MinigameRod != null || OverHud(ToGui(screen))) return false;
-            // Use actual UI raycasts too: a retained button may be outside legacy hudRects.
+            if (!SailMode || seaHaulModal || Navigation == null || MinigameRod != null || ManagementOpen || OverHud(ToGui(screen))) return false;
             if (EventSystem.current != null)
             {
                 var hits = new List<RaycastResult>();
@@ -139,10 +133,12 @@ namespace Catchline.Game
                 if (hits.Count > 0) return false;
             }
             var ray = Cam.ScreenPointToRay(screen);
-            // Preserve taps on deck jobs/crew; water itself has no collider.
-            if (Physics.Raycast(ray, out var hit) && hit.transform.IsChildOf(Boat)) return false;
+            if (Physics.Raycast(ray, out var hit) && hit.transform.IsChildOf(Boat)) { StopSeaBoat(); return true; }
+            // Also accept the visible hull footprint where no deck collider was hit.
             if (!new Plane(Vector3.up, new Vector3(0, WaterY, 0)).Raycast(ray, out float distance)) return false;
-            var p = ray.GetPoint(distance); return SailTo(new Vector2(p.x, p.z));
+            var p = ray.GetPoint(distance); var target = new Vector2(p.x, p.z);
+            if (Vector2.Distance(target, Sailor.Position) < State.HullDef.NavigationRadius) { StopSeaBoat(); return true; }
+            return SailTo(target);
         }
     }
 }

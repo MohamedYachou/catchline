@@ -873,7 +873,7 @@ namespace Catchline.Game
             audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Hull == 0 && travelWake > .1f);
             PtsWater.HullPose(world.TransformPoint(travelOffset + State.HullDef.Center), travelYaw, State.Hull > 0,
                 SimTime, out float heave, out Quaternion tilt);
-            Boat.localRotation = Quaternion.Euler(0, travelYaw, 0) * tilt;
+            Boat.localRotation = Quaternion.Euler(0, travelYaw, 0) * tilt * SeaBankRotation(frameDt);
             // Rotate about the hull centre, rather than the corner of the deck grid.
             var pivotCorrection = State.HullDef.Center - Boat.localRotation * State.HullDef.Center;
             Boat.localPosition = travelOffset + pivotCorrection + Vector3.up * heave
@@ -891,6 +891,7 @@ namespace Catchline.Game
                 : CurrentMode == Mode.SailingHome ? Segment(TravelProgress, .55f, 1f) : 0f;
             if (Navigation != null) harbourBlend = 0;
             var center = Vector3.Lerp(Boat.TransformPoint(State.HullDef.Center) + new Vector3(.35f, 0f, -.30f), new Vector3(.3f, 0, 3.4f), harbourBlend);
+            center = SeaCameraTarget(center, frameDt);
             if (Navigation != null)
             {
                 center.x = Mathf.Clamp(center.x, Navigation.CameraBounds.xMin, Navigation.CameraBounds.xMax);
@@ -902,8 +903,8 @@ namespace Catchline.Game
             float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
             snapCamera = false;
             camCenter = Vector3.Lerp(camCenter, center, k);
-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, 5.6f, harbourBlend) + ZoomOffset, k);
-            Cam.transform.position = camCenter - Cam.transform.forward * 40f;
+            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, 5.6f, harbourBlend)) + ZoomOffset, k);
+            Cam.transform.position = camCenter - Cam.transform.forward * SeaCameraDistance();
             UpdateNavigableSeaVisual(frameDt);
             RefreshInterface();
 
