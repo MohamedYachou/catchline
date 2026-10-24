@@ -1,0 +1,25 @@
+FISH-ROD-ART-1 — Codex 2 (WSL artist) — first-person rod, reel and the captain's gloved hands for the rod view
+
+GOAL (Mo): the new full-screen rod minigame must "look good and fluent ... there has to be a rod". Design:
+docs/plans/FISHING-MINIGAME.md. The camera sits over the captain's shoulder; the rod enters from the lower right
+held in two gloved hands with the reel visible. This asset is what the player looks at for the whole minigame.
+
+BUILD (Blender, the house low-poly style in Art/STYLE.md, same palette and materials as the captain and the
+existing rowboat rod): a rod (cork grip, reel seat, 5-6 line guides, tapering blank, tip) rigged with a 6-8 bone
+chain so it can bend; a spinning reel with a handle bone; the captain's forearms in navy oilskin sleeves with
+mustard/orange gloves (match the captain model in Art/Models/CrewV2) gripping grip and reel handle. Actions:
+Idle (slow sway), Cast (wind-up and flick, 0.9 s), Hold, Twitch (small tip response), Strike (sharp upward yank,
+0.25 s), Reel (loop, handle turning), Lift (raising the rod to bring a fish in). Bend comes from the bone chain so
+the game can also drive it procedurally. Budget: under 6k tris total, one atlas texture.
+
+OUTPUT: Art/Models/FishRodFP/FishRodFP.blend + .fbx (Unity axes, metres, the rod about 2.1 m), textures,
+REPORT.md, and review renders: from the in-game camera position (over the right shoulder looking at the water),
+plus side and top, each action's key poses, and the bone chain at bend 0 / 0.5 / 1. Save renders in the same folder.
+
+OWNERSHIP: Art/Models/FishRodFP/**, Art/Source/FishRodFP/** (new). Do not touch Assets/Scripts/**, Unity scenes,
+other models or saves. Codex 1 imports it into the game (FISH-VIEW-1); do not import into Unity yourself.
+
+DONE = EVIDENCE: open every render; the hands must read as gloved hands holding a rod from the player's view, the
+reel handle must sit under the right hand, the bend must curve smoothly toward the tip with no kinks. One comms.md
+DONE line with paths. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS. Then continue with the next assignment in
+the standing order.

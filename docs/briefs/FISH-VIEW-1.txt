@@ -1,0 +1,40 @@
+FISH-VIEW-1 — Codex 1 (Windows) — the full-screen rod view: cast swoop, rod in hand, fish reading, strike, land, back
+
+GOAL (Mo): "whenever you go it throws a rod and you get in full screen, but we need enough animations, a rod, it
+needs to look good and fluent not just being forcefully transported in fullscreen of just water and a fish, there
+has to be a rod". The design is docs/plans/FISHING-MINIGAME.md; follow it exactly. Ask with a QUESTION line where it is silent.
+
+CONTEXT (read only these up front): docs/plans/FISHING-MINIGAME.md, Assets/Scripts/Game/Minigame/BiteModel.cs
+(Claude's, read-only: do not change its behaviour; ask), your FishShadow from FISH-SILHOUETTE-1, DeckActors.cs
+(class Rod: Cast/Strike/Waiting/Bite), VoyageGame.cs (MinigameRod, StrikeTap, ManRod, LandFish),
+VoyageInterface.cs InterfaceFishingAction (the old strike box, to be replaced), comms.md latest ~15 lines.
+
+ORDER (log a CHECKPOINT after each):
+A. Wiring: when the CAPTAIN's manned rod (MinigameRod) is cast, roll its species/kg as now, create a BiteModel
+   (DifficultyFor) and let it drive that rod's Waiting/Bite: Bite == Phase Take; StrikeTap -> model.Strike();
+   Hooked lands the fish via the existing path; TooEarly/TooLate lose the bait as now. Crew fishers unchanged.
+B. Camera: one continuous eased move boat view -> over the shoulder -> rod view during the cast (~1.2 s), and
+   back after the result (~1 s). No cuts, no fade to black. Deck HUD fades out; only pause + small "Reel in" stay.
+C. Rod view: the existing rod model (ArtLibrary FishingRod, or Codex 2's FP rod when it lands: keep it swappable)
+   in the lower right, bending with RodPull (vertex bend or bones), line with sag (LineRenderer, 16+ points)
+   to the bobber; bobber sinks by Dip, travels by Drift, ripple rings on each dip onset, bubble puff on Dart;
+   FishShadow placed by FishPos/FishHeading/FishDepth (1 unit = 1 m on the water plane around the bobber).
+   Gentle sway with the swell. Sounds: reuse VoyageAudio cues (tick, plop, reel); no new audio files.
+D. Results: Hooked = rod deep bend, fish thrashes at the surface 1-2.5 s by kg, lifted out on the line toward
+   camera as the real 3D model, then camera back and the existing catch card. TooEarly = bobber pops, fish darts,
+   slack line. TooLate = bobber bobs up, fish swims off. No text banners; Tips line per the design only.
+E. Remove the old strike box (InterfaceFishingAction strike slab, bobber sprites, ProgressBars) for the captain's
+   rod. Input: tap/click anywhere on the view, Space.
+
+OWNERSHIP: Assets/Scripts/Game/Minigame/** except BiteModel.cs; DeckActors.cs Rod; VoyageGame.cs minigame/strike
+parts; VoyageInterface.cs InterfaceFishingAction; VoyageUiV2Capture.cs (add capture screens); Editor checks you add.
+Never touch Sea/**, VoyageSea.cs (Codex 2), art sources, saves. Scratch editor Catchline-lead-sim only, never the
+main project. No git commits; Claude reviews and commits.
+
+DONE = EVIDENCE: BiteModelChecks.Run and your own Editor check (captain rod: patient strike hooks, early strike
+loses bait, crew fishers unchanged) pass in scratch. Build Real+Test, install, then native Test captures at 1440x900
+and 844x390 of: cast mid-swoop, rod view waiting with fish circling, a fake at its deepest dip, the take, hooked fish
+lifted out; plus a short frame sequence (every 0.1 s) of the cast swoop and of the landing, saved to
+docs/screens/fish-view-1/. Open every image: rod visible, no old strike box, no banner text, HUD gone in the view.
+Player save untouched. One comms.md line per finished step; DONE FISH-VIEW-1 with paths.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS. When done, continue with the next assignment in the standing order.
