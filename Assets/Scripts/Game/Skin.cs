@@ -369,12 +369,20 @@ namespace Catchline.Game
             float x = iconSize + 22, w = r.width - x - 12;
             bool hasBar = bar.HasValue && r.height >= 60;
             float textH = hasBar ? r.height - 24 : r.height;
-            if (label != null)
+            // Short readings get the Number face; sentences drop to Heading/Body so they never overflow.
+            var face = value.Length <= 7 ? Skin.Type.Number : value.Length <= 16 ? Skin.Type.Heading : Skin.Type.Body;
+            if (label != null && hasBar)
             {
-                Text(id + "/label", new Rect(x, textH * .08f, w, textH * .38f), label, Skin.Type.Small, Skin.Ink, TextAnchor.LowerLeft, card);
-                Text(id + "/value", new Rect(x, textH * .44f, w, textH * .52f), value, Skin.Type.Number, Skin.Ink, TextAnchor.UpperLeft, card);
+                // Label and reading share the top row; the bar sits underneath.
+                Text(id + "/label", new Rect(x, 2, w * .4f, textH - 2), label, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, card);
+                Text(id + "/value", new Rect(x + w * .3f, 0, w * .7f, textH), value, value.Length <= 12 ? Skin.Type.Heading : Skin.Type.Body, Skin.Ink, TextAnchor.MiddleRight, card);
             }
-            else Text(id + "/value", new Rect(x, 0, w, textH), value, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
+            else if (label != null)
+            {
+                Text(id + "/label", new Rect(x, 4, w, textH * .36f), label, Skin.Type.Small, Skin.Ink, TextAnchor.LowerLeft, card);
+                Text(id + "/value", new Rect(x, textH * .36f + 2, w, textH * .64f - 6), value, face, Skin.Ink, TextAnchor.MiddleLeft, card);
+            }
+            else Text(id + "/value", new Rect(x, 0, w, textH), value, face == Skin.Type.Number ? Skin.Type.Heading : face, Skin.Ink, TextAnchor.MiddleLeft, card);
             if (hasBar) ProgressBar(id + "/bar", new Rect(x, r.height - 26, w, 14), bar.Value, tone, card);
         }
 

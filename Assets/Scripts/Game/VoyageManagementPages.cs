@@ -49,16 +49,19 @@ namespace Catchline.Game
         {
             float holdH = compactInterface ? 0 : 76, warnH = compactInterface ? 72 : 96, gap = compactInterface ? 8 : 12;
             float cardsH = area.height - warnH - holdH - gap * (compactInterface ? 1 : 2);
-            float arrow = compactInterface ? 18 : 28, cw = (area.width - arrow * 3 - 12) / 4;
-            for (int i = 0; i < 4; i++)
+            // Stations the boat does not have (processing before the prep boat) are left out, not shown locked.
+            var stages = Enumerable.Range(0, 4).Where(s => s != 2 || IsPrepFisher).ToArray();
+            int n = stages.Length;
+            float arrow = compactInterface ? 18 : 28, cw = (area.width - (arrow + 4) * (n - 1)) / n;
+            for (int k = 0; k < n; k++)
             {
-                int stage = i;
-                var r = new Rect(area.x + i * (cw + arrow + 4), area.y, cw, cardsH);
-                bool fitted = i != 2 || IsPrepFisher;
+                int i = stages[k], stage = i;
+                var r = new Rect(area.x + k * (cw + arrow + 4), area.y, cw, cardsH);
+                bool fitted = true;
                 coastalUi.StageCard($"management/stage-card/{i}", r, StageTitles[i], StageIcons[i], StageArt[i],
                     fitted ? Rate(stageOutput[i]) : "—", "fish/min", StageStatus(stageStatus[i]), StageQueue(i), () => dashboardDetail = 3 + stage,
                     fitted ? null : "No processing station", $"management/stage/{i}");
-                if (i < 3) coastalUi.Icon($"management/flow/{i}", new Rect(r.xMax + (arrow - arrow * .9f) / 2 + 2, r.y + cardsH * .36f, arrow * .9f, arrow * 1.15f), "v2-arrow-flow");
+                if (k < n - 1) coastalUi.Icon($"management/flow/{k}", new Rect(r.xMax + (arrow - arrow * .9f) / 2 + 2, r.y + cardsH * .36f, arrow * .9f, arrow * 1.15f), "v2-arrow-flow");
             }
             // One recommendation with one action.
             var w = new Rect(area.x, area.y + cardsH + gap, area.width, warnH);
@@ -88,14 +91,20 @@ namespace Catchline.Game
         void CrewPage(Rect area)
         {
             var crew = State.Crew.ToArray();
-            var panel = coastalUi.Slab("management/crew/panel", new Rect(area.x, area.y, area.width, area.height - (compactInterface ? 72 : 96) - 12), null, true);
             float pw = area.width, ph = area.height - (compactInterface ? 72 : 96) - 12;
             if (crew.Length == 0)
             {
-                coastalUi.Text("management/crew/empty", new Rect(24, 24, pw - 48, ph - 48), "Hire fishers and deckhands at the Crew Office.", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, panel);
-                CrewFooter(area, "Hire crew in the harbour.");
+                // Rowboat: no berths yet. Show the captain and where crew comes from.
+                float eh = Mathf.Min(ph, compactInterface ? 150 : 220), p = eh - 40;
+                var empty = coastalUi.Slab("management/crew/panel", new Rect(area.x, area.y, area.width, eh), null, true);
+                coastalUi.Portrait("management/crew/empty/portrait", new Rect(24, 20, p, p), "captain", empty);
+                coastalUi.Text("management/crew/empty", new Rect(p + 52, 16, pw - p - 80, eh * .42f), "Just you at the oars", Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, empty);
+                coastalUi.Text("management/crew/empty/body", new Rect(p + 52, eh * .42f + 22, pw - p - 80, eh * .58f - 40),
+                    "The rowboat has no crew berths. Refit to a skiff at the Chandlery and your first crew cards come aboard.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, empty);
+                CrewFooter(area, "Crew joins with a bigger boat.");
                 return;
             }
+            var panel = coastalUi.Slab("management/crew/panel", new Rect(area.x, area.y, area.width, ph), null, true);
             selectedManagementCrew = Mathf.Clamp(selectedManagementCrew, 0, crew.Length - 1);
             var c = crew[selectedManagementCrew];
             var person = People.FirstOrDefault(p => p.Contract == c);
