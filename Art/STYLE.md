@@ -219,3 +219,19 @@ Two new canonical sRGB materials: `M_HairChestnut` = `#50392E` and `M_HairSilver
 ## Task08 day boat and texture kit
 
 [DayBoatKit report](Models/DayBoatKit/REPORT.md) covers the exact 50-tile deck and centred six-tile bow wheelhouse, six rod sockets, port stern-quarter rail gap and nine grid stations. [Station contract](Models/DayBoatKit/Stations/REPORT.md) lists footprints, access and moving pivots. New geometry is additive and uses existing M_* names. [Texture contract](../Assets/Art/Textures/TEXTURES.md) covers three seamless palette water tiles, foam/wake/splash effects and an optional subtle deck-grain overlay. No future-tier gameplay or Unity configuration is included.
+
+
+## FISH043 complete authored fish roster
+Mo confirms FishPolish16's authored3D language as the standard for all25fish; Gemini glows/cards are retained, Gemini fish imagery/geometry is superseded. Each UI portrait is rendered from its exact Blender/FBX model. Normal black bead eyes, tiny restrained reflection, no ivory/yellow eye rings. Sources under Art/Models/Fish043. New requested palette entries M_SpotBlue=#38B6FF (stingray spot domes), M_Crimson=#A9433C (Architeuthis); M_OilskinYellow reuses canonical#E6AD38. Fin shape/eye placement/limb count follow TODO's exact roster.
+
+
+## Approved Tier5 Buoy fisher — BOAT071,18October2026
+
+Mo approved BOAT0698.5m hull length×4.2m beam; six hired crew plus captain at the
+existing crew scale. This is the current Tier5 hull, distinct from the older12x5.8m
+DayBoat kit. Model Tier5FisherV1 retains familiar ivory/navy hull, honey deck,
+compact teal-brow canopy, preparation/storage and mechanic fittings. Two fixed
+rod mounts and two buoy service stations; two optional rod mounts exchange for
+secondnet. Production FBX has no baked crew, review stage or rod fishing animation.
+Keep switchable NetModule2/RawBuckets/RawIceCoolers/PreparedHold and named working
+anchors. Actual native views and export/route evidence: docs/TIER5-INTEGRATION071.md.

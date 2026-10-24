@@ -1,0 +1,25 @@
+00:00.562  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r09\Mira.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_mira_r10.py:97: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  rear_mat=bpy.data.materials.new('Mira_Hair');rear_mat.use_nodes=True
+TRIANGLES 19998 {'Mira_Face': 2300, 'Mira_EyesExpression': 2500, 'Mira_HairSculpt': 6506, 'Mira_OfficerCap': 2692, 'Mira_CoatHandsBoots': 4300, 'Mira_JewelleryBinoculars': 1700}
+00:03.171  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:09.078  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\three-quarter.png'
+00:18.390  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\face.png'
+00:26.421  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\temple-left.png'
+00:34.562  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\temple-right.png'
+00:40.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\back.png'
+00:48.625  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r19\back-hair.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.7469 sec.
+Info: Saved as "Mira.blend"
+MIRA OVERLAY COMPLETE r19 19998 triangles; original contract/front exact
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

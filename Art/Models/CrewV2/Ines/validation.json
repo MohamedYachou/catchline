@@ -1,0 +1,169 @@
+{
+  "hair_coverage": {
+    "name": "Ines",
+    "revision": "hair-r01",
+    "rays": 396,
+    "scalp_samples": 293,
+    "skin_first_hits": 0,
+    "scope": "11 heights .705-.905m, every10degrees all360; anatomical exposed face/hairline exclusions listed; ears/nose/neck separated from scalp by connected mesh"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 18791,
+    "mesh_triangles": {
+      "Ines_Face": 2200,
+      "Ines_Expression": 1600,
+      "Ines_Hair": 7799,
+      "Ines_Hat": 2899,
+      "Ines_FemaleBody": 2999,
+      "Ines_OutfitDetails": 1294
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500957131385803,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.20003557205200195,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.18345429003238678,
+        1.046891212463379
+      ]
+    ],
+    "texture_sizes": {
+      "Ines_Face.png": [
+        512,
+        512
+      ],
+      "Ines_Hair.png": [
+        256,
+        256
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Ines_Face": 2200,
+      "Ines_Hair": 7799,
+      "Ines_FemaleBody": 2999,
+      "Ines_Expression": 1600,
+      "Ines_Hat": 2899,
+      "Ines_OutfitDetails": 1294
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Ines",
+  "revision": "hair-r01",
+  "delivery_sha256": {
+    "Ines.blend": "da0a8d9f201f36975972ac8ed083a468da48e665dd9a647ceafdb624386fcf9d",
+    "Ines.fbx": "9583818c45350c61957335dbf3d3e692c9b7faf31116e33f57b69ec2041a5e68",
+    "Ines_Face.png": "1e8ba1a22cb76460ddebeefb8504ab4f21228ba7d08a2194030aa8161edb368b",
+    "Ines_Hair.png": "8b2d611e23aa808271b2b7b03dff0782d77d88b8e2fd476195bbcb090b6b9b5e"
+  }
+}

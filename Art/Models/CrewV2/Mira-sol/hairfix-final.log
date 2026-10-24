@@ -1,0 +1,27 @@
+00:02.703  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-before\Mira.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\fix_crew_hair_coverage.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat is None:mat=next(ma for o in hair for ma in o.data.materials if ma and 'Hair' in ma.name and not ma.use_nodes is False)
+00:15.406  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\face.png'
+00:25.062  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\temple-left.png'
+00:34.640  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\temple-right.png'
+00:40.218  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\back-hair.png'
+00:45.750  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\three-quarter.png'
+00:51.328  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\front.png'
+00:56.828  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\side.png'
+01:02.515  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\back.png'
+01:08.265  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\walk.png'
+01:13.812  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-01\idle.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira-hairfix.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 2.5565 sec.
+Info: Saved as "Mira-hairfix.blend"
+HAIRFIX COMPLETE Mira 19984
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

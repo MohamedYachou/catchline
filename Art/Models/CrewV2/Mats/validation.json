@@ -1,0 +1,183 @@
+{
+  "nonhair_baseline_surface_checks": {
+    "Face": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Expression": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Hat": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "MaleBody": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "OutfitDetails": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    }
+  },
+  "temple_crown_coverage": {
+    "radial_rays": 325,
+    "scalp_first_hits": [],
+    "scope": "Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19784,
+    "mesh_triangles": {
+      "Mats_Face": 2300,
+      "Mats_Expression": 1500,
+      "Mats_Hair": 6499,
+      "Mats_Hat": 2500,
+      "Mats_MaleBody": 3499,
+      "Mats_OutfitDetails": 3486
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500327706336975,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.17591986060142517,
+        0.00017508506425656378
+      ],
+      [
+        0.4672813415527344,
+        0.17925667762756348,
+        1.0430864095687866
+      ]
+    ],
+    "texture_sizes": {
+      "Mats_Face.png": [
+        512,
+        512
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Mats_Hair": 6499,
+      "Mats_Hat": 2500,
+      "Mats_Face": 2300,
+      "Mats_Expression": 1500,
+      "Mats_MaleBody": 3499,
+      "Mats_OutfitDetails": 3486
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 1.4901161193847656e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Mats",
+  "revision": "hair-r02",
+  "delivery_sha256": {
+    "Mats.blend": "399070cd6ac4d617959835f554d6a07d3ea6ff9296976ce8a4fa86d45f8d21db",
+    "Mats.fbx": "6d4b09ffb594cd438924fba2e0b40cb4ad25ec52bfa6e0a1c3d46f158e5f307c",
+    "Mats_Face.png": "35250304142e08ee21bf604e81358b34a058aa4cc250036a7acd03ff90ed7f7a"
+  }
+}

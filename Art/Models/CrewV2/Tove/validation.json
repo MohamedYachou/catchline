@@ -1,0 +1,169 @@
+{
+  "hair_coverage": {
+    "name": "Tove",
+    "revision": "r03",
+    "rays": 396,
+    "scalp_samples": 293,
+    "skin_first_hits": 0,
+    "scope": "11 heights .705-.905m, every10degrees all360; anatomical exposed face/hairline exclusions listed; ears/nose/neck separated from scalp by connected mesh"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19949,
+    "mesh_triangles": {
+      "Tove_Face": 2200,
+      "Tove_Expression": 1600,
+      "Tove_Hair": 8500,
+      "Tove_Hat": 2200,
+      "Tove_FemaleBody": 2999,
+      "Tove_OutfitDetails": 2450
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500397443771362,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.1646471470594406,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.17306187748908997,
+        1.0430864095687866
+      ]
+    ],
+    "texture_sizes": {
+      "Tove_Face.png": [
+        512,
+        512
+      ],
+      "Tove_Hair.png": [
+        256,
+        256
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Tove_FemaleBody": 2999,
+      "Tove_Hair": 8500,
+      "Tove_Expression": 1600,
+      "Tove_Face": 2200,
+      "Tove_Hat": 2200,
+      "Tove_OutfitDetails": 2450
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Tove",
+  "revision": "r03",
+  "delivery_sha256": {
+    "Tove.blend": "56b7b46122a6ad17f9b96362fff6fbbecce95b03bcf3ca568e4a87d2d28d129a",
+    "Tove.fbx": "0d933fe787f4aace608c7d7dd7044ea59b6301bbfd85e8d8020776cf89b9b274",
+    "Tove_Face.png": "6f8d4113893b283446472889e1755491eb1b6b0c2d0135a0c908f06f4895364b",
+    "Tove_Hair.png": "cfcbe278f315fa44fb263eea060a45e869f93e0d844e69554ecc9c2cde095aad"
+  }
+}

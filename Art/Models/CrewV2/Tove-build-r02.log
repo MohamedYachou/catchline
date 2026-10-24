@@ -1,0 +1,39 @@
+00:00.563  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:96: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Tove_Face 4236 2200
+PART TRIANGLES Tove_Expression 3962 1600
+PART TRIANGLES Tove_Hair 16156 8500
+PART TRIANGLES Tove_Hat 24208 2200
+PART TRIANGLES Tove_FemaleBody 16272 2999
+PART TRIANGLES Tove_OutfitDetails 3486 2450
+00:03.782  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:745: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:752: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:05.907  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\three-quarter.png'
+00:08.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\face.png'
+00:12.282  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\back-hair.png'
+00:14.969  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\front.png'
+00:17.672  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\side.png'
+00:20.500  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\back.png'
+00:23.328  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\idle.png'
+00:26.219  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\walk.png'
+00:28.860  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\carry.png'
+00:31.391  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\cast.png'
+00:37.625  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tove\iterations\r02\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Tove\\Tove.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.5102 sec.
+Info: Saved as "Tove.blend"
+FEMALE BUILD COMPLETE Tove r02 19949 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

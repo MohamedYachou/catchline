@@ -1,0 +1,39 @@
+00:00.563  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Ines_Face 4236 2200
+PART TRIANGLES Ines_Expression 5606 1600
+PART TRIANGLES Ines_Hair 21864 7799
+PART TRIANGLES Ines_Hat 8632 2899
+PART TRIANGLES Ines_FemaleBody 16272 2999
+PART TRIANGLES Ines_OutfitDetails 1294 1294
+00:03.938  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:744: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:751: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:07.266  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\three-quarter.png'
+00:12.313  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\face.png'
+00:18.953  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\back-hair.png'
+00:23.500  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\front.png'
+00:27.703  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\side.png'
+00:32.172  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\back.png'
+00:36.844  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\idle.png'
+00:43.016  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\walk.png'
+00:46.391  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\carry.png'
+00:49.688  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\cast.png'
+00:57.375  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ines\iterations\hair-r01\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Ines\\Ines.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.5153 sec.
+Info: Saved as "Ines.blend"
+FEMALE BUILD COMPLETE Ines hair-r01 18791 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

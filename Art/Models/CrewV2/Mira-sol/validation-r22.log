@@ -1,0 +1,13 @@
+00:00.500  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\r20\Mira.blend"
+00:00.578  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\Mira.blend"
+FEMALE SCALP COVERAGE 304 samples 1 gaps [(0.705, 340)]
+Traceback (most recent call last):
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\validate_mira_hair_v2.py", line 18, in <module>
+    coverage=audit(bpy,'Mira',OUT,man['revision'],'waves',hair_name='Mira_HairSculpt',hat_name='Mira_OfficerCap')
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\crew_female_coverage.py", line 49, in audit
+    assert not gaps,'Bare scalp before hair: see hair-coverage-hits.json'
+           ^^^^^^^^
+AssertionError: Bare scalp before hair: see hair-coverage-hits.json
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

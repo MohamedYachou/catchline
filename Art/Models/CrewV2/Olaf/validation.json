@@ -1,0 +1,188 @@
+{
+  "nonhair_baseline_surface_checks": {
+    "Face": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Expression": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Hat": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "MaleBody": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "OutfitDetails": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    }
+  },
+  "temple_crown_coverage": {
+    "radial_rays": 325,
+    "scalp_first_hits": [],
+    "scope": "Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19892,
+    "mesh_triangles": {
+      "Olaf_Face": 2200,
+      "Olaf_Expression": 1400,
+      "Olaf_Hair": 9000,
+      "Olaf_Hat": 2899,
+      "Olaf_MaleBody": 3099,
+      "Olaf_OutfitDetails": 1294
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500327706336975,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.20003557205200195,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.18345429003238678,
+        1.046891212463379
+      ]
+    ],
+    "texture_sizes": {
+      "Olaf_Face.png": [
+        512,
+        512
+      ],
+      "Olaf_Hair.png": [
+        512,
+        512
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Olaf_Expression": 1400,
+      "Olaf_Face": 2200,
+      "Olaf_Hair": 9000,
+      "Olaf_Hat": 2899,
+      "Olaf_MaleBody": 3099,
+      "Olaf_OutfitDetails": 1294
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Olaf",
+  "revision": "hair-r02",
+  "delivery_sha256": {
+    "Olaf.blend": "85e985a6050907a82dbf6b69f36464f442c011fe745be3a964c6cec96c74381e",
+    "Olaf.fbx": "f41458206976a089a92575c108038a9b4f94e3c0bcd329b363a8e87d1d9e3fd0",
+    "Olaf_Face.png": "923e9de40902e5743bcc1ba64b76c6c1536642ff8ddeff59cedfffa61cd530ea",
+    "Olaf_Hair.png": "01526ce8fda899896623028678dae27202b28dfbb1c64bc2e911e28e1ab3e7bc"
+  }
+}

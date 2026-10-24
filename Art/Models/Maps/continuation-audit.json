@@ -1,0 +1,1079 @@
+{
+  "audit": "ART108 A1 continuation",
+  "utc": "2026-10-24T15:04:07.671363+00:00",
+  "blender": "5.2.1 LTS",
+  "limits": [
+    "Discrete 0.5m centreline sampling; finite hull sweep belongs to M4.",
+    "Blender art-camera review; live Unity HUD, water and all hulls unverified.",
+    "Nominal seabedDepth controls water colour; physicalAnchorDepth is terrain depth.",
+    "FBX import compared with documented ART108 X compensation; no new export."
+  ],
+  "maps": [
+    {
+      "map": "GullHarbourMouth",
+      "all_passed": true,
+      "triangles": 45544,
+      "meshes": 58,
+      "expanded_bounds": [
+        [
+          -36.71797561645508,
+          -36.33877182006836,
+          -16.0
+        ],
+        [
+          36.71797561645508,
+          36.33877182006836,
+          2.724015474319458
+        ]
+      ],
+      "original_bounds": [
+        [
+          -10.705780982971191,
+          -12.575052261352539,
+          -3.5
+        ],
+        [
+          13.772870063781738,
+          11.650794982910156,
+          2.724015474319458
+        ]
+      ],
+      "footprint_ratio": 9.000000002439313,
+      "closed_extension_nonmanifold_edges": 0,
+      "retained_coastal_vertices_checked": 14622,
+      "retained_coast_error_m": 0,
+      "root_identity_error": 0.0,
+      "anchors": [
+        {
+          "id": "quay-shallows",
+          "position": [
+            1,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 1.2,
+          "measured_terrain_depth_m": 6.375496864318848,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "channel",
+          "position": [
+            23,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 3.8,
+          "measured_terrain_depth_m": 3.818572998046875,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "mouth-flats",
+          "position": [
+            -21,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 1.4,
+          "measured_terrain_depth_m": 1.4283223152160645,
+          "depth_error_m": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "fromGround": "quay-shallows",
+          "toGround": "channel",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "quay-shallows",
+          "toGround": "mouth-flats",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "channel",
+          "toGround": "mouth-flats",
+          "centreline_samples": 205,
+          "clear": true
+        }
+      ],
+      "bidirectional_fbx_max_vertex_error_m": 3.43852161677205e-06,
+      "derived_fbx_has_unity_meta": false,
+      "original_baseline_sha256": "a5813c511a6c0f80513f32c0d25a04ec5b020734ffc177997bde702390123d23",
+      "protected_sha256": {
+        "Art\\Models\\Maps\\GullHarbourMouth\\GullHarbourMouth.blend": "4aa885bfe181f3423b61d8c845e901e2c2a38fefc8780dc293cb81f33d7e7e3e",
+        "Art\\Models\\Maps\\GullHarbourMouth\\GullHarbourMouth.fbx": "169b3461d43a15f97200ed2a15374a14ae3d9f2dd86b4e62d4772ccbd0b4f635",
+        "Art\\Models\\Maps\\GullHarbourMouth\\grounds.json": "106d66cf5d7eafcdab941ea9cc7cc7a64279b2c7c15e110d312e31f8af6f3966",
+        "Art\\Models\\Maps\\GullHarbourMouth\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Art\\Models\\Maps\\GullHarbourMouth\\validation.json": "60250e12ca35d5aa19b588359facc85e22b6c233253bded0e8dbb2c795b3a24a",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth\\GullHarbourMouthGroundsV1.fbx": "169b3461d43a15f97200ed2a15374a14ae3d9f2dd86b4e62d4772ccbd0b4f635",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth\\grounds.json": "106d66cf5d7eafcdab941ea9cc7cc7a64279b2c7c15e110d312e31f8af6f3966",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth-placement.json": "a9f1aff8c9b689afd81a044a59cc111e29851f7d980b64152b8778fa8647e98a",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth-placement.json.meta": "8162f60a9aa8494272f8ce98adbc146957b7b79b99ae02da986ea6eec020a775",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth.fbx": "6ef5d6c72582c693eb0869524c0e000554f03f7fa147635ce25c2347c792b761",
+        "Assets\\Art\\Models\\Environment\\GullHarbourMouth.fbx.meta": "84f27c944619c5ff46eb4b90b40b83d75e7496258657fe7de6128c4b1576ef5c"
+      },
+      "lighting_presets": {
+        "day": {
+          "keyColor": "#FFF2DC",
+          "keyIntensity": 1.3,
+          "ambient": "#BCD6DF",
+          "ambientIntensity": 0.45
+        },
+        "night": {
+          "keyColor": "#FFC875",
+          "keyIntensity": 0.22,
+          "ambient": "#445C8F",
+          "ambientIntensity": 0.24,
+          "deckPools": [
+            {
+              "boatLocal": [
+                0.4,
+                1.6,
+                0.5
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            },
+            {
+              "boatLocal": [
+                2,
+                1.6,
+                1
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            }
+          ]
+        },
+        "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+      },
+      "renders": [
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\quay-shallows-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "8ea3814a5ea813a5c99d9558a051692697886ca5fb0fdef9015ce83611878956"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\quay-shallows-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "c018ea2631300ac533d9180898f11f1c18fdd5ca2f7d8c74e89d2c3f1608956c"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\channel-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "3882d36eab580dd09f39b4244267abd6e820d7803f79a991aac347d5cfbdca56"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\channel-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "41de086752a46e2597415dad7327e5d2f162cd0825c8a7308d6ded5e3d6ef43b"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\mouth-flats-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "6e5b1509d0aa4b475a91923e5968434bb381e31cefb4777329cca6ad457e4b0b"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\mouth-flats-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "af63817a04c58d7df35540d062b828504de596802e00589d5f0927d50b2ecca8"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\three-grounds-top.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "f932572b931450c15bb241c9ad7e3141e91a4de0fece9d1a9347290ac360e706"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullHarbourMouth\\review-sheet.png",
+          "size": [
+            960,
+            970
+          ],
+          "sha256": "ddd77452d7e45f9bd42974c423e8be2a4dda0e734761fe69486b03ceebdcba4d"
+        }
+      ]
+    },
+    {
+      "map": "GullKelpBank",
+      "all_passed": true,
+      "triangles": 28396,
+      "meshes": 32,
+      "expanded_bounds": [
+        [
+          -36.71797561645508,
+          -36.33877182006836,
+          -16.0
+        ],
+        [
+          36.71797561645508,
+          36.33877182006836,
+          0.7850000262260437
+        ]
+      ],
+      "original_bounds": [
+        [
+          -10.705780982971191,
+          -12.575052261352539,
+          -4.199999809265137
+        ],
+        [
+          13.772870063781738,
+          11.650794982910156,
+          0.2541491985321045
+        ]
+      ],
+      "footprint_ratio": 9.000000002439313,
+      "closed_extension_nonmanifold_edges": 0,
+      "retained_coastal_vertices_checked": 3864,
+      "retained_coast_error_m": 0,
+      "root_identity_error": 0.0,
+      "anchors": [
+        {
+          "id": "kelp-shallows",
+          "position": [
+            1,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 1.2,
+          "measured_terrain_depth_m": 6.375496864318848,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "kelp-edge",
+          "position": [
+            23,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 2.3,
+          "measured_terrain_depth_m": 2.318600654602051,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "open",
+          "position": [
+            -21,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 5.2,
+          "measured_terrain_depth_m": 5.228252410888672,
+          "depth_error_m": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "fromGround": "kelp-shallows",
+          "toGround": "kelp-edge",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "kelp-shallows",
+          "toGround": "open",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "kelp-edge",
+          "toGround": "open",
+          "centreline_samples": 205,
+          "clear": true
+        }
+      ],
+      "bidirectional_fbx_max_vertex_error_m": 3.43852161677205e-06,
+      "derived_fbx_has_unity_meta": false,
+      "original_baseline_sha256": "e6312243c33f2df6886d54faa14d7483e144f42d5a4d4e3faf656a4a70147726",
+      "protected_sha256": {
+        "Art\\Models\\Maps\\GullKelpBank\\GullKelpBank.blend": "603c41a09ff6e48e43449f489f7239a570083485b770296934b96035f28be0ca",
+        "Art\\Models\\Maps\\GullKelpBank\\GullKelpBank.fbx": "94182f5e3832a33af77bb059ab700d6633e7f60aa6b96049b1bc4b9bd9f2e308",
+        "Art\\Models\\Maps\\GullKelpBank\\grounds.json": "ef68840ba077a9cb13973243b946bd7e334f5f33fd7141f287a2b98d4a3dae68",
+        "Art\\Models\\Maps\\GullKelpBank\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Art\\Models\\Maps\\GullKelpBank\\validation.json": "99134f631df6b1ee93bcef67db074fbb009c26ca64c134c30e259d0ba33f3ec0",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank\\GullKelpBankGroundsV1.fbx": "94182f5e3832a33af77bb059ab700d6633e7f60aa6b96049b1bc4b9bd9f2e308",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank\\grounds.json": "ef68840ba077a9cb13973243b946bd7e334f5f33fd7141f287a2b98d4a3dae68",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank-placement.json": "c9efdb7c8f6cde386062ab6b2e604493e925d5a008b2820405e0fa3c16498ece",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank-placement.json.meta": "14773f8107431889b419b9805118b819f798ad6a06cd1a144875e4652039be0f",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank.fbx": "00b8860a32e8b11481d06e63455d64ba52811da8ef916a8aa26f5f8d33697998",
+        "Assets\\Art\\Models\\Environment\\GullKelpBank.fbx.meta": "bb351f58182f5b94b3408b6d5115ed39e00e080f77b2b1c92c3d411422974988"
+      },
+      "lighting_presets": {
+        "day": {
+          "keyColor": "#FFF2DC",
+          "keyIntensity": 1.3,
+          "ambient": "#BCD6DF",
+          "ambientIntensity": 0.45
+        },
+        "night": {
+          "keyColor": "#FFC875",
+          "keyIntensity": 0.22,
+          "ambient": "#445C8F",
+          "ambientIntensity": 0.24,
+          "deckPools": [
+            {
+              "boatLocal": [
+                0.4,
+                1.6,
+                0.5
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            },
+            {
+              "boatLocal": [
+                2,
+                1.6,
+                1
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            }
+          ]
+        },
+        "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+      },
+      "renders": [
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\kelp-shallows-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "450175ecf5f6cf5e3316262a0e1cb704f69ba4026ebdb71e248ebc8622092aba"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\kelp-shallows-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "260f2fc837795702dba98a5c7b76d9336dc3b7c4d9c50722dc0e79a9d06164a5"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\kelp-edge-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "682fec10fdf8e5460aac66fd442c98b1aa811c9e9deb9fb13a73ad40b87e0851"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\kelp-edge-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "2bba12c9c75e9bd4d954c57aa78975203ca5539c6bc4d103a2e481575f484a17"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\open-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "68caa1b7fd7d355e8d138c2a8b6d3e2095712024e48bc4a0518be9e26591aeb6"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\open-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "0f86aed0eb4d56551648871e39508cdc898e4d99d5453d2f1023a52e5066f62c"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\three-grounds-top.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "b4db826bac267d7e7b97c3fbc7cb54c178714021ab71164ab5796458faded34c"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullKelpBank\\review-sheet.png",
+          "size": [
+            960,
+            970
+          ],
+          "sha256": "cdcd50a311e0cd2c540ab92b1d5207133ada037863c938faab0b84d455336083"
+        }
+      ]
+    },
+    {
+      "map": "GullSandbar",
+      "all_passed": true,
+      "triangles": 24614,
+      "meshes": 16,
+      "expanded_bounds": [
+        [
+          -36.71797561645508,
+          -36.33877182006836,
+          -16.0
+        ],
+        [
+          36.71797561645508,
+          36.33877182006836,
+          0.8689048886299133
+        ]
+      ],
+      "original_bounds": [
+        [
+          -10.705780982971191,
+          -12.575052261352539,
+          -4.199999809265137
+        ],
+        [
+          13.772870063781738,
+          11.650794982910156,
+          0.8689048886299133
+        ]
+      ],
+      "footprint_ratio": 9.000000002439313,
+      "closed_extension_nonmanifold_edges": 0,
+      "retained_coastal_vertices_checked": 3031,
+      "retained_coast_error_m": 0,
+      "root_identity_error": 0.0,
+      "anchors": [
+        {
+          "id": "the-bar",
+          "position": [
+            1,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 1.1,
+          "measured_terrain_depth_m": 2.0024232864379883,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "gully",
+          "position": [
+            23,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 3.6,
+          "measured_terrain_depth_m": 3.094219207763672,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "open",
+          "position": [
+            -21,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 5.2,
+          "measured_terrain_depth_m": 5.228252410888672,
+          "depth_error_m": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "fromGround": "the-bar",
+          "toGround": "gully",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "the-bar",
+          "toGround": "open",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "gully",
+          "toGround": "open",
+          "centreline_samples": 205,
+          "clear": true
+        }
+      ],
+      "bidirectional_fbx_max_vertex_error_m": 3.43852161677205e-06,
+      "derived_fbx_has_unity_meta": false,
+      "original_baseline_sha256": "625d56f78d7235b4bb68a9ea9000a42029221cdb988aecfa4c58c996a7fbcaed",
+      "protected_sha256": {
+        "Art\\Models\\Maps\\GullSandbar\\GullSandbar.blend": "d7f320a76f14f66b11ec1d7296e83296d149be5ed489387aeefe46bd96931661",
+        "Art\\Models\\Maps\\GullSandbar\\GullSandbar.fbx": "b2d55838b4fdf1fdce7614b8365eeac7ea8d1606bec5958c1b64b9647e08296c",
+        "Art\\Models\\Maps\\GullSandbar\\grounds.json": "91ac08629428a2735f18c9f97addd8304ef50f352e2d2ad308a714e1d5dfef90",
+        "Art\\Models\\Maps\\GullSandbar\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Art\\Models\\Maps\\GullSandbar\\validation.json": "538e92c5b26b7bc26006cf7c34a9a7c7839a9839965cdd58e6518ffc9abf8e15",
+        "Assets\\Art\\Models\\Environment\\GullSandbar\\GullSandbarGroundsV1.fbx": "b2d55838b4fdf1fdce7614b8365eeac7ea8d1606bec5958c1b64b9647e08296c",
+        "Assets\\Art\\Models\\Environment\\GullSandbar\\grounds.json": "91ac08629428a2735f18c9f97addd8304ef50f352e2d2ad308a714e1d5dfef90",
+        "Assets\\Art\\Models\\Environment\\GullSandbar\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Assets\\Art\\Models\\Environment\\GullSandbar-placement.json": "ec1b8dbe2ac665b6a38b23ac68b1d5d84bccecb811e6d2439444c35b168a65cd",
+        "Assets\\Art\\Models\\Environment\\GullSandbar-placement.json.meta": "1f719846a9bbba4fa97a57b60d921a614bdd89391ddd766c9262e2d81763e100",
+        "Assets\\Art\\Models\\Environment\\GullSandbar.fbx": "e37cfc1d17bda3e91b0bf497f318fa1a554e866e3e90f67772dea86b03c348f0",
+        "Assets\\Art\\Models\\Environment\\GullSandbar.fbx.meta": "7f008547f09ee3397e08359071ca6046de5377ec4dfbf6fd2e9871a1131b605c"
+      },
+      "lighting_presets": {
+        "day": {
+          "keyColor": "#FFF2DC",
+          "keyIntensity": 1.3,
+          "ambient": "#BCD6DF",
+          "ambientIntensity": 0.45
+        },
+        "night": {
+          "keyColor": "#FFC875",
+          "keyIntensity": 0.22,
+          "ambient": "#445C8F",
+          "ambientIntensity": 0.24,
+          "deckPools": [
+            {
+              "boatLocal": [
+                0.4,
+                1.6,
+                0.5
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            },
+            {
+              "boatLocal": [
+                2,
+                1.6,
+                1
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            }
+          ]
+        },
+        "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+      },
+      "renders": [
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\the-bar-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "e0e2fda149256fe765b5b3b083cce5bbf3e0a9807e779648dadec194cc9318a8"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\the-bar-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "6eaaba3f7c14d3455d64fae62036430431bf479570d9b84cd63b1cc7e30e4cf8"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\gully-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "231b81b2f018deced2b16c3bc6da0d72b9e88f5656371daf05bcb6e6a8782859"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\gully-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "d37259c01c5115a77118f54076206e0c5eaf08c09a46f86eb28ef0073c7fcafb"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\open-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "d253d9603d2d6205f848044d39854b7943deb5b5508ff515e536c708f65d4cba"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\open-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "485732e5bf91805c327313c520459b466d3ff684a48c7e9a387cd776316d2064"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\three-grounds-top.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "80be7895bf6df36246f8267ead71ed737c25f6313edfbb22ee128dd2fd6e2e46"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullSandbar\\review-sheet.png",
+          "size": [
+            960,
+            970
+          ],
+          "sha256": "c9103d83ec71abef114b09af2a5f5fbaa571b85cfd2770a527762fc09b602a92"
+        }
+      ]
+    },
+    {
+      "map": "GullRockyPoint",
+      "all_passed": true,
+      "triangles": 25596,
+      "meshes": 14,
+      "expanded_bounds": [
+        [
+          -36.73767852783203,
+          -36.33877182006836,
+          -16.0
+        ],
+        [
+          36.73767852783203,
+          36.33877182006836,
+          1.2450505495071411
+        ]
+      ],
+      "original_bounds": [
+        [
+          -10.705780982971191,
+          -12.575052261352539,
+          -4.199999809265137
+        ],
+        [
+          13.786005973815918,
+          11.650794982910156,
+          1.2450505495071411
+        ]
+      ],
+      "footprint_ratio": 8.999999768933465,
+      "closed_extension_nonmanifold_edges": 0,
+      "retained_coastal_vertices_checked": 2423,
+      "retained_coast_error_m": 0,
+      "root_identity_error": 0.0,
+      "anchors": [
+        {
+          "id": "reef",
+          "position": [
+            1,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 1.8,
+          "measured_terrain_depth_m": 6.375499725341797,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "drop-off",
+          "position": [
+            23,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 3.7,
+          "measured_terrain_depth_m": 3.076885223388672,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "open",
+          "position": [
+            -21,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 5.8,
+          "measured_terrain_depth_m": 5.8282976150512695,
+          "depth_error_m": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "fromGround": "reef",
+          "toGround": "drop-off",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "reef",
+          "toGround": "open",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "drop-off",
+          "toGround": "open",
+          "centreline_samples": 205,
+          "clear": true
+        }
+      ],
+      "bidirectional_fbx_max_vertex_error_m": 3.43852161677205e-06,
+      "derived_fbx_has_unity_meta": false,
+      "original_baseline_sha256": "77f2ee7505084ede25bc30fd85a1ac4fec4ad56cbfb25718bfb06bfd812f503e",
+      "protected_sha256": {
+        "Art\\Models\\Maps\\GullRockyPoint\\GullRockyPoint.blend": "c6a0a799977b3cf6619b364ada77c2ce87fa92a2064d0a50167162d49ba96070",
+        "Art\\Models\\Maps\\GullRockyPoint\\GullRockyPoint.fbx": "55c21ca698e4afbd88ca86c36b3cadea6172ab07cbed05f835aeaabd7c08ea63",
+        "Art\\Models\\Maps\\GullRockyPoint\\grounds.json": "0c265ff10adea86964dce070ca61c6a4592478f61fcd795beb7d2e579b0c210d",
+        "Art\\Models\\Maps\\GullRockyPoint\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Art\\Models\\Maps\\GullRockyPoint\\validation.json": "a04e44a1ccdd8cccd51cad8d9461f047e617a8de94aa2a83fa8adde539820bde",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint\\GullRockyPointGroundsV1.fbx": "55c21ca698e4afbd88ca86c36b3cadea6172ab07cbed05f835aeaabd7c08ea63",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint\\grounds.json": "0c265ff10adea86964dce070ca61c6a4592478f61fcd795beb7d2e579b0c210d",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint-placement.json": "1e101cb6838840f3eb1860fcab0cc88c9836229282381c05e01c286b56704a9b",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint-placement.json.meta": "45641e42edd60d2e90bb0fab4551b342f4efc5d6b043493d6d3cab4e2f0e414b",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint.fbx": "b42c3ca41a43ba24b1781adb1eb5bd7deec7cb331a03cd5a66e3f51184b465ca",
+        "Assets\\Art\\Models\\Environment\\GullRockyPoint.fbx.meta": "e7953748b18c06033d64390c7e38b5bab9738d92d4666bc43d9e0ee22c07210a"
+      },
+      "lighting_presets": {
+        "day": {
+          "keyColor": "#FFF2DC",
+          "keyIntensity": 1.3,
+          "ambient": "#BCD6DF",
+          "ambientIntensity": 0.45
+        },
+        "night": {
+          "keyColor": "#FFC875",
+          "keyIntensity": 0.22,
+          "ambient": "#445C8F",
+          "ambientIntensity": 0.24,
+          "deckPools": [
+            {
+              "boatLocal": [
+                0.4,
+                1.6,
+                0.5
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            },
+            {
+              "boatLocal": [
+                2,
+                1.6,
+                1
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            }
+          ]
+        },
+        "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+      },
+      "renders": [
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\reef-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "7591633ad577d0768f6bbe6bd4ac56bd290556be54ce24eab5e34e0932d77cfa"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\reef-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "ef4b86072a34537ebf32ad70b742396f4b6bd88444be5c0f5f3a13613e53814c"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\drop-off-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "bc7bbd9e6289031d1c19e2fe16215a07e8e7e18c25967ad68ec03717e827424b"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\drop-off-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "984ace571d94631b4a67efc969bb1f0820b7ac56381243e4227b1815b7e2b85e"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\open-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "ab245aa776d434ce08df1063240f81771a47e28e43429c765ddb85f11aef8545"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\open-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "b1bcbda40dfe1f575260919c32fff33e9328143ce198610901dcfc26d5f47666"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\three-grounds-top.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "ee347276a9f0fb113139f846a95a0033d150f2376b24256b721d5e7e9df76dac"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullRockyPoint\\review-sheet.png",
+          "size": [
+            960,
+            970
+          ],
+          "sha256": "22e9dfa26568ab5306f2469e9fd81d9731a5f206dcf7ac759df45f6c43600a04"
+        }
+      ]
+    },
+    {
+      "map": "GullDeepChannel",
+      "all_passed": true,
+      "triangles": 24446,
+      "meshes": 19,
+      "expanded_bounds": [
+        [
+          -36.71797561645508,
+          -36.33877182006836,
+          -16.0
+        ],
+        [
+          36.71797561645508,
+          36.33877182006836,
+          0.7850000262260437
+        ]
+      ],
+      "original_bounds": [
+        [
+          -10.705780982971191,
+          -12.575052261352539,
+          -5.099999904632568
+        ],
+        [
+          13.772870063781738,
+          11.650794982910156,
+          -1.8095552921295166
+        ]
+      ],
+      "footprint_ratio": 9.000000002439313,
+      "closed_extension_nonmanifold_edges": 0,
+      "retained_coastal_vertices_checked": 404,
+      "retained_coast_error_m": 0,
+      "root_identity_error": 0.0,
+      "anchors": [
+        {
+          "id": "drop-off",
+          "position": [
+            1,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 4.2,
+          "measured_terrain_depth_m": 6.375496864318848,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "trench",
+          "position": [
+            23,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 14.0,
+          "measured_terrain_depth_m": 14.018524169921875,
+          "depth_error_m": 0.0
+        },
+        {
+          "id": "open",
+          "position": [
+            -21,
+            0,
+            0.5
+          ],
+          "heading": 0,
+          "nominal_water_colour_depth_m": 9.0,
+          "measured_terrain_depth_m": 6.428231239318848,
+          "depth_error_m": 0.0
+        }
+      ],
+      "paths": [
+        {
+          "fromGround": "drop-off",
+          "toGround": "trench",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "drop-off",
+          "toGround": "open",
+          "centreline_samples": 161,
+          "clear": true
+        },
+        {
+          "fromGround": "trench",
+          "toGround": "open",
+          "centreline_samples": 205,
+          "clear": true
+        }
+      ],
+      "bidirectional_fbx_max_vertex_error_m": 3.43852161677205e-06,
+      "derived_fbx_has_unity_meta": false,
+      "original_baseline_sha256": "709cd634edf0622ec09d66a1f7ca9163567c5faf132f6a68b182770a647047df",
+      "protected_sha256": {
+        "Art\\Models\\Maps\\GullDeepChannel\\GullDeepChannel.blend": "93d0ada2a89d10d1f5244f3239ee8490b5d45862be43f8532c56bcc64c0047d8",
+        "Art\\Models\\Maps\\GullDeepChannel\\GullDeepChannel.fbx": "5fc1238dc5be0dd4f102240491107b936cacb49b3dc7a8189390eaa28af517e2",
+        "Art\\Models\\Maps\\GullDeepChannel\\grounds.json": "e4ce49ebb8d67c2411d27bc2ca143b73d482e8e4ab06bf7be5f6b96f06201576",
+        "Art\\Models\\Maps\\GullDeepChannel\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Art\\Models\\Maps\\GullDeepChannel\\validation.json": "0e2fd61834c6e76d44161bd17b0f42830ea792c3fbd6093a511728e6c0e8fe25",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel\\GullDeepChannelGroundsV1.fbx": "5fc1238dc5be0dd4f102240491107b936cacb49b3dc7a8189390eaa28af517e2",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel\\grounds.json": "e4ce49ebb8d67c2411d27bc2ca143b73d482e8e4ab06bf7be5f6b96f06201576",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel\\lighting-presets.json": "b848947ad118450c42ad920215027e1ca0fe60d4f9982785954a799e80279377",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel-placement.json": "5f46fd3162b0c3e191dd93aee439b2d72eb88006d7fe96195aeab14536b59f88",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel-placement.json.meta": "591b9ef3786866dafe5126edbcbdd3a4f2cb5f74b3bd94c89c6c8b5722237654",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel.fbx": "3470d47fb34c1ccbf9cc2fcffe5b67239d5a624e646481c762b536ee72a84c00",
+        "Assets\\Art\\Models\\Environment\\GullDeepChannel.fbx.meta": "e7344add6390c743d7ee9816cc058df7859e386fb93401ab856b58be9b5cdbb8"
+      },
+      "lighting_presets": {
+        "day": {
+          "keyColor": "#FFF2DC",
+          "keyIntensity": 1.3,
+          "ambient": "#BCD6DF",
+          "ambientIntensity": 0.45
+        },
+        "night": {
+          "keyColor": "#FFC875",
+          "keyIntensity": 0.22,
+          "ambient": "#445C8F",
+          "ambientIntensity": 0.24,
+          "deckPools": [
+            {
+              "boatLocal": [
+                0.4,
+                1.6,
+                0.5
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            },
+            {
+              "boatLocal": [
+                2,
+                1.6,
+                1
+              ],
+              "color": "#FFD593",
+              "range": 3.2,
+              "intensity": 1.2
+            }
+          ]
+        },
+        "note": "Runtime light intensities are integration starting values, not lumen equivalence to Blender review area lights. One model, two presets."
+      },
+      "renders": [
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\drop-off-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "0e7dbed912c168003dd55845bb58967d91c8f29520699662e0be2779bacf2a35"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\drop-off-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "2afecef97c9b78fe6dde579cf75fdc2f70d3e38318dd732b9dac6806153753eb"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\trench-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "e3c2110ac9da51c6410cde80bd79f73361b777e3fa2fd91f4ab8d52c1395565a"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\trench-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "c79ea5d4de715a294ed00a56bf47db61da69d55be703d77731469301ea571446"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\open-day.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "a2cf14d654d6907fd5189322aacbfd8e402fb9cfdff634b23535efb7f99bcc01"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\open-night.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "7b9a80ce5d42e1c9de1e52e01d4e9607e68981e6f4e8dddf27bb74f266cc93e5"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\three-grounds-top.png",
+          "size": [
+            1440,
+            900
+          ],
+          "sha256": "af6bfca3aa99633ac2710bb846cbb73f807269b12812cb566304a9d67a1c7997"
+        },
+        {
+          "file": "Art\\Models\\Maps\\GullDeepChannel\\review-sheet.png",
+          "size": [
+            960,
+            970
+          ],
+          "sha256": "ae53b224a0bd86fac1069eb14ad165f0d6500a396abb0e399c8b22737a881eb0"
+        }
+      ]
+    }
+  ],
+  "all_passed": true
+}

@@ -1,4 +1,31 @@
 {
+  "nonhair_baseline_surface_checks": {
+    "Face": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.00029164255829527974
+    },
+    "Expression": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Hat": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "MaleBody": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.0006343891145661473
+    },
+    "OutfitDetails": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    }
+  },
+  "temple_crown_coverage": {
+    "radial_rays": 325,
+    "scalp_first_hits": [],
+    "scope": "Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots"
+  },
   "saved_source": {
     "rig_and_all_action_signatures_exact": true,
     "bones": 20,
@@ -14,7 +41,7 @@
     },
     "max_weights_per_vertex": 2,
     "all_weights_normalized": true,
-    "bare_scalp_height_m": 0.9500327706336975,
+    "bare_scalp_height_m": 0.9500386118888855,
     "bind_bounds_m": [
       [
         -0.4675086438655853,
@@ -23,7 +50,7 @@
       ],
       [
         0.4672813415527344,
-        0.17638245224952698,
+        0.17926956713199615,
         1.0430864095687866
       ]
     ],
@@ -42,9 +69,9 @@
     "source_bind_bounds_match": true,
     "normalized_weights": true,
     "mesh_triangles": {
-      "Dirk_Face": 2300,
       "Dirk_Hat": 2500,
       "Dirk_Expression": 1500,
+      "Dirk_Face": 2300,
       "Dirk_Hair": 6500,
       "Dirk_MaleBody": 3499,
       "Dirk_OutfitDetails": 3318
@@ -147,10 +174,10 @@
   "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
   "all_passed": true,
   "name": "Dirk",
-  "revision": "r03",
+  "revision": "hair-r01",
   "delivery_sha256": {
-    "Dirk.blend": "931ba267824d648034db6b4b187a9b8eb0b8da01062ac7a02ae4df605ce81b22",
-    "Dirk.fbx": "71fae5bc78060e686b51fe598dae3f364e75d2641561483a12586fd966b0469c",
+    "Dirk.blend": "623e57ce805d9fc506a72895826d19ad6fc0522b2cce525af6cb4a2c6bde0ac5",
+    "Dirk.fbx": "61cb169530153c387931cd484abff6417070ae4d37399a75495c1cab6092199a",
     "Dirk_Face.png": "098d70b738cae7e014b285319c8f211e2b773b09ed2c74a7e1fcc639d814679a"
   }
 }

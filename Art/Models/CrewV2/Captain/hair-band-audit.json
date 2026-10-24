@@ -1,0 +1,3254 @@
+{
+  "name": "Captain",
+  "revision": "hair-r04",
+  "source_sha256": "440ab190937220b8db3d9c575e642afb92901c4a29f7d9d581a6f29f57c1956c",
+  "scope": "Full circle every 10 degrees, 9 heights per angle, natural forehead/ear boundary to .895m; lower rear band reaches .700m. Exposed face and ears below the fixed anatomical hairline are excluded.",
+  "hairline_formula_m": ".800 + .085*max(0,-sin(angle)) - .100*min(1,max(0,sin(angle))/.55)",
+  "tolerance_m": 0.0002,
+  "rays": 324,
+  "skin_first_count": 0,
+  "skin_first_hits": [],
+  "all_passed": true,
+  "hits": [
+    {
+      "angle_degrees": 0,
+      "z_m": 0.8,
+      "outside_in_distance_m": {
+        "Face": 0.3289565145969391,
+        "Hair": 0.31471529603004456,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.811875,
+      "outside_in_distance_m": {
+        "Face": 0.3313871920108795,
+        "Hair": 0.31674882769584656,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.82375,
+      "outside_in_distance_m": {
+        "Face": 0.33399391174316406,
+        "Hair": 0.32068705558776855,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.8356250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3366006016731262,
+        "Hair": 0.31420624256134033,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.8475,
+      "outside_in_distance_m": {
+        "Face": 0.3406052589416504,
+        "Hair": 0.3270641565322876,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.859375,
+      "outside_in_distance_m": {
+        "Face": 0.34623026847839355,
+        "Hair": 0.32671862840652466,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.8712500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3518552780151367,
+        "Hair": 0.33784371614456177,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.883125,
+      "outside_in_distance_m": {
+        "Face": 0.35907113552093506,
+        "Hair": 0.35000839829444885,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 0,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3707413971424103,
+        "Hair": 0.3639291524887085,
+        "Hat": 0.31949368119239807
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.7684276040605582,
+      "outside_in_distance_m": {
+        "Face": 0.3287087082862854,
+        "Hair": 0.3107922673225403,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.7842491535529884,
+      "outside_in_distance_m": {
+        "Face": 0.3293135464191437,
+        "Hair": 0.31256091594696045,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8000707030454186,
+      "outside_in_distance_m": {
+        "Face": 0.32988667488098145,
+        "Hair": 0.31495529413223267,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8158922525378489,
+      "outside_in_distance_m": {
+        "Face": 0.33314982056617737,
+        "Hair": 0.3127850890159607,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8317138020302791,
+      "outside_in_distance_m": {
+        "Face": 0.336569219827652,
+        "Hair": 0.32360488176345825,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8475353515227093,
+      "outside_in_distance_m": {
+        "Face": 0.34140005707740784,
+        "Hair": 0.32714858651161194,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8633569010151396,
+      "outside_in_distance_m": {
+        "Face": 0.3488747775554657,
+        "Hair": 0.3320527672767639,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.8791784505075698,
+      "outside_in_distance_m": {
+        "Face": 0.35636666417121887,
+        "Hair": 0.3415446877479553,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 10,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37121328711509705,
+        "Hair": 0.36606574058532715,
+        "Hat": 0.3203696012496948
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.737814519395333,
+      "outside_in_distance_m": {
+        "Face": 0.3341871500015259,
+        "Hair": 0.32843974232673645,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.7574627044709165,
+      "outside_in_distance_m": {
+        "Face": 0.3301514685153961,
+        "Hair": 0.31602659821510315,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.7771108895464998,
+      "outside_in_distance_m": {
+        "Face": 0.33062124252319336,
+        "Hair": 0.31796959042549133,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.7967590746220832,
+      "outside_in_distance_m": {
+        "Face": 0.33113107085227966,
+        "Hair": 0.3176792562007904,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.8164072596976666,
+      "outside_in_distance_m": {
+        "Face": 0.33447933197021484,
+        "Hair": 0.3217560052871704,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.8360554447732499,
+      "outside_in_distance_m": {
+        "Face": 0.3385986387729645,
+        "Hair": 0.3261863887310028,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.8557036298488333,
+      "outside_in_distance_m": {
+        "Face": 0.346323698759079,
+        "Hair": 0.3308824598789215,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.8753518149244166,
+      "outside_in_distance_m": {
+        "Face": 0.3556251525878906,
+        "Hair": 0.3479726016521454,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 20,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37203481793403625,
+        "Hair": 0.3672919273376465,
+        "Hat": 0.322717547416687
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.7090909090909091,
+      "outside_in_distance_m": {
+        "Face": 0.34517908096313477,
+        "Hair": 0.3396106958389282,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.7323295454545454,
+      "outside_in_distance_m": {
+        "Face": 0.33915308117866516,
+        "Hair": 0.33070310950279236,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.7555681818181819,
+      "outside_in_distance_m": {
+        "Face": 0.33374515175819397,
+        "Hair": 0.3219919204711914,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.7788068181818182,
+      "outside_in_distance_m": {
+        "Face": 0.3338265120983124,
+        "Hair": 0.3198864758014679,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.8020454545454545,
+      "outside_in_distance_m": {
+        "Face": 0.33398324251174927,
+        "Hair": 0.32113757729530334,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.8252840909090909,
+      "outside_in_distance_m": {
+        "Face": 0.3385768234729767,
+        "Hair": 0.33149614930152893,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.8485227272727273,
+      "outside_in_distance_m": {
+        "Face": 0.34493106603622437,
+        "Hair": 0.33903568983078003,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.8717613636363637,
+      "outside_in_distance_m": {
+        "Face": 0.35594579577445984,
+        "Hair": 0.349402517080307,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 30,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37354522943496704,
+        "Hair": 0.3684079647064209,
+        "Hat": 0.32621562480926514
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35241201519966125,
+        "Hair": 0.34798818826675415,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3448265492916107,
+        "Hair": 0.32116296887397766,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3388756215572357,
+        "Hair": 0.3255646824836731,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.33705833554267883,
+        "Hair": 0.33071139454841614,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3365534842014313,
+        "Hair": 0.3311777710914612,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3403701186180115,
+        "Hair": 0.3338199853897095,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34608107805252075,
+        "Hair": 0.32565176486968994,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.3576257526874542,
+        "Hair": 0.35065776109695435,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 40,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.375831663608551,
+        "Hair": 0.37052130699157715,
+        "Hat": 0.3302713930606842
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35634133219718933,
+        "Hair": 0.33841103315353394,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3487846553325653,
+        "Hair": 0.331623911857605,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3427209258079529,
+        "Hair": 0.33678367733955383,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3403153419494629,
+        "Hair": 0.3338959813117981,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.33917126059532166,
+        "Hair": 0.3338673710823059,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.34255513548851013,
+        "Hair": 0.3356180787086487,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34805747866630554,
+        "Hair": 0.33231285214424133,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.35962405800819397,
+        "Hair": 0.3519519567489624,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 50,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37741580605506897,
+        "Hair": 0.37204709649086,
+        "Hat": 0.3341798782348633
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3597533106803894,
+        "Hair": 0.355705589056015,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3522845506668091,
+        "Hair": 0.3330545127391815,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3461809754371643,
+        "Hair": 0.3278273344039917,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34351545572280884,
+        "Hair": 0.33627036213874817,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34195202589035034,
+        "Hair": 0.33573782444000244,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3450860381126404,
+        "Hair": 0.33817172050476074,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3503153324127197,
+        "Hair": 0.3307426869869232,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.3618634343147278,
+        "Hair": 0.34546568989753723,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 60,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3789181113243103,
+        "Hair": 0.37330207228660583,
+        "Hat": 0.3377045691013336
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3622570037841797,
+        "Hair": 0.34476229548454285,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35486072301864624,
+        "Hair": 0.34759458899497986,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.348716676235199,
+        "Hair": 0.3422754406929016,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34583497047424316,
+        "Hair": 0.3278777003288269,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34395644068717957,
+        "Hair": 0.3382723927497864,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.34690001606941223,
+        "Hair": 0.3353049159049988,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3519667983055115,
+        "Hair": 0.34694960713386536,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.36349526047706604,
+        "Hair": 0.3467913269996643,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 70,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3806862533092499,
+        "Hair": 0.36563223600387573,
+        "Hat": 0.3403621017932892
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3637405335903168,
+        "Hair": 0.3584408164024353,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3563835918903351,
+        "Hair": 0.3361894488334656,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.35021016001701355,
+        "Hair": 0.33389559388160706,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3471399247646332,
+        "Hair": 0.34059858322143555,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3450963795185089,
+        "Hair": 0.33978429436683655,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3479020297527313,
+        "Hair": 0.33634498715400696,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3528846800327301,
+        "Hair": 0.32988834381103516,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.36441245675086975,
+        "Hair": 0.347149133682251,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 80,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.38106241822242737,
+        "Hair": 0.37563806772232056,
+        "Hat": 0.34204035997390747
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.36413243412971497,
+        "Hair": 0.3498258590698242,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35677894949913025,
+        "Hair": 0.349030077457428,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.35058751702308655,
+        "Hair": 0.3307904303073883,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3474239110946655,
+        "Hair": 0.34060776233673096,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34530431032180786,
+        "Hair": 0.339591920375824,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3480548560619354,
+        "Hair": 0.32922524213790894,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.353063702583313,
+        "Hair": 0.33892586827278137,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.3648998439311981,
+        "Hair": 0.3570009171962738,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 90,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.38181474804878235,
+        "Hair": 0.3761712908744812,
+        "Hat": 0.3425339460372925
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3637405335903168,
+        "Hair": 0.3455841541290283,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3563835918903351,
+        "Hair": 0.34950029850006104,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.35021016001701355,
+        "Hair": 0.34380292892456055,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3471399247646332,
+        "Hair": 0.3403858542442322,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3450964093208313,
+        "Hair": 0.3390718400478363,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3479020297527313,
+        "Hair": 0.3293857276439667,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3528846800327301,
+        "Hair": 0.3479017913341522,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.3646494746208191,
+        "Hair": 0.3571445047855377,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 100,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3816986382007599,
+        "Hair": 0.37715938687324524,
+        "Hat": 0.34204038977622986
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3622570037841797,
+        "Hair": 0.35668376088142395,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35486075282096863,
+        "Hair": 0.33910509943962097,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3487166464328766,
+        "Hair": 0.33320045471191406,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34583497047424316,
+        "Hair": 0.3387030065059662,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34395644068717957,
+        "Hair": 0.3383690416812897,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3469000458717346,
+        "Hair": 0.33466073870658875,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3519667387008667,
+        "Hair": 0.3364504873752594,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.36349526047706604,
+        "Hair": 0.3463660776615143,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 110,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3802960216999054,
+        "Hair": 0.3743460774421692,
+        "Hat": 0.3403621315956116
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.359753280878067,
+        "Hair": 0.3554505407810211,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3522845208644867,
+        "Hair": 0.33214718103408813,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3461809754371643,
+        "Hair": 0.32915204763412476,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34351545572280884,
+        "Hair": 0.3362237811088562,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34195202589035034,
+        "Hair": 0.3360946774482727,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3450860381126404,
+        "Hair": 0.32253339886665344,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3503153324127197,
+        "Hair": 0.33000612258911133,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.36186346411705017,
+        "Hair": 0.34194162487983704,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 120,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37932199239730835,
+        "Hair": 0.37389087677001953,
+        "Hat": 0.3377045691013336
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35634133219718933,
+        "Hair": 0.3397097587585449,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3487846851348877,
+        "Hair": 0.34148189425468445,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3427208662033081,
+        "Hair": 0.323523610830307,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3403153419494629,
+        "Hair": 0.3332422971725464,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.33917126059532166,
+        "Hair": 0.3335065245628357,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.34255513548851013,
+        "Hair": 0.3261263966560364,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34805747866630554,
+        "Hair": 0.3430855870246887,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.35962405800819397,
+        "Hair": 0.34104788303375244,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 130,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3774675130844116,
+        "Hair": 0.3726655840873718,
+        "Hat": 0.3341798782348633
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.7000000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35241201519966125,
+        "Hair": 0.33520570397377014,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.7243750000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3448265492916107,
+        "Hair": 0.3192322552204132,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.74875,
+      "outside_in_distance_m": {
+        "Face": 0.3388756215572357,
+        "Hair": 0.3333723843097687,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.7731250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.33705833554267883,
+        "Hair": 0.316034197807312,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.7975000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3365534842014313,
+        "Hair": 0.3318082392215729,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.821875,
+      "outside_in_distance_m": {
+        "Face": 0.3403700590133667,
+        "Hair": 0.3269893229007721,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.8462500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.34608107805252075,
+        "Hair": 0.32553160190582275,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.870625,
+      "outside_in_distance_m": {
+        "Face": 0.35762572288513184,
+        "Hair": 0.34012478590011597,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 140,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37541666626930237,
+        "Hair": 0.3694837689399719,
+        "Hat": 0.3302713930606842
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.7090909090909091,
+      "outside_in_distance_m": {
+        "Face": 0.34517908096313477,
+        "Hair": 0.33946937322616577,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.7323295454545454,
+      "outside_in_distance_m": {
+        "Face": 0.33915308117866516,
+        "Hair": 0.32213184237480164,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.7555681818181819,
+      "outside_in_distance_m": {
+        "Face": 0.33374521136283875,
+        "Hair": 0.3219919800758362,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.7788068181818182,
+      "outside_in_distance_m": {
+        "Face": 0.3338265120983124,
+        "Hair": 0.3106662631034851,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.8020454545454545,
+      "outside_in_distance_m": {
+        "Face": 0.33398327231407166,
+        "Hair": 0.32113757729530334,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.8252840909090909,
+      "outside_in_distance_m": {
+        "Face": 0.3385767638683319,
+        "Hair": 0.33071762323379517,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.8485227272727273,
+      "outside_in_distance_m": {
+        "Face": 0.34493109583854675,
+        "Hair": 0.3382340669631958,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.8717613636363637,
+      "outside_in_distance_m": {
+        "Face": 0.35594576597213745,
+        "Hair": 0.33459943532943726,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 150,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37397468090057373,
+        "Hair": 0.36853843927383423,
+        "Hat": 0.32621562480926514
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.7378145193953329,
+      "outside_in_distance_m": {
+        "Face": 0.33418717980384827,
+        "Hair": 0.3283923268318176,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.7574627044709163,
+      "outside_in_distance_m": {
+        "Face": 0.3301514685153961,
+        "Hair": 0.3104102313518524,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.7771108895464998,
+      "outside_in_distance_m": {
+        "Face": 0.33062121272087097,
+        "Hair": 0.31796950101852417,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.7967590746220831,
+      "outside_in_distance_m": {
+        "Face": 0.33113107085227966,
+        "Hair": 0.3176792562007904,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.8164072596976665,
+      "outside_in_distance_m": {
+        "Face": 0.33447933197021484,
+        "Hair": 0.3217560350894928,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.8360554447732499,
+      "outside_in_distance_m": {
+        "Face": 0.3385986387729645,
+        "Hair": 0.3169577717781067,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.8557036298488332,
+      "outside_in_distance_m": {
+        "Face": 0.3463236689567566,
+        "Hair": 0.34018662571907043,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.8753518149244166,
+      "outside_in_distance_m": {
+        "Face": 0.3556251525878906,
+        "Hair": 0.3386325538158417,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 160,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37231647968292236,
+        "Hair": 0.36522653698921204,
+        "Hat": 0.3227175176143646
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.7684276040605582,
+      "outside_in_distance_m": {
+        "Face": 0.3287087082862854,
+        "Hair": 0.3045775890350342,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.7842491535529884,
+      "outside_in_distance_m": {
+        "Face": 0.3293135464191437,
+        "Hair": 0.3235890567302704,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8000707030454186,
+      "outside_in_distance_m": {
+        "Face": 0.32988670468330383,
+        "Hair": 0.31495532393455505,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8158922525378489,
+      "outside_in_distance_m": {
+        "Face": 0.33314988017082214,
+        "Hair": 0.3149435818195343,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8317138020302791,
+      "outside_in_distance_m": {
+        "Face": 0.336569219827652,
+        "Hair": 0.32360485196113586,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8475353515227093,
+      "outside_in_distance_m": {
+        "Face": 0.34140005707740784,
+        "Hair": 0.3218216001987457,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8633569010151396,
+      "outside_in_distance_m": {
+        "Face": 0.3488747775554657,
+        "Hair": 0.3340141177177429,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.8791784505075698,
+      "outside_in_distance_m": {
+        "Face": 0.35636669397354126,
+        "Hair": 0.3421330153942108,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 170,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37099847197532654,
+        "Hair": 0.3658393919467926,
+        "Hat": 0.32036957144737244
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.8,
+      "outside_in_distance_m": {
+        "Face": 0.3289565145969391,
+        "Hair": 0.31471526622772217,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.811875,
+      "outside_in_distance_m": {
+        "Face": 0.3313871920108795,
+        "Hair": 0.3093695342540741,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.82375,
+      "outside_in_distance_m": {
+        "Face": 0.33399391174316406,
+        "Hair": 0.32068705558776855,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.8356250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3366006016731262,
+        "Hair": 0.3241147994995117,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.8475,
+      "outside_in_distance_m": {
+        "Face": 0.3406052589416504,
+        "Hair": 0.3198539912700653,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.859375,
+      "outside_in_distance_m": {
+        "Face": 0.34623029828071594,
+        "Hair": 0.3268930912017822,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.8712500000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3518552780151367,
+        "Hair": 0.33784371614456177,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.883125,
+      "outside_in_distance_m": {
+        "Face": 0.35907116532325745,
+        "Hair": 0.35000839829444885,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 180,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3707413971424103,
+        "Hair": 0.3651069104671478,
+        "Hat": 0.31949368119239807
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8147600951016891,
+      "outside_in_distance_m": {
+        "Face": 0.33339259028434753,
+        "Hair": 0.31701356172561646,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.824790083213978,
+      "outside_in_distance_m": {
+        "Face": 0.3356395661830902,
+        "Hair": 0.3211527466773987,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8348200713262668,
+      "outside_in_distance_m": {
+        "Face": 0.33785873651504517,
+        "Hair": 0.32594215869903564,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8448500594385557,
+      "outside_in_distance_m": {
+        "Face": 0.3407902419567108,
+        "Hair": 0.3271275758743286,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8548800475508446,
+      "outside_in_distance_m": {
+        "Face": 0.34552404284477234,
+        "Hair": 0.3311487138271332,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8649100356631334,
+      "outside_in_distance_m": {
+        "Face": 0.35027724504470825,
+        "Hair": 0.33594948053359985,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8749400237754223,
+      "outside_in_distance_m": {
+        "Face": 0.35503825545310974,
+        "Hair": 0.3424641489982605,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.8849700118877112,
+      "outside_in_distance_m": {
+        "Face": 0.3622795641422272,
+        "Hair": 0.3498694896697998,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 190,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3720819652080536,
+        "Hair": 0.3607102036476135,
+        "Hat": 0.3203696012496948
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8290717121826818,
+      "outside_in_distance_m": {
+        "Face": 0.339344322681427,
+        "Hair": 0.32579270005226135,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8373127481598466,
+      "outside_in_distance_m": {
+        "Face": 0.3412869870662689,
+        "Hair": 0.32882159948349,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8455537841370113,
+      "outside_in_distance_m": {
+        "Face": 0.34404245018959045,
+        "Hair": 0.331341415643692,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8537948201141762,
+      "outside_in_distance_m": {
+        "Face": 0.347869873046875,
+        "Hair": 0.3340059220790863,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8620358560913409,
+      "outside_in_distance_m": {
+        "Face": 0.3517816960811615,
+        "Hair": 0.3386933207511902,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8702768920685057,
+      "outside_in_distance_m": {
+        "Face": 0.35578495264053345,
+        "Hair": 0.34217220544815063,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8785179280456705,
+      "outside_in_distance_m": {
+        "Face": 0.35978826880455017,
+        "Hair": 0.3484763205051422,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.8867589640228353,
+      "outside_in_distance_m": {
+        "Face": 0.3667828142642975,
+        "Hair": 0.35344594717025757,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 200,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37473008036613464,
+        "Hair": 0.3668147921562195,
+        "Hat": 0.27914896607398987
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8425,
+      "outside_in_distance_m": {
+        "Face": 0.3471485376358032,
+        "Hair": 0.33385103940963745,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8490625,
+      "outside_in_distance_m": {
+        "Face": 0.35033997893333435,
+        "Hair": 0.33627110719680786,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8556250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35357412695884705,
+        "Hair": 0.33961981534957886,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8621875,
+      "outside_in_distance_m": {
+        "Face": 0.3568284809589386,
+        "Hair": 0.34222620725631714,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.86875,
+      "outside_in_distance_m": {
+        "Face": 0.3600827157497406,
+        "Hair": 0.3455751836299896,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8753125,
+      "outside_in_distance_m": {
+        "Face": 0.36333709955215454,
+        "Hair": 0.3500027656555176,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.881875,
+      "outside_in_distance_m": {
+        "Face": 0.3673344850540161,
+        "Hair": 0.35406914353370667,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.8884375,
+      "outside_in_distance_m": {
+        "Face": 0.37327903509140015,
+        "Hair": 0.35813555121421814,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 210,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3792235553264618,
+        "Hair": 0.36418598890304565,
+        "Hat": 0.2826884686946869
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8546369468233559,
+      "outside_in_distance_m": {
+        "Face": 0.35784873366355896,
+        "Hair": 0.32893937826156616,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8596823284704365,
+      "outside_in_distance_m": {
+        "Face": 0.36034154891967773,
+        "Hair": 0.3261030912399292,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8647277101175169,
+      "outside_in_distance_m": {
+        "Face": 0.36283445358276367,
+        "Hair": 0.3285488188266754,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8697730917645974,
+      "outside_in_distance_m": {
+        "Face": 0.3653709888458252,
+        "Hair": 0.32783758640289307,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.874818473411678,
+      "outside_in_distance_m": {
+        "Face": 0.36791759729385376,
+        "Hair": 0.32756638526916504,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8798638550587585,
+      "outside_in_distance_m": {
+        "Face": 0.3704642653465271,
+        "Hair": 0.3332299590110779,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.884909236705839,
+      "outside_in_distance_m": {
+        "Face": 0.37489748001098633,
+        "Hair": 0.3405444622039795,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.8899546183529194,
+      "outside_in_distance_m": {
+        "Face": 0.3794045150279999,
+        "Hair": 0.3667139410972595,
+        "Hat": 0.2794683277606964
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 220,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3839115500450134,
+        "Hair": 0.3694380819797516,
+        "Hat": 0.291918009519577
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8651137776651132,
+      "outside_in_distance_m": {
+        "Face": 0.36735525727272034,
+        "Hair": 0.32884955406188965,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8688495554569741,
+      "outside_in_distance_m": {
+        "Face": 0.36909642815589905,
+        "Hair": 0.32558614015579224,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8725853332488349,
+      "outside_in_distance_m": {
+        "Face": 0.37083759903907776,
+        "Hair": 0.3255278766155243,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8763211110406958,
+      "outside_in_distance_m": {
+        "Face": 0.3725840449333191,
+        "Hair": 0.334517240524292,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8800568888325566,
+      "outside_in_distance_m": {
+        "Face": 0.3744174540042877,
+        "Hair": 0.33566442131996155,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8837926666244175,
+      "outside_in_distance_m": {
+        "Face": 0.3777618408203125,
+        "Hair": 0.34098488092422485,
+        "Hat": 0.28051936626434326
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8875284444162783,
+      "outside_in_distance_m": {
+        "Face": 0.3812210261821747,
+        "Hair": 0.3480544984340668,
+        "Hat": 0.2803795337677002
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.8912642222081392,
+      "outside_in_distance_m": {
+        "Face": 0.38468027114868164,
+        "Hair": 0.3551240861415863,
+        "Hat": 0.2901175916194916
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 230,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3881394863128662,
+        "Hair": 0.3596532344818115,
+        "Hat": 0.3035370111465454
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8736121593216774,
+      "outside_in_distance_m": {
+        "Face": 0.3761645555496216,
+        "Hair": 0.3302494287490845,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8762856394064676,
+      "outside_in_distance_m": {
+        "Face": 0.3774828016757965,
+        "Hair": 0.3294532001018524,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.878959119491258,
+      "outside_in_distance_m": {
+        "Face": 0.378801167011261,
+        "Hair": 0.3321199119091034,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8816325995760483,
+      "outside_in_distance_m": {
+        "Face": 0.3806873559951782,
+        "Hair": 0.3356577754020691,
+        "Hat": 0.2780098617076874
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8843060796608386,
+      "outside_in_distance_m": {
+        "Face": 0.38296082615852356,
+        "Hair": 0.3397487998008728,
+        "Hat": 0.2800055146217346
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.886979559745629,
+      "outside_in_distance_m": {
+        "Face": 0.3852343261241913,
+        "Hair": 0.34455928206443787,
+        "Hat": 0.28578177094459534
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8896530398304193,
+      "outside_in_distance_m": {
+        "Face": 0.387507826089859,
+        "Hair": 0.349369615316391,
+        "Hat": 0.2940590977668762
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.8923265199152097,
+      "outside_in_distance_m": {
+        "Face": 0.3897813558578491,
+        "Hair": 0.35418009757995605,
+        "Hat": 0.3046776354312897
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 240,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.39205479621887207,
+        "Hair": 0.35899049043655396,
+        "Hat": 0.3151111602783203
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8798738727668023,
+      "outside_in_distance_m": {
+        "Face": 0.3816550672054291,
+        "Hair": 0.35519617795944214,
+        "Hat": 0.27740177512168884
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.881764638670952,
+      "outside_in_distance_m": {
+        "Face": 0.38320812582969666,
+        "Hair": 0.34923943877220154,
+        "Hat": 0.279726505279541
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8836554045751017,
+      "outside_in_distance_m": {
+        "Face": 0.38482022285461426,
+        "Hair": 0.3510402739048004,
+        "Hat": 0.2827041745185852
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8855461704792514,
+      "outside_in_distance_m": {
+        "Face": 0.3864322006702423,
+        "Hair": 0.3527239263057709,
+        "Hat": 0.28857725858688354
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8874369363834012,
+      "outside_in_distance_m": {
+        "Face": 0.3880443572998047,
+        "Hair": 0.35373708605766296,
+        "Hat": 0.2944352328777313
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8893277022875509,
+      "outside_in_distance_m": {
+        "Face": 0.3896564841270447,
+        "Hair": 0.3551577031612396,
+        "Hat": 0.301970899105072
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8912184681917006,
+      "outside_in_distance_m": {
+        "Face": 0.3912685513496399,
+        "Hair": 0.3603764772415161,
+        "Hat": 0.30953383445739746
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.8931092340958503,
+      "outside_in_distance_m": {
+        "Face": 0.3928874135017395,
+        "Hair": 0.3604504466056824,
+        "Hat": 0.3170197010040283
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 250,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.39456847310066223,
+        "Hair": 0.36027801036834717,
+        "Hat": 0.32484522461891174
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8837086590060377,
+      "outside_in_distance_m": {
+        "Face": 0.38659197092056274,
+        "Hair": null,
+        "Hat": 0.2875916063785553
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8851200766302829,
+      "outside_in_distance_m": {
+        "Face": 0.38777729868888855,
+        "Hair": null,
+        "Hat": 0.2919815480709076
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8865314942545283,
+      "outside_in_distance_m": {
+        "Face": 0.38896265625953674,
+        "Hair": null,
+        "Hat": 0.29661113023757935
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8879429118787736,
+      "outside_in_distance_m": {
+        "Face": 0.39018821716308594,
+        "Hair": null,
+        "Hat": 0.30223625898361206
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8893543295030188,
+      "outside_in_distance_m": {
+        "Face": 0.3914166986942291,
+        "Hair": null,
+        "Hat": 0.30786144733428955
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8907657471272641,
+      "outside_in_distance_m": {
+        "Face": 0.3926451504230499,
+        "Hair": null,
+        "Hat": 0.3135219216346741
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8921771647515094,
+      "outside_in_distance_m": {
+        "Face": 0.3938736319541931,
+        "Hair": null,
+        "Hat": 0.31943514943122864
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.8935885823757548,
+      "outside_in_distance_m": {
+        "Face": 0.39510205388069153,
+        "Hair": null,
+        "Hat": 0.32534828782081604
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 260,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3963305354118347,
+        "Hair": null,
+        "Hat": 0.3311998248100281
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.885,
+      "outside_in_distance_m": {
+        "Face": 0.38859421014785767,
+        "Hair": 0.34871983528137207,
+        "Hat": 0.2929594814777374
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.88625,
+      "outside_in_distance_m": {
+        "Face": 0.3896728754043579,
+        "Hair": 0.3512861430644989,
+        "Hat": 0.2972103953361511
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.8875,
+      "outside_in_distance_m": {
+        "Face": 0.3907514214515686,
+        "Hair": 0.35279640555381775,
+        "Hat": 0.3023572266101837
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.88875,
+      "outside_in_distance_m": {
+        "Face": 0.39183005690574646,
+        "Hair": 0.3534741699695587,
+        "Hat": 0.3075261116027832
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.89,
+      "outside_in_distance_m": {
+        "Face": 0.39290866255760193,
+        "Hair": 0.3552115559577942,
+        "Hat": 0.3127055764198303
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.89125,
+      "outside_in_distance_m": {
+        "Face": 0.39398297667503357,
+        "Hair": 0.35702818632125854,
+        "Hat": 0.3178856372833252
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.8925000000000001,
+      "outside_in_distance_m": {
+        "Face": 0.3950507938861847,
+        "Hair": 0.35885295271873474,
+        "Hat": 0.32306548953056335
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.89375,
+      "outside_in_distance_m": {
+        "Face": 0.3961185812950134,
+        "Hair": 0.35993722081184387,
+        "Hat": 0.3282455801963806
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 270,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3971863389015198,
+        "Hair": 0.36059778928756714,
+        "Hat": 0.3334254324436188
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8837086590060378,
+      "outside_in_distance_m": {
+        "Face": 0.3870142102241516,
+        "Hair": 0.3411691188812256,
+        "Hat": 0.28740495443344116
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.885120076630283,
+      "outside_in_distance_m": {
+        "Face": 0.38819971680641174,
+        "Hair": 0.3425442576408386,
+        "Hat": 0.2916612923145294
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8865314942545284,
+      "outside_in_distance_m": {
+        "Face": 0.3893851935863495,
+        "Hair": 0.34481585025787354,
+        "Hat": 0.29645106196403503
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8879429118787736,
+      "outside_in_distance_m": {
+        "Face": 0.3905707001686096,
+        "Hair": 0.3466491103172302,
+        "Hat": 0.30217212438583374
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8893543295030188,
+      "outside_in_distance_m": {
+        "Face": 0.391756147146225,
+        "Hair": 0.34807464480400085,
+        "Hat": 0.30789315700531006
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8907657471272642,
+      "outside_in_distance_m": {
+        "Face": 0.3929416239261627,
+        "Hair": 0.34957215189933777,
+        "Hat": 0.313652902841568
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8921771647515094,
+      "outside_in_distance_m": {
+        "Face": 0.39412713050842285,
+        "Hair": 0.35106974840164185,
+        "Hat": 0.31953245401382446
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.8935885823757548,
+      "outside_in_distance_m": {
+        "Face": 0.3953126072883606,
+        "Hair": 0.35256728529930115,
+        "Hat": 0.3254120349884033
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 280,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.39649802446365356,
+        "Hair": 0.35406482219696045,
+        "Hat": 0.3312913179397583
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8798738727668023,
+      "outside_in_distance_m": {
+        "Face": 0.3817729651927948,
+        "Hair": 0.33697691559791565,
+        "Hat": 0.2774548828601837
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.881764638670952,
+      "outside_in_distance_m": {
+        "Face": 0.3833067715167999,
+        "Hair": 0.33811765909194946,
+        "Hat": 0.2796529531478882
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8836554045751017,
+      "outside_in_distance_m": {
+        "Face": 0.3849235773086548,
+        "Hair": 0.34164971113204956,
+        "Hat": 0.2826553285121918
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8855461704792514,
+      "outside_in_distance_m": {
+        "Face": 0.38654038310050964,
+        "Hair": 0.3455866873264313,
+        "Hat": 0.28832486271858215
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8874369363834012,
+      "outside_in_distance_m": {
+        "Face": 0.38815727829933167,
+        "Hair": 0.3493759334087372,
+        "Hat": 0.29414355754852295
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8893277022875509,
+      "outside_in_distance_m": {
+        "Face": 0.38977405428886414,
+        "Hair": 0.3507612347602844,
+        "Hat": 0.3016236424446106
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8912184681917006,
+      "outside_in_distance_m": {
+        "Face": 0.39139094948768616,
+        "Hair": 0.35055747628211975,
+        "Hat": 0.3092808723449707
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.8931092340958503,
+      "outside_in_distance_m": {
+        "Face": 0.393007755279541,
+        "Hair": 0.3508293032646179,
+        "Hat": 0.3169380724430084
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 290,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3946245610713959,
+        "Hair": 0.3651219606399536,
+        "Hat": 0.32482826709747314
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8736121593216774,
+      "outside_in_distance_m": {
+        "Face": 0.3761645257472992,
+        "Hair": 0.33451226353645325,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8762856394064676,
+      "outside_in_distance_m": {
+        "Face": 0.3774828314781189,
+        "Hair": 0.3365707993507385,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.878959119491258,
+      "outside_in_distance_m": {
+        "Face": 0.378801167011261,
+        "Hair": 0.33824777603149414,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8816325995760483,
+      "outside_in_distance_m": {
+        "Face": 0.38068729639053345,
+        "Hair": 0.33983442187309265,
+        "Hat": 0.27773579955101013
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8843060796608386,
+      "outside_in_distance_m": {
+        "Face": 0.3829607665538788,
+        "Hair": 0.3430647552013397,
+        "Hat": 0.27992817759513855
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.886979559745629,
+      "outside_in_distance_m": {
+        "Face": 0.3852343261241913,
+        "Hair": 0.34917154908180237,
+        "Hat": 0.28552812337875366
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8896530398304193,
+      "outside_in_distance_m": {
+        "Face": 0.38750773668289185,
+        "Hair": 0.3528606593608856,
+        "Hat": 0.29380807280540466
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.8923265199152097,
+      "outside_in_distance_m": {
+        "Face": 0.38978132605552673,
+        "Hair": 0.35611870884895325,
+        "Hat": 0.30434319376945496
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 300,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.39205479621887207,
+        "Hair": 0.3593766391277313,
+        "Hat": 0.3149884343147278
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8651137776651132,
+      "outside_in_distance_m": {
+        "Face": 0.36735519766807556,
+        "Hair": 0.33837154507637024,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8688495554569741,
+      "outside_in_distance_m": {
+        "Face": 0.36909642815589905,
+        "Hair": 0.33741632103919983,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8725853332488349,
+      "outside_in_distance_m": {
+        "Face": 0.37083759903907776,
+        "Hair": 0.3312821090221405,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8763211110406958,
+      "outside_in_distance_m": {
+        "Face": 0.37258410453796387,
+        "Hair": 0.3301543891429901,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8800568888325566,
+      "outside_in_distance_m": {
+        "Face": 0.3744174540042877,
+        "Hair": 0.3461245596408844,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8837926666244175,
+      "outside_in_distance_m": {
+        "Face": 0.3777618110179901,
+        "Hair": 0.3499712646007538,
+        "Hat": 0.2804342806339264
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8875284444162783,
+      "outside_in_distance_m": {
+        "Face": 0.3812209367752075,
+        "Hair": 0.35381805896759033,
+        "Hat": 0.28031569719314575
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.8912642222081392,
+      "outside_in_distance_m": {
+        "Face": 0.38468021154403687,
+        "Hair": 0.35692882537841797,
+        "Hat": 0.28981560468673706
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 310,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.38813936710357666,
+        "Hair": 0.3593938946723938,
+        "Hat": 0.30336520075798035
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8546369468233559,
+      "outside_in_distance_m": {
+        "Face": 0.35784873366355896,
+        "Hair": 0.34386202692985535,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8596823284704365,
+      "outside_in_distance_m": {
+        "Face": 0.36034154891967773,
+        "Hair": 0.34441009163856506,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8647277101175169,
+      "outside_in_distance_m": {
+        "Face": 0.3628343641757965,
+        "Hair": 0.33687978982925415,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8697730917645974,
+      "outside_in_distance_m": {
+        "Face": 0.3653709888458252,
+        "Hair": 0.33648738265037537,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.874818473411678,
+      "outside_in_distance_m": {
+        "Face": 0.36791759729385376,
+        "Hair": 0.3444697856903076,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8798638550587585,
+      "outside_in_distance_m": {
+        "Face": 0.3704642057418823,
+        "Hair": 0.3478041887283325,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.884909236705839,
+      "outside_in_distance_m": {
+        "Face": 0.37489742040634155,
+        "Hair": 0.3497944474220276,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.8899546183529194,
+      "outside_in_distance_m": {
+        "Face": 0.3794044852256775,
+        "Hair": 0.35313528776168823,
+        "Hat": 0.2794046700000763
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 320,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.38391146063804626,
+        "Hair": 0.3703562319278717,
+        "Hat": 0.2918640077114105
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8425,
+      "outside_in_distance_m": {
+        "Face": 0.3471485376358032,
+        "Hair": 0.33385100960731506,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8490625,
+      "outside_in_distance_m": {
+        "Face": 0.3503399193286896,
+        "Hair": 0.3362710475921631,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8556250000000001,
+      "outside_in_distance_m": {
+        "Face": 0.35357406735420227,
+        "Hair": 0.33563774824142456,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8621875,
+      "outside_in_distance_m": {
+        "Face": 0.3568284213542938,
+        "Hair": 0.33940589427948,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.86875,
+      "outside_in_distance_m": {
+        "Face": 0.360082745552063,
+        "Hair": 0.3381177484989166,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8753125,
+      "outside_in_distance_m": {
+        "Face": 0.36333706974983215,
+        "Hair": 0.3389991521835327,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.881875,
+      "outside_in_distance_m": {
+        "Face": 0.36733442544937134,
+        "Hair": 0.34186387062072754,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.8884375,
+      "outside_in_distance_m": {
+        "Face": 0.37327900528907776,
+        "Hair": 0.3581355810165405,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 330,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3792235255241394,
+        "Hair": 0.36418604850769043,
+        "Hat": 0.28265348076820374
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8290717121826818,
+      "outside_in_distance_m": {
+        "Face": 0.339344322681427,
+        "Hair": 0.32579267024993896,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8373127481598466,
+      "outside_in_distance_m": {
+        "Face": 0.3412870466709137,
+        "Hair": 0.3288215398788452,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8455537841370113,
+      "outside_in_distance_m": {
+        "Face": 0.34404242038726807,
+        "Hair": 0.33134138584136963,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8537948201141762,
+      "outside_in_distance_m": {
+        "Face": 0.3478699028491974,
+        "Hair": 0.3340059220790863,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8620358560913409,
+      "outside_in_distance_m": {
+        "Face": 0.3517817258834839,
+        "Hair": 0.33869341015815735,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8702768920685057,
+      "outside_in_distance_m": {
+        "Face": 0.35578498244285583,
+        "Hair": 0.34217220544815063,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8785179280456705,
+      "outside_in_distance_m": {
+        "Face": 0.35978826880455017,
+        "Hair": 0.34847626090049744,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.8867589640228353,
+      "outside_in_distance_m": {
+        "Face": 0.36678287386894226,
+        "Hair": 0.3534458875656128,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 340,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.37473005056381226,
+        "Hair": 0.36681482195854187,
+        "Hat": 0.27899983525276184
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8147600951016891,
+      "outside_in_distance_m": {
+        "Face": 0.33339259028434753,
+        "Hair": 0.31701359152793884,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.824790083213978,
+      "outside_in_distance_m": {
+        "Face": 0.3356395959854126,
+        "Hair": 0.3211527466773987,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8348200713262668,
+      "outside_in_distance_m": {
+        "Face": 0.3378587067127228,
+        "Hair": 0.32594212889671326,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8448500594385557,
+      "outside_in_distance_m": {
+        "Face": 0.3407902419567108,
+        "Hair": 0.327127605676651,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8548800475508446,
+      "outside_in_distance_m": {
+        "Face": 0.34552404284477234,
+        "Hair": 0.3311486840248108,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8649100356631334,
+      "outside_in_distance_m": {
+        "Face": 0.35027724504470825,
+        "Hair": 0.33594951033592224,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8749400237754223,
+      "outside_in_distance_m": {
+        "Face": 0.35503825545310974,
+        "Hair": 0.3424641489982605,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.8849700118877112,
+      "outside_in_distance_m": {
+        "Face": 0.3622795343399048,
+        "Hair": 0.3498694896697998,
+        "Hat": null
+      },
+      "skin_first": false
+    },
+    {
+      "angle_degrees": 350,
+      "z_m": 0.895,
+      "outside_in_distance_m": {
+        "Face": 0.3720819354057312,
+        "Hair": 0.36071017384529114,
+        "Hat": 0.32036957144737244
+      },
+      "skin_first": false
+    }
+  ]
+}

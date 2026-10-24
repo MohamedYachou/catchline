@@ -1,0 +1,39 @@
+00:00.469  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Lise_Face 4236 2200
+PART TRIANGLES Lise_Expression 3434 1600
+PART TRIANGLES Lise_Hair 16480 8499
+PART TRIANGLES Lise_Hat 24208 2200
+PART TRIANGLES Lise_FemaleBody 16272 2999
+PART TRIANGLES Lise_OutfitDetails 3318 2450
+00:06.266  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:744: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:751: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:08.188  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\three-quarter.png'
+00:10.844  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\face.png'
+00:13.532  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\back-hair.png'
+00:15.391  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\front.png'
+00:17.641  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\side.png'
+00:20.000  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\back.png'
+00:22.453  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\idle.png'
+00:25.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\walk.png'
+00:27.703  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\carry.png'
+00:30.407  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\cast.png'
+00:36.703  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-r02\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Lise\\Lise.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.4465 sec.
+Info: Saved as "Lise.blend"
+FEMALE BUILD COMPLETE Lise hair-r02 19948 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

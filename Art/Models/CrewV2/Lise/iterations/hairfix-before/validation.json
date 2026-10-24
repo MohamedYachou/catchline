@@ -1,0 +1,161 @@
+{
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19949,
+    "mesh_triangles": {
+      "Lise_Face": 2200,
+      "Lise_Expression": 1600,
+      "Lise_Hair": 8500,
+      "Lise_Hat": 2200,
+      "Lise_FemaleBody": 2999,
+      "Lise_OutfitDetails": 2450
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500327706336975,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.1646471470594406,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.2125985324382782,
+        1.0430864095687866
+      ]
+    ],
+    "texture_sizes": {
+      "Lise_Face.png": [
+        512,
+        512
+      ],
+      "Lise_Hair.png": [
+        256,
+        256
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Lise_Face": 2200,
+      "Lise_Expression": 1600,
+      "Lise_Hair": 8500,
+      "Lise_FemaleBody": 2999,
+      "Lise_Hat": 2200,
+      "Lise_OutfitDetails": 2450
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Lise",
+  "revision": "r03",
+  "delivery_sha256": {
+    "Lise.blend": "2b90cea7347aed9a1aa4cdb56d6e01d838ef208cc9751ed66ca127f4fb9fc6b1",
+    "Lise.fbx": "4572da4c02f8d1161a0ba7c5629c67b1d60aaa2a6b0a20dd662834e3d94bab34",
+    "Lise_Face.png": "c8c48d421d9edb1bf058364da4d09db00316c234f4e83cc0db55f0b507555107",
+    "Lise_Hair.png": "c4e0dcc14d639f32ab4306bf48c23b00b55b65b17d1d0dda59747cc79a4d068f"
+  }
+}

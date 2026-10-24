@@ -1,6 +1,8 @@
 # Map plan: bigger seas, placed islands, sailing with collision, a border that feels natural
 
-Status: proposal by Claude (lead), 2026-10-24, for Mo's approval. Supersedes the "travel 30 s along a
+Status: APPROVED by Mo 2026-10-24 (sizes, border, beyond, collision, tap-to-sail). Travel time is 10–20 s for now;
+Mo is exploring with Fable whether the trip becomes its own gameplay half (preparation on the way). Build travel so its
+duration is one tunable number per hull and nothing else depends on it. Supersedes the "travel 30 s along a
 fixed path" part of MASTER-PLAN M4 and the 3× size target of ART-PLAN A1. Everything else in M4 (richness,
 navigator, relocation rules) stays.
 
@@ -20,9 +22,9 @@ navigator plots a route around islands and shallows and the boat sails it, camer
 Catchline is a crew-management game played on phones, and the crew keep working (the deck graph keeps
 ticking) while the boat is under way only for jobs that make sense moving (sorting, stowing; no gear out).
 This replaces the fixed 30 s path. Travel time comes from distance and hull speed (rowboat slow, later hulls
-faster), targeted at 15–40 s between grounds.
+faster), targeted at 10–20 s between grounds (Mo: longer is boring unless the trip gets its own gameplay).
 
-**Size.** Playable water per map, sized for 15–40 s trips at hull speed:
+**Size.** Playable water per map, sized for 10–20 s trips at hull speed (hull speeds are tuned to fit):
 
 | Map | Playable sea | Character |
 |---|---|---|
@@ -85,7 +87,7 @@ Per map, Codex exports `Art/Models/Maps/<Map>/navigation.json` from the .blend:
 
 **Checks (`MapNavChecks`, EditMode, scratch editor only):** for every map and every hull: harbour → each
 ground and ground → ground routes exist; no route point inside an inflated island; route length within 1.6×
-straight-line distance unless an island is in the way; travel time per hull within 15–40 s; a target outside
+straight-line distance unless an island is in the way; travel time per hull within 10–20 s; a target outside
 the border snaps inside; a boat pushed into an island ends outside it. Plus native captures at 1440 × 900
 and 844 × 390 of sailing, the border fog and an anchored ground.
 

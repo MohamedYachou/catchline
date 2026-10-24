@@ -1,0 +1,20 @@
+00:00.641  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hairfix-before\Mira.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\fix_crew_hair_strands.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat is None:mat=next(ma for o in hair for ma in o.data.materials if ma and 'Hair' in ma.name and not ma.use_nodes is False)
+00:06.078  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hair-strands-01\face.png'
+00:10.532  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hair-strands-01\temple-left.png'
+00:14.922  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Mira-sol\iterations\hair-strands-01\temple-right.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Mira-sol\\Mira-hairfix.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.6984 sec.
+Info: Saved as "Mira-hairfix.blend"
+HAIRFIX COMPLETE Mira 19984
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

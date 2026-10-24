@@ -1,10 +1,10 @@
 # Pim — detailed male crew
 
-CREW3D-MEN / Codex 1 (Windows app), 2026-10-24. Revision **r07**. Art delivery for Claude/Mo review; no Unity integration or Mo likeness acceptance claimed.
+CREW3D-MEN / Codex 1 (Windows app), 2026-10-24. Revision **hair-r05**. Art delivery for Claude/Mo review; no Unity integration or Mo likeness acceptance claimed.
 
 - **19,617 triangles** including hair, hat, clothing and props; budget 20,000. Exact per-mesh counts: `build-manifest.json`.
-- Texture: `Pim_Face.png`, 512 × 512 RGB, authored skin colour/blush without baked lighting. Hair, eyes, knit and outfit detail are opaque skinned geometry with palette materials. Total texture pixels 262,144, below 2048².
-- Files: `Pim.blend`, `Pim.fbx`, `Pim_Face.png`, `Pim-review.png`; individual orthographic views in `iterations/r07/`.
+- Texture: `Pim_Face.png`, 512 × 512 RGB, authored skin colour/blush without baked lighting. Total texture pixels: 262,144. Below 2048². Hair, eyes, knit and outfit detail use opaque skinned geometry, palette materials and the listed colour textures.
+- Files: `Pim.blend`, `Pim.fbx`, `Pim_Face.png`, `Pim-review.png`; individual orthographic views in `iterations/hair-r05/`.
 - Reference: `Art/Source/UIv2/crew-styles/portrait-pim.png`; role clothes follow the approved lineup and current assignment.
 
 The male body uses the current flat male proportions and original limb attachment positions, with smoother authored garment surfaces. The original CrewRig was loaded from its source, not rebuilt: 20 bones, unchanged names/hierarchy/rest matrices and all 11 original source actions. All mesh vertices have normalized explicit skin weights. No new rig, face bones, cloth simulation or particles.
@@ -15,6 +15,11 @@ Source axes: X right, −Y forward, Z up. FBX follows the original CrewRig setti
 
 The review sheet contains front, three-quarter, side, back, face beside the unaltered portrait, same-camera/same-scale original crew and Mira, plus Idle frame 13 and Walk frame 7. The rear detail is a labelled crop of the actual back render. Visual review is separate from the technical JSON checks.
 
+The hair correction is integrated in the original male builder: overlapping temple-to-ear layers (curls for Kofi), a continuous fitted original hair volume, irregular tucked nape boundaries, and character-specific side flow. The supplementary `Pim-hair-review.png` shows six saved-source head angles beside the unaltered portrait. No rejected recovery-chat overlay helper is used. The optional pre-correction baseline comparison passes bidirectional nonhair surface distances below 1 mm; maximum observed 0.634 mm. Topology indexing/decimation differs; per-part results are in validation.json. 
+
+
+`hair-band-audit.json` records 324 outside-in rays: every 10 degrees around the entire head, nine heights from a fixed anatomical hairline up to 0.895 m, including the lower rear band down to 0.700 m. All pass with zero skin-first hits. The explicit hairline rises to 0.800 m above exposed ears and 0.885 m at the forehead; intended face/ear skin below it is excluded. This complements the denser 325-ray temple/crown audit in `hair-coverage-hits.json` (649 samples total). Both lists save actual skin/hair/hat hit distances; the full-band receipt includes the current source SHA256. Discrete ray checks complement the six head views and do not prove every surface point.
+
 ## Honest gaps / integration limits
 
 The painted fringe outline is interpreted as overlapping sculpted planes. Knit detail is simplified at this topology budget; the portrait has richer painted hair shading.
@@ -24,8 +29,10 @@ Shared original animations are preserved, including their broad elbow/shoulder a
 Rebuild from the project root:
 
 ```powershell
-& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --python Art/Source/build_crew_male.py -- --name Pim --render all --samples 32 --revision r07
+& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --python Art/Source/build_crew_male.py -- --name Pim --render all --samples 32 --revision hair-r05
 & 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --python Art/Source/validate_crew_male.py -- --name Pim
+& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --python Art/Source/audit_crew_male_hair.py -- --name Pim
+& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' -b Art/Models/CrewV2/Pim/Pim.blend -P docs/screens/crew-review/headshots.py -- C:/Users/momoy/Projects/Catchline/Art/Models/CrewV2/Pim/iterations/hair-r05/head
 python Art/Source/compose_crew_male.py --name Pim
 ```
 

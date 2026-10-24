@@ -1,0 +1,20 @@
+00:01.110  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hairfix-before\Lise.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\fix_crew_hair_strands.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat is None:mat=next(ma for o in hair for ma in o.data.materials if ma and 'Hair' in ma.name and not ma.use_nodes is False)
+00:06.938  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\face.png'
+00:11.422  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\temple-left.png'
+00:18.782  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\temple-right.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Lise\\Lise-hairfix.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.7993 sec.
+Info: Saved as "Lise-hairfix.blend"
+HAIRFIX COMPLETE Lise 19984
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

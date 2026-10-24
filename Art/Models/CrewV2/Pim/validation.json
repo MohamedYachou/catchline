@@ -1,4 +1,31 @@
 {
+  "nonhair_baseline_surface_checks": {
+    "Face": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.0004888455732725561
+    },
+    "Expression": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Hat": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "MaleBody": {
+      "exact_topology_fingerprint": false,
+      "max_bidirectional_surface_error_m": 0.0006343891145661473
+    },
+    "OutfitDetails": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    }
+  },
+  "temple_crown_coverage": {
+    "radial_rays": 325,
+    "scalp_first_hits": [],
+    "scope": "Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots"
+  },
   "saved_source": {
     "rig_and_all_action_signatures_exact": true,
     "bones": 20,
@@ -14,7 +41,7 @@
     },
     "max_weights_per_vertex": 2,
     "all_weights_normalized": true,
-    "bare_scalp_height_m": 0.9500327706336975,
+    "bare_scalp_height_m": 0.9500386118888855,
     "bind_bounds_m": [
       [
         -0.4675086438655853,
@@ -23,7 +50,7 @@
       ],
       [
         0.4672813415527344,
-        0.17638245224952698,
+        0.17926956713199615,
         1.0430864095687866
       ]
     ],
@@ -42,10 +69,10 @@
     "source_bind_bounds_match": true,
     "normalized_weights": true,
     "mesh_triangles": {
+      "Pim_Hat": 2900,
       "Pim_Hair": 5900,
       "Pim_Expression": 1600,
       "Pim_Face": 2300,
-      "Pim_Hat": 2900,
       "Pim_MaleBody": 3599,
       "Pim_OutfitDetails": 3318
     },
@@ -147,10 +174,10 @@
   "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
   "all_passed": true,
   "name": "Pim",
-  "revision": "r07",
+  "revision": "hair-r05",
   "delivery_sha256": {
-    "Pim.blend": "01b1137289169431acd05cdc0d33a38665a07ccbe28887190592667a4e6aae41",
-    "Pim.fbx": "0037814061c2fa8696a3fb6c242f0e7e6b0d76933d3e4c23256dc372531f95d4",
+    "Pim.blend": "d60d1bd8f0c9991c037cd331ee29c962120cc895bef59817ec305151c7842346",
+    "Pim.fbx": "ffd72d55eec4ee2a5176d0ed1eeadbc87801a1bfd092210cf1a6a266f3dfd2fb",
     "Pim_Face.png": "81f81231fbf4c1dde583df475a18f57e81b3d007fc0abdae880e12b0b9d65dd3"
   }
 }

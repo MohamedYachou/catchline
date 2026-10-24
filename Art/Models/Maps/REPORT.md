@@ -15,3 +15,5 @@ M4 must bind isolated model keys, translate anchors correctly, sweep finite hull
 Builder: Art/Source/Art108/build_maps.py -- <Map> build or review. Sources: Catchline-art-style HarbourMouth11 and Locations12 paths recorded in each receipt. Maps: GullHarbourMouth, GullKelpBank, GullSandbar, GullRockyPoint, GullDeepChannel.
 
 Publication update (24 October 2026): Mo authorized GitHub publication of this delivery. See Art/ART-PLAN-PROGRESS.md and comms.md for the commit/push receipt. Earlier no-commit wording describes the original pre-publication handoff. Native acceptance remains pending.
+
+Continuation verification (24 October 2026, Codex 1): all5 existing deliveries independently rechecked without rebuilding. See [continuation audit](continuation-audit.md) and JSON/log for fresh source/baseline/coastline/closed-seabed/actual-FBX/path/hash evidence. Original GUID files remain untouched; new GroundsV1 keys still await Unity import metadata and native M4 acceptance.

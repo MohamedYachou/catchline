@@ -1,0 +1,23 @@
+CODEX1-MAPS-V2 — Codex 1 (high) — rebuild the five maps as navigable seas per docs/MAP-PLAN.md
+
+GOAL: Mo approved docs/MAP-PLAN.md. Rebuild Harbour mouth, Kelp bank, Sandbar, Rocky point, Deep channel at the sizes in
+its table (220–320 m), with islands placed for play (each shelters a ground, forces a route choice or frames the anchored
+view; at least one ground per map not reachable in a straight line), shallow rings, a ring of red/white outer marker
+buoys 25–30 m apart on the border, and low unreachable horizon silhouettes beyond it (headlands, far islands, a
+lighthouse, a ship). Keep the ART-PLAN A1 ground names; grounds are now zones (centre + radius 12–20 m).
+
+CONTEXT (read first): docs/MAP-PLAN.md (whole), docs/ART-PLAN.md A1, your GroundsV1 work and REPORT in Art/Models/Maps/,
+Art/Source/Art108/build_maps.py, Art/STYLE.md. Keep the chunky concept style and palette of the current maps.
+
+OWNERSHIP: Art/Models/Maps/**, Assets/Art/Models/Environment/<Map>/ (new files only: <Map>SeaV2.fbx + json; never
+change or delete existing files or .meta GUIDs), Art/Source/Art108/ map builders. No C#, scenes, git.
+
+DELIVER per map: <Map>SeaV2.blend/.fbx; navigation.json exactly as MAP-PLAN §4 (islands sliced at waterline Y=0 and
+shallows at -1.0 m, simplified ≤64 vertices each, counter-clockwise, metres, same world space as grounds.json; border;
+grounds; harbour; cameraBounds); a top-down plate with polygons, buoys, grounds and a straight-line arrow between each
+pair of grounds; day and night renders from the gameplay camera at each ground and one wide shot showing the fog edge
+and silhouettes. Waterline/world placement rules as in your GroundsV1 REPORT.
+
+DONE = EVIDENCE: you opened every plate and render; a script check that no ground zone, harbour or buoy overlaps an
+inflated island (inflate 2 m), border contains all grounds, polygons valid (no self-intersection). Harbour mouth and
+Kelp bank first, log each map in comms.md, then the other three. QUESTION line in comms.md if the plan is ambiguous.

@@ -1,16 +1,18 @@
 """Compose the inspected model renders and supplied portrait into a review sheet."""
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
-import argparse,json,hashlib
+import argparse,json,hashlib,os
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'Art/Models/CrewV2/Mira-sol'
 p=argparse.ArgumentParser();p.add_argument('--revision',required=True);args=p.parse_args()
 PRE=OUT/'iterations'/args.revision
 W=2400;C=600;G=14;HEADER=126
 rows=[780,700,660,540,780];H=HEADER+sum(rows)+G*6
 im=Image.new('RGB',(W,H),'#102C41');d=ImageDraw.Draw(im)
-font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',23)
-bold=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',31)
-small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',20)
+regular='C:/Windows/Fonts/segoeui.ttf' if os.name=='nt' else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+heavy='C:/Windows/Fonts/segoeuib.ttf' if os.name=='nt' else '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+font=ImageFont.truetype(regular,23)
+bold=ImageFont.truetype(heavy,31)
+small=ImageFont.truetype(regular,20)
 man=json.loads((OUT/'build-manifest.json').read_text())
 d.text((24,18),'MIRA / SOL — '+args.revision.upper(),font=bold,fill='#FFF2D1')
 d.text((24,67),f"{man['triangles']:,} triangles  |  original 20-bone CrewRig / 11 actions  |  r09 front preserved",font=font,fill='#DCE7EB')

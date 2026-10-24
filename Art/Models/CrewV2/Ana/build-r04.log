@@ -1,0 +1,39 @@
+00:00.469  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Ana_Face 4236 2200
+PART TRIANGLES Ana_Expression 3434 1600
+PART TRIANGLES Ana_Hair 23104 8500
+PART TRIANGLES Ana_Hat 24208 2200
+PART TRIANGLES Ana_FemaleBody 16272 2999
+PART TRIANGLES Ana_OutfitDetails 3486 2450
+00:03.453  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:744: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:751: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:05.313  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\three-quarter.png'
+00:07.922  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\face.png'
+00:10.657  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\back-hair.png'
+00:12.500  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\front.png'
+00:14.313  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\side.png'
+00:16.157  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\back.png'
+00:18.000  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\idle.png'
+00:19.860  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\walk.png'
+00:21.735  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\carry.png'
+00:23.594  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\cast.png'
+00:28.953  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Ana\iterations\r04\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Ana\\Ana.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.4220 sec.
+Info: Saved as "Ana.blend"
+FEMALE BUILD COMPLETE Ana r04 19949 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

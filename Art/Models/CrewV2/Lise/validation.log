@@ -1,0 +1,16 @@
+00:00.531  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+00:00.953  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\Lise.blend"
+FEMALE SCALP COVERAGE 332 samples 9 gaps [(0.785, 230), (0.785, 310), (0.805, 230), (0.805, 310), (0.825, 230), (0.825, 310), (0.865, 260), (0.865, 270), (0.865, 280)]
+Traceback (most recent call last):
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\validate_crew_female.py", line 103, in <module>
+    result['hair_coverage']=audit(bpy,NAME,OUT,manifest['revision'],manifest['settings']['style'])
+                            ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\momoy\Projects\Catchline\Art\Source\crew_female_coverage.py", line 49, in audit
+    assert not gaps,'Bare scalp before hair: see hair-coverage-hits.json'
+           ^^^^^^^^
+AssertionError: Bare scalp before hair: see hair-coverage-hits.json
+
+Error: script failed, file: 'C:\Users\momoy\Projects\Catchline\Art\Source\validate_crew_female.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

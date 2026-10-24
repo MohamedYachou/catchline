@@ -1,0 +1,9 @@
+00:04.375  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hairfix-before\Lise.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\fix_crew_hair_strands.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat is None:mat=next(ma for o in hair for ma in o.data.materials if ma and 'Hair' in ma.name and not ma.use_nodes is False)
+00:21.453  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\face.png'
+00:30.156  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\temple-left.png'
+00:38.421  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\temple-right.png'
+00:47.109  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\back-hair.png'
+00:55.640  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\three-quarter.png'
+01:04.109  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Lise\iterations\hair-strands-01\front.png'

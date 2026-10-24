@@ -27,7 +27,7 @@ scene=bpy.context.scene; arm=bpy.data.objects['CrewRig']; col=arm.users_collecti
 mats={m.name:m for m in bpy.data.materials}
 # Reuse the archived geometric primitives, not the old builder's top-level run.
 tree=ast.parse((BASE/'build_mira_sol.py').read_text())
-nodes=[n for n in tree.body if isinstance(n,(ast.FunctionDef,ast.ClassDef)) and n.name in {'Mesh','catmull','curves','signature'}]
+nodes=[n for n in tree.body if isinstance(n,(ast.FunctionDef,ast.ClassDef)) and n.name in {'Mesh','catmull','hair_loft','curves','signature'}]
 exec(compile(ast.Module(body=nodes,type_ignores=[]),'r09-primitives','exec'),globals())
 baseline=signature(arm)
 manifest=json.loads((BASE/'build-manifest.json').read_text())
@@ -100,7 +100,7 @@ node=rear_mat.node_tree.nodes.new('ShaderNodeTexImage');node.image=tex
 rear_mat.node_tree.links.new(node.outputs['Color'],bs.inputs['Base Color']);mats['Mira_Hair']=rear_mat
 
 
-def ribbon(path,widths,depths,mat='Mira_Hair',sides=8):
+def ribbon(path,widths,depths,mat='Mira_Hair',sides=8,normal=(0,1,0)):
     """Flattened tapered curl clump with stable horizontal sections, not a rope.
     Vertical path is monotone except the last soft tip. Tonal ridge follows the
     flattened sculpt; no separate round highlight tubes and no alpha sorting.
@@ -108,7 +108,7 @@ def ribbon(path,widths,depths,mat='Mira_Hair',sides=8):
     vv=[];ff=[];mi=[]
     for j,p in enumerate(path):
         tangent=(Vector(path[min(j+1,len(path)-1)])-Vector(path[max(0,j-1)])).normalized()
-        u=Vector((0,1,0)).cross(tangent).normalized()
+        u=Vector(normal).cross(tangent).normalized()
         if u.length<.5:u=Vector((1,0,0))
         v=tangent.cross(u).normalized()
         for k in range(sides):
@@ -132,7 +132,7 @@ def ribbon(path,widths,depths,mat='Mira_Hair',sides=8):
 profile=[(.622,.111,.097),(.647,.145,.124),(.681,.166,.146),
          (.724,.179,.162),(.769,.183,.173),(.814,.180,.174),
          (.854,.171,.165),(.891,.146,.142),(.924,.102,.101),(.941,.043,.049)]
-N=38;vv=[]
+N=30;vv=[]
 for j,(z,rx,ry) in enumerate(profile):
     t=j/(len(profile)-1)
     for k in range(N+1):
@@ -176,7 +176,7 @@ core=[(.918,.09,.173,.012,.010),(.89,.13,.21,.045,.035),
       (.745,.155,.245,.085,.050),(.69,.15,.245,.071,.047),
       (.63,.15,.24,.062,.040),(.58,.14,.23,.047,.028),(.54,.13,.22,.020,.012)]
 core=[row for i,row in enumerate(core) if i not in (1,7)]
-vv=[];ff=[];S=16
+vv=[];ff=[];S=12
 for j,(z,cx,cy,rx,ry) in enumerate(core):
     rx*=.70;ry*=.45;cy-=.025
     for k in range(S):
@@ -226,6 +226,15 @@ for i,(cx,cy,z,length,phase) in enumerate([(.211,.239,.823,.22,0),(.084,.285,.75
         taper=max(.015,math.sin(math.pi*(.07+.93*t))**.7)
         ww.append(.004*taper);dd.append(.0023*taper)
     ribbon(path,ww,dd,mat='Mira_Hair',sides=6)
+
+# Continue the approved front's shallow hair language across the small temple
+# openings. Existing r09 front vertices remain exact; only these new locks join it.
+for side in (-1,1):
+    hair_loft([(z,side*x,y,rx,ry) for z,x,y,rx,ry in [
+        (.900,.118,-.041,.004,.008),(.878,.151,-.052,.009,.018),
+        (.851,.166,-.046,.010,.023),(.822,.174,-.038,.011,.024),
+        (.793,.176,-.027,.010,.020),(.771,.168,-.016,.001,.002)]],
+        sides=8,steps=1,mat='M_HairMira',grooves=(0,))
 
 bpy.data.objects.remove(old,do_unlink=True)
 hair_ob=hair.object('Mira_HairSculpt')
@@ -313,11 +322,13 @@ def shot(name,angle=0,target=(0,0,.535),scale=1.19,size=(768,896),action='Idle',
 
 if args.render!='none':
     shot('three-quarter',27,elevated=.22)
+    shot('face',18,(0,-.018,.818),.59,(1024,1024),elevated=.03)
+    shot('temple-left',65,(0,-.018,.818),.59,(1024,1024),elevated=.03)
+    shot('temple-right',-65,(0,-.018,.818),.59,(1024,1024),elevated=.03)
     shot('back',180)
     shot('back-hair',155,(.035,.11,.773),.58,(1024,1024),elevated=.10)
 if args.render=='all':
     shot('front');shot('side',90)
-    shot('face',18,(0,-.018,.818),.59,(1024,1024),elevated=.03)
     shot('idle',22,action='Idle',frame=13)
     shot('walk',22,action='Walk',frame=7)
     shot('carry',27,action='Carry',frame=7)

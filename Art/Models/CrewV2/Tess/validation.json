@@ -1,0 +1,169 @@
+{
+  "hair_coverage": {
+    "name": "Tess",
+    "revision": "hair-r03",
+    "rays": 396,
+    "scalp_samples": 304,
+    "skin_first_hits": 0,
+    "scope": "11 heights .705-.905m, every10degrees all360; anatomical exposed face/hairline exclusions listed; ears/nose/neck separated from scalp by connected mesh"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19948,
+    "mesh_triangles": {
+      "Tess_Face": 2200,
+      "Tess_Expression": 1600,
+      "Tess_Hair": 8499,
+      "Tess_Hat": 2200,
+      "Tess_FemaleBody": 2999,
+      "Tess_OutfitDetails": 2450
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500397443771362,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.1646471470594406,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.18344108760356903,
+        1.0430864095687866
+      ]
+    ],
+    "texture_sizes": {
+      "Tess_Face.png": [
+        512,
+        512
+      ],
+      "Tess_Hair.png": [
+        256,
+        256
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Tess_Face": 2200,
+      "Tess_Expression": 1600,
+      "Tess_FemaleBody": 2999,
+      "Tess_Hair": 8499,
+      "Tess_Hat": 2200,
+      "Tess_OutfitDetails": 2450
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Tess",
+  "revision": "hair-r03",
+  "delivery_sha256": {
+    "Tess.blend": "3266e16cb31b79cd23e2204d400aba4d7118eb43675c9d1b709a44574128d83f",
+    "Tess.fbx": "b633a85ed39fa8c2fa3e3f8deb396fb4ed7d122abc534e63657dd5d0e487da9d",
+    "Tess_Face.png": "8f3cb88165d471655558a081013445215560ceb1c4c80aa5288fa0dd4f70096d",
+    "Tess_Hair.png": "9abf502decfde135d528d580d68823157c5adc9df293b04c54fa7e3013ca690e"
+  }
+}

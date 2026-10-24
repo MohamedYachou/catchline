@@ -1,0 +1,39 @@
+00:00.546  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Tess_Face 4236 2200
+PART TRIANGLES Tess_Expression 3434 1600
+PART TRIANGLES Tess_Hair 17596 8500
+PART TRIANGLES Tess_Hat 24208 2200
+PART TRIANGLES Tess_FemaleBody 16272 2999
+PART TRIANGLES Tess_OutfitDetails 3318 2450
+00:07.109  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:744: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:751: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:09.296  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\three-quarter.png'
+00:13.140  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\face.png'
+00:16.703  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\back-hair.png'
+00:19.250  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\front.png'
+00:21.812  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\side.png'
+00:24.296  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\back.png'
+00:26.812  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\idle.png'
+00:29.484  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\walk.png'
+00:32.046  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\carry.png'
+00:34.531  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\cast.png'
+00:40.921  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Tess\iterations\hair-r01\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Tess\\Tess.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.5079 sec.
+Info: Saved as "Tess.blend"
+FEMALE BUILD COMPLETE Tess hair-r01 19949 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

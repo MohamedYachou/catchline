@@ -1,0 +1,156 @@
+{
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19617,
+    "mesh_triangles": {
+      "Pim_Face": 2300,
+      "Pim_Expression": 1600,
+      "Pim_Hair": 5900,
+      "Pim_Hat": 2900,
+      "Pim_MaleBody": 3599,
+      "Pim_OutfitDetails": 3318
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500327706336975,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.16901741921901703,
+        0.00017508506425656378
+      ],
+      [
+        0.4672813415527344,
+        0.17638245224952698,
+        1.0430864095687866
+      ]
+    ],
+    "texture_sizes": {
+      "Pim_Face.png": [
+        512,
+        512
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Pim_Hair": 5900,
+      "Pim_Expression": 1600,
+      "Pim_Face": 2300,
+      "Pim_Hat": 2900,
+      "Pim_MaleBody": 3599,
+      "Pim_OutfitDetails": 3318
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 1.4901161193847656e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Pim",
+  "revision": "r07",
+  "delivery_sha256": {
+    "Pim.blend": "01b1137289169431acd05cdc0d33a38665a07ccbe28887190592667a4e6aae41",
+    "Pim.fbx": "0037814061c2fa8696a3fb6c242f0e7e6b0d76933d3e4c23256dc372531f95d4",
+    "Pim_Face.png": "81f81231fbf4c1dde583df475a18f57e81b3d007fc0abdae880e12b0b9d65dd3"
+  }
+}

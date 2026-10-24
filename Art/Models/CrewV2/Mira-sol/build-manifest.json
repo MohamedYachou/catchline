@@ -1,5 +1,5 @@
 {
-  "revision": "r16",
+  "revision": "r26",
   "original_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
   "contract": {
     "bones": {
@@ -895,11 +895,11 @@
       }
     }
   },
-  "triangles": 19974,
+  "triangles": 19940,
   "meshes": {
     "Mira_Face": 2300,
     "Mira_EyesExpression": 2500,
-    "Mira_HairSculpt": 6482,
+    "Mira_HairSculpt": 6448,
     "Mira_OfficerCap": 2692,
     "Mira_CoatHandsBoots": 4300,
     "Mira_JewelleryBinoculars": 1700
@@ -911,7 +911,7 @@
         512,
         512
       ],
-      "use": "original r09 skin/blush, unchanged"
+      "use": "r20 face unchanged"
     },
     {
       "file": "Mira_Hair.png",
@@ -919,7 +919,7 @@
         512,
         512
       ],
-      "use": "new rear strand colour only; no baked lighting"
+      "use": "thin-wave authored fibre colour, no lighting"
     }
   ],
   "palette_srgb": {
@@ -960,29 +960,6 @@
     "weights_unchanged": true,
     "z_unchanged": true
   },
-  "r09_front_hair": {
-    "components": [
-      0,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16
-    ],
-    "vertices": 1358,
-    "sha256": "824e27cbfd0d21f23e45ab35d9eff1c8ce3900979d7511731648551f84676a46",
-    "exact": true
-  },
   "r09_archive_sha256": {
     "Mira.blend": "774d2c537c0060b0279affe82b83b3c4c01ae4457b4e6ec806383b1b42159ffd",
     "Mira.fbx": "0f83093c872be23ffc77d705044548e3d671d6fa6e85a0ddf4764025c6a07b07",
@@ -990,5 +967,24 @@
     "build-manifest.json": "86b2b30b53f6e9761bca0f0b3ff2a80f065b6147fa43f97a4ca07f80601a71fc",
     "rig-contract.json": "a675e60ab0db89e51349cb2459f8625abd933825d1c3af5316bed5286a46a653",
     "build_mira_sol.py": "4f495ff5e9890471a2ace89d8cd0f22b803da1e44f7217dc0be4b55051e03790"
-  }
+  },
+  "r20_preservation": {
+    "archive_sha256": {
+      "Mira.blend": "19d6283fd6bf1c40b65dff92a5bfa5a8f5a33a3f223f87dfb39862a564b7b148",
+      "Mira.fbx": "21a11f3d46da621db991192953b49c5b4607d319d39106e407e40eecfa459212",
+      "Mira_Face.png": "ea66ec5e45378b6ce81f16a31a5a1e29a0ec718be502a32b473f3710e886c856",
+      "Mira_Hair.png": "9a796455183ad6f364cd23b6825e3e70df70ae7fe8675832845637a75889dffe",
+      "build-manifest.json": "03a15770d5fae940475afae19acee793c0606e90dda27f55c2d66f5d42f4a365"
+    },
+    "five_nonhair_fingerprints": {
+      "Mira_Face": "5c68f39a1e30b5dd74b354a026e5117d4ca10fe3568e8c589137d4e20135be94",
+      "Mira_EyesExpression": "2d91f388bca5055adcd2fcc36f72df2b76da36e6264ad81bddbd48269714951b",
+      "Mira_OfficerCap": "d4ee3af1d38448c22e5b86c980c3337d0f98cfea0c2ad77814c6a1e7ecfaac2a",
+      "Mira_CoatHandsBoots": "3e4737e9daa5932a9cf8ab79c8b0a97914d2ebabc8cbc6747c8df99c592012d8",
+      "Mira_JewelleryBinoculars": "ebf37e3249ff25dec221ab0308e5780a42d9930755919eac83acb0c54e5111aa"
+    },
+    "all_nonhair_exact": true,
+    "front_lock_overridden_by": "Mo UPDATE16:55 full hair rework"
+  },
+  "hair_design": "thin layered dark brown waves, continuous temples, full-depth gathered ponytail"
 }

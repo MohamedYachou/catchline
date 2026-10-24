@@ -8,10 +8,14 @@ import json
 import math
 from pathlib import Path
 from mathutils import Vector
+from mathutils.bvhtree import BVHTree
 
 ROOT = Path(__file__).resolve().parents[2]
 parser=argparse.ArgumentParser();parser.add_argument('--name',required=True)
-NAME=parser.parse_args(sys.argv[sys.argv.index('--')+1:]).name
+parser.add_argument('--baseline')
+parser.add_argument('--allow-captain-badge-fix',action='store_true')
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
+NAME=args.name
 OUT=ROOT/'Art/Models/CrewV2'/NAME
 ORIGINAL = ROOT/'Art/Models/CrewRig/CrewRig.blend'
 manifest = json.loads((OUT/'build-manifest.json').read_text())
@@ -70,7 +74,50 @@ for a in list(bpy.data.actions):
     for f in sorted(set([lo, lo+(hi-lo)//4, (lo+hi)//2, hi])):
         trajectories[(a.name, f)] = sample(original_arm, a, f)
 
+def nonhair_fingerprint():
+    records={}
+    for suffix in ('Face','Expression','Hat','MaleBody','OutfitDetails'):
+        ob=bpy.data.objects[NAME+'_'+suffix]
+        records[suffix]=hashlib.sha256(json.dumps({
+            'vertices':[[round(value,7) for value in vertex.co] for vertex in ob.data.vertices],
+            'faces':[(list(face.vertices),face.material_index) for face in ob.data.polygons],
+            'weights':[[(ob.vertex_groups[group.group].name,round(group.weight,7)) for group in vertex.groups]
+                       for vertex in ob.data.vertices],
+            'materials':[material.name for material in ob.data.materials]
+        },sort_keys=True).encode()).hexdigest()
+    return records
+
+def nonhair_surfaces():
+    return {suffix:{'vertices':[tuple(vertex.co) for vertex in ob.data.vertices],
+                    'faces':[tuple(face.vertices) for face in ob.data.polygons],
+                    'materials':[material.name for material in ob.data.materials]}
+            for suffix in ('Face','Expression','Hat','MaleBody','OutfitDetails')
+            for ob in [bpy.data.objects[NAME+'_'+suffix]]}
+
+if args.baseline:
+    bpy.ops.wm.open_mainfile(filepath=str(Path(args.baseline)/(NAME+'.blend')))
+    baseline_nonhair=nonhair_fingerprint()
+    baseline_surfaces=nonhair_surfaces()
 bpy.ops.wm.open_mainfile(filepath=str(OUT/(NAME+'.blend')))
+if args.baseline:
+    current_nonhair=nonhair_fingerprint()
+    print('NONHAIR COMPARISON', {part:current_nonhair[part]==baseline_nonhair[part] for part in baseline_nonhair},flush=True)
+    surface_checks={}
+    for part,current in nonhair_surfaces().items():
+        if part=='Hat' and args.allow_captain_badge_fix:
+            assert NAME=='Captain'
+            result['intentional_hat_change']='Existing Captain badge conformed to rounded cap crown, with embedded backing and visible relief; cap shape, rig and role unchanged. Hat excluded from pre-fix surface equivalence; actual FBX still checked.'
+            continue
+        before=baseline_surfaces[part]
+        assert current['materials']==before['materials'],part
+        original_tree=BVHTree.FromPolygons(before['vertices'],before['faces'])
+        current_tree=BVHTree.FromPolygons(current['vertices'],current['faces'])
+        error=max([original_tree.find_nearest(Vector(vertex))[3] for vertex in current['vertices']]+
+                  [current_tree.find_nearest(Vector(vertex))[3] for vertex in before['vertices']])
+        surface_checks[part]={'exact_topology_fingerprint':current_nonhair[part]==baseline_nonhair[part],
+                             'max_bidirectional_surface_error_m':error}
+        assert error<.001,(part,error)
+    result['nonhair_baseline_surface_checks']=surface_checks
 arm = bpy.data.objects['CrewRig']
 assert skeleton(arm) == original_bones, 'Saved rig differs from original'
 assert {a.name: digest(a) for a in bpy.data.actions} == original_digests, 'Saved actions differ'
@@ -98,6 +145,29 @@ rest_bounds = bounds(meshes)
 assert abs(rest_bounds[0][2]) < .001, rest_bounds
 scalp = max(v.co.z for v in bpy.data.objects[NAME+'_Face'].data.vertices)
 assert abs(scalp-.95) < .001, scalp
+coverage_trees={suffix:BVHTree.FromPolygons([vertex.co for vertex in ob.data.vertices],
+                                          [tuple(face.vertices) for face in ob.data.polygons])
+                for suffix in ('Face','Hair','Hat') for ob in [bpy.data.objects[NAME+'_'+suffix]]}
+coverage_gaps=[]
+coverage_hits=[]
+for level in (.845,.855,.865,.875,.885):
+    for index in range(65):
+        angle=-1.04+(math.pi+2.08)*index/64
+        outward=Vector((math.cos(angle),math.sin(angle),0))
+        origin=outward*.5+Vector((0,0,level))
+        hits={part:tree.ray_cast(origin,-outward,.6)[3] for part,tree in coverage_trees.items()}
+        covering=[distance for part,distance in hits.items() if part!='Face' and distance is not None]
+        coverage_hits.append({'z_m':level,'angle_radians':angle,
+                              'outside_in_distance_m':hits})
+        if hits['Face'] is not None and (not covering or min(covering)>hits['Face']+.0002):
+            coverage_gaps.append({'z':level,'angle':angle})
+result['temple_crown_coverage']={'radial_rays':325,'scalp_first_hits':coverage_gaps,
+                                'scope':'Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots'}
+(OUT/'hair-coverage-hits.json').write_text(json.dumps({
+    'name':NAME,'revision':manifest['revision'],
+    **result['temple_crown_coverage'],'hits':coverage_hits},indent=2)+'\n')
+print('CROWN COVERAGE GAPS',len(coverage_gaps),coverage_gaps[:8],flush=True)
+assert not coverage_gaps,'Bare scalp visible in temple/crown radial samples'
 source_samples = {}
 source_pose_bounds = {}
 for (name, frame), original in trajectories.items():
@@ -153,6 +223,13 @@ assert Path(bpy.path.abspath(fbx_image.filepath)).is_file(), fbx_image.filepath
 assert hashlib.sha256(Path(bpy.path.abspath(fbx_image.filepath)).read_bytes()).hexdigest() == \
        hashlib.sha256((OUT/(NAME+'_Face.png')).read_bytes()).hexdigest()
 assert abs((arm.matrix_world@arm.data.bones['Head'].head_local).z-.60) < 1e-4
+if NAME in ('Kofi','Olaf'):
+    assert bpy.data.objects[NAME+'_Hair'].data.uv_layers.active is not None
+    hm=bpy.data.materials[NAME+'_Hair']
+    hi=next(n.image for n in hm.node_tree.nodes if n.type=='TEX_IMAGE')
+    actual=Path(bpy.path.abspath(hi.filepath))
+    assert actual.is_file() and tuple(hi.size)==((256,256) if NAME=='Kofi' else (512,512))
+    assert hashlib.sha256(actual.read_bytes()).hexdigest()==hashlib.sha256((OUT/(NAME+'_Hair.png')).read_bytes()).hexdigest()
 arm.data.pose_position = 'REST'
 bpy.context.view_layer.update()
 fbx_rest_bounds = bounds(meshes)
@@ -193,7 +270,7 @@ result['all_passed'] = True
 result['name'] = NAME
 result['revision'] = manifest['revision']
 result['delivery_sha256'] = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in
-    [OUT/(NAME+'.blend'),OUT/(NAME+'.fbx'),OUT/(NAME+'_Face.png')]}
+    [OUT/(NAME+'.blend'),OUT/(NAME+'.fbx')]+[OUT/t['file'] for t in manifest['textures']]}
 (OUT/'validation.json').write_text(json.dumps(result, indent=2)+'\n')
 print('PASS male saved source + real FBX: 20 original bones, 11 unchanged actions,',
       sum(counts.values()), 'triangles; source and imported pose/bounds samples agree', flush=True)

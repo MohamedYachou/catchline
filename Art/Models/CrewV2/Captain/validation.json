@@ -1,0 +1,180 @@
+{
+  "intentional_hat_change": "Existing Captain badge conformed to rounded cap crown, with embedded backing and visible relief; cap shape, rig and role unchanged. Hat excluded from pre-fix surface equivalence; actual FBX still checked.",
+  "nonhair_baseline_surface_checks": {
+    "Face": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "Expression": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "MaleBody": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    },
+    "OutfitDetails": {
+      "exact_topology_fingerprint": true,
+      "max_bidirectional_surface_error_m": 0.0
+    }
+  },
+  "temple_crown_coverage": {
+    "radial_rays": 325,
+    "scalp_first_hits": [],
+    "scope": "Temple-to-rear crown, z=.845..885m; forehead below natural hairline excluded; lower hairline reviewed in six headshots"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19658,
+    "mesh_triangles": {
+      "Captain_Face": 2300,
+      "Captain_Expression": 1700,
+      "Captain_Hair": 5899,
+      "Captain_Hat": 3800,
+      "Captain_MaleBody": 3599,
+      "Captain_OutfitDetails": 2360
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500327706336975,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.2230953574180603,
+        0.00017508506425656378
+      ],
+      [
+        0.4672813415527344,
+        0.18073025345802307,
+        1.0438406467437744
+      ]
+    ],
+    "texture_sizes": {
+      "Captain_Face.png": [
+        512,
+        512
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "Captain_Hair": 5899,
+      "Captain_Hat": 3800,
+      "Captain_Expression": 1700,
+      "Captain_Face": 2300,
+      "Captain_MaleBody": 3599,
+      "Captain_OutfitDetails": 2360
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "Captain",
+  "revision": "hair-r04",
+  "delivery_sha256": {
+    "Captain.blend": "440ab190937220b8db3d9c575e642afb92901c4a29f7d9d581a6f29f57c1956c",
+    "Captain.fbx": "6245f4b0431b3cda9f274f3c591fb1c6e3d4a5f349e3b31ca208b885659655e7",
+    "Captain_Face.png": "1bf3cdf32f87ba3de8912eddb7c7fff45d677a6c0a306790fffcdcbfe1672dee"
+  }
+}

@@ -1,0 +1,35 @@
+SOL-SEANAV-1 — Sol 6.1 (medium) — sea navigation: tap to sail with collision, per docs/MAP-PLAN.md
+
+You are a fresh session; everything you need is in files. Claude (lead) wrote this for Mo and accepts your work.
+
+GOAL: implement MAP-PLAN §4 runtime: Assets/Scripts/Game/Sea/SeaNav.cs (load navigation.json, inflate polygons by hull
+radius, A* over a visibility graph, shallows cost ×2, Plan(from,to) → polyline or null, Snap to inside border),
+BoatSailor.cs (turn-rate-limited steering, slow in shallows and on arrival, slide along edges, hard clamp at border),
+HullDef speed/turn fields tuned so trips are 10–20 s (ONE tunable number per hull; Mo may later make the trip longer
+with its own gameplay, so nothing else may depend on its length). Integrate in VoyageGame: SailingOut/SailingHome and a
+Relocate(groundId) command use real routes; arrival = inside the ground zone; deck graph keeps ticking while sailing
+(sorting/stowing only, no gear out). Tap on water/ground → route; tap beyond the buoys → snapped target + navigator
+line "Fog's thick past the buoys, skipper."
+
+INTERIM DATA: Codex 1 is building the real maps (Art/Models/Maps/<Map>/navigation.json). Until they land, hand-write
+Assets/Art/Models/Environment/<Map>/navigation.interim.json for Harbour mouth and Kelp bank from the current maps
+(Art/Models/Maps/<Map>/grounds.json + a few island boxes) and load real files in preference when present.
+
+CONTEXT (read first): docs/MAP-PLAN.md, docs/MASTER-PLAN.md M4, Assets/Scripts/Game/VoyageGame.cs (BeginTransition,
+FinishTransition, Step), VoyageScenery.cs, VoyageDeck.cs, ArtLibrary.cs + Assets/Editor/ArtImport.cs (how JSON files get
+into the library), the last ~40 lines of comms.md.
+
+OWNERSHIP: Assets/Scripts/Game/** , Assets/Editor/MapNavChecks.cs, ArtLibrary/ArtImport (add a NavigationFiles field
+only), the interim json files. Never: Art/**, other Assets/Art files, scenes, the player's save, the art agents' files.
+
+CHECKS (scratch editor only, C:\Users\momoy\Projects\Catchline-ui2-sim; never batchmode/open the main project):
+robocopy C:\Users\momoy\Projects\Catchline\Assets C:\Users\momoy\Projects\Catchline-ui2-sim\Assets /E /XF ArtLibrary.asset UiV2Preview.unity
+unity recompile --project-path <scratch>; unity command editor invoke_menu --path "Catchline/Rebuild Art Library";
+unity command script eval --project-path <scratch> --code 'Catchline.EditorTools.MapNavChecks.Run();' --timeout 600
+MapNavChecks = MAP-PLAN §4 list (routes exist for every hull harbour→ground and ground→ground, no route point in an
+inflated island, length ≤1.6× straight line unless blocked, 10–20 s per hull, outside target snaps inside, boat pushed
+into an island ends outside). Existing checks must still pass (M0, M1Graph, M1Rowboat, M2Data, M3Data, M5Data).
+
+RULES: commit per working step (stage only your files, plain message, no model/agent names), no push. comms.md START
+with reservation, line per finished step, CHECKPOINT at safe points, QUESTION when the plan is ambiguous, DONE/PARTIAL.
+After this brief is done, continue with docs/briefs/SOL-CODE-1.txt.

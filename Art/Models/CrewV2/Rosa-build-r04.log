@@ -1,0 +1,39 @@
+00:00.547  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\CrewRig\CrewRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+PART TRIANGLES Rosa_Face 4236 2200
+PART TRIANGLES Rosa_Expression 3500 1600
+PART TRIANGLES Rosa_Hair 14456 8500
+PART TRIANGLES Rosa_Hat 24208 2200
+PART TRIANGLES Rosa_FemaleBody 16272 2999
+PART TRIANGLES Rosa_OutfitDetails 3318 2450
+00:03.438  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:744: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\momoy\Projects\Catchline\Art\Source\build_crew_female.py:751: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review warm grey');mat.use_nodes=True
+00:05.297  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\three-quarter.png'
+00:07.860  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\face.png'
+00:10.391  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\back-hair.png'
+00:12.203  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\front.png'
+00:14.047  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\side.png'
+00:15.891  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\back.png'
+00:17.953  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\idle.png'
+00:19.844  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\walk.png'
+00:21.641  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\carry.png'
+00:23.469  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\cast.png'
+00:27.938  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\CrewV2\Rosa\iterations\r04\same-scale.png'
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\CrewV2\\Rosa\\Rosa.fbx'
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+(bpy.data.armatures['CrewSkeleton'], 'POSE')
+export finished in 0.4276 sec.
+Info: Saved as "Rosa.blend"
+FEMALE BUILD COMPLETE Rosa r04 19949 triangles
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
