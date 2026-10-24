@@ -22,6 +22,11 @@ namespace Catchline.Game
             get => PlayerPrefs.GetInt("catchline.tips", 1) == 1;
             set { PlayerPrefs.SetInt("catchline.tips", value ? 1 : 0); PlayerPrefs.Save(); }
         }
+        bool AutoCarryCatch
+        {
+            get => PlayerPrefs.GetInt("catchline.autoCarry", 1) == 1;
+            set { PlayerPrefs.SetInt("catchline.autoCarry", value ? 1 : 0); PlayerPrefs.Save(); }
+        }
 
         public bool MenuOpen => showTitle || paused;
 
@@ -167,7 +172,7 @@ namespace Catchline.Game
         {
             bool phone = coastalUi.Phone;
             float row = phone ? 44 : 52, label = phone ? 24 : 30, gap = phone ? 8 : 14, sh = phone ? 48 : 52;
-            float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * 3 + sh + Skin.SlabPad;
+            float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * 4 + sh + Skin.SlabPad;
             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
             coastalUi.Slab("settings/card", card, "Settings", true);
             float x = card.x + Skin.SlabPad + 4, cw = w - Skin.SlabPad * 2 - 8, y = card.y + Skin.HeaderBand + 12;
@@ -180,6 +185,7 @@ namespace Catchline.Game
             }
             Row("text", "Text size", UiScaleNames, UiScaleIndex, i => UiScaleIndex = i);
             Row("hints", "Hints on the water", new[] { "Off", "On" }, ShowTips ? 1 : 0, i => ShowTips = i == 1);
+            Row("auto-carry", "Auto-carry catch", new[] { "Off", "On" }, AutoCarryCatch ? 1 : 0, i => AutoCarryCatch = i == 1);
             if (audio != null)
             {
                 int level = 0;

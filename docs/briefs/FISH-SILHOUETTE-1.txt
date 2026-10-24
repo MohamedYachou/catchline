@@ -1,0 +1,23 @@
+FISH-SILHOUETTE-1 — Codex 1 (Windows) — underwater fish silhouettes from the real 3D models (groundwork for the new rod minigame)
+
+GOAL: the new fishing minigame (Claude designs it) shows the fish under the water before it bites: Mo wants
+"really showing a fish ... going for the rod and faking and doing a nibble", "bigger fish should also be bigger",
+"the outline of the 3d model we're catching would be nice". Build the reusable rendering piece only, no gameplay.
+
+BUILD: a runtime component FishShadow (Assets/Scripts/Game/Minigame/FishShadow.cs) that, given a Species and kg,
+spawns that species' existing 3D model (same lookup the catch card / basket fish use: ArtLibrary), scales it by
+real size (length from kg; reuse GameData min/max kg), and renders it as an underwater silhouette: dark tinted body
+that fades with depth (0 = touching the surface, 1 = deep and faint) plus a soft light outline/rim that stays
+readable over the PTS water. Expose Depth (0..1), Visibility, and simple swim API: SwimTo(worldPos, speed) with a
+tail-wag/body-bend (shader vertex wave or bone wiggle, whichever the model supports) and Dart(dir) for a sudden
+burst. URP; a Shader Graph or HLSL shader in Assets/Scripts/Game/Minigame/. No new art assets.
+
+OWNERSHIP: Assets/Scripts/Game/Minigame/** (new), an Editor preview/check in Assets/Editor/FishShadowChecks.cs.
+Do not touch VoyageDeck/VoyageInterface/Sea/** or saves. Scratch Unity copy Catchline-lead-sim only; never the main
+project. No git commits.
+
+DONE = EVIDENCE: in the scratch editor, a preview scene/screen with the rowboat sea showing herring 0.2 kg,
+mackerel 0.6 kg, cod 6 kg and one shark at depth 0.2 and 0.7, captured from a low close-up angle AND from the normal
+boat camera, saved to docs/screens/fish-silhouette-1/. Open each image: shapes must read as the right species,
+sizes must differ clearly, outline visible on the water. One comms.md DONE line with the paths. Then QUESTION
+in comms.md for the next assignment and continue with any listed in the standing order.

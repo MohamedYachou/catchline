@@ -191,13 +191,24 @@ namespace Catchline.Game
             Manning = null; AwaitingCast = false;
             return true;
         }
-        // Tier 0 flow in two taps: Carry (rod basket → sort table), then Keep (sorted and stowed) or Throw.
+        // Keep finishes by stowing. An idle captain can also bring rod catches to the sort table.
         void CaptainFollowUp()
         {
-            if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !keepThenStow) return;
-            var outBasket = DeckGraph.OfKind(StationKind.SortTable).Select(s => s.Out).FirstOrDefault(b => b != null && b.UnclaimedCount > 0);
-            keepThenStow = false;
-            if (outBasket != null) Scheduler.CaptainHaul(w, outBasket);
+            if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle) return;
+            if (keepThenStow)
+            {
+                var outBasket = DeckGraph.OfKind(StationKind.SortTable).Select(s => s.Out).FirstOrDefault(b => b != null && b.UnclaimedCount > 0);
+                keepThenStow = false;
+                if (outBasket != null && Scheduler.CaptainHaul(w, outBasket)) return;
+            }
+            if (!AutoCarryCatch || CurrentMode != Mode.Fishing || !Captain.Idle || Captain.Carrying != null
+                || MinigameRod != null || Manning != null && Manning.State is RodState.Bite or RodState.Reeling) return;
+            foreach (var basket in DeckGraph.OfKind(StationKind.Rod).Select(s => s.Out).Where(b => b != null && b.UnclaimedCount > 0))
+                if (CaptainHaulFrom(basket))
+                {
+                    Manning = null; AwaitingCast = false;
+                    return;
+                }
         }
         bool keepThenStow;
         public void CommandKeep(bool keep)
@@ -220,12 +231,12 @@ namespace Catchline.Game
         // drawn after the catch card so it never covers them, and level with the middle of the screen, clear of it.
         void InterfaceSortDecision()
         {
-            if (Scheduler == null || !workers.TryGetValue(Captain, out var cap) || !cap.Idle) return;
+            if (CurrentMode != Mode.Fishing || Scheduler == null || !workers.TryGetValue(Captain, out var cap) || !cap.Idle) return;
             if (!DeckGraph.OfKind(StationKind.SortTable).Any(s => s.In != null && s.In.UnclaimedCount > 0)) return;
             float w = compactInterface ? 100 : 150, h = compactInterface ? 72 : 96, y = ih / 2 - h / 2;
             var left = new Rect(HudGapLeft, y, w, h); var right = new Rect(HudGapRight - w, y, w, h);
-            coastalUi.Secondary("deck/throw", left, "Throw", () => { CommandKeep(false); MenuSound(); }); Block(left);
-            coastalUi.Primary("deck/keep", right, "Keep", () => { CommandKeep(true); MenuSound(); }); Block(right);
+            coastalUi.Primary("deck/throw", left, "Throw", () => { CommandKeep(false); MenuSound(); }); Block(left);
+            coastalUi.Secondary("deck/keep", right, "Keep", () => { CommandKeep(true); MenuSound(); }); Block(right);
         }
 
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);

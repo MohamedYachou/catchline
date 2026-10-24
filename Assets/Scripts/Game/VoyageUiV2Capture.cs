@@ -57,6 +57,25 @@ namespace Catchline.Game
                 case "title":
                     NewGame(); hadSave = false; showTitle = true; toastUntil = 0;
                     return true;
+                case "settings":
+                    NewGame(); showTitle = showSettings = true; toastUntil = 0;
+                    return true;
+                case "sort-home":
+                    if (!StageUiV2("sort")) return false;
+                    // Reuse the live Canvas so this catches controls surviving a mode change.
+                    PrepareInterface(1440, 900);
+                    if (!InvokeInterface("deck/keep")) return false;
+                    for (int n = 0; n < 1200 && (Scheduler.OnDeck > 0 || !Captain.Idle); n++) Tick(.05f);
+                    if (Scheduler.OnDeck > 0 || !Captain.Idle) return false;
+                    // A second waiting fish reproduces the return-trip scheduler case as well.
+                    var waiting = DeckGraph.OfKind(Catchline.Game.Deck.StationKind.SortTable).First().In;
+                    waiting.Put(new CaughtFish { Species = Species.Mackerel, Kg = .62f, StowedAt = SimTime }, false);
+                    PrepareInterface(1440, 900);
+                    if (Navigation != null) Sailor.Push(Navigation.Grounds.Last().Centre);
+                    HeadHome();
+                    PrepareInterface(1440, 900);
+                    return CurrentMode == Mode.SailingHome && !GetComponentsInChildren<Transform>(false)
+                        .Any(t => t.name is "deck/keep" or "deck/throw");
                 case "sort":
                     // Rowboat with a fish on the sort table under a fresh catch card and a two-line toast.
                     StartTestTier(0); captureFreeze = true; Showcase(0, 0); SetupDeckGraph();

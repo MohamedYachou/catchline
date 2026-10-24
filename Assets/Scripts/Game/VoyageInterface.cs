@@ -32,7 +32,7 @@ namespace Catchline.Game
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
-            else { InterfaceTravel(); if (UsesDeckGraph) { InterfaceDeckBubbles(); InterfaceSortDecision(); } }
+            else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); }
             InterfaceSeaGrounds();
             if (!departureReady && toast != null && SimTime < toastUntil)
             {

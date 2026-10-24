@@ -1,0 +1,39 @@
+DECK-FIX-1 — Codex 1 (Windows) — three fixes to the tier-0/1 sort flow from Mo's play test (2026-10-24)
+
+GOAL (Mo): "keep should be white not throw, the captain automatically collects his fish to sort unless
+turned off in settings, also when you sort and click go home the keep throw keeps on screen, that needs fixing".
+
+1. Colours: Keep = white secondary button, Throw = orange primary button. Same positions (Throw left, Keep right).
+   Code: VoyageDeck.cs InterfaceSortDecision() (swap coastalUi.Primary/Secondary only).
+2. Auto-carry: when the captain is idle on a deck-graph hull and a rod basket holds an unclaimed fish, the
+   captain carries it to the sort table automatically (same path as the Carry bubble: CaptainHaulFrom(basket),
+   Manning = null, AwaitingCast = false). Do not interrupt the captain while manning a rod with a fish on the line
+   (Bite/Reeling) or while in the strike minigame. New setting "Auto-carry catch" On/Off in Settings
+   (VoyageMenus.cs InterfaceSettings, PlayerPrefs "catchline.autoCarry", default On, same Row() style as Tips).
+   With it Off the existing Carry bubble flow stays as is.
+3. Lingering buttons: after sorting and pressing Head home, Keep/Throw stay on screen. They must disappear as
+   soon as there is no fish waiting on a sort table and on any mode change (heading home, travel, harbour).
+   Find why: InterfaceSortDecision is also called in the travel branch of VoyageInterface.RefreshInterface, and
+   FlushDeckGraph/Scheduler may still report a fish in sort.In while sailing. Decide on travel behaviour: while
+   heading home, no Keep/Throw at all (FlushDeckGraph already stores keepers) — remove the call there if that
+   is the cause, and make sure no stale UI element survives (CoastalCanvas Begin/End must drop unused ids).
+
+CONTEXT (read only these up front): comms.md (latest ~15 lines), VoyageDeck.cs, VoyageInterface.cs,
+VoyageMenus.cs, VoyageUiV2Capture.cs (capture screens "sort", "title"), Assets/Editor/GameBuild.cs,
+docs/tools/install-shortcuts.ps1.
+
+OWNERSHIP: VoyageDeck.cs, VoyageInterface.cs, VoyageMenus.cs (settings only), VoyageUiV2Capture.cs (you may add
+capture screens, e.g. "sort-home"), Editor checks you add. Do not touch Sea/**, VoyageSea.cs, art, saves.
+Never open or batchmode the main Unity project; use the scratch copy Catchline-lead-sim (robocopy main Assets
+in, excluding ArtLibrary.asset). Never touch the player's save. No git commits: Claude reviews and commits.
+
+DONE = EVIDENCE: build with Catchline/Build Game (Real + Test) in Catchline-lead-sim, install with
+docs/tools/install-shortcuts.ps1, then native captures from Catchline-play\Test\Catchline.exe -capture-uiv2
+<dir> -uiv2-screens sort,sort-home,title at 1440 and 844, saved under docs/screens/deck-fix-1/. Open and look
+at each image: sort shows white Keep right / orange Throw left; sort-home (heading home after a sort) shows no
+Keep/Throw. Add an Editor check (or extend M1RowboatChecks) proving auto-carry moves a rod-basket fish to the
+sort table with the setting On and not with it Off; it must pass in the scratch editor.
+
+REPORTING: one comms.md line per finished item; CHECKPOINT at safe boundaries; QUESTION line if the brief and
+the code disagree. When all three are done and verified, write DONE DECK-FIX-1 with the evidence paths, then
+continue with the next assignment in the standing order. Do NOT create the stop file: it also stops Codex 2.
