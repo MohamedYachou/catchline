@@ -40,8 +40,9 @@ navigation choices, events), and fishing on arrival is the second half. Ideas mu
 (crew cards with roles Fisher / Deckhand / Engineer / Navigator / Captain, deck stations and baskets, tiers 0–5,
 products, buyers, quota, night voyages) — not older documents.
 
-Fable's answer (2026-10-24, awaiting Mo): `docs/VOYAGE-PHASES.md` — Part A catalogues what the two legs can be
-(trolling, pots on the route, scouting, errands, tender, rival fleet, mentoring, debrief, tides...), Part B builds the
+Fable's answer (2026-10-24, awaiting Mo): `docs/VOYAGE-PHASES.md` — Part A catalogues 45 things the two legs can be
+(trolling, pots on the route, scouting, errands, tender, rival fleet, mentoring, debrief, tides...) and A7 works through
+Mo's three-stage idea: the chain laid along the voyage, with processing only on the return. Part B builds the
 plan/execute/fish/finish direction with two trips a day, Part C recommends a combination. Not design authority yet.
 
 ## Old (do not use as design input)

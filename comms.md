@@ -4091,7 +4091,7 @@ CHECKS: design against the Current docs only (BLUEPRINT, MASTER-PLAN, CARDS-AND-
 RESERVATIONS: docs/VOYAGE-PHASES.md and the CURRENT.md pointer only; released at DONE. No subagents.
 
 DONE — VOYAGE-LEGS-DESIGN / Fable / finished 2026-10-24. Proposal, not approved design.
-FILES: docs/VOYAGE-PHASES.md (new, ~570 lines: A1–A27 catalogue, B0–B13 system, Part C, 10 decisions), CURRENT.md (+1 pointer paragraph under the open question), comms.md (this). Committed on claude/awesome-clarke-5vgz7r and pushed; not merged to proto/deck-sim.
+FILES: docs/VOYAGE-PHASES.md (new, ~680 lines: A1–A45 catalogue incl. A7 chain-along-the-voyage / processing only on the return, B0–B13 system, Part C, 13 decisions), CURRENT.md (+1 pointer paragraph under the open question), comms.md (this). Committed on claude/awesome-clarke-5vgz7r and pushed; not merged to proto/deck-sim.
 VERIFIED: section cross-references checked after renumbering; numbers cited from CARDS-AND-SPEEDS §7 and MASTER-PLAN A-register; trolling species exist in GameData (mackerel, barracuda, yellowfin, swordfish, flying fish). UNVERIFIED: all balance numbers are provisional, no simulator run.
 NEXT: Mo rules on the decisions list (trolling, pots-on-route vs the A1.4 rejection, buff vs debuff, travel 30/60/90, two sailings from T0, wages, slots, rival fleet). Then Claude lead folds approved parts into BLUEPRINT/MASTER-PLAN (new M4b)/MAP-PLAN/CARDS/UI/ART and briefs Sol/Codex.
 RESERVATIONS: released. Fable idle, waiting on Mo.

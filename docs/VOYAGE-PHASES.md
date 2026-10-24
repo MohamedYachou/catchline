@@ -8,7 +8,9 @@ MASTER-PLAN, MAP-PLAN, CARDS-AND-SPEEDS, UI-SYSTEM and ART-PLAN as listed in B11
 provisional.
 
 The question: travel between harbour and ground is 10–20 s because waiting is boring. Mo wants
-the legs to be real parts of the loop and is open to a different kind of management on them.
+the legs to be real parts of the loop (three stages: going, fishing, returning), is open to a
+different kind of management on them, and floated processing happening only on the return.
+A7 works that through; it is the recommended spine.
 
 The test used throughout: **does it give a role something to do on the leg that changes the
 fishing, the sale or the next trip?** Flavour alone does not earn a longer leg.
@@ -170,25 +172,121 @@ sailings of a day sail different seas. Material: time. Leg: Both. Fit: MAP-PLAN 
 routing; a per-map tide curve over the day clock. Cost: a time-varying shallow ring in SeaNav.
 Verdict: take it for Sandbar and Harbour mouth; it is a second rhythm in the day.
 
-### A7. Structural
+### A7. Structural — the chain laid along the voyage
 
-**25. Asynchronous legs.** On mobile a leg can run while the app is closed and notify on arrival.
+Mo's framing of 2026-10-24: three stages, going / fishing / returning, and perhaps processing
+happens **only** on the return. Taken seriously, that is not a leg idea but a new shape for the
+whole loop: the five-stage chain (catch · sort · table · hold · sell) is laid along the voyage
+instead of stacked at the anchor.
+
+**28. Processing only on the return.** The processing table is closed while anchored; it opens
+when the boat turns for home. At the ground the chain is catch · sort · haul · hold, raw fish only.
+On the way home the hauler pulls from the hold to TableIn, the table works its orders top to
+bottom (M3 rules unchanged), products go back to the hold, chum goes to the bin. Purple and above
+still always become their special product, so an unprocessed marlin lands as a raw fish at Market
+price instead of a bill for the Collector: that is the pressure to slow down. Numbers: a return at
+cruise is 60 s = 15 oil units or 10 special products for one hand (CARDS-AND-SPEEDS §4 times);
+dead slow (×0.6 speed) makes it 100 s; a second hand (T5) doubles it. A tier-4 hold of 60–100
+fish is never fully processed, so the orders list is a real choice and the throttle is the table's
+clock. What it fixes: the T4 wall "table-minutes versus hold kg" stops competing with sort and
+haul for the same deckhand at the anchor; Table-speciality cards (Mats) get their own leg instead
+of hauling at 65 while the table idles; the fishing phase gets denser; the return gets its reason.
+What it changes: chum cannot be made at the ground, so gold and red (chum-only, BLUEPRINT §7) and
+deep lines (T5) need chum made on an earlier return — which makes the two-sailings day (B2) and
+the chum carry-over (B6) load-bearing rather than nice; "come back with chum" becomes a progression
+beat; BLUEPRINT §5's tier-4 "new limit" is rewritten as "the return leg"; Operations shows different
+stage cards per leg (anchor: Fishing · Hauling · Sorting · To hold; return: Processing · Hauling ·
+To hold). Material: the catch. Leg: Home. Cost: a leg flag on the ProcessTable station, a hold-out
+basket, stage cards per leg, no new art (Codex's prep hull already has the table). Verdict:
+**recommended; it is the cleanest way to make the return a stage, and it makes the day structure
+necessary.** Alternative: table open at both legs with the anchor at ×0.7 (boat rocking) — legible
+enough, but it halves the reason to go slow.
+
+**29. Each leg owns one stage.** The full partition: baiting and rigging only outbound (B4),
+sorting only at the ground (throwbacks must go back alive, so this is also the realistic rule),
+processing only homeward (28). The deck's stations light up by leg; the crew rail's status words
+change by leg; every role has one leg where it is the wall: fisher outbound (rig time), sorter and
+hauler at the ground, table hand homeward, navigator everywhere. Verdict: this is the spine the rest
+of the catalogue hangs on; take it with 28.
+
+**30. Load slows the boat.** A full hold sits low in the water: return speed ×(1 − 0.3 × hold
+fill). A big catch comes home slower, which gives the table more time for free and makes a laden
+boat the one that fears a squall. Self-balancing: the trips that most need processing time get it;
+the throttle then decides how much more to buy with fuel. Fit: BoatSailor hull speed already per
+hull. Cost: tiny. Verdict: take it; it couples catch to return without a rule the player has to
+read.
+
+**31. Sell on the radio during the return.** From T3 the catch is allocated to buyers while
+homeward (M5's split, shown as it happens); docking collects. The quay becomes a place to buy and
+plan, not to wait for a sale screen; the second sailing of the day starts sooner. Leg: Home. Fit:
+M5 sale split and Mira's Radio. Verdict: take it once two sailings exist.
+
+**32. The catch reveal.** Catch cards (exist) are shown on the way home as the table reaches each
+fish, one tap each: the return becomes the loot-opening beat the voyage currently lacks, and it
+tells the player what the table is doing. Leg: Home. Cost: UI only. Verdict: take it; cheap and it
+is the mobile reward cadence.
+
+**33. Delegate the plan itself.** The last job the player hands over is planning. The navigator
+proposes a plan on the return ("Kelp edge tomorrow, nets, feed Sam"); a blue navigator proposes
+the ground, purple adds slots and rations, gold Mira auto-plans and the player only edits. "Same as
+last trip" becomes "Mira's plan". This extends the delegation ladder (A1.3) to the new phase
+without a new role. Leg: Home (proposal) and Plan. Cost: a planner heuristic over the ground
+report, the bot's planner can be it. Verdict: take it; it is the thesis applied to the new phase.
+
+**34. The lantern moves.** One lantern lights one station (BLUEPRINT §11): at the ground it lights
+the jig, on the way home someone carries it to the table. A night return without light runs the
+table at ×0.7. Leg: Both. Cost: a carry job. Verdict: take it with night.
+
+**35. The captain at the table.** The captain has skill 100 at table work and nothing to do on
+the return; a tap-to-process option (like tier-0 keep/throw) lets the player work the table
+alongside the hand. Active play for those who want it, skippable. Leg: Home. Verdict: take it for
+tiers 2–4; from tier 5 the design stops relying on the captain's hands anyway.
+
+**36. Strike drill.** Outbound, an optional 15 s drill: five practice strikes; five hits give the
+captain's rod +5 percentage points strike this trip. Leg: Out. Verdict: take it; it is the one
+place a skill mini-game belongs, and it is skippable.
+
+**37. The sweepstake.** The crew bet on the first fish's species; the winner gets a little XP. One
+tap, flavour, no balance impact. Leg: Out. Verdict: take it as a card moment (A19).
+
+**38. Fishers tie rigs on the return.** Fishers are idle homeward unless trolling; tying spare
+rigs from line and hooks replaces buying spares. Fit: brushes A5.28; this is once per leg for an
+otherwise idle role, not a cycle chore. Verdict: Mo's call; small either way.
+
+**39. Night return.** The evening sailing comes home in the dark: lights for the table (34),
+buoy lights and the lighthouse for the route, fog thicker. Night event rate ×2 applies to the
+return. Verdict: comes free with night; make sure the return is where it bites.
+
+**40. Return events.** Bilge leak (pump 20 s or lose kg), gulls on the table scraps (lid or
+shoo), harbour fog (+20 s), rival racing you in (A13), inspector at sea (A14), buyer calls (A23),
+cargo shift (exists). Verdict: the Return stage of M6.
+
+**41. Three screens, three primaries.** Outbound: **Anchor here** (stop early at a nearer ground
+when the forecast or the navigator changes the plan). Anchored: **Head home**. Homeward: **Full
+ahead** (throttle). One primary per screen (UI-SYSTEM), and the button says what the leg is for.
+
+**42. A denser ground phase.** With rigging moved outbound and processing homeward, the anchored
+phase is 3–5 min of catch · sort · haul with events, and relocation (M4) as its only travel. Two
+sailings a day fit without lengthening the session.
+
+**43. Asynchronous legs.** On mobile a leg can run while the app is closed and notify on arrival.
 Verdict: later; it changes retention design, not the loop.
 
-**26. Two-boat operations.** At tier 5 the skiff runs as a tender between the big boat and the
+**44. Two-boat operations.** At tier 5 the skiff runs as a tender between the big boat and the
 quay. Verdict: tier 6 material.
 
-**27. The passage as a world.** The five maps join into one coast with long passages between
+**45. The passage as a world.** The five maps join into one coast with long passages between
 harbours; a new harbour is World 2. Verdict: prestige material (A1.5), not v1.
 
 ### A8. Which ideas earn a long leg
 
 | Needs 60–120 s to work | Works in 30 s |
 |---|---|
-| 1 Trolling · 2 Pots on the route · 5 Pass-by reading · 9 Errands · 10 Tender · 13 Rival race · 24 Tide | 3 Berley · 8 Weather bet · 11 Flotsam · 16 Mentoring · 19 Card moments · 21 Debrief · 22 Meta · 23 Radio |
+| 1 Trolling · 2 Pots on the route · 5 Pass-by reading · 9 Errands · 10 Tender · 13 Rival race · 24 Tide · **28 Processing on the return** · 31 Radio sale | 3 Berley · 8 Weather bet · 11 Flotsam · 16 Mentoring · 19 Card moments · 21 Debrief · 22 Meta · 32 Catch reveal · 33 Navigator's plan · 36 Strike drill |
 
-A leg is worth 60–90 s only if at least one left-column idea is in. Preparation on its own (Part
-B) fills 30–60 s and no more.
+A leg is worth 60–120 s only if at least one left-column idea is in. Preparation on its own (Part
+B) fills 30–60 s and no more. Processing on the return (28) fills the home leg on its own and
+scales with the catch (30), which is why it is the recommended spine.
 
 ---
 
@@ -474,7 +572,9 @@ rules.
 
 ## B11. Changes to the current documents when approved
 
-- **BLUEPRINT**: §1 paragraph gains the four parts; §5 ladder gains a Plan column (table in B9);
+- **BLUEPRINT**: §1 paragraph gains the four parts and the chain laid along the voyage (A29);
+  §2 table marks each stage's leg; §5 tier-4 "new limit" becomes the return leg (A28); §5 ladder
+  gains a Plan column (table in B9);
   §10 adds provisions and fatigue to the ways a trip loses money; §13 adds the Passage and
   Return stages; new section Rations (B7); §16 keeps "no food fields" for fish only. Trolling
   (A1) joins §6 gear and §14 cards if approved.
@@ -530,36 +630,45 @@ rules.
 
 ## Part C — Recommended combination for v1
 
-The rule that picks: **every role gets a leg job, and both legs end in something the next phase
-uses.**
+Spine: **the chain laid along the voyage** (A29): bait and rig outbound, catch and sort at the
+anchor, process on the way home (A28), load slows the return (A30), sell on the radio (A31).
+Then the rule that picks the rest: **every role gets a leg job, and both legs end in something
+the next phase uses.**
 
 | Role | Sail out | Sail home |
 |---|---|---|
-| Captain | plan executes (B3); weather bet (A8) | debrief (A21); chests and wildcards (A22); throttle (B6) |
-| Navigator | pass-by reading (A5), surface signs (A7), fog of war on new maps (A6) | logs what she saw for tomorrow's chart; call-ahead (A23) |
+| Captain | plan executes (B3); weather bet (A8); strike drill (A36) | throttle against the table clock (A28, B6); catch reveal (A32); debrief (A21); chests and wildcards (A22); may work the table (A35) |
+| Navigator | pass-by reading (A5), surface signs (A7), fog of war on new maps (A6) | logs what she saw; sells on the radio (A31); proposes tomorrow's plan (A33) |
 | Fisher | trolling (A1) or rigging (B4) — not both, that is the choice | trolling home, or lifting pots (A2) if Mo allows them |
-| Deckhand | cook, grind chum, lids, lash (B4); sort the troll catch | finish the table, sort the pots or troll catch, Chum ∞ (B6) |
+| Deckhand | cook, lids, lash (B4); sort the troll catch | **process the catch** (A28): orders, special products, Chum ∞ for tomorrow (B6); carry the lantern to the table at night (A34) |
 | Engineer (T5) | tune one machine (B8) | nothing new; he hauls at 50 as today |
 | Everyone | card moments (A19), mentoring (A16) when idle | rapport grows (A17) |
 
 Over days: two sailings (B2), rations and fatigue (B7), the rival fleet (A13) as the M6+ content
 layer, errands (A9) and the tender (A10) once two sailings exist, tides (A24) on two maps.
 
-Leg length with this set: 60 s mid-distance, 30–90 s by ground. The leg earns it because the
-fisher is fishing (trolling), the navigator is reading, the deck is working the plan or the
-catch, and the captain is deciding (weather, throttle, debrief). Nothing on the list is a wait.
+Leg length with this set: outbound 30–90 s by ground; homeward 60 s at cruise, up to 120 s dead
+slow or heavily laden, by the player's choice. The legs earn it because the fisher is fishing
+(trolling), the navigator is reading, the deck is rigging out and processing home, and the
+captain is deciding (weather, throttle, debrief). Nothing on the list is a wait. The anchored
+phase gets shorter and denser (A42), so a day of two sailings still fits 15–18 minutes.
 
 Not taken: jig stops (multi-stop), shanty buffs, berth queues, dumping fish (unless Mo wants the
-dark choice), asynchronous legs, two-boat operations.
+dark choice), asynchronous legs, two-boat operations, rig tying on the return (Mo's call).
 
-Build order: B (plan, two sailings, rations, home-leg processing, Deck plan screen) → A1 trolling
-+ A5/A7 reading → A21 debrief + A22 meta + A19 moments → A8 weather bet + A3 berley + A11 flotsam
-→ A13 rival fleet → A9 errands + A10 tender → A24 tides → A16/A17 mentoring and rapport.
+Build order: A28–A30 chain along the voyage (table closed at anchor, open homeward; load slows
+the return; throttle) → B (plan, two sailings, rations, Deck plan screen, chum carry-over) → A1
+trolling + A5/A7 reading → A32 reveal + A21 debrief + A22 meta + A19 moments → A31 radio sale +
+A33 navigator's plan → A8 weather bet + A3 berley + A11 flotsam + A36 drill → A13 rival fleet →
+A9 errands + A10 tender → A24 tides → A16/A17 mentoring and rapport.
 
 ---
 
 ## Decisions for Mo
 
+0. **Processing only on the return (A28), with the full partition (A29) and load slowing the
+   boat (A30): yes (recommended) or table open at both legs.** This one decides the shape of the
+   loop; everything else fits either answer.
 1. Trolling (A1) as a gear family that only works under way: yes or no.
 2. Pots along the route (A2): is this covered by the "pots on a string" rejection? Yes means drop it.
 3. Buff-in-trip plus fatigue across the day (recommended) versus fed/unfed inside a trip (B7).
@@ -570,3 +679,5 @@ Build order: B (plan, two sailings, rations, home-leg processing, Deck plan scre
 8. Rival fleet (A13): design the ground data for it now (recommended) or leave it out of v1.
 9. Dumping over-quota fish before the inspector (A14): in or out.
 10. Day market windows (B6, B10): yes or later.
+11. Sell on the radio during the return (A31) and the navigator's plan (A33): v1 or after.
+12. Fishers tie rigs on the return (A38): in or out.
