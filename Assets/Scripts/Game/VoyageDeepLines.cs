@@ -90,7 +90,7 @@ namespace Catchline.Game
         }
         public bool TryDeepLineWork(Person fisher)
         {
-            if (!DeepLinesActive || CurrentMode != Mode.Fishing || fisher == null || !fisher.Idle || fisher.Carrying != null
+            if (!DeepLinesActive || CurrentMode != Mode.Fishing || !AtFishingGround || fisher == null || !fisher.Idle || fisher.Carrying != null
                 || fisher.Contract?.Role != CrewRole.Fisherman || HoldFull || !fisher.Contract.Allows(FisherTask.DeepLines)
                 || State.SelectDeepLineBait(fisher.Contract)==BaitPermission.None) return false;
             int rig = Enumerable.Range(0, FittedDeepLineCount).Where(i => deepLines[i].Phase == DeepLinePhase.Empty && deepLineWorkers[i] == null).DefaultIfEmpty(-1).First();
@@ -101,7 +101,7 @@ namespace Catchline.Game
             void Finish()
             {
                 if (!Owns()) return;
-                if (!DeepLinesActive || CurrentMode != Mode.Fishing || HoldFull) { Cancel(); return; }
+                if (!DeepLinesActive || CurrentMode != Mode.Fishing || !AtFishingGround || HoldFull) { Cancel(); return; }
                 var bait = State.SelectDeepLineBait(fisher.Contract);
                 if (bait != BaitPermission.None && deepLines[rig].Phase == DeepLinePhase.Empty
                     && State.TakeDeepLineBait(fisher.Contract)) deepLines[rig].Deploy(bait);
@@ -138,7 +138,7 @@ namespace Catchline.Game
         }
         void TickDeepLines(float dt)
         {
-            if (!DeepLinesActive || CurrentMode != Mode.Fishing || dt <= 0) return;
+            if (!DeepLinesActive || CurrentMode != Mode.Fishing || !AtFishingGround || dt <= 0) return;
             for (int rig = 0; rig < FittedDeepLineCount; rig++)
             {
                 var cycle = deepLines[rig];

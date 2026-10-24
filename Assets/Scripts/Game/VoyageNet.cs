@@ -121,7 +121,7 @@ namespace Catchline.Game
             }
         }
 
-        public bool CanWorkNet => CurrentMode == Mode.Fishing && State.Hull > 0 && Captain.Idle && Captain.Carrying == null && Manning == null
+        public bool CanWorkNet => CurrentMode == Mode.Fishing && AtFishingGround && State.Hull > 0 && Captain.Idle && Captain.Carrying == null && Manning == null
             && (Net == NetState.Ready || !NetBasketBlocked && !HoldFull);
 
         public bool SetNet() => CanWorkNet && Net == NetState.Stowed && StartCompactNet(Captain, false);
@@ -187,7 +187,7 @@ namespace Catchline.Game
 
         bool StartCompactNet(Person person, bool haul)
         {
-            if (CurrentMode != Mode.Fishing || !person.Idle || person.Carrying != null || netWorker != null)
+            if (CurrentMode != Mode.Fishing || !AtFishingGround || !person.Idle || person.Carrying != null || netWorker != null)
                 return false;
             if (Net != (haul ? NetState.Ready : NetState.Stowed)) return false;
             if (!haul && AvailableNetStock(0) <= 0) return false;
@@ -225,7 +225,7 @@ namespace Catchline.Game
                 if (deep) State.SpendDeepNetUse();
                 else State.NetInventory = Mathf.Max(0, State.NetInventory - 1);
                 ResetPrimaryNet();
-                Toast(deep ? $"Deep haul lost â€” one use spent. {State.NetLoadoutLabel}." : $"Net torn â€” catch lost. {State.NetInventory} shallow nets left; replacements {GameData.NetReplacementCost} coins.");
+                Toast(deep ? $"Deep haul lost — one use spent. {State.NetLoadoutLabel}." : $"Net torn — catch lost. {State.NetInventory} shallow nets left; replacements {GameData.NetReplacementCost} coins.");
             }
             bool walking = person.WalkTo(Grid, NetAccess, () =>
             {

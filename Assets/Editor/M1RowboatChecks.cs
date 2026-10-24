@@ -53,7 +53,13 @@ namespace Catchline.EditorTools
             g.LandFish(rod, Species.Mackerel, GameData.Get(Species.Mackerel).MaxKg * .8f);
             int before = g.Cooler.Count;
             g.HeadHome();
-            Check(g.Cooler.Count == before + 1 && !g.UsesDeckGraph, "heading home stows the keeper still in the basket");
+            Check(g.UsesDeckGraph && g.Scheduler.Sailing, "heading home keeps the deck graph ticking in transit");
+            Check(g.CaptainHaulFrom(rodBasket), "captain can sort the remaining keeper while sailing");
+            Until(g, () => sort.In.Count == 1, "return trip carries keeper to sort table");
+            g.CommandKeep(true);
+            Until(g, () => g.Cooler.Count == before + 1, "return trip sorts and stows the keeper");
+            Until(g, () => g.CurrentMode == VoyageGame.Mode.Harbour, "returns to harbour", 120);
+            Check(!g.UsesDeckGraph, "arrival releases deck graph");
             Debug.Log("[Catchline] M1 ROWBOAT CHECKS PASSED");
         }
     }

@@ -15,8 +15,10 @@ namespace Catchline.Game
         }).normalized;
 
         public float TravelProgress => Mathf.Clamp01(modeTimer / Mathf.Max(.1f, modeDuration));
-        public string TravelStage => CurrentMode == Mode.SailingOut
-            ? TravelProgress < .18f ? "Casting off Â· clearing the quay" : TravelProgress < .34f ? "Turning toward the channel" : TravelProgress < .82f ? "Following the coast" : "Settling at the fishing ground"
+        public string TravelStage => Navigation != null
+            ? CurrentMode == Mode.SailingHome ? "Following the route home" : seaRelocating ? "Sailing to the marked water" : "Following the route to the ground"
+            : CurrentMode == Mode.SailingOut
+            ? TravelProgress < .18f ? "Casting off · clearing the quay" : TravelProgress < .34f ? "Turning toward the channel" : TravelProgress < .82f ? "Following the coast" : "Settling at the fishing ground"
             : TravelProgress < .15f ? "Turning for Gull Harbour" : TravelProgress < .72f ? "Following the channel home" : TravelProgress < .86f ? "Lining up alongside" : "Sliding gently into the berth";
 
         Vector3 travelOffset;

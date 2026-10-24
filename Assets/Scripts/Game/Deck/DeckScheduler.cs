@@ -11,6 +11,7 @@ namespace Catchline.Game.Deck
     public sealed class DeckScheduler
     {
         public readonly DeckGraph Deck;
+        public bool Sailing; // Transit permits sorting and stowing, never processing.
         public readonly List<Worker> Workers = new();
         public sealed class LooseFish { public CaughtFish Fish; public Vector2Int Tile; public object Claim; }
         public readonly List<LooseFish> Loose = new();
@@ -90,6 +91,7 @@ namespace Catchline.Game.Deck
 
         Job PickTable(Worker w)
         {
+            if (Sailing) return null;
             var s = Deck.OfKind(StationKind.ProcessTable).Where(t => t.In != null && t.Out != null && t.In.UnclaimedCount > 0 && t.Out.Free > 0
                     && Workers.Count(o => o.Current?.At == t && o.Current.Kind == JobKind.TableWork) < t.Places)
                 .OrderByDescending(t => t.In.Fill).ThenBy(t => Dist(w, t)).FirstOrDefault();
@@ -109,6 +111,7 @@ namespace Catchline.Game.Deck
                 case BasketKind.SortOut:
                     if (forTable.Contains(f))
                     {
+                        if (Sailing) return null;
                         var table = Deck.OfKind(StationKind.ProcessTable).Where(t => t.In != null && t.In.Free > 0).OrderBy(t => (t.Position - from.Position).sqrMagnitude).FirstOrDefault();
                         if (table != null) return Drop.To(table.In);
                     }

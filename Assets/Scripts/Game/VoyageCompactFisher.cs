@@ -104,7 +104,7 @@ namespace Catchline.Game
             return true;
         }
 
-        public bool CanCaptainNet => CurrentMode == Mode.Fishing && Captain.Idle && Captain.Carrying == null
+        public bool CanCaptainNet => CurrentMode == Mode.Fishing && AtFishingGround && Captain.Idle && Captain.Carrying == null
             && (Manning == null || Manning.State is not (RodState.Reeling or RodState.Flying))
             && !NetUnloadActive && (Net == NetState.Ready || Net == NetState.Stowed && (NetBasketBlocked || State.ActiveNetStock > 0) && !HoldFull);
 

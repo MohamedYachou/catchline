@@ -92,6 +92,7 @@ namespace Catchline.Game
             var pointer = Pointer.current;
             if (pointer == null || !pointer.press.wasPressedThisFrame) return;
             if (CurrentMode == Mode.Fishing && MinigameRod != null && !OverHud(ToGui(pointer.position.ReadValue()))) StrikeTap();
+            else HandleSeaTap(pointer.position.ReadValue());
         }
 
         // ---- drawing ------------------------------------------------------------------------

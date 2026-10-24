@@ -122,7 +122,7 @@ namespace Catchline.Game
 
         void TickDeckGraph()
         {
-            if (Scheduler == null || CurrentMode != Mode.Fishing) return;
+            if (Scheduler == null || CurrentMode == Mode.Harbour) return;
             SyncDeckWorkers();
             Scheduler.Tick();
             CaptainFollowUp();

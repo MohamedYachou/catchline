@@ -39,7 +39,7 @@ namespace Catchline.Game
         public bool RefitTier5()
         {
             if(CurrentMode!=Mode.Harbour || !State.RefitTier5())return false;
-            RebuildBoat(false);SaveGame();Toast("Buoy fisher ready â€” six crew berths and both equipment layouts.");return true;
+            RebuildBoat(false);SaveGame();Toast("Buoy fisher ready — six crew berths and both equipment layouts.");return true;
         }
         public bool TrialTier5()
         {
@@ -90,7 +90,7 @@ namespace Catchline.Game
         }
         public bool TryBuoyWork(Person p)
         {
-            if(!IsTier5 || CurrentMode!=Mode.Fishing || p==null || !p.Idle || p.Carrying!=null || HoldFull
+            if(!IsTier5 || CurrentMode!=Mode.Fishing || !AtFishingGround || p==null || !p.Idle || p.Carrying!=null || HoldFull
                 || !p.IsCaptain && p.Contract?.Role!=CrewRole.Fisherman)return false;
             int i=Enumerable.Range(0,2).Where(n=>buoyTimers[n]>=BuoySoakSeconds&&buoyWorkers[n]==null).DefaultIfEmpty(-1).First();
             if(i<0)return false;
@@ -123,7 +123,7 @@ namespace Catchline.Game
         }
         void InterfaceTier5Operations()
         {
-            if(!IsTier5 || CurrentMode!=Mode.Fishing || PrepOrdersOpen || netOrdersOpen || baitSettingsCrew!=null)return;
+            if(!IsTier5 || CurrentMode!=Mode.Fishing || !AtFishingGround || PrepOrdersOpen || netOrdersOpen || baitSettingsCrew!=null)return;
             // Separate small actions from the seven-person crewrail to keep phone viewusable.
             // UI v2: duties and processing orders are reached through the Crew and Ops pages.
             for(int i=0;i<2;i++)

@@ -146,6 +146,7 @@ namespace Catchline.Game
             cameraData.renderPostProcessing = true;
             cameraData.antialiasing = AntialiasingMode.SubpixelMorphologicalAntiAliasing;
             var sea = CoastalWater.Build(world, seaMat);
+            seaSurface = sea.transform;
             sea.GetComponent<Renderer>().sharedMaterial = seaMat;
             seaFrom = seaTo = Palette.Sea;
 
@@ -378,6 +379,11 @@ namespace Catchline.Game
             var rng = new System.Random(100 + kind);
             float R(float a, float b) => a + (float)rng.NextDouble() * (b - a);
             var lib = ArtLibrary.Get();
+            if (kind >= 0 && Navigation != null)
+            {
+                Put(root, lib?.M(Navigation.ModelId), new Vector3(0, WaterY, 0));
+                return root;
+            }
             var stone = Palette.Hex("8E8A80");
             var rockColor = Palette.Hex("6F7270");
 
@@ -543,6 +549,8 @@ namespace Catchline.Game
 
         public void NewGame()
         {
+            Navigation = null; Sailor = null; ActiveGroundId = null;
+            travelOffset = Vector3.zero; travelYaw = travelWake = 0;
             if (!SessionOnly) GameState.DeleteSave();
             ClearPrepWork();
             ClearProcessingPipeline();
@@ -669,7 +677,7 @@ namespace Catchline.Game
                 Visuals.Kill(f.Root.gameObject);
             }
             OnDeck.Clear();
-            FlushDeckGraph();
+            if (Navigation == null) FlushDeckGraph();
             Manning = null;
             AwaitingCast = false;
             foreach (var r in Rods) r.ResetForTrip();
@@ -679,6 +687,12 @@ namespace Catchline.Game
 
         void BeginTransition(Mode mode, int sceneryKind)
         {
+            if (mode == Mode.SailingOut) BeginSeaVoyage();
+            if (Navigation != null)
+            {
+                BeginSeaRoute(mode);
+                return;
+            }
             CurrentMode = mode;
             modeTimer = 0f;
             modeDuration = sceneryKind < 0 ? GameData.Spots[ActiveSpot].RowSeconds : GameData.Spots[sceneryKind].RowSeconds;
@@ -752,18 +766,23 @@ namespace Catchline.Game
                 case Mode.SailingOut:
                 case Mode.SailingHome:
                     BurnFuel(dt);
-                    modeTimer += dt * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
-                    UpdateTravel();
+                    if (Navigation != null) TickSeaTravel(dt);
+                    else
+                    {
+                        modeTimer += dt * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
+                        UpdateTravel();
+                    }
                     float stroke = Mathf.Sin(SimTime * 3.2f);
                     if (oarPort != null) oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
                     if (oarStarboard != null) oarStarboard.transform.localRotation = oarStarboardBase * Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
                     if (propeller != null) propeller.Rotate(IsNetFisher ? Vector3.up : Vector3.forward, 1000f * dt, Space.Self);
-                    if (modeTimer >= modeDuration) FinishTransition();
+                    if (Navigation == null && CurrentMode != Mode.Harbour && modeTimer >= modeDuration) FinishTransition();
                     break;
 
                 case Mode.Fishing:
                     BurnFuel(dt);
                     if (CurrentMode != Mode.Fishing) break;
+                    if (!AtFishingGround) { TickDeckGraph(); TickDeckFish(dt); break; }
                     foreach (var r in Rods)
                         if (r.Unlocked) r.Tick(this, dt, Attending(r) || FisherAt(r));
                     ManRod();
@@ -854,7 +873,7 @@ namespace Catchline.Game
             // Rotate about the hull centre, rather than the corner of the deck grid.
             var pivotCorrection = State.HullDef.Center - Boat.localRotation * State.HullDef.Center;
             Boat.localPosition = travelOffset + pivotCorrection + Vector3.up * heave
-                + (IsPrepFisher ? Vector3.back * .65f : Vector3.zero);
+                + (IsPrepFisher && Navigation == null ? Vector3.back * .65f : Vector3.zero);
             if (seaMat.HasProperty("_Clock"))
             {
                 seaMat.SetFloat("_Clock", PtsWater.Clock(SimTime));
@@ -866,7 +885,15 @@ namespace Catchline.Game
             bool harbour = CurrentMode == Mode.Harbour;
             float harbourBlend = harbour ? 1f : CurrentMode == Mode.SailingOut ? 1f - Segment(TravelProgress, .18f, .65f)
                 : CurrentMode == Mode.SailingHome ? Segment(TravelProgress, .55f, 1f) : 0f;
+            if (Navigation != null) harbourBlend = 0;
             var center = Vector3.Lerp(Boat.TransformPoint(State.HullDef.Center) + new Vector3(.35f, 0f, -.30f), new Vector3(.3f, 0, 3.4f), harbourBlend);
+            if (Navigation != null)
+            {
+                center.x = Mathf.Clamp(center.x, Navigation.CameraBounds.xMin, Navigation.CameraBounds.xMax);
+                center.z = Mathf.Clamp(center.z, Navigation.CameraBounds.yMin, Navigation.CameraBounds.yMax);
+                if (seaSurface != null) seaSurface.position = new Vector3(center.x, seaSurface.position.y, center.z);
+            }
+            else if (seaSurface != null) seaSurface.localPosition = new Vector3(0, seaSurface.localPosition.y, 0);
             if (harbour && panelOpen) center += Cam.transform.right * 3.7f;
             float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
             snapCamera = false;
@@ -965,7 +992,7 @@ namespace Catchline.Game
         public Rod MinigameRod => Manning != null && Attending(Manning) && Manning.State is RodState.Flying or RodState.Waiting or RodState.Bite or RodState.Reeling ? Manning : null;
 
         public bool CanCommandRod(Rod r) =>
-            CurrentMode == Mode.Fishing && r.Unlocked && Manning != r
+            CurrentMode == Mode.Fishing && AtFishingGround && r.Unlocked && Manning != r
             && r.Fisher == null
             && (r.State is RodState.Waiting or RodState.Bite || !HoldFull && (r.State == RodState.Ready || r.State == RodState.Unbaited && (State.HasAnyBait || r.BaitingBy != null)));
 
