@@ -37,7 +37,7 @@ namespace Catchline.Game
             if (!departureReady && toast != null && SimTime < toastUntil)
             {
                 if (CurrentMode == Mode.Fishing && !ManagementOpen) coastalUi.Toast("toast", toast, null, Edge, HudGapLeft, HudGapRight);
-                else coastalUi.Toast("toast", toast, null, 18);
+                else coastalUi.Toast("toast", toast, null, CurrentMode == Mode.Harbour ? ih - Edge - TabBarHeight - 76 : 18);
             }
             InterfaceCrewBait();
             if (!ManagementOpen) { InterfaceTier5Operations(); ManagementEntry(); }

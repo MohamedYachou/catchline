@@ -140,6 +140,22 @@ namespace Catchline.Game
             if (!elements.TryGetValue(id, out var e) || e.Text == null) return;
             e.Text.fontSize = e.Text.resizeTextMaxSize = Mathf.RoundToInt(size * TypeScale);
         }
+        public void SetText(string id, string value)
+        {
+            if (elements.TryGetValue(id, out var e) && e.Text != null && e.Text.text != value) e.Text.text = value;
+        }
+        // Invisible, unclickable control that keeps a stable id for Invoke (tests and captures).
+        public void HiddenButton(string id, Action action, Transform parent = null)
+        {
+            var e = Get(id, Rect.zero, parent);
+            if (e.Button == null)
+            {
+                e.Button = e.Rect.gameObject.AddComponent<Button>();
+                e.Button.transition = Selectable.Transition.None;
+                e.Button.onClick.AddListener(() => e.Action?.Invoke());
+            }
+            e.Button.interactable = action != null; e.Action = action;
+        }
         public void HitArea(string id, Rect r, Action action, Transform parent = null)
         {
             var e = Pressable(id, r, parent, null, null, action, true);
@@ -244,7 +260,7 @@ namespace Catchline.Game
 
         // ---- navigation ------------------------------------------------------------------------
 
-        public void TabBar(string id, Rect r, string[] labels, string[] icons, int active, Action<int> select)
+        public void TabBar(string id, Rect r, string[] labels, string[] icons, int active, Action<int> select, string[] ids = null)
         {
             float gap = 12, w = (r.width - gap * (labels.Length - 1)) / labels.Length;
             for (int i = 0; i < labels.Length; i++)
@@ -252,6 +268,7 @@ namespace Catchline.Game
                 int index = i; bool on = i == active;
                 var tr = new Rect(r.x + i * (w + gap), r.y - (on ? 4 : 0), w, r.height);
                 var e = Pressable($"{id}/{i}", tr, null, on ? "v2-tab-on" : "v2-tab-off", null, () => select(index), true);
+                if (ids != null) Alias(ids[i], $"{id}/{i}");
                 float iconSize = Phone ? 32 : 40;
                 bool beside = tr.width > tr.height * 2.2f;
                 if (beside)
@@ -267,17 +284,18 @@ namespace Catchline.Game
             }
         }
 
-        public void PageSwitch(string id, Rect r, string[] labels, int active, Action<int> select, string[] ids = null)
+        public void PageSwitch(string id, Rect r, string[] labels, int active, Action<int> select, string[] ids = null, Transform parent = null, bool[] enabled = null)
         {
-            var capsule = Sliced(id, r, "v2-switch", null, null, true);
+            var capsule = Sliced(id, r, "v2-switch", parent, null, true);
             float w = (r.width - 8) / labels.Length;
             for (int i = 0; i < labels.Length; i++)
             {
                 int index = i; bool on = i == active;
                 string pid = ids != null ? ids[i] : $"{id}/{i}";
-                var e = Pressable(pid, new Rect(4 + i * w, 4, w, r.height - 8), capsule, on ? "v2-switch-on" : null, null, () => select(index), true);
+                bool live = enabled == null || enabled[i];
+                var e = Pressable(pid, new Rect(4 + i * w, 4, w, r.height - 8), capsule, on ? "v2-switch-on" : null, null, () => select(index), live);
                 if (!on) e.Image.color = Color.clear;
-                Text($"{pid}/label", new Rect(8, 0, w - 16, r.height - 8), labels[i], Skin.Type.Heading, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, e.Rect);
+                Text($"{pid}/label", new Rect(8, 0, w - 16, r.height - 8), labels[i], Skin.Type.Heading, on ? Skin.Cream : live ? Skin.Ink : Skin.InkSoft, TextAnchor.MiddleCenter, e.Rect);
             }
         }
 
