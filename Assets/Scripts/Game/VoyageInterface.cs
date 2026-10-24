@@ -69,6 +69,7 @@ namespace Catchline.Game
                 var fish = OnDeck[i];
                 if (!fish.FromNetBasket && CanCarry(fish)) InterfaceBubble("carry/" + i, fish.Root.position + Vector3.up * .35f, "Carry", "icon-fish", () => CommandCarry(fish));
             }
+            if (UsesDeckGraph) InterfaceDeckBubbles();
             InterfaceFishingAction();
             InterfaceCatchRewards();
             // Windows owns net/orders implementation; draw last so its modal stays on top.

@@ -151,8 +151,8 @@ namespace Catchline.EditorTools
             Check(r2.CoinsSold(BuyerId.Market) == 500 && r2.Rep(BuyerId.Market) == 5, "sale report adds rep");
         }
 
-        static Contract Make(string id, ContractType type, BuyerId giver, float target, int deadline, Species? species = null, FishClass? cls = null, int tier = 0) =>
-            new Contract { Id = id, Type = type, Giver = giver, Target = target, DeadlineVoyages = deadline, VoyagesLeft = deadline,
+        static ContractV2 Make(string id, ContractType type, BuyerId giver, float target, int deadline, Species? species = null, FishClass? cls = null, int tier = 0) =>
+            new ContractV2 { Id = id, Type = type, Giver = giver, Target = target, DeadlineVoyages = deadline, VoyagesLeft = deadline,
                 Species = species, Class = cls, RewardCoins = 100, RewardRep = 50, RewardChest = true, Tier = tier };
 
         static void ContractBoard()
@@ -170,7 +170,7 @@ namespace Catchline.EditorTools
             rep.AddSale(BuyerId.Restaurant, 100000);
             Check(b2.Offer(Make("t1", ContractType.Class, BuyerId.Restaurant, 10, 3, null, FishClass.Blue, 1), rep), "tier 1 contract offered at tier 1");
             // Fill from a pool with a seeded Random is deterministic and respects the cap.
-            var pool = new List<Contract>
+            var pool = new List<ContractV2>
             {
                 Make("p0", ContractType.Species, BuyerId.Market, 2, 2, Species.Cod),
                 Make("p1", ContractType.NightSpecies, BuyerId.Restaurant, 2, 2, Species.Cod, null, 2),

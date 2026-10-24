@@ -66,7 +66,7 @@ namespace Catchline.Game
     }
 
     // Read-model for the sale screen: which buyer took what and for how much.
-    public sealed class SaleReport
+    public sealed class SaleSplit
     {
         public readonly List<SaleLine> Lines = new List<SaleLine>();
         public readonly List<SaleItem> Unsold = new List<SaleItem>();
@@ -137,9 +137,9 @@ namespace Catchline.Game
 
         // The sale auto-splits the haul to the best buyer per item. Every item is paid exactly its winning
         // offer, so line totals add up to the item sums by construction.
-        public static SaleReport SplitSale(IEnumerable<SaleItem> items, SaleContext ctx = null)
+        public static SaleSplit SplitSale(IEnumerable<SaleItem> items, SaleContext ctx = null)
         {
-            var report = new SaleReport();
+            var report = new SaleSplit();
             if (items == null) return report;
             foreach (var item in items)
             {
@@ -201,7 +201,7 @@ namespace Catchline.Game
         public bool Unlocked(BuyerId b, string itemId) => Buyers.Unlocked(b, itemId, Tier(b));
 
         public void AddSale(BuyerId b, int coins) { if (coins > 0) coinsSold[(int)b] += coins; }
-        public void AddSale(SaleReport report) { foreach (var l in report.Lines) AddSale(l.Buyer, l.Total); }
+        public void AddSale(SaleSplit report) { foreach (var l in report.Lines) AddSale(l.Buyer, l.Total); }
         // Contract rewards (+) and failures (-). Rep never reads below zero.
         public void Adjust(BuyerId b, int delta) { adjust[(int)b] += delta; }
     }

@@ -55,7 +55,7 @@ namespace Catchline.Game.Deck
         {
             foreach (var w in Workers)
             {
-                if (!w.Idle || w.Captain || w.Role == CrewRole.Fisherman) continue;
+                if (!w.Idle || w.Captain || w.Role == CrewRole.Fisherman || !w.Available()) continue;
                 w.ApplyPending();
                 var job = Pick(w);
                 if (job != null) Start(job);

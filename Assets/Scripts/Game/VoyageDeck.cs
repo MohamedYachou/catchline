@@ -16,7 +16,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         // Hull models already running on the deck graph. Grows as each hull migrates.
-        static readonly HashSet<string> DeckGraphHulls = new();
+        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat" };
         public DeckGraph DeckGraph { get; private set; }
         public DeckScheduler Scheduler { get; private set; }
         public bool UsesDeckGraph => Scheduler != null;
@@ -41,6 +41,8 @@ namespace Catchline.Game
             DeckGraph = null; Scheduler = null; workers.Clear(); ThrownBack = 0;
             foreach (var t in basketFish.Values) if (t != null) Visuals.Kill(t.gameObject);
             basketFish.Clear();
+            foreach (var t in stationProps) if (t != null) Visuals.Kill(t.gameObject);
+            stationProps.Clear();
             if (!DeckGraphHulls.Contains(State.HullDef.Model)) return;
             DeckGraph = DeckGraph.Load(State.HullDef);
             if (DeckGraph == null) { Debug.LogWarning("[Catchline] No station file for " + State.HullDef.Model + "; legacy deck code stays active."); return; }
@@ -51,6 +53,50 @@ namespace Catchline.Game
                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
             };
             SyncDeckWorkers();
+            SpawnStationProps();
+        }
+
+        // Station props from Codex's StationsV1 kit (sort board, bait bin, hatch ring, navigator bracket, baskets).
+        readonly List<Transform> stationProps = new();
+        readonly Dictionary<Basket, (Transform t, int fill)> basketProps = new();
+        void SpawnStationProps()
+        {
+            basketProps.Clear();
+            var lib = ArtLibrary.Get();
+            foreach (var s in DeckGraph.Stations)
+            {
+                var prefab = s.ModelId != null ? lib?.M(s.ModelId) : null;
+                if (prefab == null) continue;
+                var go = ArtLibrary.Spawn(prefab, Boat, s.Position, Quaternion.Euler(0, s.Yaw, 0));
+                if (go != null) stationProps.Add(go.transform);
+            }
+            foreach (var b in DeckGraph.Baskets) SetBasketProp(b);
+        }
+        // Baskets show 0-3 fill states (empty, a few, half, full).
+        void SetBasketProp(Basket b)
+        {
+            if (b.Kind is BasketKind.SortIn or BasketKind.SortOut or BasketKind.TableIn or BasketKind.TableOut && b.Owner.ModelId != null) return; // the bench model carries its trays
+            int fill = b.Count == 0 ? 0 : b.Fill < .34f ? 1 : b.Fill < .99f ? 2 : 3;
+            if (basketProps.TryGetValue(b, out var cur) && cur.fill == fill) return;
+            if (cur.t != null) Visuals.Kill(cur.t.gameObject);
+            string prefix = b.Owner.BasketPrefix ?? (b.CapacityCount > 8 ? "Art108_BasketLarge" : "Art108_BasketSmall");
+            var prefab = ArtLibrary.Get()?.M(prefix + "_" + fill);
+            var go = prefab != null ? ArtLibrary.Spawn(prefab, Boat, b.Position, Quaternion.identity) : null;
+            basketProps[b] = (go != null ? go.transform : null, fill);
+            if (go != null) stationProps.Add(go.transform);
+        }
+
+        // Heading home: keepers still on deck go to the hold if there is room; undersize goes back.
+        void FlushDeckGraph()
+        {
+            if (Scheduler == null) return;
+            Scheduler.CancelAll();
+            var all = DeckGraph.Baskets.SelectMany(b => b.Fish).Concat(Scheduler.Loose.Select(l => l.Fish)).ToList();
+            foreach (var f in all) if (!FishRules.Undersize(f)) TryStore(f);
+            foreach (var t in basketFish.Values) if (t != null) Visuals.Kill(t.gameObject);
+            foreach (var t in stationProps) if (t != null) Visuals.Kill(t.gameObject);
+            basketFish.Clear(); stationProps.Clear(); basketProps.Clear();
+            DeckGraph = null; Scheduler = null; workers.Clear();
         }
 
         void SyncDeckWorkers()
@@ -62,6 +108,7 @@ namespace Catchline.Game
                 var w = new Worker
                 {
                     Name = p.Name, Captain = p == Captain, Role = p == Captain ? CrewRole.Deckhand : p.Contract.Role, Actor = new PersonActor(p, DeckGraph.Grid),
+                    Available = () => p.Idle || p.Loitering,
                     Primary = p.Contract?.WorkPreference == DeckhandWork.Prep ? Duty.Table : Duty.Haul, Secondary = Duty.Sort,
                 };
                 workers[p] = w; Scheduler.Workers.Add(w);
@@ -76,8 +123,11 @@ namespace Catchline.Game
         void TickDeckGraph()
         {
             if (Scheduler == null || CurrentMode != Mode.Fishing) return;
+            SyncDeckWorkers();
             Scheduler.Tick();
+            CaptainFollowUp();
             PlaceBasketFish();
+            foreach (var b in DeckGraph.Baskets) SetBasketProp(b);
         }
 
         // Gear lands into its station's basket (or loose beside it when big). Returns false when nothing could land.
@@ -127,8 +177,44 @@ namespace Catchline.Game
         {
             if (Scheduler == null || !workers.TryGetValue(Captain, out var w)) return false;
             var sort = DeckGraph.OfKind(StationKind.SortTable).FirstOrDefault(s => s.In.UnclaimedCount > 0);
-            return sort != null && Scheduler.CaptainSort(w, sort, keep);
+            if (sort == null || !Scheduler.CaptainSort(w, sort, keep)) return false;
+            Manning = null; AwaitingCast = false;
+            return true;
         }
+        // Tier 0 flow in two taps: Carry (rod basket → sort table), then Keep (sorted and stowed) or Throw.
+        void CaptainFollowUp()
+        {
+            if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !keepThenStow) return;
+            var outBasket = DeckGraph.OfKind(StationKind.SortTable).Select(s => s.Out).FirstOrDefault(b => b != null && b.UnclaimedCount > 0);
+            keepThenStow = false;
+            if (outBasket != null) Scheduler.CaptainHaul(w, outBasket);
+        }
+        bool keepThenStow;
+        public void CommandKeep(bool keep)
+        {
+            if (!CaptainKeepAtSort(keep)) return;
+            keepThenStow = keep;
+        }
+        // Tap bubbles on migrated hulls: Carry at a basket, Keep / Throw at the sort table, Stow from the sorted tray.
+        void InterfaceDeckBubbles()
+        {
+            if (Scheduler == null || !workers.TryGetValue(Captain, out var cap) || !cap.Idle) return;
+            foreach (var b in DeckGraph.Baskets.Where(b => b.Owner.IsGear && b.Owner.Out == b && b.UnclaimedCount > 0))
+                InterfaceBubble("deck/carry/" + b.Id, Boat.TransformPoint(b.Position + Vector3.up * .35f), b.UnclaimedCount > 1 ? $"Carry {b.UnclaimedCount}" : "Carry", "icon-fish",
+                    () => { Manning = null; AwaitingCast = false; CaptainHaulFrom(b); });
+            foreach (var s in DeckGraph.OfKind(StationKind.SortTable))
+            {
+                var at = Boat.TransformPoint(s.Position + Vector3.up * .45f);
+                if (s.In != null && s.In.UnclaimedCount > 0)
+                {
+                    InterfaceBubble("deck/keep/" + s.Id, at, "Keep", "icon-fish", () => CommandKeep(true), true);
+                    InterfaceBubble("deck/throw/" + s.Id, at + Boat.right * .01f, "Throw", "icon-fish", () => CommandKeep(false));
+                }
+                else if (s.Out != null && s.Out.UnclaimedCount > 0 && !HasDeckhand)
+                    InterfaceBubble("deck/stow/" + s.Id, at, "Stow", "icon-fish", () => CaptainHaulFrom(s.Out));
+            }
+        }
+
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);
     }
 }

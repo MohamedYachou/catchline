@@ -669,6 +669,7 @@ namespace Catchline.Game
                 Visuals.Kill(f.Root.gameObject);
             }
             OnDeck.Clear();
+            FlushDeckGraph();
             Manning = null;
             AwaitingCast = false;
             foreach (var r in Rods) r.ResetForTrip();
@@ -714,6 +715,7 @@ namespace Catchline.Game
             if (CurrentMode == Mode.SailingOut)
             {
                 CurrentMode = Mode.Fishing;
+                SetupDeckGraph();
                 Toast($"Arrived at {GameData.Spots[ActiveSpot].Name}.");
             }
             else { EnterHarbour(true); audio?.Play(VoyageAudio.Cue.Moor, .7f); }
@@ -766,6 +768,7 @@ namespace Catchline.Game
                         if (r.Unlocked) r.Tick(this, dt, Attending(r) || FisherAt(r));
                     ManRod();
                     PreemptNetFallback();
+                    TickDeckGraph(); // migrated hulls: the scheduler hauls and sorts; legacy hand AI only baits and idles
                     if (Hand != null && (Hand.Idle || Hand.Loitering)) HandThink(Hand);
                     foreach (var employee in ExtraPeople)
                         if (employee.Contract.Role == CrewRole.Fisherman) FisherThink(employee);
@@ -1025,6 +1028,14 @@ namespace Catchline.Game
         {
             State.OnCatch(ActiveSpot, kg);
             Stats.Landed++;
+            if (UsesDeckGraph && GearStation(Deck.StationKind.Rod, rod.Index) is { } rodStation)
+            {
+                LandOnDeck(rodStation, s, kg);
+                RecordLanding(FlowTelemetry.Kind.Rod, s, kg);
+                if (rod == Manning) { Manning = null; Captain.PlayOnce("Cheer"); }
+                if (rod.Fisher == null) { ShowCatch(s, kg); audio?.Play(VoyageAudio.Cue.Land, .6f); }
+                return;
+            }
             var f = new DeckFish { Species = s, Kg = kg, Tile = rod.Tile, CaughtAt = SimTime, CaughtByCrew = rod.Fisher != null };
             f.Root = DeckFish.BuildModel(s, kg, Boat);
             int n = OnDeck.Count(o => o.Tile == rod.Tile);

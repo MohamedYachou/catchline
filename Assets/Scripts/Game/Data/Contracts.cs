@@ -10,7 +10,7 @@ namespace Catchline.Game
 
     // A contract on the board or in progress. One instance per contract; Progress is in fish (Species, Special,
     // NightSpecies) or kg (Class). Plain fields so a save can store it later.
-    public sealed class Contract
+    public sealed class ContractV2
     {
         public string Id;
         public ContractType Type;
@@ -63,7 +63,7 @@ namespace Catchline.Game
 
     public struct ContractOutcome
     {
-        public Contract Contract;
+        public ContractV2 Contract;
         public ContractResult Result;
         public int Coins, Rep;      // Rep is signed: negative on failure
         public bool Chest;
@@ -77,10 +77,10 @@ namespace Catchline.Game
         // Content table: rows only, no code branch needed to add one.
         // TODO(BLUEPRINT): the docs fix the contract types and the reward axes (coins + rep + chest) but give no
         // concrete contract rows, targets or payouts. Add rows here; the board and delivery logic need no change.
-        public static readonly Contract[] Templates = new Contract[0];
+        public static readonly ContractV2[] Templates = new ContractV2[0];
 
         // A fresh copy of a template, ready for the board.
-        public static Contract Instantiate(Contract t, string id) => new Contract
+        public static ContractV2 Instantiate(ContractV2 t, string id) => new ContractV2
         {
             Id = id, Type = t.Type, Giver = t.Giver, Species = t.Species, Class = t.Class, Target = t.Target,
             DeadlineVoyages = t.DeadlineVoyages, VoyagesLeft = t.DeadlineVoyages, RewardCoins = t.RewardCoins,
@@ -91,15 +91,15 @@ namespace Catchline.Game
     // The board of three and the (at most two) accepted contracts.
     public sealed class ContractBoard
     {
-        public readonly List<Contract> Offers = new List<Contract>();
-        public readonly List<Contract> Active = new List<Contract>();
+        public readonly List<ContractV2> Offers = new List<ContractV2>();
+        public readonly List<ContractV2> Active = new List<ContractV2>();
 
         public bool BoardFull => Offers.Count >= Contracts.BoardSize;
         public bool ActiveFull => Active.Count >= Contracts.MaxActive;
 
         // Puts a contract on the board. Refused when the board is full, or when the giver's reputation tier
         // is below the contract's tier (rep may be null to skip the tier check).
-        public bool Offer(Contract c, BuyerReputation rep = null)
+        public bool Offer(ContractV2 c, BuyerReputation rep = null)
         {
             if (c == null || BoardFull) return false;
             if (rep != null && rep.Tier(c.Giver) < c.Tier) return false;
@@ -108,11 +108,11 @@ namespace Catchline.Game
         }
 
         // Fills empty board slots from a pool of templates the player may see, using the given seeded Random.
-        public int Fill(IList<Contract> pool, BuyerReputation rep, Random rng, ref int nextId)
+        public int Fill(IList<ContractV2> pool, BuyerReputation rep, Random rng, ref int nextId)
         {
             int added = 0;
             if (pool == null) return 0;
-            var candidates = new List<Contract>();
+            var candidates = new List<ContractV2>();
             foreach (var t in pool) if (rep == null || rep.Tier(t.Giver) >= t.Tier) candidates.Add(t);
             while (!BoardFull && candidates.Count > 0)
             {
@@ -124,7 +124,7 @@ namespace Catchline.Game
         }
 
         // Max two active. The accepted contract leaves the board, which frees the slot for a new offer.
-        public bool Accept(Contract c)
+        public bool Accept(ContractV2 c)
         {
             if (c == null || ActiveFull || !Offers.Remove(c)) return false;
             c.VoyagesLeft = c.DeadlineVoyages;
@@ -132,7 +132,7 @@ namespace Catchline.Game
             return true;
         }
 
-        public bool Decline(Contract c) => Offers.Remove(c);
+        public bool Decline(ContractV2 c) => Offers.Remove(c);
 
         // A delivery counts toward the first active contract that accepts it (no double dipping).
         // Completed contracts pay out on the spot: rep goes to the giver, coins and the chest flag are returned.

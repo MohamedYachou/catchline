@@ -33,6 +33,7 @@ namespace Catchline.Game.Deck
         public int HandCount = 3;
         public float HandKg = 6f;
         public Station Operating; // fishers: the gear station they run
+        public Func<bool> Available = () => true; // body free for a new job (not mid legacy task)
 
         // Duties switch after the current job (M1 acceptance).
         public void SetDuties(Duty primary, Duty secondary)
