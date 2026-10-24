@@ -151,7 +151,7 @@ namespace Catchline.Game
             e.Image.sprite = Sprite(art, true);
             e.Image.type = e.Image.sprite != null ? Image.Type.Sliced : Image.Type.Simple;
             e.Image.preserveAspect = false;
-            e.Image.color = tint ?? Color.white;
+            e.Image.color = tint ?? Skin.Paper;
             e.Image.raycastTarget = blocks;
             return e.Rect;
         }

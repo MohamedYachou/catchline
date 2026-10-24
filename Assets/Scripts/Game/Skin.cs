@@ -16,6 +16,8 @@ namespace Catchline.Game
             Gold = Palette.Hex("E6B422"), Red = Palette.Hex("D7263D");
         // Status ink is a darker step of the status colour so words read on pale pills.
         public static readonly Color GoodInk = Palette.Hex("2C7344"), WarnInk = Palette.Hex("9A6A0E"), BadInk = Palette.Hex("A3302A");
+        // Every kit surface is drawn through this tint: the white kit reads as a light cream paper (Mo, 2026-10-24).
+        public static readonly Color Paper = Palette.Hex("FBF5E6");
 
         public const float Grid = 8, SlabRadius = 18, CardRadius = 14, Outline = 3, HeaderBand = 44, SlabPad = 16, CardPad = 12,
             ButtonPad = 10, MinTouch = 44, PrimaryHeight = 64, PrimaryHeightPhone = 56, IconButton = 56;
@@ -74,7 +76,7 @@ namespace Catchline.Game
             var s = V2(sprite);
             e.Image.sprite = s; e.Image.type = s != null && s.border != Vector4.zero ? Image.Type.Sliced : Image.Type.Simple;
             e.Image.pixelsPerUnitMultiplier = 2; e.Image.preserveAspect = false; e.Image.fillCenter = true;
-            e.Image.color = s == null && tint == null ? Color.clear : tint ?? Color.white; e.Image.raycastTarget = blocks;
+            e.Image.color = s == null && tint == null ? Color.clear : tint ?? Skin.Paper; e.Image.raycastTarget = blocks;
             return e.Rect;
         }
 
@@ -167,7 +169,7 @@ namespace Catchline.Game
             if (on) Sliced(id + "/glow", new Rect(r.x - 4, r.y - 4, r.width + 8, r.height + 8), "v2-card-selected", parent);
             else Sliced(id + "/glow", Rect.zero, null, parent);
             var e = Pressable(id, r, parent, on ? "v2-card-ink" : "v2-card", "v2-btn-card-pressed", toggle, true);
-            e.Image.color = on ? Palette.Hex("EEF4FF") : Color.white;
+            e.Image.color = on ? Palette.Hex("EEF4FF") : Skin.Paper;
             Icon(id + "/tick", on ? new Rect(r.width - 30, -10, 40, 40) : Rect.zero, "v2-badge-tick", e.Rect);
             return e.Rect;
         }
@@ -601,7 +603,7 @@ namespace Catchline.Game
             {
                 int index = i; bool on = i == active;
                 var e = Pressable($"{id}/seg/{i}", new Rect(4 + i * segW, 4, segW, 36), capsule, "v2-switch-on", null, () => select(index), true);
-                e.Image.color = on ? Color.white : Color.clear;
+                e.Image.color = on ? Skin.Paper : Color.clear;
                 if (i == 3) Icon($"{id}/seg/{i}/glyph", new Rect((segW - 26) / 2, 8, 26, 16), "v2-infinity", e.Rect, on ? Skin.Cream : Skin.Ink);
                 else Text($"{id}/seg/{i}/label", new Rect(0, 0, segW, 36), StepperLabels[i], Skin.Type.Heading, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, e.Rect);
             }
