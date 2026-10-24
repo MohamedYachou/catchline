@@ -116,22 +116,22 @@ namespace Catchline.EditorTools
             string path = Path.Combine(Path.GetTempPath(), "catchline-m0-" + Guid.NewGuid() + ".json");
             try
             {
-                // An old save: prepared fish with the 25%/150% bonus fields, plus the retired market and tier-5 condition arrays.
-                File.WriteAllText(path, "{\"Version\":1,\"Coins\":50,\"Hull\":3,\"Owned\":[],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[],"
-                    + "\"Market\":[0.5,0.5,0.5],\"HasTier5Condition\":true,\"Tier5Condition\":[10,100,100,100,100,100,100,100],\"Tier5Broken\":[true,false,false,false,false,false,false,false],"
-                    + "\"UnsoldCatch\":[{\"Species\":0,\"Kg\":0.2,\"StowedAt\":-5,\"Prepared\":true,\"PreparedQuality\":0.7,\"PreparedBonus\":1.5},"
-                    + "{\"Species\":6,\"Kg\":4,\"StowedAt\":-5,\"Prepared\":true,\"PreparedQuality\":1,\"PreparedBonus\":1.25},"
-                    + "{\"Species\":0,\"Kg\":0.2,\"StowedAt\":-5}],\"LogCount\":[0],\"LogBest\":[0]}");
+                // Unsold fish survive a v2 save/load at their raw value. There is no v1 import: old saves are not read.
+                var state = new GameState(1) { Coins = 50 };
+                state.UnsoldCatch.Add(new CaughtFish { Species = Species.Herring, Kg = .2f, StowedAt = -5 });
+                state.UnsoldCatch.Add(new CaughtFish { Species = Species.Cod, Kg = 4f, StowedAt = -5 });
+                state.UnsoldCatch.Add(new CaughtFish { Species = Species.Herring, Kg = .2f, StowedAt = -5 });
+                state.Save(path);
                 var loaded = GameState.Load(path);
-                Check(loaded != null && loaded.Coins == 50 && loaded.UnsoldCatch.Count == 3, "a save with prepared fish loads");
+                Check(loaded != null && loaded.Coins == 50 && loaded.UnsoldCatch.Count == 3, "a save with unsold fish loads");
                 for (int i = 0; i < 3; i++)
                 {
                     var f = loaded.UnsoldCatch[i];
                     var d = GameData.Get(f.Species);
                     int raw = Mathf.Max(1, Mathf.RoundToInt(f.Kg * d.PricePerKg * (1f + .5f * Mathf.InverseLerp(d.MinKg, d.MaxKg, f.Kg))));
-                    Check(loaded.Freshness(f, 0f) == 1f && loaded.ValueOf(f, 0f) == raw, "formerly prepared fish are worth the raw value (fish " + i + ")");
+                    Check(loaded.Freshness(f, 0f) == 1f && loaded.ValueOf(f, 0f) == raw, "stored fish are worth the raw value (fish " + i + ")");
                 }
-                Check(loaded.ValueOf(loaded.UnsoldCatch[0], 0f) == loaded.ValueOf(loaded.UnsoldCatch[2], 0f), "a prepared herring equals an unprepared herring");
+                Check(loaded.ValueOf(loaded.UnsoldCatch[0], 0f) == loaded.ValueOf(loaded.UnsoldCatch[2], 0f), "equal herring are worth the same");
                 var expected = loaded.UnsoldCatch.Sum(f => loaded.ValueOf(f, 0f));
                 loaded.Save(path);
                 var again = GameState.Load(path);
@@ -139,7 +139,9 @@ namespace Catchline.EditorTools
                 var quote = again.QuoteSale(again.UnsoldCatch, 0f);
                 int before = again.Coins;
                 var sale = again.Sell(again.UnsoldCatch, 0f);
-                Check(sale.Coins == expected && quote.Coins == expected && again.Coins == before + expected, "the old prepared catch sells at raw value");
+                Check(sale.Coins == expected && quote.Coins == expected && again.Coins == before + expected, "the stored catch sells at raw value");
+                File.WriteAllText(path, "{\"Version\":1,\"Coins\":50,\"Hull\":3}");
+                Check(GameState.Load(path) == null, "a v1 save is not imported");
             }
             finally { if (File.Exists(path)) File.Delete(path); }
         }

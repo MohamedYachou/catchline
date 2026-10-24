@@ -52,6 +52,8 @@ namespace Catchline.EditorTools
 
             g.LandFish(rod, Species.Mackerel, GameData.Get(Species.Mackerel).MaxKg * .8f);
             int before = g.Cooler.Count;
+            // The real map puts the nearest ground a few metres from the quay; sail home from the far ground so the trip lasts.
+            if (g.Navigation != null) g.Sailor.Push(g.Navigation.Grounds[g.Navigation.Grounds.Count - 1].Centre);
             g.HeadHome();
             Check(g.UsesDeckGraph && g.Scheduler.Sailing, "heading home keeps the deck graph ticking in transit");
             Check(g.CaptainHaulFrom(rodBasket), "captain can sort the remaining keeper while sailing");

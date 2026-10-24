@@ -566,7 +566,7 @@ namespace Catchline.Game
                 if (System.IO.File.Exists(path))
                 {
                     string previousJson = System.IO.File.ReadAllText(path);
-                    var previous = SaveV2.FromJson(previousJson)?.Runtime ?? JsonUtility.FromJson<HarbourSave>(previousJson);
+                    var previous = SaveV2.FromJson(previousJson)?.Runtime;
                     if (previous?.CoinCredits != null)
                         foreach (var credit in previous.CoinCredits)
                             if (!CoinCredits.Exists(c => c.Id == credit.Id))
@@ -616,11 +616,7 @@ namespace Catchline.Game
                 var s = new GameState(System.Environment.TickCount);
                 if (v2 == null)
                 {
-                    var old = JsonUtility.FromJson<HarbourSave>(json);
-                    if (old == null || old.Version != 1) return null;
-                    s.Coins = old.Coins; s.Hull = Mathf.Clamp(old.Hull, 0, GameData.Hulls.Length - 1);
-                    if (old.Owned != null) foreach (int u in old.Owned) s.Owned.Add((UpgradeId)u);
-                    s.EnsureCards(); s.Save(path); return s;
+                    return null; // Only the v2 payload is read; there is no v1 import.
                 }
                 s.Coins = v2.Coins; s.Hull = Mathf.Clamp(v2.Hull, 0, GameData.Hulls.Length - 1);
                 if (v2.Owned != null) foreach (int u in v2.Owned) s.Owned.Add((UpgradeId)u);

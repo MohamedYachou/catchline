@@ -51,17 +51,5 @@ namespace Catchline.Game
             }
             return save;
         }
-
-        // A v1 save is read once for coins, hull and owned upgrades, then written as v2.
-        // No other v1 field is kept; everything else starts at its v2 default. Cards are not granted
-        // here (the caller grants by tier with CardRoster.GrantUpToTier once it knows the tier).
-        public static SaveV2 ImportV1(int coins, int hull, IEnumerable<UpgradeId> ownedUpgrades)
-        {
-            var save = new SaveV2 { Coins = coins, Hull = hull };
-            if (ownedUpgrades != null)
-                foreach (var u in ownedUpgrades)
-                    if (!save.Owned.Contains((int)u)) save.Owned.Add((int)u);
-            return save;
-        }
     }
 }
