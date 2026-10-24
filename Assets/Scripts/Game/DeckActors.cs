@@ -83,6 +83,7 @@ namespace Catchline.Game
         public readonly bool IsCaptain;
         // One work-speed model: skill 100 and level 1 for the captain and (until cards arrive) every hand. See WorkSpeed.
         public float Skill = WorkSpeed.SpecialitySkill, LevelMult = WorkSpeed.BaseLevelMult;
+        public System.Func<float> WalkMultiplier = () => 1f;
         public float Speed => WorkSpeed.Rate(Skill, LevelMult);
         public CrewMember Contract;
         public Transform Root { get; private set; }
@@ -267,7 +268,7 @@ namespace Catchline.Game
         public void Tick(float dt, Quaternion camRot)
         {
             moving = false;
-            float budget = WorkSpeed.Walk(Skill, LevelMult) * dt * (Loitering ? .55f : 1f);
+            float budget = WorkSpeed.Walk(Skill, LevelMult) * WalkMultiplier() * dt * (Loitering ? .55f : 1f);
             while (path.Count > 0 && budget > 0f)
             {
                 var goal = (Grid != null ? Grid.GetLocal(path[0]) : DeckGrid.ToLocal(path[0])) + offset;

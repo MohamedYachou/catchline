@@ -1,0 +1,46 @@
+{
+  "map": "GullDeepChannel",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-24T15:57:18.765274+00:00",
+  "allIndividuallyOpened": true,
+  "imageHashes": {
+    "SeaV2-drop-off-day.png": "c3be22e532fe4eebcca1509e21108d61256ec01dce2a6b9f15be4bf4c7a0224f",
+    "SeaV2-drop-off-night.png": "82c48e57b965bb5eb52def02302ec63272b098e1a128e16ddf3219fbcef84dc4",
+    "SeaV2-trench-day.png": "aa9ab0583002adeca28b8220d3b66cc2cfb39d42cedc70a6b10fe89e02349ac2",
+    "SeaV2-trench-night.png": "819a692a308503189bf0c8260b4af317623c0b111c61074d491f487063d7e8e4",
+    "SeaV2-open-day.png": "7460e188df5a64d6406ff8b926475972ce64d9aa96ba0143f776726619c64387",
+    "SeaV2-open-night.png": "c9f32c08c0daeddea3590b39777cfb8da1648ba992bc84af19c96326baacfe28",
+    "SeaV2-wide-day.png": "d14f6d2063248bbdeb4b757ba952624558f64cb07fb36cfa683097b309bcdd6b",
+    "SeaV2-wide-night.png": "1f512ecbd876913a43bd71bcdfc6458c7344a34e89940c1deedd7e3905fd855b",
+    "SeaV2-top-base.png": "f0aae1ef92ec0a5b2603690b10d8e4736363185521276c9063475621581a6c78",
+    "SeaV2-navigation-plate.png": "cdf5cb9505f25d12e849ed5dd25e5d89a62850e4de3152fb476bf4c55b8d0ebb",
+    "SeaV2-review-sheet.png": "939bd83bd0c1da2edfc0ae6a107d7957acbeadfcf97e33865d0fb0ed9355eb27"
+  },
+  "scope": "Each current day/night ground, wide day/night, top base, annotated navigation plate and review sheet opened in view_image. Art framing/readability/geometry review; not native or Mo acceptance.",
+  "camera": {
+    "projection": "orthographic",
+    "horizontalSpanMetres": 10.24,
+    "pitchDegrees": 45,
+    "yawDegrees": 35,
+    "resolution": [
+      1440,
+      900
+    ],
+    "anchors": {
+      "drop-off": {
+        "x": -103.0,
+        "z": -36.0
+      },
+      "trench": {
+        "x": -3.0,
+        "z": 77.0
+      },
+      "open": {
+        "x": 110.0,
+        "z": 48.0
+      }
+    },
+    "boatReference": "Art/Models/GullHarbour/Boats/Rowboat.blend",
+    "boatDeckY": 0
+  }
+}

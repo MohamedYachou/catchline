@@ -131,7 +131,7 @@ namespace Catchline.Game
             foreach(var a in assignments)
             {
                 var p=a.person;var bait=State.SelectBait(p.Contract);if(bait==BaitPermission.None)continue;
-                var mix=CatchExpectation.Rod(State,ActiveSpot,.55f,bait);float chance=p==Captain||IsTier5?1:GameData.StrikeChance(p.Contract.Grade);
+                var mix=CatchExpectation.Rod(State,ActiveSpot,.55f,bait);float chance=p==Captain||IsTier5?1:CardStrikeChance(p.Contract);
                 float cycle=WorkSpeed.Duration(GameData.BaitTime+GameData.CastTime,p)+GameData.FlightTime+CatchExpectation.BiteWait(State,ActiveSpot,.55f,LearningFishing)+chance*mix.ReelSeconds/(p.Speed*State.ReelSpeed)+(1-chance)*StrikeWindow;
                 if(p==Captain&&!HasCarrier)cycle+=2*ForecastWalk(a.rod.Tile,InboundAccess,p.Speed)+WorkSpeed.Duration(GameData.PickupTime+GameData.StowTime,p);
                 if(float.IsInfinity(cycle))continue;float attempts=Take(p,60/cycle,cycle);AddMix(rods,mix,attempts*chance);rods.Operators++;rods.OperatorSecondsPerMinute+=attempts*cycle;rods.CostPerMinute+=attempts*BaitCost(bait);

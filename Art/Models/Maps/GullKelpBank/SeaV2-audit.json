@@ -1,0 +1,556 @@
+{
+  "map": "GullKelpBank",
+  "allPassed": true,
+  "checks": [
+    {
+      "check": "saved source SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX triangle and vertex roundtrip",
+      "passed": true,
+      "detail": 1.3828277587890625e-05
+    },
+    {
+      "check": "approved playable dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "three original ground IDs, names, depths and pool IDs retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:west-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "islands:west-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:middle-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "islands:middle-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:east-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "islands:east-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:west-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "shallows:west-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:middle-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "shallows:middle-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:east-low-island-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "shallows:east-low-island-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "each island contained in its shallow shelf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-shallows full zone clear of islands +2m",
+      "passed": true,
+      "detail": 14.096
+    },
+    {
+      "check": "kelp-shallows full zone outside shallows (anchoring)",
+      "passed": true,
+      "detail": 10.054
+    },
+    {
+      "check": "kelp-shallows full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-shallows 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-shallows art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge full zone clear of islands +2m",
+      "passed": true,
+      "detail": 14.987
+    },
+    {
+      "check": "kelp-edge full zone outside shallows (anchoring)",
+      "passed": true,
+      "detail": 11.196
+    },
+    {
+      "check": "kelp-edge full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "open full zone clear of islands +2m",
+      "passed": true,
+      "detail": 32.727
+    },
+    {
+      "check": "open full zone outside shallows (anchoring)",
+      "passed": true,
+      "detail": 28.998
+    },
+    {
+      "check": "open full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "open 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "open art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour clear of island inflation2m",
+      "passed": true,
+      "detail": 59.663
+    },
+    {
+      "check": "harbour outside shallows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoy spacing25-30m",
+      "passed": true,
+      "detail": [
+        25.714279999999995,
+        26.0
+      ]
+    },
+    {
+      "check": "outer buoy bases clear of islands +2m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoys on border",
+      "passed": true,
+      "detail": 34
+    },
+    {
+      "check": "horizon centres beyond border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "at least one land-blocked ground pair",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all114 pre-existing protected file bytes preserved",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 2,
+      "length": 39.825,
+      "direct": 39.825,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          -68.0,
+          -33.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 183.67,
+      "direct": 157.29,
+      "ratio": 1.1677,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          -92.30377764926199,
+          16.54972726294374
+        ],
+        [
+          -90.58765265923331,
+          21.692101588676863
+        ],
+        [
+          -85.7659172656501,
+          26.025160251787685
+        ],
+        [
+          5.0,
+          60.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 187.523,
+      "direct": 187.523,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 155.739,
+      "direct": 118.229,
+      "ratio": 1.3173,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -68.0,
+          -33.0
+        ],
+        [
+          -14.82986447914718,
+          -29.510983255564888
+        ],
+        [
+          -7.699666327425718,
+          -26.9494314929045
+        ],
+        [
+          -2.073679877942738,
+          -22.27460033609298
+        ],
+        [
+          2.8117375396570177,
+          -17.409315456653896
+        ],
+        [
+          7.742463387494949,
+          -11.766173667300027
+        ],
+        [
+          11.514592650938669,
+          -4.020944668917801
+        ],
+        [
+          12.399693192161166,
+          5.099184686369127
+        ],
+        [
+          5.0,
+          60.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 156.387,
+      "direct": 156.387,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -68.0,
+          -33.0
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 133.205,
+      "direct": 133.06,
+      "ratio": 1.0011,
+      "directBlocked": true,
+      "polyline": [
+        [
+          5.0,
+          60.0
+        ],
+        [
+          41.07599024629808,
+          9.833702013157755
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 4,
+      "length": 39.825,
+      "direct": 39.825,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          -68.0,
+          -33.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 186.002,
+      "direct": 157.29,
+      "ratio": 1.1825,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          -94.29868173720484,
+          16.889911758454804
+        ],
+        [
+          -92.31751734813314,
+          22.826477538112197
+        ],
+        [
+          -86.79949092638913,
+          27.785259022021858
+        ],
+        [
+          5.0,
+          60.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 187.523,
+      "direct": 187.523,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -99.0,
+          -58.0
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 159.13,
+      "direct": 118.229,
+      "ratio": 1.346,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -68.0,
+          -33.0
+        ],
+        [
+          -14.66224327633652,
+          -31.575912571392365
+        ],
+        [
+          -6.692204581047116,
+          -28.71264478640646
+        ],
+        [
+          -0.7262117773937087,
+          -23.75529032239148
+        ],
+        [
+          4.272178465427506,
+          -18.77749817256904
+        ],
+        [
+          9.42387559192348,
+          -12.881458068580828
+        ],
+        [
+          13.470437627232924,
+          -4.572742372285087
+        ],
+        [
+          14.418573184438177,
+          5.196903589195851
+        ],
+        [
+          5.0,
+          60.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 156.387,
+      "direct": 156.387,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -68.0,
+          -33.0
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 133.456,
+      "direct": 133.06,
+      "ratio": 1.003,
+      "directBlocked": true,
+      "polyline": [
+        [
+          5.0,
+          60.0
+        ],
+        [
+          39.52775403575433,
+          8.52220645961859
+        ],
+        [
+          88.0,
+          -44.0
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "f63ec836a6285169041d197e45cefc3cac0345a7ee20907778d924846078d3f5",
+  "fbxSha256": "651b2cbf905e75f42ea8cfaa4765a57daf08e54695681e08fcfb999245f0c0ac",
+  "navigationSha256": "f42c265a62f6be1ec53ce965bfa3f5fd92cc47f0dfd01d58b6603d938c0edcea",
+  "limits": "Art-side static geometry and 2m/4m disc visibility routes; not native turning/speed/hull acceptance. Full gameplay camera remains orthographic10.24m."
+}

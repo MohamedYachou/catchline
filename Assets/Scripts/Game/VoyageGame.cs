@@ -480,6 +480,7 @@ namespace Catchline.Game
 
         public void SyncCrew()
         {
+            State.SyncCardCrew();
             for (int i = 1; i < Rods.Count; i++)
                 Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
             if (Hand != null && Hand.Contract != State.Deckhand)
@@ -509,6 +510,7 @@ namespace Catchline.Game
                     ExtraPeople.Add(p);
                     p.Build(Boat, RestFor(p), c.Suit, c.Grade == Grade.Veteran ? Palette.HullNavy : Palette.Accent);
                 }
+            ConfigureCardPeople();
         }
 
         public void SyncUpgrades()
@@ -587,7 +589,7 @@ namespace Catchline.Game
                 State.BestVoyageKg = Mathf.Max(State.BestVoyageKg, State.UnsoldCatch.Sum(f => f.Kg));
                 State.UnsoldMinutes = (SimTime - voyageStart) / 60f;
                 Cooler.Clear();
-                if (State.UnsoldCatch.Count == 0) State.EndVoyage(new SaleReport());
+                if (State.UnsoldCatch.Count == 0 && State.PendingXpKg <= 0) State.EndVoyage(new SaleReport());
                 Toast(State.UnsoldCatch.Count > 0 ? "Haul safely ashore! Tap Sell haul to collect your coins." : "Back in Gull Harbour.");
                 hudTab = HudTab.Market;
                 panelOpen = true;
@@ -609,10 +611,11 @@ namespace Catchline.Game
 
         public bool SellHaul()
         {
-            if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count == 0) return false;
+            if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count == 0 && State.PendingXpKg <= 0) return false;
             var sale = State.Sell(State.UnsoldCatch, 0f);
             sale.Minutes = State.UnsoldMinutes;
             State.UnsoldCatch.Clear(); // Consume once, including across save/reload.
+            State.AwardSaleXp();
             State.EndVoyage(sale);
             int earned = sale.Coins + sale.ContractCoins;
             audio?.Play(VoyageAudio.Cue.Sale);
@@ -627,14 +630,15 @@ namespace Catchline.Game
         public string SailBlocker()
         {
             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
-            if (State.UnsoldCatch.Count > 0) return "Sell your haul first";
+            if (State.UnsoldCatch.Count > 0 || State.PendingXpKg > 0) return "Sell your haul first";
+            if (State.Coins < State.DepartureWages) return $"Crew wages need {State.DepartureWages} coins";
             if (State.Hull > 0 && State.FuelFraction <= .1f) return "Buy fuel at Supplies";
             return null;
         }
 
         public void SetSail()
         {
-            if (SailBlocker() != null) return;
+            if (SailBlocker() != null || !State.PayDepartureWages()) return;
             SyncUpgrades();
             ActiveSpot = SelectedSpot;
             departureReady = false;
@@ -1176,7 +1180,7 @@ namespace Catchline.Game
             else if (rod.State == RodState.Bite && !rod.FisherAttempted)
             {
                 rod.FisherAttempted = true;
-                if (IsTier5 || State.Rng.NextDouble() < GameData.StrikeChance(fisher.Contract.Grade))
+                if (IsTier5 || State.Rng.NextDouble() < CardStrikeChance(fisher.Contract))
                 {
                     fisher.PlayOnce("Strike");
                     rod.Strike(this);
@@ -1260,18 +1264,10 @@ namespace Catchline.Game
             if (State.Coins > 150 && State.Squid < 5) State.BuySquid();
             if (State.CanRefit && State.Coins >= GameData.SkiffCost + 100) RefitSkiff();
             SyncUpgrades();
-            if (State.Deckhand == null && State.Has(UpgradeId.RodHolder))
-            {
-                var pick = State.Board.Where(b => b.Role == CrewRole.Deckhand && State.Coins >= b.Fee + 80).OrderByDescending(b => b.Grade).FirstOrDefault();
-                if (pick != null) State.Hire(pick);
-                SyncCrew();
-            }
-            if (State.Hull > 0)
-            {
-                foreach (var candidate in State.Board.OrderByDescending(c => c.Role == CrewRole.Fisherman).ThenByDescending(c => c.Grade).ToList())
-                    if (State.Coins >= candidate.Fee + 70 && (candidate.Role == CrewRole.Deckhand || !State.Crew.Any(c => c.Role == CrewRole.Fisherman))) State.Hire(candidate);
-                SyncCrew();
-            }
+            State.EnsureCards();
+            foreach (var c in State.Roster.Where(c => c.Def.Role != CardRole.Navigator))
+                if (State.Coins > State.DepartureWages + c.Wage() + 100) State.DeployCard(c.Id,true);
+            SyncCrew();
             while (State.Bait < (State.Hull > 0 ? 60 : State.Has(UpgradeId.RodHolder) ? 40 : 25) && State.BuyBait()) { }
             if (State.Hull > 0) State.BuyFuel();
 

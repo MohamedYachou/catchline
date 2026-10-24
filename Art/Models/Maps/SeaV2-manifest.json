@@ -1,0 +1,2081 @@
+{
+  "generatedUtc": "2026-10-24T16:04:19.145585+00:00",
+  "owner": "Codex 1 (Windows app)",
+  "allPassed": true,
+  "status": "art complete; native/Mo acceptance pending",
+  "maps": [
+    {
+      "map": "GullHarbourMouth",
+      "title": "Harbour mouth",
+      "sizeMetres": [
+        220,
+        160
+      ],
+      "triangles": 25596,
+      "meshParts": 327,
+      "islands": 7,
+      "shallows": 7,
+      "buoys": 28,
+      "groundIds": [
+        "quay-shallows",
+        "channel",
+        "mouth-flats"
+      ],
+      "navigationChecks": 61,
+      "freshSourceChecks": 43,
+      "maxFbxVertexErrorMetres": 1.2874603271484375e-05,
+      "report": "GullHarbourMouth/SeaV2-REPORT.md",
+      "plate": "GullHarbourMouth/SeaV2-navigation-plate.png"
+    },
+    {
+      "map": "GullKelpBank",
+      "title": "Kelp bank",
+      "sizeMetres": [
+        260,
+        180
+      ],
+      "triangles": 20142,
+      "meshParts": 387,
+      "islands": 3,
+      "shallows": 3,
+      "buoys": 34,
+      "groundIds": [
+        "kelp-shallows",
+        "kelp-edge",
+        "open"
+      ],
+      "navigationChecks": 45,
+      "freshSourceChecks": 23,
+      "maxFbxVertexErrorMetres": 1.3828277587890625e-05,
+      "report": "GullKelpBank/SeaV2-REPORT.md",
+      "plate": "GullKelpBank/SeaV2-navigation-plate.png"
+    },
+    {
+      "map": "GullSandbar",
+      "title": "Sandbar",
+      "sizeMetres": [
+        260,
+        200
+      ],
+      "triangles": 19458,
+      "meshParts": 217,
+      "islands": 1,
+      "shallows": 1,
+      "buoys": 36,
+      "groundIds": [
+        "the-bar",
+        "gully",
+        "open"
+      ],
+      "navigationChecks": 37,
+      "freshSourceChecks": 13,
+      "maxFbxVertexErrorMetres": 1.52587890625e-05,
+      "report": "GullSandbar/SeaV2-REPORT.md",
+      "plate": "GullSandbar/SeaV2-navigation-plate.png"
+    },
+    {
+      "map": "GullRockyPoint",
+      "title": "Rocky point",
+      "sizeMetres": [
+        280,
+        200
+      ],
+      "triangles": 19272,
+      "meshParts": 241,
+      "islands": 4,
+      "shallows": 4,
+      "buoys": 36,
+      "groundIds": [
+        "reef",
+        "drop-off",
+        "open"
+      ],
+      "navigationChecks": 49,
+      "freshSourceChecks": 28,
+      "maxFbxVertexErrorMetres": 1.52587890625e-05,
+      "report": "GullRockyPoint/SeaV2-REPORT.md",
+      "plate": "GullRockyPoint/SeaV2-navigation-plate.png"
+    },
+    {
+      "map": "GullDeepChannel",
+      "title": "Deep channel",
+      "sizeMetres": [
+        320,
+        240
+      ],
+      "triangles": 19620,
+      "meshParts": 239,
+      "islands": 2,
+      "shallows": 2,
+      "buoys": 42,
+      "groundIds": [
+        "drop-off",
+        "trench",
+        "open"
+      ],
+      "navigationChecks": 41,
+      "freshSourceChecks": 18,
+      "maxFbxVertexErrorMetres": 1.7642974853515625e-05,
+      "report": "GullDeepChannel/SeaV2-REPORT.md",
+      "plate": "GullDeepChannel/SeaV2-navigation-plate.png"
+    }
+  ],
+  "totals": {
+    "maps": 5,
+    "grounds": 15,
+    "triangles": 104088,
+    "meshParts": 1411,
+    "buoys": 176,
+    "navigationChecks": 233,
+    "freshSourceChecks": 125,
+    "individuallyOpenedMapPngs": 55,
+    "protectedLegacyFiles": 114,
+    "indexedFiles": 125
+  },
+  "checks": [
+    {
+      "check": "fresh independent five-source audit passed",
+      "passed": true
+    },
+    {
+      "check": "114-file legacy baseline retained",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/continuation-audit.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/continuation-audit.log",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/continuation-audit.md",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/GullDeepChannel.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/GullDeepChannel.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/open-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/open-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/Review-only.blend1",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/three-grounds-top.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/trench-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/trench-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullDeepChannel/validation.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/channel-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/channel-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/GullHarbourMouth.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/GullHarbourMouth.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/mouth-flats-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/mouth-flats-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/quay-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/quay-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/Review-only.blend1",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/three-grounds-top.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullHarbourMouth/validation.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/GullKelpBank.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/GullKelpBank.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/kelp-edge-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/kelp-edge-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/kelp-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/kelp-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/open-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/open-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/Review-only.blend1",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/three-grounds-top.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullKelpBank/validation.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/GullRockyPoint.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/GullRockyPoint.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/open-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/open-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/reef-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/reef-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/Review-only.blend1",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/three-grounds-top.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullRockyPoint/validation.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/GullSandbar.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/GullSandbar.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/gully-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/gully-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/open-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/open-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/Review-only.blend1",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/the-bar-day.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/the-bar-night.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/three-grounds-top.png",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Art/Models/Maps/GullSandbar/validation.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel-placement.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel-placement.json.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel.fbx.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth-placement.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth-placement.json.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth.fbx.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank-placement.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank-placement.json.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank.fbx.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint-placement.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint-placement.json.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint.fbx.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar-placement.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar-placement.json.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar.fbx.meta",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelGroundsV1.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullDeepChannel/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthGroundsV1.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullHarbourMouth/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank/GullKelpBankGroundsV1.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullKelpBank/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointGroundsV1.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullRockyPoint/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar/grounds.json",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar/GullSandbarGroundsV1.fbx",
+      "passed": true
+    },
+    {
+      "check": "protected SHA256 Assets/Art/Models/Environment/GullSandbar/lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Pim",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Dirk",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Kofi",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Sam",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Mats",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Olaf",
+      "passed": true
+    },
+    {
+      "check": "complete man skipped Captain",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth independent source checks all true",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth fresh audit current GullHarbourMouthSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth fresh audit current GullHarbourMouthSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth fresh audit current navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth current 11 images manually opened",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth render hash inventories agree",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-quay-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-quay-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-quay-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-quay-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-channel-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-channel-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-channel-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-channel-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-mouth-flats-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-mouth-flats-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-mouth-flats-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-mouth-flats-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth reviewed SHA256 SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth PNG dimensions SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth published exactly two runtime files",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth runtime bytes GullHarbourMouthSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth runtime bytes navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists GullHarbourMouthSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists GullHarbourMouthSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "GullHarbourMouth handoff file exists SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank independent source checks all true",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank fresh audit current GullKelpBankSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank fresh audit current GullKelpBankSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank fresh audit current navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank current 11 images manually opened",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank render hash inventories agree",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-kelp-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-kelp-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-kelp-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-kelp-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-kelp-edge-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-kelp-edge-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-kelp-edge-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-kelp-edge-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank reviewed SHA256 SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank PNG dimensions SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank published exactly two runtime files",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank runtime bytes GullKelpBankSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank runtime bytes navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists GullKelpBankSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists GullKelpBankSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "GullKelpBank handoff file exists SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar independent source checks all true",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar fresh audit current GullSandbarSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar fresh audit current GullSandbarSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar fresh audit current navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar current 11 images manually opened",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar render hash inventories agree",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-the-bar-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-the-bar-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-the-bar-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-the-bar-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-gully-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-gully-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-gully-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-gully-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar reviewed SHA256 SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar PNG dimensions SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar published exactly two runtime files",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar runtime bytes GullSandbarSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar runtime bytes navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists GullSandbarSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists GullSandbarSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "GullSandbar handoff file exists SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint independent source checks all true",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint fresh audit current GullRockyPointSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint fresh audit current GullRockyPointSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint fresh audit current navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint current 11 images manually opened",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint render hash inventories agree",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-reef-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-reef-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-reef-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-reef-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint reviewed SHA256 SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint PNG dimensions SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint published exactly two runtime files",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint runtime bytes GullRockyPointSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint runtime bytes navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists GullRockyPointSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists GullRockyPointSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "GullRockyPoint handoff file exists SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel independent source checks all true",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel fresh audit current GullDeepChannelSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel fresh audit current GullDeepChannelSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel fresh audit current navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel current 11 images manually opened",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel render hash inventories agree",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-trench-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-trench-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-trench-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-trench-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel reviewed SHA256 SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel PNG dimensions SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel published exactly two runtime files",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel runtime bytes GullDeepChannelSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel runtime bytes navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists GullDeepChannelSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists GullDeepChannelSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists navigation.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "GullDeepChannel handoff file exists SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "fresh source total matches audit",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/GullDeepChannelSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/GullDeepChannelSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-trench-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-trench-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullDeepChannel/SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/GullHarbourMouthSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/GullHarbourMouthSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-channel-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-channel-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-mouth-flats-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-mouth-flats-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-quay-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-quay-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullHarbourMouth/SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/GullKelpBankSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/GullKelpBankSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-kelp-edge-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-kelp-edge-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-kelp-shallows-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-kelp-shallows-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullKelpBank/SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/GullRockyPointSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/GullRockyPointSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-drop-off-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-drop-off-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-reef-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-reef-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullRockyPoint/SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/GullSandbarSeaV2.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/GullSandbarSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-delivery.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-gully-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-gully-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-lighting-presets.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-navigation-plate.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-open-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-open-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-Review-only.blend",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-review-sheet.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-the-bar-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-the-bar-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-top-base.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-validation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-visual-review.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-wide-day.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/GullSandbar/SeaV2-wide-night.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/SeaV2-overview.png",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/SeaV2-REPORT.md",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Models/Maps/SeaV2-source-audit.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/audit_sea_v2.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/build_sea_v2.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/consolidate_sea_v2.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/finish_sea_v2.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/sea_v2_layouts.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/sea_v2_protected_baseline.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Art/Source/Art108/verify_sea_v2_sources.py",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullDeepChannel/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullHarbourMouth/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullKelpBank/GullKelpBankSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullKelpBank/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullRockyPoint/navigation.json",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullSandbar/GullSandbarSeaV2.fbx",
+      "passed": true
+    },
+    {
+      "check": "final manifest SHA256 Assets/Art/Models/Environment/GullSandbar/navigation.json",
+      "passed": true
+    }
+  ],
+  "hashes": {
+    "Art/Models/Maps/GullDeepChannel/GullDeepChannelSeaV2.blend": "470d7f9de48c31c7d63e6e0ace45700d99d91245838ecebbbefd54726149ba50",
+    "Art/Models/Maps/GullDeepChannel/GullDeepChannelSeaV2.fbx": "8134c9c4085a5b7b23df774a9d91aa1eefbeb268c493270bf4c8cea7f1b1f5f8",
+    "Art/Models/Maps/GullDeepChannel/navigation.json": "90a43c7fa910710c90aeeeeb62165fbd3c490481fac99b6a91b0aeebfe632b35",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-audit.json": "88f8e02d05732e69e60a3d0c8a8004ed6e91c703459c1e72bf88091e29230dea",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-delivery.json": "533fb548fbbb622b31203c52189271a98bda5d14538438bc283e3250c3d26ab8",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-drop-off-day.png": "c3be22e532fe4eebcca1509e21108d61256ec01dce2a6b9f15be4bf4c7a0224f",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-drop-off-night.png": "82c48e57b965bb5eb52def02302ec63272b098e1a128e16ddf3219fbcef84dc4",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-lighting-presets.json": "0da387d5a5675aec864bec0170bb94a7b81e10391f502b3ab4756f772456abf2",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-navigation-plate.png": "cdf5cb9505f25d12e849ed5dd25e5d89a62850e4de3152fb476bf4c55b8d0ebb",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-open-day.png": "7460e188df5a64d6406ff8b926475972ce64d9aa96ba0143f776726619c64387",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-open-night.png": "c9f32c08c0daeddea3590b39777cfb8da1648ba992bc84af19c96326baacfe28",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-REPORT.md": "f379ad0bddb93574733c374439d9aee6d7407093be74800d07ad57293e306ffd",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-Review-only.blend": "5f94ad1385320a3450c017487f8aa0636cfd73192f9111e2302747de7957ce2f",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-review-sheet.png": "939bd83bd0c1da2edfc0ae6a107d7957acbeadfcf97e33865d0fb0ed9355eb27",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-top-base.png": "f0aae1ef92ec0a5b2603690b10d8e4736363185521276c9063475621581a6c78",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-trench-day.png": "aa9ab0583002adeca28b8220d3b66cc2cfb39d42cedc70a6b10fe89e02349ac2",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-trench-night.png": "819a692a308503189bf0c8260b4af317623c0b111c61074d491f487063d7e8e4",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-validation.json": "c0e1b66ce11964a4974b008bc9a31d235d4e44e52bd1659896076619028974d7",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-visual-review.json": "da4bfcc3cb8ec695b6771f7b9561b247fbab72e95d49307d644ab1c11734e8e4",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-wide-day.png": "d14f6d2063248bbdeb4b757ba952624558f64cb07fb36cfa683097b309bcdd6b",
+    "Art/Models/Maps/GullDeepChannel/SeaV2-wide-night.png": "1f512ecbd876913a43bd71bcdfc6458c7344a34e89940c1deedd7e3905fd855b",
+    "Art/Models/Maps/GullHarbourMouth/GullHarbourMouthSeaV2.blend": "3d8ef1f446f82a2839aeb1ceac86e296adb5a4f0ffa3e3f4b1df703be7163166",
+    "Art/Models/Maps/GullHarbourMouth/GullHarbourMouthSeaV2.fbx": "faa10a8e6fad30d263f0f391201f2f203feea1dddc9156e95ed1716950eabdfa",
+    "Art/Models/Maps/GullHarbourMouth/navigation.json": "01092ed674eb1243cb70ff03c28f5ec6ff67a4f605b01644a77543cf2af35778",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-audit.json": "0e4043be7a8e89833e77b729912dc359df4244a0bd23109214068a671beda9b1",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-channel-day.png": "7628a4a3d6539e133bf844b051185b4425250215c5e3302c95dd72dddda31118",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-channel-night.png": "8265966153b470f6f737f5c0f5b9072cd85a9d09d3c17c06bae1d12768872aa4",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-delivery.json": "e6f46576de687309aca105e087e74d91d38a42ffd29e0b95124ddc44e380e774",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-lighting-presets.json": "b827604f8dd964a26d8069d7145024cb8d2cf88c85b153c7bfb0e11edecb7a15",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-mouth-flats-day.png": "a5adedc26ff6b29e9cdc047982de0caba00a4863bb116b89af09bef2eea646d5",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-mouth-flats-night.png": "547f94c8aa441ceb42ccc93c1e88341d87159713873e648a0821f6f009fba143",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-navigation-plate.png": "01f93d1cc40dea305071d24cfc44ced7350ae75f90588ccf3e8a054725f2dff5",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-quay-shallows-day.png": "4ef8a153212cb31309afbaa352238245bbe2fc5ffb7a23ef749b117cb6a571c4",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-quay-shallows-night.png": "ed9d3d5519b8069c92ae65011995dc9e33c5fa224ba91e610e816ca3337c611a",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-REPORT.md": "4c0473a06554203f9ad93c460db43545e8032559bb68d36605aa41031ebd8886",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-Review-only.blend": "0c3473bb0a22a278055c5d8c4dede78ef5f6f3671555dab7e432281baffd7b75",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-review-sheet.png": "b27c30ac765bdab898b491660a711221f31390e6cf6a11e498215a488e512418",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-top-base.png": "3954cc88510c22d659b37bd0a242d0fa17fff0f3dee98937d9f07a3ac30c2eaf",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-validation.json": "984ddf30348a3b21627cf6e7c992fe4cb3f67fe72114093f7c49c79cd58a3c45",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-visual-review.json": "1181c9f56d12647094b127f4ff11767e14065f200c76e8a387d4dc5fe9247e11",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-wide-day.png": "fe84cfbbf37f1fc0c3138610d18bde57d7618fd09a84e5418cdaf01fe627a5ab",
+    "Art/Models/Maps/GullHarbourMouth/SeaV2-wide-night.png": "e631a63b157163f3d7db2409ebf0b55f68f120517bd3564dd5e72194139565ad",
+    "Art/Models/Maps/GullKelpBank/GullKelpBankSeaV2.blend": "f63ec836a6285169041d197e45cefc3cac0345a7ee20907778d924846078d3f5",
+    "Art/Models/Maps/GullKelpBank/GullKelpBankSeaV2.fbx": "651b2cbf905e75f42ea8cfaa4765a57daf08e54695681e08fcfb999245f0c0ac",
+    "Art/Models/Maps/GullKelpBank/navigation.json": "f42c265a62f6be1ec53ce965bfa3f5fd92cc47f0dfd01d58b6603d938c0edcea",
+    "Art/Models/Maps/GullKelpBank/SeaV2-audit.json": "53f3403ed5eb23442eb010dab63312172cabb6892ea9db5f5b7ffed9084f7951",
+    "Art/Models/Maps/GullKelpBank/SeaV2-delivery.json": "da6dd5542935d32783f2aa254fcd9b084669e2a6b75a8265c55fac765e474f90",
+    "Art/Models/Maps/GullKelpBank/SeaV2-kelp-edge-day.png": "bb68cca5e26083a6702fa2cccc10f59e3bc26f4ce8a972a886815ddf7712e6ea",
+    "Art/Models/Maps/GullKelpBank/SeaV2-kelp-edge-night.png": "83c1538b7a1c49ca36b6256b505e77aa908276f1768dab80eb88c94908273cea",
+    "Art/Models/Maps/GullKelpBank/SeaV2-kelp-shallows-day.png": "86471bc44f298efb0969fc47219384932d535e86f7f1de46bebeff8b966dc450",
+    "Art/Models/Maps/GullKelpBank/SeaV2-kelp-shallows-night.png": "9da1e7f76af93d43fbed3416aebc9f7b51df109bd47146b0df13a380b0fec16e",
+    "Art/Models/Maps/GullKelpBank/SeaV2-lighting-presets.json": "5b4f2254ca3cefc72b50dd8e2bbe5f276345edaadd5d7158d2fe44f54faccc54",
+    "Art/Models/Maps/GullKelpBank/SeaV2-navigation-plate.png": "c0cd46d51ed97b0439cb54e54d4e1f60d4d3e12ae0f2374cc428ae3e54496e41",
+    "Art/Models/Maps/GullKelpBank/SeaV2-open-day.png": "afd2175d17233e35e89d14042455601826a1a761d78c116e69ff276d0b0353eb",
+    "Art/Models/Maps/GullKelpBank/SeaV2-open-night.png": "c3447cae459ae764cd20c89e66ce59ed9ba55be50aa1541dcd3143dcbefda82b",
+    "Art/Models/Maps/GullKelpBank/SeaV2-REPORT.md": "f570390983f12a0a36907aa3072a5a7fa6e6eb4b6a1609802c907096f4889287",
+    "Art/Models/Maps/GullKelpBank/SeaV2-Review-only.blend": "77301dc9806ed7e9c574a3d563c30ef77a662cefbbddbae54471436b816158f2",
+    "Art/Models/Maps/GullKelpBank/SeaV2-review-sheet.png": "2a8f87d79b8337e18d555a0e6fdb40c3444adc7635135e388b7bb0d1cecfc6a5",
+    "Art/Models/Maps/GullKelpBank/SeaV2-top-base.png": "279d45f444ad074e37506159232cdbd3c2fb97d8df3d427aeef65c83eaa848e3",
+    "Art/Models/Maps/GullKelpBank/SeaV2-validation.json": "dc568b26132f3d34521e31598dcc0fc86f764021b3b33e798ae728c9d75e7e66",
+    "Art/Models/Maps/GullKelpBank/SeaV2-visual-review.json": "5010d4b026f4047f791c56f75c3151c3305b8339f36b6272e1b15efb71754c3b",
+    "Art/Models/Maps/GullKelpBank/SeaV2-wide-day.png": "c91f3c9fc65382a987d05f28d7a18775d365c4cc075cd3b213d2c2822e9d1285",
+    "Art/Models/Maps/GullKelpBank/SeaV2-wide-night.png": "01aa6ff6bb17c7fe0190326fd1f6b094a6567c4d574b6e2ea4ae234d8b92992a",
+    "Art/Models/Maps/GullRockyPoint/GullRockyPointSeaV2.blend": "39a790a7fdaf645b53831d650e05aab39288930df74b6934f9ea0a5755271b30",
+    "Art/Models/Maps/GullRockyPoint/GullRockyPointSeaV2.fbx": "e467681d80a8028c66640e388bf38e3f52242988072ae5138beb753175959b8d",
+    "Art/Models/Maps/GullRockyPoint/navigation.json": "d9834cf9df5a1f86deca253c5a22c4305c33412c769bd7d23ebd3db741b0a408",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-audit.json": "7febd480a8ace1eeedfa5863b75251e1987455f95cf136a921010de7e801cff4",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-delivery.json": "17d871351bcc750eaa70aa5422db3a9c5a55dfc50ea6615c4db93ac988f75c21",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-drop-off-day.png": "43635ce8e5849f402a9eaf61472d1902ea7a2b9b75a6b24792ed249fda1c6419",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-drop-off-night.png": "2beff1a5a94c7dc7f7874e7945dc47a05427c9ed6bdc609d53dfc3071b3a47cd",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-lighting-presets.json": "93528549e489e1e9ae3b264266b94d4756974bfbd0c90d74da7b315795afd081",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-navigation-plate.png": "4f39075e0c897164158f9b11b12d099a828a973b481180612e27459d09841872",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-open-day.png": "5f86f76a83524ed42f3081eb7b2000cac8d211378bfa29035b17727a29b2d7ac",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-open-night.png": "f12fb2f8a7b1e9ec38fca30dfb7273374d54c6a4e05062f3b9aa1849bd0844d3",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-reef-day.png": "c8b02d4026ea42303ca2cd22b49eda9b97d9ca3f7eeef96f357f4fda03aa8782",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-reef-night.png": "c26f1a37e05c6ba876e95780e840f89d4eeb827fcb55c0e3cdf481f550f03f42",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-REPORT.md": "5e7ab64e5cbf637abb774743b0d349519bfd2bd8e5913bcabf0a467a317fdcd9",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-Review-only.blend": "8ea5fad045466aadf00837b400a0a949f3ebdb394192e00b40b32e995ed992bc",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-review-sheet.png": "8f2431de1ed3435e49181c751a4ecc8246cb52b19679de8c7b20cb0acecf908f",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-top-base.png": "7695a36b15b9da3321100be5ce3114606d835a46270392d8f52be70d86be9f37",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-validation.json": "eb05ebba8aafbcc4c8c337a2f6da6abdf1ebe0897a1586254becc63326995e8c",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-visual-review.json": "b2acde783ae0098bb7a487772f0968871529942d0f24949ad1004c50287ed83e",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-wide-day.png": "7813058436f69f3a267eda2343585c3deec9a79b920534e54a8228d832e45b93",
+    "Art/Models/Maps/GullRockyPoint/SeaV2-wide-night.png": "c916f2dc3669c57a8b72edee25cf9cfc03225a6ac9164a9b3d209c398085af7a",
+    "Art/Models/Maps/GullSandbar/GullSandbarSeaV2.blend": "8fde6bc5fe76936c9298697da49d8c0990f5982df8c0b7a3251b92b8b8a3f607",
+    "Art/Models/Maps/GullSandbar/GullSandbarSeaV2.fbx": "69e7baff7bb2400f2a46f23d84b473e7ebc0bb611fbf8e29f551502162194853",
+    "Art/Models/Maps/GullSandbar/navigation.json": "f2a3366744f0aca21baff472000aece509259bfc348ec1d6ff93788f38e2ab72",
+    "Art/Models/Maps/GullSandbar/SeaV2-audit.json": "7c5717a5949aa4d1de6041e616a06875ed716318c38c65dd7df0d112acdc5d58",
+    "Art/Models/Maps/GullSandbar/SeaV2-delivery.json": "54bb9674840e17123ab184d088a3765e954b54c0207ac8ac3e091253ddf1db7f",
+    "Art/Models/Maps/GullSandbar/SeaV2-gully-day.png": "279472bd3be2ed1f3396b81c4e53ee3297fc5611bec7418535d7c35f46eff366",
+    "Art/Models/Maps/GullSandbar/SeaV2-gully-night.png": "e6ac330f4cac3b017c1be43e8aaf42fa885ba2f3dd2fac7044dc7818090864d8",
+    "Art/Models/Maps/GullSandbar/SeaV2-lighting-presets.json": "cf065ac794503612fb9d8b22fb24737afe93443a8a73f0e8e7fd40027a2d093d",
+    "Art/Models/Maps/GullSandbar/SeaV2-navigation-plate.png": "f55ca488fd860c37a5b6c78c7808a93beaa043ba17a9e9a321737ae3f41156dc",
+    "Art/Models/Maps/GullSandbar/SeaV2-open-day.png": "611c4240679d2b857eb1f956596fcd33494d184d6f181eaff3e6ba6fe6338b84",
+    "Art/Models/Maps/GullSandbar/SeaV2-open-night.png": "650b31533bcdb463be3383e3ab6de315ac312a17b680c83f3fa767dea3e3be31",
+    "Art/Models/Maps/GullSandbar/SeaV2-REPORT.md": "43ce91dc7949ff88d2277db359c38b9bb89e0a3f128bb7cc85b0a0611af9c7de",
+    "Art/Models/Maps/GullSandbar/SeaV2-Review-only.blend": "679dc7fbcb8b60c6eb0bd71a9a482445715ba19f61df0597d09e9965325165c5",
+    "Art/Models/Maps/GullSandbar/SeaV2-review-sheet.png": "9f4eaac6b0ef25572d82f2c1f2fb106584ce81f1567b3ee1c7872d85562b8c4d",
+    "Art/Models/Maps/GullSandbar/SeaV2-the-bar-day.png": "d7a92612283e7a2d4eebd326e30430dd888f6e8e359e2d09b22f02a073455cc0",
+    "Art/Models/Maps/GullSandbar/SeaV2-the-bar-night.png": "d25812cddf7237d24fb74c88b1f294b03327268e7299a5d3379da9f2201062e0",
+    "Art/Models/Maps/GullSandbar/SeaV2-top-base.png": "80a5cbe38d8a6067e709c700008b62436e8515963ca7ce8396ef010d85aa9ef7",
+    "Art/Models/Maps/GullSandbar/SeaV2-validation.json": "53e642c9887aff393074fa1179035f53f0c5519fb238a77324b272f8a5532dbd",
+    "Art/Models/Maps/GullSandbar/SeaV2-visual-review.json": "c24ef1cadf0edb5b3b41632a892d0bf01cf2285ff19b3f3f9b448b8bfcd6fbd3",
+    "Art/Models/Maps/GullSandbar/SeaV2-wide-day.png": "2668aad1e181665a5a476ea8cf35acdf451fa40947c1b5ff8f1ceb41d0e445ee",
+    "Art/Models/Maps/GullSandbar/SeaV2-wide-night.png": "5b2a7ef1c8fbaf5f223f7e6e7393d16b5b00d3f3f1ae3646e900d753cba9f1c3",
+    "Art/Models/Maps/SeaV2-overview.png": "5ad1cd8f2774fb910734e34790752d5c94c15436bde8c7b4a6d775903d351e1f",
+    "Art/Models/Maps/SeaV2-REPORT.md": "52c773fd5893636b0d952c30da93aa25b1ab101579c19e091fd17af1caed9904",
+    "Art/Models/Maps/SeaV2-source-audit.json": "c91fd44b728ba1ebbd7c94b339b2369c7f8d36ea4335f50028742a12597cb36f",
+    "Art/Source/Art108/audit_sea_v2.py": "831e27a3a21b058f870da360e608f761071884a7c236204afa74331a5c25ed27",
+    "Art/Source/Art108/build_sea_v2.py": "c092717244ef7a5534c620447d4d20b7e6553dc6ff12547ccecd58ae33c3d9d5",
+    "Art/Source/Art108/consolidate_sea_v2.py": "8d853253cf63db6a458f5ff8abfa409b61306a51dd5a34588bb58c8d14dcf075",
+    "Art/Source/Art108/finish_sea_v2.py": "eb6f068d88f854675b3e0eb09de81358aa7387892f219ca7e4d2199a8710969d",
+    "Art/Source/Art108/sea_v2_layouts.py": "9652a182110afc374301c1fe47fca4e32564dd917fea3da1851c234be4e101b7",
+    "Art/Source/Art108/sea_v2_protected_baseline.json": "ae5e0326228f0142b9b468e916e23516c0d1e4faa5fc81eefaa75089afb65b70",
+    "Art/Source/Art108/verify_sea_v2_sources.py": "d2712f4cd5e27493c87c46ad7f87f8dc344898d72f6735a39b2edff8ba7c44b9",
+    "Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelSeaV2.fbx": "8134c9c4085a5b7b23df774a9d91aa1eefbeb268c493270bf4c8cea7f1b1f5f8",
+    "Assets/Art/Models/Environment/GullDeepChannel/navigation.json": "90a43c7fa910710c90aeeeeb62165fbd3c490481fac99b6a91b0aeebfe632b35",
+    "Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthSeaV2.fbx": "faa10a8e6fad30d263f0f391201f2f203feea1dddc9156e95ed1716950eabdfa",
+    "Assets/Art/Models/Environment/GullHarbourMouth/navigation.json": "01092ed674eb1243cb70ff03c28f5ec6ff67a4f605b01644a77543cf2af35778",
+    "Assets/Art/Models/Environment/GullKelpBank/GullKelpBankSeaV2.fbx": "651b2cbf905e75f42ea8cfaa4765a57daf08e54695681e08fcfb999245f0c0ac",
+    "Assets/Art/Models/Environment/GullKelpBank/navigation.json": "f42c265a62f6be1ec53ce965bfa3f5fd92cc47f0dfd01d58b6603d938c0edcea",
+    "Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointSeaV2.fbx": "e467681d80a8028c66640e388bf38e3f52242988072ae5138beb753175959b8d",
+    "Assets/Art/Models/Environment/GullRockyPoint/navigation.json": "d9834cf9df5a1f86deca253c5a22c4305c33412c769bd7d23ebd3db741b0a408",
+    "Assets/Art/Models/Environment/GullSandbar/GullSandbarSeaV2.fbx": "69e7baff7bb2400f2a46f23d84b473e7ebc0bb611fbf8e29f551502162194853",
+    "Assets/Art/Models/Environment/GullSandbar/navigation.json": "f2a3366744f0aca21baff472000aece509259bfc348ec1d6ff93788f38e2ab72"
+  },
+  "limits": "Source/FBX and Blender review evidence; no native gameplay, touch or player acceptance. No git operations/commit."
+}

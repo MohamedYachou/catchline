@@ -1,0 +1,1124 @@
+{
+  "schema": 2,
+  "map": "GullKelpBank",
+  "runtimeModelId": "GullKelpBankSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullKelpBank/GullKelpBankSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "west-low-island-0",
+      "vertices": [
+        {
+          "x": -89.76238,
+          "z": 7.88147
+        },
+        {
+          "x": -87.70284,
+          "z": 3.8639
+        },
+        {
+          "x": -83.59099,
+          "z": 0.46017
+        },
+        {
+          "x": -78.12269,
+          "z": -2.10848
+        },
+        {
+          "x": -71.92972,
+          "z": -4.05314
+        },
+        {
+          "x": -65.0,
+          "z": -5.06469
+        },
+        {
+          "x": -57.94299,
+          "z": -4.34802
+        },
+        {
+          "x": -52.0305,
+          "z": -1.94378
+        },
+        {
+          "x": -47.42989,
+          "z": 1.09385
+        },
+        {
+          "x": -43.16484,
+          "z": 4.17485
+        },
+        {
+          "x": -39.34404,
+          "z": 7.73285
+        },
+        {
+          "x": -37.61327,
+          "z": 12.0
+        },
+        {
+          "x": -38.82747,
+          "z": 16.35306
+        },
+        {
+          "x": -42.03584,
+          "z": 20.22975
+        },
+        {
+          "x": -46.30404,
+          "z": 23.60499
+        },
+        {
+          "x": -51.75683,
+          "z": 26.23801
+        },
+        {
+          "x": -58.28175,
+          "z": 27.56326
+        },
+        {
+          "x": -65.0,
+          "z": 27.66701
+        },
+        {
+          "x": -71.59096,
+          "z": 27.26838
+        },
+        {
+          "x": -78.39636,
+          "z": 26.40271
+        },
+        {
+          "x": -84.71684,
+          "z": 24.23866
+        },
+        {
+          "x": -88.83184,
+          "z": 20.54071
+        },
+        {
+          "x": -90.27895,
+          "z": 16.20444
+        },
+        {
+          "x": -90.34498,
+          "z": 12.0
+        }
+      ],
+      "sourceObject": "Terrain_west-low-island",
+      "sliceY": 0
+    },
+    {
+      "id": "middle-low-island-0",
+      "vertices": [
+        {
+          "x": -38.32544,
+          "z": -3.04559
+        },
+        {
+          "x": -36.28025,
+          "z": -10.81582
+        },
+        {
+          "x": -32.31406,
+          "z": -17.28817
+        },
+        {
+          "x": -27.2989,
+          "z": -22.4222
+        },
+        {
+          "x": -21.49706,
+          "z": -26.21334
+        },
+        {
+          "x": -15.0,
+          "z": -27.41508
+        },
+        {
+          "x": -8.72224,
+          "z": -25.15977
+        },
+        {
+          "x": -3.44136,
+          "z": -20.7717
+        },
+        {
+          "x": 1.32939,
+          "z": -16.02061
+        },
+        {
+          "x": 6.03583,
+          "z": -10.63416
+        },
+        {
+          "x": 9.52941,
+          "z": -3.46087
+        },
+        {
+          "x": 10.35053,
+          "z": 5.0
+        },
+        {
+          "x": 8.74578,
+          "z": 13.19057
+        },
+        {
+          "x": 5.92264,
+          "z": 20.55004
+        },
+        {
+          "x": 2.14446,
+          "z": 27.06985
+        },
+        {
+          "x": -2.93304,
+          "z": 31.90505
+        },
+        {
+          "x": -8.88437,
+          "z": 34.38084
+        },
+        {
+          "x": -15.0,
+          "z": 35.31662
+        },
+        {
+          "x": -21.33493,
+          "z": 35.4344
+        },
+        {
+          "x": -27.80721,
+          "z": 33.55556
+        },
+        {
+          "x": -33.12913,
+          "z": 28.3374
+        },
+        {
+          "x": -36.16706,
+          "z": 20.73169
+        },
+        {
+          "x": -37.5418,
+          "z": 12.77529
+        },
+        {
+          "x": -38.38118,
+          "z": 5.0
+        }
+      ],
+      "sourceObject": "Terrain_middle-low-island",
+      "sliceY": 0
+    },
+    {
+      "id": "east-low-island-0",
+      "vertices": [
+        {
+          "x": 40.125,
+          "z": 15.43688
+        },
+        {
+          "x": 42.64745,
+          "z": 11.16487
+        },
+        {
+          "x": 46.89012,
+          "z": 7.6017
+        },
+        {
+          "x": 52.09089,
+          "z": 4.69252
+        },
+        {
+          "x": 58.2599,
+          "z": 2.77892
+        },
+        {
+          "x": 65.0,
+          "z": 2.56624
+        },
+        {
+          "x": 71.29951,
+          "z": 3.90461
+        },
+        {
+          "x": 76.98267,
+          "z": 5.79108
+        },
+        {
+          "x": 82.66366,
+          "z": 7.90719
+        },
+        {
+          "x": 87.83277,
+          "z": 10.97505
+        },
+        {
+          "x": 90.7618,
+          "z": 15.2742
+        },
+        {
+          "x": 90.81207,
+          "z": 20.0
+        },
+        {
+          "x": 89.12807,
+          "z": 24.4261
+        },
+        {
+          "x": 86.5824,
+          "z": 28.53072
+        },
+        {
+          "x": 82.76286,
+          "z": 32.16072
+        },
+        {
+          "x": 77.45674,
+          "z": 34.77106
+        },
+        {
+          "x": 71.39023,
+          "z": 36.32717
+        },
+        {
+          "x": 65.0,
+          "z": 37.29794
+        },
+        {
+          "x": 58.16919,
+          "z": 37.45286
+        },
+        {
+          "x": 51.61682,
+          "z": 35.86962
+        },
+        {
+          "x": 46.79093,
+          "z": 32.46621
+        },
+        {
+          "x": 43.89782,
+          "z": 28.34091
+        },
+        {
+          "x": 41.75873,
+          "z": 24.26343
+        },
+        {
+          "x": 40.08036,
+          "z": 20.0
+        }
+      ],
+      "sourceObject": "Terrain_east-low-island",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "west-low-island-0",
+      "vertices": [
+        {
+          "x": -93.42749,
+          "z": 6.89941
+        },
+        {
+          "x": -91.06311,
+          "z": 1.92385
+        },
+        {
+          "x": -86.34266,
+          "z": -2.2915
+        },
+        {
+          "x": -80.06499,
+          "z": -5.47264
+        },
+        {
+          "x": -72.95539,
+          "z": -7.88101
+        },
+        {
+          "x": -65.0,
+          "z": -9.13377
+        },
+        {
+          "x": -56.89848,
+          "z": -8.2462
+        },
+        {
+          "x": -50.11087,
+          "z": -5.26868
+        },
+        {
+          "x": -44.82932,
+          "z": -1.50672
+        },
+        {
+          "x": -39.933,
+          "z": 2.30895
+        },
+        {
+          "x": -35.54667,
+          "z": 6.71535
+        },
+        {
+          "x": -33.55973,
+          "z": 12.0
+        },
+        {
+          "x": -34.95364,
+          "z": 17.39105
+        },
+        {
+          "x": -38.63689,
+          "z": 22.19214
+        },
+        {
+          "x": -43.53683,
+          "z": 26.3722
+        },
+        {
+          "x": -49.7967,
+          "z": 29.63307
+        },
+        {
+          "x": -57.28737,
+          "z": 31.27432
+        },
+        {
+          "x": -65.0,
+          "z": 31.40281
+        },
+        {
+          "x": -72.56649,
+          "z": 30.90913
+        },
+        {
+          "x": -80.37917,
+          "z": 29.83704
+        },
+        {
+          "x": -87.63515,
+          "z": 27.15697
+        },
+        {
+          "x": -92.35922,
+          "z": 22.57724
+        },
+        {
+          "x": -94.02052,
+          "z": 17.20699
+        },
+        {
+          "x": -94.09632,
+          "z": 12.0
+        }
+      ],
+      "sourceObject": "Terrain_west-low-island",
+      "sliceY": -1
+    },
+    {
+      "id": "middle-low-island-0",
+      "vertices": [
+        {
+          "x": -42.06124,
+          "z": -4.04659
+        },
+        {
+          "x": -39.6885,
+          "z": -12.78357
+        },
+        {
+          "x": -35.08708,
+          "z": -20.06119
+        },
+        {
+          "x": -29.26869,
+          "z": -25.83398
+        },
+        {
+          "x": -22.53764,
+          "z": -30.0968
+        },
+        {
+          "x": -15.0,
+          "z": -31.44807
+        },
+        {
+          "x": -7.71679,
+          "z": -28.91216
+        },
+        {
+          "x": -1.59012,
+          "z": -23.97813
+        },
+        {
+          "x": 3.94471,
+          "z": -18.63593
+        },
+        {
+          "x": 9.40494,
+          "z": -12.57931
+        },
+        {
+          "x": 13.45805,
+          "z": -4.51355
+        },
+        {
+          "x": 14.41067,
+          "z": 5.0
+        },
+        {
+          "x": 12.5489,
+          "z": 14.20962
+        },
+        {
+          "x": 9.27362,
+          "z": 22.48472
+        },
+        {
+          "x": 4.89032,
+          "z": 29.8157
+        },
+        {
+          "x": -1.0004,
+          "z": 35.25249
+        },
+        {
+          "x": -7.90489,
+          "z": 38.03631
+        },
+        {
+          "x": -15.0,
+          "z": 39.08852
+        },
+        {
+          "x": -22.34953,
+          "z": 39.22095
+        },
+        {
+          "x": -29.85842,
+          "z": 37.10835
+        },
+        {
+          "x": -36.0327,
+          "z": 31.24097
+        },
+        {
+          "x": -39.55718,
+          "z": 22.68898
+        },
+        {
+          "x": -41.1521,
+          "z": 13.74267
+        },
+        {
+          "x": -42.12591,
+          "z": 5.0
+        }
+      ],
+      "sourceObject": "Terrain_middle-low-island",
+      "sliceY": -1
+    },
+    {
+      "id": "east-low-island-0",
+      "vertices": [
+        {
+          "x": 36.29808,
+          "z": 14.41146
+        },
+        {
+          "x": 39.2086,
+          "z": 9.17944
+        },
+        {
+          "x": 44.10399,
+          "z": 4.81557
+        },
+        {
+          "x": 50.10487,
+          "z": 1.25264
+        },
+        {
+          "x": 57.22297,
+          "z": -1.09099
+        },
+        {
+          "x": 65.0,
+          "z": -1.35146
+        },
+        {
+          "x": 72.26868,
+          "z": 0.28767
+        },
+        {
+          "x": 78.82616,
+          "z": 2.59806
+        },
+        {
+          "x": 85.38115,
+          "z": 5.1897
+        },
+        {
+          "x": 91.3455,
+          "z": 8.94697
+        },
+        {
+          "x": 94.72514,
+          "z": 14.21222
+        },
+        {
+          "x": 94.78316,
+          "z": 20.0
+        },
+        {
+          "x": 92.84008,
+          "z": 25.42073
+        },
+        {
+          "x": 89.90276,
+          "z": 30.44773
+        },
+        {
+          "x": 85.49561,
+          "z": 34.89347
+        },
+        {
+          "x": 79.37317,
+          "z": 38.0904
+        },
+        {
+          "x": 72.37334,
+          "z": 39.9962
+        },
+        {
+          "x": 65.0,
+          "z": 41.18512
+        },
+        {
+          "x": 57.11829,
+          "z": 41.37486
+        },
+        {
+          "x": 49.55787,
+          "z": 39.43582
+        },
+        {
+          "x": 43.98953,
+          "z": 35.26761
+        },
+        {
+          "x": 40.65134,
+          "z": 30.21527
+        },
+        {
+          "x": 38.18315,
+          "z": 25.2215
+        },
+        {
+          "x": 36.24657,
+          "z": 20.0
+        }
+      ],
+      "sourceObject": "Terrain_east-low-island",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -130.0,
+      "z": -90.0
+    },
+    {
+      "x": 130.0,
+      "z": -90.0
+    },
+    {
+      "x": 130.0,
+      "z": 90.0
+    },
+    {
+      "x": -130.0,
+      "z": 90.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "kelp-shallows",
+      "name": "Kelp shallows",
+      "centre": {
+        "x": -68.0,
+        "z": -33.0
+      },
+      "radius": 14,
+      "nominalDepth": 1.2,
+      "poolId": "GullKelpBank/kelp-shallows",
+      "position": [
+        -68,
+        0,
+        -33
+      ],
+      "heading": 0
+    },
+    {
+      "id": "kelp-edge",
+      "name": "Kelp edge",
+      "centre": {
+        "x": 5.0,
+        "z": 60.0
+      },
+      "radius": 14,
+      "nominalDepth": 2.3,
+      "poolId": "GullKelpBank/kelp-edge",
+      "position": [
+        5,
+        0,
+        60
+      ],
+      "heading": 0
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "centre": {
+        "x": 88.0,
+        "z": -44.0
+      },
+      "radius": 18,
+      "nominalDepth": 5.2,
+      "poolId": "GullKelpBank/open",
+      "position": [
+        88,
+        0,
+        -44
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -99.0,
+    "z": -58.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -122.0,
+      "z": -82.0
+    },
+    "max": {
+      "x": 122.0,
+      "z": 82.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -130.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -104.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -78.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -52.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -26.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": 0.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 26.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 52.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 78.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 104.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 130.0,
+        "z": -90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 130.0,
+        "z": -64.28571
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 130.0,
+        "z": -38.57143
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 130.0,
+        "z": -12.85714
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 130.0,
+        "z": 12.85714
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 130.0,
+        "z": 38.57143
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 130.0,
+        "z": 64.28571
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 130.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 104.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 78.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 52.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 26.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 0.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": -26.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": -52.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": -78.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": -104.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": -130.0,
+        "z": 90.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": -130.0,
+        "z": 64.28571
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -130.0,
+        "z": 38.57143
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -130.0,
+        "z": 12.85714
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -130.0,
+        "z": -12.85714
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -130.0,
+        "z": -38.57143
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -130.0,
+        "z": -64.28571
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonHeadland_0",
+        "kind": "headland",
+        "centre": {
+          "x": -137.8,
+          "z": 142.2
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_1",
+        "kind": "headland",
+        "centre": {
+          "x": 101.4,
+          "z": 153.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_2",
+        "kind": "headland",
+        "centre": {
+          "x": -221.0,
+          "z": -36.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_3",
+        "kind": "headland",
+        "centre": {
+          "x": 218.4,
+          "z": -48.6
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-lighthouse",
+        "kind": "lighthouse",
+        "centre": {
+          "x": 101.4,
+          "z": 153.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter",
+        "kind": "ship",
+        "centre": {
+          "x": 166.4,
+          "z": 124.2
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "west-low-island": "Shelters the dense shallow kelp from the open northern water.",
+    "middle-low-island": "Blocks Kelp shallows to Kelp edge; opens two different routes.",
+    "east-low-island": "Broken kelp shelf frames Kelp edge, with open water on the far side."
+  },
+  "artReviewAnchors": {
+    "kelp-shallows": {
+      "x": -68.0,
+      "z": -33.0
+    },
+    "kelp-edge": {
+      "x": 5.0,
+      "z": 60.0
+    },
+    "open": {
+      "x": 88.0,
+      "z": -44.0
+    }
+  }
+}

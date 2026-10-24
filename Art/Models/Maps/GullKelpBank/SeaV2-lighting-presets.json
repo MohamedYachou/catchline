@@ -1,0 +1,91 @@
+{
+  "map": "GullKelpBank",
+  "units": "Blender authoring values; translate and verify separately in native runtime",
+  "day": {
+    "sunEnergy": 1.5,
+    "sunRGB": [
+      1,
+      0.9,
+      0.74
+    ],
+    "ambientRGB": [
+      0.55,
+      0.73,
+      0.8
+    ],
+    "ambientStrength": 0.48,
+    "boatFillWatts": 350,
+    "boatFillRGB": [
+      0.66,
+      0.84,
+      1
+    ]
+  },
+  "night": {
+    "sunEnergy": 0.12,
+    "sunRGB": [
+      0.44,
+      0.58,
+      1
+    ],
+    "ambientRGB": [
+      0.08,
+      0.13,
+      0.26
+    ],
+    "ambientStrength": 0.25,
+    "boatFillWatts": 75,
+    "boatFillRGB": [
+      0.32,
+      0.46,
+      1
+    ],
+    "deckPools": [
+      {
+        "deckRelativeXZ": [
+          0.3,
+          0.5
+        ],
+        "worldY": 1.35,
+        "powerWatts": 45,
+        "rgb": [
+          1,
+          0.66,
+          0.3
+        ],
+        "spotAngleDegrees": 78,
+        "blend": 0.55
+      },
+      {
+        "deckRelativeXZ": [
+          1.7,
+          0.5
+        ],
+        "worldY": 1.35,
+        "powerWatts": 45,
+        "rgb": [
+          1,
+          0.66,
+          0.3
+        ],
+        "spotAngleDegrees": 78,
+        "blend": 0.55
+      }
+    ]
+  },
+  "water": {
+    "transmission": 0.82,
+    "roughness": 0.32,
+    "ior": 1.333,
+    "volumeAbsorptionDensity": 0.055,
+    "colourRule": "lerp RGB (.025,.48,.50) to (.008,.12,.24) by clamp((nominalDepth-1.2)/8)",
+    "dayEmission": 0.14,
+    "nightEmission": 0.018
+  },
+  "fog": {
+    "insetMetres": 30,
+    "densityRule": "0.010 * max(clamp((abs(x)-(width/2-30))/30), clamp((abs(z)-(height/2-30))/30))",
+    "wideReviewOnly": true
+  },
+  "limits": "Static Blender water/light/fog review. Runtime water, fog, lantern attachment and daylight switching are integration work; source model intentionally contains no water or review boat."
+}

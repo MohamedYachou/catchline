@@ -44,7 +44,7 @@ namespace Catchline.Game
             if(dt>0 && Flow.Clock>=nextForecastSample && Forecast.Length==4)
             {nextForecastSample=(float)Flow.Clock+5;forecastHistory.Add(((float)Flow.Clock,Forecast.Select(f=>f.ValuePerMinute).ToArray()));if(forecastHistory.Count>120)forecastHistory.RemoveAt(0);}
         }
-        void RecordLanding(FlowTelemetry.Kind kind,Species species,float kg) => Flow.Record(kind,kg,NominalValue(species,kg));
+        void RecordLanding(FlowTelemetry.Kind kind,Species species,float kg) { State.PendingXpKg += Mathf.Max(0, kg); Flow.Record(kind,kg,NominalValue(species,kg)); }
         bool CaptainHaulingIn => Captain!=null&&(Captain.Carrying!=null||Captain==netUnloader||OnDeck.Any(f=>f.ClaimedBy==Captain));
         bool CaptainHaulingOut => Captain!=null&&outputClaims.ContainsKey(Captain);
         int CarrierCount => State.Crew.Count(c=>c.Role==CrewRole.Deckhand && c.WorkPreference!=DeckhandWork.Prep);

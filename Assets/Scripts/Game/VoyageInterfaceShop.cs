@@ -167,17 +167,13 @@ namespace Catchline.Game
         }
         void InterfaceCrew()
         {
-            CatalogHeading("crew/heading", $"Your crew · {State.CrewCount}/{State.HullDef.CrewCap}", IsTier5 ? "Six shared berths. Fishers operate gear; deckhands haul and process catch." : "Add or remove crew here. Both roles share the boat's berths.");
-            InterfaceCrewCounter(CrewRole.Fisherman, "Fisher");
-            InterfaceCrewCounter(CrewRole.Deckhand, "Deckhand");
-
-            MaybeCaptureCrewCounters();
+            InterfaceRoster();
         }
 
         void InterfaceMarket()
         {
             State.UnseenSale = false;
-            if (State.UnsoldCatch.Count > 0)
+            if (State.UnsoldCatch.Count > 0 || State.PendingXpKg > 0)
             {
                 var quote = State.QuoteSale(State.UnsoldCatch, 0);
                 CatalogHeading("market/haul", $"{State.UnsoldCatch.Sum(f => f.Kg):0.00} kg safely ashore", "Every fish earns coins. Matching catches also advance your contracts.", 85);

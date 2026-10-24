@@ -22,6 +22,9 @@ namespace Catchline.Game.Deck
     public sealed class Worker
     {
         public string Name;
+        public CardState Card;
+        public bool PowerLifter => Card?.Id == "sam" && Card.Rarity == CardRarity.Gold;
+        public bool WholeBasket => Card?.Id == "noor" && Card.Rarity == CardRarity.Gold;
         public bool Captain;
         public CrewRole Role;
         public IDeckActor Actor;

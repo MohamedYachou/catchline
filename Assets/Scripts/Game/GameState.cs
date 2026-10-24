@@ -15,6 +15,7 @@ namespace Catchline.Game
     public class CrewMember
     {
         public string Name;
+        public string CardId;
         public Grade Grade;
         public CrewRole Role;
         public bool HasBaitPolicy;
@@ -307,13 +308,13 @@ namespace Catchline.Game
                 r.Lines.Add($"Contract missed: {Active[i].Title}");
                 Active.RemoveAt(i);
             }
-            if (Deckhand != null && --Deckhand.VoyagesLeft <= 0)
+            if (Deckhand != null && string.IsNullOrEmpty(Deckhand.CardId) && --Deckhand.VoyagesLeft <= 0)
             {
                 r.Lines.Add($"{Deckhand.Name}'s contract ended. Hire someone new on the crew board.");
                 Deckhand = null;
             }
             for (int i = ExtraCrew.Count - 1; i >= 0; i--)
-                if (--ExtraCrew[i].VoyagesLeft <= 0)
+                if (string.IsNullOrEmpty(ExtraCrew[i].CardId) && --ExtraCrew[i].VoyagesLeft <= 0)
                 {
                     r.Lines.Add($"{ExtraCrew[i].Name}'s {ExtraCrew[i].RoleName.ToLower()} contract ended.");
                     ExtraCrew.RemoveAt(i);
@@ -349,7 +350,7 @@ namespace Catchline.Game
         {
             // Retain paid legacy Engineers off the active boat, without consuming a berth.
             foreach (var c in System.Linq.Enumerable.ToArray(Crew))
-                if (c.Role == CrewRole.Engineer) { InactiveEngineers.Add(c); if (Deckhand == c) Deckhand = null; ExtraCrew.Remove(c); }
+                if (c.Role == CrewRole.Engineer && string.IsNullOrEmpty(c.CardId)) { InactiveEngineers.Add(c); if (Deckhand == c) Deckhand = null; ExtraCrew.Remove(c); }
             Board.RemoveAll(c => c.Role == CrewRole.Engineer);
             int required = HullDef.CrewCap;
             foreach (CrewRole role in new[] { CrewRole.Deckhand, CrewRole.Fisherman })
@@ -467,7 +468,7 @@ namespace Catchline.Game
         // Saved in the harbour (after selling, after every purchase). A voyage in progress is not saved.
 
         [System.Serializable]
-        class SaveData
+        public class HarbourSave
         {
             public int Version = 1;
             public int Coins, Bait, Squid, Voyage, BestVoyageFish, Hull;
@@ -523,7 +524,8 @@ namespace Catchline.Game
             {
                 if (System.IO.File.Exists(path))
                 {
-                    var previous = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(path));
+                    string previousJson = System.IO.File.ReadAllText(path);
+                    var previous = SaveV2.FromJson(previousJson)?.Runtime ?? JsonUtility.FromJson<HarbourSave>(previousJson);
                     if (previous?.CoinCredits != null)
                         foreach (var credit in previous.CoinCredits)
                             if (!CoinCredits.Exists(c => c.Id == credit.Id))
@@ -534,7 +536,7 @@ namespace Catchline.Game
                 }
             }
             catch (System.Exception e) { Debug.LogWarning("[Catchline] Credit reconciliation failed: " + e.Message); }
-            var d = new SaveData
+            var d = new HarbourSave
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, BestVoyageKg = BestVoyageKg, UseSquid = UseSquid, PrepOrders = PrepOrders,
                 SecondNetOwned = SecondNetOwned, SecondNetEnabled = SecondNetEnabled,
@@ -550,7 +552,13 @@ namespace Catchline.Game
             d.ExtraCrew.AddRange(ExtraCrew); d.InactiveEngineers.AddRange(InactiveEngineers);
             d.Offers.AddRange(Offers);
             d.Active.AddRange(Active);
-            try { System.IO.File.WriteAllText(path ?? SavePath, JsonUtility.ToJson(d, true)); }
+            EnsureCards();
+            var v2 = new SaveV2 { Coins = Coins, Hull = Hull, Runtime = d,
+                Cards = new List<CardState>(Roster), Deployment = new List<string>(Deployment),
+                Wildcards = (int[])Wildcards.Clone(), PendingXpKg = PendingXpKg,
+                TripDeployment = new List<string>(TripDeployment), CrewSettings = new List<CrewMember>(Crew) };
+            v2.Owned.AddRange(d.Owned);
+            try { System.IO.File.WriteAllText(path ?? SavePath, JsonUtility.ToJson(v2, true)); }
             catch (System.Exception e) { Debug.LogWarning("[Catchline] Save failed: " + e.Message); }
         }
 
@@ -560,9 +568,27 @@ namespace Catchline.Game
             {
                 path ??= SavePath;
                 if (!System.IO.File.Exists(path)) return null;
-                var d = JsonUtility.FromJson<SaveData>(System.IO.File.ReadAllText(path));
-                if (d == null || d.Version != 1) return null;
+                string json = System.IO.File.ReadAllText(path);
+                var v2 = SaveV2.FromJson(json);
+                var d = v2?.Runtime;
                 var s = new GameState(System.Environment.TickCount);
+                if (v2 == null)
+                {
+                    var old = JsonUtility.FromJson<HarbourSave>(json);
+                    if (old == null || old.Version != 1) return null;
+                    s.Coins = old.Coins; s.Hull = Mathf.Clamp(old.Hull, 0, GameData.Hulls.Length - 1);
+                    if (old.Owned != null) foreach (int u in old.Owned) s.Owned.Add((UpgradeId)u);
+                    s.EnsureCards(); s.Save(path); return s;
+                }
+                s.Coins = v2.Coins; s.Hull = Mathf.Clamp(v2.Hull, 0, GameData.Hulls.Length - 1);
+                if (v2.Owned != null) foreach (int u in v2.Owned) s.Owned.Add((UpgradeId)u);
+                if (v2.Cards != null) s.Roster.AddRange(v2.Cards.FindAll(c => c?.Def != null));
+                if (v2.Deployment != null) s.Deployment.AddRange(v2.Deployment);
+                s.Wildcards = v2.Wildcards; s.PendingXpKg = Mathf.Max(0, v2.PendingXpKg);
+                if (v2.TripDeployment != null) s.TripDeployment.AddRange(v2.TripDeployment);
+                if (v2.CrewSettings != null) s.cardCrew.AddRange(v2.CrewSettings);
+                s.EnsureCards(); s.SyncCardCrew();
+                if (d == null) return s;
                 s.Coins = d.Coins; s.Bait = d.Bait; s.Squid = d.Squid; s.Voyage = d.Voyage; s.BestVoyageFish = d.BestVoyageFish;
                 s.BestVoyageKg = float.IsNaN(d.BestVoyageKg) || float.IsInfinity(d.BestVoyageKg) ? 0 : Mathf.Max(0, d.BestVoyageKg);
                 s.PrepOrders = d.PrepOrders ?? new PrepOrderSettings();
@@ -582,11 +608,6 @@ namespace Catchline.Game
                 if (d.Richness != null) System.Array.Copy(d.Richness, s.Richness, Mathf.Min(d.Richness.Length, s.Richness.Length));
                 if (d.LogCount != null) System.Array.Copy(d.LogCount, s.LogCount, Mathf.Min(d.LogCount.Length, s.LogCount.Length));
                 if (d.LogBest != null) System.Array.Copy(d.LogBest, s.LogBest, Mathf.Min(d.LogBest.Length, s.LogBest.Length));
-                s.Deckhand = d.HasDeckhand ? d.Deckhand : null;
-                if (d.ExtraCrew != null) s.ExtraCrew.AddRange(d.ExtraCrew);
-                if (d.InactiveEngineers != null) s.InactiveEngineers.AddRange(d.InactiveEngineers);
-                s.Board.Clear(); s.Board.AddRange(d.Board);
-                s.EnsureCrewRoleOffers();
                 if (d.UnsoldCatch != null) s.UnsoldCatch.AddRange(d.UnsoldCatch);
                 s.UnsoldMinutes = d.UnsoldMinutes;
                 if (d.CoinCredits != null) s.CoinCredits.AddRange(d.CoinCredits);

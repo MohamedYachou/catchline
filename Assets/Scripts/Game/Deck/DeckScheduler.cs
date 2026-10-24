@@ -56,7 +56,7 @@ namespace Catchline.Game.Deck
         {
             foreach (var w in Workers)
             {
-                if (!w.Idle || w.Captain || w.Role == CrewRole.Fisherman || !w.Available()) continue;
+                if (!w.Idle || w.Captain || w.Role == CrewRole.Fisherman || w.Role == CrewRole.Navigator || !w.Available()) continue;
                 w.ApplyPending();
                 var job = Pick(w);
                 if (job != null) Start(job);
@@ -83,9 +83,15 @@ namespace Catchline.Game.Deck
                 .OrderByDescending(t => t.In.Fill).ThenBy(t => Dist(w, t)).FirstOrDefault();
             if (s == null) return null;
             var job = new Job { Kind = JobKind.Sort, Worker = w, Source = s.In, At = s, Label = "Sorting", Target = Drop.To(s.Out) };
-            var f = s.In.Unclaimed.First();
-            if (!s.In.Claim(f, job) || !s.Out.Reserve(1)) { s.In.Release(f, job); return null; }
-            job.Fish.Add(f); job.reserved = 1; s.Worker = w;
+            var batch = s.In.Unclaimed.Take(w.WholeBasket ? s.Out.Free : 1).ToList();
+            foreach (var f in batch)
+            {
+                if (!s.In.Claim(f,job)) continue;
+                job.Fish.Add(f);
+            }
+            if (job.Fish.Count == 0 || !s.Out.Reserve(job.Fish.Count))
+            { foreach (var f in job.Fish) s.In.Release(f,job); return null; }
+            job.reserved = job.Fish.Count; s.Worker = w;
             return job;
         }
 
@@ -129,7 +135,7 @@ namespace Catchline.Game.Deck
             // Loose fish block a deck tile and come first.
             foreach (var lf in Loose.Where(l => l.Claim == null).OrderBy(l => Deck.Distance(w.Actor.Tile, l.Tile)))
             {
-                if (FishRules.NeedsTwo(lf.Fish) && w.HandKg < lf.Fish.Kg) continue; // two-carrier fish wait for a strong lifter or a pair (M2 ability)
+                if (FishRules.NeedsTwo(lf.Fish) && !w.PowerLifter && w.HandKg < lf.Fish.Kg) continue; // two-carrier fish wait for a strong lifter or a pair (M2 ability)
                 var drop = Decide(lf.Fish) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
                 if (drop == null || drop.Hold && HoldRemainingKg() < lf.Fish.Kg) continue;
                 var job = new Job { Kind = JobKind.Haul, Worker = w, Target = drop, Label = "Hauling" };
@@ -166,6 +172,15 @@ namespace Catchline.Game.Deck
             if (job.Fish.Count == 0) return null;
             if (drop.Basket != null) { drop.Basket.Reserve(job.Fish.Count); job.reserved = job.Fish.Count; }
             return job;
+        }
+
+        public float HaulWalkMultiplier(Worker worker)
+        {
+            var job = worker.Current;
+            if (job?.Kind != JobKind.Haul) return 1;
+            bool same(Job other) => other?.Kind == JobKind.Haul && other.Source == job.Source && other.Source != null && other.Target?.Basket == job.Target?.Basket && other.Target?.Hold == job.Target?.Hold;
+            bool sam(Worker w) => w.Card?.Id == "sam" && w.Card.Rarity >= CardRarity.Purple;
+            return Workers.Any(w => w != worker && same(w.Current) && (sam(w) || sam(worker))) ? 1.3f : 1;
         }
 
         // ---- running ------------------------------------------------------------------------
@@ -208,7 +223,8 @@ namespace Catchline.Game.Deck
             var w = job.Worker;
             Walk(job, Deck.Access(job.At), () => w.Actor.Act(job.Label, ActSeconds(w, job.Kind), () =>
             {
-                var f = job.Fish[0];
+                foreach (var f in job.Fish)
+                {
                 job.Source.Take(f, job);
                 if (job.Kind == JobKind.Sort)
                 {
@@ -221,6 +237,7 @@ namespace Catchline.Game.Deck
                     forTable.Remove(f);
                     if (OnTableDone != null) { job.Target.Basket.Unreserve(1); OnTableDone(job, f); }
                     else job.Target.Basket.Put(f, true);
+                }
                 }
                 job.reserved = 0; Finish(job);
             }, () => Cancel(job)));

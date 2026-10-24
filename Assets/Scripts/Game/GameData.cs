@@ -6,7 +6,7 @@ namespace Catchline.Game
     public enum Species { Herring, Mackerel, Pollock, SeaBass, Conger, Plaice, Cod, Whiting, RedMullet, Turbot, GoldenPuffer, SpottedEagleRay, ApexReefShark, GoldTipShark, AbyssalGreatWhite, AbyssalLeviathan, BlueSpottedStingray, FlyingFish, Lionfish, GiantDevilManta, AtlanticSwordfish, OceanSunfish, ScallopedHammerhead, PelagicThresherShark, GiantSquid, YellowfinTuna, Barracuda, MahiMahi, Monkfish, Crab }
     public enum UpgradeId { BigCooler, IceBox, RodHolder, LunchTin, RodFibreglass, RodCarbon, NetSystem, ThirdDeepLine }
     public enum Grade { Hand, Experienced, Veteran }
-    public enum CrewRole { Deckhand, Fisherman, Engineer }
+    public enum CrewRole { Deckhand, Fisherman, Engineer, Navigator }
     public enum DeckhandWork { Fish, Nets, Prep }
 
     // Deck coordinates follow the game grid: X stern-to-bow (bow at -X), Y port-to-starboard.
@@ -15,7 +15,7 @@ namespace Catchline.Game
         public string Name, Model;
         public int Width, Height, Capacity, CrewCap;
         public float TravelMultiplier; // legacy chart score only; never controls runtime sailing
-        public float SailSpeed = 2.3f; // metres/sec: the ONE trip-duration tuning value per hull
+        public float SailSpeed = 10f; // metres/sec: the ONE trip-duration tuning value per hull
         public float TurnDegreesPerSecond = 120f;
         public float NavigationRadius => Height * CellSize * .5f + .5f;
         public float CellSize = 1f;
@@ -224,17 +224,17 @@ namespace Catchline.Game
         public static readonly HullDef[] Hulls =
         {
             // Crew roles are flexible; every hull keeps enough offers for each available berth.
-            new() { Name = "Rowboat", Model = "Rowboat", SailSpeed = 2.3f, Width = 3, Height = 2, Capacity = 20, CrewCap = 2,
+            new() { Name = "Rowboat", Model = "Rowboat", SailSpeed = 10f, Width = 3, Height = 2, Capacity = 20, CrewCap = 2,
                 TravelMultiplier = 1f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(1, 0), Rest = new(0, 1),
                 Blocked = new[] { new Vector2Int(1, 1) }, RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0) },
                 RodBases = new[] { new Vector3(0f, .44f, -.615f), new Vector3(2f, .44f, -.615f) } },
-            new() { Name = "Skiff", Model = "Skiff", SailSpeed = 2.3f, Width = 5, Height = 3, Capacity = 40, CrewCap = 3,
+            new() { Name = "Skiff", Model = "Skiff", SailSpeed = 10f, Width = 5, Height = 3, Capacity = 40, CrewCap = 3,
                 TravelMultiplier = .5f, Hold = new(1, 1), HoldAccess = new(1, 0), Seat = new(3, 2), Rest = new(0, 2),
                 Blocked = new[] { new Vector2Int(1, 1), new Vector2Int(2, 1), new Vector2Int(4, 2), new Vector2Int(4, 1) },
                 RodTiles = new[] { new Vector2Int(0, 0), new Vector2Int(2, 0), new Vector2Int(4, 0) },
                 RodBases = new[] { new Vector3(.25f, .45f, -.68f), new Vector3(2f, .45f, -.68f), new Vector3(3.75f, .45f, -.68f) } },
             // Additive saved ID. Tier/economy labels can change without migrating old boats.
-            new() { Name = "Compact fisher", Model = "CompactFisherV1", SailSpeed = 2.3f, Width = 43, Height = 23, CellSize = .1f,
+            new() { Name = "Compact fisher", Model = "CompactFisherV1", SailSpeed = 10f, Width = 43, Height = 23, CellSize = .1f,
                 Capacity = 100, CrewCap = 3, TravelMultiplier = .5f,
                 // Unity FBX import reflects source X; these are verified native socket/deck coordinates.
                 Hold = new(29, 17), HoldAccess = new(29, 11), Seat = new(13, 12), Rest = new(34, 11), NetAccess = new(39, 6),
@@ -244,7 +244,7 @@ namespace Catchline.Game
                 RodBases = new[] { new Vector3(2f, .47f, 2.38f), new Vector3(2f, .47f, -.18f), new Vector3(3.75f, .47f, 2.33f) } },
             // Tier4 approved BOAT032 hull. Existing saved IDs0-2 stay unchanged.
             // First integration retains tier3 cargo/net capacity; economy unlock is still untuned.
-            new() { Name = "Prep fisher", Model = "PrepFisherV1", SailSpeed = 2.3f, Width = 57, Height = 29, CellSize = .1f,
+            new() { Name = "Prep fisher", Model = "PrepFisherV1", SailSpeed = 10f, Width = 57, Height = 29, CellSize = .1f,
                 Capacity = 160, CrewCap = 4, TravelMultiplier = .5f,
                 Hold = new(29, 14), HoldAccess = new(29, 24), Seat = new(15, 15), Rest = new(42, 18), NetAccess = new(53, 4),
                 CrewRest = new[] { new Vector2Int(42, 18), new Vector2Int(42, 10), new Vector2Int(28, 24), new Vector2Int(28, 4) },
@@ -252,7 +252,7 @@ namespace Catchline.Game
                 RodTiles = new[] { new Vector2Int(28, 24), new Vector2Int(28, 4), new Vector2Int(50, 24) },
                 RodBases = new[] { new Vector3(2.8f, .47f, 3f), new Vector3(2.8f, .47f, -.2f), new Vector3(5.0037f, .47f, 2.9375f) } },
             // Tier5 approved8.5x4.2m model. Two optional rods exchange for a secondnet.
-            new() { Name = "Buoy fisher", Model = "Tier5DeepLines103", SailSpeed = 2.3f, Width = 73, Height = 35, CellSize = .1f,
+            new() { Name = "Buoy fisher", Model = "Tier5DeepLines103", SailSpeed = 10f, Width = 73, Height = 35, CellSize = .1f,
                 Capacity = 240, CrewCap = 6, TravelMultiplier = .5f,
                 Hold = new(61,17), HoldAccess = new(61,30), Seat = new(20,17), Rest = new(63,30), NetAccess = new(65,27),
                 CrewRest = new[] { new Vector2Int(63,30), new Vector2Int(33,30), new Vector2Int(33,4), new Vector2Int(47,4), new Vector2Int(29,10), new Vector2Int(63,4) },

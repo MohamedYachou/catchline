@@ -1,0 +1,682 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullHarbourMouth",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes and one identity root",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_mainland-coast closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_mainland-coast 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_mainland-coast 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_mainland-coast -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_mainland-coast -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_west-islet closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-islet 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-islet 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.56082906231432e-06
+        },
+        {
+          "check": "Terrain_west-islet -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-islet -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.714901298291424e-06
+        },
+        {
+          "check": "Terrain_east-islet closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-islet 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-islet 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_east-islet -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-islet -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_HarbourWall closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HarbourWall 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HarbourWall 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_HarbourWall -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HarbourWall -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_MooringPost closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_MooringPost -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_MooringPost.001 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.001 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.001 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_MooringPost.001 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.001 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_MooringPost.002 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.002 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.002 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_MooringPost.002 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_MooringPost.002 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.2874603271484375e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.2874603271484375e-05,
+      "sourceSha256": "3d8ef1f446f82a2839aeb1ceac86e296adb5a4f0ffa3e3f4b1df703be7163166",
+      "fbxSha256": "faa10a8e6fad30d263f0f391201f2f203feea1dddc9156e95ed1716950eabdfa",
+      "navigationSha256": "01092ed674eb1243cb70ff03c28f5ec6ff67a4f605b01644a77543cf2af35778"
+    },
+    {
+      "map": "GullKelpBank",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes and one identity root",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-low-island closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-low-island 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-low-island 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.721965189314673e-06
+        },
+        {
+          "check": "Terrain_west-low-island -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-low-island -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.877043295791605e-06
+        },
+        {
+          "check": "Terrain_middle-low-island closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-low-island 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-low-island 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.03156597169567e-06
+        },
+        {
+          "check": "Terrain_middle-low-island -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-low-island -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_east-low-island closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-low-island 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-low-island 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_east-low-island -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-low-island -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.0067901611328125e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.3828277587890625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.3828277587890625e-05,
+      "sourceSha256": "f63ec836a6285169041d197e45cefc3cac0345a7ee20907778d924846078d3f5",
+      "fbxSha256": "651b2cbf905e75f42ea8cfaa4765a57daf08e54695681e08fcfb999245f0c0ac",
+      "navigationSha256": "f42c265a62f6be1ec53ce965bfa3f5fd92cc47f0dfd01d58b6603d938c0edcea"
+    },
+    {
+      "map": "GullSandbar",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes and one identity root",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_long-sandbar closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_long-sandbar 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_long-sandbar 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_long-sandbar -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_long-sandbar -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.282152951820991e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.52587890625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.52587890625e-05,
+      "sourceSha256": "8fde6bc5fe76936c9298697da49d8c0990f5982df8c0b7a3251b92b8b8a3f607",
+      "fbxSha256": "69e7baff7bb2400f2a46f23d84b473e7ebc0bb611fbf8e29f551502162194853",
+      "navigationSha256": "f2a3366744f0aca21baff472000aece509259bfc348ec1d6ff93788f38e2ab72"
+    },
+    {
+      "map": "GullRockyPoint",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes and one identity root",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_rocky-headland closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_rocky-headland 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_rocky-headland 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_rocky-headland -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_rocky-headland -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_west-reef closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-reef 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-reef 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 9.5367431640625e-06
+        },
+        {
+          "check": "Terrain_west-reef -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-reef -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_south-reef closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_south-reef 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_south-reef 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.877043295791605e-06
+        },
+        {
+          "check": "Terrain_south-reef -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_south-reef -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.068848520629239e-06
+        },
+        {
+          "check": "Terrain_east-reef closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-reef 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-reef 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.106495129998063e-06
+        },
+        {
+          "check": "Terrain_east-reef -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-reef -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.52587890625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.52587890625e-05,
+      "sourceSha256": "39a790a7fdaf645b53831d650e05aab39288930df74b6934f9ea0a5755271b30",
+      "fbxSha256": "e467681d80a8028c66640e388bf38e3f52242988072ae5138beb753175959b8d",
+      "navigationSha256": "d9834cf9df5a1f86deca253c5a22c4305c33412c769bd7d23ebd3db741b0a408"
+    },
+    {
+      "map": "GullDeepChannel",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes and one identity root",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-channel-island closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-channel-island 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-channel-island 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_west-channel-island -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-channel-island -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_east-channel-island closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-channel-island 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-channel-island 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_east-channel-island -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-channel-island -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.7642974853515625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.7642974853515625e-05,
+      "sourceSha256": "470d7f9de48c31c7d63e6e0ace45700d99d91245838ecebbbefd54726149ba50",
+      "fbxSha256": "8134c9c4085a5b7b23df774a9d91aa1eefbeb268c493270bf4c8cea7f1b1f5f8",
+      "navigationSha256": "90a43c7fa910710c90aeeeeb62165fbd3c490481fac99b6a91b0aeebfe632b35"
+    }
+  ],
+  "totalChecks": 125
+}

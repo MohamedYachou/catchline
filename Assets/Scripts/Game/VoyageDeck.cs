@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Catchline.Game.Deck;
@@ -11,7 +11,7 @@ using Worker = Catchline.Game.Deck.Worker;
 namespace Catchline.Game
 {
     // M1 bridge: the deck graph and job scheduler drive the existing crew bodies.
-    // Hulls migrate one at a time (rowboat → skiff → compact → prep → buoy); a hull not yet
+    // Hulls migrate one at a time (rowboat â†’ skiff â†’ compact â†’ prep â†’ buoy); a hull not yet
     // migrated keeps its legacy worker code untouched.
     public partial class VoyageGame
     {
@@ -27,11 +27,17 @@ namespace Catchline.Game
         // Person as a scheduler body: walks on the station-file grid, acts with the existing Do().
         sealed class PersonActor : IDeckActor
         {
-            readonly Person person; readonly DeckGrid grid;
-            public PersonActor(Person p, DeckGrid g) { person = p; grid = g; }
+            readonly Person person; readonly DeckGrid grid; readonly CardState card;
+            public PersonActor(Person p, DeckGrid g, CardState c) { person = p; grid = g; card = c; }
+            void Skill(Speciality job)
+            {
+                person.Skill = card == null ? 100 : CardProgression.Skill(card.Def,card.Rarity,job);
+                person.LevelMult = card == null ? 1 : CardProgression.LevelMult(card.Level);
+                if (card != null && ((job == Catchline.Game.Speciality.Sort && (card.Id == "noor" || card.Id == "tove")) || (job == Catchline.Game.Speciality.Table && card.Id == "mats") || (job == Catchline.Game.Speciality.Haul && card.Id == "ana"))) person.Skill *= 1.1f;
+            }
             public Vector2Int Tile => person.Tile;
-            public bool WalkTo(Vector2Int tile, Action arrive, Action cancel) => person.WalkTo(grid, tile, arrive, cancel);
-            public void Act(string label, float seconds, Action done, Action cancel) => person.Do(label, seconds, done, cancel);
+            public bool WalkTo(Vector2Int tile, Action arrive, Action cancel) { Skill(Catchline.Game.Speciality.Haul); return person.WalkTo(grid, tile, arrive, cancel); }
+            public void Act(string label, float seconds, Action done, Action cancel) { Skill(label == "Sorting" ? Catchline.Game.Speciality.Sort : label == "Processing" ? Catchline.Game.Speciality.Table : Catchline.Game.Speciality.Haul); person.Do(label, seconds, done, cancel); }
             public void Stop() => person.Stop();
         }
 
@@ -110,9 +116,10 @@ namespace Catchline.Game
                 if (workers.ContainsKey(p)) continue;
                 var w = new Worker
                 {
-                    Name = p.Name, Captain = p == Captain, Role = p == Captain ? CrewRole.Deckhand : p.Contract.Role, Actor = new PersonActor(p, DeckGraph.Grid),
+                    Name = p.Name, Captain = p == Captain, Role = p == Captain ? CrewRole.Deckhand : p.Contract.Role, Card = CardFor(p.Contract), Actor = new PersonActor(p, DeckGraph.Grid, CardFor(p.Contract)),
+                    HandCount = CardFor(p.Contract)?.Id == "sam" ? 4 : 3,
                     Available = () => p.Idle || p.Loitering,
-                    Primary = p.Contract?.WorkPreference == DeckhandWork.Prep ? Duty.Table : Duty.Haul, Secondary = Duty.Sort,
+                    Primary = p.Contract?.WorkPreference == DeckhandWork.Prep ? Duty.Table : p.Contract?.WorkPreference == DeckhandWork.Nets ? Duty.Sort : Duty.Haul, Secondary = Duty.Sort,
                 };
                 workers[p] = w; Scheduler.Workers.Add(w);
             }
@@ -184,7 +191,7 @@ namespace Catchline.Game
             Manning = null; AwaitingCast = false;
             return true;
         }
-        // Tier 0 flow in two taps: Carry (rod basket → sort table), then Keep (sorted and stowed) or Throw.
+        // Tier 0 flow in two taps: Carry (rod basket â†’ sort table), then Keep (sorted and stowed) or Throw.
         void CaptainFollowUp()
         {
             if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !keepThenStow) return;
@@ -221,3 +228,4 @@ namespace Catchline.Game
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);
     }
 }
+

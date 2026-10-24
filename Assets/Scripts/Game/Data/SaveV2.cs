@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Catchline.Game
 {
-    // MASTER-PLAN B6 save model v2. Not wired to the game yet: nothing reads or writes it.
+    // MASTER-PLAN B6 save model v2, including harbour runtime state.
     // Fields marked placeholder reserve the slot for later milestones (buyers, contracts, quota,
     // grounds, chests, day, settings) and carry no behaviour yet.
     [Serializable]
@@ -13,6 +13,10 @@ namespace Catchline.Game
         public const int CurrentVersion = 2;
 
         public int Version = CurrentVersion;
+        public GameState.HarbourSave Runtime;
+        public float PendingXpKg;
+        public List<string> TripDeployment = new List<string>();
+        public List<CrewMember> CrewSettings = new List<CrewMember>();
         public int Coins;
         public int Hull;
         public List<int> Owned = new List<int>();            // UpgradeId values, same ints as v1

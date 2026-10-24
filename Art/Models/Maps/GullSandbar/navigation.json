@@ -1,0 +1,728 @@
+{
+  "schema": 2,
+  "map": "GullSandbar",
+  "runtimeModelId": "GullSandbarSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullSandbar/GullSandbarSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "long-sandbar-0",
+      "vertices": [
+        {
+          "x": -14.8026,
+          "z": 0.0
+        },
+        {
+          "x": -14.41202,
+          "z": -17.18145
+        },
+        {
+          "x": -13.20838,
+          "z": -33.92902
+        },
+        {
+          "x": -10.82445,
+          "z": -48.16023
+        },
+        {
+          "x": -7.63441,
+          "z": -58.83269
+        },
+        {
+          "x": -4.02752,
+          "z": -66.8757
+        },
+        {
+          "x": -0.0,
+          "z": -71.23534
+        },
+        {
+          "x": 4.12778,
+          "z": -68.54038
+        },
+        {
+          "x": 7.60189,
+          "z": -58.58208
+        },
+        {
+          "x": 10.2612,
+          "z": -45.6542
+        },
+        {
+          "x": 12.67764,
+          "z": -32.5657
+        },
+        {
+          "x": 14.87502,
+          "z": -17.73342
+        },
+        {
+          "x": 15.92911,
+          "z": -0.0
+        },
+        {
+          "x": 15.27253,
+          "z": 18.20732
+        },
+        {
+          "x": 13.40606,
+          "z": 34.43683
+        },
+        {
+          "x": 10.90615,
+          "z": 48.52369
+        },
+        {
+          "x": 7.73144,
+          "z": 59.58044
+        },
+        {
+          "x": 3.92643,
+          "z": 65.19699
+        },
+        {
+          "x": 0.0,
+          "z": 65.49636
+        },
+        {
+          "x": -3.82617,
+          "z": 63.5323
+        },
+        {
+          "x": -7.76396,
+          "z": 59.83105
+        },
+        {
+          "x": -11.4694,
+          "z": 51.02972
+        },
+        {
+          "x": -13.9368,
+          "z": 35.80016
+        },
+        {
+          "x": -14.80953,
+          "z": 17.65535
+        }
+      ],
+      "sourceObject": "Terrain_long-sandbar",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "long-sandbar-0",
+      "vertices": [
+        {
+          "x": -18.56199,
+          "z": 0.0
+        },
+        {
+          "x": -18.07221,
+          "z": -18.16219
+        },
+        {
+          "x": -16.56288,
+          "z": -35.86575
+        },
+        {
+          "x": -13.57352,
+          "z": -50.90929
+        },
+        {
+          "x": -9.57331,
+          "z": -62.19096
+        },
+        {
+          "x": -5.05039,
+          "z": -70.69308
+        },
+        {
+          "x": -0.0,
+          "z": -75.30157
+        },
+        {
+          "x": 5.1761,
+          "z": -72.45279
+        },
+        {
+          "x": 9.53253,
+          "z": -61.92605
+        },
+        {
+          "x": 12.86722,
+          "z": -48.26022
+        },
+        {
+          "x": 15.89736,
+          "z": -34.4246
+        },
+        {
+          "x": 18.6528,
+          "z": -18.74567
+        },
+        {
+          "x": 19.97459,
+          "z": -0.0
+        },
+        {
+          "x": 19.15127,
+          "z": 19.24663
+        },
+        {
+          "x": 16.81078,
+          "z": 36.40255
+        },
+        {
+          "x": 13.67596,
+          "z": 51.29351
+        },
+        {
+          "x": 9.69498,
+          "z": 62.9814
+        },
+        {
+          "x": 4.92361,
+          "z": 68.91854
+        },
+        {
+          "x": 0.0,
+          "z": 69.23501
+        },
+        {
+          "x": -4.7979,
+          "z": 67.15884
+        },
+        {
+          "x": -9.73576,
+          "z": 63.24631
+        },
+        {
+          "x": -14.38226,
+          "z": 53.94258
+        },
+        {
+          "x": -17.4763,
+          "z": 37.84369
+        },
+        {
+          "x": -18.57068,
+          "z": 18.66315
+        }
+      ],
+      "sourceObject": "Terrain_long-sandbar",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -130.0,
+      "z": -100.0
+    },
+    {
+      "x": 130.0,
+      "z": -100.0
+    },
+    {
+      "x": 130.0,
+      "z": 100.0
+    },
+    {
+      "x": -130.0,
+      "z": 100.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "the-bar",
+      "name": "The bar",
+      "centre": {
+        "x": -37.0,
+        "z": 5.0
+      },
+      "radius": 14,
+      "nominalDepth": 1.1,
+      "poolId": "GullSandbar/the-bar",
+      "position": [
+        -37,
+        0,
+        5
+      ],
+      "heading": 0
+    },
+    {
+      "id": "gully",
+      "name": "Gully",
+      "centre": {
+        "x": 37.0,
+        "z": 15.0
+      },
+      "radius": 14,
+      "nominalDepth": 3.6,
+      "poolId": "GullSandbar/gully",
+      "position": [
+        37,
+        0,
+        15
+      ],
+      "heading": 0
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "centre": {
+        "x": 86.0,
+        "z": -53.0
+      },
+      "radius": 18,
+      "nominalDepth": 5.2,
+      "poolId": "GullSandbar/open",
+      "position": [
+        86,
+        0,
+        -53
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -92.0,
+    "z": -61.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -122.0,
+      "z": -92.0
+    },
+    "max": {
+      "x": 122.0,
+      "z": 92.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -130.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -104.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -78.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -52.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -26.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": 0.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 26.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 52.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 78.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 104.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 130.0,
+        "z": -100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 130.0,
+        "z": -75.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 130.0,
+        "z": -50.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 130.0,
+        "z": -25.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 130.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 130.0,
+        "z": 25.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 130.0,
+        "z": 50.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 130.0,
+        "z": 75.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 130.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 104.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 78.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 52.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 26.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 0.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": -26.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": -52.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": -78.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": -104.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": -130.0,
+        "z": 100.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -130.0,
+        "z": 75.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -130.0,
+        "z": 50.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -130.0,
+        "z": 25.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -130.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -130.0,
+        "z": -25.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -130.0,
+        "z": -50.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -130.0,
+        "z": -75.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonHeadland_0",
+        "kind": "headland",
+        "centre": {
+          "x": -137.8,
+          "z": 158.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_1",
+        "kind": "headland",
+        "centre": {
+          "x": 101.4,
+          "z": 170.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_2",
+        "kind": "headland",
+        "centre": {
+          "x": -221.0,
+          "z": -40.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_3",
+        "kind": "headland",
+        "centre": {
+          "x": 218.4,
+          "z": -54.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-lighthouse",
+        "kind": "lighthouse",
+        "centre": {
+          "x": 101.4,
+          "z": 170.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter",
+        "kind": "ship",
+        "centre": {
+          "x": 166.4,
+          "z": 138.0
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "long-sandbar": "Splits west and east grounds; sail the north or south gully."
+  },
+  "artReviewAnchors": {
+    "the-bar": {
+      "x": -37.0,
+      "z": 5.0
+    },
+    "gully": {
+      "x": 37.0,
+      "z": 15.0
+    },
+    "open": {
+      "x": 86.0,
+      "z": -53.0
+    }
+  }
+}

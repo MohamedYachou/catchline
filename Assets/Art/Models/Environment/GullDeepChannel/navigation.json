@@ -1,0 +1,989 @@
+{
+  "schema": 2,
+  "map": "GullDeepChannel",
+  "runtimeModelId": "GullDeepChannelSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "west-channel-island-0",
+      "vertices": [
+        {
+          "x": -83.17944,
+          "z": 20.0
+        },
+        {
+          "x": -82.35674,
+          "z": 4.32645
+        },
+        {
+          "x": -79.82146,
+          "z": -10.95131
+        },
+        {
+          "x": -74.80008,
+          "z": -23.93354
+        },
+        {
+          "x": -68.08073,
+          "z": -33.66935
+        },
+        {
+          "x": -60.48337,
+          "z": -41.00648
+        },
+        {
+          "x": -52.0,
+          "z": -44.98351
+        },
+        {
+          "x": -43.30546,
+          "z": -42.52507
+        },
+        {
+          "x": -35.98776,
+          "z": -33.44073
+        },
+        {
+          "x": -30.38633,
+          "z": -21.64744
+        },
+        {
+          "x": -25.29646,
+          "z": -9.70763
+        },
+        {
+          "x": -20.66802,
+          "z": 3.82292
+        },
+        {
+          "x": -18.44774,
+          "z": 20.0
+        },
+        {
+          "x": -19.83071,
+          "z": 36.60939
+        },
+        {
+          "x": -23.76215,
+          "z": 51.41455
+        },
+        {
+          "x": -29.02785,
+          "z": 64.2651
+        },
+        {
+          "x": -35.71488,
+          "z": 74.35147
+        },
+        {
+          "x": -43.72958,
+          "z": 79.4751
+        },
+        {
+          "x": -52.0,
+          "z": 79.7482
+        },
+        {
+          "x": -60.05925,
+          "z": 77.95651
+        },
+        {
+          "x": -68.35362,
+          "z": 74.58009
+        },
+        {
+          "x": -76.15855,
+          "z": 66.55119
+        },
+        {
+          "x": -81.35576,
+          "z": 52.65822
+        },
+        {
+          "x": -83.19405,
+          "z": 36.10587
+        }
+      ],
+      "sourceObject": "Terrain_west-channel-island",
+      "sliceY": 0
+    },
+    {
+      "id": "east-channel-island-0",
+      "vertices": [
+        {
+          "x": 13.10047,
+          "z": -57.09114
+        },
+        {
+          "x": 19.0984,
+          "z": -70.13237
+        },
+        {
+          "x": 26.56781,
+          "z": -80.62872
+        },
+        {
+          "x": 35.29427,
+          "z": -88.11565
+        },
+        {
+          "x": 45.0,
+          "z": -89.88457
+        },
+        {
+          "x": 54.22677,
+          "z": -85.00105
+        },
+        {
+          "x": 62.14665,
+          "z": -76.74895
+        },
+        {
+          "x": 69.65588,
+          "z": -67.96177
+        },
+        {
+          "x": 76.93935,
+          "z": -57.1312
+        },
+        {
+          "x": 81.86232,
+          "z": -42.21062
+        },
+        {
+          "x": 82.61157,
+          "z": -25.0
+        },
+        {
+          "x": 80.11578,
+          "z": -8.60481
+        },
+        {
+          "x": 76.08797,
+          "z": 6.27471
+        },
+        {
+          "x": 70.52748,
+          "z": 19.48048
+        },
+        {
+          "x": 62.93366,
+          "z": 29.12416
+        },
+        {
+          "x": 54.11863,
+          "z": 34.29778
+        },
+        {
+          "x": 45.0,
+          "z": 36.84714
+        },
+        {
+          "x": 35.40242,
+          "z": 37.41238
+        },
+        {
+          "x": 25.7808,
+          "z": 33.00393
+        },
+        {
+          "x": 18.2268,
+          "z": 21.65108
+        },
+        {
+          "x": 13.95185,
+          "z": 6.23465
+        },
+        {
+          "x": 11.60888,
+          "z": -9.41004
+        },
+        {
+          "x": 9.87986,
+          "z": -25.0
+        },
+        {
+          "x": 9.86235,
+          "z": -41.4054
+        }
+      ],
+      "sourceObject": "Terrain_east-channel-island",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "west-channel-island-0",
+      "vertices": [
+        {
+          "x": -86.93884,
+          "z": 20.0
+        },
+        {
+          "x": -86.01694,
+          "z": 3.3457
+        },
+        {
+          "x": -83.17596,
+          "z": -12.88803
+        },
+        {
+          "x": -77.54915,
+          "z": -26.6826
+        },
+        {
+          "x": -70.01963,
+          "z": -37.02762
+        },
+        {
+          "x": -61.50624,
+          "z": -44.82386
+        },
+        {
+          "x": -52.0,
+          "z": -49.04975
+        },
+        {
+          "x": -42.25713,
+          "z": -46.43747
+        },
+        {
+          "x": -34.05713,
+          "z": -36.7847
+        },
+        {
+          "x": -27.78031,
+          "z": -24.25346
+        },
+        {
+          "x": -22.07674,
+          "z": -11.56654
+        },
+        {
+          "x": -16.89024,
+          "z": 2.81067
+        },
+        {
+          "x": -14.40225,
+          "z": 20.0
+        },
+        {
+          "x": -15.95197,
+          "z": 37.6487
+        },
+        {
+          "x": -20.35744,
+          "z": 53.38026
+        },
+        {
+          "x": -26.25804,
+          "z": 67.03491
+        },
+        {
+          "x": -33.75134,
+          "z": 77.75243
+        },
+        {
+          "x": -42.73239,
+          "z": 83.19666
+        },
+        {
+          "x": -52.0,
+          "z": 83.48684
+        },
+        {
+          "x": -61.03098,
+          "z": 81.58304
+        },
+        {
+          "x": -70.32542,
+          "z": 77.99535
+        },
+        {
+          "x": -79.07142,
+          "z": 69.46406
+        },
+        {
+          "x": -84.89526,
+          "z": 54.70176
+        },
+        {
+          "x": -86.9552,
+          "z": 37.11366
+        }
+      ],
+      "sourceObject": "Terrain_west-channel-island",
+      "sliceY": -1
+    },
+    {
+      "id": "east-channel-island-0",
+      "vertices": [
+        {
+          "x": 9.67731,
+          "z": -59.0675
+        },
+        {
+          "x": 16.31888,
+          "z": -72.91188
+        },
+        {
+          "x": 24.58984,
+          "z": -84.05466
+        },
+        {
+          "x": 34.25275,
+          "z": -92.00268
+        },
+        {
+          "x": 45.0,
+          "z": -93.88053
+        },
+        {
+          "x": 55.2169,
+          "z": -88.69627
+        },
+        {
+          "x": 63.98667,
+          "z": -79.93595
+        },
+        {
+          "x": 72.30172,
+          "z": -70.6076
+        },
+        {
+          "x": 80.36678,
+          "z": -59.11003
+        },
+        {
+          "x": 85.81804,
+          "z": -43.27055
+        },
+        {
+          "x": 86.64769,
+          "z": -25.0
+        },
+        {
+          "x": 83.88408,
+          "z": -7.5951
+        },
+        {
+          "x": 79.42404,
+          "z": 8.20079
+        },
+        {
+          "x": 73.26685,
+          "z": 22.21985
+        },
+        {
+          "x": 64.85813,
+          "z": 32.45744
+        },
+        {
+          "x": 55.09715,
+          "z": 37.94968
+        },
+        {
+          "x": 45.0,
+          "z": 40.65605
+        },
+        {
+          "x": 34.3725,
+          "z": 41.2561
+        },
+        {
+          "x": 23.71838,
+          "z": 36.57615
+        },
+        {
+          "x": 15.35376,
+          "z": 24.52413
+        },
+        {
+          "x": 10.62005,
+          "z": 8.15826
+        },
+        {
+          "x": 8.02567,
+          "z": -8.44992
+        },
+        {
+          "x": 6.1111,
+          "z": -25.0
+        },
+        {
+          "x": 6.09171,
+          "z": -42.41573
+        }
+      ],
+      "sourceObject": "Terrain_east-channel-island",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -160.0,
+      "z": -120.0
+    },
+    {
+      "x": 160.0,
+      "z": -120.0
+    },
+    {
+      "x": 160.0,
+      "z": 120.0
+    },
+    {
+      "x": -160.0,
+      "z": 120.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "drop-off",
+      "name": "Drop-off",
+      "centre": {
+        "x": -103.0,
+        "z": -36.0
+      },
+      "radius": 16,
+      "nominalDepth": 4.2,
+      "poolId": "GullDeepChannel/drop-off",
+      "position": [
+        -103,
+        0,
+        -36
+      ],
+      "heading": 0
+    },
+    {
+      "id": "trench",
+      "name": "Trench",
+      "centre": {
+        "x": -3.0,
+        "z": 77.0
+      },
+      "radius": 15,
+      "nominalDepth": 14.0,
+      "poolId": "GullDeepChannel/trench",
+      "position": [
+        -3,
+        0,
+        77
+      ],
+      "heading": 0
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "centre": {
+        "x": 110.0,
+        "z": 48.0
+      },
+      "radius": 18,
+      "nominalDepth": 9.0,
+      "poolId": "GullDeepChannel/open",
+      "position": [
+        110,
+        0,
+        48
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -106.0,
+    "z": -86.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -152.0,
+      "z": -112.0
+    },
+    "max": {
+      "x": 152.0,
+      "z": 112.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -160.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -133.33333,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -106.66667,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -80.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -53.33333,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -26.66667,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 0.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 26.66667,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 53.33333,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 80.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 106.66667,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 133.33333,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 160.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 160.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 160.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 160.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 160.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 160.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 160.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 160.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 160.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 160.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 133.33333,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 106.66667,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 80.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 53.33333,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": 26.66667,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": 0.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": -26.66667,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -53.33333,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -80.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -106.66667,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -133.33333,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -160.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -160.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -160.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -160.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -160.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -160.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -160.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-40",
+      "position": {
+        "x": -160.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-41",
+      "position": {
+        "x": -160.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonHeadland_0",
+        "kind": "headland",
+        "centre": {
+          "x": -169.6,
+          "z": 189.6
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_1",
+        "kind": "headland",
+        "centre": {
+          "x": 124.8,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_2",
+        "kind": "headland",
+        "centre": {
+          "x": -272.0,
+          "z": -48.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_3",
+        "kind": "headland",
+        "centre": {
+          "x": 268.8,
+          "z": -64.8
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-lighthouse",
+        "kind": "lighthouse",
+        "centre": {
+          "x": 124.8,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter",
+        "kind": "ship",
+        "centre": {
+          "x": 204.8,
+          "z": 165.6
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "west-channel-island": "Blocks Drop-off to Trench; defines the western trench wall.",
+    "east-channel-island": "Defines the eastern trench wall and shelters the Open ground."
+  },
+  "artReviewAnchors": {
+    "drop-off": {
+      "x": -103.0,
+      "z": -36.0
+    },
+    "trench": {
+      "x": -3.0,
+      "z": 77.0
+    },
+    "open": {
+      "x": 110.0,
+      "z": 48.0
+    }
+  }
+}

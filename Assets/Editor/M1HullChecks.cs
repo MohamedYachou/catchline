@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Catchline.Game;
@@ -45,7 +45,7 @@ namespace Catchline.EditorTools
             Check(g.CurrentMode == VoyageGame.Mode.Fishing && g.UsesDeckGraph, "live hull uses graph");
             var deck = g.DeckGraph; var sched = g.Scheduler;
             foreach (var s in deck.Stations) Check(deck.Reachable(deck.Access(deck.Hold), deck.Access(s)), s.Id + " reachable");
-            var hands = sched.Workers.Where(w => !w.Captain).ToArray();
+            var hands = sched.Workers.Where(w => !w.Captain && w.Role == CrewRole.Deckhand).ToArray();
             hands[0].SetDuties(Duty.Haul, Duty.Haul); hands[1].SetDuties(Duty.Sort, Duty.Sort);
             float kg = GameData.Get(Species.Mackerel).MaxKg * .9f;
             var rod = g.Rods[0]; var basket = g.GearStation(StationKind.Rod, 0).Out;
@@ -82,3 +82,4 @@ namespace Catchline.EditorTools
     public static class M1PrepChecks { public static void Run() => M1HullChecks.Run(3); }
     public static class M1BuoyChecks { public static void Run() => M1HullChecks.Run(4); }
 }
+
