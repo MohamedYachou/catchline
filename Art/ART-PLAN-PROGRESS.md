@@ -44,4 +44,4 @@ No build, install or save change. No subagents. Codex1 is finished/idle; all ART
 
 Mo explicitly authorized committing and pushing this ART108 delivery. Both existing delivery audits passed again before staging. Sources, exports, prompts, manifests, previews and reports are included; ignored Blender version backups and the external temporary backup are excluded. Other owners' crew-style work, fish work, Art/STYLE.md and unrelated drafts remain outside this commit. Shared comms history is preserved.
 
-Target: origin/proto/deck-sim at github.com/MohamedYachou/catchline. Publication verification and delivery commit are recorded in comms.md after the push. Native/runtime acceptance and missing content definitions remain unchanged.
+Target: origin/proto/deck-sim at github.com/MohamedYachou/catchline. Art delivery commit: 137ed00b3e1e14d6a08f8625a10989f6c74f416f (772 files). Normal push succeeded; GitHub refs/heads/proto/deck-sim was verified at that exact SHA. Git LFS confirmed420/420objects uploaded (226MB). This publication receipt is included in the following notes-only commit. Native/runtime acceptance and missing content definitions remain unchanged.
