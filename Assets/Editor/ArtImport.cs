@@ -150,6 +150,8 @@ namespace Catchline.EditorTools
             lib.DisplayFont = AssetDatabase.LoadAssetAtPath<Font>(UiFolder + "Fonts/LilitaOne-Regular.ttf");
             lib.StationFiles = Directory.GetFiles("Assets/Art/Models/Boats", "*.stations.json")
                 .Select(p => AssetDatabase.LoadAssetAtPath<TextAsset>(p.Replace('\\', '/'))).Where(t => t != null).ToArray();
+            lib.NavigationFiles = Directory.GetFiles("Assets/Art/Models/Environment", "navigation*.json", SearchOption.AllDirectories)
+                .Select(p => AssetDatabase.LoadAssetAtPath<TextAsset>(p.Replace('\\', '/'))).Where(t => t != null).ToArray();
             lib.WaterShader = AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/PtsWater.shader")
                 ?? AssetDatabase.LoadAssetAtPath<Shader>("Assets/Art/Shaders/CoastalWater.shader");
             lib.PtsWaterNormals = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/Water/PTS/WaterNormals.tif");

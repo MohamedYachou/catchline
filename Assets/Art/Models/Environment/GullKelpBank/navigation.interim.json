@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "map": "GullKelpBank",
+  "interim": true,
+  "runtimeModelId": "GullKelpBankGroundsV1",
+  "units": "metres",
+  "note": "Interim navigation only: current GroundsV1 anchors and island boxes. Real navigation.json takes priority.",
+  "islands": [
+    [
+      [
+        8,
+        -5
+      ],
+      [
+        15,
+        -5
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        8,
+        5
+      ]
+    ],
+    [
+      [
+        -16,
+        10
+      ],
+      [
+        -7,
+        10
+      ],
+      [
+        -7,
+        17
+      ],
+      [
+        -16,
+        17
+      ]
+    ],
+    [
+      [
+        27,
+        16
+      ],
+      [
+        35,
+        16
+      ],
+      [
+        35,
+        23
+      ],
+      [
+        27,
+        23
+      ]
+    ]
+  ],
+  "shallows": [
+    [
+      [
+        6.5,
+        -6.5
+      ],
+      [
+        16.5,
+        -6.5
+      ],
+      [
+        16.5,
+        6.5
+      ],
+      [
+        6.5,
+        6.5
+      ]
+    ],
+    [
+      [
+        -17.5,
+        8.5
+      ],
+      [
+        -5.5,
+        8.5
+      ],
+      [
+        -5.5,
+        18.5
+      ],
+      [
+        -17.5,
+        18.5
+      ]
+    ],
+    [
+      [
+        25.5,
+        14.5
+      ],
+      [
+        36.5,
+        14.5
+      ],
+      [
+        36.5,
+        24.5
+      ],
+      [
+        25.5,
+        24.5
+      ]
+    ]
+  ],
+  "border": [
+    [
+      -130.0,
+      -90.0
+    ],
+    [
+      130.0,
+      -90.0
+    ],
+    [
+      130.0,
+      90.0
+    ],
+    [
+      -130.0,
+      90.0
+    ]
+  ],
+  "grounds": [
+    {
+      "id": "kelp-shallows",
+      "name": "Kelp shallows",
+      "centre": [
+        1,
+        0,
+        0.5
+      ],
+      "radius": 12,
+      "nominalDepth": 1.2,
+      "poolId": "GullKelpBank/kelp-shallows"
+    },
+    {
+      "id": "kelp-edge",
+      "name": "Kelp edge",
+      "centre": [
+        23,
+        0,
+        0.5
+      ],
+      "radius": 12,
+      "nominalDepth": 2.3,
+      "poolId": "GullKelpBank/kelp-edge"
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "centre": [
+        -21,
+        0,
+        0.5
+      ],
+      "radius": 12,
+      "nominalDepth": 5.2,
+      "poolId": "GullKelpBank/open"
+    }
+  ],
+  "harbour": [
+    1,
+    0,
+    -23
+  ],
+  "cameraBounds": {
+    "min": [
+      -122.0,
+      -82.0
+    ],
+    "max": [
+      122.0,
+      82.0
+    ]
+  }
+}

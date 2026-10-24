@@ -20,6 +20,7 @@ namespace Catchline.Game
         public Texture2D PtsWaterNormals, PtsWaterDither;
         public Texture2D[] WaterTextures;
         public Texture2D WaterTex(string name) => WaterTextures == null ? null : System.Array.Find(WaterTextures, t => t != null && t.name == name);
+        public TextAsset[] NavigationFiles;            // map ids are read from JSON; real files preferred over interim
         public TextAsset[] StationFiles;               // Assets/Art/Models/Boats/<Model>.stations.json (deck graph, MASTER-PLAN B2)
         public TextAsset StationFile(string model) => StationFiles == null ? null : System.Array.Find(StationFiles, t => t != null && t.name == model + ".stations");
 
