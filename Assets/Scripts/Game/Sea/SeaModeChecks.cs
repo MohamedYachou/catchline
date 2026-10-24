@@ -19,6 +19,8 @@ namespace Catchline.Game
             Check(SessionOnly, "fixture must be save-isolated");
             showTitle = paused = false; SetSail(); Arrive();
             Check(!SailMode && AtFishingGround, "default arrival is Fishing");
+            for (int i = 0; i < 80; i++) Visual(.05f);
+            Check(Mathf.Abs(Cam.orthographicSize - 3.2f) < .05f, "normal anchored framing preserved");
             var before = Sailor.Position;
             Check(!HandleSeaTap(new Vector2(720, 450)) && Sailor.Position == before, "water taps ignored in Fishing");
             Check(RequestSailMode() && SailMode && !AtFishingGround && Scheduler.Sailing, "Sail mode stows gear and disables fishing");
@@ -41,6 +43,9 @@ namespace Catchline.Game
             Check(InvokeInterface("sea/haul/primary") && SailMode && Net == NetState.Stowed, "forfeit option stows gear and enters Sail");
             Check(SailTo(new Vector2(10000, 10000)) && Navigation.InsideBorder(Sailor.Route.Last()), "outside tap snaps inside");
             Arrive(); StopSeaBoat(); Check(!FishHere(), "open-water Fish here disabled");
+            for (int i = 0; i < 80; i++) Visual(.05f);
+            var view = Cam.WorldToViewportPoint(Boat.TransformPoint(State.HullDef.Center));
+            Check(view.x > .2f && view.x < .8f && view.y > .2f && view.y < .8f, "camera clamp keeps border hull in frame");
             Debug.Log("[Catchline] SEA MODE CHECKS PASSED: Fishing tap guard, Sail/Fish controls, reroute/stop, arrival, modal choices, border snapping; native gestures pending");
         }
     }

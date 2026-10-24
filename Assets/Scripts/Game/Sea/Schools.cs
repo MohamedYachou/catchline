@@ -135,12 +135,19 @@ namespace Catchline.Game.Sea
             for (int g = 0; g < MaxGulls; g++)
             {
                 var gull = new GameObject("Gull").transform; gull.SetParent(cue.Root, false);
-                Visuals.Box("Wing L", gull, new Vector3(-.28f, 0, 0), new Vector3(.55f, .03f, .14f), Color.white).transform.localRotation = Quaternion.Euler(0, 0, 12);
-                Visuals.Box("Wing R", gull, new Vector3(.28f, 0, 0), new Vector3(.55f, .03f, .14f), Color.white).transform.localRotation = Quaternion.Euler(0, 0, -12);
-                Visuals.Box("Body", gull, Vector3.zero, new Vector3(.14f, .09f, .32f), new Color(.93f, .93f, .9f));
+                var model = ArtLibrary.Get()?.M("PropsV2_GullSwoop");
+                if (model != null) ArtLibrary.Spawn(model, gull, Vector3.zero, Quaternion.identity, .7f);
+                else
+                {
+                    Visuals.Box("Wing L", gull, new Vector3(-.28f, 0, 0), new Vector3(.55f, .03f, .14f), Color.white).transform.localRotation = Quaternion.Euler(0, 0, 12);
+                    Visuals.Box("Wing R", gull, new Vector3(.28f, 0, 0), new Vector3(.55f, .03f, .14f), Color.white).transform.localRotation = Quaternion.Euler(0, 0, -12);
+                    Visuals.Box("Body", gull, Vector3.zero, new Vector3(.14f, .09f, .32f), new Color(.93f, .93f, .9f));
+                }
                 gull.gameObject.SetActive(false); cue.Gulls.Add(gull);
             }
-            cue.Boil = Visuals.Prim(PrimitiveType.Cylinder, "Surface boil", cue.Root, Vector3.zero, new Vector3(1f, .01f, 1f), new Color(.9f, .97f, 1f)).transform;
+            cue.Boil = BuildRing(cue.Root, Vector2.zero, .5f, .025f);
+            cue.Boil.name = "Surface ripple";
+            cue.Boil.GetComponent<MeshRenderer>().sharedMaterial = Visuals.Mat(new Color(.35f, .65f, .64f));
             cue.Boil.gameObject.SetActive(false);
             cue.Leaper = Visuals.Prim(PrimitiveType.Capsule, "Jumping fish", cue.Root, Vector3.zero, new Vector3(.12f, .22f, .12f), new Color(.72f, .8f, .84f)).transform;
             cue.Leaper.gameObject.SetActive(false);

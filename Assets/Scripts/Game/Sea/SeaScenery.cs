@@ -8,6 +8,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         SeaEnvironment seaEnvironment;
+        SeaSailingEffects seaEffects;
 
         void BuildNavigableSea(Transform root, ArtLibrary library)
         {
@@ -16,6 +17,8 @@ namespace Catchline.Game
             else Put(root, model, new Vector3(0, WaterY, 0));
             seaEnvironment = root.gameObject.AddComponent<SeaEnvironment>();
             seaEnvironment.Build(Navigation, seaSurface, seaMat);
+            var effects = new GameObject("Sailing route and wake"); effects.transform.SetParent(root, false);
+            seaEffects = effects.AddComponent<SeaSailingEffects>(); seaEffects.Build();
             SetWaterBiome(ActiveSpot);
         }
 
@@ -24,6 +27,8 @@ namespace Catchline.Game
             if (Navigation == null || Sailor == null) return;
             Cam.farClipPlane = 1600;
             seaEnvironment?.Follow(Sailor.Position);
+            if (seaEffects != null && seaEffects.Draw(Sailor, SailMode || !Sailor.Arrived, dt, Cues == null))
+                Toast("Shallows · half speed. Mind the hull, skipper.");
         }
     }
 
@@ -35,6 +40,7 @@ namespace Catchline.Game
         Material overlay;
         GameObject ocean;
         SeaNav nav;
+        static SeaEnvironment active;
         bool previousFog;
         FogMode previousMode;
         Color previousColor;
@@ -43,15 +49,30 @@ namespace Catchline.Game
         public void Build(SeaNav navigation, Transform surface, Material water)
         {
             nav = navigation;
-            previousFog = RenderSettings.fog; previousMode = RenderSettings.fogMode;
-            previousColor = RenderSettings.fogColor; previousDensity = RenderSettings.fogDensity;
+            // Scene replacement destroys the previous root at frame end. Carry
+            // its baseline forward so deferred destruction cannot undo the new fog.
+            if (active != null)
+            {
+                previousFog = active.previousFog; previousMode = active.previousMode;
+                previousColor = active.previousColor; previousDensity = active.previousDensity;
+            }
+            else
+            {
+                previousFog = RenderSettings.fog; previousMode = RenderSettings.fogMode;
+                previousColor = RenderSettings.fogColor; previousDensity = RenderSettings.fogDensity;
+            }
+            active = this;
+            water.SetFloat("_BoatAttack_Water_DistanceBlend", 4096);
             RenderSettings.fog = true; RenderSettings.fogMode = FogMode.ExponentialSquared;
             RenderSettings.fogColor = new Color(.67f, .77f, .78f);
             ocean = new GameObject("Water to horizon"); ocean.transform.SetParent(surface, false);
             var vertices = new List<Vector3>(); var triangles = new List<int>();
             const int side = 224, perimeter = side * 4;
             float Coordinate(int i) => 32f * (float)(System.Math.Sinh((2.0 * i / side - 1) * 2) / System.Math.Sinh(2));
-            float[] rings = { 32, 64, 128, 256, 512, 2048 };
+            // Closely spaced inner rings keep vertex fog/waves smooth at wide zoom.
+            var rings = new List<float>();
+            for (float r = 32; r < 2048; r *= 1.18f) rings.Add(r);
+            rings.Add(2048);
             foreach (float radius in rings)
                 for (int edge = 0; edge < 4; edge++)
                     for (int i = 0; i < side; i++)
@@ -60,7 +81,7 @@ namespace Catchline.Game
                         vertices.Add(edge == 0 ? new Vector3(p, 0, -radius) : edge == 1 ? new Vector3(radius, 0, p)
                             : edge == 2 ? new Vector3(-p, 0, radius) : new Vector3(-radius, 0, -p));
                     }
-            for (int r = 0; r < rings.Length - 1; r++)
+            for (int r = 0; r < rings.Count - 1; r++)
                 for (int i = 0; i < perimeter; i++)
                 {
                     int a = r * perimeter + i, b = r * perimeter + (i + 1) % perimeter;
@@ -87,6 +108,23 @@ namespace Catchline.Game
                 }
             var shade = new GameObject("Outer water darkening"); shade.transform.SetParent(transform, false);
             AddMesh(shade, "Thirty metre border gradient", points, indices.ToArray(), colors, overlay);
+            // Continue the edge tint beyond the sampled gradient. A finite tinted
+            // rectangle would otherwise be visible as a hard seam at wide zoom.
+            float xMax = xMin + nx * 4, zMax = zMin + nz * 4;
+            var outside = new List<Vector3>(); var outsideIndices = new List<int>();
+            void Strip(float left, float bottom, float right, float top)
+            {
+                int start = outside.Count;
+                outside.AddRange(new[] { new Vector3(left, -.23f, bottom), new Vector3(right, -.23f, bottom),
+                    new Vector3(right, -.23f, top), new Vector3(left, -.23f, top) });
+                outsideIndices.AddRange(new[] { start, start + 1, start + 2, start, start + 2, start + 3 });
+            }
+            Strip(-4096, -4096, xMin, 4096); Strip(xMax, -4096, 4096, 4096);
+            Strip(xMin, -4096, xMax, zMin); Strip(xMin, zMax, xMax, 4096);
+            var beyond = new GameObject("Dark water beyond buoys"); beyond.transform.SetParent(transform, false);
+            var outsideColors = new Color[outside.Count];
+            for (int i = 0; i < outsideColors.Length; i++) outsideColors[i] = new Color(.06f, .20f, .25f, .58f);
+            AddMesh(beyond, "Continuous outer sea tint", outside.ToArray(), outsideIndices.ToArray(), outsideColors, overlay);
         }
 
         void AddMesh(GameObject go, string label, Vector3[] points, int[] triangles, Color[] colors, Material material)
@@ -110,8 +148,12 @@ namespace Catchline.Game
             if (ocean != null) Prototype.Visuals.Kill(ocean);
             foreach (var mesh in meshes) if (mesh != null) Prototype.Visuals.Kill(mesh);
             if (overlay != null) Prototype.Visuals.Kill(overlay);
-            RenderSettings.fog = previousFog; RenderSettings.fogMode = previousMode;
-            RenderSettings.fogColor = previousColor; RenderSettings.fogDensity = previousDensity;
+            if (active == this)
+            {
+                active = null;
+                RenderSettings.fog = previousFog; RenderSettings.fogMode = previousMode;
+                RenderSettings.fogColor = previousColor; RenderSettings.fogDensity = previousDensity;
+            }
         }
     }
 }

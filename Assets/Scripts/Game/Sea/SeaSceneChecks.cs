@@ -29,7 +29,7 @@ namespace Catchline.EditorTools
                     var surface = CoastalWater.Build(root.transform, water);
                     var env = root.AddComponent<SeaEnvironment>(); env.Build(nav, surface.transform, water);
                     var ocean = surface.transform.Find("Water to horizon").GetComponent<MeshFilter>().sharedMesh;
-                    Check(ocean.bounds.size.x >= 4096 && ocean.vertexCount < 6000, map + " bounded-cost horizon water");
+                    Check(ocean.bounds.size.x >= 4096 && ocean.vertexCount < 25000, map + " bounded-cost horizon water");
                     env.Follow(nav.Harbour); float harbourFog = RenderSettings.fogDensity;
                     env.Follow(nav.Snap(nav.Border[0]));
                     Check(RenderSettings.fogDensity > harbourFog, map + " fog increases near border");
