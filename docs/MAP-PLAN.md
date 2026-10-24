@@ -109,3 +109,56 @@ Order: Harbour mouth and Kelp bank first (the first two maps players see), then 
 3. Map sizes in the table above (recommended) or bigger/smaller.
 4. Border: buoys + fog + horizon silhouettes (recommended).
 5. May the crew sort and stow while sailing (recommended) or does all work stop under way?
+
+## 7. Sailing feel and where the fish are (Claude's design calls, 2026-10-24)
+
+Built so far: SeaNav (routes), BoatSailor (steering), VoyageSea (voyages sail real routes, Relocate, deck work keeps
+ticking), MapNavChecks; Codex 1's SeaV2 maps and navigation.json for all five. Not yet: the maps in the scene, the
+border/horizon, the tap input, the camera, and fish richness. This section decides how those feel.
+
+### 7.1 Moving the boat
+
+- **Input.** Tap open water or a ground ring → the route appears as a dotted line on the water, ending in a ring; the
+  boat sets off at once (no confirm button: one tap, one action). Tap again while sailing → re-route from where the
+  boat is. Tap the boat → stop. Tap an island → target snaps to the nearest reachable water on the near side.
+  Beyond the buoys → snapped inside + navigator line. Gear out (net/line/cage soaking) → the existing
+  "Haul it first / Forfeit and go" modal before moving.
+- **Feel.** Ease in over ~1.5 s, cruise, ease out over the last boat-length; turns limited per hull (rowboat nimble,
+  big hulls wide); a slight bank into turns and a wake trail behind (white foam ribbon, fades in ~4 s). Shallows:
+  half speed, lighter water, a soft scrape sound if a hull edge enters. Never a hard stop against an island: slide.
+- **Camera.** Anchored = today's framing. Sailing = eases (1 s) to a higher, slightly wider follow camera, boat a bit
+  below centre so the destination is ahead; clamped to cameraBounds; eases back to the anchored framing on arrival.
+- **Arrival.** Entering a ground zone and slowing to a stop = anchored (anchor-drop sound + small splash). Anywhere in
+  the zone works; the ring shows its edge. Open water outside zones: you can stop there but you cannot fish (the
+  gear buttons say "No ground here").
+- **Time.** One cruise speed per hull, tuned so harbour → first ground is 10–20 s (Mo). Nothing else depends on it.
+
+### 7.2 Where the fish are rich
+
+Two layers, both visible to the player so moving is a decision, not a guess:
+
+1. **Ground richness (MASTER-PLAN M4, unchanged numbers).** Per ground per species 0.3–1.0: rods −0.02 per catch,
+   nets −0.004 per kg, floor 0.3, +0.35 recovery per voyage. Bite rate × richness. This is what pushes you to other
+   grounds over a session.
+2. **A school inside each ground (new, small).** Each ground has one moving hotspot (radius 6–8 m) that drifts slowly
+   (0.2–0.4 m/s) inside the zone and jumps to a new spot every 3–5 minutes or when its richness drops below 0.5.
+   Fishing with the boat inside the hotspot: bite rate ×1.3; at the zone edge ×1.0 (linear in between). This makes
+   "nudge the boat 10 m" worth a tap without punishing anyone who ignores it.
+
+**How the player sees it (no numbers on the water):**
+- Gulls circle above a rich school (3–6 gulls at ≥ 0.8, 1–2 when thinning, none when poor); occasional surface boils
+  and jumping fish at the hotspot.
+- The ground ring's colour: warm when rich, neutral when thinning, grey when poor (same bands as the navigator).
+- The navigator (when deployed) gives the numbers and suggestions: "Herring thinning here. Kelp edge is richer."
+  Tier-0 players without a navigator still get the gulls and ring colour.
+- Night: schools sit closer to the surface near light; lantern stations attract (M7 ties in later).
+
+**Not doing:** a fish-finder minigame, invisible random hotspots, or richness that changes mid-cast. Fish quality and
+species mix stay per ground as in MASTER-PLAN; the school only changes how often they bite.
+
+### 7.3 Order of work
+
+- Codex 2 (now): the sea in the scene: SeaV2 maps loaded per map, border buoys + fog + infinite water + horizon
+  silhouettes, tap input with route line, follow camera, wake, arrival; native captures. (brief: SEA-SCENE-1)
+- Codex 1 (from 21:20): grounds and fish: M4 grounds table, richness, schools, gulls/ring colour cues, navigator
+  report and suggestion, M4Checks. (brief: GROUNDS-1). Then the rest of SOL-CODE-1 if any remains.

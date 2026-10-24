@@ -1,0 +1,36 @@
+GROUNDS-1 — Codex 1 (high) — fishing grounds: richness, moving schools, visible cues, navigator (MASTER-PLAN M4)
+
+You are a fresh session; everything you need is in files. Claude (lead) wrote this for Mo and accepts your work.
+
+GOAL (Mo: "how to do the fishing spot stuff, like where fish are rich and aren't rich"): implement docs/MAP-PLAN.md
+§7.2 together with docs/MASTER-PLAN.md M4 (minus the fixed-path travel, which MAP-PLAN replaced):
+- Grounds table per map from navigation.json grounds: kind, zone, day pool, night pool, richness per species with the
+  M4 numbers (rods −0.02/catch, nets −0.004/kg, floor 0.3, +0.35 per voyage, start 1.0). Split the current map species
+  tables across the three grounds so no species is lost.
+- One moving school per ground (radius 6–8 m, drift 0.2–0.4 m/s inside the zone, jump every 3–5 min or when richness
+  < 0.5); bite rate × richness × (1.3 in the school → 1.0 at the zone edge). No fishing outside a zone.
+- Visible cues: gulls over the school (3–6 rich, 1–2 thinning, none poor), occasional surface boils/jumping fish, the
+  ground ring tinted warm/neutral/grey by the same bands.
+- Navigator: GroundReport bands Rich ≥ 0.8 / Thinning / Poor < 0.5 per species; "move" suggestion when another ground
+  beats the current by 0.3 on targeted classes, as a short navigator line; event warning lead time per M4.
+- Richness persists in the save (Save v2 payload) and recovers per voyage.
+
+CONTEXT (read first): docs/MAP-PLAN.md §7, docs/MASTER-PLAN.md M4, CURRENT.md, Assets/Scripts/Game/VoyageSea.cs,
+Sea/SeaNav.cs (grounds parsing), the fish-roll code in VoyageGame*.cs / GameData.cs, Data/SaveV2.cs, gull/bird assets
+already in the project (grep Gull/Bird), the last ~40 lines of comms.md.
+
+OWNERSHIP: new Assets/Scripts/Game/Data/Grounds.cs, Assets/Scripts/Game/Sea/Schools.cs + cue visuals, fish-roll code,
+Data/SaveV2.cs (richness only), Assets/Editor/M4Checks.cs. Shared with Codex 2 (sea scene, running in parallel):
+VoyageGame.cs and VoyageSea.cs — only small, local edits; re-read right before each edit, never reformat. Never:
+Sea/SeaScenery/SeaCamera/SeaInput (Codex 2), Deck/**, art folders of others, the player's save, scenes.
+
+CHECKS (scratch editor only, C:\Users\momoy\Projects\Catchline-ui2-sim; same commands as docs/briefs/SOL-SEANAV-1.txt):
+M4Checks per MASTER-PLAN M4 acceptance + MAP-PLAN §7.2 (school bonus 1.3 inside → 1.0 at edge; no bite outside a zone;
+school relocates; gull count follows bands; richness survives save/load; bot that relocates on suggestion earns more
+than one that never moves over 20 voyages at Kelp bank). All existing checks still pass.
+DONE = EVIDENCE: check PASS lines in comms; native captures (1440×900, 844×390, TEST/no-save) of a rich ground with gulls
+and a poor one, opened and listed.
+
+RULES: commit per working step (only your files; plain message, no model/agent names), no push. comms.md START,
+CHECKPOINT, QUESTION when unclear (take the safer reading), DONE/PARTIAL. After GROUNDS-1, finish whatever remains of
+docs/briefs/SOL-CODE-1.txt (check its comms lines: D1–D5a are done).

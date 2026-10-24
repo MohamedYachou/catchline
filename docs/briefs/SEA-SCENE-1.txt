@@ -1,0 +1,36 @@
+SEA-SCENE-1 — Codex 2 (high) — put the navigable sea in the game: maps, border, beyond, tap-to-sail, camera
+
+You are a fresh session; everything you need is in files. Claude (lead) wrote this for Mo and accepts your work.
+New role for this task: you write game C# as well as art. The women, Mira and A5/A6 are finished; do not reopen them.
+
+GOAL (Mo: "the maps, the outside of the maps, moving the boat around in the map, the islands and collisions"):
+make docs/MAP-PLAN.md §3, §7.1 real in the running game, for all five maps:
+1. Load each map's SeaV2 model (Assets/Art/Models/Environment/<Map>/<Map>SeaV2.fbx) instead of the old diorama when
+   at sea; harbour start/end at navigation.json "harbour".
+2. Border: outer marker buoys, fog thickening over the last 30 m, darker water; infinite water plane to the horizon;
+   horizon silhouettes (headlands, far islands, lighthouse, a ship) that you cannot reach. Use Codex 1's silhouettes
+   from the SeaV2 files if present, otherwise build simple ones in the same style.
+3. Tap-to-sail exactly as MAP-PLAN §7.1 (route line, re-route, tap boat = stop, island/border snapping, haul modal),
+   follow camera with ease and clamp, wake trail, bank in turns, shallows slowdown feedback, arrival/anchor feedback.
+The routing/steering already exists: Assets/Scripts/Game/Sea/SeaNav.cs, BoatSailor.cs, Assets/Scripts/Game/VoyageSea.cs
+(SailTo, Relocate, UpdateSeaTravel). Use them; extend only where needed.
+
+CONTEXT (read first): docs/MAP-PLAN.md (whole, §7 is the design), CURRENT.md, VoyageSea.cs, Sea/*.cs, VoyageScenery.cs,
+VoyageGame.cs (BeginTransition/FinishTransition/Step), the camera code it uses, docs/UI-SYSTEM.md for any UI element,
+Art/STYLE.md, the last ~40 lines of comms.md.
+
+OWNERSHIP: Assets/Scripts/Game/Sea/** (new files: SeaScenery.cs, SeaCamera.cs, SeaInput.cs or similar),
+VoyageSea.cs, VoyageScenery.cs, camera code, new art under Art/Models/SeaV2Dressing/ if needed.
+Shared with Codex 1 (working on fish grounds in parallel from 21:20): VoyageGame.cs — only small hook calls, re-read the
+file right before each edit, never reformat. Never: Data/Grounds*, fish rolling, Deck/**, the player's save, scenes.
+
+CHECKS (scratch editor only: C:\Users\momoy\Projects\Catchline-ui2-sim; never batchmode/open the main project):
+robocopy C:\Users\momoy\Projects\Catchline\Assets C:\Users\momoy\Projects\Catchline-ui2-sim\Assets /E /XF ArtLibrary.asset UiV2Preview.unity
+unity recompile / invoke_menu "Catchline/Rebuild Art Library" / script eval as in docs/briefs/SOL-SEANAV-1.txt.
+All existing checks pass (MapNavChecks, M0, M1Graph/Rowboat/HullChecks, M2Checks, M2/M3/M5 Data).
+DONE = EVIDENCE: native play-mode captures at 1440×900 and 844×390 (docs/tools/uiv2-capture.ps1 pattern, TEST/no-save
+mode) for Harbour mouth and Kelp bank: anchored at each ground, mid-sail with route line and wake, at the fog border,
+looking out at the horizon. Open every capture; list them in your comms line. Then the other three maps.
+
+RULES: commit per working step (stage only your files; plain message, no model/agent names), no push. comms.md START,
+CHECKPOINT, QUESTION (when MAP-PLAN is unclear, take the safer reading and ask), DONE/PARTIAL.

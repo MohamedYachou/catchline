@@ -26,11 +26,12 @@
   <button data-orbit="180deg 80deg">back</button><button data-orbit="-90deg 80deg">their right</button></div>
 <main><img id="portrait" alt="2D portrait"><model-viewer id="mv" camera-controls shadow-intensity=".6" exposure="1.1" interaction-prompt="none"></model-viewer></main>
 <script>
-const crew = ['Pim','Dirk','Kofi','Sam','Mats','Olaf','Captain','Mira','Lise','Tess','Ines','Noor'];
+const crew = ['Pim','Dirk','Kofi','Sam','Mats','Olaf','Captain','Mira','Lise','Tess','Ines','Noor','Ana','Rosa','Tove','CaptainF'];
+const portraitOf = { CaptainF: 'captain' };
 const mv = document.getElementById('mv'), img = document.getElementById('portrait'), bar = document.getElementById('names');
 function show(n) {
   mv.src = 'glb/' + n + '.glb?' + Date.now();
-  img.src = 'portraits/portrait-' + n.toLowerCase() + '.png';
+  img.src = 'portraits/portrait-' + (portraitOf[n] || n.toLowerCase()) + '.png';
   bar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.textContent === n));
   try { localStorage.setItem('crew', n); } catch (e) {}
 }
