@@ -102,7 +102,7 @@ the game beyond a view:
 - **Jig (section 4):** no boat has a jig station today (StationKind.Jig and JobKind.JigCycle exist but nothing builds
   them). The minigame needs jig gear first: which boat gets a jig station (proposal: the tier-5 boat, as a night rig,
   matching Lise's "Jigs (night)" card), and what it catches (proposal: mackerel/pollock/cod from the existing tables).
-- **Net repair (section 5):** today a shallow-net tear simply uses up a net (replacement 40 coins). Mending makes a
+- **Net repair (section 5):** today a shallow-net tear simply uses up a net (replacement 30 coins). Mending makes a
   tear cost time instead of coins. Proposal: a torn net goes to a "torn" pile; in harbour the captain mends it free
   with the trace minigame (a clean trace restores it; a ragged one needs another go), or the crew mends it for the
   replacement price. This lowers net costs for active players.
