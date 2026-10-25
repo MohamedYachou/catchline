@@ -1,0 +1,15 @@
+STRIKE-TAP-ART-1 — Codex 2 (WSL) — the tap burst and ripple for the strike panel (plan item D1)
+GOAL: docs/plans/NIGHT-PLAN-CLAUDE.md D1 asks for "the tap burst and ripple in the strike panel" from the goal render
+17-hud-fishing.png. Draw the two sprites; code wires them later.
+CONTEXT: find 17-hud-fishing.png under Art/ (the HUD goal renders) and look at the strike panel's tap effect;
+Art/STYLE.md; your fx-cast-ring / fx-coin-glint deliveries (Art/Source/CastSplash, Art/Source/PurchaseFx) for format.
+DELIVER into Art/Source/StrikeTap/ (SVG masters, PNGs, review/sheet.png, REPORT.md) and identical PNGs in
+Assets/Art/UI/Crew/ (no .meta files):
+ A fx-tap-burst.png 256x256 RGBA: a short, punchy comic burst (8-10 thick rays, white core, gold/coral rim) for the
+   moment the player taps Strike. Reads at 64 px.
+ B fx-tap-ripple.png 256x256 RGBA: a round (not oval: this sits on the flat UI panel) double ring, cream with a
+   teal edge, transparent centre, for the press ripple.
+ Match the goal render's look if it shows them; if the render and this brief disagree, follow the render and say so.
+OWNERSHIP: only those paths. No git, no Unity, no code.
+DONE = EVIDENCE: review/sheet.png on cream and navy at 32, 64, 200 px, next to a crop of the goal render's strike panel.
+REPORTING: one DONE line per item in comms.md; QUESTION and skip when blocked.

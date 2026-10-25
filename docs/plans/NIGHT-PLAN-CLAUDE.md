@@ -82,7 +82,7 @@ Work top to bottom. Tick boxes as you go, commit after every item, push to `prot
 ### D. UI and feel (toward the mockups)
 - [ ] D1. Match `17-hud-fishing.png` and `18-hud-harbour.png` layouts precisely: spacing, icon rows, chip styles, the tap burst and ripple in the strike panel. Use the kit sprites everywhere; no generated fallbacks visible.
 - [ ] D2. **Title screen:** Codex's logo and title illustration (Codex UI pass 2) once they land; until then a styled wordmark. A gentle camera drift over the harbour.
-- [ ] D3. **Feedback:**
+- [x] D3. **Feedback:** (done 10-26: coin flights sell+buy, catch card + first-catch reveal, +1 on cooler, cast splash ring)
   - a coin pop-up (+N) on sale and purchase
   - a catch card when a fish lands (portrait, name, kg, value), small and non-blocking
   - floating "+1" on the cooler
