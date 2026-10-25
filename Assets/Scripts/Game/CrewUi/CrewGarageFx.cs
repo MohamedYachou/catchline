@@ -163,9 +163,12 @@ namespace Catchline.Game
                 var card = coastalUi.Card(id, new Rect(body.x + i * (cw + gap), body.y, cw, ch), Skin.Card.Soft);
                 float th = compactInterface ? 34 : 42;
                 coastalUi.Text(id + "/name", new Rect(12, 8, cw - 24, th), def.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
-                float bh = compactInterface ? 46 : 56, art = Mathf.Min(cw - 40, ch - th - bh * 2 - 78);
-                var artRect = new Rect((cw - art) / 2, th + 14, art, art);
-                                coastalUi.Icon(id + "/shadow", new Rect(artRect.x + art * .1f, artRect.yMax - art * .2f, art * .8f, art * .2f), "fx-chest-shadow", card);
+                float bh = compactInterface ? 46 : 56;
+                // Short cards (phones) put the chest beside its text and the two buttons side by side.
+                bool tight = ch < 320;
+                float art = tight ? ch - th - bh - 30 : Mathf.Min(cw - 40, ch - th - bh * 2 - 78);
+                var artRect = tight ? new Rect(12, th + 10, art, art) : new Rect((cw - art) / 2, th + 14, art, art);
+                coastalUi.Icon(id + "/shadow", new Rect(artRect.x + art * .1f, artRect.yMax - art * .2f, art * .8f, art * .2f), "fx-chest-shadow", card);
                 coastalUi.Icon(id + "/art", artRect, ChestArt(kind, false), card, count > 0 ? Color.white : new Color(.8f, .82f, .84f, 1));
                 // Waiting chests bob and give a little wiggle every few seconds.
                 float phase = (Now + i * .7f) % 3.2f;
@@ -173,18 +176,21 @@ namespace Catchline.Game
                 coastalUi.Pose(id + "/art", wiggle, count > 0 ? 1 + .02f * Mathf.Sin(Now * 2.4f + i) : .94f);
                 if (count > 0)
                 {
-                    coastalUi.Sliced(id + "/count", new Rect(artRect.xMax - 52, artRect.y, 52, 40), "v2-pill-cream", card, RarityColour(CardRarity.Gold));
-                    coastalUi.Text(id + "/count/n", new Rect(artRect.xMax - 52, artRect.y, 52, 40), "x" + count, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
+                    float pw = tight ? 40 : 52, ph = tight ? 30 : 40;
+                    var pill = new Rect(artRect.xMax - pw * (tight ? .7f : 1), artRect.y - (tight ? 6 : 0), pw, ph);
+                    coastalUi.Sliced(id + "/count", pill, "v2-pill-cream", card, RarityColour(CardRarity.Gold));
+                    coastalUi.Text(id + "/count/n", pill, "x" + count, tight ? Skin.Type.Body : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
                 }
-                coastalUi.Text(id + "/what", new Rect(12, artRect.yMax + 2, cw - 24, 46),
+                coastalUi.Text(id + "/what", tight ? new Rect(art + 24, th + 6, cw - art - 34, art + 8) : new Rect(12, artRect.yMax + 2, cw - 24, 46),
                     $"{def.TokensFor(State.CardTier)} tokens · {def.Tools} tool{(def.Tools > 1 ? "s" : "")}" + (def.Guarantee > CardRarity.White ? $", one {CardProgression.RarityName(def.Guarantee)}+" : "") + $"\n{ChestSource(kind)}",
-                    Skin.Type.Caption, Skin.InkSoft, TextAnchor.UpperCenter, card);
-                float by = ch - bh - 12; var k = kind;
-                coastalUi.Primary(id + "/open", new Rect(12, by, cw - 24, bh), count > 0 ? "Open" : "None waiting", () => StartReveal(k), null, count > 0, card);
+                    Skin.Type.Caption, Skin.InkSoft, tight ? TextAnchor.MiddleLeft : TextAnchor.UpperCenter, card);
+                float by = ch - bh - (tight ? 10 : 12), half = (cw - 32) / 2; var k = kind;
+                bool split = tight && def.ForSale;
+                coastalUi.Primary(id + "/open", split ? new Rect(20 + half, by, half, bh) : new Rect(12, by, cw - 24, bh), count > 0 ? "Open" : split ? "None" : "None waiting", () => StartReveal(k), null, count > 0, card);
                 if (def.ForSale)
                 {
                     int price = State.ChestPrice(kind);
-                    coastalUi.Secondary(id + "/buy", new Rect(12, by - bh - 8, cw - 24, bh), $"Buy · {price:N0} coins",
+                    coastalUi.Secondary(id + "/buy", split ? new Rect(12, by, half, bh) : new Rect(12, by - bh - 8, cw - 24, bh), split ? $"{price:N0}" : $"Buy · {price:N0} coins",
                         () => { if (BuyChest(k)) audio?.Play(VoyageAudio.Cue.Purchase, .6f); }, "v2-icon-coin", State.Coins >= price, card);
                 }
             }
@@ -397,30 +403,33 @@ namespace Catchline.Game
             float w = r.width, pad = 14;
             float bh = compactInterface ? 48 : 58;
             int pairs = MergeablePairs().Count;
-            coastalUi.Secondary("tools/detail/all", new Rect(pad, r.height - bh - pad, w - pad * 2, bh), pairs > 0 ? $"Merge all · {pairs}" : "Nothing to merge", MergeAll, null, pairs > 0, panel);
+            bool tight = r.height < 400;
+            float half = (w - pad * 3) / 2;
+            coastalUi.Secondary("tools/detail/all", tight ? new Rect(pad * 2 + half, r.height - bh - pad, half, bh) : new Rect(pad, r.height - bh - pad, w - pad * 2, bh), pairs > 0 ? $"Merge all · {pairs}" : "Nothing to merge", MergeAll, null, pairs > 0, panel);
             if (t == null) return;
             var col = RarityColour(t.Rarity);
-            float tile = Mathf.Min(w * .45f, r.height * .32f), m = Now - mergeFxAt;
-            var tileRect = new Rect((w - tile) / 2, pad, tile, tile);
+            float tile = tight ? Mathf.Min(r.height - bh - pad * 2 - 12, 84) : Mathf.Min(w * .45f, r.height * .32f), m = Now - mergeFxAt;
+            var tileRect = tight ? new Rect(pad, pad, tile, tile) : new Rect((w - tile) / 2, pad, tile, tile);
             if (t.Uid == mergeFxUid && m < 1.2f)
             {
-                coastalUi.Icon("tools/detail/rays", Centered(w / 2, pad + tile / 2, tile * 2.2f, tile * 2.2f), "fx-rays", panel, Tint(col, .6f * (1 - Ease.Clamp((m - .6f) / .6f))));
+                coastalUi.Icon("tools/detail/rays", Centered(tileRect.center.x, pad + tile / 2, tile * 2.2f, tile * 2.2f), "fx-rays", panel, Tint(col, .6f * (1 - Ease.Clamp((m - .6f) / .6f))));
                 coastalUi.Pose("tools/detail/rays", Now * 30, 1);
-                coastalUi.Icon("tools/detail/burst", Centered(w / 2, pad + tile / 2, tile * 1.2f, tile * 1.2f), "fx-burst", panel, Tint(Color.white, .7f * (1 - Ease.Clamp(m / .5f))));
+                coastalUi.Icon("tools/detail/burst", Centered(tileRect.center.x, pad + tile / 2, tile * 1.2f, tile * 1.2f), "fx-burst", panel, Tint(Color.white, .7f * (1 - Ease.Clamp(m / .5f))));
                 coastalUi.Pose("tools/detail/burst", 0, .5f + 1.4f * Ease.OutCubic(m / .5f));
             }
             ToolTileFace("tools/detail/tile", tileRect, t, panel);
             coastalUi.Pose("tools/detail/tile", 0, t.Uid == mergeFxUid && m < .6f ? 1 + .18f * Ease.Pulse(m / .6f) : 1);
-            float y = pad + tile + 8;
-            coastalUi.Text("tools/detail/name", new Rect(pad, y, w - pad * 2, 34), ToolInfo.Name(t.Kind), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, panel);
-            coastalUi.Text("tools/detail/rarity", new Rect(pad, y + 32, w - pad * 2, 26), $"{CardProgression.RarityName(t.Rarity)} · {ToolInfo.Class(t.Kind)} tool", Skin.Type.Small, Darker(col), TextAnchor.MiddleCenter, panel);
+            float y = tight ? pad - 4 : pad + tile + 8, tx = tight ? pad * 2 + tile : pad, tw = w - tx - pad;
+            var align = tight ? TextAnchor.MiddleLeft : TextAnchor.MiddleCenter;
+            coastalUi.Text("tools/detail/name", new Rect(tx, y, tw, tight ? 28 : 34), ToolInfo.Name(t.Kind), Skin.Type.Heading, Skin.Ink, align, panel);
+            coastalUi.Text("tools/detail/rarity", new Rect(tx, y + (tight ? 26 : 32), tw, 24), $"{CardProgression.RarityName(t.Rarity)} · {ToolInfo.Class(t.Kind)} tool", Skin.Type.Small, Darker(col), align, panel);
             string holder = State.ToolOwner(t.Uid);
             string who = holder == null ? "Spare" : holder == GameState.CaptainToolOwner ? "Fitted on the captain" : $"Fitted on {Cards.ById(holder)?.Name}";
-            coastalUi.Text("tools/detail/body", new Rect(pad, y + 62, w - pad * 2, 64), $"+{CardProgression.ToolBonus(t.Rarity) * 100:0}% {ToolInfo.Job(t.Kind)}\n{who}", Skin.Type.Body, Skin.InkSoft, TextAnchor.UpperCenter, panel);
+            coastalUi.Text("tools/detail/body", tight ? new Rect(tx, y + 50, tw, tile - 40) : new Rect(pad, y + 62, w - pad * 2, 64), $"+{CardProgression.ToolBonus(t.Rarity) * 100:0}% {ToolInfo.Job(t.Kind)}\n{who}", tight ? Skin.Type.Caption : Skin.Type.Body, Skin.InkSoft, tight ? TextAnchor.UpperLeft : TextAnchor.UpperCenter, panel);
             var partner = MergePartner(t);
             string next = t.Rarity < CardRarity.Mythic ? CardProgression.RarityName(t.Rarity + 1) : null;
             string label = next == null ? "Mythic is the top" : partner != null ? $"Merge into {next}" : $"Needs a second {CardProgression.RarityName(t.Rarity)} {ToolInfo.Name(t.Kind).ToLowerInvariant()}";
-            coastalUi.Primary("tools/detail/merge", new Rect(pad, r.height - bh * 2 - pad - 10, w - pad * 2, bh), label, () => MergeWithFx(t.Uid, partner.Uid), null, partner != null, panel);
+            coastalUi.Primary("tools/detail/merge", tight ? new Rect(pad, r.height - bh - pad, half, bh) : new Rect(pad, r.height - bh * 2 - pad - 10, w - pad * 2, bh), tight && partner != null ? "Merge" : tight && partner == null ? "Need a pair" : label, () => MergeWithFx(t.Uid, partner.Uid), null, partner != null, panel);
         }
 
         // The other copy to merge with: a spare first so fitted tools stay fitted.
