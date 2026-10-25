@@ -33,6 +33,7 @@ namespace Catchline.EditorTools
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
+            if (Want("rod")) Rod();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -138,6 +139,19 @@ namespace Catchline.EditorTools
             g = Game("Deck HUD shot"); g.StartTier5Trial();
             for (int i = 0; i < 600; i++) g.Tick(.1f);
             ShotUi(g, "hud-deck-tier5-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // The captain's rod view with its HUD on a phone: waiting for a bite, the take, the fish lifted.
+        static void Rod()
+        {
+            var g = FishViewChecks.Fixture();
+            g.StageFishViewCapture(); g.Tick(1.25f);
+            var r = g.Manning;
+            void Wait(Func<bool> done) { for (float t = 0; t < 25 && !done(); t += .025f) g.Tick(.025f); }
+            Wait(() => r.Reading.Phase == FishPhase.Inspect); ShotUi(g, "rod-0-waiting-phone", 844, 390); ShotUi(g, "rod-0-waiting");
+            Wait(() => r.Reading.Phase == FishPhase.Take); g.Tick(.2f); ShotUi(g, "rod-1-take-phone", 844, 390);
+            g.StrikeTap(); g.Tick(r.ThrashSeconds + .85f); ShotUi(g, "rod-2-lifted-phone", 844, 390); ShotUi(g, "rod-2-lifted");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

@@ -140,6 +140,9 @@ namespace Catchline.Game
                 deckFov = 2 * Mathf.Atan(g.Cam.orthographicSize / Mathf.Max(1, Vector3.Distance(deckPosition, g.Captain.Root.position))) * Mathf.Rad2Deg;
                 foreach (var renderer in rod.Root.GetComponentsInChildren<Renderer>(true))
                     deckRodRenderers.Add((renderer, renderer.forceRenderingOff));
+                // The camera sits at the captain's eyes: their own jacket and arms would fill the bottom of the frame.
+                foreach (var renderer in g.Captain.Root.GetComponentsInChildren<Renderer>(true))
+                    deckRodRenderers.Add((renderer, renderer.forceRenderingOff));
                 outward = g.Boat.TransformDirection(rod.Outward); outward.y = 0; outward.Normalize();
                 right = Vector3.Cross(Vector3.up, outward);
                 castStart = g.Boat.TransformPoint(rod.TipLocal);
