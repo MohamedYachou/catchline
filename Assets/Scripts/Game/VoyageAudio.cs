@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace Catchline.Game
 {
-    // Original, generated foley. No downloaded recordings or per-frame audio allocations.
+    // Original foley: the offline-synthesized pack in Resources/Audio (SOUND-1) when present, else generated here.
+    // No downloaded recordings or per-frame audio allocations.
     public sealed class VoyageAudio : MonoBehaviour
     {
-        public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click }
+        public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click,
+            Winch, CrabClack, SealBark, NetSlap, Gut, Coins }
         readonly Dictionary<Cue, AudioClip> clips = new();
+        readonly Dictionary<Cue, AudioClip[]> packed = new();
         AudioSource ambience, foley;
-        AudioClip sea;
+        AudioClip sea, harbourBed, openSeaBed;
         float nextOar, nextGull;
         bool preview;
         float previewVolume = .65f;
@@ -28,21 +31,34 @@ namespace Catchline.Game
             ambience.spatialBlend = foley.spatialBlend = 0;
             ambience.loop = true;
             sea = MakeSea();
-            ambience.clip = sea;
-            foreach (Cue cue in Enum.GetValues(typeof(Cue))) clips[cue] = MakeCue(cue);
+            harbourBed = Resources.Load<AudioClip>("Audio/Ambience/HarbourDay");
+            openSeaBed = Resources.Load<AudioClip>("Audio/Ambience/OpenSea");
+            ambience.clip = openSeaBed != null ? openSeaBed : sea;
+            foreach (Cue cue in Enum.GetValues(typeof(Cue)))
+            {
+                clips[cue] = MakeCue(cue);
+                var variants = new List<AudioClip>();
+                for (int i = 0; i <= 4; i++) { var c = Resources.Load<AudioClip>($"Audio/SFX/{cue}_{i}"); if (c != null) variants.Add(c); }
+                if (variants.Count > 0) packed[cue] = variants.ToArray();
+            }
             ambience.volume = Volume * .23f;
             ambience.Play();
         }
 
         public void Play(Cue cue, float gain = 1f)
         {
-            if (foley != null && Volume > .001f) foley.PlayOneShot(clips[cue], Volume * gain);
+            if (foley == null || Volume <= .001f) return;
+            var clip = packed.TryGetValue(cue, out var set) ? set[UnityEngine.Random.Range(0, set.Length)] : clips[cue];
+            foley.PlayOneShot(clip, Volume * gain);
         }
 
         public void Mix(bool paused, bool harbour, bool rowing)
         {
             if (ambience == null) return;
             ambience.volume = Volume * (paused ? .06f : harbour ? .16f : .23f);
+            // The pack's harbour bed in port, its open-sea bed out there; the generated wash otherwise.
+            var bed = harbour && harbourBed != null ? harbourBed : !harbour && openSeaBed != null ? openSeaBed : sea;
+            if (ambience.clip != bed) { ambience.clip = bed; ambience.Play(); }
             foley.volume = paused ? 0 : 1;
             // Gulls over the harbour now and then.
             if (harbour && !paused && Time.time >= nextGull)
@@ -84,6 +100,9 @@ namespace Catchline.Game
 
         static AudioClip MakeCue(Cue cue)
         {
+            // The pack's newer cues borrow the nearest generated sound until their files are in.
+            var stand = cue switch { Cue.Winch => Cue.Reel, Cue.CrabClack => Cue.Click, Cue.SealBark => Cue.Horn, Cue.NetSlap or Cue.Gut => Cue.Splash, Cue.Coins => Cue.Sale, _ => cue };
+            if (stand != cue) return MakeCue(stand);
             const int rate = 22050;
             float duration = cue switch
             {

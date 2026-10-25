@@ -28,7 +28,7 @@ namespace Catchline.Game
             toastUntil = catchUntil = 0;
         }
 
-        public void TapCage() { if (cageView?.Model.Phase == CagePhase.Pull) { cageView.Model.Tap(); if (cageView.Model.Tapped) audio?.Play(VoyageAudio.Cue.Creak, .35f); } }
+        public void TapCage() { if (cageView?.Model.Phase == CagePhase.Pull) { cageView.Model.Tap(); if (cageView.Model.Tapped) audio?.Play(VoyageAudio.Cue.Winch, .3f); } }
         public void DragCage(int dir) { if (cageView != null && !cageView.Model.Drag(dir) && cageView.Model.Phase == CagePhase.Snag) audio?.Play(VoyageAudio.Cue.Moor, .4f); }
         public void FlickCage(bool keep) => cageView?.Flick(keep);
         public void LeaveCage() { if (cageView != null && !cageView.Finished) { var v = cageView; cageView = null; v.Dispose(); Cam.orthographic = true; Cam.ResetProjectionMatrix(); v.Cancel(); } }
@@ -300,7 +300,7 @@ namespace Catchline.Game
                     if (onBoard == null && Model.Current is { } crab && age - sortSince > .5f)
                     {
                         onBoard = inPot[Model.Index]; onBoard.SetParent(board, true);
-                        boardSince = age; g.audio?.Play(VoyageAudio.Cue.Click, .35f);
+                        boardSince = age; g.audio?.Play(VoyageAudio.Cue.CrabClack, .45f);
                     }
                     if (onBoard != null)
                     {

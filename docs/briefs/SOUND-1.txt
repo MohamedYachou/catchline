@@ -7,9 +7,9 @@ woody, wet, never arcade.
 
 METHOD: offline synthesis in Python (numpy/scipy only; layered filtered noise, resonant modes, granular water,
 pitch/amp envelopes, small random variation). NO downloads, no external samples, no TTS.
-DELIVER Art/Audio/SFX/<Cue>_<n>.wav, 44.1 kHz 16-bit mono, 3 variants each, peak <= -3 dBFS, no click at start/end:
+DELIVER Art/Audio/SFX/<Cue>_<n>.wav (n = 0,1,2; Claude copies them to Assets/Resources/Audio/SFX), 44.1 kHz 16-bit mono, 3 variants each, peak <= -3 dBFS, no click at start/end:
 - Existing cues: Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click.
-- New cues: Winch (hydraulic hauler whine, 1.5 s, loopable), CrabClack (claws on plastic), SealBark, NetSlap (wet net on
+- New cues: Winch (one short hauler pull, 0.35-0.45 s, played on every fast tap so it must layer cleanly), CrabClack (claws on plastic), SealBark, NetSlap (wet net on
   deck), Gut (short wet knife slit), Coins (small coin pile).
 - Ambience, stereo 30 s seamless loops: Art/Audio/Ambience/HarbourDay.wav (lapping on pilings, distant gulls, rope
   creak), OpenSea.wav (swell, wind, hull slap), Skerries.wav (surf on rock, seals far off).

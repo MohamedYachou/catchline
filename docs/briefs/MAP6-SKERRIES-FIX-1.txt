@@ -22,3 +22,17 @@ KEEP: playable size, ground IDs/positions (move a ground at most 4 m if a rock n
 navigation.json and grounds.json), navigation contract, all checks. Re-run your audits, recapture the same 10 native
 frames, open each one. Same ownership as MAP6-SKERRIES-1. One comms.md line per fixed item. No git; NEVER create
 Art/Models/CrewV2/_STOP-WATCHDOGS.
+
+ADDENDUM (Claude, 2026-10-25 06:15) — review of docs/screens/map6-skerries-fix-1/native (04:48 frames). Still to fix:
+A. Seal rocks (seal-rocks-1440.png): the two colony rocks are tall smooth domes (~3 m, rounded, one slab on top)
+   sitting right under the hull, 1-2 m away. Make them LOW stepped granite slabs, 0.5-1.5 m above water, broken
+   angular edges, near-flat tops where seals lie, and move them 6-9 m off the anchor so they sit in the lower
+   corners of the deck frame, never touching the hull or under bubbles.
+B. Kelp gully (kelp-gully-844.png): the same two domes hem the boat. Make the walls long low ridges (10-15 m long,
+   1.5-3 m high) parallel either side, at least 5 m from the hull, kelp between them.
+C. Outer reef: finish replacing the sharp fins. Do NOT bake ReefBreak meshes AND keep ReefBreak_n empties: Claude's
+   code (VoyageSkerriesLife.cs) already spawns animated ReefBreak_A/B on each ReefBreak_n empty. Leave the empties,
+   remove your baked fin foam there; keep only thin static foam rings at rock waterlines.
+D. No seals visible: confirm SealColony_1/_2 empties are in the exported FBX on the slab tops (Claude's code spawns
+   the colony and seal there). Recapture with the current Assets (pull the latest Assets/Scripts) so seals, surf and
+   the crab buoy set appear; open each frame and say in comms whether seals are visible.
