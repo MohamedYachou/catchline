@@ -47,7 +47,11 @@ namespace Catchline.Game
 
         void InterfaceCoinFx()
         {
-            if (!CoinFxActive) return;
+            // Keep the last contact visible through its short tail, without extending the balance count.
+            float elapsed = Time.unscaledTime - coinFxStart;
+            float tail = coinFxSpend ? (HasUi("fx-buy-burst") ? Mathf.Max(CoinFxSeconds, CoinFxFlight + .45f) : CoinFxSeconds)
+                : CoinFxSeconds + (HasUi("fx-coin-glint") ? .2f : 0);
+            if (elapsed >= tail) return;
             string walletId = coastalUi.TryFind("shop/coins", out _) ? "shop/coins" : "port/coins";
             if (!coastalUi.TryFind(walletId, out var wallet)) return;
             float t = Time.unscaledTime - coinFxStart, size = compactInterface ? 26 : 34;
@@ -74,12 +78,37 @@ namespace Catchline.Game
                 coastalUi.Icon(id, new Rect(p.x - s / 2, p.y - s / 2, s, s), "v2-icon-coin", null, null, "icon-coin");
                 coastalUi.Pose(id, (1 - k) * 220 * (spread < 0 ? -1 : 1));
             }
-            if (landed > coinFxLanded) { coinFxLanded = landed; audio?.Play(VoyageAudio.Cue.CoinLand, .12f); }
+            if (CoinFxActive && landed > coinFxLanded) { coinFxLanded = landed; audio?.Play(VoyageAudio.Cue.CoinLand, .12f); }
             // Earning, the wallet bumps on each landing; paying, the bought item glows as the coins arrive.
             float since = landed == 0 ? 1 : (t - (landed - 1) * CoinFxStagger - CoinFxFlight) / .15f;
             if (!coinFxSpend) coastalUi.Pose(walletId, 0, 1 + .07f * (1 - Ease.Clamp(since)));
             else coastalUi.Icon("coinfx/flash", landed == 0 ? Rect.zero : new Rect(coinFxFrom.x - coinFxFrom.width * .15f, coinFxFrom.y - coinFxFrom.height * .15f, coinFxFrom.width * 1.3f, coinFxFrom.height * 1.3f),
                 "fx-glow", null, new Color(1f, .85f, .4f, .8f * (1 - Ease.Clamp((t - CoinFxFlight) / CoinFxSeconds))));
+            // One retained glint restarts on each contact; overlapping coins never stack flashes.
+            if (!coinFxSpend && landed > 0 && HasUi("fx-coin-glint"))
+            {
+                float age = t - CoinFxFlight - (landed - 1) * CoinFxStagger;
+                if (age >= 0 && age < .2f)
+                {
+                    // Follow the wallet's current bump, including its scaled coin slot.
+                    coastalUi.TryFind(walletId, out var posedWallet);
+                    var glintSlot = coastalUi.TryFind(walletId + "/coin", out var coinIcon) ? coinIcon.center
+                        : new Vector2(posedWallet.x + posedWallet.height * .55f, posedWallet.center.y);
+                    float k = age / .2f, s = (compactInterface ? 30 : 40) * Mathf.Lerp(.6f, 1.15f, Ease.OutCubic(k));
+                    coastalUi.Icon("coinfx/glint", new Rect(glintSlot.x - s / 2, glintSlot.y - s / 2, s, s),
+                        "fx-coin-glint", null, new Color(1, 1, 1, 1 - k));
+                    coastalUi.Pose("coinfx/glint", Mathf.Lerp(-12, 12, k));
+                }
+            }
+            // The first purchase contact owns the burst clock, above the existing gold glow.
+            float burst = (t - CoinFxFlight) / .45f;
+            if (coinFxSpend && burst >= 0 && burst < 1 && HasUi("fx-buy-burst"))
+            {
+                float basis = Mathf.Clamp(Mathf.Min(coinFxFrom.width, coinFxFrom.height) * 1.8f, compactInterface ? 80 : 110, compactInterface ? 140 : 200);
+                float s = basis * Mathf.Lerp(.6f, 1.3f, Ease.OutCubic(burst));
+                coastalUi.Icon("coinfx/burst", new Rect(to.x - s / 2, to.y - s / 2, s, s),
+                    "fx-buy-burst", null, new Color(1, 1, 1, 1 - burst));
+            }
         }
     }
 }

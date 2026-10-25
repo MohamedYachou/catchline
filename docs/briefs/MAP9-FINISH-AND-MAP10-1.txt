@@ -1,0 +1,25 @@
+MAP9-FINISH-AND-MAP10-1 — Codex 1 (Windows) — finish Whale shelf, then a tenth map (Mo, 10-26: "new maps")
+ORDER: finish PURCHASE-FX-1 first (already assigned). Then this. STRIKE-TAP-1 moves to Claude; drop it.
+
+PART 1, MAP9 (your D5 QUESTION is answered): Claude added spot 8's chart point (VoyageChart.NauticalChartPoint
+8 => (.06,.40), open water west of Kelp bank) and its glyph (VoyageIllustratedChart case 13, a whale tail). Re-run
+only the affected verification (chart frames 1440/844, a trip to each ground), confirm the Whale shelf pin and card no
+longer cover Harbour mouth, then log DONE MAP9 with the evidence paths. Water optics stay production blue for now.
+
+PART 2, MAP10 "Seal cliffs": built exactly like MAP7-9 (your pipeline, REPORT, LESSONS in MAP9-WHALE-SHELF-1.txt).
+Claude's design calls:
+- Theme: a tall line of sea cliffs on the far north coast with a natural sea arch, a pebble cove where grey seals
+  haul out, and a sea stack. Angular house-rock style, two-tone broken edges, white bird streaks; no buildings.
+- Size 340 x 260 m, three grounds: "Arch pool" (pollock 40, wrasse 30, conger 15, rare lobster 2), "Seal cove"
+  (mackerel 40, herring 30, sea bass 20, rare grey mullet 3), "Stack race" (cod 35, coalfish/pollock 30, ling 15,
+  rare halibut 1). Existing species only: substitute the nearest existing species where one is missing and say so.
+- Spot data: RowSeconds 36, BiteWait 1.5, ChartCost 2,600, unlocks one step after Whale shelf.
+  Blurb: "Cliffs, a sea arch and seals on the stones. Wrasse in the pool, cod in the race."
+- Leave empties for life Claude spawns: SealHaulout_1..3 on the cove stones (on the surface), CliffGulls_1..2 on
+  ledges, ArchSpray_1 at the arch mouth (water level). Do not bake those props.
+- Chart: Claude will add spot 9's point and glyph; leave a QUESTION when your capture needs them.
+OWNERSHIP/DONE: as MAP9 (art, import, code in GameData Spots + map lists, Grounds.ByMap[9], checks in Catchline-sim
+with ten maps and a trip to each new ground, 10 native frames opened one by one, REPORT.md, comms lines per step).
+Never: Minigame/**, VoyageHarbour*.cs, VoyageIntro.cs, Voyage*Life.cs, VoyageChart*.cs, VoyageIllustratedChart.cs,
+VoyageTutorial.cs, CrewUi/**, Skin.cs, CoastalCanvas.cs, Codex 2's folders; never batchmode the main project; never
+touch the player save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

@@ -1,0 +1,26 @@
+{
+    "task":  "PURCHASE-FX-1",
+    "sourceFiles":  233,
+    "captureAssertions":  139,
+    "regression":  "CrewCardsAbilityChecks.Regression",
+    "regressionExit":  0,
+    "abilityAssertions":  286,
+    "tutorialAssertions":  217,
+    "finalImagesOpened":  true,
+    "snapshot":  "All233 scratch files match capture snapshot and final regression. Main matched before regression; peer chart edits afterward excluded.",
+    "mainDriftAfterChecks":  [
+                                 "Assets/Scripts/Game/VoyageChart.cs",
+                                 "Assets/Scripts/Game/VoyageIllustratedChart.cs"
+                             ],
+    "limits":  "Scripted scratch scene/native Canvas; no player/device/listening acceptance",
+    "files":  {
+                  "buy-1440.png":  "b33837090ec23574ab5efd65d2df4900a7556b02dd2ba39c7fa682ecf65535b8",
+                  "buy-844.png":  "128feef8630fd51de1d45bc19d659ff4dc57e56916556c4f3956798fd2f41085",
+                  "capture-inputs.json":  "e156a888748c49171f1781dfa4f2a8f76f7a7f73fe467e4fc3ef473a4256e647",
+                  "capture-unity.log":  "1ba6b6b0e648892db5c4d192e44cc31e28e3f5325a63b130073d06b1c98c17f7",
+                  "checks.json":  "f53a232e2e508ffe93743ae830492030f4b76d950e16877ca584d278764c311a",
+                  "regression-unity.log":  "aecacb8bda87ffa6325f079eb99daeea85d5d5027bf0a3de388b7db9da9d2522",
+                  "sell-1440.png":  "1b603b0fd6c5ada8e0a63a524841d159a6031083a5892f89bd0e7722561f713c",
+                  "sell-844.png":  "2bb5a81cad4e07aee84c1fcfed05be5dd712036659073b5c15b45d27704c933f"
+              }
+}

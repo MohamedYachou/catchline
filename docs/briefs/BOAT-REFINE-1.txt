@@ -1,0 +1,20 @@
+BOAT-REFINE-1 — Codex 2 (WSL) — refine the boats, starting with the two every player sees (Mo, 10-26: "refine the boats")
+GOAL: the Rowboat (tier 0) and the Skiff (tier 1) are what a new player looks at for their whole first hour; they are
+plain boxes today. Make them read as lovingly built little wooden boats in the house style, without changing how
+the game uses them.
+CONTEXT: Art/STYLE.md; Assets/Art/Models/Boats/Rowboat.fbx, Skiff.fbx and their *.stations.json; the sources that
+built them (search Art/Source and Art/Models for Rowboat/Skiff builders); Art/Models/DayBoatKit/REPORT.md for the kit
+look; GameData.Hulls (Rowboat 3x2 tiles, Skiff 5x3 tiles, RodBases positions) — the deck grid must not move.
+REFINE (per boat): curved sheer line and a raked bow, visible planking strakes on the hull sides, gunwale/rubbing strake
+trim, thwarts/benches, oarlocks (rowboat) or a small outboard bracket (skiff), a keel and painted waterline band,
+a few worn paint edges in flat colour (no textures beyond the house palette atlas). Deck surface height, tile layout,
+origin, forward axis, scale and every node/empty the stations.json and RodBases rely on stay identical (within 1 cm).
+Tri budget: rowboat <= 3,000, skiff <= 5,000.
+DELIVER to Art/Models/BoatsV2/<Name>/ (.blend, .fbx, REPORT.md, renders); do NOT overwrite Assets/Art/Models/Boats/*.
+Claude imports after review.
+DONE = EVIDENCE: for each boat, renders from 5 angles (front 3/4, side, back 3/4, top, low waterline) plus the same
+camera as the game's deck view (top-down ~55 degrees), side by side with the current model; a diff table of node
+positions/deck height old vs new; opened and checked by you.
+ORDER: Rowboat, then Skiff; then (only if both are DONE) a short review sheet of the other hulls with proposed fixes.
+OWNERSHIP: Art/Models/BoatsV2/**, Art/Source/BoatsV2/**. No git, no Unity, no code.
+REPORTING: one DONE line per boat in comms.md; QUESTION and skip when blocked.
