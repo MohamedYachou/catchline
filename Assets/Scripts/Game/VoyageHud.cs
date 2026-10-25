@@ -152,7 +152,7 @@ namespace Catchline.Game
 
         void OpenShop(HudTab tab)
         {
-            audio?.Play(VoyageAudio.Cue.Select, .35f);
+            audio?.Play(tab == HudTab.HarbourMaster ? VoyageAudio.Cue.PageTurn : VoyageAudio.Cue.TabTap, .35f);
             hudTab = tab;
             panelOpen = true;
 

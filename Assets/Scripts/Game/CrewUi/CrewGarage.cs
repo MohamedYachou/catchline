@@ -87,9 +87,14 @@ namespace Catchline.Game
             if (text == null || !coastalUi.TryFind(tabId, out var tab)) return;
             float s = compactInterface ? 22 : 30, bob = Mathf.Sin(Now * 4 + tab.x * .01f) * 1.5f;
             var r = new Rect(tab.xMax - s * .9f, tab.y - s * .3f + bob, s, s);
-            coastalUi.Sliced(id, r, "v2-pill-cream", null, Palette.Hex("E2683A"));
+            if (HasUi("ui-badge")) coastalUi.Icon(id, r, "ui-badge");
+            else coastalUi.Sliced(id, r, "v2-pill-cream", null, Palette.Hex("E2683A"));
             coastalUi.Text(id + "/n", r, text, Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter, null, true);
         }
+
+        // The rarity's gem and reward band sprites, when the art is in.
+        static string GemSprite(CardRarity r) { string n = "gem-" + r.ToString().ToLowerInvariant(); return HasUi(n) ? n : null; }
+        static string RewardBand(CardRarity r) { string n = "reward-band-" + r.ToString().ToLowerInvariant(); return HasUi(n) ? n : null; }
 
         // A small cream chip (icon and words) laid out left to right from x.
         void InfoChip(string id, ref float x, float y, float h, string icon, string text)
@@ -337,9 +342,13 @@ namespace Catchline.Game
                     coastalUi.Sliced(aid + "/dot", new Rect(10, (rowH - 36) / 2, 36, 36), "v2-pill-cream", row, on ? col : new Color(col.r, col.g, col.b, .35f));
                     // Inside the rarity disc: the role's emblem (a star for the always-on trait), or a lock until unlocked.
                     coastalUi.Icon(aid + "/lock", new Rect(16, (rowH - 24) / 2, 24, 24), !on ? "v2-icon-lock" : isTrait ? "v2-icon-star" : RoleIcon(def.Role), row);
+                    // A rarity gem ends the tag line, saying which rank brings it.
+                    string gem = GemSprite(isTrait ? CardRarity.Gold : a.Unlock);
+                    float gemW = gem == null ? 0 : 24;
+                    coastalUi.Icon(aid + "/gem", gem == null ? Rect.zero : new Rect(w - 14 - 20, 8, 20, 20), gem, row, on ? Color.white : new Color(1, 1, 1, .55f));
                     string tag = isTrait ? "Always" : on ? CardProgression.RarityName(a.Unlock) : "Unlocks at " + CardProgression.RarityName(a.Unlock);
                     coastalUi.Text(aid + "/name", new Rect(54, 4, w * .5f, 28), a.Name, Skin.Type.Heading, on ? Skin.Ink : Skin.InkSoft, TextAnchor.MiddleLeft, row);
-                    coastalUi.Text(aid + "/tag", new Rect(w * .5f, 4, w * .5f - 14, 28), tag, Skin.Type.Caption, on ? Darker(col) : Skin.InkSoft, TextAnchor.MiddleRight, row);
+                    coastalUi.Text(aid + "/tag", new Rect(w * .5f, 4, w * .5f - 14 - gemW, 28), tag, Skin.Type.Caption, on ? Darker(col) : Skin.InkSoft, TextAnchor.MiddleRight, row);
                     coastalUi.Text(aid + "/text", new Rect(54, 30, w - 66, rowH - 34), a.Text, Skin.Type.Small, on ? Skin.InkSoft : Tint(Skin.InkSoft, .6f), TextAnchor.UpperLeft, row);
                     bool fresh = fxCard == c.Id && Now - rankFxAt < 2.2f && a.Unlock == c.Rarity && !isTrait;
                     if (fresh) coastalUi.Pose(aid, 0, 1 + Ease.Pulse(Mathf.Clamp01((Now - rankFxAt - .8f) / .6f)) * .04f);

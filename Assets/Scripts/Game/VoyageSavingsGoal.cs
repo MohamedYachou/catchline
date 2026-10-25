@@ -15,11 +15,14 @@ namespace Catchline.Game
             _ => null,
         };
 
+        bool savingsGoalWasReady;
         void InterfaceSavingsGoal(Rect r)
         {
-            if (NextBoat is not { } next) return;
+            if (NextBoat is not { } next) { savingsGoalWasReady = false; return; }
             float progress = Mathf.Clamp01(ShownCoins / (float)next.cost);
             bool ready = progress >= 1 && next.blocker == null;
+            if (ready && !savingsGoalWasReady) audio?.Play(VoyageAudio.Cue.GoalReady, .35f);
+            savingsGoalWasReady = ready;
             int level = ready ? 4 : Mathf.Min(3, Mathf.FloorToInt(progress * 4));
             string jar = HasUi("goal-jar-" + level) ? "goal-jar-" + level : "v2-icon-coin";
             // Boat name with the coins on the right, the jar's bar under it, then what is still missing.

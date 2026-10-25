@@ -290,6 +290,12 @@ namespace Catchline.EditorTools
             g.State.Coins = GameState.PrepFisherCost + 10; g.State.BestVoyageKg = 120; ShotUi(g, "hud-goal-ready"); ShotUi(g, "hud-goal-ready-phone", 844, 390);
             foreach (VoyageGame.HudTab t in Enum.GetValues(typeof(VoyageGame.HudTab)))
             { panel.SetValue(g, true); tab.SetValue(g, t); ShotUi(g, "hud-" + t.ToString().ToLowerInvariant() + "-phone", 844, 390); }
+            // A purchase: coins leave the wallet for the bought item.
+            panel.SetValue(g, true); tab.SetValue(g, VoyageGame.HudTab.Supplies); ShotUi(g, "buy-before");
+            g.InvokeInterface("shop/buy");
+            typeof(VoyageGame).GetField("coinFxStart", H).SetValue(g, Time.unscaledTime - .45f); ShotUi(g, "buy-coins-flying");
+            typeof(VoyageGame).GetField("coinFxStart", H).SetValue(g, Time.unscaledTime - .45f); ShotUi(g, "buy-coins-flying-phone", 844, 390);
+            typeof(VoyageGame).GetField("coinFxStart", H).SetValue(g, Time.unscaledTime - .8f); ShotUi(g, "buy-coins-landing");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

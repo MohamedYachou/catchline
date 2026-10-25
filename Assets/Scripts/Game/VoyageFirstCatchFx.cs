@@ -8,9 +8,11 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         const float FirstCatchRevealSeconds = 2.4f, FirstCatchFly = .4f;
+        bool firstCatchStampPlayed;
 
         void InterfaceFirstCatchReveal(float t)
         {
+            if (t >= .8f && !firstCatchStampPlayed) { firstCatchStampPlayed = true; audio?.Play(VoyageAudio.Cue.StampThud, .4f); }
             var species = lastCatchSpecies;
             float fade = Ease.Clamp((FirstCatchRevealSeconds - t) / .3f);
             float cx = (HudGapLeft + HudGapRight) / 2, cy = ih * (compactInterface ? .42f : .4f);
@@ -66,6 +68,7 @@ namespace Catchline.Game
         public void PreviewFirstCatch(Species species, float kg, float at)
         {
             toast = null; lastCatchSpecies = species; lastCatchKg = kg; catchNew = true; catchRecord = false;
+            firstCatchStampPlayed = false;
             catchUntil = SimTime + CatchDisplaySeconds + FirstCatchRevealSeconds - at;
         }
     }

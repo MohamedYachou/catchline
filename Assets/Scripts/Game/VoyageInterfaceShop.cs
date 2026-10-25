@@ -142,7 +142,7 @@ namespace Catchline.Game
             else if (item.Price >= 0) { coastalUi.Sliced(id + "/owned", Rect.zero, null, card); coastalUi.PricePill(id + "/price", pr, item.Price, State.Coins >= item.Price, card); }
             else { coastalUi.Sliced(id + "/owned", Rect.zero, null, card); coastalUi.Sliced(id + "/price", pr, "v2-pill-cream", card); coastalUi.Text(id + "/price/label", new Rect(0, 0, pr.width, pr.height), item.Action, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coastalUi.ElementRect(id + "/price")); }
             // Each product keeps its stable "<id>/buy" control: an invisible press of the same action.
-            coastalUi.HiddenButton(id + "/buy", item.Enabled ? () => { item.Buy(); audio?.Play(VoyageAudio.Cue.Purchase, .6f); } : null, card);
+            coastalUi.HiddenButton(id + "/buy", item.Enabled ? () => { int coins = State.Coins; item.Buy(); if (State.Coins < coins) audio?.Play(VoyageAudio.Cue.CoinBuy, .6f); StartSpendFlight(id, coins); } : null, card);
         }
 
         void SelectionSlab(ShopItem item, Rect r)
@@ -161,7 +161,7 @@ namespace Catchline.Game
             float bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 8;
             string label = item.Owned ? item.Action : item.Price >= 0 ? $"{Verb(item.Action)} · {item.Price:N0}" : item.Action;
             coastalUi.Primary("shop/buy", new Rect(r.width - bw - 18, (r.height - bh) / 2 - 2, bw, bh), label,
-                () => { item.Buy(); audio?.Play(VoyageAudio.Cue.Purchase, .6f); }, item.Price >= 0 ? "v2-icon-coin" : null, item.Enabled, slab);
+                () => { int coins = State.Coins; item.Buy(); if (State.Coins < coins) audio?.Play(VoyageAudio.Cue.CoinBuy, .6f); StartSpendFlight("shop/selection/art", coins); }, item.Price >= 0 ? "v2-icon-coin" : null, item.Enabled, slab);
         }
         static string Verb(string action) { int dot = action.IndexOfAny(new[] { '·', '/' }); return dot > 0 ? action.Substring(0, dot).Trim() : "Buy"; }
 
@@ -204,7 +204,7 @@ namespace Catchline.Game
                 coastalUi.Text("market/haul", new Rect(x, 6, area.width - x - 24, topH * .5f), State.LastSale == null ? "Your first good day's fishing" : "Catch sold. Boat ready.", compactInterface ? Skin.Type.Heading : Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, top);
                 coastalUi.Text("market/value", new Rect(x, topH * .5f + 6, area.width - x - 24, topH * .4f), State.LastSale == null ? "Bring fish home and sell them here." : $"Last haul: {State.LastSale.FishSold} fish · {State.LastSale.Coins + State.LastSale.ContractCoins:N0} coins.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, top);
             }
-            // Fish log: a card per species with today's price.
+            // Fish log: a card per species with today's price. Species not yet caught show as a dark silhouette to hunt for.
             var log = new Rect(area.x, area.y + topH + gap, area.width, area.height - topH - gap);
             int cols = compactInterface ? 6 : 5; float cw = (log.width - 12 - gap * (cols - 1)) / cols, ch = compactInterface ? 120 : 190;
             var content = coastalUi.Scroll("market/log", log, Mathf.Ceil(GameData.Fish.Length / (float)cols) * (ch + gap) + 12);
@@ -213,7 +213,7 @@ namespace Catchline.Game
                 var f = GameData.Fish[i]; bool found = State.LogCount[(int)f.Species] > 0;
                 var r = new Rect(6 + i % cols * (cw + gap), 8 + i / cols * (ch + gap), cw, ch);
                 var card = coastalUi.Card("log/" + i, r, Skin.Card.Soft, content);
-                coastalUi.Icon("log/" + i + "/fish", new Rect(10, 8, r.width - 20, ch * .42f), found ? FishPortrait(f.Species) : "fish-unknown", card, found ? (Color?)null : new Color(1, 1, 1, .5f), found ? FishPortrait(f.Species) : "fish-unknown");
+                coastalUi.Icon("log/" + i + "/fish", new Rect(10, 8, r.width - 20, ch * .42f), FishPortrait(f.Species), card, found ? (Color?)null : new Color(.11f, .2f, .3f, .7f), found ? FishPortrait(f.Species) : "fish-unknown");
                 coastalUi.Text("log/" + i + "/name", new Rect(8, ch * .46f, r.width - 16, 28), found ? f.Name : "Undiscovered", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
                 // A phone card has room for one line under the name: the market needs the price there, not the record.
                 bool priceLine = compactInterface && found;

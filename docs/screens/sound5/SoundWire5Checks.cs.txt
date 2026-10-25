@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Catchline.Game;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+// Scratch-only observer is inserted at VoyageAudio.Play entry in the test copy.
+public static class SoundWire5Checks
+{
+    const BindingFlags H = BindingFlags.NonPublic | BindingFlags.Instance;
+    static int checks;
+    static readonly List<(VoyageAudio.Cue cue, float gain)> calls = new();
+    public static void Record(VoyageAudio.Cue cue, float gain) => calls.Add((cue, gain));
+    static void Check(bool ok, string message) { checks++; if (!ok) throw new Exception("SOUND5: " + message); }
+    static object Call(VoyageGame g, string method, params object[] args) => typeof(VoyageGame).GetMethod(method, H).Invoke(g, args);
+    static void Set(VoyageGame g, string field, object value) => typeof(VoyageGame).GetField(field, H).SetValue(g, value);
+    static T Get<T>(VoyageGame g, string field) => (T)typeof(VoyageGame).GetField(field, H).GetValue(g);
+    static int Count(VoyageAudio.Cue cue) => calls.Count(c => c.cue == cue);
+    static void Frame(VoyageGame g) { g.PrepareInterface(1440, 900, 1); Canvas.ForceUpdateCanvases(); }
+    public static void Run()
+    {
+        checks = 0; calls.Clear(); VoyageAudio.Sound5Observer = Record;
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        var root = new GameObject("SOUND5 isolated checks"); root.SetActive(false);
+        var g = root.AddComponent<VoyageGame>(); g.SessionOnly = true; g.Build(); root.SetActive(true);
+        try
+        {
+            var a = root.AddComponent<VoyageAudio>(); a.Initialize(true); Set(g, "audio", a);
+            var packed = (Dictionary<VoyageAudio.Cue, AudioClip[]>)typeof(VoyageAudio).GetField("packed", H).GetValue(a);
+            var fallback = (Dictionary<VoyageAudio.Cue, AudioClip>)typeof(VoyageAudio).GetField("clips", H).GetValue(a);
+            var cues = new[] { VoyageAudio.Cue.FishLeap, VoyageAudio.Cue.NewSpecies, VoyageAudio.Cue.StampThud, VoyageAudio.Cue.CoinLand, VoyageAudio.Cue.GoalReady };
+            var stands = new[] { VoyageAudio.Cue.Splash, VoyageAudio.Cue.RewardChime, VoyageAudio.Cue.Click, VoyageAudio.Cue.Coins, VoyageAudio.Cue.Bell };
+            float[] max = { .7f, 1.6f, .25f, .2f, 1f };
+            Check((int)VoyageAudio.Cue.PageTurn == 36 && (int)cues[0] == 37, "old cue IDs preserved");
+            for (int i = 0; i < cues.Length; i++)
+            {
+                var cue = cues[i];
+                Check(packed.ContainsKey(cue) && packed[cue].Length == 3, cue + " three imported variants");
+                foreach (var clip in packed[cue])
+                {
+                    Check(clip && clip.channels == 1 && clip.frequency == 44100 && clip.samples > 0 && clip.length <= max[i], cue + " valid mono44.1kHz clip/duration");
+                    var pcm = new float[clip.samples]; Check(clip.GetData(pcm, 0) && pcm.Any(x => x != 0), cue + " readable nonempty PCM");
+                }
+                var x = new float[fallback[cue].samples]; var y = new float[fallback[stands[i]].samples];
+                Check(fallback[cue].GetData(x, 0) && fallback[stands[i]].GetData(y, 0) && x.SequenceEqual(y), cue + " exact fallback samples");
+                a.Play(cue, .1f); var variants = packed[cue]; packed.Remove(cue); a.Play(cue, .1f); packed[cue] = variants;
+            }
+            Set(g, "showTitle", false); Set(g, "panelOpen", false); g.SkipTutorial(); Frame(g);
+            g.OnDeck.Add(new DeckFish { Species = Species.Mackerel, Kg = 1 }); calls.Clear();
+            Call(g, "ShowCatch", Species.Mackerel, 1f);
+            Check(Count(VoyageAudio.Cue.NewSpecies) == 1 && Count(VoyageAudio.Cue.FishLeap) == 1, "new catch dispatches both cues");
+            Check(calls.Contains((VoyageAudio.Cue.NewSpecies, .5f)) && calls.Contains((VoyageAudio.Cue.FishLeap, .45f)), "new catch gains");
+            g.State.LogCount[(int)Species.Mackerel] = 1; calls.Clear(); Call(g, "ShowCatch", Species.Mackerel, 1f);
+            Check(calls.Count == 0, "known species silent");
+            g.OnDeck.Clear(); g.PreviewFirstCatch(Species.Mackerel, 1, 0); calls.Clear();
+            Call(g, "InterfaceFirstCatchReveal", .79f); Check(!Get<bool>(g, "firstCatchStampPlayed") && calls.Count == 0, "stamp silent before .8");
+            Call(g, "InterfaceFirstCatchReveal", .8f); Call(g, "InterfaceFirstCatchReveal", .81f); Call(g, "InterfaceFirstCatchReveal", 1.2f);
+            Check(Count(VoyageAudio.Cue.StampThud) == 1 && calls.Contains((VoyageAudio.Cue.StampThud, .4f)), "stamp dispatch once at .8 and correct gain");
+            g.OnDeck.Add(new DeckFish { Species = Species.Mackerel, Kg = 1 }); g.State.LogCount[(int)Species.Mackerel] = 0;
+            Call(g, "ShowCatch", Species.Mackerel, 1f); calls.Clear(); Call(g, "InterfaceFirstCatchReveal", .9f);
+            Check(Count(VoyageAudio.Cue.StampThud) == 1, "next real reveal resets stamp guard"); g.OnDeck.Clear();
+            Set(g, "catchUntil", -100f); Frame(g); calls.Clear();
+            Set(g, "coinFxStart", Time.unscaledTime - .71f); Set(g, "coinFxLanded", 0); Call(g, "InterfaceCoinFx"); Call(g, "InterfaceCoinFx");
+            Check(Count(VoyageAudio.Cue.CoinLand) == 1 && calls.Contains((VoyageAudio.Cue.CoinLand, .12f)), "coin landing dispatch once per observed increase at .12");
+            Set(g, "coinFxStart", Time.unscaledTime - .77f); Call(g, "InterfaceCoinFx");
+            Check(Count(VoyageAudio.Cue.CoinLand) == 2, "subsequent coin landing dispatches");
+            Set(g, "coinFxStart", -100f); g.State.Coins = 0; g.State.BestVoyageFish = GameData.SkiffFishGoal;
+            Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100)); calls.Clear();
+            g.State.Coins = GameData.SkiffCost; Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100)); Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100));
+            Check(Count(VoyageAudio.Cue.GoalReady) == 1 && calls.Contains((VoyageAudio.Cue.GoalReady, .35f)), "ready edge once and .35 gain");
+            g.State.Coins = 0; Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100)); g.State.Coins = GameData.SkiffCost;
+            Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100)); Check(Count(VoyageAudio.Cue.GoalReady) == 2, "new readiness edge rearmed");
+            g.State.BestVoyageFish = 0; Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100));
+            Check(!Get<bool>(g, "savingsGoalWasReady") && Count(VoyageAudio.Cue.GoalReady) == 2, "haul blocker prevents ready sound");
+            g.State.Hull = 4; Call(g, "InterfaceSavingsGoal", new Rect(0, 0, 500, 100)); Check(!Get<bool>(g, "savingsGoalWasReady"), "no next goal resets readiness");
+            var args = Environment.GetCommandLineArgs(); int k = Array.IndexOf(args, "-snapshotPath");
+            var path = k < 0 ? Path.Combine(Application.temporaryCachePath, "sound5.json") : Path.ChangeExtension(args[k + 1], ".json");
+            File.WriteAllText(path, "{\"suite\":\"sound-wire5\",\"assertions\":" + checks + ",\"passed\":true,\"scratch_play_observer\":true}");
+            Debug.Log("[Catchline] SOUND WIRE5 CHECKS PASSED: " + checks); Debug.Log("[Catchline] Snapshot written to " + path);
+        }
+        finally { VoyageAudio.Sound5Observer = null; UnityEngine.Object.DestroyImmediate(root); }
+    }
+}

@@ -1,3 +1,47 @@
 CONTINUE (Codex 1) — standing order from Claude (lead) for Mo. Every launch is a FRESH session with no memory of earlier runs: your state lives only in comms.md, your checkpoint lines and the files on disk. You are relaunched automatically whenever your last run ends; keep working until your budget runs out, never stop to ask (write QUESTION lines in comms.md instead).
 
-Current assignment: docs/briefs/GROUNDS-1.txt. Read it first; it sets your goal, files you own, checks, evidence and rules, and it overrides earlier standing orders (crew and A1/A5/A6 art are finished; do not reopen them). Read your own latest comms.md lines to see where you stopped and continue from the last verified step.
+Current assignment (Mo's priority, 2026-10-25 03:30): docs/briefs/MAP6-SKERRIES-FIX-1.txt (Claude rejected the terrain art; the rest of MAP6-SKERRIES-1 is accepted. HARBOUR-IMPORT-1 is DONE). Read it first; it sets your goal, files you own, checks, evidence and rules, and overrides earlier standing orders. FISH-SILHOUETTE-1, FISH-VIEW-1 and DECK-FIX-1 are DONE; do not reopen them. Do only FISH-POLISH-1 items 3-5, as HARBOUR-IMPORT-1 says; Claude does the rest. If you are waiting on Codex 2's models or Claude's "HARBOUR-CODE READY", do the next item you can, or write IDLE in comms.md and end the run (you will be relaunched later). NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS: it stops Codex 2 too. Read your own latest comms.md lines to see where you stopped and continue from the last verified step.
+
+
+CURRENT ASSIGNMENT (2026-10-25 07:50, overrides everything above; MAP6-SKERRIES-FIX-1 terrain is ACCEPTED): docs/briefs/MAP7-WRECK-BANK-1.txt (its FIRST step is the MAP6 recapture with life). Read it first.
+
+Then, when MAP7-WRECK-BANK-1 is DONE (Claude reviews and commits it): docs/briefs/POLISH-SWEEP-1.txt.
+
+
+CURRENT ASSIGNMENT ADDITION (2026-10-25 09:20; MAP7-WRECK-BANK-1 is ACCEPTED and committed): finish POLISH-SWEEP-1 (Claude already fixed PS-01..07 in source: recheck them against current Assets in your P6 pass). Then docs/briefs/MAP8-LIGHTHOUSE-ROCK-1.txt.
+
+FIX (2026-10-25 10:00, Claude): MAP8 PuffinLedge_1..3 anchors are buried inside the rock mesh; see the FIX line in comms.md. Fold it into MAP8 before DONE.
+Then, after MAP8 is DONE and Claude has committed it: docs/briefs/MAP9-WHALE-SHELF-1.txt.
+ORDER (Mo, 2026-10-25 10:10): finish MAP8 first, then docs/briefs/CREW-CHESTS-1.txt, then MAP9-WHALE-SHELF-1.
+
+HOLD (Mo, 2026-10-25 17:45): CREW-CHESTS-1 is ON HOLD — Mo wants to settle the card mechanics in chat first. Do not start it. Claude is reviewing MAP8 now; MAP9 starts when Claude logs "MAP8 ACCEPTED".
+FIRST ACTION (2026-10-25 17:50): you began CREW-CHESTS-1 at 17:44 before the HOLD. Restore the six card files from Catchline-sim/Backups/crew-chests-before (and delete the new Assets/Scripts/Game/Data/CardEconomy.cs into the Recycle Bin), verify the main tree matches the backup, log STOPPED CREW-CHESTS-1, then wait for MAP8 ACCEPTED / MAP9.
+
+CURRENT ASSIGNMENT (Mo, 2026-10-25 21:00, overrides everything above): docs/briefs/CREW-CARDS-UI-1.txt. Read it and docs/plans/CREW-CARDS-V2.md first. CREW-CHESTS-1 is superseded (do not restore or reuse it). MAP9 D5 is PARKED until Claude logs the chart/water handoff; do not wait on it. Step 0 (ABILITY-HOOKS.md, read-only) starts now; step 1 waits for Claude's "CARDS-CORE READY" line in comms.md.
+
+CURRENT ASSIGNMENT (Mo, 2026-10-25 night, overrides everything above): CARDS-CORE READY is logged (commit d521a5a).
+Do docs/briefs/CREW-CARDS-UI-1.txt STEP 2 ONLY (ability engine + the 42 abilities + Mira's First mate, with
+checks), using the ANSWERS line in comms.md. Do NOT build screens or animations: Claude owns all UI now.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 22:10, overrides everything above): the ability engine is ACCEPTED and committed
+(11eadcf; full regression passed on the committed tree alone). Do docs/briefs/CARDS-PACING-1.txt. No UI, no Data edits.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 22:30, overrides everything above): CARDS-PACING-1 is ACCEPTED. Do
+docs/briefs/DECK-BERTHS-1.txt. Read it first.
+
+
+[23:04] NEW ORDER (Claude): DECK-BERTHS-1 and the pacing rerun are accepted and committed (48671cf, b21fb21). Next: docs/briefs/HARBOUR-SOUND-2.txt. Read it, append START to comms.md, then do it.
+
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 23:40, overrides everything above): HARBOUR-SOUND-2 is ACCEPTED and committed. The
+real CC0 pack now replaces the synthesized clips. Do docs/briefs/SOUND-WIRE-4.txt. Read it first.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-26 00:10, overrides everything above): the SOUND-4 gate is lifted (accepted as a
+technical delivery; Mo does the listening check). Continue SOUND-WIRE-4 from S1. You may make the brief's one-line
+Play change in VoyageTutorial.cs (Claude releases that one line to you); nothing else in Claude's held files.
+Horn_1/2 and SealBark_1/2: leave as they are.
+
+NEXT ASSIGNMENT (Claude, 2026-10-26 00:55): when SOUND-WIRE-4 is DONE, do docs/briefs/TUTORIAL-CHECK-1.txt, then
+docs/briefs/SOUND-WIRE-5.txt once SOUND-5 is DONE. Read each brief first.
+
+UPDATE / TUTORIAL-CHECK-1 / Claude W -> Codex 1: your Hello finding is a real bug, fixed in production: VoyageTutorial.TutorialLine Hello now targets "shop/close" while the market panel is open, "port/sail" once closed. Update TutorialChecks.cs to match: Step(Hello, "shop/close") while open, Press("shop/close"), then Step(Hello, "port/sail"); drop the missing-target failure. Do not edit VoyageTutorial.cs.

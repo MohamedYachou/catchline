@@ -1,0 +1,30 @@
+[Catchline] M2 DATA CHECKS PASSED
+[Catchline] CREW CARDS ABILITY CHECKS PASSED: 286
+[Catchline] Snapshot written to C:\Users\momoy\Projects\Catchline-sim\Logs\sound-wire5-regression.json
+[Catchline] Art library: 264 models
+[Catchline] Art library: rowboat True [M_DeckWood, M_Rope, M_HullNavy, M_SafetyOrange, M_RailIvory, M_Steel, M_WoodHighlight], 449 UI textures, font True
+[Catchline] M2 DATA CHECKS PASSED
+[Catchline] M2 CHECKS PASSED
+BITEMODEL PASS · variety ok (mackerel jumps 100/100, shoals 90/200, fight 1.0-3.5s) · cod fakes 200/200 · herring fakes 0/200 · greedy hooks 200/400
+CAGEMODEL PASS · 200 cages, 67 snags, slowest 4.6s
+CAGEMODEL PASS · 200 cages, 67 snags, slowest 4.6s
+[Catchline] Tutorial reached Hello
+[Catchline] Tutorial reached Hello
+[Catchline] Tutorial reached FirstCast
+[Catchline] Tutorial strike state=Reeling model=Hooked result=Hooked attended=True
+[Catchline] Tutorial reached Sell
+[Catchline] Tutorial reached Sell
+[Catchline] Tutorial reached Sell
+[Catchline] Tutorial reached Skiff
+[Catchline] Tutorial reached Refit
+[Catchline] Tutorial reached Refit
+[Catchline] Tutorial reached Welcome
+[Catchline] Tutorial reached Welcome
+[Catchline] Tutorial reached Welcome
+[Catchline] Tutorial reached MeetMira
+[Catchline] Tutorial reached Recruit
+[Catchline] Tutorial reached Recruit
+[Catchline] Tutorial reached Done
+[Catchline] Tutorial action/save/skip checks reached 215 assertions; unresolved targets: 2
+Exception: [Catchline] Tutorial check failed: Hello target does not resolve after PrepareInterface: port/sail at (1440, 900); Hello target does not resolve after PrepareInterface: port/sail at (844, 390)
+Exiting without the bug reporter. Application will terminate with return code 1

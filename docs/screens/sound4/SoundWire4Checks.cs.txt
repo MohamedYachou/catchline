@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using Catchline.Game;
+using UnityEngine;
+using UnityEditor.SceneManagement;
+
+public static class SoundWire4Checks
+{
+    static int checks;
+    static void Check(bool ok, string message) { checks++; if (!ok) throw new Exception("SOUND4: " + message); }
+    public static void Run()
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        var root = new GameObject("SOUND4 isolated audio preview");
+        try
+        {
+            var a = root.AddComponent<VoyageAudio>(); a.Initialize(true); a.Volume = .65f;
+            const BindingFlags hidden = BindingFlags.Instance | BindingFlags.NonPublic;
+            var packed = (Dictionary<VoyageAudio.Cue, AudioClip[]>)typeof(VoyageAudio).GetField("packed", hidden).GetValue(a);
+            var fallback = (Dictionary<VoyageAudio.Cue, AudioClip>)typeof(VoyageAudio).GetField("clips", hidden).GetValue(a);
+            var cues = new[] { VoyageAudio.Cue.CoachPop, VoyageAudio.Cue.RefitFanfare, VoyageAudio.Cue.TabTap, VoyageAudio.Cue.CoinBuy, VoyageAudio.Cue.PageTurn };
+            var stands = new[] { VoyageAudio.Cue.Click, VoyageAudio.Cue.Bell, VoyageAudio.Cue.Click, VoyageAudio.Cue.Coins, VoyageAudio.Cue.Creak };
+            float[] max = { .3f, 3f, .15f, .6f, .8f };
+            Check((int)VoyageAudio.Cue.Stitch == 31 && (int)cues[0] == 32, "old numeric cue IDs preserved");
+            for (int i = 0; i < cues.Length; i++)
+            {
+                var cue = cues[i];
+                Check(packed.ContainsKey(cue) && packed[cue].Length == 3, cue + " imports three variants");
+                foreach (var clip in packed[cue])
+                {
+                    Check(clip && clip.frequency == 44100 && clip.channels == 1 && clip.samples > 0, cue + " valid imported audio");
+                    Check(clip.length <= max[i], cue + " duration cap");
+                }
+                var got = fallback[cue]; var expected = fallback[stands[i]];
+                Check(got.samples == expected.samples && got.frequency == expected.frequency, cue + " fallback shape");
+                var x = new float[got.samples]; var y = new float[expected.samples];
+                Check(got.GetData(x, 0) && expected.GetData(y, 0), cue + " fallback readable");
+                bool same = true; for (int n = 0; n < x.Length; n++) if (x[n] != y[n]) { same = false; break; }
+                Check(same, cue + " fallback exact stand-in");
+                a.Play(cue, .3f);
+                packed.Remove(cue); a.Play(cue, .3f); // Exercise missing-pack playback too.
+            }
+            a.Volume = 0; foreach (var cue in cues) a.Play(cue);
+            Check(a.Volume == 0, "session-only mute");
+            var args = Environment.GetCommandLineArgs(); int k = Array.IndexOf(args, "-snapshotPath");
+            var path = k < 0 ? Path.Combine(Application.temporaryCachePath, "sound4.json") : Path.ChangeExtension(args[k + 1], ".json");
+            File.WriteAllText(path, "{\"suite\":\"sound-wire4\",\"assertions\":" + checks + ",\"passed\":true}");
+            Debug.Log("[Catchline] SOUND WIRE4 CHECKS PASSED: " + checks);
+            Debug.Log("[Catchline] Snapshot written to " + path);
+        }
+        finally { UnityEngine.Object.DestroyImmediate(root); }
+    }
+}

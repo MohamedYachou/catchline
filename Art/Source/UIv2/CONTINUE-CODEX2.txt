@@ -1,3 +1,52 @@
 CONTINUE (Codex 2) — standing order from Claude (lead) for Mo. Every launch is a FRESH session with no memory of earlier runs: your state lives only in comms.md, your checkpoint lines and the files on disk. You are relaunched automatically whenever your last run ends; keep working until your budget runs out, never stop to ask (write QUESTION lines in comms.md instead).
 
-Current assignment: docs/briefs/SEA-SCENE-1.txt. Read it first; it sets your goal, files you own, checks, evidence and rules, and it overrides earlier standing orders (crew and A1/A5/A6 art are finished; do not reopen them). Read your own latest comms.md lines to see where you stopped and continue from the last verified step.
+Current assignment (Mo's priority): docs/briefs/HARBOUR-ART-1.txt, then docs/briefs/FISH-ARMS-2.txt (its STEP 0, the rod-only export, comes first), then docs/briefs/CAGE-ART-1.txt. Read it first; it sets your goal, files you own, checks, evidence and rules, and overrides earlier standing orders. SEA-SCENE-1 and FISH-ROD-ART-1 are DONE; crew and A1/A5/A6 art are finished; do not reopen them. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS (it stops Codex 1 too). When nothing is left, write IDLE in comms.md and end the run. Read your own latest comms.md lines to see where you stopped and continue from the last verified step.
+
+
+CURRENT ASSIGNMENT (2026-10-25 03:30, overrides the queue above, which is DONE): docs/briefs/NET-ART-1.txt (SKERRIES-LIFE-1 is DONE and accepted). Read it first.
+
+
+CURRENT ASSIGNMENT (2026-10-25 06:00, overrides everything above; NET-ART-1 is DONE and accepted, now wired in game): docs/briefs/GUT-ART-1.txt, then docs/briefs/SOUND-1.txt. Read GUT-ART-1 first.
+
+
+CURRENT ASSIGNMENT (2026-10-25 07:50, overrides everything above; GUT-ART-1 and SOUND-1 are DONE and accepted, now in game): docs/briefs/WRECK-LIFE-1.txt. Read it first.
+
+
+CURRENT ASSIGNMENT (2026-10-25 08:50, overrides everything above; WRECK-LIFE-1 is DONE and accepted, now in game): docs/briefs/JIG-ART-1.txt. Read it first.
+Then, when JIG-ART-1 is DONE: docs/briefs/TOWNSFOLK-1.txt.
+Then JIG-ART-1 FIX (small): SeabedRocks read as smooth pale icosahedra. Remake them as the house rock style (Art/Models/Skerries terrain, GullHarbour breakwater rocks): irregular, flattened, faceted, warm grey #8E8A80 to #6F6A61, sitting half sunk in the sand patch. Re-render the jig assembly and open it.
+
+Then, after the JIG-ART-1 rocks fix: docs/briefs/LIGHTHOUSE-LIFE-1.txt. (TOWNSFOLK-1 note: Claude already wired your checkpoint-A Townsfolk.fbx into the game; keep the armature and Town_* names stable if you re-export.)
+
+CURRENT ASSIGNMENT (2026-10-25 10:00, overrides everything above; LIGHTHOUSE-LIFE-1 is DONE and accepted, now in game): docs/briefs/HARBOUR-LIFE-2.txt. Read it first.
+Then, when HARBOUR-LIFE-2 is DONE: docs/briefs/SOUND-2.txt.
+ORDER (Mo, 2026-10-25 10:10): HARBOUR-LIFE-2, then docs/briefs/CHEST-ART-1.txt, then SOUND-2.
+
+HOLD (Mo, 2026-10-25 17:45): CHEST-ART-1 is ON HOLD (card mechanics still being decided). NEXT: docs/briefs/SOUND-3.txt.
+STOP (2026-10-25 17:50): you started CHEST-ART-1 (Art/Source/Chests). Leave what exists, log STOPPED, and do SOUND-3 now.
+
+CURRENT ASSIGNMENT (Mo, 2026-10-25 21:00, overrides everything above; SOUND-3 is DONE and accepted for integration): docs/briefs/CREW-FINAL-ART-1.txt. Read it first. CHEST-ART-1 is superseded by it (reuse what fits from Art/Source/Chests). Group A, the last crew's portraits (Rosa, Ines, Tess), comes first.
+
+CURRENT ASSIGNMENT (Mo, 2026-10-25 night, overrides everything above): CREW-FINAL-ART-1 is ACCEPTED and integrated
+by Claude. Now docs/briefs/CREW-FX-ART-1.txt: effect sprites for chest/card animations (group A), then the five
+missing real sounds and chest sounds (group B). Read it first.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 22:30, overrides everything above): CREW-FX-ART-1 is DONE; stop re-verifying it.
+Do docs/briefs/CREW-CHEST-ART-2.txt. Read it first.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 23:40, overrides everything above): CREW-CHEST-ART-2 is ACCEPTED and committed
+(f920e4a); stop re-verifying it. Do docs/briefs/TUTORIAL-ART-1.txt. Read it first.
+
+
+CURRENT ASSIGNMENT (Claude, 2026-10-25 23:20, overrides everything above): TUTORIAL-ART-1 is ACCEPTED (all six poses,
+bubble, pointer, arrow, ring; metas made, wired into the game). Stop re-verifying it. Do docs/briefs/SOUND-4.txt. Read it first.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-26 00:10, overrides everything above): SOUND-4 is ACCEPTED as a technical delivery;
+the listening check goes to Mo (Real/sound4-listening.html), not you. Stop waiting on F-LISTEN. Do
+docs/briefs/FIRST-CATCH-ART-1.txt. Read it first.
+
+NEXT ASSIGNMENT (Claude, 2026-10-26 00:50): when FIRST-CATCH-ART-1 is DONE (all letters plus the review sheet), do
+docs/briefs/SOUND-5.txt. Read it first. Do not wait for Claude's acceptance of FIRST-CATCH-ART-1 to start it.
+
+CURRENT ASSIGNMENT (Claude, 2026-10-26 01:30, overrides everything above): FIRST-CATCH-ART-1 and SOUND-5 are ACCEPTED;
+stop re-verifying them. Do docs/briefs/UI-POLISH-ART-1.txt. Read it first.

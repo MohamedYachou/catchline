@@ -1,0 +1,65 @@
+{
+    "concurrentSourceDrift":  [
+                                  "Assets/Scripts/Game/VoyageInterfaceShop.cs",
+                                  "Assets/Scripts/Game/VoyageSavingsGoal.cs"
+                              ],
+    "logs":  [
+                 {
+                     "sha256":  "4B4A1EFC827DA4C86F15939E821B21054CAFDA1DAC6C58746C3EE7801B88F120",
+                     "path":  "C:/Users/momoy/Projects/Catchline-sim/Logs/check-sound-wire4-regression.log"
+                 },
+                 {
+                     "sha256":  "D95EFBAC622D74EDEDFEBA33113D3808846E9E12EF4C56EDF788C8C3EC8D7B7F",
+                     "path":  "C:/Users/momoy/Projects/Catchline-sim/Logs/sound-wire4-audio.log"
+                 }
+             ],
+    "audio":  "PASS; Unity exit0",
+    "utc":  "2026-10-25T22:46:24.9724943Z",
+    "regression":  "PASS; Unity exit0",
+    "audioAssertions":  52,
+    "sources":  [
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageAudio.cs",
+                        "mainSha256":  "AE071163D180CADAAEBFAA8448D279CFE4FB343345591919568CB116C37DDB76",
+                        "testedSha256":  "AE071163D180CADAAEBFAA8448D279CFE4FB343345591919568CB116C37DDB76",
+                        "matches":  true
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageTutorial.cs",
+                        "mainSha256":  "827D0FB213CE794F28C38F91386807D3371D6D0DE2429385B5177633BDCAA8F2",
+                        "testedSha256":  "827D0FB213CE794F28C38F91386807D3371D6D0DE2429385B5177633BDCAA8F2",
+                        "matches":  true
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageHud.cs",
+                        "mainSha256":  "3A77B20857279FC6E339CDCBCD0261C48CA989B87D76824FD25C80E8E09D80B6",
+                        "testedSha256":  "3A77B20857279FC6E339CDCBCD0261C48CA989B87D76824FD25C80E8E09D80B6",
+                        "matches":  true
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageInterfaceShop.cs",
+                        "mainSha256":  "88178C55DC6D45BCEB596F79183B4A20493D8B1FCB2253D8BA92C1C7773CCC7B",
+                        "testedSha256":  "F1C5B7400997B977DC2DD765A8C9635AC0753925AB4341053ADD5AE04EDD72DA",
+                        "matches":  false
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/CrewUi/CrewRecruit.cs",
+                        "mainSha256":  "1BF44034E27DE823113053C2AD69DFC7B8DC7AFFB7E24FDDE6D051FA3B545EEF",
+                        "testedSha256":  "1BF44034E27DE823113053C2AD69DFC7B8DC7AFFB7E24FDDE6D051FA3B545EEF",
+                        "matches":  true
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageGame.cs",
+                        "mainSha256":  "8FEE34B4BD0EF487301B8D8C7FE351EC2397387B871366519B64E43F9CB1442B",
+                        "testedSha256":  "8FEE34B4BD0EF487301B8D8C7FE351EC2397387B871366519B64E43F9CB1442B",
+                        "matches":  true
+                    },
+                    {
+                        "path":  "Assets/Scripts/Game/VoyageTier5.cs",
+                        "mainSha256":  "C9C37A87E57A77E834A818CD2D7950AC87E9795FEB82977A7BD0A01391F31CA7",
+                        "testedSha256":  "C9C37A87E57A77E834A818CD2D7950AC87E9795FEB82977A7BD0A01391F31CA7",
+                        "matches":  true
+                    }
+                ],
+    "limitations":  "Technical import/fallback/regression only; native listening/mix acceptance Mo; no installed build"
+}

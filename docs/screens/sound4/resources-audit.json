@@ -1,0 +1,1072 @@
+﻿{
+    "captured_utc":  "2026-10-25T22:32:07.1780978Z",
+    "scope":  "Step 0 only: currently packed Cue SFX variants 0..4; no production mutation",
+    "source":  "Assets/Scripts/Game/VoyageAudio.cs",
+    "source_sha256":  "25F4F987FF27C0EEE65878C16CFA928DE5752939BCDB73055CFD464337182C3A",
+    "comparison":  "SHA256 candidates followed by exact complete byte equality; alternate source filenames accepted",
+    "cue_count":  32,
+    "packed_variant_count":  96,
+    "real_sfx_file_count":  107,
+    "non_real_variants":  4,
+    "cues_without_packed_variants":  [
+
+                                     ],
+    "variants":  [
+                     {
+                         "cue":  "Cast",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Cast_0.wav",
+                         "sha256":  "99A5E507C43B5FAB00EF735AC3345DED0D6EBA309E05958DBEC1AB095BE1DC8B",
+                         "bytes":  10180,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Cast_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Cast",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Cast_1.wav",
+                         "sha256":  "7CF6BC9B4CD9246F7C2AC7B8C82BE4DCAC5915B77892A94E91E4FFD27EF553BA",
+                         "bytes":  7892,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Cast_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Cast",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Cast_2.wav",
+                         "sha256":  "CDE81EC03A983303C9B38473529A68F5645F4DB8E012C6D2506E80DFA7CC4E68",
+                         "bytes":  11222,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Cast_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Splash",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Splash_0.wav",
+                         "sha256":  "FA33BB37D78C382599D746E91B6834CDD1BC1932F01EEED4364B18E71E6ECFD7",
+                         "bytes":  63548,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Splash_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Splash",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Splash_1.wav",
+                         "sha256":  "985DA2CED1087528D09BA9F551364F59784CC165EBE035983C4088B901C71639",
+                         "bytes":  63548,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Splash_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Splash",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Splash_2.wav",
+                         "sha256":  "DDDB572E4C7435BB0153CE8B4FE038723DF5EBB72AC9DC88CD874D45185D8FB9",
+                         "bytes":  63548,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Splash_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bite",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Bite_0.wav",
+                         "sha256":  "D8FF031B5326DE0723BC3BD66A311DF9CEE2610574A7FAFA9E0CF5119E6507A7",
+                         "bytes":  19888,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bite_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bite",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Bite_1.wav",
+                         "sha256":  "E2AE19D7904B21AAF3995F5B34CA46357E8CA4CC23D0FAAFF48F943CEB869AFE",
+                         "bytes":  19888,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bite_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bite",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Bite_2.wav",
+                         "sha256":  "005550D857E4DA5CB451D8217C48CD0987BCC80E9B43521F558C8397993F13CB",
+                         "bytes":  19888,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bite_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Reel",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Reel_0.wav",
+                         "sha256":  "E4B81464922B24D85BFCE18C225211F5CD0B35AC7ECF7D07E4C316517ED6705E",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Reel_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Reel",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Reel_1.wav",
+                         "sha256":  "4C62F62D6EECF27DAA3F2A81BCE645F3B631EFC320E8BCBEAB0CC563698C2CF2",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Reel_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Reel",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Reel_2.wav",
+                         "sha256":  "D69BF4D1BFF9B8E4EA5F28B172CB57356F7BCE5A59555A18DA15B126BB0EBB01",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Reel_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Land",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Land_0.wav",
+                         "sha256":  "D57B675CE26829FACDFACCEB72BFA2DDA5E518BE5923A30F4F35AB1DB77C1CE7",
+                         "bytes":  44586,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Land_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Land",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Land_1.wav",
+                         "sha256":  "AE9DF84049EEA4B372E4C37E434E050115A323B7A5F6758E0161CFBD92F308A3",
+                         "bytes":  44586,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Land_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Land",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Land_2.wav",
+                         "sha256":  "BCDAD3F92E1778A6FA2D7BD47A9135951D55AF6637CCF847A1B7B458BE9E1BEF",
+                         "bytes":  44586,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Land_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stow",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Stow_0.wav",
+                         "sha256":  "864E7EADD6CF2BBF74ABD943199E6AA01F5B012D8D2D38F71F55344DA41607A3",
+                         "bytes":  37970,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stow_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stow",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Stow_1.wav",
+                         "sha256":  "AE232013EBC1A464D017823BDD2D3DF6F8922BF5D6650F5943379175C18BDDE5",
+                         "bytes":  37970,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stow_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stow",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Stow_2.wav",
+                         "sha256":  "DE81E653DFE6DEE76E4950EF22270823E83BBC40454511D54D50B538D574A518",
+                         "bytes":  37970,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stow_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Moor",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Moor_0.wav",
+                         "sha256":  "17E0E045E0390F7248206B67F0A5F9AFC807689DD0ECF39200F8B3EABE54F868",
+                         "bytes":  60902,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Moor_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Moor",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Moor_1.wav",
+                         "sha256":  "DC5C035D077D765FC2F556E4E3C86BDE97C46023299166F78E24FED6DDC1ED56",
+                         "bytes":  60902,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Moor_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Moor",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Moor_2.wav",
+                         "sha256":  "A8840B6FA045EF7C2EFE240D3CB1D44153C3AF4D7408ED6AE6CD718CE17A43E1",
+                         "bytes":  60902,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Moor_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Sale",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Sale_0.wav",
+                         "sha256":  "11EC817487348F7E3E93214997BF339B99FCC86DAE943CBD635BF621B1922296",
+                         "bytes":  67958,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Sale_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Sale",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Sale_1.wav",
+                         "sha256":  "B9AD6B2185100289CE1B0DF99D49C4A8F6C0FB408FDA47B64C0FFFBE96F9E271",
+                         "bytes":  67958,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Sale_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Sale",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Sale_2.wav",
+                         "sha256":  "F40D4F5619C5D26E0C6DADD386D6149F4ABA046FB3EE5F0DDBF15401A5357E68",
+                         "bytes":  67958,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Sale_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Select",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Select_0.wav",
+                         "sha256":  "B65B7BD4B52A24C3196EF5438DD12516DD1CDAEBC41119536A8695A50F42242B",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Select_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Select",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Select_1.wav",
+                         "sha256":  "710EEADF627D34A5B4EC62A8D9D990D023D3EBE2A1F75A2A4B2D726CDAC9F25D",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Select_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Select",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Select_2.wav",
+                         "sha256":  "69BED98588E838895F5DBA8D6C99CEC1DC48F3AC5C29CEE08174F123C64C8160",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Select_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Purchase",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Purchase_0.wav",
+                         "sha256":  "625F45EA712FEC8DC5C50763C3E0697C143C9A9F9961C1C9549C0C143A7B3B68",
+                         "bytes":  10628,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Purchase_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Purchase",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Purchase_1.wav",
+                         "sha256":  "FCC359FC3E1C7AD355E962E979D639F6E3295418C27A387F16EEF57786912577",
+                         "bytes":  10628,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Purchase_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Purchase",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Purchase_2.wav",
+                         "sha256":  "235510B4EE6A7BA52B6D071AB89E4A59D47CA4DD0FF22D931A68E405CA9665EB",
+                         "bytes":  10628,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Purchase_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gull",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Gull_0.wav",
+                         "sha256":  "96A55DF5D81E0225DF6E2BA853AF1F9B5605D8160508F764FFA7D72A578A3D6A",
+                         "bytes":  293750,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gull_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gull",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Gull_1.wav",
+                         "sha256":  "9B6664F0C4FAC0A525D8FB26A0973FE691C81BFAFCACE797288ACE41A3C4A8AB",
+                         "bytes":  260234,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gull_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gull",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Gull_2.wav",
+                         "sha256":  "92B698BE24F70F25392DE681FE223D95FF098CA588B693A6DB8E88D7466BA784",
+                         "bytes":  286694,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gull_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bell",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Bell_0.wav",
+                         "sha256":  "883F06FF81E8FD378E5CD94416C2384CFC0948FCD68F87DE8DF7554DCAA4ED31",
+                         "bytes":  98016,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bell_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bell",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Bell_1.wav",
+                         "sha256":  "E6E68159828DB5B6402861B3E86F720D74318496417B3E7BA29990232660FFD2",
+                         "bytes":  38636,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bell_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Bell",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Bell_2.wav",
+                         "sha256":  "3371775253B05B11EBE5B60AAB187732B78A8AA5D16E61E22012ECF1B0449086",
+                         "bytes":  110334,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Bell_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Creak",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Creak_0.wav",
+                         "sha256":  "83E9FFB4828099A0FC6C814D52A8BB7E21C7AC75BC3C7842BE4EBAE265B258CD",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Creak_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Creak",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Creak_1.wav",
+                         "sha256":  "CA8857B00CFAD41EF117E2E651ECC24141D6326AA598EDA9EAE2CAC67A718915",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Creak_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Creak",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Creak_2.wav",
+                         "sha256":  "F3ED4DD3A03B83EEEC07B661AF11DE0F390CD8D972906EAC8A50E2AB024F685A",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Creak_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Horn",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Horn_0.wav",
+                         "sha256":  "41DE13876252FAAF007B73E12536ADE366F642935C07694E72F035FA722DC84B",
+                         "bytes":  167306,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Horn_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Horn",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Horn_1.wav",
+                         "sha256":  "C954550D6969C211E8767E132B3F7288487EB13E30A4AC1DCA06E6F6985CEAD3",
+                         "bytes":  238184,
+                         "exact_real_matches":  [
+
+                                                ],
+                         "status":  "NOT_FROM_REAL"
+                     },
+                     {
+                         "cue":  "Horn",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Horn_2.wav",
+                         "sha256":  "075B2A40F43E5360A400869968A52297888A0941E7F0A44F9B0608243E908509",
+                         "bytes":  239066,
+                         "exact_real_matches":  [
+
+                                                ],
+                         "status":  "NOT_FROM_REAL"
+                     },
+                     {
+                         "cue":  "Click",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Click_0.wav",
+                         "sha256":  "1570241F03E90346D98D4B32998A6C4C1B0FE204A84C468152B93CB7ED7F22A3",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Click_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Click",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Click_1.wav",
+                         "sha256":  "9060A3BEE56C4F2B240DB2A4A12DE6F3F8A6103E86835543BFB31BCE7A33DC0B",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Click_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Click",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Click_2.wav",
+                         "sha256":  "8559235DEDCAC723EF1404AB901DF53BAFBA38D34780C74F469A9F466D109BDB",
+                         "bytes":  8864,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Click_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Winch",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Winch_0.wav",
+                         "sha256":  "FB4507B4C0A04448891D5BAB139F6580B74D0801385586F09566C66068AB6493",
+                         "bytes":  34442,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Winch_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Winch",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Winch_1.wav",
+                         "sha256":  "8158BD1475D531FA7CA79F4084C98FF38CE97B0F98A2BBA36F312EBE185C28C6",
+                         "bytes":  34442,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Winch_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Winch",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Winch_2.wav",
+                         "sha256":  "850C99BD96AF4B7305175E583C1F93BD7E4A96A1A34108EBDD188874E237C751",
+                         "bytes":  34442,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Winch_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CrabClack",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/CrabClack_0.wav",
+                         "sha256":  "3B3206BA69B4DA49C4D8FA1712BD4C060C06E2CF26C1F59D51A527B4CB28173F",
+                         "bytes":  22976,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CrabClack_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CrabClack",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/CrabClack_1.wav",
+                         "sha256":  "CB99C8632EAF7B88379E0155E74EF60A00907417D88793D9C3EE8145AA85D6B4",
+                         "bytes":  22976,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CrabClack_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CrabClack",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/CrabClack_2.wav",
+                         "sha256":  "3A80EC8BB8747BB5B136019878FD42B1BCAA873BBBDD2C3156BA3BCCED79397C",
+                         "bytes":  22976,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CrabClack_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "SealBark",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/SealBark_0.wav",
+                         "sha256":  "86E4BF50EC83E7134993BEE2BA03EAD6BC1E2309E558144998EC41DF7C3DFE14",
+                         "bytes":  54728,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/SealBark_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "SealBark",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/SealBark_1.wav",
+                         "sha256":  "7217BE11922E6EA196F1A7F1FCE6339C0E6582347418FACBD8AE7967F809796D",
+                         "bytes":  75014,
+                         "exact_real_matches":  [
+
+                                                ],
+                         "status":  "NOT_FROM_REAL"
+                     },
+                     {
+                         "cue":  "SealBark",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/SealBark_2.wav",
+                         "sha256":  "6E52066FFC76D8C6E7C30FB949EA4198905A15BA71419CC5C7D6762442F2FE7E",
+                         "bytes":  75896,
+                         "exact_real_matches":  [
+
+                                                ],
+                         "status":  "NOT_FROM_REAL"
+                     },
+                     {
+                         "cue":  "NetSlap",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/NetSlap_0.wav",
+                         "sha256":  "C88E56C023226098506C3A4D3E5CE512A178BB5A962B9B37B6F847B972F5713F",
+                         "bytes":  65752,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/NetSlap_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "NetSlap",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/NetSlap_1.wav",
+                         "sha256":  "200FF74E5E552FE91FA9D62A6D79DAE76989C4FC2F56158EA1E58C608B5AE266",
+                         "bytes":  65752,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/NetSlap_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "NetSlap",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/NetSlap_2.wav",
+                         "sha256":  "F78FF8FC7240257D006B648AB19B4340A24326CECC0BD2CAD6213C2930A9FDD3",
+                         "bytes":  65752,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/NetSlap_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gut",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Gut_0.wav",
+                         "sha256":  "CAEC9C0A439CF85DE7B3C035B4B16DA157A349932A603870B65245A3809AFAF1",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gut_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gut",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Gut_1.wav",
+                         "sha256":  "B8F2BC7A5C435F5488DFAE1051067381CE6DCA3947BA0EC11D8EDECB56572E39",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gut_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Gut",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Gut_2.wav",
+                         "sha256":  "8D3FEE1853873CD043D523E214D2DF08BCC27CAC8F6B4FE70C9F3D7C5756389B",
+                         "bytes":  57374,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Gut_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Coins",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Coins_0.wav",
+                         "sha256":  "88D409EC3180917B0C902AEE18C74CD2D787C3E92431E354657B6713D6D9E957",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Coins_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Coins",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Coins_1.wav",
+                         "sha256":  "4FB3963EB6809E8692DAFAD9F3F45561B38792395FD89342A3805E4CDA2C6AE1",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Coins_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Coins",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Coins_2.wav",
+                         "sha256":  "C0AC2BBB2AE052AA6E8E92E6886BE8B08606426EA48DB7A8CA7AD9806308FDFA",
+                         "bytes":  61784,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Coins_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CardFlip",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/CardFlip_0.wav",
+                         "sha256":  "6DC276026B9F417EA19E256CC3D4A6258D7CAD34CB437BCADF299CD551F7B1DF",
+                         "bytes":  10868,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CardFlip_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CardFlip",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/CardFlip_1.wav",
+                         "sha256":  "EDBE5A41AEFF578EDCDBD484B40F88DD027851DC72AE8FC24AED349CFAD198DB",
+                         "bytes":  10188,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CardFlip_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "CardFlip",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/CardFlip_2.wav",
+                         "sha256":  "BECA8DE76E11E7E571FB9332306035C6AE25F3777637D8D4B0939FD89CC1E448",
+                         "bytes":  11912,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/CardFlip_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestOpen",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestOpen_0.wav",
+                         "sha256":  "5D29D2A0063A0FF3D2B109F30FCCD893501E0A8DC380913D904A81AF81831ABA",
+                         "bytes":  70604,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestCrateOpen_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestOpen",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestOpen_1.wav",
+                         "sha256":  "2E80B6ABCF39AD9255DC5AA5D70065B02B5D83575C4EAF3E7891F665038B93C7",
+                         "bytes":  70604,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestCrateOpen_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestOpen",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestOpen_2.wav",
+                         "sha256":  "ED4AE4B12C48F4E82C24DE03D150A5B56B35A6622496FA371240C6142D25C339",
+                         "bytes":  70604,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestCrateOpen_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestHeavy",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestHeavy_0.wav",
+                         "sha256":  "1BBBFDDF58D7BA6F6CBDC4529B1886E4FA7F3FA18C3F7C97422993FF6E37AF04",
+                         "bytes":  236634,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestHeavyOpen_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestHeavy",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestHeavy_1.wav",
+                         "sha256":  "A7E3114711E7B032BB38BE271ABFC0B4FFC445AA94C878CC647F96142BA9A871",
+                         "bytes":  226770,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestHeavyOpen_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "ChestHeavy",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/ChestHeavy_2.wav",
+                         "sha256":  "B70B7036F7C7B1F8270F29784DCE17534EFC8E022B7BA75B6865E404C66ADFD7",
+                         "bytes":  45464,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/ChestHeavyOpen_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "RewardChime",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/RewardChime_0.wav",
+                         "sha256":  "DDB46FE5B36EDB8D93597B4873650CA509F8A6524C1FFE189A93D462139C8062",
+                         "bytes":  92730,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/RewardChime_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "RewardChime",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/RewardChime_1.wav",
+                         "sha256":  "B1CF8033A8F9A7E940D86AFB84F15E2BB35F5678B7B6D4EFE5549B61318ACD5A",
+                         "bytes":  37798,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/RewardChime_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "RewardChime",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/RewardChime_2.wav",
+                         "sha256":  "2CAF8D965A5EBD5F1D1F86E07198B89CE976ACF168E0B5106F17C92D3F6B6906",
+                         "bytes":  108722,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/RewardChime_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "TokenPour",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/TokenPour_0.wav",
+                         "sha256":  "916961079CAC943231BABD7E685F45949B9B430920C1CB9D22772CD83EE143D2",
+                         "bytes":  182618,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/TokenPour_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "TokenPour",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/TokenPour_1.wav",
+                         "sha256":  "7DB3EE06DD20591E8D950953596A92A1539AC9B11D01B7F4093570E8B54E62F2",
+                         "bytes":  184382,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/TokenPour_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "TokenPour",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/TokenPour_2.wav",
+                         "sha256":  "2ED48391A8B88A8C717585386C22DB2DE187558D349D625140B4959370B4BA84",
+                         "bytes":  186146,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/TokenPour_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Puffin",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Puffin_0.wav",
+                         "sha256":  "A6242DB816518047D670DB2CEDD7E26B0B73CB8BF3381E20502845D33FFAF96F",
+                         "bytes":  202904,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Puffin_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Puffin",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Puffin_1.wav",
+                         "sha256":  "892F1BECE8E1AE35064A609A3E29C5586F144F204A7B81038F6004D78DC1ECED",
+                         "bytes":  255824,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Puffin_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Puffin",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Puffin_2.wav",
+                         "sha256":  "71DFE283C6937579C6464B7A1AA1DE482D04B42707F3C615078DB4BA3CB06DEA",
+                         "bytes":  291104,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Puffin_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Foghorn",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Foghorn_0.wav",
+                         "sha256":  "2B1A25189C3E48FA0FDCAA77B4B40D998F854F07BF9353457D7081D7E26818D6",
+                         "bytes":  820304,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Foghorn_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Foghorn",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Foghorn_1.wav",
+                         "sha256":  "1EA39897096F0C8434D3D5D69CA265D47F392AFD13D79A3B983BFD9DD9C35B8F",
+                         "bytes":  829124,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Foghorn_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Foghorn",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Foghorn_2.wav",
+                         "sha256":  "79FA90BA641829FD0239194AFD68771E9B9B82448D13FB23473F94530ABEFCFA",
+                         "bytes":  829124,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Foghorn_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "DogBark",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/DogBark_0.wav",
+                         "sha256":  "CA0CBD219AC92892A66A6069499BD116BD673DCA99F71E2DE3908E906D974378",
+                         "bytes":  20288,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/DogBark_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "DogBark",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/DogBark_1.wav",
+                         "sha256":  "A85AE0D9931DEFBF75EFD9DD2B44E92EEA737E33CE4C5EA022AEC5030C4D42FD",
+                         "bytes":  20288,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/DogBark_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "DogBark",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/DogBark_2.wav",
+                         "sha256":  "4EE918D138EF1A12E410195B9819C5BF06655F064BD0D914C81F24B6FF4B7048",
+                         "bytes":  20288,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/DogBark_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Meow",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Meow_0.wav",
+                         "sha256":  "CE5EAE82659D0542EDC963265D8CF84759D3CE26FEAD63B563B8956DD5AC1F3C",
+                         "bytes":  82120,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Meow_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Meow",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Meow_1.wav",
+                         "sha256":  "38F8911107598AE61B2895DCA09FC684A888F3CE25E513F92054F3A8EEDF1795",
+                         "bytes":  82120,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Meow_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Meow",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Meow_2.wav",
+                         "sha256":  "1409A5F80C1E872AB17066793FA8423326DCE6F43649972ECC42F8F0A18F68A8",
+                         "bytes":  82120,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Meow_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "PotDrop",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/PotDrop_0.wav",
+                         "sha256":  "07FD4962B87164BF112ABF6F467E2F2266F074DA30953D41B9EA951470425BE4",
+                         "bytes":  77660,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/PotDrop_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "PotDrop",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/PotDrop_1.wav",
+                         "sha256":  "2B8B00E9240F57FAD1F680E82CA3C6D84AF00A9BA99F3AB38EA64E6E0B374E61",
+                         "bytes":  77660,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/PotDrop_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "PotDrop",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/PotDrop_2.wav",
+                         "sha256":  "68E2A879E93EAB84CFAD3B4A4E5EC55C1D10A435441625EE55C90F221FFF8BBC",
+                         "bytes":  77660,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/PotDrop_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stitch",
+                         "variant":  0,
+                         "resource":  "Assets/Resources/Audio/SFX/Stitch_0.wav",
+                         "sha256":  "BBFFC0AD6306420ED6060120DA1FA8C42B5715F5AEBC03EA8D468DB3F470613B",
+                         "bytes":  17684,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stitch_0.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stitch",
+                         "variant":  1,
+                         "resource":  "Assets/Resources/Audio/SFX/Stitch_1.wav",
+                         "sha256":  "67D59CEC6A5DECF4980711A4AB3654E74F3DC7A706619BEA28296EADDEDE64F1",
+                         "bytes":  17684,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stitch_1.wav"
+                                                ],
+                         "status":  "MATCH"
+                     },
+                     {
+                         "cue":  "Stitch",
+                         "variant":  2,
+                         "resource":  "Assets/Resources/Audio/SFX/Stitch_2.wav",
+                         "sha256":  "BC16C8E0A92BB2CB5A67564ABFA57B73D6347A6C274DB2D11F90A74EF53AB7E5",
+                         "bytes":  17684,
+                         "exact_real_matches":  [
+                                                    "Art/Audio/Real/SFX/Stitch_2.wav"
+                                                ],
+                         "status":  "MATCH"
+                     }
+                 ]
+}

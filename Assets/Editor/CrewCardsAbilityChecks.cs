@@ -50,6 +50,7 @@ namespace Catchline.EditorTools
             M2Checks.Run();
             Debug.Log(BiteModelChecks.Run());
             Debug.Log(CageModelChecks.Run());
+            TutorialChecks.Run();
             Debug.Log("[Catchline] CREW ABILITY INTEGRATION REGRESSION PASSED");
         }
         static void MiraAndTools()

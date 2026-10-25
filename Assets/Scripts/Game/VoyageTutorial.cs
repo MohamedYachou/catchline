@@ -53,7 +53,8 @@ namespace Catchline.Game
             switch (Tutorial)
             {
                 case TutStep.Hello when harbour:
-                    return ("wave", "Morning, captain! I'm Mira, navigator of Gull Harbour. Your rowboat is ready. Set sail and bring back some fish.", "port/sail", false);
+                    // The market may still be open over the port; she points at its close button first.
+                    return ("wave", "Morning, captain! I'm Mira, navigator of Gull Harbour. Your rowboat is ready. Set sail and bring back some fish.", shop ? "shop/close" : "port/sail", false);
                 case TutStep.FirstCast when CurrentMode == Mode.Fishing && !ManagementOpen:
                     return ("explain", "Tap Fish to cast. Tap Carry to stow your catch. When the hold is full, head home and sell.", "rod/0", true);
                 case TutStep.Sell when harbour && State.UnsoldCatch.Count > 0:
@@ -104,7 +105,7 @@ namespace Catchline.Game
             if (tutShown != Tutorial || tutShownText != text)
             {
                 tutShown = Tutorial; tutShownText = text; tutShownAt = Time.unscaledTime;
-                audio?.Play(VoyageAudio.Cue.CardFlip, .3f);
+                audio?.Play(VoyageAudio.Cue.CoachPop, .3f);
             }
             // Batch captures render the settled pose, not the first frame of the entrance.
             float age = Application.isBatchMode ? 10 : Time.unscaledTime - tutShownAt, now = Time.unscaledTime;

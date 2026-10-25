@@ -165,11 +165,11 @@ namespace Catchline.Game
                 float bh = compactInterface ? 46 : 56;
                 // Short cards (phones) put the chest beside its text and the two buttons side by side.
                 bool tight = ch < 320;
-                float art = tight ? ch - th - bh - 30 : Mathf.Min(cw - 40, ch - th - bh * 2 - 78 - (def.Pity > 0 ? 34 : 0));
+                float art = tight ? ch - th - bh - 30 : Mathf.Min(cw - 40, ch - th - bh - 86 - (def.Pity > 0 ? 34 : 0));
                 var artRect = tight ? new Rect(12, th + 10, art, art) : new Rect((cw - art) / 2, th + 14, art, art);
                 coastalUi.Icon(id + "/shadow", new Rect(artRect.x + art * .1f, artRect.yMax - art * .2f, art * .8f, art * .2f), "fx-chest-shadow", card);
-                // The chest art carries transparent padding: draw it larger than its slot so it fills the card.
-                var drawn = tight ? artRect : new Rect(artRect.center.x - art * .65f, artRect.center.y - art * .62f, art * 1.3f, art * 1.3f);
+                // The chest art carries wide transparent padding: draw it well past its slot so the chest itself fills the card.
+                var drawn = tight ? artRect : new Rect(artRect.center.x - art * .725f, artRect.center.y - art * .82f, art * 1.45f, art * 1.45f);
                 coastalUi.Icon(id + "/art", drawn, ChestArt(kind, false), card, count > 0 ? Color.white : new Color(.8f, .82f, .84f, 1));
                 // Waiting chests bob and give a little wiggle every few seconds.
                 float phase = (Now + i * .7f) % 3.2f;
@@ -194,12 +194,13 @@ namespace Catchline.Game
                     coastalUi.Text(id + "/pity", new Rect(cw - 16 - label, my, label, 22), left <= 1 ? "Blueprint next" : $"Blueprint in {left}", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleRight, card);
                     coastalUi.ProgressBar(id + "/pity/bar", new Rect(16, my + 6, cw - 40 - label, 10), 1 - left / (float)def.Pity, Skin.Bar.Teal, card);
                 }
-                bool split = tight && def.ForSale;
+                // A chest for sale puts Buy and Open side by side, so every chest gets the same room for its art.
+                bool split = def.ForSale;
                 coastalUi.Primary(id + "/open", split ? new Rect(20 + half, by, half, bh) : new Rect(12, by, cw - 24, bh), count > 0 ? "Open" : split ? "None" : "None waiting", () => StartReveal(k), null, count > 0, card);
                 if (def.ForSale)
                 {
                     int price = State.ChestPrice(kind);
-                    coastalUi.Secondary(id + "/buy", split ? new Rect(12, by, half, bh) : new Rect(12, by - bh - 8, cw - 24, bh), split ? $"{price:N0}" : $"Buy · {price:N0} coins",
+                    coastalUi.Secondary(id + "/buy", split ? new Rect(12, by, half, bh) : new Rect(12, by - bh - 8, cw - 24, bh), $"{price:N0}",
                         () => { if (BuyChest(k)) audio?.Play(VoyageAudio.Cue.Purchase, .6f); }, "v2-icon-coin", State.Coins >= price, card);
                 }
             }
@@ -361,7 +362,10 @@ namespace Catchline.Game
             float w = rect.width, h = rect.height;
             coastalUi.Card(id + "/bg", new Rect(0, 0, w, h), Skin.Card.Soft, g);
             var col = RarityColour(item.rarity);
-            coastalUi.Sliced(id + "/band", new Rect(6, 6, w - 12, h * .1f), "v2-pill-cream", g, col);
+            // The rarity ribbon across the top: the folded band sprite, or a tinted pill without it.
+            string band = RewardBand(item.rarity);
+            if (band != null) coastalUi.Icon(id + "/band", new Rect(-6, 2, w + 12, (w + 12) * 40 / 256f), band, g);
+            else coastalUi.Sliced(id + "/band", new Rect(6, 6, w - 12, h * .1f), "v2-pill-cream", g, col);
             string caption, title;
             switch (item.kind)
             {

@@ -12,7 +12,9 @@ namespace Catchline.Game
             Winch, CrabClack, SealBark, NetSlap, Gut, Coins,
             // Crew office (real CC0 recordings in Resources/Audio/SFX; the synthesized stand-ins only cover a missing pack).
             CardFlip, ChestOpen, ChestHeavy, RewardChime, TokenPour,
-            Puffin, Foghorn, DogBark, Meow, PotDrop, Stitch }
+            Puffin, Foghorn, DogBark, Meow, PotDrop, Stitch,
+            CoachPop, RefitFanfare, TabTap, CoinBuy, PageTurn,
+            FishLeap, NewSpecies, StampThud, CoinLand, GoalReady }
         readonly Dictionary<Cue, AudioClip> clips = new();
         readonly Dictionary<Cue, AudioClip[]> packed = new();
         readonly Dictionary<Cue, float> cueReady = new();
@@ -147,7 +149,11 @@ namespace Catchline.Game
             var stand = cue switch { Cue.Winch => Cue.Reel, Cue.CrabClack => Cue.Click, Cue.SealBark => Cue.Horn, Cue.NetSlap or Cue.Gut => Cue.Splash, Cue.Coins or Cue.TokenPour => Cue.Sale,
                 Cue.CardFlip => Cue.Click, Cue.ChestOpen or Cue.ChestHeavy => Cue.Creak, Cue.RewardChime => Cue.Bell,
                 Cue.Puffin => Cue.Gull, Cue.Foghorn => Cue.Horn, Cue.DogBark or Cue.Meow => Cue.SealBark,
-                Cue.PotDrop => Cue.Splash, Cue.Stitch => Cue.Click, _ => cue };
+                Cue.PotDrop => Cue.Splash, Cue.Stitch => Cue.Click,
+                Cue.CoachPop or Cue.TabTap => Cue.Click, Cue.RefitFanfare => Cue.Bell,
+                Cue.CoinBuy => Cue.Coins, Cue.PageTurn => Cue.Creak,
+                Cue.FishLeap => Cue.Splash, Cue.NewSpecies => Cue.RewardChime, Cue.StampThud => Cue.Click,
+                Cue.CoinLand => Cue.Coins, Cue.GoalReady => Cue.Bell, _ => cue };
             if (stand != cue) return MakeCue(stand);
             const int rate = 22050;
             float duration = cue switch

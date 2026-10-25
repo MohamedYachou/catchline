@@ -39,7 +39,7 @@ namespace Catchline.Game
         public bool RefitTier5()
         {
             if(CurrentMode!=Mode.Harbour || !State.RefitTier5())return false;
-            RebuildBoat(false);BeginRefitFx();SaveGame();Toast("Buoy fisher ready — eight crew berths and both equipment layouts.");return true;
+            RebuildBoat(false);BeginRefitFx();audio?.Play(VoyageAudio.Cue.RefitFanfare,.35f);SaveGame();Toast("Buoy fisher ready — eight crew berths and both equipment layouts.");return true;
         }
         public bool ConfigureTier5NetTeam()
         {

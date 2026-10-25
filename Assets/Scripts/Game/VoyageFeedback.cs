@@ -29,7 +29,8 @@ namespace Catchline.Game
             catchRecord = !catchNew && kg > State.LogBest[(int)species] && earlier.All(k => k <= kg);
             // A first catch plays its reveal before the card (VoyageFirstCatchFx).
             catchUntil = SimTime + CatchDisplaySeconds + (catchNew ? FirstCatchRevealSeconds : 0);
-            if (catchNew) audio?.Play(VoyageAudio.Cue.RewardChime, .5f);
+            firstCatchStampPlayed = false;
+            if (catchNew) { audio?.Play(VoyageAudio.Cue.NewSpecies, .5f); audio?.Play(VoyageAudio.Cue.FishLeap, .45f); }
         }
 
         static string FishPortrait(Species species) => "fish-" + species.ToString().ToLowerInvariant();

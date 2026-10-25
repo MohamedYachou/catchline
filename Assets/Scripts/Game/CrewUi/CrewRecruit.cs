@@ -24,7 +24,7 @@ namespace Catchline.Game
         {
             var result = BuyCrewChest(id);
             if (result == null) { Toast("Not enough coins for that crew chest."); return; }
-            audio?.Play(VoyageAudio.Cue.Purchase, .6f);
+            audio?.Play(VoyageAudio.Cue.CoinBuy, .6f);
             StartReveal(result);
         }
 

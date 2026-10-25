@@ -1,0 +1,32 @@
+[
+    {
+        "file":  "Assets/Scripts/Game/VoyageAudio.cs",
+        "line":  155,
+        "text":  "Cue.FishLeap =\u003e Cue.Splash, Cue.NewSpecies =\u003e Cue.RewardChime, Cue.StampThud =\u003e Cue.Click,"
+    },
+    {
+        "file":  "Assets/Scripts/Game/VoyageAudio.cs",
+        "line":  156,
+        "text":  "Cue.CoinLand =\u003e Cue.Coins, Cue.GoalReady =\u003e Cue.Bell, _ =\u003e cue };"
+    },
+    {
+        "file":  "Assets/Scripts/Game/VoyageCoinFx.cs",
+        "line":  77,
+        "text":  "if (landed \u003e coinFxLanded) { coinFxLanded = landed; audio?.Play(VoyageAudio.Cue.CoinLand, .12f); }"
+    },
+    {
+        "file":  "Assets/Scripts/Game/VoyageFeedback.cs",
+        "line":  33,
+        "text":  "if (catchNew) { audio?.Play(VoyageAudio.Cue.NewSpecies, .5f); audio?.Play(VoyageAudio.Cue.FishLeap, .45f); }"
+    },
+    {
+        "file":  "Assets/Scripts/Game/VoyageFirstCatchFx.cs",
+        "line":  15,
+        "text":  "if (t \u003e= .8f \u0026\u0026 !firstCatchStampPlayed) { firstCatchStampPlayed = true; audio?.Play(VoyageAudio.Cue.StampThud, .4f); }"
+    },
+    {
+        "file":  "Assets/Scripts/Game/VoyageSavingsGoal.cs",
+        "line":  24,
+        "text":  "if (ready \u0026\u0026 !savingsGoalWasReady) audio?.Play(VoyageAudio.Cue.GoalReady, .35f);"
+    }
+]
