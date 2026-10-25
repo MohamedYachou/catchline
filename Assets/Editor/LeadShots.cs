@@ -30,6 +30,7 @@ namespace Catchline.EditorTools
             if (Want("net")) Net();
             if (Want("gut")) Gut();
             if (Want("traffic")) Traffic();
+            if (Want("chart")) Chart();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -99,6 +100,19 @@ namespace Catchline.EditorTools
                 Shot(g, $"harbour-h{hull}-phone", 844, 390);
                 UnityEngine.Object.DestroyImmediate(g.gameObject);
             }
+        }
+
+        // The harbour master's chart with every pin; the last one (the Wreck bank) opened in detail.
+        static void Chart()
+        {
+            var g = Game("Chart shot"); Rebuild(g, 4);
+            typeof(VoyageGame).GetField("hudTab", H).SetValue(g, VoyageGame.HudTab.HarbourMaster);
+            typeof(VoyageGame).GetField("panelOpen", H).SetValue(g, true);
+            ShotUi(g, "chart-all"); ShotUi(g, "chart-all-phone", 844, 390);
+            typeof(VoyageGame).GetField("chartFocus", H).SetValue(g, GameData.Spots.Length - 1);
+            typeof(VoyageGame).GetField("chartDetailsOpen", H).SetValue(g, true);
+            ShotUi(g, "chart-last-detail-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
         static void Traffic()
