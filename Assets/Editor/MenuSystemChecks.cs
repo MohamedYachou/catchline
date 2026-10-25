@@ -29,7 +29,8 @@ namespace Catchline.EditorTools
             game.SyncCrew();
             state.FoodMinutes = 100;
             game.SetSail();
-            for (int i = 0; i < 500 && game.CurrentMode != VoyageGame.Mode.Fishing; i++) game.Tick(.05f);
+            // The three-leg trip (harbour lane, chart, sea lane) takes longer than the old row.
+            for (int i = 0; i < 6000 && game.CurrentMode != VoyageGame.Mode.Fishing; i++) game.Tick(.05f);
             Check(game.CurrentMode == VoyageGame.Mode.Fishing, "fixture reaches sea through normal route");
             for (int i = 0; i < 8; i++) game.Cooler.Add(new CaughtFish { Species = Species.Herring, Kg = .45f, StowedAt = game.SimTime });
             for (int i = 0; i < 5; i++) game.LandFish(game.Rods[0], Species.Herring, .25f);

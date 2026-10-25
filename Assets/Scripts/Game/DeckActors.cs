@@ -370,8 +370,8 @@ namespace Catchline.Game
         public float CastAge { get; private set; }
         public float ResultAge { get; private set; }
         public Vector3 CastTarget => castTo;
-        public float ThrashSeconds => Mathf.Clamp(1f + HookedKg * .22f, 1f, 2.5f);
-        public const float ViewCastSeconds = 1.2f, LiftSeconds = .9f, HangSeconds = .4f, ReturnSeconds = 1f;
+        public float ThrashSeconds => Reading != null ? Reading.HookedSeconds : Mathf.Clamp(1f + HookedKg * .22f, 1f, 2.5f);
+        public const float ViewCastSeconds = 1.2f, LiftSeconds = .9f, HangSeconds = 1f, ReturnSeconds = 1f;
         public float ReturnAt => ReadingResult == StrikeResult.Hooked ? ThrashSeconds + LiftSeconds + HangSeconds : .7f;
         public bool Chum;
         public bool Squid; // baited with squid: bigger fish
@@ -524,7 +524,7 @@ namespace Catchline.Game
             if (g.Manning == this && g.Attending(this) && Fisher == null)
             {
                 (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid, Chum);
-                Reading = new BiteModel(BiteModel.DifficultyFor(HookedSpecies, HookedKg), g.State.Rng);
+                Reading = new BiteModel(HookedSpecies, HookedKg, g.State.Rng);
                 ReadingResult = null; CastAge = ResultAge = 0;
                 var outward = g.Boat.TransformDirection(Outward).normalized;
                 var origin = g.Captain.Root.position;

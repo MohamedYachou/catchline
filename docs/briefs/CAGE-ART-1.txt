@@ -1,0 +1,29 @@
+CAGE-ART-1 — Codex 2 (WSL artist) — the crab cage minigame kit
+
+GOAL (Mo, 2026-10-25): "tap or drag quickly for like the cages, thers no minigame for those yet". Claude built the
+game (docs/plans/MINIGAMES.md, section 2; code Assets/Scripts/Game/Minigame/VoyageCageView.cs): the camera leans over
+the rail at a Tier 5 buoy, fast taps haul the cage up through the water over a hauler wheel, a drag frees a snag, and
+the crabs come one at a time onto a sorting board with a size gauge, to be flicked up (keep) or down (back over the
+side). It runs today on stand-in boxes and the existing EmptyPot. Make the real kit, seen from about 1 m away.
+
+CONTEXT: docs/plans/MINIGAMES.md section 2, Art/STYLE.md, the existing EmptyPot / Buoy / crab fish model and the rod
+view renders in docs/screens/fish-polish-1/preview/ (the first-person look this must match).
+
+ORDER, one .blend + .fbx each in Art/Models/Fishing/CageKit/ (Unity axes, metres, origin at the base centre):
+1. CrabCage: a round-ended creel about 0.6 x 0.45 x 0.35 m, net mesh over hoops, a hinged lid as a child "Lid"
+   (Claude opens it), a bridle ring on top as a child "Bridle" (the rope ties on there). Readable through water.
+2. PotHauler: a rail-mounted hauler wheel, 0.3 m sheave, a child "Sheave" that Claude spins about its local X.
+3. SortingBoard: 0.62 x 0.3 m wet timber board on the rail with a raised back lip and a brass size gauge along the
+   front edge, zero at -0.26 m local X; a red legal notch as a child "LegalMark" (Claude slides it to the legal size).
+4. CrabBerried: the existing crab with a bright orange egg mass under the tail flap, same scale and pivot, so a
+   player can tell it from a plain crab at 390 px wide.
+
+CONSTRAINTS: house low-poly style and palette (STYLE.md), the kit's shared materials or one small atlas, under 1.5k
+tris each. No loose material folders.
+
+DONE = EVIDENCE: five angles each plus one close render from the game's cage-view camera (1 m above the rail, looking
+down at the water) with the cage half out of the water and a crab on the board. Open every image. REPORT.md in
+CageKit/, one comms.md line per model.
+
+OWNERSHIP: Art/Models/Fishing/CageKit/**, Art/Source/CageKit/**. Never Assets/**, scenes, saves (Codex 1 imports,
+Claude wires). No git. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

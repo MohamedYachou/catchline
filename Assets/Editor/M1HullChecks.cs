@@ -23,10 +23,10 @@ namespace Catchline.EditorTools
                     foreach (var f in w.Current.Fish) Check(claimed.Add(f), "single job claim per fish");
             }
         }
-        static void Until(VoyageGame g, Func<bool> done, string text, float seconds = 60)
+        static void Until(VoyageGame g, Func<bool> done, string text, float seconds = 60, Func<string> detail = null)
         {
             for (float t = 0; t < seconds && !done(); t += .05f) Advance(g, .05f);
-            Check(done(), text);
+            Check(done(), text + (done() ? "" : detail?.Invoke()));
         }
         public static void Run(int hull)
         {
@@ -72,7 +72,8 @@ namespace Catchline.EditorTools
                 for (int i = 0; i < 14; i++) pile.Add((Species.Mackerel, kg));
                 typeof(VoyageGame).GetMethod("FinishHaul", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(g, null);
                 Check(g.GearStation(StationKind.Net, 0).Out.Count == 14 && g.OnDeck.Count == 0, "net unload enters graph");
-                Until(g, () => sched.Stowed == 21, "14 fish net pile sorted and stowed by sorter and hauler under 60 seconds", 59.9f);
+                Until(g, () => sched.Stowed == 21, "14 fish net pile sorted and stowed by sorter and hauler under 60 seconds", 59.9f,
+                    () => $" (stowed {sched.Stowed}, thrown {sched.Thrown}, on deck {sched.OnDeck}, hold {g.Cooler.Count}/{g.State.CoolerCapacity}, workers {string.Join("; ", sched.Workers.Select(w => w.Role + ":" + w.Primary + "/" + w.Secondary + ":" + (w.Current?.Kind.ToString() ?? "idle") + (w.Actor is Person p ? $" [{(p.Idle ? "free" : p.BusyLabel ?? "walking")}{(p.Loitering ? ",loiter" : "")}]" : "")))}; sort {string.Join("; ", deck.OfKind(StationKind.SortTable).Select(t => $"in {t.In?.Count}/{t.In?.Free} free {t.In?.UnclaimedCount} unclaimed, out {t.Out?.Count}/{t.Out?.Free} free, worker {t.Worker != null}"))}; net out unclaimed {g.GearStation(StationKind.Net, 0).Out.UnclaimedCount}; people {string.Join("; ", new[] { g.Captain, g.Hand }.Where(x => x != null).Concat(g.ExtraPeople).Select(p => p.Name + "=" + (p.Idle ? "free" : p.Walking ? "walking" : p.BusyLabel) + (p.Loitering ? "+loiter" : "")))}; pick {(sched.Pick(hands[1]) is { } probe ? probe.Kind + " at " + probe.At?.Kind + " fish " + probe.Fish.Count : "none")} avail {hands[1].Available()} idle {hands[1].Idle} role {hands[1].Role} cap {hands[1].Captain}; sorter tile {hands[1].Actor.Tile} access {deck.Access(deck.OfKind(StationKind.SortTable).First())} reachable {deck.Reachable(hands[1].Actor.Tile, deck.Access(deck.OfKind(StationKind.SortTable).First()))} hauler tile {hands[0].Actor.Tile} sorted {sched.Workers.Count(w => w.Current?.Kind == JobKind.Sort)}; same scheduler {ReferenceEquals(sched, g.Scheduler)} same deck {ReferenceEquals(deck, g.DeckGraph)} fuel {g.State.Fuel:0.00}/{g.State.FuelCapacity} ground {g.AtFishingGround}; sailing {sched.Sailing}; mode {g.CurrentMode} leg {g.Leg})");
             }
             Debug.Log("[Catchline] M1 " + g.State.HullDef.Model.ToUpperInvariant() + " CHECKS PASSED");
         }

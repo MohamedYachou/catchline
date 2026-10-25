@@ -31,7 +31,8 @@ namespace Catchline.Game.Sea
         List<(int to, float cost)>[] edges;
         const float Epsilon = .005f;
 
-        public static SeaNav Load(string map, HullDef hull)
+        public static SeaNav Load(string map, HullDef hull) => Load(map, hull.NavigationRadius);
+        public static SeaNav Load(string map, float radius)
         {
             // Parse the map id inside each asset: every map's asset has the same file name.
             var files = ArtLibrary.Get()?.NavigationFiles;
@@ -40,10 +41,12 @@ namespace Catchline.Game.Sea
                 foreach (var file in files.Where(f => f != null && f.name.EndsWith(interim ? "navigation.interim" : "navigation", StringComparison.Ordinal)))
                 {
                     var root = (Dictionary<string, object>)MiniJson.Parse(file.text);
-                    if (Text(root, "map") == map) return new SeaNav(root, hull.NavigationRadius, interim);
+                    if (Text(root, "map") == map) return new SeaNav(root, radius, interim);
                 }
             return null;
         }
+        // The sea-lane entry replaces the authored harbour point (docs/plans/HARBOUR-PLAN.md section 3).
+        public void SetHarbour(Vector2 p) => Harbour = p;
         public static SeaNav Parse(string json, float radius) => new((Dictionary<string, object>)MiniJson.Parse(json), radius, false);
         SeaNav(Dictionary<string, object> root, float radius, bool interim)
         {

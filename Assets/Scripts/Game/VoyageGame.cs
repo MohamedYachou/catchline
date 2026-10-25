@@ -383,7 +383,6 @@ namespace Catchline.Game
                 BuildNavigableSea(root, lib);
                 return root;
             }
-            var stone = Palette.Hex("8E8A80");
             var rockColor = Palette.Hex("6F7270");
 
             void Rock(Vector3 p, float s)
@@ -399,78 +398,7 @@ namespace Catchline.Game
                 }
             }
 
-            GameObject Place(GameObject prefab, Vector3 p, float yaw = 0f, float scale = 1f)
-                => ArtLibrary.Spawn(prefab, root, p, Quaternion.Euler(0f, yaw, 0f), scale);
-
-            if (kind < 0)
-            {
-                Shops.Clear();
-                const float quayTop = 0.35f;
-                if (lib != null && lib.Quay != null)
-                    for (float x = -22f; x <= 26f; x += 4f) Place(x == 2f && lib.QuayLadder != null ? lib.QuayLadder : lib.Quay, new Vector3(x, quayTop, 3.3f)); // ladder down to our berth
-                else Visuals.Box("QuayEdge", root, new Vector3(1f, quayTop - 0.45f, 3.3f), new Vector3(50f, 0.9f, 2f), stone);
-                Visuals.Box("QuayBack", root, new Vector3(1f, quayTop - 0.47f, 8.5f), new Vector3(50f, 0.9f, 8.5f), stone);
-
-                foreach (float x in new[] { -4.5f, -0.6f, 3.4f, 7.5f })
-                {
-                    if (lib != null && lib.Bollard != null) Place(lib.Bollard, new Vector3(x, quayTop, 2.6f));
-                    else Visuals.Prim(PrimitiveType.Cylinder, "Bollard", root, new Vector3(x, quayTop + 0.2f, 2.6f), new Vector3(0.25f, 0.2f, 0.25f), Palette.Rubber);
-                }
-                foreach (float x in new[] { -3.8f, 3.4f, 10.6f })
-                {
-                    if (lib != null && lib.LampPost != null) Place(lib.LampPost, new Vector3(x, quayTop, 4.0f));
-                    else Visuals.Prim(PrimitiveType.Cylinder, "Lamp", root, new Vector3(x, quayTop + 0.75f, 4.0f), new Vector3(0.07f, 0.75f, 0.07f), Palette.Rubber);
-                }
-
-                // The shops along the quay. Each gets a sign and a tap bubble.
-                var shops = new[]
-                {
-                    (HudTab.Market, "FISH MARKET", -5.6f),
-                    (HudTab.HarbourMaster, "HARBOUR MASTER", -2.0f),
-                    (HudTab.CrewOffice, "CREW OFFICE", 1.6f),
-                    (HudTab.Chandlery, "CHANDLERY", 5.2f),
-                    (HudTab.Supplies, "SUPPLIES", 8.8f),
-                };
-                Color[] walls = { Palette.Hex("E9D8B4"), Palette.Hex("C9DDE0"), Palette.Hex("E7B9A0"), Palette.Hex("D9E3C5"), Palette.Rail };
-                for (int i = 0; i < shops.Length; i++)
-                {
-                    var (tab, sign, x) = shops[i];
-                    var house = i % 2 == 0 ? lib?.HouseA : lib?.HouseB;
-                    float height = 3.8f;
-                    if (house != null) Place(house, new Vector3(x, quayTop, 6.6f), 180f, 0.95f);
-                    else
-                    {
-                        height = 2.4f + i % 2 * 0.4f;
-                        Visuals.Box("House", root, new Vector3(x, quayTop + height / 2f, 6.6f), new Vector3(3f, height, 2.4f), walls[i % walls.Length]);
-                        var roof = Visuals.Box("Roof", root, new Vector3(x, quayTop + height, 6.6f), new Vector3(3.1f, 1.2f, 1.2f), i % 2 == 0 ? Palette.Accent : Palette.HullNavy);
-                        roof.transform.localRotation = Quaternion.Euler(45f, 0f, 0f);
-                        Visuals.Box("Door", root, new Vector3(x, quayTop + 0.45f, 5.38f), new Vector3(0.5f, 0.9f, 0.05f), Palette.HullNavy);
-                    }
-                    // Codex's shop front (awning, displays, door frame) on the water-facing wall; the sign sits above it.
-                    var front = lib?.M(ShopFronts[i]);
-                    float signY = 1.55f;
-                    if (front != null)
-                    {
-                        Place(front, new Vector3(x, quayTop, 4.95f));
-                        signY = Mathf.Max(signY, ModelHeight(front) + 0.35f);
-                    }
-                    var board = Visuals.Box("Sign", root, new Vector3(x, quayTop + signY, 5.05f), new Vector3(2.2f, 0.42f, 0.06f), Palette.HullNavy);
-                    var label = Visuals.Label("SignText", board.transform.parent, new Vector3(x, quayTop + signY - 0.13f, 5.0f), 0.032f);
-                    label.text = sign;
-                    label.color = Palette.Cream;
-                    label.fontStyle = FontStyle.Bold;
-                    label.transform.localRotation = Quaternion.identity;
-                    var anchor = new GameObject($"{sign} bubble").transform;
-                    anchor.SetParent(root, false);
-                    anchor.localPosition = new Vector3(x, quayTop + height + 0.6f, 6.0f);
-                    Shops.Add((anchor, tab));
-                }
-                // A neighbour's boat moored further along, crates on the quay.
-                var neighbour = lib?.M("Rowboat_VariantRed") ?? lib?.Rowboat;
-                if (neighbour != null) Place(neighbour, new Vector3(-6.5f, 0f, 0.75f), -90f).AddComponent<Floater>();
-                else Visuals.Box("OtherBoat", root, new Vector3(-6.5f, -0.25f, 1.2f), new Vector3(3.6f, 0.55f, 1.6f), Palette.Hex("B8473A"));
-                DressHarbour(root, lib, quayTop, R);
-            }
+            if (kind < 0) { harbourSignature = State.Hull; BuildHarbour(root, lib, R); }
             else BuildSea(kind, root, lib, R, Rock);
             return root;
         }
@@ -552,6 +480,7 @@ namespace Catchline.Game
         {
             Navigation = null; Sailor = null; ActiveGroundId = null;
             travelOffset = Vector3.zero; travelYaw = travelWake = 0;
+            ResetTrip(); ClearUnload(); dockBow = Vector2.zero;
             if (!SessionOnly) GameState.DeleteSave();
             ClearPrepWork();
             ClearProcessingPipeline();
@@ -614,6 +543,7 @@ namespace Catchline.Game
             var sale = State.Sell(State.UnsoldCatch, 0f);
             sale.Minutes = State.UnsoldMinutes;
             State.UnsoldCatch.Clear(); // Consume once, including across save/reload.
+            ClearUnload();
             State.AwardSaleXp();
             State.EndVoyage(sale);
             int earned = sale.Coins + sale.ContractCoins;
@@ -690,7 +620,8 @@ namespace Catchline.Game
 
         void BeginTransition(Mode mode, int sceneryKind)
         {
-            if (mode == Mode.SailingOut) BeginSeaVoyage();
+            // The three-leg trip (VoyageTrip.cs): harbour lane, chart, sea lane. Maps without a chart keep the old row.
+            if (mode == Mode.SailingOut && BeginTrip()) return;
             if (Navigation != null)
             {
                 BeginSeaRoute(mode);
@@ -757,6 +688,8 @@ namespace Catchline.Game
 
         void Step(float dt)
         {
+            TickChart(dt);
+            TickSeaMoments(dt);
             TickManagement(dt);
             TickGrounds(dt);
             SimTime += dt;
@@ -764,13 +697,15 @@ namespace Catchline.Game
             switch (CurrentMode)
             {
                 case Mode.Harbour:
+                    SyncHarbourScenery();
                     if (AutoPlay && SimTime >= botHarbourAt) BotHarbour();
                     break;
 
                 case Mode.SailingOut:
                 case Mode.SailingHome:
                     BurnFuel(dt);
-                    if (Navigation != null) TickSeaTravel(dt);
+                    if (Leg is TripLeg.HarbourOut or TripLeg.ChartOut or TripLeg.ChartHome or TripLeg.HarbourIn) TickTrip(dt);
+                    else if (Navigation != null) TickSeaTravel(dt);
                     else
                     {
                         modeTimer += dt * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
@@ -780,7 +715,7 @@ namespace Catchline.Game
                     if (oarPort != null) oarPort.transform.localRotation = oarPortBase * Quaternion.Euler(stroke * 8f, stroke * 25f, 0f);
                     if (oarStarboard != null) oarStarboard.transform.localRotation = oarStarboardBase * Quaternion.Euler(-stroke * 8f, -stroke * 25f, 0f);
                     if (propeller != null) propeller.Rotate(IsNetFisher ? Vector3.up : Vector3.forward, 1000f * dt, Space.Self);
-                    if (Navigation == null && CurrentMode != Mode.Harbour && modeTimer >= modeDuration) FinishTransition();
+                    if (Navigation == null && Leg == TripLeg.None && CurrentMode != Mode.Harbour && modeTimer >= modeDuration) FinishTransition();
                     break;
 
                 case Mode.Fishing:
@@ -870,6 +805,8 @@ namespace Catchline.Game
         void Visual(float frameDt)
         {
             bool inTransit = CurrentMode is Mode.SailingOut or Mode.SailingHome;
+            if (CurrentMode == Mode.Harbour && Leg == TripLeg.None) PlaceAtBerth();
+            TickUnload();
             audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Hull == 0 && travelWake > .1f);
             PtsWater.HullPose(world.TransformPoint(travelOffset + State.HullDef.Center), travelYaw, State.Hull > 0,
                 SimTime, out float heave, out Quaternion tilt);
@@ -877,7 +814,7 @@ namespace Catchline.Game
             // Rotate about the hull centre, rather than the corner of the deck grid.
             var pivotCorrection = State.HullDef.Center - Boat.localRotation * State.HullDef.Center;
             Boat.localPosition = travelOffset + pivotCorrection + Vector3.up * heave
-                + (IsPrepFisher && Navigation == null ? Vector3.back * .65f : Vector3.zero);
+                + (IsPrepFisher && Navigation == null && CurrentMode == Mode.Fishing ? Vector3.back * .65f : Vector3.zero);
             if (seaMat.HasProperty("_Clock"))
             {
                 seaMat.SetFloat("_Clock", PtsWater.Clock(SimTime));
@@ -889,8 +826,9 @@ namespace Catchline.Game
             bool harbour = CurrentMode == Mode.Harbour;
             float harbourBlend = harbour ? 1f : CurrentMode == Mode.SailingOut ? 1f - Segment(TravelProgress, .18f, .65f)
                 : CurrentMode == Mode.SailingHome ? Segment(TravelProgress, .55f, 1f) : 0f;
-            if (Navigation != null) harbourBlend = 0;
-            var center = Vector3.Lerp(Boat.TransformPoint(State.HullDef.Center) + new Vector3(.35f, 0f, -.30f), new Vector3(.3f, 0, 3.4f), harbourBlend);
+            if (Navigation != null || Leg != TripLeg.None) harbourBlend = 0;
+            var framing = HarbourFraming();
+            var center = Vector3.Lerp(Boat.TransformPoint(State.HullDef.Center) + new Vector3(.35f, 0f, -.30f), framing.focus, harbourBlend);
             center = SeaCameraTarget(center, frameDt);
             if (Navigation != null)
             {
@@ -898,15 +836,19 @@ namespace Catchline.Game
                 center.z = Mathf.Clamp(center.z, Navigation.CameraBounds.yMin, Navigation.CameraBounds.yMax);
                 if (seaSurface != null) seaSurface.position = new Vector3(center.x, seaSurface.position.y, center.z);
             }
+            else if (seaSurface != null && HarbourLaneActive) seaSurface.position = new Vector3(center.x, seaSurface.position.y, center.z);
             else if (seaSurface != null) seaSurface.localPosition = new Vector3(0, seaSurface.localPosition.y, 0);
             if (harbour && panelOpen) center += Cam.transform.right * 3.7f;
             float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
             snapCamera = false;
             camCenter = Vector3.Lerp(camCenter, center, k);
-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, 5.6f, harbourBlend)) + ZoomOffset, k);
+            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(HarbourLaneActive ? framing.size : Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, framing.size, harbourBlend)) + ZoomOffset + TripCameraLift, k);
             Cam.transform.position = camCenter - Cam.transform.forward * SeaCameraDistance();
+            ApplyIntroCamera(frameDt);
             UpdateNavigableSeaVisual(frameDt);
             UpdateRodView(frameDt);
+            UpdateCageView(frameDt);
+            UpdateNetView(frameDt);
             RefreshInterface();
 
             float waveSpeed = CurrentMode is Mode.SailingOut or Mode.SailingHome ? 3.5f : 0.25f;

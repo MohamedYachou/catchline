@@ -33,12 +33,15 @@ namespace Catchline.Game
                 if (group != null) { group.alpha = 1; group.interactable = group.blocksRaycasts = true; }
             }
             if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); coastalUi.End(); return; }
+            if (IntroActive && !MenuOpen) { InterfaceIntro(); coastalUi.End(); return; }
             if (RodViewActive) { InterfaceRodView(); coastalUi.End(); return; }
+            if (CageViewActive) { InterfaceCageView(); coastalUi.End(); return; }
+            if (NetViewActive) { InterfaceNetView(); coastalUi.End(); return; }
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
-            else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); }
+            else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); InterfaceTripChart(); }
             InterfaceSeaGrounds();
             if (!departureReady && toast != null && SimTime < toastUntil)
             {
@@ -126,13 +129,18 @@ namespace Catchline.Game
             InterfaceCoins();
             float h = compactInterface ? 84 : 100, w = Mathf.Min(480, iw - Edge * 2 - (compactInterface ? 240 : 300) * 2);
             var r = new Rect((iw - w) / 2, Edge, w, h);
-            var slab = coastalUi.Slab("journey", r, null, true); Block(r);
+            var slab = coastalUi.Slab("journey", r, null, true); Block(r); journeySlab = slab;
             bool home = CurrentMode == Mode.SailingHome;
             float s = h - 46;
             coastalUi.Icon("journey/icon", new Rect(16, 12, s, s), home ? "v2-icon-home" : "v2-icon-anchor", slab, null, "icon-home-anchor");
             coastalUi.Text("journey/title", new Rect(s + 28, 8, w - s - 44, h * .36f), home ? "Home to Gull Harbour" : GameData.Spots[ActiveSpot].Name, Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, slab);
             coastalUi.Text("journey/stage", new Rect(s + 28, 8 + h * .36f, w - s - 44, h * .26f), TravelStage, Skin.Type.Small, Skin.Teal, TextAnchor.UpperLeft, slab);
             coastalUi.ProgressBar("journey/progress", new Rect(16, h - 28, w - 32, 14), TravelProgress, Skin.Bar.Teal, slab);
+            if (Leg != TripLeg.None)
+            {
+                var fast = new Rect(r.xMax - 168, r.yMax + 8, 168, compactInterface ? 40 : 48);
+                coastalUi.Secondary("journey/fast", fast, TripFast ? "Normal speed" : "Faster", () => TripFast = !TripFast); Block(fast);
+            }
         }
     }
 }

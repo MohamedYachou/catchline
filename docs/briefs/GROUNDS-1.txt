@@ -20,7 +20,7 @@ Sea/SeaNav.cs (grounds parsing), the fish-roll code in VoyageGame*.cs / GameData
 already in the project (grep Gull/Bird), the last ~40 lines of comms.md.
 
 OWNERSHIP: new Assets/Scripts/Game/Data/Grounds.cs, Assets/Scripts/Game/Sea/Schools.cs + cue visuals, fish-roll code,
-Data/SaveV2.cs (richness only), Assets/Editor/M4Checks.cs. Shared with Codex 2 (sea scene, running in parallel):
+Data/SaveV2.cs (richness only), Assets/Editor/M4Checks.cs. Shared with Codex 2 (sea scene incl. Sail mode UI, running in parallel):
 VoyageGame.cs and VoyageSea.cs — only small, local edits; re-read right before each edit, never reformat. Never:
 Sea/SeaScenery/SeaCamera/SeaInput (Codex 2), Deck/**, art folders of others, the player's save, scenes.
 

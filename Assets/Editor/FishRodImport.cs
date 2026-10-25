@@ -22,6 +22,7 @@ namespace Catchline.EditorTools
             m.importAnimation = true; m.animationType = ModelImporterAnimationType.Legacy;
             m.animationCompression = ModelImporterAnimationCompression.Off;
             m.optimizeGameObjects = false; m.importCameras = m.importLights = false;
+            m.isReadable = true; // the rod-only view strips the arm triangles at runtime (RodViewArt.WithoutArms)
             m.materialImportMode = ModelImporterMaterialImportMode.None;
         }
         void OnPreprocessTexture()

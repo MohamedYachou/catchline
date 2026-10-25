@@ -52,6 +52,13 @@ namespace Catchline.Game
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) departureReady = false;
                 return;
             }
+            if (IntroActive && !MenuOpen)
+            {
+                var tap = Pointer.current;
+                if (kb != null && (kb.escapeKey.wasPressedThisFrame || kb.spaceKey.wasPressedThisFrame) || tap != null && tap.press.wasPressedThisFrame) SkipIntro();
+                return;
+            }
+            if (CageViewActive && !MenuOpen) { HandleCageInput(kb); return; }
             if (NetGameActive && !MenuOpen && !confirmHeadHome)
             {
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) CancelNetHaulGame();

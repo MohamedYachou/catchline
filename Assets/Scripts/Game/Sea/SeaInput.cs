@@ -52,7 +52,7 @@ namespace Catchline.Game
         }
         void InterfaceSeaNavigation()
         {
-            if (Navigation == null || ManagementOpen || CurrentMode == Mode.SailingHome) return;
+            if (Navigation == null || ManagementOpen || CurrentMode == Mode.SailingHome || ChartAlpha > .05f) return;
             if (SailMode)
                 foreach (var ground in Navigation.Grounds)
                 {

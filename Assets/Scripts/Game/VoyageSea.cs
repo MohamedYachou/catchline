@@ -25,13 +25,13 @@ namespace Catchline.Game
             ActiveGroundId = null; seaRelocating = false; SailMode = seaHaulModal = false;
             return Navigation != null;
         }
-        bool BeginSeaRoute(Mode mode)
+        bool BeginSeaRoute(Mode mode, bool fresh = true)
         {
             if (Navigation == null || Sailor == null) return false;
             destinationGround = mode == Mode.SailingOut ? Navigation.Grounds.FirstOrDefault() : null;
             var target = destinationGround != null ? destinationGround.Centre : Navigation.Harbour;
-            if (!Sailor.SailTo(target)) { Toast("No clear sailing route, skipper."); return false; }
-            if (mode == Mode.SailingOut)
+            if (!SailLane(target)) { Toast("No clear sailing route, skipper."); return false; }
+            if (mode == Mode.SailingOut && fresh)
             {
                 if (oldScenery != null) Visuals.Kill(oldScenery.gameObject);
                 if (scenery != null) Visuals.Kill(scenery.gameObject);
@@ -41,6 +41,7 @@ namespace Catchline.Game
             CurrentMode = mode; seaRelocating = false; SailMode = seaHaulModal = false;
             modeTimer = 0; modeDuration = Mathf.Max(.1f, SeaNav.Length(Sailor.Route) / State.HullDef.SailSpeed);
             seaFrom = seaMat.color; seaTo = mode == Mode.SailingHome ? Palette.Sea : GameData.Spots[ActiveSpot].Water;
+            Leg = mode == Mode.SailingHome ? TripLeg.SeaHome : fresh ? TripLeg.None : TripLeg.ChartOut;
             StowSeaGear();
             Captain.Rowing = State.Hull == 0; SetRowing(true);
             UpdateSeaTravel(); return true;
@@ -95,24 +96,17 @@ namespace Catchline.Game
             travelOffset = new Vector3(p.x, 0, p.y) - State.HullDef.Center;
             travelYaw = 180f - Sailor.Heading * Mathf.Rad2Deg;
             travelWake = Sailor.Speed / State.HullDef.SailSpeed;
-            seaMat.color = Color.Lerp(seaFrom, seaTo, TravelProgress);
+            seaMat.color = Color.Lerp(seaFrom, seaTo, SeaU);
         }
         void TickSeaTravel(float dt)
         {
             Sailor.Tick(dt); modeTimer += dt;
             UpdateSeaTravel(); TickDeckGraph(); TickDeckFish(dt);
+            // Home: the chart rises over the last stretch to the map edge, then the harbour lane takes over.
+            if (CurrentMode == Mode.SailingHome && (Sailor.Arrived || Vector2.Distance(Sailor.Position, Navigation.Harbour) < 9f)) { BeginChart(true); return; }
             if (!Sailor.Arrived) return;
             Captain.Rowing = false; SetRowing(false); travelWake = 0;
-            if (CurrentMode == Mode.SailingHome)
-            {
-                FlushDeckGraph();
-                if (scenery != null) Visuals.Kill(scenery.gameObject);
-                scenery = BuildScenery(-1); Navigation = null; Sailor = null;
-                travelOffset = Vector3.zero; travelYaw = 0;
-                seaMat.SetFloat("_BoatAttack_Water_DistanceBlend", 256);
-                audio?.Play(VoyageAudio.Cue.Moor, .32f);
-                SetWaterBiome(-1); EnterHarbour(true); return;
-            }
+            if (Leg == TripLeg.SeaOut) Leg = TripLeg.None;
             SetWaterBiome(ActiveSpot);
             ActiveGroundId = destinationGround != null && destinationGround.Contains(Sailor.Position) ? destinationGround.Id : null;
             CurrentMode = Mode.Fishing; seaRelocating = false;

@@ -7,11 +7,11 @@ namespace Catchline.Game
     // Original, generated foley. No downloaded recordings or per-frame audio allocations.
     public sealed class VoyageAudio : MonoBehaviour
     {
-        public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase }
+        public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click }
         readonly Dictionary<Cue, AudioClip> clips = new();
         AudioSource ambience, foley;
         AudioClip sea;
-        float nextOar;
+        float nextOar, nextGull;
         bool preview;
         float previewVolume = .65f;
         public float Volume
@@ -44,6 +44,12 @@ namespace Catchline.Game
             if (ambience == null) return;
             ambience.volume = Volume * (paused ? .06f : harbour ? .16f : .23f);
             foley.volume = paused ? 0 : 1;
+            // Gulls over the harbour now and then.
+            if (harbour && !paused && Time.time >= nextGull)
+            {
+                if (nextGull > 0) Play(Cue.Gull, .22f + UnityEngine.Random.value * .15f);
+                nextGull = Time.time + 7f + UnityEngine.Random.value * 11f;
+            }
             if (rowing && !paused && Time.time >= nextOar)
             {
                 nextOar = Time.time + 1.96f;
@@ -79,7 +85,11 @@ namespace Catchline.Game
         static AudioClip MakeCue(Cue cue)
         {
             const int rate = 22050;
-            float duration = cue == Cue.Reel ? 1.2f : cue == Cue.Splash ? .65f : cue == Cue.Sale ? .65f : .32f;
+            float duration = cue switch
+            {
+                Cue.Reel => 1.2f, Cue.Splash or Cue.Sale => .65f, Cue.Gull => 1.05f, Cue.Bell => 1.8f,
+                Cue.Creak => .5f, Cue.Horn => 1.9f, Cue.Click => .14f, _ => .32f,
+            };
             var samples = new float[(int)(rate * duration)];
             var random = new System.Random(730 + (int)cue);
             float low = 0;
@@ -107,6 +117,42 @@ namespace Catchline.Game
                     case Cue.Sale:
                         float coin = t % .14f;
                         sample = (Mathf.Sin(6.283f * 2110 * coin) + .4f * Mathf.Sin(6.283f * 3263 * coin)) * Mathf.Exp(-coin * 75) * .11f * (1 - t / duration); break;
+                    case Cue.Gull:
+                    {
+                        // Three falling "kyow" calls: a rising-then-falling squeal with a rough, nasal edge.
+                        float call = t < .36f ? t : t < .64f ? t - .36f : t - .64f, len = t < .64f ? .3f : .38f;
+                        float u = Mathf.Clamp01(call / len), f = 1250 + 520 * Mathf.Sin(u * Mathf.PI) - 380 * u;
+                        float body = Mathf.Sin(6.283f * f * call) + .45f * Mathf.Sin(6.283f * f * 2 * call) + .2f * Mathf.Sin(6.283f * f * 3 * call);
+                        sample = body * (.8f + .2f * Mathf.Sin(6.283f * 38 * t)) * Mathf.Sin(Mathf.PI * u) * (t < .64f ? .06f : .075f) + low * .02f;
+                        break;
+                    }
+                    case Cue.Bell:
+                    {
+                        // A struck buoy bell: inharmonic partials with a long ring and a soft clapper knock.
+                        float ring = Mathf.Exp(-t * 2.1f);
+                        sample = (Mathf.Sin(6.283f * 523 * t) * .5f + Mathf.Sin(6.283f * 1255 * t) * .28f * Mathf.Exp(-t * 3)
+                            + Mathf.Sin(6.283f * 1602 * t) * .18f * Mathf.Exp(-t * 4) + Mathf.Sin(6.283f * 2093 * t) * .1f * Mathf.Exp(-t * 6)) * ring * .16f
+                            + low * Mathf.Exp(-t * 60) * .3f;
+                        break;
+                    }
+                    case Cue.Creak:
+                    {
+                        // Rope over wood: stick-slip pulses whose rate wanders.
+                        float rate2 = 38 + 14 * Mathf.Sin(t * 9);
+                        float pulse = (t * rate2) % 1f;
+                        sample = (low * .6f + Mathf.Sin(6.283f * 160 * t) * .3f) * Mathf.Exp(-pulse * 9) * Mathf.Sin(Mathf.PI * t / duration) * .5f;
+                        break;
+                    }
+                    case Cue.Horn:
+                    {
+                        // A distant foghorn: low reedy tone, slow swell and fade.
+                        float swell = Mathf.Clamp01(t / .25f) * Mathf.Clamp01((duration - t) / .6f);
+                        float f = 98 * (1 + .004f * Mathf.Sin(6.283f * 5 * t));
+                        sample = (Mathf.Sin(6.283f * f * t) * .55f + Mathf.Sin(6.283f * f * 2 * t) * .3f + Mathf.Sin(6.283f * f * 3 * t) * .15f + low * .05f) * swell * .2f;
+                        break;
+                    }
+                    case Cue.Click:
+                        sample = (low * .8f + Mathf.Sin(6.283f * 3100 * t) * .2f) * (Mathf.Exp(-t * 160) + Mathf.Exp(-Mathf.Abs(t - .07f) * 220) * .7f) * .35f; break;
                     default:
                         float pitch = cue == Cue.Moor ? 135 : cue == Cue.Land ? 280 : 190;
                         sample = (Mathf.Sin(6.283f * pitch * t) * .21f + Mathf.Sin(6.283f * pitch * 2.73f * t) * .08f + low * .3f) * envelope; break;

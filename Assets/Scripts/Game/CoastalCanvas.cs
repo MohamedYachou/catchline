@@ -162,7 +162,7 @@ namespace Catchline.Game
             e.Image.sprite = Sprite(art, false); e.Image.type = Image.Type.Simple;
             e.Image.preserveAspect = true; e.Image.color = tint ?? Color.white; e.Image.raycastTarget = false;
         }
-        public RectTransform ResourceArt(string id, Rect r, string resource, bool stretch = false)
+        public RectTransform ResourceArt(string id, Rect r, string resource, bool stretch = false, Transform parent = null)
         {
             string key = "resource:" + resource;
             if (!sprites.TryGetValue(key, out var sprite))
@@ -171,7 +171,7 @@ namespace Catchline.Game
                 if (texture != null) sprite = UnityEngine.Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * .5f, 100);
                 sprites[key] = sprite;
             }
-            var e = Get(id, r);
+            var e = Get(id, r, parent);
             if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<Image>();
             e.Image.sprite = sprite; e.Image.type = Image.Type.Simple;
             e.Image.preserveAspect = !stretch; e.Image.color = Color.white; e.Image.raycastTarget = false;

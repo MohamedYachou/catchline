@@ -64,7 +64,7 @@ namespace Catchline.Game
         }
 
         Rect NetGamePanel => new Rect((iw - 450) / 2, ih - 234, 450, 216);
-        Rect NetGameCancelRect => new Rect(NetGamePanel.x + 312, NetGamePanel.y + 164, 122, 40);
+        Rect NetGameCancelRect => NetViewActive ? NetViewLeaveRect : new Rect(NetGamePanel.x + 312, NetGamePanel.y + 164, 122, 40);
 
         void InterfaceNetHaulGame()
         {

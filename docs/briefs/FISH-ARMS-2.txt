@@ -1,0 +1,28 @@
+FISH-ARMS-2 — Codex 2 (WSL artist) — proper first-person arms for the rod view (replacing the "sticks")
+
+GOAL (Mo): "make the arms of the captain well rendered instead of those sticks, or just have a rod without arms".
+The game ships rod-only meanwhile; your arms go back in only if Claude accepts them on review.
+STEP 0 (first, small): the arms are baked into FishRodFP_Mesh, so the game cannot hide them. Export
+FishRodFP_RodOnly.fbx next to FishRodFP.fbx from the same source: identical rig, bone names (RodRoot, Rod_01..08,
+ReelHandle, ReelSpool, LineTip), actions and atlas, with the sleeve and glove geometry deleted. Five-angle renders
+and an action playback strip as evidence; one comms line. Claude wires it.
+
+DEFECTS in the current FishRodFP arms (see docs/screens/fish-view-1/waiting-1440.png, lifted-1440.png): each arm
+is one straight untapered tube from the screen edge to the glove, no elbow, no shoulder, no sleeve folds, no
+wrist; the left arm points at the reel from below as if the rod floats; gloves read as yellow blobs.
+
+BUILD in your Art/Models/FishRodFP sources (new version, keep the old as iterations/v1): arms that come from the
+captain's shoulders just outside the camera (camera = eye height behind the rod), bent elbows, tapering forearms,
+navy oilskin sleeves with 2-3 folds and a rolled cuff, visible wrist, mustard gloves with separate thumb and finger
+groups actually wrapping the cork grip (right) and the reel handle (left hand on the reel). Rig: upper arm,
+forearm, hand, 3 finger groups + thumb per hand, IK-friendly so the hands stay on rod and reel through the existing
+7 actions (Idle, Cast, Hold, Twitch, Strike, Reel, Lift) and the rod bend. Style per Art/STYLE.md, chunky
+low-poly, match the captain model in Art/Models/CrewV2. Under 8k tris for arms+rod.
+
+EVIDENCE: renders from the exact in-game camera (match FishRodFP's existing camera render), plus side and top, at
+each action's key pose, and a close-up of each hand's grip. Put them beside a render of the current v1 arms from the
+same camera. Open every render: arms must read as a person's arms holding a rod, hands closed around grip and
+handle with no gaps or clipping. REPORT.md + one comms.md DONE line. Do not import into Unity (Codex 1 does).
+
+OWNERSHIP: Art/Models/FishRodFP/**, Art/Source/FishRodFP/**. Never Assets/**, scenes, saves.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS. Then continue with the next assignment in the standing order.

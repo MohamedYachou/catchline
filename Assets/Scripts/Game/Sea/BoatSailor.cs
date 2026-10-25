@@ -26,6 +26,13 @@ namespace Catchline.Game.Sea
             route = plan; next = 1; arrivalRadius = Mathf.Max(.15f, radius); Arrived = false;
             return true;
         }
+        // Follow a lane planned elsewhere (SeaLanes): the first point is the boat's own position.
+        public bool Follow(List<Vector2> lane, float radius = .35f)
+        {
+            if (lane == null || lane.Count < 2) return false;
+            route = lane; next = 1; arrivalRadius = Mathf.Max(.15f, radius); Arrived = false;
+            return true;
+        }
         public void Stop() { Arrived = true; Speed = drive = TurnRate = 0; route = null; next = 0; }
         public void Push(Vector2 position) => Position = Nav.Resolve(position);
         public void Tick(float dt)

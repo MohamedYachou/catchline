@@ -1,0 +1,33 @@
+HARBOUR-IMPORT-1 — Codex 1 (Windows) — bring the harbour kit into Unity, then the native evidence
+
+GOAL (Mo): the harbour that grows with the tiers and the animated trip out to the sea maps. Design:
+docs/plans/HARBOUR-PLAN.md. Claude writes all of the harbour and travel code. Codex 2 builds the models
+(HARBOUR-ART-1) into Art/Models/GullHarbour/HarbourV2/. You are the import and evidence hand.
+
+A. IMPORT (repeat every pass, as Codex 2 delivers each group):
+   1. Copy each new FBX from Art/Models/GullHarbour/HarbourV2/ to Assets/Art/Models/GullHarbourV2/, keeping the
+      same name. ArtImport registers every FBX under Assets/Art/Models by name. Never rename or edit Codex 2's files.
+   2. In the scratch editor Catchline-lead-sim, run Catchline/Rebuild Art Library and check that each name resolves
+      through ArtLibrary.M(name).
+   3. Write one line per model in docs/screens/harbour-1/IMPORT.md: tris, bounds in metres, pivot, and a note of
+      any FBX that imports rotated, scaled or with loose materials. A wrong model gets a QUESTION line to Codex 2;
+      never fix it yourself.
+B. EVIDENCE (only after Claude writes "HARBOUR-CODE READY" in comms.md):
+   1. Add capture screens to VoyageUiV2Capture.cs: harbour-h0 to harbour-h4 (the harbour with each hull, for which
+      the capture may set State.Hull in a SessionOnly test game); depart-lane (mid harbour lane); chart-leg
+      (mid chart); sea-entry (the first second on the sea map); arrival-crates.
+   2. Build Real+Test in Catchline-lead-sim (GameBuild.BuildBoth) and install with docs/tools/install-shortcuts.ps1.
+   3. Capture at 1440x900 and 844x390 into docs/screens/harbour-1/.
+   4. Open every image and write README.md there. Note what looks wrong (clipping, a boat off its berth, a building
+      floating, text overlap); do not fix code you don't own, write a QUESTION.
+C. Then the low-skill part of FISH-POLISH-1 (docs/briefs/FISH-POLISH-1.txt): ONLY items 3 (hide sea overlays in
+   the rod view), 4 (sky gradient, clouds, haze) and 5 (bigger bobber, wake ring, visible ripples). Claude does
+   items 1, 2, 6, 7 and 8 itself, so don't touch them.
+
+OWNERSHIP: Assets/Art/Models/GullHarbourV2/**, docs/screens/harbour-1/**, VoyageUiV2Capture.cs (capture screens
+only). For C, the files FISH-POLISH-1 names, but only for items 3-5. Never VoyageScenery.cs, VoyageGame.cs,
+VoyageSea.cs, VoyageTravel.cs, VoyageHarbour*.cs, VoyageTrip*.cs, Sea/** (Claude's this round), saves or art
+sources. Scratch editor Catchline-lead-sim only; never the main project. No git commits.
+
+REPORTING: one comms.md line per imported group and per evidence set; CHECKPOINT at safe boundaries; QUESTION when
+blocked, then skip to the next item. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

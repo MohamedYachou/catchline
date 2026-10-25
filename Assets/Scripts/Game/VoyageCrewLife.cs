@@ -31,6 +31,9 @@ namespace Catchline.Game
             foreach (var tile in candidates.OrderBy(t => (Grid.GetLocal(t) - target).sqrMagnitude))
             {
                 if (Grid.FindPath(hand.Tile, tile) == null) continue;
+                // The deck graph blocks more than the walk grid (stations, baskets): never stroll into a pocket the
+                // scheduler cannot route out of, or every job given to this hand cancels on the spot.
+                if (UsesDeckGraph && DeckGraph?.Hold != null && !DeckGraph.Reachable(tile, DeckGraph.Access(DeckGraph.Hold))) continue;
                 hand.Stroll(Grid, tile, port ? Vector3.back : Vector3.forward);
                 return;
             }

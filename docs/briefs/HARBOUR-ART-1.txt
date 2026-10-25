@@ -1,0 +1,62 @@
+HARBOUR-ART-1 — Codex 2 (WSL artist) — the growing Gull Harbour kit and the sea-lane landmarks
+
+GOAL (Mo): "tier 5 is too big for the harbour", "the base upgrades with tiers", old boats stay moored, departure
+past the lighthouse and breakwater. Design: docs/plans/HARBOUR-PLAN.md (read it first). Claude codes the layout
+and places every model by name; a model that is missing is skipped, so deliver in the ORDER below, one at a time.
+
+CONTEXT: docs/plans/HARBOUR-PLAN.md, Art/STYLE.md, the existing kit Art/Models/GullHarbour/Harbour/*.blend
+(Quay4m, Lighthouse, BreakwaterRock*, HouseA/B, ShopFront_*, MarketStallAwning, Seagull) and its FBX export
+conventions (Unity axes, metres, origin at ground contact, the front faces -Z = toward the water, +Z = land).
+
+HARBOUR FRAME (where Claude places things; build to these sizes): x runs along the shore, water is z < 2.3, the quay
+top is y 0.35, the waterline is y -0.32. Boats: Rowboat 3x2 m, Skiff 5x3, Compact 4.3x2.3, Prep 5.7x2.9, Buoy fisher
+7.3x3.5.
+
+ORDER, exact model names, one .blend + .fbx each in Art/Models/GullHarbour/HarbourV2/:
+A. Structures
+   - Slipway: concrete-and-sand ramp, 8 m wide, 7 m long, from y 0.35 down to -0.9, with rails for two rowboats.
+   - PontoonSegment: floating, 2 m wide x 4 m, top y 0.0, with cleats, rubber fender and floats showing.
+   - PontoonGangway: hinged ramp 3 m long, from the quay top down to the pontoon.
+   - FuelDock: a 2x2 m float with a fuel pump, hose and a small sign.
+   - QuayCrane: about 5 m tall, the jib a child object named "Jib" (Claude swings it), hook and rope.
+   - BreakwaterWall: a 4 m armour-rock segment with a 1.8 m concrete cap path, top y 0.6.
+   - BreakwaterEnd: a rounded head.
+   - OuterWharf: a 4 m concrete wharf segment for the breakwater's inner face, 1.8 m deep, two bollards.
+   - WharfLight.
+   - MouthBeacon: the green harbour-mouth light on a rock base. The existing Lighthouse is the red side.
+B. Buildings that unlock with the tiers
+   - HarbourMasterHut: a 2.5x2 m timber hut with a window and a flag.
+   - NoticeBoard: 2 m wide, roofed, papers pinned. It hosts the crew tab before the crew office exists.
+   - SuppliesShed: 3x2.5 m, open front, with sacks, fuel cans and bait boxes.
+   - IceHouse: about 3.5x3 m, stone, with a thick insulated door and an ice chute.
+   - NetLoft: tall and timber, nets hanging from the upper door.
+   - BoatyardShed: an open-sided timber shed, about 9x5 m, for a boat on a cradle.
+   - BoatCradle: timber blocks and props that hold a hull up to 7.5 m.
+C. Other fishermen's boats: colour variants of the existing hulls, same mesh, the hull and cabin paint swapped.
+   Names: CompactFisherV1_VariantRed, PrepFisherV1_VariantGreen, Tier5DeepLines103_VariantBlue,
+   Skiff_VariantYellow. Take the sources from wherever the current boat FBXs were built.
+D. Sea-lane landmarks and moments
+   - ChannelMarkerRed and ChannelMarkerGreen: spar buoys with topmarks.
+   - BellBuoy.
+   - Wreck: a half-sunk 8 m fishing hull.
+   - SealRocks: a rock group with three seals lying on it, 6 m across.
+   - FloatingCrate.
+   - Dolphin: one mesh, 2.2 m, a smooth leaping pose. Claude animates the arc.
+   - SeagullDive: wings folded, diving.
+   - HandCart: a dock hand-truck with two fish crates.
+
+CONSTRAINTS: house low-poly style and palette (STYLE.md), one atlas or the kit's shared materials, under 3k tris per
+building and 1.5k per prop, no loose material folders. Match the scale of the existing kit, using Quay4m and
+HouseA as rulers.
+
+DONE = EVIDENCE, per model:
+- Four angles and a top view.
+- One ASSEMBLY render per hull tier (5 renders): the whole harbour laid out from docs/plans/HARBOUR-PLAN.md with
+  that tier's buildings and berths filled by boats, from the game's camera angle (pitch 45, yaw 35, orthographic).
+- Open every image. The boats must fit their berths, nothing may float or clip, and the buildings must read at
+  phone size.
+- REPORT.md in HarbourV2/, one comms.md line per finished group (A-D).
+
+OWNERSHIP: Art/Models/GullHarbour/HarbourV2/**, Art/Source/HarbourV2/** (new), and boat sources only to export the
+variants. Never Assets/**, scenes or saves (Codex 1 imports). No git. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+When A-D are done, continue with docs/briefs/FISH-ARMS-2.txt.

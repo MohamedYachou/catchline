@@ -14,12 +14,19 @@ namespace Catchline.Game
             _ => new Vector3(-.25f, 0, -.97f)
         }).normalized;
 
-        public float TravelProgress => Mathf.Clamp01(modeTimer / Mathf.Max(.1f, modeDuration));
-        public string TravelStage => Navigation != null
+        float SeaU => Mathf.Clamp01(modeTimer / Mathf.Max(.1f, modeDuration));
+        // One bar across the whole trip: each of the three legs fills a third.
+        public float TravelProgress => Leg switch
+        {
+            TripLeg.HarbourOut => LaneU / 3f, TripLeg.ChartOut => (1 + ChartRoute) / 3f, TripLeg.SeaOut => (2 + SeaU) / 3f,
+            TripLeg.SeaHome => SeaU / 3f, TripLeg.ChartHome => (1 + ChartRoute) / 3f, TripLeg.HarbourIn => (2 + LaneU) / 3f,
+            _ => SeaU,
+        };
+        public string TravelStage => TripStage ?? (Navigation != null
             ? CurrentMode == Mode.SailingHome ? "Following the route home" : seaRelocating ? "Sailing to the marked water" : "Following the route to the ground"
             : CurrentMode == Mode.SailingOut
             ? TravelProgress < .18f ? "Casting off · clearing the quay" : TravelProgress < .34f ? "Turning toward the channel" : TravelProgress < .82f ? "Following the coast" : "Settling at the fishing ground"
-            : TravelProgress < .15f ? "Turning for Gull Harbour" : TravelProgress < .72f ? "Following the channel home" : TravelProgress < .86f ? "Lining up alongside" : "Sliding gently into the berth";
+            : TravelProgress < .15f ? "Turning for Gull Harbour" : TravelProgress < .72f ? "Following the channel home" : TravelProgress < .86f ? "Lining up alongside" : "Sliding gently into the berth");
 
         Vector3 travelOffset;
         float travelYaw, travelWake;

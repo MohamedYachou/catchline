@@ -106,11 +106,9 @@ namespace Catchline.Game
             if(i<0)return false;
             buoyWorkers[i]=p;
             void Cancel(){if(buoyWorkers[i]==p)buoyWorkers[i]=null;}
-            void Finish()
+            // One crab for the crew; the captain hauls, frees and sorts the whole cage (Minigame/VoyageCageView.cs).
+            void Land(float kg)
             {
-                if(buoyWorkers[i]!=p)return;
-                if(HoldFull){Cancel();return;}
-                float kg=Mathf.Lerp(.5f,1.8f,(float)State.Rng.NextDouble());
                 var fish=new CaughtFish{Species=Species.Crab,Kg=kg,StowedAt=SimTime};
                 if (UsesDeckGraph && GearStation(Deck.StationKind.Cage, i) is {} station) LandOnDeck(station, fish.Species, kg);
                 else
@@ -119,10 +117,37 @@ namespace Catchline.Game
                     landed.Root=DeckFish.BuildModel(fish.Species,kg,Boat);landed.RestPos=Grid.GetLocal(buoyTiles[i])+new Vector3(.08f,.08f,.08f);landed.SpawnFrom=landed.RestPos+Vector3.up*.3f;landed.Root.localPosition=landed.SpawnFrom;
                     OnDeck.Add(landed);
                 }
-                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg,fish.Species,false);Stats.Landed++;BuoyHauls++;buoyTimers[i]=0;ShowCatch(fish.Species,kg);
-                Cancel();
+                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg,fish.Species,false);Stats.Landed++;ShowCatch(fish.Species,kg);
             }
-            if(!p.WalkTo(Grid,buoyTiles[i],()=>{p.FacePoint(buoyAnchors[i]);p.Do("Recovering buoy catch",2f,Finish,Cancel);},Cancel)){Cancel();return false;}
+            void Recovered(){BuoyHauls++;buoyTimers[i]=0;Cancel();}
+            void Finish()
+            {
+                if(buoyWorkers[i]!=p)return;
+                if(HoldFull){Cancel();return;}
+                Land(Mathf.Lerp(.5f,1.8f,(float)State.Rng.NextDouble()));Recovered();
+            }
+            void Sorted(CageModel cage)
+            {
+                if(buoyWorkers[i]!=p)return;
+                p.Stop();
+                foreach(var r in cage.Results)if(r.Kept&&r.Crab.Keeper&&!HoldFull)Land(r.Crab.Kg);
+                int bonus=0,fine=0;
+                foreach(var r in cage.Results)
+                {
+                    int value=Mathf.RoundToInt(r.Crab.Kg*State.SpecimenPricePerKg(Species.Crab,r.Crab.Kg));
+                    if(r.Kept&&r.Crab.Keeper)bonus+=Mathf.RoundToInt(value*CageModel.HandSortedBonus);
+                    else if(r.Kept)fine+=Mathf.RoundToInt(value*CageModel.FinePerBadKeep);
+                }
+                State.Coins=Mathf.Max(0,State.Coins+bonus-fine);
+                CageResult=$"Cage {i+1}: {cage.Kept-cage.Fines} kept, {cage.ThrownBack} back"+(bonus>0?$" · +{bonus} hand-sorted":"")+(fine>0?$" · fine {fine}":"");
+                Recovered();
+            }
+            if(!p.WalkTo(Grid,buoyTiles[i],()=>
+            {
+                p.FacePoint(buoyAnchors[i]);
+                if(p.IsCaptain){p.Do("Hauling cage",float.MaxValue,null,Cancel);BeginCageView(i,Sorted,()=>{p.Stop();Cancel();});}
+                else p.Do("Recovering buoy catch",2f,Finish,Cancel);
+            },Cancel)){Cancel();return false;}
             return true;
         }
         void InterfaceTier5Processing()

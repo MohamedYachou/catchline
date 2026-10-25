@@ -13,37 +13,7 @@ namespace Catchline.EditorTools
         public static void Run()
         {
             ArtImport.BuildLibrary();
-            for (int spot = 0; spot < GameData.Spots.Length; spot++)
-            {
-                var root = new GameObject("Coastal route check");
-                var game = root.AddComponent<VoyageGame>();
-                game.SessionOnly = true;
-                game.Build();
-                for (int i = 0; i < GameData.Spots.Length; i++) game.State.Charts.Add(i);
-                game.State.FoodMinutes = 100;
-                game.SelectedSpot = spot;
-                var start = game.Boat.TransformPoint(game.State.HullDef.Center);
-                game.SetSail();
-                float duration = GameData.Spots[spot].RowSeconds / WorkSpeed.Rate(game.Captain);
-                game.Tick(duration * .17f);
-                Check(game.Boat.TransformPoint(game.State.HullDef.Center).z < start.z - 1.25f, "clears quay sideways before turn " + spot);
-                Check(Mathf.Abs(Mathf.DeltaAngle(game.Boat.eulerAngles.y, 0)) < 1, "parallel to quay during clearance");
-                game.Tick(duration * .27f);
-                var bow = game.Boat.TransformDirection(Vector3.left); bow.y = 0;
-                Check(Vector3.Dot(bow.normalized, VoyageGame.RouteDirection(spot)) > .99f, "bow follows chart bearing " + spot);
-                game.Tick(duration);
-                Check(game.CurrentMode == VoyageGame.Mode.Fishing, "outbound arrives " + spot);
-                var arrived = game.Boat.TransformPoint(game.State.HullDef.Center);
-                Check(Mathf.Abs(arrived.x - game.State.HullDef.Center.x) < .0001f && Mathf.Abs(arrived.z - game.State.HullDef.Center.z) < .0001f, "fishing stage restored about hull centre");
-                game.HeadHome();
-                game.Tick(duration * .84f);
-                Check(game.Boat.TransformPoint(game.State.HullDef.Center).z < game.State.HullDef.Center.z - 1.20f, "approaches clear of quay " + spot);
-                game.Tick(duration);
-                Check(game.CurrentMode == VoyageGame.Mode.Harbour, "home arrives " + spot);
-                Check(Mathf.Abs(Mathf.DeltaAngle(game.Boat.eulerAngles.y, 0)) < 1
-                    && Mathf.Abs(game.Boat.TransformPoint(game.State.HullDef.Center).z - game.State.HullDef.Center.z) < .0001f, "parked alongside " + spot);
-                UnityEngine.Object.DestroyImmediate(root);
-            }
+            // The trip out and home is the three-leg harbour/chart/sea trip now: HarbourTripChecks covers it.
             var environment = ArtLibrary.Get().M("GullHarbourMouth");
             if (environment != null)
             {

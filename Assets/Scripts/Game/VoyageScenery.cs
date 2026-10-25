@@ -36,16 +36,6 @@ namespace Catchline.Game
             var hill = lib.M("HillBackdrop");
             if (hill != null)
                 for (float x = -38f; x <= 42f; x += 40f) Put(root, hill, new Vector3(x, q, 13.5f), 180f);
-            Put(root, lib.M("Shed_Shipyard"), new Vector3(15.5f, q, 7.5f), 180f);
-
-            // Fish market corner: the stall with its awning, fish crates and barrels.
-            Put(root, lib.M("MarketStall") ?? lib.M("MarketStallAwning"), new Vector3(-9.2f, q, 4.6f), 180f);
-            Put(root, lib.M("FishCrate"), new Vector3(-7.6f, q, 3.7f), 12f);
-            Put(root, lib.M("FishCrate"), new Vector3(-7.4f, q + 0.335f, 3.75f), -8f);
-            Put(root, lib.M("FishCrate"), new Vector3(-0.6f, q, 3.9f), 80f);
-            Put(root, lib.M("Barrel"), new Vector3(-0.4f, q, 4.6f));
-            Put(root, lib.M("Barrel"), new Vector3(0.15f, q, 4.75f), 40f);
-
             // Along the quay.
             Put(root, lib.M("CrateStack"), new Vector3(7.0f, q, 4.5f), 180f);
             Put(root, lib.M("Lifebuoy"), new Vector3(-4.3f, q, 4.4f), 180f);
@@ -54,12 +44,6 @@ namespace Catchline.Game
             Put(root, lib.M("CrabPotStack"), new Vector3(11.4f, q, 4.2f), 200f);
             Put(root, lib.M("NetRack"), new Vector3(12.6f, q, 4.9f), 180f);
             Put(root, lib.M("Barrel"), new Vector3(11.1f, q, 4.8f), 10f);
-            Put(root, lib.M("Skiff_VariantBlue"), new Vector3(10f, 0f, 0.9f), -90f)?.AddComponent<Floater>();
-            Put(root, lib.M("Rowboat_VariantGreen"), new Vector3(-12f, 0f, 1.3f), -90f)?.AddComponent<Floater>();
-
-            // People about the harbour (task 07).
-            Put(root, lib.M("NPC_Fishmonger"), new Vector3(-9.0f, q, 3.8f), 180f);
-            Put(root, lib.M("NPC_HarbourMaster"), new Vector3(-2.6f, q, 4.3f), 160f);
             Put(root, lib.M("NPC_Sitting"), new Vector3(3.4f, q + .2235f, 4.5f), 180f);
 
             // Gulls on bollards, a lamp, roofs and crates.
@@ -69,8 +53,8 @@ namespace Catchline.Game
                 var perches = new[]
                 {
                     (new Vector3(-4.5f, q + 0.47f, 2.6f), 200f), (new Vector3(7.5f, q + 0.47f, 2.6f), 150f),
-                    (new Vector3(3.4f, q + 2.8f, 4.0f), 220f), (new Vector3(-2.0f, q + 3.65f, 6.6f), 170f),
-                    (new Vector3(5.2f, q + 3.65f, 6.8f), 190f), (new Vector3(7.0f, q + 0.68f, 4.5f), 230f),
+                    (new Vector3(3.4f, q + 2.8f, 4.0f), 220f), (new Vector3(14f, q + 0.47f, 2.6f), 170f),
+                    (new Vector3(19f, 1.0f, -12f), 190f), (new Vector3(7.0f, q + 0.68f, 4.5f), 230f),
                 };
                 foreach (var (p, yaw) in perches) Put(root, gull, p, yaw)?.AddComponent<Gull>();
             }

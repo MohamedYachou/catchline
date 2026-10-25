@@ -1,0 +1,45 @@
+FISH-POLISH-1 — Codex 1 (Windows) — rod view quality pass: landing, hang, fight, water, variety
+
+GOAL (Mo, after playing FISH-VIEW-1): "damn that animation is smooth i love it ... now quality and polish, and it
+needs a lot more, this is barebones atm" — "when the fish is reeled in how it hangs etc, animations, variety all of
+that"; arms: "make the arms of the captain well rendered instead of those sticks, or just have a rod without arms".
+
+Claude reviewed docs/screens/fish-view-1 (waiting/take/lifted). Located defects, all yours to fix:
+1. Stick arms: two straight tubes from the screen edge. Switch to ROD-ONLY now (no arms, no gloves; the reel handle
+   turns by itself while reeling). Keep the arm path swappable: Codex 2 is remaking proper arms (FISH-ARMS-2) and
+   Claude will switch back only if they pass review. One field in RodViewArt picks rod-only vs arms.
+2. Lifted fish (lifted-1440.png) hangs level and stiff like on a skewer, line at mid-body. It must hang from the
+   MOUTH by the line: head up, body under gravity, a pendulum swing that settles, tail flaps that slow down, body
+   bend from the existing silhouette wag. It breaks the surface with a splash and a spray of drops, drips while it
+   hangs, then swings in toward the camera/boat before the return move. Heavy fish swing slow and bend the rod
+   deep; small fish flick fast. Its underwater shadow must vanish when it leaves the water (now it stays).
+3. The yellow ground border ring and nav pins cut across the water in every rod-view frame: hide sea map overlays
+   (border, pins, route) while the rod view is active (do not edit Sea/**: toggle from your side, or QUESTION).
+4. Flat teal sky with a hard horizon: add a sky gradient + a few soft low-poly clouds and horizon haze, rod view only
+   if needed. Repeated buoys on the horizon read as clutter: fine if they're the real map buoys, but no duplicates.
+5. Bobber is tiny (a few px at 1440): scale it so it reads clearly at 844x390, bright orange top, small wake ring
+   when it drifts. Ripple rings and bubble puffs must be visible at 844.
+6. Hooked fight (now a 1-2.5 s generic thrash): the line cuts the water with a V-wake where the fish runs, the rod
+   bend follows the fish's side, reel spin speed follows line in, drag clicks (existing audio cues), surface
+   splashes; jumps clear of the water for species that jump (signal below). Small camera shake on strike, a slight
+   FOV push-in on the take and during the fight; handheld breathing while waiting (subtle).
+7. Variety (wire Claude's BiteModel additions; they land in BiteModel.cs, read-only for you):
+   Style (Darter/Heavy/Bottom/Eel), Tilt (bobber lying flat 0..1, the "lift" bite), Jump (frame flag while hooked),
+   Thrash (0..1), HookedDone (fight over -> start the lift). Darters = quick nervous shadows, sometimes 2-3 small
+   shadows together; Bottom = fish only visible close and late; Eel = long S-bend writhing on the hang;
+   flatfish (plaice) hang flat and flap like a plate. If these are not in BiteModel when you reach item 7,
+   QUESTION and do 1-6 first.
+8. Tutorial tips persistence (your QUESTION): use PlayerPrefs "catchline.rodTipsShown" (count), not the save.
+   Test (SessionOnly) builds show the tips every session and do not write the pref.
+
+CONTEXT: docs/plans/FISHING-MINIGAME.md, Assets/Scripts/Game/Minigame/**, your docs/screens/fish-view-1/README.md.
+OWNERSHIP: Assets/Scripts/Game/Minigame/** except BiteModel.cs (Claude's), DeckActors.cs Rod, VoyageGame.cs
+minigame parts, VoyageUiV2Capture.cs, Editor checks you add. Never Sea/**, VoyageSea.cs, art sources, saves.
+Scratch editor Catchline-lead-sim only. No git commits.
+
+DONE = EVIDENCE: checks PASS in scratch; Real+Test built and installed; native Test captures at 1440 and 844 of
+waiting, fake, take, fight with a jump, splash out of the water, hang (mackerel, cod, plaice, conger), swing-in;
+plus frame sequences (0.1 s) of fight and landing for mackerel and cod, in docs/screens/fish-polish-1/. Open every
+image: no arms, no border ring, fish hangs from its mouth head-up, sizes differ, bobber readable at 844. Player save
+untouched. One comms.md line per item; DONE FISH-POLISH-1 with paths. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+Then continue with the next assignment in the standing order.
