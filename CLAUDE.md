@@ -11,8 +11,9 @@ its goals here, in order, after checking the actual files. Codex orders and logs
 @ClaudeCom.md
 
 ## Claude 1 (Windows) — goals, in order
-1. When Codex 2's FIRST-CATCH-ART-1 lands: metas for the new PNGs (fx-stamp-new and fx-splash are already picked up
-   by VoyageFirstCatchFx.cs when present), recapture first-catch-*, then build the goal-jar savings widget in the harbour.
+1. When Codex 2's FIRST-CATCH-ART-1 lands: metas for its PNGs in Assets/Art/UI/Crew (fx-stamp-new, fx-splash and
+   goal-jar-0..4 are already picked up by VoyageFirstCatchFx.cs / VoyageSavingsGoal.cs), recapture first-catch-* and
+   hud-goal-*, commit. When Codex 1 finishes SOUND-WIRE-4: review, regression, commit its hunks only.
 2. UI and animation polish (design-stack skill first): chest screens, harbour hub, purchase moments.
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
@@ -29,6 +30,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
 
 ## Done (latest first)
+- 4095521 harbour savings goal tile (VoyageSavingsGoal.cs; captures hud-goal-*)
 - 5344fd4 first-catch reveal (VoyageFirstCatchFx.cs; captures first-catch-*)
 - 3ca85f6 sell coin flight into the wallet, Mira avoids toasts, sell-step captures; SOUND-4 accepted, Codex 1 ungated
 - e82ba85 new-boat celebration (VoyageRefitFx.cs; captures docs/screens/overnight/refit-*)
