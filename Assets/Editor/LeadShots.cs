@@ -56,6 +56,33 @@ namespace Catchline.EditorTools
             finally { g.Cam.targetTexture = target; RenderTexture.active = active; RenderTexture.ReleaseTemporary(rt); UnityEngine.Object.DestroyImmediate(texture); }
         }
 
+        // Scene plus the production HUD canvas, composited the way InterfaceChecks does it.
+        static void ShotUi(VoyageGame g, string file, int width = 1440, int height = 900)
+        {
+            var rt = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+            var ui = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+            var composite = new Material(Shader.Find("Hidden/Catchline/Coastal UI Composite"));
+            var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+            var previous = RenderTexture.active;
+            try
+            {
+                g.Cam.targetTexture = rt; g.Cam.aspect = width / (float)height;
+                g.PrepareInterface(width, height, 0);
+                Canvas.ForceUpdateCanvases();
+                RenderPipeline.SubmitRenderRequest(g.Cam, new RenderPipeline.StandardRequest { destination = rt });
+                g.GetComponentInChildren<CoastalCanvas>().RenderCapture(ui);
+                Graphics.Blit(ui, rt, composite);
+                RenderTexture.active = rt; texture.ReadPixels(new Rect(0, 0, width, height), 0, 0); texture.Apply();
+                File.WriteAllBytes(Out + file + ".png", texture.EncodeToPNG());
+            }
+            finally
+            {
+                RenderTexture.active = previous; g.Cam.targetTexture = null;
+                UnityEngine.Object.DestroyImmediate(texture); UnityEngine.Object.DestroyImmediate(rt);
+                UnityEngine.Object.DestroyImmediate(ui); UnityEngine.Object.DestroyImmediate(composite);
+            }
+        }
+
         static void Rebuild(VoyageGame g, int hull)
         {
             g.State.Hull = hull; g.State.Coins = 10000; g.State.Fuel = g.State.FuelCapacity;
@@ -107,16 +134,16 @@ namespace Catchline.EditorTools
             g.TryBuoyWork(g.Captain);
             for (int i = 0; i < 400 && !g.CageViewActive; i++) g.Tick(.05f);
             for (int i = 0; i < 12; i++) g.Tick(.05f);
-            Shot(g, "cage-0-start"); Shot(g, "cage-0-start-phone", 844, 390);
+            ShotUi(g, "cage-0-start"); ShotUi(g, "cage-0-start-phone", 844, 390);
             var cage = g.Cage;
             for (int i = 0; i < 6; i++) { g.TapCage(); g.Tick(.05f); g.Tick(.05f); }
-            Shot(g, "cage-1-hauling");
+            ShotUi(g, "cage-1-hauling");
             for (int i = 0; i < 200 && cage.Phase == CagePhase.Pull; i++) { g.TapCage(); g.Tick(.08f); }
-            if (cage.Phase == CagePhase.Snag) { g.Tick(.3f); Shot(g, "cage-2-snag"); g.DragCage(cage.SnagDirection); }
+            if (cage.Phase == CagePhase.Snag) { g.Tick(.3f); ShotUi(g, "cage-2-snag"); g.DragCage(cage.SnagDirection); }
             for (int i = 0; i < 200 && cage.Phase == CagePhase.Pull; i++) { g.TapCage(); g.Tick(.08f); }
             for (int i = 0; i < 20; i++) g.Tick(.05f);
-            Shot(g, "cage-3-board"); Shot(g, "cage-3-board-phone", 844, 390);
-            if (cage.Current is { } crab) { g.FlickCage(!crab.Keeper); g.Tick(.05f); g.Tick(.15f); Shot(g, "cage-4-flick"); }
+            ShotUi(g, "cage-3-board"); ShotUi(g, "cage-3-board-phone", 844, 390);
+            if (cage.Current is { } crab) { g.FlickCage(!crab.Keeper); g.Tick(.05f); g.Tick(.15f); ShotUi(g, "cage-4-flick"); }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
@@ -126,11 +153,11 @@ namespace Catchline.EditorTools
             g.SetNet();
             for (int i = 0; i < 600 && !g.NetViewActive; i++) g.Tick(.05f);
             for (int i = 0; i < 14; i++) g.Tick(.05f);
-            Shot(g, "net-0-setting"); Shot(g, "net-0-setting-phone", 844, 390);
+            ShotUi(g, "net-0-setting"); ShotUi(g, "net-0-setting-phone", 844, 390);
             int shots = 0;
             for (int i = 0; i < 800 && g.NetGameActive; i++)
             {
-                if (g.NetGamePhase >= .43f && g.NetGamePhase <= .55f && g.TapNetGame() && shots++ == 1) { g.Tick(.025f); g.Tick(.3f); Shot(g, "net-1-cast"); }
+                if (g.NetGamePhase >= .43f && g.NetGamePhase <= .55f && g.TapNetGame() && shots++ == 1) { g.Tick(.025f); g.Tick(.3f); ShotUi(g, "net-1-cast"); }
                 g.Tick(.025f);
             }
             typeof(VoyageGame).GetMethod("TickNet", H).Invoke(g, new object[] { GameData.ShallowNetSoakSeconds + 1f });
@@ -142,8 +169,8 @@ namespace Catchline.EditorTools
             {
                 if (g.NetGameTension < .64f) g.TapNetGame();
                 g.Tick(.025f);
-                if (!mid && g.NetGameProgress > .3f) { mid = true; Shot(g, "net-2-haul"); }
-                if (!bunt && g.NetGameProgress > .85f) { bunt = true; Shot(g, "net-3-bunt"); Shot(g, "net-3-bunt-phone", 844, 390); }
+                if (!mid && g.NetGameProgress > .3f) { mid = true; ShotUi(g, "net-2-haul"); }
+                if (!bunt && g.NetGameProgress > .85f) { bunt = true; ShotUi(g, "net-3-bunt"); ShotUi(g, "net-3-bunt-phone", 844, 390); }
             }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
@@ -154,9 +181,9 @@ namespace Catchline.EditorTools
             g.CaptainGutAt(table);
             for (int i = 0; i < 400 && !g.GutWaiting; i++) g.Tick(.05f);
             for (int i = 0; i < 14; i++) g.Tick(.05f);
-            Shot(g, "gut-0-board"); Shot(g, "gut-0-board-phone", 844, 390);
+            ShotUi(g, "gut-0-board"); ShotUi(g, "gut-0-board-phone", 844, 390);
             g.CutGut(GutViewChecks.CleanCut); g.Tick(.2f);
-            Shot(g, "gut-1-clean"); Shot(g, "gut-1-clean-phone", 844, 390);
+            ShotUi(g, "gut-1-clean"); ShotUi(g, "gut-1-clean-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

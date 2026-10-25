@@ -100,8 +100,14 @@ namespace Catchline.Game
                 coastalUi.Box("cageview/depth/fill", new Rect(track.x + 4, track.yMax - 4 - (track.height - 8) * f, track.width - 8, (track.height - 8) * f), "panel-cream", Skin.Brass);
             }
             if (cageView.ShowTip && m.Phase == CagePhase.Sort && !cageView.Finished)
-                coastalUi.Text("cageview/tip", new Rect(Edge, ih - Edge - 50, iw - 2 * Edge - 160, 44),
+            {
+                // On a dark chip like the hint band, so it reads over water and the board alike; clear of Leave.
+                float w = Mathf.Min(iw - 2 * Edge - 150, 900);
+                var tip = new Rect(Mathf.Max(Edge, (iw - w) / 2 - 60), ih - Edge - 52, w, 48);
+                coastalUi.Box("cageview/tip/band", tip, "chip-dark", new Color(1, 1, 1, .82f));
+                coastalUi.Text("cageview/tip", new Rect(tip.x + 12, tip.y, tip.width - 24, tip.height),
                     "Keep crabs past the red mark. Undersize crabs and females with orange eggs go back.", Skin.Type.Small, Skin.Cream, TextAnchor.MiddleCenter);
+            }
             cageLeaveRect = new Rect(iw - Edge - 132, ih - Edge - 54, 132, 54);
             if (!cageView.Finished) { IButton("cageview/leave", cageLeaveRect, "Leave", LeaveCage, false); Block(cageLeaveRect); }
         }
