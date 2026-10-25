@@ -13,7 +13,8 @@ its goals here, in order, after checking the actual files. Codex orders and logs
 ## Claude 1 (Windows) — goals, in order
 1. Tutorial follow-ups: capture the at-sea step (FirstCast) and the Sell step; play SOUND-4 CoachPop when Mira appears
    (VoyageTutorial.cs plays Cue.CardFlip until then).
-2. UI and animation polish of the crew office and harbour screens (design-stack skill first).
+2. UI and animation polish of the harbour screens (design-stack skill first). Next candidates: the Sell step
+   capture (needs an unsold-catch fixture), the market sell moment (coins flying to the pill), first-catch moment.
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
 ## Claude 2 (WSL) — goals, in order
@@ -29,6 +30,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
 
 ## Done (latest first)
+- e82ba85 new-boat celebration (VoyageRefitFx.cs; captures docs/screens/overnight/refit-*)
 - 89f52bf real CC0 pack installed for every cue + HARBOUR-SOUND-2 harbour calls/ambience (Codex 1, accepted)
 - 05626e1 tutorial at-sea step captures
 - 2d5b0b3 first-run tutorial: Mira coach marks (VoyageTutorial.cs, CoastalCanvas.TryFind, captures docs/screens/overnight/tut-*)
