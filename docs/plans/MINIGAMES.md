@@ -93,3 +93,17 @@ cost to buy.
   drag vent to gills: on the line the fish is done in 0.5 s and the streak grows; off the line it is a ragged cut
   that still finishes after the crew's normal 3 s. Art: docs/briefs/GUT-ART-1.txt (Codex 2). Code starts when the kit
   lands; stand-in primitives are not built first, per Mo's "new features inherit finished components".
+
+### For Mo (2026-10-25 morning): two minigames wait on a decision
+
+Art for both is done and accepted (Art/Models/JigKit, Art/Models/RepairKit). Code is not started, because each changes
+the game beyond a view:
+
+- **Jig (section 4):** no boat has a jig station today (StationKind.Jig and JobKind.JigCycle exist but nothing builds
+  them). The minigame needs jig gear first: which boat gets a jig station (proposal: the tier-5 boat, as a night rig,
+  matching Lise's "Jigs (night)" card), and what it catches (proposal: mackerel/pollock/cod from the existing tables).
+- **Net repair (section 5):** today a shallow-net tear simply uses up a net (replacement 40 coins). Mending makes a
+  tear cost time instead of coins. Proposal: a torn net goes to a "torn" pile; in harbour the captain mends it free
+  with the trace minigame (a clean trace restores it; a ragged one needs another go), or the crew mends it for the
+  replacement price. This lowers net costs for active players.
+Say yes/no/change to either and Claude builds it.
