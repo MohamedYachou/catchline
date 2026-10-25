@@ -162,7 +162,7 @@ namespace Catchline.Game
 
         void InterfaceCardOverlays()
         {
-            if (CurrentMode != Mode.Harbour) { reveal = null; cardPanelId = null; renownChoice = 0; return; }
+            if (CurrentMode != Mode.Harbour) { reveal = null; cardPanelId = null; renownChoice = 0; InterfaceAbilityPops(); return; }
             if (reveal != null) { ChestRevealOverlay(); return; }
             bool office = panelOpen && hudTab == HudTab.CrewOffice;
             if (!office) { cardPanelId = null; renownChoice = 0; return; }

@@ -40,6 +40,7 @@ namespace Catchline.EditorTools
             if (Want("deckui")) DeckUi();
             if (Want("rod")) Rod();
             if (Want("crewui")) CrewUi();
+            if (Want("abilitypop")) AbilityPop();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -77,6 +78,20 @@ namespace Catchline.EditorTools
             Set("crewTab", 0); noor.Level = noor.LevelCap; noor.Blueprints = 2; Clock(200);
             T.GetMethod("RankUpWithFx", H).Invoke(g, new object[] { "noor" });
             foreach (float t in new[] { .6f, 1.2f, 2.0f }) { Clock(200 + t); ShotUi(g, $"crew-rankup-{t:0.0}"); }
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // Ability names floating over the crew at sea: every deployed card raised to Purple, its auto ability just fired.
+        static void AbilityPop()
+        {
+            var g = Game("Ability pop shot"); g.StartTier5Trial();
+            foreach (var c in g.State.Roster) if (c.Rarity < CardRarity.Purple) { c.Rarity = CardRarity.Purple; c.Level = 20; }
+            for (int i = 0; i < 300; i++) g.Tick(.1f);
+            var engine = g.Abilities;
+            var fired = (System.Collections.Generic.Dictionary<string, float>)engine.GetType().GetField("fired", H).GetValue(engine);
+            float i2 = 0;
+            foreach (var id in g.State.Deployment) { fired[id + ".auto"] = engine.Time - .25f - i2; i2 += .3f; }
+            ShotUi(g, "ability-pop"); ShotUi(g, "ability-pop-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
