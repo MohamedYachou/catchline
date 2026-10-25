@@ -508,8 +508,9 @@ namespace Catchline.Game
             if (!Free(r))
             {
                 float best = float.MaxValue; var home = r;
-                for (int j = -3; j <= 2; j++)
-                    for (int k = -4; k <= 4; k++)
+                // Wide enough that a crowded deck pinned against the top edge (tier-5 boats on a phone) still finds room.
+                for (int j = -3; j <= 5; j++)
+                    for (int k = -8; k <= 8; k++)
                     {
                         var c = At(home.x + k * (w * .5f + 6), home.y + j * (h + 8));
                         float cost = (c.x - home.x) * (c.x - home.x) + (c.y - home.y) * (c.y - home.y) * (c.y > home.y ? 2.5f : 1.2f);
