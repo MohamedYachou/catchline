@@ -1,0 +1,26 @@
+TUTORIAL-CHECK-1 — Codex 1 (Windows app) — an automated playthrough check for the first-run tutorial
+GOAL: the tutorial Claude built tonight (Mira's coach marks) can never silently break: a check drives a fresh game
+from the first voyage to TutStep.Done through the real game actions, and fails loudly when a step does not advance.
+
+CONTEXT (read these, nothing else up front): Assets/Scripts/Game/VoyageTutorial.cs (TutStep, AdvanceTutorial,
+TutorialLine, SkipTutorial; read only), Assets/Editor/LeadShots.cs Tutorial() (how a game is built and driven in
+batch mode, incl. Rebuild, SetSail, Tick, InvokeInterface), Assets/Editor/CrewCardsAbilityChecks.cs (Check style and
+the Regression entry point), Assets/Scripts/Game/SaveV2.cs + GameStateCards.cs (the Tutorial field, -1 = old save).
+
+DO:
+1. New file Assets/Editor/TutorialChecks.cs (+ .meta, fresh guid) with public static Run():
+   a. New game -> BeginFirstVoyage path: step is Hello, TutorialLine is not null and names a target that the canvas
+      can TryFind after a frame (PrepareInterface).
+   b. Drive each step with the real action the player takes (cast/land/sell via the game API, refit the skiff,
+      open the welcome chest, recruit) and assert the step after each. Where no public action exists, use the same
+      reflection LeadShots uses; never change the step by SetTutorial except to test skip.
+   c. SkipTutorial from any step -> Done, TutorialLine null.
+   d. Save round trip keeps the step; an old save without the field loads as Done (skipped).
+   Log "[Catchline] TUTORIAL CHECKS PASSED: <n>" at the end.
+2. Add TutorialChecks.Run() to CrewCardsAbilityChecks.Regression() (one line, before the final log).
+
+OWNERSHIP: new TutorialChecks.cs + meta, that one line in CrewCardsAbilityChecks.cs. Nothing else; if a step can't be
+driven without changing game code, write a QUESTION line naming the step and the missing hook, assert what you can.
+No git. Never batchmode the main project: docs/tools/check.ps1 in Catchline-sim.
+DONE = EVIDENCE: regression output with TUTORIAL CHECKS PASSED and the existing PASSED lines; comms DONE line.
+THEN: docs/briefs/SOUND-WIRE-5.txt once Codex 2 logs SOUND-5 DONE.

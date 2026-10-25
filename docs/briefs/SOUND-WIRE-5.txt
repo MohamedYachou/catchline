@@ -1,0 +1,14 @@
+SOUND-WIRE-5 — Codex 1 (Windows app) — the SOUND-5 recordings play at the first catch, the sale and the savings goal
+DEPENDENCY: Codex 2's "DONE ... SOUND-5" lines in comms.md (all letters). Same method as SOUND-WIRE-4 (your work).
+DO:
+1. Copy Art/Audio/Real/SFX/{FishLeap,NewSpecies,StampThud,CoinLand,GoalReady}_0..2.wav into Assets/Resources/Audio/SFX
+   with metas cloned from Bell_0.wav.meta (fresh guids); append the five cues with stand-ins (FishLeap=>Splash,
+   NewSpecies=>RewardChime, StampThud=>Click, CoinLand=>Coins, GoalReady=>Bell).
+2. Wire (one-line Play changes; Claude releases these lines to you):
+   - VoyageFeedback.cs ShowCatch: the first-catch RewardChime -> NewSpecies (.5) plus FishLeap (.45).
+   - VoyageFirstCatchFx.cs: StampThud (.4) once when the stamp slam starts (t crosses .8; guard with a bool field).
+   - VoyageCoinFx.cs InterfaceCoinFx: the per-landing Coins cue -> CoinLand (.12).
+   - VoyageSavingsGoal.cs: GoalReady (.35) once when the tile turns ready (remember the last state in a field).
+   Volumes no louder than stated.
+OWNERSHIP: VoyageAudio.cs, new Resources files + metas, the lines named above. Nothing else. No git.
+DONE = EVIDENCE: Regression passes; docs/screens/sound5/README.md with cue/trigger(file:line)/volume table; comms DONE.
