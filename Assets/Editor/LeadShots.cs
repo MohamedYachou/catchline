@@ -29,6 +29,7 @@ namespace Catchline.EditorTools
             if (Want("trip")) Trip();
             if (Want("net")) Net();
             if (Want("gut")) Gut();
+            if (Want("traffic")) Traffic();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -71,6 +72,16 @@ namespace Catchline.EditorTools
                 Shot(g, $"harbour-h{hull}-phone", 844, 390);
                 UnityEngine.Object.DestroyImmediate(g.gameObject);
             }
+        }
+
+        static void Traffic()
+        {
+            var g = Game("Traffic shot"); Rebuild(g, 2);
+            g.ShowHarbourTraffic(.42f); Shot(g, "traffic-h2-basin");
+            g.BeginIntro();
+            for (float t = 0; t < 3f; t += .05f) g.Tick(.05f);
+            g.ShowHarbourTraffic(.3f); Shot(g, "traffic-intro-mouth");
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
         static void Intro()

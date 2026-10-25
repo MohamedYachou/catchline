@@ -849,6 +849,7 @@ namespace Catchline.Game
             UpdateRodView(frameDt);
             UpdateCageView(frameDt);
             UpdateGutView(frameDt);
+            UpdateHarbourTraffic(frameDt);
             UpdateNetView(frameDt);
             RefreshInterface();
 
