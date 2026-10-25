@@ -1,0 +1,294 @@
+{
+  "triangles": 1342,
+  "bounds_blender": [
+    [
+      -1.1926500797271729,
+      -0.527999997138977,
+      -0.039589934051036835
+    ],
+    [
+      1.1953001022338867,
+      0.5139999985694885,
+      0.18517187237739563
+    ]
+  ],
+  "dimensions_unity": [
+    2.3879501819610596,
+    0.22476180642843246,
+    1.0419999957084656
+  ],
+  "parents": {
+    "NetPanelSet": null,
+    "NetPanel": "NetPanelSet",
+    "NetHeap": "NetPanelSet"
+  },
+  "materials": [
+    "M_NetGreenGrey",
+    "M_RailIvory",
+    "M_Rope",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_Steel"
+  ],
+  "objects": {
+    "NetPanelSet": {
+      "location_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 0
+    },
+    "NetPanel": {
+      "location_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 662
+    },
+    "NetHeap": {
+      "location_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 680
+    }
+  },
+  "name": "NetPanelSet",
+  "contract": {
+    "pivot_unity": [
+      0,
+      0,
+      0
+    ],
+    "children": [
+      "NetPanel",
+      "NetHeap"
+    ],
+    "NetPanel": {
+      "pivot_unity": [
+        0,
+        0,
+        0
+      ],
+      "cork_edge": "Unity +Z",
+      "lead_edge": "Unity -Z",
+      "nominal_span_m": [
+        2.4,
+        1
+      ]
+    },
+    "NetHeap": {
+      "pivot_unity": [
+        0,
+        0,
+        0
+      ],
+      "use": "Toggle off NetPanel and on NetHeap for a missed cast; both exported visible."
+    }
+  },
+  "limit": 1600,
+  "palette_srgb": {
+    "M_NetGreenGrey": "#50766C",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B"
+  },
+  "sha256": {
+    "blend": "10816f0e28d13beb182898276dcf745ad765a45c986a49ddf75e7b3b2fbe5722",
+    "fbx": "c083c554b7167b9a20b1e7fa08579bd197521fbbba73d404683c906dfb8b453c"
+  },
+  "status": "actual FBX geometry/controls PASS; visual review separate",
+  "model_dimensions_unity": {
+    "NetPanel": [
+      2.3879501819610596,
+      0.09749890118837357,
+      1.0419999957084656
+    ],
+    "NetHeap": [
+      0.6568714380264282,
+      0.19030231051146984,
+      0.5770722925662994
+    ]
+  },
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 2,
+      "max_vertex_error_metres": 3.91155481338501e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "taut_geometry": null,
+    "source": {
+      "triangles": 1342,
+      "bounds_blender": [
+        [
+          -1.1926500797271729,
+          -0.527999997138977,
+          -0.039589934051036835
+        ],
+        [
+          1.1953001022338867,
+          0.5139999985694885,
+          0.18517187237739563
+        ]
+      ],
+      "dimensions_unity": [
+        2.3879501819610596,
+        0.22476180642843246,
+        1.0419999957084656
+      ],
+      "parents": {
+        "NetPanelSet": null,
+        "NetPanel": "NetPanelSet",
+        "NetHeap": "NetPanelSet"
+      },
+      "materials": [
+        "M_NetGreenGrey",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "objects": {
+        "NetPanelSet": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        },
+        "NetPanel": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 662
+        },
+        "NetHeap": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 680
+        }
+      }
+    },
+    "imported": {
+      "triangles": 1342,
+      "bounds_blender": [
+        [
+          -1.1926500797271729,
+          -0.527999997138977,
+          -0.039589934051036835
+        ],
+        [
+          1.1953001022338867,
+          0.5139999985694885,
+          0.18517188727855682
+        ]
+      ],
+      "dimensions_unity": [
+        2.3879501819610596,
+        0.22476182132959366,
+        1.0419999957084656
+      ],
+      "parents": {
+        "NetHeap": "NetPanelSet",
+        "NetPanel": "NetPanelSet",
+        "NetPanelSet": null
+      },
+      "materials": [
+        "M_NetGreenGrey",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "objects": {
+        "NetHeap": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 680
+        },
+        "NetPanel": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 662
+        },
+        "NetPanelSet": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        }
+      }
+    },
+    "material_colour_max_error": 0.0,
+    "empty_pivots": "PASS",
+    "positive_unit_scales": "PASS"
+  }
+}

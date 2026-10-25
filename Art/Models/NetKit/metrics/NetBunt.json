@@ -1,0 +1,311 @@
+{
+  "triangles": 2086,
+  "bounds_blender": [
+    [
+      -0.5556188821792603,
+      -0.7413775324821472,
+      -0.46066123247146606
+    ],
+    [
+      0.5556638836860657,
+      0.041999999433755875,
+      0.32637307047843933
+    ]
+  ],
+  "dimensions_unity": [
+    1.111282765865326,
+    0.7870343029499054,
+    0.7833775319159031
+  ],
+  "parents": {
+    "NetBunt": null,
+    "Bunt": "NetBunt",
+    "Fill": "NetBunt"
+  },
+  "materials": [
+    "M_NetGreenGrey",
+    "M_RailIvory",
+    "M_Rope",
+    "M_SafetyOrange"
+  ],
+  "objects": {
+    "NetBunt": {
+      "location_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 0
+    },
+    "Bunt": {
+      "location_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 2086
+    },
+    "Fill": {
+      "location_unity": [
+        0.0,
+        -0.09000000357627869,
+        0.3100000023841858
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "triangles": 0
+    }
+  },
+  "name": "NetBunt",
+  "contract": {
+    "pivot_unity": [
+      0,
+      0,
+      0
+    ],
+    "mouth_normal_unity": [
+      0,
+      0,
+      -1
+    ],
+    "Fill": {
+      "position_unity": [
+        0,
+        -0.09,
+        0.31
+      ],
+      "taut_position_unity": [
+        0.0,
+        -0.0702,
+        0.4107
+      ]
+    },
+    "shape_keys": {
+      "mesh": "Bunt",
+      "names": [
+        "Slack",
+        "Taut"
+      ],
+      "slack": "Basis geometry",
+      "drive": "Unity Bunt blendshape Taut from0 to100; Slack stays0. No skeleton or clips.",
+      "function": "Rear narrows28%, vertical body narrows22%; depth beyond the fixed45mm mouth band lengthens38%."
+    }
+  },
+  "limit": 2500,
+  "palette_srgb": {
+    "M_NetGreenGrey": "#50766C",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Steel": "#8FA6AC",
+    "M_Rubber": "#28343B"
+  },
+  "sha256": {
+    "blend": "f0a272b99e9927c3e0916f85c408f5d88372fb12cd99b4e355586608be1bcc7f",
+    "fbx": "2c968a9dd096e5a8d8624d5635e2f435151905e62f43f89cb0b9f3fe2d6ab552"
+  },
+  "status": "actual FBX geometry/controls PASS; visual review separate",
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 1,
+      "max_vertex_error_metres": 6.664001972467304e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "taut_geometry": {
+      "result": "PASS",
+      "mesh_count": 1,
+      "max_vertex_error_metres": 7.450580596923828e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence",
+      "source_names": [
+        "Basis",
+        "Slack",
+        "Taut"
+      ],
+      "imported_names": [
+        "Basis",
+        "Slack",
+        "Taut"
+      ],
+      "slack_dimensions_unity": [
+        1.111282765865326,
+        0.7870343029499054,
+        0.7833775319159031
+      ],
+      "taut_dimensions_unity": [
+        0.9912554323673248,
+        0.7171023786067963,
+        1.0480009950697422
+      ],
+      "half_weight_movement_m": 0.1336243419901867
+    },
+    "source": {
+      "triangles": 2086,
+      "bounds_blender": [
+        [
+          -0.5556188821792603,
+          -0.7413775324821472,
+          -0.46066123247146606
+        ],
+        [
+          0.5556638836860657,
+          0.041999999433755875,
+          0.32637307047843933
+        ]
+      ],
+      "dimensions_unity": [
+        1.111282765865326,
+        0.7870343029499054,
+        0.7833775319159031
+      ],
+      "parents": {
+        "NetBunt": null,
+        "Bunt": "NetBunt",
+        "Fill": "NetBunt"
+      },
+      "materials": [
+        "M_NetGreenGrey",
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange"
+      ],
+      "objects": {
+        "NetBunt": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        },
+        "Bunt": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 2086
+        },
+        "Fill": {
+          "location_unity": [
+            0.0,
+            -0.09000000357627869,
+            0.3100000023841858
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        }
+      }
+    },
+    "imported": {
+      "triangles": 2086,
+      "bounds_blender": [
+        [
+          -0.5556188821792603,
+          -0.7413775324821472,
+          -0.4606612026691437
+        ],
+        [
+          0.5556638836860657,
+          0.042000021785497665,
+          0.32637307047843933
+        ]
+      ],
+      "dimensions_unity": [
+        1.111282765865326,
+        0.787034273147583,
+        0.7833775542676449
+      ],
+      "parents": {
+        "Bunt": "NetBunt",
+        "Fill": "NetBunt",
+        "NetBunt": null
+      },
+      "materials": [
+        "M_NetGreenGrey",
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange"
+      ],
+      "objects": {
+        "Bunt": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 2086
+        },
+        "Fill": {
+          "location_unity": [
+            0.0,
+            0.3100000023841858,
+            0.09000000357627869
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        },
+        "NetBunt": {
+          "location_unity": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "triangles": 0
+        }
+      }
+    },
+    "material_colour_max_error": 0.0,
+    "empty_pivots": "PASS",
+    "positive_unit_scales": "PASS"
+  },
+  "model_dimensions_unity": {
+    "Bunt": [
+      1.111282765865326,
+      0.7870343029499054,
+      0.7833775319159031
+    ]
+  }
+}

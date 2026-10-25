@@ -60,7 +60,16 @@ namespace Catchline.Game
             readonly RodViewAtmosphere sky;
             readonly List<(Transform t, Vector3 from, Vector3 to, float born)> flying = new();
             readonly List<(Transform t, float born)> heaps = new();
-            readonly List<Transform> fish = new();
+            readonly List<(Transform t, Vector3 pos, Quaternion rot, Vector3 scale)> fish = new();
+            static readonly Vector3[] Packing = {
+                new(-.30f, -.090f, -.130f), new(0, -.080f, -.130f), new(.30f, -.075f, -.100f),
+                new(-.30f, .065f, .025f), new(0, .075f, .035f), new(.30f, .065f, .020f) };
+            static readonly Vector3 FillSlack = new(0, -.09f, .31f), FillTaut = new(0, -.0702f, .4107f);
+            readonly ArtLibrary lib;
+            readonly Transform fill;
+            readonly SkinnedMeshRenderer bagSkin;
+            readonly int tautShape = -1;
+            float taut;
             readonly List<Renderer> hidden = new();
             readonly Vector3 access, outward, right, deckPosition, eye, centre;
             readonly Quaternion deckRotation, setRotation, haulRotation;
@@ -105,26 +114,39 @@ namespace Catchline.Game
                     Visuals.Prim(PrimitiveType.Sphere, "Folds", bundle, new Vector3((i - 1.5f) * .09f, (i % 2) * .05f, 0), new Vector3(.2f, .12f, .16f), Palette.Hex("5E8C83"));
 
                 // Hauling uses the boat's own roller and net; the view adds the bunt of fish coming up in the last third.
+                // The NetKit bag (mouth toward the boat, Taut blendshape) holds the fish at its Fill point; hoops stand in without it.
+                lib = ArtLibrary.Get();
                 bunt = new GameObject("Net bunt").transform; bunt.SetParent(root, false);
-                for (int ring = 0; ring < 4; ring++)
+                var bag = Kit("NetBunt", bunt);
+                if (bag != null)
                 {
-                    var hoop = new GameObject("Bunt mesh").AddComponent<LineRenderer>(); hoop.transform.SetParent(bunt, false);
-                    hoop.useWorldSpace = false; hoop.loop = true; hoop.positionCount = 16; hoop.widthMultiplier = .022f;
-                    hoop.sharedMaterial = Visuals.Mat(Palette.Hex("2F5D57")); hoop.shadowCastingMode = ShadowCastingMode.Off;
-                    for (int n = 0; n < 16; n++)
-                    {
-                        float a = n * Mathf.PI * 2 / 16;
-                        hoop.SetPosition(n, ring < 2 ? new Vector3(Mathf.Cos(a) * .55f, (ring - .5f) * .3f, Mathf.Sin(a) * .4f) : Quaternion.Euler(0, ring * 45, 0) * new Vector3(Mathf.Cos(a) * .55f, Mathf.Sin(a) * .35f, 0));
-                    }
+                    fill = ArtLibrary.Find(bag, "Fill");
+                    bagSkin = bag.GetComponentInChildren<SkinnedMeshRenderer>();
+                    tautShape = bagSkin != null && bagSkin.sharedMesh != null ? bagSkin.sharedMesh.GetBlendShapeIndex("Taut") : -1;
                 }
-                int count = Mathf.Clamp(Mathf.RoundToInt(g.NetCatchKg / 1.6f), 3, 9);
+                else
+                    for (int ring = 0; ring < 4; ring++)
+                    {
+                        var hoop = new GameObject("Bunt mesh").AddComponent<LineRenderer>(); hoop.transform.SetParent(bunt, false);
+                        hoop.useWorldSpace = false; hoop.loop = true; hoop.positionCount = 16; hoop.widthMultiplier = .022f;
+                        hoop.sharedMaterial = Visuals.Mat(Palette.Hex("2F5D57")); hoop.shadowCastingMode = ShadowCastingMode.Off;
+                        for (int n = 0; n < 16; n++)
+                        {
+                            float a = n * Mathf.PI * 2 / 16;
+                            hoop.SetPosition(n, ring < 2 ? new Vector3(Mathf.Cos(a) * .55f, (ring - .5f) * .3f, Mathf.Sin(a) * .4f) : Quaternion.Euler(0, ring * 45, 0) * new Vector3(Mathf.Cos(a) * .55f, Mathf.Sin(a) * .35f, 0));
+                        }
+                    }
+                var holder = fill != null ? fill : bunt;
+                int count = Mathf.Clamp(Mathf.RoundToInt(g.NetCatchKg / 1.6f), 3, fill != null ? 6 : 9);
                 var kinds = new[] { Species.Herring, Species.Mackerel, Species.Pollock, Species.Whiting };
                 for (int i = 0; i < count; i++)
                 {
-                    var f = DeckFish.BuildModel(kinds[i % kinds.Length], .6f, bunt);
-                    ArtLibrary.AimAlong(f.gameObject, Vector3.right, .32f);
-                    f.localPosition = new Vector3((i % 3 - 1) * .26f, (i / 3) * .1f - .1f, ((i * 7) % 3 - 1) * .14f);
-                    fish.Add(f);
+                    var f = DeckFish.BuildModel(kinds[i % kinds.Length], .6f, holder);
+                    ArtLibrary.AimAlong(f.gameObject, Vector3.right, fill != null ? .28f : .32f);
+                    // Two rows of three across the bag's slack body (the NetKit fixture), lower row first.
+                    f.localPosition = fill != null ? Packing[i] : new Vector3((i % 3 - 1) * .26f, (i / 3) * .1f - .1f, ((i * 7) % 3 - 1) * .14f);
+                    if (fill != null) f.localRotation *= Quaternion.Euler(i % 2 == 0 ? 8 : -8, 0, 0);
+                    fish.Add((f, f.localPosition, f.localRotation, f.localScale));
                 }
                 sky = new RodViewAtmosphere(root, g.transform, outward);
                 Show();
@@ -192,8 +214,23 @@ namespace Catchline.Game
                     bunt.position = water + Vector3.down * Mathf.Lerp(.5f, -.35f, rise) + right * Mathf.Sin(age * 1.3f) * .05f;
                     bunt.rotation = Quaternion.LookRotation(outward);
                     bunt.localScale = Vector3.one * Mathf.Lerp(.85f, 1.05f, rise) * (red ? 1 + Mathf.Sin(age * 40) * .03f : 1);
+                    // The bag draws long and narrow as the winch loads it; the fish pack in tighter.
+                    taut = Mathf.MoveTowards(taut, Mathf.InverseLerp(.2f, NetHaulRedTension, tension), dt * 3);
+                    if (tautShape >= 0) bagSkin.SetBlendShapeWeight(tautShape, taut * 100);
+                    if (fill != null) fill.localPosition = Vector3.Lerp(FillSlack, FillTaut, taut);
+                    var squeeze = Vector3.Lerp(Vector3.one, new Vector3(.72f, .78f, 1), taut);
                     for (int i = 0; i < fish.Count; i++)
-                        fish[i].localRotation = Quaternion.Euler(0, i * 50 + Mathf.Sin(age * (9 + i) + i) * 30 * (.4f + rise), Mathf.Sin(age * (13 + i)) * 20 * rise);
+                    {
+                        var (t, pos, rot, scale) = fish[i];
+                        float kick = (.4f + rise) * (red ? 1.6f : 1);
+                        if (fill != null)
+                        {
+                            t.localPosition = Vector3.Scale(pos, squeeze);
+                            t.localScale = scale * Mathf.Lerp(1, .8f, taut);
+                            t.localRotation = rot * Quaternion.Euler(Mathf.Sin(age * (13 + i)) * 10 * kick, Mathf.Sin(age * (9 + i) + i) * 14 * kick, 0);
+                        }
+                        else t.localRotation = Quaternion.Euler(0, i * 50 + Mathf.Sin(age * (9 + i) + i) * 30 * (.4f + rise), Mathf.Sin(age * (13 + i)) * 20 * rise);
+                    }
                 }
                 lastProgress = progress;
 
@@ -202,6 +239,8 @@ namespace Catchline.Game
                     var f = flying[i]; float t = (age - f.born) / .6f;
                     f.t.position = Vector3.Lerp(f.from, f.to, Ease(t)) + Vector3.up * Mathf.Sin(Mathf.Clamp01(t) * Mathf.PI) * 1.4f;
                     f.t.localScale = Vector3.one * Mathf.Lerp(.25f, 1, Ease(t));
+                    // It flies hanging from its cork line, facing the eye, and settles flat on the water.
+                    f.t.rotation = Quaternion.LookRotation(outward) * Quaternion.Euler(-85 * (1 - Ease(t)), 0, 0);
                     if (t >= 1) { f.t.position = f.to; flying.RemoveAt(i); g.audio?.Play(VoyageAudio.Cue.Splash, .3f); }
                 }
                 for (int i = heaps.Count - 1; i >= 0; i--)
@@ -213,11 +252,23 @@ namespace Catchline.Game
                 return true;
             }
 
-            // An opened panel: a cork line across the top and the mesh hanging under it, lying on the water.
+            // A NetKit root, showing only the named child when given (NetPanel and NetHeap share one pivot).
+            GameObject Kit(string model, Transform parent, string show = null)
+            {
+                var prefab = lib != null ? lib.M(model) : null;
+                if (prefab == null) return null;
+                var kit = ArtLibrary.Spawn(prefab, parent, Vector3.zero, prefab.transform.localRotation);
+                if (show != null)
+                    foreach (Transform child in kit.transform) child.gameObject.SetActive(child.name == show);
+                return kit;
+            }
+
+            // An opened panel: the cork line toward the sea and the lead line toward the boat, lying on the water.
             Transform Panel()
             {
                 var panel = new GameObject("Net panel").transform; panel.SetParent(root, false);
                 panel.position = bundle.position; panel.rotation = Quaternion.LookRotation(outward);
+                if (Kit("NetPanelSet", panel, "NetPanel") != null) return panel;
                 var mesh = panel.gameObject.AddComponent<LineRenderer>(); mesh.useWorldSpace = false;
                 mesh.widthMultiplier = .025f; mesh.sharedMaterial = Visuals.Mat(Palette.Hex("7FA89E")); mesh.shadowCastingMode = ShadowCastingMode.Off;
                 var points = new List<Vector3>();
@@ -233,6 +284,8 @@ namespace Catchline.Game
             Transform Heap(Vector3 at)
             {
                 var heap = new GameObject("Net heap").transform; heap.SetParent(root, false); heap.position = at;
+                heap.rotation = Quaternion.Euler(0, heaps.Count * 67 + 20, 0);
+                if (Kit("NetPanelSet", heap, "NetHeap") != null) return heap;
                 for (int i = 0; i < 5; i++)
                     Visuals.Prim(PrimitiveType.Sphere, "Tangle", heap, new Vector3((i % 3 - 1) * .18f, .02f + (i / 3) * .08f, ((i * 2) % 3 - 1) * .12f), new Vector3(.3f, .14f, .26f), Palette.Hex("5E8C83"));
                 Visuals.Prim(PrimitiveType.Sphere, "Cork", heap, new Vector3(.1f, .14f, 0), new Vector3(.13f, .08f, .13f), Palette.Accent);

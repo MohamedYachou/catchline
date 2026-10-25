@@ -1,0 +1,24 @@
+SOUND-1 — Codex 2 — a real sound pack to replace the code-synthesized blips (Claude, 2026-10-25 06:00)
+
+GOAL: Mo listed "sound" in tonight's polish. Every cue is synthesized at runtime in
+Assets/Scripts/Game/VoyageAudio.cs (read it: cue list and current recipes). Make a richer, physically modelled set of
+WAV files the game loads instead, keeping the code recipes as the fallback. Calm coastal mood (PRODUCT.md): soft,
+woody, wet, never arcade.
+
+METHOD: offline synthesis in Python (numpy/scipy only; layered filtered noise, resonant modes, granular water,
+pitch/amp envelopes, small random variation). NO downloads, no external samples, no TTS.
+DELIVER Art/Audio/SFX/<Cue>_<n>.wav, 44.1 kHz 16-bit mono, 3 variants each, peak <= -3 dBFS, no click at start/end:
+- Existing cues: Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click.
+- New cues: Winch (hydraulic hauler whine, 1.5 s, loopable), CrabClack (claws on plastic), SealBark, NetSlap (wet net on
+  deck), Gut (short wet knife slit), Coins (small coin pile).
+- Ambience, stereo 30 s seamless loops: Art/Audio/Ambience/HarbourDay.wav (lapping on pilings, distant gulls, rope
+  creak), OpenSea.wav (swell, wind, hull slap), Skerries.wav (surf on rock, seals far off).
+Loudness: each cue family roughly matched (report integrated LUFS per file); UI cues (Select, Click, Purchase) short
+(<150 ms) and quiet.
+
+OWNERSHIP: write only Art/Audio/ and Art/Source/Audio/. Read-only everything else. No git, no Unity, no Assets/.
+DONE = EVIDENCE (you cannot listen, so prove it by analysis): per file waveform + spectrogram contact sheets
+(Art/Audio/review/*.png, open each), metrics.json (duration, peak, LUFS, DC offset, loop-seam discontinuity for loops),
+and REPORT.md describing each recipe in a line and the file contract. One comms.md line per family; CHECKPOINT at safe
+boundaries; QUESTION and skip on conflict. Claude wires them into VoyageAudio and judges by ear-proxy review.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

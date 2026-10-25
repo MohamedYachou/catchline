@@ -1,0 +1,304 @@
+{
+  "task": "NET-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "recorded_utc": "2026-10-25T03:44:19.812522+00:00",
+  "delivery": "Artist source/export/evidence complete",
+  "native_acceptance": false,
+  "remaining": "Claude Unity import/material/blendshape/Fill wiring and desktop/phone runtime review",
+  "final_pngs_reviewed": 24,
+  "blend_fbx_pairs": 2,
+  "meshes": 3,
+  "readonly_fixture_dependencies_sha256": {
+    "Art/Models/NetKit/NetBunt.blend": "f0a272b99e9927c3e0916f85c408f5d88372fb12cd99b4e355586608be1bcc7f",
+    "Art/Models/Fish043/Mackerel/Mackerel.blend": "a77d3e3293f9c97ed5b3b69f13158f888e6f18482093d938f4601b747b057f3c",
+    "Art/Models/GullHarbour/HarbourV2/CompactFisherV1_VariantRed.blend": "6653464e9697b0fad66ccc16fd5220a3fc528e9fcc5e7a09646a8f79ddedf9b2"
+  },
+  "report_links_checked": 43,
+  "files": [
+    {
+      "file": "Art/Models/NetKit/NetBunt.blend",
+      "bytes": 130237,
+      "sha256": "f0a272b99e9927c3e0916f85c408f5d88372fb12cd99b4e355586608be1bcc7f"
+    },
+    {
+      "file": "Art/Models/NetKit/NetBunt.fbx",
+      "bytes": 85452,
+      "sha256": "2c968a9dd096e5a8d8624d5635e2f435151905e62f43f89cb0b9f3fe2d6ab552"
+    },
+    {
+      "file": "Art/Models/NetKit/NetKit-camera-fixture.blend",
+      "bytes": 262142,
+      "sha256": "76e539aff480def6b2aca5c549383bad67f401782137a72235eac3fab27c1899"
+    },
+    {
+      "file": "Art/Models/NetKit/NetPanelSet.blend",
+      "bytes": 110703,
+      "sha256": "10816f0e28d13beb182898276dcf745ad765a45c986a49ddf75e7b3b2fbe5722"
+    },
+    {
+      "file": "Art/Models/NetKit/NetPanelSet.fbx",
+      "bytes": 44844,
+      "sha256": "c083c554b7167b9a20b1e7fa08579bd197521fbbba73d404683c906dfb8b453c"
+    },
+    {
+      "file": "Art/Models/NetKit/REPORT.md",
+      "bytes": 9733,
+      "sha256": "5e97daa487c0b924cc5b32359b9c1597559f421598a4ad5a63bcb3e008d36c45"
+    },
+    {
+      "file": "Art/Models/NetKit/assembly.json",
+      "bytes": 2886,
+      "sha256": "1d0247c05685b9b8401f6cba6d4d8629637cd254ddde733903c6400f6de207b9"
+    },
+    {
+      "file": "Art/Models/NetKit/metrics/NetBunt.json",
+      "bytes": 6769,
+      "sha256": "358a3047747cd9a8e9f30d16d397f4e1d4a0b8ff5e7e217bb83bbe50bf47aa00"
+    },
+    {
+      "file": "Art/Models/NetKit/metrics/NetPanelSet.json",
+      "bytes": 6080,
+      "sha256": "ff01b0462102cbb01764753293841a339d5f1c08b57af79d3583b1839879d30d"
+    },
+    {
+      "file": "Art/Models/NetKit/metrics/fbx-axes.json",
+      "bytes": 4341,
+      "sha256": "d775619e98e7d6e2e6b29c29a11e9bd49780f33d655ce07180d27383f2dc6d0e"
+    },
+    {
+      "file": "Art/Models/NetKit/metrics/fixture-audit.json",
+      "bytes": 2115,
+      "sha256": "68878780ea514793887be735ee6d329428695dc5f45a206baf98169dbc6a06c0"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Slack/back.png",
+      "bytes": 1064245,
+      "sha256": "656795b4c53b58ca3b9d7a78c38a4f6f11c50094ad0e75d155df1de4adaf325f"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Slack/front.png",
+      "bytes": 1041520,
+      "sha256": "3138cd0f215ebff26e10549354eb6c38056227cfbfe51a4a05232aaa836c8729"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Slack/right.png",
+      "bytes": 1083353,
+      "sha256": "2db42a92f381377571902c46224471a3ed43910131e67751116e043de6a43d64"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Slack/three-quarter.png",
+      "bytes": 1079316,
+      "sha256": "1b20220b3bf2a367d2a24bd6af27c0aa2084f498d606d0dc48f0dcd088fa9b5e"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Slack/top.png",
+      "bytes": 986143,
+      "sha256": "47bc697b9e985a99889d25f5a38bb9552404ea93d4838397dcc13b8ac96db1ff"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Taut/back.png",
+      "bytes": 1060019,
+      "sha256": "9ad5a7bc752758b6928d938a5c4010711bbb0fe3c301615b36f5f1f2d383ae6a"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Taut/front.png",
+      "bytes": 1039204,
+      "sha256": "340a9cecbe7c3774f3bf43cd839d52426e73445baa4e12def08305f351bd58a4"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Taut/right.png",
+      "bytes": 1049670,
+      "sha256": "4f62a95e98e6a41547c98db87f0f9543965c7946211754413bfb3c655fd47420"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Taut/three-quarter.png",
+      "bytes": 1034517,
+      "sha256": "33560957e3889f161631006468014bfcfc8ce559a45b78c2aa8c03794c65ea6c"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt-Taut/top.png",
+      "bytes": 953883,
+      "sha256": "953f4e75635fa41a87e28363c9df5393598b943bf84dc8b60ec6ac178e8c1011"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetBunt.json",
+      "bytes": 1615,
+      "sha256": "33968d95ba98afd408611bcbfdb3fe7b716625bee3cb6f836497592b2c9b2710"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetHeap/back.png",
+      "bytes": 826258,
+      "sha256": "de3db5e757c9928bc8252e9f21593f7edf906d50d3c4b729dfb9dcc1a1d29940"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetHeap/front.png",
+      "bytes": 840043,
+      "sha256": "4e42d5f356ee212a52a51c93d20f99513cb9c3e02343781f7ce1d7ee52d9f63a"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetHeap/right.png",
+      "bytes": 828704,
+      "sha256": "c947e115de3e52232ced734543e04d3373bbd08ca1dc07b4af02dd7a1ae554b8"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetHeap/three-quarter.png",
+      "bytes": 952182,
+      "sha256": "be1bd67d8d6f02ffafd2f4bfdbe0d6fc1c6897ae1a711207ed71f14f993f5d56"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetHeap/top.png",
+      "bytes": 1055983,
+      "sha256": "282492c42845a79379c479e2841e60223d4ca401219076d60074c53a76d99971"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanel/back.png",
+      "bytes": 760120,
+      "sha256": "5f9accfc23f67449e27c2a8f7262957d6adeeb4a89620b2bccd9ee9eb4334052"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanel/front.png",
+      "bytes": 749198,
+      "sha256": "3c6727a7f10916dc8b1ffb1b40644b84e4216340b5a35ced21700d6b29d830a9"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanel/right.png",
+      "bytes": 852590,
+      "sha256": "276e497c7ce88b942297afa1cc93b1241ea001d62b3a3322ab68cb1b70f91352"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanel/three-quarter.png",
+      "bytes": 885094,
+      "sha256": "66218a1325f05e5feea34ecb3ac7eb5fc27fe82e793f385c4b0a01758fe0ee98"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanel/top.png",
+      "bytes": 812544,
+      "sha256": "4760a1bc7da25f3546a25ba1f2dd2cc48a1ba670757c56f9044e4186fd59fd08"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/NetPanelSet.json",
+      "bytes": 1515,
+      "sha256": "f272cf54f30180a538f6cb32fe0f04f8616d0e874a1e8cf9ca1e51073cd64122"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/assembly/net-view-slack-1440.png",
+      "bytes": 1429101,
+      "sha256": "180fc123d58c461ccfb6147d24424a08066de3d09b58eb10407be9edf6fa41bf"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/assembly/net-view-slack-844.png",
+      "bytes": 389953,
+      "sha256": "22745e2c854563e9891f85032417683923291c88bb9e5977657eea8a682a626b"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/assembly/net-view-taut-1440.png",
+      "bytes": 1423780,
+      "sha256": "116791d564c0f58e37f83bcd5b8e1c1e9e5a848584af5a0720d3a3a041668d52"
+    },
+    {
+      "file": "Art/Models/NetKit/renders/assembly/net-view-taut-844.png",
+      "bytes": 388561,
+      "sha256": "a3187828ac454c03af795d40590abdc446880242ee03bd3e8b18ee7506e970cc"
+    },
+    {
+      "file": "Art/Models/NetKit/visual-review.json",
+      "bytes": 12517,
+      "sha256": "c331010df7d21cd4a2c40f4d576c2bff9ee730399431c32a21691941e7759203"
+    },
+    {
+      "file": "Art/Source/NetKit/NetBunt-audit.log",
+      "bytes": 296,
+      "sha256": "d6ba28ff7574a69ab15d6fd48ec931ddce3a2393eddb4b215002cecb81b8b07a"
+    },
+    {
+      "file": "Art/Source/NetKit/NetBunt-build.log",
+      "bytes": 386,
+      "sha256": "3b0703af6ec224817ce8be6a49e92352bae4dff791eca5ed437f3fe12e7c00b5"
+    },
+    {
+      "file": "Art/Source/NetKit/NetBunt-render.log",
+      "bytes": 851,
+      "sha256": "386f1103abb4e1cdbd8c8b98d6ad7b07733921f35451c30c26cfd083dfd2ff4d"
+    },
+    {
+      "file": "Art/Source/NetKit/NetKit-assembly.log",
+      "bytes": 825,
+      "sha256": "73cb062cefdb2047f216a6500651d0666e55794205859010ca4a6b3a1c786053"
+    },
+    {
+      "file": "Art/Source/NetKit/NetKit-axes.log",
+      "bytes": 2583,
+      "sha256": "2403b9f023856b5a4f91e59675cdbbb3ca18517a59d907a49acdb2f26db5dde5"
+    },
+    {
+      "file": "Art/Source/NetKit/NetKit-fixture_audit.log",
+      "bytes": 1416,
+      "sha256": "bfc872dec3ffb62eee44a8ba079dba144f17f36658ed8a60862385cefbdae0c2"
+    },
+    {
+      "file": "Art/Source/NetKit/NetPanelSet-audit.log",
+      "bytes": 304,
+      "sha256": "04ddafa755a9c7f38f7c85981f4a1dfe899ed85e7a0fe3e88dc2c37fa4529b83"
+    },
+    {
+      "file": "Art/Source/NetKit/NetPanelSet-build.log",
+      "bytes": 400,
+      "sha256": "d62199590e4b07d710fe2141f6214179adfec93cfe27f8f2211f8f90be091072"
+    },
+    {
+      "file": "Art/Source/NetKit/NetPanelSet-render.log",
+      "bytes": 1783,
+      "sha256": "de8b6a32f371dd1957578ff49df6f81688fd379787a278bc4faa5cb7c19568bd"
+    },
+    {
+      "file": "Art/Source/NetKit/assembly.py",
+      "bytes": 5733,
+      "sha256": "80d133ca76330e112d693b724f77cd25d9a2f6cbaf4e41468c7d981200ae5337"
+    },
+    {
+      "file": "Art/Source/NetKit/audit.py",
+      "bytes": 4753,
+      "sha256": "7e04a67cb244f69b77f297342742223533b8574ba9c88c2965988049a44e0942"
+    },
+    {
+      "file": "Art/Source/NetKit/axes.py",
+      "bytes": 2380,
+      "sha256": "7c96c415f28afc41ae53c7844835a0e170bed3f9fa4a730540d5cfc4a4f921fb"
+    },
+    {
+      "file": "Art/Source/NetKit/build.py",
+      "bytes": 10337,
+      "sha256": "ce8b864acdeba04bf60c472e3e15cce211b8565ac7a20945573e4c3ab56512d0"
+    },
+    {
+      "file": "Art/Source/NetKit/finalize.py",
+      "bytes": 4032,
+      "sha256": "0e2c00dba46b011013095b7b42a8f1a00083dd4d28b6117455aa1c241cb7ebf5"
+    },
+    {
+      "file": "Art/Source/NetKit/fixture_audit.py",
+      "bytes": 3493,
+      "sha256": "d592b4e1eabd390c9a5f4c0409f860137cd8a3b27d31565ea358f23b69474a57"
+    },
+    {
+      "file": "Art/Source/NetKit/inspect_refs.py",
+      "bytes": 820,
+      "sha256": "34c89f078af867543434795d60fdc8c961bb1e88b9ea872b7cebd273ca8647f7"
+    },
+    {
+      "file": "Art/Source/NetKit/references.log",
+      "bytes": 9511,
+      "sha256": "aa370e3dce935afa8f0adafdb28242c7a5d064a2a3b1a6326eb62b6a24a587e2"
+    },
+    {
+      "file": "Art/Source/NetKit/render.py",
+      "bytes": 4631,
+      "sha256": "27041632b4de43a81acead58d4ce17357fa162d1971c019ad1ea41614cb0c273"
+    },
+    {
+      "file": "Art/Source/NetKit/run.py",
+      "bytes": 1117,
+      "sha256": "3608302e08177bb887faccb86a7f354951c1b829dff1a6fbfe360efb1584fa15"
+    }
+  ]
+}

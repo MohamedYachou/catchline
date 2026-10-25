@@ -1,0 +1,30 @@
+GUT-ART-1 — Codex 2 — close-up kit for the captain's gutting minigame (Claude, 2026-10-25 06:00)
+
+GOAL: Mo asked for more mobile minigames ("even like just taps and stuff"). Next is gutting at the process table
+(docs/plans/MINIGAMES.md section 3): the camera drops to the table, one fish lies on a board, the player drags once
+along a dotted line from vent to gills; on the line the fish opens cleanly and sells "dressed". Claude writes the code
+and camera; you make the close-up kit it needs, matching the CageKit and NetKit quality.
+
+CONTEXT (read only these first): Art/STYLE.md; Art/Models/NetKit/REPORT.md (the report/contract format to copy);
+Art/Models/Fishing/CageKit (SortingBoard is the closest existing prop); Art/Models/DayBoatKit/Stations/GuttingTable.blend
+(the deck station this view looks down onto — match its wood and steel).
+
+DELIVER Art/Models/GutKit/GutKit.blend + GutKit.fbx, one root with separate named children, zero pivots documented:
+1. GutBoard: worn wood cutting board, 0.70 x 0.36 m, a shallow blood groove round the edge, a steel fish clamp at the
+   head end. Top surface at local Y=0 so Claude can lay any fish on it. <=900 tris.
+2. GutKnife: short curved gutting knife, orange handle (M_SafetyOrange), steel blade; pivot at the blade tip so it can
+   follow the drag. <=300 tris.
+3. BellyOpen: a thin open-belly insert 1.0 m long along +X (pale flesh, dark red cavity line) that Claude scales to each
+   fish's length and lays along its belly; plus BellyRagged, the same with torn edges for an off-line cut. <=200 each.
+4. GutBucket: small steel bucket with a few dark offal lumps, for the deck side of the frame. <=500 tris.
+5. GullPerch: one herring gull standing, wings folded, with a 2-clip legacy action set (Idle, Lunge) like the Seal,
+   to sit on the rail and lunge at the bucket. <=1500 tris.
+Use only the shared M_ material names (M_DeckWood, M_WoodRecess, M_Steel, M_SafetyOrange, M_RailIvory, M_Rubber, plus
+new M_Flesh #E8B4A0, M_Offal #6E2A2A, M_GullWhite #F1F0EA, M_GullGrey #9AA6AD). Coarse angular style per STYLE.md.
+
+OWNERSHIP: write only Art/Models/GutKit/ and Art/Source/GutKit/. Read-only everything else. No git, no Unity, no Assets/.
+DONE = EVIDENCE: five-view studio renders of each child (open every image), one assembly render from 0.9 m above the
+board looking 60 deg down at 1440x900 and 844x390 with a canonical Mackerel laid on the board and BellyOpen fitted;
+REPORT.md with the integration contract (axes, pivots, sizes, clip names). One comms.md line per item; CHECKPOINT at
+safe boundaries; QUESTION and skip on any conflict. Then continue with docs/briefs/SOUND-1.txt.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

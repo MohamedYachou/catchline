@@ -1,0 +1,220 @@
+{
+  "NetBunt": {
+    "result": "PASS",
+    "fbx_version": 7400,
+    "global_settings": {
+      "UpAxis": [
+        1
+      ],
+      "UpAxisSign": [
+        1
+      ],
+      "FrontAxis": [
+        2
+      ],
+      "FrontAxisSign": [
+        1
+      ],
+      "CoordAxis": [
+        0
+      ],
+      "CoordAxisSign": [
+        1
+      ],
+      "OriginalUpAxis": [
+        -1
+      ],
+      "OriginalUpAxisSign": [
+        1
+      ],
+      "UnitScaleFactor": [
+        100.0
+      ],
+      "OriginalUnitScaleFactor": [
+        100.0
+      ],
+      "AmbientColor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "DefaultCamera": [
+        "Producer Perspective"
+      ],
+      "TimeMode": [
+        11
+      ],
+      "TimeSpanStart": [
+        0
+      ],
+      "TimeSpanStop": [
+        46186158000
+      ],
+      "CustomFrameRate": [
+        24.0
+      ]
+    },
+    "model_transforms": {
+      "Bunt": {
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "rest_state": [
+          "Slack=0 and Taut=0; explicit Slack channel duplicates rest. Drive only Taut 0..1."
+        ]
+      },
+      "Fill": {
+        "Lcl Translation": [
+          0.0,
+          -0.09000000357627869,
+          0.3100000023841858
+        ],
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "purpose": [
+          "Catch parent. Fits six 0.28..0.34m fish. Does not automatically follow blendshape."
+        ]
+      },
+      "NetBunt": {
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "axes": [
+          "Metres. Blender X,Y,Z -> Unity X,Z,-Y."
+        ],
+        "pivot": [
+          "Mouth centre; mouth normal Unity -Z; bag extends Unity +Z."
+        ]
+      }
+    },
+    "raw_meshes": {
+      "Bunt": {
+        "dimensions_y_up_metres": [
+          1.111282765865326,
+          0.7870343029499054,
+          0.7833775319159031
+        ],
+        "maximum_dimension_error_metres": 0.0
+      }
+    }
+  },
+  "NetPanelSet": {
+    "result": "PASS",
+    "fbx_version": 7400,
+    "global_settings": {
+      "UpAxis": [
+        1
+      ],
+      "UpAxisSign": [
+        1
+      ],
+      "FrontAxis": [
+        2
+      ],
+      "FrontAxisSign": [
+        1
+      ],
+      "CoordAxis": [
+        0
+      ],
+      "CoordAxisSign": [
+        1
+      ],
+      "OriginalUpAxis": [
+        -1
+      ],
+      "OriginalUpAxisSign": [
+        1
+      ],
+      "UnitScaleFactor": [
+        100.0
+      ],
+      "OriginalUnitScaleFactor": [
+        100.0
+      ],
+      "AmbientColor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "DefaultCamera": [
+        "Producer Perspective"
+      ],
+      "TimeMode": [
+        11
+      ],
+      "TimeSpanStart": [
+        0
+      ],
+      "TimeSpanStop": [
+        46186158000
+      ],
+      "CustomFrameRate": [
+        24.0
+      ]
+    },
+    "model_transforms": {
+      "NetHeap": {
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "pivot": [
+          "Waterline/base centre; separate from NetPanel, toggle one child."
+        ]
+      },
+      "NetPanel": {
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "pivot": [
+          "Waterline centre. X2.4m, Z1m. Corks +Z, lead line -Z."
+        ]
+      },
+      "NetPanelSet": {
+        "DefaultAttributeIndex": [
+          0
+        ],
+        "InheritType": [
+          1
+        ],
+        "axes": [
+          "Metres. Blender X,Y,Z -> Unity X,Z,-Y."
+        ]
+      }
+    },
+    "raw_meshes": {
+      "NetHeap": {
+        "dimensions_y_up_metres": [
+          0.6568714380264282,
+          0.19030231051146984,
+          0.5770722925662994
+        ],
+        "maximum_dimension_error_metres": 0.0
+      },
+      "NetPanel": {
+        "dimensions_y_up_metres": [
+          2.3879501819610596,
+          0.09749890118837357,
+          1.0419999957084656
+        ],
+        "maximum_dimension_error_metres": 0.0
+      }
+    }
+  }
+}

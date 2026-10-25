@@ -16,6 +16,12 @@ namespace Catchline.EditorTools
         static void Check(bool ok, string what) { if (!ok) throw new Exception("NETVIEW: " + what); }
         static void Set(VoyageGame g, string key, object value) => typeof(VoyageGame).GetProperty(key).GetSetMethod(true).Invoke(g, new[] { value });
 
+        static GameObject Kit(VoyageGame g, string name)
+        {
+            var view = g.transform.Find("Captain net view");
+            return view == null ? null : ArtLibrary.Find(view.gameObject, name)?.gameObject;
+        }
+
         public static VoyageGame Fixture()
         {
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -44,6 +50,7 @@ namespace Catchline.EditorTools
                 g.Tick(.025f); setting += .025f;
             }
             Check(g.Net == VoyageGame.NetState.Soaking, "three clean casts set the net");
+            Check(Kit(g, "NetPanel") is { activeInHierarchy: true } && Kit(g, "NetHeap") is null or { activeSelf: false }, "the casts throw NetKit panels");
             for (int i = 0; i < 60; i++) g.Tick(.05f);
             Check(!g.NetViewActive && g.Cam.orthographic, "the view hands back while the net soaks");
             Check(g.Captain.Root.GetComponentInChildren<Renderer>().enabled, "and the captain is visible again");
@@ -52,6 +59,9 @@ namespace Catchline.EditorTools
             Check(g.HaulNet(), "the captain hauls");
             for (int i = 0; i < 600 && !g.NetViewActive; i++) g.Tick(.05f);
             Check(g.NetViewActive && !g.NetGameSetting, "hauling opens the net view");
+            var bag = Kit(g, "Bunt")?.GetComponent<SkinnedMeshRenderer>();
+            Check(bag != null && bag.sharedMesh.GetBlendShapeIndex("Taut") >= 0, "the bunt is the NetKit bag with its Taut shape");
+            Check(Kit(g, "Fill") is { } fill && fill.transform.childCount >= 3, "with the catch packed at its fill point");
             float haul = 0;
             for (int i = 0; i < 1200 && g.NetGameActive; i++)
             {

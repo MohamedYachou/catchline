@@ -1,0 +1,26 @@
+NET-ART-1 — Codex 2 (WSL artist) — the net bunt for the net view
+
+GOAL (Mo, 2026-10-25: "think about the net mini game"): the full-screen net view (Assets/Scripts/Game/Minigame/
+VoyageNetView.cs, renders docs/screens/overnight/net-*.png) shows the boat's own roller and net, and in the last
+third of the haul a bag of fish (the bunt) rises at the end of the net. Today the bag is four wire hoops drawn by
+code. Make the real bag.
+
+CONTEXT: docs/screens/overnight/net-3-bunt.png (where it sits, how big it reads), docs/plans/MINIGAMES.md section 1,
+Art/STYLE.md, the compact fisher's net/roller in Art/Models (grep GillNet*, the CompactFisher boat) for mesh colour
+and float style.
+
+ORDER, one .blend + .fbx each in Art/Models/NetKit/ (Unity axes, metres, origin at the bag's mouth centre, mouth
+facing Unity -Z toward the boat, house palette, shared materials):
+1. NetBunt: a gathered net bag ~1.1 x 0.8 x 0.7 m, green-grey mesh read as mesh (cut-out or modelled cords, readable
+   at 2-3 m), a cork/float line round the mouth, a child "Fill" empty at the bag's centre where Claude puts the fish.
+   Shape keys or two variants: "Slack" and "Taut" (stretched, narrower, longer; used when the tension is in the red).
+2. NetPanelSet: the panel that flies out when setting (2.4 x 1 m, cork line on one long edge, lead line on the other),
+   a crumpled "NetHeap" for a missed cast, both under 800 tris.
+Under 2.5k tris for the bunt.
+
+DONE = EVIDENCE: five angles each plus one render from the net view camera (2 m above the water, 34 deg down, 54 deg
+vertical FOV) with the bunt 2.5 m out holding six fish, at 1440x900 and 844x390. Open every image. REPORT.md in
+Art/Models/NetKit/ with the integration contract (child names, scale, pivot), one comms.md line per model.
+
+OWNERSHIP: Art/Models/NetKit/**, Art/Source/NetKit/**. Never Assets/**, scenes, saves, code. No git. NEVER create
+Art/Models/CrewV2/_STOP-WATCHDOGS.

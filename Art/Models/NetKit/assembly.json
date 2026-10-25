@@ -1,0 +1,128 @@
+{
+  "evidence": "Isolated artist fixture, not Unity/native capture. Existing compact-fisher roller, simple rail/deck stage; exact required lens/pitch/height, six canonical fish.",
+  "camera": {
+    "location_unity": [
+      0,
+      2,
+      0
+    ],
+    "height_above_water_m": 2,
+    "pitch_down_degrees": 34,
+    "vertical_fov_degrees": 54,
+    "sensor_fit": "VERTICAL",
+    "lens_mm": 23.551326751708984,
+    "sensor_height_mm": 24
+  },
+  "water_y_unity": 0,
+  "bunt_mouth_unity": [
+    0.6499999761581421,
+    0.3499999940395355,
+    2.5
+  ],
+  "bunt_distance_outward_m": 2.5,
+  "fish": [
+    {
+      "root": "ReviewFish_01",
+      "fill_local_unity": [
+        -0.3,
+        -0.09,
+        -0.13
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    },
+    {
+      "root": "ReviewFish_02",
+      "fill_local_unity": [
+        0,
+        -0.08,
+        -0.13
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    },
+    {
+      "root": "ReviewFish_03",
+      "fill_local_unity": [
+        0.3,
+        -0.075,
+        -0.1
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    },
+    {
+      "root": "ReviewFish_04",
+      "fill_local_unity": [
+        -0.3,
+        0.065,
+        0.025
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    },
+    {
+      "root": "ReviewFish_05",
+      "fill_local_unity": [
+        0,
+        0.075,
+        0.035
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    },
+    {
+      "root": "ReviewFish_06",
+      "fill_local_unity": [
+        0.3,
+        0.065,
+        0.02
+      ],
+      "scale": 0.82,
+      "source": "Fish043/Mackerel"
+    }
+  ],
+  "images": [
+    {
+      "file": "renders/assembly/net-view-slack-1440.png",
+      "state": "Slack",
+      "size": [
+        1440,
+        900
+      ],
+      "fish_count": 6
+    },
+    {
+      "file": "renders/assembly/net-view-slack-844.png",
+      "state": "Slack",
+      "size": [
+        844,
+        390
+      ],
+      "fish_count": 6
+    },
+    {
+      "file": "renders/assembly/net-view-taut-1440.png",
+      "state": "Taut",
+      "size": [
+        1440,
+        900
+      ],
+      "fish_count": 6
+    },
+    {
+      "file": "renders/assembly/net-view-taut-844.png",
+      "state": "Taut",
+      "size": [
+        844,
+        390
+      ],
+      "fish_count": 6
+    }
+  ],
+  "readonly_dependencies_sha256": {
+    "Art/Models/NetKit/NetBunt.blend": "f0a272b99e9927c3e0916f85c408f5d88372fb12cd99b4e355586608be1bcc7f",
+    "Art/Models/Fish043/Mackerel/Mackerel.blend": "a77d3e3293f9c97ed5b3b69f13158f888e6f18482093d938f4601b747b057f3c",
+    "Art/Models/GullHarbour/HarbourV2/CompactFisherV1_VariantRed.blend": "6653464e9697b0fad66ccc16fd5220a3fc528e9fcc5e7a09646a8f79ddedf9b2"
+  }
+}

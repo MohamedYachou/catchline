@@ -91,7 +91,7 @@ namespace Catchline.Game
             ["M_DeckWood"] = "C58B50", ["M_WoodHighlight"] = "DFB77A", ["M_WoodRecess"] = "8C5A36", ["M_HullBlue"] = "2A6685",
             ["M_OilskinYellow"] = "E6AD38", ["M_Skin"] = "B9784B", ["M_KelpGreen"] = "477A56", ["M_FishSilver"] = "BAC9C6",
             ["M_HairChestnut"] = "50392E", ["M_HairSilver"] = "ADB6AF",
-            ["M_SpotBlue"] = "38B6FF", ["M_Crimson"] = "A9433C",
+            ["M_SpotBlue"] = "38B6FF", ["M_Crimson"] = "A9433C", ["M_NetGreenGrey"] = "50766C",
             ["M_CoastStone"] = "A99A7C", ["M_CoastStoneLight"] = "C9B89A", ["M_CoastWet"] = "696F64",
             ["M_CoastGrass"] = "729053", ["M_CoastGrassLight"] = "98A96B", ["M_CoastSand"] = "D9C393", ["M_SeabedSand"] = "BEA77D",
         };

@@ -1,0 +1,91 @@
+{
+  "result": "PASS",
+  "camera_height_m": 2.0,
+  "pitch_down_degrees": 33.999991237339586,
+  "vertical_fov_degrees": 53.99999865052266,
+  "bunt_outward_m": 2.5,
+  "states": [
+    {
+      "state": "Slack",
+      "fish_roots": 6,
+      "fish_meshes": 12,
+      "maximum_nominal_envelope_radius_fraction": 0.9210809476757958,
+      "views": [
+        {
+          "size": [
+            1440,
+            900
+          ],
+          "fish_projected_bounds_pixels": [
+            [
+              425.2348852157593,
+              433.71022045612335
+            ],
+            [
+              664.7994518280029,
+              520.0822591781616
+            ]
+          ]
+        },
+        {
+          "size": [
+            844,
+            390
+          ],
+          "fish_projected_bounds_pixels": [
+            [
+              294.26845490932465,
+              187.9410955309868
+            ],
+            [
+              398.0797472000122,
+              225.36897897720337
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "state": "Taut",
+      "fish_roots": 6,
+      "fish_meshes": 12,
+      "maximum_nominal_envelope_radius_fraction": 0.9520551324644136,
+      "views": [
+        {
+          "size": [
+            1440,
+            900
+          ],
+          "fish_projected_bounds_pixels": [
+            [
+              460.6702995300293,
+              459.9831819534302
+            ],
+            [
+              636.5727853775024,
+              531.3073575496674
+            ]
+          ]
+        },
+        {
+          "size": [
+            844,
+            390
+          ],
+          "fish_projected_bounds_pixels": [
+            [
+              309.62380516529083,
+              199.32604551315308
+            ],
+            [
+              385.84819304943085,
+              230.23318827152252
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "Nominal interpolated elliptical bag envelope only; no physics/collision or native Unity acceptance.",
+  "readonly_dependencies_unchanged": true
+}
