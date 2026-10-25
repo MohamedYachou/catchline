@@ -152,6 +152,16 @@ namespace Catchline.EditorTools
             Set("panelOpen", true); Set("crewTab", 0); ShotUi(g, "tut-recruit-crew");
             Set("crewTab", 2); Both("tut-recruit-done");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
+            // Home with the first haul: Mira points at the market, then the sale pays out into the wallet.
+            g = Game("Tutorial sell shot"); Rebuild(g, 0); s = g.State; s.Coins = 120;
+            for (int i = 0; i < 9; i++) s.UnsoldCatch.Add(new CaughtFish { Species = Species.Mackerel, Kg = .6f + i * .05f });
+            s.Tutorial = (int)VoyageGame.TutStep.Sell;
+            T.GetField("panelOpen", H).SetValue(g, false); Both("tut-sell-tab");
+            T.GetField("panelOpen", H).SetValue(g, true); T.GetField("hudTab", H).SetValue(g, VoyageGame.HudTab.Market); Both("tut-sell");
+            g.InvokeInterface("market/sell");
+            T.GetField("coinFxStart", H).SetValue(g, Time.unscaledTime - .55f); ShotUi(g, "sell-coins-flying");
+            T.GetField("coinFxStart", H).SetValue(g, Time.unscaledTime - .55f); ShotUi(g, "sell-coins-flying-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
             // At sea on the first trip: the rowboat out on the grounds, Mira explaining the rod.
             g = Game("Tutorial sea shot"); Rebuild(g, 0); s = g.State;
             s.Tutorial = (int)VoyageGame.TutStep.Hello; g.SetSail();

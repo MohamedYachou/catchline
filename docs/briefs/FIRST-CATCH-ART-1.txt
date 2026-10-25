@@ -1,0 +1,28 @@
+FIRST-CATCH-ART-1 — Codex 2 (WSL artist) — sprites for the first-catch moment and the savings goal
+
+GOAL (Mo's night order: after cards, polish and animation): when the player lands a species for the first time, the
+game stops for a short reveal: the fish rises out of a splash into a trophy card with a NEW stamp, like a collection
+game. In the harbour, a small savings goal ("saving for the Compact") shows progress toward the next boat. Claude
+builds the animation; you make the sprites.
+
+CONTEXT (read these, nothing else up front): Art/STYLE.md; docs/briefs/CREW-FX-ART-1.txt (UI sprite conventions,
+the fx-* set you made); Assets/Art/UI/Crew/fx-rank-ribbon.png, fx-burst.png, fx-glow.png (match their rendering);
+Assets/Art/UI/v2-card*.png and v2-pill-cream.png (the panel style); one fish icon from Assets/Art/UI (any *.png
+named after a fish) for the scale a fish sits at inside the card.
+
+DELIVER (PNG, transparent, into Art/Source/FirstCatch/ AND copied to Assets/Art/UI/Crew/, no .meta files):
+A. fx-stamp-new: 256x256 round ink stamp reading "NEW", slightly rotated, coral red (#E0603A) with an ink edge,
+   rough stamped texture. Legible at 64 px.
+B. catch-card: 512x640 trophy card frame, cream (#F4EBDA) with the ink outline and a brass corner trim; an empty
+   sea-blue window in the upper 60% where the fish is drawn, and a plain lower band for name and weight text.
+   Note the window rect (x, y, w, h) in the REPORT.
+C. fx-splash: 256x256 cartoon water splash burst (white crests, teal body, droplets), centred, for the fish leaving
+   the water; plus fx-droplet: 48x48 single droplet.
+D. goal-jar-0..4: 128x128 glass coin jar, five fill levels (empty, quarter, half, three quarters, full and
+   overflowing with a glint). Same jar outline in all five.
+
+DONE = EVIDENCE: Art/Source/FirstCatch/review/sheet.png showing A–D on navy (#1C3A5A) and on cream, A and D also at
+64 px. Open it and check legibility before writing DONE.
+OWNERSHIP: Art/Source/FirstCatch/**, the new PNGs in Assets/Art/UI/Crew/, append-only comms.md. Never write scripts,
+scenes, .meta files, audio or other agents' folders. No git.
+ORDER: A, B, C, D; one comms.md DONE line per letter. QUESTION line if blocked, then the next.

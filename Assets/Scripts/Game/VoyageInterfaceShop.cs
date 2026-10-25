@@ -73,7 +73,7 @@ namespace Catchline.Game
             float pill = compactInterface ? 170 : 240;
             coastalUi.PageHeader("shop/header", header, ShopTitle(hudTab), GameData.HarbourName, () => panelOpen = false, null, "shop/close", pill + 24);
             coastalUi.Icon("shop/header/emblem", Rect.zero, null);
-            coastalUi.PricePill("shop/coins", new Rect(header.xMax - pill - 12, header.y + (headH - (compactInterface ? 44 : 60)) / 2, pill, compactInterface ? 44 : 60), State.Coins);
+            coastalUi.PricePill("shop/coins", new Rect(header.xMax - pill - 12, header.y + (headH - (compactInterface ? 44 : 60)) / 2, pill, compactInterface ? 44 : 60), ShownCoins);
             ShopTabs(true);
             var content = new Rect(Edge, header.yMax + 12, iw - Edge * 2, ih - header.yMax - 12 - TabBarHeight - 24);
             shopItems.Clear();
@@ -197,7 +197,7 @@ namespace Catchline.Game
                 var quote = State.QuoteSale(State.UnsoldCatch, 0);
                 coastalUi.Text("market/haul", new Rect(x, 6, w, topH * .5f), $"{State.UnsoldCatch.Sum(f => f.Kg):0.0} kg ashore · {State.UnsoldCatch.Count} fish", compactInterface ? Skin.Type.Heading : Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, top);
                 coastalUi.Text("market/value", new Rect(x, topH * .5f + 6, w, topH * .4f), $"Worth {quote.Coins + quote.ContractCoins:N0} coins today, contracts included.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, top);
-                coastalUi.Primary("market/sell", new Rect(area.width - bw - 18, (topH - bh) / 2 - 2, bw, bh), "Sell haul", () => { SellHaul(); audio?.Play(VoyageAudio.Cue.Purchase, .6f); }, "v2-icon-coin", true, top);
+                coastalUi.Primary("market/sell", new Rect(area.width - bw - 18, (topH - bh) / 2 - 2, bw, bh), "Sell haul", () => { int before = State.Coins; if (SellHaul()) StartCoinFlight("market/sell", before); audio?.Play(VoyageAudio.Cue.Purchase, .6f); }, "v2-icon-coin", true, top);
             }
             else
             {
@@ -306,7 +306,7 @@ namespace Catchline.Game
             var sail = new Rect(Edge, ih - Edge - Mathf.Max(bh, TabBarHeight), w, bh);
             coastalUi.Primary("port/sail", sail, "Set sail", () => { RequestDeparture(); audio?.Play(VoyageAudio.Cue.Select, .45f); }, "v2-icon-anchor", State.UnsoldCatch.Count == 0); Block(sail);
             float pill = compactInterface ? 170 : 220;
-            coastalUi.PricePill("port/coins", new Rect(iw - Edge - pill - 64, Edge, pill, compactInterface ? 48 : 60), State.Coins); Block(new Rect(iw - Edge - pill - 64, Edge, pill, 60));
+            coastalUi.PricePill("port/coins", new Rect(iw - Edge - pill - 64, Edge, pill, compactInterface ? 48 : 60), ShownCoins); Block(new Rect(iw - Edge - pill - 64, Edge, pill, 60));
             var pause = new Rect(iw - Edge - 56, Edge, 56, compactInterface ? 48 : 60);
             coastalUi.IconButton("port/pause", pause, "v2-icon-menu", null, () => paused = true, null, "icon-menu"); Block(pause);
             ShopTabs(false);

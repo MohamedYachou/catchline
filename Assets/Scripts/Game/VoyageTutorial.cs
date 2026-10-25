@@ -144,9 +144,17 @@ namespace Catchline.Game
                 ? new[] { new Vector2(right, (ih - height) * .5f + (compactInterface ? 10 : 40)), new Vector2(right, yHigh), new Vector2(left, yHigh) }
                 : new[] { new Vector2(right, yLow), new Vector2(left, yLow), new Vector2(right, yHigh), new Vector2(left, yHigh) };
             var keepClear = hasTarget ? new Rect(target.x - 24, target.y - 24, target.width + 48, target.height + 48) : Rect.zero;
+            // A showing toast (the sale's payout, say) is avoided too, when a spot clear of both exists.
+            bool toastUp = coastalUi.TryFind("toast", out var toastRect);
+            bool Clear(Vector2 c, bool andToast)
+            {
+                var r = new Rect(c.x, c.y, width, height);
+                return (!hasTarget || !r.Overlaps(keepClear)) && (!andToast || !toastUp || !r.Overlaps(toastRect));
+            }
             var spot = spots[0];
-            foreach (var candidate in spots)
-                if (!hasTarget || !new Rect(candidate.x, candidate.y, width, height).Overlaps(keepClear)) { spot = candidate; break; }
+            bool found = false;
+            foreach (var candidate in spots) if (Clear(candidate, true)) { spot = candidate; found = true; break; }
+            if (!found) foreach (var candidate in spots) if (Clear(candidate, false)) { spot = candidate; break; }
             float x = spot.x, y = spot.y;
             float rise = 1 - Ease.OutCubic(Mathf.Clamp01(age / .35f));
             var root = coastalUi.Group("tut", new Rect(x, y + rise * 40, width, height));

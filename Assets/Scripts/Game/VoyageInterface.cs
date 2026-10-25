@@ -53,6 +53,7 @@ namespace Catchline.Game
             }
             InterfaceCrewBait();
             if (!ManagementOpen) { InterfaceTier5Operations(); InterfacePotLine(); ManagementEntry(); }
+            InterfaceCoinFx();
             InterfaceTutorial();
             coastalUi.End();
         }

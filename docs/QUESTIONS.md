@@ -21,3 +21,8 @@ you want changed.
 
 ## Pacing (from Codex 1's rerun, docs/plans/CARDS-PACING.md)
 - A player who buys a 700-coin sea chest every time they can afford one never saves for the Compact (4,000). Median Mythic is still day 33, but on the Skiff. Options: leave it (players will save on their own), raise the sea chest price (6,000 gives a full hull path and Mythic day 34), or have the hull refit nudge appear when savings stall. My pick: leave prices, add a "saving for Compact" goal in the harbour UI later.
+
+## Sound
+- **Listen to the five SOUND-4 cues** (coach pop, refit fanfare, tab tap, coin buy, page turn): open
+  Art/Audio/Real/sound4-listening.html. No agent can hear; they are wired in on the technical check only.
+  Also: Horn_1/2 and SealBark_1/2 in Assets/Resources/Audio are not from the real pack. *Default: keep them.*
