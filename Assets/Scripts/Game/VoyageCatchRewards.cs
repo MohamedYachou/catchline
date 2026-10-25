@@ -73,6 +73,7 @@ namespace Catchline.Game
             var species = lastCatchSpecies; float kg = lastCatchKg;
             var tier = CatchPresentation.Tier(species, kg);
             float elapsed = CatchDisplaySeconds - (catchUntil - SimTime);
+            if (catchNew && elapsed < 0) { InterfaceFirstCatchReveal(elapsed + FirstCatchRevealSeconds); return; }
             float enter = 1 - Mathf.Pow(1 - Mathf.Clamp01(elapsed / .28f), 3);
             float h = compactInterface ? 112 : 132;
             var r = CatchCardRect(h); r.y -= (1 - enter) * 12;

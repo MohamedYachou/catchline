@@ -27,7 +27,9 @@ namespace Catchline.Game
                 .Concat(People.Where(p => p.Carrying?.Species == species).Select(p => p.Carrying.Kg));
             catchNew = State.LogCount[(int)species] == 0 && earlier.Count() == 1;
             catchRecord = !catchNew && kg > State.LogBest[(int)species] && earlier.All(k => k <= kg);
-            catchUntil = SimTime + CatchDisplaySeconds;
+            // A first catch plays its reveal before the card (VoyageFirstCatchFx).
+            catchUntil = SimTime + CatchDisplaySeconds + (catchNew ? FirstCatchRevealSeconds : 0);
+            if (catchNew) audio?.Play(VoyageAudio.Cue.RewardChime, .5f);
         }
 
         static string FishPortrait(Species species) => "fish-" + species.ToString().ToLowerInvariant();

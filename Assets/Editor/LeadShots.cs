@@ -168,6 +168,13 @@ namespace Catchline.EditorTools
             for (int i = 0; i < 4000 && g.CurrentMode != VoyageGame.Mode.Fishing; i++) g.Tick(.1f);
             for (int i = 0; i < 30; i++) g.Tick(.1f);
             ShotUi(g, "tut-firstcast"); ShotUi(g, "tut-firstcast-phone", 844, 390);
+            // The first-catch reveal: splash and pop, ribbon and stamp, the drop into the catch card.
+            s.Tutorial = (int)VoyageGame.TutStep.Done;
+            foreach (float at in new[] { .3f, 1.3f, 2.25f, 2.6f })
+            {
+                g.PreviewFirstCatch(Species.Mackerel, .62f, at); ShotUi(g, $"first-catch-{at:0.00}");
+                if (at == 1.3f) { g.PreviewFirstCatch(Species.Mackerel, .62f, at); ShotUi(g, "first-catch-phone", 844, 390); }
+            }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

@@ -11,15 +11,14 @@ its goals here, in order, after checking the actual files. Codex orders and logs
 @ClaudeCom.md
 
 ## Claude 1 (Windows) — goals, in order
-1. Tutorial follow-ups: capture the at-sea step (FirstCast) and the Sell step; play SOUND-4 CoachPop when Mira appears
-   (VoyageTutorial.cs plays Cue.CardFlip until then).
-2. UI and animation polish of the harbour screens (design-stack skill first). Next candidates: the Sell step
-   capture (needs an unsold-catch fixture), the market sell moment (coins flying to the pill), first-catch moment.
+1. First-catch reveal (VoyageFirstCatchFx.cs): verify captures, commit; swap in Codex 2's FIRST-CATCH-ART-1 sprites
+   (fx-stamp-new, fx-splash, catch-card) when they land, plus the goal-jar savings widget in the harbour.
+2. UI and animation polish (design-stack skill first): chest screens, harbour hub, purchase moments.
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
 ## Claude 2 (WSL) — goals, in order
-1. Direct the two Codex agents (skill codex-director): Codex 1 is on docs/briefs/SOUND-WIRE-4.txt (waits for Codex 2),
-   Codex 2 on docs/briefs/SOUND-4.txt. Review each delivery against its brief, make .meta files for new Assets files, commit only
+1. Direct the two Codex agents (skill codex-director): Codex 1 is on docs/briefs/SOUND-WIRE-4.txt (ungated),
+   Codex 2 on docs/briefs/FIRST-CATCH-ART-1.txt. Review each delivery against its brief, make .meta files for new Assets files, commit only
    accepted files, write the next brief, append it to Art/Source/UIv2/CONTINUE-CODEX1.txt / CONTINUE-CODEX2.txt.
    Keep both always busy (Mo's order); their watchdogs relaunch about every 10 minutes and read those files.
 2. Sound: review Codex 1's SOUND-WIRE-4 and listen-check the mix (all real CC0 clips are installed since 89f52bf).
@@ -30,6 +29,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
 
 ## Done (latest first)
+- 3ca85f6 sell coin flight into the wallet, Mira avoids toasts, sell-step captures; SOUND-4 accepted, Codex 1 ungated
 - e82ba85 new-boat celebration (VoyageRefitFx.cs; captures docs/screens/overnight/refit-*)
 - 89f52bf real CC0 pack installed for every cue + HARBOUR-SOUND-2 harbour calls/ambience (Codex 1, accepted)
 - 05626e1 tutorial at-sea step captures
