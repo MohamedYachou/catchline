@@ -32,6 +32,7 @@ namespace Catchline.EditorTools
             if (Want("traffic")) Traffic();
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
+            if (Want("deckui")) DeckUi();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -124,6 +125,19 @@ namespace Catchline.EditorTools
             panel.SetValue(g, false); ShotUi(g, "hud-harbour-phone", 844, 390);
             foreach (VoyageGame.HudTab t in Enum.GetValues(typeof(VoyageGame.HudTab)))
             { panel.SetValue(g, true); tab.SetValue(g, t); ShotUi(g, "hud-" + t.ToString().ToLowerInvariant() + "-phone", 844, 390); }
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // Fishing on deck with the HUD: the prep fisher and the tier-5 boat a minute into their trials.
+        static void DeckUi()
+        {
+            var g = Game("Deck HUD shot"); g.StartPrepBoatTrial();
+            for (int i = 0; i < 600; i++) g.Tick(.1f);
+            ShotUi(g, "hud-deck-prep-phone", 844, 390); ShotUi(g, "hud-deck-prep");
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+            g = Game("Deck HUD shot"); g.StartTier5Trial();
+            for (int i = 0; i < 600; i++) g.Tick(.1f);
+            ShotUi(g, "hud-deck-tier5-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

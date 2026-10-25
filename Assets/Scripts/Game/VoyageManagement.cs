@@ -79,7 +79,12 @@ namespace Catchline.Game
         string[] StageNames => new[]{"Fishing","Hauling In","Processing","Hauling to Hold"};
         int Bottleneck => Enumerable.Range(1,3).Where(i=>stageStatus[i]==2).DefaultIfEmpty(-1).First();
         string Recommendation => ProcessingInput.Count>0&&!ProcessingInput.Any(f=>State.PrepOrders.Allows(f,false)||State.Chum<State.PrepOrders.ChumTarget&&State.PrepOrders.Allows(f,true))?"Allow queued fish\nin processing orders.":HoldFull?"Head home\nto sell your haul.":Bottleneck==2?"Add a processor\nor reduce intake.":Bottleneck==1?"Assign hauling help\nor slow fishing.":Bottleneck==3?"Help carry fish\ninto the hold.":Flow.Clock<15?"Let a full cycle\nfinish to measure.":"Capacity is available.\nWatch the queues.";
-        Rect FishingFooter(int column,int row=0) => new Rect(iw-208-column*204,ih-70-row*62,192,54);
+        // Secondary deck buttons (crew duties, prep table) stack upward just left of Head home, clear of the v2 action row.
+        Rect FishingFooter(int column,int row=0)
+        {
+            var home=HomeButtonRect(); float w=compactInterface?190:290,h=compactInterface?48:58;
+            return new Rect(home.x-12-w-(column-1)*(w+10),home.yMax-h-row*(h+8),w,h);
+        }
         void ManagementEntry()
         {
             if(CurrentMode!=Mode.Fishing||ManagementOpen||netOrdersOpen||PrepOrdersOpen||baitSettingsCrew!=null||tier5OperationsOpen||NetGameActive)return;

@@ -142,6 +142,13 @@ namespace Catchline.Game
         }
         static string Capitalise(string s) => string.IsNullOrEmpty(s) ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);
 
+        // Head home sits left of the Crew and Ops tiles at the bottom right.
+        Rect HomeButtonRect()
+        {
+            float tile = compactInterface ? 64 : 80, pw = compactInterface ? 230 : 330, ph = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 16;
+            return new Rect(iw - Edge - 2 * tile - 10 - 14 - pw, ih - Edge - ph, pw, ph);
+        }
+
         void InterfaceVoyageActions()
         {
             float h = HudButtonHeight, tile = compactInterface ? 64 : 80;
@@ -153,8 +160,7 @@ namespace Catchline.Game
                 coastalUi.IconButton("management/open", ops, "v2-icon-ops", "Ops", () => { OpenManagement(); managementTab = 1; audio?.Play(VoyageAudio.Cue.Select, .45f); }, null, "icon-crate"); Block(ops);
                 coastalUi.IconButton("management/crew", crew, "v2-icon-crew", "Crew", () => { OpenManagement(); managementTab = 2; audio?.Play(VoyageAudio.Cue.Select, .45f); }, null, "icon-crew"); Block(crew);
             }
-            float pw = compactInterface ? 230 : 330, ph = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 16;
-            var home = new Rect(crew.x - 14 - pw, ih - Edge - ph, pw, ph);
+            var home = HomeButtonRect();
             coastalUi.Primary("home", home, "Head home", () => { RequestHeadHome(); audio?.Play(VoyageAudio.Cue.Select, .45f); }, "v2-icon-home"); Block(home);
         }
     }

@@ -372,7 +372,8 @@ namespace Catchline.Game
             bool hasBar = bar.HasValue && r.height >= 60;
             float textH = hasBar ? r.height - 24 : r.height;
             // Short readings get the Number face; sentences drop to Heading/Body so they never overflow.
-            var face = value.Length <= 7 ? Skin.Type.Number : value.Length <= 16 ? Skin.Type.Heading : Skin.Type.Body;
+            // Short phone tiles cannot hold the Number face (best fit would drop the text), so they use Heading.
+            var face = value.Length <= 7 && r.height >= 60 ? Skin.Type.Number : value.Length <= 16 ? Skin.Type.Heading : Skin.Type.Body;
             if (label != null && hasBar)
             {
                 // Label and reading share the top row; the bar sits underneath.
@@ -430,7 +431,7 @@ namespace Catchline.Game
             bool bar = progress.HasValue;
             float lineH = bar ? (r.height - 22) / 2 : r.height / 2;
             Text(id + "/title", new Rect(x, 4, w, lineH), title, Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, e.Rect);
-            Text(id + "/status", new Rect(x, 4 + lineH, w, lineH - 2), status, Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft, e.Rect);
+            Text(id + "/status", new Rect(x, 4 + lineH, w, lineH - (bar ? 2 : 6)), status, Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft, e.Rect); // ends inside the card frame
             if (name != null) Text(id + "/name", new Rect(r.width - 90, 6, 82, 20), name, Skin.Type.Caption, Skin.InkSoft, TextAnchor.UpperRight, e.Rect);
             if (specialityIcon != null) Icon(id + "/speciality", new Rect(r.width - 40, name != null ? 26 : (r.height - 30) / 2, 30, 30), specialityIcon, e.Rect);
             if (bar) ProgressBar(id + "/bar", new Rect(x, r.height - 20, r.width - x - 14, 12), progress.Value, Skin.Bar.Good, e.Rect);
