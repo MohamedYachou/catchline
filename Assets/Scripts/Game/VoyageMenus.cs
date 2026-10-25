@@ -57,11 +57,7 @@ namespace Catchline.Game
             if (showTitle) InterfaceTitle();
             else if (confirmHeadHome) InterfaceHeadHomeConfirmation();
             else if (paused) { coastalUi.Scrim("menu/dim"); if (showSettings) InterfaceSettings(); else InterfacePause(); }
-            else if (SimTime < refitUntil)
-            {
-                coastalUi.Scrim("refit/dim", null, Mathf.Clamp01((refitUntil - SimTime) / 1.2f));
-                coastalUi.Text("refit/title", new Rect(0, ih / 2 - 30, iw, 60), "Your skiff is ready", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleCenter, null, true);
-            }
+            else if (SimTime < refitUntil) InterfaceRefitFx();
         }
 
         void InterfaceTitle()

@@ -325,7 +325,7 @@ namespace Catchline.Game
         {
             if (CurrentMode != Mode.Harbour || !State.RefitSkiff()) return false;
             RebuildBoat();
-            refitUntil = SimTime + 1.2f;
+            BeginRefitFx();
             State.EnsureCards();
             Toast("Skiff refitted! A welcome chest waits in the Crew office: open it to meet Mira, your navigator.");
             SaveGame();
@@ -335,7 +335,7 @@ namespace Catchline.Game
         public bool RefitCompact()
         {
             if (CurrentMode != Mode.Harbour || !State.RefitCompact()) return false;
-            RebuildBoat(); refitUntil = SimTime + 1.2f;
+            RebuildBoat(); BeginRefitFx();
             Toast("Compact fisher ready · 100 kg hold, three rods and stern net. First tank included.");
             SaveGame(); return true;
         }
@@ -343,7 +343,7 @@ namespace Catchline.Game
         public bool RefitPrep()
         {
             if (CurrentMode != Mode.Harbour || !State.RefitPrep()) return false;
-            RebuildBoat(); refitUntil = SimTime + 1.2f;
+            RebuildBoat(); BeginRefitFx();
             Toast("Prep fisher ready · 160 kg hold, four crew berths and a two-person table.");
             SaveGame(); return true;
         }

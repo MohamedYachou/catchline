@@ -42,6 +42,7 @@ namespace Catchline.EditorTools
             if (Want("crewui")) CrewUi();
             if (Want("abilitypop")) AbilityPop();
             if (Want("tutorial")) Tutorial();
+            if (Want("refit")) Refit();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -107,6 +108,25 @@ namespace Catchline.EditorTools
             Clock(21.6f); ShotUi(g, "crew-welcome-reveal");
             var flip = T.GetMethod("FlipReveal", H); for (int i = 0; i < 4; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
             Clock(23); ShotUi(g, "crew-welcome-open"); ShotUi(g, "crew-welcome-open-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // The new-boat celebration: the skiff refit through its beats, and the compact fisher settled.
+        static void Refit()
+        {
+            var g = Game("Refit shot"); Rebuild(g, 0);
+            g.State.Coins = 5000; g.State.BestVoyageFish = GameData.SkiffFishGoal;
+            g.RefitSkiff();
+            float clock = 0;
+            foreach (float at in new[] { .3f, .7f, 1.6f })
+            {
+                for (; clock < at; clock += .05f) g.Tick(.05f);
+                ShotUi(g, $"refit-skiff-{at:0.0}");
+            }
+            ShotUi(g, "refit-skiff-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+            g = Game("Refit shot"); Rebuild(g, 1); g.State.Coins = 20000;
+            if (g.RefitCompact()) { for (int i = 0; i < 32; i++) g.Tick(.05f); ShotUi(g, "refit-compact"); ShotUi(g, "refit-compact-phone", 844, 390); }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
