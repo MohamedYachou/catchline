@@ -288,62 +288,6 @@ namespace Catchline.Game
                     () => { if (State.BuyDeepNet()) { Toast("Deep net aboard — choose it below before sailing."); SaveGame(); } });
             }
         }
-        void CrewOfficePage(Rect area)
-        {
-            var report = State.ReadRoster();
-            float headH = compactInterface ? 52 : 64;
-            var help = coastalUi.Slab("crew/heading", new Rect(area.x, area.y, area.width, headH), null, false);
-            coastalUi.Text("crew/heading/title", new Rect(16, 0, area.width * .5f, headH), $"Crew · {report.Deployed}/{report.Berths} berths · {report.Tokens:N0} tokens", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, help);
-            if (report.PendingChests > 0)
-            {
-                // Interim chest opening until the reveal screen (CREW-CARDS-UI-1) lands.
-                float bw = compactInterface ? 170 : 210;
-                coastalUi.CardButton("crew/heading/chest", new Rect(area.width - bw - 12, 8, bw, headH - 16), $"Open chest · {report.PendingChests}",
-                    () => { var r = OpenChest(State.PendingChests[0]); if (r != null) { audio?.Play(VoyageAudio.Cue.Purchase, .6f); Toast(ChestSummary(r)); } }, null, true, help);
-            }
-            else
-                coastalUi.Text("crew/heading/wages", new Rect(area.width * .5f, 0, area.width * .5f - 16, headH), $"Wages next departure: {report.Wages:N0} coins",
-                    Skin.Type.Body, Skin.Teal, TextAnchor.MiddleRight, help);
-            var list = new Rect(area.x, area.y + headH + 12, area.width, area.height - headH - 12);
-            if (report.Cards.Length == 0)
-            {
-                // The rowboat has no berths: say where crew comes from instead of an empty page.
-                var empty = coastalUi.Slab("crew/empty", new Rect(list.x + list.width * .15f, list.y + 12, list.width * .7f, Mathf.Min(list.height - 24, compactInterface ? 150 : 200)), null, true);
-                float ew = list.width * .7f, eh = Mathf.Min(list.height - 24, compactInterface ? 150 : 200), p = eh - 40;
-                coastalUi.Portrait("crew/empty/portrait", new Rect(24, 20, p, p), "captain", empty);
-                coastalUi.Text("crew/empty/title", new Rect(p + 48, 16, ew - p - 72, eh * .4f), "Just you and the oars", Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, empty);
-                coastalUi.Text("crew/empty/body", new Rect(p + 48, eh * .4f + 22, ew - p - 72, eh * .6f - 40), "The rowboat has no berths. Refit to a skiff at the Chandlery and your first crew cards come aboard.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, empty);
-                return;
-            }
-            int cols = 3; float gap = 12, cw = (list.width - 12 - gap * (cols - 1)) / cols, ch = compactInterface ? 170 : 208;
-            var content = coastalUi.Scroll("crew/roster", list, Mathf.Ceil(report.Cards.Length / (float)cols) * (ch + gap) + 12);
-            for (int n = 0; n < report.Cards.Length; n++)
-            {
-                var row = report.Cards[n]; string id = "crew/roster/" + row.Id;
-                var r = new Rect(6 + n % cols * (cw + gap), 8 + n / cols * (ch + gap), cw, ch);
-                var card = coastalUi.Card(id, r, row.Deployed ? Skin.Card.Selected : Skin.Card.Soft, content);
-                float p = compactInterface ? 56 : 72, x = p + 24, tw = cw - x - 12;
-                coastalUi.Portrait(id + "/portrait", new Rect(12, 12, p, p), row.Name, card);
-                coastalUi.Text(id + "/name", new Rect(x, 8, tw, 30), row.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
-                coastalUi.Text(id + "/role", new Rect(x, 38, tw, 22), $"{row.Role} · {CardProgression.RarityName(row.Rarity)}{(row.Stars > 0 ? $" {row.Stars} stars" : "")} · Lv {row.Level}/{row.Cap}", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, card);
-                coastalUi.Text(id + "/wage", new Rect(x, 60, tw, 22), $"{row.Wage} coins per voyage · " + (row.Maxed ? "maxed" : $"{row.Blueprints}/{row.BlueprintsNeeded} blueprints") + (row.Focus ? " · focus" : ""), Skin.Type.Caption, Skin.InkSoft, TextAnchor.MiddleLeft, card);
-                float by = ch - (compactInterface ? 44 : 52) - 10, bh = compactInterface ? 44 : 52, half = (cw - 36) / 2;
-                coastalUi.Text(id + "/ability", new Rect(12, p + 18, cw - 24, by - p - 22), row.Ability, Skin.Type.Small, Skin.Teal, TextAnchor.UpperLeft, card);
-                string cardId = row.Id;
-                bool canDeploy = row.Available && row.Role != "Navigator" && (row.Deployed || report.Deployed < report.Berths);
-                coastalUi.Secondary(id + "/deploy", new Rect(12, by, half, bh), row.Deployed ? "Stand down" : "Deploy", () => { DeployCard(cardId, !row.Deployed); MenuSound(); }, null, canDeploy, card);
-                // Interim card actions until the crew garage (CREW-CARDS-UI-1): level up below the cap, then rank up or star.
-                string label = row.Maxed ? "Maxed" : row.CanRankUp ? "Rank up" : row.CanStar ? "Add star"
-                    : row.Level < row.Cap ? $"Lv up · {row.LevelTokens} tok · {row.LevelCoins:N0}" : $"Blueprints {row.Blueprints}/{row.BlueprintsNeeded}";
-                bool can = row.CanRankUp || row.CanStar || row.CanLevelUp;
-                coastalUi.CardButton(id + "/upgrade", new Rect(24 + half, by, half, bh), label, () =>
-                {
-                    bool done = row.CanRankUp || row.CanStar ? RankUpCard(cardId) : LevelUpCard(cardId);
-                    if (done) audio?.Play(VoyageAudio.Cue.Purchase, .6f);
-                }, null, can, card);
-            }
-        }
-
         void InterfaceChart() => InterfaceNauticalChart();
 
         float HarbourLeftWidth => compactInterface ? 250 : 320;

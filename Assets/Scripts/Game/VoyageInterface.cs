@@ -45,6 +45,7 @@ namespace Catchline.Game
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
             else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); InterfaceTripChart(); }
             InterfaceSeaGrounds();
+            InterfaceCardOverlays();
             if (!departureReady && toast != null && SimTime < toastUntil)
             {
                 if (CurrentMode == Mode.Fishing && !ManagementOpen) coastalUi.Toast("toast", toast, null, Edge, HudGapLeft, HudGapRight);

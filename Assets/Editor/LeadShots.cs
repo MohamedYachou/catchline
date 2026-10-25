@@ -39,7 +39,45 @@ namespace Catchline.EditorTools
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
             if (Want("rod")) Rod();
+            if (Want("crewui")) CrewUi();
             Debug.Log("LEADSHOTS DONE " + Out);
+        }
+
+        // Crew office v2 at a fixed clock: garage, card panel, chests and their reveal, tools, renown and a rank-up.
+        static void CrewUi()
+        {
+            var g = Game("Crew UI shot"); Rebuild(g, 4);
+            var s = g.State;
+            CardRoster.GrantUpToTier(s.Roster, s.Deployment, s.CardTier); s.EnsureCards();
+            s.Tokens = 640; s.Coins = 25000; s.FocusCard = "noor";
+            var noor = CardRoster.Find(s.Roster, "noor"); noor.Rarity = CardRarity.Blue; noor.Level = 12; noor.Blueprints = 1;
+            var pim = CardRoster.Find(s.Roster, "pim"); if (pim != null) { pim.Level = 5; pim.Blueprints = 1; }
+            var mira = CardRoster.Find(s.Roster, "mira"); if (mira != null) { mira.Rarity = CardRarity.Mythic; mira.Stars = 2; mira.Level = 30; }
+            foreach (ToolKind k in new[] { ToolKind.Rod, ToolKind.Rod, ToolKind.Gloves, ToolKind.Gaff, ToolKind.Compass, ToolKind.Boots })
+                s.AddTool(k, k == ToolKind.Gaff ? CardRarity.Purple : CardRarity.White);
+            s.AddTool(ToolKind.Reel, CardRarity.Gold);
+            s.GrantChest(ChestKind.Crate); s.GrantChest(ChestKind.Crate); s.GrantChest(ChestKind.CaptainsChest);
+            var T = typeof(VoyageGame);
+            void Set(string f, object v) => T.GetField(f, H).SetValue(g, v);
+            void Clock(float t) => Set("cardUiClock", t);
+            Set("panelOpen", true); Set("hudTab", VoyageGame.HudTab.CrewOffice); Clock(10);
+            ShotUi(g, "crew-garage"); ShotUi(g, "crew-garage-phone", 844, 390);
+            Set("cardPanelId", "noor"); ShotUi(g, "crew-card-noor"); ShotUi(g, "crew-card-noor-phone", 844, 390);
+            Set("cardPanelId", "mira"); ShotUi(g, "crew-card-mira");
+            Set("cardPanelId", null); Set("crewTab", 1); ShotUi(g, "crew-chests"); ShotUi(g, "crew-chests-phone", 844, 390);
+            Clock(100); T.GetMethod("StartReveal", H).Invoke(g, new object[] { ChestKind.CaptainsChest });
+            foreach (float t in new[] { .3f, .9f, 1.35f, 1.7f, 3.0f }) { Clock(100 + t); ShotUi(g, $"crew-reveal-{t:0.00}"); }
+            Clock(103); var flip = T.GetMethod("FlipReveal", H); flip.Invoke(g, new object[] { 0, 0f }); flip.Invoke(g, new object[] { 1, 0f });
+            Clock(103.17f); ShotUi(g, "crew-reveal-flipping");
+            for (int i = 2; i < 8; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
+            Clock(104); ShotUi(g, "crew-reveal-open"); ShotUi(g, "crew-reveal-open-phone", 844, 390);
+            T.GetMethod("CollectReveal", H).Invoke(g, null);
+            Set("crewTab", 2); Clock(110); ShotUi(g, "crew-tools"); ShotUi(g, "crew-tools-phone", 844, 390);
+            Set("crewTab", 3); ShotUi(g, "crew-renown"); ShotUi(g, "crew-renown-phone", 844, 390);
+            Set("crewTab", 0); noor.Level = noor.LevelCap; noor.Blueprints = 2; Clock(200);
+            T.GetMethod("RankUpWithFx", H).Invoke(g, new object[] { "noor" });
+            foreach (float t in new[] { .6f, 1.2f, 2.0f }) { Clock(200 + t); ShotUi(g, $"crew-rankup-{t:0.0}"); }
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
         static VoyageGame Game(string name)

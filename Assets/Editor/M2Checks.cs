@@ -84,23 +84,7 @@ namespace Catchline.EditorTools
             sched.Tick(); Check(sam.Current?.Fish.Single().Kg==20,"gold Sam claims 20kg solo");
             for(int i=0;i<8;i++)a.Step();
             Check(sched.Stowed==1 && sched.Balanced,"gold Sam delivers 20kg solo");
-            deck=DeckGraph.Load(GameData.Hulls[2]);sched=new DeckScheduler(deck);
-            var sort=deck.OfKind(StationKind.SortTable).First();
-            for(int i=0;i<4;i++) sort.In.Put(new CaughtFish{Species=Species.Mackerel,Kg=.8f},false);
-            sched.Landed=4;
-            var noor=new Worker {Role=CrewRole.Deckhand,Card=new CardState("noor"){Rarity=CardRarity.Gold},Primary=Duty.Sort,Actor=a};
-            sched.Workers.Add(noor);sched.Tick();
-            Check(noor.Current?.Fish.Count==4,"Noor whole basket one job");
-            for(int i=0;i<3;i++)a.Step();
-            Check(sort.Out.Count==4 && noor.Idle && sched.Balanced,"Noor whole basket finishes losslessly");
-            var source=deck.OfKind(StationKind.Rod).First().Out;
-            var target=new Drop{Hold=true,Station=deck.Hold};
-            sam.Card.Rarity=CardRarity.Purple; sam.Current=new Job{Kind=JobKind.Haul,Source=source,Target=target};
-            var other=new Worker{Role=CrewRole.Deckhand,Current=new Job{Kind=JobKind.Haul,Source=source,Target=target}};
-            sched.Workers.Clear();sched.Workers.Add(sam);sched.Workers.Add(other);
-            Check(Mathf.Approximately(sched.HaulWalkMultiplier(sam),1.3f) && Mathf.Approximately(sched.HaulWalkMultiplier(other),1.3f),"Sam purple bonus both haulers");
-            other.Current.Source=sort.Out;
-            Check(sched.HaulWalkMultiplier(sam)==1 && sched.HaulWalkMultiplier(other)==1,"different route no bonus");
+            // Noor's and Sam's v2 abilities are timed or conditional: the ability engine suite checks them.
         }
         static void LiveWages()
         {
