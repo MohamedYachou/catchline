@@ -59,7 +59,6 @@ namespace Catchline.Game
             var deckFocus = camCenter;
             float distance = SeaCameraDistance();
             var deckAt = deckFocus - introDeckRotation * Vector3.forward * distance;
-            float deckFov = 2 * Mathf.Atan(Cam.orthographicSize / distance) * Mathf.Rad2Deg;
             Vector3 at, look; float fov;
             float settle = Mathf.SmoothStep(0, 1, (introAge - (IntroSeconds - 2.5f)) / 2.5f);
             int seg = 0; while (seg < IntroPath.Length - 2 && introAge > IntroPath[seg + 1].t) seg++;
@@ -68,9 +67,13 @@ namespace Catchline.Game
             at = Vector3.Lerp(a.at, b.at, u); look = Vector3.Lerp(a.look, b.look, u);
             fov = 50;
             var pathRotation = Quaternion.LookRotation(look - at, Vector3.up);
+            // Hand over the visible height at the harbour, not the lens angle: lerping the angle while the camera pulls
+            // back to its long-lens distance briefly widens the view past the village to the open sea behind it.
+            float pathHeight = Mathf.Tan(fov * .5f * Mathf.Deg2Rad) * Vector3.Distance(at, deckFocus);
             at = Vector3.Lerp(at, deckAt, settle);
             var rotation = Quaternion.Slerp(pathRotation, introDeckRotation, settle);
-            fov = Mathf.Lerp(fov, deckFov, settle * settle);
+            float height = Mathf.Lerp(pathHeight, Cam.orthographicSize, settle);
+            fov = settle <= 0 ? fov : 2 * Mathf.Atan(height / Mathf.Max(.1f, Vector3.Distance(at, deckFocus))) * Mathf.Rad2Deg;
             Cam.transform.SetPositionAndRotation(at, rotation);
             Cam.orthographic = false; Cam.fieldOfView = fov; Cam.ResetProjectionMatrix();
             if (seaSurface != null) seaSurface.position = new Vector3(at.x + Cam.transform.forward.x * 25, seaSurface.position.y, at.z + Cam.transform.forward.z * 25);
