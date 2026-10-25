@@ -1,0 +1,292 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullWreckBank",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes, one identity root and declared anchors",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_3 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_4 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WreckGulls_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bank-spine closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bank-spine 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bank-spine 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 0.0
+        },
+        {
+          "check": "Terrain_bank-spine -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bank-spine -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.376783311530547e-06
+        },
+        {
+          "check": "Terrain_SteamerHull closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SteamerHull 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SteamerHull 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_SteamerHull -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SteamerHull -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.001 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.001 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.001 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.106495129998063e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.001 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.001 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.498472753551771e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.002 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.002 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.002 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.76837158203125e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.002 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.002 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.410743713378906e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.003 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.003 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.003 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.003 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.003 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.004 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.004 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.004 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_CornerSandLedge.004 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerSandLedge.004 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_3 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_4 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WreckGulls_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.7642974853515625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.7642974853515625e-05,
+      "sourceSha256": "f317ee43b3064dcf36b3dd3799704e762f85baa004caa344c9f1914a4f2750ab",
+      "fbxSha256": "a631d2e2dcfb1e6d82456914ffccd219c0b97ecc84c02fe3395ed8986520895b",
+      "navigationSha256": "8bb8f193cbaa8276470b309fbf100a792da96aa34b07de680e1c05ee5f2bfbcc"
+    }
+  ],
+  "totalChecks": 55
+}

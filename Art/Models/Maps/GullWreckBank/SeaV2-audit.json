@@ -1,0 +1,648 @@
+{
+  "map": "GullWreckBank",
+  "allPassed": false,
+  "checks": [
+    {
+      "check": "saved source SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX triangle and vertex roundtrip",
+      "passed": true,
+      "detail": 1.7642974853515625e-05
+    },
+    {
+      "check": "approved playable dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "three original ground IDs, names, depths and pool IDs retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:bank-spine-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:bank-spine-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:SteamerHull-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 9
+    },
+    {
+      "check": "islands:SteamerHull-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerSandLedge-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "islands:CornerSandLedge-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerSandLedge.001-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "islands:CornerSandLedge.001-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerSandLedge.002-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "islands:CornerSandLedge.002-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerSandLedge.003-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "islands:CornerSandLedge.003-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerSandLedge.004-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "islands:CornerSandLedge.004-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:bank-spine-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:bank-spine-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SteamerHull-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 9
+    },
+    {
+      "check": "shallows:SteamerHull-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerSandLedge-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "shallows:CornerSandLedge-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerSandLedge.001-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "shallows:CornerSandLedge.001-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerSandLedge.002-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "shallows:CornerSandLedge.002-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerSandLedge.003-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "shallows:CornerSandLedge.003-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerSandLedge.004-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "shallows:CornerSandLedge.004-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "each island contained in its shallow shelf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "the-wreck full zone clear of islands +2m",
+      "passed": false,
+      "detail": -7.331
+    },
+    {
+      "check": "the-wreck full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -7.409
+    },
+    {
+      "check": "the-wreck full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "the-wreck 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "the-wreck art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-bank full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "herring-bank full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    },
+    {
+      "check": "herring-bank full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-bank 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-bank art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-edge full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "sand-edge full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    },
+    {
+      "check": "sand-edge full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-edge 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-edge art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour clear of island inflation2m",
+      "passed": true,
+      "detail": 41.35
+    },
+    {
+      "check": "harbour outside shallows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoy spacing25-30m",
+      "passed": true,
+      "detail": [
+        26.66666,
+        27.272730000000003
+      ]
+    },
+    {
+      "check": "outer buoy bases clear of islands +2m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoys on border",
+      "passed": true,
+      "detail": 40
+    },
+    {
+      "check": "horizon centres beyond border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "at least one land-blocked ground pair",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all114 pre-existing protected file bytes preserved",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 2,
+      "length": 74.632,
+      "direct": 74.632,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          -72.0,
+          -24.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 187.266,
+      "direct": 187.096,
+      "ratio": 1.0009,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          -79.01526974362393,
+          -34.135262072822414
+        ],
+        [
+          -74.7862712883506,
+          -28.878095085703382
+        ],
+        [
+          2.0,
+          61.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 220.756,
+      "direct": 219.764,
+      "ratio": 1.0045,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          91.96446675410863,
+          -40.05888152687475
+        ],
+        [
+          95.40798384661595,
+          -38.977677016464035
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 112.699,
+      "direct": 112.699,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -72.0,
+          -24.0
+        ],
+        [
+          2.0,
+          61.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 172.399,
+      "direct": 171.353,
+      "ratio": 1.0061,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          -24.0
+        ],
+        [
+          91.35405937911445,
+          -30.408106207746794
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 136.521,
+      "direct": 136.473,
+      "ratio": 1.0003,
+      "directBlocked": true,
+      "polyline": [
+        [
+          2.0,
+          61.0
+        ],
+        [
+          22.978368860314532,
+          42.28587569458157
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 4,
+      "length": 87.278,
+      "direct": 74.632,
+      "ratio": 1.1694,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          -85.02832753879373,
+          -60.59184672149318
+        ],
+        [
+          -78.1381229264445,
+          -53.57108596666289
+        ],
+        [
+          -69.25665230267803,
+          -40.88702563600675
+        ],
+        [
+          -65.39203863081671,
+          -34.502254302558114
+        ],
+        [
+          -66.23434578483311,
+          -24.483040153235354
+        ],
+        [
+          -72.0,
+          -24.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 201.187,
+      "direct": 187.096,
+      "ratio": 1.0753,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          -86.63847251070256,
+          -22.012390387866972
+        ],
+        [
+          -12.638450879897867,
+          62.98763127479343
+        ],
+        [
+          -5.543735107557221,
+          68.13740387785755
+        ],
+        [
+          2.066833034598894,
+          61.62074135286683
+        ],
+        [
+          2.0,
+          61.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 224.861,
+      "direct": 219.764,
+      "ratio": 1.0232,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -115.0,
+          -85.0
+        ],
+        [
+          91.45624595952276,
+          -27.86259508237418
+        ],
+        [
+          99.06683451249252,
+          -34.379254258376356
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 124.723,
+      "direct": 112.699,
+      "ratio": 1.1067,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          -24.0
+        ],
+        [
+          -12.638450879897867,
+          62.98763127479343
+        ],
+        [
+          -5.543735107557221,
+          68.13740387785755
+        ],
+        [
+          2.066833034598894,
+          61.62074135286683
+        ],
+        [
+          2.0,
+          61.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 174.146,
+      "direct": 171.353,
+      "ratio": 1.0163,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          -24.0
+        ],
+        [
+          91.45624595952276,
+          -27.86259508237418
+        ],
+        [
+          99.06683451249252,
+          -34.379254258376356
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 137.807,
+      "direct": 136.473,
+      "ratio": 1.0098,
+      "directBlocked": true,
+      "polyline": [
+        [
+          2.0,
+          61.0
+        ],
+        [
+          3.9584218098465698,
+          61.48390879875861
+        ],
+        [
+          24.04080123500865,
+          44.537969974957505
+        ],
+        [
+          99.06683451249252,
+          -34.379254258376356
+        ],
+        [
+          99.0,
+          -35.0
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "f317ee43b3064dcf36b3dd3799704e762f85baa004caa344c9f1914a4f2750ab",
+  "fbxSha256": "a631d2e2dcfb1e6d82456914ffccd219c0b97ecc84c02fe3395ed8986520895b",
+  "navigationSha256": "8bb8f193cbaa8276470b309fbf100a792da96aa34b07de680e1c05ee5f2bfbcc",
+  "limits": "Art-side static geometry and 2m/4m disc visibility routes; not native turning/speed/hull acceptance. Full gameplay camera remains orthographic10.24m."
+}

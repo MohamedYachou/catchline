@@ -171,6 +171,12 @@ namespace Catchline.Game
                 ChartCost = 700, MapPos = new Vector2(.88f, .12f),
                 Table = new[] { (Species.Crab, 20f), (Species.Conger, 20f), (Species.Pollock, 20f), (Species.Cod, 25f), (Species.Monkfish, 14f), (Species.Turbot, 1f) },
             },
+            new()
+            {
+                Name = "Wreck bank", Blurb = "An old steamer on the sandbank. Congers in the wreck, herring on the bank, flatfish at the edge.", RowSeconds = 26f, BiteWait = 1.3f, Water = Palette.Hex("2E8C8A"),
+                ChartCost = 980, MapPos = new Vector2(.72f, .06f),
+                Table = new[] { (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f), (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 45f), (Species.Plaice, 50f), (Species.SpottedEagleRay, 1f) },
+            },
         };
 
         public static readonly UpgradeDef[] Upgrades =

@@ -1,0 +1,50 @@
+{
+  "task": "MAP7-WRECK-BANK-1",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-25T07:25:31.193417+00:00",
+  "allIndividuallyOpened": true,
+  "imageHashes": {
+    "chart-1440.png": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108",
+    "chart-844.png": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce",
+    "sail-out-1440.png": "585132befc6ba1dfa0082175fbb928209933aed2cd994f78a5e557452c8047f3",
+    "sail-out-844.png": "f23bda6e34feb46272c00b3fde10465ba9076e90b18e8795922b04d47c20f341",
+    "the-wreck-1440.png": "554affeb0431720294c3a07a5489e5b05be5dde138f84232e287c9fb0ca34d18",
+    "the-wreck-844.png": "fe41c057c6b614f4761b4b9866cb80ea3af6d88b9546370076fb270f9cc04362",
+    "herring-bank-1440.png": "cbbb805d1f6d6ec8c5162e6e122244a4f7c036c387577d6beb6f6f7f25e97ad6",
+    "herring-bank-844.png": "aad86d7bce0356100280bb75ed8506ca7c2d9336df8870b8d97166fb1936095c",
+    "sand-edge-1440.png": "bf57b266048b26a2c1731c5d858ebe6ec62411a65d3e6386f293b7e6f4de3655",
+    "sand-edge-844.png": "63a9d3b1cdc755a265e29ac4120abd8c16cd0cbdc3fb2564c050c65f2d4431b8"
+  },
+  "observations": {
+    "chart-1440.png": "Corrected(.72,.56) Wreck bank steamer pin, full label and980coin price readable, clear of coin/contracts header and Harbour mouth at both sizes. All seven ground pins visible. Desktop HUD readable.",
+    "chart-844.png": "Corrected(.72,.56) Wreck bank steamer pin, full label and980coin price readable, clear of coin/contracts header and Harbour mouth at both sizes. All seven ground pins visible. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "sail-out-1440.png": "Normal SeaOut route, boat, route/progress and controls visible over greener water. Generic buoy/rock birds are not WreckLife anchor proof. Desktop HUD readable.",
+    "sail-out-844.png": "Normal SeaOut route, boat, route/progress and controls visible over greener water. Generic buoy/rock birds are not WreckLife anchor proof. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "the-wreck-1440.png": "Low stepped sand at lower left and cropped rusted bow/broken bulwark at lower right. Open water separates hull/bubbles from terrain. Cardinal buoy at extreme lower-right is heavily cropped/covered. Perched wreck gulls, funnel/mast outside deck crop. Desktop HUD readable.",
+    "the-wreck-844.png": "Low stepped sand at lower left and cropped rusted bow/broken bulwark at lower right. Open water separates hull/bubbles from terrain. Cardinal buoy at extreme lower-right is heavily cropped/covered. Perched wreck gulls, funnel/mast outside deck crop. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "herring-bank-1440.png": "Both low angular pale sand shelves visible below boat, clear hull/bubbles. Gannets and silver boil patches present; desktop life is partly behind left HUD/edge, landscape shows airborne gannets and full upper-right boil. No dive/splash animation proved. Desktop HUD readable.",
+    "herring-bank-844.png": "Both low angular pale sand shelves visible below boat, clear hull/bubbles. Gannets and silver boil patches present; desktop life is partly behind left HUD/edge, landscape shows airborne gannets and full upper-right boil. No dive/splash animation proved. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "sand-edge-1440.png": "Both angular pale sand shelves visible below the side-on boat; hull/bubbles remain clear. HUD and bottom controls cover portions. Terrain similar to Herring bank. Desktop HUD readable.",
+    "sand-edge-844.png": "Both angular pale sand shelves visible below the side-on boat; hull/bubbles remain clear. HUD and bottom controls cover portions. Terrain similar to Herring bank. Landscape HUD fits; corner shelf portions cropped/covered."
+  },
+  "scope": "Ten final native PNGs individually opened with view_image; this records manual review, not automated visual or Claude/Mo acceptance.",
+  "limits": [
+    "Six unmodified full-zone art assertions fail: required close corner landmarks intersect the larger 12-20m ground-zone circles. Actual hull route checks are separate. Lead exception/visual acceptance pending.",
+    "Claude fixed chart spot6 to(.72,.56); pin, Wreck bank label and980coin price are now readable at both sizes. Formal lead acceptance remains external.",
+    "Claude kind6 sandy-green water optics and WreckLife are in this rebuilt snapshot. Exact on-screen hex colours are not asserted.",
+    "Herring bank shows gannets and boils, clearest at844x390; desktop life is partly behind the left HUD/edge. Cardinal buoy is heavily cropped/covered at the wreck lower-right; perched wreck gulls are outside the tight frame. Native stills do not prove dive/splash/bobbing animation.",
+    "The rusted bow/broken bulwark appears at the lower-right wreck corner; funnel and mast are outside the tight deck crop. Herring/Sand terrain is deliberately similar; Herring bank life distinguishes them.",
+    "HUD/bottom controls partly cover lower terrain. Stills freeze presentation time; no animation, touch or installed-player acceptance.",
+    "Native build pins118 compiled Game source hashes; concurrent Claude-only CoastalCanvas.cs, Skin.cs and VoyageInterfaceShop.cs differed in main at launch. All five owned runtime sources match the build. Historical pre-life/first-postlife evidence and121-file original safety snapshot are preserved separately.",
+    "MapNav timing outside target is retained as an advisory about physical distance/one hull speed, separate from collision and border checks.",
+    "Automatic approval review blocked deletion of temporary Catchline-sim/Backups/map7-before; backup retained without retrying through another mechanism."
+  ],
+  "acceptedByLead": false,
+  "runtimeWreckLifeVisible": true,
+  "herringGannetsAndBoilsVisible": true,
+  "cardinalBuoyFullyVisible": false,
+  "perchedWreckGullsVisible": false,
+  "chartVisualAccepted": false,
+  "chartPinAndLabelReadable": true,
+  "requestedWaterOpticsVisible": true
+}

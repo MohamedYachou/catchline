@@ -1,0 +1,61 @@
+{
+  "task": "MAP7-WRECK-BANK-1",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-25T07:00:54.255688+00:00",
+  "allIndividuallyOpened": true,
+  "images": {
+    "SeaV2-herring-bank-day.png": "de838bc5884f4b4ec6b476c912c75b795691da4e8b5d5ad1b3a27c3bb5e15289",
+    "SeaV2-herring-bank-night.png": "cb1ccc2cb71c8e4c0334c0181170029321c9fe35ba6d0c3c266da353df8e2ea7",
+    "SeaV2-navigation-plate.png": "482d7cf00d1dfe007cc5ed7ab09dd17213e5fbc7628b1da1a5e3d6f372be8bc4",
+    "SeaV2-review-sheet.png": "62a1f7d3ddef388312ed9b14733672039eb4d4d3edf39a4eaad0f898fc707f2e",
+    "SeaV2-sand-edge-day.png": "c124e84f84fbeab78dfaf4f7fd04ea0f7876b9585495fec9bf98f35c635af37a",
+    "SeaV2-sand-edge-night.png": "fa85d5b0cb7f6da2895bf008b149593e1bdf56b888a285616c8e19dc2b5fbc12",
+    "SeaV2-the-wreck-day.png": "ad584958b52b2d2cc572f09ba61067017cc96164ed52ca1d118eaee585693d2b",
+    "SeaV2-the-wreck-night.png": "654730eab85d420179d1e6ab1a53c4ebe19f6618029e3748fa08648d7274af02",
+    "SeaV2-top-base.png": "ef6baaf279e05ba3c6fc338fd5fe83470b0a699c002808f54790996eb2854541",
+    "SeaV2-wide-day.png": "b9a70b847db09ec7029c5f99d16bf3792db4c9c60ba3801ba70b65c87fea2def",
+    "SeaV2-wide-night.png": "d70f875665d2c95b5ace8b52c31fcf25352e59ada098644b70728b75b054d75e"
+  },
+  "scope": "Eleven final Blender PNGs individually opened; no HUD/runtime life/native acceptance.",
+  "observations": [
+    "Three day views: low angular sand shelves at lower corners. The wreck adds a cropped rusted bow and broken bulwark at lower right.",
+    "Three night views retain corner silhouettes; wreck detail is dim.",
+    "Wide day/night: half-sunk steamer, central angular bank, distant mist proxies and border markers. Night wide intentionally dim.",
+    "Top and dimensioned plate show 300x240m, seven real obstacles and detour around central bank.",
+    "Wreck funnel/mast are present in source but outside the tight bow-focused deck frame. Herring bank and Sand edge share low sand ledges; runtime life distinguishes them further."
+  ],
+  "acceptedByLead": false,
+  "artContractAllPassed": false,
+  "retainedFailures": [
+    {
+      "check": "the-wreck full zone clear of islands +2m",
+      "passed": false,
+      "detail": -7.331
+    },
+    {
+      "check": "the-wreck full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -7.409
+    },
+    {
+      "check": "herring-bank full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "herring-bank full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    },
+    {
+      "check": "sand-edge full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "sand-edge full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    }
+  ]
+}

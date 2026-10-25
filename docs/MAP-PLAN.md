@@ -118,19 +118,20 @@ border/horizon, the tap input, the camera, and fish richness. This section decid
 
 ### 7.1 Moving the boat
 
-- **Input.** Tap open water or a ground ring → the route appears as a dotted line on the water, ending in a ring; the
-  boat sets off at once (no confirm button: one tap, one action). Tap again while sailing → re-route from where the
-  boat is. Tap the boat → stop. Tap an island → target snaps to the nearest reachable water on the near side.
-  Beyond the buoys → snapped inside + navigator line. Gear out (net/line/cage soaking) → the existing
-  "Haul it first / Forfeit and go" modal before moving.
+- **Input (Mo, 2026-10-24): an explicit Sail mode.** Fishing is the default mode; taps on the water do nothing
+  there. A Sail button with a ship's-wheel icon enters Sail mode (gear must be in: if a net/line/cage is soaking,
+  the "Haul it first / Forfeit and go" modal comes first). In Sail mode: tap open water or a ground ring → dotted
+  route line + end ring and the boat sets off; tap again to re-route; tap the boat to stop; tap an island → nearest
+  reachable water; beyond the buoys → snapped inside + navigator line. A "Fish here" button (fishing icon) leaves
+  Sail mode back to Fishing; it is enabled only when stopped inside a ground zone (otherwise it reads "No ground
+  here" and stays in Sail mode). Both buttons are UI v2 components (docs/UI-SYSTEM.md).
 - **Feel.** Ease in over ~1.5 s, cruise, ease out over the last boat-length; turns limited per hull (rowboat nimble,
   big hulls wide); a slight bank into turns and a wake trail behind (white foam ribbon, fades in ~4 s). Shallows:
   half speed, lighter water, a soft scrape sound if a hull edge enters. Never a hard stop against an island: slide.
 - **Camera.** Anchored = today's framing. Sailing = eases (1 s) to a higher, slightly wider follow camera, boat a bit
   below centre so the destination is ahead; clamped to cameraBounds; eases back to the anchored framing on arrival.
-- **Arrival.** Entering a ground zone and slowing to a stop = anchored (anchor-drop sound + small splash). Anywhere in
-  the zone works; the ring shows its edge. Open water outside zones: you can stop there but you cannot fish (the
-  gear buttons say "No ground here").
+- **Arrival.** The boat stops at the tapped point. Pressing "Fish here" inside a zone = anchored (anchor-drop sound +
+  small splash) and back to Fishing mode. Anywhere in the zone works; the ring shows its edge.
 - **Time.** One cruise speed per hull, tuned so harbour → first ground is 10–20 s (Mo). Nothing else depends on it.
 
 ### 7.2 Where the fish are rich

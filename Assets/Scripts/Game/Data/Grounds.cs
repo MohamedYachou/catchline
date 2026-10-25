@@ -66,6 +66,11 @@ namespace Catchline.Game
                 G("seal-rocks", "Seal rocks", "rocks", (Species.Crab, 45f), (Species.Conger, 35f), (Species.Pollock, 15f), (Species.SeaBass, 10f)),
                 G("kelp-gully", "Kelp gully", "gully", (Species.Pollock, 45f), (Species.Cod, 35f), (Species.Conger, 10f), (Species.SeaBass, 8f)),
                 G("outer-reef", "Outer reef", "reef", (Species.Monkfish, 30f), (Species.Cod, 35f), (Species.Pollock, 15f), (Species.Turbot, 4f), (Species.ApexReefShark, .2f)) },
+            // Wreck bank (MAP7). Append to preserve all existing saved richness slots.
+            new[] {
+                G("the-wreck", "The wreck", "wreck", (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f)),
+                G("herring-bank", "Herring bank", "bank", (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 20f)),
+                G("sand-edge", "Sand edge", "sand", (Species.Plaice, 50f), (Species.Turbot, 12f), (Species.Whiting, 25f), (Species.SpottedEagleRay, 1f)) },
         };
 
         static readonly int[][] offsets;

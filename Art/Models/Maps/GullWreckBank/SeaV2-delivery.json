@@ -1,0 +1,56 @@
+{
+  "published": true,
+  "sourceAndImportParity": true,
+  "triangles": 25236,
+  "meshCount": 295,
+  "obstacles": 7,
+  "sourceAuditAllPassed": true,
+  "sourceAuditChecks": 55,
+  "artAuditPassed": 55,
+  "artAuditTotal": 61,
+  "artAuditAllPassed": false,
+  "retainedFailures": [
+    {
+      "check": "the-wreck full zone clear of islands +2m",
+      "passed": false,
+      "detail": -7.331
+    },
+    {
+      "check": "the-wreck full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -7.409
+    },
+    {
+      "check": "herring-bank full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "herring-bank full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    },
+    {
+      "check": "sand-edge full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.331
+    },
+    {
+      "check": "sand-edge full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.409
+    }
+  ],
+  "runtimeHashes": {
+    "Assets\\Art\\Models\\Environment\\GullWreckBank\\GullWreckBankSeaV2.fbx": "a631d2e2dcfb1e6d82456914ffccd219c0b97ecc84c02fe3395ed8986520895b",
+    "Assets\\Art\\Models\\Environment\\GullWreckBank\\navigation.json": "8bb8f193cbaa8276470b309fbf100a792da96aa34b07de680e1c05ee5f2bfbcc"
+  },
+  "acceptance": "PARTIAL: own terrain/import/safety/fixed-chart post-life capture delivery complete; six retained art failures and tight life crops need lead review.",
+  "nativeSafetyPassed": true,
+  "postIntegrationPassed": true,
+  "nativeImagesReviewed": 10,
+  "directedHullRoutes": 420,
+  "seaLanes": 21,
+  "newGroundBaitCastHomeTrips": 3,
+  "evidence": "../../../../docs/screens/map7-wreck-bank-1/verification-receipt.json"
+}

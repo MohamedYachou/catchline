@@ -1,0 +1,1075 @@
+{
+  "schema": 2,
+  "map": "GullWreckBank",
+  "runtimeModelId": "GullWreckBankSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullWreckBank/GullWreckBankSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "bank-spine-0",
+      "vertices": [
+        {
+          "x": -6.0,
+          "z": -3.2
+        },
+        {
+          "x": -0.24,
+          "z": -14.0
+        },
+        {
+          "x": 17.4,
+          "z": -11.84
+        },
+        {
+          "x": 29.1,
+          "z": -1.85
+        },
+        {
+          "x": 30.0,
+          "z": 24.88
+        },
+        {
+          "x": 21.9,
+          "z": 40.0
+        },
+        {
+          "x": 0.3,
+          "z": 35.68
+        }
+      ],
+      "sourceObject": "Terrain_bank-spine",
+      "sliceY": 0
+    },
+    {
+      "id": "SteamerHull-0",
+      "vertices": [
+        {
+          "x": -85.51334,
+          "z": -55.33252
+        },
+        {
+          "x": -81.248,
+          "z": -50.98636
+        },
+        {
+          "x": -72.6348,
+          "z": -38.68543
+        },
+        {
+          "x": -69.51754,
+          "z": -33.53537
+        },
+        {
+          "x": -69.84505,
+          "z": -29.63965
+        },
+        {
+          "x": -73.61785,
+          "z": -30.6643
+        },
+        {
+          "x": -77.39116,
+          "z": -35.35499
+        },
+        {
+          "x": -86.00436,
+          "z": -47.65592
+        },
+        {
+          "x": -88.62958,
+          "z": -53.15051
+        }
+      ],
+      "sourceObject": "Terrain_SteamerHull",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerSandLedge-0",
+      "vertices": [
+        {
+          "x": -82.23218,
+          "z": -23.79377
+        },
+        {
+          "x": -82.06027,
+          "z": -24.76868
+        },
+        {
+          "x": -78.75087,
+          "z": -26.84179
+        },
+        {
+          "x": -77.18607,
+          "z": -26.35047
+        },
+        {
+          "x": -76.62056,
+          "z": -24.67113
+        },
+        {
+          "x": -79.74966,
+          "z": -21.9918
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerSandLedge.001-0",
+      "vertices": [
+        {
+          "x": -8.23218,
+          "z": 61.20623
+        },
+        {
+          "x": -8.06028,
+          "z": 60.23132
+        },
+        {
+          "x": -4.75087,
+          "z": 58.15821
+        },
+        {
+          "x": -3.18607,
+          "z": 58.64953
+        },
+        {
+          "x": -2.62056,
+          "z": 60.32887
+        },
+        {
+          "x": -5.74965,
+          "z": 63.0082
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.001",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerSandLedge.002-0",
+      "vertices": [
+        {
+          "x": 1.26999,
+          "z": 54.55275
+        },
+        {
+          "x": 1.44189,
+          "z": 53.57784
+        },
+        {
+          "x": 4.7513,
+          "z": 51.50472
+        },
+        {
+          "x": 6.3161,
+          "z": 51.99604
+        },
+        {
+          "x": 6.8816,
+          "z": 53.67539
+        },
+        {
+          "x": 3.75251,
+          "z": 56.35471
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.002",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerSandLedge.003-0",
+      "vertices": [
+        {
+          "x": 88.76782,
+          "z": -34.79377
+        },
+        {
+          "x": 88.93973,
+          "z": -35.76868
+        },
+        {
+          "x": 92.24913,
+          "z": -37.84179
+        },
+        {
+          "x": 93.81393,
+          "z": -37.35047
+        },
+        {
+          "x": 94.37944,
+          "z": -35.67113
+        },
+        {
+          "x": 91.25034,
+          "z": -32.9918
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.003",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerSandLedge.004-0",
+      "vertices": [
+        {
+          "x": 98.26999,
+          "z": -41.44725
+        },
+        {
+          "x": 98.44189,
+          "z": -42.42216
+        },
+        {
+          "x": 101.7513,
+          "z": -44.49528
+        },
+        {
+          "x": 103.3161,
+          "z": -44.00396
+        },
+        {
+          "x": 103.8816,
+          "z": -42.32461
+        },
+        {
+          "x": 100.75251,
+          "z": -39.64529
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.004",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "bank-spine-0",
+      "vertices": [
+        {
+          "x": -7.9912,
+          "z": -4.56345
+        },
+        {
+          "x": -1.63411,
+          "z": -16.483
+        },
+        {
+          "x": 17.83449,
+          "z": -14.09909
+        },
+        {
+          "x": 30.74734,
+          "z": -3.07351
+        },
+        {
+          "x": 31.74063,
+          "z": 26.42738
+        },
+        {
+          "x": 22.80097,
+          "z": 43.11475
+        },
+        {
+          "x": -1.03813,
+          "z": 38.34693
+        }
+      ],
+      "sourceObject": "Terrain_bank-spine",
+      "sliceY": -1
+    },
+    {
+      "id": "SteamerHull-0",
+      "vertices": [
+        {
+          "x": -85.71442,
+          "z": -55.71169
+        },
+        {
+          "x": -81.33072,
+          "z": -51.24494
+        },
+        {
+          "x": -72.47852,
+          "z": -38.6027
+        },
+        {
+          "x": -69.27477,
+          "z": -33.30973
+        },
+        {
+          "x": -69.61137,
+          "z": -29.30592
+        },
+        {
+          "x": -73.48885,
+          "z": -30.359
+        },
+        {
+          "x": -77.36686,
+          "z": -35.17984
+        },
+        {
+          "x": -86.21906,
+          "z": -47.82209
+        },
+        {
+          "x": -88.91711,
+          "z": -53.46914
+        }
+      ],
+      "sourceObject": "Terrain_SteamerHull",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerSandLedge-0",
+      "vertices": [
+        {
+          "x": -82.3102,
+          "z": -23.76749
+        },
+        {
+          "x": -82.13351,
+          "z": -24.76958
+        },
+        {
+          "x": -78.73184,
+          "z": -26.90049
+        },
+        {
+          "x": -77.12341,
+          "z": -26.39548
+        },
+        {
+          "x": -76.54214,
+          "z": -24.66931
+        },
+        {
+          "x": -79.75848,
+          "z": -21.91529
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerSandLedge.001-0",
+      "vertices": [
+        {
+          "x": -8.31021,
+          "z": 61.23251
+        },
+        {
+          "x": -8.13351,
+          "z": 60.23042
+        },
+        {
+          "x": -4.73184,
+          "z": 58.09951
+        },
+        {
+          "x": -3.12342,
+          "z": 58.60452
+        },
+        {
+          "x": -2.54215,
+          "z": 60.33069
+        },
+        {
+          "x": -5.75847,
+          "z": 63.08471
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.001",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerSandLedge.002-0",
+      "vertices": [
+        {
+          "x": 1.19196,
+          "z": 54.57902
+        },
+        {
+          "x": 1.36865,
+          "z": 53.57693
+        },
+        {
+          "x": 4.77032,
+          "z": 51.44602
+        },
+        {
+          "x": 6.37875,
+          "z": 51.95104
+        },
+        {
+          "x": 6.96002,
+          "z": 53.6772
+        },
+        {
+          "x": 3.74369,
+          "z": 56.43122
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.002",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerSandLedge.003-0",
+      "vertices": [
+        {
+          "x": 88.6898,
+          "z": -34.76749
+        },
+        {
+          "x": 88.86649,
+          "z": -35.76958
+        },
+        {
+          "x": 92.26816,
+          "z": -37.90049
+        },
+        {
+          "x": 93.87659,
+          "z": -37.39548
+        },
+        {
+          "x": 94.45786,
+          "z": -35.66931
+        },
+        {
+          "x": 91.24152,
+          "z": -32.91529
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.003",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerSandLedge.004-0",
+      "vertices": [
+        {
+          "x": 98.19196,
+          "z": -41.42098
+        },
+        {
+          "x": 98.36865,
+          "z": -42.42307
+        },
+        {
+          "x": 101.77032,
+          "z": -44.55398
+        },
+        {
+          "x": 103.37875,
+          "z": -44.04896
+        },
+        {
+          "x": 103.96001,
+          "z": -42.3228
+        },
+        {
+          "x": 100.74369,
+          "z": -39.56878
+        }
+      ],
+      "sourceObject": "Terrain_CornerSandLedge.004",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -150.0,
+      "z": -120.0
+    },
+    {
+      "x": 150.0,
+      "z": -120.0
+    },
+    {
+      "x": 150.0,
+      "z": 120.0
+    },
+    {
+      "x": -150.0,
+      "z": 120.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "the-wreck",
+      "name": "The wreck",
+      "centre": {
+        "x": -72.0,
+        "z": -24.0
+      },
+      "radius": 12,
+      "nominalDepth": 4.2,
+      "poolId": "GullWreckBank/the-wreck",
+      "position": [
+        -72,
+        0,
+        -24
+      ],
+      "heading": 0
+    },
+    {
+      "id": "herring-bank",
+      "name": "Herring bank",
+      "centre": {
+        "x": 2.0,
+        "z": 61.0
+      },
+      "radius": 14,
+      "nominalDepth": 2.0,
+      "poolId": "GullWreckBank/herring-bank",
+      "position": [
+        2,
+        0,
+        61
+      ],
+      "heading": 0
+    },
+    {
+      "id": "sand-edge",
+      "name": "Sand edge",
+      "centre": {
+        "x": 99.0,
+        "z": -35.0
+      },
+      "radius": 14,
+      "nominalDepth": 3.2,
+      "poolId": "GullWreckBank/sand-edge",
+      "position": [
+        99,
+        0,
+        -35
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -115.0,
+    "z": -85.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -142.0,
+      "z": -112.0
+    },
+    "max": {
+      "x": 142.0,
+      "z": 112.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -150.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -122.72727,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -95.45455,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -68.18182,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -40.90909,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -13.63636,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 13.63636,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 40.90909,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 68.18182,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 95.45455,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 122.72727,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 150.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 150.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 150.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 150.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 150.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 150.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 150.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 150.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 150.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 150.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 122.72727,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 95.45455,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 68.18182,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 40.90909,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 13.63636,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": -13.63636,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": -40.90909,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": -68.18182,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -95.45455,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -122.72727,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -150.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -150.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -150.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -150.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -150.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -150.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -150.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -150.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -150.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonHeadland_0",
+        "kind": "headland",
+        "centre": {
+          "x": -159.0,
+          "z": 189.6
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_1",
+        "kind": "headland",
+        "centre": {
+          "x": 117.0,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_2",
+        "kind": "headland",
+        "centre": {
+          "x": -255.0,
+          "z": -48.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_3",
+        "kind": "headland",
+        "centre": {
+          "x": 252.0,
+          "z": -64.8
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-lighthouse",
+        "kind": "lighthouse",
+        "centre": {
+          "x": 117.0,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter",
+        "kind": "ship",
+        "centre": {
+          "x": 192.0,
+          "z": 165.6
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "bank-spine": "Low angular exposed sand spine divides the wreck and bank approaches."
+  },
+  "artReviewAnchors": {
+    "the-wreck": {
+      "x": -72.0,
+      "z": -24.0
+    },
+    "herring-bank": {
+      "x": 2.0,
+      "z": 61.0
+    },
+    "sand-edge": {
+      "x": 99.0,
+      "z": -35.0
+    }
+  },
+  "sealColonyAnchors": [],
+  "lifeAnchors": [
+    {
+      "id": "GannetDive_1",
+      "position": [
+        -4.963642403200189,
+        0.8,
+        59.77212196031027
+      ]
+    },
+    {
+      "id": "GannetDive_2",
+      "position": [
+        3.2278780396897284,
+        0.8,
+        54.03635759679982
+      ]
+    },
+    {
+      "id": "GannetDive_3",
+      "position": [
+        -2.504486216845696,
+        0.8,
+        70.25794814860437
+      ]
+    },
+    {
+      "id": "GannetDive_4",
+      "position": [
+        12.240250580356157,
+        0.8,
+        59.93357229428554
+      ]
+    },
+    {
+      "id": "WreckGulls_1",
+      "position": [
+        -77.80204455058808,
+        1.48,
+        -37.51651874681462
+      ]
+    },
+    {
+      "id": "CardinalBuoy_1",
+      "position": [
+        -68.62652162245887,
+        -0.32,
+        -36.616641535537994
+      ]
+    }
+  ]
+}
