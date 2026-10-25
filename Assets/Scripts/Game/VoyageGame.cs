@@ -508,6 +508,7 @@ namespace Catchline.Game
             ClearPrepWork();
             State.Chum = 0;
             CurrentMode = Mode.Harbour;
+            harbourEvening = arrived; // home from a trip: the harbour at dusk
             if (arrived)
             {
                 State.UnsoldCatch.Clear();
@@ -568,6 +569,7 @@ namespace Catchline.Game
         public void SetSail()
         {
             if (SailBlocker() != null || !State.PayDepartureWages()) return;
+            harbourEvening = false; // a new day
             SyncUpgrades();
             ActiveSpot = SelectedSpot;
             departureReady = false;
@@ -852,6 +854,7 @@ namespace Catchline.Game
             UpdateGutView(frameDt);
             UpdateRepairView(frameDt);
             UpdateHarbourTraffic(frameDt);
+            UpdateHarbourDusk(frameDt);
             UpdateNetView(frameDt);
             RefreshInterface();
 

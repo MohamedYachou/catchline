@@ -33,6 +33,7 @@ namespace Catchline.EditorTools
             if (Want("traffic")) Traffic();
             if (Want("town")) Town();
             if (Want("repair")) Repair();
+            if (Want("dusk")) Dusk();
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
@@ -260,6 +261,14 @@ namespace Catchline.EditorTools
             ShotUi(g, "gut-0-board"); ShotUi(g, "gut-0-board-phone", 844, 390);
             g.CutGut(GutViewChecks.CleanCut); g.Tick(.2f);
             ShotUi(g, "gut-1-clean"); ShotUi(g, "gut-1-clean-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        static void Dusk()
+        {
+            var g = Game("Dusk shot"); Rebuild(g, 2);
+            g.SetHarbourEvening(true, true); g.Tick(.05f);
+            Shot(g, "dusk-h2"); Shot(g, "dusk-h2-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
