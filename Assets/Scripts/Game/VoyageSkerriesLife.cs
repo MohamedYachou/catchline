@@ -16,7 +16,7 @@ namespace Catchline.Game
                 {
                     Spawn(lib.M("SealColony"), t, Vector3.zero);
                     var seal = Spawn(lib.M("Seal"), t, new Vector3(1.4f, 0, -.6f));
-                    if (seal != null) seal.AddComponent<SealLife>();
+                    if (seal != null) seal.AddComponent<SealLife>().Bark = () => audio?.Play(VoyageAudio.Cue.SealBark, .16f);
                 }
                 else if (t.name.StartsWith("ReefBreak_"))
                 {
@@ -31,9 +31,10 @@ namespace Catchline.Game
             prefab == null ? null : ArtLibrary.Spawn(prefab, at, offset, Quaternion.identity);
     }
 
-    // Basks on a loop and looks round every so often (the Seal's legacy clips Bask and Look).
+    // Basks on a loop and looks round every so often (the Seal's legacy clips Bask and Look), sometimes with a bark.
     public sealed class SealLife : MonoBehaviour
     {
+        public System.Action Bark;
         Animation clips; float nextLook;
         void Start()
         {
@@ -48,6 +49,7 @@ namespace Catchline.Game
             if (Time.time < nextLook) return;
             nextLook = Time.time + Random.Range(8f, 16f);
             if (Play("Look")) clips.CrossFadeQueued(Name("Bask"), .4f);
+            if (Random.value < .4f) Bark?.Invoke();
         }
         string Name(string part) { foreach (AnimationState s in clips) if (s.name.Contains(part)) return s.name; return null; }
         bool Play(string part) { var n = Name(part); if (n == null) return false; clips.CrossFade(n, .4f); return true; }

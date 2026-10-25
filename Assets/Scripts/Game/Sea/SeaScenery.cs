@@ -14,7 +14,12 @@ namespace Catchline.Game
         {
             var model = library?.M(Navigation.ModelId);
             if (model == null) Debug.LogError("[Catchline] Missing sea model: " + Navigation.ModelId);
-            else Put(root, model, new Vector3(0, WaterY, 0));
+            else
+            {
+                var sea = Put(root, model, new Vector3(0, WaterY, 0));
+                // Maps with life anchors (SealColony_n, ReefBreak_n, CrabBuoy_n) get it; others have none to find.
+                DressSkerries(sea, library);
+            }
             seaEnvironment = root.gameObject.AddComponent<SeaEnvironment>();
             seaEnvironment.Build(Navigation, seaSurface, seaMat);
             var effects = new GameObject("Sailing route and wake"); effects.transform.SetParent(root, false);

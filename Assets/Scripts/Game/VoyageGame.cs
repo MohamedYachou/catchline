@@ -807,7 +807,7 @@ namespace Catchline.Game
             bool inTransit = CurrentMode is Mode.SailingOut or Mode.SailingHome;
             if (CurrentMode == Mode.Harbour && Leg == TripLeg.None) PlaceAtBerth();
             TickUnload();
-            audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Hull == 0 && travelWake > .1f);
+            audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Hull == 0 && travelWake > .1f, ActiveSpot == 5);
             PtsWater.HullPose(world.TransformPoint(travelOffset + State.HullDef.Center), travelYaw, State.Hull > 0,
                 SimTime, out float heave, out Quaternion tilt);
             Boat.localRotation = Quaternion.Euler(0, travelYaw, 0) * tilt * SeaBankRotation(frameDt);

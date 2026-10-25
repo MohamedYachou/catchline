@@ -1,0 +1,64 @@
+{
+  "evidence": "Isolated Blender assembly, not native acceptance. Existing real GuttingTable and canonical Fish043 Mackerel appended read-only.",
+  "camera": {
+    "height_above_board_m": 0.9,
+    "pitch_down_degrees": 60,
+    "horizontal_fov_degrees": 55,
+    "sensor_fit": "HORIZONTAL",
+    "position_blender": [
+      0.0,
+      0.5196152329444885,
+      1.621999979019165
+    ],
+    "target_blender": [
+      0.0,
+      0.0,
+      0.722000002861023
+    ]
+  },
+  "board_top_blender_z": 0.722,
+  "fish": {
+    "root": "Catchline_Mackerel",
+    "source": "Art/Models/Fish043/Mackerel/Mackerel.blend",
+    "scale": 1.5,
+    "rotation_blender": [
+      1.570796251296997,
+      -1.570796251296997,
+      0.0
+    ],
+    "position_blender": [
+      0.0,
+      0.0,
+      0.7676960229873657
+    ]
+  },
+  "insert": {
+    "position_blender": [
+      -0.09000000357627869,
+      0.06700000166893005,
+      0.7760000228881836
+    ],
+    "scale": [
+      0.25,
+      0.550000011920929,
+      0.6499999761581421
+    ],
+    "vent_to_gill_length_m": 0.25
+  },
+  "renders": [
+    {
+      "file": "renders/assembly/gut-view-1440.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "file": "renders/assembly/gut-view-844.png",
+      "size": [
+        844,
+        390
+      ]
+    }
+  ]
+}

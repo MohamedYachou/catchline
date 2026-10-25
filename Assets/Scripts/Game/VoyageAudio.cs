@@ -13,7 +13,7 @@ namespace Catchline.Game
         readonly Dictionary<Cue, AudioClip> clips = new();
         readonly Dictionary<Cue, AudioClip[]> packed = new();
         AudioSource ambience, foley;
-        AudioClip sea, harbourBed, openSeaBed;
+        AudioClip sea, harbourBed, openSeaBed, skerriesBed;
         float nextOar, nextGull;
         bool preview;
         float previewVolume = .65f;
@@ -33,6 +33,7 @@ namespace Catchline.Game
             sea = MakeSea();
             harbourBed = Resources.Load<AudioClip>("Audio/Ambience/HarbourDay");
             openSeaBed = Resources.Load<AudioClip>("Audio/Ambience/OpenSea");
+            skerriesBed = Resources.Load<AudioClip>("Audio/Ambience/Skerries");
             ambience.clip = openSeaBed != null ? openSeaBed : sea;
             foreach (Cue cue in Enum.GetValues(typeof(Cue)))
             {
@@ -52,12 +53,13 @@ namespace Catchline.Game
             foley.PlayOneShot(clip, Volume * gain);
         }
 
-        public void Mix(bool paused, bool harbour, bool rowing)
+        public void Mix(bool paused, bool harbour, bool rowing, bool skerries = false)
         {
             if (ambience == null) return;
             ambience.volume = Volume * (paused ? .06f : harbour ? .16f : .23f);
-            // The pack's harbour bed in port, its open-sea bed out there; the generated wash otherwise.
-            var bed = harbour && harbourBed != null ? harbourBed : !harbour && openSeaBed != null ? openSeaBed : sea;
+            // The pack's harbour bed in port, surf and seals on the skerries, open sea elsewhere; the generated wash otherwise.
+            var bed = harbour ? harbourBed : skerries && skerriesBed != null ? skerriesBed : openSeaBed;
+            if (bed == null) bed = sea;
             if (ambience.clip != bed) { ambience.clip = bed; ambience.Play(); }
             foley.volume = paused ? 0 : 1;
             // Gulls over the harbour now and then.

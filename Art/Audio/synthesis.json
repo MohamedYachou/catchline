@@ -1,0 +1,337 @@
+{
+  "sample_rate": 44100,
+  "method": "Original deterministic numpy/scipy offline synthesis, no downloads, recordings, TTS or audio source files.",
+  "seed_policy": "fixed task/family/variant seed in dsp.py",
+  "files": [
+    {
+      "file": "SFX/Cast_0.wav",
+      "frames": 26019,
+      "sha256": "a204f1fb71c2527e0392f580faef5a8f62a9efc7aeeff6164f26e7fdb51fcb0e"
+    },
+    {
+      "file": "SFX/Cast_1.wav",
+      "frames": 26460,
+      "sha256": "8201967d7452ec3f585eea26601ae7d4a3994953b5f1ac80a85e3c077723efe0"
+    },
+    {
+      "file": "SFX/Cast_2.wav",
+      "frames": 26901,
+      "sha256": "523587e9b9fe283696f67b9c9510a7990855f551f7a67307260a923dc942965a"
+    },
+    {
+      "file": "SFX/Splash_0.wav",
+      "frames": 31311,
+      "sha256": "e3d29f3ce756959162c5e5e524985567a1b7ebf73c3c214edc49940151016861"
+    },
+    {
+      "file": "SFX/Splash_1.wav",
+      "frames": 31752,
+      "sha256": "40c861dc2f9003a24bc027057832b7b5345472888008b5e2855b40220a7b29af"
+    },
+    {
+      "file": "SFX/Splash_2.wav",
+      "frames": 32193,
+      "sha256": "f0c4c3a607b558c54bd44457578a886fe30c5568fcf0733fa49255989b458b66"
+    },
+    {
+      "file": "SFX/Bite_0.wav",
+      "frames": 12789,
+      "sha256": "9d10482fe426bfe5fd258b5977b9663d157e8220b4af92677e2791946f96dfa4"
+    },
+    {
+      "file": "SFX/Bite_1.wav",
+      "frames": 13230,
+      "sha256": "54371f1bb2701afece6523f0078833cc04812c4056e674214416e886d7ea7044"
+    },
+    {
+      "file": "SFX/Bite_2.wav",
+      "frames": 13671,
+      "sha256": "df9687177aca2891c5c8f7c32cd0ec2253a2d6a651f73e08c00690f9ec41a68f"
+    },
+    {
+      "file": "SFX/Reel_0.wav",
+      "frames": 41454,
+      "sha256": "388ec48feeab89a26467eef4b3832c3f628f3edcb9ad43aa3a2407f5d109a34d"
+    },
+    {
+      "file": "SFX/Reel_1.wav",
+      "frames": 41895,
+      "sha256": "6bb0c969b7b4c969b426838379cb48b7811e2888e9a3fff2b15367ad1a8d46d3"
+    },
+    {
+      "file": "SFX/Reel_2.wav",
+      "frames": 42336,
+      "sha256": "917d053739aeafcab7821a434cedb1416c8e42686278b3763a439bca1b6a7b6d"
+    },
+    {
+      "file": "SFX/Land_0.wav",
+      "frames": 23814,
+      "sha256": "e53ee829efd6efeb5fafd6636c65ebd3c94d48be84fa89a5035df1d01e821bc3"
+    },
+    {
+      "file": "SFX/Land_1.wav",
+      "frames": 24255,
+      "sha256": "b15fb8965a1b3de543b844d15fb40ce75642e7c12ac32d6707982f041fca05f2"
+    },
+    {
+      "file": "SFX/Land_2.wav",
+      "frames": 24696,
+      "sha256": "089c159bd7b71a3ad76765ee07799a9d1c3d63bbf072faf93a29c6006e8b98d0"
+    },
+    {
+      "file": "SFX/Stow_0.wav",
+      "frames": 20727,
+      "sha256": "1bc844ba2511516ca0d2a83adf9508a26b13712b2b9f66cee5b54d2321fab968"
+    },
+    {
+      "file": "SFX/Stow_1.wav",
+      "frames": 21168,
+      "sha256": "dded1e01a869a6fd5c3b443ff833599b8aef63ce79b126cf126f8c68dafa0f6b"
+    },
+    {
+      "file": "SFX/Stow_2.wav",
+      "frames": 21609,
+      "sha256": "2ca2457511d72ac678e090360ab8500838be740842e44209455f7b5959c926df"
+    },
+    {
+      "file": "SFX/Moor_0.wav",
+      "frames": 28224,
+      "sha256": "1251108e3d7fc5ca931144efbc5dd7fc61b783dea574f650467728482433542d"
+    },
+    {
+      "file": "SFX/Moor_1.wav",
+      "frames": 28665,
+      "sha256": "a4fc669024de0c0020a36c7fd2668ebd882c002309d0d85fb31edf92c5cfa7ba"
+    },
+    {
+      "file": "SFX/Moor_2.wav",
+      "frames": 29106,
+      "sha256": "3c22ed443462c70208dde0824234f7d17cab7ea32da1549d940bcca185b5803e"
+    },
+    {
+      "file": "SFX/Sale_0.wav",
+      "frames": 31311,
+      "sha256": "76a77e13960faa4e9265831f85d644e6bc622b2ee33b46b605cfb766f54c4ae7"
+    },
+    {
+      "file": "SFX/Sale_1.wav",
+      "frames": 31752,
+      "sha256": "76c877179374a7582e5e122e64b996357ea3288a1d9b30ddaee4c71fde3ca5a6"
+    },
+    {
+      "file": "SFX/Sale_2.wav",
+      "frames": 32193,
+      "sha256": "803d888bc84e9ceb0cf91c0a7d383b4a60aebbe2e348b28403f0773c9343b1f0"
+    },
+    {
+      "file": "SFX/Select_0.wav",
+      "frames": 4454,
+      "sha256": "cf76775580c321074f51dd937c75c9f6fa2000429dda3d20007d5e26dd50207a"
+    },
+    {
+      "file": "SFX/Select_1.wav",
+      "frames": 4630,
+      "sha256": "d2ba7576ac27449835033b8b6248bd5a6c5e80f9c9c58f842cbb4fd35e72adbf"
+    },
+    {
+      "file": "SFX/Select_2.wav",
+      "frames": 4807,
+      "sha256": "2a2b615e3a47558a2b7b632297e4eac837f139b36f40918c4748b9d4a6f0934b"
+    },
+    {
+      "file": "SFX/Purchase_0.wav",
+      "frames": 5557,
+      "sha256": "8f5a01028b4bb8a35c5a3038a711da0142e28311b35441c91b7609d256c9685b"
+    },
+    {
+      "file": "SFX/Purchase_1.wav",
+      "frames": 5733,
+      "sha256": "e410a7704f665732aac05d8b1c820ab788a0581095715eb693686dc68dce74e3"
+    },
+    {
+      "file": "SFX/Purchase_2.wav",
+      "frames": 5909,
+      "sha256": "32ba22f41ef7db9c3931bb3256d108693f68ece086bb8609664b3de1b965c152"
+    },
+    {
+      "file": "SFX/Gull_0.wav",
+      "frames": 54684,
+      "sha256": "afd88e0c38a62b9ce8c8c9d494c0a387c1226d90adbfd79406986dde68e08751"
+    },
+    {
+      "file": "SFX/Gull_1.wav",
+      "frames": 55125,
+      "sha256": "ed265ab33413dfae959ff903c88111e276064ad5cee443ee67e3dbe07e3f557b"
+    },
+    {
+      "file": "SFX/Gull_2.wav",
+      "frames": 55566,
+      "sha256": "a54376ebfc7b52a082c55faafec2036453a73635c7aea98479825990133a3540"
+    },
+    {
+      "file": "SFX/Bell_0.wav",
+      "frames": 114219,
+      "sha256": "e0314763f4557abdc8046deac736c9c0b951e1469962b4d1219273cb5298fc4d"
+    },
+    {
+      "file": "SFX/Bell_1.wav",
+      "frames": 114660,
+      "sha256": "e7ea9a8d8f7d02a89502851c3fdf832be8eb0bed59f861d42b7079f890efa070"
+    },
+    {
+      "file": "SFX/Bell_2.wav",
+      "frames": 115101,
+      "sha256": "0ff2edfcbf192949a6f70b644f697e11f793fdf18571a8b8df97522f7da5a03c"
+    },
+    {
+      "file": "SFX/Creak_0.wav",
+      "frames": 28224,
+      "sha256": "8e95cf7b08f7028a6f63154dae2dfe8cd1754bc3df3fee3b7f28195cab879eef"
+    },
+    {
+      "file": "SFX/Creak_1.wav",
+      "frames": 28665,
+      "sha256": "2fc1059233bc08e8fa5f726c9e93414be2ee493caaaab283d79e35b8f68e324b"
+    },
+    {
+      "file": "SFX/Creak_2.wav",
+      "frames": 29106,
+      "sha256": "1159b595d4716221a2fd968b96a505b550ff364155f067410262cc52001247d5"
+    },
+    {
+      "file": "SFX/Horn_0.wav",
+      "frames": 118629,
+      "sha256": "6299022551586d19723b7795efa178217139273984e8c4f97f8b615aecbcff82"
+    },
+    {
+      "file": "SFX/Horn_1.wav",
+      "frames": 119070,
+      "sha256": "c954550d6969c211e8767e132b3f7288487eb13e30a4ac1dca06e6f6985cead3"
+    },
+    {
+      "file": "SFX/Horn_2.wav",
+      "frames": 119511,
+      "sha256": "075b2a40f43e5360a400869968a52297888a0941e7f0a44f9b0608243e908509"
+    },
+    {
+      "file": "SFX/Click_0.wav",
+      "frames": 3793,
+      "sha256": "f04ed0c1709cf95f2478c34b4b8981bbad5a3b184a099c8db094400b0a1777b1"
+    },
+    {
+      "file": "SFX/Click_1.wav",
+      "frames": 3969,
+      "sha256": "9b0517845080f80b850d83660c6adbaf168f28d7392ef01e21925de462878e06"
+    },
+    {
+      "file": "SFX/Click_2.wav",
+      "frames": 4145,
+      "sha256": "0a1b854c47a67e2d72a01e0637bdcf6a4ef8d5ff7b1384631d013eff4b07f8df"
+    },
+    {
+      "file": "SFX/Winch_0.wav",
+      "frames": 16758,
+      "sha256": "ef5a073c8f0b12231dc00eb46d98258951bd5a8f2500941db7b69a66d96dab28"
+    },
+    {
+      "file": "SFX/Winch_1.wav",
+      "frames": 17199,
+      "sha256": "c460b43b7589268b112450165575b7c7d8bd2b39bab4582a12bc341537bf89b7"
+    },
+    {
+      "file": "SFX/Winch_2.wav",
+      "frames": 17640,
+      "sha256": "bd97469a75329a585b4ab710c025a9c1179f673ab6c9722264b8604cc0ddb62c"
+    },
+    {
+      "file": "SFX/CrabClack_0.wav",
+      "frames": 14553,
+      "sha256": "b4b2a0b96d1480509bdb8f4deb2e4bc2a70032f73d13891b79cda57c03dd3b0e"
+    },
+    {
+      "file": "SFX/CrabClack_1.wav",
+      "frames": 14994,
+      "sha256": "7fba0cf3c24e9f4b41a908ffd21bfdc02d87f6082759ce353f8622b288db7edd"
+    },
+    {
+      "file": "SFX/CrabClack_2.wav",
+      "frames": 15435,
+      "sha256": "e6880ac5f777f03f3436f362aafacfc18190f301910d21d12f22c5d9344ff3bb"
+    },
+    {
+      "file": "SFX/SealBark_0.wav",
+      "frames": 37044,
+      "sha256": "27f0b06e273481f8601c9edf6519e7d8d6bd2aba543143334f1814e117ac00f4"
+    },
+    {
+      "file": "SFX/SealBark_1.wav",
+      "frames": 37485,
+      "sha256": "7217be11922e6ea196f1a7f1fce6339c0e6582347418facbd8ae7967f809796d"
+    },
+    {
+      "file": "SFX/SealBark_2.wav",
+      "frames": 37926,
+      "sha256": "6e52066ffc76d8c6e7c30fb949ea4198905a15ba71419cc5c7d6762442f2fe7e"
+    },
+    {
+      "file": "SFX/NetSlap_0.wav",
+      "frames": 29547,
+      "sha256": "77f8842f0843e17cbc9aa1d11fdf43cb40b568b5b13f91d07b5d3532a9b90cc4"
+    },
+    {
+      "file": "SFX/NetSlap_1.wav",
+      "frames": 29988,
+      "sha256": "b7d0a517bef5e51339faf132ae435cdb4de222dfe9ba71db8e53be682564deb8"
+    },
+    {
+      "file": "SFX/NetSlap_2.wav",
+      "frames": 30429,
+      "sha256": "494c92169be91b93024ceed3938f7600d6e290eb627da2c367fcd4b45204fea1"
+    },
+    {
+      "file": "SFX/Gut_0.wav",
+      "frames": 18522,
+      "sha256": "8278f0c0beecd0d5337711e185ca35799ca7c898b14677ccb7e30aac55e3887f"
+    },
+    {
+      "file": "SFX/Gut_1.wav",
+      "frames": 18963,
+      "sha256": "3e379b5c4e122bc706801bca2decf7fb4f3bea51da81351c83f2c033872c31c1"
+    },
+    {
+      "file": "SFX/Gut_2.wav",
+      "frames": 19404,
+      "sha256": "661de4a47c66e158c70127c8f6f60aa6b4d4260974afbf6407d33f1d26fb13d3"
+    },
+    {
+      "file": "SFX/Coins_0.wav",
+      "frames": 34839,
+      "sha256": "c66d06107a4adc7dba99c0a518379aa474b5285706734ecfd2d3d8b3a364cda4"
+    },
+    {
+      "file": "SFX/Coins_1.wav",
+      "frames": 35280,
+      "sha256": "b9befc8b02b6446e6a00f5ec14466b39a72d1799189bfcb46a8d502e6ce5a1f2"
+    },
+    {
+      "file": "SFX/Coins_2.wav",
+      "frames": 35721,
+      "sha256": "046df27aa9cc252c8669067a20fe372b05cb17705a3579e29668a4e921796f46"
+    },
+    {
+      "file": "Ambience/HarbourDay.wav",
+      "frames": 1323000,
+      "sha256": "e40b2736bc43367d40e0aa668b4ff236a126c7c024b60d86cb3d3aab4f76560a"
+    },
+    {
+      "file": "Ambience/OpenSea.wav",
+      "frames": 1323000,
+      "sha256": "9a25943b005d175987001946a01b407da98fc1851739c9aefbeb5d974d3b476c"
+    },
+    {
+      "file": "Ambience/Skerries.wav",
+      "frames": 1323000,
+      "sha256": "c0c555defbaa5e1043f246a2552b26e3304ae43c92ebc57bc16406b65d398795"
+    }
+  ]
+}

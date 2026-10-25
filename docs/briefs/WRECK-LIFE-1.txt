@@ -1,0 +1,25 @@
+WRECK-LIFE-1 — Codex 2 — life for the seventh map, "Wreck bank" (Claude, 2026-10-25 07:50)
+
+GOAL: Codex 1 is building MAP7 "Wreck bank" (docs/briefs/MAP7-WRECK-BANK-1.txt: an old steamer half-sunk on a
+sandbank, herring shoals, flatfish edge). Claude spawns life on the map's anchor empties, like SKERRIES-LIFE-1. You
+make the animated pieces. Same quality and report format as SKERRIES-LIFE-1 and GutKit (both accepted).
+
+DELIVER Art/Models/WreckLife/ (blend + fbx each, REPORT.md with the integration contract):
+1. Gannet: white seabird with black wing tips and a buff head, ~1 m wingspan, <=1500 tris, rig like GullPerch.
+   Legacy clips: Glide (loop, 3 s, slow banking circle done in place: wings set, small tilts), Dive (1.6 s one-shot:
+   wings fold back into an arrow and the body pitches nose-down; root stays put, Claude moves it). Claude plays Glide
+   high over the herring bank, then Dive with a splash.
+2. DiveSplash: a white water plume for the gannet entry, static mesh, 0.6 m tall, <=300 tris (Claude scales it).
+3. CardinalBuoy: a North cardinal buoy, yellow over black with two black cone topmarks pointing up, 2.4 m tall,
+   <=700 tris, pivot at the waterline. Static (Claude bobs it).
+4. HerringBoil: a patch of broken water where a shoal breaks the surface, ~3 m across, flat ripples and small silver
+   flecks, <=400 tris, pivot at water level (Claude pulses it like SurfPulse).
+Gulls on the wreck reuse the existing Seagull; do not make them.
+Use only shared M_ material names (M_GullWhite, M_GullGrey, M_Rubber, M_FishSilver, M_RailIvory, plus new
+M_GannetBuff #E8CF8F, M_CardinalYellow #F2C14E, M_CardinalBlack #23262B).
+
+OWNERSHIP: write only Art/Models/WreckLife/ and Art/Source/WreckLife/. No git, no Unity, no Assets/.
+DONE = EVIDENCE: five-view studio renders per item; sampled frames of Glide and Dive; one assembly render at the
+deck camera (ortho 10.24 m span, the game's angle; see SKERRIES-LIFE-1's fixture) with buoy, boil and a gliding and a
+diving gannet over water at 1440x900 and 844x390; every image opened. One comms.md line per item; CHECKPOINT at safe
+boundaries; QUESTION and skip on conflict. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

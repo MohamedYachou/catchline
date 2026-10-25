@@ -1,0 +1,28 @@
+MAP7-WRECK-BANK-1 — Codex 1 (Windows) — a seventh map, "Wreck bank", playable end to end (Claude, 2026-10-25 07:50)
+
+FIRST (15 min): MAP6 life is wired now (Sea/SeaScenery.cs calls DressSkerries on the navigable sea). Recapture your
+10 MAP6 native frames from the current Assets, open each, and write in comms.md whether seals, surf and the crab buoy
+set show. Your MAP6-SKERRIES-FIX-1 terrain is ACCEPTED (low slabs in the frame corners, ridge off the gully).
+
+GOAL (Mo: "add new maps"): a seventh map past the skerries, built exactly like MAP6 and wired as spot 6 so a player
+can buy its chart, sail there, fish its grounds and sail home. Claude's design calls (Mo away):
+- Theme: an offshore sandbank, paler sandy-green water (2E8C8A) over the shallows, deepening to 1C6E7E. Landmark: a
+  half-sunk old steamer wreck (rusted hull plates, a leaning funnel and mast, gulls on it), about 30 m long, lying on
+  the bank's edge. A yellow-black cardinal buoy marks it. Same house palette and low-poly style.
+- Size 300 x 240 m, three grounds: "The wreck" (conger 40, cod 30, pollock 25, rare turbot 2), "Herring bank"
+  (herring 50, mackerel 30, whiting 20: the net ground), "Sand edge" (plaice 50, turbot 12, whiting 25, rare spotted
+  eagle ray 1). Existing species only.
+- Spot data: RowSeconds 26, BiteWait 1.3, chart price 1.4x the Seal skerries'; unlock one step after the skerries.
+  Blurb: "An old steamer on the sandbank. Congers in the wreck, herring on the bank, flatfish at the edge."
+LESSONS FROM MAP6 (do these first time): every ground's deck-camera frame (10.24 m span) shows its landmark in the lower
+corners, 6-12 m from the anchor, never under the hull or bubbles. Shapes are angular and low; no smooth domes. No
+baked foam fins. Anchor empties Claude spawns life on: GannetDive_1..4 over the herring bank, WreckGulls_1 on the
+wreck, CardinalBuoy_1 beside it (leave empties, do not bake those props).
+
+CONTEXT: your MAP6 pipeline (Art/Source/Art108/map6_skerries.py and its REPORT), GameData.cs Spots, the map lists you
+extended for MAP6, Art/STYLE.md. The chart pin glyph for spot 6 is Claude's (VoyageChart.SpotGlyph).
+ORDER/DONE/OWNERSHIP: as MAP6-SKERRIES-1 (art, import, code in GameData Spots + map lists, Grounds.ByMap[6], checks in
+Catchline-sim with seven maps and a trip to each new ground, 10 native frames opened one by one, REPORT.md, one
+comms.md line per step, QUESTION and continue on conflict). Never: Minigame/**, VoyageHarbour.cs, VoyageIntro.cs,
+VoyageSkerriesLife.cs, VoyageChart*.cs, Codex 2's folders; never batchmode the main project; never touch the player
+save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

@@ -1,0 +1,191 @@
+{
+  "meshes": {
+    "GutBoard": {
+      "triangles": 277,
+      "bounds_unity": [
+        [
+          -0.3499999940395355,
+          -0.041999999433755875,
+          -0.18000000715255737
+        ],
+        [
+          0.3499999940395355,
+          0.0592634454369545,
+          0.18000000715255737
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodRecess"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    "GutKnife": {
+      "triangles": 104,
+      "bounds_unity": [
+        [
+          -0.28680965304374695,
+          -0.01549999974668026,
+          -0.020978134125471115
+        ],
+        [
+          0.0,
+          0.016499999910593033,
+          0.02500000037252903
+        ]
+      ],
+      "materials": [
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    "BellyOpen": {
+      "triangles": 72,
+      "bounds_unity": [
+        [
+          0.0,
+          0.004000000189989805,
+          -0.04500000178813934
+        ],
+        [
+          1.0,
+          0.012000000104308128,
+          0.04500000178813934
+        ]
+      ],
+      "materials": [
+        "M_Flesh",
+        "M_Offal"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    "BellyRagged": {
+      "triangles": 72,
+      "bounds_unity": [
+        [
+          0.0,
+          0.004000000189989805,
+          -0.05827811732888222
+        ],
+        [
+          1.0,
+          0.012000000104308128,
+          0.05827811732888222
+        ]
+      ],
+      "materials": [
+        "M_Flesh",
+        "M_Offal"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    "GutBucket": {
+      "triangles": 292,
+      "bounds_unity": [
+        [
+          -0.1469999998807907,
+          0.0,
+          -0.1589999943971634
+        ],
+        [
+          0.1469999998807907,
+          0.296999990940094,
+          0.1469999998807907
+        ]
+      ],
+      "materials": [
+        "M_Offal",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    "GullSkin": {
+      "triangles": 580,
+      "bounds_unity": [
+        [
+          -0.10999999940395355,
+          0.0,
+          -0.2240000069141388
+        ],
+        [
+          0.10999999940395355,
+          0.43700000643730164,
+          0.24799999594688416
+        ]
+      ],
+      "materials": [
+        "M_GullGrey",
+        "M_GullWhite",
+        "M_Offal",
+        "M_Rubber",
+        "M_SafetyOrange"
+      ],
+      "pivot_unity": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    }
+  },
+  "parents": {
+    "GutKit": null,
+    "GutBoard": "GutKit",
+    "GutKnife": "GutKit",
+    "BellyOpen": "GutKit",
+    "BellyRagged": "GutKit",
+    "GutBucket": "GutKit",
+    "GullPerch": "GutKit",
+    "GullSkin": "GullRig",
+    "GullRig": "GullPerch"
+  },
+  "triangles": 1397,
+  "palette": {
+    "M_DeckWood": "#C58B50",
+    "M_WoodRecess": "#8C5A36",
+    "M_Steel": "#8FA6AC",
+    "M_SafetyOrange": "#E36A35",
+    "M_RailIvory": "#F3F0DC",
+    "M_Rubber": "#28343B",
+    "M_Flesh": "#E8B4A0",
+    "M_Offal": "#6E2A2A",
+    "M_GullWhite": "#F1F0EA",
+    "M_GullGrey": "#9AA6AD"
+  },
+  "limits": {
+    "GutBoard": 900,
+    "GutKnife": 300,
+    "BellyOpen": 200,
+    "BellyRagged": 200,
+    "GutBucket": 500,
+    "GullSkin": 1500
+  },
+  "sha256": {
+    "blend": "11a7d38679850fd4fe15dee54147d2d6aaeda93a7c0db471c04bfc90d06c662f",
+    "fbx": "ae72bbd5b2cf7fdd14cd6a38445bba917e5ad189e59b803bc9b8eed092f2410f"
+  }
+}
