@@ -70,7 +70,7 @@ namespace Catchline.Game
             Root.anchorMax = new Vector2(safeArea.xMax / width, safeArea.yMax / height);
             Root.offsetMin = Vector2.zero; Root.offsetMax = Vector2.zero;
             foreach (var e in elements.Values) e.Used = false;
-            bubbles.Clear(); BubbleTop = BubbleLeft = 12; BubbleRight = 0;
+            bubbles.Clear(); BubbleTop = BubbleLeft = 12; BubbleRight = BubbleBottom = 0;
         }
         public void Hide() { if (canvas != null) canvas.enabled = false; }
         public void RenderCapture(RenderTexture target)

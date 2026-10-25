@@ -31,6 +31,7 @@ namespace Catchline.EditorTools
             if (Want("gut")) Gut();
             if (Want("traffic")) Traffic();
             if (Want("chart")) Chart();
+            if (Want("harbourui")) HarbourUi();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -112,6 +113,17 @@ namespace Catchline.EditorTools
             typeof(VoyageGame).GetField("chartFocus", H).SetValue(g, GameData.Spots.Length - 1);
             typeof(VoyageGame).GetField("chartDetailsOpen", H).SetValue(g, true);
             ShotUi(g, "chart-last-detail-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // The harbour with its HUD at phone size, panel closed and each shop tab open.
+        static void HarbourUi()
+        {
+            var g = Game("Harbour HUD shot"); Rebuild(g, 2);
+            var panel = typeof(VoyageGame).GetField("panelOpen", H); var tab = typeof(VoyageGame).GetField("hudTab", H);
+            panel.SetValue(g, false); ShotUi(g, "hud-harbour-phone", 844, 390);
+            foreach (VoyageGame.HudTab t in Enum.GetValues(typeof(VoyageGame.HudTab)))
+            { panel.SetValue(g, true); tab.SetValue(g, t); ShotUi(g, "hud-" + t.ToString().ToLowerInvariant() + "-phone", 844, 390); }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

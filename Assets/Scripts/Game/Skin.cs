@@ -495,12 +495,12 @@ namespace Catchline.Game
 
         readonly List<Rect> bubbles = new();
         public float BubbleTop = 12; // bubbles stay inside the open water between HUD clusters
-        public float BubbleLeft = 12, BubbleRight;
+        public float BubbleLeft = 12, BubbleRight, BubbleBottom; // BubbleBottom: top of a bottom bar, 0 for none
         public Rect Bubble(string id, Vector2 anchor, string icon, string text, bool hot, Action action, string fallback = null)
         {
             float w = Mathf.Max(96, 56 + text.Length * 11), h = 52;
             float right = BubbleRight > BubbleLeft ? BubbleRight : Width - 12;
-            float bottom = Height - h - 30;
+            float bottom = BubbleBottom > 0 ? BubbleBottom - h - 22 : Height - h - 30; // room for the tail
             Rect At(float x, float y) => new Rect(Mathf.Clamp(x, BubbleLeft, right - w), Mathf.Clamp(y, BubbleTop, bottom), w, h);
             bool Free(Rect c) => !bubbles.Exists(b => b.Overlaps(new Rect(c.x - 4, c.y - 4, c.width + 8, c.height + 8)));
             var r = At(anchor.x - w / 2, anchor.y - h - 14);

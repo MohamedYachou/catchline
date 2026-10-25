@@ -337,7 +337,7 @@ namespace Catchline.Game
             var pause = new Rect(iw - Edge - 56, Edge, 56, compactInterface ? 48 : 60);
             coastalUi.IconButton("port/pause", pause, "v2-icon-menu", null, () => paused = true, null, "icon-menu"); Block(pause);
             ShopTabs(false);
-            coastalUi.BubbleTop = Edge + 72; coastalUi.BubbleLeft = Edge + w + 12;
+            coastalUi.BubbleTop = Edge + 72; coastalUi.BubbleLeft = Edge + w + 12; coastalUi.BubbleBottom = sail.y;
             foreach (var (anchor, tab) in Shops)
             {
                 HudTab chosen = tab;
