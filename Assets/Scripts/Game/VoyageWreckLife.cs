@@ -34,6 +34,7 @@ namespace Catchline.Game
                 var buoy = Spawn(lib.M("CardinalBuoy"), anchor, Vector3.zero);
                 if (buoy != null) { buoy.transform.position = water; buoy.AddComponent<BuoyBob>(); }
             }
+            else DressLighthouse(anchor, waterY, lib);
         }
     }
 

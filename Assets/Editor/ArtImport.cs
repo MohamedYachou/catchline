@@ -83,7 +83,7 @@ namespace Catchline.EditorTools
             var mi = (ModelImporter)assetImporter;
             mi.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
-            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx");
+            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx");
             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
             if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx") || assetPath.EndsWith("/Tier5DeepLines103.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
             if (assetPath.StartsWith("Assets/gemini/Models/")) mi.isReadable = true;
