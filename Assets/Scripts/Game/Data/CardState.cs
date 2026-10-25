@@ -74,10 +74,23 @@ namespace Catchline.Game
     // (the two lists SaveV2 stores). Pure functions; no scene dependencies.
     public static class CardRoster
     {
-        // BLUEPRINT section 5: tier N = N hires + navigator (+ the captain, who is not a card).
-        // Berths here means the most cards that may be deployed, navigator included.
-        // Tier 0 has no hires and no navigator.
-        public static int BerthsForTier(int tier) => tier <= 0 ? 0 : tier + 1;
+        // Berths here means the most cards that may be deployed, navigator included (+ the captain, who is not a card).
+        // Mo, 2026-10-25: tier 1 = 2, tier 2 = 4, tier 3 = 5, tier 4 = 6, tier 5 = 8. Tier 0 sails alone.
+        static readonly int[] Berths = { 0, 2, 4, 5, 6, 8 };
+        public static int BerthsForTier(int tier) => Berths[tier < 0 ? 0 : tier > 5 ? 5 : tier];
+
+        // A crew member who can join through blueprints or their crew chest: unlocked by the boat's tier, not owned yet.
+        // The navigator only comes from the welcome chest.
+        public static bool Recruitable(List<CardState> cards, CardDef def, int tier) =>
+            def != null && def.Role != CardRole.Navigator && def.TierGranted <= tier && !Owns(cards, def.Id);
+
+        // Adds a crew member at their starting rarity. False when they are already aboard the roster.
+        public static bool Recruit(List<CardState> cards, string id)
+        {
+            if (Cards.ById(id) == null || Owns(cards, id)) return false;
+            cards.Add(new CardState(id));
+            return true;
+        }
 
         public static CardState Find(List<CardState> cards, string id)
         {

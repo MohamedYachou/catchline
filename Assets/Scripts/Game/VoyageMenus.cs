@@ -136,7 +136,7 @@ namespace Catchline.Game
             if (tier < 2)
             {
                 NewGame();
-                if (tier == 1) { State.Hull = 1; State.Fuel = State.FuelCapacity; State.Bait = 30; RebuildBoat(); }
+                if (tier == 1) { State.Hull = 1; State.Fuel = State.FuelCapacity; State.Bait = 30; State.GrantTrialCards(); RebuildBoat(); }
             }
             if (!started) return;
             confirmReset = showSettings = paused = showTitle = false;
@@ -227,7 +227,7 @@ namespace Catchline.Game
                 case HudTab.HarbourMaster:
                     return Enumerable.Range(0, GameData.Spots.Length).Any(i => !s.Known(i) && s.Coins >= GameData.Spots[i].ChartCost)
                            || s.Active.Count < GameData.MaxActiveContracts && s.Offers.Count > 0;
-                case HudTab.CrewOffice: return s.CrewCount < s.HullDef.CrewCap && s.Board.Any(c => s.Coins >= c.Fee);
+                case HudTab.CrewOffice: return s.CardTier >= 1 && (s.PendingChests.Count > 0 || s.FreeBlueprints > 0 || s.Renown >= RenownRoad.Threshold(s.RenownClaimed + 1));
                 case HudTab.Chandlery:
                     return s.CanRefit || s.CanRefitCompact || GameData.Upgrades.Any(u => u.Shop == "Chandlery" && s.UpgradeAvailable(u.Id) && !s.Has(u.Id) && s.Coins >= s.UpgradeCost(u.Id) && (!u.Requires.HasValue || s.Has(u.Requires.Value)));
                 case HudTab.Supplies:

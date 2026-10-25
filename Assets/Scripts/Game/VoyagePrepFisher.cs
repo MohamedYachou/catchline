@@ -46,6 +46,7 @@ namespace Catchline.Game
             if (!SessionOnly) return false;
             NewGame();
             if (!TrialPrepFisher()) return false;
+            State.GrantTrialCards();
             State.Coins = 1000;
             foreach (var role in new[] { CrewRole.Deckhand, CrewRole.Deckhand, CrewRole.Fisherman, CrewRole.Fisherman })
             {

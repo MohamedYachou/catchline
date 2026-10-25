@@ -60,7 +60,7 @@ namespace Catchline.Game
         public bool StartTier5Trial()
         {
             if(!SessionOnly)return false;
-            NewGame();if(!TrialTier5())return false;
+            NewGame();if(!TrialTier5())return false;State.GrantTrialCards();
             State.Coins=4000;State.Bait=100;
             foreach(var role in new[]{CrewRole.Deckhand,CrewRole.Deckhand,CrewRole.Fisherman,CrewRole.Fisherman,CrewRole.Fisherman,CrewRole.Deckhand})
             {State.EnsureCrewRoleOffers();State.Hire(State.Board.First(c=>c.Role==role));}

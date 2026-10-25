@@ -314,7 +314,8 @@ namespace Catchline.Game
             if (CurrentMode != Mode.Harbour || !State.RefitSkiff()) return false;
             RebuildBoat();
             refitUntil = SimTime + 1.2f;
-            Toast("Skiff refitted! A bigger hold, three rod sockets and an outboard. Your first tank is included.");
+            State.EnsureCards();
+            Toast("Skiff refitted! A welcome chest waits in the Crew office: open it to meet Mira, your navigator.");
             SaveGame();
             return true;
         }

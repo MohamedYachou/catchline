@@ -9,7 +9,7 @@ namespace Catchline.Game
     // Motion lives in CrewGarageFx.cs. Every action goes through the VoyageGame card wrappers (harbour only, saved).
     public partial class VoyageGame
     {
-        int crewTab;                 // 0 crew, 1 chests, 2 tools, 3 renown
+        int crewTab;                 // 0 crew, 1 chests, 2 recruit, 3 tools, 4 renown
         string cardPanelId;          // card shown in the panel, null when closed
         int toolPickSlot = -1;       // panel slot whose tool picker is open
         int selectedTool;            // tools page selection (uid)
@@ -33,26 +33,35 @@ namespace Catchline.Game
         {
             Catchline.Game.Speciality.CagesLines => "Pots and lines", Catchline.Game.Speciality.Navigation => "Navigation", _ => s.ToString(),
         };
-        static string ChestArt(ChestKind k, bool open) => "v2-chest-" + (k == ChestKind.Crate ? "crate" : k == ChestKind.SeaChest ? "sea" : "captain") + (open ? "-open" : "-closed");
+        static string ChestArt(ChestKind k, bool open) => ChestLayer(k, open ? "open" : "closed");
+        // Chest art by kind; the welcome and crew chests fall back to the crate and captain's chest until their own art lands.
+        static string ChestLayer(ChestKind k, string layer)
+        {
+            string own = "v2-chest-" + k switch { ChestKind.Crate => "crate", ChestKind.SeaChest => "sea", ChestKind.Welcome => "welcome", ChestKind.Crew => "crew", _ => "captain" } + "-" + layer;
+            if (k is ChestKind.Welcome or ChestKind.Crew && ArtLibrary.Get()?.UiTex(own) == null)
+                return "v2-chest-" + (k == ChestKind.Welcome ? "crate" : "captain") + "-" + layer;
+            return own;
+        }
 
         // ---- page ------------------------------------------------------------------------------------
 
         void CrewOfficePage(Rect area)
         {
-            if (State.Roster.Count == 0) { EmptyCrewPage(area); return; }
+            if (State.Roster.Count == 0 && State.CardTier < 1) { EmptyCrewPage(area); return; }
             var report = State.ReadRoster();
             float sh = compactInterface ? 48 : 56, pill = compactInterface ? 132 : 170;
             bool claimable = RenownClaimable;
-            string[] labels = { "Crew", report.PendingChests > 0 ? $"Chests {report.PendingChests}" : "Chests", "Tools", claimable ? "Renown !" : "Renown" };
-            float sw = Mathf.Min(area.width - pill - 12, compactInterface ? 470 : 640);
-            coastalUi.PageSwitch("crew/tabs", new Rect(area.x, area.y, sw, sh), labels, crewTab, i => { crewTab = i; toolPickSlot = -1; MenuSound(); }, new[] { "crew/tab/crew", "crew/tab/chests", "crew/tab/tools", "crew/tab/renown" });
+            string[] labels = { "Crew", report.PendingChests > 0 ? $"Chests {report.PendingChests}" : "Chests", "Recruit", "Tools", claimable ? "Renown !" : "Renown" };
+            float sw = Mathf.Min(area.width - pill - 12, compactInterface ? 560 : 780);
+            coastalUi.PageSwitch("crew/tabs", new Rect(area.x, area.y, sw, sh), labels, crewTab, i => { crewTab = i; toolPickSlot = -1; MenuSound(); }, new[] { "crew/tab/crew", "crew/tab/chests", "crew/tab/recruit", "crew/tab/tools", "crew/tab/renown" });
             TokenPill("crew/tokens", new Rect(area.xMax - pill, area.y, pill, sh), report.Tokens);
             var body = new Rect(area.x, area.y + sh + 12, area.width, area.height - sh - 12);
             switch (crewTab)
             {
                 case 1: ChestsPage(body); break;
-                case 2: ToolsPage(body); break;
-                case 3: RenownPage(body); break;
+                case 2: RecruitPage(body); break;
+                case 3: ToolsPage(body); break;
+                case 4: RenownPage(body); break;
                 default: CrewGrid(body, report); break;
             }
         }
@@ -64,7 +73,7 @@ namespace Catchline.Game
             var empty = coastalUi.Slab("crew/empty", new Rect(list.x + list.width * .15f, list.y + 12, ew, eh), null, true);
             coastalUi.Portrait("crew/empty/portrait", new Rect(24, 20, p, p), "captain", empty);
             coastalUi.Text("crew/empty/title", new Rect(p + 48, 16, ew - p - 72, eh * .4f), "Just you and the oars", Skin.Type.Heading, Skin.Ink, TextAnchor.LowerLeft, empty);
-            coastalUi.Text("crew/empty/body", new Rect(p + 48, eh * .4f + 22, ew - p - 72, eh * .6f - 40), "The rowboat has no berths. Refit to a skiff at the Chandlery and your first crew cards come aboard.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, empty);
+            coastalUi.Text("crew/empty/body", new Rect(p + 48, eh * .4f + 22, ew - p - 72, eh * .6f - 40), "The rowboat has no berths. Refit to a skiff at the Chandlery: a welcome chest brings Mira, your navigator.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, empty);
         }
 
         void TokenPill(string id, Rect r, int tokens)
@@ -93,7 +102,17 @@ namespace Catchline.Game
             int cols = Mathf.Max(2, Mathf.FloorToInt((list.width - 12 + gap) / (target + gap)));
             float cw = (list.width - 12 - gap * (cols - 1)) / cols, ch = cw * 4 / 3f;
             var cards = State.Roster;
-            var content = coastalUi.Scroll("crew/grid", list, Mathf.Ceil(cards.Count / (float)cols) * (ch + gap) + 8);
+            // Crew who have not joined follow the roster, locked, in tier order.
+            var missing = Cards.All.Where(d => !CardRoster.Owns(cards, d.Id)).ToList();
+            int total = cards.Count + missing.Count;
+            var content = coastalUi.Scroll("crew/grid", list, Mathf.Ceil(total / (float)cols) * (ch + gap) + 8);
+            for (int m = 0; m < missing.Count; m++)
+            {
+                int n = cards.Count + m; var d = missing[m];
+                var r = new Rect(n % cols * (cw + gap), 4 + n / cols * (ch + gap), cw, ch);
+                LockedFace("crew/grid/" + d.Id, r, d, content);
+                coastalUi.HitArea("crew/grid/" + d.Id + "/tap", new Rect(0, 0, cw, ch), () => OpenRecruit(d), coastalUi.ElementRect("crew/grid/" + d.Id));
+            }
             for (int n = 0; n < cards.Count; n++)
             {
                 var c = cards[n]; string id = "crew/grid/" + c.Id, cardId = c.Id;
@@ -128,12 +147,12 @@ namespace Catchline.Game
                 float p = (Now * .25f + r.y * .002f) % 1f;
                 coastalUi.Icon(id + "/shine/sweep", new Rect(Mathf.Lerp(-w * 1.1f, w * 1.1f, Ease.OutCubic(p / .45f)), 0, w, h), "art108-frame-mythic-shine", clip, new Color(1, 1, 1, p < .45f ? .9f : 0));
             }
-            coastalUi.Text(id + "/name", new Rect(w * .1f, h * .521f, w * .8f, h * .068f), def.Name.ToUpperInvariant(), big ? Skin.Type.Heading : Skin.Type.Small, Skin.Cream, TextAnchor.MiddleCenter, g);
+            coastalUi.Text(id + "/name", new Rect(w * .08f, h * .512f, w * .84f, h * .086f), def.Name.ToUpperInvariant(), big ? Skin.Type.Heading : Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter, g);
             float[] rowY = { .613f, .726f, .839f }; float rh = h * .092f, ix = w * .125f, isz = Mathf.Min(w * .1f, rh * .8f);
             var type = big ? Skin.Type.Body : Skin.Type.Caption;
             string levelText = avail ? (c.AtCap ? $"Lv {c.Level} max" : $"Lv {c.Level} / {c.LevelCap}") : $"Joins at tier {def.TierGranted}";
             string bpText = c.Maxed ? "Fully starred" : c.IsMythic ? $"Stars {c.Stars} · {c.Blueprints}/{c.BlueprintsNeeded}" : $"Blueprints {c.Blueprints}/{c.BlueprintsNeeded}";
-            string[] rows = { levelText, big ? $"{def.Role} · {SpecialityWord(def.Speciality)}" : def.Role.ToString(), bpText };
+            string[] rows = { levelText, big && def.Role != CardRole.Navigator ? $"{def.Role} · {SpecialityWord(def.Speciality)}" : def.Role.ToString(), bpText };
             string[] icons = { "v2-icon-token", RoleIcon(def.Role), "v2-icon-blueprint" };
             for (int i = 0; i < 3; i++)
             {

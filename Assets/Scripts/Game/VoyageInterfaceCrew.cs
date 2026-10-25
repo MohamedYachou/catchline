@@ -43,7 +43,7 @@ namespace Catchline.Game
                 float y = ReferenceRowTop(i);
                 bool captain = person == Captain;
                 bool fisher = !captain && person.Contract.Role == CrewRole.Fisherman;
-                string role = captain ? "Captain" : person.Contract.Role == CrewRole.Engineer ? "Engineer" : fisher ? "Fisher" : person.Contract.WorkPreference == DeckhandWork.Prep ? "Processor" : "Deckhand";
+                string role = RoleTitle(person, Captain);
                 string portrait = captain ? "captain" : fisher ? "fisherman" : "deckhand";
                 var row = ReferenceRightRect(1377, y, 268, i == 0 ? 77 : 78);
                 coastalUi.ReferencePanel($"reference/crew/{i}/row", row, FishReferenceStyle.PanelKind.Row);

@@ -94,8 +94,9 @@ namespace Catchline.EditorTools
 
         static void CardTable()
         {
-            string[] names = { "Mira", "Noor", "Dirk", "Tess", "Sam", "Kofi", "Rosa", "Ana", "Mats", "Lise", "Ines", "Olaf", "Pim", "Tove" };
-            int[] tiers = { 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5 };
+            // Crew tiers follow the gear their abilities work on (Mo, 2026-10-25).
+            string[] names = { "Mira", "Noor", "Sam", "Dirk", "Kofi", "Rosa", "Tess", "Ana", "Lise", "Mats", "Ines", "Tove", "Olaf", "Pim" };
+            int[] tiers = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5 };
             Check(Cards.All.Length == names.Length, "14 crew cards");
             var ids = new HashSet<string>();
             var abilityIds = new HashSet<string>();
@@ -121,8 +122,14 @@ namespace Catchline.EditorTools
             Check(Cards.ById("ines").Role == CardRole.Engineer && Cards.ById("olaf").Role == CardRole.Engineer, "Ines and Olaf are engineers");
             Check(Cards.ById("rosa").Speciality == Speciality.Nets && Cards.ById("tess").Speciality == Speciality.Rods, "Rosa nets, Tess rods");
             Check(Cards.All.Count(c => c.Role == CardRole.Navigator) == 1, "one navigator");
-            Check(Cards.ForTier(1).Count == 2 && Cards.ForTier(2).Count == 3 && Cards.ForTier(3).Count == 3
-                && Cards.ForTier(4).Count == 3 && Cards.ForTier(5).Count == 3, "cards per tier 2/3/3/3/3");
+            Check(Cards.ForTier(1).Count == 3 && Cards.ForTier(2).Count == 3 && Cards.ForTier(3).Count == 3
+                && Cards.ForTier(4).Count == 3 && Cards.ForTier(5).Count == 2, "cards per tier 3/3/3/3/2 (Mira at tier 1)");
+            Check(Cards.All.Where(c => c.Speciality == Speciality.Table || c.Speciality == Speciality.CagesLines || c.Id == "olaf").All(c => c.TierGranted >= 4),
+                "table, pots-and-lines and engine crew come no earlier than their gear");
+            Check(Cards.All.Where(c => c.Speciality == Speciality.Nets).All(c => c.TierGranted >= 2), "net crew come with the first net boat");
+            Check(Near(CardProgression.TierMult(1), 1f) && Near(CardProgression.TierMult(5), 1.2f) && Near(CardProgression.TierMult(Cards.ById("mira")), 1f), "power creep: +5% work per tier above 1, navigator flat");
+            float topLow = CardProgression.WorkMult(CardRarity.Mythic, 30, 5) * CardProgression.TierMult(1), freshHigh = CardProgression.WorkMult(CardRarity.Gold, 1, 0) * CardProgression.TierMult(5);
+            Check(topLow > freshHigh && topLow < CardProgression.WorkMult(CardRarity.Mythic, 30, 5) * CardProgression.TierMult(5), "a maxed tier-1 crew beats a fresh tier-5 one, a maxed tier-5 one beats both");
             Check(mira.TopAbility(CardRarity.Gold) == mira.Auto && mira.TopAbility(CardRarity.Mythic) == mira.Mythic, "top ability by rarity");
             Check(Cards.ById("noor").TopAbility(CardRarity.White) == null && Cards.ById("noor").AbilityText(CardRarity.Green).StartsWith("Quick sort"), "White has no ability yet, Green the passive");
         }
@@ -154,7 +161,7 @@ namespace Catchline.EditorTools
         {
             var cards = new List<CardState>();
             var deployment = new List<string>();
-            Check(CardRoster.GrantTier(cards, deployment, 1) == 2, "tier 1 grants Mira and Noor");
+            Check(CardRoster.GrantTier(cards, deployment, 1) == 3, "tier 1 grants Mira, Noor and Sam");
             Check(CardRoster.Find(cards, "mira").Rarity == CardRarity.Gold && CardRoster.Find(cards, "noor").Rarity == CardRarity.White, "granted at start rarity");
             Check(cards.TrueForAll(c => c.Level == 1 && c.Blueprints == 0 && c.Stars == 0 && c.ToolUids.Length == 3), "granted cards start level 1, empty");
             Check(CardRoster.GrantTier(cards, deployment, 1) == 0, "tier grant is not repeated");
@@ -162,15 +169,18 @@ namespace Catchline.EditorTools
             Check(!CardRoster.TryUndeploy(deployment, "mira"), "navigator cannot be stood down");
 
             int berths = CardRoster.BerthsForTier(1);
-            Check(berths == 2 && CardRoster.BerthsForTier(0) == 0 && CardRoster.BerthsForTier(5) == 6, "berths: navigator + tier hires");
+            Check(berths == 2 && CardRoster.BerthsForTier(0) == 0 && CardRoster.BerthsForTier(2) == 4 && CardRoster.BerthsForTier(3) == 5
+                && CardRoster.BerthsForTier(4) == 6 && CardRoster.BerthsForTier(5) == 8, "berths 0/2/4/5/6/8, navigator included");
             Check(CardRoster.TryDeploy(cards, deployment, "noor", berths) && CardRoster.TryDeploy(cards, deployment, "noor", berths) && deployment.Count == 2, "deploy Noor once");
             CardRoster.GrantUpToTier(cards, deployment, 2);
-            Check(cards.Count == 5, "grant up to tier 2 gives five cards");
+            Check(cards.Count == 6, "grant up to tier 2 gives six cards");
             Check(!CardRoster.TryDeploy(cards, deployment, "dirk", berths), "deploying beyond berths is refused");
             Check(!CardRoster.TryDeploy(cards, deployment, "olaf", 99), "cannot deploy a card that is not owned");
 
             var lise = new CardState("lise");
-            Check(!CardRoster.Available(lise, 3) && CardRoster.Available(lise, 4), "a card sails from its own tier");
+            Check(!CardRoster.Available(lise, 2) && CardRoster.Available(lise, 3), "a card sails from its own tier");
+            Check(!CardRoster.Recruitable(cards, Cards.ById("kofi"), 2) && CardRoster.Recruitable(cards, Cards.ById("tess"), 3)
+                && !CardRoster.Recruitable(cards, Cards.ById("tess"), 2) && !CardRoster.Recruitable(new List<CardState>(), Cards.ById("mira"), 5), "recruitable: unlocked, not owned, never the navigator");
             lise.Rarity = CardRarity.Mythic; lise.Stars = 1;
             Check(CardRoster.Available(lise, 1) && !CardRoster.Available(lise, 0), "a starred card sails from tier 1");
 
@@ -203,7 +213,7 @@ namespace Catchline.EditorTools
             tove.Stars = 5; tove.Blueprints = 10;
             Check(tove.Maxed && !CardRoster.TryRankUp(tove) && tove.BlueprintsNeeded == 0, "five stars is the top");
             Check(!Chests.WantsBlueprints(tove) && Chests.WantsBlueprints(noor), "a maxed card takes no blueprints");
-            Check(tove.Renown == 30 + 5 * 1 + 10 * 5, "renown: level + 5 per rank gained + 10 per star");
+            Check(tove.Renown == 30 + 5 * ((int)CardRarity.Mythic - (int)tove.Def.StartRarity) + 10 * 5, "renown: level + 5 per rank gained + 10 per star");
 
             var odd = new CardState("dirk") { Level = 40, Stars = 3, Blueprints = -2, ToolUids = new int[1] };
             odd.Normalise();
@@ -255,9 +265,9 @@ namespace Catchline.EditorTools
                 }
             }
             Check(uid == 20001, "every tool gets a fresh uid");
-            Check(longest <= Chests.PityChests, "pity: a blueprint within 40 chests (longest gap " + longest + ")");
+            Check(longest <= 50 && crate.Pity == 50 && sea.Pity == 30 && captain.Pity == 10, "pity 50/30/10: a blueprint within 50 crates (longest gap " + longest + ")");
             float rate = blueprints / 20000f, focusShare = focus / (float)blueprints;
-            Check(rate > .037f && rate < .049f, "crate blueprint rate with pity (3%, 40-chest pity: 4.26% expected) " + rate);
+            Check(rate > .033f && rate < .044f, "crate blueprint rate with pity (3%, 50-chest pity: 3.84% expected) " + rate);
             Check(focusShare > .72f && focusShare < .84f, "focus crew gets about 75% plus a share of the rest " + focusShare);
             Check(rarities[0] > 11400 && rarities[0] < 12600 && rarities[4] > 100 && rarities[4] < 300 && rarities[5] == 0, "tool rarity odds 60/25/10/4/1, no Mythic drops");
 
@@ -270,8 +280,8 @@ namespace Catchline.EditorTools
             }
 
             var maxed = new List<CardState> { new CardState("tove") { Rarity = CardRarity.Mythic, Stars = 5 } };
-            int p = Chests.PityChests - 1;
-            var free = Chests.Open(ChestKind.Crate, 1, new System.Random(1), maxed, "tove", ref p, ref uid);
+            int p = crate.Pity - 1;
+            var free = Chests.Open(ChestKind.Crate, 0, new System.Random(1), maxed, "tove", ref p, ref uid); // tier 0: nobody left to recruit
             Check(free.PityBlueprint && free.Blueprints.Count == 0 && free.FreeBlueprints == 1 && p == 0, "a blueprint for a maxed card becomes a free blueprint");
         }
 
@@ -294,14 +304,17 @@ namespace Catchline.EditorTools
             CardRoster.GrantTier(save.Cards, save.Deployment, 1);
             save.Cards[1].Level = 4; save.Cards[1].Blueprints = 1; save.Cards[1].ToolUids[0] = 9;
             save.Tools.Add(new ToolState { Uid = 9, Kind = ToolKind.Gloves, Rarity = CardRarity.Blue });
-            save.CaptainTools[2] = 9; save.PendingChests.Add((int)ChestKind.SeaChest);
+            save.CaptainTools[2] = 9; save.PendingChests.Add((int)ChestKind.SeaChest); save.ChestPities = new[] { 4, 12, 3, 0, 0 }; save.CrewChests.Add("dirk:6");
             var back = SaveV2.FromJson(save.ToJson());
             Check(back != null && back.Coins == 321 && back.Tokens == 55 && back.FocusCard == "noor" && back.ChestPity == 12
                 && back.FreeBlueprints == 1 && back.RenownClaimed == 2 && back.LastCrateDay == "2026-10-25", "json round trip keeps card economy");
-            Check(back.Cards.Count == 2 && back.Cards[0].Rarity == CardRarity.Gold && back.Cards[1].Level == 4 && back.Cards[1].Blueprints == 1
+            Check(back.Cards.Count == 3 && back.Cards[0].Rarity == CardRarity.Gold && back.Cards[1].Level == 4 && back.Cards[1].Blueprints == 1
                 && back.Cards[1].ToolUids[0] == 9, "json round trip keeps cards");
             Check(back.Tools.Count == 1 && back.Tools[0].Kind == ToolKind.Gloves && back.Tools[0].Rarity == CardRarity.Blue
                 && back.CaptainTools[2] == 9 && back.PendingChests.SequenceEqual(new[] { (int)ChestKind.SeaChest }), "json round trip keeps tools and chests");
+            Check(back.ChestPities.SequenceEqual(new[] { 4, 12, 3, 0, 0 }) && back.CrewChests.SequenceEqual(new[] { "dirk:6" }), "json round trip keeps pity per chest kind and crew chest counts");
+            var gs = new GameState(1); typeof(GameState).GetMethod("ReadCards", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(gs, new object[] { back });
+            Check(gs.ChestsToPity(ChestKind.SeaChest) == 18 && gs.CrewChestsBoughtFor("dirk") == 6 && gs.CrewChestsLeft("dirk") == 4, "state reads pity and crew chest counts back");
             string old = save.ToJson().Replace("\"Version\":3", "\"Version\":2");
             Check(SaveV2.FromJson(old) == null, "a version-2 save is discarded");
             Check(SaveV2.FromJson("") == null && SaveV2.FromJson("not json") == null, "empty or broken json gives null");

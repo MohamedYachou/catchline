@@ -33,7 +33,8 @@ namespace Catchline.Game
         public int[] CaptainTools = new int[CardProgression.MaxToolSlots];
         public int NextToolUid = 1;
         public string FocusCard = "";
-        public int ChestPity;                                // chests opened since the last blueprint
+        public int[] ChestPities = new int[Chests.All.Length]; // per kind: chests opened since its last blueprint
+        public readonly Dictionary<string, int> CrewChestsBought = new(); // crew id -> chests bought from their offer
         public int FreeBlueprints;                           // blueprints the player assigns to any crew
         public int RenownClaimed;                            // renown road milestones claimed, in order
         public readonly List<ChestKind> PendingChests = new();
@@ -48,13 +49,18 @@ namespace Catchline.Game
 
         public void EnsureCards()
         {
-            CardRoster.GrantUpToTier(Roster, Deployment, CardTier);
+            // Crew are no longer free with a tier (Mo, 2026-10-25): the first boat brings the welcome chest with Mira,
+            // everyone else joins through blueprints and their crew chests.
+            if (CardTier >= 1 && !Roster.Exists(c => c.Def?.Role == CardRole.Navigator) && !PendingChests.Contains(ChestKind.Welcome))
+                PendingChests.Insert(0, ChestKind.Welcome);
             foreach (var c in Roster) c.Normalise();
             var seen = new HashSet<string>();
             Deployment.RemoveAll(id => !CardAvailable(CardRoster.Find(Roster, id)) || !seen.Add(id));
             if (CardTier >= 1) CardRoster.EnsureNavigator(Roster, Deployment);
             if (!CardRoster.Owns(Roster, FocusCard)) FocusCard = "";
         }
+        // Test trials only: every crew member up to the boat's tier at their starting rarity, the navigator aboard.
+        public void GrantTrialCards() { CardRoster.GrantUpToTier(Roster, Deployment, CardTier); PendingChests.RemoveAll(k => k == ChestKind.Welcome); EnsureCards(); }
         public bool DeployCard(string id, bool deploy)
         {
             EnsureCards();
@@ -63,6 +69,8 @@ namespace Catchline.Game
             if (ok) SyncCardCrew();
             return ok;
         }
+        // Suit colours follow the original card order, so reordering Cards.All never recolours anyone.
+        static readonly string[] SuitOrder = { "mira", "noor", "dirk", "tess", "sam", "kofi", "rosa", "ana", "mats", "lise", "ines", "olaf", "pim", "tove" };
         public void SyncCardCrew()
         {
             EnsureCards();
@@ -78,7 +86,7 @@ namespace Catchline.Game
                     c = new CrewMember { CardId = id, Name = d.Name, VoyagesLeft = int.MaxValue,
                         Role = d.Role == CardRole.Fisher ? CrewRole.Fisherman : d.Role == CardRole.Navigator ? CrewRole.Navigator : d.Role == CardRole.Engineer ? CrewRole.Engineer : CrewRole.Deckhand,
                         WorkPreference = d.Speciality == Speciality.Sort ? DeckhandWork.Nets : d.Speciality == Speciality.Table ? DeckhandWork.Prep : DeckhandWork.Fish,
-                        Suit = GameData.Suits[Array.IndexOf(Catchline.Game.Cards.All, d) % GameData.Suits.Length] };
+                        Suit = GameData.Suits[Math.Max(0, Array.IndexOf(SuitOrder, d.Id)) % GameData.Suits.Length] };
                     cardCrew.Add(c);
                 }
                 if (c.Role == CrewRole.Deckhand && Deckhand == null) Deckhand = c;
@@ -246,11 +254,51 @@ namespace Catchline.Game
             if (i < 0) return null;
             EnsureCards();
             PendingChests.RemoveAt(i);
-            var result = Chests.Open(kind, CardTier, Rng, Roster, FocusCard, ref ChestPity, ref NextToolUid);
+            if (ChestPities == null || ChestPities.Length != Chests.All.Length) Array.Resize(ref ChestPities, Chests.All.Length);
+            var result = Chests.Open(kind, CardTier, Rng, Roster, FocusCard, ref ChestPities[(int)kind], ref NextToolUid);
+            Bank(result);
+            return result;
+        }
+        // Banks a rolled chest: tokens, tools, free blueprints; a blueprint for someone not aboard the roster recruits them.
+        void Bank(ChestResult result)
+        {
             Tokens += result.Tokens;
             Tools.AddRange(result.Tools);
-            foreach (var id in result.Blueprints) CardRoster.Find(Roster, id).Blueprints++;
+            foreach (var id in result.Recruits) CardRoster.Recruit(Roster, id);
+            foreach (var id in result.Blueprints)
+            {
+                if (CardRoster.Recruit(Roster, id)) { result.Recruits.Add(id); continue; }
+                CardRoster.Find(Roster, id).Blueprints++;
+            }
             FreeBlueprints += result.FreeBlueprints;
+            CardRoster.EnsureNavigator(Roster, Deployment);
+            if (result.Recruits.Count > 0) SyncCardCrew();
+        }
+        public int ChestsToPity(ChestKind kind)
+        {
+            int pity = Chests.Def(kind).Pity;
+            int done = ChestPities != null && (int)kind < ChestPities.Length ? ChestPities[(int)kind] : 0;
+            return pity <= 0 ? 0 : Math.Max(1, pity - done);
+        }
+
+        // ---- crew chests: ten per crew member, the tenth always holds their blueprint ----------
+
+        public int CrewChestsBoughtFor(string id) => CrewChestsBought.TryGetValue(id ?? "", out int n) ? n : 0;
+        public int CrewChestsLeft(string id) => Math.Max(0, Chests.CrewChestOffer - CrewChestsBoughtFor(id));
+        // Offered once the boat's tier unlocks them; the navigator joins from the welcome chest instead.
+        public bool CrewChestOffered(CardDef def) => def != null && def.Role != CardRole.Navigator && def.TierGranted <= CardTier && CrewChestsLeft(def.Id) > 0;
+        public bool CanBuyCrewChest(string id) { var d = Catchline.Game.Cards.ById(id); return CrewChestOffered(d) && Coins >= Chests.CrewChestPrice(d); }
+        // Buys and opens the next chest of `id`'s offer. Null when it is not offered or unaffordable.
+        public ChestResult BuyCrewChest(string id)
+        {
+            EnsureCards();
+            if (!CanBuyCrewChest(id)) return null;
+            var def = Catchline.Game.Cards.ById(id);
+            Coins -= Chests.CrewChestPrice(def);
+            int n = CrewChestsBoughtFor(id) + 1;
+            CrewChestsBought[id] = n;
+            var result = Chests.OpenCrew(id, n, Rng, Roster, ref NextToolUid);
+            Bank(result);
             return result;
         }
         // The first sale of each calendar day brings a crate. True when one was granted.
@@ -280,6 +328,7 @@ namespace Catchline.Game
             {
                 case RenownRewardKind.BlueprintChoice:
                     var card = CardRoster.Find(Roster, choiceCardId);
+                    if (card == null && CardRoster.Recruitable(Roster, Catchline.Game.Cards.ById(choiceCardId), CardTier)) { CardRoster.Recruit(Roster, choiceCardId); SyncCardCrew(); break; }
                     if (!Chests.WantsBlueprints(card)) return false;
                     card.Blueprints++;
                     break;
@@ -313,7 +362,7 @@ namespace Catchline.Game
             v2.Cards = new List<CardState>(Roster); v2.Deployment = new List<string>(Deployment);
             v2.TripDeployment = new List<string>(TripDeployment);
             v2.Tokens = Tokens; v2.Tools = new List<ToolState>(Tools); v2.CaptainTools = (int[])CaptainTools.Clone();
-            v2.NextToolUid = NextToolUid; v2.FocusCard = FocusCard; v2.ChestPity = ChestPity; v2.FreeBlueprints = FreeBlueprints;
+            v2.NextToolUid = NextToolUid; v2.FocusCard = FocusCard; v2.ChestPities = (int[])ChestPities.Clone(); v2.CrewChests = CrewChestsBought.Select(kv => kv.Key + ":" + kv.Value).ToList(); v2.FreeBlueprints = FreeBlueprints;
             v2.RenownClaimed = RenownClaimed; v2.PendingChests = PendingChests.Select(k => (int)k).ToList(); v2.LastCrateDay = LastCrateDay;
         }
         void ReadCards(SaveV2 v2)
@@ -326,7 +375,19 @@ namespace Catchline.Game
             CaptainTools = v2.CaptainTools;
             NextToolUid = Mathf.Max(1, v2.NextToolUid);
             FocusCard = v2.FocusCard ?? "";
-            ChestPity = Mathf.Clamp(v2.ChestPity, 0, Chests.PityChests);
+            ChestPities = new int[Chests.All.Length];
+            if (v2.ChestPities != null && v2.ChestPities.Length > 0)
+                for (int i = 0; i < ChestPities.Length && i < v2.ChestPities.Length; i++) ChestPities[i] = Mathf.Max(0, v2.ChestPities[i]);
+            else ChestPities[(int)ChestKind.SeaChest] = Mathf.Max(0, v2.ChestPity);
+            for (int i = 0; i < ChestPities.Length; i++) if (Chests.All[i].Pity > 0) ChestPities[i] = Mathf.Min(ChestPities[i], Chests.All[i].Pity - 1);
+            CrewChestsBought.Clear();
+            if (v2.CrewChests != null)
+                foreach (var entry in v2.CrewChests)
+                {
+                    int colon = entry == null ? -1 : entry.LastIndexOf(':');
+                    if (colon > 0 && int.TryParse(entry.Substring(colon + 1), out int n) && Catchline.Game.Cards.ById(entry.Substring(0, colon)) != null)
+                        CrewChestsBought[entry.Substring(0, colon)] = Mathf.Clamp(n, 0, Chests.CrewChestOffer);
+                }
             FreeBlueprints = Mathf.Max(0, v2.FreeBlueprints);
             RenownClaimed = Mathf.Max(0, v2.RenownClaimed);
             if (v2.PendingChests != null)
@@ -390,6 +451,12 @@ namespace Catchline.Game
             CardChange(result != null);
             return result;
         }
+        public ChestResult BuyCrewChest(string id)
+        {
+            var result = CardsEditable ? State.BuyCrewChest(id) : null;
+            CardChange(result != null);
+            return result;
+        }
         public bool ClaimRenown(int n, string choiceCardId = null) => CardsEditable && CardChange(State.ClaimRenown(n, choiceCardId));
 
         // One line for a toast: "Crate: 8 tokens, White Rod, blueprint for Noor".
@@ -398,7 +465,8 @@ namespace Catchline.Game
             if (r == null) return "";
             var parts = new List<string> { r.Tokens + " tokens" };
             foreach (var t in r.Tools) parts.Add(t.Rarity + " " + ToolInfo.Name(t.Kind).ToLowerInvariant());
-            foreach (var id in r.Blueprints) parts.Add("blueprint for " + (Cards.ById(id)?.Name ?? id));
+            foreach (var id in r.Recruits) parts.Add((Cards.ById(id)?.Name ?? id) + " joins the crew");
+            foreach (var id in r.Blueprints) if (!r.Recruits.Contains(id)) parts.Add("blueprint for " + (Cards.ById(id)?.Name ?? id));
             if (r.FreeBlueprints > 0) parts.Add("a blueprint of your choice");
             return Chests.Def(r.Kind).Name + ": " + string.Join(", ", parts);
         }

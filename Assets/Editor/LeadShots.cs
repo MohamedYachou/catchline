@@ -50,6 +50,8 @@ namespace Catchline.EditorTools
             var g = Game("Crew UI shot"); Rebuild(g, 4);
             var s = g.State;
             CardRoster.GrantUpToTier(s.Roster, s.Deployment, s.CardTier); s.EnsureCards();
+            // Olaf and Tove have not joined: their offers show on the recruit page, Olaf's on his last (guaranteed) chest.
+            s.Roster.RemoveAll(c => c.Id == "olaf" || c.Id == "tove"); s.Deployment.RemoveAll(id => id == "olaf" || id == "tove"); s.CrewChestsBought["olaf"] = 9; s.CrewChestsBought["dirk"] = 4;
             s.Tokens = 640; s.Coins = 25000; s.FocusCard = "noor";
             var noor = CardRoster.Find(s.Roster, "noor"); noor.Rarity = CardRarity.Blue; noor.Level = 12; noor.Blueprints = 1;
             var pim = CardRoster.Find(s.Roster, "pim"); if (pim != null) { pim.Level = 5; pim.Blueprints = 1; }
@@ -66,18 +68,44 @@ namespace Catchline.EditorTools
             Set("cardPanelId", "noor"); ShotUi(g, "crew-card-noor"); ShotUi(g, "crew-card-noor-phone", 844, 390);
             Set("cardPanelId", "mira"); ShotUi(g, "crew-card-mira");
             Set("cardPanelId", null); Set("crewTab", 1); ShotUi(g, "crew-chests"); ShotUi(g, "crew-chests-phone", 844, 390);
-            Clock(100); T.GetMethod("StartReveal", H).Invoke(g, new object[] { ChestKind.CaptainsChest });
+            Clock(100); T.GetMethod("StartReveal", H, null, new[] { typeof(ChestKind) }, null).Invoke(g, new object[] { ChestKind.CaptainsChest });
             foreach (float t in new[] { .3f, .9f, 1.35f, 1.7f, 3.0f }) { Clock(100 + t); ShotUi(g, $"crew-reveal-{t:0.00}"); }
             Clock(103); var flip = T.GetMethod("FlipReveal", H); flip.Invoke(g, new object[] { 0, 0f }); flip.Invoke(g, new object[] { 1, 0f });
             Clock(103.17f); ShotUi(g, "crew-reveal-flipping");
             for (int i = 2; i < 8; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
             Clock(104); ShotUi(g, "crew-reveal-open"); ShotUi(g, "crew-reveal-open-phone", 844, 390);
             T.GetMethod("CollectReveal", H).Invoke(g, null);
-            Set("crewTab", 2); Clock(110); ShotUi(g, "crew-tools"); ShotUi(g, "crew-tools-phone", 844, 390);
-            Set("crewTab", 3); ShotUi(g, "crew-renown"); ShotUi(g, "crew-renown-phone", 844, 390);
+            Set("crewTab", 2); Clock(105); ShotUi(g, "crew-recruit"); ShotUi(g, "crew-recruit-phone", 844, 390);
+            Clock(120); T.GetMethod("BuyCrewChestWithFx", H).Invoke(g, new object[] { "olaf" });
+            foreach (float t in new[] { 1.0f, 1.7f }) { Clock(120 + t); ShotUi(g, $"crew-crewchest-{t:0.0}"); }
+            Clock(123); for (int i = 0; i < 8; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
+            Clock(124); ShotUi(g, "crew-crewchest-open"); ShotUi(g, "crew-crewchest-open-phone", 844, 390);
+            T.GetMethod("CollectReveal", H).Invoke(g, null); Clock(125); ShotUi(g, "crew-crewchest-joined");
+            Set("cardPanelId", null);
+            Set("crewTab", 3); Clock(110); ShotUi(g, "crew-tools"); ShotUi(g, "crew-tools-phone", 844, 390);
+            Set("crewTab", 4); ShotUi(g, "crew-renown"); ShotUi(g, "crew-renown-phone", 844, 390);
             Set("crewTab", 0); noor.Level = noor.LevelCap; noor.Blueprints = 2; Clock(200);
             T.GetMethod("RankUpWithFx", H).Invoke(g, new object[] { "noor" });
             foreach (float t in new[] { .6f, 1.2f, 2.0f }) { Clock(200 + t); ShotUi(g, $"crew-rankup-{t:0.0}"); }
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+            WelcomeChest();
+        }
+
+        // Tutorial: the first boat, no crew yet, the welcome chest waiting with Mira.
+        static void WelcomeChest()
+        {
+            var g = Game("Welcome chest shot"); Rebuild(g, 1);
+            var s = g.State; s.Roster.Clear(); s.Deployment.Clear(); s.EnsureCards();
+            var T = typeof(VoyageGame);
+            void Set(string f, object v) => T.GetField(f, H).SetValue(g, v);
+            void Clock(float t) => Set("cardUiClock", t);
+            Set("panelOpen", true); Set("hudTab", VoyageGame.HudTab.CrewOffice); Set("crewTab", 1); Clock(10);
+            ShotUi(g, "crew-welcome"); ShotUi(g, "crew-welcome-phone", 844, 390);
+            Set("crewTab", 0); ShotUi(g, "crew-garage-empty");
+            Set("crewTab", 1); Clock(20); T.GetMethod("StartReveal", H, null, new[] { typeof(ChestKind) }, null).Invoke(g, new object[] { ChestKind.Welcome });
+            Clock(21.6f); ShotUi(g, "crew-welcome-reveal");
+            var flip = T.GetMethod("FlipReveal", H); for (int i = 0; i < 4; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
+            Clock(23); ShotUi(g, "crew-welcome-open"); ShotUi(g, "crew-welcome-open-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

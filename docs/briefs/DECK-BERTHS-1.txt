@@ -1,0 +1,25 @@
+DECK-BERTHS-1 — Codex 1 (Windows) — room on deck for the new crew berth counts
+
+GOAL (Mo, 2026-10-25 night): crew card berths, the navigator (Mira) included, become tier 1 = 2, tier 2 = 4,
+tier 3 = 5, tier 4 = 6, tier 5 = 8 (tier 0, the rowboat, has none). Claude changes CardRoster.BerthsForTier.
+Each hull must physically hold that many card crew plus the captain without two people sharing a rest spot or
+blocking the hold, net, table, rods or buoy stations.
+Hull -> card tier (GameStateCards.CardTier): Skiff=1 (2 cards), Compact fisher=2 (4), Prep fisher=4 (6),
+Buoy fisher=5 (8). Tier 3 has no hull yet.
+
+CONTEXT: GameData.Hulls (CrewCap, CrewRest, Rest, Seat); VoyageGame.RestFor; VoyageDeck.cs deck graph;
+GameStateCards (cardCrew, Deployment); docs/plans/CREW-CARDS-V2.md section 7.
+
+DO:
+1. Set each hull's CrewCap and CrewRest so the counts above fit (CrewRest length >= card berths). Pick rest tiles on
+   walkable deck cells near idle-useful places (rail, stern, wheelhouse side), verified with the deck graph.
+2. Make sure RestFor and any per-index lookup handle the larger crews (no clamping onto one tile).
+3. Skiff: if 2 cards + captain cannot fit sensibly, say so in a QUESTION line instead of forcing it.
+DONE = EVIDENCE: in Catchline-sim, a capture per hull with a full deployment idle at sea (docs/screens/berths/
+<hull>.png), opened and checked: nobody overlapping, nobody inside geometry. Full regression (M2, crew ability
+checks, CrewAbilityIntegrationRegression) passes. One comms.md DONE line with the counts.
+OWNERSHIP: GameData.cs (Hulls block only; your MAP9 hunks there stay yours), VoyageGame.cs RestFor only,
+VoyageDeck.cs, docs/screens/berths/, append-only comms.md. Never write Data/*.cs, GameStateCards.cs, CrewUi/*.
+Never batchmode the main project; use Catchline-sim via docs/tools/check.ps1. Never touch the player save. No git.
+After DONE: rerun Assets/Editor/CardPacingSim with the new berths once Claude logs "CREW-TIERS READY" and add a
+short section to docs/plans/CARDS-PACING.md.

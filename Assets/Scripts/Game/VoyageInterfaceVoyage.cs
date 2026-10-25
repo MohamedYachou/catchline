@@ -95,6 +95,8 @@ namespace Catchline.Game
         static string RoleTitle(Person person, Person captain)
         {
             if (person == captain) return "Captain";
+            var card = Cards.ById(person.Contract?.CardId);
+            if (card != null) return card.Role == CardRole.Navigator ? "Navigator" : card.Role.ToString();
             return person.Contract.Role == CrewRole.Engineer ? "Engineer" : person.Contract.Role == CrewRole.Fisherman ? "Fisher"
                 : person.Contract.WorkPreference == DeckhandWork.Prep ? "Processor" : "Deckhand";
         }
@@ -104,7 +106,13 @@ namespace Catchline.Game
         static string PortraitKey(Person person, Person captain) => person == captain ? "captain"
             : person.Contract.Role == CrewRole.Engineer ? "engineer" : person.Contract.Role == CrewRole.Fisherman ? person.Name : person.Name + "-deck";
 
-        static string Trips(Person person) => person.Contract.VoyagesLeft == int.MaxValue ? "Signed on" : person.Contract.VoyagesLeft == 1 ? "Last trip" : $"{person.Contract.VoyagesLeft} trips";
+        // Card crew show their rank and level; the old contract hires still count down their trips.
+        string Trips(Person person)
+        {
+            var card = CardRoster.Find(State.Roster, person.Contract?.CardId);
+            if (card != null) return $"{CardProgression.RarityName(card.Rarity)} · Lv {card.Level}";
+            return person.Contract.VoyagesLeft == int.MaxValue ? "Signed on" : person.Contract.VoyagesLeft == 1 ? "Last trip" : $"{person.Contract.VoyagesLeft} trips";
+        }
 
         void InterfaceVoyageCrewRail()
         {

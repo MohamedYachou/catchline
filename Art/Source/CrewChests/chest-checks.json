@@ -1,0 +1,220 @@
+{
+  "crew": {
+    "closed": {
+      "seam": [
+        [
+          0,
+          163
+        ],
+        [
+          35,
+          174
+        ],
+        [
+          73,
+          193
+        ],
+        [
+          336,
+          240
+        ],
+        [
+          369,
+          244
+        ],
+        [
+          462,
+          191
+        ],
+        [
+          480,
+          182
+        ],
+        [
+          511,
+          182
+        ]
+      ],
+      "interiorPlane": [
+        [
+          74,
+          190
+        ],
+        [
+          194,
+          150
+        ],
+        [
+          463,
+          190
+        ],
+        [
+          369,
+          241
+        ]
+      ],
+      "max_rgba_error": 0,
+      "mismatched_pixels": 0,
+      "hidden_fill_pixels": 17791,
+      "apertureBounds": [
+        126,
+        250,
+        254,
+        384
+      ],
+      "apertureClearPixels": 12675,
+      "apertureCentre": [
+        190,
+        310
+      ],
+      "suggestedRearHinge": [
+        194,
+        150
+      ],
+      "normalization": "alpha<16 removed before fit; alpha>248 made opaque; max448 and bottom480"
+    },
+    "open": {
+      "apertureBounds": [
+        128,
+        288,
+        236,
+        399
+      ],
+      "apertureClearPixels": 8648,
+      "normalization": "same max448 and bottom480"
+    }
+  },
+  "welcome": {
+    "closed": {
+      "seam": [
+        [
+          0,
+          250
+        ],
+        [
+          66,
+          251
+        ],
+        [
+          101,
+          272
+        ],
+        [
+          331,
+          330
+        ],
+        [
+          366,
+          327
+        ],
+        [
+          433,
+          275
+        ],
+        [
+          448,
+          260
+        ],
+        [
+          511,
+          260
+        ]
+      ],
+      "latch": [
+        [
+          222,
+          300
+        ],
+        [
+          250,
+          307
+        ],
+        [
+          256,
+          314
+        ],
+        [
+          254,
+          334
+        ],
+        [
+          248,
+          339
+        ],
+        [
+          251,
+          343
+        ],
+        [
+          253,
+          361
+        ],
+        [
+          246,
+          370
+        ],
+        [
+          234,
+          377
+        ],
+        [
+          219,
+          371
+        ],
+        [
+          210,
+          360
+        ],
+        [
+          209,
+          342
+        ],
+        [
+          217,
+          334
+        ],
+        [
+          210,
+          332
+        ],
+        [
+          209,
+          310
+        ],
+        [
+          215,
+          303
+        ]
+      ],
+      "interiorPlane": [
+        [
+          101,
+          272
+        ],
+        [
+          196,
+          231
+        ],
+        [
+          431,
+          274
+        ],
+        [
+          331,
+          330
+        ]
+      ],
+      "max_rgba_error": 0,
+      "mismatched_pixels": 0,
+      "hidden_fill_pixels": 16298,
+      "latch_repair_pixels": 4189,
+      "suggestedRearHinge": [
+        196,
+        231
+      ],
+      "normalization": "same alpha policy; max384 and bottom480 (small welcome gift)",
+      "latchRepair": "Perspective-matched donor, Poisson blended into original boundary, only below opaque lid",
+      "latchContourDilation": 8
+    }
+  }
+}

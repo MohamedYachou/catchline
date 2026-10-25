@@ -24,10 +24,32 @@ namespace Catchline.EditorTools
             ArtImport.BuildLibrary(); M2DataChecks.Run();
             var state=new GameState(42) { Hull=2,Coins=10000 };
             state.EnsureCards();
-            Check(state.Roster.Count==5 && state.Deployment.SequenceEqual(new[]{"mira"}),"grants and fixed navigator");
+            Check(state.Roster.Count==0 && state.PendingChestCount(ChestKind.Welcome)==1,"the first boat brings a welcome chest, no free crew");
+            var welcome=state.OpenChest(ChestKind.Welcome);
+            Check(welcome!=null && welcome.Recruits.SequenceEqual(new[]{"mira"}) && welcome.Tokens==Chests.WelcomeTokens && welcome.Tools.Count==1,"welcome chest: Mira, tokens and a tool");
+            Check(state.Roster.Count==1 && state.Deployment.SequenceEqual(new[]{"mira"}),"Mira joins as the fixed navigator");
+            state.EnsureCards(); Check(state.PendingChestCount(ChestKind.Welcome)==0,"the welcome chest comes once");
+            Check(state.CrewChestOffered(Cards.ById("dirk")) && !state.CrewChestOffered(Cards.ById("tess")) && !state.CrewChestOffered(Cards.ById("mira")),"crew chests offered up to the boat's tier, never for the navigator");
+            int coins0=state.Coins, price=Chests.CrewChestPrice(Cards.ById("noor"));
+            Check(price==2100 && Chests.CrewChestPrice(Cards.ById("pim"))==5700,"crew chest price by the crew's tier");
+            state.Coins=coins0=50000;
+            bool joined=false;
+            for(int i=1;i<=Chests.CrewChestOffer;i++)
+            {
+                var r=state.BuyCrewChest("noor");
+                Check(r!=null && r.CrewId=="noor" && r.Tools.Count==2,"crew chest "+i);
+                joined|=r.Recruits.Contains("noor");
+                if(i==Chests.CrewChestOffer) Check(r.Blueprints.Contains("noor"),"the tenth crew chest always holds the blueprint");
+            }
+            Check(joined && CardRoster.Owns(state.Roster,"noor") && state.Coins==coins0-price*10,"Noor recruited by her own blueprint, ten chests paid");
+            Check(state.CrewChestsLeft("noor")==0 && state.BuyCrewChest("noor")==null,"the offer ends after ten chests");
+            var noorCard=CardRoster.Find(state.Roster,"noor"); noorCard.Blueprints=0; noorCard.Rarity=CardRarity.White;
+            state.Coins=10000;
+            state.GrantTrialCards();
+            Check(state.Roster.Count==6 && state.Deployment.SequenceEqual(new[]{"mira"}),"trial grant: everyone up to tier 2, navigator aboard");
             Check(!state.DeployCard("mira",false),"cannot stand navigator down");
-            Check(state.DeployCard("noor",true) && state.DeployCard("sam",true),"deploy owned cards");
-            Check(!state.DeployCard("dirk",true),"berth limit");
+            Check(state.DeployCard("noor",true) && state.DeployCard("sam",true) && state.DeployCard("dirk",true),"deploy owned cards: four berths at tier 2");
+            Check(!state.DeployCard("kofi",true),"berth limit");
             state.Tokens=23;
             Check(state.LevelUpCardToCap("noor")==4 && state.Tokens==0 && CardRoster.Find(state.Roster,"noor").AtCap,"level to cap spends tokens");
             Check(!state.RankUpCard("noor"),"rank up needs a blueprint");
@@ -52,10 +74,10 @@ namespace Catchline.EditorTools
             Check(state.ClaimRenown(1,"noor") && CardRoster.Find(state.Roster,"noor").Blueprints>=1 && !state.ClaimRenown(1,"noor"),"renown milestone 1: blueprint of choice, once");
             Check(state.RankUpCard("noor") && CardRoster.Find(state.Roster,"noor").Rarity==CardRarity.Green,"rank Noor to Green");
             int wages=state.DepartureWages; int before=state.Coins;
-            Check(state.PayDepartureWages() && state.Coins==before-wages && state.TripDeployment.Count==3,"departure charge, trip crew fixed");
+            Check(state.PayDepartureWages() && state.Coins==before-wages && state.TripDeployment.Count==4,"departure charge, trip crew fixed");
             state.DeployCard("sam",false);
             int t0=state.Tokens; float cap=state.CoolerCapacity;
-            Check(state.AwardHaulTokens(cap)==CardProgression.HaulTokens(2,3,1f) && state.Tokens==t0+6 && state.TripDeployment.Count==0,"haul tokens count the trip crew: 2 x 3 x 1.15 = 6");
+            Check(state.AwardHaulTokens(cap)==CardProgression.HaulTokens(2,4,1f) && state.Tokens==t0+9 && state.TripDeployment.Count==0,"haul tokens count the trip crew: 2 x 4 x 1.15 = 9");
             state.Bait=83; state.Fuel=6; state.UnsoldCatch.Add(new CaughtFish{Species=Species.Cod,Kg=4,ValueBonus=.1f});
             state.TripDeployment.Add("noor");
             string path=Path.Combine(Path.GetTempPath(),"catchline-m2-"+Guid.NewGuid()+".json");
@@ -63,7 +85,7 @@ namespace Catchline.EditorTools
             {
                 state.Save(path); var loaded=GameState.Load(path);
                 Check(loaded!=null && loaded.Coins==state.Coins && loaded.Bait==83 && loaded.Fuel==6 && loaded.UnsoldCatch.Count==1 && Mathf.Approximately(loaded.UnsoldCatch[0].ValueBonus,.1f),"runtime v3 harbour roundtrip");
-                Check(loaded.Deployment.SequenceEqual(state.Deployment) && loaded.Roster.Count==5 && loaded.TripDeployment.SequenceEqual(new[]{"noor"}),"v3 roster/manifest roundtrip");
+                Check(loaded.Deployment.SequenceEqual(state.Deployment) && loaded.Roster.Count==6 && loaded.TripDeployment.SequenceEqual(new[]{"noor"}),"v3 roster/manifest roundtrip");
                 Check(loaded.Tokens==state.Tokens && loaded.Tools.Count==state.Tools.Count && loaded.RodTier==2 && loaded.FocusCard=="noor" && loaded.PendingChests.Count==2
                     && loaded.RenownClaimed==1 && loaded.ToolOwner(gloves.Uid)=="noor" && loaded.NextToolUid==state.NextToolUid,"v3 card economy roundtrip");
                 Check(CardRoster.Find(loaded.Roster,"noor").Rarity==CardRarity.Green && CardRoster.Find(loaded.Roster,"noor").Level==5,"v3 rarity and level");
@@ -92,6 +114,7 @@ namespace Catchline.EditorTools
             var g=new GameObject("M2 live voyage").AddComponent<VoyageGame>();g.SessionOnly=true;g.Build();
             g.State.Hull=1;g.State.Coins=100;g.State.Fuel=10;
             typeof(VoyageGame).GetMethod("RebuildBoat",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(g,new object[]{false});
+            g.State.GrantTrialCards();
             Check(g.DeployCard("noor",true),"live deploy");
             int wage=g.State.DepartureWages,coins=g.State.Coins;
             g.State.Coins=0;g.SetSail();Check(g.CurrentMode==VoyageGame.Mode.Harbour,"unaffordable wages block departure");

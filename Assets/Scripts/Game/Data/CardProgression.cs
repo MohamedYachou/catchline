@@ -58,7 +58,13 @@ namespace Catchline.Game
         // Work speed: rarity base x level x stars (tools and abilities multiply on top, per job).
         public static float WorkMult(CardRarity rarity, int level, int stars) =>
             RarityBase[R(rarity)] * LevelMult(level) * (1f + 0.03f * Math.Max(0, Math.Min(MaxStars, stars)));
-        public static float WorkMult(CardState card) => card == null ? 1f : WorkMult(card.Rarity, card.Level, card.Stars);
+        public static float WorkMult(CardState card) => card == null ? 1f : WorkMult(card.Rarity, card.Level, card.Stars) * TierMult(card.Def);
+
+        // Calculated power creep: crew from a higher tier work a little faster at the same rarity, level and stars,
+        // so a fresh crew member of the next tier is worth chasing while a maxed one from below still keeps up.
+        static readonly float[] TierMults = { 1f, 1f, 1.05f, 1.10f, 1.15f, 1.20f };
+        public static float TierMult(int tier) => TierMults[tier < 0 ? 0 : tier > 5 ? 5 : tier];
+        public static float TierMult(CardDef def) => def == null || def.Role == CardRole.Navigator ? 1f : TierMult(def.TierGranted);
 
         // Haul tokens (section 2): tier x crew aboard x hold fill, +15% for a full hold, rounded down.
         public const float FullHoldFill = 0.95f, FullHaulBonus = 0.15f;

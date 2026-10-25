@@ -27,7 +27,7 @@ namespace Catchline.Game
     {
         public readonly string Id;          // stable save key, lowercase name
         public readonly string Name;
-        public readonly int TierGranted;    // 1..5: owned once the boat reaches this tier
+        public readonly int TierGranted;    // 1..5: can be recruited (blueprints, crew chests) once the boat reaches this tier
         public readonly CardRole Role;
         public readonly Speciality Speciality;
         public readonly CardRarity StartRarity;
@@ -77,43 +77,47 @@ namespace Catchline.Game
                 "Quick sort", "Sorts 10% faster.",
                 "Same again", "Sorting the same species twice in a row makes her next sort 30% faster.",
                 "Bucket brigade", "When a net basket lands, she sorts its first 5 fish instantly."),
+            new CardDef("Sam", 1, CardRole.Deckhand, Speciality.Haul, CardRarity.White,
+                "Extra fish", "Carries 1 more fish per trip.",
+                "Heavy lifter", "Fish over 3 kg don't slow him, and he carries 2 of them.",
+                "Shoulder load", "Every 2 min he carries a whole net basket in one trip."),
             new CardDef("Dirk", 2, CardRole.Fisher, Speciality.Rods, CardRarity.Green,
                 "Steady strike", "His strike window is 15% longer.",
                 "Rod line", "When he lands a fish, the other rods bite 20% sooner for 15 s.",
                 "Trophy hunter", "Every 3rd fish he lands is in the top quarter of its weight range."),
-            new CardDef("Tess", 2, CardRole.Fisher, Speciality.Rods, CardRarity.Green,
-                "Quick reel", "Reels 15% faster.",
-                "Feathers", "20% of her herring, mackerel and whiting catches bring up a second fish.",
-                "String of feathers", "Every 2 min, her next herring, mackerel or whiting catch brings up 3 fish."),
-            new CardDef("Sam", 2, CardRole.Deckhand, Speciality.Haul, CardRarity.Green,
-                "Extra fish", "Carries 1 more fish per trip.",
-                "Heavy lifter", "Fish over 3 kg don't slow him, and he carries 2 of them.",
-                "Shoulder load", "Every 2 min he carries a whole net basket in one trip."),
-            new CardDef("Kofi", 3, CardRole.Fisher, Speciality.Nets, CardRarity.Blue,
+            new CardDef("Kofi", 2, CardRole.Fisher, Speciality.Nets, CardRarity.Green,
                 "Fast set", "Sets nets 15% faster.",
                 "Good spot", "When his net comes up over 80% full, the next soak is 25% shorter.",
                 "Back-to-back", "Every 3rd net he hauls is reset instantly."),
-            new CardDef("Rosa", 3, CardRole.Fisher, Speciality.Nets, CardRarity.Blue,
+            new CardDef("Rosa", 2, CardRole.Fisher, Speciality.Nets, CardRarity.Green,
                 "Strong back", "Hauls nets 15% faster.",
                 "Full bag", "Every 3 min, the next net she hauls comes up 30% fuller.",
                 "Shake out", "When she hauls a net, its first 6 fish go straight to the hold, already sorted."),
+            new CardDef("Tess", 3, CardRole.Fisher, Speciality.Rods, CardRarity.Blue,
+                "Quick reel", "Reels 15% faster.",
+                "Feathers", "20% of her herring, mackerel and whiting catches bring up a second fish.",
+                "String of feathers", "Every 2 min, her next herring, mackerel or whiting catch brings up 3 fish."),
             new CardDef("Ana", 3, CardRole.Deckhand, Speciality.Haul, CardRarity.Blue,
                 "Quick walk", "Walks 10% faster.",
                 "Hand-off", "Each fish she brings to the sort table makes the next sort there 20% faster.",
                 "Clear deck", "Once a minute, when 6 or more fish wait on deck, she takes them all in one sweep."),
+            // Lise fishes rods at night until the jig boat lands; then her speciality becomes Jigs.
+            new CardDef("Lise", 3, CardRole.Fisher, Speciality.Rods, CardRarity.Blue,
+                "Night eyes", "At night her bites come 20% sooner.",
+                "Lamp lure", "At night, every 2 min, every rod and line bites 25% sooner for 30 s.",
+                "Deep night", "At night every 4th fish she lands is a heavy predator in the top quarter of its weight."),
             new CardDef("Mats", 4, CardRole.Deckhand, Speciality.Table, CardRarity.Purple,
                 "Quick knife", "Table work 10% faster.",
                 "Offcuts", "Every product job also makes 1 chum.",
                 "Batch cut", "Every 3rd product job processes two fish at once."),
-            // Lise fishes rods at night until the jig boat lands; then her speciality becomes Jigs.
-            new CardDef("Lise", 4, CardRole.Fisher, Speciality.Rods, CardRarity.Purple,
-                "Night eyes", "At night her bites come 20% sooner.",
-                "Lamp lure", "At night, every 2 min, every rod and line bites 25% sooner for 30 s.",
-                "Deep night", "At night every 4th fish she lands is a heavy predator in the top quarter of its weight."),
             new CardDef("Ines", 4, CardRole.Engineer, Speciality.Power, CardRarity.Purple,
                 "Headlamp", "At night the whole crew works 5% faster.",
                 "Ice watch", "When the hold passes half full, the catch stops losing freshness for 3 min.",
                 "Floodlights", "At night, every 3 min, bites come 25% sooner and deck work is 15% faster for 40 s."),
+            new CardDef("Tove", 4, CardRole.Deckhand, Speciality.Sort, CardRarity.Purple,
+                "Steady hands", "Sorts crabs and fish over 3 kg 20% faster.",
+                "Grader", "Fish she sorts in the top quarter of their weight sell for 10% more.",
+                "Keen eye", "Every 10th fish she sorts sells for double."),
             new CardDef("Olaf", 5, CardRole.Engineer, Speciality.Power, CardRarity.Gold,
                 "Tuned engine", "The boat uses 10% less fuel.",
                 "Winch tune", "Every 2 min, nets and pots winch up 25% faster for 30 s.",
@@ -122,10 +126,6 @@ namespace Catchline.Game
                 "Fast bait", "Baits deep lines and clears pots 25% faster.",
                 "Chum saver", "30% of his deep-line baits don't use up the chum.",
                 "Pot luck", "Every 5 min, the next pot or line he raises brings up an extra catch."),
-            new CardDef("Tove", 5, CardRole.Deckhand, Speciality.Sort, CardRarity.Gold,
-                "Steady hands", "Sorts crabs and fish over 3 kg 20% faster.",
-                "Grader", "Fish she sorts in the top quarter of their weight sell for 10% more.",
-                "Keen eye", "Every 10th fish she sorts sells for double."),
         };
 
         public static CardDef ById(string id)

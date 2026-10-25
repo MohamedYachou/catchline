@@ -28,7 +28,9 @@ namespace Catchline.Game
         public int[] CaptainTools = new int[CardProgression.MaxToolSlots];
         public int NextToolUid = 1;
         public string FocusCard = "";
-        public int ChestPity;
+        public int ChestPity;                                // legacy single counter; read into the sea chest's
+        public int[] ChestPities = new int[0];               // per ChestKind: chests since that kind's last blueprint
+        public List<string> CrewChests = new List<string>(); // "id:n": crew chests bought from each crew offer
         public int FreeBlueprints;
         public int RenownClaimed;
         public List<int> PendingChests = new List<int>();    // ChestKind values

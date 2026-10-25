@@ -106,8 +106,6 @@ namespace Catchline.Game
             coastalUi.Scrim(id, dismiss, alpha);
         }
 
-        static string ChestLayer(ChestKind k, string layer) => "v2-chest-" + (k == ChestKind.Crate ? "crate" : k == ChestKind.SeaChest ? "sea" : "captain") + "-" + layer;
-
         // Confetti thrown up from a point, falling under gravity and fading; stable per piece.
         void Confetti(string id, float x, float y, float t, int count, Color main, float floor)
         {
@@ -154,6 +152,7 @@ namespace Catchline.Game
 
         void ChestsPage(Rect body)
         {
+            if (State.PendingChestCount(ChestKind.Welcome) > 0) { WelcomeChestCard(body); return; }
             float gap = compactInterface ? 10 : 16, oddsH = compactInterface ? 58 : 70;
             float cw = (body.width - gap * 2) / 3, ch = body.height - oddsH - gap;
             for (int i = 0; i < 3; i++)
@@ -195,21 +194,23 @@ namespace Catchline.Game
                 }
             }
             var odds = coastalUi.Card("chests/odds", new Rect(body.x, body.yMax - oddsH, body.width, oddsH), Skin.Card.Soft);
-            int pity = Mathf.Max(1, Chests.PityChests - State.ChestPity);
-            string focus = string.IsNullOrEmpty(State.FocusCard) ? "No focus set: blueprints go to whoever needs one" : $"Focus {Cards.ById(State.FocusCard)?.Name}: 75% of blueprints";
+            string focus = string.IsNullOrEmpty(State.FocusCard) ? "no focus: blueprints go to whoever needs one" : $"focus {Cards.ById(State.FocusCard)?.Name} gets 75%";
             coastalUi.Text("chests/odds/text", new Rect(16, 0, body.width - 32, oddsH),
-                $"Tool odds  White 60% · Green 25% · Blue 10% · Purple 4% · Legendary 1%\nBlueprint guaranteed within {pity} chest{(pity > 1 ? "s" : "")} · {focus}",
+                $"Tool odds  White 60% · Green 25% · Blue 10% · Purple 4% · Legendary 1%\nBlueprint guaranteed in {State.ChestsToPity(ChestKind.Crate)} crates · {State.ChestsToPity(ChestKind.SeaChest)} sea chests · {State.ChestsToPity(ChestKind.CaptainsChest)} captain's chests · {focus}",
                 Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, odds);
         }
 
-        void StartReveal(ChestKind kind)
+        void StartReveal(ChestKind kind) => StartReveal(OpenChest(kind));
+        void StartReveal(ChestResult result)
         {
-            var result = OpenChest(kind);
             if (result == null) return;
             var r = new ChestReveal { Result = result, Start = Now, Best = CardRarity.White };
             r.Items.Add(("tokens", CardRarity.White, null, result.Tokens));
             foreach (var t in result.Tools.OrderBy(t => t.Rarity)) r.Items.Add(("tool", t.Rarity, ToolInfo.Name(t.Kind), (int)t.Kind));
-            foreach (var id in result.Blueprints) r.Items.Add(("blueprint", CardRarity.Purple, id, 1));
+            // A blueprint that recruited someone shows as the new crew member instead, last and biggest.
+            var recruited = new List<string>(result.Recruits);
+            foreach (var id in result.Blueprints) if (!recruited.Remove(id)) r.Items.Add(("blueprint", CardRarity.Purple, id, 1));
+            foreach (var id in result.Recruits) r.Items.Add(("recruit", (CardRarity)Mathf.Max((int)CardRarity.Purple, (int)(Cards.ById(id)?.StartRarity ?? CardRarity.White)), id, 1));
             for (int i = 0; i < result.FreeBlueprints; i++) r.Items.Add(("free", CardRarity.Gold, null, 1));
             foreach (var it in r.Items) if (it.rarity > r.Best) r.Best = it.rarity;
             r.FlipAt = Enumerable.Repeat(-1f, r.Items.Count).ToArray();
@@ -255,11 +256,16 @@ namespace Catchline.Game
             float near = Ease.Clamp(t / Drop);
             coastalUi.Icon("reveal/shadow", Centered(cx, restY + size * .36f, size * (.5f + .45f * near), size * .2f), "fx-chest-shadow", null, new Color(1, 1, 1, .9f * near));
             var chest = coastalUi.Group("reveal/chest", Centered(cx, y, size, size));
-            if (popped) coastalUi.Icon("reveal/chest/open", new Rect(0, 0, size, size), ChestArt(r.Result.Kind, true), chest);
+            if (popped)
+            {
+                if (r.Result.CrewId != null) CrewPorthole("reveal/chest/crewopen", size, r.Result.CrewId, chest, Color.white, false);
+                coastalUi.Icon("reveal/chest/open", new Rect(0, 0, size, size), ChestArt(r.Result.Kind, true), chest);
+            }
             else
             {
                 // The lid rattles as the shake builds: the dark interior shows through the gap.
                 float k = t < Drop ? 0 : (t - Drop) / (Pop - Drop), lift = Mathf.Abs(Mathf.Sin(k * 27)) * size * .05f * k * k;
+                if (r.Result.CrewId != null) CrewPorthole("reveal/chest/crew", size, r.Result.CrewId, chest, Color.white, true);
                 coastalUi.Icon("reveal/chest/base", new Rect(0, 0, size, size), ChestLayer(r.Result.Kind, "base"), chest);
                 if (lift > .5f) coastalUi.Icon("reveal/chest/inside", new Rect(0, 0, size, size), ChestLayer(r.Result.Kind, "interior"), chest);
                 coastalUi.Icon("reveal/chest/lid", new Rect(0, -lift, size, size), ChestLayer(r.Result.Kind, "lid"), chest);
@@ -330,6 +336,7 @@ namespace Catchline.Game
             tokenFxAt = Now;
             audio?.Play(VoyageAudio.Cue.Coins, .6f);
             if (r.Result.FreeBlueprints > 0) { crewTab = 0; renownChoice = -1; }
+            else if (r.Result.Recruits.Count > 0) { crewTab = 0; cardPanelId = r.Result.Recruits[0]; }
         }
 
         void RevealFace(string id, Rect rect, (string kind, CardRarity rarity, string a, int n) item)
@@ -348,6 +355,15 @@ namespace Catchline.Game
                 case "tool":
                     ToolTileFace(id + "/tool", new Rect(w * .14f, h * .18f, w * .72f, w * .72f), new ToolState { Kind = (ToolKind)item.n, Rarity = item.rarity }, g);
                     title = item.a; caption = CardProgression.RarityName(item.rarity) + $" · +{CardProgression.ToolBonus(item.rarity) * 100:0}%"; break;
+                case "recruit":
+                {
+                    var c = CardRoster.Find(State.Roster, item.a) ?? new CardState(item.a);
+                    CardFace(id + "/card", new Rect(0, 0, w, h), c, g, c.Rarity, w > 130);
+                    float rw = w * 1.15f, rh = rw / 4;
+                    coastalUi.Icon(id + "/ribbon", new Rect((w - rw) / 2, -rh * .45f, rw, rh), "fx-rank-ribbon", g);
+                    coastalUi.Text(id + "/ribbon/text", new Rect((w - rw) / 2, -rh * .5f, rw, rh * .9f), "NEW CREW", w > 130 ? Skin.Type.Heading : Skin.Type.Caption, Darker(RarityColour(c.Rarity)), TextAnchor.MiddleCenter, g);
+                    return;
+                }
                 case "blueprint":
                     coastalUi.Icon(id + "/icon", new Rect(w * .1f, h * .16f, w * .8f, w * .8f), "v2-icon-blueprint", g);
                     coastalUi.Icon(id + "/who", new Rect(w * .3f, h * .25f, w * .4f, w * .4f), "art108-" + item.a + "-96", g);

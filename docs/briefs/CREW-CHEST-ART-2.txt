@@ -1,0 +1,28 @@
+CREW-CHEST-ART-2 — Codex 2 (WSL artist) — art for crew chests, the welcome chest and tier/lock badges
+
+GOAL (Mo, 2026-10-25 night): new crew are no longer free when the boat reaches a tier. Each tier sells a premium
+"crew chest" offer per crew member (10 chests, centred on that one person; the 10th always holds their blueprint).
+The tutorial gives Mira from a free "welcome chest". The game needs the art for both, plus badges that show which
+tier a crew member belongs to and that a crew member is still locked.
+
+CONTEXT (read these, nothing else up front): docs/briefs/CREW-FX-ART-1.txt (style, sizes and naming you already
+used); the delivered chests in Assets/Art/UI/Crew/v2-chest-{crate,sea,captain}-{closed,open,base,lid,interior}.png
+(match their camera, outline weight, lighting and canvas size exactly, and their layer split); Art/STYLE.md;
+Art/Source/CrewFx/REPORT.md.
+
+DELIVER (PNG, transparent, same canvas and pivot as the existing chests, into Art/Source/CrewChests/ AND copied to
+Assets/Art/UI/Crew/ without .meta files — Claude makes the metas):
+A. v2-chest-crew-{closed,open,base,lid,interior}: the premium crew chest. Deep navy lacquer with brass corners and
+   a round porthole window on the front (empty, transparent glass area ~38% of chest width: the game draws the crew
+   portrait inside it). Must read as more precious than the captain's chest.
+B. v2-chest-welcome-{closed,open,base,lid,interior}: a small sea-green ribbon-tied gift chest with a compass rose on
+   the lid (Mira is the navigator).
+C. v2-tier-1 .. v2-tier-5: 96x96 round brass badges with the numeral, readable at 28 px.
+D. v2-lock: 96x96 padlock in house ink/brass; v2-silhouette-mask: 256x320 soft navy figure silhouette for locked crew.
+E. fx-porthole-glint: 128x128 additive glint sweep for the crew chest window.
+
+DONE = EVIDENCE: a contact sheet Art/Source/CrewChests/review/sheet.png showing every sprite on cream (#F4EBDA) and
+navy (#1C3A5A), plus the crew chest closed/open next to the captain's chest at the same scale. Open and look at it.
+OWNERSHIP: Art/Source/CrewChests/**, the listed files in Assets/Art/UI/Crew/, append-only comms.md. Never write
+scripts, scenes, .meta files or other agents' folders. No git.
+ORDER: A, B, C, D, E; one comms.md DONE line per letter. QUESTION line in comms.md if blocked, then the next letter.

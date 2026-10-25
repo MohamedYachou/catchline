@@ -1,0 +1,33 @@
+{
+  "mode": "built-in image_gen (transparent backgrounds); asset-only inline normalization, requested layer cutting and compositing; no saved scripts",
+  "crewClosed": {
+    "references": [
+      "generated/crew-closed-study.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Correct this premium navy/brass crew chest sprite. Keep exact illustrated finish, navy lacquer/brass/ivory palette, 3/4 front-right camera, corner fittings and right rope handle. CRITICAL GEOMETRY CHANGE: a much TALLER front BODY and SHALLOWER lower-profile domed LID, so the round front window fits ENTIRELY BELOW the straight lid seam with a clear gap. Enlarge the CLEAR INNER GLASS AREA of the porthole to approximately 38% of the WHOLE chest width, with a narrow polished brass ring around it. To make room REMOVE the two wide vertical brass bands from the FRONT BODY face, keeping them on the lid only; body has brass corner fittings and fine edge borders. The body front is a broad tall uninterrupted navy panel with the large empty porthole centred in it. Porthole is flush with front face with natural elliptical projection. Its centre plain dark navy, ready to be made transparent; no reflection or content. Lid must be CLOSED and have a single straight continuous seam ABOVE the entire porthole ring. Body silhouette and composition should remain the same overall size, chest fills square with 7 percent transparent margins. No text, no ground, no particles. True transparent RGBA."
+  },
+  "crewOpen": {
+    "transparent_background": true,
+    "referenced_image_paths": [
+      "/home/mo/.codex/generated_images/01a174fb-94f7-7b40-bb74-700c994da1cd/exec-5527018b-e4e7-4361-9889-93d78243dec6.png",
+      "/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/UI/Crew/v2-chest-captain-open.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Matching OPEN sprite of the exact premium CREW chest in image 1; image 2 guides open angle ONLY. Keep exact deep navy smooth lacquer and fine ivory borders, brass CORNERS only on broad front body, two brass BANDS on domed lid only, right rope handle. Keep large front brass porthole ring and its plain empty dark navy glass centre wholly on stationary front BODY, below rim. Raise the same domed LID on the rear hinge about 100 degrees, leaving its EMPTY dark navy interior visible. Same orthographic front-right 3/4 camera and warm upper-left illustrated lighting, no changes to body dimensions or porthole. All original details stable, NO vertical gold strips on front body. Whole object and raised lid inside square transparent canvas, 7% margins, no contents, portrait, text, ground, particles or external shadow. Truly transparent RGBA."
+  },
+  "welcomeClosed": {
+    "transparent_background": true,
+    "referenced_image_paths": [
+      "/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/UI/Crew/v2-chest-captain-closed.png",
+      "/mnt/c/Users/momoy/Projects/Catchline/Art/Source/CrewChests/v2-chest-crew-closed.png"
+    ],
+    "prompt": "Use case: stylized-concept. Game sprite: ONE CLOSED small WELCOME GIFT CHEST for Mira the navigator. Exact same 3/4 FRONT and RIGHT camera, navy local outline weight, softly painted polished nautical rendering and warm upper-left lighting as reference chests. Make this a friendly SMALL squat sea-green painted wooden gift chest with a simple shallow curved lid. Ivory satin gift ribbon wraps around its body and lid; tie a modest neat bow on LEFT of lid, with all bow ends above lid seam, so lid can be separated. A large readable brass COMPASS ROSE with four long points and four short points is inset on the RIGHT half of the LID top, clearly visible and not obscured by bow. Fine brass corners, tiny brass latch. Less elaborate than the navy premium chest, approachable free tutorial gift. Clean broad shapes, minimal grain, no tiny details. Body/box completely contained inside square transparent canvas with generous margins, front and right face visible, no text, letters, compass lettering, objects, contents, particles, scene, ground or external shadow. Genuine transparent RGBA."
+  },
+  "welcomeOpen": {
+    "transparent_background": true,
+    "referenced_image_paths": [
+      "/home/mo/.codex/generated_images/01a174fb-94f7-7b40-bb74-700c994da1cd/exec-c27b3a44-cba8-4ee2-9083-9aab6a87df12.png",
+      "/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/UI/Crew/v2-chest-captain-open.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Create matching OPEN state of the exact small WELCOME GIFT CHEST in image 1. Image2 is camera/open-angle reference only. Lift the SAME sea-green wooden domed lid about100degrees on rear hinges, carrying its neat IVORY bow on lid LEFT, and large brass 8-point COMPASS ROSE on lid RIGHT, and small brass hanging latch attached to lid. Preserve image1 sea-green painted broad planks, fine brass corners, ivory gift ribbon vertical band over BODY and horizontal cream rim trim, softly painted nautical rendering and navy local outlines. Body and raised lid fit comfortably within transparent square canvas. Interior empty dark teal wood, slight warm illumination, NO contents, portrait, objects, coins or particles. Keep exact 3/4 front/right view, warm upper-left light and inviting gift appearance. No letters, labels, scenery, ground or outside cast shadow; genuine transparent RGBA."
+  }
+}

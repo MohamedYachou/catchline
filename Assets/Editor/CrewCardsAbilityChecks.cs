@@ -233,7 +233,7 @@ namespace Catchline.EditorTools
             g.SessionOnly = true; g.Build();
             try
             {
-                g.State.Hull = 3; g.State.EnsureCards();
+                g.State.Hull = 3; g.State.GrantTrialCards();
                 foreach (var card in g.State.Roster) card.Rarity = CardRarity.Mythic;
                 g.State.Deployment.Clear(); g.State.Deployment.AddRange(new[] { "mira", "noor", "rosa" });
                 const System.Reflection.BindingFlags flags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;

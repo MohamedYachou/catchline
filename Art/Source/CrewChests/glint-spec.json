@@ -1,0 +1,41 @@
+{
+  "size": [
+    128,
+    128
+  ],
+  "rgb": [
+    255,
+    242,
+    204
+  ],
+  "projectionUV": {
+    "centre": [
+      62,
+      64
+    ],
+    "axisU": [
+      0.62,
+      0.785
+    ],
+    "axisV": [
+      0.785,
+      -0.62
+    ]
+  },
+  "envelope": "exp(-(u/37)^6)",
+  "core": "0.85*exp(-(v/2.1)^2)",
+  "halo": "0.32*exp(-(v/7.5)^2)",
+  "secondary": "0.18*exp(-((v-11)/1.1)^2)",
+  "starCentre": [
+    47,
+    45
+  ],
+  "starAxes": [
+    10,
+    0.75
+  ],
+  "starGain": 0.7,
+  "alphaCutoff": 0.005,
+  "supersampling": 4,
+  "blend": "SrcAlpha One additive; tint optional"
+}
