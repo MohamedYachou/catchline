@@ -95,10 +95,11 @@ namespace Catchline.Game
             // PTS optical model, calibrated to each existing boat-sized location.
             material.SetVector("_AbsorptionColor", new Vector4(.06f, .66f, .84f, 1));
             // Wreck bank (6): paler sandy green over the shallows, clearer to a deeper bed.
-            material.SetVector("_ScatteringColor", kind == 6 ? new Vector4(.035f, .37f, .36f, 1) : kind == 4 ? new Vector4(.018f, .26f, .43f, 1)
+            // Lighthouse rock (7): deep clear ocean blue.
+            material.SetVector("_ScatteringColor", kind == 7 ? new Vector4(.02f, .25f, .47f, 1) : kind == 6 ? new Vector4(.035f, .37f, .36f, 1) : kind == 4 ? new Vector4(.018f, .26f, .43f, 1)
                 : kind == 1 ? new Vector4(.025f, .32f, .43f, 1)
                 : kind == 2 ? new Vector4(.025f, .34f, .48f, 1) : new Vector4(.025f, .31f, .43f, 1));
-            material.SetFloat("_MaxDepth", kind == 6 ? 4f : kind == 2 ? 3.5f : kind == 4 ? 1.3f : 3f);
+            material.SetFloat("_MaxDepth", kind == 7 ? 2.5f : kind == 6 ? 4f : kind == 2 ? 3.5f : kind == 4 ? 1.3f : 3f);
             material.SetFloat("_BoatAttack_Water_MicroWaveIntensity", .22f);
             const int count = 5;
             var waves = new Vector4[20];

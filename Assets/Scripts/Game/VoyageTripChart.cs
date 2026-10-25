@@ -17,6 +17,7 @@ namespace Catchline.Game
             new[] { "Bell buoy", "The dark water" },
             new[] { "Seal colony", "Reef breakers" },
             new[] { "Shoal markers", "Cardinal buoy" },
+            new[] { "The wreck", "Tide race" },
         };
         static readonly float[] ChartLandmarkAt = { .36f, .7f };
         RectTransform journeySlab;

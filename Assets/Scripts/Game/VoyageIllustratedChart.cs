@@ -136,6 +136,10 @@ namespace Catchline.Game
                     Tri(P(-.85f, .05f), P(.7f, .35f), P(.5f, .62f), symbol); Tri(P(-.85f, .05f), P(.5f, .62f), P(-.6f, .38f), symbol);
                     L(-.05f, .15f, .2f, -.6f, .3f); L(-.55f, .1f, -.5f, -.75f, .08f);
                     L(-.9f, .78f, -.3f, .66f, .14f); L(-.3f, .66f, .3f, .8f, .14f); L(.3f, .8f, .9f, .66f, .14f); break;
+                case 12: // lighthouse: a tapering tower, its lamp and two beams, on a wave
+                    Tri(P(-.32f, .62f), P(.32f, .62f), P(.16f, -.38f), symbol); Tri(P(-.32f, .62f), P(.16f, -.38f), P(-.16f, -.38f), symbol);
+                    C(0, -.56f, .17f); L(.24f, -.6f, .85f, -.82f, .08f); L(-.24f, -.6f, -.85f, -.82f, .08f);
+                    L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);

@@ -10,7 +10,7 @@ namespace Catchline.Game
         public static readonly Vector2 ChartHarbour = new(.483f, .711f);
         public static Vector2 NauticalChartPoint(int spot) => spot switch {
             1 => new(.216f, .278f), 2 => new(.815f, .414f),
-            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), 6 => new(.72f, .56f), _ => new(.447f, .445f) };
+            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), _ => new(.447f, .445f) };
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
         {
@@ -39,8 +39,11 @@ namespace Catchline.Game
                 bool selected = SelectedSpot == i;
                 DrawChartPin(id + "/symbol", new Rect(x - 22, y - 30, 44, 56), SpotGlyph(i), selected);
                 float w = i == 0 ? 196 : 184, h = 58;
-                float cx = i == 0 ? x + 18 : x - w * .48f;
-                float cy = i == 0 ? y - 10 : y + 31;
+                // Harbour mouth and Deep channel carry their cards beside the pin: below it, the Deep channel card would
+                // cover the Lighthouse rock pin on a phone.
+                bool beside = i == 0 || i == 4;
+                float cx = beside ? x + 18 : x - w * .48f;
+                float cy = beside ? y - 10 : y + 31;
                 var card = new Rect(Mathf.Clamp(cx, 8, iw - w - 8), cy, w, h);
                 var face = coastalUi.Card(id + "/card", card, selected ? Skin.Card.Selected : Skin.Card.Soft);
                 coastalUi.Text(id + "/name", new Rect(12, 4, w - 24, 28), GameData.Spots[i].Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, face);
@@ -58,7 +61,7 @@ namespace Catchline.Game
         }
         // Spots 0-4 use glyphs 0-4; glyph 5 is home, so the Seal skerries (spot 5) gets the seal head (10) and the
         // Wreck bank (6, the open water right of the harbour mouth) the sunken steamer (11).
-        static int SpotGlyph(int spot) => spot == 5 ? 10 : spot == 6 ? 11 : spot;
+        static int SpotGlyph(int spot) => spot == 5 ? 10 : spot == 6 ? 11 : spot == 7 ? 12 : spot;
         void DrawChartPin(string id, Rect r, int glyph, bool selected)
         {
             var host = coastalUi.Box(id, r, "", Color.clear, blocks: false);
