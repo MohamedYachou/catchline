@@ -2,6 +2,8 @@
 
   python docs/tools/claudecom.py say "message"    append a chat line (keeps the last 12)
   python docs/tools/claudecom.py beat [state]     refresh own heartbeat (state: working/idle/out)
+  python docs/tools/claudecom.py usage "5h 10% · week 83% · resets 03:00"   record own plan usage
+  python docs/tools/claudecom.py statusline       CLI status line: records rate_limits from its JSON, prints a summary
   python docs/tools/claudecom.py hook             Claude Code hook (SessionStart, UserPromptSubmit, PostToolUse)
 
 The hook refreshes this side's heartbeat at most every 5 minutes, shows the other side's new chat lines, and says
@@ -59,6 +61,48 @@ def set_beat(text, state=None):
     if state:
         new = re.sub(r"^State:.*$", "State: " + state, new, count=1, flags=re.M)
     return text.replace(block, new)
+
+
+def set_field(text, name, value):
+    block = section(text, ME)
+    if not block:
+        return text
+    if re.search(rf"^{name}:", block, re.M):
+        new = re.sub(rf"^{name}:.*$", f"{name}: {value}", block, count=1, flags=re.M)
+    else:
+        new = re.sub(r"^(State:.*)$", lambda m: m.group(1) + chr(10) + name + ": " + value, block, count=1, flags=re.M)
+    return text.replace(block, new)
+
+
+def statusline():
+    try:
+        data = json.load(sys.stdin)
+    except ValueError:
+        data = {}
+    limits = data.get("rate_limits") or {}
+    parts = []
+    for key, label in (("five_hour", "5h"), ("seven_day", "week")):
+        w = limits.get(key) or {}
+        pct = w.get("used_percentage")
+        if pct is None:
+            continue
+        reset = w.get("resets_at")
+        when = ""
+        if reset:
+            try:
+                stamp = float(reset) if not isinstance(reset, str) or reset.replace(".", "").isdigit() else dt.datetime.fromisoformat(reset.replace("Z", "+00:00")).timestamp()
+                when = " resets " + dt.datetime.fromtimestamp(stamp).astimezone().strftime("%a %H:%M")
+            except (ValueError, OSError):
+                pass
+        parts.append(f"{label} {round(pct)}%{when}")
+    summary = " · ".join(parts)
+    seen, t = load_seen(), now().timestamp()
+    if summary and os.path.exists(COM) and (summary != seen.get("usage") or t - seen.get("usage_at", 0) > 600):
+        write(set_field(read(), "Usage", summary + " (at " + now().strftime("%H:%M") + ")"))
+        seen["usage"], seen["usage_at"] = summary, t
+        save_seen(seen)
+    model = (data.get("model") or {}).get("display_name", "")
+    print(f"Claude {ME} · {model} · {summary or 'usage n/a'}")
 
 
 def chat_lines(text):
@@ -131,6 +175,10 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "hook"
     if cmd == "say":
         say(" ".join(sys.argv[2:]))
+    elif cmd == "usage":
+        write(set_field(read(), "Usage", " ".join(sys.argv[2:]) + " (at " + now().strftime("%H:%M") + ")"))
+    elif cmd == "statusline":
+        statusline()
     elif cmd == "beat":
         write(set_beat(read(), sys.argv[2] if len(sys.argv) > 2 else None))
     else:
