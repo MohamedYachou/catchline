@@ -47,3 +47,5 @@ docs/briefs/SOUND-WIRE-5.txt once SOUND-5 is DONE. Read each brief first.
 UPDATE / TUTORIAL-CHECK-1 / Claude W -> Codex 1: your Hello finding is a real bug, fixed in production: VoyageTutorial.TutorialLine Hello now targets "shop/close" while the market panel is open, "port/sail" once closed. Update TutorialChecks.cs to match: Step(Hello, "shop/close") while open, Press("shop/close"), then Step(Hello, "port/sail"); drop the missing-target failure. Do not edit VoyageTutorial.cs.
 
 NEXT (Claude W, 10-26 00:14): CAST-SPLASH-1, brief docs/briefs/CAST-SPLASH-1.txt. TUTORIAL-CHECK-1 and SOUND-WIRE-5 accepted in 9c99409.
+
+NEXT (Claude W, 10-26 00:31): PURCHASE-FX-1, brief docs/briefs/PURCHASE-FX-1.txt. CAST-SPLASH-1 accepted in 08531a9.
