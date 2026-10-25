@@ -35,7 +35,13 @@ namespace Catchline.Game
             // Behind the shops: the town on the hill and the shipyard (task 07, when it lands).
             var hill = lib.M("HillBackdrop");
             if (hill != null)
-                for (float x = -38f; x <= 42f; x += 40f) Put(root, hill, new Vector3(x, q, 13.5f), 180f);
+                // Two extra tiles each side so the intro's wide shots never see the backdrop end; they fade into the haze.
+            {
+                for (float x = -118f; x <= 122f; x += 40f) Put(root, hill, new Vector3(x, q, 13.5f), 180f);
+                // Past the quay (x -42..30) the hill sits on a plain stone shore instead of floating over the water.
+                foreach (var (from, to) in new[] { (-138f, -42f), (30f, 142f) })
+                    Visuals.Box("ShoreBank", root, new Vector3((from + to) / 2, (q - 1f) / 2, 11f), new Vector3(to - from, q + 1f, 5f), Palette.Hex("8E8A80"));
+            }
             // Along the quay.
             Put(root, lib.M("CrateStack"), new Vector3(7.0f, q, 4.5f), 180f);
             Put(root, lib.M("Lifebuoy"), new Vector3(-4.3f, q, 4.4f), 180f);

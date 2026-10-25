@@ -87,4 +87,9 @@ cost to buy.
   green window on the water and throws a panel (or a heap on a miss) per tap; hauling shows the drum warming toward
   red, the net strands taut or stretched and the bunt of fish rising in the last third. NetViewChecks; renders
   net-*.png. Not yet done: the big-fish tap in the bunt (a new rule with a payout; needs Mo's OK on the bonus size).
-
+- Gutting (section 3), design settled 2026-10-25 (Claude, Mo away; rules can be tuned): no price change. The reward is
+  speed, so the economy stays as it is. The captain takes a table job (DeckScheduler.CaptainTable, a TableWork job
+  that hands its finish to a CaptainBench hook instead of Actor.Act). The camera drops to the board (GutView), one
+  drag vent to gills: on the line the fish is done in 0.5 s and the streak grows; off the line it is a ragged cut
+  that still finishes after the crew's normal 3 s. Art: docs/briefs/GUT-ART-1.txt (Codex 2). Code starts when the kit
+  lands; stand-in primitives are not built first, per Mo's "new features inherit finished components".
