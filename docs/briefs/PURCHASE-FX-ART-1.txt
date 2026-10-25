@@ -1,0 +1,13 @@
+PURCHASE-FX-ART-1 — Codex 2 (WSL) — two small sprites for the purchase and wallet moments
+GOAL: buying now sends coins from the wallet onto the bought item (VoyageCoinFx.cs); selling sends them into the wallet.
+Today the landing only shows a soft glow. Give it a crisp, on-style accent.
+CONTEXT: Art/STYLE.md; docs/screens/overnight/buy-coins-landing.png (the moment); Assets/Art/UI/Crew/fx-glow.png,
+fx-splash.png; Art/Source/CastSplash/REPORT.md (same delivery format).
+DELIVER into Art/Source/PurchaseFx/ (SVG masters, PNGs, review/sheet.png, REPORT.md) and identical PNGs in
+Assets/Art/UI/Crew/ (no .meta files):
+ A fx-coin-glint.png 128x128 RGBA: a four-point gold glint star with a white core, for a coin hitting the wallet.
+ B fx-buy-burst.png 256x256 RGBA: a short ring of gold sparkle dashes radiating out, transparent centre, for the
+   bought item as coins land. Both are scaled and faded in code: no motion blur, no text.
+OWNERSHIP: only those paths. No git, no Unity, no code.
+DONE = EVIDENCE: review/sheet.png on cream and navy at 32, 64 and 128/200 px, opened and checked by you.
+REPORTING: one DONE line per item in comms.md; QUESTION and skip when blocked.

@@ -1,0 +1,83 @@
+{
+  "task": "CAST-SPLASH-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "fx-cast-ring": {
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        15,
+        73,
+        242,
+        196
+      ],
+      "transparent_border": true,
+      "ring_centre_clear": true,
+      "alpha_components_gt_127": 1,
+      "component_pixel_counts": [
+        4544
+      ],
+      "source_assets_byte_identical": true,
+      "png_sha256": "357aa91c0cad4c9e0e7ecf6b47b913470b65b163f9a4c4d9fecb4ef03f0fed04",
+      "svg_sha256": "3be6dcb994ecc9e523ab42fe601e73ac556968d1c8d3c61966a086254749cdf4",
+      "no_text_or_filters": true
+    },
+    "fx-cast-drops": {
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        26,
+        28,
+        228,
+        173
+      ],
+      "transparent_border": true,
+      "ring_centre_clear": "not applicable",
+      "alpha_components_gt_127": 7,
+      "component_pixel_counts": [
+        464,
+        382,
+        505,
+        483,
+        395,
+        256,
+        288
+      ],
+      "source_assets_byte_identical": true,
+      "png_sha256": "14fa779051e4ca1bf68d0aacb373c1a410f25e3430d32ab7524f6e6b4f9c0d04",
+      "svg_sha256": "8f7b91ff7164d5b3d21d49d3a5a46b4a3c8c05eca0eeaaa307e85ccf9181a07f",
+      "no_text_or_filters": true
+    }
+  },
+  "review": {
+    "path": "review/sheet.png",
+    "dimensions": [
+      1440,
+      900
+    ],
+    "actual_sizes": [
+      40,
+      96,
+      200
+    ],
+    "backgrounds": [
+      "#F4EBDA",
+      "#1C3A5A"
+    ],
+    "opened_and_inspected": true,
+    "passes": 2,
+    "fix": "Stronger house-teal shoulders after faint cream40px first pass",
+    "result": "PASS static contour/separation/readability"
+  },
+  "runtime_acceptance": "Not run; Codex1/Claude integration scope",
+  "artifacts_sha256": {
+    "Art/Source/CastSplash/review/sheet.png": "12a44195e15e3d87938739998a0d2dd2f98d0396322252f8968fd1d6ff2a7630",
+    "Art/Source/CastSplash/REPORT.md": "cc8aaed18caf700c7943611763e124c67ef245d40fa3c3a230ab61828c980e9c"
+  }
+}
