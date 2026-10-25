@@ -76,7 +76,8 @@ namespace Catchline.Game
         void BuildTier5Buoys()
         {
             var lib=ArtLibrary.Get();
-            for(int i=0;i<2;i++)
+            buoyModels=new Transform[2];
+            for(int i=0;i<buoyAnchors.Length;i++)
             {
                 var root=new GameObject("Working buoy "+(i+1)).transform;root.SetParent(Boat,false);root.localPosition=buoyAnchors[i];
                 ArtLibrary.Spawn(lib?.M("Buoy"),root,Vector3.up*.02f,Quaternion.identity);
@@ -90,19 +91,20 @@ namespace Catchline.Game
         }
         void TickTier5(float dt)
         {
-            if(!IsTier5 || CurrentMode!=Mode.Fishing)return;
-            TickDeepLines(dt);
-            for(int i=0;i<2;i++)
+            if(CurrentMode!=Mode.Fishing)return;
+            if(IsTier5)TickDeepLines(dt);
+            for(int i=0;i<buoyAnchors.Length;i++)
             {
+                if(!IsTier5&&!TickPot(i))continue;
                 buoyTimers[i]=Mathf.Min(BuoySoakSeconds,buoyTimers[i]+dt);
                 if(buoyModels[i]!=null)buoyModels[i].localPosition=buoyAnchors[i]+Vector3.up*(Mathf.Sin(SimTime*1.2f+i)*.025f);
             }
         }
         public bool TryBuoyWork(Person p)
         {
-            if(!IsTier5 || CurrentMode!=Mode.Fishing || !AtFishingGround || p==null || !p.Idle || p.Carrying!=null || HoldFull
+            if(buoyAnchors.Length==0 || CurrentMode!=Mode.Fishing || !AtFishingGround || p==null || !p.Idle || p.Carrying!=null || HoldFull
                 || !p.IsCaptain && p.Contract?.Role!=CrewRole.Fisherman)return false;
-            int i=Enumerable.Range(0,2).Where(n=>buoyTimers[n]>=BuoySoakSeconds&&buoyWorkers[n]==null).DefaultIfEmpty(-1).First();
+            int i=Enumerable.Range(0,buoyAnchors.Length).Where(n=>buoyTimers[n]>=BuoySoakSeconds&&buoyWorkers[n]==null).DefaultIfEmpty(-1).First();
             if(i<0)return false;
             buoyWorkers[i]=p;
             void Cancel(){if(buoyWorkers[i]==p)buoyWorkers[i]=null;}

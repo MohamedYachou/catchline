@@ -273,6 +273,7 @@ namespace Catchline.Game
                     rackFull ? "Net rack full" : $"Buy net · {GameData.NetReplacementCost} coins", !rackFull && State.Coins >= GameData.NetReplacementCost,
                     () => { if (State.BuyNet()) { Toast("Replacement net aboard."); SaveGame(); } }, reason);
             }
+            InterfaceCrabPotProduct();
             if (IsNetFisher && State.TornNets > 0)
             {
                 bool full = State.NetInventory >= GameData.NetInventoryCapacity;

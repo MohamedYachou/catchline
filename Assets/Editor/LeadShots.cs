@@ -34,6 +34,7 @@ namespace Catchline.EditorTools
             if (Want("town")) Town();
             if (Want("repair")) Repair();
             if (Want("dusk")) Dusk();
+            if (Want("pots")) Pots();
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
@@ -262,6 +263,24 @@ namespace Catchline.EditorTools
             g.CutGut(GutViewChecks.CleanCut); g.Tick(.2f);
             ShotUi(g, "gut-1-clean"); ShotUi(g, "gut-1-clean-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        static void Pots()
+        {
+            foreach (int hull in new[] { 1, 2 })
+            {
+                var g = CrabPotChecks.Fixture(hull);
+                while (g.BuyCrabPot()) { }
+                g.Showcase(0, 0); for (int i = 0; i < 20; i++) g.Tick(.05f);
+                var timers = (float[])typeof(VoyageGame).GetField("buoyTimers", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).GetValue(g);
+                timers[0] = g.BuoySoakSeconds; g.Tick(.05f);
+                ShotUi(g, $"pots-h{hull}-deck"); ShotUi(g, $"pots-h{hull}-deck-phone", 844, 390);
+                g.TryBuoyWork(g.Captain);
+                for (int i = 0; i < 400 && !g.CageViewActive; i++) g.Tick(.05f);
+                for (int i = 0; i < 20; i++) g.Tick(.05f);
+                ShotUi(g, $"pots-h{hull}-haul-phone", 844, 390);
+                UnityEngine.Object.DestroyImmediate(g.gameObject);
+            }
         }
 
         static void Dusk()

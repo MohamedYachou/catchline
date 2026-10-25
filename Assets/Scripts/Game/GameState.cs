@@ -78,6 +78,7 @@ namespace Catchline.Game
         // Includes the fitted net. Successful cycles reuse it; a tear removes one.
         public int NetInventory = 3;
         public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
+        public int CrabPots; // pots the captain sets beside a hull 1-3 boat at every ground (VoyageCrabPots.cs)
         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
         public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
@@ -530,6 +531,7 @@ namespace Catchline.Game
             // Presence bit distinguishes legacy saves from an explicitly exhausted rack.
             public bool HasNetInventory;
             public int TornNets;
+            public int CrabPots;
             public int SelectedNet;
             public List<int> DeepNetUses = new();
             public bool UseSquid;
@@ -591,7 +593,7 @@ namespace Catchline.Game
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, BestVoyageKg = BestVoyageKg, UseSquid = UseSquid, PrepOrders = PrepOrders,
                 SecondNetOwned = SecondNetOwned, SecondNetEnabled = SecondNetEnabled,
-                Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true, TornNets = TornNets,
+                Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true, TornNets = TornNets, CrabPots = CrabPots,
                 SelectedNet = (int)SelectedNet, DeepNetUses = new List<int>(DeepNetUses),
                 FoodMinutes = FoodMinutes, Richness = Richness, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
@@ -649,6 +651,7 @@ namespace Catchline.Game
                 s.SecondNetOwned = d.SecondNetOwned; s.SecondNetEnabled = d.SecondNetEnabled && d.SecondNetOwned;
                 s.NetInventory = d.HasNetInventory ? Mathf.Clamp(d.NetInventory, 0, GameData.NetInventoryCapacity) : 3;
                 s.TornNets = Mathf.Clamp(d.TornNets, 0, GameData.NetInventoryCapacity);
+                s.CrabPots = Mathf.Clamp(d.CrabPots, 0, 2);
                 s.SelectedNet = d.SelectedNet == 1 ? NetKind.Deep : NetKind.Shallow;
                 if (d.DeepNetUses != null)
                     foreach (int uses in d.DeepNetUses)

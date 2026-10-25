@@ -51,7 +51,7 @@ namespace Catchline.Game
                 else coastalUi.Toast("toast", toast, null, CurrentMode == Mode.Harbour ? ih - Edge - TabBarHeight - 76 : 18);
             }
             InterfaceCrewBait();
-            if (!ManagementOpen) { InterfaceTier5Operations(); ManagementEntry(); }
+            if (!ManagementOpen) { InterfaceTier5Operations(); InterfacePotLine(); ManagementEntry(); }
             coastalUi.End();
         }
         void Block(Rect rect) => hudRects.Add(rect);

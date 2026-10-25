@@ -255,7 +255,7 @@ namespace Catchline.Game
             }
             BuildNetKit();
             BuildSecondNetWater();
-            if (IsTier5) BuildTier5Buoys();
+            if (IsTier5 || ConfigurePotLine()) BuildTier5Buoys();
         }
 
         void BuildGrid()
