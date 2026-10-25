@@ -104,8 +104,8 @@ namespace Catchline.Game
             {
                 float k = Mathf.Clamp01((t - c.from) / .6f) * (1 - Mathf.Clamp01((t - c.to + .6f) / .6f));
                 if (k <= .01f) continue;
-                var band = new Rect(Edge, ih * .2f, iw - 2 * Edge, 56); // upper third: the boats sit low in the frame
-                coastalUi.Text("intro/caption/" + c.from, band, c.text, Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter, null, true);
+                // Upper third (the boats sit low in the frame), on the game's navy toast pill so it reads over any scenery.
+                coastalUi.Toast("intro/caption/" + c.from, c.text, null, ih * .2f, Edge, iw - Edge);
                 Fade("intro/caption/" + c.from, k);
             }
             var skip = new Rect(iw - Edge - 112, Edge, 112, 48);
