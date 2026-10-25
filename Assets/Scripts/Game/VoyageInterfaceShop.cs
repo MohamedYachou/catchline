@@ -146,9 +146,11 @@ namespace Catchline.Game
             coastalUi.Icon("shop/selection/art", new Rect(14, 8, artW, r.height - 16), item.Art, slab, null, item.Fallback);
             coastalUi.Sliced("shop/selection/rule", new Rect(artW + 24, 14, 2, r.height - 28), "v2-rule", slab);
             float bw = compactInterface ? 220 : 340, x = artW + 40, w = r.width - x - bw - 32;
-            coastalUi.Text("shop/selection/name", new Rect(x, 6, w, r.height * .45f), item.Name, compactInterface ? Skin.Type.Heading : Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, slab);
+            // A phone slab is short: the name takes a slimmer top band so the description gets two full lines.
+            float split = compactInterface ? .36f : .45f;
+            coastalUi.Text("shop/selection/name", new Rect(x, compactInterface ? 2 : 6, w, r.height * split), item.Name, compactInterface ? Skin.Type.Heading : Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, slab);
             string line = item.Reason ?? item.Description;
-            coastalUi.Text("shop/selection/line", new Rect(x, r.height * .45f + 8, w, r.height * .5f - 12), line, compactInterface ? Skin.Type.Small : Skin.Type.Body,
+            coastalUi.Text("shop/selection/line", compactInterface ? new Rect(x, r.height * split + 2, w, r.height * (1 - split) - 6) : new Rect(x, r.height * .45f + 8, w, r.height * .5f - 12), line, compactInterface ? Skin.Type.Small : Skin.Type.Body,
                 item.Reason != null && !item.Enabled ? Skin.Bad : Skin.Teal, TextAnchor.UpperLeft, slab);
             float bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 8;
             string label = item.Owned ? item.Action : item.Price >= 0 ? $"{Verb(item.Action)} · {item.Price:N0}" : item.Action;
@@ -207,7 +209,9 @@ namespace Catchline.Game
                 var card = coastalUi.Card("log/" + i, r, Skin.Card.Soft, content);
                 coastalUi.Icon("log/" + i + "/fish", new Rect(10, 8, r.width - 20, ch * .42f), found ? FishPortrait(f.Species) : "fish-unknown", card, found ? (Color?)null : new Color(1, 1, 1, .5f), found ? FishPortrait(f.Species) : "fish-unknown");
                 coastalUi.Text("log/" + i + "/name", new Rect(8, ch * .46f, r.width - 16, 28), found ? f.Name : "Undiscovered", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
-                coastalUi.Text("log/" + i + "/record", new Rect(8, ch * .46f + 28, r.width - 16, 22), found ? $"{State.LogCount[(int)f.Species]} caught · best {State.LogBest[(int)f.Species]:0.0} kg" : "Explore the grounds", Skin.Type.Caption, Skin.InkSoft, TextAnchor.MiddleCenter, card);
+                // A phone card has room for one line under the name: the market needs the price there, not the record.
+                bool priceLine = compactInterface && found;
+                coastalUi.Text("log/" + i + "/record", new Rect(8, ch * .46f + 28, r.width - 16, 22), priceLine ? $"{State.PricePerKg(f.Species):0.0} / kg" : found ? $"{State.LogCount[(int)f.Species]} caught · best {State.LogBest[(int)f.Species]:0.0} kg" : "Explore the grounds", priceLine ? Skin.Type.Heading : Skin.Type.Caption, priceLine ? Skin.Teal : Skin.InkSoft, TextAnchor.MiddleCenter, card);
                 if (!compactInterface) coastalUi.Text("log/" + i + "/price", new Rect(8, ch - 40, r.width - 16, 30), $"{State.PricePerKg(f.Species):0.0} / kg", Skin.Type.Heading, Skin.Teal, TextAnchor.MiddleCenter, card);
             }
         }
@@ -340,6 +344,11 @@ namespace Catchline.Game
             foreach (var (anchor, tab) in Shops)
             {
                 HudTab chosen = tab;
+                // A building hidden behind the port slab or the bottom row gets no bubble: clamped into the open water
+                // it would point at nothing, and the tab bar already opens that shop.
+                var v = Cam.WorldToViewportPoint(anchor.position);
+                float bx = v.x * iw, by = (1 - v.y) * ih;
+                if (v.z <= 0 || bx < coastalUi.BubbleLeft - 8 || bx > iw - 8 || by > sail.y) continue;
                 InterfaceBubble("building/" + tab, anchor.position, ShortTab(tab), TabIcons[(int)tab], () => OpenShop(chosen));
             }
         }

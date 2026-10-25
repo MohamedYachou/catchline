@@ -49,7 +49,9 @@ namespace Catchline.Game
         Font display;
         Font DisplayFont => display != null ? display : display = ArtLibrary.Get()?.DisplayFont ?? font;
         public bool Phone => Height < 600;
-        float MinHit => Skin.MinTouch / Mathf.Max(.001f, canvas.scaleFactor);
+        // 44 points, not 44 device pixels: a 3x phone screen needs three times the pixels for the same fingertip.
+        public static float TouchPixels => Skin.MinTouch * Mathf.Max(1, Screen.dpi / 163f);
+        float MinHit => TouchPixels / Mathf.Max(.001f, canvas.scaleFactor);
 
         Sprite V2(string name, float multiplier = 2)
         {
@@ -121,7 +123,7 @@ namespace Catchline.Game
             }
             e.Button.spriteState = new SpriteState { pressedSprite = enabled && pressed != null ? V2(pressed) : null };
             e.Button.interactable = enabled; e.Action = enabled ? action : null;
-            // Hit area grows invisibly to 44 physical px; the artwork keeps its size.
+            // Hit area grows invisibly to 44 points; the artwork keeps its size.
             float min = MinHit;
             bool small = r.width < min || r.height < min;
             if (small)
@@ -280,8 +282,10 @@ namespace Catchline.Game
                 }
                 else
                 {
-                    Icon($"{id}/{i}/icon", new Rect((tr.width - iconSize) / 2, 6, iconSize, iconSize), icons[i], e.Rect);
-                    Text($"{id}/{i}/label", new Rect(6, iconSize + 6, tr.width - 12, tr.height - iconSize - 14), labels[i], Skin.Type.Heading, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, e.Rect);
+                    // A short phone tab still keeps its word under a smaller icon.
+                    if (tr.height - iconSize - 14 < 26) iconSize = Mathf.Max(22, tr.height - 42);
+                    Icon($"{id}/{i}/icon", new Rect((tr.width - iconSize) / 2, 5, iconSize, iconSize), icons[i], e.Rect);
+                    Text($"{id}/{i}/label", new Rect(4, iconSize + 4, tr.width - 8, tr.height - iconSize - 10), labels[i], Skin.Type.Heading, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, e.Rect);
                 }
             }
         }
@@ -499,7 +503,7 @@ namespace Catchline.Game
         public float BubbleLeft = 12, BubbleRight, BubbleBottom; // BubbleBottom: top of a bottom bar, 0 for none
         public Rect Bubble(string id, Vector2 anchor, string icon, string text, bool hot, Action action, string fallback = null)
         {
-            float w = Mathf.Max(96, 56 + text.Length * 11), h = 52;
+            float w = text.Length == 0 ? 52 : Mathf.Max(96, 56 + text.Length * 11), h = 52; // no text: an icon-only bubble
             float right = BubbleRight > BubbleLeft ? BubbleRight : Width - 12;
             float bottom = BubbleBottom > 0 ? BubbleBottom - h - 22 : Height - h - 30; // room for the tail
             Rect At(float x, float y) => new Rect(Mathf.Clamp(x, BubbleLeft, right - w), Mathf.Clamp(y, BubbleTop, bottom), w, h);
@@ -522,8 +526,8 @@ namespace Catchline.Game
             bool attached = anchor.y > r.yMax - 4 && anchor.y < r.yMax + 40;
             Icon(id + "/tail", attached ? new Rect(Mathf.Clamp(anchor.x, r.x + 18, r.xMax - 18) - 13, r.yMax - 5, 26, 16) : Rect.zero, hot ? "v2-bubble-hot-tail" : "v2-bubble-tail");
             var e = Pressable(id, r, null, hot ? "v2-bubble-hot" : "v2-bubble", null, action, true);
-            Icon(id + "/icon", new Rect(12, 9, 30, 30), icon, e.Rect, null, fallback);
-            Text(id + "/text", new Rect(48, 0, w - 56, h - 4), text, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, e.Rect);
+            Icon(id + "/icon", new Rect(text.Length == 0 ? 11 : 12, 9, 30, 30), icon, e.Rect, null, fallback);
+            Text(id + "/text", new Rect(48, 0, Mathf.Max(0, w - 56), h - 4), text, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, e.Rect);
             return r;
         }
 

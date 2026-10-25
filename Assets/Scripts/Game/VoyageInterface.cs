@@ -72,9 +72,15 @@ namespace Catchline.Game
         void InterfaceFishing()
         {
             InterfaceVoyageHud();
+            // On a phone a row of identical "Fish" bubbles hides the deck: only the first idle rod keeps its word.
+            bool labelled = false;
             foreach (var rod in Rods.Where(r => r.Unlocked && CanCommandRod(r)))
-                InterfaceBubble("rod/" + Rods.IndexOf(rod), Boat.TransformPoint(rod.TipLocal + Vector3.up * .25f),
-                    rod.State == RodState.Bite ? "Bite!" : rod.InWater ? "Watch" : "Fish", "icon-rod", () => CommandRod(rod), rod.State == RodState.Bite);
+            {
+                bool idle = rod.State != RodState.Bite && !rod.InWater;
+                string caption = rod.State == RodState.Bite ? "Bite!" : rod.InWater ? "Watch" : compactInterface && labelled ? "" : "Fish";
+                labelled |= idle;
+                InterfaceBubble("rod/" + Rods.IndexOf(rod), Boat.TransformPoint(rod.TipLocal + Vector3.up * .25f), caption, "icon-rod", () => CommandRod(rod), rod.State == RodState.Bite);
+            }
             for (int i = 0; i < OnDeck.Count; i++)
             {
                 var fish = OnDeck[i];

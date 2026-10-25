@@ -354,8 +354,8 @@ namespace Catchline.Game
         }
         public Rect ReferenceButton(string id, Rect r, System.Action action)
         {
-            // Expand only the invisible hit area to 44 physical pixels; keep source artwork exact.
-            float target = 44 / Mathf.Max(.001f, canvas.scaleFactor);
+            // Expand only the invisible hit area to 44 points; keep source artwork exact.
+            float target = TouchPixels / Mathf.Max(.001f, canvas.scaleFactor);
             r = new Rect(r.center.x - Mathf.Max(target, r.width) / 2, r.center.y - Mathf.Max(target, r.height) / 2,
                 Mathf.Max(target, r.width), Mathf.Max(target, r.height));
             r.x = Mathf.Clamp(r.x, 0, Mathf.Max(0, Width - r.width));
