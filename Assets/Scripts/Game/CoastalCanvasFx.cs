@@ -28,6 +28,20 @@ namespace Catchline.Game
             if (elements.TryGetValue(id, out var e) && e.Rect.GetComponent<RectMask2D>() == null) e.Rect.gameObject.AddComponent<RectMask2D>();
         }
 
+        // Where an element drawn this frame sits, in the root's logical top-left coordinates (through nested parents
+        // and scrolls). Coach marks use it to point at a button wherever its screen put it.
+        public bool TryFind(string id, out Rect r)
+        {
+            r = default;
+            if (!elements.ContainsKey(id) && aliases.TryGetValue(id, out var target)) id = target;
+            if (!elements.TryGetValue(id, out var e) || !e.Used || !e.Rect.gameObject.activeInHierarchy) return false;
+            var corners = new Vector3[4]; e.Rect.GetWorldCorners(corners);
+            Vector2 topLeft = Root.InverseTransformPoint(corners[1]), bottomRight = Root.InverseTransformPoint(corners[3]);
+            var root = Root.rect;
+            r = Rect.MinMaxRect(topLeft.x - root.xMin, root.yMax - topLeft.y, bottomRight.x - root.xMin, root.yMax - bottomRight.y);
+            return r.width > 0 && r.height > 0;
+        }
+
         // A transparent container for grouping and posing children.
         public RectTransform Group(string id, Rect r, Transform parent = null)
         {

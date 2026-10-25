@@ -53,6 +53,7 @@ namespace Catchline.Game
             }
             InterfaceCrewBait();
             if (!ManagementOpen) { InterfaceTier5Operations(); InterfacePotLine(); ManagementEntry(); }
+            InterfaceTutorial();
             coastalUi.End();
         }
         void Block(Rect rect) => hudRects.Add(rect);

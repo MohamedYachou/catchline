@@ -8,6 +8,8 @@ namespace Catchline.Game
     {
         public static readonly Dictionary<string, Vector4> Border = new()
         {
+            ["tut-ring"] = new Vector4(96, 96, 96, 96),
+            ["tut-bubble"] = new Vector4(48, 48, 48, 48),
             ["v2-bar-bad"] = new Vector4(16, 16, 16, 16),
             ["v2-bar-good"] = new Vector4(16, 16, 16, 16),
             ["v2-bar-teal"] = new Vector4(16, 16, 16, 16),

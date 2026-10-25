@@ -41,6 +41,7 @@ namespace Catchline.EditorTools
             if (Want("rod")) Rod();
             if (Want("crewui")) CrewUi();
             if (Want("abilitypop")) AbilityPop();
+            if (Want("tutorial")) Tutorial();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -106,6 +107,30 @@ namespace Catchline.EditorTools
             Clock(21.6f); ShotUi(g, "crew-welcome-reveal");
             var flip = T.GetMethod("FlipReveal", H); for (int i = 0; i < 4; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
             Clock(23); ShotUi(g, "crew-welcome-open"); ShotUi(g, "crew-welcome-open-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // Mira's coach marks at each tutorial step, desktop and phone.
+        static void Tutorial()
+        {
+            var g = Game("Tutorial shot"); Rebuild(g, 0);
+            var s = g.State; var T = typeof(VoyageGame);
+            void Set(string f, object v) => T.GetField(f, H).SetValue(g, v);
+            void Step(VoyageGame.TutStep step) => s.Tutorial = (int)step;
+            void Both(string name) { ShotUi(g, name); ShotUi(g, name + "-phone", 844, 390); }
+            Set("panelOpen", false);
+            Step(VoyageGame.TutStep.Hello); Both("tut-hello");
+            s.Coins = 200; s.BestVoyageFish = 3; Step(VoyageGame.TutStep.Skiff); Both("tut-skiff");
+            s.Coins = 5000; s.BestVoyageFish = GameData.SkiffFishGoal; Step(VoyageGame.TutStep.Refit); Both("tut-refit-tab");
+            Set("panelOpen", true); Set("hudTab", VoyageGame.HudTab.Chandlery); ShotUi(g, "tut-refit-shop");
+            Rebuild(g, 1); s.Roster.Clear(); s.Deployment.Clear(); s.EnsureCards();
+            Set("panelOpen", false); Step(VoyageGame.TutStep.Welcome); Both("tut-welcome-tab");
+            Set("panelOpen", true); Set("hudTab", VoyageGame.HudTab.CrewOffice); Set("crewTab", 0); ShotUi(g, "tut-welcome-chests");
+            Set("crewTab", 1); Both("tut-welcome-open");
+            Set("crewTab", 0); Step(VoyageGame.TutStep.MeetMira); Both("tut-mira");
+            Step(VoyageGame.TutStep.Recruit); Set("panelOpen", false); ShotUi(g, "tut-recruit-tab");
+            Set("panelOpen", true); Set("crewTab", 0); ShotUi(g, "tut-recruit-crew");
+            Set("crewTab", 2); Both("tut-recruit-done");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

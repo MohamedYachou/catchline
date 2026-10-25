@@ -29,6 +29,7 @@ namespace Catchline.Game
         public int NextToolUid = 1;
         public string FocusCard = "";
         public int ChestPity;                                // legacy single counter; read into the sea chest's
+        public int Tutorial = -1;                            // first-run tutorial step; -1 = a save from before it (skipped)
         public int[] ChestPities = new int[0];               // per ChestKind: chests since that kind's last blueprint
         public List<string> CrewChests = new List<string>(); // "id:n": crew chests bought from each crew offer
         public int FreeBlueprints;

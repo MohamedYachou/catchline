@@ -105,7 +105,7 @@ namespace Catchline.Game
             {
                 string start = CurrentMode != Mode.Harbour ? "Resume voyage" : hadSave ? "Continue" : "Start in harbour";
                 bool fresh = !hadSave && CurrentMode == Mode.Harbour && State.Voyage <= 1;
-                coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), start, () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); if (fresh) BeginIntro(); });
+                coastalUi.Primary("title/start", new Rect(bx, y, bw, bh), start, () => { confirmReset = showSettings = paused = showTitle = false; MenuSound(); if (fresh) BeginFirstVoyage(); });
                 y += bh + gap;
                 if (hadSave)
                 {
@@ -123,7 +123,7 @@ namespace Catchline.Game
                         NewGame();
                         hadSave = false;
                         confirmReset = showSettings = paused = showTitle = false;
-                        BeginIntro();
+                        BeginFirstVoyage();
                     }, "Keep progress", () => confirmReset = false, () => confirmReset = false, null, 560, 320);
         }
 
@@ -140,7 +140,7 @@ namespace Catchline.Game
             }
             if (!started) return;
             confirmReset = showSettings = paused = showTitle = false;
-            if (tier == 0) BeginIntro();
+            if (tier == 0) BeginFirstVoyage();
             else Toast($"Test · tier {TestTiers[tier]} · nothing is saved.");
         }
 

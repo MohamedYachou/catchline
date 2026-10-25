@@ -137,7 +137,7 @@ namespace Catchline.EditorTools
             Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
             var pngs = Directory.GetFiles(Path.GetFullPath(UiFolder), "*.png");
             // Crew cards v2: frames, portraits, chests, tools and icons live in subfolders.
-            var cardFolders = new[] { "Cards", "Portraits", "Crew" };
+            var cardFolders = new[] { "Cards", "Portraits", "Crew", "Tutorial" };
             lib.Ui = pngs
                 .Select(p => UiFolder + Path.GetFileName(p))
                 .Concat(cardFolders.Where(f => Directory.Exists(UiFolder + f))
