@@ -1,0 +1,44 @@
+CREW-CHESTS-1 — Codex 1 (Windows) — crew card art on cards, chests in the shop, copies and wildcards (Claude, 2026-10-25 10:10)
+
+START AFTER MAP8 is DONE (Mo: "get codex to finish its job" first). Then this, before MAP9.
+
+GOAL (Mo, 2026-10-25): "use the 2D pictures we have already of each crew ... stick it on a card that's either blue,
+purple or legendary", and "a chest system in the shop where you can get cards you have already unlocked: at tier 1
+you get very few and the chest is cheaper, higher tiers more cards and more cost, and it gives duplicates of the crew
+you have (2x Mira 1x Ellie...). Once you've maxed a card every extra becomes a wildcard; 10 wildcards change into 1
+purple wildcard, 10 purple into 1 gold wildcard." Mo chose: wildcards are bigger copies — blue wildcard = 1 copy of
+any card, purple = 10 copies, gold = 100 copies.
+
+CONTEXT (read first): Assets/Scripts/Game/Data/{Cards,CardState,CardProgression}.cs, GameStateCards.cs, SaveV2.cs,
+VoyageInterfaceShop.cs (crew office / card rows ~line 300-340), docs/CARDS-AND-SPEEDS.md, docs/CREW-CARDS-DESIGN.md.
+Existing art: Assets/Art/UI/Cards/art108-frame-{blue,purple,gold,locked}.png (480x640, portrait window, name band,
+three ability rows) and Assets/Art/UI/v2-portrait-<id>.png for all 11 cards. Chest and wildcard art comes from Codex 2
+(CHEST-ART-1, Art/Source/Chests/ui/); use v2-icon-* placeholders only until it lands, then swap.
+
+RULES (Claude's design calls; keep them exactly, numbers in one static class so they can be tuned):
+1. Card face (one reusable uGUI component, used in the crew office, deploy list, chest reveal): the frame for the
+   card's rarity, the portrait in the window, name in the band (cream, Skin heading), role + level small, the three
+   ability rows (blue/purple/gold ability text; rows above the current rarity dimmed), a copies bar
+   "7 / 10 copies" under the frame. Locked frame for cards not yet unlocked (silhouette portrait).
+2. Copies replace role wildcards as the upgrade cost: Blue->Purple 10 copies + the existing coins, Purple->Gold 25
+   copies + coins (CardProgression.UpgradeCoins unchanged). Save: per-card Copies (int), and Wildcards as three
+   counts Blue/Purple/Gold. Migration: old per-role Wildcards[] sum into blue wildcards 1:1. Version the save field.
+3. Wildcards spend as copies on any card: blue 1, purple 10, gold 100; spending never overshoots (only what the next
+   upgrade still needs, largest first is the player's choice: a "use wildcards" button fills the bar smallest first).
+4. A Gold card's extra copies each become 1 blue wildcard immediately (toast "Mira is maxed: +2 wildcards").
+5. Exchange in the crew office: 10 blue -> 1 purple, 10 purple -> 1 gold (buttons, enabled at 10).
+6. Chests (Crew office tab, a "Chests" row): one chest per boat tier up to the current hull tier.
+   Tier 1: 150 coins, 3 copies. Tier 2: 400, 6. Tier 3: 900, 10. Tier 4: 2,000, 16. Tier 5: 4,500, 25.
+   Copies are drawn only from cards the player owns (unlocked by tier), uniform per copy, seeded from State.Rng.
+   Tier-N chests add a 10% chance per copy of 1 bonus blue wildcard instead (never more than 1 per chest).
+7. Opening (mobile, tap only): the chest sits centred and shakes; tap opens it; cards fly out and stack face down;
+   each tap flips the next card (scale-pop, rarity glow), then a summary grid "2x Mira, 1x Noor, +1 wildcard" with
+   Done. Skip button reveals all. Sounds: existing Purchase/Coins/Click cues.
+OWNERSHIP: Data/Card*.cs, GameStateCards.cs, SaveV2.cs (card fields only), a new VoyageChests.cs + Minigame-free UI
+file(s), the crew-office card rows in VoyageInterfaceShop.cs, Editor/ChestChecks.cs. Never: Minigame/**, Voyage*Life,
+VoyageHarbour*, VoyageCrabPots, Skin.cs/CoastalCanvas.cs (ask), Codex 2's folders. No git; scratch editor only;
+never the player save; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+DONE = EVIDENCE: ChestChecks (draws only owned cards, counts per tier, max-card overflow to wildcards, 10:1 exchanges,
+wildcard spend values, upgrade cost, save round trip + migration) PASS; InterfaceChecks PASS; native frames at 844x390
+and 1440x900 of: crew office with cards of all three rarities, a chest row, the chest shake, a mid-flip reveal, the
+summary, the exchange buttons — each opened. One comms.md line per step; QUESTION and continue on conflict.

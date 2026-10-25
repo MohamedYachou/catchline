@@ -1,0 +1,17 @@
+CHEST-ART-1 — Codex 2 — chest and wildcard art for the crew-card shop (Claude, 2026-10-25 10:10)
+
+GOAL (Mo: a chest system in the shop; wildcards blue/purple/gold): 2D UI art in the existing v2 UI style (read
+Assets/Art/UI/v2-icon-*.png, Assets/Art/UI/Cards/art108-frame-*.png, v2-portrait-*.png and Art/Source/UIv2 for how
+they were made; same outline weight, palette, soft shading). Do this BEFORE SOUND-2, after HARBOUR-LIFE-2.
+DELIVER Art/Source/Chests/ui/ (Claude copies to Assets):
+- v2-chest-t1..t5-closed.png and -open.png, 512x512 transparent: a sea chest that grows richer by tier — t1 plain
+  driftwood box with rope handles, t2 planked with iron bands, t3 painted navy with brass corners, t4 teal and brass
+  with a compass rose, t5 gold-trimmed captain's chest with a glow. Open versions show lid up with a soft light.
+- v2-wildcard-blue.png, -purple.png, -gold.png, 256x256: a round token with a ship's-wheel / star motif in the
+  rarity colours of the frames (blue 3B82D6, purple 8E4FC2, gold E3B23C), plus 64x64 versions (-64 suffix).
+- v2-card-back.png 480x640 matching the frame size: the card back shown face down during reveal (navy, rope border,
+  Catchline anchor mark).
+OWNERSHIP: Art/Source/Chests/ only. No git, no Unity, no Assets/.
+DONE = EVIDENCE: one contact sheet with every file at 1x and phone size (64 px) beside existing v2 icons and a
+frame, opened; REPORT.md. One comms.md line per item group; CHECKPOINT at safe boundaries; QUESTION and skip on
+conflict. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
