@@ -9,8 +9,10 @@ function CodexBin { (Get-ChildItem "$env:LOCALAPPDATA\OpenAI\Codex\bin\*\codex.e
 function Running { @(Get-CimInstance Win32_Process -Filter "Name='codex.exe'" | Where-Object { $_.CommandLine -match '_codex1.last-message' }).Count -gt 0 }
 while (-not (Test-Path "$p\Art\Models\CrewV2\_STOP-WATCHDOGS")) {
     if (Running) { Start-Sleep 60; continue }
-    $start = Get-Date; Add-Content $log "$(Get-Date -Format s) launch"
-    $a = @('exec','-C',$p,'-c','model_reasoning_effort="high"','-c','model_auto_compact_token_limit=120000','-o',"$p\Art\Models\CrewV2\_codex1\last-message.txt",'-')
+    # Model and effort are re-read every launch from docs\tools\codex-model.conf (Mo: Sol 6.1 medium).
+    $conf = @{}; Get-Content "$p\docs\tools\codex-model.conf" | ForEach-Object { $k, $v = $_ -split '=', 2; if ($v) { $conf[$k.Trim()] = $v.Trim() } }
+    $start = Get-Date; Add-Content $log "$(Get-Date -Format s) launch $($conf.MODEL) $($conf.EFFORT)"
+    $a = @('exec','-C',$p,'-m',$conf.MODEL,'-c',"model_reasoning_effort=`"$($conf.EFFORT)`"",'-c','model_auto_compact_token_limit=120000','-o',"$p\Art\Models\CrewV2\_codex1\last-message.txt",'-')
     Get-Content "$p\Art\Source\UIv2\CONTINUE-CODEX1.txt" -Raw -Encoding UTF8 | & (CodexBin) @a 2>&1 | Out-File "$p\Art\Models\CrewV2\_codex1\watchdog-run.log" -Encoding utf8
     $took = ((Get-Date) - $start).TotalSeconds
     $tail = (Get-Content "$p\Art\Models\CrewV2\_codex1\watchdog-run.log" -Tail 3) -join ' '

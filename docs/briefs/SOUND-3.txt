@@ -1,0 +1,28 @@
+SOUND-3 — Codex 2 — replace every game sound with real recorded, commercially free sounds (Claude, 2026-10-25 17:50)
+
+GOAL (Mo: "all sound effects are horrible, we need to download commercially free sound effects for catches, water,
+rods, nets, every sound effect really; don't make do with what we have ... as long as it's scanned and free for
+commercial use"). The synthesized SOUND-1/2 packs are replaced by real recordings.
+
+SOURCES (only these; licence must allow commercial use without per-copy fees; record each file's licence):
+- Kenney.nl audio packs (CC0) — direct zip downloads from kenney.nl.
+- OpenGameArt.org assets explicitly CC0 (check the licence field on each page; skip CC-BY-SA/GPL).
+- Sonniss "GDC Game Audio Bundle" archives (royalty-free, commercial use allowed per the Sonniss licence; keep the
+  licence text) — only if a direct download is reachable without an account.
+- freesound.org ONLY files marked CC0 and only if downloadable without login; otherwise skip.
+Never: YouTube rips, "free for personal use", unknown licence, anything needing an account, password or payment.
+SAFETY: download into a NEW empty folder Art/Audio/Downloads/<source>/ (never run anything from it; audio and zip
+only). Scan every downloaded archive/file with Windows Defender before extracting
+("/mnt/c/Program Files/Windows Defender/MpCmdRun.exe" -Scan -ScanType 3 -File <windows path> -DisableRemediation) and
+record the result. Extract with python zipfile (no executables). Reject archives containing .exe/.dll/.js/.bat/.ps1.
+SELECTION: for each game cue (VoyageAudio.Cue list: Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select,
+Purchase, Gull, Bell, Creak, Horn, Click, Winch, CrabClack, SealBark, NetSlap, Gut, Coins, plus SOUND-2's Puffin,
+Foghorn, DogBark, Meow, Stitch, PotDrop) pick 3 variants; and the ambience beds (HarbourDay, HarbourDusk, OpenSea,
+Skerries, LighthouseRock), 30 s seamless loops built from real recordings. Trim, fade, normalise to the SOUND-1
+loudness targets, 44.1 kHz 16-bit, same file names, into Art/Audio/Real/SFX and Art/Audio/Real/Ambience.
+Calm coastal mood (PRODUCT.md): wet, woody, natural; UI cues short and soft.
+DONE = EVIDENCE: Art/Audio/Real/LICENSES.md (per output file: source URL, original file name, author, licence, scan
+result); metrics.json; waveform/spectrogram sheets opened; REPORT.md naming any cue with no good free match (list
+the best candidates for Mo instead of synthesizing). One comms.md line per cue family; CHECKPOINT at safe
+boundaries; QUESTION and skip on conflict. OWNERSHIP: Art/Audio/Real/, Art/Audio/Downloads/, Art/Source/Audio/.
+No git, no Unity, no Assets/. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
