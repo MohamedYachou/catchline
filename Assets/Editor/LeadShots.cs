@@ -160,7 +160,7 @@ namespace Catchline.EditorTools
             foreach (float at in new[] { .5f, 3f, 5.5f, 8f, 10f })
             {
                 while (t < at) { g.Tick(.05f); t += .05f; }
-                Shot(g, $"intro-{at:0.0}s");
+                ShotUi(g, $"intro-{at:0.0}s");
             }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
@@ -236,7 +236,7 @@ namespace Catchline.EditorTools
             foreach (float at in new[] { 3f, 9f, 16f, 22f })
             {
                 while (t < at) { g.Tick(.05f); t += .05f; }
-                Shot(g, $"trip-{at:00}s-{g.Leg}");
+                ShotUi(g, $"trip-{at:00}s-{g.Leg}");
             }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
