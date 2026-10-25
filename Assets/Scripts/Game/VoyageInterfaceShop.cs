@@ -195,7 +195,6 @@ namespace Catchline.Game
             {
                 coastalUi.Text("market/haul", new Rect(x, 6, area.width - x - 24, topH * .5f), State.LastSale == null ? "Your first good day's fishing" : "Catch sold. Boat ready.", compactInterface ? Skin.Type.Heading : Skin.Type.Display, Skin.Ink, TextAnchor.LowerLeft, top);
                 coastalUi.Text("market/value", new Rect(x, topH * .5f + 6, area.width - x - 24, topH * .4f), State.LastSale == null ? "Bring fish home and sell them here." : $"Last haul: {State.LastSale.FishSold} fish · {State.LastSale.Coins + State.LastSale.ContractCoins:N0} coins.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, top);
-                coastalUi.Sliced("market/sell", Rect.zero, null, top);
             }
             // Fish log: a card per species with today's price.
             var log = new Rect(area.x, area.y + topH + gap, area.width, area.height - topH - gap);
