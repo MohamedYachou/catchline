@@ -1,0 +1,671 @@
+{
+  "task": "MAP6-SKERRIES-FIX-1",
+  "owner": "Codex 1 (Windows app)",
+  "utc": "2026-10-25T06:30:07.800836+00:00",
+  "ownDelivery": "Revised terrain imported; full exact-geometry safety checks and native evidence complete.",
+  "overallAcceptance": "PARTIAL: retained full-zone contract conflict, runtime life visibility and Claude visual acceptance pending.",
+  "checks": {
+    "maps": 6,
+    "directedHullRoutes": 360,
+    "seaLanes": 18,
+    "baselineHarbourHulls": 5,
+    "newGroundHomeTrips": 3,
+    "sourceChecks": 109,
+    "artAuditPassed": 83,
+    "artAuditTotal": 89,
+    "reviewedArtImages": 11,
+    "reviewedNativeImages": 10,
+    "namedLifeAnchors": 9,
+    "triangles": 29232,
+    "closedTerrainObstacles": 14,
+    "localReportLinks": 55,
+    "groundPoolsReady": true,
+    "sourceScratchParity": true,
+    "sourceImportParity": true
+  },
+  "limits": [
+    "D remains partial: SealColony empties sit on slab tops, but seals, animated surf and crab-buoy life set are absent. Current BuildNavigableSea does not call DressSkerries; runtime integration belongs to Claude.",
+    "Six original full-ground-circle art assertions remain failed; mandated close landmarks intersect these circles. No checks relaxed.",
+    "Gully walls are outside the fixed10.24m rowboat art fixture; native tier5 shows heavily cropped opposing ridges, especially the top-left ridge at844x390.",
+    "HUD and bottom controls partially occlude lower terrain. Terrain framing remains subject to Claude review.",
+    "SessionOnly native evidence does not establish touch, installed-player, seal-animation or interactive fishing acceptance.",
+    "MapNav reports physical-distance timing outside target on some routes; this is a retained advisory, separate from collision/border route safety."
+  ],
+  "sourceSnapshots": [
+    {
+      "path": "Assets/Scripts/Game/GameData.cs",
+      "sha256": "e7277061622369a669c3567d2a277a8e12d2548550e3cded4914ef0204670186",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Data/Grounds.cs",
+      "sha256": "3ee5bab8577e5d345d8049c1013b0f054d90af5ef02dc736dc5522ee01c0e5f3",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageChart.cs",
+      "sha256": "0cdf5dee33082fca3a003b51ec677b3f1b7b41e608857413d88e47ce88c1afa3",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageScenery.cs",
+      "sha256": "7f76500524866b58b186e0a8ea4d84abdf371f81d12112072a29dca748c38353",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/VoyageSkerriesLife.cs",
+      "sha256": "5706c258779e0aafcf6362f1a7ba52461e28c95c4c96ca2ab6c1be77a832a618",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Map6Capture.cs",
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Sea/SeaScenery.cs",
+      "sha256": "29161b56f74bc864218b1a9336c11dd155f967cd3f76ff847cbaedebb120fd6f",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Sea/SeaCamera.cs",
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Sea/SeaNav.cs",
+      "sha256": "fabc1070578c7c8391fae19ea3e06cfdbad892356c574eb604d62fe8e5815759",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Scripts/Game/Sea/SeaLanes.cs",
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Editor/SkerriesMapChecks.cs",
+      "sha256": "bdbcfbded83158b1064589424ab753aab7443ad88361ab04978c32ea07ea141f",
+      "scratchMatches": true
+    },
+    {
+      "path": "Assets/Editor/SkerriesLifeImport.cs",
+      "sha256": "a83bde358c3f79bfc7620b7fe8bad0829fa1e2a4dd83fd9b1d6dbd6847341631",
+      "scratchMatches": true
+    }
+  ],
+  "nativeBuild": {
+    "launchedUtc": "2026-10-25T06:11:13.9177572Z",
+    "assemblySha256": "b554b35b48fe9742c42bd04e38098fcc862cb235c07e24f771f8c372b24e330a",
+    "exe": "C:\\Users\\momoy\\Projects\\Catchline-sim\\Builds\\Map6Capture\\Catchline.exe",
+    "exeSha256": "3070e580e019576b9afcdeb4fec18d03cebc119f6ae84d597412905c749ad653",
+    "sessionOnly": true,
+    "buildLog": "check-map6-addendum-build.log",
+    "resolutionBootstrap": "1280x720",
+    "sourceSnapshots": [
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/GameData.cs",
+        "sha256": "e7277061622369a669c3567d2a277a8e12d2548550e3cded4914ef0204670186"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Data/Grounds.cs",
+        "sha256": "3ee5bab8577e5d345d8049c1013b0f054d90af5ef02dc736dc5522ee01c0e5f3"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/VoyageChart.cs",
+        "sha256": "0cdf5dee33082fca3a003b51ec677b3f1b7b41e608857413d88e47ce88c1afa3"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/VoyageScenery.cs",
+        "sha256": "7f76500524866b58b186e0a8ea4d84abdf371f81d12112072a29dca748c38353"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/VoyageSkerriesLife.cs",
+        "sha256": "5706c258779e0aafcf6362f1a7ba52461e28c95c4c96ca2ab6c1be77a832a618"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Map6Capture.cs",
+        "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Sea/SeaScenery.cs",
+        "sha256": "29161b56f74bc864218b1a9336c11dd155f967cd3f76ff847cbaedebb120fd6f"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Sea/SeaCamera.cs",
+        "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Sea/SeaNav.cs",
+        "sha256": "fabc1070578c7c8391fae19ea3e06cfdbad892356c574eb604d62fe8e5815759"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Scripts/Game/Sea/SeaLanes.cs",
+        "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Editor/SkerriesMapChecks.cs",
+        "sha256": "bdbcfbded83158b1064589424ab753aab7443ad88361ab04978c32ea07ea141f"
+      },
+      {
+        "scratchMatches": true,
+        "path": "Assets/Editor/SkerriesLifeImport.cs",
+        "sha256": "a83bde358c3f79bfc7620b7fe8bad0829fa1e2a4dd83fd9b1d6dbd6847341631"
+      }
+    ],
+    "captureCompletion": "Native log and capture-complete.txt confirm normal UI chart purchase, departure, 3 anchors/home and 10 frames; process exited after Application.Quit(0).",
+    "sourceReconciledUtc": "2026-10-25T06:19:16.7452879Z"
+  },
+  "nativeImages": {
+    "chart-1440.png": {
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1b706503bb28d2698db6486faa8d9255e5e651eb4f353eee9fbdfda327659ef1"
+    },
+    "chart-844.png": {
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "1fef39a8d886b9ba780bbac6d42b81ef2caa6346169411abfd0bd16744476fda"
+    },
+    "sail-out-1440.png": {
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "801467f297a0c58da62b856aacb1497d01f1e742fb0309cde781c02db31fae11"
+    },
+    "sail-out-844.png": {
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "d6bf51d081ccddd1d5593880f9555f3f4f36658a90df3cacb2b4d65db2e5ccf4"
+    },
+    "seal-rocks-1440.png": {
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1f07f4d57d87cb428473e93942842681cc7fc59b47d08f3d5fda4f71e46a5646"
+    },
+    "seal-rocks-844.png": {
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "b6309f8f7ff74aa3b9a3f60c8136a56ae32f1fad9d998adbbe289c4f8abc52b0"
+    },
+    "kelp-gully-1440.png": {
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c1a001d2e5d6a374a28713cc5a03b4231025085be170db0a29c472dd00c8f090"
+    },
+    "kelp-gully-844.png": {
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "e49610aee142ff9ba60678f3f9f1effe6f2fc2a077d5cc90d50dab82e45b6947"
+    },
+    "outer-reef-1440.png": {
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "de9f12ac39a0c869e46dc31e2062ec42292dfc27fc689a8691c4ec8c126ae134"
+    },
+    "outer-reef-844.png": {
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "eac51b69731afe7ab10e674adb9ff46aa481785fc620eb4d341def03dad54bcc"
+    }
+  },
+  "files": {
+    "Art/Models/Maps/GullSkerries/grounds.json": {
+      "sha256": "14b0431456992babe1253c54bf157366e76d2dde28a7555b2a4808bbfcb28363",
+      "bytes": 473
+    },
+    "Art/Models/Maps/GullSkerries/GullSkerriesSeaV2.blend": {
+      "sha256": "ff9af2fd84244269e4aaf9c1560b3008fa9112996a89de3c6b540f53b147f47d",
+      "bytes": 526512
+    },
+    "Art/Models/Maps/GullSkerries/GullSkerriesSeaV2.fbx": {
+      "sha256": "b0953a58a141781b51352f3e51904607e0a38360f0fe496c972ece8fed760072",
+      "bytes": 2471436
+    },
+    "Art/Models/Maps/GullSkerries/navigation.json": {
+      "sha256": "b80393df49e3150acf1b390a773df261772a160ad11a844a6b5f0d6fdd586053",
+      "bytes": 42196
+    },
+    "Art/Models/Maps/GullSkerries/REPORT.md": {
+      "sha256": "3560cbe39d120a3e82c92f58f04e66a2d207bdb6f5049fc747c40d75866f6551",
+      "bytes": 6225
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-audit.json": {
+      "sha256": "a54edbca162e2252f7e539a3ef84c352288fd967701b798574c0685ab1c44fd2",
+      "bytes": 18014
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-delivery.json": {
+      "sha256": "1e1284c705ea0efe3061647504878ac769045335659f05f63bb2f2d5157bc0ae",
+      "bytes": 2280
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-kelp-gully-day.png": {
+      "sha256": "2ef1550f88cdf16c9f0fcd67c0d6bd44eb52639fc706b1334131746ece89c0de",
+      "bytes": 1154227
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-kelp-gully-night.png": {
+      "sha256": "def5e625a418a994f5f8de4831be5a9dc2f41bb5f0dbc2673e35cc12cc69a5fe",
+      "bytes": 1022700
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-lighting-presets.json": {
+      "sha256": "99cf165c066f7afbed72599e05fe9bfeb10d06b577e6f78475b6551b347fa81e",
+      "bytes": 1925
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-navigation-plate.png": {
+      "sha256": "d092a5c2df98e55ef935f98316a52562e9f7361438558ca1dae42cf397d3ed8d",
+      "bytes": 1427251
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-outer-reef-day.png": {
+      "sha256": "6e73542334e51b33486181df081cfdcbfbaf0d8435df8581fb2b571620693ef7",
+      "bytes": 1160353
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-outer-reef-night.png": {
+      "sha256": "f4af6cc00199dc22d0e146c08d13bfb70be2647ccf33d00f7121654a2290c0af",
+      "bytes": 1050184
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-REPORT.md": {
+      "sha256": "3560cbe39d120a3e82c92f58f04e66a2d207bdb6f5049fc747c40d75866f6551",
+      "bytes": 6225
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-Review-only.blend": {
+      "sha256": "1fae95bca5fb704356fcd698b33e29d2965dc4df63d8512f03f113cd81aaf604",
+      "bytes": 586760
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-review-sheet.png": {
+      "sha256": "9b6febe9a519d1b3b85caa561f7df67509f65d26c8b2ee63b3cede1ba48835e5",
+      "bytes": 1661575
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-seal-rocks-day.png": {
+      "sha256": "8f0aab5e1ba6cde29d162d614a900a92c14f3c5a8ab8850fd0b48b57cf269c15",
+      "bytes": 1163753
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-seal-rocks-night.png": {
+      "sha256": "45c7f3b4dce33eed4384a34805b7a6fad8d3dc7bee33722ea5a2a066c254ca7f",
+      "bytes": 1044620
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-source-audit.json": {
+      "sha256": "5b08eed57c43363cdef540a1fa8382fcf3d4f9391b7d934f1e57748dd5a1b374",
+      "bytes": 17694
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-top-base.png": {
+      "sha256": "86db8986115a1138cdb032a63b716268556a404286317d66728a8b41a9f98d55",
+      "bytes": 2097807
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-validation.json": {
+      "sha256": "236b8efeea8c040c9616c1e704cde3cb523d3094d685fb8455c59916555bcc81",
+      "bytes": 24148
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-visual-review.json": {
+      "sha256": "8958e08f78373af234e8b0b718ef4c14d46ee4830f5c0128a665161ac022e805",
+      "bytes": 2957
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-wide-day.png": {
+      "sha256": "93f2f70145cb00ab86f26fdead2706ba0d356135c2d9de0ad4a7472fb3c59fbd",
+      "bytes": 1146199
+    },
+    "Art/Models/Maps/GullSkerries/SeaV2-wide-night.png": {
+      "sha256": "d5b1c864bc5801f5d3c85927effe8b10140fe421798c44975711154a8f395e96",
+      "bytes": 1020577
+    },
+    "Art/Source/Art108/audit_sea_v2.py": {
+      "sha256": "831e27a3a21b058f870da360e608f761071884a7c236204afa74331a5c25ed27",
+      "bytes": 13446
+    },
+    "Art/Source/Art108/build_sea_v2.py": {
+      "sha256": "8711055a3c01c3c3f1a04009ac77321873c4f15301806ebb351a2e53ee5f2097",
+      "bytes": 26397
+    },
+    "Art/Source/Art108/map6-fix-build.log": {
+      "sha256": "62ca098a2d7d3b1354da76d36a74f9bc4fb38d882603c3c534a7dbc6d4c8973e",
+      "bytes": 419
+    },
+    "Art/Source/Art108/map6-fix-review.log": {
+      "sha256": "f1f5983d2b683d5e501ef1837b9905718013bb2faa40d4b5dde3f62dfd284da3",
+      "bytes": 1581
+    },
+    "Art/Source/Art108/map6-fix-source-audit.log": {
+      "sha256": "d8a33eb637cb45f62b431ebe61949912f9a080a8d1acb581202a4f599d0d6057",
+      "bytes": 362
+    },
+    "Art/Source/Art108/map6_fix_finalize.py": {
+      "sha256": "42223c329d205df3b31df77581372ff23b000fdf25a7985331711d3b299c40de",
+      "bytes": 14588
+    },
+    "Art/Source/Art108/map6_skerries.py": {
+      "sha256": "7db18155de57485dee065f89f3b5d213793eb1d65bab6b3787e1276b88f112bf",
+      "bytes": 9029
+    },
+    "Art/Source/Art108/sea_v2_layouts.py": {
+      "sha256": "8d5fa2c7e468c367b9b6c4bb44d9d5b3a1484ab8c9c8abefd3063464d6888ab5",
+      "bytes": 5412
+    },
+    "Art/Source/Art108/verify_sea_v2_sources.py": {
+      "sha256": "cfc8819ea674367e66d982c602f83c30602d073615c27b978044e3ec7a931930",
+      "bytes": 9168
+    },
+    "Assets/Art/Models/Environment/GullSkerries/GullSkerriesSeaV2.fbx": {
+      "sha256": "b0953a58a141781b51352f3e51904607e0a38360f0fe496c972ece8fed760072",
+      "bytes": 2471436
+    },
+    "Assets/Art/Models/Environment/GullSkerries/GullSkerriesSeaV2.fbx.meta": {
+      "sha256": "81d3e2266baa5172e272c7953d68f6b19689890b271ed8d7a80d7197e4ad9ed4",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/GullSkerries/navigation.json": {
+      "sha256": "b80393df49e3150acf1b390a773df261772a160ad11a844a6b5f0d6fdd586053",
+      "bytes": 42196
+    },
+    "Assets/Art/Models/Environment/GullSkerries/navigation.json.meta": {
+      "sha256": "b19be27123e1c4b6d039f048c77bf791f6e6a8bbf5865a923c55270ffaa99bb7",
+      "bytes": 158
+    },
+    "Assets/Art/Models/Environment/Skerries/CrabBuoySet.fbx": {
+      "sha256": "b1ee73bf0cc6fa0ec4e6d0030b8889e01dde5baec75cd47f30a17e12d170ee1d",
+      "bytes": 22012
+    },
+    "Assets/Art/Models/Environment/Skerries/CrabBuoySet.fbx.meta": {
+      "sha256": "c6cf9238768a782fa102bd25281bb6003d406704ea584bb88659fbc6b6e5c374",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/Skerries/PotStack.fbx": {
+      "sha256": "401e7c0b16d7a643e6e510233fb777877f82e1a3b95b5fadb7f6bc38e6f8e141",
+      "bytes": 91100
+    },
+    "Assets/Art/Models/Environment/Skerries/PotStack.fbx.meta": {
+      "sha256": "a124923102224d07b20f7f4c45c87b7bdcf609ac929938d3ab23b7e272907ed6",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/Skerries/ReefBreak_A.fbx": {
+      "sha256": "b90af322458d62627972f8b8c5554ecda015cf68c0ab2e55b017333adb1777c4",
+      "bytes": 21692
+    },
+    "Assets/Art/Models/Environment/Skerries/ReefBreak_A.fbx.meta": {
+      "sha256": "c8c5f116733d10ff3b327af3117c6454c559bb85c8068a8102ad9dc96102a693",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/Skerries/ReefBreak_B.fbx": {
+      "sha256": "c0df4ad7820361a0f0f650a91fff060b9fc8e57fbd7c32243287fef98e634ae1",
+      "bytes": 21660
+    },
+    "Assets/Art/Models/Environment/Skerries/ReefBreak_B.fbx.meta": {
+      "sha256": "821b691c8ffc3dfe78f1e0f9aae4967f635b2f19dfacfe0714af62c7fbe076d4",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/Skerries/Seal.fbx": {
+      "sha256": "ca33aa82529d3123ec8da9ede174bfc6869d286f093670c523fd9fed6279ac9a",
+      "bytes": 244412
+    },
+    "Assets/Art/Models/Environment/Skerries/Seal.fbx.meta": {
+      "sha256": "07e9edb6fffde0ab12441ba184b1c2ac6e3020328eeabed7427d11995866e8c6",
+      "bytes": 5319
+    },
+    "Assets/Art/Models/Environment/Skerries/SealColony.fbx": {
+      "sha256": "05fdecf6a9b896dc3a3a5f11a9ba14f922e5b501dc9a3fd49bb1ed0e02131bd8",
+      "bytes": 60716
+    },
+    "Assets/Art/Models/Environment/Skerries/SealColony.fbx.meta": {
+      "sha256": "65e3d9a278882c53443fe4b5a21db3bbb1ce40b4778f51b96d160efad01cc8f3",
+      "bytes": 2891
+    },
+    "Assets/Art/Models/Environment/Skerries/SealSwimHead.fbx": {
+      "sha256": "549612551a784ad1527a0e82339b4f68366ffcf0e2be469239751dcef32b7121",
+      "bytes": 30332
+    },
+    "Assets/Art/Models/Environment/Skerries/SealSwimHead.fbx.meta": {
+      "sha256": "747e90677f11d4c8e9df2d5437002ce86cb261389518dbb74dbdd836f6ba4b6e",
+      "bytes": 2891
+    },
+    "Assets/Editor/SkerriesLifeImport.cs": {
+      "sha256": "a83bde358c3f79bfc7620b7fe8bad0829fa1e2a4dd83fd9b1d6dbd6847341631",
+      "bytes": 5584
+    },
+    "Assets/Editor/SkerriesMapChecks.cs": {
+      "sha256": "bdbcfbded83158b1064589424ab753aab7443ad88361ab04978c32ea07ea141f",
+      "bytes": 10406
+    },
+    "Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "3ee5bab8577e5d345d8049c1013b0f054d90af5ef02dc736dc5522ee01c0e5f3",
+      "bytes": 11486
+    },
+    "Assets/Scripts/Game/GameData.cs": {
+      "sha256": "e7277061622369a669c3567d2a277a8e12d2548550e3cded4914ef0204670186",
+      "bytes": 23327
+    },
+    "Assets/Scripts/Game/Map6Capture.cs": {
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2",
+      "bytes": 4597
+    },
+    "Assets/Scripts/Game/Sea/SeaCamera.cs": {
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615",
+      "bytes": 1941
+    },
+    "Assets/Scripts/Game/Sea/SeaLanes.cs": {
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba",
+      "bytes": 4870
+    },
+    "Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "fabc1070578c7c8391fae19ea3e06cfdbad892356c574eb604d62fe8e5815759",
+      "bytes": 17723
+    },
+    "Assets/Scripts/Game/Sea/SeaScenery.cs": {
+      "sha256": "29161b56f74bc864218b1a9336c11dd155f967cd3f76ff847cbaedebb120fd6f",
+      "bytes": 8365
+    },
+    "Assets/Scripts/Game/VoyageChart.cs": {
+      "sha256": "0cdf5dee33082fca3a003b51ec677b3f1b7b41e608857413d88e47ce88c1afa3",
+      "bytes": 10225
+    },
+    "Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "7f76500524866b58b186e0a8ea4d84abdf371f81d12112072a29dca748c38353",
+      "bytes": 13955
+    },
+    "Assets/Scripts/Game/VoyageSkerriesLife.cs": {
+      "sha256": "5706c258779e0aafcf6362f1a7ba52461e28c95c4c96ca2ab6c1be77a832a618",
+      "bytes": 2941
+    },
+    "docs/screens/map6-skerries-fix-1/addendum-build-runner-stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "docs/screens/map6-skerries-fix-1/addendum-build-runner.log": {
+      "sha256": "40acdd311d76cc1c39f0a894322a6c77b9764ee13a0ff5c8a4937718fc963c38",
+      "bytes": 2523
+    },
+    "docs/screens/map6-skerries-fix-1/addendum-check-runner-stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "docs/screens/map6-skerries-fix-1/addendum-check-runner.log": {
+      "sha256": "580253fd770299161a5e59aea24b1a8fd2a3685d48e5f5883bda42d95cf986aa",
+      "bytes": 25617
+    },
+    "docs/screens/map6-skerries-fix-1/check-map6-addendum-build.log": {
+      "sha256": "17b72ea1f6d7a995cb2cb62031b057cf6dce7ddfe90f9ff258f07cc707e3aed5",
+      "bytes": 622653
+    },
+    "docs/screens/map6-skerries-fix-1/check-map6-addendum-final.log": {
+      "sha256": "794473705c0666701adae0300f349af694c946003f42f16d0bf9400a25b27141",
+      "bytes": 248801
+    },
+    "docs/screens/map6-skerries-fix-1/check-map6-fix-build.log": {
+      "sha256": "3e33e6994993c957f7e01425f62bf295a8efc5e3899af1e4367e4bfa68cbbe97",
+      "bytes": 618939
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/capture-complete.txt": {
+      "sha256": "23431f419d47e1e311f94fd09f3f73187b2290b529a5e9d204e33f4351c749ed",
+      "bytes": 795
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/chart-1440.png": {
+      "sha256": "1b706503bb28d2698db6486faa8d9255e5e651eb4f353eee9fbdfda327659ef1",
+      "bytes": 2344991
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/chart-844.png": {
+      "sha256": "1fef39a8d886b9ba780bbac6d42b81ef2caa6346169411abfd0bd16744476fda",
+      "bytes": 673612
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/kelp-gully-1440.png": {
+      "sha256": "d367185844248c773a120741662d85d113fbe84121e76f165112d5cacbefa0c1",
+      "bytes": 1048354
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/kelp-gully-844.png": {
+      "sha256": "72a5ae58c6f3abf72ec08780e2b4652c64e4405442b01a0c703882353a508d4b",
+      "bytes": 348937
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/native.log": {
+      "sha256": "d6b28f1198867b81633d98754397a5765d1c10a44f111655d14dc142242b1a9f",
+      "bytes": 3196
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/outer-reef-1440.png": {
+      "sha256": "9ec3766532cc95c329630ecd422e31ff5617015e56145e7beea64125516007e3",
+      "bytes": 1055628
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/outer-reef-844.png": {
+      "sha256": "c4b6fdd2b5488b9859c2d04b90fdcbd26cd1c382ee60ecfbe0160b526d59b840",
+      "bytes": 347982
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/sail-out-1440.png": {
+      "sha256": "90504ca47739f9a8a618f0cae8e0706b056e0af234aa5d02916cc830f5dac729",
+      "bytes": 1457213
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/sail-out-844.png": {
+      "sha256": "5a15c3096ba84e7e07648d971454c4ed10e11be06a6c60cd066ec9e56c4a59f0",
+      "bytes": 415647
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/seal-rocks-1440.png": {
+      "sha256": "307bd70b6c86802897517092020f7e8862dcfd1a6a5b750194ea73e3cedc6e5b",
+      "bytes": 1026107
+    },
+    "docs/screens/map6-skerries-fix-1/iteration-1-sharp-foam/native/seal-rocks-844.png": {
+      "sha256": "a2206c3435ccba113f6caeb155215e6ff298434ec76a5c59e90144958fa52889",
+      "bytes": 336509
+    },
+    "docs/screens/map6-skerries-fix-1/map6-build.txt": {
+      "sha256": "47754f69b5c66a8d1e3892304c8dc0913512b5f5706b8acee0910caa8a25cbe2",
+      "bytes": 38
+    },
+    "docs/screens/map6-skerries-fix-1/map6-checks.json": {
+      "sha256": "396e52d8a9fe0f76e6c7daa22f343d63a840a466a5263e398b1d36ce8123dae4",
+      "bytes": 999
+    },
+    "docs/screens/map6-skerries-fix-1/native/capture-complete.txt": {
+      "sha256": "2bf34d3edb5bf9ed38dfd07b39a5e30e98566b0ac2cacc597b7e2da57019731b",
+      "bytes": 795
+    },
+    "docs/screens/map6-skerries-fix-1/native/chart-1440.png": {
+      "sha256": "1b706503bb28d2698db6486faa8d9255e5e651eb4f353eee9fbdfda327659ef1",
+      "bytes": 2344991
+    },
+    "docs/screens/map6-skerries-fix-1/native/chart-844.png": {
+      "sha256": "1fef39a8d886b9ba780bbac6d42b81ef2caa6346169411abfd0bd16744476fda",
+      "bytes": 673612
+    },
+    "docs/screens/map6-skerries-fix-1/native/kelp-gully-1440.png": {
+      "sha256": "c1a001d2e5d6a374a28713cc5a03b4231025085be170db0a29c472dd00c8f090",
+      "bytes": 1070878
+    },
+    "docs/screens/map6-skerries-fix-1/native/kelp-gully-844.png": {
+      "sha256": "e49610aee142ff9ba60678f3f9f1effe6f2fc2a077d5cc90d50dab82e45b6947",
+      "bytes": 351523
+    },
+    "docs/screens/map6-skerries-fix-1/native/native.log": {
+      "sha256": "75b03a88f413afdb2d00ef8ed424a13235fb0a5ac711e923522120944d00c0f8",
+      "bytes": 2766
+    },
+    "docs/screens/map6-skerries-fix-1/native/outer-reef-1440.png": {
+      "sha256": "de9f12ac39a0c869e46dc31e2062ec42292dfc27fc689a8691c4ec8c126ae134",
+      "bytes": 1059123
+    },
+    "docs/screens/map6-skerries-fix-1/native/outer-reef-844.png": {
+      "sha256": "eac51b69731afe7ab10e674adb9ff46aa481785fc620eb4d341def03dad54bcc",
+      "bytes": 349795
+    },
+    "docs/screens/map6-skerries-fix-1/native/sail-out-1440.png": {
+      "sha256": "801467f297a0c58da62b856aacb1497d01f1e742fb0309cde781c02db31fae11",
+      "bytes": 1454101
+    },
+    "docs/screens/map6-skerries-fix-1/native/sail-out-844.png": {
+      "sha256": "d6bf51d081ccddd1d5593880f9555f3f4f36658a90df3cacb2b4d65db2e5ccf4",
+      "bytes": 415176
+    },
+    "docs/screens/map6-skerries-fix-1/native/seal-rocks-1440.png": {
+      "sha256": "1f07f4d57d87cb428473e93942842681cc7fc59b47d08f3d5fda4f71e46a5646",
+      "bytes": 1067828
+    },
+    "docs/screens/map6-skerries-fix-1/native/seal-rocks-844.png": {
+      "sha256": "b6309f8f7ff74aa3b9a3f60c8136a56ae32f1fad9d998adbbe289c4f8abc52b0",
+      "bytes": 348153
+    },
+    "docs/screens/map6-skerries-fix-1/native-run.json": {
+      "sha256": "aa95af3182bfa227d287e036a1228bbd005e4e2dce1a920fb809a5989ba5dbcd",
+      "bytes": 4508
+    },
+    "docs/screens/map6-skerries-fix-1/native-visual-review.json": {
+      "sha256": "2f74bb060a4fdc2cd7d98d99b831625811bc5efa3a1542a0e8efb05bfe9332ba",
+      "bytes": 4214
+    },
+    "docs/screens/map6-skerries-fix-1/obsolete-placement-check.log": {
+      "sha256": "2e18955cef80ab3cd01358245a65c604dea53c5eaf28e11caf7cc0e0d1cdb7bf",
+      "bytes": 293784
+    },
+    "docs/screens/map6-skerries-fix-1/obsolete-placement-checks.json": {
+      "sha256": "a052b0b62f662f8e90b168838cbdfc7aa85b4cb7c5131ce41eac7756bd684f41",
+      "bytes": 999
+    },
+    "docs/screens/map6-skerries-fix-1/README.md": {
+      "sha256": "581565355027f7ef75e6de850b09f6bbf5ac4468e8bc04209b3aaecb68d79472",
+      "bytes": 4847
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map6Capture/Catchline.exe": {
+      "sha256": "3070e580e019576b9afcdeb4fec18d03cebc119f6ae84d597412905c749ad653",
+      "bytes": 667136
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map6Capture/Catchline_Data/level0": {
+      "sha256": "30066e90bf26c335e7d539ddbaf06cc4af56f22826a99efef4d33ad1e6f8278c",
+      "bytes": 1200
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map6Capture/Catchline_Data/Managed/Assembly-CSharp.dll": {
+      "sha256": "b554b35b48fe9742c42bd04e38098fcc862cb235c07e24f771f8c372b24e330a",
+      "bytes": 712192
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map6Capture/UnityPlayer.dll": {
+      "sha256": "7e362b4c6ecee6fb493b1872cda5a5a0caf44f3b131b3c4bad132f0d1309f436",
+      "bytes": 36824488
+    }
+  },
+  "fixtureEvidence": "BuildNative source creates the SessionOnly fixture; built level0 and the runtime SessionOnly/no-save guard are bound. The subsequent required Assets mirror removes the generated scratch .unity source; it was not recreated or represented as a preserved original.",
+  "safety": {
+    "sessionOnly": true,
+    "noSaveReadsOrWrites": true,
+    "noInstalledPlayerReplacement": true,
+    "noGitOperation": true,
+    "noMainUnityBatchmode": true
+  }
+}

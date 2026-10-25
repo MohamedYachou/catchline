@@ -1,0 +1,570 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullSkerries",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes, one identity root and declared anchors",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "FIX unchanged ground centres and radii",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "FIX exactly nine unique life empties",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "FIX colony anchors6-12m from seal ground",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ADDENDUM colony anchors6-9m from seal ground",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ADDENDUM colony1 flat top0.5-1.5m and anchor on top",
+          "passed": true,
+          "detail": 0.8500000238418579
+        },
+        {
+          "check": "ADDENDUM colony2 flat top0.5-1.5m and anchor on top",
+          "passed": true,
+          "detail": 1.0499999523162842
+        },
+        {
+          "check": "ADDENDUM no colony dome cap or baked reef breaker",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ADDENDUM gully-110-15m long1.5-3m high and5m hull gap",
+          "passed": true,
+          "detail": {
+            "length": 13.78000032901764,
+            "height": 2.1500000953674316,
+            "conservativeHullGap": 5.237008359388624
+          }
+        },
+        {
+          "check": "ADDENDUM gully110-15m long1.5-3m high and5m hull gap",
+          "passed": true,
+          "detail": {
+            "length": 13.78000032901764,
+            "height": 2.6500000953674316,
+            "conservativeHullGap": 5.20948020613151
+          }
+        },
+        {
+          "check": "FIX crab buoy8-12m from seal ground",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "FIX six reef rocks8-15m from outer ground",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "FIX thin contact foam above water and upward facing",
+          "passed": true,
+          "detail": 140
+        },
+        {
+          "check": "FIX granite stack6-8m plus separate cairn",
+          "passed": true,
+          "detail": 7.68
+        },
+        {
+          "check": "SealColony_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealColony_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_3 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_4 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_5 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_6 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CrabBuoy_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-seal-skerry closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-seal-skerry 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-seal-skerry 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.925400800034838e-06
+        },
+        {
+          "check": "Terrain_west-seal-skerry -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_west-seal-skerry -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_middle-seal-skerry closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-seal-skerry 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-seal-skerry 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.106495129998063e-06
+        },
+        {
+          "check": "Terrain_middle-seal-skerry -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_middle-seal-skerry -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 6.03156597169567e-06
+        },
+        {
+          "check": "Terrain_east-breaker-skerry closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-breaker-skerry 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-breaker-skerry 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_east-breaker-skerry -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_east-breaker-skerry -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_north-granite-skerry closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-granite-skerry 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-granite-skerry 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 1.0789593218788873e-05
+        },
+        {
+          "check": "Terrain_north-granite-skerry -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-granite-skerry -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_colony-slab-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_colony-slab-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_colony-slab-2 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-2 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-2 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_colony-slab-2 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_colony-slab-2 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_gully-wall--1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall--1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall--1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 0.0
+        },
+        {
+          "check": "Terrain_gully-wall--1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall--1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_gully-wall-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 0.0
+        },
+        {
+          "check": "Terrain_gully-wall-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_gully-wall-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-2 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-2 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-2 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-2 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-2 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-3 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-3 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-3 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-3 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-3 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-4 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-4 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-4 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-4 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-4 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-5 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-5 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-5 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-5 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-5 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-6 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-6 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-6 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_half-tide-reef-6 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_half-tide-reef-6 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealColony_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealColony_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_3 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_4 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_5 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ReefBreak_6 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CrabBuoy_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.7642974853515625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.7642974853515625e-05,
+      "sourceSha256": "ff9af2fd84244269e4aaf9c1560b3008fa9112996a89de3c6b540f53b147f47d",
+      "fbxSha256": "b0953a58a141781b51352f3e51904607e0a38360f0fe496c972ece8fed760072",
+      "navigationSha256": "b80393df49e3150acf1b390a773df261772a160ad11a844a6b5f0d6fdd586053"
+    }
+  ],
+  "totalChecks": 109
+}

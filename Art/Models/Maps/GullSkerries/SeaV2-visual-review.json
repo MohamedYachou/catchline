@@ -1,0 +1,51 @@
+{
+  "map": "GullSkerries",
+  "task": "MAP6-SKERRIES-FIX-1",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-25T06:12:04.818662+00:00",
+  "allIndividuallyOpened": true,
+  "imageHashes": {
+    "SeaV2-kelp-gully-day.png": "2ef1550f88cdf16c9f0fcd67c0d6bd44eb52639fc706b1334131746ece89c0de",
+    "SeaV2-kelp-gully-night.png": "def5e625a418a994f5f8de4831be5a9dc2f41bb5f0dbc2673e35cc12cc69a5fe",
+    "SeaV2-navigation-plate.png": "d092a5c2df98e55ef935f98316a52562e9f7361438558ca1dae42cf397d3ed8d",
+    "SeaV2-outer-reef-day.png": "6e73542334e51b33486181df081cfdcbfbaf0d8435df8581fb2b571620693ef7",
+    "SeaV2-outer-reef-night.png": "f4af6cc00199dc22d0e146c08d13bfb70be2647ccf33d00f7121654a2290c0af",
+    "SeaV2-review-sheet.png": "9b6febe9a519d1b3b85caa561f7df67509f65d26c8b2ee63b3cede1ba48835e5",
+    "SeaV2-seal-rocks-day.png": "8f0aab5e1ba6cde29d162d614a900a92c14f3c5a8ab8850fd0b48b57cf269c15",
+    "SeaV2-seal-rocks-night.png": "45c7f3b4dce33eed4384a34805b7a6fad8d3dc7bee33722ea5a2a066c254ca7f",
+    "SeaV2-top-base.png": "86db8986115a1138cdb032a63b716268556a404286317d66728a8b41a9f98d55",
+    "SeaV2-wide-day.png": "93f2f70145cb00ab86f26fdead2706ba0d356135c2d9de0ad4a7472fb3c59fbd",
+    "SeaV2-wide-night.png": "d5b1c864bc5801f5d3c85927effe8b10140fe421798c44975711154a8f395e96"
+  },
+  "scope": "Eleven final images manually opened individually in view_image; this records that review, not an automated visual test or Claude/Mo acceptance.",
+  "camera": {
+    "projection": "orthographic",
+    "horizontalSpanMetres": 10.24,
+    "pitchDegrees": 45,
+    "yawDegrees": 35,
+    "resolution": [
+      1440,
+      900
+    ],
+    "groundCentresUnchanged": true
+  },
+  "observations": [
+    "Grey-pink stepped/angular playable granite and cairn replace the sandbank appearance.",
+    "Low flat colony slabs enter only the lower corners of the fixed 10.24m rowboat frame; their lower portions are cropped.",
+    "The 13m parallel gully ridges with mandated hull clearance are outside the fixed 10.24m rowboat frame; native tier5 framing must be reviewed separately.",
+    "Half-tide reef and thin static waterline foam enter the lower-right ground frame; no ReefBreak meshes or fin foam are baked into this map.",
+    "Night ground silhouettes remain visible; the wide night view is deliberately dim.",
+    "The rowboat art fixture does not contain runtime life or HUD; final native tier5 evidence is separate.",
+    "Distant fogged horizon proxies remain outside the playable area."
+  ],
+  "acceptedByLead": false,
+  "artContractAllPassed": false,
+  "retainedFailedChecks": [
+    "seal-rocks full zone clear of islands +2m",
+    "seal-rocks full zone outside shallows (anchoring)",
+    "kelp-gully full zone clear of islands +2m",
+    "kelp-gully full zone outside shallows (anchoring)",
+    "outer-reef full zone clear of islands +2m",
+    "outer-reef full zone outside shallows (anchoring)"
+  ]
+}

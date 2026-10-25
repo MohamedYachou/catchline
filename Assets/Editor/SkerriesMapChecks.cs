@@ -48,12 +48,15 @@ namespace Catchline.EditorTools
             {
                 model.transform.SetPositionAndRotation(new Vector3(0, -.32f, 0), Quaternion.identity);
                 model.transform.localScale = Vector3.one;
-                var expected = new[] { new Vector3(-62, 1.88f, 13), new Vector3(-13, 2.58f, 8) };
-                for (int i = 0; i < 2; i++)
+                string[] anchorNames = { "SealColony_1", "SealColony_2", "ReefBreak_1", "ReefBreak_2", "ReefBreak_3", "ReefBreak_4", "ReefBreak_5", "ReefBreak_6", "CrabBuoy_1" };
+                var expected = new[] { new Vector3(-91.61896f,.53f,-25.76902f), new Vector3(-82.11680f,.73f,-32.42250f),
+                    new Vector3(100.4392f,-.24f,-39.9168f), new Vector3(101.9624f,-.24f,-41.2306f), new Vector3(107.9758f,-.24f,-40.6077f),
+                    new Vector3(110.9758f,-.24f,-39.6077f), new Vector3(112.3758f,-.24f,-37.6077f), new Vector3(112.7758f,-.24f,-35.1077f), new Vector3(-80,-.32f,-33.8f) };
+                for (int i = 0; i < anchorNames.Length; i++)
                 {
-                    var anchor = model.GetComponentsInChildren<Transform>(true).Single(t => t.name == "SealColony_" + (i + 1));
-                    Check(Vector3.Distance(anchor.position, expected[i]) < .02f, "seal anchor world transform " + (i + 1) + ": " + anchor.position);
-                    Check(anchor.GetComponent<Renderer>() == null, "seal anchor remains an empty");
+                    var anchor = model.GetComponentsInChildren<Transform>(true).Single(t => t.name == anchorNames[i]);
+                    Check(Vector3.Distance(anchor.position, expected[i]) < .02f, "life anchor world transform " + anchor.name + ": " + anchor.position);
+                    Check(anchor.GetComponent<Renderer>() == null, "life anchor remains an empty");
                 }
             }
             finally { UnityEngine.Object.DestroyImmediate(model); }

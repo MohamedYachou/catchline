@@ -1,0 +1,43 @@
+{
+  "task": "MAP6-SKERRIES-FIX-1 addendum A-D",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-25T06:16:31.374987+00:00",
+  "allIndividuallyOpened": true,
+  "imageHashes": {
+    "chart-1440.png": "1b706503bb28d2698db6486faa8d9255e5e651eb4f353eee9fbdfda327659ef1",
+    "chart-844.png": "1fef39a8d886b9ba780bbac6d42b81ef2caa6346169411abfd0bd16744476fda",
+    "sail-out-1440.png": "801467f297a0c58da62b856aacb1497d01f1e742fb0309cde781c02db31fae11",
+    "sail-out-844.png": "d6bf51d081ccddd1d5593880f9555f3f4f36658a90df3cacb2b4d65db2e5ccf4",
+    "seal-rocks-1440.png": "1f07f4d57d87cb428473e93942842681cc7fc59b47d08f3d5fda4f71e46a5646",
+    "seal-rocks-844.png": "b6309f8f7ff74aa3b9a3f60c8136a56ae32f1fad9d998adbbe289c4f8abc52b0",
+    "kelp-gully-1440.png": "c1a001d2e5d6a374a28713cc5a03b4231025085be170db0a29c472dd00c8f090",
+    "kelp-gully-844.png": "e49610aee142ff9ba60678f3f9f1effe6f2fc2a077d5cc90d50dab82e45b6947",
+    "outer-reef-1440.png": "de9f12ac39a0c869e46dc31e2062ec42292dfc27fc689a8691c4ec8c126ae134",
+    "outer-reef-844.png": "eac51b69731afe7ab10e674adb9ff46aa481785fc620eb4d341def03dad54bcc"
+  },
+  "scope": "All ten final native PNGs individually opened in view_image; visual observations are manual and do not establish Claude/Mo acceptance.",
+  "observations": {
+    "chart-1440.png": "Chart overview readable, Seal skerries glyph and 700-coin price visible; harbour remains selected before purchase.",
+    "chart-844.png": "Landscape overview readable, six labels and bottom navigation fit; Seal skerries 700-coin label visible.",
+    "sail-out-1440.png": "Normal SeaOut route with tier5 boat, route line and progress header. Navigation marker buoy visible; this is not evidence of the missing crab-buoy life set.",
+    "sail-out-844.png": "Landscape sailing header/progress/faster control readable; boat and route visible without blank frame.",
+    "seal-rocks-1440.png": "Two low flat stepped colony slabs occupy lower corners with water separating them from hull; kelp visible. Left HUD and lower controls partly cover slabs. No seals or crab-buoy life set visible.",
+    "seal-rocks-844.png": "Both low slabs visible below clear hull; left panel and bottom controls cover parts of the rocks. Fish bubbles stay around boat. No seals or crab-buoy life set visible.",
+    "kelp-gully-1440.png": "Parallel long low ridges enter top-left and lower-right edges, heavily cropped; ample open water around hull and kelp between. HUD readable. No life integration evidenced.",
+    "kelp-gully-844.png": "Lower-right ridge visible and opposite ridge only a thin top-left crop; kelp channel and hull clearance visible. Lower controls cover part of ridge. Not a full two-wall overview.",
+    "outer-reef-1440.png": "Half-tide rock foreground and right-edge reef rocks with narrow waterline foam; no sharp fin foam or baked breaking meshes. Foreground cropped/covered by bottom controls. Animated surf absent.",
+    "outer-reef-844.png": "Half-tide rock chain visible along right edge, foreground rock cropped by bottom controls; hull clear. No sharp fin foam, animated breaking surf absent."
+  },
+  "sealsVisible": false,
+  "animatedSurfVisible": false,
+  "crabBuoyLifeSetVisible": false,
+  "limits": [
+    "D remains partial: SealColony empties sit on slab tops, but seals, animated surf and crab-buoy life set are absent. Current BuildNavigableSea does not call DressSkerries; runtime integration belongs to Claude.",
+    "Six original full-ground-circle art assertions remain failed; mandated close landmarks intersect these circles. No checks relaxed.",
+    "Gully walls are outside the fixed10.24m rowboat art fixture; native tier5 shows heavily cropped opposing ridges, especially the top-left ridge at844x390.",
+    "HUD and bottom controls partially occlude lower terrain. Terrain framing remains subject to Claude review.",
+    "SessionOnly native evidence does not establish touch, installed-player, seal-animation or interactive fishing acceptance.",
+    "MapNav reports physical-distance timing outside target on some routes; this is a retained advisory, separate from collision/border route safety."
+  ],
+  "acceptedByLead": false
+}
