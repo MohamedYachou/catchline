@@ -10,12 +10,12 @@ namespace Catchline.EditorTools
     public sealed class FishRodImport : AssetPostprocessor
     {
         const string Folder = "Assets/Art/Models/FishRodFP/";
-        const string Model = Folder + "FishRodFP.fbx";
+        const string Model = Folder + "FishRodFP.fbx", RodOnly = Folder + "FishRodFP_RodOnly.fbx";
         const string Resource = "Assets/Scripts/Game/Minigame/Resources/RodViewArt.asset";
         public override int GetPostprocessOrder() => 100;
         void OnPreprocessModel()
         {
-            if (assetPath != Model) return;
+            if (assetPath != Model && assetPath != RodOnly) return;
             var m = (ModelImporter)assetImporter;
             // These are transform-only clips. Legacy permits explicit SampleAnimation in players
             // without an enabled Animator/controller also advancing the pose on Unity's clock.
@@ -52,7 +52,7 @@ namespace Catchline.EditorTools
             if (clips.Any(c => !c.legacy)) throw new Exception("FishRodFP runtime sampling requires Legacy clips");
             var data = AssetDatabase.LoadAssetAtPath<RodViewArt>(Resource);
             if (data == null) { data = ScriptableObject.CreateInstance<RodViewArt>(); AssetDatabase.CreateAsset(data, Resource); }
-            data.Model = model; data.Atlas = AssetDatabase.LoadAssetAtPath<Texture2D>(Folder + "FishRodFP_Atlas.png"); data.Clips = clips;
+            data.Model = model; data.RodOnly = AssetDatabase.LoadAssetAtPath<GameObject>(RodOnly); data.Atlas = AssetDatabase.LoadAssetAtPath<Texture2D>(Folder + "FishRodFP_Atlas.png"); data.Clips = clips;
             EditorUtility.SetDirty(data); AssetDatabase.SaveAssets();
             var instance = UnityEngine.Object.Instantiate(model);
             foreach (var animator in instance.GetComponentsInChildren<Animator>()) animator.enabled = false;

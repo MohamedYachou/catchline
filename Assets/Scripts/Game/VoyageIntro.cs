@@ -20,7 +20,7 @@ namespace Catchline.Game
         {
             (0f, new Vector3(-6.5f, 3.2f, -40f), new Vector3(5f, 2.5f, -12f)),
             (4f, new Vector3(-6.5f, 4.5f, -22f), new Vector3(-3f, .5f, -4f)),
-            (8f, new Vector3(-13f, 6.5f, -9f), new Vector3(-20f, 0f, 1f)),
+            (8f, new Vector3(-13f, 6.5f, -9f), new Vector3(-21f, -.4f, -.6f)),
         };
         static readonly (float from, float to, string text)[] IntroCaptions =
         {
@@ -101,7 +101,7 @@ namespace Catchline.Game
             {
                 float k = Mathf.Clamp01((t - c.from) / .6f) * (1 - Mathf.Clamp01((t - c.to + .6f) / .6f));
                 if (k <= .01f) continue;
-                var band = new Rect(Edge, ih - Edge - 96, iw - 2 * Edge, 56);
+                var band = new Rect(Edge, ih * .2f, iw - 2 * Edge, 56); // upper third: the boats sit low in the frame
                 coastalUi.Text("intro/caption/" + c.from, band, c.text, Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter, null, true);
                 Fade("intro/caption/" + c.from, k);
             }

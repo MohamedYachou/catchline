@@ -6,6 +6,8 @@ namespace Catchline.Game
     public sealed class RodViewArt : ScriptableObject
     {
         public GameObject Model;
+        // The same rig with the sleeve and glove islands removed (Codex 2, FISH-ARMS-2 step 0); null in old imports.
+        public GameObject RodOnly;
         public Texture2D Atlas;
         public AnimationClip[] Clips;
         // FISH-POLISH-1 item 1: the view ships rod-only (the reel turns by itself) until the remade arms pass review.

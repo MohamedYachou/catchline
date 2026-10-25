@@ -148,7 +148,7 @@ namespace Catchline.Game
                 rig = new GameObject("Hands and rod").transform; rig.SetParent(root, false);
                 var lib = ArtLibrary.Get();
                 var fpArt = Resources.Load<RodViewArt>("RodViewArt");
-                var fp = fpArt != null ? fpArt.Model : null;
+                var fp = fpArt == null ? null : !fpArt.UseArms && fpArt.RodOnly != null ? fpArt.RodOnly : fpArt.Model;
                 pole = ArtLibrary.Spawn(fp != null ? fp : lib?.FishingRod, rig, Vector3.zero, Quaternion.identity)?.transform;
                 if (pole == null) throw new System.InvalidOperationException("Rod view requires ArtLibrary FishingRod");
                 if (fp == null)
@@ -163,7 +163,7 @@ namespace Catchline.Game
                 else
                 {
                     authored = new RodViewAnimation(fpArt, pole.gameObject);
-                    if (!fpArt.UseArms)
+                    if (!fpArt.UseArms && fp != fpArt.RodOnly) // the authored rod-only model needs no stripping
                         foreach (var skin in pole.GetComponentsInChildren<SkinnedMeshRenderer>())
                             if (RodViewArt.WithoutArms(skin) is { } rodOnly) { skin.sharedMesh = rodOnly; ownedMeshes.Add(rodOnly); }
                 }

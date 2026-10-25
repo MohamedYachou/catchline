@@ -118,7 +118,9 @@ namespace Catchline.Game
             readonly VoyageGame g;
             readonly Action<CageModel> sorted;
             readonly Action cancel;
-            readonly Transform root, pot, hauler, board, gauge, arrow;
+            readonly Transform root, pot, hauler, board, gauge, arrow, lid, bridle, sheave;
+            readonly Quaternion lidRest, sheaveRest;
+            float sheaveTurn;
             readonly LineRenderer rope;
             readonly Vector3 anchor, outward, right, deckPosition, viewPosition, haulPoint, boardPoint;
             readonly Quaternion deckRotation, viewRotation;
@@ -147,14 +149,17 @@ namespace Catchline.Game
                 viewRotation = Quaternion.LookRotation(outward * Mathf.Cos(30 * Mathf.Deg2Rad) - Vector3.up * Mathf.Sin(30 * Mathf.Deg2Rad), Vector3.up);
                 var fwd = viewRotation * Vector3.forward;
                 haulPoint = viewPosition + viewRotation * new Vector3(.55f, -.46f, 1f);
-                boardPoint = viewPosition + viewRotation * new Vector3(.08f, -.44f, 1.12f);
+                boardPoint = viewPosition + viewRotation * new Vector3(.08f, -.33f, 1.22f);
 
                 root = new GameObject("Captain cage view").transform; root.SetParent(g.transform, false);
                 // The captain's own body and the deck buoy sit where the camera is; hide them for the view.
                 foreach (var t in new[] { g.Captain.Root, g.buoyModels[buoy] })
                     if (t != null) foreach (var r in t.GetComponentsInChildren<Renderer>()) if (r.enabled) { r.enabled = false; hidden.Add(r); }
                 var lib = ArtLibrary.Get();
-                pot = ArtLibrary.Spawn(lib?.M("EmptyPot"), root, Vector3.zero, Quaternion.LookRotation(outward))?.transform;
+                // The CageKit (CAGE-ART-1) when imported; the EmptyPot and primitive stand-ins otherwise.
+                pot = ArtLibrary.Spawn(lib?.M("CrabCage") ?? lib?.M("EmptyPot"), root, Vector3.zero, Quaternion.LookRotation(outward))?.transform;
+                lid = pot != null ? ArtLibrary.Find(pot.gameObject, "Lid") : null; bridle = pot != null ? ArtLibrary.Find(pot.gameObject, "Bridle") : null;
+                if (lid != null) lidRest = lid.localRotation;
                 if (pot == null)
                 {
                     pot = new GameObject("Crab cage").transform; pot.SetParent(root, false);
@@ -165,27 +170,46 @@ namespace Catchline.Game
                 // The crabs ride inside the cage until their turn on the board.
                 for (int i = 0; i < model.Crabs.Count; i++)
                 {
-                    var crab = Crab(model.Crabs[i], pot);
+                    var crab = Crab(model.Crabs[i], pot, lib);
                     crab.localPosition = new Vector3(-.16f + (i % 2) * .3f, .08f, -.08f + (i / 2) * .16f);
                     crab.localRotation = Quaternion.Euler(0, i * 70, 0);
                     inPot.Add(crab);
                 }
-                hauler = new GameObject("Pot hauler wheel").transform; hauler.SetParent(root, false);
-                hauler.position = haulPoint; hauler.rotation = Quaternion.LookRotation(right);
-                Visuals.Prim(PrimitiveType.Cylinder, "Hauler sheave", hauler, Vector3.zero, new Vector3(.3f, .03f, .3f), Palette.Steel).transform.localRotation = Quaternion.Euler(90, 0, 0);
-                Visuals.Box("Hauler spoke", hauler, Vector3.zero, new Vector3(.04f, .26f, .045f), Palette.Accent);
+                // The hauler's sheave turns about its local X, so local X lies along the rail (right) and the rope runs outward.
+                hauler = ArtLibrary.Spawn(lib?.M("PotHauler"), root, Vector3.zero, Quaternion.identity)?.transform;
+                if (hauler != null)
+                {
+                    hauler.rotation = Quaternion.LookRotation(outward);
+                    sheave = ArtLibrary.Find(hauler.gameObject, "Sheave");
+                    hauler.position = haulPoint - hauler.rotation * new Vector3(0, .247f, 0);
+                    if (sheave != null) sheaveRest = sheave.localRotation;
+                }
+                else
+                {
+                    hauler = new GameObject("Pot hauler wheel").transform; hauler.SetParent(root, false);
+                    hauler.position = haulPoint; hauler.rotation = Quaternion.LookRotation(right);
+                    Visuals.Prim(PrimitiveType.Cylinder, "Hauler sheave", hauler, Vector3.zero, new Vector3(.3f, .03f, .3f), Palette.Steel).transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    Visuals.Box("Hauler spoke", hauler, Vector3.zero, new Vector3(.04f, .26f, .045f), Palette.Accent);
+                }
                 rope = new GameObject("Cage rope").AddComponent<LineRenderer>();
                 rope.transform.SetParent(root, false); rope.positionCount = 2; rope.useWorldSpace = true;
                 rope.widthMultiplier = .014f; rope.sharedMaterial = Visuals.Mat(Palette.Hex("D1AF76")); rope.shadowCastingMode = ShadowCastingMode.Off;
 
                 board = new GameObject("Sorting board").transform; board.SetParent(root, false);
                 board.position = boardPoint; board.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(fwd, Vector3.up), Vector3.up);
-                Visuals.Box("Board", board, Vector3.zero, new Vector3(.62f, .03f, .3f), Palette.DeckWoodDark);
-                gauge = new GameObject("Size gauge").transform; gauge.SetParent(board, false);
-                gauge.localPosition = new Vector3(0, .02f, -.12f);
-                Visuals.Box("Gauge rule", gauge, Vector3.zero, new Vector3(.56f, .008f, .035f), Palette.Hex("F4EFE3"));
                 legalLength = FishShadow.LengthFor(Species.Crab, CageModel.LegalKg);
-                Visuals.Box("Legal mark", gauge, new Vector3(-.26f + legalLength, .006f, 0), new Vector3(.014f, .012f, .05f), Palette.Hex("C8442E"));
+                gauge = new GameObject("Size gauge").transform; gauge.SetParent(board, false);
+                // The board's gauge edge is its local -Z, toward the camera; zero at x -0.26.
+                var kit = ArtLibrary.Spawn(lib?.M("SortingBoard"), board, Vector3.zero, Quaternion.identity);
+                if (kit != null && ArtLibrary.Find(kit, "LegalMark") is { } mark)
+                    mark.localPosition = new Vector3(-.26f + legalLength, mark.localPosition.y, mark.localPosition.z);
+                else
+                {
+                    Visuals.Box("Board", board, Vector3.zero, new Vector3(.62f, .03f, .3f), Palette.DeckWoodDark);
+                    gauge.localPosition = new Vector3(0, .02f, -.12f);
+                    Visuals.Box("Gauge rule", gauge, Vector3.zero, new Vector3(.56f, .008f, .035f), Palette.Hex("F4EFE3"));
+                    Visuals.Box("Legal mark", gauge, new Vector3(-.26f + legalLength, .006f, 0), new Vector3(.014f, .012f, .05f), Palette.Hex("C8442E"));
+                }
                 board.gameObject.SetActive(false);
 
                 arrow = new GameObject("Snag arrow").transform; arrow.SetParent(root, false);
@@ -199,11 +223,12 @@ namespace Catchline.Game
                 g.audio?.Play(VoyageAudio.Cue.Moor, .4f);
             }
 
-            static Transform Crab(CageModel.Crab c, Transform parent)
+            static Transform Crab(CageModel.Crab c, Transform parent, ArtLibrary lib)
             {
-                var crab = DeckFish.BuildModel(Species.Crab, c.Kg, parent);
+                var berried = c.Berried ? lib?.M("CrabBerried") : null;
+                var crab = berried != null ? ArtLibrary.Spawn(berried, parent, Vector3.zero, Quaternion.identity).transform : DeckFish.BuildModel(Species.Crab, c.Kg, parent);
                 ArtLibrary.AimAlong(crab.gameObject, Vector3.right, FishShadow.LengthFor(Species.Crab, c.Kg));
-                if (c.Berried)
+                if (c.Berried && berried == null)
                     for (int i = 0; i < 5; i++)
                         Visuals.Prim(PrimitiveType.Sphere, "Egg mass", crab, new Vector3((i - 2) * .025f, -.01f, (i % 2) * .03f - .015f), Vector3.one * .045f, Palette.Hex("F08A24"));
                 return crab;
@@ -249,13 +274,15 @@ namespace Catchline.Game
                 {
                     // Swung in over the rail beside the board.
                     float swing = Ease((age - sortSince) / .5f);
+                    if (lid != null) lid.localRotation = lidRest * Quaternion.Euler(-90 * swing, 0, 0);
                     potAt = Vector3.Lerp(water + Vector3.up * .1f, boardPoint + viewRotation * new Vector3(-.95f, -.02f, .55f), swing);
                 }
                 pot.position = potAt;
                 pot.rotation = Quaternion.LookRotation(outward) * Quaternion.Euler(Model.Shudder * Mathf.Sin(age * 31) * 6, 0, Model.Shudder * Mathf.Sin(age * 27) * 8);
-                rope.SetPosition(0, haulPoint); rope.SetPosition(1, pot.position + Vector3.up * .4f);
+                rope.SetPosition(0, haulPoint); rope.SetPosition(1, bridle != null ? bridle.position : pot.position + Vector3.up * .4f);
                 rope.enabled = sortSince < 0 || age - sortSince < .5f; // unclipped once the cage is aboard
-                hauler.Rotate(Vector3.forward, (lift - lastLift) * 1400, Space.Self);
+                if (sheave != null) sheave.localRotation = sheaveRest * Quaternion.Euler(sheaveTurn += (lift - lastLift) * 1400, 0, 0);
+                else hauler.Rotate(Vector3.forward, (lift - lastLift) * 1400, Space.Self);
                 if (lift >= .92f && lastLift < .92f) Ripple(water);
                 lastLift = lift;
                 arrow.gameObject.SetActive(Model.Phase == CagePhase.Snag);

@@ -42,6 +42,7 @@ namespace Catchline.Game
             modeTimer = 0; modeDuration = Mathf.Max(.1f, SeaNav.Length(Sailor.Route) / State.HullDef.SailSpeed);
             seaFrom = seaMat.color; seaTo = mode == Mode.SailingHome ? Palette.Sea : GameData.Spots[ActiveSpot].Water;
             Leg = mode == Mode.SailingHome ? TripLeg.SeaHome : fresh ? TripLeg.None : TripLeg.ChartOut;
+            if (mode == Mode.SailingHome) toastUntil = 0; // the "Anchored at" note from the ground is stale once heading home
             StowSeaGear();
             Captain.Rowing = State.Hull == 0; SetRowing(true);
             UpdateSeaTravel(); return true;

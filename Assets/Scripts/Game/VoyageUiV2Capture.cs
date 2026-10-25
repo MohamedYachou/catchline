@@ -42,6 +42,10 @@ namespace Catchline.Game
 
         bool StageUiV2(string screen)
         {
+            if (screen.StartsWith("harbour-h") || screen is "depart-lane" or "chart-leg" or "sea-entry" or
+                "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
+                screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))
+                return StageHarbourEvidence(screen);
             switch (screen)
             {
                 case "voyage":
@@ -96,13 +100,125 @@ namespace Catchline.Game
             }
         }
 
+        // HARBOUR-IMPORT-1: fixture-only staging. Production harbour/trip/minigame rules are untouched.
+        // The snag image deliberately selects the existing snag branch, independent of crew RNG consumption.
+        sealed class EvidenceSnagRandom : System.Random
+        {
+            public EvidenceSnagRandom() : base(15701) { }
+            public override double NextDouble() => .1;
+        }
+
+        bool StageHarbourEvidence(string screen)
+        {
+            if (!SessionOnly) return false;
+            LeaveCage(); CancelNetHaulGame();
+            netView?.Dispose(); netView = null;
+            EndIntro(); NewGame();
+            captureFreeze = true; showTitle = paused = panelOpen = false;
+            State = new GameState(15701); // repeatable crew, fish and cage cues; no save or PlayerPrefs writes
+            State.Hull = screen.StartsWith("harbour-h") ? int.Parse(screen.Substring(9)) :
+                screen.StartsWith("intro-") || screen == "arrival-crates" ? 0 : 4;
+            State.Coins = 10000; State.Fuel = State.FuelCapacity;
+            RebuildBoat(false); Tick(.05f);
+            for (int n = 0; n < 80; n++) Tick(.025f);
+            toastUntil = catchUntil = 0;
+            if (screen.StartsWith("harbour-h")) return CurrentMode == Mode.Harbour;
+
+            if (screen.StartsWith("intro-"))
+            {
+                BeginIntro();
+                float seconds = screen == "intro-open" ? .5f : screen == "intro-basin" ? 5.5f : 10f;
+                Advance(seconds); return IntroActive;
+            }
+            if (screen.StartsWith("cage-"))
+            {
+                if (!StartTier5Trial()) return false;
+                captureFreeze = true;
+                buoyTimers[0] = buoyTimers[1] = BuoySoakSeconds;
+                var rng = State.Rng;
+                if (screen == "cage-snag") State.Rng = new EvidenceSnagRandom();
+                bool opened = TryBuoyWork(Captain) && Until(() => CageViewActive);
+                State.Rng = rng;
+                if (!opened) return false;
+                Advance(.8f);
+                if (screen == "cage-pull") return Cage?.Phase == CagePhase.Pull;
+                for (int n = 0; n < 1600 && Cage != null && Cage.Phase is CagePhase.Pull or CagePhase.Snag; n++)
+                {
+                    if (Cage.Phase == CagePhase.Snag)
+                    {
+                        if (screen == "cage-snag") { toastUntil = 0; return true; }
+                        DragCage(Cage.SnagDirection);
+                    }
+                    else if (n % 4 == 0) TapCage();
+                    Tick(.05f);
+                }
+                // The production view moves its first crab onto the board after .5s.
+                // Capture after that transfer settles, rather than an empty sorting board.
+                Advance(1.1f); toastUntil = 0;
+                return screen == "cage-board" && Cage?.Phase == CagePhase.Sort;
+            }
+            if (screen.StartsWith("net-"))
+            {
+                if (!StartNetBoatTrial()) return false;
+                captureFreeze = true;
+                Advance(1);
+                if (!SetNet() || !Until(() => NetViewActive)) return false;
+                Advance(.7f);
+                if (screen == "net-setting") return NetGameSetting && NetViewActive;
+                for (int n = 0; n < 1600 && NetGameActive; n++)
+                {
+                    if (NetGamePhase >= .43f && NetGamePhase <= .55f) TapNetGame();
+                    Tick(.025f);
+                }
+                if (Net != NetState.Soaking) return false;
+                Advance(2);
+                TickNet(GameData.ShallowNetSoakSeconds + 1f);
+                if (!HaulNet() || !Until(() => NetViewActive)) return false;
+                Advance(.7f);
+                if (screen == "net-haul") return NetViewActive && !NetGameSetting;
+                for (int n = 0; n < 1600 && NetGameActive && NetGameProgress < .8f; n++)
+                { if (NetGameTension < .64f) TapNetGame(); Tick(.025f); }
+                return NetViewActive && NetGameProgress >= .8f;
+            }
+
+            SelectedSpot = 0;
+            SetSail();
+            if (screen == "depart-lane")
+            { Advance(3f); return Leg == TripLeg.HarbourOut; }
+            if (screen == "chart-leg")
+                return Until(() => Leg == TripLeg.ChartOut && ChartRoute >= .45f && ChartAlpha > .95f);
+            if (!Until(() => Leg == TripLeg.SeaOut && !chartActive)) return false;
+            if (screen == "sea-entry") { Advance(.25f); return Leg == TripLeg.SeaOut; }
+            if (!Until(() => CurrentMode == Mode.Fishing && Leg == TripLeg.None)) return false;
+            if (screen == "arrival-crates")
+                for (int n = 0; n < 12; n++) Cooler.Add(new CaughtFish { Species = Species.Mackerel, Kg = 1.1f, StowedAt = SimTime });
+            HeadHome();
+            if (screen == "return-sea") { Advance(1); return Leg == TripLeg.SeaHome; }
+            if (screen == "return-chart")
+                return Until(() => Leg == TripLeg.ChartHome && ChartRoute >= .45f && ChartAlpha > .95f);
+            if (screen == "return-lane")
+            {
+                if (!Until(() => Leg == TripLeg.HarbourIn && !chartActive)) return false;
+                Advance(3); return Leg == TripLeg.HarbourIn;
+            }
+            if (!Until(() => CurrentMode == Mode.Harbour)) return false;
+            panelOpen = false; toastUntil = 0; Advance(1.1f);
+            return crates.Count > 0 && screen == "arrival-crates";
+
+            void Advance(float seconds) { for (float t = 0; t < seconds; t += .025f) Tick(.025f); }
+            bool Until(Func<bool> done)
+            { for (int n = 0; n < 12000 && !done(); n++) Tick(.025f); return done(); }
+        }
+
         IEnumerator CaptureUiV2(string directory, IEnumerable<string> screens)
         {
             Application.runInBackground = true; Directory.CreateDirectory(directory);
             captureFreeze = true; showTitle = paused = false;
+            Time.timeScale = 0;
             foreach (var screen in screens)
             {
                 if (!StageUiV2(screen)) { Debug.LogError("[Catchline] UIV2 stage failed: " + screen); QuitCapture(5); yield break; }
+                captureFreeze = true;
                 foreach (var size in UiV2Sizes)
                 {
                     if (!Application.isEditor) { Screen.SetResolution(size.x, size.y, false); for (int n = 0; n < 20; n++) yield return null; }

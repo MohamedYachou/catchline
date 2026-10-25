@@ -40,7 +40,7 @@ namespace Catchline.EditorTools
                     var mats = renderers.SelectMany(r => r.sharedMaterials).ToArray();
                     bool loose = mats.Any(m => m == null || AssetDatabase.GetAssetPath(m) != path);
                     long tris = instance.GetComponentsInChildren<MeshFilter>(true).Sum(f =>
-                        Enumerable.Range(0, f.sharedMesh.subMeshCount).Sum(i => (long)f.sharedMesh.GetIndexCount(i) / 3));
+                        Triangles(f.sharedMesh)) + instance.GetComponentsInChildren<SkinnedMeshRenderer>(true).Sum(r => Triangles(r.sharedMesh));
                     using var hash = System.Security.Cryptography.SHA256.Create();
                     var row = new Row { name = prefab.name, asset = path,
                         sha256 = BitConverter.ToString(hash.ComputeHash(File.ReadAllBytes(path))).Replace("-", ""),
@@ -58,6 +58,47 @@ namespace Catchline.EditorTools
             Directory.CreateDirectory(output);
             File.WriteAllText(Path.Combine(output, "import-receipt.json"), JsonUtility.ToJson(new Receipt { models = rows }, true));
             Debug.Log($"[Catchline] HARBOUR IMPORT PASS {rows.Length} models");
+        }
+        static long Triangles(Mesh mesh) => mesh == null ? 0 :
+            Enumerable.Range(0, mesh.subMeshCount).Sum(i => (long)mesh.GetIndexCount(i) / 3);
+
+        public static void VerifyCaptureStages()
+        {
+            Run();
+            FishPolishChecks.Run();
+            var game = UnityEngine.Object.FindFirstObjectByType<VoyageGame>();
+            VerifyStages(game, new[] { "harbour-h0", "harbour-h1", "harbour-h2", "harbour-h3", "harbour-h4",
+                "depart-lane", "chart-leg", "sea-entry", "return-sea", "return-chart", "return-lane", "arrival-crates",
+                "intro-open", "intro-basin", "intro-berth", "cage-pull", "cage-snag", "cage-board", "net-setting", "net-haul", "net-bunt" });
+        }
+        public static void VerifyRemainingStages()
+        {
+            if (new DirectoryInfo(Path.GetFullPath(".")).Name != "Catchline-lead-sim")
+                throw new InvalidOperationException("Harbour evidence requires Catchline-lead-sim");
+            var game = FishViewChecks.Fixture();
+            VerifyStages(game, new[] { "cage-snag", "cage-board", "net-setting", "net-haul", "net-bunt" });
+        }
+        public static void VerifyBoardStage()
+        {
+            if (new DirectoryInfo(Path.GetFullPath(".")).Name != "Catchline-lead-sim")
+                throw new InvalidOperationException("Harbour evidence requires Catchline-lead-sim");
+            var game = FishViewChecks.Fixture();
+            VerifyStages(game, new[] { "cage-board" });
+            const System.Reflection.BindingFlags flags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+            var view = typeof(VoyageGame).GetField("cageView", flags).GetValue(game);
+            var crab = view.GetType().GetField("onBoard", flags).GetValue(view) as Transform;
+            if (crab == null) throw new Exception("Sorting-board evidence captured before the crab arrived");
+            Debug.Log("[Catchline] POPULATED SORTING BOARD PASS");
+        }
+        static void VerifyStages(VoyageGame game, string[] screens)
+        {
+            var stage = typeof(VoyageGame).GetMethod("StageUiV2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            foreach (var screen in screens)
+            {
+                if (!(bool)stage.Invoke(game, new object[] { screen })) throw new Exception("Evidence stage failed: " + screen);
+                Debug.Log("[Catchline] EVIDENCE STAGE PASS " + screen);
+            }
+            Debug.Log("[Catchline] EVIDENCE STAGES COMPLETE");
         }
     }
 }
