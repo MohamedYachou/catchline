@@ -1,0 +1,63 @@
+{
+  "task": "STRIKE-TAP-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "fx-tap-burst": {
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        12,
+        44,
+        244,
+        212
+      ],
+      "alpha_components_gt127": 1,
+      "clear_borders": true,
+      "identical_assets_copy": true,
+      "tips": 12,
+      "reference_geometry_match": true,
+      "opaque_gold_centre": true
+    },
+    "fx-tap-ripple": {
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        13,
+        13,
+        243,
+        243
+      ],
+      "alpha_components_gt127": 1,
+      "clear_borders": true,
+      "identical_assets_copy": true,
+      "transparent_centre_rect": [
+        58,
+        58,
+        198,
+        198
+      ],
+      "reference_geometry_match": true,
+      "round_geometry": true
+    }
+  },
+  "sha256": {
+    "Art/Source/StrikeTap/fx-tap-burst.png": "8af06ae5541f0842c46794a28e12bbf39573a8a4cfdf440ed1d3e82d1edb7746",
+    "Assets/Art/UI/Crew/fx-tap-burst.png": "8af06ae5541f0842c46794a28e12bbf39573a8a4cfdf440ed1d3e82d1edb7746",
+    "Art/Source/StrikeTap/svg/fx-tap-burst.svg": "cb5f86360412b5c2c3ce99975d8f459f479f2cda0e954c8de5a3afa5c10c3a02",
+    "Art/Source/StrikeTap/fx-tap-ripple.png": "32d44410813ee0dd2c98dce4080282e85fde9d40223eb59e8fcefcd09511f18e",
+    "Assets/Art/UI/Crew/fx-tap-ripple.png": "32d44410813ee0dd2c98dce4080282e85fde9d40223eb59e8fcefcd09511f18e",
+    "Art/Source/StrikeTap/svg/fx-tap-ripple.svg": "28e2c73afe41b31097408f98390995b927adbb0c5aa9f3f9e25741b16f0765ba",
+    "Art/Source/StrikeTap/review/sheet.png": "0e2cb85fcfff013f9658aebcac8bd024777450e9e8e747a5584202582791ff37",
+    "Art/Source/StrikeTap/review/goal-strike-panel.png": "531869349fd023c1282c127f83ae1f6a6d21b207be1c80e51fa41895abee5d8a",
+    "Art/Source/StrikeTap/REPORT.md": "3e0b1709d43e8f40a291e7a9fa1949b2a949d3ecfbeb51d250ddf5a478caf8b3",
+    "Art/Concepts/17-hud-fishing.png": "420f9fe761cc6dab308711943cbaf3d3891d7483ceddcaa37397975e3588d81e"
+  },
+  "reference_override": "flat gold 12-tip burst and single circular mint ring follow goal over differing prose",
+  "runtime_acceptance": "not tested; artist scope only"
+}

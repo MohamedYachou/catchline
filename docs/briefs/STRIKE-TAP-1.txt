@@ -1,0 +1,13 @@
+STRIKE-TAP-1 — Codex 1 (Windows) — the TAP! burst and press ripple in the strike panel (plan D1). Start after PURCHASE-FX-1.
+GOAL: match the goal render crop in Art/Source/StrikeTap/review/sheet.png: when the bobber is under, a gold burst
+reading "TAP!" pulses beside the bobber ring, and each tap sends a round mint ripple out from the tap point.
+CONTEXT: sprites fx-tap-burst.png and fx-tap-ripple.png in Assets/Art/UI/Crew (metas exist); the strike/bite panel
+code (search RodState.Bite in the Voyage*Interface / rod view files); VoyageCastFx.cs for your own timed-fx pattern.
+BUILD: new file Assets/Scripts/Game/VoyageStrikeFx.cs (partial VoyageGame) guarded by HasUi; one hook line where the
+strike panel draws and one where a strike tap is handled. Burst: gentle scale pulse (1 -> 1.08) with "TAP!" in
+Skin.Type.Display, Skin.Ink. Ripple: 0.45 s, scale .3 -> 1.4, fade out, from the tap point.
+CAPTURES: NEW editor file Assets/Editor/StrikeFxCapture.cs (never edit LeadShots.cs): bite panel idle and mid-ripple,
+1440x900 and 844x390, in docs/screens/strike-fx/.
+OWNERSHIP: those files only. No git. Never edit VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, MAP9 files.
+DONE = EVIDENCE: captures opened and compared with the goal crop; full regression passes in the scratch copy.
+REPORTING: START, CHECKPOINTs, DONE in comms.md; QUESTION and skip when blocked.
