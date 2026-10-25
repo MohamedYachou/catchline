@@ -64,6 +64,7 @@ namespace Catchline.Game
                 };
                 foreach (var (p, yaw) in perches) Put(root, gull, p, yaw)?.AddComponent<Gull>();
             }
+            DressTownsfolk(root, lib, q);
         }
 
         void DressDeck(ArtLibrary lib)

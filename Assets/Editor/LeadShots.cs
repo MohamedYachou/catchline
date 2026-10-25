@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Catchline.Game;
 using UnityEditor;
@@ -30,6 +31,7 @@ namespace Catchline.EditorTools
             if (Want("net")) Net();
             if (Want("gut")) Gut();
             if (Want("traffic")) Traffic();
+            if (Want("town")) Town();
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
@@ -152,6 +154,25 @@ namespace Catchline.EditorTools
             Wait(() => r.Reading.Phase == FishPhase.Inspect); ShotUi(g, "rod-0-waiting-phone", 844, 390); ShotUi(g, "rod-0-waiting");
             Wait(() => r.Reading.Phase == FishPhase.Take); g.Tick(.2f); ShotUi(g, "rod-1-take-phone", 844, 390);
             g.StrikeTap(); g.Tick(r.ThrashSeconds + .85f); ShotUi(g, "rod-2-lifted-phone", 844, 390); ShotUi(g, "rod-2-lifted");
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        // Townsfolk on the quay: the harbour view, then a close look at each walker.
+        static void Town()
+        {
+            var g = Game("Town shot"); Rebuild(g, 1);
+            var walkers = UnityEngine.Object.FindObjectsByType<TownWalker>(FindObjectsSortMode.None);
+            Debug.Log("TOWN walkers " + walkers.Length + ": " + string.Join(", ", walkers.Select(w => w.name + " @" + w.transform.position)));
+            for (int i = 0; i < 70; i++) foreach (var w in walkers) w.Tick(.05f);
+            Shot(g, "town-h1");
+            var cam = g.Cam.transform; var size = g.Cam.orthographicSize; var home = cam.position;
+            for (int n = 0; n < walkers.Length; n++)
+            {
+                g.Cam.orthographicSize = 2.2f;
+                cam.position = walkers[n].transform.position + Vector3.up * .8f - cam.forward * 40f;
+                Shot(g, "town-close-" + n);
+            }
+            g.Cam.orthographicSize = size; cam.position = home;
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
