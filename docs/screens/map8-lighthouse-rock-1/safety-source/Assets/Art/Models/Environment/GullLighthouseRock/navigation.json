@@ -1,0 +1,1131 @@
+{
+  "schema": 2,
+  "map": "GullLighthouseRock",
+  "runtimeModelId": "GullLighthouseRockSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "lighthouse-stack-0",
+      "vertices": [
+        {
+          "x": -21.3528,
+          "z": 2.69148
+        },
+        {
+          "x": -14.304,
+          "z": -5.26258
+        },
+        {
+          "x": -2.1288,
+          "z": -3.36052
+        },
+        {
+          "x": 7.9104,
+          "z": -5.60841
+        },
+        {
+          "x": 19.4448,
+          "z": 1.99982
+        },
+        {
+          "x": 21.3672,
+          "z": 13.41217
+        },
+        {
+          "x": 13.8912,
+          "z": 25.51617
+        },
+        {
+          "x": 2.5704,
+          "z": 29.32028
+        },
+        {
+          "x": -11.5272,
+          "z": 27.0724
+        },
+        {
+          "x": -20.0712,
+          "z": 17.38919
+        }
+      ],
+      "sourceObject": "Terrain_lighthouse-stack",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite-0",
+      "vertices": [
+        {
+          "x": -64.13844,
+          "z": -29.2778
+        },
+        {
+          "x": -63.78218,
+          "z": -30.0766
+        },
+        {
+          "x": -62.21754,
+          "z": -30.80594
+        },
+        {
+          "x": -60.51768,
+          "z": -31.08062
+        },
+        {
+          "x": -59.69423,
+          "z": -30.25331
+        },
+        {
+          "x": -60.4641,
+          "z": -28.73762
+        },
+        {
+          "x": -62.68818,
+          "z": -27.72966
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite.001-0",
+      "vertices": [
+        {
+          "x": -54.63627,
+          "z": -35.93129
+        },
+        {
+          "x": -54.28001,
+          "z": -36.73009
+        },
+        {
+          "x": -52.71538,
+          "z": -37.45942
+        },
+        {
+          "x": -51.01551,
+          "z": -37.7341
+        },
+        {
+          "x": -50.19207,
+          "z": -36.9068
+        },
+        {
+          "x": -50.96194,
+          "z": -35.39111
+        },
+        {
+          "x": -53.18601,
+          "z": -34.38314
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.001",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite.002-0",
+      "vertices": [
+        {
+          "x": 30.86157,
+          "z": 65.7222
+        },
+        {
+          "x": 31.21782,
+          "z": 64.92339
+        },
+        {
+          "x": 32.78246,
+          "z": 64.19406
+        },
+        {
+          "x": 34.48232,
+          "z": 63.91938
+        },
+        {
+          "x": 35.30577,
+          "z": 64.74669
+        },
+        {
+          "x": 34.5359,
+          "z": 66.26237
+        },
+        {
+          "x": 32.31182,
+          "z": 67.27034
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.002",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite.003-0",
+      "vertices": [
+        {
+          "x": 40.36373,
+          "z": 59.06871
+        },
+        {
+          "x": 40.71999,
+          "z": 58.26991
+        },
+        {
+          "x": 42.28462,
+          "z": 57.54058
+        },
+        {
+          "x": 43.98449,
+          "z": 57.2659
+        },
+        {
+          "x": 44.80793,
+          "z": 58.0932
+        },
+        {
+          "x": 44.03806,
+          "z": 59.60889
+        },
+        {
+          "x": 41.81399,
+          "z": 60.61686
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.003",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite.004-0",
+      "vertices": [
+        {
+          "x": 90.86156,
+          "z": -41.2778
+        },
+        {
+          "x": 91.21783,
+          "z": -42.0766
+        },
+        {
+          "x": 92.78246,
+          "z": -42.80594
+        },
+        {
+          "x": 94.48232,
+          "z": -43.08062
+        },
+        {
+          "x": 95.30576,
+          "z": -42.25331
+        },
+        {
+          "x": 94.5359,
+          "z": -40.73762
+        },
+        {
+          "x": 92.31182,
+          "z": -39.72966
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.004",
+      "sliceY": 0
+    },
+    {
+      "id": "CornerGranite.005-0",
+      "vertices": [
+        {
+          "x": 100.36373,
+          "z": -47.93129
+        },
+        {
+          "x": 100.71999,
+          "z": -48.73009
+        },
+        {
+          "x": 102.28461,
+          "z": -49.45942
+        },
+        {
+          "x": 103.98449,
+          "z": -49.7341
+        },
+        {
+          "x": 104.80793,
+          "z": -48.9068
+        },
+        {
+          "x": 104.03806,
+          "z": -47.39111
+        },
+        {
+          "x": 101.81399,
+          "z": -46.38314
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.005",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "lighthouse-stack-0",
+      "vertices": [
+        {
+          "x": -23.3128,
+          "z": 1.97748
+        },
+        {
+          "x": -15.604,
+          "z": -6.72134
+        },
+        {
+          "x": -2.2888,
+          "z": -4.64119
+        },
+        {
+          "x": 8.6904,
+          "z": -7.09955
+        },
+        {
+          "x": 21.3048,
+          "z": 1.22106
+        },
+        {
+          "x": 23.4072,
+          "z": 13.70197
+        },
+        {
+          "x": 15.2312,
+          "z": 26.93931
+        },
+        {
+          "x": 2.8504,
+          "z": 31.09961
+        },
+        {
+          "x": -12.5672,
+          "z": 28.64125
+        },
+        {
+          "x": -21.9112,
+          "z": 18.05139
+        }
+      ],
+      "sourceObject": "Terrain_lighthouse-stack",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite-0",
+      "vertices": [
+        {
+          "x": -64.24623,
+          "z": -29.25677
+        },
+        {
+          "x": -63.8726,
+          "z": -30.09455
+        },
+        {
+          "x": -62.23163,
+          "z": -30.85946
+        },
+        {
+          "x": -60.44883,
+          "z": -31.14755
+        },
+        {
+          "x": -59.58521,
+          "z": -30.27987
+        },
+        {
+          "x": -60.39264,
+          "z": -28.69024
+        },
+        {
+          "x": -62.72522,
+          "z": -27.6331
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite.001-0",
+      "vertices": [
+        {
+          "x": -54.74407,
+          "z": -35.91026
+        },
+        {
+          "x": -54.37043,
+          "z": -36.74804
+        },
+        {
+          "x": -52.72947,
+          "z": -37.51295
+        },
+        {
+          "x": -50.94666,
+          "z": -37.80103
+        },
+        {
+          "x": -50.08305,
+          "z": -36.93336
+        },
+        {
+          "x": -50.89047,
+          "z": -35.34373
+        },
+        {
+          "x": -53.22306,
+          "z": -34.28658
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.001",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite.002-0",
+      "vertices": [
+        {
+          "x": 30.75377,
+          "z": 65.74323
+        },
+        {
+          "x": 31.12741,
+          "z": 64.90545
+        },
+        {
+          "x": 32.76837,
+          "z": 64.14053
+        },
+        {
+          "x": 34.55117,
+          "z": 63.85245
+        },
+        {
+          "x": 35.41479,
+          "z": 64.72012
+        },
+        {
+          "x": 34.60736,
+          "z": 66.30976
+        },
+        {
+          "x": 32.27478,
+          "z": 67.3669
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.002",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite.003-0",
+      "vertices": [
+        {
+          "x": 40.25593,
+          "z": 59.08974
+        },
+        {
+          "x": 40.62957,
+          "z": 58.25196
+        },
+        {
+          "x": 42.27053,
+          "z": 57.48705
+        },
+        {
+          "x": 44.05334,
+          "z": 57.19897
+        },
+        {
+          "x": 44.91695,
+          "z": 58.06664
+        },
+        {
+          "x": 44.10953,
+          "z": 59.65627
+        },
+        {
+          "x": 41.77694,
+          "z": 60.71342
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.003",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite.004-0",
+      "vertices": [
+        {
+          "x": 90.75377,
+          "z": -41.25677
+        },
+        {
+          "x": 91.12741,
+          "z": -42.09455
+        },
+        {
+          "x": 92.76837,
+          "z": -42.85947
+        },
+        {
+          "x": 94.55117,
+          "z": -43.14755
+        },
+        {
+          "x": 95.41479,
+          "z": -42.27987
+        },
+        {
+          "x": 94.60736,
+          "z": -40.69024
+        },
+        {
+          "x": 92.27478,
+          "z": -39.6331
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.004",
+      "sliceY": -1
+    },
+    {
+      "id": "CornerGranite.005-0",
+      "vertices": [
+        {
+          "x": 100.25594,
+          "z": -47.91026
+        },
+        {
+          "x": 100.62957,
+          "z": -48.74804
+        },
+        {
+          "x": 102.27053,
+          "z": -49.51295
+        },
+        {
+          "x": 104.05334,
+          "z": -49.80103
+        },
+        {
+          "x": 104.91695,
+          "z": -48.93336
+        },
+        {
+          "x": 104.10953,
+          "z": -47.34373
+        },
+        {
+          "x": 101.77695,
+          "z": -46.28658
+        }
+      ],
+      "sourceObject": "Terrain_CornerGranite.005",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -160.0,
+      "z": -130.0
+    },
+    {
+      "x": 160.0,
+      "z": -130.0
+    },
+    {
+      "x": 160.0,
+      "z": 130.0
+    },
+    {
+      "x": -160.0,
+      "z": 130.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "the-pinnacle",
+      "name": "The pinnacle",
+      "centre": {
+        "x": -55.0,
+        "z": -30.0
+      },
+      "radius": 12,
+      "nominalDepth": 4.5,
+      "poolId": "GullLighthouseRock/the-pinnacle",
+      "position": [
+        -55,
+        0,
+        -30
+      ],
+      "heading": 0
+    },
+    {
+      "id": "tide-race",
+      "name": "Tide race",
+      "centre": {
+        "x": 40.0,
+        "z": 65.0
+      },
+      "radius": 14,
+      "nominalDepth": 3.2,
+      "poolId": "GullLighthouseRock/tide-race",
+      "position": [
+        40,
+        0,
+        65
+      ],
+      "heading": 0
+    },
+    {
+      "id": "deep-ledge",
+      "name": "Deep ledge",
+      "centre": {
+        "x": 100.0,
+        "z": -42.0
+      },
+      "radius": 14,
+      "nominalDepth": 9.0,
+      "poolId": "GullLighthouseRock/deep-ledge",
+      "position": [
+        100,
+        0,
+        -42
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -126.0,
+    "z": -91.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -152.0,
+      "z": -122.0
+    },
+    "max": {
+      "x": 152.0,
+      "z": 122.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -160.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -133.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -106.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -80.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -53.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -26.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 0.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 26.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 53.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 80.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 106.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 133.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 160.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 160.0,
+        "z": -104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 160.0,
+        "z": -78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 160.0,
+        "z": -52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 160.0,
+        "z": -26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 160.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 160.0,
+        "z": 26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 160.0,
+        "z": 52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 160.0,
+        "z": 78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 160.0,
+        "z": 104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 160.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 133.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 106.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 80.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": 53.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": 26.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": 0.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -26.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -53.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -80.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -106.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -133.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -160.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -160.0,
+        "z": 104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -160.0,
+        "z": 78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -160.0,
+        "z": 52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -160.0,
+        "z": 26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -160.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-40",
+      "position": {
+        "x": -160.0,
+        "z": -26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-41",
+      "position": {
+        "x": -160.0,
+        "z": -52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-42",
+      "position": {
+        "x": -160.0,
+        "z": -78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-43",
+      "position": {
+        "x": -160.0,
+        "z": -104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "outer-freighter-0",
+        "kind": "ship",
+        "centre": {
+          "x": 218,
+          "z": 190
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter-1",
+        "kind": "ship",
+        "centre": {
+          "x": -211,
+          "z": 170
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "lighthouse-stack": "Lone angular granite stack crowned by white-red lighthouse and keeper cottage."
+  },
+  "artReviewAnchors": {
+    "the-pinnacle": {
+      "x": -55.0,
+      "z": -30.0
+    },
+    "tide-race": {
+      "x": 40.0,
+      "z": 65.0
+    },
+    "deep-ledge": {
+      "x": 100.0,
+      "z": -42.0
+    }
+  },
+  "sealColonyAnchors": [],
+  "lifeAnchors": [
+    {
+      "id": "PuffinLedge_1",
+      "position": [
+        -14,
+        2.08,
+        2
+      ]
+    },
+    {
+      "id": "PuffinLedge_2",
+      "position": [
+        -11,
+        3.38,
+        1
+      ]
+    },
+    {
+      "id": "PuffinLedge_3",
+      "position": [
+        -8,
+        4.68,
+        2
+      ]
+    },
+    {
+      "id": "TideRace_1",
+      "position": [
+        43.19418295668081,
+        -0.285,
+        59.10108524902675
+      ]
+    },
+    {
+      "id": "TideRace_2",
+      "position": [
+        32.790781988861866,
+        -0.285,
+        65.16485044095032
+      ]
+    },
+    {
+      "id": "LighthouseLamp_1",
+      "position": [
+        0,
+        22.08,
+        15
+      ]
+    },
+    {
+      "id": "CardinalBuoy_1",
+      "position": [
+        102.21103049818527,
+        -0.32,
+        -48.431278577086715
+      ]
+    }
+  ]
+}

@@ -71,6 +71,11 @@ namespace Catchline.Game
                 G("the-wreck", "The wreck", "wreck", (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f)),
                 G("herring-bank", "Herring bank", "bank", (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 20f)),
                 G("sand-edge", "Sand edge", "sand", (Species.Plaice, 50f), (Species.Turbot, 12f), (Species.Whiting, 25f), (Species.SpottedEagleRay, 1f)) },
+            // Lighthouse rock (MAP8). Preserve all prior map richness slots.
+            new[] {
+                G("the-pinnacle", "The pinnacle", "pinnacle", (Species.Pollock, 40f), (Species.SeaBass, 30f), (Species.Conger, 20f), (Species.GoldTipShark, 1f)),
+                G("tide-race", "Tide race", "race", (Species.Mackerel, 45f), (Species.SeaBass, 35f), (Species.YellowfinTuna, 3f)),
+                G("deep-ledge", "Deep ledge", "ledge", (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f)) },
         };
 
         static readonly int[][] offsets;

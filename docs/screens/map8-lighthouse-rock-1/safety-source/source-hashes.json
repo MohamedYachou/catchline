@@ -1,0 +1,506 @@
+{
+  "utc": "2026-10-25T08:23:18.052721+00:00",
+  "files": {
+    "Assets/Scripts/Game/ArtLibrary.cs": {
+      "sha256": "c4e5e9862e7dfd1e84d08a417a24a82762838dd852e28e5a1551ed4a2ff31039",
+      "bytes": 8420
+    },
+    "Assets/Scripts/Game/CatchExpectation.cs": {
+      "sha256": "4c88b7ffc1e0faa0fb48cb4cdbbc311d6dfaee188ade543ef3cbcafccffbea41",
+      "bytes": 5691
+    },
+    "Assets/Scripts/Game/CatchPresentation.cs": {
+      "sha256": "bb7ebe8d0b6de065f5edfcb896447a1f8650870be96e63aa3db2b42e43064ea5",
+      "bytes": 3471
+    },
+    "Assets/Scripts/Game/CatchRewardGraphic.cs": {
+      "sha256": "0f38274f8907d3b357b299ae7f00aef0e80e4394788f24f6b1964c7ddb00d551",
+      "bytes": 3665
+    },
+    "Assets/Scripts/Game/CoastalCanvas.cs": {
+      "sha256": "742b018c2e9b021582402f789b11df91afc6881ee2b16b55a5367e13bed73e0c",
+      "bytes": 27226
+    },
+    "Assets/Scripts/Game/CoastalWater.cs": {
+      "sha256": "ca86d02efb3277f4be5199bfe9b2c5bae20a0924e5878ca7b7d5942983e1e227",
+      "bytes": 2035
+    },
+    "Assets/Scripts/Game/DeckActors.cs": {
+      "sha256": "220985cf20be76fef1c7e099fa1a9ad4e0064fe017e2d1ad8c85547d2655919b",
+      "bytes": 34352
+    },
+    "Assets/Scripts/Game/DeepLineRules.cs": {
+      "sha256": "9f8cfdbaa38ec4bf6d465d23fa859573909ef52fe860208f891f837b436361d7",
+      "bytes": 6191
+    },
+    "Assets/Scripts/Game/FishReferenceStyle.cs": {
+      "sha256": "1971c27f0cf5443f645ed324e77569a1d9a2304d289a6242c2a93dcdd1e0a424",
+      "bytes": 1231
+    },
+    "Assets/Scripts/Game/FlowTelemetry.cs": {
+      "sha256": "e3e1795a838e49dba8dda1facdbd23f7a69ef5c9f17902919c53fe5a28eba1fe",
+      "bytes": 4003
+    },
+    "Assets/Scripts/Game/GameData.cs": {
+      "sha256": "48f76f66e03b7667f65fa1fd60bde02862c121e9393ddf6f78db96c964964bc9",
+      "bytes": 24521
+    },
+    "Assets/Scripts/Game/GameState.cs": {
+      "sha256": "0189ff14a55c9e6103d7a312d4bd6ff88fdfa21f28246946a78c2d9664b66308",
+      "bytes": 34070
+    },
+    "Assets/Scripts/Game/GameStateBoatModules.cs": {
+      "sha256": "8effba1941b7262f60de278553cb21b0cf82637991040ac0fda527758559e2b6",
+      "bytes": 542
+    },
+    "Assets/Scripts/Game/GameStateCards.cs": {
+      "sha256": "6e40f109d9210d8a9e31512dc582abef2b7828ee4fe005597354b5ab53cf2380",
+      "bytes": 6787
+    },
+    "Assets/Scripts/Game/GameStateCrewBait.cs": {
+      "sha256": "237cf26b862c1d4849b688340d069a91a038a4c3fd30c53f5b1fca2eb8726aa0",
+      "bytes": 1820
+    },
+    "Assets/Scripts/Game/GameStateNetLoadout.cs": {
+      "sha256": "79c8b72ab2c330bc1bce7ccefb0d0a98917f55fddeb3dfd98521678c38257194",
+      "bytes": 1177
+    },
+    "Assets/Scripts/Game/GameStateProgression.cs": {
+      "sha256": "85b31c720d763df7391e110399f6e1c9008c7c66a0fc680b193b4b45099d5827",
+      "bytes": 2141
+    },
+    "Assets/Scripts/Game/GameStateTier5.cs": {
+      "sha256": "263bc5ee8b19b63e8e94813ec23fcf813c1740f1b46e18d5ea0a88cc96fd70d2",
+      "bytes": 545
+    },
+    "Assets/Scripts/Game/GeminiFishModels.cs": {
+      "sha256": "0616a8257b88011c17be5d9d8641d11efa9faa6e663a2249c03ab4987eb1cfdc",
+      "bytes": 1862
+    },
+    "Assets/Scripts/Game/GeminiUiSkin.cs": {
+      "sha256": "5252af290c67e97c3dfce41db7ea3862d16cbe1a7a51bb9689d4e760d1d9835e",
+      "bytes": 4557
+    },
+    "Assets/Scripts/Game/Map6Capture.cs": {
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2",
+      "bytes": 4597
+    },
+    "Assets/Scripts/Game/Map7Capture.cs": {
+      "sha256": "502f9c85f58536f4e8b40649f8b29742eee9f414a0b6e8e2ffe808a6cdb5a8a9",
+      "bytes": 4673
+    },
+    "Assets/Scripts/Game/Map8Capture.cs": {
+      "sha256": "cece4f63d6d92fd93bc3bc532396127fadbe7f9fe9d51a4108fabf71a0c8ee8c",
+      "bytes": 4678
+    },
+    "Assets/Scripts/Game/PtsWater.cs": {
+      "sha256": "3c0897b518f71dc8a18508458d085bcfcf732bba981ee0aa77228c6d9b4529ad",
+      "bytes": 6316
+    },
+    "Assets/Scripts/Game/SceneryLife.cs": {
+      "sha256": "205fe3579b66e6cb193817c0855d42091572883a5f47a176584bdc8d617161c3",
+      "bytes": 5591
+    },
+    "Assets/Scripts/Game/Skin.cs": {
+      "sha256": "51095b037835a8bc0cb78702c144d36f6e13a352fcadd8924562c0c8f0ff767c",
+      "bytes": 45357
+    },
+    "Assets/Scripts/Game/SkinSlices.cs": {
+      "sha256": "035bf6ea81f5fce8da0df8b19db2d1e1f4b7f40f319c758ca02669cb917d0c5a",
+      "bytes": 3067
+    },
+    "Assets/Scripts/Game/Ui.cs": {
+      "sha256": "02711c845c41dbb18109d742ba00f9fd8a2c8d55d5962fc9451ced603def411c",
+      "bytes": 12152
+    },
+    "Assets/Scripts/Game/VoyageAudio.cs": {
+      "sha256": "5ee233ce2dba52116c7ed9131d430085e668092ad59ec8bac9033caf4553f2ac",
+      "bytes": 10693
+    },
+    "Assets/Scripts/Game/VoyageCapture.cs": {
+      "sha256": "f06ef36d2f2419d94e62801683f047f77262d277fb65328ffdf13933977b8830",
+      "bytes": 1636
+    },
+    "Assets/Scripts/Game/VoyageCards.cs": {
+      "sha256": "01b5d6ca335de8c6e9e52bd6a71d8da23b5d397df96bdb93b37f0074a0e79206",
+      "bytes": 895
+    },
+    "Assets/Scripts/Game/VoyageCatchRewards.cs": {
+      "sha256": "1450aafc00a9003f2c240aa36ea5748fb1929762a0526e49d277ff652163cb5c",
+      "bytes": 8481
+    },
+    "Assets/Scripts/Game/VoyageChart.cs": {
+      "sha256": "e64ccdcffa9a2421ff7307a515e84c31834b18081bf42ae523bae53b10817151",
+      "bytes": 10770
+    },
+    "Assets/Scripts/Game/VoyageCompactFisher.cs": {
+      "sha256": "fc5007db6fb5e614c4f05bba5c4e34c860e646a6f1e02e8616eccd986dd7a722",
+      "bytes": 10029
+    },
+    "Assets/Scripts/Game/VoyageCrewBait.cs": {
+      "sha256": "a1eafd340255d3d98dd4c9e39d68c219ae1cc6679bce4daffb32e15807319380",
+      "bytes": 2392
+    },
+    "Assets/Scripts/Game/VoyageCrewCounters.cs": {
+      "sha256": "ed42743db4b4bc4f9349ddaca5e910582548f6958b33721df213c0a843c42125",
+      "bytes": 3087
+    },
+    "Assets/Scripts/Game/VoyageCrewFallback.cs": {
+      "sha256": "e968375709a6f3ef3b75b515ef0a2c035aab512a6975db645d4c1bbe472d86bb",
+      "bytes": 931
+    },
+    "Assets/Scripts/Game/VoyageCrewLife.cs": {
+      "sha256": "dcee201718b409a2b25c7f7fc4ece6e13bb94d6e9277c6b6a4cf465c156d98bc",
+      "bytes": 2355
+    },
+    "Assets/Scripts/Game/VoyageDeck.cs": {
+      "sha256": "f9095b87ba594ec5d53904efe28af54de653ebab61cf78469efc986314351ca0",
+      "bytes": 14664
+    },
+    "Assets/Scripts/Game/VoyageDeepLines.cs": {
+      "sha256": "8de7fac2bd225307c634381743e60c436367ed4b4eeb6fbddae668ee02bb31f7",
+      "bytes": 11232
+    },
+    "Assets/Scripts/Game/VoyageDeparture.cs": {
+      "sha256": "545a5e63dfbde8e0937c5ab835fefa69ab26dd133a9e91381302eec676a9b940",
+      "bytes": 7824
+    },
+    "Assets/Scripts/Game/VoyageFeedback.cs": {
+      "sha256": "220f42edf5408414e15c5ea476b0cc8d71ec8f8a2dddf96cd520953beeff571b",
+      "bytes": 4705
+    },
+    "Assets/Scripts/Game/VoyageGame.cs": {
+      "sha256": "141b79daf5b331c17e4527e406e9225f045bf031f94fe1199a7cdabe415fe021",
+      "bytes": 60773
+    },
+    "Assets/Scripts/Game/VoyageGrounds.cs": {
+      "sha256": "c5af4d90f0c1181dd46ca0bef89b7349ba65112655bbede12b7c1c3bd81185d6",
+      "bytes": 3263
+    },
+    "Assets/Scripts/Game/VoyageHarbour.cs": {
+      "sha256": "b5266b2536125acac5c53ff49c1428b9231b3209505884539284735b67710cb2",
+      "bytes": 18441
+    },
+    "Assets/Scripts/Game/VoyageHarbourTraffic.cs": {
+      "sha256": "da8603d631679a8159e1d8c0032e136fce1b32ad86ea25d54599a46e6532cfd5",
+      "bytes": 5341
+    },
+    "Assets/Scripts/Game/VoyageHaul.cs": {
+      "sha256": "9e76f3a327a8c69bba8a20723fece23644c004f0a10e0a5ed21a22466582a0ba",
+      "bytes": 3348
+    },
+    "Assets/Scripts/Game/VoyageHud.cs": {
+      "sha256": "672c3c4611b84e708f594db54f33dba6934543ad7ff4c8dd195cdbe1bae21a05",
+      "bytes": 7748
+    },
+    "Assets/Scripts/Game/VoyageIllustratedChart.cs": {
+      "sha256": "3e0ddca90f465e258ab80d8a47a4038c3efb1d9cc19f7c66cfc85bcaaff8aae3",
+      "bytes": 9426
+    },
+    "Assets/Scripts/Game/VoyageInterface.cs": {
+      "sha256": "2212d50a13d1195a117abfc435bae95c956b27da741ddc12e6b808493f39ad25",
+      "bytes": 9382
+    },
+    "Assets/Scripts/Game/VoyageInterfaceCrew.cs": {
+      "sha256": "e06fbab734e728502138dababc2d9ae1a22bcc963ee25ea2ebc525dfd6da093b",
+      "bytes": 7728
+    },
+    "Assets/Scripts/Game/VoyageInterfaceGoals.cs": {
+      "sha256": "843c97f8c2f0e92234c3e34b19aa911bd263b442d0be9edfa5141a5b0a20f7d7",
+      "bytes": 5420
+    },
+    "Assets/Scripts/Game/VoyageInterfaceShop.cs": {
+      "sha256": "54992e68049a195704963f3b9ded865f26941286876ffa628545746d6578765c",
+      "bytes": 32771
+    },
+    "Assets/Scripts/Game/VoyageInterfaceVoyage.cs": {
+      "sha256": "571e096cd0484bae14e4a3b0d58c2ca3a5eff1706072600f2aeabba1c85b4c95",
+      "bytes": 13183
+    },
+    "Assets/Scripts/Game/VoyageIntro.cs": {
+      "sha256": "5785a155d86bc3228ffe93866dbdc081faa4d724df8d6acd8d8d24c5e51ee3cc",
+      "bytes": 6488
+    },
+    "Assets/Scripts/Game/VoyageManagement.cs": {
+      "sha256": "bb9e6849d31c95ade73a609291c2c4e3a6bbe83a2986ca24823a9e51904707e8",
+      "bytes": 31342
+    },
+    "Assets/Scripts/Game/VoyageManagementForecast.cs": {
+      "sha256": "2e6b1827548df36f5f99741229391c1f7e080760375acb2930997ca2b22dc2ab",
+      "bytes": 15452
+    },
+    "Assets/Scripts/Game/VoyageManagementPages.cs": {
+      "sha256": "790acbab78e3214a162e760930139f35d4afe429329d16738633568567b24a0d",
+      "bytes": 21544
+    },
+    "Assets/Scripts/Game/VoyageMenus.cs": {
+      "sha256": "07d5317108b6827e9590c5741dd84ac0d6aab16ca29b4324a3da73293e250c87",
+      "bytes": 14741
+    },
+    "Assets/Scripts/Game/VoyageNet.cs": {
+      "sha256": "2e9e49ea5629c4770be63cc0e92b095014b0237b4b09f1960473d4dee2aa06e8",
+      "bytes": 16274
+    },
+    "Assets/Scripts/Game/VoyageNetGame.cs": {
+      "sha256": "ab896cb460cafc08011bde95b600207330fafce2f098ca33f027bdae51f76992",
+      "bytes": 5502
+    },
+    "Assets/Scripts/Game/VoyageNetInterface.cs": {
+      "sha256": "b3a2c8ff4fa67156f97b3b2dcaea53b684b038b4d5cfa909faa47472de7afe56",
+      "bytes": 7861
+    },
+    "Assets/Scripts/Game/VoyageNetLoadout.cs": {
+      "sha256": "1cafa7ae79cad90dd2cc5b7223cc757aa745eb4b3b13e21bcb43869eca1ff8dd",
+      "bytes": 988
+    },
+    "Assets/Scripts/Game/VoyageNetUnload.cs": {
+      "sha256": "c448fe05d34f2b616f5d9439fa6b1b51ef41980af27081d89a3797a9b03b39ee",
+      "bytes": 4006
+    },
+    "Assets/Scripts/Game/VoyagePrepFisher.cs": {
+      "sha256": "46f19092a2d482b2c0d382382368fb673ced295d550ef755726529b8fc497837",
+      "bytes": 2697
+    },
+    "Assets/Scripts/Game/VoyagePrepOrders.cs": {
+      "sha256": "0271ed191eb6b900ef2721a2edbe7fd1175cdbb10f7cc67c2f0e13a76c713248",
+      "bytes": 13977
+    },
+    "Assets/Scripts/Game/VoyageProcessingPipeline.cs": {
+      "sha256": "6c0e61748ecde1c8c04b55e6f40b56eabbe0e9e55578b77b213c5ed5408577b0",
+      "bytes": 4803
+    },
+    "Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "d6611f7d4d2a01b7bac49595e1942860833937750d8b724703d4e7f4597c1060",
+      "bytes": 14322
+    },
+    "Assets/Scripts/Game/VoyageSea.cs": {
+      "sha256": "782ced4ce96ecf09cda6d96455b3a24278c193372ed15e7cfe2399fe87bcfd31",
+      "bytes": 7996
+    },
+    "Assets/Scripts/Game/VoyageSeaLayout.cs": {
+      "sha256": "53084e7ee0aaefd4a6d6a6e9da6b927146e757a114d1cd06e73285bf367951a1",
+      "bytes": 3890
+    },
+    "Assets/Scripts/Game/VoyageSeaMoments.cs": {
+      "sha256": "373af59047827ff91defe62079860fcfbcf87637156fe1e8baa968201160427e",
+      "bytes": 10214
+    },
+    "Assets/Scripts/Game/VoyageSecondNetModule.cs": {
+      "sha256": "2a9a60bc3ae95914c868029c8fb891c06506d158acdd1f6069d6c31711e04d53",
+      "bytes": 14105
+    },
+    "Assets/Scripts/Game/VoyageSkerriesLife.cs": {
+      "sha256": "71635a48348d4c6cc9564a2a57a0b97d0660a7873ec188178a6b2610eb51af0d",
+      "bytes": 3254
+    },
+    "Assets/Scripts/Game/VoyageStorage.cs": {
+      "sha256": "6336441635ffd0e858428f09c93e9458532f825965e7fb47cc679470a3d0c0f9",
+      "bytes": 993
+    },
+    "Assets/Scripts/Game/VoyageTier5.cs": {
+      "sha256": "fcfb9a302966e79b60cc03265c029cd5225d9e9bde73d95ef8cb8fe15d688a3e",
+      "bytes": 11480
+    },
+    "Assets/Scripts/Game/VoyageTownsfolk.cs": {
+      "sha256": "ab204780c6d106330496a2e058e418562983ed9ca79e44553a2fef00709b62aa",
+      "bytes": 4760
+    },
+    "Assets/Scripts/Game/VoyageTravel.cs": {
+      "sha256": "0df8918211232b413e8d8ff266b93b6276dbc5bfc056b777bdc30a505bc14f44",
+      "bytes": 3143
+    },
+    "Assets/Scripts/Game/VoyageTrip.cs": {
+      "sha256": "90b7d10ce7f160dda8635942d5e743509a5ca49dc2093c9d179ce29730dbd3fb",
+      "bytes": 16367
+    },
+    "Assets/Scripts/Game/VoyageTripChart.cs": {
+      "sha256": "0a232e64b8d3311caf3706826564fc4bbbb7a91bd56f3b7a879943d2d1ddd3b2",
+      "bytes": 6548
+    },
+    "Assets/Scripts/Game/VoyageUiV2Capture.cs": {
+      "sha256": "b353931f06f4fecf9b60244c9b4b617a57f75469ca94d0ed873b61e106d1c0ec",
+      "bytes": 15129
+    },
+    "Assets/Scripts/Game/VoyageWreckLife.cs": {
+      "sha256": "fa22d822286f02460b5ce196342f74e872a517c6872df3e1605cb39f505f68cb",
+      "bytes": 5968
+    },
+    "Assets/Scripts/Game/WorkSpeed.cs": {
+      "sha256": "88fcdcf6b7e75103f5e2ca1530b5db4eee1b3ac256fc0e0b3d1db3b43ed479f4",
+      "bytes": 1418
+    },
+    "Assets/Scripts/Game/Data/Bait.cs": {
+      "sha256": "a663d2cc1e19c26086c909dc4c9c5f5aa67e6bfd4d8a0b9380f5a7bfc209e445",
+      "bytes": 7747
+    },
+    "Assets/Scripts/Game/Data/Buyers.cs": {
+      "sha256": "8fc3d4a89e3b3dffd65a7bb72233c7987d89d63af5be7876ca9f1a0d7e5da6d0",
+      "bytes": 10264
+    },
+    "Assets/Scripts/Game/Data/CardProgression.cs": {
+      "sha256": "393f031bac32458375fa60e5cc8f1edc13600e88e82f2524c9e8f1beb6098588",
+      "bytes": 5846
+    },
+    "Assets/Scripts/Game/Data/Cards.cs": {
+      "sha256": "e6531a8361ee9f6b6a65e7f9b8266ac5dad33787cde2d4a5e8c5752ad27fb257",
+      "bytes": 6480
+    },
+    "Assets/Scripts/Game/Data/CardState.cs": {
+      "sha256": "bd78ed3bf4d2e3e93127e93596b674154917bcf57aa85f55811398b2c5af87b8",
+      "bytes": 7593
+    },
+    "Assets/Scripts/Game/Data/Contracts.cs": {
+      "sha256": "efb655e3db44bb3f2c9307d56308f98acd7eed73b40b56cd388a3286438e2b04",
+      "bytes": 7909
+    },
+    "Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "7dfa9f3f7201742abfe8fac96486ed0f0a2ccc2524c2590eae961fecfa6c2230",
+      "bytes": 12771
+    },
+    "Assets/Scripts/Game/Data/Products.cs": {
+      "sha256": "160a125d512bdfd4893bd8980034f156b65c624c8d041235bee6815319899692",
+      "bytes": 10744
+    },
+    "Assets/Scripts/Game/Data/Quota.cs": {
+      "sha256": "b8087dd2e8df27eefb73a0e7f4c7c5b81c98515b658ffd05a2aa962b2ed3a67f",
+      "bytes": 6652
+    },
+    "Assets/Scripts/Game/Data/SaveV2.cs": {
+      "sha256": "cdd3a1446f827d544cdb4a1635526044641b4cce63e69a74f7683a4a23cb4331",
+      "bytes": 2302
+    },
+    "Assets/Scripts/Game/Deck/DeckGraph.cs": {
+      "sha256": "546bcb5a78a5360633a723799b752c600c6222aa38c34100fd8d0a259059685e",
+      "bytes": 6310
+    },
+    "Assets/Scripts/Game/Deck/DeckScheduler.cs": {
+      "sha256": "21918a66d04d6613cd326c8b747bd4dd54ebb989896bcfced9b21e51d28e09a9",
+      "bytes": 17323
+    },
+    "Assets/Scripts/Game/Deck/Jobs.cs": {
+      "sha256": "3528ce0584ad4cb72ba4b4cf7d873171e106c4f03c1e5012c76350641d15e67b",
+      "bytes": 3465
+    },
+    "Assets/Scripts/Game/Deck/MiniJson.cs": {
+      "sha256": "a9a1c4b9f6b9bbddcf70c85b13b64bab54d1ec47bb5ca0bb5064e944b897204c",
+      "bytes": 3233
+    },
+    "Assets/Scripts/Game/Deck/Station.cs": {
+      "sha256": "7055ba644a27d8049fcb2229c859ea6a0a849fd253b775066fcadb1ac0ce89a4",
+      "bytes": 5670
+    },
+    "Assets/Scripts/Game/Minigame/BiteModel.cs": {
+      "sha256": "11c40a68822ee17645ca559664b5c04ceda96cbb6fa755f50771b1e2c99e1674",
+      "bytes": 13632
+    },
+    "Assets/Scripts/Game/Minigame/CageModel.cs": {
+      "sha256": "dafaf807b7e1a03f3622f32375e21180e6e9fe2ae6cf0c8de513f089612d2340",
+      "bytes": 4979
+    },
+    "Assets/Scripts/Game/Minigame/FishShadow.cs": {
+      "sha256": "08d929224a860ab5ec2a1fd807c3b5a625d278f3e5ae5f0028390015abf8cddc",
+      "bytes": 10229
+    },
+    "Assets/Scripts/Game/Minigame/RodViewAnimation.cs": {
+      "sha256": "dbda5d38899601b041d1a006d086168bfb3b09d26b116ddc8e3e64f309edb2c0",
+      "bytes": 4084
+    },
+    "Assets/Scripts/Game/Minigame/RodViewArt.cs": {
+      "sha256": "699bc8d062257e7432a21e05327c4c3b95e50f34aad77877701922193c4618d2",
+      "bytes": 2517
+    },
+    "Assets/Scripts/Game/Minigame/RodViewAtmosphere.cs": {
+      "sha256": "0de02a8f6e8e3b02572e7edfce956050596645d3fa255f9f8afa7e45b6fb33c5",
+      "bytes": 6028
+    },
+    "Assets/Scripts/Game/Minigame/VoyageCageView.cs": {
+      "sha256": "1a6b7044011fa07628a21728986284ca58ebb2dba9deafaee8a08a33d192d2c5",
+      "bytes": 23445
+    },
+    "Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs": {
+      "sha256": "6fa79058a809888c191b699505d38a0483d2d14522b17c850e48ef9b6337ec82",
+      "bytes": 2652
+    },
+    "Assets/Scripts/Game/Minigame/VoyageGutView.cs": {
+      "sha256": "2ebcfad5373a932442600941afdb78aadd25a07f2dab8558fddf0018dee9a278",
+      "bytes": 19493
+    },
+    "Assets/Scripts/Game/Minigame/VoyageNetView.cs": {
+      "sha256": "6abc03c1ea9820409dc400aeb38fd23a54b6c7ad223d46b13b9c111721b758b9",
+      "bytes": 21292
+    },
+    "Assets/Scripts/Game/Minigame/VoyageRepairView.cs": {
+      "sha256": "705218ccb7288f9d7e5e7b27ec6186b4148f7662757bf547d738c91a5e35fe58",
+      "bytes": 14784
+    },
+    "Assets/Scripts/Game/Minigame/VoyageRodView.cs": {
+      "sha256": "e13f8fc1b16ee111f3606b4be9330699973c8e25a77736325849f66d9d89898d",
+      "bytes": 30008
+    },
+    "Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs": {
+      "sha256": "71a9032154540e8b888bf9349a6b08be787482ecf1e5bca631d6ee2b9f38ad58",
+      "bytes": 5170
+    },
+    "Assets/Scripts/Game/Sea/BoatSailor.cs": {
+      "sha256": "a9318e063cb137789ee00bb7be4dd8ba6c1f7abccf9998ba28e456102d47a754",
+      "bytes": 3925
+    },
+    "Assets/Scripts/Game/Sea/Schools.cs": {
+      "sha256": "fc4cd2e82ed00d59c8e7e0a7620f4b1b25e2b660f7dde212aeb3033634cc0b6e",
+      "bytes": 12559
+    },
+    "Assets/Scripts/Game/Sea/SeaCamera.cs": {
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615",
+      "bytes": 1941
+    },
+    "Assets/Scripts/Game/Sea/SeaCapture.cs": {
+      "sha256": "f5650134db53a7e66ef237c430acbc7c3064210b0e251e3adb1c05a7f71a0340",
+      "bytes": 7129
+    },
+    "Assets/Scripts/Game/Sea/SeaInput.cs": {
+      "sha256": "85f7f8fdcb077629dd500c1a213341abb66b36c6deb99875fd165209c49726df",
+      "bytes": 4936
+    },
+    "Assets/Scripts/Game/Sea/SeaLanes.cs": {
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba",
+      "bytes": 4870
+    },
+    "Assets/Scripts/Game/Sea/SeaModeChecks.cs": {
+      "sha256": "56c2f2c67340d4e205c443e3bd6fd820601ad043238f2b5a27d83df9780994a4",
+      "bytes": 3902
+    },
+    "Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "97e3221dccd774ac9c4bb7de2f7252a985d27b7df25b5d65bf898c3bba972302",
+      "bytes": 18075
+    },
+    "Assets/Scripts/Game/Sea/SeaSailingEffects.cs": {
+      "sha256": "9a1321e8b588b5aa38fea47cbe155be3150b79947bc5ef3f84078e09ecc9f52e",
+      "bytes": 6415
+    },
+    "Assets/Scripts/Game/Sea/SeaSceneChecks.cs": {
+      "sha256": "e908bfb4b822b9973a18132015b80dd4592b768c7f2baae46ad39a969804dece",
+      "bytes": 2112
+    },
+    "Assets/Scripts/Game/Sea/SeaScenery.cs": {
+      "sha256": "bcec36bc91f73c42ce1ba60dadcab6d1f055764189fbcbc10a145454a07ebab0",
+      "bytes": 8580
+    },
+    "Assets/Editor/LighthouseRockMapChecks.cs": {
+      "sha256": "677004a36d0efc7a1070ba506c955ca392f5ad5d7e425d99d6f85bb3cd6edfd5",
+      "bytes": 9486
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx": {
+      "sha256": "a95c494ee9acfd56fbe5f819abdd6ae232af10d9d9687ff9772668ae63434c86",
+      "bytes": 1343804
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/navigation.json": {
+      "sha256": "46c1b0b14f583c98e459dbac0f50072cd8f6cf035211bb69744b68566cb28964",
+      "bytes": 21382
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/grounds.json": {
+      "sha256": "f59af84f8c64eabab819f976af7c13ec546e626e7d276c74ffe708e0f9a33e0e",
+      "bytes": 500
+    }
+  },
+  "scope": "Actual scratch inputs copied while the exclusive MAP8 check runs; later main changes do not rewrite this snapshot."
+}

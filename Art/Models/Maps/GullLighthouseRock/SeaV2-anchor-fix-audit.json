@@ -1,0 +1,50 @@
+{
+  "allPassed": true,
+  "checks": [
+    {
+      "anchor": "PuffinLedge_1",
+      "worldPosition": [
+        -16,
+        2.08,
+        -5
+      ],
+      "sourceTop": 2.4,
+      "samples": 28,
+      "maxSurfaceError": 5.340576171963818e-06,
+      "passed": true
+    },
+    {
+      "anchor": "PuffinLedge_2",
+      "worldPosition": [
+        -6,
+        3.38,
+        -4.7
+      ],
+      "sourceTop": 3.6999999999999997,
+      "samples": 28,
+      "maxSurfaceError": 4.5776367190164535e-06,
+      "passed": true
+    },
+    {
+      "anchor": "PuffinLedge_3",
+      "worldPosition": [
+        8,
+        4.68,
+        -3.8
+      ],
+      "sourceTop": 5.0,
+      "samples": 28,
+      "maxSurfaceError": 3.814697265625e-06,
+      "passed": true
+    }
+  ],
+  "unchangedNavigationExceptLifeAnchors": true,
+  "buoyWorldPosition": [
+    99.0159975147607,
+    -0.32,
+    -48.635641574787094
+  ],
+  "buoyRockClearance": 1.5177610166773279,
+  "sourceSha256": "a4deaa1c0c2b0b757a518498bdf70cbebcf8414a1c7c46916bbc495fde37eef8",
+  "limits": "Source vertical surface and buoy-waterline checks; actual dressed native perch renders required separately."
+}

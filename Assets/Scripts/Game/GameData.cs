@@ -177,6 +177,12 @@ namespace Catchline.Game
                 ChartCost = 980, MapPos = new Vector2(.72f, .06f),
                 Table = new[] { (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f), (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 45f), (Species.Plaice, 50f), (Species.SpottedEagleRay, 1f) },
             },
+            new()
+            {
+                Name = "Lighthouse rock", Blurb = "A lighthouse on a lone rock. Bass in the tide race, cod and monkfish down the ledge.", RowSeconds = 30f, BiteWait = 1.4f, Water = Palette.Hex("1F5F8C"),
+                ChartCost = 1370, MapPos = new Vector2(.85f, .08f),
+                Table = new[] { (Species.Pollock, 40f), (Species.SeaBass, 65f), (Species.Conger, 20f), (Species.GoldTipShark, 1f), (Species.Mackerel, 45f), (Species.YellowfinTuna, 3f), (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f) },
+            },
         };
 
         public static readonly UpgradeDef[] Upgrades =

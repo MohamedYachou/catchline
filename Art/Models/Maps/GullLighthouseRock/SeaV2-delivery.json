@@ -1,0 +1,57 @@
+{
+  "task": "MAP8-LIGHTHOUSE-ROCK-1",
+  "utc": "2026-10-25T11:38:34.013212+00:00",
+  "terrainComplete": true,
+  "importComplete": true,
+  "sourceChecks": 57,
+  "artPassed": 55,
+  "artTotal": 61,
+  "retainedFailures": [
+    {
+      "check": "the-pinnacle full zone clear of islands +2m",
+      "passed": false,
+      "detail": -7.299
+    },
+    {
+      "check": "the-pinnacle full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -7.406
+    },
+    {
+      "check": "tide-race full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.299
+    },
+    {
+      "check": "tide-race full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.406
+    },
+    {
+      "check": "deep-ledge full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.299
+    },
+    {
+      "check": "deep-ledge full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.406
+    }
+  ],
+  "maps": 8,
+  "directedHullRoutes": 480,
+  "seaLanes": 24,
+  "newGroundTrips": 3,
+  "reviewedArtImages": 12,
+  "reviewedNativeImages": 10,
+  "triangles": 21830,
+  "namedEmptyLifeAnchors": 7,
+  "acceptance": "PARTIAL: own delivery complete, lead acceptance/integration limits in REPORT and README.",
+  "limits": [
+    "Six full-ground-circle exclusions retained as FAIL; required 6-12m corner landmarks intersect inherited 12-20m circles. Actual navigation checked independently. Lead contract/visual acceptance pending.",
+    "Central lighthouse/cottage visible in wide and detail art views, outside tight deck camera crops; low grey ridges frame fishing grounds.",
+    "Native source snapshot and source-age differences are bound in native-run.json; see README for chart/water/life readiness and exact visual limits.",
+    "Native stills do not prove animation, physical touch, installed-player behavior or caught-fish yield. Fishing checks prove normal bait/cast into water and return home.",
+    "MapNav timing advisories retained; route collision, border and lane results are separate."
+  ]
+}

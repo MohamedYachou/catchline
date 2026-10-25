@@ -1,0 +1,302 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullLighthouseRock",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes, one identity root and declared anchors",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_3 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "TideRace_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "TideRace_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "LighthouseLamp_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_lighthouse-stack closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_lighthouse-stack 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_lighthouse-stack 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.932099938981686e-06
+        },
+        {
+          "check": "Terrain_lighthouse-stack -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_lighthouse-stack -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.844384073399806e-06
+        },
+        {
+          "check": "Terrain_CornerGranite closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerGranite -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.001 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.001 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.001 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.001 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.001 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.002 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.002 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.002 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.002 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.002 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.003 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.003 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.003 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.003 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.003 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.004 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.004 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.004 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.004 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.004 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.005 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.005 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.005 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CornerGranite.005 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerGranite.005 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "PuffinLedge_3 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "TideRace_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "TideRace_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "LighthouseLamp_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.4543533325195312e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.4543533325195312e-05,
+      "sourceSha256": "a4deaa1c0c2b0b757a518498bdf70cbebcf8414a1c7c46916bbc495fde37eef8",
+      "fbxSha256": "748e39e742bfbd96310eb6a396b575e9dfe8b17b87df6531d7148afca3ae28d4",
+      "navigationSha256": "def12ec577a519050cb08d1052c02c49d087334e393f8626c7f57de93af6b24f"
+    }
+  ],
+  "totalChecks": 57
+}

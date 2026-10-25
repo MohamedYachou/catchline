@@ -1,0 +1,2297 @@
+{
+  "task": "MAP8-LIGHTHOUSE-ROCK-1",
+  "owner": "Codex 1 (Windows app)",
+  "utc": "2026-10-25T11:38:34.166116+00:00",
+  "files": {
+    "Art/Models/Maps/GullLighthouseRock/grounds.json": {
+      "sha256": "f59af84f8c64eabab819f976af7c13ec546e626e7d276c74ffe708e0f9a33e0e",
+      "bytes": 500
+    },
+    "Art/Models/Maps/GullLighthouseRock/GullLighthouseRockSeaV2.blend": {
+      "sha256": "a4deaa1c0c2b0b757a518498bdf70cbebcf8414a1c7c46916bbc495fde37eef8",
+      "bytes": 351926
+    },
+    "Art/Models/Maps/GullLighthouseRock/GullLighthouseRockSeaV2.fbx": {
+      "sha256": "748e39e742bfbd96310eb6a396b575e9dfe8b17b87df6531d7148afca3ae28d4",
+      "bytes": 1343884
+    },
+    "Art/Models/Maps/GullLighthouseRock/navigation.json": {
+      "sha256": "def12ec577a519050cb08d1052c02c49d087334e393f8626c7f57de93af6b24f",
+      "bytes": 21385
+    },
+    "Art/Models/Maps/GullLighthouseRock/REPORT.md": {
+      "sha256": "5af437292520bc199a647e65267b425189f38346b3cd2d19d4d2465397679b61",
+      "bytes": 6583
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-anchor-fix-audit.json": {
+      "sha256": "a48e17b376f8e4897102a9eb316e42b0bd501cafe7b75cb28e2b355c0439c593",
+      "bytes": 1187
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-audit.json": {
+      "sha256": "09d0f3923a87b3161b8e41264009ad072b3edf9b6586b76dfe6631623589321b",
+      "bytes": 14381
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-deep-ledge-day.png": {
+      "sha256": "6498f5009ac3b9c3ef5e890084e65e06a63ada07dcecd0d5df5ec16ce72f9cb6",
+      "bytes": 1149826
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-deep-ledge-night.png": {
+      "sha256": "917c5bfd782cc740c9beb5265041a4a4018e966db9dcd4623fdc07fe01054d2f",
+      "bytes": 1053051
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-delivery.json": {
+      "sha256": "5c1e5b00aca271b55de93085ad9d2bd7d3048acabb5f728d81c7b264d4a8a0c2",
+      "bytes": 2118
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-navigation-plate.png": {
+      "sha256": "384f5f874028985f917e1f34e3fd7e958588f9828628b711b45a509a81507c81",
+      "bytes": 1356629
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-Review-only.blend": {
+      "sha256": "5b204c221fcfab623c876b4fe45fc4326752c121a9542e51be600efd8486a248",
+      "bytes": 403999
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-review-sheet.png": {
+      "sha256": "2fdd6e7e2cd970498311cc900b7220616dc64e170319424cbe2da4f0be52a2e8",
+      "bytes": 1677259
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-source-audit.json": {
+      "sha256": "0c40b38fc0e5cbf145eed944a601018bd6609d531e85662fcf714cb05999f5f0",
+      "bytes": 9436
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-stack-detail.png": {
+      "sha256": "354ea0a4dd84484ee40a4ca56d607859387e85d2112379b44fd77bf2dc03ca80",
+      "bytes": 1322221
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-the-pinnacle-day.png": {
+      "sha256": "e69e10dd824e098e2e5bb6eee33e70a0298625a4dbff71c6ca0c122f7e1d0d14",
+      "bytes": 1156976
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-the-pinnacle-night.png": {
+      "sha256": "6770de8c651c4c79f2ed3b475efe23fc588330d86a2c45dd6a3b780e28cc34be",
+      "bytes": 1075477
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-tide-race-day.png": {
+      "sha256": "43539cc31c437eff20ec8bb604ba99ca7ee9ab040bf467120f36e0ad3f6dd2b7",
+      "bytes": 1162017
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-tide-race-night.png": {
+      "sha256": "4d75187941dacc4c0dc7ae32fe75006a7a8f77946057f329c6101f5c8df3e53d",
+      "bytes": 1084652
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-top-base.png": {
+      "sha256": "7eb8d6beaa96d0f2b725fc458c50f222b9987f9437be2557962edc2c0011cc14",
+      "bytes": 2047181
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-validation.json": {
+      "sha256": "dbf969135386db9bc1e297dc173288ed1df76263e7547982005ab57925dbc25c",
+      "bytes": 10216
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-visual-review.json": {
+      "sha256": "b7d0ba6c2bd8941cf1842747ce50bb58a876f8daf8193d65aea1d5b26438dea6",
+      "bytes": 3262
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-wide-day.png": {
+      "sha256": "f658dd708d8183d6e5381daaf60f1ba46e49f04d665c1ae43f37a7499dc6def1",
+      "bytes": 1119206
+    },
+    "Art/Models/Maps/GullLighthouseRock/SeaV2-wide-night.png": {
+      "sha256": "8e0ec5d016ba9777e9c747269d75799c65a19262961d73772dda5c5dcb8deb7f",
+      "bytes": 1017887
+    },
+    "Art/Source/Art108/audit_sea_v2.py": {
+      "sha256": "831e27a3a21b058f870da360e608f761071884a7c236204afa74331a5c25ed27",
+      "bytes": 13446
+    },
+    "Art/Source/Art108/build_sea_v2.py": {
+      "sha256": "87e2c2479e89389656d5699db8a06dccbc693e2f4e5a0056fbbc3388a7d3c790",
+      "bytes": 26755
+    },
+    "Art/Source/Art108/map8-build.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "Art/Source/Art108/map8-build.log": {
+      "sha256": "d598366cf1da098506b25dda288f0760dcf16ee76c6cd852a4d16865d1399716",
+      "bytes": 442
+    },
+    "Art/Source/Art108/map8-detail.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "Art/Source/Art108/map8-detail.log": {
+      "sha256": "18eb47409e15673c53c058f40bbb304e547665ba84c4172ba2622129819f50c5",
+      "bytes": 434
+    },
+    "Art/Source/Art108/map8-review.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "Art/Source/Art108/map8-review.log": {
+      "sha256": "9de0fb607db291bf5908d23f16cb37fbd2ce3a7688aa6d9ef97fe33a8411d774",
+      "bytes": 1655
+    },
+    "Art/Source/Art108/map8-source-audit.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "Art/Source/Art108/map8-source-audit.log": {
+      "sha256": "7d3aac45c3abf86b32be774a18b13f94fb662318a850d45c4c130f5d916a1fbb",
+      "bytes": 378
+    },
+    "Art/Source/Art108/map8_anchor_audit.py": {
+      "sha256": "72c35b1aafbef971a96110a8e5f9d3ea5e41751fe471617247f7af4531424359",
+      "bytes": 3283
+    },
+    "Art/Source/Art108/map8_anchor_probe.py": {
+      "sha256": "53f69f1b7b6bc31971507622210d8fe23dd9fa4e6edef311bb1ffdda1978df20",
+      "bytes": 661
+    },
+    "Art/Source/Art108/map8_evidence.py": {
+      "sha256": "da01eb2aa18de195477a4163da80049cac1d4b86f20a3e903def0fc9aa52a3af",
+      "bytes": 17317
+    },
+    "Art/Source/Art108/map8_lighthouse_rock.py": {
+      "sha256": "26a588c5bca6c9452140f37a04f09f648cd334dd6e14ccb47b0d158cc7f6dddc",
+      "bytes": 9085
+    },
+    "Art/Source/Art108/map8_native.ps1": {
+      "sha256": "9512ff06bd4afe8f24f617e331543de6f2606f8d4e6297e65d31eeb59a8fda0d",
+      "bytes": 2304
+    },
+    "Art/Source/Art108/map8_prepare.py": {
+      "sha256": "c13a7e859993a66aa6f5224497aeeb89075bb2e01dbe16a390165b74b42a3771",
+      "bytes": 7179
+    },
+    "Art/Source/Art108/map8_resources.ps1": {
+      "sha256": "8cf5b04f76e4068db7a50f4f15c52b1b3b547a35cf2feab4bfd55238cbe9f8a3",
+      "bytes": 956
+    },
+    "Art/Source/Art108/sea_v2_layouts.py": {
+      "sha256": "e49e95147f7f0054c79ba90c4dff78ab637e08daa18f5f5ba374a415e28edef3",
+      "bytes": 6738
+    },
+    "Art/Source/Art108/verify_sea_v2_sources.py": {
+      "sha256": "cfc8819ea674367e66d982c602f83c30602d073615c27b978044e3ec7a931930",
+      "bytes": 9168
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/grounds.json": {
+      "sha256": "f59af84f8c64eabab819f976af7c13ec546e626e7d276c74ffe708e0f9a33e0e",
+      "bytes": 500
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/grounds.json.meta": {
+      "sha256": "8a2a9be8c5a18c8b9822a0686d49cdf4dcf0836c5af7f3290ea3fc11f6b03bb6",
+      "bytes": 62
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx": {
+      "sha256": "748e39e742bfbd96310eb6a396b575e9dfe8b17b87df6531d7148afca3ae28d4",
+      "bytes": 1343884
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx.meta": {
+      "sha256": "af295e55b85d45dcfe3afcb91914a136a1cec2657b33f61cebdfa2c28d74de81",
+      "bytes": 3002
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/navigation.json": {
+      "sha256": "def12ec577a519050cb08d1052c02c49d087334e393f8626c7f57de93af6b24f",
+      "bytes": 21385
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock/navigation.json.meta": {
+      "sha256": "2c9328f31e64b7ee855f1dc94f7f7231a279029a7d2ef5f9bc819e9f62c95ff9",
+      "bytes": 165
+    },
+    "Assets/Art/Models/Environment/GullLighthouseRock.meta": {
+      "sha256": "7bf916bf4a8df5797636a0ac3be1ec838649bf0d20a9ebcf355cb8cd5adbbd90",
+      "bytes": 62
+    },
+    "Assets/Editor/LighthouseRockMapChecks.cs": {
+      "sha256": "633a53adcfcdf6a8b7ba55b3a5e1ea33920e744233ea69d4dcf044b39451e69e",
+      "bytes": 16197
+    },
+    "Assets/Editor/LighthouseRockMapChecks.cs.meta": {
+      "sha256": "99b0226f8defd0e260418f5c952bbf7bce43bf7241f9c1e4a7fb3c81afbd5458",
+      "bytes": 62
+    },
+    "Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "7dfa9f3f7201742abfe8fac96486ed0f0a2ccc2524c2590eae961fecfa6c2230",
+      "bytes": 12771
+    },
+    "Assets/Scripts/Game/GameData.cs": {
+      "sha256": "48f76f66e03b7667f65fa1fd60bde02862c121e9393ddf6f78db96c964964bc9",
+      "bytes": 24521
+    },
+    "Assets/Scripts/Game/Map8Capture.cs": {
+      "sha256": "cece4f63d6d92fd93bc3bc532396127fadbe7f9fe9d51a4108fabf71a0c8ee8c",
+      "bytes": 4678
+    },
+    "Assets/Scripts/Game/Map8Capture.cs.meta": {
+      "sha256": "d9ecc73764bc279c82508082e5898043893333c12b8eb33d19b7f60609ea02c1",
+      "bytes": 62
+    },
+    "Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "97e3221dccd774ac9c4bb7de2f7252a985d27b7df25b5d65bf898c3bba972302",
+      "bytes": 18075
+    },
+    "Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "d6611f7d4d2a01b7bac49595e1942860833937750d8b724703d4e7f4597c1060",
+      "bytes": 14322
+    },
+    "docs/screens/map8-lighthouse-rock-1/anchor-audit.log": {
+      "sha256": "7c558586f2848dcdf79e6e67541c0567ab5520bf5ad5d508fa4c175605a161da",
+      "bytes": 730
+    },
+    "docs/screens/map8-lighthouse-rock-1/build-wrapper.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "docs/screens/map8-lighthouse-rock-1/build-wrapper.log": {
+      "sha256": "f71faaf09266fabf9e3391ea55c8461ff4f143f915ec76f82c9b40b11b9f9063",
+      "bytes": 2505
+    },
+    "docs/screens/map8-lighthouse-rock-1/buoy-export.log": {
+      "sha256": "bf2e4826967922be85adcb36c5d4060a9fd056a3a69a3113c6c5b55a6a759d89",
+      "bytes": 892
+    },
+    "docs/screens/map8-lighthouse-rock-1/capture-complete.txt": {
+      "sha256": "19bc8b1b15df5cbbb4927fdb36a9aead596cd28c9b488e0a0211ca2e83c120dd",
+      "bytes": 803
+    },
+    "docs/screens/map8-lighthouse-rock-1/chart-1440.png": {
+      "sha256": "90a01496f56a8e9fb47d56d83efe024bd2ca912467f0bc764dfb22efefea1537",
+      "bytes": 2303311
+    },
+    "docs/screens/map8-lighthouse-rock-1/chart-844.png": {
+      "sha256": "3ad0d409894bba601d329d1d7ae37c9c2eb03c10f7f5e0bf451cc8a113d18da0",
+      "bytes": 652258
+    },
+    "docs/screens/map8-lighthouse-rock-1/check-map8-postintegration.log": {
+      "sha256": "84de32896109d313a94a9bc29ccff6c208c40ca80c12bed2b78b2c8ece17951f",
+      "bytes": 643219
+    },
+    "docs/screens/map8-lighthouse-rock-1/check-map8-safety-build.log": {
+      "sha256": "0c55a1bf0118f53784ca271cb120a0807e1b052e4a45387356a5f611d4966daa",
+      "bytes": 886196
+    },
+    "docs/screens/map8-lighthouse-rock-1/deep-ledge-1440.png": {
+      "sha256": "55ec4cbef8ebdab00a7f30a7f9ae781ee45097aeb1893e6c62cbbd60d68c47ec",
+      "bytes": 1116738
+    },
+    "docs/screens/map8-lighthouse-rock-1/deep-ledge-844.png": {
+      "sha256": "8abc19255ae384673ca07f925472652c66cd10f5c08c06b913281d7ab5ecf6eb",
+      "bytes": 371416
+    },
+    "docs/screens/map8-lighthouse-rock-1/initial-compile-wrapper.log": {
+      "sha256": "f71faaf09266fabf9e3391ea55c8461ff4f143f915ec76f82c9b40b11b9f9063",
+      "bytes": 2505
+    },
+    "docs/screens/map8-lighthouse-rock-1/initial-compile.log": {
+      "sha256": "50632c082ef625b1634a8096d6656b667cc3a0c60ad83368be26d23b27f03f4d",
+      "bytes": 631713
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-check/check-map8-lighthouse-life.log": {
+      "sha256": "5b2d5c83a7bf579cd559e9e1e3ce198b518a8c231bf3818fd3848d5754f2073e",
+      "bytes": 78015
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-check/lighthouse-life-LighthouseLamp_1.png": {
+      "sha256": "defb6e6fd2a9ff77f277e5a720928ddab1bec1aa6064c71c7dc3d90f887ffb69",
+      "bytes": 43865
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-check/lighthouse-life-map.png": {
+      "sha256": "1fd72a7403dbe2729fdbebb908a09da5f6583eb5c9e3f23d1277f8f5e1f5b817",
+      "bytes": 76899
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-check/lighthouse-life-PuffinLedge_2.png": {
+      "sha256": "622aa0e3a1dfdc5084f48875a8561d276b27740a24062612294dbba6122e5df0",
+      "bytes": 50847
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-check/lighthouse-life-TideRace_1.png": {
+      "sha256": "0ca1a811543e9eefcc13f4ab532ab6d0796ebeeb3b363781dc1d40049ac0c0cf",
+      "bytes": 28792
+    },
+    "docs/screens/map8-lighthouse-rock-1/life-visual-review.json": {
+      "sha256": "33e76588e2e4119780977c509cad3ede148671562c949b6da3fee362ea86367c",
+      "bytes": 1558
+    },
+    "docs/screens/map8-lighthouse-rock-1/lighthouse-life-missing-resource-wrapper.log": {
+      "sha256": "40b65f29f1ada2fc9f95dd410cd097fc744002cc293e19addf2de55edfef69bb",
+      "bytes": 2182
+    },
+    "docs/screens/map8-lighthouse-rock-1/lighthouse-life-missing-resource.log": {
+      "sha256": "97d031494e00ace8cd73fa8203fa1ee15028663a5b66c7fe607079a36be84d83",
+      "bytes": 72621
+    },
+    "docs/screens/map8-lighthouse-rock-1/lighthouse-life-wrapper.log": {
+      "sha256": "fdf53399d4dcb2d9a7ae8aad09e64a98831a7097a75432abcfcf4834fc7ea78d",
+      "bytes": 2030
+    },
+    "docs/screens/map8-lighthouse-rock-1/map8-checks.json": {
+      "sha256": "44fb74ea142c5aeb2969988bda3a87b3e19f30f15dfd74e56e2d4719925cd68a",
+      "bytes": 1077
+    },
+    "docs/screens/map8-lighthouse-rock-1/map8-postintegration-checks.json": {
+      "sha256": "62678e73b3feb9976dc1de7ea0d23e89ef97bfbfde91d00b59898d12ba182898",
+      "bytes": 831
+    },
+    "docs/screens/map8-lighthouse-rock-1/native-before-buoy.log": {
+      "sha256": "cf4ec730e4343029f2ff4ecaf720465baa3ebdf785f851e8a665f6dab5f5e4cf",
+      "bytes": 3204
+    },
+    "docs/screens/map8-lighthouse-rock-1/native-exit.json": {
+      "sha256": "405519faf59048137a99df58e230fabdfc126b16edb5323382b85a3ac1529669",
+      "bytes": 100
+    },
+    "docs/screens/map8-lighthouse-rock-1/native-run.json": {
+      "sha256": "35feb0ee42b944e0aa1c305ddcf95cb84df8615d7161cdad5d520effab9449fc",
+      "bytes": 54027
+    },
+    "docs/screens/map8-lighthouse-rock-1/native-visual-review.json": {
+      "sha256": "5ed0cee166a499723fa3812d4698587073b379bb931ec8c0be3f1e20b1f4565e",
+      "bytes": 1898
+    },
+    "docs/screens/map8-lighthouse-rock-1/native-wrapper.log": {
+      "sha256": "824641a246536bbd7aa0d2d8c729f4008aad45238404d1b1740ff5f16ffb0dda",
+      "bytes": 128
+    },
+    "docs/screens/map8-lighthouse-rock-1/native.log": {
+      "sha256": "42f3295581b10a65a500c9886f02d25db7dc3f692a18dd084c2fcc4b84b8a4ad",
+      "bytes": 3204
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-1-deck.png": {
+      "sha256": "551e4efc9c3ff059d41909081f8f519b73ff1da733c1f07aeea77ccef3caf2ea",
+      "bytes": 47111
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-1-top.png": {
+      "sha256": "8ed00fe1148fcd0058d9f27c30c2e08e87acb196ed3db1936abad1033e685926",
+      "bytes": 49738
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-2-deck.png": {
+      "sha256": "1a583371e0ac3846577a16e89cbeff5562f3855a72b515229935d93257608fd9",
+      "bytes": 50382
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-2-top.png": {
+      "sha256": "1f386901716490f73e9081f926e2d8a65dc93e1e642082f22aca4d90c492db38",
+      "bytes": 47565
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-3-deck.png": {
+      "sha256": "c54f49dd299cd2ed7966d225c9a081420bc0838f6d707edc57200211840cc20a",
+      "bytes": 50607
+    },
+    "docs/screens/map8-lighthouse-rock-1/perch-3-top.png": {
+      "sha256": "15530c1ad1e12444c76c2701da31d58421fa1a9a160a2a9bf641d34d5dd2af6c",
+      "bytes": 50453
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Art/Models/Environment/GullLighthouseRock/grounds.json": {
+      "sha256": "f59af84f8c64eabab819f976af7c13ec546e626e7d276c74ffe708e0f9a33e0e",
+      "bytes": 500
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx": {
+      "sha256": "748e39e742bfbd96310eb6a396b575e9dfe8b17b87df6531d7148afca3ae28d4",
+      "bytes": 1343884
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Art/Models/Environment/GullLighthouseRock/navigation.json": {
+      "sha256": "def12ec577a519050cb08d1052c02c49d087334e393f8626c7f57de93af6b24f",
+      "bytes": 21385
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Editor/LighthouseRockMapChecks.cs": {
+      "sha256": "633a53adcfcdf6a8b7ba55b3a5e1ea33920e744233ea69d4dcf044b39451e69e",
+      "bytes": 16197
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Resources/Shaders/GlowAdditive.shader": {
+      "sha256": "3864c7635ffe2b96d7f87aa3fcc432d9dbe7cca14eb654c190eb4a8a83d672f1",
+      "bytes": 1097
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Resources/Shaders/GlowAdditive.shader.meta": {
+      "sha256": "1c5745d13f6f89889ab0be2321d2e925aca7a2232173aee3255de5fca43f37d4",
+      "bytes": 204
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/ArtLibrary.cs": {
+      "sha256": "c4e5e9862e7dfd1e84d08a417a24a82762838dd852e28e5a1551ed4a2ff31039",
+      "bytes": 8420
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/CatchExpectation.cs": {
+      "sha256": "4c88b7ffc1e0faa0fb48cb4cdbbc311d6dfaee188ade543ef3cbcafccffbea41",
+      "bytes": 5691
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/CatchPresentation.cs": {
+      "sha256": "bb7ebe8d0b6de065f5edfcb896447a1f8650870be96e63aa3db2b42e43064ea5",
+      "bytes": 3471
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/CatchRewardGraphic.cs": {
+      "sha256": "0f38274f8907d3b357b299ae7f00aef0e80e4394788f24f6b1964c7ddb00d551",
+      "bytes": 3665
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/CoastalCanvas.cs": {
+      "sha256": "742b018c2e9b021582402f789b11df91afc6881ee2b16b55a5367e13bed73e0c",
+      "bytes": 27226
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/CoastalWater.cs": {
+      "sha256": "ca86d02efb3277f4be5199bfe9b2c5bae20a0924e5878ca7b7d5942983e1e227",
+      "bytes": 2035
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Bait.cs": {
+      "sha256": "a663d2cc1e19c26086c909dc4c9c5f5aa67e6bfd4d8a0b9380f5a7bfc209e445",
+      "bytes": 7747
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Buyers.cs": {
+      "sha256": "8fc3d4a89e3b3dffd65a7bb72233c7987d89d63af5be7876ca9f1a0d7e5da6d0",
+      "bytes": 10264
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/CardProgression.cs": {
+      "sha256": "393f031bac32458375fa60e5cc8f1edc13600e88e82f2524c9e8f1beb6098588",
+      "bytes": 5846
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Cards.cs": {
+      "sha256": "e6531a8361ee9f6b6a65e7f9b8266ac5dad33787cde2d4a5e8c5752ad27fb257",
+      "bytes": 6480
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/CardState.cs": {
+      "sha256": "bd78ed3bf4d2e3e93127e93596b674154917bcf57aa85f55811398b2c5af87b8",
+      "bytes": 7593
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Contracts.cs": {
+      "sha256": "efb655e3db44bb3f2c9307d56308f98acd7eed73b40b56cd388a3286438e2b04",
+      "bytes": 7909
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "7dfa9f3f7201742abfe8fac96486ed0f0a2ccc2524c2590eae961fecfa6c2230",
+      "bytes": 12771
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Products.cs": {
+      "sha256": "160a125d512bdfd4893bd8980034f156b65c624c8d041235bee6815319899692",
+      "bytes": 10744
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/Quota.cs": {
+      "sha256": "b8087dd2e8df27eefb73a0e7f4c7c5b81c98515b658ffd05a2aa962b2ed3a67f",
+      "bytes": 6652
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Data/SaveV2.cs": {
+      "sha256": "cdd3a1446f827d544cdb4a1635526044641b4cce63e69a74f7683a4a23cb4331",
+      "bytes": 2302
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Deck/DeckGraph.cs": {
+      "sha256": "546bcb5a78a5360633a723799b752c600c6222aa38c34100fd8d0a259059685e",
+      "bytes": 6310
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Deck/DeckScheduler.cs": {
+      "sha256": "21918a66d04d6613cd326c8b747bd4dd54ebb989896bcfced9b21e51d28e09a9",
+      "bytes": 17323
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Deck/Jobs.cs": {
+      "sha256": "3528ce0584ad4cb72ba4b4cf7d873171e106c4f03c1e5012c76350641d15e67b",
+      "bytes": 3465
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Deck/MiniJson.cs": {
+      "sha256": "a9a1c4b9f6b9bbddcf70c85b13b64bab54d1ec47bb5ca0bb5064e944b897204c",
+      "bytes": 3233
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Deck/Station.cs": {
+      "sha256": "7055ba644a27d8049fcb2229c859ea6a0a849fd253b775066fcadb1ac0ce89a4",
+      "bytes": 5670
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/DeckActors.cs": {
+      "sha256": "220985cf20be76fef1c7e099fa1a9ad4e0064fe017e2d1ad8c85547d2655919b",
+      "bytes": 34352
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/DeepLineRules.cs": {
+      "sha256": "9f8cfdbaa38ec4bf6d465d23fa859573909ef52fe860208f891f837b436361d7",
+      "bytes": 6191
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/FishReferenceStyle.cs": {
+      "sha256": "1971c27f0cf5443f645ed324e77569a1d9a2304d289a6242c2a93dcdd1e0a424",
+      "bytes": 1231
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/FlowTelemetry.cs": {
+      "sha256": "e3e1795a838e49dba8dda1facdbd23f7a69ef5c9f17902919c53fe5a28eba1fe",
+      "bytes": 4003
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameData.cs": {
+      "sha256": "48f76f66e03b7667f65fa1fd60bde02862c121e9393ddf6f78db96c964964bc9",
+      "bytes": 24521
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameState.cs": {
+      "sha256": "f85f1b1f4c50d5f6033de54c380b7e904294e43229e074817d5ff1480c1377ad",
+      "bytes": 34300
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateBoatModules.cs": {
+      "sha256": "8effba1941b7262f60de278553cb21b0cf82637991040ac0fda527758559e2b6",
+      "bytes": 542
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateCards.cs": {
+      "sha256": "6e40f109d9210d8a9e31512dc582abef2b7828ee4fe005597354b5ab53cf2380",
+      "bytes": 6787
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateCrewBait.cs": {
+      "sha256": "237cf26b862c1d4849b688340d069a91a038a4c3fd30c53f5b1fca2eb8726aa0",
+      "bytes": 1820
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateNetLoadout.cs": {
+      "sha256": "79c8b72ab2c330bc1bce7ccefb0d0a98917f55fddeb3dfd98521678c38257194",
+      "bytes": 1177
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateProgression.cs": {
+      "sha256": "85b31c720d763df7391e110399f6e1c9008c7c66a0fc680b193b4b45099d5827",
+      "bytes": 2141
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GameStateTier5.cs": {
+      "sha256": "263bc5ee8b19b63e8e94813ec23fcf813c1740f1b46e18d5ea0a88cc96fd70d2",
+      "bytes": 545
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GeminiFishModels.cs": {
+      "sha256": "0616a8257b88011c17be5d9d8641d11efa9faa6e663a2249c03ab4987eb1cfdc",
+      "bytes": 1862
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/GeminiUiSkin.cs": {
+      "sha256": "5252af290c67e97c3dfce41db7ea3862d16cbe1a7a51bb9689d4e760d1d9835e",
+      "bytes": 4557
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Map6Capture.cs": {
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2",
+      "bytes": 4597
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Map7Capture.cs": {
+      "sha256": "502f9c85f58536f4e8b40649f8b29742eee9f414a0b6e8e2ffe808a6cdb5a8a9",
+      "bytes": 4673
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Map8Capture.cs": {
+      "sha256": "cece4f63d6d92fd93bc3bc532396127fadbe7f9fe9d51a4108fabf71a0c8ee8c",
+      "bytes": 4678
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/BiteModel.cs": {
+      "sha256": "11c40a68822ee17645ca559664b5c04ceda96cbb6fa755f50771b1e2c99e1674",
+      "bytes": 13632
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/CageModel.cs": {
+      "sha256": "dafaf807b7e1a03f3622f32375e21180e6e9fe2ae6cf0c8de513f089612d2340",
+      "bytes": 4979
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/FishShadow.cs": {
+      "sha256": "08d929224a860ab5ec2a1fd807c3b5a625d278f3e5ae5f0028390015abf8cddc",
+      "bytes": 10229
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/RodViewAnimation.cs": {
+      "sha256": "dbda5d38899601b041d1a006d086168bfb3b09d26b116ddc8e3e64f309edb2c0",
+      "bytes": 4084
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/RodViewArt.cs": {
+      "sha256": "699bc8d062257e7432a21e05327c4c3b95e50f34aad77877701922193c4618d2",
+      "bytes": 2517
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/RodViewAtmosphere.cs": {
+      "sha256": "0de02a8f6e8e3b02572e7edfce956050596645d3fa255f9f8afa7e45b6fb33c5",
+      "bytes": 6028
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageCageView.cs": {
+      "sha256": "1a6b7044011fa07628a21728986284ca58ebb2dba9deafaee8a08a33d192d2c5",
+      "bytes": 23445
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs": {
+      "sha256": "6fa79058a809888c191b699505d38a0483d2d14522b17c850e48ef9b6337ec82",
+      "bytes": 2652
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageGutView.cs": {
+      "sha256": "2ebcfad5373a932442600941afdb78aadd25a07f2dab8558fddf0018dee9a278",
+      "bytes": 19493
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageNetView.cs": {
+      "sha256": "6abc03c1ea9820409dc400aeb38fd23a54b6c7ad223d46b13b9c111721b758b9",
+      "bytes": 21292
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageRepairView.cs": {
+      "sha256": "705218ccb7288f9d7e5e7b27ec6186b4148f7662757bf547d738c91a5e35fe58",
+      "bytes": 14784
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageRodView.cs": {
+      "sha256": "e13f8fc1b16ee111f3606b4be9330699973c8e25a77736325849f66d9d89898d",
+      "bytes": 30008
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs": {
+      "sha256": "71a9032154540e8b888bf9349a6b08be787482ecf1e5bca631d6ee2b9f38ad58",
+      "bytes": 5170
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/PtsWater.cs": {
+      "sha256": "3c0897b518f71dc8a18508458d085bcfcf732bba981ee0aa77228c6d9b4529ad",
+      "bytes": 6316
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/SceneryLife.cs": {
+      "sha256": "205fe3579b66e6cb193817c0855d42091572883a5f47a176584bdc8d617161c3",
+      "bytes": 5591
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/BoatSailor.cs": {
+      "sha256": "a9318e063cb137789ee00bb7be4dd8ba6c1f7abccf9998ba28e456102d47a754",
+      "bytes": 3925
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/Schools.cs": {
+      "sha256": "fc4cd2e82ed00d59c8e7e0a7620f4b1b25e2b660f7dde212aeb3033634cc0b6e",
+      "bytes": 12559
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaCamera.cs": {
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615",
+      "bytes": 1941
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaCapture.cs": {
+      "sha256": "f5650134db53a7e66ef237c430acbc7c3064210b0e251e3adb1c05a7f71a0340",
+      "bytes": 7129
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaInput.cs": {
+      "sha256": "85f7f8fdcb077629dd500c1a213341abb66b36c6deb99875fd165209c49726df",
+      "bytes": 4936
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaLanes.cs": {
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba",
+      "bytes": 4870
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaModeChecks.cs": {
+      "sha256": "56c2f2c67340d4e205c443e3bd6fd820601ad043238f2b5a27d83df9780994a4",
+      "bytes": 3902
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "97e3221dccd774ac9c4bb7de2f7252a985d27b7df25b5d65bf898c3bba972302",
+      "bytes": 18075
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaSailingEffects.cs": {
+      "sha256": "9a1321e8b588b5aa38fea47cbe155be3150b79947bc5ef3f84078e09ecc9f52e",
+      "bytes": 6415
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaSceneChecks.cs": {
+      "sha256": "e908bfb4b822b9973a18132015b80dd4592b768c7f2baae46ad39a969804dece",
+      "bytes": 2112
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Sea/SeaScenery.cs": {
+      "sha256": "bcec36bc91f73c42ce1ba60dadcab6d1f055764189fbcbc10a145454a07ebab0",
+      "bytes": 8580
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Skin.cs": {
+      "sha256": "51095b037835a8bc0cb78702c144d36f6e13a352fcadd8924562c0c8f0ff767c",
+      "bytes": 45357
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/SkinSlices.cs": {
+      "sha256": "035bf6ea81f5fce8da0df8b19db2d1e1f4b7f40f319c758ca02669cb917d0c5a",
+      "bytes": 3067
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/Ui.cs": {
+      "sha256": "02711c845c41dbb18109d742ba00f9fd8a2c8d55d5962fc9451ced603def411c",
+      "bytes": 12152
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageAudio.cs": {
+      "sha256": "5ee233ce2dba52116c7ed9131d430085e668092ad59ec8bac9033caf4553f2ac",
+      "bytes": 10693
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCapture.cs": {
+      "sha256": "f06ef36d2f2419d94e62801683f047f77262d277fb65328ffdf13933977b8830",
+      "bytes": 1636
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCards.cs": {
+      "sha256": "01b5d6ca335de8c6e9e52bd6a71d8da23b5d397df96bdb93b37f0074a0e79206",
+      "bytes": 895
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCatchRewards.cs": {
+      "sha256": "1450aafc00a9003f2c240aa36ea5748fb1929762a0526e49d277ff652163cb5c",
+      "bytes": 8481
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageChart.cs": {
+      "sha256": "e64ccdcffa9a2421ff7307a515e84c31834b18081bf42ae523bae53b10817151",
+      "bytes": 10770
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCompactFisher.cs": {
+      "sha256": "fc5007db6fb5e614c4f05bba5c4e34c860e646a6f1e02e8616eccd986dd7a722",
+      "bytes": 10029
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCrabPots.cs": {
+      "sha256": "8cc4be72f53774e00391cc5f0d9756299e2a167747a859cd756e8f22482802e7",
+      "bytes": 4987
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCrewBait.cs": {
+      "sha256": "a1eafd340255d3d98dd4c9e39d68c219ae1cc6679bce4daffb32e15807319380",
+      "bytes": 2392
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCrewCounters.cs": {
+      "sha256": "ed42743db4b4bc4f9349ddaca5e910582548f6958b33721df213c0a843c42125",
+      "bytes": 3087
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCrewFallback.cs": {
+      "sha256": "e968375709a6f3ef3b75b515ef0a2c035aab512a6975db645d4c1bbe472d86bb",
+      "bytes": 931
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageCrewLife.cs": {
+      "sha256": "dcee201718b409a2b25c7f7fc4ece6e13bb94d6e9277c6b6a4cf465c156d98bc",
+      "bytes": 2355
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageDeck.cs": {
+      "sha256": "f9095b87ba594ec5d53904efe28af54de653ebab61cf78469efc986314351ca0",
+      "bytes": 14664
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageDeepLines.cs": {
+      "sha256": "8de7fac2bd225307c634381743e60c436367ed4b4eeb6fbddae668ee02bb31f7",
+      "bytes": 11232
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageDeparture.cs": {
+      "sha256": "545a5e63dfbde8e0937c5ab835fefa69ab26dd133a9e91381302eec676a9b940",
+      "bytes": 7824
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageFeedback.cs": {
+      "sha256": "220f42edf5408414e15c5ea476b0cc8d71ec8f8a2dddf96cd520953beeff571b",
+      "bytes": 4705
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageGame.cs": {
+      "sha256": "e9cb8423a8f09553a474e5297207b7e9aaad71aae44e82fb50aeee49c1030619",
+      "bytes": 62210
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageGrounds.cs": {
+      "sha256": "c5af4d90f0c1181dd46ca0bef89b7349ba65112655bbede12b7c1c3bd81185d6",
+      "bytes": 3263
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageHarbour.cs": {
+      "sha256": "b5266b2536125acac5c53ff49c1428b9231b3209505884539284735b67710cb2",
+      "bytes": 18441
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageHarbourDusk.cs": {
+      "sha256": "eb1c250121f4b865b62b3d98ebf83d4438d6cd37ae1bc478aadd4e6b4c776dc0",
+      "bytes": 4305
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageHarbourTraffic.cs": {
+      "sha256": "da8603d631679a8159e1d8c0032e136fce1b32ad86ea25d54599a46e6532cfd5",
+      "bytes": 5341
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageHaul.cs": {
+      "sha256": "9e76f3a327a8c69bba8a20723fece23644c004f0a10e0a5ed21a22466582a0ba",
+      "bytes": 3348
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageHud.cs": {
+      "sha256": "672c3c4611b84e708f594db54f33dba6934543ad7ff4c8dd195cdbe1bae21a05",
+      "bytes": 7748
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageIllustratedChart.cs": {
+      "sha256": "3e0ddca90f465e258ab80d8a47a4038c3efb1d9cc19f7c66cfc85bcaaff8aae3",
+      "bytes": 9426
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageInterface.cs": {
+      "sha256": "761a141d5cf69999f4820b8a57c6fb189bd2d44ebe569dee9198420a8d8bcc50",
+      "bytes": 9402
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageInterfaceCrew.cs": {
+      "sha256": "e06fbab734e728502138dababc2d9ae1a22bcc963ee25ea2ebc525dfd6da093b",
+      "bytes": 7728
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageInterfaceGoals.cs": {
+      "sha256": "843c97f8c2f0e92234c3e34b19aa911bd263b442d0be9edfa5141a5b0a20f7d7",
+      "bytes": 5420
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageInterfaceShop.cs": {
+      "sha256": "5d9007053e5c60f8d93f2cba85f64a22590140815fcaa47e7355f956a6f09d82",
+      "bytes": 32811
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageInterfaceVoyage.cs": {
+      "sha256": "571e096cd0484bae14e4a3b0d58c2ca3a5eff1706072600f2aeabba1c85b4c95",
+      "bytes": 13183
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageIntro.cs": {
+      "sha256": "52ffa6f256538d8706fcfc720f389d4fc65dfb5e5bd4e8447c10c98b41834001",
+      "bytes": 6578
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageLighthouseLife.cs": {
+      "sha256": "f5ea45541b27ef4cea38cc87770d38849c1926478d49d9cadb8b2051b821b1db",
+      "bytes": 4767
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageManagement.cs": {
+      "sha256": "bb9e6849d31c95ade73a609291c2c4e3a6bbe83a2986ca24823a9e51904707e8",
+      "bytes": 31342
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageManagementForecast.cs": {
+      "sha256": "2e6b1827548df36f5f99741229391c1f7e080760375acb2930997ca2b22dc2ab",
+      "bytes": 15452
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageManagementPages.cs": {
+      "sha256": "790acbab78e3214a162e760930139f35d4afe429329d16738633568567b24a0d",
+      "bytes": 21544
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageMenus.cs": {
+      "sha256": "07d5317108b6827e9590c5741dd84ac0d6aab16ca29b4324a3da73293e250c87",
+      "bytes": 14741
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageNet.cs": {
+      "sha256": "2e9e49ea5629c4770be63cc0e92b095014b0237b4b09f1960473d4dee2aa06e8",
+      "bytes": 16274
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageNetGame.cs": {
+      "sha256": "ab896cb460cafc08011bde95b600207330fafce2f098ca33f027bdae51f76992",
+      "bytes": 5502
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageNetInterface.cs": {
+      "sha256": "b3a2c8ff4fa67156f97b3b2dcaea53b684b038b4d5cfa909faa47472de7afe56",
+      "bytes": 7861
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageNetLoadout.cs": {
+      "sha256": "1cafa7ae79cad90dd2cc5b7223cc757aa745eb4b3b13e21bcb43869eca1ff8dd",
+      "bytes": 988
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageNetUnload.cs": {
+      "sha256": "c448fe05d34f2b616f5d9439fa6b1b51ef41980af27081d89a3797a9b03b39ee",
+      "bytes": 4006
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyagePrepFisher.cs": {
+      "sha256": "46f19092a2d482b2c0d382382368fb673ced295d550ef755726529b8fc497837",
+      "bytes": 2697
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyagePrepOrders.cs": {
+      "sha256": "0271ed191eb6b900ef2721a2edbe7fd1175cdbb10f7cc67c2f0e13a76c713248",
+      "bytes": 13977
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageProcessingPipeline.cs": {
+      "sha256": "6c0e61748ecde1c8c04b55e6f40b56eabbe0e9e55578b77b213c5ed5408577b0",
+      "bytes": 4803
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "d6611f7d4d2a01b7bac49595e1942860833937750d8b724703d4e7f4597c1060",
+      "bytes": 14322
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageSea.cs": {
+      "sha256": "782ced4ce96ecf09cda6d96455b3a24278c193372ed15e7cfe2399fe87bcfd31",
+      "bytes": 7996
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageSeaLayout.cs": {
+      "sha256": "53084e7ee0aaefd4a6d6a6e9da6b927146e757a114d1cd06e73285bf367951a1",
+      "bytes": 3890
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageSeaMoments.cs": {
+      "sha256": "373af59047827ff91defe62079860fcfbcf87637156fe1e8baa968201160427e",
+      "bytes": 10214
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageSecondNetModule.cs": {
+      "sha256": "2a9a60bc3ae95914c868029c8fb891c06506d158acdd1f6069d6c31711e04d53",
+      "bytes": 14105
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageShelfLife.cs": {
+      "sha256": "c37e68b96bfc7c65e7e0530dd65f04b1614ecd666d55f0d83b9be969417aa1de",
+      "bytes": 2355
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageSkerriesLife.cs": {
+      "sha256": "71635a48348d4c6cc9564a2a57a0b97d0660a7873ec188178a6b2610eb51af0d",
+      "bytes": 3254
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageStorage.cs": {
+      "sha256": "6336441635ffd0e858428f09c93e9458532f825965e7fb47cc679470a3d0c0f9",
+      "bytes": 993
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageTier5.cs": {
+      "sha256": "32677f50121be9b235417e0a4c1f720698b1ff486467eb9ba01f97dc8ad4dcfa",
+      "bytes": 11823
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageTownsfolk.cs": {
+      "sha256": "ab204780c6d106330496a2e058e418562983ed9ca79e44553a2fef00709b62aa",
+      "bytes": 4760
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageTravel.cs": {
+      "sha256": "0df8918211232b413e8d8ff266b93b6276dbc5bfc056b777bdc30a505bc14f44",
+      "bytes": 3143
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageTrip.cs": {
+      "sha256": "90b7d10ce7f160dda8635942d5e743509a5ca49dc2093c9d179ce29730dbd3fb",
+      "bytes": 16367
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageTripChart.cs": {
+      "sha256": "0a232e64b8d3311caf3706826564fc4bbbb7a91bd56f3b7a879943d2d1ddd3b2",
+      "bytes": 6548
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageUiV2Capture.cs": {
+      "sha256": "b353931f06f4fecf9b60244c9b4b617a57f75469ca94d0ed873b61e106d1c0ec",
+      "bytes": 15129
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/VoyageWreckLife.cs": {
+      "sha256": "9856b533e6a52c14b91158314dcf04148270d9abb182706af37890291ec2c48d",
+      "bytes": 6149
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/Assets/Scripts/Game/WorkSpeed.cs": {
+      "sha256": "88fcdcf6b7e75103f5e2ca1530b5db4eee1b3ac256fc0e0b3d1db3b43ed479f4",
+      "bytes": 1418
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-source/source-hashes.json": {
+      "sha256": "c7789be2763d27000b6d2c9d663ecb84f573bfb16b75d1c8a4907ec282434de7",
+      "bytes": 22399
+    },
+    "docs/screens/map8-lighthouse-rock-1/postintegration-wrapper.log": {
+      "sha256": "de264aa9fc206e5890013ea0c15c95c71d3e2d3a476ae7737e730b15fc5f0a7a",
+      "bytes": 6460
+    },
+    "docs/screens/map8-lighthouse-rock-1/protected-map-files.json": {
+      "sha256": "94cf7cfa891dc6ef84c9750cd9b4d37d709fcd219b708e487a7848a1029d9dc6",
+      "bytes": 20166
+    },
+    "docs/screens/map8-lighthouse-rock-1/README.md": {
+      "sha256": "a008451f9ab9f4be7114afa8d3f66662bcf5a2ee66945af71a91ca0ea268206a",
+      "bytes": 6847
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-build-wrapper.err": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-build-wrapper.log": {
+      "sha256": "3059e7809356b3a4d58cd42077ab8c85097257b464692f3105e92b0e3eb34fe7",
+      "bytes": 34843
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Art/Models/Environment/GullLighthouseRock/grounds.json": {
+      "sha256": "f59af84f8c64eabab819f976af7c13ec546e626e7d276c74ffe708e0f9a33e0e",
+      "bytes": 500
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Art/Models/Environment/GullLighthouseRock/GullLighthouseRockSeaV2.fbx": {
+      "sha256": "a95c494ee9acfd56fbe5f819abdd6ae232af10d9d9687ff9772668ae63434c86",
+      "bytes": 1343804
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Art/Models/Environment/GullLighthouseRock/navigation.json": {
+      "sha256": "46c1b0b14f583c98e459dbac0f50072cd8f6cf035211bb69744b68566cb28964",
+      "bytes": 21382
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Editor/LighthouseRockMapChecks.cs": {
+      "sha256": "677004a36d0efc7a1070ba506c955ca392f5ad5d7e425d99d6f85bb3cd6edfd5",
+      "bytes": 9486
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/ArtLibrary.cs": {
+      "sha256": "c4e5e9862e7dfd1e84d08a417a24a82762838dd852e28e5a1551ed4a2ff31039",
+      "bytes": 8420
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/CatchExpectation.cs": {
+      "sha256": "4c88b7ffc1e0faa0fb48cb4cdbbc311d6dfaee188ade543ef3cbcafccffbea41",
+      "bytes": 5691
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/CatchPresentation.cs": {
+      "sha256": "bb7ebe8d0b6de065f5edfcb896447a1f8650870be96e63aa3db2b42e43064ea5",
+      "bytes": 3471
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/CatchRewardGraphic.cs": {
+      "sha256": "0f38274f8907d3b357b299ae7f00aef0e80e4394788f24f6b1964c7ddb00d551",
+      "bytes": 3665
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/CoastalCanvas.cs": {
+      "sha256": "742b018c2e9b021582402f789b11df91afc6881ee2b16b55a5367e13bed73e0c",
+      "bytes": 27226
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/CoastalWater.cs": {
+      "sha256": "ca86d02efb3277f4be5199bfe9b2c5bae20a0924e5878ca7b7d5942983e1e227",
+      "bytes": 2035
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Bait.cs": {
+      "sha256": "a663d2cc1e19c26086c909dc4c9c5f5aa67e6bfd4d8a0b9380f5a7bfc209e445",
+      "bytes": 7747
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Buyers.cs": {
+      "sha256": "8fc3d4a89e3b3dffd65a7bb72233c7987d89d63af5be7876ca9f1a0d7e5da6d0",
+      "bytes": 10264
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/CardProgression.cs": {
+      "sha256": "393f031bac32458375fa60e5cc8f1edc13600e88e82f2524c9e8f1beb6098588",
+      "bytes": 5846
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Cards.cs": {
+      "sha256": "e6531a8361ee9f6b6a65e7f9b8266ac5dad33787cde2d4a5e8c5752ad27fb257",
+      "bytes": 6480
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/CardState.cs": {
+      "sha256": "bd78ed3bf4d2e3e93127e93596b674154917bcf57aa85f55811398b2c5af87b8",
+      "bytes": 7593
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Contracts.cs": {
+      "sha256": "efb655e3db44bb3f2c9307d56308f98acd7eed73b40b56cd388a3286438e2b04",
+      "bytes": 7909
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "7dfa9f3f7201742abfe8fac96486ed0f0a2ccc2524c2590eae961fecfa6c2230",
+      "bytes": 12771
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Products.cs": {
+      "sha256": "160a125d512bdfd4893bd8980034f156b65c624c8d041235bee6815319899692",
+      "bytes": 10744
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/Quota.cs": {
+      "sha256": "b8087dd2e8df27eefb73a0e7f4c7c5b81c98515b658ffd05a2aa962b2ed3a67f",
+      "bytes": 6652
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Data/SaveV2.cs": {
+      "sha256": "cdd3a1446f827d544cdb4a1635526044641b4cce63e69a74f7683a4a23cb4331",
+      "bytes": 2302
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Deck/DeckGraph.cs": {
+      "sha256": "546bcb5a78a5360633a723799b752c600c6222aa38c34100fd8d0a259059685e",
+      "bytes": 6310
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Deck/DeckScheduler.cs": {
+      "sha256": "21918a66d04d6613cd326c8b747bd4dd54ebb989896bcfced9b21e51d28e09a9",
+      "bytes": 17323
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Deck/Jobs.cs": {
+      "sha256": "3528ce0584ad4cb72ba4b4cf7d873171e106c4f03c1e5012c76350641d15e67b",
+      "bytes": 3465
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Deck/MiniJson.cs": {
+      "sha256": "a9a1c4b9f6b9bbddcf70c85b13b64bab54d1ec47bb5ca0bb5064e944b897204c",
+      "bytes": 3233
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Deck/Station.cs": {
+      "sha256": "7055ba644a27d8049fcb2229c859ea6a0a849fd253b775066fcadb1ac0ce89a4",
+      "bytes": 5670
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/DeckActors.cs": {
+      "sha256": "220985cf20be76fef1c7e099fa1a9ad4e0064fe017e2d1ad8c85547d2655919b",
+      "bytes": 34352
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/DeepLineRules.cs": {
+      "sha256": "9f8cfdbaa38ec4bf6d465d23fa859573909ef52fe860208f891f837b436361d7",
+      "bytes": 6191
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/FishReferenceStyle.cs": {
+      "sha256": "1971c27f0cf5443f645ed324e77569a1d9a2304d289a6242c2a93dcdd1e0a424",
+      "bytes": 1231
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/FlowTelemetry.cs": {
+      "sha256": "e3e1795a838e49dba8dda1facdbd23f7a69ef5c9f17902919c53fe5a28eba1fe",
+      "bytes": 4003
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameData.cs": {
+      "sha256": "48f76f66e03b7667f65fa1fd60bde02862c121e9393ddf6f78db96c964964bc9",
+      "bytes": 24521
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameState.cs": {
+      "sha256": "0189ff14a55c9e6103d7a312d4bd6ff88fdfa21f28246946a78c2d9664b66308",
+      "bytes": 34070
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateBoatModules.cs": {
+      "sha256": "8effba1941b7262f60de278553cb21b0cf82637991040ac0fda527758559e2b6",
+      "bytes": 542
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateCards.cs": {
+      "sha256": "6e40f109d9210d8a9e31512dc582abef2b7828ee4fe005597354b5ab53cf2380",
+      "bytes": 6787
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateCrewBait.cs": {
+      "sha256": "237cf26b862c1d4849b688340d069a91a038a4c3fd30c53f5b1fca2eb8726aa0",
+      "bytes": 1820
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateNetLoadout.cs": {
+      "sha256": "79c8b72ab2c330bc1bce7ccefb0d0a98917f55fddeb3dfd98521678c38257194",
+      "bytes": 1177
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateProgression.cs": {
+      "sha256": "85b31c720d763df7391e110399f6e1c9008c7c66a0fc680b193b4b45099d5827",
+      "bytes": 2141
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GameStateTier5.cs": {
+      "sha256": "263bc5ee8b19b63e8e94813ec23fcf813c1740f1b46e18d5ea0a88cc96fd70d2",
+      "bytes": 545
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GeminiFishModels.cs": {
+      "sha256": "0616a8257b88011c17be5d9d8641d11efa9faa6e663a2249c03ab4987eb1cfdc",
+      "bytes": 1862
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/GeminiUiSkin.cs": {
+      "sha256": "5252af290c67e97c3dfce41db7ea3862d16cbe1a7a51bb9689d4e760d1d9835e",
+      "bytes": 4557
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Map6Capture.cs": {
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2",
+      "bytes": 4597
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Map7Capture.cs": {
+      "sha256": "502f9c85f58536f4e8b40649f8b29742eee9f414a0b6e8e2ffe808a6cdb5a8a9",
+      "bytes": 4673
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Map8Capture.cs": {
+      "sha256": "cece4f63d6d92fd93bc3bc532396127fadbe7f9fe9d51a4108fabf71a0c8ee8c",
+      "bytes": 4678
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/BiteModel.cs": {
+      "sha256": "11c40a68822ee17645ca559664b5c04ceda96cbb6fa755f50771b1e2c99e1674",
+      "bytes": 13632
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/CageModel.cs": {
+      "sha256": "dafaf807b7e1a03f3622f32375e21180e6e9fe2ae6cf0c8de513f089612d2340",
+      "bytes": 4979
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/FishShadow.cs": {
+      "sha256": "08d929224a860ab5ec2a1fd807c3b5a625d278f3e5ae5f0028390015abf8cddc",
+      "bytes": 10229
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/RodViewAnimation.cs": {
+      "sha256": "dbda5d38899601b041d1a006d086168bfb3b09d26b116ddc8e3e64f309edb2c0",
+      "bytes": 4084
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/RodViewArt.cs": {
+      "sha256": "699bc8d062257e7432a21e05327c4c3b95e50f34aad77877701922193c4618d2",
+      "bytes": 2517
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/RodViewAtmosphere.cs": {
+      "sha256": "0de02a8f6e8e3b02572e7edfce956050596645d3fa255f9f8afa7e45b6fb33c5",
+      "bytes": 6028
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageCageView.cs": {
+      "sha256": "1a6b7044011fa07628a21728986284ca58ebb2dba9deafaee8a08a33d192d2c5",
+      "bytes": 23445
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs": {
+      "sha256": "6fa79058a809888c191b699505d38a0483d2d14522b17c850e48ef9b6337ec82",
+      "bytes": 2652
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageGutView.cs": {
+      "sha256": "2ebcfad5373a932442600941afdb78aadd25a07f2dab8558fddf0018dee9a278",
+      "bytes": 19493
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageNetView.cs": {
+      "sha256": "6abc03c1ea9820409dc400aeb38fd23a54b6c7ad223d46b13b9c111721b758b9",
+      "bytes": 21292
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageRepairView.cs": {
+      "sha256": "705218ccb7288f9d7e5e7b27ec6186b4148f7662757bf547d738c91a5e35fe58",
+      "bytes": 14784
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageRodView.cs": {
+      "sha256": "e13f8fc1b16ee111f3606b4be9330699973c8e25a77736325849f66d9d89898d",
+      "bytes": 30008
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs": {
+      "sha256": "71a9032154540e8b888bf9349a6b08be787482ecf1e5bca631d6ee2b9f38ad58",
+      "bytes": 5170
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/PtsWater.cs": {
+      "sha256": "3c0897b518f71dc8a18508458d085bcfcf732bba981ee0aa77228c6d9b4529ad",
+      "bytes": 6316
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/SceneryLife.cs": {
+      "sha256": "205fe3579b66e6cb193817c0855d42091572883a5f47a176584bdc8d617161c3",
+      "bytes": 5591
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/BoatSailor.cs": {
+      "sha256": "a9318e063cb137789ee00bb7be4dd8ba6c1f7abccf9998ba28e456102d47a754",
+      "bytes": 3925
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/Schools.cs": {
+      "sha256": "fc4cd2e82ed00d59c8e7e0a7620f4b1b25e2b660f7dde212aeb3033634cc0b6e",
+      "bytes": 12559
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaCamera.cs": {
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615",
+      "bytes": 1941
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaCapture.cs": {
+      "sha256": "f5650134db53a7e66ef237c430acbc7c3064210b0e251e3adb1c05a7f71a0340",
+      "bytes": 7129
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaInput.cs": {
+      "sha256": "85f7f8fdcb077629dd500c1a213341abb66b36c6deb99875fd165209c49726df",
+      "bytes": 4936
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaLanes.cs": {
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba",
+      "bytes": 4870
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaModeChecks.cs": {
+      "sha256": "56c2f2c67340d4e205c443e3bd6fd820601ad043238f2b5a27d83df9780994a4",
+      "bytes": 3902
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "97e3221dccd774ac9c4bb7de2f7252a985d27b7df25b5d65bf898c3bba972302",
+      "bytes": 18075
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaSailingEffects.cs": {
+      "sha256": "9a1321e8b588b5aa38fea47cbe155be3150b79947bc5ef3f84078e09ecc9f52e",
+      "bytes": 6415
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaSceneChecks.cs": {
+      "sha256": "e908bfb4b822b9973a18132015b80dd4592b768c7f2baae46ad39a969804dece",
+      "bytes": 2112
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Sea/SeaScenery.cs": {
+      "sha256": "bcec36bc91f73c42ce1ba60dadcab6d1f055764189fbcbc10a145454a07ebab0",
+      "bytes": 8580
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Skin.cs": {
+      "sha256": "51095b037835a8bc0cb78702c144d36f6e13a352fcadd8924562c0c8f0ff767c",
+      "bytes": 45357
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/SkinSlices.cs": {
+      "sha256": "035bf6ea81f5fce8da0df8b19db2d1e1f4b7f40f319c758ca02669cb917d0c5a",
+      "bytes": 3067
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/Ui.cs": {
+      "sha256": "02711c845c41dbb18109d742ba00f9fd8a2c8d55d5962fc9451ced603def411c",
+      "bytes": 12152
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageAudio.cs": {
+      "sha256": "5ee233ce2dba52116c7ed9131d430085e668092ad59ec8bac9033caf4553f2ac",
+      "bytes": 10693
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCapture.cs": {
+      "sha256": "f06ef36d2f2419d94e62801683f047f77262d277fb65328ffdf13933977b8830",
+      "bytes": 1636
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCards.cs": {
+      "sha256": "01b5d6ca335de8c6e9e52bd6a71d8da23b5d397df96bdb93b37f0074a0e79206",
+      "bytes": 895
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCatchRewards.cs": {
+      "sha256": "1450aafc00a9003f2c240aa36ea5748fb1929762a0526e49d277ff652163cb5c",
+      "bytes": 8481
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageChart.cs": {
+      "sha256": "e64ccdcffa9a2421ff7307a515e84c31834b18081bf42ae523bae53b10817151",
+      "bytes": 10770
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCompactFisher.cs": {
+      "sha256": "fc5007db6fb5e614c4f05bba5c4e34c860e646a6f1e02e8616eccd986dd7a722",
+      "bytes": 10029
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCrewBait.cs": {
+      "sha256": "a1eafd340255d3d98dd4c9e39d68c219ae1cc6679bce4daffb32e15807319380",
+      "bytes": 2392
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCrewCounters.cs": {
+      "sha256": "ed42743db4b4bc4f9349ddaca5e910582548f6958b33721df213c0a843c42125",
+      "bytes": 3087
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCrewFallback.cs": {
+      "sha256": "e968375709a6f3ef3b75b515ef0a2c035aab512a6975db645d4c1bbe472d86bb",
+      "bytes": 931
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageCrewLife.cs": {
+      "sha256": "dcee201718b409a2b25c7f7fc4ece6e13bb94d6e9277c6b6a4cf465c156d98bc",
+      "bytes": 2355
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageDeck.cs": {
+      "sha256": "f9095b87ba594ec5d53904efe28af54de653ebab61cf78469efc986314351ca0",
+      "bytes": 14664
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageDeepLines.cs": {
+      "sha256": "8de7fac2bd225307c634381743e60c436367ed4b4eeb6fbddae668ee02bb31f7",
+      "bytes": 11232
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageDeparture.cs": {
+      "sha256": "545a5e63dfbde8e0937c5ab835fefa69ab26dd133a9e91381302eec676a9b940",
+      "bytes": 7824
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageFeedback.cs": {
+      "sha256": "220f42edf5408414e15c5ea476b0cc8d71ec8f8a2dddf96cd520953beeff571b",
+      "bytes": 4705
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageGame.cs": {
+      "sha256": "141b79daf5b331c17e4527e406e9225f045bf031f94fe1199a7cdabe415fe021",
+      "bytes": 60773
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageGrounds.cs": {
+      "sha256": "c5af4d90f0c1181dd46ca0bef89b7349ba65112655bbede12b7c1c3bd81185d6",
+      "bytes": 3263
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageHarbour.cs": {
+      "sha256": "b5266b2536125acac5c53ff49c1428b9231b3209505884539284735b67710cb2",
+      "bytes": 18441
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageHarbourTraffic.cs": {
+      "sha256": "da8603d631679a8159e1d8c0032e136fce1b32ad86ea25d54599a46e6532cfd5",
+      "bytes": 5341
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageHaul.cs": {
+      "sha256": "9e76f3a327a8c69bba8a20723fece23644c004f0a10e0a5ed21a22466582a0ba",
+      "bytes": 3348
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageHud.cs": {
+      "sha256": "672c3c4611b84e708f594db54f33dba6934543ad7ff4c8dd195cdbe1bae21a05",
+      "bytes": 7748
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageIllustratedChart.cs": {
+      "sha256": "3e0ddca90f465e258ab80d8a47a4038c3efb1d9cc19f7c66cfc85bcaaff8aae3",
+      "bytes": 9426
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageInterface.cs": {
+      "sha256": "2212d50a13d1195a117abfc435bae95c956b27da741ddc12e6b808493f39ad25",
+      "bytes": 9382
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageInterfaceCrew.cs": {
+      "sha256": "e06fbab734e728502138dababc2d9ae1a22bcc963ee25ea2ebc525dfd6da093b",
+      "bytes": 7728
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageInterfaceGoals.cs": {
+      "sha256": "843c97f8c2f0e92234c3e34b19aa911bd263b442d0be9edfa5141a5b0a20f7d7",
+      "bytes": 5420
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageInterfaceShop.cs": {
+      "sha256": "54992e68049a195704963f3b9ded865f26941286876ffa628545746d6578765c",
+      "bytes": 32771
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageInterfaceVoyage.cs": {
+      "sha256": "571e096cd0484bae14e4a3b0d58c2ca3a5eff1706072600f2aeabba1c85b4c95",
+      "bytes": 13183
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageIntro.cs": {
+      "sha256": "5785a155d86bc3228ffe93866dbdc081faa4d724df8d6acd8d8d24c5e51ee3cc",
+      "bytes": 6488
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageManagement.cs": {
+      "sha256": "bb9e6849d31c95ade73a609291c2c4e3a6bbe83a2986ca24823a9e51904707e8",
+      "bytes": 31342
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageManagementForecast.cs": {
+      "sha256": "2e6b1827548df36f5f99741229391c1f7e080760375acb2930997ca2b22dc2ab",
+      "bytes": 15452
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageManagementPages.cs": {
+      "sha256": "790acbab78e3214a162e760930139f35d4afe429329d16738633568567b24a0d",
+      "bytes": 21544
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageMenus.cs": {
+      "sha256": "07d5317108b6827e9590c5741dd84ac0d6aab16ca29b4324a3da73293e250c87",
+      "bytes": 14741
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageNet.cs": {
+      "sha256": "2e9e49ea5629c4770be63cc0e92b095014b0237b4b09f1960473d4dee2aa06e8",
+      "bytes": 16274
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageNetGame.cs": {
+      "sha256": "ab896cb460cafc08011bde95b600207330fafce2f098ca33f027bdae51f76992",
+      "bytes": 5502
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageNetInterface.cs": {
+      "sha256": "b3a2c8ff4fa67156f97b3b2dcaea53b684b038b4d5cfa909faa47472de7afe56",
+      "bytes": 7861
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageNetLoadout.cs": {
+      "sha256": "1cafa7ae79cad90dd2cc5b7223cc757aa745eb4b3b13e21bcb43869eca1ff8dd",
+      "bytes": 988
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageNetUnload.cs": {
+      "sha256": "c448fe05d34f2b616f5d9439fa6b1b51ef41980af27081d89a3797a9b03b39ee",
+      "bytes": 4006
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyagePrepFisher.cs": {
+      "sha256": "46f19092a2d482b2c0d382382368fb673ced295d550ef755726529b8fc497837",
+      "bytes": 2697
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyagePrepOrders.cs": {
+      "sha256": "0271ed191eb6b900ef2721a2edbe7fd1175cdbb10f7cc67c2f0e13a76c713248",
+      "bytes": 13977
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageProcessingPipeline.cs": {
+      "sha256": "6c0e61748ecde1c8c04b55e6f40b56eabbe0e9e55578b77b213c5ed5408577b0",
+      "bytes": 4803
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "d6611f7d4d2a01b7bac49595e1942860833937750d8b724703d4e7f4597c1060",
+      "bytes": 14322
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageSea.cs": {
+      "sha256": "782ced4ce96ecf09cda6d96455b3a24278c193372ed15e7cfe2399fe87bcfd31",
+      "bytes": 7996
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageSeaLayout.cs": {
+      "sha256": "53084e7ee0aaefd4a6d6a6e9da6b927146e757a114d1cd06e73285bf367951a1",
+      "bytes": 3890
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageSeaMoments.cs": {
+      "sha256": "373af59047827ff91defe62079860fcfbcf87637156fe1e8baa968201160427e",
+      "bytes": 10214
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageSecondNetModule.cs": {
+      "sha256": "2a9a60bc3ae95914c868029c8fb891c06506d158acdd1f6069d6c31711e04d53",
+      "bytes": 14105
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageSkerriesLife.cs": {
+      "sha256": "71635a48348d4c6cc9564a2a57a0b97d0660a7873ec188178a6b2610eb51af0d",
+      "bytes": 3254
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageStorage.cs": {
+      "sha256": "6336441635ffd0e858428f09c93e9458532f825965e7fb47cc679470a3d0c0f9",
+      "bytes": 993
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageTier5.cs": {
+      "sha256": "fcfb9a302966e79b60cc03265c029cd5225d9e9bde73d95ef8cb8fe15d688a3e",
+      "bytes": 11480
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageTownsfolk.cs": {
+      "sha256": "ab204780c6d106330496a2e058e418562983ed9ca79e44553a2fef00709b62aa",
+      "bytes": 4760
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageTravel.cs": {
+      "sha256": "0df8918211232b413e8d8ff266b93b6276dbc5bfc056b777bdc30a505bc14f44",
+      "bytes": 3143
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageTrip.cs": {
+      "sha256": "90b7d10ce7f160dda8635942d5e743509a5ca49dc2093c9d179ce29730dbd3fb",
+      "bytes": 16367
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageTripChart.cs": {
+      "sha256": "0a232e64b8d3311caf3706826564fc4bbbb7a91bd56f3b7a879943d2d1ddd3b2",
+      "bytes": 6548
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageUiV2Capture.cs": {
+      "sha256": "b353931f06f4fecf9b60244c9b4b617a57f75469ca94d0ed873b61e106d1c0ec",
+      "bytes": 15129
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/VoyageWreckLife.cs": {
+      "sha256": "fa22d822286f02460b5ce196342f74e872a517c6872df3e1605cb39f505f68cb",
+      "bytes": 5968
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/Assets/Scripts/Game/WorkSpeed.cs": {
+      "sha256": "88fcdcf6b7e75103f5e2ca1530b5db4eee1b3ac256fc0e0b3d1db3b43ed479f4",
+      "bytes": 1418
+    },
+    "docs/screens/map8-lighthouse-rock-1/safety-source/source-hashes.json": {
+      "sha256": "0f9998012cb2d40b5616cff01540c8c8d2209f86c6a216867d760efba44a9550",
+      "bytes": 20700
+    },
+    "docs/screens/map8-lighthouse-rock-1/sail-out-1440.png": {
+      "sha256": "0c1488aa65d8ffde8ebf99e328661ee4214d11af2266c3ebcb2e2e27540ded33",
+      "bytes": 1460376
+    },
+    "docs/screens/map8-lighthouse-rock-1/sail-out-844.png": {
+      "sha256": "9d5bbf26738f8b2bc4a548e6394c2eaa90a9585b78397d8071086d9f9e210268",
+      "bytes": 411465
+    },
+    "docs/screens/map8-lighthouse-rock-1/source-audit.log": {
+      "sha256": "0b22cbaaed1b3b8abf37ead0987319feb4e01961ad5e0f64cb74d0cf0f10684c",
+      "bytes": 766
+    },
+    "docs/screens/map8-lighthouse-rock-1/the-pinnacle-1440.png": {
+      "sha256": "3cb4e04ce5e4a937fd3d4bea5af53b2dcd9d6239551d7ef59a37ebe7f4e404bf",
+      "bytes": 1056534
+    },
+    "docs/screens/map8-lighthouse-rock-1/the-pinnacle-844.png": {
+      "sha256": "f6baf6d9c8a633f5dfe9d6319c59f2b5909cbca3e838757bcb16c17c2fc9563e",
+      "bytes": 354058
+    },
+    "docs/screens/map8-lighthouse-rock-1/tide-race-1440.png": {
+      "sha256": "7cd4a17c74c5f21bfcbc51620a5f2a6bafe1b45dc96ab079b15e81b029a6d219",
+      "bytes": 1118201
+    },
+    "docs/screens/map8-lighthouse-rock-1/tide-race-844.png": {
+      "sha256": "3ee8930939403ee7880fe664a744b809bec3acaa9dc7d1a96100d3091de38697",
+      "bytes": 360063
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map8Capture/Catchline.exe": {
+      "sha256": "3070e580e019576b9afcdeb4fec18d03cebc119f6ae84d597412905c749ad653",
+      "bytes": 667136
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map8Capture/Catchline_Data/level0": {
+      "sha256": "3abd9da0df25add720dfdcf164e9478758d46f78fb5f2526f8a7e38cbb18b29b",
+      "bytes": 1200
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map8Capture/Catchline_Data/Managed/Assembly-CSharp.dll": {
+      "sha256": "ab95747269a10199a12fbbc85c8629e18291439a7ddf90f55cd97f8ae5a8ef03",
+      "bytes": 760832
+    },
+    "C:/Users/momoy/Projects/Catchline-sim/Builds/Map8Capture/UnityPlayer.dll": {
+      "sha256": "7e362b4c6ecee6fb493b1872cda5a5a0caf44f3b131b3c4bad132f0d1309f436",
+      "bytes": 36824488
+    }
+  },
+  "localLinks": 66,
+  "limits": [
+    "Six full-ground-circle exclusions retained as FAIL; required 6-12m corner landmarks intersect inherited 12-20m circles. Actual navigation checked independently. Lead contract/visual acceptance pending.",
+    "Central lighthouse/cottage visible in wide and detail art views, outside tight deck camera crops; low grey ridges frame fishing grounds.",
+    "Native source snapshot and source-age differences are bound in native-run.json; see README for chart/water/life readiness and exact visual limits.",
+    "Native stills do not prove animation, physical touch, installed-player behavior or caught-fish yield. Fishing checks prove normal bait/cast into water and return home.",
+    "MapNav timing advisories retained; route collision, border and lane results are separate."
+  ],
+  "retainedFailures": [
+    {
+      "check": "the-pinnacle full zone clear of islands +2m",
+      "passed": false,
+      "detail": -7.299
+    },
+    {
+      "check": "the-pinnacle full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -7.406
+    },
+    {
+      "check": "tide-race full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.299
+    },
+    {
+      "check": "tide-race full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.406
+    },
+    {
+      "check": "deep-ledge full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.299
+    },
+    {
+      "check": "deep-ledge full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.406
+    }
+  ],
+  "overallAcceptance": "PARTIAL; lead decision external.",
+  "checks": {
+    "maps": 8,
+    "hullRoutes": 480,
+    "lanes": 24,
+    "newGroundTrips": 3,
+    "artImages": 12,
+    "nativeImages": 10,
+    "sourceChecks": 57
+  },
+  "nativeBuild": {
+    "assemblySha256": "AB95747269A10199A12FBBC85C8629E18291439A7DDF90F55CD97F8AE5A8EF03",
+    "exeSha256": "3070E580E019576B9AFCDEB4FEC18D03CEBC119F6AE84D597412905C749AD653",
+    "launchedUtc": "2026-10-25T11:36:17.0881702Z",
+    "sourceCount": 125,
+    "sourceHashes": [
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\ArtLibrary.cs",
+        "sha256": "C4E5E9862E7DFD1E84D08A417A24A82762838DD852E28E5A1551ED4A2FF31039",
+        "mainSha256AtLaunch": "C4E5E9862E7DFD1E84D08A417A24A82762838DD852E28E5A1551ED4A2FF31039"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\CatchExpectation.cs",
+        "sha256": "4C88B7FFC1E0FAA0FB48CB4CDBBC311D6DFAEE188ADE543EF3CBCAFCCFFBEA41",
+        "mainSha256AtLaunch": "4C88B7FFC1E0FAA0FB48CB4CDBBC311D6DFAEE188ADE543EF3CBCAFCCFFBEA41"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\CatchPresentation.cs",
+        "sha256": "BB7EBE8D0B6DE065F5EDFCB896447A1F8650870BE96E63AA3DB2B42E43064EA5",
+        "mainSha256AtLaunch": "BB7EBE8D0B6DE065F5EDFCB896447A1F8650870BE96E63AA3DB2B42E43064EA5"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\CatchRewardGraphic.cs",
+        "sha256": "0F38274F8907D3B357B299AE7F00AEF0E80E4394788F24F6B1964C7DDB00D551",
+        "mainSha256AtLaunch": "0F38274F8907D3B357B299AE7F00AEF0E80E4394788F24F6B1964C7DDB00D551"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\CoastalCanvas.cs",
+        "sha256": "742B018C2E9B021582402F789B11DF91AFC6881EE2B16B55A5367E13BED73E0C",
+        "mainSha256AtLaunch": "742B018C2E9B021582402F789B11DF91AFC6881EE2B16B55A5367E13BED73E0C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\CoastalWater.cs",
+        "sha256": "CA86D02EFB3277F4BE5199BFE9B2C5BAE20A0924E5878CA7B7D5942983E1E227",
+        "mainSha256AtLaunch": "CA86D02EFB3277F4BE5199BFE9B2C5BAE20A0924E5878CA7B7D5942983E1E227"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\DeckActors.cs",
+        "sha256": "220985CF20BE76FEF1C7E099FA1A9AD4E0064FE017E2D1AD8C85547D2655919B",
+        "mainSha256AtLaunch": "220985CF20BE76FEF1C7E099FA1A9AD4E0064FE017E2D1AD8C85547D2655919B"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\DeepLineRules.cs",
+        "sha256": "9F8CFDBAA38EC4BF6D465D23FA859573909EF52FE860208F891F837B436361D7",
+        "mainSha256AtLaunch": "9F8CFDBAA38EC4BF6D465D23FA859573909EF52FE860208F891F837B436361D7"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\FishReferenceStyle.cs",
+        "sha256": "1971C27F0CF5443F645ED324E77569A1D9A2304D289A6242C2A93DCDD1E0A424",
+        "mainSha256AtLaunch": "1971C27F0CF5443F645ED324E77569A1D9A2304D289A6242C2A93DCDD1E0A424"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\FlowTelemetry.cs",
+        "sha256": "E3E1795A838E49DBA8DDA1FACDBD23F7A69EF5C9F17902919C53FE5A28EBA1FE",
+        "mainSha256AtLaunch": "E3E1795A838E49DBA8DDA1FACDBD23F7A69EF5C9F17902919C53FE5A28EBA1FE"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameData.cs",
+        "sha256": "48F76F66E03B7667F65FA1FD60BDE02862C121E9393DDF6F78DB96C964964BC9",
+        "mainSha256AtLaunch": "48F76F66E03B7667F65FA1FD60BDE02862C121E9393DDF6F78DB96C964964BC9"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameState.cs",
+        "sha256": "F85F1B1F4C50D5F6033DE54C380B7E904294E43229E074817D5FF1480C1377AD",
+        "mainSha256AtLaunch": "F85F1B1F4C50D5F6033DE54C380B7E904294E43229E074817D5FF1480C1377AD"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateBoatModules.cs",
+        "sha256": "8EFFBA1941B7262F60DE278553CB21B0CF82637991040AC0FDA527758559E2B6",
+        "mainSha256AtLaunch": "8EFFBA1941B7262F60DE278553CB21B0CF82637991040AC0FDA527758559E2B6"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateCards.cs",
+        "sha256": "6E40F109D9210D8A9E31512DC582ABEF2B7828EE4FE005597354B5AB53CF2380",
+        "mainSha256AtLaunch": "6E40F109D9210D8A9E31512DC582ABEF2B7828EE4FE005597354B5AB53CF2380"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateCrewBait.cs",
+        "sha256": "237CF26B862C1D4849B688340D069A91A038A4C3FD30C53F5B1FCA2EB8726AA0",
+        "mainSha256AtLaunch": "237CF26B862C1D4849B688340D069A91A038A4C3FD30C53F5B1FCA2EB8726AA0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateNetLoadout.cs",
+        "sha256": "79C8B72AB2C330BC1BCE7CCEFB0D0A98917F55FDDEB3DFD98521678C38257194",
+        "mainSha256AtLaunch": "79C8B72AB2C330BC1BCE7CCEFB0D0A98917F55FDDEB3DFD98521678C38257194"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateProgression.cs",
+        "sha256": "85B31C720D763DF7391E110399F6E1C9008C7C66A0FC680B193B4B45099D5827",
+        "mainSha256AtLaunch": "85B31C720D763DF7391E110399F6E1C9008C7C66A0FC680B193B4B45099D5827"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GameStateTier5.cs",
+        "sha256": "263BC5EE8B19B63E8E94813EC23FCF813C1740F1B46E18D5EA0A88CC96FD70D2",
+        "mainSha256AtLaunch": "263BC5EE8B19B63E8E94813EC23FCF813C1740F1B46E18D5EA0A88CC96FD70D2"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GeminiFishModels.cs",
+        "sha256": "0616A8257B88011C17BE5D9D8641D11EFA9FAA6E663A2249C03AB4987EB1CFDC",
+        "mainSha256AtLaunch": "0616A8257B88011C17BE5D9D8641D11EFA9FAA6E663A2249C03AB4987EB1CFDC"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\GeminiUiSkin.cs",
+        "sha256": "5252AF290C67E97C3DFCE41DB7EA3862D16CBE1A7A51BB9689D4E760D1D9835E",
+        "mainSha256AtLaunch": "5252AF290C67E97C3DFCE41DB7EA3862D16CBE1A7A51BB9689D4E760D1D9835E"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Map6Capture.cs",
+        "sha256": "E2AC5256E6631617388AAEA1F96E0A6F4E68C65B28EBB9560E051931DC7710C2",
+        "mainSha256AtLaunch": "E2AC5256E6631617388AAEA1F96E0A6F4E68C65B28EBB9560E051931DC7710C2"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Map7Capture.cs",
+        "sha256": "502F9C85F58536F4E8B40649F8B29742EEE9F414A0B6E8E2FFE808A6CDB5A8A9",
+        "mainSha256AtLaunch": "502F9C85F58536F4E8B40649F8B29742EEE9F414A0B6E8E2FFE808A6CDB5A8A9"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Map8Capture.cs",
+        "sha256": "CECE4F63D6D92FD93BC3BC532396127FADBE7F9FE9D51A4108FABF71A0C8EE8C",
+        "mainSha256AtLaunch": "CECE4F63D6D92FD93BC3BC532396127FADBE7F9FE9D51A4108FABF71A0C8EE8C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\PtsWater.cs",
+        "sha256": "3C0897B518F71DC8A18508458D085BCFCF732BBA981EE0AA77228C6D9B4529AD",
+        "mainSha256AtLaunch": "3C0897B518F71DC8A18508458D085BCFCF732BBA981EE0AA77228C6D9B4529AD"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\SceneryLife.cs",
+        "sha256": "205FE3579B66E6CB193817C0855D42091572883A5F47A176584BDC8D617161C3",
+        "mainSha256AtLaunch": "205FE3579B66E6CB193817C0855D42091572883A5F47A176584BDC8D617161C3"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Skin.cs",
+        "sha256": "51095B037835A8BC0CB78702C144D36F6E13A352FCADD8924562C0C8F0FF767C",
+        "mainSha256AtLaunch": "51095B037835A8BC0CB78702C144D36F6E13A352FCADD8924562C0C8F0FF767C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\SkinSlices.cs",
+        "sha256": "035BF6EA81F5FCE8DA0DF8B19DB2D1E1F4B7F40F319C758CA02669CB917D0C5A",
+        "mainSha256AtLaunch": "035BF6EA81F5FCE8DA0DF8B19DB2D1E1F4B7F40F319C758CA02669CB917D0C5A"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Ui.cs",
+        "sha256": "02711C845C41DBB18109D742BA00F9FD8A2C8D55D5962FC9451CED603DEF411C",
+        "mainSha256AtLaunch": "02711C845C41DBB18109D742BA00F9FD8A2C8D55D5962FC9451CED603DEF411C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageAudio.cs",
+        "sha256": "5EE233CE2DBA52116C7ED9131D430085E668092AD59EC8BAC9033CAF4553F2AC",
+        "mainSha256AtLaunch": "5EE233CE2DBA52116C7ED9131D430085E668092AD59EC8BAC9033CAF4553F2AC"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCapture.cs",
+        "sha256": "F06EF36D2F2419D94E62801683F047F77262D277FB65328FFDF13933977B8830",
+        "mainSha256AtLaunch": "F06EF36D2F2419D94E62801683F047F77262D277FB65328FFDF13933977B8830"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCards.cs",
+        "sha256": "01B5D6CA335DE8C6E9E52BD6A71D8DA23B5D397DF96BDB93B37F0074A0E79206",
+        "mainSha256AtLaunch": "01B5D6CA335DE8C6E9E52BD6A71D8DA23B5D397DF96BDB93B37F0074A0E79206"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCatchRewards.cs",
+        "sha256": "1450AAFC00A9003F2C240AA36EA5748FB1929762A0526E49D277FF652163CB5C",
+        "mainSha256AtLaunch": "1450AAFC00A9003F2C240AA36EA5748FB1929762A0526E49D277FF652163CB5C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageChart.cs",
+        "sha256": "E64CCDCFFA9A2421FF7307A515E84C31834B18081BF42AE523BAE53B10817151",
+        "mainSha256AtLaunch": "E64CCDCFFA9A2421FF7307A515E84C31834B18081BF42AE523BAE53B10817151"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCompactFisher.cs",
+        "sha256": "FC5007DB6FB5E614C4F05BBA5C4E34C860E646A6F1E02E8616ECCD986DD7A722",
+        "mainSha256AtLaunch": "FC5007DB6FB5E614C4F05BBA5C4E34C860E646A6F1E02E8616ECCD986DD7A722"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCrabPots.cs",
+        "sha256": "8CC4BE72F53774E00391CC5F0D9756299E2A167747A859CD756E8F22482802E7",
+        "mainSha256AtLaunch": "8CC4BE72F53774E00391CC5F0D9756299E2A167747A859CD756E8F22482802E7"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCrewBait.cs",
+        "sha256": "A1EAFD340255D3D98DD4C9E39D68C219AE1CC6679BCE4DAFFB32E15807319380",
+        "mainSha256AtLaunch": "A1EAFD340255D3D98DD4C9E39D68C219AE1CC6679BCE4DAFFB32E15807319380"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCrewCounters.cs",
+        "sha256": "ED42743DB4B4BC4F9349DDACA5E910582548F6958B33721DF213C0A843C42125",
+        "mainSha256AtLaunch": "ED42743DB4B4BC4F9349DDACA5E910582548F6958B33721DF213C0A843C42125"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCrewFallback.cs",
+        "sha256": "E968375709A6F3EF3B75B515EF0A2C035AAB512A6975DB645D4C1BBE472D86BB",
+        "mainSha256AtLaunch": "E968375709A6F3EF3B75B515EF0A2C035AAB512A6975DB645D4C1BBE472D86BB"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageCrewLife.cs",
+        "sha256": "DCEE201718B409A2B25C7F7FC4ECE6E13BB94D6E9277C6B6A4CF465C156D98BC",
+        "mainSha256AtLaunch": "DCEE201718B409A2B25C7F7FC4ECE6E13BB94D6E9277C6B6A4CF465C156D98BC"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageDeck.cs",
+        "sha256": "F9095B87BA594EC5D53904EFE28AF54DE653EBAB61CF78469EFC986314351CA0",
+        "mainSha256AtLaunch": "F9095B87BA594EC5D53904EFE28AF54DE653EBAB61CF78469EFC986314351CA0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageDeepLines.cs",
+        "sha256": "8DE7FAC2BD225307C634381743E60C436367ED4B4EEB6FBDDAE668EE02BB31F7",
+        "mainSha256AtLaunch": "8DE7FAC2BD225307C634381743E60C436367ED4B4EEB6FBDDAE668EE02BB31F7"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageDeparture.cs",
+        "sha256": "545A5E63DFBDE8E0937C5AB835FEFA69AB26DD133A9E91381302EEC676A9B940",
+        "mainSha256AtLaunch": "545A5E63DFBDE8E0937C5AB835FEFA69AB26DD133A9E91381302EEC676A9B940"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageFeedback.cs",
+        "sha256": "220F42EDF5408414E15C5EA476B0CC8D71EC8F8A2DDDF96CD520953BEEFF571B",
+        "mainSha256AtLaunch": "220F42EDF5408414E15C5EA476B0CC8D71EC8F8A2DDDF96CD520953BEEFF571B"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageGame.cs",
+        "sha256": "E9CB8423A8F09553A474E5297207B7E9AAAD71AAE44E82FB50AEEE49C1030619",
+        "mainSha256AtLaunch": "E9CB8423A8F09553A474E5297207B7E9AAAD71AAE44E82FB50AEEE49C1030619"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageGrounds.cs",
+        "sha256": "C5AF4D90F0C1181DD46CA0BEF89B7349BA65112655BBEDE12B7C1C3BD81185D6",
+        "mainSha256AtLaunch": "C5AF4D90F0C1181DD46CA0BEF89B7349BA65112655BBEDE12B7C1C3BD81185D6"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageHarbour.cs",
+        "sha256": "B5266B2536125ACAC5C53FF49C1428B9231B3209505884539284735B67710CB2",
+        "mainSha256AtLaunch": "B5266B2536125ACAC5C53FF49C1428B9231B3209505884539284735B67710CB2"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageHarbourDusk.cs",
+        "sha256": "EB1C250121F4B865B62B3D98EBF83D4438D6CD37AE1BC478AADD4E6B4C776DC0",
+        "mainSha256AtLaunch": "EB1C250121F4B865B62B3D98EBF83D4438D6CD37AE1BC478AADD4E6B4C776DC0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageHarbourTraffic.cs",
+        "sha256": "DA8603D631679A8159E1D8C0032E136FCE1B32AD86EA25D54599A46E6532CFD5",
+        "mainSha256AtLaunch": "DA8603D631679A8159E1D8C0032E136FCE1B32AD86EA25D54599A46E6532CFD5"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageHaul.cs",
+        "sha256": "9E76F3A327A8C69BBA8A20723FECE23644C004F0A10E0A5ED21A22466582A0BA",
+        "mainSha256AtLaunch": "9E76F3A327A8C69BBA8A20723FECE23644C004F0A10E0A5ED21A22466582A0BA"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageHud.cs",
+        "sha256": "672C3C4611B84E708F594DB54F33DBA6934543AD7FF4C8DD195CDBE1BAE21A05",
+        "mainSha256AtLaunch": "672C3C4611B84E708F594DB54F33DBA6934543AD7FF4C8DD195CDBE1BAE21A05"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageIllustratedChart.cs",
+        "sha256": "3E0DDCA90F465E258AB80D8A47A4038C3EFB1D9CC19F7C66CFC85BCAAFF8AAE3",
+        "mainSha256AtLaunch": "3E0DDCA90F465E258AB80D8A47A4038C3EFB1D9CC19F7C66CFC85BCAAFF8AAE3"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageInterface.cs",
+        "sha256": "761A141D5CF69999F4820B8A57C6FB189BD2D44EBE569DEE9198420A8D8BCC50",
+        "mainSha256AtLaunch": "761A141D5CF69999F4820B8A57C6FB189BD2D44EBE569DEE9198420A8D8BCC50"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageInterfaceCrew.cs",
+        "sha256": "E06FBAB734E728502138DABABC2D9AE1A22BCC963EE25EA2EBC525DFD6DA093B",
+        "mainSha256AtLaunch": "E06FBAB734E728502138DABABC2D9AE1A22BCC963EE25EA2EBC525DFD6DA093B"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageInterfaceGoals.cs",
+        "sha256": "843C97F8C2F0E92234C3E34B19AA911BD263B442D0BE9EDFA5141A5B0A20F7D7",
+        "mainSha256AtLaunch": "843C97F8C2F0E92234C3E34B19AA911BD263B442D0BE9EDFA5141A5B0A20F7D7"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageInterfaceShop.cs",
+        "sha256": "5D9007053E5C60F8D93F2CBA85F64A22590140815FCAA47E7355F956A6F09D82",
+        "mainSha256AtLaunch": "5D9007053E5C60F8D93F2CBA85F64A22590140815FCAA47E7355F956A6F09D82"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageInterfaceVoyage.cs",
+        "sha256": "571E096CD0484BAE14E4A3B0D58C2CA3A5EFF1706072600F2AEABBA1C85B4C95",
+        "mainSha256AtLaunch": "571E096CD0484BAE14E4A3B0D58C2CA3A5EFF1706072600F2AEABBA1C85B4C95"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageIntro.cs",
+        "sha256": "52FFA6F256538D8706FCFC720F389D4FC65DFB5E5BD4E8447C10C98B41834001",
+        "mainSha256AtLaunch": "52FFA6F256538D8706FCFC720F389D4FC65DFB5E5BD4E8447C10C98B41834001"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageLighthouseLife.cs",
+        "sha256": "F5EA45541B27EF4CEA38CC87770D38849C1926478D49D9CADB8B2051B821B1DB",
+        "mainSha256AtLaunch": "F5EA45541B27EF4CEA38CC87770D38849C1926478D49D9CADB8B2051B821B1DB"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageManagement.cs",
+        "sha256": "BB9E6849D31C95ADE73A609291C2C4E3A6BBE83A2986CA24823A9E51904707E8",
+        "mainSha256AtLaunch": "BB9E6849D31C95ADE73A609291C2C4E3A6BBE83A2986CA24823A9E51904707E8"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageManagementForecast.cs",
+        "sha256": "2E6B1827548DF36F5F99741229391C1F7E080760375ACB2930997CA2B22DC2AB",
+        "mainSha256AtLaunch": "2E6B1827548DF36F5F99741229391C1F7E080760375ACB2930997CA2B22DC2AB"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageManagementPages.cs",
+        "sha256": "790ACBAB78E3214A162E760930139F35D4AFE429329D16738633568567B24A0D",
+        "mainSha256AtLaunch": "790ACBAB78E3214A162E760930139F35D4AFE429329D16738633568567B24A0D"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageMenus.cs",
+        "sha256": "07D5317108B6827E9590C5741DD84AC0D6AAB16CA29B4324A3DA73293E250C87",
+        "mainSha256AtLaunch": "07D5317108B6827E9590C5741DD84AC0D6AAB16CA29B4324A3DA73293E250C87"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageNet.cs",
+        "sha256": "2E9E49EA5629C4770BE63CC0E92B095014B0237B4B09F1960473D4DEE2AA06E8",
+        "mainSha256AtLaunch": "2E9E49EA5629C4770BE63CC0E92B095014B0237B4B09F1960473D4DEE2AA06E8"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageNetGame.cs",
+        "sha256": "AB896CB460CAFC08011BDE95B600207330FAFCE2F098CA33F027BDAE51F76992",
+        "mainSha256AtLaunch": "AB896CB460CAFC08011BDE95B600207330FAFCE2F098CA33F027BDAE51F76992"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageNetInterface.cs",
+        "sha256": "B3A2C8FF4FA67156F97B3B2DCAEA53B684B038B4D5CFA909FAA47472DE7AFE56",
+        "mainSha256AtLaunch": "B3A2C8FF4FA67156F97B3B2DCAEA53B684B038B4D5CFA909FAA47472DE7AFE56"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageNetLoadout.cs",
+        "sha256": "1CAFA7AE79CAD90DD2CC5B7223CC757AA745EB4B3B13E21BCB43869ECA1FF8DD",
+        "mainSha256AtLaunch": "1CAFA7AE79CAD90DD2CC5B7223CC757AA745EB4B3B13E21BCB43869ECA1FF8DD"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageNetUnload.cs",
+        "sha256": "C448FE05D34F2B616F5D9439FA6B1B51EF41980AF27081D89A3797A9B03B39EE",
+        "mainSha256AtLaunch": "C448FE05D34F2B616F5D9439FA6B1B51EF41980AF27081D89A3797A9B03B39EE"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyagePrepFisher.cs",
+        "sha256": "46F19092A2D482B2C0D382382368FB673CED295D550EF755726529B8FC497837",
+        "mainSha256AtLaunch": "46F19092A2D482B2C0D382382368FB673CED295D550EF755726529B8FC497837"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyagePrepOrders.cs",
+        "sha256": "0271ED191EB6B900EF2721A2EDBE7FD1175CDBB10F7CC67C2F0E13A76C713248",
+        "mainSha256AtLaunch": "0271ED191EB6B900EF2721A2EDBE7FD1175CDBB10F7CC67C2F0E13A76C713248"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageProcessingPipeline.cs",
+        "sha256": "6C0E61748ECDE1C8C04B55E6F40B56EABBE0E9E55578B77B213C5ED5408577B0",
+        "mainSha256AtLaunch": "6C0E61748ECDE1C8C04B55E6F40B56EABBE0E9E55578B77B213C5ED5408577B0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageScenery.cs",
+        "sha256": "D6611F7D4D2A01B7BAC49595E1942860833937750D8B724703D4E7F4597C1060",
+        "mainSha256AtLaunch": "D6611F7D4D2A01B7BAC49595E1942860833937750D8B724703D4E7F4597C1060"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageSea.cs",
+        "sha256": "782CED4CE96ECF09CDA6D96455B3A24278C193372ED15E7CFE2399FE87BCFD31",
+        "mainSha256AtLaunch": "782CED4CE96ECF09CDA6D96455B3A24278C193372ED15E7CFE2399FE87BCFD31"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageSeaLayout.cs",
+        "sha256": "53084E7EE0AAEFD4A6D6A6E9DA6B927146E757A114D1CD06E73285BF367951A1",
+        "mainSha256AtLaunch": "53084E7EE0AAEFD4A6D6A6E9DA6B927146E757A114D1CD06E73285BF367951A1"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageSeaMoments.cs",
+        "sha256": "373AF59047827FF91DEFE62079860FCFBCF87637156FE1E8BAA968201160427E",
+        "mainSha256AtLaunch": "373AF59047827FF91DEFE62079860FCFBCF87637156FE1E8BAA968201160427E"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageSecondNetModule.cs",
+        "sha256": "2A9A60BC3AE95914C868029C8FB891C06506D158ACDD1F6069D6C31711E04D53",
+        "mainSha256AtLaunch": "2A9A60BC3AE95914C868029C8FB891C06506D158ACDD1F6069D6C31711E04D53"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageShelfLife.cs",
+        "sha256": "C37E68B96BFC7C65E7E0530DD65F04B1614ECD666D55F0D83B9BE969417AA1DE",
+        "mainSha256AtLaunch": "C37E68B96BFC7C65E7E0530DD65F04B1614ECD666D55F0D83B9BE969417AA1DE"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageSkerriesLife.cs",
+        "sha256": "71635A48348D4C6CC9564A2A57A0B97D0660A7873EC188178A6B2610EB51AF0D",
+        "mainSha256AtLaunch": "71635A48348D4C6CC9564A2A57A0B97D0660A7873EC188178A6B2610EB51AF0D"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageStorage.cs",
+        "sha256": "6336441635FFD0E858428F09C93E9458532F825965E7FB47CC679470A3D0C0F9",
+        "mainSha256AtLaunch": "6336441635FFD0E858428F09C93E9458532F825965E7FB47CC679470A3D0C0F9"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageTier5.cs",
+        "sha256": "32677F50121BE9B235417E0A4C1F720698B1FF486467EB9BA01F97DC8AD4DCFA",
+        "mainSha256AtLaunch": "32677F50121BE9B235417E0A4C1F720698B1FF486467EB9BA01F97DC8AD4DCFA"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageTownsfolk.cs",
+        "sha256": "AB204780C6D106330496A2E058E418562983ED9CA79E44553A2FEF00709B62AA",
+        "mainSha256AtLaunch": "AB204780C6D106330496A2E058E418562983ED9CA79E44553A2FEF00709B62AA"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageTravel.cs",
+        "sha256": "0DF8918211232B413E8D8FF266B93B6276DBC5BFC056B777BDC30A505BC14F44",
+        "mainSha256AtLaunch": "0DF8918211232B413E8D8FF266B93B6276DBC5BFC056B777BDC30A505BC14F44"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageTrip.cs",
+        "sha256": "90B7D10CE7F160DDA8635942D5E743509A5CA49DC2093C9D179CE29730DBD3FB",
+        "mainSha256AtLaunch": "90B7D10CE7F160DDA8635942D5E743509A5CA49DC2093C9D179CE29730DBD3FB"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageTripChart.cs",
+        "sha256": "0A232E64B8D3311CAF3706826564FC4BBBB7A91BD56F3B7A879943D2D1DDD3B2",
+        "mainSha256AtLaunch": "0A232E64B8D3311CAF3706826564FC4BBBB7A91BD56F3B7A879943D2D1DDD3B2"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageUiV2Capture.cs",
+        "sha256": "B353931F06F4FECF9B60244C9B4B617A57F75469CA94D0ED873B61E106D1C0EC",
+        "mainSha256AtLaunch": "B353931F06F4FECF9B60244C9B4B617A57F75469CA94D0ED873B61E106D1C0EC"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\VoyageWreckLife.cs",
+        "sha256": "9856B533E6A52C14B91158314DCF04148270D9ABB182706AF37890291EC2C48D",
+        "mainSha256AtLaunch": "9856B533E6A52C14B91158314DCF04148270D9ABB182706AF37890291EC2C48D"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\WorkSpeed.cs",
+        "sha256": "88FCDCF6B7E75103F5E2CA1530B5DB4EEE1B3AC256FC0E0B3D1DB3B43ED479F4",
+        "mainSha256AtLaunch": "88FCDCF6B7E75103F5E2CA1530B5DB4EEE1B3AC256FC0E0B3D1DB3B43ED479F4"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Bait.cs",
+        "sha256": "A663D2CC1E19C26086C909DC4C9C5F5AA67E6BFD4D8A0B9380F5A7BFC209E445",
+        "mainSha256AtLaunch": "A663D2CC1E19C26086C909DC4C9C5F5AA67E6BFD4D8A0B9380F5A7BFC209E445"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Buyers.cs",
+        "sha256": "8FC3D4A89E3B3DFFD65A7BB72233C7987D89D63AF5BE7876CA9F1A0D7E5DA6D0",
+        "mainSha256AtLaunch": "8FC3D4A89E3B3DFFD65A7BB72233C7987D89D63AF5BE7876CA9F1A0D7E5DA6D0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\CardProgression.cs",
+        "sha256": "393F031BAC32458375FA60E5CC8F1EDC13600E88E82F2524C9E8F1BEB6098588",
+        "mainSha256AtLaunch": "393F031BAC32458375FA60E5CC8F1EDC13600E88E82F2524C9E8F1BEB6098588"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Cards.cs",
+        "sha256": "E6531A8361EE9F6B6A65E7F9B8266AC5DAD33787CDE2D4A5E8C5752AD27FB257",
+        "mainSha256AtLaunch": "E6531A8361EE9F6B6A65E7F9B8266AC5DAD33787CDE2D4A5E8C5752AD27FB257"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\CardState.cs",
+        "sha256": "BD78ED3BF4D2E3E93127E93596B674154917BCF57AA85F55811398B2C5AF87B8",
+        "mainSha256AtLaunch": "BD78ED3BF4D2E3E93127E93596B674154917BCF57AA85F55811398B2C5AF87B8"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Contracts.cs",
+        "sha256": "EFB655E3DB44BB3F2C9307D56308F98ACD7EED73B40B56CD388A3286438E2B04",
+        "mainSha256AtLaunch": "EFB655E3DB44BB3F2C9307D56308F98ACD7EED73B40B56CD388A3286438E2B04"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Grounds.cs",
+        "sha256": "7DFA9F3F7201742ABFE8FAC96486ED0F0A2CCC2524C2590EAE961FECFA6C2230",
+        "mainSha256AtLaunch": "7DFA9F3F7201742ABFE8FAC96486ED0F0A2CCC2524C2590EAE961FECFA6C2230"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Products.cs",
+        "sha256": "160A125D512BDFD4893BD8980034F156B65C624C8D041235BEE6815319899692",
+        "mainSha256AtLaunch": "160A125D512BDFD4893BD8980034F156B65C624C8D041235BEE6815319899692"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\Quota.cs",
+        "sha256": "B8087DD2E8DF27EEFB73A0E7F4C7C5B81C98515B658FFD05A2AA962B2ED3A67F",
+        "mainSha256AtLaunch": "B8087DD2E8DF27EEFB73A0E7F4C7C5B81C98515B658FFD05A2AA962B2ED3A67F"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Data\\SaveV2.cs",
+        "sha256": "CDD3A1446F827D544CDB4A1635526044641B4CCE63E69A74F7683A4A23CB4331",
+        "mainSha256AtLaunch": "CDD3A1446F827D544CDB4A1635526044641B4CCE63E69A74F7683A4A23CB4331"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Deck\\DeckGraph.cs",
+        "sha256": "546BCB5A78A5360633A723799B752C600C6222AA38C34100FD8D0A259059685E",
+        "mainSha256AtLaunch": "546BCB5A78A5360633A723799B752C600C6222AA38C34100FD8D0A259059685E"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Deck\\DeckScheduler.cs",
+        "sha256": "21918A66D04D6613CD326C8B747BD4DD54EBB989896BCFCED9B21E51D28E09A9",
+        "mainSha256AtLaunch": "21918A66D04D6613CD326C8B747BD4DD54EBB989896BCFCED9B21E51D28E09A9"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Deck\\Jobs.cs",
+        "sha256": "3528CE0584AD4CB72BA4B4CF7D873171E106C4F03C1E5012C76350641D15E67B",
+        "mainSha256AtLaunch": "3528CE0584AD4CB72BA4B4CF7D873171E106C4F03C1E5012C76350641D15E67B"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Deck\\MiniJson.cs",
+        "sha256": "A9A1C4B9F6B9BBDDCF70C85B13B64BAB54D1EC47BB5CA0BB5064E944B897204C",
+        "mainSha256AtLaunch": "A9A1C4B9F6B9BBDDCF70C85B13B64BAB54D1EC47BB5CA0BB5064E944B897204C"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Deck\\Station.cs",
+        "sha256": "7055BA644A27D8049FCB2229C859EA6A0A849FD253B775066FCADB1AC0CE89A4",
+        "mainSha256AtLaunch": "7055BA644A27D8049FCB2229C859EA6A0A849FD253B775066FCADB1AC0CE89A4"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\BiteModel.cs",
+        "sha256": "11C40A68822EE17645CA559664B5C04CEDA96CBB6FA755F50771B1E2C99E1674",
+        "mainSha256AtLaunch": "11C40A68822EE17645CA559664B5C04CEDA96CBB6FA755F50771B1E2C99E1674"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\CageModel.cs",
+        "sha256": "DAFAF807B7E1A03F3622F32375E21180E6E9FE2AE6CF0C8DE513F089612D2340",
+        "mainSha256AtLaunch": "DAFAF807B7E1A03F3622F32375E21180E6E9FE2AE6CF0C8DE513F089612D2340"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\FishShadow.cs",
+        "sha256": "08D929224A860AB5EC2A1FD807C3B5A625D278F3E5AE5F0028390015ABF8CDDC",
+        "mainSha256AtLaunch": "08D929224A860AB5EC2A1FD807C3B5A625D278F3E5AE5F0028390015ABF8CDDC"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\RodViewAnimation.cs",
+        "sha256": "DBDA5D38899601B041D1A006D086168BFB3B09D26B116DDC8E3E64F309EDB2C0",
+        "mainSha256AtLaunch": "DBDA5D38899601B041D1A006D086168BFB3B09D26B116DDC8E3E64F309EDB2C0"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\RodViewArt.cs",
+        "sha256": "699BC8D062257E7432A21E05327C4C3B95E50F34AAD77877701922193C4618D2",
+        "mainSha256AtLaunch": "699BC8D062257E7432A21E05327C4C3B95E50F34AAD77877701922193C4618D2"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\RodViewAtmosphere.cs",
+        "sha256": "0DE02A8F6E8E3B02572E7EDFCE956050596645D3FA255F9F8AFA7E45B6FB33C5",
+        "mainSha256AtLaunch": "0DE02A8F6E8E3B02572E7EDFCE956050596645D3FA255F9F8AFA7E45B6FB33C5"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageCageView.cs",
+        "sha256": "1A6B7044011FA07628A21728986284CA58EBB2DBA9DEAFAEE8A08A33D192D2C5",
+        "mainSha256AtLaunch": "1A6B7044011FA07628A21728986284CA58EBB2DBA9DEAFAEE8A08A33D192D2C5"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageFishPolishCapture.cs",
+        "sha256": "6FA79058A809888C191B699505D38A0483D2D14522B17C850E48EF9B6337EC82",
+        "mainSha256AtLaunch": "6FA79058A809888C191B699505D38A0483D2D14522B17C850E48EF9B6337EC82"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageGutView.cs",
+        "sha256": "2EBCFAD5373A932442600941AFDB78AADD25A07F2DAB8558FDDF0018DEE9A278",
+        "mainSha256AtLaunch": "2EBCFAD5373A932442600941AFDB78AADD25A07F2DAB8558FDDF0018DEE9A278"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageNetView.cs",
+        "sha256": "6ABC03C1EA9820409DC400AEB38FD23A54B6C7AD223D46B13B9C111721B758B9",
+        "mainSha256AtLaunch": "6ABC03C1EA9820409DC400AEB38FD23A54B6C7AD223D46B13B9C111721B758B9"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRepairView.cs",
+        "sha256": "705218CCB7288F9D7E5E7B27EC6186B4148F7662757BF547D738C91A5E35FE58",
+        "mainSha256AtLaunch": "705218CCB7288F9D7E5E7B27EC6186B4148F7662757BF547D738C91A5E35FE58"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRodView.cs",
+        "sha256": "E13F8FC1B16EE111F3606B4BE9330699973C8E25A77736325849F66D9D89898D",
+        "mainSha256AtLaunch": "E13F8FC1B16EE111F3606B4BE9330699973C8E25A77736325849F66D9D89898D"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRodViewCapture.cs",
+        "sha256": "71A9032154540E8B888BF9349A6B08BE787482ECF1E5BCA631D6EE2B9F38AD58",
+        "mainSha256AtLaunch": "71A9032154540E8B888BF9349A6B08BE787482ECF1E5BCA631D6EE2B9F38AD58"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\BoatSailor.cs",
+        "sha256": "A9318E063CB137789EE00BB7BE4DD8BA6C1F7ABCCF9998BA28E456102D47A754",
+        "mainSha256AtLaunch": "A9318E063CB137789EE00BB7BE4DD8BA6C1F7ABCCF9998BA28E456102D47A754"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\Schools.cs",
+        "sha256": "FC4CD2E82ED00D59C8E7E0A7620F4B1B25E2B660F7DDE212AEB3033634CC0B6E",
+        "mainSha256AtLaunch": "FC4CD2E82ED00D59C8E7E0A7620F4B1B25E2B660F7DDE212AEB3033634CC0B6E"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaCamera.cs",
+        "sha256": "99C1593E14B66EBBEFF5E8724B5279F214021676FF611BF84876294970A63615",
+        "mainSha256AtLaunch": "99C1593E14B66EBBEFF5E8724B5279F214021676FF611BF84876294970A63615"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaCapture.cs",
+        "sha256": "F5650134DB53A7E66EF237C430ACBC7C3064210B0E251E3ADB1C05A7F71A0340",
+        "mainSha256AtLaunch": "F5650134DB53A7E66EF237C430ACBC7C3064210B0E251E3ADB1C05A7F71A0340"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaInput.cs",
+        "sha256": "85F7F8FDCB077629DD500C1A213341ABB66B36C6DEB99875FD165209C49726DF",
+        "mainSha256AtLaunch": "85F7F8FDCB077629DD500C1A213341ABB66B36C6DEB99875FD165209C49726DF"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaLanes.cs",
+        "sha256": "60E217F8DBEE4471694FC3016C5FA2701FEFFFBF6CC5FAAF13C619C54DAD3EBA",
+        "mainSha256AtLaunch": "60E217F8DBEE4471694FC3016C5FA2701FEFFFBF6CC5FAAF13C619C54DAD3EBA"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaModeChecks.cs",
+        "sha256": "56C2F2C67340D4E205C443E3BD6FD820601AD043238F2B5A27D83DF9780994A4",
+        "mainSha256AtLaunch": "56C2F2C67340D4E205C443E3BD6FD820601AD043238F2B5A27D83DF9780994A4"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaNav.cs",
+        "sha256": "97E3221DCCD774AC9C4BB7DE2F7252A985D27B7DF25B5D65BF898C3BBA972302",
+        "mainSha256AtLaunch": "97E3221DCCD774AC9C4BB7DE2F7252A985D27B7DF25B5D65BF898C3BBA972302"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaSailingEffects.cs",
+        "sha256": "9A1321E8B588B5AA38FEA47CBE155BE3150B79947BC5EF3F84078E09ECC9F52E",
+        "mainSha256AtLaunch": "9A1321E8B588B5AA38FEA47CBE155BE3150B79947BC5EF3F84078E09ECC9F52E"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaSceneChecks.cs",
+        "sha256": "E908BFB4B822B9973A18132015B80DD4592B768C7F2BAAE46AD39A969804DECE",
+        "mainSha256AtLaunch": "E908BFB4B822B9973A18132015B80DD4592B768C7F2BAAE46AD39A969804DECE"
+      },
+      {
+        "mainMatchesBuild": true,
+        "path": "Assets\\Scripts\\Game\\Sea\\SeaScenery.cs",
+        "sha256": "BCEC36BC91F73C42CE1BA60DADCAB6D1F055764189FBCBC10A145454A07EBAB0",
+        "mainSha256AtLaunch": "BCEC36BC91F73C42CE1BA60DADCAB6D1F055764189FBCBC10A145454A07EBAB0"
+      }
+    ],
+    "exe": "C:\\Users\\momoy\\Projects\\Catchline-sim\\Builds\\Map8Capture\\Catchline.exe",
+    "sceneLevel0Sha256": "3ABD9DA0DF25ADD720DFDCF164E9478758D46F78FB5F2526F8A7E38CBB18B29B",
+    "pid": 74600,
+    "mainDriftAtLaunch": [],
+    "sessionOnly": true
+  },
+  "noGit": true,
+  "noSubagents": true,
+  "noPlayerSaveAccess": true,
+  "noInstalledPlayerReplacement": true,
+  "noMainUnityBatchmode": true
+}

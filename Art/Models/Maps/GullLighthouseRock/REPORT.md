@@ -1,0 +1,32 @@
+# Lighthouse rock — MAP8-LIGHTHOUSE-ROCK-1
+
+Codex 1 (Windows app), 2026-10-25. Terrain, import, the buried puffin-anchor correction and the off-rock buoy correction are complete. Full navigation safety, current-runtime integration and final native capture pass. Ten gameplay and ten dressed-life/perch images were individually opened. Overall acceptance awaits Claude's review and the six retained contract conflicts below.
+
+The eighth map is a 320 × 260 m open-ocean granite stack with a tall white/red lighthouse, lantern gallery and keeper's cottage. Six low angular corner rocks frame the three fishing grounds. No puffins, tide-race foam, lamp glow or cardinal buoy are baked into the terrain. Seven named empty anchors are reserved for Claude's runtime life. Source: [blend](GullLighthouseRockSeaV2.blend), [FBX](GullLighthouseRockSeaV2.fbx), [navigation](navigation.json), [ground data](grounds.json).
+
+Spot7 is Lighthouse rock, ChartCost1370, RowSeconds30, BiteWait1.4, appended after Wreck bank. Exact blurb: “A lighthouse on a lone rock. Bass in the tide race, cod and monkfish down the ledge.” Existing BuyChart has no previous-chart requirement; no new progression gate was invented. Claude owns the chart glyph/point, water and runtime life. His chart point(.66,.24), lighthouse glyph12 and kind7 scattering(.02,.25,.47), MaxDepth2.5 landed after the full geometry check began.
+
+| Ground / ID | Anchor X,Z | Depth | Day species weights |
+| --- | --- | --- | --- |
+| The pinnacle / the-pinnacle | -55,-30 | 4.5m | Pollock40, SeaBass30, Conger20, GoldTipShark1 |
+| Tide race / tide-race | 40,65 | 3.2m | Mackerel45, SeaBass35, YellowfinTuna3 |
+| Deep ledge / deep-ledge | 100,-42 | 9m | Cod35, Monkfish30, Turbot10, AtlanticSwordfish1 |
+
+Final geometry has 21,830 triangles, 285 meshes, seven real closed navigation obstacles and seven shallow slices. Navigation is independently cut from visible terrain at local waterline0 and -1m. Root transforms are identity/metres. [Validation](SeaV2-validation.json) binds source/FBX/navigation hashes; actual FBX roundtrip vertex error is below0.000015m. The [independent source audit](SeaV2-source-audit.json) passes57/57. The [art audit](SeaV2-audit.json) passes55/61 with exactly six retained full-zone failures, two per ground. No assertion was relaxed. All114 protected earlier-map file hashes remain unchanged.
+
+The required 6–12m close camera landmarks intersect inherited 12–20m full-ground-circle exclusions. Rock centres are6.72m from anchors; closest actual obstacle/shallow edges are4.701/4.594m away. This explicit contract conflict needs lead review, independently of real navigation checks. The corner tops were revised into unequal-height triangular ridge fans with wet grey, granite and lichen faces after flat slab previews were rejected.
+
+All twelve final art PNGs were individually opened after the final visible geometry export; the subsequent buoy-empty move does not change terrain pixels; [visual review](SeaV2-visual-review.json) binds hashes and observations. Day/night views show low two-tone angular rocks in both lower corners and clear hull space. The main lighthouse/cottage is fully visible in wide/detail evidence and outside tight deck crops. No claim of visible full lighthouse in fishing frames is made.
+
+- [Pinnacle day](SeaV2-the-pinnacle-day.png), [night](SeaV2-the-pinnacle-night.png)
+- [Tide race day](SeaV2-tide-race-day.png), [night](SeaV2-tide-race-night.png)
+- [Deep ledge day](SeaV2-deep-ledge-day.png), [night](SeaV2-deep-ledge-night.png)
+- [Wide day](SeaV2-wide-day.png), [night](SeaV2-wide-night.png), [top](SeaV2-top-base.png), [navigation plate](SeaV2-navigation-plate.png), [sheet](SeaV2-review-sheet.png), [stack detail](SeaV2-stack-detail.png)
+
+Seven anchor names are PuffinLedge_1..3, TideRace_1..2, LighthouseLamp_1 and CardinalBuoy_1. Their imported world positions after runtime Y=-.32 are checked within.02m by LighthouseRockMapChecks. FBX/navigation/ground imports are byte-identical to the delivery, with fresh GUIDs and inherited metre import policy. SeaNav/VoyageScenery lists and GameData/Grounds append spot7 without replacing prior entries. Forbidden runtime/UI files and Codex2's art were not edited.
+
+Claude's 10:00 buried-anchor fix moves the three puffin anchors to world (-16,2.08,-5), (-6,3.38,-4.7), (8,4.68,-3.8). Wider outward ledges support both the rotated 2.64m group and its separate animated bird. The [anchor surface audit](SeaV2-anchor-fix-audit.json) passes 84 vertical samples with no overhead rock or floating footprint; all navigation fields except life anchors are unchanged. The final CardinalBuoy_1 correction moves its empty to world (99.015998,-.32,-48.635642), 1.51776m outside the closest actual waterline rock; the other three tide-race/lamp anchors are unchanged. Both native sizes show the buoy in water beside the Deep ledge rock. Six dressed Unity deck/top images show every group and separate bird outside the stack. The required production LighthouseLifeChecks passes after explicitly copying production shader Resources into scratch; the generic check.ps1 wrapper reports a missing default snapshot sentinel despite the test's PASS and actual Unity exit0. This wrapper limitation and its earlier genuine missing-resource failure remain visible in the handoff.
+
+The scratch-only acceptance fixture checks eight maps, chart1369 rejection/1370 purchase, anchor transforms, exact pools,480 directed routes across five hulls,24 lanes, five baseline harbour hull trips and three new-ground departure/anchor/normal captain bait-cast/home trips. Fishing proof stops at a rod normally cast into water; caught-fish yield is not asserted. A targeted post-chart fixture separately checks the changed home-facing entry, three approach lanes and three additional complete trips without repeating unchanged geometry routes. Completion evidence is recorded in the [native/safety handoff](../../../../docs/screens/map8-lighthouse-rock-1/README.md).
+
+Reproduce through [map builder](../../../Source/Art108/map8_lighthouse_rock.py) build/review/audit, independent verify_sea_v2_sources.py for GullLighthouseRock, [preparation helper](../../../Source/Art108/map8_prepare.py), [native launcher](../../../Source/Art108/map8_native.ps1) and [evidence finalizer](../../../Source/Art108/map8_evidence.py). Do not rerun the additive preparation helper on already-appended data. No git operation, player-save access, installed build replacement, main-project Unity batchmode, watchdog marker or subagent was used.
