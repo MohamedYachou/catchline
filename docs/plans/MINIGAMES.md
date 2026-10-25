@@ -107,3 +107,11 @@ the game beyond a view:
   with the trace minigame (a clean trace restores it; a ragged one needs another go), or the crew mends it for the
   replacement price. This lowers net costs for active players.
 Say yes/no/change to either and Claude builds it.
+
+**Net repair built (2026-10-25, Claude; Mo delegated the minigame calls on leaving: "ill let you do").** The proposal
+above, as written: a shallow tear moves the net to GameState.TornNets (saved) instead of losing it; the Supplies shop
+offers "Mend the torn net · free" when there is rack space; the camera comes down over the RepairKit panel on the quay
+by the net loft and one drag along the zigzag laces twine over the hole (MendRules: in-order progress, 6 cm tolerance;
+clean = 90% traced on the line, ragged = try again, no cost). Buying a new net for 30 coins is unchanged. RepairChecks;
+renders repair-*.png. Easy to tune or revert (TornNets is additive in the save). Jig still waits: it needs a station
+and gear on a boat.

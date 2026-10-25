@@ -77,6 +77,7 @@ namespace Catchline.Game
         public float Fuel;
         // Includes the fitted net. Successful cycles reuse it; a tear removes one.
         public int NetInventory = 3;
+        public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
         public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
         public readonly HashSet<UpgradeId> Owned = new();
@@ -192,6 +193,14 @@ namespace Catchline.Game
             if (Coins < cost) return false;
             Coins -= cost;
             Bait += bulk ? GameData.BaitBulkSize : GameData.BaitPackSize;
+            return true;
+        }
+
+        // A mended net goes back on the rack (docs/plans/MINIGAMES.md, section 5).
+        public bool MendNet()
+        {
+            if (TornNets <= 0 || NetInventory >= GameData.NetInventoryCapacity) return false;
+            TornNets--; NetInventory++;
             return true;
         }
 
@@ -520,6 +529,7 @@ namespace Catchline.Game
             public int NetInventory;
             // Presence bit distinguishes legacy saves from an explicitly exhausted rack.
             public bool HasNetInventory;
+            public int TornNets;
             public int SelectedNet;
             public List<int> DeepNetUses = new();
             public bool UseSquid;
@@ -581,7 +591,7 @@ namespace Catchline.Game
             {
                 Coins = Coins, Bait = Bait, Squid = Squid, Voyage = Voyage, BestVoyageFish = BestVoyageFish, BestVoyageKg = BestVoyageKg, UseSquid = UseSquid, PrepOrders = PrepOrders,
                 SecondNetOwned = SecondNetOwned, SecondNetEnabled = SecondNetEnabled,
-                Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true,
+                Hull = Hull, Fuel = Fuel, HasTimedFuel = true, NetInventory = NetInventory, HasNetInventory = true, TornNets = TornNets,
                 SelectedNet = (int)SelectedNet, DeepNetUses = new List<int>(DeepNetUses),
                 FoodMinutes = FoodMinutes, Richness = Richness, LogCount = LogCount, LogBest = LogBest, HasDeckhand = Deckhand != null, Deckhand = Deckhand,
             };
@@ -638,6 +648,7 @@ namespace Catchline.Game
                 s.Hull = Mathf.Clamp(d.Hull, 0, GameData.Hulls.Length - 1); s.Fuel = d.Fuel;
                 s.SecondNetOwned = d.SecondNetOwned; s.SecondNetEnabled = d.SecondNetEnabled && d.SecondNetOwned;
                 s.NetInventory = d.HasNetInventory ? Mathf.Clamp(d.NetInventory, 0, GameData.NetInventoryCapacity) : 3;
+                s.TornNets = Mathf.Clamp(d.TornNets, 0, GameData.NetInventoryCapacity);
                 s.SelectedNet = d.SelectedNet == 1 ? NetKind.Deep : NetKind.Shallow;
                 if (d.DeepNetUses != null)
                     foreach (int uses in d.DeepNetUses)

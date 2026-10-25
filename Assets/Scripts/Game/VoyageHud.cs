@@ -60,6 +60,7 @@ namespace Catchline.Game
             }
             if (CageViewActive && !MenuOpen) { HandleCageInput(kb); return; }
             if (GutViewActive && !MenuOpen) { HandleGutInput(kb); return; }
+            if (RepairViewActive && !MenuOpen) { HandleRepairInput(kb); return; }
             if (NetGameActive && !MenuOpen && !confirmHeadHome)
             {
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) CancelNetHaulGame();

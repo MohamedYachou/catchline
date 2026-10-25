@@ -267,6 +267,13 @@ namespace Catchline.Game
                     rackFull ? "Net rack full" : $"Buy net · {GameData.NetReplacementCost} coins", !rackFull && State.Coins >= GameData.NetReplacementCost,
                     () => { if (State.BuyNet()) { Toast("Replacement net aboard."); SaveGame(); } }, reason);
             }
+            if (IsNetFisher && State.TornNets > 0)
+            {
+                bool full = State.NetInventory >= GameData.NetInventoryCapacity;
+                Product("supplies/mend", State.TornNets > 1 ? $"Mend a torn net · {State.TornNets} torn" : "Mend the torn net",
+                    "Lace new twine over the hole and it goes back on the rack. Free, if your stitching holds.", "icon-net",
+                    "Mend · free", !full, () => BeginMend(), full ? "Net rack full." : null);
+            }
             if (IsNetFisher)
             {
                 Product("supplies/deep-net", "Deep net · 3 uses", $"{State.DeepNetUses.Count}/{GameData.DeepNetRackCapacity} aboard. {State.NetCapacityKg:0}kg capacity. Fewer, larger local fish. Failure spends one use.", "icon-net",

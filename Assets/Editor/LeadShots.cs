@@ -32,6 +32,7 @@ namespace Catchline.EditorTools
             if (Want("gut")) Gut();
             if (Want("traffic")) Traffic();
             if (Want("town")) Town();
+            if (Want("repair")) Repair();
             if (Want("chart")) Chart();
             if (Want("harbourui")) HarbourUi();
             if (Want("deckui")) DeckUi();
@@ -259,6 +260,18 @@ namespace Catchline.EditorTools
             ShotUi(g, "gut-0-board"); ShotUi(g, "gut-0-board-phone", 844, 390);
             g.CutGut(GutViewChecks.CleanCut); g.Tick(.2f);
             ShotUi(g, "gut-1-clean"); ShotUi(g, "gut-1-clean-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        static void Repair()
+        {
+            var g = RepairChecks.Fixture();
+            g.BeginMend(); for (int i = 0; i < 14; i++) g.Tick(.05f);
+            ShotUi(g, "repair-0-torn"); ShotUi(g, "repair-0-torn-phone", 844, 390);
+            g.TraceMend(RepairChecks.Trace(.09f)); g.Tick(.1f);
+            ShotUi(g, "repair-1-ragged-phone", 844, 390);
+            g.TraceMend(RepairChecks.Trace()); g.Tick(.3f);
+            ShotUi(g, "repair-2-mended"); ShotUi(g, "repair-2-mended-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
