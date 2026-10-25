@@ -11,12 +11,14 @@ namespace Catchline.Game
         public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click,
             Winch, CrabClack, SealBark, NetSlap, Gut, Coins,
             // Crew office (real CC0 recordings in Resources/Audio/SFX; the synthesized stand-ins only cover a missing pack).
-            CardFlip, ChestOpen, ChestHeavy, RewardChime, TokenPour }
+            CardFlip, ChestOpen, ChestHeavy, RewardChime, TokenPour,
+            Puffin, Foghorn, DogBark, Meow, PotDrop, Stitch }
         readonly Dictionary<Cue, AudioClip> clips = new();
         readonly Dictionary<Cue, AudioClip[]> packed = new();
-        AudioSource ambience, foley;
-        AudioClip sea, harbourBed, openSeaBed, skerriesBed;
-        float nextOar, nextGull;
+        readonly Dictionary<Cue, float> cueReady = new();
+        AudioSource ambience, foley, ambientCalls;
+        AudioClip sea, harbourBed, openSeaBed, skerriesBed, duskBed, lighthouseBed;
+        float nextOar, nextGull, nextPuffin, nextFoghorn, nextDog, nextCat;
         bool preview;
         float previewVolume = .65f;
         public float Volume
@@ -30,12 +32,19 @@ namespace Catchline.Game
             preview = sessionOnly;
             ambience = gameObject.AddComponent<AudioSource>();
             foley = gameObject.AddComponent<AudioSource>();
-            ambience.spatialBlend = foley.spatialBlend = 0;
+            ambientCalls = gameObject.AddComponent<AudioSource>();
+            ambience.spatialBlend = foley.spatialBlend = ambientCalls.spatialBlend = 0;
             ambience.loop = true;
             sea = MakeSea();
             harbourBed = Resources.Load<AudioClip>("Audio/Ambience/HarbourDay");
             openSeaBed = Resources.Load<AudioClip>("Audio/Ambience/OpenSea");
             skerriesBed = Resources.Load<AudioClip>("Audio/Ambience/Skerries");
+            duskBed = Resources.Load<AudioClip>("Audio/Ambience/HarbourDusk");
+            lighthouseBed = Resources.Load<AudioClip>("Audio/Ambience/LighthouseRock");
+            nextPuffin = Time.time + UnityEngine.Random.Range(35f, 65f);
+            nextFoghorn = Time.time + UnityEngine.Random.Range(90f, 150f);
+            nextDog = Time.time + UnityEngine.Random.Range(45f, 80f);
+            nextCat = Time.time + UnityEngine.Random.Range(65f, 105f);
             ambience.clip = openSeaBed != null ? openSeaBed : sea;
             foreach (Cue cue in Enum.GetValues(typeof(Cue)))
             {
@@ -51,19 +60,47 @@ namespace Catchline.Game
         public void Play(Cue cue, float gain = 1f)
         {
             if (foley == null || Volume <= .001f) return;
+            float cooldown = cue switch { Cue.Puffin => 30f, Cue.Foghorn => 90f, Cue.DogBark => 45f,
+                Cue.Meow => 60f, Cue.PotDrop => .8f, Cue.Stitch => .2f, _ => 0f };
+            if (cooldown > 0)
+            {
+                if (cueReady.TryGetValue(cue, out float ready) && Time.time < ready) return;
+                cueReady[cue] = Time.time + cooldown;
+            }
             var clip = packed.TryGetValue(cue, out var set) ? set[UnityEngine.Random.Range(0, set.Length)] : clips[cue];
-            foley.PlayOneShot(clip, Volume * gain);
+            if (cue is Cue.Puffin or Cue.Foghorn or Cue.DogBark or Cue.Meow)
+            {
+                // Separate source: pitch variation never retunes fishing or crew-office effects.
+                if (ambientCalls.isPlaying) return;
+                ambientCalls.pitch = UnityEngine.Random.Range(.95f, 1.05f);
+                ambientCalls.PlayOneShot(clip, Volume * gain);
+            }
+            else foley.PlayOneShot(clip, Volume * gain);
         }
 
-        public void Mix(bool paused, bool harbour, bool rowing, bool skerries = false)
+        public void Mix(bool paused, bool harbour, bool rowing, bool skerries = false, int ground = -1, bool evening = false)
         {
             if (ambience == null) return;
             ambience.volume = Volume * (paused ? .06f : harbour ? .16f : .23f);
             // The pack's harbour bed in port, surf and seals on the skerries, open sea elsewhere; the generated wash otherwise.
-            var bed = harbour ? harbourBed : skerries && skerriesBed != null ? skerriesBed : openSeaBed;
+            var bed = harbour ? evening && duskBed != null ? duskBed : harbourBed
+                : ground == 7 && lighthouseBed != null ? lighthouseBed : skerries && skerriesBed != null ? skerriesBed : openSeaBed;
             if (bed == null) bed = sea;
             if (ambience.clip != bed) { ambience.clip = bed; ambience.Play(); }
             foley.volume = paused ? 0 : 1;
+            ambientCalls.volume = paused ? 0 : 1;
+            // Stop calls on leaving their habitat; timers keep running without a catch-up burst.
+            if (harbour != callsInHarbour || (ground is 3 or 5 or 7) != callsOnRocks)
+                ambientCalls.Stop();
+            callsInHarbour = harbour; callsOnRocks = ground is 3 or 5 or 7;
+            if (!paused && harbour && Time.time >= nextDog)
+            { Play(Cue.DogBark, .12f); nextDog = Time.time + UnityEngine.Random.Range(45f, 85f); }
+            if (!paused && harbour && Time.time >= nextCat)
+            { Play(Cue.Meow, .10f); nextCat = Time.time + UnityEngine.Random.Range(60f, 110f); }
+            if (!paused && !harbour && callsOnRocks && Time.time >= nextPuffin)
+            { Play(Cue.Puffin, .16f); nextPuffin = Time.time + UnityEngine.Random.Range(35f, 70f); }
+            if (!paused && !harbour && ground >= 4 && Time.time >= nextFoghorn)
+            { Play(Cue.Foghorn, .18f); nextFoghorn = Time.time + UnityEngine.Random.Range(90f, 160f); }
             // Gulls over the harbour now and then.
             if (harbour && !paused && Time.time >= nextGull)
             {
@@ -77,6 +114,8 @@ namespace Catchline.Game
                 Play(Cue.Moor, .12f);
             }
         }
+
+        bool callsInHarbour, callsOnRocks;
 
         static AudioClip MakeSea()
         {
@@ -106,7 +145,9 @@ namespace Catchline.Game
         {
             // The pack's newer cues borrow the nearest generated sound until their files are in.
             var stand = cue switch { Cue.Winch => Cue.Reel, Cue.CrabClack => Cue.Click, Cue.SealBark => Cue.Horn, Cue.NetSlap or Cue.Gut => Cue.Splash, Cue.Coins or Cue.TokenPour => Cue.Sale,
-                Cue.CardFlip => Cue.Click, Cue.ChestOpen or Cue.ChestHeavy => Cue.Creak, Cue.RewardChime => Cue.Bell, _ => cue };
+                Cue.CardFlip => Cue.Click, Cue.ChestOpen or Cue.ChestHeavy => Cue.Creak, Cue.RewardChime => Cue.Bell,
+                Cue.Puffin => Cue.Gull, Cue.Foghorn => Cue.Horn, Cue.DogBark or Cue.Meow => Cue.SealBark,
+                Cue.PotDrop => Cue.Splash, Cue.Stitch => Cue.Click, _ => cue };
             if (stand != cue) return MakeCue(stand);
             const int rate = 22050;
             float duration = cue switch

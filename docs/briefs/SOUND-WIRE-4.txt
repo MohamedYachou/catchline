@@ -1,0 +1,28 @@
+SOUND-WIRE-4 — Codex 1 (Windows app) — the SOUND-4 recordings play at the tutorial, refit, tab, buy and chart moments
+GOAL (Mo: "use real CC0 sounds"; night order: sound, then polish): the five new real recordings Codex 2 made for
+SOUND-4 are heard in the game.
+
+DEPENDENCY: wait for Codex 2's "DONE ... SOUND-4" line in comms.md (it is verifying step F). Until then do step 0 only.
+CONTEXT (read these, nothing else up front): docs/briefs/SOUND-4.txt, Art/Audio/REPORT.md SOUND-4 rows,
+Art/Audio/Real/LICENSES.md, Assets/Scripts/Game/VoyageAudio.cs (cue enum, packed variants, stand-ins; your
+HARBOUR-SOUND-2 work and commit 7c2593b show the pattern), docs/screens/sound2/README.md (your table format).
+NOTE: Claude has now installed the whole real pack (Art/Audio/Real) over the old synthesized clips in
+Assets/Resources/Audio, keeping every .meta; your HARBOUR-SOUND-2 integration is accepted and committed.
+
+DO:
+0. Read-only: list every cue in VoyageAudio.Cue whose Resources clip is still not from Art/Audio/Real (compare bytes);
+   report it in the README. Do not replace anything yourself.
+1. Copy Art/Audio/Real/SFX/{CoachPop,RefitFanfare,TabTap,CoinBuy,PageTurn}_0..2.wav into Assets/Resources/Audio/SFX
+   with metas cloned from Bell_0.wav.meta (fresh guids). Add the five cues (append to the enum) with stand-ins
+   (CoachPop=>Click, RefitFanfare=>Bell, TabTap=>Click, CoinBuy=>Coins, PageTurn=>Creak).
+2. Wire: CoachPop where VoyageTutorial.cs plays Cue.CardFlip when Mira appears (replace that one cue only);
+   RefitFanfare in RefitSkiff / RefitCompact / RefitPrep / the tier-5 refit (on success); TabTap in OpenShop
+   (VoyageHud.cs) instead of its Select cue; CoinBuy on a successful shop purchase (Product buy actions in
+   VoyageInterfaceShop.cs and BuyCrewChestWithFx in CrewUi/CrewRecruit.cs, replacing Purchase there); PageTurn when the
+   chart (HudTab.HarbourMaster) opens. Volumes no louder than the cue each one replaces.
+
+OWNERSHIP: VoyageAudio.cs, new Resources files + metas, one-line Play changes in VoyageTutorial.cs, VoyageHud.cs,
+VoyageInterfaceShop.cs, CrewUi/CrewRecruit.cs and the refit methods. Nothing else; no layout or text changes. No git.
+Never batchmode the main project: run docs/tools/check.ps1 in Catchline-sim (copy Resources too, as you did).
+DONE = EVIDENCE: Regression passes; docs/screens/sound4/README.md with the cue/trigger(file:line)/volume table and the
+step-0 list. Comms DONE line. QUESTION line if a trigger moment does not exist, then continue.

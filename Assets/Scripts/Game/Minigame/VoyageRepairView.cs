@@ -95,6 +95,7 @@ namespace Catchline.Game
             var grade = MendRules.Grade(trace);
             if (grade == MendGrade.None) { repairView.Twine(0); return grade; }
             LastMend = grade;
+            audio?.Play(VoyageAudio.Cue.Stitch, .20f);
             if (grade == MendGrade.Clean && State.MendNet())
             {
                 MendResult = State.TornNets > 0 ? $"Mended · {State.TornNets} still torn" : "Mended · back on the rack";

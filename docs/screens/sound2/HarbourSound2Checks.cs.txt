@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using Catchline.Game;
+using UnityEngine;
+using UnityEditor.SceneManagement;
+
+public static class HarbourSound2Checks
+{
+    static int checks;
+    static readonly BindingFlags Hidden = BindingFlags.Instance | BindingFlags.NonPublic;
+    static void Check(bool ok, string message) { checks++; if (!ok) throw new Exception("SOUND2: " + message); }
+    static T Get<T>(VoyageAudio audio, string name) => (T)typeof(VoyageAudio).GetField(name, Hidden).GetValue(audio);
+    static void Set(VoyageAudio audio, string name, object value) => typeof(VoyageAudio).GetField(name, Hidden).SetValue(audio, value);
+    public static void Run()
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        var root = new GameObject("SOUND2 isolated preview");
+        try
+        {
+            var a = root.AddComponent<VoyageAudio>(); a.Initialize(true); a.Volume = .65f;
+            var packed = Get<Dictionary<VoyageAudio.Cue, AudioClip[]>>(a, "packed");
+            var ready = Get<Dictionary<VoyageAudio.Cue, float>>(a, "cueReady");
+            var calls = Get<AudioSource>(a, "ambientCalls");
+            var bed = Get<AudioSource>(a, "ambience");
+            var foley = Get<AudioSource>(a, "foley");
+            foreach (var cue in new[] { VoyageAudio.Cue.Puffin, VoyageAudio.Cue.Foghorn, VoyageAudio.Cue.DogBark, VoyageAudio.Cue.Meow, VoyageAudio.Cue.PotDrop, VoyageAudio.Cue.Stitch })
+            {
+                Check(packed.ContainsKey(cue) && packed[cue].Length == 3, cue + " imports three packed variants");
+                foreach (var clip in packed[cue]) Check(clip != null && clip.samples > 0 && clip.frequency == 44100, cue + " valid imported PCM");
+                var fallback = Get<Dictionary<VoyageAudio.Cue, AudioClip>>(a, "clips")[cue];
+                Check(fallback != null && fallback.samples > 0, cue + " generated fallback");
+            }
+            a.Mix(false, true, false); Check(bed.clip.name == "HarbourDay", "day bed");
+            a.Mix(false, true, false, false, -1, true); Check(bed.clip.name == "HarbourDusk", "dusk replaces day");
+            Check(Mathf.Abs(bed.volume - .65f * .16f) < .0001f, "quiet harbour bed gain");
+            a.Mix(false, false, false, false, 7); Check(bed.clip.name == "LighthouseRock", "lighthouse ground7 bed");
+            a.Mix(false, false, false, true, 5); Check(bed.clip.name == "Skerries", "existing skerries bed retained");
+            a.Mix(false, false, false, false, 0); Check(bed.clip.name == "OpenSea", "existing sea bed retained");
+            Set(a, "nextDog", -1f); Set(a, "nextCat", -1f); Set(a, "nextPuffin", -1f); Set(a, "nextFoghorn", -1f);
+            a.Mix(false, false, false, false, 0); Check(ready.Count == 0, "near sea has no new ambient calls");
+            a.Mix(true, true, false); Check(ready.Count == 0 && calls.volume == 0 && foley.volume == 0, "pause mutes and suppresses calls");
+            a.Mix(false, true, false); Check(ready.ContainsKey(VoyageAudio.Cue.DogBark) && ready.ContainsKey(VoyageAudio.Cue.Meow), "harbour animals scheduled");
+            Check(!ready.ContainsKey(VoyageAudio.Cue.Puffin) && !ready.ContainsKey(VoyageAudio.Cue.Foghorn), "sea calls absent in harbour");
+            calls.Stop(); a.Mix(false, false, false, false, 3);
+            Check(ready.ContainsKey(VoyageAudio.Cue.Puffin), "rocky ground puffin scheduled");
+            Check(!ready.ContainsKey(VoyageAudio.Cue.Foghorn), "near rocky ground no foghorn");
+            calls.Stop(); a.Mix(false, false, false, false, 8);
+            Check(ready.ContainsKey(VoyageAudio.Cue.Foghorn), "far ground foghorn scheduled");
+            Check(Get<float>(a, "nextFoghorn") - Time.time >= 90f, "foghorn next scheduled >=90s");
+            Check(calls.pitch >= .95f && calls.pitch <= 1.05f && foley.pitch == 1, "ambient pitch isolated within5percent");
+            foreach (var cue in new[] { VoyageAudio.Cue.Puffin, VoyageAudio.Cue.Foghorn, VoyageAudio.Cue.DogBark, VoyageAudio.Cue.Meow, VoyageAudio.Cue.PotDrop, VoyageAudio.Cue.Stitch })
+            {
+                calls.Stop(); ready.Remove(cue); a.Play(cue, .1f); float first = ready[cue];
+                a.Play(cue, .1f); Check(ready[cue] == first && first > Time.time, cue + " repeated event is rate limited");
+            }
+            Check(ready[VoyageAudio.Cue.Foghorn] - Time.time >= 90f, "global foghorn guard >=90s");
+            Debug.Log("[Catchline] SOUND2 AUDIO CHECKS PASSED: " + checks);
+            File.WriteAllText("C:/Users/momoy/Projects/Catchline-sim/Logs/sound2-audio-checks.json", "{\"checks\":" + checks + ",\"passed\":true,\"listeningVerified\":false}");
+            CrewCardsAbilityChecksProxy();
+        }
+        finally { UnityEngine.Object.DestroyImmediate(root); }
+    }
+    static void CrewCardsAbilityChecksProxy() => Catchline.EditorTools.CrewCardsAbilityChecks.Regression();
+}

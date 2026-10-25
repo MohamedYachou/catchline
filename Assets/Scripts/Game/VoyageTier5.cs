@@ -96,6 +96,7 @@ namespace Catchline.Game
             for(int i=0;i<buoyAnchors.Length;i++)
             {
                 if(!IsTier5&&!TickPot(i))continue;
+                if (AtFishingGround && buoyTimers[i] == 0 && dt > 0) audio?.Play(VoyageAudio.Cue.PotDrop, .22f);
                 buoyTimers[i]=Mathf.Min(BuoySoakSeconds,buoyTimers[i]+dt);
                 if(buoyModels[i]!=null)buoyModels[i].localPosition=buoyAnchors[i]+Vector3.up*(Mathf.Sin(SimTime*1.2f+i)*.025f);
             }
