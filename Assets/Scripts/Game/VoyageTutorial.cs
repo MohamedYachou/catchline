@@ -55,7 +55,7 @@ namespace Catchline.Game
                 case TutStep.Hello when harbour:
                     return ("wave", "Morning, captain! I'm Mira, navigator of Gull Harbour. Your rowboat is ready. Set sail and bring back some fish.", "port/sail", false);
                 case TutStep.FirstCast when CurrentMode == Mode.Fishing && !ManagementOpen:
-                    return ("explain", "Tap Fish to bait and cast. Tap Carry to stow what you land. When the hold is full, head home and sell.", null, true);
+                    return ("explain", "Tap Fish to cast. Tap Carry to stow your catch. When the hold is full, head home and sell.", "rod/0", true);
                 case TutStep.Sell when harbour && State.UnsoldCatch.Count > 0:
                     return ("point", "Welcome back! The market buys any fish. Sell your haul.", shop && hudTab == HudTab.Market ? "market/sell" : ShopTabId(HudTab.Market), false);
                 case TutStep.Skiff when harbour && !State.CanRefit:
@@ -134,14 +134,14 @@ namespace Catchline.Game
             // shop she is smaller and sits under the shop's tabs, so the page she explains stays readable.
             bool panel = CurrentMode == Mode.Harbour && panelOpen;
             float mh = panel ? compactInterface ? 110 : 140 : compactInterface ? 150 : 210, mw = mh * .8f;
-            float bw = compactInterface ? 300 : 400, bh = compactInterface ? 116 : 150;
+            float bw = compactInterface ? 300 : 400, bh = compactInterface ? 128 : 150;
             float width = mw + bw - 8, height = Mathf.Max(mh, bh);
             float right = iw - Edge - width, left = Edge + (CurrentMode == Mode.Harbour && !panelOpen ? HarbourLeftWidth + 12 : 0);
             // Above the shop tab bar where it is drawn (its height differs per screen), else above the HUD's bottom row.
             float bottom = coastalUi.TryFind(ShopTabId(HudTab.Market), out var bar) ? bar.y - 8 : ih - Edge - TabBarHeight - 12;
             float yLow = bottom - height, yHigh = panel ? compactInterface ? 112 : 212 : Edge + (compactInterface ? 56 : 76);
             var spots = CurrentMode == Mode.Fishing
-                ? new[] { new Vector2(right, yHigh), new Vector2(right, yLow), new Vector2(left, yHigh) }
+                ? new[] { new Vector2(right, (ih - height) * .5f + (compactInterface ? 10 : 40)), new Vector2(right, yHigh), new Vector2(left, yHigh) }
                 : new[] { new Vector2(right, yLow), new Vector2(left, yLow), new Vector2(right, yHigh), new Vector2(left, yHigh) };
             var keepClear = hasTarget ? new Rect(target.x - 24, target.y - 24, target.width + 48, target.height + 48) : Rect.zero;
             var spot = spots[0];

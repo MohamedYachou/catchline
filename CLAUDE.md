@@ -11,11 +11,8 @@ its goals here, in order, after checking the actual files. Codex orders and logs
 @ClaudeCom.md
 
 ## Claude 1 (Windows) — goals, in order
-1. Tutorial (Mo 2026-10-25: tier 0 alone → skiff → free welcome chest brings Mira → teach her → chests/crew chests bring
-   crew). Code: Assets/Scripts/Game/VoyageTutorial.cs (TutStep, Mira coach overlay, targets found by control id via
-   CoastalCanvas.TryFind), hooks in VoyageInterface.cs (InterfaceTutorial before End), VoyageMenus.cs (BeginFirstVoyage),
-   GameStateCards.cs/SaveV2.cs (Tutorial field; old saves skip it), ArtImport.cs (Tutorial folder), LeadShots.Tutorial
-   (CATCHLINE_SHOTS=tutorial). NEXT: compile + captures, fix layout from the captures, regression, commit.
+1. Tutorial follow-ups: capture the at-sea step (FirstCast) and the Sell step; play SOUND-4 CoachPop when Mira appears
+   (VoyageTutorial.cs plays Cue.CardFlip until then).
 2. UI and animation polish of the crew office and harbour screens (design-stack skill first).
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
@@ -32,6 +29,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
 
 ## Done (latest first)
+- 2d5b0b3 first-run tutorial: Mira coach marks (VoyageTutorial.cs, CoastalCanvas.TryFind, captures docs/screens/overnight/tut-*)
 - cd7259a / 70d3b29 ClaudeCom channel, usage line, WSL setup (shared instructions, memory, skills)
 - b21fb21 card pacing sim rerun after crew tiers (Codex 1, accepted)
 - 48671cf deck berths 2/4/6/8 per boat (Codex 1, accepted)

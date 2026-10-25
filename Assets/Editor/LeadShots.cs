@@ -132,6 +132,13 @@ namespace Catchline.EditorTools
             Set("panelOpen", true); Set("crewTab", 0); ShotUi(g, "tut-recruit-crew");
             Set("crewTab", 2); Both("tut-recruit-done");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
+            // At sea on the first trip: the rowboat out on the grounds, Mira explaining the rod.
+            g = Game("Tutorial sea shot"); Rebuild(g, 0); s = g.State;
+            s.Tutorial = (int)VoyageGame.TutStep.Hello; g.SetSail();
+            for (int i = 0; i < 4000 && g.CurrentMode != VoyageGame.Mode.Fishing; i++) g.Tick(.1f);
+            for (int i = 0; i < 30; i++) g.Tick(.1f);
+            ShotUi(g, "tut-firstcast"); ShotUi(g, "tut-firstcast-phone", 844, 390);
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
         // Ability names floating over the crew at sea: every deployed card raised to Purple, its auto ability just fired.
