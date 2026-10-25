@@ -115,3 +115,7 @@ by the net loft and one drag along the zigzag laces twine over the hole (MendRul
 clean = 90% traced on the line, ragged = try again, no cost). Buying a new net for 30 coins is unchanged. RepairChecks;
 renders repair-*.png. Easy to tune or revert (TornNets is additive in the save). Jig still waits: it needs a station
 and gear on a boat.
+- Crab pots (2026-10-25, Mo: "the cages, there's no minigame for those yet"): the cage view was Tier 5 only, so most
+  players never met it. Hulls 1-3 now buy crab pots in Supplies (skiff 1, fishers 2, 120 coins each); they soak beside
+  the boat at every ground (65 s) and the captain hauls each with the same pull / snag / sort view. VoyageCrabPots.cs
+  on the Tier 5 buoy slots; CrabPotChecks; renders docs/screens/overnight/pots-*.png.
