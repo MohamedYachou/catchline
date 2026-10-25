@@ -1,0 +1,30 @@
+HARBOUR-SOUND-2 — Codex 1 (Windows app) — the second batch of real CC0 sounds plays in the game
+GOAL (Mo: "use real CC0 sounds"; night order: sound effects and general polish): every recording Codex 2 delivered in
+SOUND2 is heard at a fitting moment, at a level that sits under the fishing sounds, never spammy.
+
+CONTEXT (read these, nothing else up front): Art/Audio/REPORT.md (SOUND2 rows), Art/Audio/delivery-receipt-sound2.json,
+Assets/Scripts/Game/VoyageAudio.cs (Cue enum, packed variants _0.._2 loaded from Resources/Audio/SFX, MakeCue stand-ins;
+commit 7c2593b shows the exact pattern for adding cues), the existing call sites of Cue.Gull / Cue.Horn / Cue.SealBark.
+
+SOURCE FILES: Art/Audio/SFX/{Puffin,Foghorn,DogBark,Meow,PotDrop,Stitch}_0..2.wav and
+Art/Audio/Ambience/{HarbourDusk,LighthouseRock}.wav.
+
+DO:
+1. Copy the SFX into Assets/Resources/Audio/SFX and the ambiences next to the existing ambience clips (find where
+   VoyageAudio loads ambience). Make .meta files by cloning Assets/Resources/Audio/SFX/Bell_0.wav.meta with a fresh guid.
+2. Add cues Puffin, Foghorn, DogBark, Meow, PotDrop, Stitch with stand-ins in MakeCue (Puffin=>Gull, Foghorn=>Horn,
+   DogBark/Meow=>SealBark, PotDrop=>Splash, Stitch=>Click).
+3. Wire them: PotDrop when a crab pot / buoy trap goes over the side; Stitch on net mending or repair if it exists,
+   otherwise when a net is stowed; Puffin as an occasional ambient call on rocky/coastal grounds (like the gull timer,
+   rarer); Foghorn rarely at sea in low light or on the far grounds, never more than once per ~90 s; DogBark and Meow
+   only in the harbour, occasional, quiet. HarbourDusk replaces or layers the harbour ambience in the evening;
+   LighthouseRock plays on the lighthouse ground if one exists (otherwise note where it should go).
+4. Volumes: none of the new cues louder than Cue.Bell at the call site; ambient calls randomised pitch ±5%.
+
+OWNERSHIP: VoyageAudio.cs, the new files + metas above, one-line Play calls in existing Voyage*.cs files. Never write
+CrewUi/**, Data/**, Art/**, scenes, or other agents' uncommitted hunks (GameData.cs grounds, Grounds.cs, SeaNav.cs,
+VoyageScenery.cs are MAP9's). No git. Never batchmode the main project: compile and run checks in Catchline-sim.
+
+DONE = EVIDENCE: Catchline.EditorTools.CrewCardsAbilityChecks.Regression passes in Catchline-sim; a short table in
+docs/screens/sound2/README.md listing each cue, its trigger (file:line), volume and cooldown. Comms DONE line.
+ORDER: 1-2, then 3 one cue at a time, then 4. QUESTION line in comms.md if a trigger moment doesn't exist, then go on.

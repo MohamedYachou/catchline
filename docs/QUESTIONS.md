@@ -18,3 +18,6 @@ you want changed.
 
 4. **The welcome chest's 20 tokens and one tool.** Enough to show what tokens and tools are for in the tutorial.
    *Default: keep.*
+
+## Pacing (from Codex 1's rerun, docs/plans/CARDS-PACING.md)
+- A player who buys a 700-coin sea chest every time they can afford one never saves for the Compact (4,000). Median Mythic is still day 33, but on the Skiff. Options: leave it (players will save on their own), raise the sea chest price (6,000 gives a full hull path and Mythic day 34), or have the hull refit nudge appear when savings stall. My pick: leave prices, add a "saving for Compact" goal in the harbour UI later.

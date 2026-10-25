@@ -1,0 +1,20 @@
+SOUND-4 — Codex 2 (WSL CLI) — real CC0 sounds for the tutorial, the refit and harbour menus
+GOAL (Mo: "use real CC0 sounds"; night order: sound effects, then polish): the moments the first-run tutorial
+touches get a real recording instead of a synth stand-in.
+
+CONTEXT (read these, nothing else up front): Art/Audio/REPORT.md (how SOUND2 was sourced, measured and reviewed;
+follow exactly the same pipeline, licences and loudness targets), Art/Audio/delivery-receipt-sound2.json.
+
+DELIVER into Art/Audio/Real/SFX/ (three variants each, _0.._2, mono 44.1 kHz WAV, trimmed, faded, loudness like SOUND2):
+A. CoachPop: a soft wooden/paper "pop" when Mira's speech bubble appears (≤0.3 s, gentle, not cartoony).
+B. RefitFanfare: a short harbour celebration for buying a new boat: ship's bell double ring plus a cheer or horn toot
+   (1.5–3 s). Real recordings layered is fine; note the sources.
+C. TabTap: a soft tap for switching shop tabs and page switches (≤0.15 s; quieter than the existing Click).
+D. CoinBuy: a small clink-and-drop for buying an item (≤0.6 s), distinct from the existing Coins cue.
+E. PageTurn: a paper chart unfolding for opening the chart/harbour master (≤0.8 s).
+
+DONE = EVIDENCE: rows appended to Art/Audio/REPORT.md with source URL, licence (CC0 only), duration and loudness;
+review PNGs in Art/Audio/review/SOUND4-*.png; delivery-receipt-sound4.json; listen to each and say in the REPORT what
+you heard. Comms DONE line per letter.
+OWNERSHIP: Art/Audio/** only, append-only comms.md. Never write Assets/, scripts, .meta files or other agents' folders.
+No git. Virus-scan any download as in SOUND2. ORDER: A, B, C, D, E. QUESTION line if a sound can't be found, then next.
