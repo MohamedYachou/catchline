@@ -70,7 +70,7 @@ namespace Catchline.Game
                 coastalUi.Icon("rankfx/rays", Centered(cx, cy, ch * 1.9f, ch * 1.9f), "fx-rays", null, Tint(col, .55f * fade * Ease.Clamp(k / .25f)));
                 coastalUi.Pose("rankfx/rays", Now * 18, 1 + .05f * Mathf.Sin(Now * 2));
                 coastalUi.Icon("rankfx/glow", Centered(cx, cy, ch * 1.4f, ch * 1.4f), "fx-glow", null, Tint(col, .8f * fade));
-                coastalUi.Icon("rankfx/burst", Centered(cx, cy, ch, ch), "fx-burst", null, Tint(Color.white, (1 - Ease.Clamp(k / .5f)) * fade));
+                coastalUi.Icon("rankfx/burst", Centered(cx, cy, ch, ch), "fx-burst", null, Tint(Color.Lerp(Color.white, col, .4f), .55f * (1 - Ease.Clamp(k / .5f)) * fade));
                 coastalUi.Pose("rankfx/burst", 0, .4f + 1.6f * Ease.OutCubic(k / .5f));
                 Sparkles("rankfx/spark", cx, cy, ch * .62f, 7, fade);
             }
@@ -86,8 +86,12 @@ namespace Catchline.Game
             if (after)
             {
                 float k = Ease.OutBack((t - Turn) / .4f);
-                coastalUi.Text("rankfx/title", new Rect(0, rect.y - 70, iw, 60), title, Skin.Type.Display, col, TextAnchor.MiddleCenter, null, true);
+                float rw = Mathf.Min(iw - 32, 520), rh = rw / 4;
+                coastalUi.Icon("rankfx/ribbon", Centered(cx, rect.y - rh * .35f, rw, rh), "fx-rank-ribbon", null);
+                coastalUi.Pose("rankfx/ribbon", 0, k * fade, Ease.OutBack((t - Turn) / .5f));
+                coastalUi.Text("rankfx/title", Centered(cx, rect.y - rh * .4f, rw * .7f, rh * .6f), title, Skin.Type.Display, Darker(col), TextAnchor.MiddleCenter);
                 coastalUi.Pose("rankfx/title", 0, k * fade);
+                Confetti("rankfx/confetti", cx, cy - ch * .3f, t - Turn, 34, col, ih);
                 var gained = c.Def.Abilities.FirstOrDefault(a => a.Unlock == c.Rarity && a != c.Def.Trait);
                 string line = gained != null && rankFrom != CardRarity.Mythic ? $"New ability · {gained.Name}" : $"Level cap {c.LevelCap} · {CardProgression.ToolSlots(c.Rarity)} tool slots";
                 coastalUi.Text("rankfx/line", new Rect(0, rect.yMax + 14, iw, 40), line, Skin.Type.Display, Skin.Cream, TextAnchor.MiddleCenter, null, true);
@@ -100,6 +104,25 @@ namespace Catchline.Game
         {
             coastalUi.Box(id + "/under", new Rect(-50, -50, iw + 100, ih + 100), "", new Color(.03f, .08f, .14f, .75f * alpha), null, false);
             coastalUi.Scrim(id, dismiss, alpha);
+        }
+
+        static string ChestLayer(ChestKind k, string layer) => "v2-chest-" + (k == ChestKind.Crate ? "crate" : k == ChestKind.SeaChest ? "sea" : "captain") + "-" + layer;
+
+        // Confetti thrown up from a point, falling under gravity and fading; stable per piece.
+        void Confetti(string id, float x, float y, float t, int count, Color main, float floor)
+        {
+            if (t < 0 || t > 2.6f) return;
+            Color[] tints = { main, RarityColour(CardRarity.Gold), Skin.Teal, Skin.Cream, Palette.Hex("E2683A") };
+            for (int i = 0; i < count; i++)
+            {
+                float a = i * 2.399f, speed = 380 + 260 * Mathf.Repeat(i * .618f, 1), dir = -Mathf.PI / 2 + Mathf.Sin(a) * 1.25f;
+                float px = x + Mathf.Cos(dir) * speed * t, py = y + Mathf.Sin(dir) * speed * t + 900 * t * t * .5f;
+                if (py > floor + 40) continue;
+                float s = 14 + 10 * Mathf.Repeat(i * .37f, 1), alpha = 1 - Ease.Clamp((t - 1.8f) / .8f);
+                string pid = $"{id}{i}";
+                coastalUi.Icon(pid, Centered(px, py, s, s), "fx-confetti-" + (1 + i % 4), null, Tint(tints[i % tints.Length], alpha));
+                coastalUi.Pose(pid, t * (200 + 160 * (i % 3)) * (i % 2 == 0 ? 1 : -1), 1, Mathf.Abs(Mathf.Cos(t * 7 + i)) * .8f + .2f);
+            }
         }
 
         static Rect Centered(float x, float y, float w, float h) => new Rect(x - w / 2, y - h / 2, w, h);
@@ -142,7 +165,8 @@ namespace Catchline.Game
                 coastalUi.Text(id + "/name", new Rect(12, 8, cw - 24, th), def.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
                 float bh = compactInterface ? 46 : 56, art = Mathf.Min(cw - 40, ch - th - bh * 2 - 78);
                 var artRect = new Rect((cw - art) / 2, th + 14, art, art);
-                                coastalUi.Icon(id + "/art", artRect, ChestArt(kind, false), card, count > 0 ? Color.white : new Color(.8f, .82f, .84f, 1));
+                                coastalUi.Icon(id + "/shadow", new Rect(artRect.x + art * .1f, artRect.yMax - art * .2f, art * .8f, art * .2f), "fx-chest-shadow", card);
+                coastalUi.Icon(id + "/art", artRect, ChestArt(kind, false), card, count > 0 ? Color.white : new Color(.8f, .82f, .84f, 1));
                 // Waiting chests bob and give a little wiggle every few seconds.
                 float phase = (Now + i * .7f) % 3.2f;
                 float wiggle = count > 0 && phase < .5f ? Mathf.Sin(phase * 40) * 5 * (1 - phase / .5f) : 0;
@@ -209,6 +233,8 @@ namespace Catchline.Game
                 coastalUi.Pose("reveal/rays", Now * 14, 1);
                 coastalUi.Icon("reveal/glow", Centered(cx, restY, size * 1.8f, size * 1.8f), "fx-glow", null, Tint(col, .85f));
                 coastalUi.Pose("reveal/glow", 0, 1 + .06f * Mathf.Sin(Now * 3));
+                coastalUi.Icon("reveal/burst", Centered(cx, restY, size, size), "fx-burst", null, Tint(Color.Lerp(Color.white, col, .4f), .7f * (1 - Ease.Clamp(k / .5f))));
+                coastalUi.Pose("reveal/burst", k * 40, .5f + 1.9f * Ease.OutCubic(k / .5f));
             }
             float y = t < Drop ? Mathf.Lerp(-size, restY, Ease.OutBack(t / Drop, 1.2f)) : restY;
             float angle = 0, sx = 1, sy = 1;
@@ -220,15 +246,25 @@ namespace Catchline.Game
             }
             else if (popped) { float k = (t - Pop) / .3f; sy = 1 + .14f * Ease.Pulse(k); sx = 1 - .06f * Ease.Pulse(k); }
             if (t < Drop + .15f && t > Drop) { float k = (t - Drop) / .15f; sy = 1 - .12f * Ease.Pulse(k); sx = 1 + .1f * Ease.Pulse(k); }
-            coastalUi.Icon("reveal/shadow", Centered(cx, restY + size * .42f, size * .8f, size * .16f), "fx-glow", null, new Color(0, 0, 0, .35f * Ease.Clamp(t / Drop)));
-            coastalUi.Icon("reveal/chest", Centered(cx, y, size, size), ChestArt(r.Result.Kind, popped), null);
+            float near = Ease.Clamp(t / Drop);
+            coastalUi.Icon("reveal/shadow", Centered(cx, restY + size * .36f, size * (.5f + .45f * near), size * .2f), "fx-chest-shadow", null, new Color(1, 1, 1, .9f * near));
+            var chest = coastalUi.Group("reveal/chest", Centered(cx, y, size, size));
+            if (popped) coastalUi.Icon("reveal/chest/open", new Rect(0, 0, size, size), ChestArt(r.Result.Kind, true), chest);
+            else
+            {
+                // The lid rattles as the shake builds: the dark interior shows through the gap.
+                float k = t < Drop ? 0 : (t - Drop) / (Pop - Drop), lift = Mathf.Abs(Mathf.Sin(k * 27)) * size * .05f * k * k;
+                coastalUi.Icon("reveal/chest/base", new Rect(0, 0, size, size), ChestLayer(r.Result.Kind, "base"), chest);
+                if (lift > .5f) coastalUi.Icon("reveal/chest/inside", new Rect(0, 0, size, size), ChestLayer(r.Result.Kind, "interior"), chest);
+                coastalUi.Icon("reveal/chest/lid", new Rect(0, -lift, size, size), ChestLayer(r.Result.Kind, "lid"), chest);
+                coastalUi.Pose("reveal/chest/lid", Mathf.Sin(k * 23) * 3 * k);
+            }
             coastalUi.Pose("reveal/chest", angle, sy, sx / sy);
             if (popped)
             {
                 float k = t - Pop;
-                coastalUi.Icon("reveal/burst", Centered(cx, restY - size * .1f, size, size), "fx-burst", null, Tint(Color.white, 1 - Ease.Clamp(k / .5f)));
-                coastalUi.Pose("reveal/burst", k * 40, .3f + 1.9f * Ease.OutCubic(k / .5f));
                 Sparkles("reveal/spark", cx, restY, size * .7f, 8, Ease.Clamp(k / .4f));
+                if (r.Best >= CardRarity.Purple) Confetti("reveal/confetti", cx, restY - size * .2f, k, 26, RarityColour(r.Best), ih);
             }
 
             // Cards: slots in up to two rows under the chest.
@@ -256,7 +292,7 @@ namespace Catchline.Game
                 {
                     float g = Now - r.FlipAt[i] - .17f;
                     coastalUi.Icon(id + "/glow", Centered(px, py, cardW * 1.7f, cardH * 1.5f), "fx-glow", null, Tint(RarityColour(item.rarity), .7f + .15f * Mathf.Sin(Now * 3 + i)));
-                    coastalUi.Icon(id + "/burst", Centered(px, py, cardW * 1.6f, cardW * 1.6f), "fx-burst", null, Tint(Color.white, 1 - Ease.Clamp(g / .45f)));
+                    coastalUi.Icon(id + "/burst", Centered(px, py, cardW * 1.6f, cardW * 1.6f), "fx-burst", null, Tint(Color.white, .7f * (1 - Ease.Clamp(g / .45f))));
                     coastalUi.Pose(id + "/burst", 0, .4f + 1.4f * Ease.OutCubic(g / .45f));
                 }
                 if (!face) coastalUi.Icon(id, rect, "v2-card-back", null);
@@ -370,7 +406,7 @@ namespace Catchline.Game
             {
                 coastalUi.Icon("tools/detail/rays", Centered(w / 2, pad + tile / 2, tile * 2.2f, tile * 2.2f), "fx-rays", panel, Tint(col, .6f * (1 - Ease.Clamp((m - .6f) / .6f))));
                 coastalUi.Pose("tools/detail/rays", Now * 30, 1);
-                coastalUi.Icon("tools/detail/burst", Centered(w / 2, pad + tile / 2, tile * 1.2f, tile * 1.2f), "fx-burst", panel, Tint(Color.white, 1 - Ease.Clamp(m / .5f)));
+                coastalUi.Icon("tools/detail/burst", Centered(w / 2, pad + tile / 2, tile * 1.2f, tile * 1.2f), "fx-burst", panel, Tint(Color.white, .7f * (1 - Ease.Clamp(m / .5f))));
                 coastalUi.Pose("tools/detail/burst", 0, .5f + 1.4f * Ease.OutCubic(m / .5f));
             }
             ToolTileFace("tools/detail/tile", tileRect, t, panel);

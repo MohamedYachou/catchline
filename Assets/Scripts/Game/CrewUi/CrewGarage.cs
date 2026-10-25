@@ -210,8 +210,10 @@ namespace Catchline.Game
             coastalUi.Pose("cardpanel/card", 0, k < .45f ? 1 + .05f * Ease.Pulse(k / .45f) : 1);
             if (k < .7f)
             {
-                coastalUi.Icon("cardpanel/burst", new Rect(r.x, r.y + r.height * .1f, r.width, r.width), "fx-burst", parent, Tint(Color.white, 1 - Ease.Clamp(k / .7f)));
+                coastalUi.Icon("cardpanel/burst", new Rect(r.x, r.y + r.height * .1f, r.width, r.width), "fx-burst", parent, Tint(Color.white, .5f * (1 - Ease.Clamp(k / .7f))));
                 coastalUi.Pose("cardpanel/burst", 0, .5f + Ease.OutCubic(k / .7f));
+                float up = Ease.OutCubic(k / .7f);
+                coastalUi.Icon("cardpanel/arrow", new Rect(r.x + r.width * .3f, r.y + r.height * (.45f - .3f * up), r.width * .4f, r.width * .4f), "fx-levelup-arrow", parent, Tint(Color.white, 1 - Ease.Clamp((k - .35f) / .35f)));
                 coastalUi.Text("cardpanel/plus", new Rect(r.x, r.y + r.height * (.3f - .12f * Ease.OutCubic(k / .7f)), r.width, 50), $"LEVEL {c.Level}", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleCenter, parent, true);
             }
         }
