@@ -51,11 +51,15 @@ namespace Catchline.Game
             var report = State.ReadRoster();
             float sh = compactInterface ? 48 : 56, pill = compactInterface ? 132 : 170;
             bool claimable = RenownClaimable;
-            string[] labels = { "Crew", report.PendingChests > 0 ? $"Chests {report.PendingChests}" : "Chests", "Recruit", "Tools", claimable ? "Renown !" : "Renown" };
+            string[] labels = { "Crew", "Chests", "Recruit", "Tools", "Renown" };
             float sw = Mathf.Min(area.width - pill - 12, compactInterface ? 560 : 780);
             coastalUi.PageSwitch("crew/tabs", new Rect(area.x, area.y, sw, sh), labels, crewTab, i => { crewTab = i; toolPickSlot = -1; MenuSound(); }, new[] { "crew/tab/crew", "crew/tab/chests", "crew/tab/recruit", "crew/tab/tools", "crew/tab/renown" });
+            TabBadge("crew/tab/chests", report.PendingChests > 0 ? report.PendingChests.ToString() : null);
+            TabBadge("crew/tab/renown", claimable ? "!" : null);
             TokenPill("crew/tokens", new Rect(area.xMax - pill, area.y, pill, sh), report.Tokens);
             var body = new Rect(area.x, area.y + sh + 12, area.width, area.height - sh - 12);
+            // A chest reveal covers the page: leave the page under it empty so nothing reads through the dim.
+            if (reveal != null) return;
             switch (crewTab)
             {
                 case 1: ChestsPage(body); break;
@@ -76,6 +80,27 @@ namespace Catchline.Game
             coastalUi.Text("crew/empty/body", new Rect(p + 48, eh * .4f + 22, ew - p - 72, eh * .6f - 40), "The rowboat has no berths. Refit to a skiff at the Chandlery: a welcome chest brings Mira, your navigator.", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, empty);
         }
 
+        // A coral count badge on a tab's top-right corner, bobbing gently; null hides it.
+        void TabBadge(string tabId, string text)
+        {
+            string id = tabId + "/badge";
+            if (text == null || !coastalUi.TryFind(tabId, out var tab)) return;
+            float s = compactInterface ? 22 : 30, bob = Mathf.Sin(Now * 4 + tab.x * .01f) * 1.5f;
+            var r = new Rect(tab.xMax - s * .9f, tab.y - s * .3f + bob, s, s);
+            coastalUi.Sliced(id, r, "v2-pill-cream", null, Palette.Hex("E2683A"));
+            coastalUi.Text(id + "/n", r, text, Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter, null, true);
+        }
+
+        // A small cream chip (icon and words) laid out left to right from x.
+        void InfoChip(string id, ref float x, float y, float h, string icon, string text)
+        {
+            float w = h + 10 + text.Length * (compactInterface ? 5.6f : 6.6f) + 12;
+            var chip = coastalUi.Sliced(id, new Rect(x, y, w, h), "v2-pill-cream");
+            coastalUi.Icon(id + "/icon", new Rect(6, 4, h - 8, h - 8), icon, chip);
+            coastalUi.Text(id + "/text", new Rect(h + 4, 0, w - h - 10, h), text, Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleLeft, chip);
+            x += w + 8;
+        }
+
         void TokenPill(string id, Rect r, int tokens)
         {
             var pill = coastalUi.Sliced(id, r, "v2-pill-cream");
@@ -91,10 +116,11 @@ namespace Catchline.Game
         void CrewGrid(Rect body, RosterReport report)
         {
             float infoH = 30;
-            coastalUi.Text("crew/info", new Rect(body.x + 4, body.y, body.width - 8, infoH),
-                $"{report.Deployed} of {report.Berths} berths aboard · wages {report.Wages:N0} coins next departure · renown {report.Renown}"
-                + (report.FreeBlueprints > 0 ? $" · {report.FreeBlueprints} free blueprint{(report.FreeBlueprints > 1 ? "s" : "")} to give" : ""),
-                Skin.Type.Small, Skin.Cream, TextAnchor.MiddleLeft);
+            // Three chips: berths filled, the next departure's wages, renown.
+            float cx = body.x;
+            InfoChip("crew/info/berths", ref cx, body.y, infoH, "v2-badge-tick", $"{report.Deployed} / {report.Berths} aboard");
+            InfoChip("crew/info/wages", ref cx, body.y, infoH, "v2-icon-coin", $"{report.Wages:N0} wages per trip");
+            InfoChip("crew/info/renown", ref cx, body.y, infoH, "v2-icon-renown", $"Renown {report.Renown}");
             if (report.FreeBlueprints > 0)
                 coastalUi.CardButton("crew/give", new Rect(body.xMax - 200, body.y - 2, 200, infoH + 4), "Give blueprint", () => { renownChoice = -1; MenuSound(); }, "v2-icon-blueprint");
             var list = new Rect(body.x, body.y + infoH + 6, body.width, body.height - infoH - 6);
@@ -308,8 +334,9 @@ namespace Catchline.Game
                     string aid = P + "ability/" + a.Id;
                     var row = coastalUi.Card(aid, new Rect(0, y, w, rowH), Skin.Card.Soft, content);
                     var col = RarityColour(isTrait ? CardRarity.Gold : a.Unlock);
-                    coastalUi.Sliced(aid + "/dot", new Rect(12, (rowH - 30) / 2, 30, 30), "v2-pill-cream", row, on ? col : new Color(col.r, col.g, col.b, .35f));
-                    if (!on) coastalUi.Icon(aid + "/lock", new Rect(17, (rowH - 20) / 2, 20, 20), "v2-icon-lock", row);
+                    coastalUi.Sliced(aid + "/dot", new Rect(10, (rowH - 36) / 2, 36, 36), "v2-pill-cream", row, on ? col : new Color(col.r, col.g, col.b, .35f));
+                    // Inside the rarity disc: the role's emblem (a star for the always-on trait), or a lock until unlocked.
+                    coastalUi.Icon(aid + "/lock", new Rect(16, (rowH - 24) / 2, 24, 24), !on ? "v2-icon-lock" : isTrait ? "v2-icon-star" : RoleIcon(def.Role), row);
                     string tag = isTrait ? "Always" : on ? CardProgression.RarityName(a.Unlock) : "Unlocks at " + CardProgression.RarityName(a.Unlock);
                     coastalUi.Text(aid + "/name", new Rect(54, 4, w * .5f, 28), a.Name, Skin.Type.Heading, on ? Skin.Ink : Skin.InkSoft, TextAnchor.MiddleLeft, row);
                     coastalUi.Text(aid + "/tag", new Rect(w * .5f, 4, w * .5f - 14, 28), tag, Skin.Type.Caption, on ? Darker(col) : Skin.InkSoft, TextAnchor.MiddleRight, row);

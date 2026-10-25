@@ -66,6 +66,12 @@ namespace Catchline.Game
             float x = 10, w = r.width - 20, y = Skin.HeaderBand + 12;
             float hold = HoldKg / Mathf.Max(.01f, State.CoolerCapacity);
             coastalUi.StatTile("voyage/hold", new Rect(x, y, w, tileH), "v2-icon-hold", "Hold", $"{HoldKg:0} / {State.CoolerCapacity:0} kg", hold, hold > .9f ? Skin.Bar.Warn : Skin.Bar.Good, slab, "icon-cooler");
+            // A fish into the cooler: the tile bumps and a "+1" floats up beside the cooler.
+            float stow = SimTime - stowedAt;
+            coastalUi.Pose("voyage/hold", 0, stow < .35f ? 1 + .05f * Ease.Pulse(stow / .35f) : 1);
+            bool popping = stow >= 0 && stow < .9f;
+            coastalUi.Text("voyage/hold/plus", popping ? new Rect(x + tileH * .62f, y + tileH * .2f - Ease.OutCubic(stow / .9f) * 22, 64, 34) : Rect.zero, "+1",
+                Skin.Type.Display, new Color(Skin.Teal.r, Skin.Teal.g, Skin.Teal.b, 1 - Ease.Clamp((stow - .5f) / .4f)), TextAnchor.MiddleLeft, slab, true);
             y += tileH + gap;
             if (State.Hull > 0)
                 coastalUi.StatTile("voyage/fuel", new Rect(x, y, w, tileH), "v2-icon-fuel", "Fuel", $"{State.FuelFraction * 100:0}%", State.FuelFraction, State.FuelFraction < .2f ? Skin.Bar.Bad : Skin.Bar.Good, slab, "icon-fuel");

@@ -77,6 +77,9 @@ namespace Catchline.EditorTools
             for (int i = 2; i < 8; i++) try { flip.Invoke(g, new object[] { i, 0f }); } catch { }
             Clock(104); ShotUi(g, "crew-reveal-open"); ShotUi(g, "crew-reveal-open-phone", 844, 390);
             T.GetMethod("CollectReveal", H).Invoke(g, null);
+            // The ordinary chests page, once the welcome chest is opened.
+            while (s.PendingChestCount(ChestKind.Welcome) > 0) s.OpenChest(ChestKind.Welcome);
+            Set("crewTab", 1); Clock(104.5f); ShotUi(g, "crew-chests-three"); ShotUi(g, "crew-chests-three-phone", 844, 390);
             Set("crewTab", 2); Clock(105); ShotUi(g, "crew-recruit"); ShotUi(g, "crew-recruit-phone", 844, 390);
             Clock(120); T.GetMethod("BuyCrewChestWithFx", H).Invoke(g, new object[] { "olaf" });
             foreach (float t in new[] { 1.0f, 1.7f }) { Clock(120 + t); ShotUi(g, $"crew-crewchest-{t:0.0}"); }
@@ -175,6 +178,9 @@ namespace Catchline.EditorTools
                 g.PreviewFirstCatch(Species.Mackerel, .62f, at); ShotUi(g, $"first-catch-{at:0.00}");
                 if (at == 1.3f) { g.PreviewFirstCatch(Species.Mackerel, .62f, at); ShotUi(g, "first-catch-phone", 844, 390); }
             }
+            // A fish into the cooler: the hold tile's "+1".
+            g.PreviewFirstCatch(Species.Mackerel, .62f, 99);
+            typeof(VoyageGame).GetField("stowedAt", H).SetValue(g, g.SimTime - .3f); ShotUi(g, "stow-plus");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 
