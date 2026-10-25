@@ -132,6 +132,10 @@ namespace Catchline.Game
                     C(-.1f, -.2f, .5f); C(.38f, -.08f, .26f); C(-.24f, -.32f, .07f);
                     for (int i = -1; i <= 1; i += 2) L(.42f, -.02f, .42f + i * .38f, .06f, .06f);
                     L(-.85f, .55f, -.3f, .4f, .16f); L(-.3f, .4f, .25f, .55f, .16f); L(.25f, .55f, .85f, .4f, .16f); break;
+                case 11: // steamer wreck: a listing hull and a leaning funnel above a wave
+                    Tri(P(-.85f, .05f), P(.7f, .35f), P(.5f, .62f), symbol); Tri(P(-.85f, .05f), P(.5f, .62f), P(-.6f, .38f), symbol);
+                    L(-.05f, .15f, .2f, -.6f, .3f); L(-.55f, .1f, -.5f, -.75f, .08f);
+                    L(-.9f, .78f, -.3f, .66f, .14f); L(-.3f, .66f, .3f, .8f, .14f); L(.3f, .8f, .9f, .66f, .14f); break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);
