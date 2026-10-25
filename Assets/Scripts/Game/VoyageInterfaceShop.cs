@@ -302,6 +302,7 @@ namespace Catchline.Game
             coastalUi.Text("port/voyage", new Rect(16, Skin.HeaderBand + 10, w - 32, 26), $"Voyage {State.Voyage} · {State.HullDef.Name}", Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleLeft, slab);
             coastalUi.Text("port/destination", new Rect(16, Skin.HeaderBand + 38, w - 32, 34), GameData.Spots[SelectedSpot].Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, slab);
             if (!compactInterface) coastalUi.Text("port/readiness", new Rect(16, Skin.HeaderBand + 74, w - 32, 40), SailBlocker() ?? "Boat ready · supplies aboard", Skin.Type.Body, Skin.Teal, TextAnchor.UpperLeft, slab);
+            InterfaceSavingsGoal(new Rect(Edge, r.yMax + 12, w, compactInterface ? 60 : 76));
             float bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 8;
             var sail = new Rect(Edge, ih - Edge - Mathf.Max(bh, TabBarHeight), w, bh);
             coastalUi.Primary("port/sail", sail, "Set sail", () => { RequestDeparture(); audio?.Play(VoyageAudio.Cue.Select, .45f); }, "v2-icon-anchor", State.UnsoldCatch.Count == 0); Block(sail);

@@ -278,7 +278,10 @@ namespace Catchline.EditorTools
         {
             var g = Game("Harbour HUD shot"); Rebuild(g, 2);
             var panel = typeof(VoyageGame).GetField("panelOpen", H); var tab = typeof(VoyageGame).GetField("hudTab", H);
-            panel.SetValue(g, false); ShotUi(g, "hud-harbour-phone", 844, 390);
+            panel.SetValue(g, false); ShotUi(g, "hud-harbour-phone", 844, 390); ShotUi(g, "hud-harbour");
+            // The savings goal: part way, then ready to refit.
+            g.State.Coins = GameState.PrepFisherCost / 3; ShotUi(g, "hud-goal-saving");
+            g.State.Coins = GameState.PrepFisherCost + 10; g.State.BestVoyageKg = 120; ShotUi(g, "hud-goal-ready"); ShotUi(g, "hud-goal-ready-phone", 844, 390);
             foreach (VoyageGame.HudTab t in Enum.GetValues(typeof(VoyageGame.HudTab)))
             { panel.SetValue(g, true); tab.SetValue(g, t); ShotUi(g, "hud-" + t.ToString().ToLowerInvariant() + "-phone", 844, 390); }
             UnityEngine.Object.DestroyImmediate(g.gameObject);
