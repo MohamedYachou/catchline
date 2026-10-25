@@ -59,6 +59,7 @@ namespace Catchline.Game
                 return;
             }
             if (CageViewActive && !MenuOpen) { HandleCageInput(kb); return; }
+            if (GutViewActive && !MenuOpen) { HandleGutInput(kb); return; }
             if (NetGameActive && !MenuOpen && !confirmHeadHome)
             {
                 if (kb != null && kb.escapeKey.wasPressedThisFrame) CancelNetHaulGame();

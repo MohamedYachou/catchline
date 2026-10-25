@@ -22,6 +22,8 @@ namespace Catchline.Game.Deck
         public Func<float> HoldRemainingKg = () => float.MaxValue;
         public Action<CaughtFish> OnStowed, OnThrown;
         public Action<Job, CaughtFish> OnTableDone; // M3 product chain; default passes the fish on to TableOut
+        // The captain's own table work: the game plays the gutting view and calls done (or cancel) itself.
+        public Action<Job, Action, Action> CaptainBench;
         // Seconds for one act; the game wires these to the one work-speed model (CARDS-AND-SPEEDS §1, §4).
         public Func<Worker, JobKind, float> ActSeconds = (w, k) => k switch { JobKind.Sort => 1.2f, JobKind.TableWork => 3f, _ => .5f };
         public Func<Worker, float> StowSeconds = w => .6f;
@@ -221,7 +223,12 @@ namespace Catchline.Game.Deck
         void RunBench(Job job)
         {
             var w = job.Worker;
-            Walk(job, Deck.Access(job.At), () => w.Actor.Act(job.Label, ActSeconds(w, job.Kind), () =>
+            Walk(job, Deck.Access(job.At), () =>
+            {
+                if (w.Captain && job.Kind == JobKind.TableWork && CaptainBench != null) CaptainBench(job, Done, () => Cancel(job));
+                else w.Actor.Act(job.Label, ActSeconds(w, job.Kind), Done, () => Cancel(job));
+            });
+            void Done()
             {
                 foreach (var f in job.Fish)
                 {
@@ -240,7 +247,7 @@ namespace Catchline.Game.Deck
                 }
                 }
                 job.reserved = 0; Finish(job);
-            }, () => Cancel(job)));
+            }
         }
 
         void Walk(Job job, Vector2Int tile, Action arrive)
@@ -311,6 +318,18 @@ namespace Catchline.Game.Deck
                 Decide = prior; job.reserved = 0; Finish(job);
             }, () => { Decide = prior; Cancel(job); }));
             return true;
+        }
+
+        // The captain takes the next fish waiting at a process table (the gutting minigame runs through CaptainBench).
+        public bool CaptainTable(Worker captain, Station table)
+        {
+            if (!captain.Idle || Sailing || table.In == null || table.Out == null || table.In.UnclaimedCount == 0 || table.Out.Free <= 0
+                || Workers.Count(o => o.Current?.At == table && o.Current.Kind == JobKind.TableWork) >= table.Places) return false;
+            var job = new Job { Kind = JobKind.TableWork, Worker = captain, Source = table.In, At = table, Label = "Processing", Target = Drop.To(table.Out) };
+            var f = table.In.Unclaimed.First();
+            if (!table.In.Claim(f, job) || !table.Out.Reserve(1)) { table.In.Release(f, job); return false; }
+            job.Fish.Add(f); job.reserved = 1;
+            Start(job); return true;
         }
 
         // The captain hauls one load from a basket the player tapped.

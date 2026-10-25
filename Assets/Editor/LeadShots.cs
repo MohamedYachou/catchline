@@ -28,6 +28,7 @@ namespace Catchline.EditorTools
             if (Want("cage")) Cage();
             if (Want("trip")) Trip();
             if (Want("net")) Net();
+            if (Want("gut")) Gut();
             Debug.Log("LEADSHOTS DONE " + Out);
         }
 
@@ -133,6 +134,18 @@ namespace Catchline.EditorTools
                 if (!mid && g.NetGameProgress > .3f) { mid = true; Shot(g, "net-2-haul"); }
                 if (!bunt && g.NetGameProgress > .85f) { bunt = true; Shot(g, "net-3-bunt"); Shot(g, "net-3-bunt-phone", 844, 390); }
             }
+            UnityEngine.Object.DestroyImmediate(g.gameObject);
+        }
+
+        static void Gut()
+        {
+            var (g, table) = GutViewChecks.Fixture(2);
+            g.CaptainGutAt(table);
+            for (int i = 0; i < 400 && !g.GutWaiting; i++) g.Tick(.05f);
+            for (int i = 0; i < 14; i++) g.Tick(.05f);
+            Shot(g, "gut-0-board"); Shot(g, "gut-0-board-phone", 844, 390);
+            g.CutGut(GutViewChecks.CleanCut); g.Tick(.2f);
+            Shot(g, "gut-1-clean"); Shot(g, "gut-1-clean-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

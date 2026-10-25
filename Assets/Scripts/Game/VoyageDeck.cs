@@ -60,6 +60,7 @@ namespace Catchline.Game
                 HoldRemainingKg = () => State.CoolerCapacity - HoldKg,
                 OnStowed = f => { HideBasketFish(f); TryStore(f); lidPop = 1f; },
                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
+                CaptainBench = BeginGut,
             };
             SyncDeckWorkers();
             SpawnStationProps();
@@ -223,6 +224,11 @@ namespace Catchline.Game
             foreach (var b in DeckGraph.Baskets.Where(b => b.Owner.IsGear && b.Owner.Out == b && b.UnclaimedCount > 0))
                 InterfaceBubble("deck/carry/" + b.Id, Boat.TransformPoint(b.Position + Vector3.up * .35f), b.UnclaimedCount > 1 ? $"Carry {b.UnclaimedCount}" : "Carry", "icon-fish",
                     () => { Manning = null; AwaitingCast = false; CaptainHaulFrom(b); });
+            // Fish waiting at a process table: the captain can gut them (the gutting minigame).
+            if (CurrentMode == Mode.Fishing)
+                foreach (var s in DeckGraph.OfKind(StationKind.ProcessTable).Where(t => t.In != null && t.In.UnclaimedCount > 0))
+                    InterfaceBubble("deck/gut/" + s.Id, Boat.TransformPoint(s.Position + Vector3.up * .55f), s.In.UnclaimedCount > 1 ? $"Gut {s.In.UnclaimedCount}" : "Gut", "icon-fish",
+                        () => { Manning = null; AwaitingCast = false; CaptainGutAt(s); });
             foreach (var s in DeckGraph.OfKind(StationKind.SortTable))
                 if ((s.In == null || s.In.UnclaimedCount == 0) && s.Out != null && s.Out.UnclaimedCount > 0 && !HasDeckhand)
                     InterfaceBubble("deck/stow/" + s.Id, Boat.TransformPoint(s.Position + Vector3.up * .45f), "Stow", "icon-fish", () => CaptainHaulFrom(s.Out));
