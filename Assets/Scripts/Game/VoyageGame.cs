@@ -589,6 +589,7 @@ namespace Catchline.Game
             ClearNetUnload();
             netOrdersOpen = false;
             PrepOrdersOpen = false;
+            toastUntil = 0; // a deck instruction (keep/throw, sort) must not ride home over the header (polish sweep PS-09)
             // Grab what's on deck if there's room; the rest goes back in the sea.
             foreach (var p in People)
             {

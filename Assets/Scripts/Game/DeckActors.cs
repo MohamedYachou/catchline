@@ -132,7 +132,7 @@ namespace Catchline.Game
         public bool Busy => busyTotal > 0f;
         public float BusyProgress => busyTotal > 0f ? Mathf.Clamp01(1f - busyLeft / busyTotal) : 0f; // read-only, for the crew rail
         public bool Idle => !Walking && !Busy;
-        public string State => Busy ? BusyLabel : Walking ? Loitering ? "strolling" : "walking" : Carrying != null ? "carrying a fish" : Loitering ? "looking overboard" : "ready";
+        public string State => Busy ? BusyLabel : Walking ? Loitering ? "strolling" : "walking" : Carrying != null ? "carrying a fish" : Loitering ? "at the rail" : "ready";
 
         public void Build(Transform boat, Vector2Int tile, Color suit, Color hat)
         {

@@ -33,7 +33,7 @@ namespace Catchline.Game
             var price = Regex.Match(action, @"(\d[\d,]*)\s*coins");
             shopItems.Add(new ShopItem
             {
-                Id = id, Name = name, Description = description, Art = ItemArt(id), Fallback = icon, Action = action, Enabled = enabled, Buy = onBuy,
+                Id = id, Name = name, Description = description, Art = id == "refit" ? HullArt() : ItemArt(id), Fallback = icon, Action = action, Enabled = enabled, Buy = onBuy,
                 Reason = reason, Price = price.Success ? int.Parse(price.Groups[1].Value.Replace(",", "")) : -1,
                 Owned = action == "Owned" || action == "Refitted" || action == "Trial boat aboard" || action == "Tank full"
             });
@@ -48,6 +48,12 @@ namespace Catchline.Game
                 "supplies/fuel" => "v2-item-fuel", "supplies/net" => "v2-item-net", "supplies/deep-net" => "v2-item-deep-net",
                 "module/second-net" => "v2-item-netsystem", "refit" => "v2-item-skiff", _ => "v2-item-compact-fisher"
             };
+        }
+        // The boat on the refit card: its own illustration when one exists, else the nearest boat we have drawn (PS-15).
+        string HullArt()
+        {
+            string own = "v2-item-hull" + State.Hull;
+            return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Hull >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
         }
         // Card line: the first clause of the description, as short as the concept's "+50% hold space".
         static string Effect(string description)

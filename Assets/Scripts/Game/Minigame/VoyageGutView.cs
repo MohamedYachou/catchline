@@ -185,8 +185,9 @@ namespace Catchline.Game
                 if (ragged != null) ragged.gameObject.SetActive(false);
 
                 guide = new GameObject("Belly line").AddComponent<LineRenderer>(); guide.transform.SetParent(root, false);
-                guide.useWorldSpace = true; guide.widthMultiplier = .008f; guide.positionCount = 2;
-                guide.sharedMaterial = Visuals.Mat(Palette.Hex("F3F0DC")); guide.shadowCastingMode = ShadowCastingMode.Off;
+                // A thin brass guide: a wide cream bar read as part of the table (polish sweep PS-08).
+                guide.useWorldSpace = true; guide.widthMultiplier = .005f; guide.positionCount = 2;
+                guide.sharedMaterial = Visuals.Mat(Palette.Hex("E2B04A")); guide.shadowCastingMode = ShadowCastingMode.Off;
                 guide.textureMode = LineTextureMode.Tile;
             }
 
@@ -324,7 +325,7 @@ namespace Catchline.Game
                 g.Cam.orthographic = blend < .00001f;
                 g.Cam.fieldOfView = Mathf.Lerp(deckFov, 55, blend); g.Cam.ResetProjectionMatrix();
                 root.gameObject.SetActive(back < .98f);
-                if (Waiting) guide.widthMultiplier = .008f * (1 + .25f * Mathf.Sin(age * 5));
+                if (Waiting) guide.widthMultiplier = .005f * (1 + .3f * Mathf.Sin(age * 5));
                 return returnAge < SweepSeconds;
             }
 
