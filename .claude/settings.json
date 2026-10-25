@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook 2>/dev/null || python3 \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook" } ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook 2>/dev/null || python3 \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook" } ] }
+    ],
+    "PostToolUse": [
+      { "hooks": [ { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook 2>/dev/null || python3 \"$CLAUDE_PROJECT_DIR/docs/tools/claudecom.py\" hook" } ] }
+    ]
+  }
+}
