@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Catchline.Game
 {
-    // One owned crew card (MASTER-PLAN B6: Cards[] {Id, Rarity, Level, Xp}). JsonUtility friendly.
+    // One owned crew card (crew cards v2, docs/plans/CREW-CARDS-V2.md section 10). JsonUtility friendly.
     // Cards are owned permanently; there is no hire fee or expiry.
     [Serializable]
     public class CardState
@@ -11,21 +11,41 @@ namespace Catchline.Game
         public string Id;
         public CardRarity Rarity;
         public int Level = 1;
-        public float Xp;    // cumulative kg landed while deployed
+        public int Blueprints;   // banked towards the next rank (or the next star once Mythic)
+        public int Stars;        // 0..5, Mythic only
+        public int[] ToolUids = new int[CardProgression.MaxToolSlots]; // ToolState.Uid per slot, 0 = empty
 
         public CardState() { }
-        public CardState(string id) { Id = id; Rarity = CardRarity.Blue; Level = 1; Xp = 0f; }
+        public CardState(string id)
+        {
+            Id = id;
+            var def = Cards.ById(id);
+            Rarity = def == null ? CardRarity.White : def.StartRarity;
+        }
 
         public CardDef Def => Cards.ById(Id);
+        public int LevelCap => CardProgression.LevelCap(Rarity);
+        public bool AtCap => Level >= LevelCap;
+        public bool IsMythic => Rarity >= CardRarity.Mythic;
+        public bool Maxed => IsMythic && Stars >= CardProgression.MaxStars;
 
-        // Adds kg landed and recomputes the level. Returns how many levels were gained.
-        public int AddKg(float kg)
+        // Blueprints the next step costs: a rank below Mythic, a star at Mythic, 0 once fully starred.
+        public int BlueprintsNeeded => IsMythic ? CardProgression.BlueprintsForStar(Stars) : CardProgression.BlueprintsToRankUp(Rarity);
+        // Ranking up needs the level cap; stars only need blueprints.
+        public bool CanRankUp => !IsMythic && AtCap && Blueprints >= BlueprintsNeeded;
+        public bool CanStar => IsMythic && !Maxed && Blueprints >= BlueprintsNeeded;
+
+        public bool Has(AbilityDef ability) => CardProgression.HasAbility(Rarity, ability);
+
+        // Renown this card adds to the road: its level, 5 per rank gained since it joined, 10 per star.
+        public int Renown
         {
-            if (kg <= 0f) return 0;
-            int before = Level;
-            Xp += kg;
-            Level = CardProgression.LevelForXp(Xp);
-            return Level - before;
+            get
+            {
+                var def = Def;
+                int ranks = def == null ? 0 : Math.Max(0, (int)Rarity - (int)def.StartRarity);
+                return Level + 5 * ranks + 10 * Stars;
+            }
         }
 
         // Wage per voyage, paid at departure. 0 for an unknown card id.
@@ -33,6 +53,20 @@ namespace Catchline.Game
         {
             var def = Def;
             return def == null ? 0 : CardProgression.Wage(def.TierGranted, Rarity, Level);
+        }
+
+        // Repairs values a hand-edited or partial save could carry.
+        public void Normalise()
+        {
+            if (ToolUids == null || ToolUids.Length != CardProgression.MaxToolSlots)
+            {
+                var slots = new int[CardProgression.MaxToolSlots];
+                if (ToolUids != null) Array.Copy(ToolUids, slots, Math.Min(ToolUids.Length, slots.Length));
+                ToolUids = slots;
+            }
+            Level = Math.Min(CardProgression.ClampLevel(Level), LevelCap);
+            Stars = IsMythic ? Math.Max(0, Math.Min(CardProgression.MaxStars, Stars)) : 0;
+            Blueprints = Math.Max(0, Blueprints);
         }
     }
 
@@ -57,7 +91,11 @@ namespace Catchline.Game
 
         public static bool IsDeployed(List<string> deployment, string id) => deployment != null && deployment.Contains(id);
 
-        // Reaching tier N grants every tier-N card at blue level 1 (cards already owned are skipped).
+        // A card sails from its own tier; a starred card sails from tier 1 (it carries through a prestige).
+        public static bool Available(CardState card, int tier) =>
+            card?.Def != null && tier >= 1 && (card.Def.TierGranted <= tier || card.Stars > 0);
+
+        // Reaching tier N grants every tier-N card at its starting rarity, level 1 (owned cards are skipped).
         // Makes sure the navigator is deployed afterwards. Returns the number of cards granted.
         public static int GrantTier(List<CardState> cards, List<string> deployment, int tier)
         {
@@ -132,17 +170,6 @@ namespace Catchline.Game
             return true;
         }
 
-        // XP at sale: every deployed card gains the same kg landed by the boat.
-        public static void AddKgToDeployed(List<CardState> cards, List<string> deployment, float kg)
-        {
-            if (deployment == null) return;
-            for (int i = 0; i < deployment.Count; i++)
-            {
-                var card = Find(cards, deployment[i]);
-                if (card != null) card.AddKg(kg);
-            }
-        }
-
         // Wages owed at departure for the deployed cards (the captain draws none).
         public static int TotalWages(List<CardState> cards, List<string> deployment)
         {
@@ -156,22 +183,35 @@ namespace Catchline.Game
             return total;
         }
 
-        // Rarity upgrade: needs role wildcards (indexed by CardRole) plus coins scaled by the card's tier.
-        // Spends both only on success.
-        public static bool TryUpgradeRarity(CardState card, ref int coins, int[] wildcards)
+        // One level for tokens plus coins (spec section 2). Spends both only on success.
+        public static bool TryLevelUp(CardState card, ref int tokens, ref int coins)
         {
-            if (card == null || wildcards == null) return false;
-            var def = card.Def;
-            if (def == null || !CardProgression.CanUpgrade(card.Rarity)) return false;
-            int role = (int)def.Role;
-            if (role < 0 || role >= wildcards.Length) return false;
-            int needCards = CardProgression.UpgradeWildcards(card.Rarity);
-            int needCoins = CardProgression.UpgradeCoins(card.Rarity, def.TierGranted);
-            if (wildcards[role] < needCards || coins < needCoins) return false;
-            wildcards[role] -= needCards;
+            if (card?.Def == null || card.AtCap) return false;
+            int needTokens = CardProgression.TokensForLevel(card.Level), needCoins = CardProgression.CoinsForLevel(card.Level);
+            if (tokens < needTokens || coins < needCoins) return false;
+            tokens -= needTokens;
             coins -= needCoins;
-            card.Rarity = (CardRarity)((int)card.Rarity + 1);
+            card.Level++;
             return true;
+        }
+
+        // Rank up at the level cap (the level is kept), or add a star once Mythic. Spends banked blueprints.
+        public static bool TryRankUp(CardState card)
+        {
+            if (card?.Def == null) return false;
+            if (card.CanRankUp)
+            {
+                card.Blueprints -= card.BlueprintsNeeded;
+                card.Rarity = (CardRarity)((int)card.Rarity + 1);
+                return true;
+            }
+            if (card.CanStar)
+            {
+                card.Blueprints -= card.BlueprintsNeeded;
+                card.Stars++;
+                return true;
+            }
+            return false;
         }
     }
 }

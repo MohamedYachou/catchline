@@ -191,8 +191,9 @@ namespace Catchline.Game
             new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 60, Desc = "Rowboat: 20 to 35 kg. Powered boats: 50% more hold weight." },
             new() { Id = UpgradeId.IceBox, Name = "Ice box", Cost = 250, Desc = "Fish keep full value. Without ice they lose up to 40% the longer they sit." },
             new() { Id = UpgradeId.LunchTin, Name = "Extra fuel tank", Cost = 100, Desc = "Double fuel capacity: 20 minutes instead of 10.", Shop = "Supplies" },
-            new() { Id = UpgradeId.RodFibreglass, Name = "Fibreglass rods", Cost = 180, Desc = "Longer strike window (1.15 s) and 25% faster reeling." },
-            new() { Id = UpgradeId.RodCarbon, Name = "Carbon rods", Cost = 450, Requires = UpgradeId.RodFibreglass, Desc = "Strike window 1.4 s, 50% faster reeling, and an unattended rod hooks the fish itself 45% of the time." },
+            // Retired from the market (crew cards v2): the captain's rod tool picks the rods now (GameState.RodTier).
+            new() { Id = UpgradeId.RodFibreglass, Name = "Fibreglass rods", Cost = 180, Shop = "Retired", Desc = "Longer strike window (1.15 s) and 25% faster reeling." },
+            new() { Id = UpgradeId.RodCarbon, Name = "Carbon rods", Cost = 450, Shop = "Retired", Requires = UpgradeId.RodFibreglass, Desc = "Strike window 1.4 s, 50% faster reeling, and an unattended rod hooks the fish itself 45% of the time." },
             new() { Id = UpgradeId.NetSystem, Name = "Heavy net system", Cost = 5000, Desc = "Increase the capacity of both shallow and deep nets." },
             new() { Id = UpgradeId.ThirdDeepLine, Name = "Third deep-line rig", Cost = 3500, Desc = "Tier 5: fit a third deep-line rod between the crab cage and normal rod. One self-made chum per rig; one fish after a 60-second soak. Used in the rod / deep-line layout." },
         };

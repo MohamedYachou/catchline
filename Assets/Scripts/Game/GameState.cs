@@ -9,6 +9,7 @@ namespace Catchline.Game
         public Species Species;
         public float Kg;
         public float StowedAt;
+        public float ValueBonus; // crew abilities: sale value x (1 + ValueBonus)
     }
 
     [System.Serializable]
@@ -52,6 +53,7 @@ namespace Catchline.Game
     public class SaleReport
     {
         public int FishSold, Coins, ToContracts, ContractCoins;
+        public int Tokens, Crates; // crew cards: haul tokens and crates earned by this sale
         public float Minutes;
         public int Caught;
         public readonly List<string> Lines = new();
@@ -132,9 +134,9 @@ namespace Catchline.Game
         public int FuelFillCost => Mathf.CeilToInt(Mathf.Max(0, FuelCapacity - Fuel) - .00001f);
         public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Hull > 0 ? 4f : 1f);
         public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
-        public float BiteWindow => Has(UpgradeId.RodCarbon) ? 1.4f : Has(UpgradeId.RodFibreglass) ? 1.15f : GameData.BiteWindow;
-        public float ReelSpeed => Has(UpgradeId.RodCarbon) ? 1.5f : Has(UpgradeId.RodFibreglass) ? 1.25f : 1f;
-        public float SelfHookChance => Has(UpgradeId.RodCarbon) ? 0.45f : GameData.SelfHookChance;
+        public float BiteWindow => RodTier >= 2 ? 1.4f : RodTier >= 1 ? 1.15f : GameData.BiteWindow;
+        public float ReelSpeed => RodTier >= 2 ? 1.5f : RodTier >= 1 ? 1.25f : 1f;
+        public float SelfHookChance => RodTier >= 2 ? 0.45f : GameData.SelfHookChance;
         public int FoodFillCost => Mathf.CeilToInt(FoodCapacity - FoodMinutes) * GameData.FoodCostPerMinute;
 
         // Selling never moves a price: there is no market saturation.
@@ -152,7 +154,7 @@ namespace Catchline.Game
             float size = Mathf.InverseLerp(d.MinKg, d.MaxKg, kg);
             return PricePerKg(species) * (1f + .5f * size);
         }
-        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * SpecimenPricePerKg(f.Species, f.Kg) * Freshness(f, now)));
+        public int ValueOf(CaughtFish f, float now) => Mathf.Max(1, Mathf.RoundToInt(f.Kg * SpecimenPricePerKg(f.Species, f.Kg) * Freshness(f, now) * (1f + Mathf.Max(0f, f.ValueBonus))));
 
         float Rand() => (float)Rng.NextDouble();
 
@@ -299,7 +301,9 @@ namespace Catchline.Game
                 if (c.Delivered < c.Count) continue;
                 Coins += c.Reward;
                 r.ContractCoins += c.Reward;
-                r.Lines.Add($"Contract done: {c.Title}  +{c.Reward}");
+                r.Lines.Add($"Contract done: {c.Title}  +{c.Reward}, and a crate");
+                GrantChest(ChestKind.Crate);
+                r.Crates++;
                 Active.RemoveAt(i);
             }
             BestVoyageFish = Mathf.Max(BestVoyageFish, catchList.Count);
@@ -605,12 +609,9 @@ namespace Catchline.Game
             d.ExtraCrew.AddRange(ExtraCrew); d.InactiveEngineers.AddRange(InactiveEngineers);
             d.Offers.AddRange(Offers);
             d.Active.AddRange(Active);
-            EnsureCards();
             var v2 = new SaveV2 { Coins = Coins, Hull = Hull, Runtime = d,
-                Cards = new List<CardState>(Roster), Deployment = new List<string>(Deployment),
-                Wildcards = (int[])Wildcards.Clone(), PendingXpKg = PendingXpKg,
-                TripDeployment = new List<string>(TripDeployment), CrewSettings = new List<CrewMember>(Crew),
-                GroundRichness = new List<float>(GroundRich) };
+                CrewSettings = new List<CrewMember>(Crew), GroundRichness = new List<float>(GroundRich) };
+            WriteCards(v2);
             v2.Owned.AddRange(d.Owned);
             try { System.IO.File.WriteAllText(path ?? SavePath, JsonUtility.ToJson(v2, true)); }
             catch (System.Exception e) { Debug.LogWarning("[Catchline] Save failed: " + e.Message); }
@@ -632,10 +633,7 @@ namespace Catchline.Game
                 }
                 s.Coins = v2.Coins; s.Hull = Mathf.Clamp(v2.Hull, 0, GameData.Hulls.Length - 1);
                 if (v2.Owned != null) foreach (int u in v2.Owned) s.Owned.Add((UpgradeId)u);
-                if (v2.Cards != null) s.Roster.AddRange(v2.Cards.FindAll(c => c?.Def != null));
-                if (v2.Deployment != null) s.Deployment.AddRange(v2.Deployment);
-                s.Wildcards = v2.Wildcards; s.PendingXpKg = Mathf.Max(0, v2.PendingXpKg);
-                if (v2.TripDeployment != null) s.TripDeployment.AddRange(v2.TripDeployment);
+                s.ReadCards(v2);
                 if (v2.CrewSettings != null) s.cardCrew.AddRange(v2.CrewSettings);
                 if (v2.GroundRichness != null)
                     for (int i = 0; i < Mathf.Min(v2.GroundRichness.Count, s.GroundRich.Length); i++)

@@ -1,0 +1,37 @@
+CREW-FX-ART-1 — Codex 2 — effect sprites for the chest and card animations, then the five missing real sounds (Claude, 2026-10-25 night)
+
+GOAL (Mo: "static, 3d art and easy work for codex"; Claude animates): CREW-FINAL-ART-1 is ACCEPTED in full
+and is already copied into Assets/Art/UI (Cards, Portraits, Crew). Claude is building the chest opening, card
+flip, rank-up and level-up animations in the game's IMGUI. Give Claude the static sprites those animations
+layer and move. You make PNGs only; Claude does all motion, timing and layout.
+
+CONTEXT (read only these up front): Art/STYLE.md; the accepted set in Art/Source/CrewFinal/ (style match,
+especially v2-chest-*.png, v2-icon-token.png, art108-frame-mythic*.png); Art/Audio/Real/REPORT.md for B.
+
+OWNERSHIP: write Art/Source/CrewFx/ and Art/Audio/Real/ only, plus append-only comms.md lines. No git, no
+Unity, no Assets/, no C#. Never create Art/Models/CrewV2/_STOP-WATCHDOGS.
+
+ORDER:
+A. EFFECT SPRITES, transparent RGBA, soft-edged where light, same outline weight as the icons where solid:
+   1. fx-rays.png 512x512: a ring of 12 soft warm light rays from the centre (rotated by code).
+   2. fx-glow.png 512x512: round soft radial glow, white to transparent (tinted by rarity in code).
+   3. fx-sparkle.png 128x128: four-point twinkle star, white with a pale gold core.
+   4. fx-burst.png 512x512: a cartoon impact burst ring (lid-pop moment), cream with navy outline.
+   5. fx-confetti-1..4.png 64x64: four small paper shapes (strip, square, curl, triangle), plain white
+      (tinted in code).
+   6. fx-coin-trail.png 128x32: soft streak for flying tokens.
+   7. fx-levelup-arrow.png 256x256: big chunky up arrow, token gold, navy outline.
+   8. fx-rank-ribbon.png 640x160: a blank banner ribbon (no lettering), cream with navy outline, for
+      "Rank up!" text drawn by code.
+   9. fx-chest-shadow.png 512x128: soft oval ground shadow.
+   10. v2-chest-<crate|sea|captain>-lid.png and -base.png, 512x512 each, cut from the accepted closed chests
+      so the lid can be animated separately: both layers in the same canvas position, base + lid composited
+      must equal v2-chest-*-closed.png (prove it with a diff image). Fill the base's hidden top edge so the
+      open gap shows dark wood, not transparency.
+   Review sheet: Art/Source/CrewFx/review/contact.png on cream and on navy, plus REPORT.md.
+B. SOUNDS: the five SOUND-3 gaps (gull, seal bark, puffin, ship horn, foghorn), real recordings only, CC0 or
+   commercial-OK licence, virus-scanned, same processing and LICENSES.md rows as SOUND-3. Then chest sounds:
+   wooden crate creak-open, heavy chest latch + lid, coins/tokens pouring, a short card whoosh/flip, a bright
+   reward chime (3 variants each where available).
+DONE = EVIDENCE: the contact sheet and diff images opened and looked at; REPORT.md rows; one comms.md line per
+group. REPORTING: START, CHECKPOINT, DONE; QUESTION and continue when blocked.

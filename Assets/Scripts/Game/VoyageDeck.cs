@@ -32,8 +32,9 @@ namespace Catchline.Game
             void Skill(Speciality job)
             {
                 person.Skill = card == null ? 100 : CardProgression.Skill(card.Def,card.Rarity,job);
-                person.LevelMult = card == null ? 1 : CardProgression.LevelMult(card.Level);
-                if (card != null && ((job == Catchline.Game.Speciality.Sort && (card.Id == "noor" || card.Id == "tove")) || (job == Catchline.Game.Speciality.Table && card.Id == "mats") || (job == Catchline.Game.Speciality.Haul && card.Id == "ana"))) person.Skill *= 1.1f;
+                person.LevelMult = card == null ? 1 : CardProgression.WorkMult(card);
+                // Interim Green passives until the ability engine (CREW-CARDS-UI-1 step 2) replaces this line.
+                if (card != null && card.Has(card.Def.Passive) && ((job == Catchline.Game.Speciality.Sort && card.Id == "noor") || (job == Catchline.Game.Speciality.Table && card.Id == "mats") || (job == Catchline.Game.Speciality.Haul && card.Id == "ana"))) person.Skill *= 1.1f;
             }
             public Vector2Int Tile => person.Tile;
             public bool WalkTo(Vector2Int tile, Action arrive, Action cancel) { Skill(Catchline.Game.Speciality.Haul); return person.WalkTo(grid, tile, arrive, cancel); }

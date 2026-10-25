@@ -1,0 +1,52 @@
+CREW-FINAL-ART-1 — Codex 2 — the last crew's portraits and the art for crew cards v2 (Claude, 2026-10-25 21:00)
+
+GOAL (Mo: "start one codex on the final art that we need to still get for the last crew"): Rosa, Ines and Tess
+join the game as crew cards now, but their in-game portraits are still old placeholder deckhands in beanies.
+Give them finished portraits that match their CREW-STYLES-2 designs and 3D models, then make the art the new
+card system needs. Spec: docs/plans/CREW-CARDS-V2.md (sections 1, 4, 5 and 7). This replaces CHEST-ART-1
+(Art/Source/Chests stays as reference; reuse anything there that fits).
+
+CONTEXT (read these, nothing else up front):
+- Identity sources: Art/Source/UIv2/crew-styles/portrait-rosa.png, portrait-ines.png, portrait-tess.png
+  (1254x1254, grey background). 3D look to match: Art/Models/CrewV2/<Name>/<Name>-review.png and REPORT.md.
+  Rosa dark pixie and eyebrow scar, fisher (nets); Ines platinum twin braids and headlamp hard hat, engineer;
+  Tess honey-ash waves and side braid, fisher (rods).
+- Finished runtime examples: Assets/Art/UI/v2-portrait-mira.png and -mira-deck.png, v2-portrait-tove.png and
+  -tove-deck.png (400x400 RGBA, transparent; Claude cut them from their crew-styles sources, commit a4d537a).
+  Compare each pair to see what the -deck variant changes, and match it.
+- ART108 small set: Assets/Art/UI/Portraits/art108-mira.png (240x240) with -96 and -56 versions.
+- Frames: Assets/Art/UI/Cards/art108-frame-blue.png, -purple.png, -gold.png, -locked.png (480x640).
+- Icon style: Assets/Art/UI/v2-icon-*.png. Style rules: Art/STYLE.md.
+
+ORDER (finish and log one group before the next):
+A. LAST CREW PORTRAITS. For Rosa, Ines and Tess: v2-portrait-<name>.png and v2-portrait-<name>-deck.png
+   (400x400 RGBA, transparent background, same head size, crop and outline as Mira's and Tove's), and
+   art108-<name>.png 240x240 with -96 and -56 versions. Deterministic background removal, cropping and
+   resizing of these three sources is authorized by the lead under Mo's instruction; regenerate with imagegen
+   only if a source cannot be keyed cleanly, keeping the CREW-STYLES-2 identity.
+B. CARD FRAMES, 480x640, exactly the layout of the existing frames (portrait window, name plate, rarity bar,
+   outline): art108-frame-white.png (warm off-white and silver-grey), art108-frame-green.png (sea green),
+   art108-frame-mythic.png (deep red with gold trim and small gem studs: the premium end-game card), and
+   art108-frame-mythic-shine.png, a transparent diagonal light streak the game sweeps across Mythic cards.
+   Leave blue, purple and gold untouched.
+C. ICONS, 256x256 plus 64x64 (-64 suffix): v2-icon-token (universal upgrade token, a brass coin with an up
+   arrow and rope rim), v2-icon-blueprint (rolled crew plan), v2-icon-star (Mythic star), v2-icon-focus
+   (heart badge marking the focus crew), v2-icon-renown (anchor-and-laurel badge).
+D. CHESTS, 512x512, -closed and -open: v2-chest-crate (wooden fish crate with rope handles), v2-chest-sea
+   (planked sea chest with iron bands), v2-chest-captain (navy and gold captain's chest with red trim; the
+   premium one). Open versions: lid up, soft light, no contents.
+E. TOOLS, 256x256 plus 64x64, one neutral icon each (the UI tints the tile by rarity): v2-tool-rod,
+   -reel, -net-needle, -bait-knife, -gloves, -gaff, -fillet-knife, -boots, -winch-handle, -oil-can, -toolbelt,
+   -compass, -binoculars, -charts. Plus v2-tool-tile-white/-green/-blue/-purple/-gold/-mythic.png, 192x192
+   rounded tiles in the frame colours that the icon sits on.
+F. CARD BACK: v2-card-back.png 480x640 (navy, rope border, anchor mark) for the face-down reveal.
+
+OWNERSHIP: Art/Source/CrewFinal/ only (Claude copies into Assets). Read anything. No git, no Unity, no Assets/,
+no C#. Never touch Codex 1's or Claude's files.
+CONSTRAINTS: no lettering on any image. Same outline weight, palette and soft shading as the existing v2 art.
+Phone readability: every icon must read at 64 px.
+DONE = EVIDENCE: per group, a contact sheet in Art/Source/CrewFinal/review/ with each file at full size and at
+56-64 px beside existing roster art (A: beside Mira, Tove, Noor and the three 3D review images), opened and
+looked at; then REPORT.md listing every file, size and check. Numbers alone never prove a visual.
+REPORTING: START, CHECKPOINT at safe boundaries, one DONE line per group in comms.md; QUESTION and skip to the
+next group when blocked. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

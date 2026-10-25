@@ -1,0 +1,45 @@
+CREW-CARDS-UI-1 — Codex 1 — crew card screens, chests and the ability engine (Claude, 2026-10-25 21:00)
+
+GOAL (Mo: "other codex helps you with implementing all of this now"): build the player-facing side of crew
+cards v2 and the automatic abilities, on top of the data and rules Claude is writing now. Spec, read first:
+docs/plans/CREW-CARDS-V2.md. Visual model: Mo's Hot Slide screenshots described there (garage grid of cards
+with rank letter, role icon, level and an upgrade arrow; a card panel with Stats, Level up / Max level with
+coin and token costs, Rank up with blueprints x/y, tools; packs with shown odds).
+
+CONTEXT: DESIGN.md, PRODUCT.md, Art/STYLE.md, the current crew UI (Assets/Scripts/Game/GameStateCards.cs
+InterfaceRoster, VoyageManagementPages.cs, VoyageInterfaceShop.cs, Skin.cs portrait helpers), the deck
+simulation (VoyageDeck.cs, VoyageCards.cs, DeckActors.cs, Deck/*.cs) and the fishing code it calls.
+
+ORDER:
+0. NOW, read-only, no compiling: write docs/plans/ABILITY-HOOKS.md. For each of the 42 abilities and Mira's
+   First mate trait in spec section 8, name the exact code point (file, method) where its condition is seen
+   and where its effect applies, and what new hook is needed. Flag any ability whose mechanic does not exist
+   in code (QUESTION line), with a concrete alternative. Then wait for Claude's "CARDS-CORE READY" line.
+1. After CARDS-CORE READY: the screens, using the API in spec section 10. Crew garage grid (rarity frame,
+   portrait, level/cap, role icon, upgrade arrow when affordable, focus heart), card panel (stats, level up,
+   level to cap, rank up, abilities with locked ones greyed and the rarity that unlocks them, tool slots,
+   stars), the market's chest section (Sea chest for coins, odds panel), the chest opening reveal (card back,
+   tap to flip, tokens, tools, blueprints), tool inventory with merge, the renown road, and a haul token
+   line in the sale report. Mythic frames get the shine sweep. Art arrives from Codex 2 in
+   Art/Source/CrewFinal/; until Claude copies it into Assets, tint the existing frames.
+2. The ability engine: one place that knows which abilities each deployed crew member has
+   (CardProgression.HasAbility) and runs passives, conditions and timers in the deck simulation, plus
+   the tool bonuses per job and the work-speed formula (CardProgression.WorkMult). Then the abilities
+   themselves, Mira first. Checks: an editor check per ability family proving trigger and effect.
+
+OWNERSHIP: new files under Assets/Scripts/Game/Crew/ (UI and abilities) and Assets/Editor/CrewCards*Checks.cs;
+edits to the deck simulation and fishing files for hooks; VoyageInterfaceShop.cs chest section. Claude owns
+Assets/Scripts/Game/Data/*.cs, GameStateCards.cs, SaveV2.cs and GameState save/load: ask in comms.md instead
+of editing them. No git; Claude commits. Never batchmode the main project; checks run in the scratch copy.
+DONE = EVIDENCE: runtime screenshots of every screen at desktop and phone size (scene renders omit IMGUI),
+opened and looked at; check logs; one comms.md line per step. Never touch the player save.
+REPORTING: START, CHECKPOINT at safe boundaries, DONE per step; QUESTION and continue with the next item you
+can when blocked. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+
+UPDATE (Claude, 2026-10-25 night, Mo: "ui and animation for you [Claude], static, 3d art and easy work for codex"):
+STEP 1 (screens, chest reveal, garage, renown road, animations) MOVES TO CLAUDE. Do not build any screen,
+panel, toast layout or animation. Codex 1 now does STEP 2 only: the ability engine and the 42 abilities plus
+Mira's First mate, with editor checks, after "CARDS-CORE READY" in comms.md. Answers to Q1-Q12 are in that
+comms.md line. Expose for the UI: a read-only query per deployed person of which abilities are active and
+when a timed one last fired (Claude draws the badges/pulses). Ownership unchanged otherwise:
+Assets/Scripts/Game/Crew/ (engine only), Assets/Editor/CrewCards*Checks.cs, deck/fishing hook edits.

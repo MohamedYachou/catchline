@@ -24,31 +24,53 @@ namespace Catchline.EditorTools
             ArtImport.BuildLibrary(); M2DataChecks.Run();
             var state=new GameState(42) { Hull=2,Coins=10000 };
             state.EnsureCards();
-            Check(state.Roster.Count==4 && state.Deployment.SequenceEqual(new[]{"mira"}),"grants and fixed navigator");
+            Check(state.Roster.Count==5 && state.Deployment.SequenceEqual(new[]{"mira"}),"grants and fixed navigator");
             Check(!state.DeployCard("mira",false),"cannot stand navigator down");
             Check(state.DeployCard("noor",true) && state.DeployCard("sam",true),"deploy owned cards");
             Check(!state.DeployCard("dirk",true),"berth limit");
-            state.Wildcards[(int)CardRole.Deckhand]=10;
-            Check(state.UpgradeCard("sam") && CardRoster.Find(state.Roster,"sam").Rarity==CardRarity.Purple,"runtime rarity purchase");
-            int before=state.Coins,wages=state.DepartureWages;
-            Check(state.PayDepartureWages() && state.Coins==before-wages,"departure charge");
-            state.PendingXpKg=113;
-            state.DeployCard("sam",false); state.DeployCard("dirk",true);
-            state.AwardSaleXp(); state.AwardSaleXp();
-            Check(CardRoster.Find(state.Roster,"sam").Xp==113 && CardRoster.Find(state.Roster,"sam").Level==3 && CardRoster.Find(state.Roster,"dirk").Xp==0,"manifest XP once, includes stood-down card, excludes replacement");
-            state.PendingXpKg=7; state.TripDeployment.Add("noor");
-            state.Bait=83; state.Fuel=6; state.UnsoldCatch.Add(new CaughtFish{Species=Species.Cod,Kg=4});
+            state.Tokens=23;
+            Check(state.LevelUpCardToCap("noor")==4 && state.Tokens==0 && CardRoster.Find(state.Roster,"noor").AtCap,"level to cap spends tokens");
+            Check(!state.RankUpCard("noor"),"rank up needs a blueprint");
+            Check(state.SetFocus("noor") && state.FocusCard=="noor" && !state.SetFocus("olaf"),"focus an owned card");
+            // Tools on the state: class rules, slots, rod tier, merge keeps the slot.
+            var rod=state.AddTool(ToolKind.Rod,CardRarity.Gold); var rod2=state.AddTool(ToolKind.Rod,CardRarity.Gold);
+            var compass=state.AddTool(ToolKind.Compass,CardRarity.White); var gloves=state.AddTool(ToolKind.Gloves,CardRarity.White); var gloves2=state.AddTool(ToolKind.Gloves,CardRarity.White);
+            Check(state.RodTier==0 && state.EquipTool(GameState.CaptainToolOwner,0,rod.Uid) && state.RodTier==2 && Mathf.Approximately(state.BiteWindow,1.4f),"captain's Gold rod gives carbon rods");
+            Check(!state.EquipTool(GameState.CaptainToolOwner,1,compass.Uid) && state.EquipTool("mira",0,compass.Uid),"navigator tools only for the navigator");
+            Check(state.EquipTool("noor",0,gloves.Uid) && !state.EquipTool("noor",1,gloves2.Uid),"White has one slot");
+            Check(Mathf.Approximately(state.ToolBonus("noor",ToolKind.Gloves),.03f) && state.ToolOwner(gloves.Uid)=="noor","tool bonus and owner");
+            Check(state.MergeTools(gloves.Uid,gloves2.Uid) && gloves.Rarity==CardRarity.Green && state.ToolOwner(gloves.Uid)=="noor" && state.FindTool(gloves2.Uid)==null,"merge keeps the equipped tool");
+            Check(state.EquipTool("noor",0,rod2.Uid)==false,"deckhand cannot hold a rod");
+            // Chests and tokens.
+            int coinsBefore=state.Coins;
+            Check(state.BuyChest(ChestKind.SeaChest) && state.Coins==coinsBefore-state.ChestPrice(ChestKind.SeaChest) && !state.BuyChest(ChestKind.CaptainsChest),"buy a sea chest, not a captain's chest");
+            int toolsBefore=state.Tools.Count;
+            var opened=state.OpenChest(ChestKind.SeaChest);
+            Check(opened!=null && state.Tokens==opened.Tokens && state.Tools.Count==toolsBefore+2 && state.PendingChests.Count==0 && state.OpenChest(ChestKind.SeaChest)==null,"open banks the chest once");
+            Check(state.GrantDailyCrate(new DateTime(2026,10,25)) && !state.GrantDailyCrate(new DateTime(2026,10,25,23,0,0)) && state.GrantDailyCrate(new DateTime(2026,10,26)),"one first-sale crate per day");
+            Check(state.PendingChestCount(ChestKind.Crate)==2,"daily crates pending");
+            Check(state.ClaimRenown(1,"noor") && CardRoster.Find(state.Roster,"noor").Blueprints>=1 && !state.ClaimRenown(1,"noor"),"renown milestone 1: blueprint of choice, once");
+            Check(state.RankUpCard("noor") && CardRoster.Find(state.Roster,"noor").Rarity==CardRarity.Green,"rank Noor to Green");
+            int wages=state.DepartureWages; int before=state.Coins;
+            Check(state.PayDepartureWages() && state.Coins==before-wages && state.TripDeployment.Count==3,"departure charge, trip crew fixed");
+            state.DeployCard("sam",false);
+            int t0=state.Tokens; float cap=state.CoolerCapacity;
+            Check(state.AwardHaulTokens(cap)==CardProgression.HaulTokens(2,3,1f) && state.Tokens==t0+6 && state.TripDeployment.Count==0,"haul tokens count the trip crew: 2 x 3 x 1.15 = 6");
+            state.Bait=83; state.Fuel=6; state.UnsoldCatch.Add(new CaughtFish{Species=Species.Cod,Kg=4,ValueBonus=.1f});
+            state.TripDeployment.Add("noor");
             string path=Path.Combine(Path.GetTempPath(),"catchline-m2-"+Guid.NewGuid()+".json");
             try
             {
                 state.Save(path); var loaded=GameState.Load(path);
-                Check(loaded!=null && loaded.Coins==state.Coins && loaded.Bait==83 && loaded.Fuel==6 && loaded.UnsoldCatch.Count==1,"runtime v2 harbour roundtrip");
-                Check(loaded.Deployment.SequenceEqual(state.Deployment) && loaded.Roster.Count==4 && loaded.PendingXpKg==7 && loaded.TripDeployment.SequenceEqual(new[]{"noor"}),"v2 roster/manifest roundtrip");
-                Check(CardRoster.Find(loaded.Roster,"sam").Rarity==CardRarity.Purple && CardRoster.Find(loaded.Roster,"sam").Xp==113,"v2 rarity XP");
+                Check(loaded!=null && loaded.Coins==state.Coins && loaded.Bait==83 && loaded.Fuel==6 && loaded.UnsoldCatch.Count==1 && Mathf.Approximately(loaded.UnsoldCatch[0].ValueBonus,.1f),"runtime v3 harbour roundtrip");
+                Check(loaded.Deployment.SequenceEqual(state.Deployment) && loaded.Roster.Count==5 && loaded.TripDeployment.SequenceEqual(new[]{"noor"}),"v3 roster/manifest roundtrip");
+                Check(loaded.Tokens==state.Tokens && loaded.Tools.Count==state.Tools.Count && loaded.RodTier==2 && loaded.FocusCard=="noor" && loaded.PendingChests.Count==2
+                    && loaded.RenownClaimed==1 && loaded.ToolOwner(gloves.Uid)=="noor" && loaded.NextToolUid==state.NextToolUid,"v3 card economy roundtrip");
+                Check(CardRoster.Find(loaded.Roster,"noor").Rarity==CardRarity.Green && CardRoster.Find(loaded.Roster,"noor").Level==5,"v3 rarity and level");
             }
             finally { if(File.Exists(path)) File.Delete(path); }
             Abilities(); LiveWages();
-            Debug.Log("[Catchline] M2 CHECKS PASSED (tier-5 berth ambiguity intentionally skipped)");
+            Debug.Log("[Catchline] M2 CHECKS PASSED");
         }
         static void Abilities()
         {
@@ -96,8 +118,9 @@ namespace Catchline.EditorTools
             g.LandFish(g.Rods[0],Species.Mackerel,.8f);
             g.HeadHome();
             for(float t=0;t<120 && g.CurrentMode!=VoyageGame.Mode.Harbour;t+=.05f)g.Tick(.05f);
-            Check(g.CurrentMode==VoyageGame.Mode.Harbour && g.State.PendingXpKg>=.8f,"return retains landed XP");
-            Check(g.SellHaul() && CardRoster.Find(g.State.Roster,"noor").Xp>=.8f,"sale awards live XP");
+            Check(g.CurrentMode==VoyageGame.Mode.Harbour && g.State.UnsoldCatch.Count>0 && g.State.TripDeployment.Count==2,"return keeps the haul and trip crew");
+            int crates=g.State.PendingChests.Count;
+            Check(g.SellHaul() && g.State.TripDeployment.Count==0 && g.State.PendingChests.Count>=crates,"sale pays tokens to the trip crew");
             Check(!g.SellHaul(),"cannot sell or award twice");
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }

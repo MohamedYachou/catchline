@@ -32,7 +32,7 @@ namespace Catchline.EditorTools
             game.Rods[0].State = RodState.Ready;
             game.Rods[0].Squid = true;
             state.Owned.Add(UpgradeId.BigCooler);
-            state.Owned.Add(UpgradeId.RodCarbon);
+            state.EquipTool(GameState.CaptainToolOwner, 0, state.AddTool(ToolKind.Rod, CardRarity.Gold).Uid);
             game.SyncUpgrades();
             Check(game.Rods[0].State == RodState.Ready && game.Rods[0].Squid, "visual upgrades preserve baited rods");
             Check(ArtLibrary.Find(game.Boat.gameObject, "BigCooler") != null && ArtLibrary.Find(game.Rods[0].Root.gameObject, "FishingRod_Carbon") != null, "purchased cooler and rod variants visible");

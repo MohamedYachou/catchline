@@ -136,8 +136,12 @@ namespace Catchline.EditorTools
                 .OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__")).ToArray();
             Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
             var pngs = Directory.GetFiles(Path.GetFullPath(UiFolder), "*.png");
+            // Crew cards v2: frames, portraits, chests, tools and icons live in subfolders.
+            var cardFolders = new[] { "Cards", "Portraits", "Crew" };
             lib.Ui = pngs
                 .Select(p => UiFolder + Path.GetFileName(p))
+                .Concat(cardFolders.Where(f => Directory.Exists(UiFolder + f))
+                    .SelectMany(f => Directory.GetFiles(UiFolder + f, "*.png").Select(p => UiFolder + f + "/" + Path.GetFileName(p))))
                 .Select(p => AssetDatabase.LoadMainAssetAtPath(p) as Texture2D)
                 .Where(t => t != null)
                 .ToArray();

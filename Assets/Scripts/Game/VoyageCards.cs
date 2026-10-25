@@ -16,7 +16,7 @@ namespace Catchline.Game
             foreach (var p in People)
             {
                 var c = CardFor(p.Contract);
-                p.LevelMult = c == null ? 1 : CardProgression.LevelMult(c.Level);
+                p.LevelMult = c == null ? 1 : CardProgression.WorkMult(c);
                 p.Skill = 100;
                 p.WalkMultiplier = () => workers.TryGetValue(p,out var w) ? Scheduler?.HaulWalkMultiplier(w) ?? 1 : 1;
             }

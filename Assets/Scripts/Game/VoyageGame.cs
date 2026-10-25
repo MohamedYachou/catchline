@@ -52,7 +52,7 @@ namespace Catchline.Game
         bool modelOars;
         Transform propeller;
         int boatVisualSignature;
-        int BoatVisualSignature => (State.Has(UpgradeId.BigCooler) ? 1 : 0) | (State.Has(UpgradeId.RodFibreglass) ? 2 : 0) | (State.Has(UpgradeId.RodCarbon) ? 4 : 0) | (State.Has(UpgradeId.RodHolder) ? 8 : 0) | (IsPrepFisher && State.Has(UpgradeId.IceBox) ? 16 : 0) | (SecondNetActive ? 32 : 0) | (IsTier5 && State.Has(UpgradeId.ThirdDeepLine) ? 64 : 0);
+        int BoatVisualSignature => (State.Has(UpgradeId.BigCooler) ? 1 : 0) | (State.RodTier == 1 ? 2 : 0) | (State.RodTier >= 2 ? 4 : 0) | (State.Has(UpgradeId.RodHolder) ? 8 : 0) | (IsPrepFisher && State.Has(UpgradeId.IceBox) ? 16 : 0) | (SecondNetActive ? 32 : 0) | (IsTier5 && State.Has(UpgradeId.ThirdDeepLine) ? 64 : 0);
         float bowSign = 1f; // +1: bow toward +X (primitive hull), -1: toward -X (model)
 
         // Harbour buildings you tap to open a shop.
@@ -248,7 +248,7 @@ namespace Catchline.Game
                 if (SecondNetActive && (IsTier5 ? i >= 2 : i < 2)) continue;
                 var rod = new Rod(i, hull.RodTiles[i]);
                 Rods.Add(rod);
-                var rodModel = State.Has(UpgradeId.RodCarbon) ? lib?.M("FishingRod_Carbon") : State.Has(UpgradeId.RodFibreglass) ? lib?.M("FishingRod_Fibreglass") : null;
+                var rodModel = State.RodTier >= 2 ? lib?.M("FishingRod_Carbon") : State.RodTier == 1 ? lib?.M("FishingRod_Fibreglass") : null;
                 rod.Build(Boat, world, hull.RodBases[i], rodModel, IsNetFisher && hull.RodBases[i].z > hull.Center.z ? Vector3.forward : Vector3.back);
                 if (!IsNetFisher && i > 0 && (State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman)))
                     ArtLibrary.Spawn(lib?.M("RodHolderClamp"), Boat, hull.RodBases[i], Quaternion.identity);
@@ -513,12 +513,12 @@ namespace Catchline.Game
             {
                 State.UnsoldCatch.Clear();
                 foreach (var fish in Cooler)
-                    State.UnsoldCatch.Add(new CaughtFish { Species = fish.Species, Kg = fish.Kg,
+                    State.UnsoldCatch.Add(new CaughtFish { Species = fish.Species, Kg = fish.Kg, ValueBonus = fish.ValueBonus,
                         StowedAt = -Mathf.Max(0f, SimTime - fish.StowedAt)});
                 State.BestVoyageKg = Mathf.Max(State.BestVoyageKg, State.UnsoldCatch.Sum(f => f.Kg));
                 State.UnsoldMinutes = (SimTime - voyageStart) / 60f;
                 Cooler.Clear();
-                if (State.UnsoldCatch.Count == 0 && State.PendingXpKg <= 0) State.EndVoyage(new SaleReport());
+                if (State.UnsoldCatch.Count == 0) { State.TripDeployment.Clear(); State.EndVoyage(new SaleReport()); }
                 Toast(State.UnsoldCatch.Count > 0 ? "Haul safely ashore! Tap Sell haul to collect your coins." : "Back in Gull Harbour.");
                 hudTab = HudTab.Market;
                 panelOpen = true;
@@ -540,16 +540,19 @@ namespace Catchline.Game
 
         public bool SellHaul()
         {
-            if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count == 0 && State.PendingXpKg <= 0) return false;
+            if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count == 0) return false;
+            float kg = State.UnsoldCatch.Sum(f => f.Kg);
             var sale = State.Sell(State.UnsoldCatch, 0f);
             sale.Minutes = State.UnsoldMinutes;
             State.UnsoldCatch.Clear(); // Consume once, including across save/reload.
             ClearUnload();
-            State.AwardSaleXp();
+            sale.Tokens = State.AwardHaulTokens(kg);
+            if (sale.Tokens > 0) sale.Lines.Add($"Crew tokens  +{sale.Tokens}");
+            if (State.GrantDailyCrate(System.DateTime.Now)) { sale.Crates++; sale.Lines.Add("First sale today: a crate"); }
             State.EndVoyage(sale);
             int earned = sale.Coins + sale.ContractCoins;
             audio?.Play(VoyageAudio.Cue.Sale);
-            Toast($"Haul sold! +{earned} coins");
+            Toast($"Haul sold! +{earned} coins" + (sale.Tokens > 0 ? $" · +{sale.Tokens} tokens" : "") + (sale.Crates > 0 ? $" · {sale.Crates} crate{(sale.Crates > 1 ? "s" : "")}" : ""));
             Log.Add($"Voyage {State.Voyage - 1}: {sale.Caught} fish, +{earned} coins, {sale.Minutes:0.0} min");
             SyncCrew();
             SyncUpgrades();
@@ -560,7 +563,7 @@ namespace Catchline.Game
         public string SailBlocker()
         {
             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
-            if (State.UnsoldCatch.Count > 0 || State.PendingXpKg > 0) return "Sell your haul first";
+            if (State.UnsoldCatch.Count > 0) return "Sell your haul first";
             if (State.Coins < State.DepartureWages) return $"Crew wages need {State.DepartureWages} coins";
             if (State.Hull > 0 && State.FuelFraction <= .1f) return "Buy fuel at Supplies";
             return null;
@@ -1200,7 +1203,7 @@ namespace Catchline.Game
             SellHaul();
             while (State.Active.Count < GameData.MaxActiveContracts && State.Offers.Count > 0) State.TakeContract(State.Offers[0]);
             // Buy in a fixed order, saving up for the next item (negative numbers are sea charts).
-            foreach (int step in new[] { (int)UpgradeId.RodHolder, -2, (int)UpgradeId.IceBox, -3, (int)UpgradeId.RodFibreglass, (int)UpgradeId.BigCooler, (int)UpgradeId.LunchTin, (int)UpgradeId.RodCarbon, -4 })
+            foreach (int step in new[] { (int)UpgradeId.RodHolder, -2, (int)UpgradeId.IceBox, -3, (int)UpgradeId.BigCooler, (int)UpgradeId.LunchTin, -4 })
             {
                 if (step < 0)
                 {
