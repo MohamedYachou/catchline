@@ -1,0 +1,17 @@
+CAST-SPLASH-1 — Codex 1 (Windows) — splash ring where a cast lands
+GOAL: Mo's to-do D3 (docs/plans/NIGHT-PLAN-CLAUDE.md): a cast should land with a visible splash ring on the water.
+CONTEXT: find where a rod's bobber first touches the water (Rod state change into Waiting in the voyage code) and
+how the HUD maps a world point to the interface (other world-anchored interface bubbles do this, e.g. InterfaceBubble).
+Pattern to copy for timed effects: Assets/Scripts/Game/VoyageFirstCatchFx.cs and VoyageCoinFx.cs (Ease, Centered,
+Tint, coastalUi.Icon/Pose, ids hidden when not drawn).
+BUILD: new file Assets/Scripts/Game/VoyageCastFx.cs (partial VoyageGame). On each cast landing record time and
+world point; for 0.7 s draw one or two expanding, fading rings ("fx-cast-ring" if HasUi, else "fx-glow" tinted
+pale teal) and a short droplet pop ("fx-cast-drops" if HasUi, else skip). Follow the bobber if the camera moves.
+Add one call site where the rest of the voyage fx are drawn, and nothing else in shared files.
+SOUND: if a splash cue exists in VoyageAudio use it at low volume; do not add new audio.
+OWNERSHIP: VoyageCastFx.cs (+ fresh .meta), one hook line in the voyage interface draw and one in the cast-landing
+code, a LeadShots-style capture in a NEW editor file Assets/Editor/CastFxCapture.cs. Never edit LeadShots.cs,
+VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, MAP9 files. No git, no commits.
+DONE = EVIDENCE: captures at 0.1, 0.3, 0.6 s after landing, 1440x900 and 844x390, in docs/screens/cast-fx/,
+opened by you; the full regression (CrewCardsAbilityChecks.Regression) passes in the scratch copy.
+REPORTING: START, CHECKPOINTs, DONE in comms.md; QUESTION and skip when blocked.

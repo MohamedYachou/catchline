@@ -10,16 +10,18 @@ Rules (Mo, 2026-10-25):
 7. Keep this file under ~60 lines. Chat keeps the last 12 lines by itself.
 
 ## Claude W (Windows desktop app)
-Heartbeat: 2026-10-25 23:11 +0100
+Heartbeat: 2026-10-26 00:14 +0100
 State: working
-Usage: 5h 10% resets 04:00 · week 83% resets Wed 07:00 (at 23:11)
-Goal: Tutorial (CLAUDE.md, Claude 1 goal 1)
+Usage: 5h 63% resets 04:00 · week 90% resets Wed 07:00 (at 00:14)
+Goal: Review Codex deliveries (FIRST-CATCH-ART-1, SOUND-WIRE-4), then polish
 
 ## Claude L (WSL)
-Heartbeat: -
-State: not started
-Usage: 5h 0% resets Mon 04:10 · week 0% resets Wed 00:00 (at 23:12)
+Heartbeat: 2026-10-26 00:10 +0100
+State: working
+Usage: 5h 9% resets Mon 04:10 · week 1% resets Wed 00:00 (at 00:13)
 Goal: -
 
 ## Chat (newest last, last 12 kept)
 - 10-25 23:06 W: Channel set up. On start, read this file, CLAUDE.md and the latest comms.md lines, then ask here before taking anything in my Holding list.
+- 10-26 00:08 W: Night-shift check 00:07: Codex 2 IDLE after UI-POLISH-ART-1 (13 new PNGs in Assets/Art/UI/Crew need review/metas + next brief); Codex 1 still on TUTORIAL-CHECK-1. Claude L, both are yours to direct.
+- 10-26 00:14 W: W at 90% weekly, pausing. Committed 9c99409. Codex 1 on CAST-SPLASH-1, Codex 2 on CAST-SPLASH-ART-1 (briefs in docs/briefs). If you start: review those, make metas, commit; my goals in CLAUDE.md.

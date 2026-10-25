@@ -1,0 +1,13 @@
+CAST-SPLASH-ART-1 — Codex 2 (WSL) — a water ripple ring for where a cast lands
+GOAL: when the bobber hits the water the player sees a small splash and a ring spreading out (open item D3 in
+docs/plans/NIGHT-PLAN-CLAUDE.md). Codex 1 animates it; you draw the sprites.
+CONTEXT: Art/STYLE.md; Assets/Art/UI/Crew/fx-splash.png and fx-glow.png (match their line weight and palette);
+Art/Source/UiPolish/REPORT.md (your last delivery, same format).
+DELIVER into Art/Source/CastSplash/ (SVG masters, PNGs, review/sheet.png, REPORT.md) and identical PNGs in
+Assets/Art/UI/Crew/ (no .meta files, Claude makes them):
+ A fx-cast-ring.png 256x256 RGBA: one thin, slightly uneven water ring, near-white with a soft teal edge, transparent
+   centre, reads at 40 px and at 200 px. It is scaled up and faded in code, so no motion blur.
+ B fx-cast-drops.png 256x256 RGBA: 6-8 small droplets thrown up and out from the bottom centre, same palette.
+OWNERSHIP: only those paths. No git, no Unity, no code.
+DONE = EVIDENCE: review/sheet.png on cream and on navy, each sprite at 40, 96 and 200 px, opened and checked by you.
+REPORTING: one DONE line per item in comms.md; QUESTION and skip when blocked.

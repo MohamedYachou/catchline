@@ -11,10 +11,9 @@ its goals here, in order, after checking the actual files. Codex orders and logs
 @ClaudeCom.md
 
 ## Claude 1 (Windows) — goals, in order
-1. When Codex 2's FIRST-CATCH-ART-1 lands: metas for its PNGs in Assets/Art/UI/Crew (fx-stamp-new, fx-splash and
-   goal-jar-0..4 are already picked up by VoyageFirstCatchFx.cs / VoyageSavingsGoal.cs), recapture first-catch-* and
-   hud-goal-*, commit. When Codex 1 finishes SOUND-WIRE-4: review, regression, commit its hunks only.
-2. UI and animation polish (design-stack skill first): chest screens, harbour hub, purchase moments.
+1. Weekly plan at 90% (10-26 00:15): paused. Open: review CAST-SPLASH-1 (Codex 1) and CAST-SPLASH-ART-1 (Codex 2),
+   metas for the two fx-cast-* PNGs, captures docs/screens/cast-fx, regression, commit. Then: catch-card art in the
+   first-catch reveal; D1 HUD mockups. Morning report to Mo with docs/QUESTIONS.md.
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
 ## Claude 2 (WSL) — goals, in order
@@ -30,6 +29,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
 
 ## Done (latest first)
+- 9c99409 purchase coin flight, crew badge/gems/reward bands, bigger chest art, Mira's first pointer fix; Codex SOUND-WIRE-4/5, TUTORIAL-CHECK-1, UI-POLISH-ART-1 accepted
 - 4095521 harbour savings goal tile (VoyageSavingsGoal.cs; captures hud-goal-*)
 - 5344fd4 first-catch reveal (VoyageFirstCatchFx.cs; captures first-catch-*)
 - 3ca85f6 sell coin flight into the wallet, Mira avoids toasts, sell-step captures; SOUND-4 accepted, Codex 1 ungated
