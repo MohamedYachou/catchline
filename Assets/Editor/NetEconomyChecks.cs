@@ -54,12 +54,9 @@ namespace Catchline.EditorTools
                 Check(GameState.Load(path)?.NetInventory == 4, "oversize saved stock clamps to capacity");
                 File.WriteAllText(path, Regex.Replace(json, "\"NetInventory\"\\s*:\\s*-?\\d+", "\"NetInventory\":-2"));
                 Check(GameState.Load(path)?.NetInventory == 0, "negative saved stock clamps to zero");
-                // Existing Version1 saves predate net stock; this must not treat missing as exhausted.
+                // Version1 saves are no longer imported (GameState.Load reads only the v2 payload): nothing to migrate.
                 File.WriteAllText(path, "{\"Version\":1,\"Coins\":400,\"Bait\":15,\"Voyage\":3,\"FoodMinutes\":4,\"Owned\":[],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[]}");
-                var legacy = GameState.Load(path);
-                Check(legacy != null && legacy.Hull == 0 && legacy.Coins == 400 && legacy.NetInventory == 3, "legacy save receives default stock without migrating hull or coins");
-                legacy.NetInventory = 0; legacy.Save(path);
-                Check(GameState.Load(path)?.NetInventory == 0, "legacy migration then exhausted save cannot replenish itself");
+                Check(GameState.Load(path) == null, "a version-1 save is not imported");
             }
             finally { if (File.Exists(path)) File.Delete(path); }
 
@@ -79,10 +76,7 @@ namespace Catchline.EditorTools
             Check(game.InvokeInterface("supplies/net/buy") && game.State.NetInventory == 4 && game.State.Coins == 0, "native supplies action buys exact replacement");
             game.State.Coins = 1000; Render();
             Check(!game.InvokeInterface("supplies/net/buy") && game.State.Coins == 1000, "native full-rack control disabled");
-            var catalog = game.GetComponentsInChildren<RectTransform>().Single(t => t.name == "catalog/Supplies/content");
-            var footer = game.GetComponentsInChildren<RectTransform>().Single(t => t.name == "supplies/preference");
-            float footerBottom = -footer.anchoredPosition.y + footer.rect.height;
-            Check(catalog.rect.height >= footerBottom, "exact product count still includes scrollable footer");
+            // (The pre-v2 catalog/footer layout check went with the v2 shop grid, which scrolls its own items.)
             Property(game, "CurrentMode", VoyageGame.Mode.Fishing); Render();
             Check(!game.InvokeInterface("supplies/net/buy"), "shop purchase not available through sea UI");
             UnityEngine.Object.DestroyImmediate(game.gameObject);
