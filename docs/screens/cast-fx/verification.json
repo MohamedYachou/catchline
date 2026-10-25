@@ -1,0 +1,73 @@
+{
+    "task":  "CAST-SPLASH-1",
+    "owner":  "Codex 1 (Windows app)",
+    "capture_assertions":  59,
+    "capture_unity_exit":  0,
+    "regression_unity_exit":  0,
+    "ability_assertions":  286,
+    "tutorial_assertions":  217,
+    "full_regression_pass":  true,
+    "all_source_count":  232,
+    "all_sources_unchanged_from_capture_and_equal_scratch":  true,
+    "capture_log_sha256":  "F1F85DB5B90B7572CA544BD69D186E184D803ACEDD9770C9D34493F52E559624",
+    "regression_log_sha256":  "B8039D19B8BB9E20C0166680437D5982876AD040D36F0169395C1394A54B8626",
+    "captures":  [
+                     {
+                         "file":  "cast-1440-1.png",
+                         "width":  1440,
+                         "height":  900,
+                         "sha256":  "DE398F717396DD42B1393031927D93D3EC854F11B632D2650ABF74B11810401F",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "cast-1440-3.png",
+                         "width":  1440,
+                         "height":  900,
+                         "sha256":  "A3890E5F755622837938E04D8AA2CEA63667AF9830B2AD54F6821740A1FC2B26",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "cast-1440-6.png",
+                         "width":  1440,
+                         "height":  900,
+                         "sha256":  "82FC79350C825E8EF365FB5381CE049BE1EE42C976A1CBE9FAA5C6A15C01DEBF",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "cast-844-1.png",
+                         "width":  844,
+                         "height":  390,
+                         "sha256":  "D5DB7FE7867292B58988AC28E6941A77ED216014B25E2C93F631FFC6F0811151",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "cast-844-3.png",
+                         "width":  844,
+                         "height":  390,
+                         "sha256":  "06ED568469FF3E292CDEB042DA71CD3AC3DCABB044AF6B438852218423DC6A17",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "cast-844-6.png",
+                         "width":  844,
+                         "height":  390,
+                         "sha256":  "563B3CA7E2BD7E95A1684C5D02111DD77C17CA83F292FFF33B996774BBF84D52",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "deck-1440.png",
+                         "width":  1440,
+                         "height":  900,
+                         "sha256":  "084D45F22297D7B3C38EFA7C6A2688A94FDCBF928F5872405EA51220A7A56E94",
+                         "opened_and_reviewed":  true
+                     },
+                     {
+                         "file":  "deck-844.png",
+                         "width":  844,
+                         "height":  390,
+                         "sha256":  "2A351B91916CAD1A443B1AD563C9ACFC09FC29E97F4AAF5613C21E5FB8D2A205",
+                         "opened_and_reviewed":  true
+                     }
+                 ],
+    "limits":  "Scripted scratch Unity scene plus production Canvas composites. No player/device/listening acceptance, installation or commit."
+}

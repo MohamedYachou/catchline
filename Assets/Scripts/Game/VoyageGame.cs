@@ -744,7 +744,7 @@ namespace Catchline.Game
                     if (CurrentMode != Mode.Fishing) break;
                     if (!AtFishingGround) { TickDeckGraph(); TickDeckFish(dt); break; }
                     foreach (var r in Rods)
-                        if (r.Unlocked) r.Tick(this, dt, Attending(r) || FisherAt(r));
+                        if (r.Unlocked) TickCastRod(r, dt);
                     ManRod();
                     PreemptNetFallback();
                     TickDeckGraph(); // migrated hulls: the scheduler hauls and sorts; legacy hand AI only baits and idles

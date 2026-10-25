@@ -34,7 +34,7 @@ namespace Catchline.Game
             }
             if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); coastalUi.End(); return; }
             if (IntroActive && !MenuOpen) { InterfaceIntro(); coastalUi.End(); return; }
-            if (RodViewActive) { InterfaceRodView(); coastalUi.End(); return; }
+            InterfaceCastFx(); if (RodViewActive) { InterfaceRodView(); coastalUi.End(); return; }
             if (CageViewActive) { InterfaceCageView(); coastalUi.End(); return; }
             if (GutViewActive) { InterfaceGutView(); coastalUi.End(); return; }
             if (RepairViewActive) { InterfaceRepairView(); coastalUi.End(); return; }
