@@ -1,0 +1,24 @@
+UI-POLISH-ART-1 — Codex 2 (WSL CLI) — small UI sprites that replace tonight's placeholders in the crew office
+GOAL (Mo, 2026-10-26: "keep polishing, make everything look better"): the crew office's notice badges, ability
+rows and reward cards use drawn sprites instead of tinted pill shapes.
+
+CONTEXT (read these, nothing else up front): docs/screens/overnight/crew-garage.png (coral tab badges on Chests and
+Renown), crew-card-noor.png (ability rows: a tinted disc with a role icon), crew-reveal-open.png (reward cards: a grey
+or purple bar on top of each card), crew-chests-three.png; Assets/Art/UI/Crew/fx-stamp-new.png and goal-jar-*.png
+(your own style from FIRST-CATCH-ART-1: match it); rarity colours from RarityColour in
+Assets/Scripts/Game/CrewUi/CrewGarageFx.cs (read only).
+
+DELIVER (PNG, transparent, into Art/Source/UiPolish/ AND copied to Assets/Art/UI/Crew/, no .meta files):
+A. ui-badge: 64x64 round notice badge, coral #E2683A with an ink rim and a small top highlight; empty centre (the
+   game writes the number on it).
+B. gem-white, gem-green, gem-blue, gem-purple, gem-gold, gem-mythic: 64x64 faceted rarity gems in the rarity
+   colours, same cut and outline for all six; mythic gets a prismatic sheen. Used inside ability rows and on reward
+   cards; must read at 28 px.
+C. reward-band-<rarity> for the same six: 256x40 ribbon band to sit across the top of a reward card, rarity colour
+   with ink edge and a soft gloss; plain (no text).
+
+DONE = EVIDENCE: Art/Source/UiPolish/review/sheet.png showing A–C on cream (#F4EBDA) and navy (#1C3A5A), A and B also
+at 28 px. Open it and check legibility before writing DONE.
+OWNERSHIP: Art/Source/UiPolish/**, the new PNGs in Assets/Art/UI/Crew/, append-only comms.md. Never write scripts,
+scenes, .meta files, audio or other agents' folders. No git.
+ORDER: A, B, C; one comms.md DONE line per letter. QUESTION line if blocked, then the next.
