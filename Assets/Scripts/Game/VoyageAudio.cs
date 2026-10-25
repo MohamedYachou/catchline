@@ -9,7 +9,9 @@ namespace Catchline.Game
     public sealed class VoyageAudio : MonoBehaviour
     {
         public enum Cue { Cast, Splash, Bite, Reel, Land, Stow, Moor, Sale, Select, Purchase, Gull, Bell, Creak, Horn, Click,
-            Winch, CrabClack, SealBark, NetSlap, Gut, Coins }
+            Winch, CrabClack, SealBark, NetSlap, Gut, Coins,
+            // Crew office (real CC0 recordings in Resources/Audio/SFX; the synthesized stand-ins only cover a missing pack).
+            CardFlip, ChestOpen, ChestHeavy, RewardChime, TokenPour }
         readonly Dictionary<Cue, AudioClip> clips = new();
         readonly Dictionary<Cue, AudioClip[]> packed = new();
         AudioSource ambience, foley;
@@ -103,7 +105,8 @@ namespace Catchline.Game
         static AudioClip MakeCue(Cue cue)
         {
             // The pack's newer cues borrow the nearest generated sound until their files are in.
-            var stand = cue switch { Cue.Winch => Cue.Reel, Cue.CrabClack => Cue.Click, Cue.SealBark => Cue.Horn, Cue.NetSlap or Cue.Gut => Cue.Splash, Cue.Coins => Cue.Sale, _ => cue };
+            var stand = cue switch { Cue.Winch => Cue.Reel, Cue.CrabClack => Cue.Click, Cue.SealBark => Cue.Horn, Cue.NetSlap or Cue.Gut => Cue.Splash, Cue.Coins or Cue.TokenPour => Cue.Sale,
+                Cue.CardFlip => Cue.Click, Cue.ChestOpen or Cue.ChestHeavy => Cue.Creak, Cue.RewardChime => Cue.Bell, _ => cue };
             if (stand != cue) return MakeCue(stand);
             const int rate = 22050;
             float duration = cue switch

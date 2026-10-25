@@ -34,7 +34,7 @@ namespace Catchline.Game
             bool done = toCap ? LevelUpCardToCap(id) > 0 : LevelUpCard(id);
             if (!done) { Toast("Not enough tokens or coins for that level."); return; }
             fxCard = id; levelBarFrom = from; levelFxAt = tokenFxAt = Now;
-            audio?.Play(VoyageAudio.Cue.Purchase, .6f);
+            audio?.Play(VoyageAudio.Cue.TokenPour, .4f);
             if (c.AtCap) audio?.Play(VoyageAudio.Cue.Bell, .45f);
         }
 
@@ -56,7 +56,7 @@ namespace Catchline.Game
             const float Turn = .9f;
             if (t >= Turn && t - Time.unscaledDeltaTime < Turn)
             {
-                audio?.Play(VoyageAudio.Cue.Bell, .7f); audio?.Play(VoyageAudio.Cue.Coins, .5f);
+                audio?.Play(VoyageAudio.Cue.RewardChime, .7f); audio?.Play(VoyageAudio.Cue.Bell, .45f);
             }
             DarkScrim("rankfx/dim", () => rankFxAt = -9, Ease.Clamp(t / .3f) * (t > 2.8f ? 1 - (t - 2.8f) / .4f : 1));
             bool after = t >= Turn;
@@ -230,7 +230,12 @@ namespace Catchline.Game
             float size = Mathf.Min(ih * .34f, 280), cx = iw / 2f, restY = ih * .3f;
             bool popped = t >= Pop;
             if (r.Stage < 1 && t >= Drop) { r.Stage = 1; audio?.Play(VoyageAudio.Cue.Winch, .4f); }
-            if (r.Stage < 2 && popped) { r.Stage = 2; audio?.Play(VoyageAudio.Cue.Bell, .6f); audio?.Play(VoyageAudio.Cue.Coins, .6f); }
+            if (r.Stage < 2 && popped)
+            {
+                r.Stage = 2;
+                audio?.Play(r.Result.Kind is ChestKind.Crate or ChestKind.Welcome ? VoyageAudio.Cue.ChestOpen : VoyageAudio.Cue.ChestHeavy, .75f);
+                if (r.Best >= CardRarity.Purple) audio?.Play(VoyageAudio.Cue.RewardChime, .5f);
+            }
 
             // Light behind the chest once it opens, tinted by the best thing inside.
             if (popped)
@@ -290,7 +295,7 @@ namespace Catchline.Game
                 float tx = cx + (col_ - (inRow - 1) / 2f) * (cardW + gap), ty = areaTop + row * (cardH + gap) + cardH / 2;
                 float start = Out + i * Stagger, k = (t - start) / Fly;
                 if (k < 0) { allOut = false; allFlipped = false; continue; }
-                if (r.Stage < 3 + i) { r.Stage = 3 + i; audio?.Play(VoyageAudio.Cue.Click, .45f); }
+                if (r.Stage < 3 + i) { r.Stage = 3 + i; audio?.Play(VoyageAudio.Cue.CardFlip, .35f); }
                 if (k < 1) allOut = false;
                 float e = Ease.OutCubic(k), arc = Mathf.Sin(Mathf.Clamp01(k) * Mathf.PI) * size * .5f;
                 float px = Mathf.Lerp(cx, tx, e), py = Mathf.Lerp(restY, ty, e) - arc;
@@ -327,14 +332,15 @@ namespace Catchline.Game
             var r = reveal; if (r == null || r.FlipAt[i] >= 0) return;
             r.FlipAt[i] = Now + delay;
             var rarity = r.Items[i].rarity;
-            audio?.Play(rarity >= CardRarity.Purple ? VoyageAudio.Cue.Bell : VoyageAudio.Cue.Select, rarity >= CardRarity.Purple ? .6f : .5f);
+            audio?.Play(VoyageAudio.Cue.CardFlip, .55f);
+            if (rarity >= CardRarity.Purple) audio?.Play(VoyageAudio.Cue.RewardChime, .55f);
         }
 
         void CollectReveal()
         {
             var r = reveal; reveal = null;
             tokenFxAt = Now;
-            audio?.Play(VoyageAudio.Cue.Coins, .6f);
+            audio?.Play(VoyageAudio.Cue.TokenPour, .5f);
             if (r.Result.FreeBlueprints > 0) { crewTab = 0; renownChoice = -1; }
             else if (r.Result.Recruits.Count > 0) { crewTab = 0; cardPanelId = r.Result.Recruits[0]; }
         }
@@ -544,7 +550,7 @@ namespace Catchline.Game
             if (!ClaimRenown(n)) return;
             claimFxN = n; claimFxAt = Now;
             audio?.Play(VoyageAudio.Cue.Bell, .55f);
-            if (reward.Kind == RenownRewardKind.Tokens) { tokenFxAt = Now; audio?.Play(VoyageAudio.Cue.Coins, .5f); }
+            if (reward.Kind == RenownRewardKind.Tokens) { tokenFxAt = Now; audio?.Play(VoyageAudio.Cue.TokenPour, .5f); }
             else Toast($"{Chests.Def(reward.Chest).Name} added to Chests.");
         }
 
