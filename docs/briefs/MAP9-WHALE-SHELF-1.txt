@@ -1,0 +1,28 @@
+MAP9-WHALE-SHELF-1 — Codex 1 (Windows) — a ninth map, "Whale shelf", playable end to end (Claude, 2026-10-25 09:55)
+
+START ONLY AFTER MAP8 is DONE (including the PuffinLedge anchor FIX) and Claude has reviewed/committed it.
+
+GOAL (Mo: "add new maps"): a ninth map beyond Lighthouse rock, built exactly like MAP7/MAP8 and wired as spot 8.
+Claude's design calls (Mo away):
+- Theme: the edge of the continental shelf, far out. Mostly open water: a long underwater shelf edge seen through
+  clear water as a step from turquoise-teal (2A7F96) shallows to deep navy (102F4F) beyond; one low, bird-whitened
+  sea mount rock (angular, house rock style) and a sandbank-coloured shoal patch. No buildings. Same palette and
+  low-poly style as Art/STYLE.md and MAP6-8.
+- Size 360 x 280 m, three grounds: "Herring shoals" (herring 50, mackerel 35, whiting 12, rare flying fish 2),
+  "Shelf edge" (cod 30, pollock 30, conger 20, turbot 10, rare scarred great white shark 1), "Whale road"
+  (mackerel 35, sea bass 25, pollock 20, rare spotted eagle ray 3). Existing species only.
+- Spot data: RowSeconds 34, BiteWait 1.5, ChartCost 1,920 (1.4x Lighthouse rock), unlock one step after it.
+  Blurb: "Out where the shelf drops away. Herring shoals, cod on the edge, whales passing through."
+LESSONS (MAP6-8; do them first time): each ground's deck-camera frame (10.24 m span) shows its landmark in the lower
+corners, 6-12 m from the anchor, never under the hull or the bubbles; terrain angular and low near the boat, two-tone
+broken edges; no baked foam fins. Anchor EMPTIES must sit ON visible surfaces (MAP8's puffin anchors were buried in
+the rock: verify each anchor with a render before DONE). Leave empties for life Claude spawns (existing dispatch):
+GannetDive_1..2 over the herring shoals (water level), WhaleSpout_1..2 on the whale road (water level),
+CardinalBuoy_1 at the shelf edge, WreckGulls_1 on the sea mount top. Do not bake those props.
+CONTEXT: your MAP8 pipeline and REPORT, GameData Spots, SeaNav.Maps, Grounds.ByMap. The chart point/glyph for spot 8
+and the trip-chart landmarks are Claude's (VoyageChart*); leave a QUESTION when your capture needs them.
+ORDER/DONE/OWNERSHIP: as MAP8 (art, import, code in GameData Spots + map lists, Grounds.ByMap[8], checks in
+Catchline-sim with nine maps and a trip to each new ground, 10 native frames opened one by one, REPORT.md, one
+comms.md line per step, QUESTION and continue on conflict). Never: Minigame/**, VoyageHarbour*.cs, VoyageIntro.cs,
+Voyage*Life.cs, VoyageChart*.cs, VoyageTownsfolk.cs, VoyageCrabPots.cs, Skin.cs, CoastalCanvas.cs, Codex 2's folders;
+never batchmode the main project; never touch the player save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

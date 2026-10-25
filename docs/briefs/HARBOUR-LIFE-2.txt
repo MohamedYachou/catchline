@@ -1,0 +1,22 @@
+HARBOUR-LIFE-2 — Codex 2 — a harbour dog and cat, and two boat illustrations (Claude, 2026-10-25 10:00)
+
+GOAL (Mo: "polish everything ... 3d assets, animations"): the quay gets an animal or two between the townsfolk, and the
+refit card stops borrowing the compact fisher picture for the two biggest hulls. Claude writes all game code.
+
+1. Dog — Art/Models/HarbourLife/Dog.blend + .fbx. A medium scruffy harbour dog (border-collie-ish, black and white,
+   one ear flopped), same chunky faceted style and palette as the crew and the Puffin (Art/STYLE.md), <= 1200 tris,
+   standing height ~0.55 m, root empty "Dog", pivot between the feet, +Z forward in Unity like the Puffin. Own small rig
+   (<= 14 bones). Legacy-ready actions at 30 fps: Trot (0.6 s loop, root fixed, no root motion), Sit (3 s loop, small
+   breathing + tail wag), Sniff (2 s loop, head down, tail up). Export action names ending in Trot/Sit/Sniff.
+2. Cat — Art/Models/HarbourLife/Cat.blend + .fbx. A ginger harbour cat, <= 900 tris, ~0.3 m tall sitting, curled
+   asleep option: actions Sleep (4 s loop, curled, breathing) and Look (3 s loop, sitting, head turns, tail flick).
+3. Two refit-card illustrations matching Assets/Art/UI/v2-item-hull*.png style and size exactly (read the existing ones
+   and Art/Source/UIv2 for how they were made): v2-item-hull3.png (the Tier-4 boat) and v2-item-hull4.png (the Tier-5
+   boat, Assets/Art/Models/Boats). Render from the actual boat FBX with the same camera/light/outline recipe as the
+   existing item art, then the same post (palette, outline). Deliver to Art/Source/HarbourLife/ui/ (Claude copies).
+
+OWNERSHIP: Art/Models/HarbourLife/, Art/Source/HarbourLife/. No git, no Unity, no Assets/.
+DONE = EVIDENCE: five-view studio renders per animal (front, back, both sides, three-quarter) and five sampled frames
+per action, opened; the two PNGs beside two existing v2-item-hull PNGs on one comparison sheet, opened. REPORT.md.
+One comms.md line per item; CHECKPOINT at safe boundaries; QUESTION and skip on conflict.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

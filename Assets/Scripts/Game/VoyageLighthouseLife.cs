@@ -45,6 +45,7 @@ namespace Catchline.Game
                 }
                 glow.AddComponent<BeamSweep>();
             }
+            else DressShelf(anchor, waterY, lib);
         }
     }
 

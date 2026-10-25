@@ -40,6 +40,13 @@ namespace Catchline.EditorTools
                 Check(beam != null && beam.GetComponentsInChildren<Renderer>().All(r => r.sharedMaterial.shader.name == "Catchline/GlowAdditive"), "lamp beam in the glow material");
                 Check(env.GetComponentInChildren<BuoyBob>() != null, "cardinal buoy");
 
+                // The Whale shelf's anchors (MAP9) on a fixture until the map lands.
+                var shelf = new GameObject("Shelf fixture"); shelf.transform.position = new Vector3(-600, -.12f, 0);
+                var spoutAnchor = new GameObject("WhaleSpout_1").transform; spoutAnchor.SetParent(shelf.transform, false); spoutAnchor.localPosition = new Vector3(0, .3f, 0);
+                typeof(VoyageGame).GetMethod("DressSkerries", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(g, new object[] { shelf, lib });
+                Check(shelf.GetComponentInChildren<WhaleSpout>() != null && shelf.GetComponentInChildren<WhaleTail>() != null, "whale spout and tail on the whale road");
+                Check(Mathf.Abs(shelf.GetComponentInChildren<WhaleTail>().transform.position.y + .12f) < .001f, "whale tail at the water line");
+
                 // A deck-angle view of the dressed map, and close views of each piece.
                 var sun = new GameObject("Sun").AddComponent<Light>(); sun.type = LightType.Directional; sun.intensity = 1.3f;
                 sun.color = new Color(1, .96f, .88f); sun.transform.rotation = Quaternion.Euler(55, 195, 0);

@@ -1,0 +1,19 @@
+SOUND-2 — Codex 2 — sounds for tonight's new scenes (Claude, 2026-10-25 09:50)
+
+GOAL (Mo: "sound"): the new harbour dusk, Lighthouse rock, the harbour animals, crab pots and net repair have no sound
+of their own yet. Same method, format, loudness rules and evidence as SOUND-1 (read docs/briefs/SOUND-1.txt and
+Art/Audio/REPORT.md; reuse your Art/Source/Audio tooling). Calm coastal mood; never arcade.
+
+DELIVER Art/Audio/SFX/<Cue>_<n>.wav (n = 0,1,2, 44.1 kHz 16-bit mono, peak <= -3 dBFS, no clicks):
+- Puffin (a low, purring growl-call, 0.5-0.9 s), Foghorn (one distant diaphone blast with tail, 2.5-3.5 s, quiet,
+  very low), DogBark (one friendly single bark, 0.25 s), Meow (short, 0.4 s), Stitch (twine pulled through net mesh,
+  0.2 s, for each trace segment), PotDrop (a crab pot and its buoy going over the side: thump on rail + splash, 0.8 s).
+Ambience, stereo 30 s seamless loops in Art/Audio/Ambience/:
+- HarbourDusk.wav: as HarbourDay but evening: lapping water, a few far gulls, one far church bell stroke around 20 s,
+  softer and warmer; no crickets.
+- LighthouseRock.wav: open swell and surf on rock, a puffin colony murmuring far off, wind; no foghorn (it is a cue).
+
+OWNERSHIP: Art/Audio/ (new files only; do not change SOUND-1 files), Art/Source/Audio/. No git, no Unity, no Assets/.
+DONE = EVIDENCE: waveform + spectrogram sheets per new file (opened), metrics.json additions (duration, peak, LUFS, DC,
+loop-seam discontinuity), REPORT.md section. One comms.md line per family; CHECKPOINT at safe boundaries; QUESTION and
+skip on conflict. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
