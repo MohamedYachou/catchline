@@ -40,6 +40,7 @@ namespace Catchline.Game
         {
             public Person Worker;
             public CaughtFish Fish;
+            public CaughtFish Extra;
             public bool Chum;
             public int Yield;
             public int Slot;
@@ -82,7 +83,7 @@ namespace Catchline.Game
             var order = State.PrepOrders;
             CaughtFish Pick(bool chum)
             {
-                var eligible = ProcessingInput.Where(f => !prepJobs.Any(j => j.Fish == f)
+                var eligible = ProcessingInput.Where(f => !prepJobs.Any(j => j.Fish == f || j.Extra == f)
                     && (!chum || State.Chum + ChumBeingMade < Mathf.Clamp(order.ChumTarget, 0, 99)
                         && order.Allows(f, true)));
                 // Chum keeps its existing input order. Sorting takes the oldest fish first.
@@ -104,6 +105,7 @@ namespace Catchline.Game
             var job = new PrepJob { Worker = hand, Fish = fish, Chum = isChum,
                 Slot = slot, Yield = isChum ? PrepOrderSettings.ChumYield(fish.Species,fish.Kg) : 0 };
             prepJobs.Add(job);
+            if (!isChum && (Abilities?.ProductBatch(AbilityOwner(hand)) ?? 1) == 2) job.Extra = Pick(false);
             void Release()
             {
                 prepJobs.Remove(job);
@@ -120,7 +122,13 @@ namespace Catchline.Game
                         if (State.Chum < Mathf.Clamp(State.PrepOrders.ChumTarget, 0, 99))
                         { Flow.Record(FlowTelemetry.Kind.Chum, fish.Kg); ProcessingInput.Remove(fish); RemovePipelineVisual(fish); State.Chum += job.Yield; }
                     }
-                    else SortFish(fish);
+                    else
+                    {
+                        SortFish(fish);
+                        int count = 1;
+                        if (job.Extra != null && ProcessingInput.Contains(job.Extra)) { SortFish(job.Extra); count++; }
+                        Abilities?.ProductDone(AbilityOwner(hand), count);
+                    }
                 }
                 Release();
                 hand.FacePoint(PrepSurfaceLocal);
@@ -136,7 +144,7 @@ namespace Catchline.Game
                 hand.Do("Taking fish", GameData.TableHandleTime, () =>
                 {
                     job.Visual.localPosition = IsTier5 ? PrepSurfaceLocal : new Vector3(3.6f, .8f, side);
-                    hand.Do(job.Chum ? "Making chum" : "Sorting fish", job.Chum ? PrepOrderSettings.ChumWorkSeconds : PrepOrderSettings.SortWorkSeconds, () =>
+                    hand.Do(job.Chum ? "Making chum" : "Processing", job.Chum ? PrepOrderSettings.ChumWorkSeconds : PrepOrderSettings.SortWorkSeconds, () =>
                     {
                         // Turn/reach to the box behind; feet stay on the same tile.
                         hand.FacePoint(IsTier5 ? PreparedOutputLocal : new Vector3(4.84f, .5f, side));

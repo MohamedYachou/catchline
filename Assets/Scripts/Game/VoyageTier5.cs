@@ -119,14 +119,17 @@ namespace Catchline.Game
                     landed.Root=DeckFish.BuildModel(fish.Species,kg,Boat);landed.RestPos=Grid.GetLocal(buoyTiles[i])+new Vector3(.08f,.08f,.08f);landed.SpawnFrom=landed.RestPos+Vector3.up*.3f;landed.Root.localPosition=landed.SpawnFrom;
                     OnDeck.Add(landed);
                 }
-                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);State.OnCatch(ActiveSpot,kg,fish.Species,false);Stats.Landed++;ShowCatch(fish.Species,kg);
+                RecordLanding(FlowTelemetry.Kind.Trap,fish.Species,kg);AbilityCatch(ActiveSpot,kg,fish.Species,false);Stats.Landed++;ShowCatch(fish.Species,kg);
             }
             void Recovered(){BuoyHauls++;buoyTimers[i]=0;Cancel();}
             void Finish()
             {
                 if(buoyWorkers[i]!=p)return;
                 if(HoldFull){Cancel();return;}
-                Land(Mathf.Lerp(.5f,1.8f,(float)State.Rng.NextDouble()));Recovered();
+                int count = 1 + (Abilities?.ExtraGearCatch(AbilityOwner(p)) ?? 0);
+                for(int n=0;n<count;n++)
+                    Land(AbilityWeight(Species.Crab,Mathf.Lerp(.5f,1.8f,(float)State.Rng.NextDouble()),.5f,1.8f));
+                Recovered();
             }
             void Sorted(CageModel cage)
             {

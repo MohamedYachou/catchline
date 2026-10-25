@@ -33,8 +33,6 @@ namespace Catchline.Game
             {
                 person.Skill = card == null ? 100 : CardProgression.Skill(card.Def,card.Rarity,job);
                 person.LevelMult = card == null ? 1 : CardProgression.WorkMult(card);
-                // Interim Green passives until the ability engine (CREW-CARDS-UI-1 step 2) replaces this line.
-                if (card != null && card.Has(card.Def.Passive) && ((job == Catchline.Game.Speciality.Sort && card.Id == "noor") || (job == Catchline.Game.Speciality.Table && card.Id == "mats") || (job == Catchline.Game.Speciality.Haul && card.Id == "ana"))) person.Skill *= 1.1f;
             }
             public Vector2Int Tile => person.Tile;
             public bool WalkTo(Vector2Int tile, Action arrive, Action cancel) { Skill(Catchline.Game.Speciality.Haul); return person.WalkTo(grid, tile, arrive, cancel); }
@@ -63,6 +61,7 @@ namespace Catchline.Game
                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
                 CaptainBench = BeginGut,
             };
+            WireAbilityJobs();
             SyncDeckWorkers();
             SpawnStationProps();
         }
@@ -115,11 +114,15 @@ namespace Catchline.Game
             if (Scheduler == null) return;
             foreach (var p in People)
             {
-                if (workers.ContainsKey(p)) continue;
+                if (workers.TryGetValue(p, out var existing))
+                {
+                    existing.HandCount = CardFor(p.Contract)?.Id == "sam" && Abilities?.Has("sam", 0) == true ? 4 : 3;
+                    continue;
+                }
                 var w = new Worker
                 {
                     Name = p.Name, Captain = p == Captain, Role = p == Captain ? CrewRole.Deckhand : p.Contract.Role, Card = CardFor(p.Contract), Actor = new PersonActor(p, DeckGraph.Grid, CardFor(p.Contract)),
-                    HandCount = CardFor(p.Contract)?.Id == "sam" ? 4 : 3,
+                    HandCount = CardFor(p.Contract)?.Id == "sam" && Abilities?.Has("sam", 0) == true ? 4 : 3,
                     Available = () => p.Idle || p.Loitering,
                     Primary = p.Contract?.WorkPreference == DeckhandWork.Prep ? Duty.Table : p.Contract?.WorkPreference == DeckhandWork.Nets ? Duty.Sort : Duty.Haul, Secondary = Duty.Sort,
                 };

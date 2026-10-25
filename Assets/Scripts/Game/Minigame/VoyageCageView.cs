@@ -24,11 +24,11 @@ namespace Catchline.Game
         {
             cageView?.Dispose();
             CageResult = null;
-            cageView = new CageView(this, buoy, new CageModel(State.Rng), sorted, cancel, TipDue("catchline.cageTipsShown", ref cageViewHauls));
+            cageView = new CageView(this, buoy, new CageModel(State.Rng,Abilities?.DoubleWeight == true), sorted, cancel, TipDue("catchline.cageTipsShown", ref cageViewHauls));
             toastUntil = catchUntil = 0;
         }
 
-        public void TapCage() { if (cageView?.Model.Phase == CagePhase.Pull) { cageView.Model.Tap(); if (cageView.Model.Tapped) audio?.Play(VoyageAudio.Cue.Winch, .3f); } }
+        public void TapCage() { if (cageView?.Model.Phase == CagePhase.Pull) { cageView.Model.Tap(Abilities?.WinchRate(null) ?? 1); if (cageView.Model.Tapped) audio?.Play(VoyageAudio.Cue.Winch, .3f); } }
         public void DragCage(int dir) { if (cageView != null && !cageView.Model.Drag(dir) && cageView.Model.Phase == CagePhase.Snag) audio?.Play(VoyageAudio.Cue.Moor, .4f); }
         public void FlickCage(bool keep) => cageView?.Flick(keep);
         public void LeaveCage() { if (cageView != null && !cageView.Finished) { var v = cageView; cageView = null; v.Dispose(); Cam.orthographic = true; Cam.ResetProjectionMatrix(); v.Cancel(); } }

@@ -64,7 +64,7 @@ namespace Catchline.Game
         }
         public static bool SmallSchool(Species s) => s==Species.Herring||s==Species.Mackerel||s==Species.Whiting||s==Species.Pollock;
         // Extracted unchanged from the actual net roll, including float RNG arithmetic and fallback.
-        public static List<(Species species,float kg)> RollNet(int hull,int spot,bool deep,float target,System.Random rng,(Species species,float weight)[] table=null)
+        public static List<(Species species,float kg)> RollNet(int hull,int spot,bool deep,float target,System.Random rng,(Species species,float weight)[] table=null,bool heavier=false)
         {
             var result=new List<(Species species,float kg)>();bool large=deep;float mass=0;
             table??=GameData.Spots[spot].Table;
@@ -89,7 +89,8 @@ namespace Catchline.Game
                 }
                 var fish=GameData.Get(species);float low=Mathf.Lerp(fish.MinKg,fish.MaxKg,large?.65f:.05f);
                 float high=Mathf.Min(remaining,Mathf.Lerp(fish.MinKg,fish.MaxKg,large?1:.25f));
-                float kg=Mathf.Lerp(low,high,(float)rng.NextDouble());if(kg<=0||mass+kg>target+.00001f)break;
+                float sample=(float)rng.NextDouble();if(heavier)sample=Mathf.Max(sample,(float)rng.NextDouble());
+                float kg=Mathf.Lerp(low,high,sample);if(kg<=0||mass+kg>target+.00001f)break;
                 result.Add((species,kg));mass+=kg;
             }
             return result;

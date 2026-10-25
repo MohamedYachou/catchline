@@ -103,8 +103,12 @@ namespace Catchline.Game
                 if (!Owns()) return;
                 if (!DeepLinesActive || CurrentMode != Mode.Fishing || !AtFishingGround || HoldFull) { Cancel(); return; }
                 var bait = State.SelectDeepLineBait(fisher.Contract);
-                if (bait != BaitPermission.None && deepLines[rig].Phase == DeepLinePhase.Empty
-                    && State.TakeDeepLineBait(fisher.Contract)) deepLines[rig].Deploy(bait);
+                if (bait != BaitPermission.None && deepLines[rig].Phase == DeepLinePhase.Empty)
+                {
+                    string owner = AbilityOwner(fisher);
+                    bool saved = Abilities?.SaveChum(owner) == true;
+                    if ((saved || State.TakeDeepLineBait(fisher.Contract)) && deepLines[rig].Deploy(bait)) lineSetter[rig] = owner;
+                }
                 Cancel();
             }
             bool started = fisher.WalkTo(Grid, deepLineTiles[rig], () =>
@@ -146,21 +150,22 @@ namespace Catchline.Game
                 if (cycle.Phase == DeepLinePhase.CatchOnDeck && (UsesDeckGraph
                     ? GearStation(Deck.StationKind.Line, rig)?.Out?.Count == 0
                     : !OnDeck.Any(f => f.DeepLineRig == rig))) cycle.Collected();
-                if (!cycle.Tick(dt)) continue;
-                for (int n = 0; n < DeepLineRules.CatchCount(rig); n++)
+                if (!cycle.Tick(dt, Abilities?.BiteDuration(lineSetter[rig], true) ?? 1)) continue;
+                int count = DeepLineRules.CatchCount(rig) + (Abilities?.ExtraGearCatch(lineSetter[rig]) ?? 0);
+                for (int n = 0; n < count; n++)
                 {
                     var bait = cycle.Bait;
-                    var caught = DeepLineRules.Roll(State,ActiveSpot,bait);
+                    var caught = DeepLineRules.Roll(State,ActiveSpot,bait,Abilities?.DoubleWeight == true);
                     if (UsesDeckGraph && GearStation(Deck.StationKind.Line, rig) is {} station)
                     {
-                        LandOnDeck(station, caught.Item1, caught.Item2); Stats.Landed++; State.OnCatch(ActiveSpot, caught.Item2, caught.Item1, false);
+                        LandOnDeck(station, caught.Item1, caught.Item2); Stats.Landed++; AbilityCatch(ActiveSpot, caught.Item2, caught.Item1, false);
                         RecordLanding(FlowTelemetry.Kind.DeepLine, caught.Item1, caught.Item2); continue;
                     }
                     var fish = new DeckFish { Species = caught.Item1, Kg = caught.Item2, Tile = deepLineTiles[rig], CaughtAt = SimTime, CaughtByCrew = true, DeepLineRig = rig };
                     fish.Root = DeckFish.BuildModel(fish.Species, fish.Kg, Boat);
                     fish.RestPos = Grid.GetLocal(fish.Tile) + new Vector3(.08f + n * .10f, .08f, .08f);
                     fish.SpawnFrom = deepLineTips[rig]; fish.Root.localPosition = fish.SpawnFrom;
-                    OnDeck.Add(fish); Stats.Landed++; State.OnCatch(ActiveSpot, fish.Kg, fish.Species, false);
+                    OnDeck.Add(fish); Stats.Landed++; AbilityCatch(ActiveSpot, fish.Kg, fish.Species, false);
                     RecordLanding(FlowTelemetry.Kind.DeepLine, fish.Species, fish.Kg);
                 }
                 DeepLineHauls++;

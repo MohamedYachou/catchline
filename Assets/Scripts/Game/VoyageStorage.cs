@@ -14,6 +14,7 @@ namespace Catchline.Game
             // Unity callbacks execute sequentially. Recheck on every individual insert,
             // including two workers finishing their animations on the same frame.
             Cooler.Add(fish);
+            Abilities?.HoldFill(HoldKg / State.CoolerCapacity);
             if (CurrentMode == Mode.Fishing && !flowReturning)
             {
                 Flow.Record(FlowTelemetry.Kind.Stored, fish.Kg, carried: carried);

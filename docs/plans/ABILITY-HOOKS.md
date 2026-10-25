@@ -237,3 +237,77 @@ core handoff and actual implementation. New files stay within
 
 Step 0 exit: 14 crew x 3 abilities + one trait mapped, missing mechanics logged
 as QUESTION lines in `comms.md`. Step 1 remains gated on `CARDS-CORE READY`.
+
+## Step 2 implementation handoff — Codex 1, 2026-10-25
+
+Claude's CARDS-CORE READY d521a5a and Q1–Q12 answers in comms.md supersede
+this document's original questions and screen assignment. Claude owns all UI.
+Codex 1 implemented the engine and simulation hooks only; no native visual or
+player acceptance is claimed here.
+
+- `Assets/Scripts/Game/Crew/CrewAbilityEngine.cs`: voyage-local deployment/rarity
+  gates, counters, one-shot charges, timers, job/tool factors, durable fish value
+  annotations, freshness overlap and all 42 ability rules plus First mate.
+- `Crew/VoyageAbilityHooks.cs`: net setter/hauler attribution by rig, capacity-bound
+  extra net specimens, Rosa's first six keepers into the hold, Noor's first five
+  zero-work sorts after physical arrival, and scheduler event wiring.
+- `Crew/DeliverySortBonus.cs`: nonstacking Hand-off charge per station. A delivery
+  during a running sort survives for the next sort; cancelling spends nothing.
+- `VoyageCards.cs`, `DeckActors.cs`, `VoyageDeck.cs`, `Deck/Jobs.cs` and
+  `Deck/DeckScheduler.cs`: job-specific skill/work speed, owner tool factors,
+  Sam's actual carry limits and captured whole-load charge, Ana's bounded-hand
+  route across a snapshot of at least six waiting fish, atomic two-input Mats
+  batches, normal reservations and cancellation.
+- `VoyageGame.cs`, `VoyageNet.cs`, `VoyageSecondNetModule.cs`,
+  `CatchExpectation.cs`, `DeepLineRules.cs`, `VoyageDeepLines.cs`,
+  `VoyageTier5.cs`, `VoyagePrepOrders.cs`, `VoyageStorage.cs`, `VoyageSea.cs`,
+  `VoyageTrip.cs`, `Minigame/BiteModel.cs`, `Minigame/CageModel.cs` and
+  `Minigame/VoyageCageView.cs`: source-specific roll/landing/soak hooks,
+  freshness, fuel and travel consumers. Cage edits affect simulation inputs,
+  with no screen/layout/animation changes.
+
+UI query: `VoyageGame.ActiveAbilities(Person)` returns an immutable snapshot of
+unlocked deployed abilities (`CardId`, `AbilityId`, `Active`, `LastFired`,
+`Until`). Time values are voyage simulation seconds; -1 means never fired or
+no expiry. Queries neither advance the clock nor create counter state. Timed
+windows and armed next-event bonuses report active separately from event pulses.
+Read it; never tick the engine from drawing code.
+
+Resolved behavior: independent work factors multiply once; tools add within
++50%; shared engineer winch tools reach net/pot operators and captain cage pulls;
+captain oil-can equipment contributes to fuel use. Crew-only work effects exclude
+the captain. Bite factors have a .40 duration floor and do not shorten strike
+windows. Cage winch bonuses increase lift per tap without accelerating snag,
+wrong-drag or sort clocks. Extra catches preserve source legality and capacity.
+On scraps, trophy weight uses the top quarter of the permitted bottom-20% range,
+so a crew bonus does not silently upgrade bait permission. Same-again is committed
+on completed sorts; charges and haul/product counters do not advance on cancellation.
+
+Q11/Q12 accepted interim scope is intentional: Pim's paid-bait saver is deep-line
+only; the pot has a recovery action rather than a paid bait stage. Tove sorts
+crabs/heavy fish faster and has no invented pinch immunity. There is no existing
+"Repairing" or "Engine work" timed action consumer; the toolbelt work factor is
+available in the engine for those labels, without inventing a repair minigame.
+
+Verification entrypoint:
+`docs/tools/check.ps1 -Name crew-abilities-final -Method Catchline.EditorTools.CrewCardsAbilityChecks.Regression`
+
+The suite runs in Catchline-sim only, on the current shared Assets tree including
+Claude's completed CrewUi. `Assets/Editor/CrewCardsAbilityChecks.cs` covers trigger,
+expiry/unlock/deployment, probabilities, selected legal weight ranges (200 paired
+seeds), cancellation, real multi-source routing, two-input atomic jobs, Hand-off
+arrivals mid-sort, and real voyage net-to-hold/deck hooks. Regression additionally
+runs M2Checks (including card economy/save and actual departure/return/sale),
+BiteModelChecks and CageModelChecks. The JSON snapshot is check evidence, not a
+render or screenshot. Exact completion/count and log path are recorded in comms.md.
+Native HUD badges, screen/reveal screenshots, touch behavior, final lead review
+and commit remain Claude/Mo's acceptance work.
+
+Final E4 verification: full shared-tree scratch Unity exit **0**, **286** ability
+assertions and M2/BiteModel/CageModel regression PASS. Evidence:
+`C:/Users/momoy/Projects/Catchline-sim/Logs/check-crew-abilities-final.log`
+(SHA256 `3548CD6E3FE67BB2D7F521D423D52F3D1B058DA56A94E7624090FE3CCB7D23A8`),
+`crew-abilities-final.json` and `crew-abilities-source-manifest.json` in the same
+folder. Final manifest verifies all **23** owned C# files in main match the tested
+scratch bytes. Temporary backups remain because automatic approval review blocked
+the cleanup command (only reason returned: blocked by policy).

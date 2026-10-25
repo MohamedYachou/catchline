@@ -84,6 +84,9 @@ namespace Catchline.Game
         // One work-speed model: skill 100 and level 1 for the captain and (until cards arrive) every hand. See WorkSpeed.
         public float Skill = WorkSpeed.SpecialitySkill, LevelMult = WorkSpeed.BaseLevelMult;
         public System.Func<float> WalkMultiplier = () => 1f;
+        public System.Func<string, float> ActionMultiplier = _ => 1f;
+        public Action<string> PrepareAction;
+        public Action PrepareWalk;
         public float Speed => WorkSpeed.Rate(Skill, LevelMult);
         public CrewMember Contract;
         public Transform Root { get; private set; }
@@ -217,6 +220,7 @@ namespace Catchline.Game
         public bool WalkTo(DeckGrid grid, Vector2Int tile, Action onArrive, Action onCancel = null)
         {
             Stop();
+            PrepareWalk?.Invoke();
             Grid = grid;
             var p = grid.FindPath(Tile, tile);
             if (p == null) return false;
@@ -229,6 +233,7 @@ namespace Catchline.Game
         public void Do(string label, float seconds, Action done, Action cancel = null)
         {
             EndLoiter();
+            PrepareAction?.Invoke(label);
             BusyLabel = label;
             busyLeft = busyTotal = seconds;
             busyDone = done;
@@ -297,7 +302,7 @@ namespace Catchline.Game
 
             if (Busy)
             {
-                busyLeft -= dt * Speed;
+                busyLeft -= dt * Speed * ActionMultiplier(BusyLabel);
                 if (busyLeft <= 0f)
                 {
                     var done = busyDone;
@@ -523,7 +528,7 @@ namespace Catchline.Game
             ReadingResult = null;
             if (g.Manning == this && g.Attending(this) && Fisher == null)
             {
-                (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid, Chum);
+                (HookedSpecies, HookedKg) = g.RollAbilityRod(this);
                 Reading = new BiteModel(HookedSpecies, HookedKg, g.State.Rng);
                 ReadingResult = null; CastAge = ResultAge = 0;
                 var outward = g.Boat.TransformDirection(Outward).normalized;
@@ -606,7 +611,7 @@ namespace Catchline.Game
                     break;
 
                 case RodState.Waiting:
-                    waitTimer += dt;
+                    waitTimer += dt / g.AbilityBiteDuration(Fisher);
                     if (nextNibble < nibbles.Count && waitTimer >= nibbles[nextNibble])
                     {
                         nextNibble++;
@@ -624,8 +629,8 @@ namespace Catchline.Game
                     {
                         State = RodState.Bite;
                         t = 0f;
-                        (HookedSpecies, HookedKg) = g.State.RollFish(g.ActiveSpot, Power + (Squid ? GameData.SquidPowerBonus : 0f), Scraps, Squid, Chum);
-                        biteWindow = g.StrikeWindow;
+                        (HookedSpecies, HookedKg) = g.RollAbilityRod(this);
+                        biteWindow = g.StrikeWindow * g.AbilityStrike(Fisher);
                         selfHook = (float)g.State.Rng.NextDouble() < g.State.SelfHookChance;
                         splash.gameObject.SetActive(true);
                         g.OnBite(this);
@@ -663,7 +668,7 @@ namespace Catchline.Game
                     break;
 
                 case RodState.Reeling:
-                    t += dt * g.State.ReelSpeed * (Fisher?.Speed ?? 1f) / reelTotal;
+                    t += dt * g.State.ReelSpeed * g.AbilityRodWork(Fisher) * g.AbilityReel(Fisher) / reelTotal;
                     var under = new Vector3(tipWorld.x, WaterY, tipWorld.z);
                     bobPos = Vector3.Lerp(castFrom, under, t) + Vector3.up * Mathf.Abs(Mathf.Sin(anim * 18f)) * 0.04f;
                     showShadow = true;
@@ -712,7 +717,7 @@ namespace Catchline.Game
                 return;
             }
             var before = Reading.Phase;
-            Reading.Tick(dt);
+            Reading.Tick(dt, 1 / g.AbilityBiteDuration(null), g.AbilityStrike(null), g.AbilityReel(null));
             if (!ReadingResult.HasValue)
             {
                 State = Reading.Phase == FishPhase.Take ? RodState.Bite : RodState.Waiting;

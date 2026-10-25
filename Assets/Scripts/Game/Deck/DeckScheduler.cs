@@ -22,6 +22,15 @@ namespace Catchline.Game.Deck
         public Func<float> HoldRemainingKg = () => float.MaxValue;
         public Action<CaughtFish> OnStowed, OnThrown;
         public Action<Job, CaughtFish> OnTableDone; // M3 product chain; default passes the fish on to TableOut
+        public Action<Job, CaughtFish> OnSorted;
+        public Action<Job> OnDelivered, OnProductDone, OnCancelled;
+        public Func<Job, float> BenchRate = _ => 1;
+        public Func<Worker, int> ProductBatch = _ => 1;
+        public Func<Worker, Basket, bool> WholeLoad = (_, _) => false;
+        public Func<Worker, bool> SweepReady = _ => false;
+        public Action<Worker> OnSweepDelivered;
+        readonly Dictionary<Worker, HashSet<CaughtFish>> sweeps = new();
+        readonly HashSet<Worker> deliveredSweep = new();
         // The captain's own table work: the game plays the gutting view and calls done (or cancel) itself.
         public Action<Job, Action, Action> CaptainBench;
         // Seconds for one act; the game wires these to the one work-speed model (CARDS-AND-SPEEDS §1, §4).
@@ -69,6 +78,26 @@ namespace Catchline.Game.Deck
 
         public Job Pick(Worker w)
         {
+            if (sweeps.ContainsKey(w) || SweepReady(w))
+            {
+                if (!sweeps.ContainsKey(w))
+                {
+                    var waiting = Deck.Baskets.Where(b => b.Kind is not (BasketKind.SortIn or BasketKind.TableIn)).SelectMany(b => b.Unclaimed)
+                        .Concat(Loose.Where(l => l.Claim == null).Select(l => l.Fish)).ToHashSet();
+                    if (waiting.Count >= 6) { sweeps[w] = waiting; deliveredSweep.Remove(w); }
+                }
+                if (sweeps.TryGetValue(w, out var snapshot))
+                {
+                    // Fish already delivered by other hands no longer belong to this route.
+                    snapshot.IntersectWith(Deck.Baskets.SelectMany(b => b.Fish).Concat(Loose.Select(l => l.Fish)));
+                    if (snapshot.Count == 0) { sweeps.Remove(w); deliveredSweep.Remove(w); }
+                    else
+                    {
+                        var sweep = PickHaul(w);
+                        if (sweep != null) return sweep;
+                    }
+                }
+            }
             foreach (var duty in Duties(w).Distinct())
             {
                 var job = duty switch { Duty.Sort => PickSort(w), Duty.Table => PickTable(w), _ => PickHaul(w) };
@@ -85,7 +114,7 @@ namespace Catchline.Game.Deck
                 .OrderByDescending(t => t.In.Fill).ThenBy(t => Dist(w, t)).FirstOrDefault();
             if (s == null) return null;
             var job = new Job { Kind = JobKind.Sort, Worker = w, Source = s.In, At = s, Label = "Sorting", Target = Drop.To(s.Out) };
-            var batch = s.In.Unclaimed.Take(w.WholeBasket ? s.Out.Free : 1).ToList();
+            var batch = s.In.Unclaimed.Take(1).ToList();
             foreach (var f in batch)
             {
                 if (!s.In.Claim(f,job)) continue;
@@ -105,9 +134,11 @@ namespace Catchline.Game.Deck
                 .OrderByDescending(t => t.In.Fill).ThenBy(t => Dist(w, t)).FirstOrDefault();
             if (s == null) return null;
             var job = new Job { Kind = JobKind.TableWork, Worker = w, Source = s.In, At = s, Label = "Processing", Target = Drop.To(s.Out) };
-            var f = s.In.Unclaimed.First();
-            if (!s.In.Claim(f, job) || !s.Out.Reserve(1)) { s.In.Release(f, job); return null; }
-            job.Fish.Add(f); job.reserved = 1;
+            foreach (var f in s.In.Unclaimed.Take(Math.Min(s.Out.Free, ProductBatch(w))).ToList())
+                if (s.In.Claim(f, job)) job.Fish.Add(f);
+            if (job.Fish.Count == 0 || !s.Out.Reserve(job.Fish.Count))
+            { foreach (var f in job.Fish) s.In.Release(f, job); return null; }
+            job.reserved = job.Fish.Count;
             return job;
         }
 
@@ -135,7 +166,7 @@ namespace Catchline.Game.Deck
         Job PickHaul(Worker w)
         {
             // Loose fish block a deck tile and come first.
-            foreach (var lf in Loose.Where(l => l.Claim == null).OrderBy(l => Deck.Distance(w.Actor.Tile, l.Tile)))
+            foreach (var lf in Loose.Where(l => l.Claim == null && SweepAllows(w, l.Fish)).OrderBy(l => Deck.Distance(w.Actor.Tile, l.Tile)))
             {
                 if (FishRules.NeedsTwo(lf.Fish) && !w.PowerLifter && w.HandKg < lf.Fish.Kg) continue; // two-carrier fish wait for a strong lifter or a pair (M2 ability)
                 var drop = Decide(lf.Fish) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
@@ -158,13 +189,19 @@ namespace Catchline.Game.Deck
         Job BuildHaul(Worker w, Basket b)
         {
             if (b.UnclaimedCount == 0) return null;
-            var drop = NextFor(b, b.Unclaimed.First());
+            var first = b.Unclaimed.FirstOrDefault(f => SweepAllows(w, f));
+            if (first == null) return null;
+            var drop = NextFor(b, first);
             if (drop == null) return null;
             var job = new Job { Kind = JobKind.Haul, Worker = w, Source = b, Target = drop, Label = "Hauling" };
             float kg = 0;
+            bool whole = WholeLoad(w, b);
+            job.WholeLoad = whole;
             foreach (var f in b.Unclaimed.ToList())
             {
-                if (job.Fish.Count >= w.HandCount || kg + f.Kg > w.HandKg && job.Fish.Count > 0) break;
+                if (!SweepAllows(w, f)) continue;
+                bool heavyPair = w.PowerLifter && f.Kg > 3 && job.Fish.All(x => x.Kg > 3) && job.Fish.Count < 2;
+                if (!whole && (job.Fish.Count >= w.HandCount || !heavyPair && kg + f.Kg > w.HandKg && job.Fish.Count > 0)) break;
                 var d = NextFor(b, f);
                 if (d == null || d.Hold != drop.Hold || d.Basket != drop.Basket) continue;
                 if (drop.Basket != null && drop.Basket.Free < job.Fish.Count + 1) break;
@@ -175,14 +212,11 @@ namespace Catchline.Game.Deck
             if (drop.Basket != null) { drop.Basket.Reserve(job.Fish.Count); job.reserved = job.Fish.Count; }
             return job;
         }
+        bool SweepAllows(Worker worker, CaughtFish fish) => !sweeps.TryGetValue(worker, out var snapshot) || snapshot.Contains(fish);
 
         public float HaulWalkMultiplier(Worker worker)
         {
-            var job = worker.Current;
-            if (job?.Kind != JobKind.Haul) return 1;
-            bool same(Job other) => other?.Kind == JobKind.Haul && other.Source == job.Source && other.Source != null && other.Target?.Basket == job.Target?.Basket && other.Target?.Hold == job.Target?.Hold;
-            bool sam(Worker w) => w.Card?.Id == "sam" && w.Card.Rarity >= CardRarity.Purple;
-            return Workers.Any(w => w != worker && same(w.Current) && (sam(w) || sam(worker))) ? 1.3f : 1;
+            return 1; // No generic heavy penalty; Sam's v2 perk changes load eligibility.
         }
 
         // ---- running ------------------------------------------------------------------------
@@ -226,7 +260,12 @@ namespace Catchline.Game.Deck
             Walk(job, Deck.Access(job.At), () =>
             {
                 if (w.Captain && job.Kind == JobKind.TableWork && CaptainBench != null) CaptainBench(job, Done, () => Cancel(job));
-                else w.Actor.Act(job.Label, ActSeconds(w, job.Kind), Done, () => Cancel(job));
+                else
+                {
+                    float seconds = ActSeconds(w, job.Kind) / BenchRate(job);
+                    if (seconds <= 0) Done();
+                    else w.Actor.Act(job.Label, seconds, Done, () => Cancel(job));
+                }
             });
             void Done()
             {
@@ -235,6 +274,7 @@ namespace Catchline.Game.Deck
                 job.Source.Take(f, job);
                 if (job.Kind == JobKind.Sort)
                 {
+                    OnSorted?.Invoke(job, f);
                     var outcome = Decide(f);
                     if (outcome == SortOutcome.Throw) { job.Target.Basket.Unreserve(1); Thrown++; OnThrown?.Invoke(f); }
                     else { if (outcome == SortOutcome.Table) forTable.Add(f); job.Target.Basket.Put(f, true); }
@@ -246,6 +286,7 @@ namespace Catchline.Game.Deck
                     else job.Target.Basket.Put(f, true);
                 }
                 }
+                if (job.Kind == JobKind.TableWork) OnProductDone?.Invoke(job);
                 job.reserved = 0; Finish(job);
             }
         }
@@ -266,6 +307,13 @@ namespace Catchline.Game.Deck
                 else if (job.Target.Hold) { Stowed++; forTable.Remove(f); OnStowed?.Invoke(f); }
                 else job.Target.Basket.Put(f, true);
             }
+            OnDelivered?.Invoke(job);
+            if (sweeps.TryGetValue(w, out var snapshot))
+            {
+                snapshot.ExceptWith(job.Fish);
+                if (deliveredSweep.Add(w)) OnSweepDelivered?.Invoke(w);
+                if (snapshot.Count == 0) { sweeps.Remove(w); deliveredSweep.Remove(w); }
+            }
             job.reserved = 0; Finish(job);
         }
 
@@ -282,6 +330,7 @@ namespace Catchline.Game.Deck
         {
             if (job.Finished || job.Cancelled) return;
             job.Cancelled = true;
+            OnCancelled?.Invoke(job);
             var w = job.Worker;
             foreach (var f in job.Fish) job.Source?.Release(f, job);
             foreach (var lf in Loose.Where(l => l.Claim == job)) lf.Claim = null;

@@ -13,7 +13,7 @@ namespace Catchline.Game
         public enum TripLeg { None, HarbourOut, ChartOut, SeaOut, SeaHome, ChartHome, HarbourIn }
         public TripLeg Leg { get; private set; }
         public bool TripFast;
-        float TripRate => TripFast ? 3f : 1f;
+        float TripRate => (TripFast ? 3f : 1f) * AbilityTravel;
         SeaNav pendingNav;
         BoatSailor pendingSailor;
         readonly List<SeaNav> laneNavs = new();

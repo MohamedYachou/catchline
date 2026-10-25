@@ -23,8 +23,7 @@ namespace Catchline.Game.Deck
     {
         public string Name;
         public CardState Card;
-        public bool PowerLifter => Card?.Id == "sam" && Card.Rarity == CardRarity.Gold;
-        public bool WholeBasket => Card?.Id == "noor" && Card.Rarity == CardRarity.Gold;
+        public bool PowerLifter => Card?.Id == "sam" && Card.Has(Card.Def.Auto);
         public bool Captain;
         public CrewRole Role;
         public IDeckActor Actor;
@@ -71,7 +70,7 @@ namespace Catchline.Game.Deck
         public Drop Target;
         public Station At;
         public string Label;
-        public bool Started, Finished, Cancelled;
+        public bool Started, Finished, Cancelled, WholeLoad;
         internal int reserved;
         public override string ToString() => $"{Kind} {Fish.Count} fish {Source?.Id}→{(Target?.Hold == true ? "hold" : Target?.Overboard == true ? "overboard" : Target?.Basket?.Id)}";
     }

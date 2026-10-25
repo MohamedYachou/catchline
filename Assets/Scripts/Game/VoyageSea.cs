@@ -101,7 +101,7 @@ namespace Catchline.Game
         }
         void TickSeaTravel(float dt)
         {
-            Sailor.Tick(dt); modeTimer += dt;
+            Sailor.Tick(dt * AbilityTravel); modeTimer += dt * AbilityTravel;
             UpdateSeaTravel(); TickDeckGraph(); TickDeckFish(dt);
             // Home: the chart rises over the last stretch to the map edge, then the harbour lane takes over.
             if (CurrentMode == Mode.SailingHome && (Sailor.Arrived || Vector2.Distance(Sailor.Position, Navigation.Harbour) < 9f)) { BeginChart(true); return; }

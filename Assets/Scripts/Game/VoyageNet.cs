@@ -210,10 +210,11 @@ namespace Catchline.Game
                 if (haul && !IsTier5 && !person.IsCaptain && State.Rng.NextDouble() >= .8) { Tear(); return; }
                 netWorker = null;
                 netClaim++;
-                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); FinishHaul(); if (!UsesDeckGraph && (!IsTier5 || person.IsCaptain)) BeginNetUnload(person); return; }
+                if (haul) { if (DeepNetSelected) State.SpendDeepNetUse(); PrepareNetHaul(person, 0, netFish); FinishHaul(person); if (!UsesDeckGraph && (!IsTier5 || person.IsCaptain)) BeginNetUnload(person); return; }
                 Net = NetState.Soaking;
                 netTime = 0f;
-                netSoak = DeepNetSelected ? GameData.DeepNetSoakSeconds : GameData.ShallowNetSoakSeconds;
+                PrepareNetSet(person, 0);
+                netSoak = (DeepNetSelected ? GameData.DeepNetSoakSeconds : GameData.ShallowNetSoakSeconds) * NetSoakAbility(0);
                 netFish.Clear();
                 if (netFloats != null) netFloats.gameObject.SetActive(true);
                 Toast($"{(DeepNetSelected ? "Deep" : "Shallow")} net set. {netSoak:0}s soak while the crew works.");
@@ -232,7 +233,7 @@ namespace Catchline.Game
                 if (!Owns()) return;
                 FaceNet(person);
                 if (person.IsCaptain) BeginNetGame(person, !haul, Complete, Cancel, Tear);
-                else person.Do(haul ? "Hauling net" : "Setting net", haul ? GameData.NetHaulTime : GameData.NetSetTime, Complete, Cancel);
+                else person.Do(haul ? "Hauling net" : "Setting net", haul ? GameData.NetHaulTime : NetSetSeconds(person, GameData.NetSetTime), Complete, Cancel);
             }, Cancel);
             if (!walking) Cancel();
             return walking;
@@ -241,20 +242,25 @@ namespace Catchline.Game
         void RollCompactCatch()
         {
             netFish.Clear();
-            netFish.AddRange(CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,State.Rng,State.FishTable(ActiveSpot)));
-            foreach(var f in netFish)State.OnCatch(ActiveSpot,f.kg,f.species,true);
+            netFish.AddRange(CatchExpectation.RollNet(State.Hull,ActiveSpot,DeepNetSelected,NetWeightRange(ActiveSpot,DeepNetSelected).y,State.Rng,State.FishTable(ActiveSpot),Abilities?.DoubleWeight == true));
+            for (int i = 0; i < netFish.Count; i++)
+            {
+                var f = netFish[i];
+                AbilityCatch(ActiveSpot, netFish[i].kg, f.species, true);
+            }
         }
 
         static bool SmallSchool(Species species) => species == Species.Herring || species == Species.Mackerel || species == Species.Whiting || species == Species.Pollock;
 
-        void FinishHaul()
+        void FinishHaul(Person hauler = null)
         {
             int count = netFish.Count;
+            int ordinal = 0;
             foreach (var (species, kg) in netFish)
             {
                 if (UsesDeckGraph && GearStation(Deck.StationKind.Net, 0) is { } station)
                 {
-                    LandOnDeck(station, species, kg);
+                    LandAbilityNet(station, species, kg, hauler, ordinal++);
                     RecordLanding(FlowTelemetry.Kind.Net, species, kg); Stats.Landed++;
                     continue;
                 }

@@ -120,8 +120,11 @@ namespace Catchline.Game
             if (phase == FishPhase.Hooked) nextJump = Jumper ? Range(.25f, .55f) * HookedSeconds : -1f;
         }
 
-        public void Tick(float dt)
+        public void Tick(float dt, float biteRate = 1, float strikeWindow = 1, float reelRate = 1)
         {
+            // Advance only the current phase: bite buffs must never shorten the player's take window.
+            dt *= Phase == FishPhase.Take ? 1 / Mathf.Max(.01f, strikeWindow)
+                : Phase == FishPhase.Hooked ? reelRate : Phase is FishPhase.Spooked or FishPhase.Gone ? 1 : biteRate;
             Dart = false; Jump = false; PhaseTime += dt; wobble += dt;
             float k = beatLength > 0 ? Mathf.Clamp01(PhaseTime / beatLength) : 1, ease = k * k * (3 - 2 * k);
             Vector2 last = FishPos;

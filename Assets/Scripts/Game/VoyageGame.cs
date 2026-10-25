@@ -572,6 +572,7 @@ namespace Catchline.Game
         public void SetSail()
         {
             if (SailBlocker() != null || !State.PayDepartureWages()) return;
+            Abilities = new CrewAbilityEngine(State);
             harbourEvening = false; // a new day
             SyncUpgrades();
             ActiveSpot = SelectedSpot;
@@ -694,6 +695,7 @@ namespace Catchline.Game
 
         void Step(float dt)
         {
+            TickAbilities(dt);
             TickChart(dt);
             TickSeaMoments(dt);
             TickManagement(dt);
@@ -714,7 +716,7 @@ namespace Catchline.Game
                     else if (Navigation != null) TickSeaTravel(dt);
                     else
                     {
-                        modeTimer += dt * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
+                        modeTimer += dt * AbilityTravel * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
                         UpdateTravel();
                     }
                     float stroke = Mathf.Sin(SimTime * 3.2f);
@@ -759,7 +761,7 @@ namespace Catchline.Game
         void BurnFuel(float dt)
         {
             if (State.Hull == 0) return;
-            State.Fuel = Mathf.Max(0, State.Fuel - dt / 60f);
+            State.Fuel = Mathf.Max(0, State.Fuel - dt * (Abilities?.Fuel ?? 1) / 60f);
             if (CurrentMode == Mode.Fishing && State.FuelFraction <= .1f)
             {
                 confirmHeadHome = false;
@@ -1014,7 +1016,13 @@ namespace Catchline.Game
 
         public void LandFish(Rod rod, Species s, float kg)
         {
-            State.OnCatch(ActiveSpot, kg, s, false);
+            int count = Abilities?.RodLanded(AbilityOwner(rod.Fisher), s) ?? 1;
+            for (int i = 1; i < count; i++) EmitRodFish(rod, s, kg);
+            EmitRodFish(rod, s, kg);
+        }
+        void EmitRodFish(Rod rod, Species s, float kg)
+        {
+            AbilityCatch(ActiveSpot, kg, s, false);
             Stats.Landed++;
             if (UsesDeckGraph && GearStation(Deck.StationKind.Rod, rod.Index) is { } rodStation)
             {

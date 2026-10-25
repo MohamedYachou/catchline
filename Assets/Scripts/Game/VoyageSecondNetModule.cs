@@ -141,14 +141,17 @@ namespace Catchline.Game
                 secondNetWorker=null;secondNetClaim++;
                 if(!haul)
                 {
-                    SecondNet=NetState.Soaking;secondNetTime=0;secondNetSoak=DeepNetSelected?GameData.DeepNetSoakSeconds:GameData.ShallowNetSoakSeconds;
+                    PrepareNetSet(person, 1);
+                    SecondNet=NetState.Soaking;secondNetTime=0;secondNetSoak=(DeepNetSelected?GameData.DeepNetSoakSeconds:GameData.ShallowNetSoakSeconds)*NetSoakAbility(1);
                     secondNetFish.Clear();if(secondNetFloats!=null)secondNetFloats.gameObject.SetActive(true);return;
                 }
                 if(DeepNetSelected)State.SpendDeepNetUse();
+                PrepareNetHaul(person, 1, secondNetFish);
+                int ordinal = 0;
                 foreach(var (species,kg) in secondNetFish)
                 {
                     if (UsesDeckGraph && GearStation(Deck.StationKind.Net, 1) is {} station)
-                    { LandOnDeck(station, species, kg); Stats.Landed++; RecordLanding(FlowTelemetry.Kind.Net, species, kg); continue; }
+                    { LandAbilityNet(station, species, kg, person, ordinal++); Stats.Landed++; RecordLanding(FlowTelemetry.Kind.Net, species, kg); continue; }
                     var fish=new DeckFish{Species=species,Kg=kg,Tile=SecondNetAccess,CaughtAt=SimTime,FromNetBasket=true};
                     fish.Root=DeckFish.BuildModel(species,kg,Boat);
                     int i=NetBasketCount;
@@ -163,7 +166,7 @@ namespace Catchline.Game
             {
                 if(!Owns())return;person.Face(Vector3.back);
                 if(person.IsCaptain)BeginNetGame(person,!haul,Complete,Cancel,Fail,1);
-                else person.Do(haul?"Hauling net":"Setting net",haul?5f:2f,Complete,Cancel);
+                else person.Do(haul?"Hauling net":"Setting net",haul?5f:NetSetSeconds(person, 2f),Complete,Cancel);
             },Cancel);
             if(!walking)Cancel();return walking;
         }

@@ -34,7 +34,7 @@ namespace Catchline.Game
 
         public static float LegalKg => Mathf.Lerp(GameData.Get(Species.Crab).MinKg, GameData.Get(Species.Crab).MaxKg, .55f);
 
-        public CageModel(System.Random rng)
+        public CageModel(System.Random rng, bool heavier = false)
         {
             snags = rng.NextDouble() < .34;
             SnagDirection = rng.Next(2) == 0 ? -1 : 1;
@@ -44,15 +44,17 @@ namespace Catchline.Game
             int count = 2 + rng.Next(3);
             for (int i = 0; i < count; i++)
             {
-                float kg = Mathf.Lerp(data.MinKg, data.MaxKg, (float)rng.NextDouble());
+                float sample=(float)rng.NextDouble();
+                if(heavier)sample=Mathf.Max(sample,(float)rng.NextDouble());
+                float kg = Mathf.Lerp(data.MinKg, data.MaxKg, sample);
                 Crabs.Add(new Crab { Kg = kg, Undersize = kg < LegalKg, Berried = kg >= LegalKg && rng.NextDouble() < .2 });
             }
         }
 
-        public void Tap()
+        public void Tap(float winchRate = 1)
         {
             if (Phase != CagePhase.Pull || locked > 0) return;
-            Lift = Mathf.Min(1, Lift + TapLift); Tapped = true;
+            Lift = Mathf.Min(1, Lift + TapLift * Mathf.Max(1, winchRate)); Tapped = true;
             if (snags && !snagDone && Lift >= SnagAt) { Lift = SnagAt; Phase = CagePhase.Snag; snagTime = 0; }
             else if (Lift >= 1) Phase = CagePhase.Sort;
         }

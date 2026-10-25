@@ -48,12 +48,14 @@ namespace Catchline.Game
             }
             return result;
         }
-        public static (Species species,float kg) Roll(GameState state,int spot,BaitPermission bait)
+        public static (Species species,float kg) Roll(GameState state,int spot,BaitPermission bait,bool heavier = false)
         {
             var options=Options(state,spot,bait);if(options.Count==0)throw new InvalidOperationException("No local deep-line catch available");
             float roll=(float)state.Rng.NextDouble();var selected=options[options.Count-1];
             foreach(var option in options){roll-=option.Probability;if(roll<=0){selected=option;break;}}
-            float kg=UnityEngine.Mathf.Lerp(selected.Min,selected.Max,(float)state.Rng.NextDouble());return(selected.Species,kg);
+            float sample=(float)state.Rng.NextDouble();
+            if(heavier)sample=UnityEngine.Mathf.Max(sample,(float)state.Rng.NextDouble());
+            float kg=UnityEngine.Mathf.Lerp(selected.Min,selected.Max,sample);return(selected.Species,kg);
         }
         public static CatchExpectation.RodMix Expectation(GameState state,int spot,BaitPermission bait)
         {
@@ -89,13 +91,15 @@ namespace Catchline.Game
             Bait = bait; Phase = DeepLinePhase.Dropping; Remaining = DeepLineRules.DropSeconds;
             return true;
         }
-        public bool Tick(float dt)
+        public bool Tick(float dt, float soakDuration = 1)
         {
             if (dt <= 0 || float.IsNaN(dt) || float.IsInfinity(dt)) return false;
             while (Phase == DeepLinePhase.Dropping || Phase == DeepLinePhase.Soaking || Phase == DeepLinePhase.Raising)
             {
-                if (dt < Remaining) { Remaining -= dt; return false; }
-                dt -= Remaining;
+                float rate = Phase == DeepLinePhase.Soaking ? 1 / UnityEngine.Mathf.Max(.4f, soakDuration) : 1;
+                float seconds = Remaining / rate;
+                if (dt < seconds) { Remaining -= dt * rate; return false; }
+                dt -= seconds;
                 if (Phase == DeepLinePhase.Dropping) { Phase = DeepLinePhase.Soaking; Remaining = DeepLineRules.SoakSeconds; }
                 else if (Phase == DeepLinePhase.Soaking) { Phase = DeepLinePhase.Raising; Remaining = DeepLineRules.RaiseSeconds; }
                 else { Phase = DeepLinePhase.CatchOnDeck; Remaining = 0; return true; }
