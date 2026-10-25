@@ -1,0 +1,88 @@
+{
+  "result": "PASS",
+  "name": "CardinalBuoy",
+  "source": {
+    "triangles": 318,
+    "vertices": 173,
+    "bounds_unity": [
+      [
+        -0.3100000023841858,
+        -0.1599999964237213,
+        -0.3100000023841858
+      ],
+      [
+        0.3100000023841858,
+        2.240000009536743,
+        0.3100000023841858
+      ]
+    ],
+    "meshes": [
+      "CardinalBuoyMesh"
+    ],
+    "materials": [
+      "M_CardinalBlack",
+      "M_CardinalYellow"
+    ],
+    "parents": {
+      "CardinalBuoy": null,
+      "CardinalBuoyMesh": "CardinalBuoy"
+    }
+  },
+  "imported": {
+    "triangles": 318,
+    "vertices": 173,
+    "bounds_unity": [
+      [
+        -0.3100000023841858,
+        -0.1600000113248825,
+        -0.3100000023841858
+      ],
+      [
+        0.3100000023841858,
+        2.240000009536743,
+        0.3100000023841858
+      ]
+    ],
+    "meshes": [
+      "CardinalBuoyMesh"
+    ],
+    "materials": [
+      "M_CardinalBlack",
+      "M_CardinalYellow"
+    ],
+    "parents": {
+      "CardinalBuoyMesh": "CardinalBuoy",
+      "CardinalBuoy": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 1.691152959892861e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.6200000047683716,
+    2.4000000059604645,
+    0.6200000047683716
+  ],
+  "materials": {
+    "M_CardinalBlack": [
+      0.016807375475764275,
+      0.019382361322641373,
+      0.024157632142305374,
+      1.0
+    ],
+    "M_CardinalYellow": [
+      0.8879231214523315,
+      0.533276379108429,
+      0.07618538290262222,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "adcaaa9e5040f4fd0a83eb0755e91c7798af5391c4fcb262101b1b1aa39de6f3",
+    "fbx": "14d6d1508b84a877ee30b219c757c2a933d128a5c9f356383dd98b854cfb8415"
+  }
+}

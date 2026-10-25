@@ -1,0 +1,88 @@
+{
+  "result": "PASS",
+  "name": "DiveSplash",
+  "source": {
+    "triangles": 168,
+    "vertices": 108,
+    "bounds_unity": [
+      [
+        -0.27148324251174927,
+        0.0,
+        -0.2711758017539978
+      ],
+      [
+        0.25173088908195496,
+        0.6000000238418579,
+        0.2416447401046753
+      ]
+    ],
+    "meshes": [
+      "DiveSplashMesh"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_RailIvory"
+    ],
+    "parents": {
+      "DiveSplash": null,
+      "DiveSplashMesh": "DiveSplash"
+    }
+  },
+  "imported": {
+    "triangles": 168,
+    "vertices": 108,
+    "bounds_unity": [
+      [
+        -0.27148324251174927,
+        -1.7742006974685864e-08,
+        -0.2711758315563202
+      ],
+      [
+        0.25173088908195496,
+        0.6000000238418579,
+        0.2416447103023529
+      ]
+    ],
+    "meshes": [
+      "DiveSplashMesh"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_RailIvory"
+    ],
+    "parents": {
+      "DiveSplashMesh": "DiveSplash",
+      "DiveSplash": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 4.563480615615845e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.5232141315937042,
+    0.6000000238418579,
+    0.5128205418586731
+  ],
+  "materials": {
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_RailIvory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "e68852fd823114567fecbeafe07d048aae0516460ed9de236c75c0cca33eac5c",
+    "fbx": "77299815042bb22f77c36c6fdc54a6814c91bb13b1e23eb4767ab6aca5122cc6"
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "task": "WRECK-LIFE-1",
+  "reviewer": "Codex 2 (WSL CLI)",
+  "method": "Each final PNG opened individually with view_image after the completed final render pass; human-facing agent visual inspection, not automatic image acceptance.",
+  "scope_limit": "Isolated Blender reviews; no Unity/native water/map/HUD acceptance.",
+  "images": [
+    {
+      "file": "renders/Assembly/deck-1440.png",
+      "sha256": "4235be49095135093259345d2d042c314212977d415601adfeb36fd5f6d06d49",
+      "size": [
+        1440,
+        900
+      ],
+      "opened_individually": true,
+      "review": "All four assets plus two gannet poses visible over water; gliding bird and folded diving bird distinguishable, plume below diver. Phone topmark fully contained with narrow upper margin."
+    },
+    {
+      "file": "renders/Assembly/deck-844.png",
+      "sha256": "1ff6ec59382150408bac1e4244193b6ad86ab931a01e776b79726d4c112e7dbb",
+      "size": [
+        844,
+        390
+      ],
+      "opened_individually": true,
+      "review": "All four assets plus two gannet poses visible over water; gliding bird and folded diving bird distinguishable, plume below diver. Phone topmark fully contained with narrow upper margin."
+    },
+    {
+      "file": "renders/CardinalBuoy/back.png",
+      "sha256": "ba5941af4b1fd327d1cde204b54524818617c321978da3322cc6a61a7e9f289e",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Two upward black cones distinctly separated on continuous mast; yellow upper and black lower body; total height silhouette contained."
+    },
+    {
+      "file": "renders/CardinalBuoy/front.png",
+      "sha256": "aec15aee7b1ca98959eac07aeae7ad47878d5e44edb1ecef75835fee204f9e23",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Two upward black cones distinctly separated on continuous mast; yellow upper and black lower body; total height silhouette contained."
+    },
+    {
+      "file": "renders/CardinalBuoy/right.png",
+      "sha256": "bac472e55bb8472708eef2ebc0549b0e28c49d2a76d9698f2c7efc277bd959b9",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Two upward black cones distinctly separated on continuous mast; yellow upper and black lower body; total height silhouette contained."
+    },
+    {
+      "file": "renders/CardinalBuoy/three-quarter.png",
+      "sha256": "96da3fbf0158bd7b1813d905ae8260028b6823662e85c98bb301f24e825b174d",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Two upward black cones distinctly separated on continuous mast; yellow upper and black lower body; total height silhouette contained."
+    },
+    {
+      "file": "renders/CardinalBuoy/top.png",
+      "sha256": "5dfd3d216fa31143fc74683e6e28e2db30f329f2acde8364f12f62931dad446e",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Two upward black cones distinctly separated on continuous mast; yellow upper and black lower body; total height silhouette contained."
+    },
+    {
+      "file": "renders/DiveSplash/back.png",
+      "sha256": "9d3e24b5ee758983188fd528e107dd551091be1d84c49cf26772a971da20bcc6",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Crown, central plume and five droplets contained; open crown reads as stylised water, no ground penetration."
+    },
+    {
+      "file": "renders/DiveSplash/front.png",
+      "sha256": "6813c7c3b6bc191ad7504e25410e620166eec46391b1864c966d62c99d042452",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Crown, central plume and five droplets contained; open crown reads as stylised water, no ground penetration."
+    },
+    {
+      "file": "renders/DiveSplash/right.png",
+      "sha256": "f1371902eb4da7e89884d6b325db6f6c4ddb8b7dcf5d095837468e576946f015",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Crown, central plume and five droplets contained; open crown reads as stylised water, no ground penetration."
+    },
+    {
+      "file": "renders/DiveSplash/three-quarter.png",
+      "sha256": "cc537150e889f5bf3926cb6252f9b3e89c1b1a585ce88300d9680159f1b619d0",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Crown, central plume and five droplets contained; open crown reads as stylised water, no ground penetration."
+    },
+    {
+      "file": "renders/DiveSplash/top.png",
+      "sha256": "23bc0f3246ee943c99837866ad136474a8a2e3e68ca25d9743c352636a3c93e1",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Crown, central plume and five droplets contained; open crown reads as stylised water, no ground penetration."
+    },
+    {
+      "file": "renders/Gannet/action-Dive-0.png",
+      "sha256": "745cb0ea1aa2b9fa4d89c0ebfea312e319a98d31781d4e4b9d3bc59c504bba83",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Fixed pivot; progression from level glide through wing sweep to narrow folded arrow and nose-down bill. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Dive-1.png",
+      "sha256": "1ce37f55cd59d14588318946658a0daa3510e283bdb175c81665e998634f1bfc",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Fixed pivot; progression from level glide through wing sweep to narrow folded arrow and nose-down bill. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Dive-2.png",
+      "sha256": "7d2c1bcd924133472eaa7c8e27380c31900099ad929f0df531d79655336ff02f",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Fixed pivot; progression from level glide through wing sweep to narrow folded arrow and nose-down bill. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Dive-3.png",
+      "sha256": "0a1c8201472b57ceb79c7073248b490c58a9bf98d24d05b4d8ae1fb2e2c458ed",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Fixed pivot; progression from level glide through wing sweep to narrow folded arrow and nose-down bill. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Dive-4.png",
+      "sha256": "0c3228ed0a7f4c854818c8e1ce0b382216b7e80888e571858eb215ad1b7b2894",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Fixed pivot; progression from level glide through wing sweep to narrow folded arrow and nose-down bill. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Glide-0.png",
+      "sha256": "5191b970c0e6f34ae4aee7d91504fe9ea141e7f0e3d2390d8f41bfc2dbd2e7f6",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Stationary flight pivot; wings remain set; small body banking across samples; first/final pose visually identical. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Glide-1.png",
+      "sha256": "400f614ef7e053d138409d30568bb422d80cff74b6ef20bc2dceff10427d885b",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Stationary flight pivot; wings remain set; small body banking across samples; first/final pose visually identical. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Glide-2.png",
+      "sha256": "73209f160b01f9f1801600ade67c8b5c9e0e5e30bd7fde64d53b51910e8e08d7",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Stationary flight pivot; wings remain set; small body banking across samples; first/final pose visually identical. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Glide-3.png",
+      "sha256": "84b3a1564789f48275ada3f2bec2671a7cca99b4d93bc059bc6c354485c9521c",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Stationary flight pivot; wings remain set; small body banking across samples; first/final pose visually identical. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/action-Glide-4.png",
+      "sha256": "f0992eb9cce377a5d12668d549739fbb5e64db12fa55afaf2fd8a5cab1ae4f1d",
+      "size": [
+        640,
+        480
+      ],
+      "opened_individually": true,
+      "review": "Stationary flight pivot; wings remain set; small body banking across samples; first/final pose visually identical. Full bird contained."
+    },
+    {
+      "file": "renders/Gannet/back.png",
+      "sha256": "b397f95746d4d8d93c159c4a46a9f34378fb6a2437fe17b502f627c393e26b0b",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Full silhouette contained; white swept wings, black tips, buff head and dagger bill readable. Front/back are intentionally thin wing profiles."
+    },
+    {
+      "file": "renders/Gannet/front.png",
+      "sha256": "befc36d31f2e4c3f1572d7c039a30d5a16b0ef229f20fae1ae54fb5c9809e803",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Full silhouette contained; white swept wings, black tips, buff head and dagger bill readable. Front/back are intentionally thin wing profiles."
+    },
+    {
+      "file": "renders/Gannet/right.png",
+      "sha256": "dcb0996a932843ea62036faba4765cf851c4c7394a5ce2d37bde08bd972b42e4",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Full silhouette contained; white swept wings, black tips, buff head and dagger bill readable. Front/back are intentionally thin wing profiles."
+    },
+    {
+      "file": "renders/Gannet/three-quarter.png",
+      "sha256": "d6f83e67707ca6b75e23eb7d4bbcd3a5e2c333ea9c3735bb2683d0833ea1dac6",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Full silhouette contained; white swept wings, black tips, buff head and dagger bill readable. Front/back are intentionally thin wing profiles."
+    },
+    {
+      "file": "renders/Gannet/top.png",
+      "sha256": "ff42896d94c7d1827191eaf8e4bb0e1ba1764b8fb4a36fb9d512a1fa67f129c5",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Full silhouette contained; white swept wings, black tips, buff head and dagger bill readable. Front/back are intentionally thin wing profiles."
+    },
+    {
+      "file": "renders/HerringBoil/back.png",
+      "sha256": "eb70cb382d236decafb39d09cdf7e7f17f76b4056bd9f3b10ebf84b0b61401ad",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Broken elliptical ribbons and silver flecks visible; studio front/right/back are intentionally edge-on for water-flat geometry."
+    },
+    {
+      "file": "renders/HerringBoil/front.png",
+      "sha256": "ffddf983e94b8c4ce487a99097f8ac088a3474185d84c8bcef3565d0b5f3b659",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Broken elliptical ribbons and silver flecks visible; studio front/right/back are intentionally edge-on for water-flat geometry."
+    },
+    {
+      "file": "renders/HerringBoil/right.png",
+      "sha256": "37fdd0ccd41c0e2269d027b62484e9340f76acc0f463821c7d7223adf6949e08",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Broken elliptical ribbons and silver flecks visible; studio front/right/back are intentionally edge-on for water-flat geometry."
+    },
+    {
+      "file": "renders/HerringBoil/three-quarter.png",
+      "sha256": "dee66cb4943c3c7c4bc3de76622bc1ca211faf4624ee7c1ee645297461a528fc",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Broken elliptical ribbons and silver flecks visible; studio front/right/back are intentionally edge-on for water-flat geometry."
+    },
+    {
+      "file": "renders/HerringBoil/top.png",
+      "sha256": "5b231887ce84c924412f206448d1052fad5f97368622708c159970dcfe80f4d9",
+      "size": [
+        720,
+        600
+      ],
+      "opened_individually": true,
+      "review": "Broken elliptical ribbons and silver flecks visible; studio front/right/back are intentionally edge-on for water-flat geometry."
+    }
+  ]
+}

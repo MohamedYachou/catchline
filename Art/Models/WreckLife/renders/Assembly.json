@@ -1,0 +1,114 @@
+{
+  "views": [
+    {
+      "file": "renders/Assembly/deck-1440.png",
+      "size": [
+        1440,
+        900
+      ],
+      "projection": "orthographic",
+      "horizontal_span_m": 10.24,
+      "down_degrees": 45,
+      "reference_direction": [
+        0.574,
+        -0.819,
+        1
+      ],
+      "camera_target_blender": [
+        0,
+        0,
+        0.9
+      ],
+      "asset_projected_bounds_01": [
+        0.2763405442237854,
+        0.21451336145401,
+        0.7547873854637146,
+        0.85544753074646
+      ]
+    },
+    {
+      "file": "renders/Assembly/deck-844.png",
+      "size": [
+        844,
+        390
+      ],
+      "projection": "orthographic",
+      "horizontal_span_m": 10.24,
+      "down_degrees": 45,
+      "reference_direction": [
+        0.574,
+        -0.819,
+        1
+      ],
+      "camera_target_blender": [
+        0,
+        0,
+        0.9
+      ],
+      "asset_projected_bounds_01": [
+        0.2763405442237854,
+        0.11386103183031082,
+        0.7547873854637146,
+        0.9807655811309814
+      ]
+    }
+  ],
+  "placements": [
+    [
+      "CardinalBuoy",
+      [
+        -2.7,
+        0.4,
+        0
+      ],
+      "Buoy",
+      null,
+      1
+    ],
+    [
+      "HerringBoil",
+      [
+        0.1,
+        0.3,
+        0
+      ],
+      "Shoal",
+      null,
+      1
+    ],
+    [
+      "Gannet",
+      [
+        1.85,
+        1.0,
+        1.85
+      ],
+      "GlidingGannet",
+      "Glide",
+      24
+    ],
+    [
+      "Gannet",
+      [
+        0.6,
+        -1.35,
+        1.15
+      ],
+      "DivingGannet",
+      "Dive",
+      49
+    ],
+    [
+      "DiveSplash",
+      [
+        0.6,
+        -1.35,
+        0
+      ],
+      "EntrySplash",
+      null,
+      1
+    ]
+  ],
+  "limit": "Isolated Blender water fixture; no Unity water, actual map, HUD, import or runtime acceptance."
+}

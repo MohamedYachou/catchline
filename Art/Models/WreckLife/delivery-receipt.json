@@ -1,0 +1,326 @@
+{
+  "task": "WRECK-LIFE-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "triangles": {
+      "Gannet": 460,
+      "DiveSplash": 168,
+      "CardinalBuoy": 318,
+      "HerringBoil": 260
+    },
+    "reviewed_pngs": 32,
+    "local_report_links": 50,
+    "unchanged_dependencies": 5,
+    "limits": "Blender source/actual-FBX and individual artist image review only; no Unity/native acceptance."
+  },
+  "dependencies_sha256": {
+    "Art/Source/build_crab_coast_props.py": "9e2777768d83eb475d772d848cc126fc200dcd8151ea3ec1308655163cf0f697",
+    "Art/Source/Skerries/render.py": "ad11e34628955b03c254312e0a0ed32705d31063cd7bf7dc4832eda2ab3df0a5",
+    "Art/Source/GutKit/build.py": "3f939c5360730ac506063a2c2f25bc78790df398bf12715886fedeee4a689b18",
+    "Art/Source/HarbourV2/audit.py": "b9b6de86b6333677562672a8afcbe39fbad5dea652704a08f6d89bfe8cedc258",
+    "Art/Models/GutKit/GutKit.blend": "11a7d38679850fd4fe15dee54147d2d6aaeda93a7c0db471c04bfc90d06c662f"
+  },
+  "files": {
+    "Art/Models/WreckLife/CardinalBuoy.blend": {
+      "bytes": 93309,
+      "sha256": "adcaaa9e5040f4fd0a83eb0755e91c7798af5391c4fcb262101b1b1aa39de6f3"
+    },
+    "Art/Models/WreckLife/CardinalBuoy.fbx": {
+      "bytes": 20716,
+      "sha256": "14d6d1508b84a877ee30b219c757c2a933d128a5c9f356383dd98b854cfb8415"
+    },
+    "Art/Models/WreckLife/DiveSplash.blend": {
+      "bytes": 92297,
+      "sha256": "e68852fd823114567fecbeafe07d048aae0516460ed9de236c75c0cca33eac5c"
+    },
+    "Art/Models/WreckLife/DiveSplash.fbx": {
+      "bytes": 19612,
+      "sha256": "77299815042bb22f77c36c6fdc54a6814c91bb13b1e23eb4767ab6aca5122cc6"
+    },
+    "Art/Models/WreckLife/Gannet.blend": {
+      "bytes": 107958,
+      "sha256": "99107281266711a00ae4ea6bf9c310b45a8eb8d1410d3bcb2cc288d10d677c6b"
+    },
+    "Art/Models/WreckLife/Gannet.fbx": {
+      "bytes": 150044,
+      "sha256": "9012b67b490670c21f5ed9f54f1949229a18efeccc1714efe82336e289c41a79"
+    },
+    "Art/Models/WreckLife/HerringBoil.blend": {
+      "bytes": 97248,
+      "sha256": "4d40b13b7deeaeea43f4169e2ea8163d0762ae1dc5520e4d987dc11aafa3a32e"
+    },
+    "Art/Models/WreckLife/HerringBoil.fbx": {
+      "bytes": 25164,
+      "sha256": "597663cbba368ddfef1d424da38dcb63fb99dcc42112b347cc15a3306b1e6274"
+    },
+    "Art/Models/WreckLife/REPORT.md": {
+      "bytes": 11059,
+      "sha256": "e1ddd7fd1a76673d1ba2b1dc658d27b8fce14e7f5a7fb4216751604f8b8d5a1f"
+    },
+    "Art/Models/WreckLife/WreckLife-assembly-review.blend": {
+      "bytes": 130973,
+      "sha256": "b9bfa723a3376e579efade827cc8b6d92978ca4f76bb2bc608394be7e746da26"
+    },
+    "Art/Models/WreckLife/metrics/CardinalBuoy-audit.json": {
+      "bytes": 2019,
+      "sha256": "05ebb954a92d89393e9aa815cfc7d53d8fb4eb68593f6bb1ee41b62a2c66c5a3"
+    },
+    "Art/Models/WreckLife/metrics/CardinalBuoy-build.json": {
+      "bytes": 1232,
+      "sha256": "f539a54e141d8175d154d3ad121f5031ce2d5b31d4310cbab776d029a849b37e"
+    },
+    "Art/Models/WreckLife/metrics/DiveSplash-audit.json": {
+      "bytes": 1961,
+      "sha256": "01f472259b15a6c93879b60b11ae510a8ad00279148828ccdde1e631aeec2529"
+    },
+    "Art/Models/WreckLife/metrics/DiveSplash-build.json": {
+      "bytes": 1122,
+      "sha256": "5830581ae05b47eaf50393444f5f6575ea3e80c5df2a4bea7c97261f019e729e"
+    },
+    "Art/Models/WreckLife/metrics/Gannet-audit.json": {
+      "bytes": 7403,
+      "sha256": "b4a2edbfbf4eae4d328ae65ba38576af18187d6252ae0e375b73f69b6aa72d3f"
+    },
+    "Art/Models/WreckLife/metrics/Gannet-build.json": {
+      "bytes": 1450,
+      "sha256": "a0050da52cc75298523732210f9e5cdb2e6902d3f2e66246898786a5a8617975"
+    },
+    "Art/Models/WreckLife/metrics/HerringBoil-audit.json": {
+      "bytes": 2153,
+      "sha256": "3dfb7845e9ce9f5590b7a776b28779828693b65187d805c466b3452a1622f662"
+    },
+    "Art/Models/WreckLife/metrics/HerringBoil-build.json": {
+      "bytes": 1213,
+      "sha256": "6af3512351d312a48407e2a0c609f6ac11bb4e15a1351bf6776847f4e072a76a"
+    },
+    "Art/Models/WreckLife/metrics/dependencies.json": {
+      "bytes": 523,
+      "sha256": "2e702ae321b6cd4aba184d219de595ce0028fd5e2cb3c5a88cca079d8fd2c693"
+    },
+    "Art/Models/WreckLife/renders/Assembly/deck-1440.png": {
+      "bytes": 1303136,
+      "sha256": "4235be49095135093259345d2d042c314212977d415601adfeb36fd5f6d06d49"
+    },
+    "Art/Models/WreckLife/renders/Assembly/deck-844.png": {
+      "bytes": 355475,
+      "sha256": "1ff6ec59382150408bac1e4244193b6ad86ab931a01e776b79726d4c112e7dbb"
+    },
+    "Art/Models/WreckLife/renders/Assembly.json": {
+      "bytes": 1941,
+      "sha256": "b2f9a55cf7d5b219b9d36c47d18aa29234b3d5bc91832b504ed2ce3cc74beb73"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy/back.png": {
+      "bytes": 419370,
+      "sha256": "ba5941af4b1fd327d1cde204b54524818617c321978da3322cc6a61a7e9f289e"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy/front.png": {
+      "bytes": 417666,
+      "sha256": "aec15aee7b1ca98959eac07aeae7ad47878d5e44edb1ecef75835fee204f9e23"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy/right.png": {
+      "bytes": 417901,
+      "sha256": "bac472e55bb8472708eef2ebc0549b0e28c49d2a76d9698f2c7efc277bd959b9"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy/three-quarter.png": {
+      "bytes": 427634,
+      "sha256": "96da3fbf0158bd7b1813d905ae8260028b6823662e85c98bb301f24e825b174d"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy/top.png": {
+      "bytes": 451264,
+      "sha256": "5dfd3d216fa31143fc74683e6e28e2db30f329f2acde8364f12f62931dad446e"
+    },
+    "Art/Models/WreckLife/renders/CardinalBuoy.json": {
+      "bytes": 815,
+      "sha256": "8930fcaff67ddf5c75e02b173afd16f4929e06d7d41eca3e046c50e49dac2ce0"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash/back.png": {
+      "bytes": 430350,
+      "sha256": "9d3e24b5ee758983188fd528e107dd551091be1d84c49cf26772a971da20bcc6"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash/front.png": {
+      "bytes": 426710,
+      "sha256": "6813c7c3b6bc191ad7504e25410e620166eec46391b1864c966d62c99d042452"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash/right.png": {
+      "bytes": 428938,
+      "sha256": "f1371902eb4da7e89884d6b325db6f6c4ddb8b7dcf5d095837468e576946f015"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash/three-quarter.png": {
+      "bytes": 428535,
+      "sha256": "cc537150e889f5bf3926cb6252f9b3e89c1b1a585ce88300d9680159f1b619d0"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash/top.png": {
+      "bytes": 455003,
+      "sha256": "23bc0f3246ee943c99837866ad136474a8a2e3e68ca25d9743c352636a3c93e1"
+    },
+    "Art/Models/WreckLife/renders/DiveSplash.json": {
+      "bytes": 805,
+      "sha256": "28456a8344e80496a6542d6dd3e92a98cdeedf8293e7ff4f23629e99cb9efe5a"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Dive-0.png": {
+      "bytes": 308793,
+      "sha256": "745cb0ea1aa2b9fa4d89c0ebfea312e319a98d31781d4e4b9d3bc59c504bba83"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Dive-1.png": {
+      "bytes": 309636,
+      "sha256": "1ce37f55cd59d14588318946658a0daa3510e283bdb175c81665e998634f1bfc"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Dive-2.png": {
+      "bytes": 313537,
+      "sha256": "7d2c1bcd924133472eaa7c8e27380c31900099ad929f0df531d79655336ff02f"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Dive-3.png": {
+      "bytes": 304556,
+      "sha256": "0a1c8201472b57ceb79c7073248b490c58a9bf98d24d05b4d8ae1fb2e2c458ed"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Dive-4.png": {
+      "bytes": 304083,
+      "sha256": "0c3228ed0a7f4c854818c8e1ce0b382216b7e80888e571858eb215ad1b7b2894"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Glide-0.png": {
+      "bytes": 308747,
+      "sha256": "5191b970c0e6f34ae4aee7d91504fe9ea141e7f0e3d2390d8f41bfc2dbd2e7f6"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Glide-1.png": {
+      "bytes": 309593,
+      "sha256": "400f614ef7e053d138409d30568bb422d80cff74b6ef20bc2dceff10427d885b"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Glide-2.png": {
+      "bytes": 309130,
+      "sha256": "73209f160b01f9f1801600ade67c8b5c9e0e5e30bd7fde64d53b51910e8e08d7"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Glide-3.png": {
+      "bytes": 306714,
+      "sha256": "84b3a1564789f48275ada3f2bec2671a7cca99b4d93bc059bc6c354485c9521c"
+    },
+    "Art/Models/WreckLife/renders/Gannet/action-Glide-4.png": {
+      "bytes": 308943,
+      "sha256": "f0992eb9cce377a5d12668d549739fbb5e64db12fa55afaf2fd8a5cab1ae4f1d"
+    },
+    "Art/Models/WreckLife/renders/Gannet/back.png": {
+      "bytes": 413892,
+      "sha256": "b397f95746d4d8d93c159c4a46a9f34378fb6a2437fe17b502f627c393e26b0b"
+    },
+    "Art/Models/WreckLife/renders/Gannet/front.png": {
+      "bytes": 413439,
+      "sha256": "befc36d31f2e4c3f1572d7c039a30d5a16b0ef229f20fae1ae54fb5c9809e803"
+    },
+    "Art/Models/WreckLife/renders/Gannet/right.png": {
+      "bytes": 420855,
+      "sha256": "dcb0996a932843ea62036faba4765cf851c4c7394a5ce2d37bde08bd972b42e4"
+    },
+    "Art/Models/WreckLife/renders/Gannet/three-quarter.png": {
+      "bytes": 434858,
+      "sha256": "d6f83e67707ca6b75e23eb7d4bbcd3a5e2c333ea9c3735bb2683d0833ea1dac6"
+    },
+    "Art/Models/WreckLife/renders/Gannet/top.png": {
+      "bytes": 434972,
+      "sha256": "ff42896d94c7d1827191eaf8e4bb0e1ba1764b8fb4a36fb9d512a1fa67f129c5"
+    },
+    "Art/Models/WreckLife/renders/Gannet.json": {
+      "bytes": 2798,
+      "sha256": "298822676194792f49c0f760515127dacdd39409e9f2d6709fc39e2f03c484c8"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil/back.png": {
+      "bytes": 408626,
+      "sha256": "eb70cb382d236decafb39d09cdf7e7f17f76b4056bd9f3b10ebf84b0b61401ad"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil/front.png": {
+      "bytes": 409875,
+      "sha256": "ffddf983e94b8c4ce487a99097f8ac088a3474185d84c8bcef3565d0b5f3b659"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil/right.png": {
+      "bytes": 410409,
+      "sha256": "37fdd0ccd41c0e2269d027b62484e9340f76acc0f463821c7d7223adf6949e08"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil/three-quarter.png": {
+      "bytes": 434945,
+      "sha256": "dee66cb4943c3c7c4bc3de76622bc1ca211faf4624ee7c1ee645297461a528fc"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil/top.png": {
+      "bytes": 436416,
+      "sha256": "5b231887ce84c924412f206448d1052fad5f97368622708c159970dcfe80f4d9"
+    },
+    "Art/Models/WreckLife/renders/HerringBoil.json": {
+      "bytes": 810,
+      "sha256": "8c71c24f1fb34a477fd3ecfc1ee922f2af552df0d031f388e507194b02292af0"
+    },
+    "Art/Models/WreckLife/visual-review.json": {
+      "bytes": 12528,
+      "sha256": "050636e8c11b8abf7ebfcaf5c3030c33c7fcae1e646a309929ab492ee93605d3"
+    },
+    "Art/Source/WreckLife/Assembly-render.log": {
+      "bytes": 564,
+      "sha256": "20ce82ad131a0373b88e9896726a5e50d46759ca86eb4be771e78adfe774fb61"
+    },
+    "Art/Source/WreckLife/CardinalBuoy-audit.log": {
+      "bytes": 310,
+      "sha256": "4cf82d36d93bd9896471f081d2e3194ff4110883b778c1b43266cc20fdc8413e"
+    },
+    "Art/Source/WreckLife/CardinalBuoy-build.log": {
+      "bytes": 345,
+      "sha256": "e0e190c4aec818aa00b445bf5e740a01addb8a2b4766508f7b8dd1aab7b9aa95"
+    },
+    "Art/Source/WreckLife/CardinalBuoy-render.log": {
+      "bytes": 1017,
+      "sha256": "763f0d8341d9c2969b746295592095ecc7ac1b13b38412adb8185e3edd37863c"
+    },
+    "Art/Source/WreckLife/DiveSplash-audit.log": {
+      "bytes": 306,
+      "sha256": "f148ab57d9b0acd1906f8de655a0521d1aaf5377d07b4ff6719bee86ca9cc4c4"
+    },
+    "Art/Source/WreckLife/DiveSplash-build.log": {
+      "bytes": 339,
+      "sha256": "e4cfccb21ad6ff4c247b235861b7dccc48d5aa44a756c965bcebaf463b8fd127"
+    },
+    "Art/Source/WreckLife/DiveSplash-render.log": {
+      "bytes": 1003,
+      "sha256": "eb998f7f2647ee8bbf4ed5cccb056769aa11c98fa71ba6f8364664247289fe7a"
+    },
+    "Art/Source/WreckLife/Gannet-audit.log": {
+      "bytes": 298,
+      "sha256": "76f898d092d9d17f45b8bfe30e54ab28516222e73bfd480d56e7a22d98fd60ac"
+    },
+    "Art/Source/WreckLife/Gannet-build.log": {
+      "bytes": 375,
+      "sha256": "4ba93e2d643de5450afa35e200516d2ea42c4e17ac1078984aeec0905534e44b"
+    },
+    "Art/Source/WreckLife/Gannet-render.log": {
+      "bytes": 2251,
+      "sha256": "83c9852b2bb082e2d01536375c886ab1ac3d7dcf9fd41e0a058999b549231d24"
+    },
+    "Art/Source/WreckLife/HerringBoil-audit.log": {
+      "bytes": 308,
+      "sha256": "0042e1a4374b957af42861d8429d923cc0b3b0e76f51426dd9b9a8c85310b78c"
+    },
+    "Art/Source/WreckLife/HerringBoil-build.log": {
+      "bytes": 342,
+      "sha256": "fbbff873eb27e41ad2abf035e0801bff08feaf413e93cbf0b857abc594f85c1e"
+    },
+    "Art/Source/WreckLife/HerringBoil-render.log": {
+      "bytes": 1010,
+      "sha256": "c2e8ad54e3d8586b7c220806830134cd8235e5eb4b9c5d0b9b3098f5cefdb4e0"
+    },
+    "Art/Source/WreckLife/audit.py": {
+      "bytes": 5492,
+      "sha256": "b7c06d07ded8363355249034153e3e8a80f1cc0d8801a2b7fed7d4f14d930cff"
+    },
+    "Art/Source/WreckLife/build.py": {
+      "bytes": 12840,
+      "sha256": "a6391edc86448763b0e1e4461e613aab25854a7cd3e3e0afc714bbae48d7f0f5"
+    },
+    "Art/Source/WreckLife/finalize.py": {
+      "bytes": 6254,
+      "sha256": "1d3f1d8fd0ee9667a48032b88ebc5a34974e665aebcbd8bd7a51fe2430d8adf6"
+    },
+    "Art/Source/WreckLife/render.py": {
+      "bytes": 6632,
+      "sha256": "71da0d7941a4cf4658b82a32c1d9785808ba29984b8f6c98ccc97136537c493c"
+    },
+    "Art/Source/WreckLife/run.py": {
+      "bytes": 810,
+      "sha256": "d6bf102b7e20996e0693ce178ed609e0aba19f2348c839c68279c61bf5e3f629"
+    }
+  }
+}

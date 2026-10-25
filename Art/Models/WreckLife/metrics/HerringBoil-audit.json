@@ -1,0 +1,96 @@
+{
+  "result": "PASS",
+  "name": "HerringBoil",
+  "source": {
+    "triangles": 260,
+    "vertices": 400,
+    "bounds_unity": [
+      [
+        -1.4996709823608398,
+        0.00800000037997961,
+        -0.8398157954216003
+      ],
+      [
+        1.4996709823608398,
+        0.041999999433755875,
+        0.8398157954216003
+      ]
+    ],
+    "meshes": [
+      "HerringBoilMesh"
+    ],
+    "materials": [
+      "M_FishSilver",
+      "M_GullWhite",
+      "M_RailIvory"
+    ],
+    "parents": {
+      "HerringBoil": null,
+      "HerringBoilMesh": "HerringBoil"
+    }
+  },
+  "imported": {
+    "triangles": 260,
+    "vertices": 400,
+    "bounds_unity": [
+      [
+        -1.4996709823608398,
+        0.007999937050044537,
+        -0.8398157954216003
+      ],
+      [
+        1.4996709823608398,
+        0.04200003668665886,
+        0.8398157954216003
+      ]
+    ],
+    "meshes": [
+      "HerringBoilMesh"
+    ],
+    "materials": [
+      "M_FishSilver",
+      "M_GullWhite",
+      "M_RailIvory"
+    ],
+    "parents": {
+      "HerringBoilMesh": "HerringBoil",
+      "HerringBoil": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 6.332993507385254e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    2.9993419647216797,
+    0.033999999053776264,
+    1.6796315908432007
+  ],
+  "materials": {
+    "M_FishSilver": [
+      0.4910208582878113,
+      0.5840784311294556,
+      0.5647115111351013,
+      1.0
+    ],
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_RailIvory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "4d40b13b7deeaeea43f4169e2ea8163d0762ae1dc5520e4d987dc11aafa3a32e",
+    "fbx": "597663cbba368ddfef1d424da38dcb63fb99dcc42112b347cc15a3306b1e6274"
+  }
+}

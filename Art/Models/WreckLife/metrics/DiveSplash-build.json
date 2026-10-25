@@ -1,0 +1,49 @@
+{
+  "triangles": 168,
+  "vertices": 108,
+  "bounds_unity": [
+    [
+      -0.27148324251174927,
+      0.0,
+      -0.2711758017539978
+    ],
+    [
+      0.25173088908195496,
+      0.6000000238418579,
+      0.2416447401046753
+    ]
+  ],
+  "meshes": [
+    "DiveSplashMesh"
+  ],
+  "materials": [
+    "M_GullWhite",
+    "M_RailIvory"
+  ],
+  "parents": {
+    "DiveSplash": null,
+    "DiveSplashMesh": "DiveSplash"
+  },
+  "name": "DiveSplash",
+  "contract": {
+    "pivot": "waterline centre",
+    "height_m": 0.6,
+    "static": true,
+    "animation": "Runtime scales/fades whole plume; opaque mesh, no simulation."
+  },
+  "limit": 300,
+  "sha256": {
+    "blend": "e68852fd823114567fecbeafe07d048aae0516460ed9de236c75c0cca33eac5c",
+    "fbx": "77299815042bb22f77c36c6fdc54a6814c91bb13b1e23eb4767ab6aca5122cc6"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_GullGrey": "#9AA6AD",
+    "M_Rubber": "#28343B",
+    "M_FishSilver": "#BAC9C6",
+    "M_RailIvory": "#F3F0DC",
+    "M_GannetBuff": "#E8CF8F",
+    "M_CardinalYellow": "#F2C14E",
+    "M_CardinalBlack": "#23262B"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "triangles": 318,
+  "vertices": 173,
+  "bounds_unity": [
+    [
+      -0.3100000023841858,
+      -0.1599999964237213,
+      -0.3100000023841858
+    ],
+    [
+      0.3100000023841858,
+      2.240000009536743,
+      0.3100000023841858
+    ]
+  ],
+  "meshes": [
+    "CardinalBuoyMesh"
+  ],
+  "materials": [
+    "M_CardinalBlack",
+    "M_CardinalYellow"
+  ],
+  "parents": {
+    "CardinalBuoy": null,
+    "CardinalBuoyMesh": "CardinalBuoy"
+  },
+  "name": "CardinalBuoy",
+  "contract": {
+    "pivot": "waterline centre, lower float extends .16m below",
+    "top_y_m": 2.24,
+    "total_height_m": 2.4,
+    "paint": "yellow over black as explicitly requested",
+    "topmarks": "two cones pointing UP",
+    "static": true
+  },
+  "limit": 700,
+  "sha256": {
+    "blend": "adcaaa9e5040f4fd0a83eb0755e91c7798af5391c4fcb262101b1b1aa39de6f3",
+    "fbx": "14d6d1508b84a877ee30b219c757c2a933d128a5c9f356383dd98b854cfb8415"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_GullGrey": "#9AA6AD",
+    "M_Rubber": "#28343B",
+    "M_FishSilver": "#BAC9C6",
+    "M_RailIvory": "#F3F0DC",
+    "M_GannetBuff": "#E8CF8F",
+    "M_CardinalYellow": "#F2C14E",
+    "M_CardinalBlack": "#23262B"
+  }
+}

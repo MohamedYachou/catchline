@@ -1,0 +1,251 @@
+{
+  "result": "PASS",
+  "name": "Gannet",
+  "source": {
+    "triangles": 460,
+    "vertices": 269,
+    "bounds_unity": [
+      [
+        -0.5,
+        -0.06700000166893005,
+        -0.26499998569488525
+      ],
+      [
+        0.5,
+        0.08100000023841858,
+        0.43700000643730164
+      ]
+    ],
+    "meshes": [
+      "GannetSkin"
+    ],
+    "materials": [
+      "M_GannetBuff",
+      "M_GullGrey",
+      "M_GullWhite",
+      "M_Rubber"
+    ],
+    "parents": {
+      "Gannet": null,
+      "GannetSkin": "GannetRig",
+      "GannetRig": "Gannet"
+    }
+  },
+  "imported": {
+    "triangles": 460,
+    "vertices": 269,
+    "bounds_unity": [
+      [
+        -0.5,
+        -0.06700000166893005,
+        -0.26499998569488525
+      ],
+      [
+        0.5,
+        0.08100004494190216,
+        0.43700000643730164
+      ]
+    ],
+    "meshes": [
+      "GannetSkin"
+    ],
+    "materials": [
+      "M_GannetBuff",
+      "M_GullGrey",
+      "M_GullWhite",
+      "M_Rubber"
+    ],
+    "parents": {
+      "GannetRig": "Gannet",
+      "GannetSkin": "GannetRig",
+      "Gannet": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 7.078051567077637e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Glide": {
+      "source": {
+        "action_name": "Glide",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.0613063630349122,
+        "end_vs_start_m": 8.421401773205978e-18,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "GannetRig|GannetRig|Glide",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.06130635115930022,
+        "end_vs_start_m": 2.0775641946632785e-18,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.078051567077637e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.127052015221125e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.11715699708293e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "68": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.080502228973273e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.078051567077637e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Dive": {
+      "source": {
+        "action_name": "Dive",
+        "frames": [
+          1,
+          49
+        ],
+        "seconds": 1.6,
+        "loop": false,
+        "samples": [
+          1,
+          13,
+          25,
+          37,
+          49
+        ],
+        "max_vertex_motion_m": 0.7434633356706697,
+        "end_vs_start_m": 0.7434633356706697,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "GannetRig|GannetRig|Dive",
+        "frames": [
+          1,
+          49
+        ],
+        "seconds": 1.6,
+        "loop": false,
+        "samples": [
+          1,
+          13,
+          25,
+          37,
+          49
+        ],
+        "max_vertex_motion_m": 0.7434634033154537,
+        "end_vs_start_m": 0.7434634033154537,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.078051567077637e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "13": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 7.337970941989624e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "25": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.064022776783531e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "37": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.996002603429588e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "49": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.674309686450215e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    1.0,
+    0.14800000190734863,
+    0.7019999921321869
+  ],
+  "materials": {
+    "M_GannetBuff": [
+      0.8069522380828857,
+      0.6239603757858276,
+      0.2746773064136505,
+      1.0
+    ],
+    "M_GullGrey": [
+      0.32314321398735046,
+      0.38132601976394653,
+      0.41788506507873535,
+      1.0
+    ],
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "99107281266711a00ae4ea6bf9c310b45a8eb8d1410d3bcb2cc288d10d677c6b",
+    "fbx": "9012b67b490670c21f5ed9f54f1949229a18efeccc1714efe82336e289c41a79"
+  }
+}

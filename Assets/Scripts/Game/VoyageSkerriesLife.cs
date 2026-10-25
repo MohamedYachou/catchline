@@ -24,6 +24,7 @@ namespace Catchline.Game
                     if (surf != null) surf.AddComponent<SurfPulse>().Phase = reef * 1.7f;
                 }
                 else if (t.name.StartsWith("CrabBuoy_")) Spawn(lib.M("CrabBuoySet"), t, Vector3.zero);
+                else DressWreck(t, environment.transform.position.y, lib);
             }
         }
 

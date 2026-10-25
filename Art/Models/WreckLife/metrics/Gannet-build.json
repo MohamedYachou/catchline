@@ -1,0 +1,75 @@
+{
+  "triangles": 460,
+  "vertices": 269,
+  "bounds_unity": [
+    [
+      -0.5,
+      -0.06700000166893005,
+      -0.26499998569488525
+    ],
+    [
+      0.5,
+      0.08100000023841858,
+      0.43700000643730164
+    ]
+  ],
+  "meshes": [
+    "GannetSkin"
+  ],
+  "materials": [
+    "M_GannetBuff",
+    "M_GullGrey",
+    "M_GullWhite",
+    "M_Rubber"
+  ],
+  "parents": {
+    "Gannet": null,
+    "GannetSkin": "GannetRig",
+    "GannetRig": "Gannet"
+  },
+  "name": "Gannet",
+  "contract": {
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Wing.L",
+      "Wing.R"
+    ],
+    "clips": {
+      "Glide": {
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true
+      },
+      "Dive": {
+        "frames": [
+          1,
+          49
+        ],
+        "seconds": 1.6,
+        "loop": false
+      }
+    },
+    "flight_pivot": true,
+    "root_motion": false
+  },
+  "limit": 1500,
+  "sha256": {
+    "blend": "99107281266711a00ae4ea6bf9c310b45a8eb8d1410d3bcb2cc288d10d677c6b",
+    "fbx": "9012b67b490670c21f5ed9f54f1949229a18efeccc1714efe82336e289c41a79"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_GullGrey": "#9AA6AD",
+    "M_Rubber": "#28343B",
+    "M_FishSilver": "#BAC9C6",
+    "M_RailIvory": "#F3F0DC",
+    "M_GannetBuff": "#E8CF8F",
+    "M_CardinalYellow": "#F2C14E",
+    "M_CardinalBlack": "#23262B"
+  }
+}

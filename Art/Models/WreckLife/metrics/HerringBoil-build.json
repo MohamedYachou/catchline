@@ -1,0 +1,50 @@
+{
+  "triangles": 260,
+  "vertices": 400,
+  "bounds_unity": [
+    [
+      -1.4996709823608398,
+      0.00800000037997961,
+      -0.8398157954216003
+    ],
+    [
+      1.4996709823608398,
+      0.041999999433755875,
+      0.8398157954216003
+    ]
+  ],
+  "meshes": [
+    "HerringBoilMesh"
+  ],
+  "materials": [
+    "M_FishSilver",
+    "M_GullWhite",
+    "M_RailIvory"
+  ],
+  "parents": {
+    "HerringBoil": null,
+    "HerringBoilMesh": "HerringBoil"
+  },
+  "name": "HerringBoil",
+  "contract": {
+    "pivot": "waterline centre",
+    "ripple_height_m": 0.008,
+    "static": true,
+    "animation": "Runtime pulses scale/visibility like SurfPulse; no exported clips. Two-sided shader for flat ripples."
+  },
+  "limit": 400,
+  "sha256": {
+    "blend": "4d40b13b7deeaeea43f4169e2ea8163d0762ae1dc5520e4d987dc11aafa3a32e",
+    "fbx": "597663cbba368ddfef1d424da38dcb63fb99dcc42112b347cc15a3306b1e6274"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_GullGrey": "#9AA6AD",
+    "M_Rubber": "#28343B",
+    "M_FishSilver": "#BAC9C6",
+    "M_RailIvory": "#F3F0DC",
+    "M_GannetBuff": "#E8CF8F",
+    "M_CardinalYellow": "#F2C14E",
+    "M_CardinalBlack": "#23262B"
+  }
+}
