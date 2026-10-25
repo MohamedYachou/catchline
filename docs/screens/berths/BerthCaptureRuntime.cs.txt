@@ -1,0 +1,96 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+namespace Catchline.Game
+{
+    public partial class VoyageGame
+    {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        static void StartBerthCapture()
+        {
+            var args=Environment.GetCommandLineArgs(); int i=Array.IndexOf(args,"-capture-berths");
+            if(i<0) return;
+            var g=UnityEngine.Object.FindFirstObjectByType<VoyageGame>();
+            if(g==null || !g.SessionOnly) { Application.Quit(31); return; }
+            g.StartCoroutine(g.CaptureBerths(Path.GetFullPath(args[i+1])));
+        }
+        void StageBerths(int hull, List<string> records)
+        {
+            enabled=true; built=true; if(coastalUi!=null) coastalUi.Root.gameObject.SetActive(true); EndIntro(); NewGame();
+            State=new GameState(25031) { Hull=hull, Coins=100000 };
+            State.Fuel=State.FuelCapacity; State.GrantTrialCards();
+            foreach(var c in State.Roster.Where(c=>c.Id!="mira"))
+                if(State.Deployment.Count<State.CardBerths) State.DeployCard(c.Id,true);
+            if(State.Deployment.Count!=State.CardBerths) throw new Exception("full deployment failed");
+            showTitle=paused=panelOpen=confirmHeadHome=false; captureFreeze=true;
+            RebuildBoat(false); SelectedSpot=0; SetSail();
+            for(int n=0;n<18000 && (CurrentMode!=Mode.Fishing || Leg!=TripLeg.None);n++) Tick(.025f);
+            if(CurrentMode!=Mode.Fishing || Leg!=TripLeg.None) throw new Exception("not idle at sea");
+            SetupDeckGraph();
+            if(ExtraPeople.Count+(Hand!=null?1:0)!=State.CardBerths) throw new Exception("crew body count mismatch");
+            var tiles=new HashSet<Vector2Int>();
+            foreach(var p in People)
+            {
+                p.Stop(); p.Place(p==Captain?SeatTile:RestFor(p)); p.Tick(0,Cam.transform.rotation);
+                if(!tiles.Add(p.Tile) || DeckGraph.Grid.IsBlocked(p.Tile)) throw new Exception("overlap/blocked rest "+p.Name+" "+p.Tile);
+                records.Add(State.HullDef.Name+","+p.Name+","+(p.Contract?.CardId??"captain")+","+p.Tile.x+","+p.Tile.y+","+"\""+p.Root.localPosition+"\"");
+            }
+            if(People.Any(p=>!p.Idle)) throw new Exception("crew not idle");
+            toastUntil=catchUntil=0; snapCamera=true; Visual(0); enabled=false;
+            Debug.Log("[Catchline] BERTH NATIVE STAGED "+State.HullDef.Name+" cards="+State.Deployment.Count+" captain=1 mode="+CurrentMode);
+        }
+        IEnumerator CaptureBerths(string directory)
+        {
+            yield return null; Application.runInBackground=true; Time.timeScale=0;
+            Screen.SetResolution(1280,720,false); for(int n=0;n<20;n++) yield return null;
+            Directory.CreateDirectory(directory); int failed=0;
+            var records=new List<string>{"hull,name,card,tileX,tileY,localPosition"};
+            foreach(int h in new[]{1,2,3,4})
+            {
+                bool ok=true;
+                try { StageBerths(h,records); } catch(Exception e) { Debug.LogError(e); failed++; ok=false; }
+                if(!ok) continue;
+                string name=new[]{"rowboat","skiff","compact-fisher","prep-fisher","buoy-fisher"}[h];
+                foreach(var size in new[]{new Vector2Int(1440,900),new Vector2Int(844,390)})
+                {
+                    Screen.SetResolution(size.x,size.y,false);
+                    for(int n=0;n<15;n++)yield return null;
+                    PrepareInterface(size.x,size.y); snapCamera=true; Visual(0);
+                    for(int n=0;n<6;n++)yield return null;
+                    yield return new WaitForEndOfFrame();
+                    var frame=ScreenCapture.CaptureScreenshotAsTexture();
+                    for(int retry=0;retry<30 && !frame.GetPixels32().Any(c=>c.r>20 || c.g>20 || c.b>20);retry++) { Destroy(frame); yield return null; yield return new WaitForEndOfFrame(); frame=ScreenCapture.CaptureScreenshotAsTexture(); }
+                    if(!frame.GetPixels32().Any(c=>c.r>20 || c.g>20 || c.b>20)) throw new Exception("black capture");
+                    File.WriteAllBytes(Path.Combine(directory,name+(size.x==1440?"":"-phone")+".png"),frame.EncodeToPNG()); Destroy(frame);
+                }
+                // A steep deck view supplements the normal native camera, with no crew geometry changed.
+                Screen.SetResolution(1440,900,false);
+                for(int n=0;n<12;n++)yield return null;
+                PrepareInterface(1440,900); snapCamera=true; Visual(0);
+                var center=Boat.TransformPoint(State.HullDef.Center);
+                coastalUi.Root.gameObject.SetActive(false); built=false;
+                Cam.orthographic=true; Cam.ResetProjectionMatrix();
+                Cam.transform.rotation=Quaternion.Euler(75,Boat.eulerAngles.y,0);
+                Cam.transform.position=center-Cam.transform.forward*35;
+                Cam.orthographicSize=h==4?2.8f:h==3?2.5f:2.3f;
+                for(int n=0;n<6;n++)yield return null;
+                yield return new WaitForEndOfFrame();
+                var deck=ScreenCapture.CaptureScreenshotAsTexture();
+                File.WriteAllBytes(Path.Combine(directory,name+"-deck.png"),deck.EncodeToPNG()); Destroy(deck);
+                // Reverse oblique view exposes crew under the open wheelhouse canopy.
+                Cam.transform.rotation=Quaternion.Euler(32,Boat.eulerAngles.y+180,0);
+                Cam.transform.position=center-Cam.transform.forward*35;
+                for(int n=0;n<6;n++)yield return null;
+                yield return new WaitForEndOfFrame();
+                var side=ScreenCapture.CaptureScreenshotAsTexture();
+                File.WriteAllBytes(Path.Combine(directory,name+"-reverse.png"),side.EncodeToPNG()); Destroy(side);
+                File.WriteAllLines(Path.Combine(directory,"placement.csv"),records);
+            }
+            File.WriteAllText(Path.Combine(directory,"capture-result.txt"),"failures="+failed+"; SessionOnly=true; full deployed cards plus captain; normal/phone/deck native captures");
+            Debug.Log("[Catchline] BERTH NATIVE COMPLETE failures="+failed); Application.Quit(failed==0?0:32);
+        }
+    }
+}

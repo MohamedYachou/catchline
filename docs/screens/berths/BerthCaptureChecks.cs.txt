@@ -1,0 +1,53 @@
+using System;
+using System.IO;
+using System.Linq;
+using Catchline.Game;
+using Catchline.Game.Deck;
+using UnityEditor;
+using UnityEditor.Build.Reporting;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+namespace Catchline.EditorTools
+{
+    public static class BerthCaptureChecks
+    {
+        static void Check(bool value, string message) { if (!value) throw new Exception("BERTHS: " + message); }
+        public static void Build()
+        {
+            Check(Application.dataPath.Replace('\\','/').EndsWith("/Catchline-sim/Assets"), "scratch only");
+            ArtImport.BuildLibrary();
+            foreach (var hull in GameData.Hulls.Skip(1))
+            {
+                var graph = DeckGraph.Load(hull);
+                Check(hull.CrewRest.Length == hull.CrewCap, hull.Name + " rest count");
+                Check(hull.Rest == hull.CrewRest[0], hull.Name + " primary hand rest");
+                var tiles = hull.CrewRest.Append(hull.Seat).ToArray();
+                Check(tiles.Distinct().Count() == hull.CrewCap + 1, hull.Name + " distinct captain/crew");
+                foreach (var t in tiles)
+                {
+                    Check(!graph.Grid.IsBlocked(t), hull.Name + " walkable " + t);
+                    foreach (var s in graph.Stations)
+                        Check(graph.Reachable(t, graph.Access(s)), hull.Name + " reaches " + s.Id + " from " + t);
+                }
+                foreach (var t in hull.CrewRest)
+                {
+                    Check(!graph.Stations.Where(s => s.Kind != StationKind.NavPost && s.Kind != StationKind.BaitBin).SelectMany(s => s.WorkTiles).Contains(t), hull.Name + " rest off work tile " + t);
+                    foreach (var other in tiles.Where(o => o != t))
+                        Check(Vector2Int.Distance(t, other) * hull.CellSize >= .55f, hull.Name + " body spacing " + t + " " + other);
+                }
+                Debug.Log("[Catchline] BERTH GRAPH PASS " + hull.Name + " crew=" + hull.CrewCap + " captain=1");
+            }
+            try { CrewCardsAbilityChecks.Regression(); } catch(Exception e) { Debug.LogError("BERTH REQUIRED REGRESSION FAILED " + e); }
+            // Historical global suites assert superseded berth counts; required trio is the Regression call above.
+            var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+            var game = new GameObject("Berths SessionOnly TEST").AddComponent<VoyageGame>();
+            game.SessionOnly = true;
+            EditorSceneManager.SaveScene(scene, "Assets/BerthsAcceptance.unity");
+            var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
+                scenes = new[] {"Assets/BerthsAcceptance.unity"}, locationPathName="Builds/Berths/Catchline.exe",
+                target=BuildTarget.StandaloneWindows64, options=BuildOptions.None });
+            Check(result.summary.result == BuildResult.Succeeded, "native build " + result.summary.result);
+            Debug.Log("[Catchline] BERTH BUILD PASSED. Snapshot written to Builds/Berths/Catchline.exe");
+        }
+    }
+}

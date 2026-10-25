@@ -40,7 +40,19 @@ namespace Catchline.Game
         Vector2Int CoolerAccess => State.HullDef.HoldAccess;
         Vector2Int SeatTile => State.HullDef.Seat;
         Vector2Int HandRest => State.HullDef.Rest;
-        Vector2Int RestFor(Person p) => IsNetFisher ? State.HullDef.CrewRest[Mathf.Clamp(p == Hand ? 0 : ExtraPeople.IndexOf(p) + (Hand != null ? 1 : 0), 0, State.HullDef.CrewRest.Length - 1)] : p == Hand ? HandRest : ExtraPeople.IndexOf(p) == 0 ? new Vector2Int(2, State.Hull == 0 ? 1 : 2) : new Vector2Int(0, 1);
+        Vector2Int RestFor(Person p)
+        {
+            int index = p == Hand ? 0 : ExtraPeople.IndexOf(p) + (Hand != null ? 1 : 0);
+            var rests = State.HullDef.CrewRest;
+            if (rests != null)
+            {
+                if (index < 0 || index >= rests.Length)
+                    throw new System.InvalidOperationException($"No crew rest {index} on {State.HullDef.Name}");
+                return rests[index];
+            }
+            // Legacy rowboat fixtures have no card berths.
+            return p == Hand ? HandRest : ExtraPeople.IndexOf(p) == 0 ? new Vector2Int(2, 1) : new Vector2Int(0, 1);
+        }
 
         Transform world, scenery, oldScenery, coolerLid;
         TextMesh coolerLabel;
