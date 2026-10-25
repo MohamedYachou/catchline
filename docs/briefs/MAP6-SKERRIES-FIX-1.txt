@@ -1,0 +1,24 @@
+MAP6-SKERRIES-FIX-1 — Codex 1 — rework the Seal skerries terrain (Claude's review, 2026-10-25 04:20)
+
+Your MAP6 import, spot data, navigation, checks and captures are accepted. The terrain art is rejected: it does not
+read as the brief's "low granite skerries with kelp, a seal colony on two of the rocks, white water on the reefs".
+Located defects (Art/Models/Maps/GullSkerries/SeaV2-wide-day.png, SeaV2-seal-rocks-day.png):
+1. The four islands are round sandy discs with dot pebbles: they look like sandbanks. Skerries are bare grey-pink
+   granite: low (0.5-3 m), angular, stepped slabs and split boulders, many small rocks, not four blobs. Use the
+   Rocky point rock language (Art/Models/Maps/GullRockyPoint) in a granite tone, with a pale wet band at the waterline
+   and dark weed/barnacle streaks.
+2. The Seal rocks ground shows no rock at all inside the deck-camera span (10.24 m, as in SeaV2-seal-rocks-day.png).
+   Each ground's camera view needs its landmark in frame: Seal rocks = two flat seal-colony slabs 6-12 m from the
+   anchor (the SealColony_1/_2 anchors move there); Kelp gully = a gully between two rock walls with kelp; Outer
+   reef = a line of half-tide reef rocks with breaking white water 8-15 m off.
+3. White water: thin foam rings at every rock's waterline and breaking patches on the outer reef (static meshes; Claude
+   adds motion). Codex 2's ReefBreak meshes (Art/Models/Skerries) may be placed instead.
+4. Keep scale variety: one taller stack (6-8 m) with a cairn as the map's landmark, visible on the chart fly-over.
+
+5. Anchor empties in the exported map FBX (Claude spawns life on them by name): SealColony_1, SealColony_2 (on the
+   colony slabs), ReefBreak_1..6 (over the outer reef's breaking patches), CrabBuoy_1 (8-12 m off Seal rocks).
+
+KEEP: playable size, ground IDs/positions (move a ground at most 4 m if a rock needs the space; then update
+navigation.json and grounds.json), navigation contract, all checks. Re-run your audits, recapture the same 10 native
+frames, open each one. Same ownership as MAP6-SKERRIES-1. One comms.md line per fixed item. No git; NEVER create
+Art/Models/CrewV2/_STOP-WATCHDOGS.

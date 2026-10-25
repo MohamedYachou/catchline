@@ -1,0 +1,34 @@
+MAP6-SKERRIES-1 — Codex 1 (Windows) — a sixth map, "Seal skerries", playable end to end
+
+GOAL (Mo, 2026-10-25 overnight: "polish everything, add new maps, 3d assets ..."): one new fishing map past the
+deep channel, built exactly like the five SeaV2 maps, wired into the game as spot 5 so a player can buy its chart,
+sail there, fish its grounds and sail home. Claude's design calls (Mo away), logged here:
+- Theme: a cluster of low granite skerries with kelp, a seal colony on two of the rocks, white water on the reefs.
+  Darker green-blue water (1C6E7E). Same house palette and low-poly style as Rocky point.
+- Size 300 x 240 m, three grounds: "Seal rocks" (crab and conger close to the rocks; the tier 5 buoy fisher's
+  cage spot), "Kelp gully" (pollock, cod), "Outer reef" (monkfish, cod, rare turbot). Use existing species only.
+- Spot data: RowSeconds 24, BiteWait 1.35, chart price 1.4x the Deep channel's; unlock rule the same shape as the
+  Deep channel's, one step later. Blurb: "Granite skerries and a seal colony. Crabs on the rocks, big fish on the
+  reef. Bring fuel."
+
+CONTEXT (read these, nothing else up front): Art/Models/Maps/SeaV2-REPORT.md and GullDeepChannel/SeaV2-REPORT.md
+(your own pipeline: Art/Source/Art108/*sea_v2*.py), docs/MAP-PLAN.md sections 4 and 7, Assets/Scripts/Game/GameData.cs
+(Spots), how the five maps are loaded (grep "SeaV2" and "navigation" in Assets/Scripts/Game), Art/STYLE.md.
+
+ORDER:
+A. Art: Art/Models/Maps/GullSkerries/ with the same files as the others (blend, fbx, navigation.json, ground
+   day/night, wide, nav plate, review sheet, validation/audit/delivery json). Leave two seal-colony anchor empties
+   ("SealColony_1", "SealColony_2") on the rocks; Codex 2 is making the seals.
+B. Import: publish under Assets/Art/Models/Environment/GullSkerries/ like the others.
+C. Code (you may edit GameData.cs Spots and the map-loading lists only): spot 5 with the data above; every list
+   or switch that enumerates the five maps gets the sixth. No rule changes to other spots.
+D. Checks in Catchline-sim: the existing map/navigation/SeaLanes/HarbourTrip checks with six maps, plus a trip
+   out to each new ground and home. Native capture at 1440x900 and 844x390: the chart, the sail out, each ground.
+
+DONE = EVIDENCE: the renders and native frames above, opened one by one; REPORT.md in the map folder; one comms.md
+line per step. QUESTION line in comms.md if the brief and evidence disagree, then continue with the next step.
+
+OWNERSHIP: Art/Models/Maps/GullSkerries/**, Art/Source/Art108/** (your pipeline), Assets/Art/Models/Environment/
+GullSkerries/**, GameData.cs Spots + map lists, your checks. Never: Minigame/**, VoyageHarbour.cs, VoyageIntro.cs,
+VoyageSeaMoments.cs, VoyageTrip*.cs (Claude), Codex 2's folders. Never batchmode the main Unity project; never touch
+the player save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

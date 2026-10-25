@@ -16,7 +16,7 @@ namespace Catchline.Game.Sea
             public float Radius, Depth;
             public bool Contains(Vector2 p) => (p - Centre).sqrMagnitude <= Radius * Radius;
         }
-        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel" };
+        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries" };
         public string Map { get; private set; }
         public string ModelId { get; private set; }
         public bool Interim { get; private set; }

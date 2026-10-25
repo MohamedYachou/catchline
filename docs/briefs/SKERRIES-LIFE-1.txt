@@ -1,0 +1,27 @@
+SKERRIES-LIFE-1 — Codex 2 (WSL artist) — seals and reef life for the new Seal skerries map
+
+GOAL (Mo, 2026-10-25 overnight: "3d assets ... animations"): the living details that make Codex 1's sixth map
+(docs/briefs/MAP6-SKERRIES-1.txt, "Seal skerries") feel alive from the game's high deck camera and from the
+first-person rod view.
+
+CONTEXT: docs/briefs/MAP6-SKERRIES-1.txt (theme), Art/STYLE.md, Art/Models/Maps/GullRockyPoint/ review images (the
+look to match), Assets/Art/Models/PropsV2/PropsV2_SealHead.fbx and PropsV2_DolphinFin.fbx (existing sea props,
+scale reference), docs/screens/overnight/trip-22s-SeaOut.png (the deck camera at sea).
+
+ORDER, one .blend + .fbx each in Art/Models/Skerries/ (Unity axes, metres, origin at base centre, house palette,
+shared materials, no loose texture folders):
+1. Seal: grey harbour seal ~1.6 m, low-poly, a simple rig, legacy-friendly actions "Bask" (loop, slow breathing,
+   head lift), "Look" (head turns toward camera), "Slide" (into the water, 1.2 s). Under 2k tris.
+2. SealColony: three Seals posed on one flat rock slab (static, for the far view) plus a lone "SealSwimHead" (head
+   and back above the water, with a small V-wake mesh) for near the boat. Under 4k tris.
+3. ReefBreak: a 6 x 2 m patch of white broken water over a reef, two variants, as flat meshes that sit just above
+   the water (Claude animates them by scrolling UV/scale). Under 600 tris.
+4. CrabBuoySet: the tier-5 buoy fisher's pot marker for this map: a red/white buoy with flag and a few floating
+   lines, plus a "PotStack" of five CrabCages on a rock ledge (reuse the CageKit cage). Under 2.5k tris.
+
+DONE = EVIDENCE: five angles each, one render from the deck camera (45 deg, 10 m span) and one from the rod view
+(1.7 m eye, 30 deg down) at 1440x900 and 844x390, and a contact strip of each action. Open every image.
+REPORT.md in Art/Models/Skerries/, one comms.md line per model. QUESTION line in comms.md when blocked, then skip on.
+
+OWNERSHIP: Art/Models/Skerries/**, Art/Source/Skerries/**. Never Assets/**, scenes, saves, code (Codex 1 imports,
+Claude wires). No git. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

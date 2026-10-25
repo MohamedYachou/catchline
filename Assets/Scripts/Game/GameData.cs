@@ -165,6 +165,12 @@ namespace Catchline.Game
                 ChartCost = 500, MapPos = new Vector2(0.88f, 0.55f),
                 Table = new[] { (Species.Pollock, 25f), (Species.Cod, 40f), (Species.Conger, 25f), (Species.Turbot, 10f), (Species.SpottedEagleRay, .3f), (Species.ApexReefShark, .12f), (Species.GoldTipShark, .08f), (Species.AbyssalGreatWhite, .04f), (Species.AbyssalLeviathan, .015f), (Species.GiantDevilManta, .08f), (Species.AtlanticSwordfish, .12f), (Species.OceanSunfish, .15f), (Species.ScallopedHammerhead, .06f), (Species.PelagicThresherShark, .06f), (Species.GiantSquid, .012f), (Species.YellowfinTuna, 6f), (Species.Monkfish, 5f) },
             },
+            new()
+            {
+                Name = "Seal skerries", Blurb = "Granite skerries and a seal colony. Crabs on the rocks, big fish on the reef. Bring fuel.", RowSeconds = 24f, BiteWait = 1.35f, Water = Palette.Hex("1C6E7E"),
+                ChartCost = 700, MapPos = new Vector2(.88f, .12f),
+                Table = new[] { (Species.Crab, 20f), (Species.Conger, 20f), (Species.Pollock, 20f), (Species.Cod, 25f), (Species.Monkfish, 14f), (Species.Turbot, 1f) },
+            },
         };
 
         public static readonly UpgradeDef[] Upgrades =

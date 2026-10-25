@@ -61,6 +61,11 @@ namespace Catchline.Game
                 G("drop-off", "Drop-off", "drop-off", (Species.Cod, 55f), (Species.Conger, 35f), (Species.Pollock, 20f), (Species.Turbot, 15f), (Species.Monkfish, 8f), (Species.SpottedEagleRay, .4f)),
                 G("trench", "Trench", "trench", (Species.Cod, 35f), (Species.Conger, 25f), (Species.Monkfish, 5f), (Species.Turbot, 5f), (Species.ApexReefShark, .2f), (Species.GoldTipShark, .15f), (Species.AbyssalGreatWhite, .08f), (Species.AbyssalLeviathan, .03f), (Species.GiantSquid, .03f)),
                 G("open", "Open", "open", (Species.Pollock, 30f), (Species.Cod, 15f), (Species.YellowfinTuna, 12f), (Species.OceanSunfish, .3f), (Species.AtlanticSwordfish, .2f), (Species.GiantDevilManta, .15f), (Species.ScallopedHammerhead, .1f), (Species.PelagicThresherShark, .1f)) },
+            // Seal skerries (MAP6-SKERRIES-1). Appended last so saved richness slots of the first five maps keep their index.
+            new[] {
+                G("seal-rocks", "Seal rocks", "rocks", (Species.Crab, 45f), (Species.Conger, 35f), (Species.Pollock, 15f), (Species.SeaBass, 10f)),
+                G("kelp-gully", "Kelp gully", "gully", (Species.Pollock, 45f), (Species.Cod, 35f), (Species.Conger, 10f), (Species.SeaBass, 8f)),
+                G("outer-reef", "Outer reef", "reef", (Species.Monkfish, 30f), (Species.Cod, 35f), (Species.Pollock, 15f), (Species.Turbot, 4f), (Species.ApexReefShark, .2f)) },
         };
 
         static readonly int[][] offsets;

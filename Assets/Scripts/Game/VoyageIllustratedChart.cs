@@ -128,6 +128,10 @@ namespace Catchline.Game
                     C(0, 0, .65f);
                     for (int i = 0; i < 8; i++) { float a = i * Mathf.PI / 4; var v = new Vector2(Mathf.Cos(a), Mathf.Sin(a)); Line(c + v * r * .55f, c + v * r, r * .3f, symbol); }
                     Circle(c, r * .25f, Palette.Hex("FFF9E9")); break;
+                case 10: // seal head above a wave
+                    C(-.1f, -.2f, .5f); C(.38f, -.08f, .26f); C(-.24f, -.32f, .07f);
+                    for (int i = -1; i <= 1; i += 2) L(.42f, -.02f, .42f + i * .38f, .06f, .06f);
+                    L(-.85f, .55f, -.3f, .4f, .16f); L(-.3f, .4f, .25f, .55f, .16f); L(.25f, .55f, .85f, .4f, .16f); break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);

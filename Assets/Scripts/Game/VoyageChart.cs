@@ -10,7 +10,7 @@ namespace Catchline.Game
         public static readonly Vector2 ChartHarbour = new(.483f, .711f);
         public static Vector2 NauticalChartPoint(int spot) => spot switch {
             1 => new(.216f, .278f), 2 => new(.815f, .414f),
-            3 => new(.159f, .583f), 4 => new(.607f, .08f), _ => new(.447f, .445f) };
+            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), _ => new(.447f, .445f) };
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
         {
@@ -37,7 +37,7 @@ namespace Catchline.Game
                 int spot = i; var p = NauticalChartPoint(i); float x = p.x * iw, y = p.y * ih;
                 string id = "chart/nautical/pin/" + i;
                 bool selected = SelectedSpot == i;
-                DrawChartPin(id + "/symbol", new Rect(x - 22, y - 30, 44, 56), i, selected);
+                DrawChartPin(id + "/symbol", new Rect(x - 22, y - 30, 44, 56), SpotGlyph(i), selected);
                 float w = i == 0 ? 196 : 184, h = 58;
                 float cx = i == 0 ? x + 18 : x - w * .48f;
                 float cy = i == 0 ? y - 10 : y + 31;
@@ -56,6 +56,8 @@ namespace Catchline.Game
             if (chartDetailsOpen) DrawChartGroundDetail();
             if (chartContractsOpen) DrawChartContractsPanel();
         }
+        // Spots 0-4 use glyphs 0-4; glyph 5 is home, so the Seal skerries (spot 5) gets the seal head (10).
+        static int SpotGlyph(int spot) => spot == 5 ? 10 : spot;
         void DrawChartPin(string id, Rect r, int glyph, bool selected)
         {
             var host = coastalUi.Box(id, r, "", Color.clear, blocks: false);

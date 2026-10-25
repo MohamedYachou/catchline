@@ -1,0 +1,1403 @@
+{
+  "schema": 2,
+  "map": "GullSkerries",
+  "runtimeModelId": "GullSkerriesSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullSkerries/GullSkerriesSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "west-seal-skerry-0",
+      "vertices": [
+        {
+          "x": -79.27694,
+          "z": 8.1186
+        },
+        {
+          "x": -77.84232,
+          "z": 3.35541
+        },
+        {
+          "x": -74.96268,
+          "z": -0.66848
+        },
+        {
+          "x": -71.15741,
+          "z": -3.72471
+        },
+        {
+          "x": -66.83958,
+          "z": -6.04499
+        },
+        {
+          "x": -62.0,
+          "z": -7.19864
+        },
+        {
+          "x": -57.10379,
+          "z": -6.26782
+        },
+        {
+          "x": -53.01607,
+          "z": -3.40788
+        },
+        {
+          "x": -49.77922,
+          "z": 0.11382
+        },
+        {
+          "x": -46.72611,
+          "z": 3.70146
+        },
+        {
+          "x": -44.03778,
+          "z": 7.92498
+        },
+        {
+          "x": -42.89224,
+          "z": 13.0
+        },
+        {
+          "x": -43.79683,
+          "z": 18.1431
+        },
+        {
+          "x": -46.03172,
+          "z": 22.72127
+        },
+        {
+          "x": -48.98944,
+          "z": 26.71897
+        },
+        {
+          "x": -52.79155,
+          "z": 29.81793
+        },
+        {
+          "x": -57.33271,
+          "z": 31.36696
+        },
+        {
+          "x": -62.0,
+          "z": 31.53307
+        },
+        {
+          "x": -66.61066,
+          "z": 31.14413
+        },
+        {
+          "x": -71.38193,
+          "z": 30.13477
+        },
+        {
+          "x": -75.75246,
+          "z": 27.50127
+        },
+        {
+          "x": -78.5367,
+          "z": 23.06732
+        },
+        {
+          "x": -79.51788,
+          "z": 17.94948
+        },
+        {
+          "x": -79.62395,
+          "z": 13.0
+        }
+      ],
+      "sourceObject": "Terrain_west-seal-skerry",
+      "sliceY": 0
+    },
+    {
+      "id": "middle-seal-skerry-0",
+      "vertices": [
+        {
+          "x": -35.43656,
+          "z": 1.73085
+        },
+        {
+          "x": -33.43877,
+          "z": -4.30536
+        },
+        {
+          "x": -29.61742,
+          "z": -9.32861
+        },
+        {
+          "x": -24.8118,
+          "z": -13.33421
+        },
+        {
+          "x": -19.2342,
+          "z": -16.26208
+        },
+        {
+          "x": -13.0,
+          "z": -17.11109
+        },
+        {
+          "x": -7.01114,
+          "z": -15.30728
+        },
+        {
+          "x": -1.94447,
+          "z": -11.96826
+        },
+        {
+          "x": 2.71223,
+          "z": -8.38468
+        },
+        {
+          "x": 7.28984,
+          "z": -4.21569
+        },
+        {
+          "x": 10.58709,
+          "z": 1.40937
+        },
+        {
+          "x": 11.27104,
+          "z": 8.0
+        },
+        {
+          "x": 9.7028,
+          "z": 14.34354
+        },
+        {
+          "x": 7.03207,
+          "z": 20.0605
+        },
+        {
+          "x": 3.42688,
+          "z": 25.12991
+        },
+        {
+          "x": -1.44594,
+          "z": 28.86869
+        },
+        {
+          "x": -7.13914,
+          "z": 30.80913
+        },
+        {
+          "x": -13.0,
+          "z": 31.62062
+        },
+        {
+          "x": -19.1062,
+          "z": 31.76394
+        },
+        {
+          "x": -25.31032,
+          "z": 30.23463
+        },
+        {
+          "x": -30.33207,
+          "z": 26.07384
+        },
+        {
+          "x": -33.181,
+          "z": 20.15016
+        },
+        {
+          "x": -34.55227,
+          "z": 14.02207
+        },
+        {
+          "x": -35.46066,
+          "z": 8.0
+        }
+      ],
+      "sourceObject": "Terrain_middle-seal-skerry",
+      "sliceY": 0
+    },
+    {
+      "id": "east-breaker-skerry-0",
+      "vertices": [
+        {
+          "x": 41.89224,
+          "z": 8.89809
+        },
+        {
+          "x": 43.45375,
+          "z": 4.14315
+        },
+        {
+          "x": 46.02737,
+          "z": 0.171
+        },
+        {
+          "x": 49.17764,
+          "z": -3.07571
+        },
+        {
+          "x": 52.92405,
+          "z": -5.17152
+        },
+        {
+          "x": 57.0,
+          "z": -5.3584
+        },
+        {
+          "x": 60.80376,
+          "z": -3.89126
+        },
+        {
+          "x": 64.27451,
+          "z": -1.87979
+        },
+        {
+          "x": 67.76389,
+          "z": 0.43409
+        },
+        {
+          "x": 70.88535,
+          "z": 3.8964
+        },
+        {
+          "x": 72.58868,
+          "z": 8.73568
+        },
+        {
+          "x": 72.57459,
+          "z": 14.0
+        },
+        {
+          "x": 71.57679,
+          "z": 18.9226
+        },
+        {
+          "x": 70.06818,
+          "z": 23.509
+        },
+        {
+          "x": 67.75797,
+          "z": 27.55846
+        },
+        {
+          "x": 64.54349,
+          "z": 30.46694
+        },
+        {
+          "x": 60.878,
+          "z": 32.24044
+        },
+        {
+          "x": 57.0,
+          "z": 33.37331
+        },
+        {
+          "x": 52.84981,
+          "z": 33.52069
+        },
+        {
+          "x": 48.90866,
+          "z": 31.66285
+        },
+        {
+          "x": 46.03329,
+          "z": 27.82154
+        },
+        {
+          "x": 44.27092,
+          "z": 23.26225
+        },
+        {
+          "x": 42.90414,
+          "z": 18.76019
+        },
+        {
+          "x": 41.84289,
+          "z": 14.0
+        }
+      ],
+      "sourceObject": "Terrain_east-breaker-skerry",
+      "sliceY": 0
+    },
+    {
+      "id": "north-granite-skerry-0",
+      "vertices": [
+        {
+          "x": 56.71241,
+          "z": 61.97236
+        },
+        {
+          "x": 58.23077,
+          "z": 59.22179
+        },
+        {
+          "x": 60.46356,
+          "z": 56.89054
+        },
+        {
+          "x": 63.20848,
+          "z": 54.99694
+        },
+        {
+          "x": 66.50645,
+          "z": 53.91283
+        },
+        {
+          "x": 70.0,
+          "z": 53.91378
+        },
+        {
+          "x": 73.27878,
+          "z": 54.59445
+        },
+        {
+          "x": 76.47739,
+          "z": 55.45961
+        },
+        {
+          "x": 79.69457,
+          "z": 56.75608
+        },
+        {
+          "x": 82.24149,
+          "z": 58.98994
+        },
+        {
+          "x": 83.34425,
+          "z": 61.95945
+        },
+        {
+          "x": 83.20772,
+          "z": 65.0
+        },
+        {
+          "x": 82.53326,
+          "z": 67.85576
+        },
+        {
+          "x": 81.3811,
+          "z": 70.58765
+        },
+        {
+          "x": 79.36573,
+          "z": 72.96429
+        },
+        {
+          "x": 76.57433,
+          "z": 74.68317
+        },
+        {
+          "x": 73.42512,
+          "z": 75.86997
+        },
+        {
+          "x": 70.0,
+          "z": 76.64549
+        },
+        {
+          "x": 66.3601,
+          "z": 76.5516
+        },
+        {
+          "x": 63.11154,
+          "z": 75.14584
+        },
+        {
+          "x": 60.7924,
+          "z": 72.82983
+        },
+        {
+          "x": 59.09115,
+          "z": 70.35579
+        },
+        {
+          "x": 57.52339,
+          "z": 67.84285
+        },
+        {
+          "x": 56.47602,
+          "z": 65.0
+        }
+      ],
+      "sourceObject": "Terrain_north-granite-skerry",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "west-seal-skerry-0",
+      "vertices": [
+        {
+          "x": -82.948,
+          "z": 7.13494
+        },
+        {
+          "x": -81.20854,
+          "z": 1.41192
+        },
+        {
+          "x": -77.71703,
+          "z": -3.42284
+        },
+        {
+          "x": -73.1032,
+          "z": -7.09493
+        },
+        {
+          "x": -67.86791,
+          "z": -9.88278
+        },
+        {
+          "x": -62.0,
+          "z": -11.26889
+        },
+        {
+          "x": -56.06343,
+          "z": -10.15051
+        },
+        {
+          "x": -51.10714,
+          "z": -6.71425
+        },
+        {
+          "x": -47.18251,
+          "z": -2.48289
+        },
+        {
+          "x": -43.48066,
+          "z": 1.8277
+        },
+        {
+          "x": -40.22111,
+          "z": 6.9023
+        },
+        {
+          "x": -38.83216,
+          "z": 13.0
+        },
+        {
+          "x": -39.92896,
+          "z": 19.17949
+        },
+        {
+          "x": -42.63873,
+          "z": 24.68021
+        },
+        {
+          "x": -46.22491,
+          "z": 29.4835
+        },
+        {
+          "x": -50.83491,
+          "z": 33.20693
+        },
+        {
+          "x": -56.341,
+          "z": 35.06812
+        },
+        {
+          "x": -62.0,
+          "z": 35.26769
+        },
+        {
+          "x": -67.59035,
+          "z": 34.80038
+        },
+        {
+          "x": -73.37543,
+          "z": 33.58762
+        },
+        {
+          "x": -78.67464,
+          "z": 30.42344
+        },
+        {
+          "x": -82.05048,
+          "z": 25.096
+        },
+        {
+          "x": -83.24014,
+          "z": 18.94686
+        },
+        {
+          "x": -83.36874,
+          "z": 13.0
+        }
+      ],
+      "sourceObject": "Terrain_west-seal-skerry",
+      "sliceY": -1
+    },
+    {
+      "id": "middle-seal-skerry-0",
+      "vertices": [
+        {
+          "x": -39.1838,
+          "z": 0.72678
+        },
+        {
+          "x": -36.85235,
+          "z": -6.27618
+        },
+        {
+          "x": -32.39278,
+          "z": -12.10396
+        },
+        {
+          "x": -26.78454,
+          "z": -16.7511
+        },
+        {
+          "x": -20.2754,
+          "z": -20.1479
+        },
+        {
+          "x": -13.0,
+          "z": -21.13288
+        },
+        {
+          "x": -6.01091,
+          "z": -19.04018
+        },
+        {
+          "x": -0.09803,
+          "z": -15.16638
+        },
+        {
+          "x": 5.33641,
+          "z": -11.00885
+        },
+        {
+          "x": 10.67854,
+          "z": -6.17216
+        },
+        {
+          "x": 14.52648,
+          "z": 0.35381
+        },
+        {
+          "x": 15.32466,
+          "z": 8.0
+        },
+        {
+          "x": 13.4945,
+          "z": 15.35952
+        },
+        {
+          "x": 10.37772,
+          "z": 21.99211
+        },
+        {
+          "x": 6.17041,
+          "z": 27.87344
+        },
+        {
+          "x": 0.48375,
+          "z": 32.21102
+        },
+        {
+          "x": -6.16029,
+          "z": 34.46225
+        },
+        {
+          "x": -13.0,
+          "z": 35.4037
+        },
+        {
+          "x": -20.12602,
+          "z": 35.56997
+        },
+        {
+          "x": -27.36632,
+          "z": 33.79573
+        },
+        {
+          "x": -33.22678,
+          "z": 28.96855
+        },
+        {
+          "x": -36.55153,
+          "z": 22.09613
+        },
+        {
+          "x": -38.15181,
+          "z": 14.98656
+        },
+        {
+          "x": -39.21192,
+          "z": 8.0
+        }
+      ],
+      "sourceObject": "Terrain_middle-seal-skerry",
+      "sliceY": -1
+    },
+    {
+      "id": "east-breaker-skerry-0",
+      "vertices": [
+        {
+          "x": 38.05535,
+          "z": 7.87
+        },
+        {
+          "x": 40.01344,
+          "z": 2.15688
+        },
+        {
+          "x": 43.24067,
+          "z": -2.6157
+        },
+        {
+          "x": 47.191,
+          "z": -6.51666
+        },
+        {
+          "x": 51.88889,
+          "z": -9.03479
+        },
+        {
+          "x": 57.0,
+          "z": -9.25933
+        },
+        {
+          "x": 61.7698,
+          "z": -7.49655
+        },
+        {
+          "x": 66.12201,
+          "z": -5.07975
+        },
+        {
+          "x": 70.49757,
+          "z": -2.2996
+        },
+        {
+          "x": 74.4118,
+          "z": 1.86041
+        },
+        {
+          "x": 76.54772,
+          "z": 7.67486
+        },
+        {
+          "x": 76.53004,
+          "z": 14.0
+        },
+        {
+          "x": 75.27883,
+          "z": 19.91456
+        },
+        {
+          "x": 73.38709,
+          "z": 25.42517
+        },
+        {
+          "x": 70.49015,
+          "z": 30.29064
+        },
+        {
+          "x": 66.4593,
+          "z": 33.78521
+        },
+        {
+          "x": 61.86289,
+          "z": 35.91609
+        },
+        {
+          "x": 57.0,
+          "z": 37.27725
+        },
+        {
+          "x": 51.7958,
+          "z": 37.45434
+        },
+        {
+          "x": 46.85372,
+          "z": 35.22212
+        },
+        {
+          "x": 43.24809,
+          "z": 30.60674
+        },
+        {
+          "x": 41.03813,
+          "z": 25.1287
+        },
+        {
+          "x": 39.32424,
+          "z": 19.71942
+        },
+        {
+          "x": 37.99347,
+          "z": 14.0
+        }
+      ],
+      "sourceObject": "Terrain_east-breaker-skerry",
+      "sliceY": -1
+    },
+    {
+      "id": "north-granite-skerry-0",
+      "vertices": [
+        {
+          "x": 52.83282,
+          "z": 60.93283
+        },
+        {
+          "x": 54.7945,
+          "z": 57.23786
+        },
+        {
+          "x": 57.6792,
+          "z": 54.10618
+        },
+        {
+          "x": 61.22555,
+          "z": 51.56241
+        },
+        {
+          "x": 65.48643,
+          "z": 50.10607
+        },
+        {
+          "x": 70.0,
+          "z": 50.10735
+        },
+        {
+          "x": 74.23608,
+          "z": 51.02173
+        },
+        {
+          "x": 78.36861,
+          "z": 52.18394
+        },
+        {
+          "x": 82.52511,
+          "z": 53.92554
+        },
+        {
+          "x": 85.81565,
+          "z": 56.9264
+        },
+        {
+          "x": 87.24037,
+          "z": 60.91549
+        },
+        {
+          "x": 87.064,
+          "z": 65.0
+        },
+        {
+          "x": 86.1926,
+          "z": 68.83628
+        },
+        {
+          "x": 84.70406,
+          "z": 72.50616
+        },
+        {
+          "x": 82.10025,
+          "z": 75.69881
+        },
+        {
+          "x": 78.49384,
+          "z": 78.00787
+        },
+        {
+          "x": 74.42515,
+          "z": 79.60215
+        },
+        {
+          "x": 70.0,
+          "z": 80.64394
+        },
+        {
+          "x": 65.29736,
+          "z": 80.51781
+        },
+        {
+          "x": 61.10031,
+          "z": 78.62939
+        },
+        {
+          "x": 58.10405,
+          "z": 75.51817
+        },
+        {
+          "x": 55.90609,
+          "z": 72.19469
+        },
+        {
+          "x": 53.88059,
+          "z": 68.81894
+        },
+        {
+          "x": 52.52741,
+          "z": 65.0
+        }
+      ],
+      "sourceObject": "Terrain_north-granite-skerry",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -150.0,
+      "z": -120.0
+    },
+    {
+      "x": 150.0,
+      "z": -120.0
+    },
+    {
+      "x": 150.0,
+      "z": 120.0
+    },
+    {
+      "x": -150.0,
+      "z": 120.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "seal-rocks",
+      "name": "Seal rocks",
+      "centre": {
+        "x": -84.0,
+        "z": -25.0
+      },
+      "radius": 14,
+      "nominalDepth": 2.3,
+      "poolId": "GullSkerries/seal-rocks",
+      "position": [
+        -84,
+        0,
+        -25
+      ],
+      "heading": 0
+    },
+    {
+      "id": "kelp-gully",
+      "name": "Kelp gully",
+      "centre": {
+        "x": 8.0,
+        "z": 57.0
+      },
+      "radius": 15,
+      "nominalDepth": 3.8,
+      "poolId": "GullSkerries/kelp-gully",
+      "position": [
+        8,
+        0,
+        57
+      ],
+      "heading": 0
+    },
+    {
+      "id": "outer-reef",
+      "name": "Outer reef",
+      "centre": {
+        "x": 99.0,
+        "z": -35.0
+      },
+      "radius": 18,
+      "nominalDepth": 7.0,
+      "poolId": "GullSkerries/outer-reef",
+      "position": [
+        99,
+        0,
+        -35
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -115.0,
+    "z": -85.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -142.0,
+      "z": -112.0
+    },
+    "max": {
+      "x": 142.0,
+      "z": 112.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -150.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -122.72727,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -95.45455,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -68.18182,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -40.90909,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -13.63636,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 13.63636,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 40.90909,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 68.18182,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 95.45455,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 122.72727,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 150.0,
+        "z": -120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 150.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 150.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 150.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 150.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 150.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 150.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 150.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 150.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 150.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 122.72727,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 95.45455,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 68.18182,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 40.90909,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 13.63636,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": -13.63636,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": -40.90909,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": -68.18182,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -95.45455,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -122.72727,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -150.0,
+        "z": 120.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -150.0,
+        "z": 93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -150.0,
+        "z": 66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -150.0,
+        "z": 40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -150.0,
+        "z": 13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -150.0,
+        "z": -13.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -150.0,
+        "z": -40.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -150.0,
+        "z": -66.66667
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -150.0,
+        "z": -93.33333
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonHeadland_0",
+        "kind": "headland",
+        "centre": {
+          "x": -159.0,
+          "z": 189.6
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_1",
+        "kind": "headland",
+        "centre": {
+          "x": 117.0,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_2",
+        "kind": "headland",
+        "centre": {
+          "x": -255.0,
+          "z": -48.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonHeadland_3",
+        "kind": "headland",
+        "centre": {
+          "x": 252.0,
+          "z": -64.8
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-lighthouse",
+        "kind": "lighthouse",
+        "centre": {
+          "x": 117.0,
+          "z": 204.0
+        },
+        "reachable": false
+      },
+      {
+        "id": "outer-freighter",
+        "kind": "ship",
+        "centre": {
+          "x": 192.0,
+          "z": 165.6
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "west-seal-skerry": "Low granite basking rock shelters Seal rocks; leave its southern fishing approach open.",
+    "middle-seal-skerry": "Second seal colony divides Seal rocks from Kelp gully; choose either side of its broad reef shelf.",
+    "east-breaker-skerry": "White water marks the granite reef between Kelp gully and Outer reef.",
+    "north-granite-skerry": "Low outer granite rock frames the kelp approach without closing the gully."
+  },
+  "artReviewAnchors": {
+    "seal-rocks": {
+      "x": -84.0,
+      "z": -25.0
+    },
+    "kelp-gully": {
+      "x": 8.0,
+      "z": 57.0
+    },
+    "outer-reef": {
+      "x": 99.0,
+      "z": -35.0
+    }
+  },
+  "sealColonyAnchors": [
+    {
+      "id": "SealColony_1",
+      "position": [
+        -62,
+        1.88,
+        13
+      ]
+    },
+    {
+      "id": "SealColony_2",
+      "position": [
+        -13,
+        2.58,
+        8
+      ]
+    }
+  ]
+}

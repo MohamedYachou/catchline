@@ -15,6 +15,7 @@ namespace Catchline.Game
             new[] { "The old wreck", "Shoal markers" },
             new[] { "Gull stacks", "The breakers" },
             new[] { "Bell buoy", "The dark water" },
+            new[] { "Seal colony", "Reef breakers" },
         };
         static readonly float[] ChartLandmarkAt = { .36f, .7f };
         RectTransform journeySlab;
@@ -59,7 +60,7 @@ namespace Catchline.Game
             var graphic = ChartGraphic<TripRouteGraphic>(route);
             graphic.raycastTarget = false;
             float u = chartHome ? 1 - ChartRoute : ChartRoute;
-            graphic.Configure(ActiveSpot, u, chartHome);
+            graphic.Configure(SpotGlyph(ActiveSpot), u, chartHome);
 
             var size = new Vector2(chart.width, chart.height);
             var names = ChartLandmarks[Mathf.Clamp(ActiveSpot, 0, ChartLandmarks.Length - 1)];
