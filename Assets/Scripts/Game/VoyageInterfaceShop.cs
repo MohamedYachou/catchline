@@ -103,8 +103,9 @@ namespace Catchline.Game
             float selH = compactInterface ? 76 : 120, gap = 12;
             var gridRect = new Rect(area.x, area.y, area.width, area.height - selH - gap);
             int cols = compactInterface ? 5 : 4;
-            float cw = (gridRect.width - 12 - gap * (cols - 1)) / cols, ch = compactInterface ? Mathf.Min(150, gridRect.height) : Mathf.Min(300, gridRect.height);
             int rows = Mathf.CeilToInt(shopItems.Count / (float)cols);
+            // A single phone row fills the shelf instead of leaving a bare band above the selection slab.
+            float cw = (gridRect.width - 12 - gap * (cols - 1)) / cols, ch = compactInterface ? Mathf.Min(rows == 1 ? gridRect.height - gap - 12 : 150, gridRect.height) : Mathf.Min(300, gridRect.height);
             var content = coastalUi.Scroll("shop/grid/" + hudTab, gridRect, rows * (ch + gap) + 12);
             if (!shopSelection.TryGetValue(hudTab, out var chosen) || shopItems.All(i => i.Id != chosen))
                 chosen = (shopItems.FirstOrDefault(i => i.Enabled && !i.Owned) ?? shopItems[0]).Id;
