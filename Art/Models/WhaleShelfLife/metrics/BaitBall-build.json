@@ -1,0 +1,76 @@
+{
+  "triangles": 384,
+  "mesh_bounds": {
+    "BaitBallSkin": {
+      "triangles": 384,
+      "world_min_m": [
+        -1.508463740348816,
+        -1.7319951057434082,
+        -0.2062949538230896
+      ],
+      "world_max_m": [
+        1.6749876737594604,
+        1.6001133918762207,
+        -0.10700517892837524
+      ],
+      "materials": [
+        "M_BaitDark",
+        "M_BaitSilver",
+        "M_BaitTeal"
+      ]
+    }
+  },
+  "parents": {
+    "BaitBall": null,
+    "BaitBallRig": "BaitBall",
+    "BaitBallSkin": "BaitBallRig"
+  },
+  "bounds_unity": [
+    [
+      -1.508463740348816,
+      -0.2062949538230896,
+      -1.6001133918762207
+    ],
+    [
+      1.6749876737594604,
+      -0.10700517892837524,
+      1.7319951057434082
+    ]
+  ],
+  "materials": [
+    "M_BaitDark",
+    "M_BaitSilver",
+    "M_BaitTeal"
+  ],
+  "name": "BaitBall",
+  "limit": 400,
+  "clips": {
+    "Swirl": {
+      "seconds": 2.0,
+      "loop": true,
+      "frames": [
+        1,
+        61
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "5694d2372bbba86b8142308afec3256b55c9c9b3b4865b831eada340ba84d76a",
+    "fbx": "9b3a0e5ed416e97e81acd250f0032fb224ba87e763041fbd1b7e796b4ecdcefe"
+  },
+  "palette": {
+    "M_WhaleSlate": "#526B73",
+    "M_WhaleLit": "#70858A",
+    "M_WhaleBelly": "#D4D9CC",
+    "M_ThroatGroove": "#A3B4B1",
+    "M_Ivory": "#F3F0DC",
+    "M_VapourShade": "#D5E3DC",
+    "M_Wingtip": "#28343B",
+    "M_GullMantle": "#BAC9C6",
+    "M_YellowBill": "#E6AD38",
+    "M_Eye": "#17343D",
+    "M_BaitDark": "#31565E",
+    "M_BaitSilver": "#8FA6AC",
+    "M_BaitTeal": "#517F81"
+  }
+}

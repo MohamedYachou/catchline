@@ -84,6 +84,7 @@ namespace Catchline.Game
         void DismissTutorialLine()
         {
             audio?.Play(VoyageAudio.Cue.Select, .35f);
+            audio?.StopVoice();
             switch (Tutorial)
             {
                 case TutStep.FirstCast: SetTutorial(TutStep.Sell); break;
@@ -100,12 +101,13 @@ namespace Catchline.Game
         {
             AdvanceTutorial();
             var line = TutorialLine();
-            if (line == null) { tutShown = TutStep.Done; return; }
+            if (line == null) { if (tutShown != TutStep.Done) audio?.StopVoice(); tutShown = TutStep.Done; return; }
             var (pose, text, targetId, dismiss) = line.Value;
             if (tutShown != Tutorial || tutShownText != text)
             {
                 tutShown = Tutorial; tutShownText = text; tutShownAt = Time.unscaledTime;
                 audio?.Play(VoyageAudio.Cue.CoachPop, .3f);
+                audio?.Speak(text);
             }
             // Batch captures render the settled pose, not the first frame of the entrance.
             float age = Application.isBatchMode ? 10 : Time.unscaledTime - tutShownAt, now = Time.unscaledTime;

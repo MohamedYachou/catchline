@@ -1,0 +1,120 @@
+{
+  "result": "PASS",
+  "name": "BlowSpout",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 180,
+    "mesh_bounds": {
+      "RoundedVapour": {
+        "triangles": 180,
+        "world_min_m": [
+          -1.0850168466567993,
+          -0.4666149616241455,
+          -0.0013634110800921917
+        ],
+        "world_max_m": [
+          1.0954557657241821,
+          0.48661497235298157,
+          3.0752220153808594
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_VapourShade"
+        ]
+      }
+    },
+    "parents": {
+      "BlowSpout": null,
+      "RoundedVapour": "BlowSpout"
+    },
+    "bounds_unity": [
+      [
+        -1.0850168466567993,
+        -0.0013634110800921917,
+        -0.48661497235298157
+      ],
+      [
+        1.0954557657241821,
+        3.0752220153808594,
+        0.4666149616241455
+      ]
+    ],
+    "materials": [
+      "M_Ivory",
+      "M_VapourShade"
+    ]
+  },
+  "imported": {
+    "triangles": 180,
+    "mesh_bounds": {
+      "RoundedVapour": {
+        "triangles": 180,
+        "world_min_m": [
+          -1.0850168466567993,
+          -0.4666145443916321,
+          -0.0013634110800921917
+        ],
+        "world_max_m": [
+          1.0954557657241821,
+          0.486615389585495,
+          3.0752220153808594
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_VapourShade"
+        ]
+      }
+    },
+    "parents": {
+      "RoundedVapour": "BlowSpout",
+      "BlowSpout": null
+    },
+    "bounds_unity": [
+      [
+        -1.0850168466567993,
+        -0.0013634110800921917,
+        -0.486615389585495
+      ],
+      [
+        1.0954557657241821,
+        3.0752220153808594,
+        0.4666145443916321
+      ]
+    ],
+    "materials": [
+      "M_Ivory",
+      "M_VapourShade"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 4.991888999938965e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    2.1804726123809814,
+    3.0765854264609516,
+    0.9532299339771271
+  ],
+  "materials_linear_rgba": {
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_VapourShade": [
+      0.6653872728347778,
+      0.7681511640548706,
+      0.715693473815918,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "f8b7d9d83dd7cb28d14894ffa1df32724467682da3f6f53c921fb574b0e813dd",
+    "fbx": "00d67f75dda20a658f4dd6e7a033c30f9b9a2f28f40a3de98fca9a14016c1a33"
+  },
+  "legacy_import_required": false
+}

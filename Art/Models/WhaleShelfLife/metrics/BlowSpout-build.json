@@ -1,0 +1,64 @@
+{
+  "triangles": 180,
+  "mesh_bounds": {
+    "RoundedVapour": {
+      "triangles": 180,
+      "world_min_m": [
+        -1.0850168466567993,
+        -0.4666149616241455,
+        -0.0013634110800921917
+      ],
+      "world_max_m": [
+        1.0954557657241821,
+        0.48661497235298157,
+        3.0752220153808594
+      ],
+      "materials": [
+        "M_Ivory",
+        "M_VapourShade"
+      ]
+    }
+  },
+  "parents": {
+    "BlowSpout": null,
+    "RoundedVapour": "BlowSpout"
+  },
+  "bounds_unity": [
+    [
+      -1.0850168466567993,
+      -0.0013634110800921917,
+      -0.48661497235298157
+    ],
+    [
+      1.0954557657241821,
+      3.0752220153808594,
+      0.4666149616241455
+    ]
+  ],
+  "materials": [
+    "M_Ivory",
+    "M_VapourShade"
+  ],
+  "name": "BlowSpout",
+  "limit": 200,
+  "clips": {},
+  "sha256": {
+    "blend": "f8b7d9d83dd7cb28d14894ffa1df32724467682da3f6f53c921fb574b0e813dd",
+    "fbx": "00d67f75dda20a658f4dd6e7a033c30f9b9a2f28f40a3de98fca9a14016c1a33"
+  },
+  "palette": {
+    "M_WhaleSlate": "#526B73",
+    "M_WhaleLit": "#70858A",
+    "M_WhaleBelly": "#D4D9CC",
+    "M_ThroatGroove": "#A3B4B1",
+    "M_Ivory": "#F3F0DC",
+    "M_VapourShade": "#D5E3DC",
+    "M_Wingtip": "#28343B",
+    "M_GullMantle": "#BAC9C6",
+    "M_YellowBill": "#E6AD38",
+    "M_Eye": "#17343D",
+    "M_BaitDark": "#31565E",
+    "M_BaitSilver": "#8FA6AC",
+    "M_BaitTeal": "#517F81"
+  }
+}

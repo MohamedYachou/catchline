@@ -1,0 +1,239 @@
+{
+  "result": "PASS",
+  "name": "BaitBall",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 384,
+    "mesh_bounds": {
+      "BaitBallSkin": {
+        "triangles": 384,
+        "world_min_m": [
+          -1.508463740348816,
+          -1.7319951057434082,
+          -0.2062949538230896
+        ],
+        "world_max_m": [
+          1.6749876737594604,
+          1.6001133918762207,
+          -0.10700517892837524
+        ],
+        "materials": [
+          "M_BaitDark",
+          "M_BaitSilver",
+          "M_BaitTeal"
+        ]
+      }
+    },
+    "parents": {
+      "BaitBall": null,
+      "BaitBallRig": "BaitBall",
+      "BaitBallSkin": "BaitBallRig"
+    },
+    "bounds_unity": [
+      [
+        -1.508463740348816,
+        -0.2062949538230896,
+        -1.6001133918762207
+      ],
+      [
+        1.6749876737594604,
+        -0.10700517892837524,
+        1.7319951057434082
+      ]
+    ],
+    "materials": [
+      "M_BaitDark",
+      "M_BaitSilver",
+      "M_BaitTeal"
+    ]
+  },
+  "imported": {
+    "triangles": 384,
+    "mesh_bounds": {
+      "BaitBallSkin": {
+        "triangles": 384,
+        "world_min_m": [
+          -1.508463740348816,
+          -1.7319951057434082,
+          -0.20629511773586273
+        ],
+        "world_max_m": [
+          1.6749876737594604,
+          1.6001133918762207,
+          -0.10700508207082748
+        ],
+        "materials": [
+          "M_BaitDark",
+          "M_BaitSilver",
+          "M_BaitTeal"
+        ]
+      }
+    },
+    "parents": {
+      "BaitBallRig": "BaitBall",
+      "BaitBallSkin": "BaitBallRig",
+      "BaitBall": null
+    },
+    "bounds_unity": [
+      [
+        -1.508463740348816,
+        -0.20629511773586273,
+        -1.6001133918762207
+      ],
+      [
+        1.6749876737594604,
+        -0.10700508207082748,
+        1.7319951057434082
+      ]
+    ],
+    "materials": [
+      "M_BaitDark",
+      "M_BaitSilver",
+      "M_BaitTeal"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 2.8312206268310547e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Swirl": {
+      "source": {
+        "seconds": 2.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.28687757293057314,
+        "end_vs_start_m": 9.430054283549176e-18,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.2062949538230896,
+            -0.10700517892837524
+          ],
+          "16": [
+            -0.25695550441741943,
+            -0.0899583101272583
+          ],
+          "31": [
+            -0.25149983167648315,
+            -0.06951986253261566
+          ],
+          "46": [
+            -0.23941612243652344,
+            -0.043436527252197266
+          ],
+          "61": [
+            -0.2062949538230896,
+            -0.10700517892837524
+          ]
+        }
+      },
+      "imported": {
+        "seconds": 2.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.2868776135360733,
+        "end_vs_start_m": 0.0,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.20629511773586273,
+            -0.10700508207082748
+          ],
+          "16": [
+            -0.2569553554058075,
+            -0.08995835483074188
+          ],
+          "31": [
+            -0.2514996826648712,
+            -0.06951960176229477
+          ],
+          "46": [
+            -0.239416241645813,
+            -0.043436262756586075
+          ],
+          "61": [
+            -0.20629511773586273,
+            -0.10700508207082748
+          ]
+        }
+      },
+      "surface_samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.8312206268310547e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 4.4229096829440095e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.8312206268310547e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.8346973951775e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.8312206268310547e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    3.1834514141082764,
+    0.09928977489471436,
+    3.332108497619629
+  ],
+  "materials_linear_rgba": {
+    "M_BaitDark": [
+      0.03071344457566738,
+      0.09305896610021591,
+      0.1119324266910553,
+      1.0
+    ],
+    "M_BaitSilver": [
+      0.2746773064136505,
+      0.38132601976394653,
+      0.4125426113605499,
+      1.0
+    ],
+    "M_BaitTeal": [
+      0.08228270709514618,
+      0.21223075687885284,
+      0.21952620148658752,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "5694d2372bbba86b8142308afec3256b55c9c9b3b4865b831eada340ba84d76a",
+    "fbx": "9b3a0e5ed416e97e81acd250f0032fb224ba87e763041fbd1b7e796b4ecdcefe"
+  },
+  "legacy_import_required": true
+}

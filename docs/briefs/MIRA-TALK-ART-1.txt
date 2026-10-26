@@ -1,0 +1,17 @@
+MIRA-TALK-ART-1 — Codex 2 — talking frames for Mira (Claude 2 lead, 2026-10-26 14:00)
+GOAL: Mo picked a voice for Mira (Kokoro af_heart); Claude will voice her tutorial lines. While she speaks, her portrait
+should talk: swap mouth frames in sync with the audio's loudness, plus an occasional blink.
+SOURCE: Art/Source/Tutorial/generated/{wave,point,explain,cheer,think,map}.png (1122x1402, accepted, you made them in
+TUTORIAL-ART-1). Look at Art/Source/Tutorial/mira-pose-*.png (the 1024x1280 game crops) for framing; do not edit either.
+DO, for each of the six poses, at the generated source size, pixel-identical outside a small face region:
+- <pose>-mouth-mid.png (mouth slightly open) and <pose>-mouth-open.png (open "ah", teeth/tongue hint, friendly, not
+  shouting); the source frame counts as mouth-closed.
+- <pose>-blink.png (eyes closed, same mouth as source).
+- Same lighting, line weight, colours and style as the source; no head, hat, hair or body movement.
+CHECKS: per frame a diff mask vs its source showing every changed pixel lies inside the face box (record the box and
+changed-pixel count in talk-validation.json; anything outside the box fails); a contact sheet per pose (closed / mid /
+open / blink side by side, plus a 3x zoom of the face), every image opened by you.
+OUTPUT: Art/Source/Tutorial/talk/ (frames, sheets, talk-validation.json, REPORT.md with the face box per pose and the
+suggested amplitude thresholds for closed/mid/open). Claude crops them into the game like the poses.
+OWNERSHIP: Art/Source/Tutorial/talk/** only. No git, no Unity, no Assets/, no .meta, no .cs, never the player save. One
+comms.md line per pose; CHECKPOINT at safe boundaries; DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

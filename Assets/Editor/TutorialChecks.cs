@@ -53,6 +53,8 @@ namespace Catchline.EditorTools
                 Check(result.HasValue == line, step + " line presence");
                 if (!line) continue;
                 Check(!string.IsNullOrEmpty(result.Value.text), step + " has explanation");
+                // docs/tools/mira_voice.py must be re-run whenever a line changes.
+                Check(Resources.Load<AudioClip>("Audio/Voice/Mira/" + VoyageAudio.VoiceKey(result.Value.text)) != null, step + " line is voiced");
                 Check(result.Value.target == target, step + " expected target " + target);
                 if (target != null)
                 {

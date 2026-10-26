@@ -171,7 +171,10 @@ namespace Catchline.Game
         {
             bool phone = coastalUi.Phone;
             float row = phone ? 44 : 52, label = phone ? 24 : 30, gap = phone ? 8 : 14, sh = phone ? 48 : 52;
-            float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * 4 + sh + Skin.SlabPad;
+            int rows = audio != null ? 5 : 4;
+            // Five rows (Mira's voice) must still fit a landscape phone.
+            if (Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad > ih - 16) { row = 40; label = 20; gap = 4; }
+            float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad;
             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
             coastalUi.Slab("settings/card", card, "Settings", true);
             float x = card.x + Skin.SlabPad + 4, cw = w - Skin.SlabPad * 2 - 8, y = card.y + Skin.HeaderBand + 12;
@@ -190,6 +193,7 @@ namespace Catchline.Game
                 int level = 0;
                 for (int i = 1; i < VolumeSteps.Length; i++) if (Mathf.Abs(VolumeSteps[i] - audio.Volume) < Mathf.Abs(VolumeSteps[level] - audio.Volume)) level = i;
                 Row("sound", "Coastal sounds", VolumeNames, level, i => audio.Volume = VolumeSteps[i]);
+                Row("voice", "Mira's voice", new[] { "Off", "On" }, audio.VoiceOn ? 1 : 0, i => audio.VoiceOn = i == 1);
             }
             else
             {

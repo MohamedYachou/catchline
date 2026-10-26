@@ -1,0 +1,98 @@
+{
+  "triangles": 804,
+  "mesh_bounds": {
+    "HumpbackSkin": {
+      "triangles": 804,
+      "world_min_m": [
+        -3.180000066757202,
+        -4.25,
+        -1.649999976158142
+      ],
+      "world_max_m": [
+        3.180000066757202,
+        4.400000095367432,
+        0.4300000071525574
+      ],
+      "materials": [
+        "M_WhaleSlate",
+        "M_WhaleLit",
+        "M_WhaleBelly",
+        "M_ThroatGroove",
+        "M_Ivory",
+        "M_Eye"
+      ]
+    }
+  },
+  "parents": {
+    "Humpback": null,
+    "HumpbackRig": "Humpback",
+    "HumpbackSkin": "HumpbackRig"
+  },
+  "bounds_unity": [
+    [
+      -3.180000066757202,
+      -1.649999976158142,
+      -4.400000095367432
+    ],
+    [
+      3.180000066757202,
+      0.4300000071525574,
+      4.25
+    ]
+  ],
+  "materials": [
+    "M_Eye",
+    "M_Ivory",
+    "M_ThroatGroove",
+    "M_WhaleBelly",
+    "M_WhaleLit",
+    "M_WhaleSlate"
+  ],
+  "name": "Humpback",
+  "limit": 1400,
+  "clips": {
+    "Surface": {
+      "seconds": 3.0,
+      "loop": false,
+      "frames": [
+        1,
+        91
+      ]
+    },
+    "Blow": {
+      "seconds": 1.5,
+      "loop": false,
+      "frames": [
+        1,
+        46
+      ]
+    },
+    "Fluke": {
+      "seconds": 3.0,
+      "loop": false,
+      "frames": [
+        1,
+        91
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "7e27702de809280771aaba106697314703686668eb63135cff84271ed90a3306",
+    "fbx": "fac8e2b8014506f52a3f4dfe99c640cf48fa903b1be556c24339c110945e36b3"
+  },
+  "palette": {
+    "M_WhaleSlate": "#526B73",
+    "M_WhaleLit": "#70858A",
+    "M_WhaleBelly": "#D4D9CC",
+    "M_ThroatGroove": "#A3B4B1",
+    "M_Ivory": "#F3F0DC",
+    "M_VapourShade": "#D5E3DC",
+    "M_Wingtip": "#28343B",
+    "M_GullMantle": "#BAC9C6",
+    "M_YellowBill": "#E6AD38",
+    "M_Eye": "#17343D",
+    "M_BaitDark": "#31565E",
+    "M_BaitSilver": "#8FA6AC",
+    "M_BaitTeal": "#517F81"
+  }
+}

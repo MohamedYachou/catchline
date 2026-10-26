@@ -18,7 +18,9 @@ namespace Catchline.Game
         readonly Dictionary<Cue, AudioClip> clips = new();
         readonly Dictionary<Cue, AudioClip[]> packed = new();
         readonly Dictionary<Cue, float> cueReady = new();
-        AudioSource ambience, foley, ambientCalls;
+        AudioSource ambience, foley, ambientCalls, voice;
+        readonly float[] voiceSamples = new float[256];
+        bool previewVoice = true;
         AudioClip sea, harbourBed, openSeaBed, skerriesBed, duskBed, lighthouseBed;
         float nextOar, nextGull, nextPuffin, nextFoghorn, nextDog, nextCat;
         bool preview;
@@ -29,13 +31,49 @@ namespace Catchline.Game
             set { if (preview) previewVolume = value; else { PlayerPrefs.SetFloat("catchline.sound", value); PlayerPrefs.Save(); } }
         }
 
+        // Mira's spoken tutorial lines: Resources/Audio/Voice/Mira/<fnv-1a of the shown text>.wav, made by
+        // docs/tools/mira_voice.py (Kokoro af_heart, Mo's pick 10-26). Missing files stay silent.
+        public bool VoiceOn
+        {
+            get => preview ? previewVoice : PlayerPrefs.GetInt("catchline.voice", 1) == 1;
+            set { if (preview) previewVoice = value; else { PlayerPrefs.SetInt("catchline.voice", value ? 1 : 0); PlayerPrefs.Save(); } if (!value) StopVoice(); }
+        }
+        public static string VoiceKey(string text)
+        {
+            uint h = 2166136261;
+            foreach (byte b in System.Text.Encoding.UTF8.GetBytes(text ?? "")) { h ^= b; h *= 16777619; }
+            return h.ToString("x8");
+        }
+        public void Speak(string text)
+        {
+            if (voice == null) return;
+            voice.Stop();
+            if (!VoiceOn || Volume <= .001f || string.IsNullOrEmpty(text)) return;
+            var clip = Resources.Load<AudioClip>("Audio/Voice/Mira/" + VoiceKey(text));
+            if (clip == null) return;
+            voice.clip = clip; voice.volume = Mathf.Min(1f, Volume * 1.3f); voice.Play();
+        }
+        public void StopVoice() { if (voice != null) voice.Stop(); }
+        // Loudness of the line being spoken, 0 when silent; drives Mira's talking frames.
+        public float VoiceLevel
+        {
+            get
+            {
+                if (voice == null || !voice.isPlaying) return 0f;
+                voice.GetOutputData(voiceSamples, 0); float sum = 0f;
+                foreach (float v in voiceSamples) sum += v * v;
+                return Mathf.Sqrt(sum / voiceSamples.Length);
+            }
+        }
+
         public void Initialize(bool sessionOnly)
         {
             preview = sessionOnly;
             ambience = gameObject.AddComponent<AudioSource>();
             foley = gameObject.AddComponent<AudioSource>();
             ambientCalls = gameObject.AddComponent<AudioSource>();
-            ambience.spatialBlend = foley.spatialBlend = ambientCalls.spatialBlend = 0;
+            voice = gameObject.AddComponent<AudioSource>();
+            ambience.spatialBlend = foley.spatialBlend = ambientCalls.spatialBlend = voice.spatialBlend = 0;
             ambience.loop = true;
             sea = MakeSea();
             harbourBed = Resources.Load<AudioClip>("Audio/Ambience/HarbourDay");

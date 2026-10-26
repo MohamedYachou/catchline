@@ -1,0 +1,80 @@
+{
+  "triangles": 576,
+  "mesh_bounds": {
+    "KittiwakeFlockSkin": {
+      "triangles": 576,
+      "world_min_m": [
+        -1.9506220817565918,
+        -3.313037395477295,
+        2.305000066757202
+      ],
+      "world_max_m": [
+        3.8399999141693115,
+        3.3380374908447266,
+        3.63100004196167
+      ],
+      "materials": [
+        "M_Ivory",
+        "M_Wingtip",
+        "M_GullMantle",
+        "M_YellowBill",
+        "M_Eye"
+      ]
+    }
+  },
+  "parents": {
+    "KittiwakeFlock": null,
+    "KittiwakeFlockRig": "KittiwakeFlock",
+    "KittiwakeFlockSkin": "KittiwakeFlockRig"
+  },
+  "bounds_unity": [
+    [
+      -1.9506220817565918,
+      2.305000066757202,
+      -3.3380374908447266
+    ],
+    [
+      3.8399999141693115,
+      3.63100004196167,
+      3.313037395477295
+    ]
+  ],
+  "materials": [
+    "M_Eye",
+    "M_GullMantle",
+    "M_Ivory",
+    "M_Wingtip",
+    "M_YellowBill"
+  ],
+  "name": "KittiwakeFlock",
+  "limit": 900,
+  "clips": {
+    "Circle": {
+      "seconds": 4.0,
+      "loop": true,
+      "frames": [
+        1,
+        121
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "6a64ec154e43cf4634e30090d68523fbc15656d0d1e6a570f7e33ca5810c52a3",
+    "fbx": "ad6dcfd31f2e60518d4ea3b2c542cd43416497eef54b476ca337a898eaab1f06"
+  },
+  "palette": {
+    "M_WhaleSlate": "#526B73",
+    "M_WhaleLit": "#70858A",
+    "M_WhaleBelly": "#D4D9CC",
+    "M_ThroatGroove": "#A3B4B1",
+    "M_Ivory": "#F3F0DC",
+    "M_VapourShade": "#D5E3DC",
+    "M_Wingtip": "#28343B",
+    "M_GullMantle": "#BAC9C6",
+    "M_YellowBill": "#E6AD38",
+    "M_Eye": "#17343D",
+    "M_BaitDark": "#31565E",
+    "M_BaitSilver": "#8FA6AC",
+    "M_BaitTeal": "#517F81"
+  }
+}

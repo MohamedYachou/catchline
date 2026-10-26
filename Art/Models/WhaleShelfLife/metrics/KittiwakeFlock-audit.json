@@ -1,0 +1,259 @@
+{
+  "result": "PASS",
+  "name": "KittiwakeFlock",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 576,
+    "mesh_bounds": {
+      "KittiwakeFlockSkin": {
+        "triangles": 576,
+        "world_min_m": [
+          -1.9506220817565918,
+          -3.313037395477295,
+          2.305000066757202
+        ],
+        "world_max_m": [
+          3.8399999141693115,
+          3.3380374908447266,
+          3.63100004196167
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_Wingtip",
+          "M_GullMantle",
+          "M_YellowBill",
+          "M_Eye"
+        ]
+      }
+    },
+    "parents": {
+      "KittiwakeFlock": null,
+      "KittiwakeFlockRig": "KittiwakeFlock",
+      "KittiwakeFlockSkin": "KittiwakeFlockRig"
+    },
+    "bounds_unity": [
+      [
+        -1.9506220817565918,
+        2.305000066757202,
+        -3.3380374908447266
+      ],
+      [
+        3.8399999141693115,
+        3.63100004196167,
+        3.313037395477295
+      ]
+    ],
+    "materials": [
+      "M_Eye",
+      "M_GullMantle",
+      "M_Ivory",
+      "M_Wingtip",
+      "M_YellowBill"
+    ]
+  },
+  "imported": {
+    "triangles": 576,
+    "mesh_bounds": {
+      "KittiwakeFlockSkin": {
+        "triangles": 576,
+        "world_min_m": [
+          -1.9506220817565918,
+          -3.3130369186401367,
+          2.305000066757202
+        ],
+        "world_max_m": [
+          3.8399999141693115,
+          3.3380379676818848,
+          3.631000518798828
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_Wingtip",
+          "M_GullMantle",
+          "M_YellowBill",
+          "M_Eye"
+        ]
+      }
+    },
+    "parents": {
+      "KittiwakeFlockRig": "KittiwakeFlock",
+      "KittiwakeFlockSkin": "KittiwakeFlockRig",
+      "KittiwakeFlock": null
+    },
+    "bounds_unity": [
+      [
+        -1.9506220817565918,
+        2.305000066757202,
+        -3.3380379676818848
+      ],
+      [
+        3.8399999141693115,
+        3.631000518798828,
+        3.3130369186401367
+      ]
+    ],
+    "materials": [
+      "M_Eye",
+      "M_GullMantle",
+      "M_Ivory",
+      "M_Wingtip",
+      "M_YellowBill"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 6.743495646333031e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Circle": {
+      "source": {
+        "seconds": 4.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          31,
+          61,
+          91,
+          121
+        ],
+        "max_vertex_motion_m": 7.686082314788327,
+        "end_vs_start_m": 2.384185791015625e-07,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            2.305000066757202,
+            3.63100004196167
+          ],
+          "31": [
+            2.424999952316284,
+            3.4719467163085938
+          ],
+          "61": [
+            2.305000066757202,
+            3.412768602371216
+          ],
+          "91": [
+            2.18500018119812,
+            3.571821928024292
+          ],
+          "121": [
+            2.305000066757202,
+            3.63100004196167
+          ]
+        }
+      },
+      "imported": {
+        "seconds": 4.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          31,
+          61,
+          91,
+          121
+        ],
+        "max_vertex_motion_m": 7.686082341930406,
+        "end_vs_start_m": 2.384185791015625e-07,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            2.305000066757202,
+            3.631000518798828
+          ],
+          "31": [
+            2.424999475479126,
+            3.471946954727173
+          ],
+          "61": [
+            2.305000066757202,
+            3.4127681255340576
+          ],
+          "91": [
+            2.1850006580352783,
+            3.571821689605713
+          ],
+          "121": [
+            2.305000066757202,
+            3.631000518798828
+          ]
+        }
+      },
+      "surface_samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 6.743495646333031e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.830249609876773e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0925712103926344e-06,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.920806635615008e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "121": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 6.743495646333031e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    5.790621995925903,
+    1.3259999752044678,
+    6.6510748863220215
+  ],
+  "materials_linear_rgba": {
+    "M_Eye": [
+      0.008568125776946545,
+      0.03433980792760849,
+      0.04666508734226227,
+      1.0
+    ],
+    "M_GullMantle": [
+      0.4910208582878113,
+      0.5840784311294556,
+      0.5647115111351013,
+      1.0
+    ],
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_Wingtip": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ],
+    "M_YellowBill": [
+      0.7912979125976562,
+      0.41788506507873535,
+      0.039546236395835876,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "6a64ec154e43cf4634e30090d68523fbc15656d0d1e6a570f7e33ca5810c52a3",
+    "fbx": "ad6dcfd31f2e60518d4ea3b2c542cd43416497eef54b476ca337a898eaab1f06"
+  },
+  "legacy_import_required": true
+}
