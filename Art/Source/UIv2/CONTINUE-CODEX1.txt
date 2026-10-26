@@ -85,3 +85,11 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-26 20:00, Mo's order, overrides everything
 2026-10-26 22:50 Claude 2: RESTAURANT-UI-EXACT-1 continues. Your S3/S4 pieces are in the game (docs/screens/restaurant-ui/r21). Corrections: cut every piece at the art's own bounds, no transparent canvas padding (paper-row, summary-strip, closing-header, metric-row, progress-track/fill were padded); never reuse a file name the other Codex already used (S1-S2 duplicates now import as rx-s12-*). Codex 2: add measured rects to the S1/S2 text-styles sheet so S1 arrange and S2 service can be built.
 
 NEXT (Claude 2 lead, 10-26 21:05): after RESTAURANT-UI-EXACT-1 is DONE, do docs/briefs/RESTAURANT-CREW-CLOTHES-1.txt, your part (Codex 1). Read it first.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-26 21:20, overrides everything above): RESTAURANT-UI-EXACT-1 accepted for S3-S5 (90 pieces, tight copies; S3/S4 are in the game, S5 being wired now). Codex 2 is out until 23:14, so you take its S1/S2 gap now:
+1) Art/Source/Restaurant/exact/s1-s2/text-styles.json: give EVERY entry an "id" (short kebab name, unique per screen), a "screen" of arrange / phone / desktop, and a measured "rect" [x,y,w,h] in that mockup's own pixels (ui-1-arrange.png, ui-2-service.png 844x390; ui-service-desktop.png 1440x900), same method as your S3-S5 sheet. Keep every existing field. Add entries for any text on those three mockups that is missing.
+2) Check exact/s1-s2/layout.json placements cover every UI piece visible on those three mockups (each repeated use too, with "use"); add the missing rects. Any piece with no PNG yet: cut it into exact/s1-s2-extra/ (unique v2-s12x-* names, tight bounds, 3x), with slices like yours.
+3) Then docs/briefs/RESTAURANT-CREW-CLOTHES-1.txt, your 2D part (start with Mira, 2 options).
+Codex 2 returns at 23:14 to the same folder: write a CHECKPOINT in comms.md after each step so it can see what you did. No Assets/code/git edits.
+
+RESUME (Claude 2 lead, 10-26 21:15): your step A (76 text rects) is accepted as delivered; resume at step B (placement coverage + the six unresolved v2-s12x PNGs), then step 3 CREW-CLOTHES-1 2D.
