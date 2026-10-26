@@ -57,7 +57,7 @@ namespace Catchline.Game
                 var card = new Rect(Mathf.Clamp(cx, 8, iw - w - 8), cy, w, h);
                 var face = coastalUi.Card(id + "/card", card, selected ? Skin.Card.Selected : Skin.Card.Soft);
                 coastalUi.Text(id + "/name", new Rect(12, 4, w - 24, 28), GameData.Spots[i].Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, face);
-                string state = !Coasts.Open(i, State.Hull) ? "Needs a tier 3 boat" : !State.Known(i) ? $"Chart · {GameData.Spots[i].ChartCost:N0} coins" : selected ? "Selected ground" : "Explore ground";
+                string state = !Coasts.Open(i, State.Hull) ? "Needs a tier 4 boat" : !State.Known(i) ? $"Chart · {GameData.Spots[i].ChartCost:N0} coins" : selected ? "Selected ground" : "Explore ground";
                 coastalUi.Text(id + "/state", new Rect(12, 31, w - 24, 22), state, Skin.Type.Caption, State.Known(i) ? Skin.Teal : Skin.InkSoft, TextAnchor.MiddleLeft, face);
                 var hit = new Rect(Mathf.Min(x - 25, card.x), y - 32, Mathf.Max(x + 25, card.xMax) - Mathf.Min(x - 25, card.x), card.yMax - y + 32);
                 coastalUi.HitArea(id, hit, () => { chartFocus = spot; chartDetailsOpen = true; chartContractsOpen = false; MenuSound(); });

@@ -144,55 +144,55 @@ namespace Catchline.Game
             new()
             {
                 Name = "Kelp bank", Blurb = "Mackerel schools in the kelp, pollock below.", RowSeconds = 9f, BiteWait = 1f, Water = Palette.Hex("2A8C80"),
-                MapPos = new Vector2(0.42f, 0.25f),
+                ChartCost = 800, MapPos = new Vector2(0.42f, 0.25f),
                 Table = new[] { (Species.Herring, 10f), (Species.Mackerel, 40f), (Species.Pollock, 28f), (Species.SeaBass, 10f), (Species.Whiting, 12f), (Species.GoldenPuffer, .6f), (Species.FlyingFish, .8f), (Species.Lionfish, .3f), (Species.Barracuda, 3f), (Species.MahiMahi, 2f) },
             },
             new()
             {
                 Name = "Sandbar", Blurb = "Warm, shallow and sandy. Flatfish lie on the bottom.", RowSeconds = 11f, BiteWait = 1.05f, Water = Palette.Hex("3FB3B0"),
-                ChartCost = 120, MapPos = new Vector2(0.5f, 0.78f),
+                ChartCost = 2500, MapPos = new Vector2(0.5f, 0.78f),
                 Table = new[] { (Species.Mackerel, 15f), (Species.Plaice, 35f), (Species.SeaBass, 20f), (Species.RedMullet, 22f), (Species.Turbot, 8f), (Species.GoldenPuffer, .4f), (Species.SpottedEagleRay, .35f), (Species.BlueSpottedStingray, .4f), (Species.FlyingFish, .4f), (Species.Lionfish, .3f), (Species.Monkfish, 4f) },
             },
             new()
             {
                 Name = "Rocky point", Blurb = "A long row. Big fish hide between the rocks.", RowSeconds = 14f, BiteWait = 1.3f, Water = Palette.Hex("1A7591"),
-                ChartCost = 220, MapPos = new Vector2(0.7f, 0.18f),
+                ChartCost = 4000, MapPos = new Vector2(0.7f, 0.18f),
                 Table = new[] { (Species.Mackerel, 12f), (Species.Pollock, 35f), (Species.SeaBass, 28f), (Species.Conger, 15f), (Species.RedMullet, 10f), (Species.SpottedEagleRay, .5f), (Species.ApexReefShark, .12f), (Species.GoldTipShark, .06f), (Species.GiantDevilManta, .08f), (Species.AtlanticSwordfish, .08f), (Species.ScallopedHammerhead, .04f), (Species.PelagicThresherShark, .04f), (Species.Barracuda, 6f), (Species.MahiMahi, 4f) },
             },
             new()
             {
                 Name = "Deep channel", Blurb = "Open water past the point. Cod and big eels, slow bites. Check your fuel.", RowSeconds = 20f, BiteWait = 1.5f, Water = Palette.Hex("15587A"),
-                ChartCost = 500, MapPos = new Vector2(0.88f, 0.55f),
+                ChartCost = 8000, MapPos = new Vector2(0.88f, 0.55f),
                 Table = new[] { (Species.Pollock, 25f), (Species.Cod, 40f), (Species.Conger, 25f), (Species.Turbot, 10f), (Species.SpottedEagleRay, .3f), (Species.ApexReefShark, .12f), (Species.GoldTipShark, .08f), (Species.AbyssalGreatWhite, .04f), (Species.AbyssalLeviathan, .015f), (Species.GiantDevilManta, .08f), (Species.AtlanticSwordfish, .12f), (Species.OceanSunfish, .15f), (Species.ScallopedHammerhead, .06f), (Species.PelagicThresherShark, .06f), (Species.GiantSquid, .012f), (Species.YellowfinTuna, 6f), (Species.Monkfish, 5f) },
             },
             new()
             {
                 Name = "Seal skerries", Blurb = "Granite skerries and a seal colony. Crabs on the rocks, big fish on the reef. Bring fuel.", RowSeconds = 24f, BiteWait = 1.35f, Water = Palette.Hex("1C6E7E"),
-                ChartCost = 2500, MapPos = new Vector2(.88f, .12f),
+                ChartCost = 9000, MapPos = new Vector2(.88f, .12f),
                 Table = new[] { (Species.Crab, 20f), (Species.Conger, 20f), (Species.Pollock, 20f), (Species.Cod, 25f), (Species.Monkfish, 14f), (Species.Turbot, 1f) },
             },
             new()
             {
                 Name = "Wreck bank", Blurb = "An old steamer on the sandbank. Congers in the wreck, herring on the bank, flatfish at the edge.", RowSeconds = 26f, BiteWait = 1.3f, Water = Palette.Hex("2E8C8A"),
-                ChartCost = 4000, MapPos = new Vector2(.72f, .06f),
+                ChartCost = 14000, MapPos = new Vector2(.72f, .06f),
                 Table = new[] { (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f), (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 45f), (Species.Plaice, 50f), (Species.SpottedEagleRay, 1f) },
             },
             new()
             {
                 Name = "Lighthouse rock", Blurb = "A lighthouse on a lone rock. Bass in the tide race, cod and monkfish down the ledge.", RowSeconds = 30f, BiteWait = 1.4f, Water = Palette.Hex("1F5F8C"),
-                ChartCost = 6000, MapPos = new Vector2(.85f, .08f),
+                ChartCost = 18000, MapPos = new Vector2(.85f, .08f),
                 Table = new[] { (Species.Pollock, 40f), (Species.SeaBass, 65f), (Species.Conger, 20f), (Species.GoldTipShark, 1f), (Species.Mackerel, 45f), (Species.YellowfinTuna, 3f), (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f) },
             },
             new()
             {
                 Name = "Whale shelf", Blurb = "Out where the shelf drops away. Herring shoals, cod on the edge, whales passing through.", RowSeconds = 34f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
-                ChartCost = 8500, MapPos = new Vector2(.88f, .04f),
+                ChartCost = 26000, MapPos = new Vector2(.88f, .04f),
                 Table = new[] { (Species.Herring, 50f), (Species.Mackerel, 70f), (Species.Whiting, 12f), (Species.FlyingFish, 2f), (Species.Cod, 30f), (Species.Pollock, 50f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f), (Species.SeaBass, 25f), (Species.SpottedEagleRay, 3f) },
             },
             new()
             {
                 Name = "Seal cliffs", Blurb = "Cliffs, a sea arch and seals on the stones. Wrasse in the pool, cod in the race.", RowSeconds = 36f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
-                ChartCost = 11000, MapPos = new Vector2(.08f, .88f),
+                ChartCost = 32000, MapPos = new Vector2(.08f, .88f),
                 Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
             },
         };

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 namespace Catchline.Game
 {
     // Mo (10-26): the chart has two coasts. The Gull coast (the first five grounds) is the learning water: commons and
-    // rares, the odd purple, never gold or red. The Outer coast (every later ground) opens with a tier 3 boat and
-    // pays for the trip: bigger specimens, its own big fish, and gold sharks once the boat can land them (tier 4,
-    // GameData.MinimumHull). Red (mythical) fish wait for the gold-fight minigame.
+    // rares, the odd purple, never gold or red. The Outer coast (every later ground) opens with a tier 4 boat (boat
+    // tiers as in CardTier: 0 Rowboat .. 4 Prep fisher, 5 Buoy fisher) and pays for the trip: bigger specimens, its
+    // own big fish and gold sharks. Red (mythical) fish wait for the gold-fight minigame.
+    // Chart prices (GameData.Spots) follow Mo's tier ladder, one or two grounds per boat tier: each costs about two
+    // to five trips of the boat it is meant for, and four or more trips of the boat before it.
     public static class Coasts
     {
         public const int OuterFirstSpot = 5;
-        public const int OuterMinimumHull = 2; // Compact fisher, tier 3
+        public const int OuterMinimumHull = 3; // Prep fisher, tier 4
         public static readonly string[] Names = { "Gull coast", "Outer coast" };
         public static string OuterLock => "Needs the " + GameData.Hulls[OuterMinimumHull].Name;
 
