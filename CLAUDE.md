@@ -2,8 +2,8 @@
 
 # Two Claude sessions: goals and done list
 
-Mo runs two Claude accounts here, both Claude Code CLI in WSL: **claude1** (`cld`) and **claude2** (`cl2`, or plain
-`claude` from home or this folder). Lead, takeover and live usage work as in the **catchline-team** skill (`team usage`,
+Mo runs two Claude accounts here, both Claude Code CLI in WSL: **claude1** (AI team session `cld1`) and **claude2** (`cld2`).
+`cld` / plain `claude` are Mo's own private chats on those accounts, not team sessions. Lead, takeover and live usage work as in the **catchline-team** skill (`team usage`,
 `team peek`, SendMessage between the two; the `team` guard rings you when something changes). This file holds the
 goals and the done list; keep it true and short, delete a goal's line when done and add it (one line, commit id) under
 Done; prune Done to the last ~10. Codex orders and logs stay in comms.md. ClaudeCom.md is retired.
@@ -15,14 +15,14 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 
 ## Claude 2 (WSL) — goals, in order (lead since 10-26 01:30, Claude 1 paused)
-1. Direct the two Codex agents (skill codex-director); keep both queues non-empty in CONTINUE-CODEX1/2.txt.
-   Codex 1: finish STRIKE-TAP-1 (review its captures in docs/screens/strike-fx), then MAP9-FINISH-AND-MAP10-1, then
-   HARBOUR-PETS-1. Codex 2: BOAT-REFINE-2 (Compact, Prep, refit-card pictures, Tier5 trim).
+1. Direct the two Codex agents (skill codex-director); when the guard rings, queue the next brief in
+   CONTINUE-CODEX1/2.txt and `team start codexN` (Codex never starts by itself; Claude 1 is away until Wed).
+   Codex 1: MAP11-FIX-AND-LIFE-1 (sand fix, then kelp life); commit MAP11 after review. Codex 2: KELP-LIFE-ART-1
+   (otters), then tier 6 boat concept sheet (Mo picks). Claude: wire the accepted Jig boat (TODO.md Jig item).
 2. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
    https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
 3. Claude 1's open UI item while it is paused: D1 HUD mockups (17-hud-fishing, 18-hud-harbour).
 4. Morning report to Mo: what was done overnight, plus docs/QUESTIONS.md.
-5. Docs cleanup (Mo 10-26): the "Open — docs cleanup" list in TODO.md (CURRENT.md, AGENTS.md, archive old docs).
 Holding: docs/briefs/**.
 
 ## Done (latest first)

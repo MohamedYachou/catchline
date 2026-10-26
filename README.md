@@ -8,11 +8,11 @@ Top-down automation game about a fishing boat that grows from a rowboat into a f
 
 ## Build 1: rowboat voyage (current)
 
-Design: [docs/GAMEPLAY.md](docs/GAMEPLAY.md). Menu **Catchline > Play Voyage** (Ctrl+Shift+P) opens `Assets/Scenes/Voyage.unity` and presses Play. Code lives in `Assets/Scripts/Game/`.
+Start with [CURRENT.md](CURRENT.md) (what the game is now) and [TODO.md](TODO.md). Menu **Catchline > Play Voyage** (Ctrl+Shift+P) opens `Assets/Scenes/Voyage.unity` and presses Play. Code lives in `Assets/Scripts/Game/`.
 
 Current priority: finish the small playable slice visually before growing
 content. [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md) hold the confirmed
-direction; [POLISH-002](docs/POLISH-002.md) records the menu, HUD, water and
+direction; [POLISH-002](docs/archive/POLISH-002.md) records the menu, HUD, water and
 actual runtime capture workflow. Goal renders remain the visual target.
 
 In the harbour, tap a building (Fish Market, Harbour Master, Crew Office, Chandlery, Supplies) to open its shop; progress saves there. Models and the UI kit come from Codex (`Assets/Art`, branch art/style-pass) through `Assets/Resources/ArtLibrary.asset` (Catchline > Rebuild Art Library).
@@ -36,7 +36,7 @@ Build a Windows preview on the scratch project with the same command and
 never loads, writes or deletes the main game's save. It intentionally does
 not persist preview progress between sessions.
 
-Build 2 is playable: return with 16 fish, then buy the 1,500-coin skiff refit at the Chandlery. It adds a 40-fish hold, three rods, an outboard and a gill net. Hire fishermen to work rods and deckhands to carry fish; up to three hired crew fit aboard. Tap Set net, fish during its soak, then Haul net. Supplies sells fuel; return fuel is included at departure. See [the continuation report](docs/CONTINUATION.md).
+Build 2 is playable: return with 16 fish, then buy the 1,500-coin skiff refit at the Chandlery. It adds a 40-fish hold, three rods, an outboard and a gill net. Hire fishermen to work rods and deckhands to carry fish; up to three hired crew fit aboard. Tap Set net, fish during its soak, then Haul net. Supplies sells fuel; return fuel is included at departure. See [the continuation report](docs/archive/CONTINUATION.md).
 
 Balance check (a bot plays N voyages and logs each one, then renders a PNG to `Logs/`):
 

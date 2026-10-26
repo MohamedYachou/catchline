@@ -1,0 +1,24 @@
+KELP-LIFE-ART-1 — Codex 2 — life art for the eleventh map, Kelp forest (Claude 2 lead, 2026-10-26; Mo: "keep both codex on the maps")
+
+GOAL: small animated pieces Claude/Codex 1 spawn on MAP11's anchor empties (Codex 1 builds the terrain and
+VoyageKelpLife.cs; see Art/Models/Maps/GullKelpForest/SeaV2-anchor-OtterRaft_1.png for the spot). Same quality,
+evidence and report format as LighthouseLife (accepted). Art/Models/KelpLife/, one FBX per item, metres, pivots at the
+contact point, house palette and low-poly style (Art/STYLE.md):
+- SeaOtter (<= 700 tris): warm brown body, paler cream-grey face and chest, small round ears, dark nose, short paws,
+  floating on its back, about 1.1 m long. Legacy clips: Float (loop 4 s, gentle bob and roll, paws to chest),
+  Groom (loop 2 s, paws rub face), Dive (once 1.2 s, rolls over and sinks below the pivot).
+- OtterRaft: three SeaOtters (one smaller pup on an adult's chest) floating together on a 3 x 2 m loose mat of kelp
+  ribbons and two float bulbs (house kelp green, as in the MAP11 kelp), pivot at water level.
+- KelpMat: the same kelp mat on its own with no otters (fallback and extra dressing), 2.5 x 1.6 m, pivot at water level.
+DONE = EVIDENCE: five-view renders per item, sampled frames of each clip, one assembly render (the raft beside a kelp
+cluster at the deck-camera angle, 1440x900 and 844x390), every image opened; REPORT.md with the integration contract
+(clip names, scale, pivot, materials). OWNERSHIP: Art/Models/KelpLife/, Art/Source/KelpLife/ only. No git, no Unity,
+no Assets/, no .meta, no .cs. One comms.md line per item; CHECKPOINT at safe boundaries; QUESTION and skip on conflict.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+
+THEN, TIER6-BOAT-CONCEPT-1 (concept only, no 3D): the tier 6 boat for Whale shelf / Seal cliffs / Kelp forest, the
+step after the Buoy fisher (Tier5DeepLines103). Three painted options as one sheet,
+Art/Source/BoatsV2/Tier6/concepts.png, side + three-quarter each, beside the Prep fisher and Buoy fisher for scale
+(a clear step up: about 9-10 m, a proper offshore boat, same navy/timber/ivory family, a walkable open working deck
+for crew and stations). Write in Art/Models/BoatsV2/Tier6/REPORT.md what each option is and which you'd pick and why.
+STOP after the sheet: Mo picks before any 3D. DONE line in comms.md.

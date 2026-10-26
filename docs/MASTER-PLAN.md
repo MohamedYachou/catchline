@@ -486,7 +486,7 @@ delete legacy suites it invalidates. Commit per milestone on `proto/deck-sim`.
 - Acceptance: tutorial completes with no input other than the hinted taps;
   bot reports committed to `docs/screens/bot-v1/`.
 
-### UI v2 — parallel track (see `docs/UI-SYSTEM.md` and `docs/PROMPT-OPUS-UI.md`)
+### UI v2 — parallel track (see `docs/UI-SYSTEM.md` and `docs/archive/PROMPT-OPUS-UI.md`)
 Screens in order: voyage HUD → operations → crew (duties, bait permissions)
 → harbour hub and shops → chart (with day/night and grounds) → departure
 (with trip cost) → sale result (buyer split) → title and pause → catch card →

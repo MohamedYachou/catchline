@@ -1,7 +1,7 @@
 # Catchline blueprint — tiers 0 to 5
 
 Status: design authority for the rework, agreed with Mo on 2026-10-23. Where this
-file and `docs/GAMEPLAY.md` disagree, this file states the intended direction and
+file and `docs/archive/GAMEPLAY.md` disagree, this file states the intended direction and
 GAMEPLAY records what the current code does until it is migrated. Numbers marked
 *provisional* are starting values for the simulator, not promises.
 
@@ -273,7 +273,7 @@ Unlock order is gated by tier so no card is useful before its gear exists.
 | 5 | Pim | Fisher · Cages/Lines | baits 30% faster | his raised line arms a free cage rebait | **Double drop**: baits two lines with one chum |
 | 5 | Tove | Deckhand · Sort | +10% sort | crab pinches never take her out | **Grader**: her sorted purple+ fish yield 2 special products |
 
-Reconcile with `docs/CREW-CARDS-DESIGN.md`: Power lifter, Bulk/Batch processor,
+Reconcile with `docs/archive/CREW-CARDS-DESIGN.md`: Power lifter, Bulk/Batch processor,
 Back-to-back netter and the count-based commons are already selected there;
 keep their effects, re-slot them into this blue/purple/gold structure.
 
@@ -284,7 +284,7 @@ number (fish/min), a traffic light (Steady / Busy / Backed up) and the queue
 drawn as fish icons. One recommendation line and one primary action
 (**Assign crew**). No costs per minute, no charts, no efficiency ring. Tap a
 stage for its detail page. The rule for the light stays the one in
-`docs/MANAGEMENT078.md`.
+`docs/archive/MANAGEMENT078.md`.
 
 ## 16. Migration from current code
 

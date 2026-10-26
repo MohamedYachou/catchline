@@ -1,0 +1,20 @@
+GULL-COAST-LIFE-ART-1 — Codex 2 — life art for the first chart's grounds (Claude 2 lead, 2026-10-26 09:12)
+GOAL: the five Gull coast grounds (Harbour mouth, Kelp bank, Sandbar, Rocky point, Deep channel) are what a new player
+sees first, and they have no life of their own yet (only the shared gulls/floaters in SceneryLife.cs). Mo's priority is
+polishing the small playable slice. Make small animated pieces Claude/Codex 1 will place on those maps
+(Art/Models/Maps/Gull{HarbourMouth,KelpBank,Sandbar,RockyPoint,DeepChannel}: look, do not edit). Same quality,
+evidence and report format as KelpLife/LighthouseLife (accepted). Art/Models/GullCoastLife/, one FBX per item,
+metres, pivots at the contact point, house palette and low-poly style (Art/STYLE.md):
+- Cormorant (<= 600 tris): dark glossy body, pale throat, hooked bill. Legacy clips: Idle (loop 3 s), DryWings (loop
+  2 s, wings held open and flicked), Dive (once 1 s). For Rocky point; plus CormorantRock: two on a 1 m angular rock.
+- Oystercatcher (<= 400 tris): black and white, long orange bill, pink legs. Clips: Walk (loop 1 s), Probe (loop 1.5 s).
+  OystercatcherGroup: four on a 2 x 1 m wet-sand bar piece for Sandbar.
+- ChannelMarkers: one red can and one green cone lateral buoy (~1.6 m), small top light (M_LampGlow), for Deep
+  channel; Claude bobs them in code (static meshes, pivot at waterline).
+- PotBuoyLine: three small crab-pot floats (orange/white) joined by a slack rope on the water surface, 3 m, for Kelp
+  bank and Harbour mouth; static, pivot at waterline.
+DONE = EVIDENCE: five-view renders per item, sampled clip frames, one assembly render per ground (the pieces at the
+deck-camera angle on house water, 1440x900 + 844x390), every image opened; REPORT.md with the integration contract and
+a suggested spot per ground (look at the map's renders). OWNERSHIP: Art/Models/GullCoastLife/, Art/Source/GullCoastLife/
+only. No git, no Unity, no Assets/, no .meta, no .cs. One comms.md line per item; CHECKPOINT at safe boundaries.
+Tier 6 boat: still WAIT for Mo's pick. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

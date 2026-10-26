@@ -1,4 +1,4 @@
-CONTINUE (Codex 2) — standing order from Claude (lead) for Mo. Every launch is a FRESH session with no memory of earlier runs: your state lives only in comms.md, your checkpoint lines and the files on disk. You are relaunched automatically whenever your last run ends; keep working until your budget runs out, never stop to ask (write QUESTION lines in comms.md instead).
+CONTINUE (Codex 2) — standing order from Claude (lead) for Mo. Every launch is a FRESH session with no memory of earlier runs: your state lives only in comms.md, your checkpoint lines and the files on disk. Claude starts each run; keep working until your budget runs out, never stop to ask (write QUESTION lines in comms.md instead).
 
 Current assignment (Mo's priority): docs/briefs/HARBOUR-ART-1.txt, then docs/briefs/FISH-ARMS-2.txt (its STEP 0, the rod-only export, comes first), then docs/briefs/CAGE-ART-1.txt. Read it first; it sets your goal, files you own, checks, evidence and rules, and overrides earlier standing orders. SEA-SCENE-1 and FISH-ROD-ART-1 are DONE; crew and A1/A5/A6 art are finished; do not reopen them. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS (it stops Codex 1 too). When nothing is left, write IDLE in comms.md and end the run. Read your own latest comms.md lines to see where you stopped and continue from the last verified step.
 
@@ -74,3 +74,12 @@ ASSIGN / ICON-OARS-1 / Claude W -> Codex 2 (after the BOAT-REFINE-2 FIX, before 
 NEXT (Claude W, 10-26 07:57, Mo asked for it): docs/briefs/OUTER-COAST-CHART-ART-1.txt right after the BOAT-REFINE-2 FIX, before ICON-OARS-1 and Tier5. Read it first. ANSWER to your DayBoat QUESTION: correct, DayBoat stays untouched.
 
 CURRENT ASSIGNMENT (Claude W, 10-26 08:12, overrides everything above): OUTER-COAST-CHART-ART-1, BOAT-REFINE-2 (all letters) and ICON-OARS-1 are delivered; Claude is reviewing and importing them, do not re-verify. Do docs/briefs/JIG-BOAT-1.txt. Read it first.
+
+RESUME (Claude 2 lead, 10-26 08:45): your last run on JIG-BOAT-1 ended on a model-capacity error during step C (the 480x360 refit card). A and B are delivered. Continue JIG-BOAT-1 from C (check what exists in Art/Source/BoatsV2/JigBoat/ first), then the rest of the brief, then DONE in comms.md. Do not redo A or B.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-26 08:47, overrides everything above): JIG-BOAT-1 A-C are ACCEPTED (Claude wires it into the game); stop re-verifying it. Do docs/briefs/KELP-LIFE-ART-1.txt (otters for the Kelp forest, then the tier 6 boat concept sheet). Read it first.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-26 09:03, overrides everything above): KELP-LIFE-ART-1 (SeaOtter, OtterRaft, KelpMat) is ACCEPTED; TIER6-BOAT-CONCEPT-1 is delivered and waits on Mo's pick (no 3D). Stop re-verifying both. Do docs/briefs/JIG-LIGHTS-ART-1.txt. Read it first. When it is DONE, write IDLE and end the run.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-26 09:12, overrides everything above): JIG-LIGHTS-ART-1 is ACCEPTED; stop re-verifying it. Tier 6 still waits on Mo. Do docs/briefs/GULL-COAST-LIFE-ART-1.txt. Read it first.
+NEXT (Claude 2 lead, 10-26 09:15, Mo): when GULL-COAST-LIFE-ART-1 is DONE, do docs/briefs/TIER6-BOAT-1.txt (Mo picked hull C, and it must carry every earlier tier's stations). Also one small FIX first, before Tier 6: KelpLife KelpMat/OtterRaft kelp reads as flat folded paper shards; remake the mat as narrow wavy ribbon strips (soft bends, 2-3 segments each, a few overlapping, darker olive-to-green), keep the otters, re-render and reopen.

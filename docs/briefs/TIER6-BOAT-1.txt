@@ -1,0 +1,16 @@
+TIER6-BOAT-1 — Codex 2 — the tier 6 offshore boat, fully fitted (Claude 2 lead, 2026-10-26 09:15; Mo picked C)
+MO'S CALL: hull = option C "Shelter Boat", ~10 m (Art/Source/BoatsV2/Tier6/concepts.png). Mo: the concept decks are
+empty; a tier 6 boat must carry EVERYTHING the earlier tiers carry. The concept is only the hull and wheelhouse shape.
+STEP 0 (inventory, write it in Art/Models/BoatsV2/Tier6/REPORT.md before modelling): list every named station, rig,
+socket, anchor and worker point in Tier5DeepLines103.blend (rod holders/sockets 1-4, DeepLineRig_1/2, both buoy
+stations, NetModule1 rear net, NetModule2 side net, PrepStation/PreparedHold, RawIceCoolers/RawBuckets, NetWorker_*),
+PrepFisherV1, CompactFisherV1 and JigBoatV1 (jig lamp line, jig reels, sorting tray). Each one appears on the tier 6
+boat with the SAME names so the game's existing code finds it, plus room for more crew than the Buoy fisher.
+A. Concept 2: one painted sheet Art/Source/BoatsV2/Tier6/concept-C-fitted.png: the C hull with all that kit placed,
+   side + three-quarter + top deck plan with every station labelled and the crew walking routes shown. Then go on.
+B. 3D: Art/Models/BoatsV2/Tier6V1/{Tier6V1.blend,.fbx,REPORT.md,renders/,validation.json,bounds-audit.json}, same
+   pipeline and unit fix as JIG-BOAT-1, tri cap 18,000. Same seven views + game-exact-45 + a lineup (Prep, Buoy
+   fisher, Tier 6) at equal scale. Every station reachable on a clear walkable deck (polygon clearance check).
+C. Refit card Art/Source/BoatsV2/ui/v2-item-hull-tier6.png, 480x360 RGBA, same style as the others.
+No git, no Unity, no Assets/, no .meta, no .cs, other boats' files read-only. DONE line per letter in comms.md.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

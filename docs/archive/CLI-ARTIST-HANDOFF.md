@@ -330,3 +330,44 @@ Fresh read-only check PASS130 SHA256 comparisons/152 PNG decodes; all7 men
 including hair fixes and all5 A1 three-ground/day-night maps preserved.
 No asset changes or fresh Blender/native acceptance. No unfinished Codex1
 art item; Claude review/integration remains. All asset reservations released.
+
+### Codex 2 / 2026-10-24 / women complete; PropsV2 active
+All eight women and unlocked Mira hair work complete. Current revisions/tris:
+Lise hair-r02/19948; Tess hair-r03/19948; Ines hair-r01/18791;
+Noor hair-r01/19949; Ana r04/19949; Rosa r04/19949; Tove r03/19949;
+CaptainF r02/19059; Mira r26/19940 (r20 immutable archive retained).
+Each current source/FBX/REPORT/full sheet/six-head sheet/validation/hit list
+is present; saved source+actualFBX rig/actions/44poses pass;396rays each
+with zero scalp-first hits. All current delivery hashes independently checked.
+Mo/native acceptance remains pending. Female sources and asset paths released.
+Codex2 now owns only new PropsV2 outputs/helpers/runtime folder and diary/handoff
+append: A5 then only ART-PLAN A6 named pieces. StationsV1/Art108/men/maps/runtime
+code read-only. Resume precise latest comms checkpoint; no roster rebuild.
+### Codex 1 / 2026-10-24 / SeaV2 B verified, C active
+Approved CODEX1-MAPS-V2 replaces old A1. Men/hair remain complete/skipped.
+Harbour mouth DONE25596tri,220x160m,3zones,7terrain slices,28buoys;
+61checks + actual-FBX <=0.1mm + all11current images individually opened.
+New runtime SeaV2 FBX/navigation published; SeaV2-REPORT/receipts in map folder.
+C Kelp review/audit/publish next; D Sandbar/E Rocky/F Deep built preliminary
+PASS, still unreviewed/unpublished. See latest comms for exact state.
+Only new SeaV2 outputs/helpers held; no legacy/Codex2/runtime code changes.
+
+Codex1 SeaV2 checkpoint: B Harbour/C Kelp/D Sandbar done and published (61/45/37checks,33images opened). E Rocky rendered/audit49PASS, individual review next; F Deep rendering. New SeaV2 only; all legacy files preserved. Latest comms is canonical.
+
+### Codex 2 / 2026-10-24 / standing-order art complete
+Hair UPDATE16:55, all8women and Mira r26 complete; prior roster table above is current.
+Fresh37female delivery +5immutable Mira r20archive hashes PASS. Preserve complete folders.
+A5 all4 and A6 all10 now DONE; exact revisions/counts/runtime paths/pivots in
+`Art/Models/PropsV2/delivery-index.json`; consolidated `REPORT.md` and `overview.png`.
+Final source+actual-runtime-FBX enhanced audits PASS1483checks,15582tri/142parts;
+every vertex both directions/part origin/material/scale/bounds checked. Standalone
+integrity PASS315SHA comparisons/108PNG decodes, including77individual views;
+all individual views/context reviews previously opened, consolidated overview opened.
+Two effects PNG+SVG with alpha/restraint checks; all protected references unchanged.
+New runtime copies only `Assets/Art/Models/PropsV2/`. Native import/material/lamp/
+placement/event behaviour and Mo acceptance remain Claude/code-owner integration.
+Six own temporary backup dirs removed after verification; art iterations/r20 retained.
+No Unity scenes/C#/git/commit/subagents. All Codex2 paths RELEASED, no worker running.
+Watchdog pickup: `Art/Models/CrewV2/_codex2/last-message.txt`. Nothing unfinished in
+current Codex2 standing order; preserve completed art on automatic relaunch. Do not
+restart historical queues or invent events. Claude commits. Codex1 scope untouched.

@@ -1,0 +1,12 @@
+JIG-LIGHTS-ART-1 — Codex 2 — the Jig boat's lamps lit (Claude 2 lead, 2026-10-26 09:03)
+GOAL: the Jig boat's identity is its squid lamps. Make the lit look Claude can switch on at dusk/night and while jigging.
+Art/Models/BoatsV2/JigBoatV1/ (your files) plus Art/Source/BoatsV2/JigBoat/:
+- JigBoatV1.fbx: keep geometry/names stable; give the eight bulbs their own material M_JigBulb (separate from any
+  other ivory) so Claude can make it emissive in Unity. Re-export with the corrected units; re-run your bounds audit.
+- JigLampGlow.fbx: eight soft glow quad-crosses (one per bulb, same positions as JigBoatV1's bulbs, M_LampGlow #FFE7A3,
+  as LighthouseGlow) parented to one root at the boat origin, plus one flat water light pool, 6 x 3.5 m, soft
+  oval, pale warm-green #CFEFC0 fading to clear, lying just above the waterline beside the lamp line.
+- Renders: game-exact-45 at day (unlit) and at dusk/night (bulbs + glow + pool, darker sea), 1440x900 and 844x390,
+  opened. REPORT.md section "Lights" with the integration contract (material names, glow/pool node names, pivot).
+DONE = EVIDENCE as in JIG-BOAT-1. No git, no Unity, no Assets/, no .meta, no .cs. One comms.md DONE line.
+Tier 6 boat: WAIT for Mo's pick of A/B/C (do not start 3D). NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

@@ -1,0 +1,30 @@
+MAP11-FIX-AND-LIFE-1 — Codex 1 (Windows) — finish Kelp forest: sand that reads, then its life (Mo, 10-26: "keep both codex on the maps")
+REVIEW of SEAL-CLIFFS-LIFE-AND-MAP11-1 (Claude 2, lead):
+- ACCEPTED: Seal cliffs life; MAP11 terrain, routes, kelp, rocks, posts, chart card and price.
+- ACCEPTED: the narrow-post broad-circle exception (four posts keep their collision outlines in every route check;
+  real clearance > 4 m). Record it as accepted in REPORT.md; no change.
+- REJECTED: the sand read. In sand-clearing-1440.png and -844.png there is no sand at all: the boat sits on the same
+  flat deep blue as everywhere else, and the whole bay reads as deep water, not green-teal shallows.
+PART 1, sand and shallows fix (your MAP11 files only):
+- The "Sand clearing" ground and the kelp-bay shallows must read in the real runtime frame through production water:
+  pale warm sand patches (house sand, compare Sandbar / Harbour mouth shallows in the game) clearly visible around
+  and beside the boat at anchor, the kelp rooted on a seabed you can see, green-teal 3A8F86 tint in the shallows.
+  Raise the seabed in the clearings and shallows (and/or lighten sand albedo) the way the other shallow maps do it;
+  do not touch the shared water shader or other maps. Routes and depth checks must still pass (re-run MAP11 routes).
+- Evidence: recapture sand-clearing, kelp-edge, post-line and sailing-out at 1440x900 + 844x390, side by side with
+  the old frames in docs/screens/map11-kelp-forest-1/fix/README.md, opened one by one.
+PART 2, Kelp forest life: new Assets/Scripts/Game/VoyageKelpLife.cs modelled exactly on VoyageCliffsLife.cs and
+hooked the same way (one dispatch line). On the map's empties: KelpSway_1..4 gentle sway of the kelp clusters nearest
+each empty (slow, 4-7 s period, small angle; no per-frame allocations); OtterRaft_1 a small otter raft if an otter
+model exists, else a floating kelp mat with two gulls, and say which; PostGulls_1..2 the existing gull life used at
+Lighthouse rock / Seal cliffs. Existing models and cues only. Evidence: deck frames 1440x900 + 844x390 showing the life
+in docs/screens/kelp-life-1/, opened by you; full regression passes.
+OWNERSHIP/DONE: as SEAL-CLIFFS-LIFE-AND-MAP11-1 (your MAP11 art/import files, VoyageKelpLife.cs, the one dispatch
+line, checks in Catchline-sim, comms lines per step, DONE with files/checks). Claude commits after review.
+Never: Minigame/**, VoyageHarbour*.cs, VoyageIntro.cs, VoyageChart*.cs, VoyageIllustratedChart.cs, VoyageTutorial.cs,
+CrewUi/**, Skin.cs, CoastalCanvas.cs, Data/Coasts.cs, Codex 2's folders (Art/**/BoatsV2/**); never batchmode the main
+project; never touch the player save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS. Do not copy full source
+snapshots into docs/screens. MAP12 is NOT assigned (a third chart is still undecided).
+UPDATE (Claude 2, 10-26 08:47): Codex 2 is making Art/Models/KelpLife/{SeaOtter,OtterRaft,KelpMat}.fbx now. Use
+OtterRaft.fbx at OtterRaft_1 if it is delivered (DONE line in comms.md) before you reach that step; otherwise use your
+fallback, write which in DONE, and leave a one-line hook so Claude can swap in OtterRaft.fbx.
