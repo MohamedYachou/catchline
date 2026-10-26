@@ -11,7 +11,7 @@ the face of the restaurant (host).
 ## A. Full UI, 1:1 with the mockups (first, until 100%)
 Claude:
 - [x] A1 S5 closing rebuilt on the rx pieces (screen-5 manifest), sbs-checked at 2532x1170.
-- A2 S2 service HUD on rx-s12 pieces once Codex 2's text rects land.
+- [x] A2 S2 phone service HUD on phone:* pieces (r25). Desktop 1440 HUD still old (A5).
 - A3 S1 arrange on rx-s12 pieces.
 - A4 S6 dashboard / week screen (mockup needed → Codex cuts).
 - A5 Desktop 1440/2880 checks of every screen.

@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2'):
+for part in ('s3-s5','s1-s2','s1-s2-extra'):
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
         if part=='s1-s2' and b in s35: nm='rx-s12-'+nm[3:]
@@ -42,7 +42,7 @@ for part in ('s3-s5','s1-s2'):
         for k,v in json.load(open(sl)).items():
             for key in list(pieces):
                 # only this sheet's own screens: both sheets cut pieces under some of the same names
-                if key[1].split('#')[0]==k and (key[0] in S12)==(part=='s1-s2'): r,s,b=pieces[key]; pieces[key]=(r,v['sourceSize'],v['borderLTRB'])
+                if key[1].split('#')[0]==k and (key[0] in S12)==part.startswith('s1-s2'): r,s,b=pieces[key]; pieces[key]=(r,v['sourceSize'],v['borderLTRB'])
 def col(h):
     h=h.lstrip('#'); a=int(h[6:8],16)/255 if len(h)==8 else 1
     return f'C({int(h[0:2],16)/255:.3f}f, {int(h[2:4],16)/255:.3f}f, {int(h[4:6],16)/255:.3f}f, {a:.3f}f)'
