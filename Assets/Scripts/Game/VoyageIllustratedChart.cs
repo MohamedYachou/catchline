@@ -140,6 +140,11 @@ namespace Catchline.Game
                     Tri(P(-.32f, .62f), P(.32f, .62f), P(.16f, -.38f), symbol); Tri(P(-.32f, .62f), P(.16f, -.38f), P(-.16f, -.38f), symbol);
                     C(0, -.56f, .17f); L(.24f, -.6f, .85f, -.82f, .08f); L(-.24f, -.6f, -.85f, -.82f, .08f);
                     L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
+                case 13: // whale tail: a fluke rising from a wave
+                    L(0, .55f, 0, -.1f, .26f);
+                    Tri(P(0, -.05f), P(-.9f, -.55f), P(-.2f, -.25f), symbol); Tri(P(0, -.05f), P(.9f, -.55f), P(.2f, -.25f), symbol);
+                    Tri(P(-.9f, -.55f), P(-.55f, -.7f), P(-.2f, -.25f), symbol); Tri(P(.9f, -.55f), P(.55f, -.7f), P(.2f, -.25f), symbol);
+                    L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);

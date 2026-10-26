@@ -74,7 +74,7 @@ namespace Catchline.Game
                     return ("explain", "That's me, your navigator! I always sail with you, and everyone aboard works 5% faster. Your hauls earn tokens to level me up.", null, true);
                 case TutStep.Recruit when harbour && reveal == null:
                     if (CrewOfficeOpen && crewTab == 2)
-                        return ("cheer", "Each crew member has ten crew chests here. The tenth always holds their blueprint. Fair winds, captain!", null, true);
+                        return ("cheer", "The tenth chest for each crew member always holds their blueprint. A free crate comes with each day's first sale, and the renown road gives more. Fair winds, captain!", null, true);
                     return ("point", "Chests also hold blueprints. A blueprint for someone new brings them aboard. Recruit shows who you can get.",
                         CrewOfficeOpen ? "crew/tab/recruit" : ShopTabId(HudTab.CrewOffice), false);
             }

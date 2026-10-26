@@ -10,7 +10,7 @@ namespace Catchline.Game
         public static readonly Vector2 ChartHarbour = new(.483f, .711f);
         public static Vector2 NauticalChartPoint(int spot) => spot switch {
             1 => new(.216f, .278f), 2 => new(.815f, .414f),
-            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), _ => new(.447f, .445f) };
+            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), 8 => new(.06f, .40f), _ => new(.447f, .445f) };
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
         {
@@ -60,8 +60,9 @@ namespace Catchline.Game
             if (chartContractsOpen) DrawChartContractsPanel();
         }
         // Spots 0-4 use glyphs 0-4; glyph 5 is home, so the Seal skerries (spot 5) gets the seal head (10) and the
-        // Wreck bank (6, the open water right of the harbour mouth) the sunken steamer (11).
-        static int SpotGlyph(int spot) => spot == 5 ? 10 : spot == 6 ? 11 : spot == 7 ? 12 : spot;
+        // Wreck bank (6, the open water right of the harbour mouth) the sunken steamer (11), Lighthouse rock (7) the
+        // lighthouse (12) and the Whale shelf (8) a whale's tail (13).
+        static int SpotGlyph(int spot) => spot == 5 ? 10 : spot == 6 ? 11 : spot == 7 ? 12 : spot == 8 ? 13 : spot;
         void DrawChartPin(string id, Rect r, int glyph, bool selected)
         {
             var host = coastalUi.Box(id, r, "", Color.clear, blocks: false);
