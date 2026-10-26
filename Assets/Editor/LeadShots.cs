@@ -279,6 +279,9 @@ namespace Catchline.EditorTools
             typeof(VoyageGame).GetField("chartFocus", H).SetValue(g, GameData.Spots.Length - 1);
             typeof(VoyageGame).GetField("chartDetailsOpen", H).SetValue(g, true);
             ShotUi(g, "chart-last-detail-phone", 844, 390);
+            // A skiff captain sees the Outer coast but cannot chart it yet.
+            g.State.Hull = 1; typeof(VoyageGame).GetField("chartFocus", H).SetValue(g, 7);
+            ShotUi(g, "chart-outer-locked"); ShotUi(g, "chart-outer-locked-phone", 844, 390);
             UnityEngine.Object.DestroyImmediate(g.gameObject);
         }
 

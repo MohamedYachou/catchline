@@ -168,31 +168,31 @@ namespace Catchline.Game
             new()
             {
                 Name = "Seal skerries", Blurb = "Granite skerries and a seal colony. Crabs on the rocks, big fish on the reef. Bring fuel.", RowSeconds = 24f, BiteWait = 1.35f, Water = Palette.Hex("1C6E7E"),
-                ChartCost = 700, MapPos = new Vector2(.88f, .12f),
+                ChartCost = 2500, MapPos = new Vector2(.88f, .12f),
                 Table = new[] { (Species.Crab, 20f), (Species.Conger, 20f), (Species.Pollock, 20f), (Species.Cod, 25f), (Species.Monkfish, 14f), (Species.Turbot, 1f) },
             },
             new()
             {
                 Name = "Wreck bank", Blurb = "An old steamer on the sandbank. Congers in the wreck, herring on the bank, flatfish at the edge.", RowSeconds = 26f, BiteWait = 1.3f, Water = Palette.Hex("2E8C8A"),
-                ChartCost = 980, MapPos = new Vector2(.72f, .06f),
+                ChartCost = 4000, MapPos = new Vector2(.72f, .06f),
                 Table = new[] { (Species.Conger, 40f), (Species.Cod, 30f), (Species.Pollock, 25f), (Species.Turbot, 2f), (Species.Herring, 50f), (Species.Mackerel, 30f), (Species.Whiting, 45f), (Species.Plaice, 50f), (Species.SpottedEagleRay, 1f) },
             },
             new()
             {
                 Name = "Lighthouse rock", Blurb = "A lighthouse on a lone rock. Bass in the tide race, cod and monkfish down the ledge.", RowSeconds = 30f, BiteWait = 1.4f, Water = Palette.Hex("1F5F8C"),
-                ChartCost = 1370, MapPos = new Vector2(.85f, .08f),
+                ChartCost = 6000, MapPos = new Vector2(.85f, .08f),
                 Table = new[] { (Species.Pollock, 40f), (Species.SeaBass, 65f), (Species.Conger, 20f), (Species.GoldTipShark, 1f), (Species.Mackerel, 45f), (Species.YellowfinTuna, 3f), (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f) },
             },
             new()
             {
                 Name = "Whale shelf", Blurb = "Out where the shelf drops away. Herring shoals, cod on the edge, whales passing through.", RowSeconds = 34f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
-                ChartCost = 1920, MapPos = new Vector2(.88f, .04f),
+                ChartCost = 8500, MapPos = new Vector2(.88f, .04f),
                 Table = new[] { (Species.Herring, 50f), (Species.Mackerel, 70f), (Species.Whiting, 12f), (Species.FlyingFish, 2f), (Species.Cod, 30f), (Species.Pollock, 50f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f), (Species.SeaBass, 25f), (Species.SpottedEagleRay, 3f) },
             },
             new()
             {
                 Name = "Seal cliffs", Blurb = "Cliffs, a sea arch and seals on the stones. Wrasse in the pool, cod in the race.", RowSeconds = 36f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
-                ChartCost = 2600, MapPos = new Vector2(.08f, .88f),
+                ChartCost = 11000, MapPos = new Vector2(.08f, .88f),
                 Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
             },
         };

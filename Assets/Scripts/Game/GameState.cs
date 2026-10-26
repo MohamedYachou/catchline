@@ -227,7 +227,7 @@ namespace Catchline.Game
         public bool BuyChart(int spot)
         {
             int cost = GameData.Spots[spot].ChartCost;
-            if (Known(spot) || Coins < cost) return false;
+            if (Known(spot) || Coins < cost || !Coasts.Open(spot, Hull)) return false;
             Coins -= cost;
             Charts.Add(spot);
             return true;
@@ -415,7 +415,7 @@ namespace Catchline.Game
             for (int i = 0; i < GameData.Spots.Length; i++)
                 if (Known(i))
                     foreach (var e in GameData.Spots[i].Table)
-                        if (Hull >= GameData.MinimumHull(e.species)) pool.Add(e);
+                        if (Hull >= GameData.MinimumHull(e.species) && Coasts.Allowed(i, e.species)) pool.Add(e);
             float total = 0f;
             foreach (var e in pool) total += e.Item2;
             float roll = Rand() * total;
@@ -473,6 +473,9 @@ namespace Catchline.Game
             }
             var def = GameData.Get(table[pick].species);
             float specimen = Mathf.Pow(Rand(), 1.5f - power);
+            // Outer coast fish run big; on the Gull coast a rare species gets one re-roll down, so purples stay a treat.
+            if (Coasts.Outer(spot)) specimen = .25f + .75f * specimen;
+            else if (CatchPresentation.IsRare(def.Species)) specimen = Mathf.Min(specimen, Rand());
             if (squid) specimen = Mathf.Lerp(.35f, 1f, specimen);
             if (chum) specimen = Mathf.Lerp(.75f, 1f, specimen);
             float kg = Mathf.Lerp(def.MinKg, def.MaxKg, specimen);
@@ -490,11 +493,11 @@ namespace Catchline.Game
         public (Species species, float weight)[] FishTable(int spot)
         {
             var ground = CurrentGround >= 0 ? Grounds.Get(spot, CurrentGround) : null;
-            if (ground == null) return GameData.Spots[spot].Table;
+            if (ground == null) return Coasts.Shape(spot, GameData.Spots[spot].Table);
             var pool = ground.Pool(NightVoyage);
             var result = new (Species species, float weight)[pool.Length];
             for (int i = 0; i < pool.Length; i++) result[i] = (pool[i].species, pool[i].weight * Grounds.Richness(GroundRich, spot, CurrentGround, pool[i].species));
-            return result;
+            return Coasts.Shape(spot, result);
         }
 
         // Legacy per-map richness is the mean of that map's ground-species richness.

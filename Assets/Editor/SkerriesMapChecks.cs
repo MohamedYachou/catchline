@@ -34,11 +34,13 @@ namespace Catchline.EditorTools
             ScratchOnly(); ArtImport.BuildLibrary();
             Check(SeaNav.Maps.Length == 6 && GameData.Spots.Length == 6 && SeaNav.Maps[5] == "GullSkerries", "six maps/spots with stable order");
             var spot = GameData.Spots[5];
-            Check(spot.Name == "Seal skerries" && spot.RowSeconds == 24f && spot.BiteWait == 1.35f && Mathf.Approximately(spot.ChartCost, GameData.Spots[4].ChartCost * 1.4f), "spot data");
-            var state = new GameState(6501); state.Coins = 699;
-            Check(!state.Known(5) && !state.BuyChart(5) && state.Coins == 699, "unaffordable chart stays locked");
-            state.Coins = 700;
-            Check(state.BuyChart(5) && state.Known(5) && state.Coins == 0, "700-coin chart purchase");
+            Check(spot.Name == "Seal skerries" && spot.RowSeconds == 24f && spot.BiteWait == 1.35f && spot.ChartCost == 2500, "spot data");
+            var state = new GameState(6501); state.Coins = 2500;
+            Check(!state.BuyChart(5) && state.Coins == 2500, "Outer coast chart needs a tier 3 boat");
+            state.Hull = 2; state.Coins = 2499;
+            Check(!state.Known(5) && !state.BuyChart(5) && state.Coins == 2499, "unaffordable chart stays locked");
+            state.Coins = 2500;
+            Check(state.BuyChart(5) && state.Known(5) && state.Coins == 0, "2500-coin chart purchase");
             var nav = SeaNav.Load("GullSkerries", GameData.Hulls[4]);
             Check(nav != null && !nav.Interim && nav.ModelId == "GullSkerriesSeaV2" && nav.Grounds.Count == 3, "real model/navigation lookup");
             string[] ids = { "seal-rocks", "kelp-gully", "outer-reef" };
@@ -84,7 +86,7 @@ namespace Catchline.EditorTools
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var g = new GameObject("MAP6 session-only trip check").AddComponent<VoyageGame>();
             g.SessionOnly = true; g.Build();
-            g.State.Hull = 4; g.State.Coins = 10000; g.State.Fuel = g.State.FuelCapacity;
+            g.State.Hull = 4; g.State.Coins = 20000; g.State.Fuel = g.State.FuelCapacity;
             typeof(VoyageGame).GetMethod("RebuildBoat", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(g, new object[] { false });
             g.Tick(.05f); Check(g.State.BuyChart(5), "new chart for trip"); g.SelectedSpot = 5;
             var legs = new HashSet<VoyageGame.TripLeg>();

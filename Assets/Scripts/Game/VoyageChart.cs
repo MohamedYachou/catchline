@@ -11,10 +11,9 @@ namespace Catchline.Game
         public static Vector2 NauticalChartPoint(int spot) => spot switch {
             1 => new(.216f, .278f), 2 => new(.815f, .414f),
             3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.40f, .24f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), 8 => new(.06f, .40f), 9 => new(.24f, .62f), 10 => new(.216f, .278f), _ => new(.447f, .445f) };
-        // Mo (10-26): one chart got too crowded, so it has two pages: the first five grounds on the Gull coast, the
-        // later ones on the Outer coast. Kelp forest shares the kelp island with Kelp bank, a page apart.
-        public static int ChartPage(int spot) => spot < 5 ? 0 : 1;
-        static readonly string[] ChartPageNames = { "Gull coast", "Outer coast" };
+        // Mo (10-26): one chart got too crowded, so it has two pages, one per coast (Coasts.cs): the first five grounds
+        // on the Gull coast, the later ones on the Outer coast. Kelp forest shares the kelp island with Kelp bank.
+        public static int ChartPage(int spot) => Coasts.Of(spot);
         int chartPage = -1, chartPageFocus = -1;
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
@@ -25,7 +24,7 @@ namespace Catchline.Game
         }
         void ChooseChartGround()
         {
-            if (!State.Known(chartFocus) && !State.BuyChart(chartFocus)) return;
+            if (!Coasts.Open(chartFocus, State.Hull) || !State.Known(chartFocus) && !State.BuyChart(chartFocus)) return;
             SelectedSpot = chartFocus; SaveGame(); chartDetailsOpen = false;
             audio?.Play(VoyageAudio.Cue.Select, .4f);
         }
@@ -55,7 +54,7 @@ namespace Catchline.Game
                 var card = new Rect(Mathf.Clamp(cx, 8, iw - w - 8), cy, w, h);
                 var face = coastalUi.Card(id + "/card", card, selected ? Skin.Card.Selected : Skin.Card.Soft);
                 coastalUi.Text(id + "/name", new Rect(12, 4, w - 24, 28), GameData.Spots[i].Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, face);
-                string state = !State.Known(i) ? $"Chart · {GameData.Spots[i].ChartCost} coins" : selected ? "Selected ground" : "Explore ground";
+                string state = !Coasts.Open(i, State.Hull) ? "Needs a tier 3 boat" : !State.Known(i) ? $"Chart · {GameData.Spots[i].ChartCost:N0} coins" : selected ? "Selected ground" : "Explore ground";
                 coastalUi.Text(id + "/state", new Rect(12, 31, w - 24, 22), state, Skin.Type.Caption, State.Known(i) ? Skin.Teal : Skin.InkSoft, TextAnchor.MiddleLeft, face);
                 var hit = new Rect(Mathf.Min(x - 25, card.x), y - 32, Mathf.Max(x + 25, card.xMax) - Mathf.Min(x - 25, card.x), card.yMax - y + 32);
                 coastalUi.HitArea(id, hit, () => { chartFocus = spot; chartDetailsOpen = true; chartContractsOpen = false; MenuSound(); });
@@ -90,7 +89,7 @@ namespace Catchline.Game
             coastalUi.PricePill("chart/coins", new Rect(iw - Edge - pill, Edge, pill, h), State.Coins);
             coastalUi.Secondary("chart/contracts", new Rect(iw - Edge - pill, Edge + h + 8, pill, compactInterface ? 44 : 52),
                 $"Contracts {State.Active.Count}/{GameData.MaxActiveContracts}", () => { chartContractsOpen = true; chartDetailsOpen = false; MenuSound(); });
-            coastalUi.PageSwitch("chart/page", new Rect(title.xMax + 16, Edge + (compactInterface ? 2 : 8), compactInterface ? 300 : 360, compactInterface ? 48 : 52), ChartPageNames, chartPage,
+            coastalUi.PageSwitch("chart/page", new Rect(title.xMax + 16, Edge + (compactInterface ? 2 : 8), compactInterface ? 300 : 360, compactInterface ? 48 : 52), Coasts.Names, chartPage,
                 i => { if (i == chartPage) return; chartPage = i; chartDetailsOpen = false; MenuSound(); }, new[] { "chart/page/gull", "chart/page/outer" });
         }
         void DrawChartGroundDetail()
@@ -102,12 +101,13 @@ namespace Catchline.Game
             coastalUi.CardButton("chart/focus/close", new Rect(w - 100, 6, 88, 34), "Close", () => chartDetailsOpen = false, null, true, slab);
             float x = Skin.SlabPad + 4, tw = w - x * 2, y = Skin.HeaderBand + 10;
             coastalUi.Text("chart/focus/detail", new Rect(x, y, tw, 44), ground.Blurb, Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft, slab);
-            coastalUi.Text("chart/focus/fish", new Rect(x, y + 46, tw, 40), string.Join(" · ", ground.Table.Select(e => GameData.Get(e.species).Name)), Skin.Type.Caption, Skin.InkSoft, TextAnchor.UpperLeft, slab);
+            coastalUi.Text("chart/focus/fish", new Rect(x, y + 46, tw, 40), string.Join(" · ", Coasts.Shape(chartFocus, ground.Table).OrderByDescending(e => CatchPresentation.Tier(e.species, 0)).Select(e => GameData.Get(e.species).Name)), Skin.Type.Caption, Skin.InkSoft, TextAnchor.UpperLeft, slab);
             coastalUi.Text("chart/focus/stock", new Rect(x, y + 86, tw, 24), $"{ground.RowSeconds * State.HullDef.TravelMultiplier:0.#}s journey · stocks {State.Richness[chartFocus] * 100:0}%", Skin.Type.Small, Skin.Teal, TextAnchor.MiddleLeft, slab);
-            string action = known ? SelectedSpot == chartFocus ? "Selected" : "Fish here" : $"Buy chart · {ground.ChartCost}";
+            bool open = Coasts.Open(chartFocus, State.Hull);
+            string action = !open ? Coasts.OuterLock : known ? SelectedSpot == chartFocus ? "Selected" : "Fish here" : $"Buy chart · {ground.ChartCost:N0}";
             float bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight;
-            coastalUi.Primary("chart/select", new Rect(x, h - bh - 14, tw, bh), action, ChooseChartGround, known ? null : "v2-icon-coin",
-                known ? SelectedSpot != chartFocus : State.Coins >= ground.ChartCost, slab);
+            coastalUi.Primary("chart/select", new Rect(x, h - bh - 14, tw, bh), action, ChooseChartGround, known || !open ? null : "v2-icon-coin",
+                open && (known ? SelectedSpot != chartFocus : State.Coins >= ground.ChartCost), slab);
         }
         void DrawChartContractsPanel()
         {

@@ -221,7 +221,7 @@ namespace Catchline.Game
             {
                 case HudTab.Market: return s.UnsoldCatch.Count > 0 || s.UnseenSale;
                 case HudTab.HarbourMaster:
-                    return Enumerable.Range(0, GameData.Spots.Length).Any(i => !s.Known(i) && s.Coins >= GameData.Spots[i].ChartCost)
+                    return Enumerable.Range(0, GameData.Spots.Length).Any(i => !s.Known(i) && Coasts.Open(i, s.Hull) && s.Coins >= GameData.Spots[i].ChartCost)
                            || s.Active.Count < GameData.MaxActiveContracts && s.Offers.Count > 0;
                 case HudTab.CrewOffice: return s.CardTier >= 1 && (s.PendingChests.Count > 0 || s.FreeBlueprints > 0 || s.Renown >= RenownRoad.Threshold(s.RenownClaimed + 1));
                 case HudTab.Chandlery:
