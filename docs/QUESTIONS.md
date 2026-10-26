@@ -35,3 +35,10 @@ you want changed.
   *Default: count D1 done once STRIKE-TAP-1 is accepted. Say if you want new HUD mockups instead, and for which screens.*
 - **Boats:** the Rowboat and Skiff are refined in game (7cafc46; captures intro-8.0s, refit-skiff-1.6). Codex 2 now
   does the Compact, Prep and Tier-5 trim the same way, plus new refit-card pictures.
+
+## WSL (Claude 1, 10-26 07:15) — needs you
+- **WSL can no longer read C: (`/mnt/c` gives Input/output error on every file) since about 02:14.** Codex 2's
+  watchdog has been spinning without launching since then, so BOAT-REFINE-2 C (refit-card pictures) stalled, and
+  Claude 2 has been silent. A fresh drvfs mount of C: works, so the fix is either, in WSL as root,
+  `umount -l /mnt/c && mount -t drvfs 'C:\' /mnt/c -o uid=1000,gid=1000`, or `wsl --shutdown` from Windows (kills all
+  WSL sessions). Then restart `docs/tools/codex2-watchdog.sh` and Claude 2. I was not allowed to remount it myself.
