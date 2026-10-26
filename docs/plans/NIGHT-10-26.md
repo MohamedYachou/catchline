@@ -10,7 +10,7 @@ the face of the restaurant (host).
 
 ## A. Full UI, 1:1 with the mockups (first, until 100%)
 Claude:
-- A1 S5 closing rebuilt on the rx pieces (screen-5 manifest), sbs-checked at 2532x1170.
+- [x] A1 S5 closing rebuilt on the rx pieces (screen-5 manifest), sbs-checked at 2532x1170.
 - A2 S2 service HUD on rx-s12 pieces once Codex 2's text rects land.
 - A3 S1 arrange on rx-s12 pieces.
 - A4 S6 dashboard / week screen (mockup needed → Codex cuts).

@@ -754,65 +754,96 @@ namespace Catchline.Game
             Block(new Rect(0, 0, iw, ih));
             RestaurantBackdrop("rclose/backdrop");
             var f = RestaurantFrame("rclose/frame");
-            var slab = coastalUi.Slab("rclose/slab", new Rect(120, 12, 604, 360), null, false, f);
-            coastalUi.Sliced("rclose/head", new Rect(0, 0, 604, 46), "v2-slab-header", slab, Skin.HeaderNavy);
-            coastalUi.Text("rclose/title", new Rect(0, 0, 590, 46), "A good night on the quay", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleCenter, slab, true);
-            coastalUi.Icon("rclose/moon", new Rect(500, 10, 26, 26), "v2-icon-moon", slab, Skin.Warn);
+            Rx("rclose/bg", 5, "v2-bg-closing", f);
+            Rx("rclose/board", 5, "v2-closing-board", f);
+            Rx("rclose/head", 5, "v2-closing-header", f);
+            RxText("rclose/title", 5, "closing-title", "A good night on the quay", f);
+            Rx("rclose/moon", 5, "v2-icon-moon", f);
 
             // Column 1: the till.
-            var served = coastalUi.Card("rclose/served", new Rect(10, 54, 190, 32), Skin.Card.Soft, slab);
-            coastalUi.Icon("rclose/served/icon", new Rect(20, 4, 24, 24), "v2-icon-guests", served, Skin.Ink, "v2-icon-crew");
-            coastalUi.Text("rclose/served/text", new Rect(52, 0, 136, 32), $"{v.Served} served · {v.Left} left", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, served);
-            void Line(string id, float y, string icon, string fallback, string label, int value)
+            Rx("rclose/served", 5, "v2-metric-row#served count row", f, null, "rx-metric-row");
+            Rx("rclose/served/icon", 5, "v2-icon-guests#served guests", f, null, "rx-icon-guests");
+            RxText("rclose/served/text", 5, "served", $"{v.Served} served · {v.Left} left", f, new Rect(188, 69, 128, 22), TextAnchor.MiddleLeft);
+            void Line(string id, string row, string icon, string label, int value)
             {
-                var c = coastalUi.Card(id, new Rect(10, y, 190, 46), Skin.Card.Soft, slab);
-                coastalUi.Icon(id + "/icon", new Rect(6, 4, 60, 38), icon, c, null, fallback);
-                coastalUi.Text(id + "/label", new Rect(76, 2, 110, 20), label, Skin.Type.Small, Skin.Ink, TextAnchor.LowerLeft, c);
-                coastalUi.Text(id + "/n", new Rect(76, 20, 110, 24), value.ToString(), Skin.Type.Heading, Skin.Ink, TextAnchor.UpperLeft, c);
+                Rx(id, 5, row, f, null, "rx-metric-row");
+                var at = RestaurantExact.Pieces[$"5:{row}"].rect;
+                Rx(id + "/icon", 5, icon, f);
+                RxText(id + "/label", 5, "metric-label", label, f, new Rect(208, at.y + 3, 100, 17), TextAnchor.MiddleLeft);
+                RxText(id + "/n", 5, "metric-number", value.ToString(), f, new Rect(207, at.y + 17, 100, 25), TextAnchor.MiddleLeft);
             }
-            Line("rclose/dishes", 90, "v2-dish-grilled-fish", "icon-food", "Dishes", v.Dishes);
-            Line("rclose/drinks", 140, "v2-icon-drink", "v2-icon-clock", "Drinks", v.Drinks);
-            Line("rclose/tips", 190, "v2-icon-coins", "icon-coin", "Tips", v.Tips);
-            var total = coastalUi.Card("rclose/total", new Rect(10, 240, 190, 50), Skin.Card.Selected, slab);
-            coastalUi.Icon("rclose/total/icon", new Rect(10, 4, 42, 42), "v2-icon-coin", total, null, "icon-coin");
-            coastalUi.Text("rclose/total/label", new Rect(76, 2, 110, 18), "Tonight", Skin.Type.Small, Skin.Ink, TextAnchor.LowerLeft, total);
-            coastalUi.Text("rclose/total/n", new Rect(76, 18, 110, 30), $"+{v.Total}", Skin.Type.Number, Skin.Ink, TextAnchor.UpperLeft, total);
-            var cats = coastalUi.Card("rclose/cats", new Rect(10, 294, 190, 58), Skin.Card.Soft, slab);
-            coastalUi.Icon("rclose/cats/art", new Rect(4, 2, 80, 54), "v2-illus-cats", cats, null, "v2-icon-cat");
-            coastalUi.Text("rclose/cats/text", new Rect(88, 2, 98, 34), $"{v.CatPortions} portions for the alley cats", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleCenter, cats);
-            coastalUi.Icon("rclose/cats/coin", new Rect(124, 36, 16, 16), "v2-icon-coin", cats, null, "icon-coin");
-            coastalUi.Text("rclose/cats/value", new Rect(90, 34, 96, 20), $"Value       {v.CatValue}", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleLeft, cats);
+            Line("rclose/dishes", "v2-metric-row", "v2-dish-closing-fish", "Dishes", v.Dishes);
+            Line("rclose/drinks", "v2-metric-row#drinks row", "v2-dish-lemonade", "Drinks", v.Drinks);
+            Line("rclose/tips", "v2-metric-row#tips row", "v2-icon-coins", "Tips", v.Tips);
+            Rx("rclose/total", 5, "v2-tonight-row", f);
+            Rx("rclose/total/icon", 5, "v2-icon-coin-service", f);
+            RxText("rclose/total/label", 5, "metric-label", "Tonight", f, new Rect(219, 231, 90, 17), TextAnchor.MiddleLeft);
+            RxText("rclose/total/n", 5, "tonight-number", $"+{v.Total}", f, new Rect(219, 246, 100, 30), TextAnchor.MiddleLeft);
+            Rx("rclose/cats", 5, "v2-metric-row#cats row", f, null, "rx-metric-row");
+            Rx("rclose/cats/art", 5, "v2-illus-cats", f);
+            RxText("rclose/cats/text", 5, "cats", $"{v.CatPortions} portions for\nthe alley cats", f, new Rect(236, 295, 90, 34));
+            var cs = RestaurantExact.Texts["5:metric-label"];
+            coastalUi.StyledText("rclose/cats/vl", new Rect(246, 330, 30, 18), "Value", 11, cs.Fill, cs.StrokeColour, 0, 0, Color.clear, false, TextAnchor.MiddleLeft, f, frameScale);
+            Rx("rclose/cats/coin", 5, "v2-icon-coin-service#cat food value coin", f, null, "rx-icon-coin-service");
+            RxText("rclose/cats/value", 5, "served", v.CatValue.ToString(), f, new Rect(300, 328, 24, 22), TextAnchor.MiddleLeft);
 
             // Column 2: reviews and the crew of the night.
+            string[] cards = { "v2-review-card", "v2-review-card#review row 2", "v2-review-card#review row 3" };
             for (int i = 0; i < v.Reviews.Count && i < 3; i++)
             {
-                var r = v.Reviews[i];
-                var c = coastalUi.Card($"rclose/review/{i}", new Rect(208, 54 + i * 76, 214, 72), Skin.Card.Soft, slab);
-                coastalUi.Portrait($"rclose/review/{i}/face", new Rect(6, 6, 58, 58), r.Portrait, c);
-                RestaurantStars($"rclose/review/{i}/stars", new Rect(70, 6, 96, 20), r.Stars, c);
-                coastalUi.Text($"rclose/review/{i}/quote", new Rect(70, 28, 140, 40), $"“{r.Quote}”", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, c);
+                var r = v.Reviews[i]; float y = RestaurantExact.Pieces[$"5:{cards[i]}"].rect.y;
+                Rx($"rclose/review/{i}", 5, cards[i], f, null, "rx-review-card");
+                Rx($"rclose/review/{i}/face", 5, $"v2-review-portrait-0{i + 1}", f, null, $"rx-review-portrait-0{ReviewFace(r.Portrait, i)}");
+                for (int s = 0; s < 5; s++)
+                    Rx($"rclose/review/{i}/star/{s}", 5, "v2-star-full", f, new Rect(396 + s * 19.5f, y + 9, 18, 18), s < r.Stars ? "rx-star-full" : "rx-star-empty");
+                RxText($"rclose/review/{i}/quote", 5, "review-quote", $"“{r.Quote}”", f, new Rect(397, y + 28, 146, 30), TextAnchor.MiddleLeft);
             }
-            var crew = coastalUi.Card("rclose/crew", new Rect(208, 284, 214, 68), Skin.Card.Soft, slab);
-            coastalUi.Portrait("rclose/crew/face", new Rect(6, 4, 60, 60), v.CrewPortrait, crew);
-            coastalUi.Text("rclose/crew/label", new Rect(72, 6, 136, 22), "Crew of the night", Skin.Type.Caption, Skin.Ink, TextAnchor.LowerLeft, crew);
-            coastalUi.Text("rclose/crew/name", new Rect(72, 28, 136, 32), v.CrewOfTheNight, Skin.Type.Heading, Skin.Ink, TextAnchor.UpperLeft, crew);
+            Rx("rclose/crew", 5, "v2-review-card#crew of the night row", f, null, "rx-review-card");
+            if (v.CrewOfTheNight == "Jo") Rx("rclose/crew/face", 5, "v2-portrait-crew-jo", f);
+            else coastalUi.Portrait("rclose/crew/face", new Rect(331, 292, 62, 62), v.CrewPortrait, f);
+            RxText("rclose/crew/label", 5, "crew-of-night-label", "Crew of the night", f, null, TextAnchor.MiddleLeft);
+            RxText("rclose/crew/name", 5, "crew-of-night-name", v.CrewOfTheNight, f, new Rect(400, 315, 140, 25), TextAnchor.MiddleLeft);
 
             // Column 3: popularity; Mira and Sleep stand over the board's corner.
-            var pop = coastalUi.Card("rclose/pop", new Rect(430, 54, 164, 160), Skin.Card.Soft, slab);
-            coastalUi.Text("rclose/pop/title", new Rect(10, 4, 150, 28), "Popularity", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, pop);
-            var pv = coastalUi.Card("rclose/pop/value", new Rect(8, 36, 148, 50), Skin.Card.Soft, pop);
-            coastalUi.Icon("rclose/pop/star", new Rect(4, 6, 38, 38), "icon-star", pv);
-            coastalUi.Text("rclose/pop/from", new Rect(44, 0, 64, 50), $"{v.PopularityFrom} →", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, pv);
-            coastalUi.Text("rclose/pop/to", new Rect(104, 0, 44, 50), v.PopularityTo.ToString(), Skin.Type.Heading, v.PopularityTo >= v.PopularityFrom ? Skin.Orange : Skin.BadInk, TextAnchor.MiddleLeft, pv);
-            coastalUi.ProgressBar("rclose/pop/bar", new Rect(10, 94, 132, 14), v.Popularity, v.Popularity >= v.PopularityBefore ? Skin.Bar.Good : Skin.Bar.Bad, pop);
-            coastalUi.Icon("rclose/pop/barstar", new Rect(132, 88, 26, 26), "icon-star", pop);
-            coastalUi.Text("rclose/pop/rep", new Rect(4, 112, 156, 20), "Harbour reputation", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleCenter, pop);
-            coastalUi.Text("rclose/pop/delta", new Rect(4, 132, 156, 20), v.Popularity >= v.PopularityBefore ? "A warmer welcome" : "A quieter night",
-                Skin.Type.Caption, Skin.InkSoft, TextAnchor.MiddleCenter, pop);
-            coastalUi.Icon("rclose/mira", new Rect(596, 222, 136, 168), "mira-pose-wave", f, null, "art108-mira");
-            var say = coastalUi.Card("rclose/say", new Rect(490, 262, 100, 50), Skin.Card.Soft, f);
-            coastalUi.Text("rclose/say/text", new Rect(4, 2, 88, 46), v.MiraLine, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleCenter, say);
-            coastalUi.Primary("rclose/sleep", new Rect(532, 320, 184, 54), "Sleep", () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-bed", true, f);
+            Rx("rclose/pop", 5, "v2-popularity-card", f);
+            RxText("rclose/pop/title", 5, "popularity-title", "Popularity", f, null, TextAnchor.MiddleLeft);
+            Rx("rclose/pop/star", 5, "v2-star-full", f);
+            RxText("rclose/pop/from", 5, "popularity-before", $"{v.PopularityFrom} →", f, new Rect(607, 112, 60, 29), TextAnchor.MiddleLeft);
+            RxText("rclose/pop/to", 5, "popularity-after", v.PopularityTo.ToString(), f, new Rect(664, 109, 50, 34), TextAnchor.MiddleLeft,
+                v.PopularityTo >= v.PopularityFrom ? null : Skin.BadInk);
+            Rx("rclose/pop/track", 5, "v2-progress-track", f);
+            Rx("rclose/pop/fill", 5, "v2-progress-fill", f, new Rect(560, 156, Mathf.Max(18, 130 * Mathf.Clamp01(v.Popularity)), 17));
+            Rx("rclose/pop/barstar", 5, "v2-star-full#progress endpoint star", f, null, "rx-star-full");
+            RxText("rclose/pop/rep", 5, "reputation", "Harbour reputation", f, new Rect(566, 175, 140, 15));
+            RxText("rclose/pop/delta", 5, "reputation", v.Popularity >= v.PopularityBefore ? "A warmer welcome" : "A quieter night", f, new Rect(566, 190, 140, 15), TextAnchor.MiddleCenter, Skin.InkSoft);
+
+            // As in the mockup: big, cut at the waist by the frame's bottom edge.
+            var miraClip = coastalUi.Clip("rclose/mira/clip", new Rect(520, 0, 324, 390), f);
+            Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(23, 198 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 222, 278));
+            Rx("rclose/rays", 5, "v2-accent-rays", f);
+            Rx("rclose/say", 5, "v2-bubble-mira", f);
+            RxText("rclose/say/text", 5, "mira-bubble", TwoLines(v.MiraLine), f, new Rect(494, 264, 96, 38));
+            Rx("rclose/sleep", 5, "v2-btn-primary#Sleep button; nine-slice", f, null, "rx-btn-primary");
+            Rx("rclose/sleep/icon", 5, "v2-icon-bed", f);
+            RxText("rclose/sleep/label", 5, "sleep", "Sleep", f, new Rect(607, 331, 100, 31), TextAnchor.MiddleLeft);
+            coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, f);
         }
+
+        // A speech-bubble line broken at the space nearest its middle, as the mockup sets it.
+        static string TwoLines(string t)
+        {
+            if (string.IsNullOrEmpty(t) || t.Length < 12 || t.Contains("\n")) return t;
+            int best = -1;
+            for (int i = 0; i < t.Length; i++)
+                if (t[i] == ' ' && (best < 0 || Mathf.Abs(i - t.Length / 2) < Mathf.Abs(best - t.Length / 2))) best = i;
+            return best < 0 ? t : t.Substring(0, best) + "\n" + t.Substring(best + 1);
+        }
+
+        // The six painted reviewer faces; the regulars keep theirs, other guests get one by name.
+        static int ReviewFace(string portrait, int i) => portrait switch
+        {
+            "fisher" => 1, "deckhand" => 2, "captain" => 3,
+            _ => 4 + (Mathf.Abs((portrait ?? "").GetHashCode()) + i) % 3,
+        };
     }
 }
