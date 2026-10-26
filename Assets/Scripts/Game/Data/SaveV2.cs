@@ -33,6 +33,7 @@ namespace Catchline.Game
         public int[] ChestPities = new int[0];               // per ChestKind: chests since that kind's last blueprint
         public List<string> CrewChests = new List<string>(); // "id:n": crew chests bought from each crew offer
         public int FreeBlueprints;
+        public int RestaurantPopularity = 1;                 // the restaurant's popularity stars (RESTAURANT.md)
         public int RenownClaimed;
         public List<int> PendingChests = new List<int>();    // ChestKind values
         public string LastCrateDay = "";

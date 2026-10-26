@@ -48,6 +48,8 @@ namespace Catchline.Game
 
         (string pose, string text, string target, bool dismiss)? TutorialLine()
         {
+            // Mira's restaurant cards speak for her; the old tutorial bubble waits until they close.
+            if (RestaurantPreview != RestaurantScreen.None) return null;
             bool harbour = CurrentMode == Mode.Harbour;
             bool shop = harbour && panelOpen;
             switch (Tutorial)

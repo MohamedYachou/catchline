@@ -229,7 +229,7 @@ namespace Catchline.Game
                 var s = v.Staff[i];
                 var c = coastalUi.Card($"rsvc/staff/{i}", new Rect(rail.x + 8 * sx + i * cw, rail.y + 6 * sy, cw - 8 * sx, rail.height - 12 * sy), Skin.Card.Soft);
                 float h = rail.height - 12 * sy, bust = h * 1.06f;
-                coastalUi.Icon($"rsvc/staff/{i}/bust", new Rect(6 * sx, h - bust, bust * .9f, bust), $"v2-bust-{s.Portrait}", c, null, $"v2-portrait-{s.Portrait}-deck");
+                coastalUi.Icon($"rsvc/staff/{i}/bust", new Rect(6 * sx, h - bust, bust * .9f, bust), $"v2-bust-{s.Portrait}", c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
                 coastalUi.Text($"rsvc/staff/{i}/job", new Rect(bust * .9f + 10 * sx, 4, cw - 8 * sx - bust * .9f - h * .64f - 30 * sx, h * .42f), s.Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                 coastalUi.Icon($"rsvc/staff/{i}/icon", new Rect(bust * .9f + 14 * sx, h * .44f, h * .46f, h * .46f), s.Icon, c, null, s.Fallback);
                 float ring = h * .64f;
@@ -317,7 +317,7 @@ namespace Catchline.Game
             {
                 if (s.Portrait == "mira") continue;
                 var c = coastalUi.Card($"rsph/staff/{n}", R(18 + n * 163, 322, 156, 62), Skin.Card.Soft);
-                coastalUi.Icon($"rsph/staff/{n}/bust", new Rect(4 * sx, 0, 54 * sx, 62 * sy), $"v2-bust-{s.Portrait}", c, null, $"v2-portrait-{s.Portrait}-deck");
+                coastalUi.Icon($"rsph/staff/{n}/bust", new Rect(4 * sx, 0, 54 * sx, 62 * sy), $"v2-bust-{s.Portrait}", c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
                 coastalUi.Icon($"rsph/staff/{n}/icon", new Rect(62 * sx, 8 * sy, 22 * sy, 22 * sy), s.Icon, c, Skin.Ink, s.Fallback);
                 coastalUi.Text($"rsph/staff/{n}/job", new Rect(62 * sx + 26 * sy, 6 * sy, 70 * sx, 26 * sy), s.Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                 coastalUi.ProgressBar($"rsph/staff/{n}/bar", new Rect(62 * sx, 38 * sy, 86 * sx, 12 * sy), s.Busy, s.Busy >= .7f ? Skin.Bar.Good : Skin.Bar.Warn, c);
@@ -378,7 +378,7 @@ namespace Catchline.Game
                         var s = v.Crew[first + i]; string cid = $"{id}/card/{i}";
                         var c = coastalUi.Card(cid, new Rect(x0 + i * cw, rail.y + pad, cw - pad, h), Skin.Card.Soft);
                         float bust = h * 1.06f, bw = bust * .9f, ring = h * (phone ? .5f : .6f);
-                        coastalUi.Icon($"{cid}/bust", new Rect(4, h - bust, bw, bust), $"v2-bust-{s.Portrait}", c, null, $"v2-portrait-{s.Portrait}-deck");
+                        coastalUi.Icon($"{cid}/bust", new Rect(4, h - bust, bw, bust), $"v2-bust-{s.Portrait}", c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
                         float tw = cw - pad - bw - ring - 18;
                         coastalUi.Text($"{cid}/job", new Rect(bw + 6, 2, tw, h * .46f), s.Job, phone ? Skin.Type.Small : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                         coastalUi.Icon($"{cid}/icon", new Rect(bw + 8, h * .5f, h * .4f, h * .4f), s.Icon, c, null, s.Fallback);

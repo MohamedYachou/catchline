@@ -34,6 +34,7 @@ namespace Catchline.Game
         public int NextToolUid = 1;
         public string FocusCard = "";
         public int[] ChestPities = new int[Chests.All.Length]; // per kind: chests opened since its last blueprint
+        public int RestaurantPopularity = 1;
         public int Tutorial = int.MaxValue;                  // VoyageGame.TutStep; only a fresh game from the title starts it
         public readonly Dictionary<string, int> CrewChestsBought = new(); // crew id -> chests bought from their offer
         public int FreeBlueprints;                           // blueprints the player assigns to any crew
@@ -363,7 +364,7 @@ namespace Catchline.Game
             v2.Cards = new List<CardState>(Roster); v2.Deployment = new List<string>(Deployment);
             v2.TripDeployment = new List<string>(TripDeployment);
             v2.Tokens = Tokens; v2.Tools = new List<ToolState>(Tools); v2.CaptainTools = (int[])CaptainTools.Clone();
-            v2.NextToolUid = NextToolUid; v2.FocusCard = FocusCard; v2.ChestPities = (int[])ChestPities.Clone(); v2.Tutorial = Tutorial; v2.CrewChests = CrewChestsBought.Select(kv => kv.Key + ":" + kv.Value).ToList(); v2.FreeBlueprints = FreeBlueprints;
+            v2.NextToolUid = NextToolUid; v2.FocusCard = FocusCard; v2.ChestPities = (int[])ChestPities.Clone(); v2.Tutorial = Tutorial; v2.RestaurantPopularity = RestaurantPopularity; v2.CrewChests = CrewChestsBought.Select(kv => kv.Key + ":" + kv.Value).ToList(); v2.FreeBlueprints = FreeBlueprints;
             v2.RenownClaimed = RenownClaimed; v2.PendingChests = PendingChests.Select(k => (int)k).ToList(); v2.LastCrateDay = LastCrateDay;
         }
         void ReadCards(SaveV2 v2)
@@ -377,6 +378,7 @@ namespace Catchline.Game
             NextToolUid = Mathf.Max(1, v2.NextToolUid);
             FocusCard = v2.FocusCard ?? "";
             Tutorial = v2.Tutorial >= 0 ? v2.Tutorial : int.MaxValue;
+            RestaurantPopularity = Mathf.Max(1, v2.RestaurantPopularity);
             ChestPities = new int[Chests.All.Length];
             if (v2.ChestPities != null && v2.ChestPities.Length > 0)
                 for (int i = 0; i < ChestPities.Length && i < v2.ChestPities.Length; i++) ChestPities[i] = Mathf.Max(0, v2.ChestPities[i]);

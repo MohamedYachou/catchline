@@ -22,7 +22,8 @@ namespace Catchline.Game
         RestaurantForecast dayForecast;
         PrepPlan dayPrep;
         RestaurantSim night;
-        int restaurantPopularity = 1, popularityBefore;
+        int popularityBefore;
+        int restaurantPopularity { get => State.RestaurantPopularity; set => State.RestaurantPopularity = value; }
         readonly Dictionary<string, float> staffLoad = new();
 
         RestaurantLayout Kitchen => restaurantLayout ??= new RestaurantLayout(restaurantState ??= RestaurantLayout.StartingKit());
@@ -227,6 +228,7 @@ namespace Catchline.Game
                     Job.Barista => ("Coffee", "v2-icon-cup", "v2-icon-clock"),
                     _ => ("Host", "v2-icon-bell", "v2-icon-anchor"),
                 };
+                if (s.Id == "captain") (job, icon, fallback) = ("Help", "v2-icon-crew", "icon-crew");
                 View = new VoyageGame.RestaurantStaff { Portrait = s.Id, Job = job, Icon = icon, Fallback = fallback, Busy = Mathf.Clamp01(.15f + load * .85f) };
             }
         }
@@ -298,6 +300,43 @@ namespace Catchline.Game
                     while (!night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Closing;
+                // A fresh save played through its first day: the real departure, trip, catch (the bot fishes), arrival,
+                // prep, a live night, closing and sleep. Each step logs what it found for the check log.
+                case "new-harbour":
+                    NewGame(); EndIntro(); showTitle = false; State.Tutorial = (int)TutStep.Hello; RestaurantPhase = DayPhase.Off;
+                    return CurrentMode == Mode.Harbour && State.Coins >= 0;
+                case "new-plan":
+                    departureReady = true;
+                    if (!ConfirmDeparture()) { Debug.LogError("[Catchline] NEWGAME departure blocked: " + SailBlocker()); return false; }
+                    Debug.Log($"[Catchline] NEWGAME plan {RestaurantPlan.GuestsLow}-{RestaurantPlan.GuestsHigh} guests, dishes {string.Join("/", RestaurantPlan.Dishes.Select(d => d.Name))}");
+                    return RestaurantPhase == DayPhase.Plan && RestaurantPreview == RestaurantScreen.Plan;
+                case "new-fishing":
+                    RestaurantPlanAccepted();
+                    for (int n = 0; n < 40000 && !(CurrentMode == Mode.Fishing && AtFishingGround); n++) Tick(.05f);
+                    AutoPlay = true;
+                    for (int n = 0; n < 40000 && Cooler.Count < 8 && !HoldFull; n++) Tick(.05f);
+                    AutoPlay = false;
+                    Debug.Log($"[Catchline] NEWGAME caught {Cooler.Count} fish, mode {CurrentMode}");
+                    return CurrentMode == Mode.Fishing && Cooler.Count > 0;
+                case "new-prep":
+                    HeadHome();
+                    for (int n = 0; n < 40000 && RestaurantPhase == DayPhase.Out; n++) Tick(.05f);
+                    Debug.Log($"[Catchline] NEWGAME home: phase {RestaurantPhase}, {State.UnsoldCatch.Count} fish, rows {string.Join("/", RestaurantPrep.Rows.Select(r => r.Name + " " + r.Portions))}, market {RestaurantPrep.MarketFish}");
+                    return RestaurantPhase == DayPhase.Prep;
+                case "new-service":
+                    RestaurantPrepared();
+                    for (int n = 0; n < 4000 && night != null && night.Hour < 20f; n++) RestaurantTick(.25f);
+                    Debug.Log($"[Catchline] NEWGAME service {night?.Hour:0.00}h, served {night?.Result.Served}, coins {RestaurantService.Coins}");
+                    return RestaurantPhase == DayPhase.Service;
+                case "new-closing":
+                    for (int n = 0; n < 40000 && RestaurantPhase == DayPhase.Service; n++) RestaurantTick(.25f);
+                    Debug.Log($"[Catchline] NEWGAME closing: served {RestaurantClosing.Served}, left {RestaurantClosing.Left}, net {night?.Result.NetCoins}, popularity {RestaurantClosing.PopularityFrom}->{RestaurantClosing.PopularityTo}");
+                    return RestaurantPhase == DayPhase.Closing;
+                case "new-morning":
+                    int before = State.Coins;
+                    RestaurantSleep();
+                    Debug.Log($"[Catchline] NEWGAME morning: coins {before}->{State.Coins}, phase {RestaurantPhase}, tutorial {Tutorial}");
+                    return RestaurantPhase == DayPhase.Off && CurrentMode == Mode.Harbour;
             }
             return false;
         }
