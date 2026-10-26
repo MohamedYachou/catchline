@@ -229,7 +229,7 @@ namespace Catchline.Game
                 var s = v.Staff[i];
                 var c = coastalUi.Card($"rsvc/staff/{i}", new Rect(rail.x + 8 * sx + i * cw, rail.y + 6 * sy, cw - 8 * sx, rail.height - 12 * sy), Skin.Card.Soft);
                 float h = rail.height - 12 * sy, bust = h * 1.06f;
-                coastalUi.Icon($"rsvc/staff/{i}/bust", new Rect(6 * sx, h - bust, bust * .9f, bust), $"v2-bust-{s.Portrait}", c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
+                coastalUi.Icon($"rsvc/staff/{i}/bust", new Rect(6 * sx, h - bust, bust * .9f, bust), ServiceBust(s.Portrait), c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
                 coastalUi.Text($"rsvc/staff/{i}/job", new Rect(bust * .9f + 10 * sx, 4, cw - 8 * sx - bust * .9f - h * .64f - 30 * sx, h * .42f), s.Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                 coastalUi.Icon($"rsvc/staff/{i}/icon", new Rect(bust * .9f + 14 * sx, h * .44f, h * .46f, h * .46f), s.Icon, c, null, s.Fallback);
                 float ring = h * .64f;
@@ -326,7 +326,7 @@ namespace Catchline.Game
             {
                 var s = crew[first + n]; float x = cardX[n];
                 P($"rsph/staff/{n}", "v2-staff-card-phone#phone-staff-card-phone-01", new Rect(x, 323, cardW[n], 55));
-                Rx($"rsph/staff/{n}/bust", "phone", "", f, new Rect(x + 7, 324, 52, 50), s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-bust-{s.Portrait}");
+                Rx($"rsph/staff/{n}/bust", "phone", "", f, new Rect(x + 7, 324, 52, 50), ServiceBust(s.Portrait));
                 Rx($"rsph/staff/{n}/icon", "phone", "", f, new Rect(x + 64, 330, 22, 22), RoleIcon(s.Icon));
                 RxText($"rsph/staff/{n}/job", "phone", "staff-role-1", s.Job, f, new Rect(x + 91, 331, 66, 16), TextAnchor.MiddleLeft);
                 P($"rsph/staff/{n}/track", "v2-meter-track#phone-meter-track-02", new Rect(x + 66, 356, 88, 11));
@@ -337,6 +337,14 @@ namespace Catchline.Game
             // A phone-sheet piece by its measured "asset#use" key; the sprite is the asset's own unless named.
             RectTransform P(string id, string key, Rect? at = null, string sprite = null) =>
                 Rx(id, "phone", key, f, at ?? RestaurantExact.Pieces["phone:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+        }
+
+        // At night the crew wear their restaurant clothes (Codex 1's CLOTHES-1 busts); anyone without one keeps the sea portrait.
+        static string ServiceBust(string portrait)
+        {
+            string id = portrait == "mira" ? "mira-a" : portrait;
+            if (ArtLibrary.Get()?.UiTex("rc-bust-" + id) != null) return "rc-bust-" + id;
+            return portrait == "captain" ? "v2-portrait-captain" : $"v2-bust-{portrait}";
         }
 
         static string RoleIcon(string icon) => icon switch
@@ -399,7 +407,7 @@ namespace Catchline.Game
                         var s = v.Crew[first + i]; string cid = $"{id}/card/{i}";
                         var c = coastalUi.Card(cid, new Rect(x0 + i * cw, rail.y + pad, cw - pad, h), Skin.Card.Soft);
                         float bust = h * 1.06f, bw = bust * .9f, ring = h * (phone ? .5f : .6f);
-                        coastalUi.Icon($"{cid}/bust", new Rect(4, h - bust, bw, bust), $"v2-bust-{s.Portrait}", c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
+                        coastalUi.Icon($"{cid}/bust", new Rect(4, h - bust, bw, bust), ServiceBust(s.Portrait), c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
                         float tw = cw - pad - bw - ring - 18;
                         coastalUi.Text($"{cid}/job", new Rect(bw + 6, 2, tw, h * .46f), s.Job, phone ? Skin.Type.Small : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                         coastalUi.Icon($"{cid}/icon", new Rect(bw + 8, h * .5f, h * .4f, h * .4f), s.Icon, c, null, s.Fallback);
