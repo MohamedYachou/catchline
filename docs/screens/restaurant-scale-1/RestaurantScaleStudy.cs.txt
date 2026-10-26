@@ -1,0 +1,49 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+public static class RestaurantScaleStudy {
+ const string Out="C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-scale-1";
+ [Serializable] public class Row { public string file,projection; public int width,height,roomW,roomD,pitch,topBand,bottomBand; public float tileW,tileD,crewHeight,crewWorldHeight,orthoSize,distance,fov; public bool fits,tappable; public int kitchenVisible,kitchenSamples,kitchenFloorVisible; public string blockedBy; }
+ [Serializable] public class Rows {public List<Row> captures=new List<Row>();}
+ static Material Mat(string hex){var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));ColorUtility.TryParseHtmlString(hex,out var c);m.color=c;return m;}
+ static GameObject Box(string n,Vector3 p,Vector3 s, Material m){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.position=p;g.transform.localScale=s;g.GetComponent<Renderer>().sharedMaterial=m;return g;}
+ static Bounds BoundsOf(GameObject g){var rr=g.GetComponentsInChildren<Renderer>().Where(r=>r.gameObject.activeInHierarchy).ToArray();var b=rr[0].bounds;foreach(var r in rr)b.Encapsulate(r.bounds);return b;}
+ static Vector3[] Corners(Bounds b){var list=new List<Vector3>();for(int x=0;x<2;x++)for(int y=0;y<2;y++)for(int z=0;z<2;z++)list.Add(b.min+Vector3.Scale(b.size,new Vector3(x,y,z)));return list.ToArray();}
+ static GameObject Crew(float x,float z){var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Art/Models/Crew/CrewRig.fbx");if(!prefab)throw new Exception("Real crew missing");var g=UnityEngine.Object.Instantiate(prefab);g.name="Real CrewRig - native scale";g.transform.position=new Vector3(x,0,z);foreach(var t in g.GetComponentsInChildren<Transform>(true)){if(t.name.StartsWith("Outfit_"))t.gameObject.SetActive(t.name=="Outfit_Deckhand");if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(t.name=="Hat_Beanie");}var clip=AssetDatabase.LoadAllAssetsAtPath("Assets/Art/Models/Crew/CrewRig.fbx").OfType<AnimationClip>().FirstOrDefault(a=>a.name.ToLower().Contains("idle"));if(clip)clip.SampleAnimation(g,0);var a=g.GetComponent<Animation>();if(a)a.enabled=false;foreach(var r in g.GetComponentsInChildren<Renderer>()){var mm=r.sharedMaterials;for(int i=0;i<mm.Length;i++){Color c=mm[i]?mm[i].color:new Color(.8f,.65f,.4f);mm[i]=Mat("#D9A46A");mm[i].color=c;}r.sharedMaterials=mm;}var b=BoundsOf(g);g.transform.position-=new Vector3(0,b.min.y,0);b=BoundsOf(g);var blocker=g.AddComponent<BoxCollider>();blocker.center=g.transform.InverseTransformPoint(b.center);blocker.size=b.size;return g;}
+ public static void Run(){Directory.CreateDirectory(Out);var rows=new Rows();foreach(var size in new[]{new Vector2Int(8,5),new Vector2Int(10,5),new Vector2Int(12,6),new Vector2Int(14,7)}){
+ EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);int w=size.x,d=size.y;var wood=Mat("#BA936B");var warm=Mat("#C3AA88");var cream=Mat("#E8E0CC");var metal=Mat("#718A8A");var pass=Mat("#B97C51");var chair=Mat("#4E6C78");var orange=Mat("#E36A35");
+ for(int x=0;x<w;x++)for(int z=0;z<d;z++)Box("1m tile "+x+","+z,new Vector3(x+.5f,-.045f,z+.5f),new Vector3(.975f,.09f,.975f),x<w/2&&z>=d-3?warm:wood);
+ // Back wall has a genuine 1m door opening at x=1..2. Side walls are full-height.
+ Box("Back wall west",new Vector3(.5f,1.2f,d+.06f),new Vector3(1,2.4f,.12f),cream);Box("Back wall east",new Vector3((w+2)/2f,1.2f,d+.06f),new Vector3(w-2,2.4f,.12f),cream);Box("Back door lintel",new Vector3(1.5f,2.25f,d+.06f),new Vector3(1,.3f,.12f),cream);Box("Kitchen back door",new Vector3(1.5f,1,d+.1f),new Vector3(.9f,2,.06f),chair);
+ Box("Left wall",new Vector3(-.06f,1.2f,d/2f),new Vector3(.12f,2.4f,d),cream);Box("Right wall",new Vector3(w+.06f,1.2f,d/2f),new Vector3(.12f,2.4f,d),cream);
+ Box("Entrance tile",new Vector3(w-.5f,.012f,.5f),new Vector3(.95f,.025f,.95f),orange);Box("Reception",new Vector3(w-1.5f,.45f,.8f),new Vector3(.9f,.9f,.6f),metal);
+ for(int x=1;x<w/2-1;x++){Box("Pass counter",new Vector3(x+.5f,.45f,d-2.5f),new Vector3(.98f,.9f,1),chair);Box("Pass countertop",new Vector3(x+.5f,.895f,d-2.5f),new Vector3(.98f,.01f,1),cream);}
+ var probes=new List<Vector3>();for(int x=2;x<Math.Min(w/2,5);x++){Box("Stove",new Vector3(x+.5f,.45f,d-.5f),new Vector3(.9f,.9f,.6f),metal);Box("Stove top",new Vector3(x+.5f,.905f,d-.5f),new Vector3(.65f,.015f,.45f),chair);probes.Add(new Vector3(x+.5f,.94f,d-.5f));}
+ var crew=Crew(2.5f,d-1.25f);Crew(w-1.5f,1.6f);
+ // Tables keep a one-tile aisle between kitchen and guest area and between groups.
+ Action<float,float,bool> table=(x,z,four)=>{Box(four?"Table for four":"Table for two",new Vector3(x,.38f,z),new Vector3(four?1.5f:.8f,.76f,.8f),cream);foreach(float dx in four?new[]{-.45f,.45f}:new[]{0f})foreach(float dz in new[]{-.7f,.7f}){Box("Chair seat",new Vector3(x+dx,.22f,z+dz),new Vector3(.42f,.44f,.42f),chair);Box("Chair back",new Vector3(x+dx,.55f,z+dz+Mathf.Sign(dz)*.16f),new Vector3(.42f,.55f,.08f),chair);}};
+ table(w*.62f,1.6f,false);table(w*.78f,d-1.6f,true);if(w>=12)table(w*.42f,1.5f,true);
+ var light=new GameObject("Warm key").AddComponent<Light>();light.type=LightType.Directional;light.intensity=1.3f;light.transform.rotation=Quaternion.Euler(48,-35,0);RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Flat;RenderSettings.ambientLight=new Color(.65f,.70f,.76f);
+ var cam=new GameObject("Study camera").AddComponent<Camera>();cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.12f,.22f,.27f);cam.nearClipPlane=.05f;cam.farClipPlane=200;
+ var extent=new Bounds(new Vector3(w/2f,1.2f,d/2f),new Vector3(w+.24f,2.4f,d+.24f));var corners=Corners(extent);Physics.SyncTransforms();
+ foreach(int pitch in new[]{45,52,60})foreach(bool ortho in new[]{false,true})foreach(var res in new[]{new Vector2Int(844,390),new Vector2Int(1440,900)}){
+ int rw=res.x,rh=res.y;float scale=(rh/(rh<600?480f:720f))/(390f/480f);int top=Mathf.RoundToInt(44*scale),bot=Mathf.RoundToInt(84*scale);int usable=rh-top-bot;
+ cam.rect=new Rect(0,bot/(float)rh,1,usable/(float)rh);cam.aspect=rw/(float)usable;cam.orthographic=ortho;cam.fieldOfView=30;cam.transform.rotation=Quaternion.Euler(pitch,0,0);var centre=extent.center;
+ Func<float,bool> fit=v=>{cam.orthographicSize=v;cam.transform.position=centre-cam.transform.forward*(ortho?40:v);return corners.All(p=>{var q=cam.WorldToViewportPoint(p);return q.z>0&&q.x>=.025f&&q.x<=.975f&&q.y>=.025f&&q.y<=.975f;});};float lo=.1f,hi=100;for(int j=0;j<40;j++){float mid=(lo+hi)*.5f;if(fit(mid))hi=mid;else lo=mid;}fit(hi);
+ Func<Vector3,Vector2> screen=p=>{var q=cam.WorldToViewportPoint(p);return new Vector2(q.x*rw,bot+q.y*usable);};float tw=float.MaxValue,td=float.MaxValue;for(int x=0;x<w;x++){var p=new Vector3(x,0,d-1);tw=Mathf.Min(tw,Vector2.Distance(screen(p+Vector3.forward),screen(p+Vector3.forward+Vector3.right)));td=Mathf.Min(td,Vector2.Distance(screen(p),screen(p+Vector3.forward)));}
+ var cb=BoundsOf(crew);float ch=Vector2.Distance(screen(new Vector3(cb.center.x,cb.min.y,cb.center.z)),screen(new Vector3(cb.center.x,cb.max.y,cb.center.z)));
+ int visible=0;var blocked=new List<string>();foreach(var p in probes){Vector3 start=ortho?p-cam.transform.forward*40:cam.transform.position;Vector3 delta=p-start;if(Physics.Raycast(start,delta.normalized,out var hit,delta.magnitude-.03f)){blocked.Add(hit.collider.name);}else visible++;}
+ int floorVisible=0;foreach(var sample in probes){var p=new Vector3(sample.x,.03f,d-1.5f);Vector3 start=ortho?p-cam.transform.forward*40:cam.transform.position;var delta=p-start;if(!Physics.Raycast(start,delta.normalized,delta.magnitude-.03f))floorVisible++;}
+ string name=$"{w}x{d}-{pitch}-{(ortho?"ortho":"persp")}-{rw}x{rh}";var rt=new RenderTexture(rw,rh,24,RenderTextureFormat.ARGB32);cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;var tex=new Texture2D(rw,rh,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,rw,rh),0,0);tex.Apply();File.WriteAllBytes(Out+"/"+name+".png",tex.EncodeToPNG());cam.targetTexture=null;RenderTexture.active=null;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);
+ rows.captures.Add(new Row{file=name+".png",projection=ortho?"ortho":"persp",width=rw,height=rh,roomW=w,roomD=d,pitch=pitch,topBand=top,bottomBand=bot,tileW=tw,tileD=td,crewHeight=ch,crewWorldHeight=cb.size.y,fits=fit(hi),tappable=tw>=44&&td>=44,kitchenVisible=visible,kitchenSamples=probes.Count,kitchenFloorVisible=floorVisible,blockedBy=string.Join(";",blocked),orthoSize=ortho?hi:0,distance=ortho?40:hi,fov=30});Debug.Log("[Restaurant] "+name+" tile="+tw+"x"+td);
+ }
+ EditorSceneManager.SaveScene(SceneManager.GetActiveScene(),"Assets/RestaurantScaleStudy.unity");
+ }File.WriteAllText(Out+"/metrics.json",JsonUtility.ToJson(rows,true));Debug.Log("[Restaurant] COMPLETE48");}
+}
+
+

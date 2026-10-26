@@ -1,0 +1,46 @@
+RESTAURANT-CORE-1 — Codex 1 — the restaurant's rules as pure, tested logic (Claude 2 lead, 2026-10-26 18:27)
+REVIEW of RESTAURANT-SCALE-1: ACCEPTED. 52° orthographic adopted. From your numbers Claude decided (now in
+docs/plans/RESTAURANT.md section 5): rooms are 5 tiles deep at every stage and grow sideways (8, 10, 12, 14 wide, plus
+a 3x5 terrace from stage 2), low cut-away walls (~1 m), kitchen LEFT and guests RIGHT with the pass running front to
+back between them, door on the right, one view for service and arranging, no taps on crew bodies.
+READ FIRST: docs/plans/RESTAURANT.md (all of it; sections 2-7 are the rules you implement), WorkSpeed.cs,
+Data/Grounds.cs (ground pools), GameData.cs (species, kg, PricePerKg), Data/Contracts.cs (style: pure data/logic).
+GOAL: everything the restaurant decides, as plain C# with no rendering and no wiring into VoyageGame yet, so R1
+(arrange mode) and R2 (the night) are built on rules that are already proven. Numbers marked (tune) in the design go
+in ONE tuning class with the design's values as defaults.
+A. View check (small, Catchline-sim only, reuse your study scene): 52° ortho captures at 844x390 and 1440x900 of the
+   new rooms 8x5, 10x5, 12x5, 14x5 and 14x5+3x5 terrace, walls 1.0 m, kitchen left/pass front-to-back/guests right,
+   framed at the arranging scale (tile depth >= 44 px on the phone). Confirm: no pan up to 14 wide, sideways pan only
+   for 17; record tile px and crew px in docs/screens/restaurant-core-1/view/README.md, each image opened.
+B. Data + layout (new files, namespace Catchline.Game.Restaurant, Assets/Scripts/Game/Restaurant/):
+   RestaurantData.cs (append-only ItemId enum; item defs: name, area Kitchen/Guests/Bar/Decor/Wall, footprint 1x1/2x1,
+   price, stage needed, what it cooks or seats; stage defs from section 5; prepared forms and dishes from section 3;
+   staples), RestaurantLayout.cs (grid, zones, place/move/rotate/store/sell-back, every rule returns a reason enum plus
+   a short player sentence: "Kitchen items go in the kitchen", "Leave a way to the door", ...; path check: door ->
+   reception -> every seat's access tile, pass -> every kitchen item's access tile; expansions keep every item),
+   RestaurantState.cs ([Serializable], version field, JsonUtility round trip; NOT yet added to GameState).
+C. Day plan: RestaurantForecast.cs (seeded guest list from popularity x weekday x weather; orders drawn from a
+   ground's pool passed in as (Species, weight) pairs and filtered to what the kitchen can cook; display ranges that
+   always contain the truth; Mira's on-the-fly change, max +20% total; Lock(); walk-ins 0-10%; special requests with
+   accept/decline), RestaurantPortions.cs (section 3 portion rules, the crew's suggested prep plan with the
+   Tight/+10%/+20% margin, fridge cap, what stays whole for the market, leftovers after service).
+D. The night: RestaurantSim.cs, a fixed-step tickable simulation of section 6: arrival curve 18:00-23:00, groups,
+   Mira seating, waiters, cooks taking stock from the fridge to the right appliance, kettle batches of 8, barista,
+   walking on the grid (BFS/A* distances, WorkSpeed for work and walk rates, own role 100%, other roles 70%),
+   patience, 1-3 star satisfaction, payment and tips, sold-out substitution (soup by default after a few seconds),
+   breakdowns and the handyman (or the captain's hold-to-fix), manager commands: SetJob, Pin(table), Seat(group,
+   table), CloseDoor, ChooseSubstitute; end-of-night result (served, left, coins by dishes/drinks/tips, stars,
+   portions to the cats, metres walked per staff member). Deterministic for a seed. No plates/sink, events or critic
+   (R4).
+E. Checks: Assets/Editor/RestaurantChecks.cs: each placement rule and its sentence, a blocked door fails, expansion
+   keeps items, save round trip, the portion table, forecast ranges contain the truth over 1000 seeds, sim determinism,
+   a stage-1 night (starting kit, Mira + 2 crew) finishes with every guest gone, 4 cooks/1 waiter serves fewer than
+   2 cooks/3 waiters (job choice matters), sold-out falls back to soup, leftovers reach the cats.
+F. Night reports: a headless runner printing 6 scenario nights (stage 1 Skiff crew; stage 2/3/4 with matching boat
+   crews; under-prepped; over-prepped) to docs/screens/restaurant-core-1/README.md as tables (guests, served, left,
+   coins split, stars, cats, metres walked), so Claude can judge the pacing.
+OWNERSHIP: new files only: Assets/Scripts/Game/Restaurant/** and Assets/Editor/RestaurantChecks.cs with stable .meta
+files (as you did for VoyageKelpLife.cs), docs/screens/restaurant-core-1/**, your Catchline-sim study files. Do NOT
+edit any existing .cs file (no GameState, VoyageGame, GameData changes); if you think one is needed, write it in DONE.
+Full existing regression must still pass in Catchline-sim. No git; never batchmode the main project; never the player
+save; comms.md START, CHECKPOINT per letter, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

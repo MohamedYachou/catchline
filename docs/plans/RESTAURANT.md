@@ -114,24 +114,32 @@ and the cats eat the profit. The forecast ranges and the +10% margin make the ri
 the water (exact spot fitted into the harbour layout; HARBOUR-PLAN appendix). Closed on tier 0, it opens when Mira
 joins. Tap it in the harbour to go inside. The player can rename it (default "Mira's").
 
-**The view.** One fixed camera from the front looking down (about 50°), the front wall cut away like a doll's house.
-Landscape. The kitchen sits at the back/left behind the **pass** (a counter with a serving hatch), the guest area at
-the front/right, the door to the quay at the front with Mira's reception desk, and a back door from the kitchen to the
-alley where the cats wait. Exact pitch, FOV and the largest room that stays touchable come from Codex 1's study
-(`docs/screens/restaurant-scale-1/`).
+**The view** (from Codex 1's study, `docs/screens/restaurant-scale-1/`, 10-26). One orthographic camera straight
+on from the front, pitched 52°, the front wall cut away like a doll's house. The study showed that on a wide phone
+screen the room's depth, not its width, decides the tile size, and that a deep whole-room view never reaches 44 px
+tiles. So:
+- Rooms are **5 tiles deep** at every stage and grow **sideways**.
+- **Low cut-away walls** (about 1 m, like PlateUp) instead of full-height walls, so the floor gets the screen.
+- **Kitchen on the left, guests on the right**, with the pass as the counter between them running front to back, so it
+  never hides the kitchen. The door to the quay is on the right with Mira's desk beside it; the kitchen's back door
+  opens to the alley where the cats wait.
+- **One view for service and for arranging.** A tile is then about 56×44 px on a phone; rooms up to 14 tiles wide need
+  no pan, wider ones pan sideways only.
+- Crew and guests are small on a phone (about 30-40 px), so taps go to tables, stations and bubbles, never to crew
+  bodies; the staff rail handles crew.
 
 **The grid.** 1 m tiles. Every item fills 1×1 or 2×1 tiles. Kitchen items only go in the kitchen; guest items only in
 the guest area; bar items in the guest area; decor on the guest floor or the walls. The zones never mix, so the
 layout always reads.
 
-**Stages** (grid sizes final after the scale study):
+**Stages:**
 
-| Stage | Name | Floor | Opens |
+| Stage | Name | Floor (kitchen part) | Opens |
 |---|---|---|---|
-| 1 | Café | 8×5 (kitchen 3×5) | Mira joins (Skiff) |
-| 2 | Bistro | 10×5 + terrace 4×2 | popularity 3 + coins *(tune)* |
-| 3 | Restaurant | 12×6 + terrace 5×2, knocked through into the next house | popularity 5 + coins |
-| 4 | Seafood house | 14×7 + terrace 6×2 | popularity 8 + coins |
+| 1 | Café | 8×5 (3×5) | Mira joins (Skiff) |
+| 2 | Bistro | 10×5 (4×5) + terrace 3×5 on the quay side | popularity 3 + coins *(tune)* |
+| 3 | Restaurant | 12×5 (4×5) + terrace, knocked through into the next house | popularity 5 + coins |
+| 4 | Seafood house | 14×5 (5×5) + terrace (pans sideways) | popularity 8 + coins |
 
 Each stage also changes the building outside (Codex 2's exterior sheet), so the harbour shows your progress.
 
@@ -258,10 +266,10 @@ All in the existing UI kit (docs/UI-SYSTEM.md, Fredoka), big touch targets (at l
 **S1 Arrange mode** (harbour, by day). The room fills the screen between a top bar (back, "Arrange", coins, undo) and
 a bottom drawer (84 px): category tabs on the left (Kitchen, Guests, Bar, Decor, Expand), item cards scrolling
 sideways (picture, name, price, footprint dots, "new" badge). Tap a card: the item appears as a ghost on the nearest
-free valid tile in its zone; drag it (it floats above the finger and snaps to tiles); rotate and ✓/✗ float next to it;
+free valid tile in its zone; drag it (it floats about 60 px above the finger, its footprint lit on the floor, and snaps to tiles); rotate and ✓/✗ float next to it;
 you pay on ✓. Tap a placed item to lift it: drag, rotate, store, or sell back. Invalid spots show red with one short
 reason ("Kitchen items go in the kitchen", "Leave a way to the door"). A path check keeps door → every table and pass →
-every appliance open. Dragging on empty floor pans when the room is wider than the screen.
+every appliance open. Dragging on empty floor pans sideways when the room is wider than the screen (stage 4 with its terrace).
 
 **S2 Service HUD.** Top: the evening clock (18:00-23:00) as a strip with the arrival curve and a now-marker, coins
 tonight, popularity, speed (pause, ×1, ×2). Left: tonight's stock, one plate icon per dish with its count, red when
@@ -301,7 +309,7 @@ restaurant, it stays parked. A later option: "closed tonight, gone fishing" for 
 | R6 | Later list (section 11). | |
 
 Technical shape: the service is a pure logic simulation (`RestaurantSim`, tickable headless, with editor checks and a
-pacing-sim hook) and the 3D room follows it, like the deck simulation. Tile pathfinding on a grid of at most 14×9.
+pacing-sim hook) and the 3D room follows it, like the deck simulation. Tile pathfinding on a grid of at most 17×5.
 Staff reuse the crew rigs and animations (walk, carry, the prep table's work loop). Layout, stage, popularity and the
 day counter live in a new save block.
 
