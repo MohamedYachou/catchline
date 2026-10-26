@@ -1,0 +1,29 @@
+RESTAURANT-LOOK-DETAIL-2 — Codex 2 — make the stage-1 restaurant look like the service mockup (Claude 2 lead, 2026-10-26 20:05)
+REVIEW of RESTAURANT-LOOK-MATCH-1: ACCEPTED as the geometry base (10 types, 43k tris, footprints/pivots audited, honest
+gap table). It is still a clean blockout: flat colour, no stone/quay, no night light, sparse room. Mo 10-26: "I want my
+game to look EXACTLY like this ... the 3D in high detail, the cosyness" and "Codex makes one 3D asset for an oven and
+boom we can copy it 3x". TARGET IMAGE: Art/Source/Restaurant/concepts/ui-service-desktop.png (and interior-1.png,
+service-moment.png, exterior-night.png, kit-sheet.png). Close the gap table in your own REPORT.md, in this order:
+A. Painted surfaces: one shared hand-painted 2048 atlas set (base colour + roughness, plus a baked local-AO channel
+   or vertex AO) for the kit and the shell, Unity-ready UV0 + lightmap UV1. Painted timber grain and plank tone breaks,
+   cream floor tiles with grout, whitewashed rough stone blocks with rounded caps and wear, enamel with soft edge
+   highlights, brass. No photo noise; it must read at 844x390.
+B. Room shell and setting as in the mockup: low whitewashed stone walls with chunky caps, blue shutters and warm-lit
+   windows on the front wall, wall lanterns, kitchen back wall with extractor hood, shelf with pots/plates, wall
+   trophy fish, side alley door with the two cats; the stone quay platform under it (cut-stone base into the water,
+   timber posts with rope, steps/jetty at the door on the right). Water stays out (Unity has it); leave the waterline.
+C. The kit the mockup shows, built once and reused: Oven, Fryer (also a broken-state variant with smoke socket),
+   steel Fridge v2, Stove, Prep counter, Pass with plates, Sink + dish rack, Coffee bar station, Reception desk with
+   the anchor panel, Table for 2, Table for 4, Booth (banquette), Terrace table + parasol, Trash can; decor: plants
+   (3 pots), barrel, crates, lamp post, rope fence posts. Same footprints as docs/plans/RESTAURANT.md section 5.
+D. Small service props as separate meshes (they move in service): plate (clean/dirty), grilled-fish plate, soup bowl,
+   coffee cup, glass, table candle-lantern, cloche. Pivot at the base, sizes in REPORT.
+E. Night light: dusk sky + warm lanterns/candles + window glow, cosy like the mockup. Deliver the Blender look as the
+   target AND a URP recipe (lights, emissive values in sRGB, a suggested colour grade) so Unity can match it.
+F. Proof: render the dressed stage-1 room (8x5, kitchen left, pass front-to-back, guests right, door right) at 52 deg
+   ortho yaw 0 at 1440x900 and 844x390 with original crew + Mira for scale, place it next to ui-service-desktop.png on
+   one comparison sheet, open every image, list what still differs. Budget: room + kit + props <= 150k triangles,
+   textures <= 2x 2048 atlases; report the counts.
+OUTPUT: Art/Models/Restaurant/Stage1V2/** (keep Stage1V1 as is). FBX per item + one room FBX, metric, as V1.
+OWNERSHIP: Art/Models/Restaurant/Stage1V2/** only. No Assets/, no .cs, no git, no player save. comms.md START,
+CHECKPOINT per letter, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

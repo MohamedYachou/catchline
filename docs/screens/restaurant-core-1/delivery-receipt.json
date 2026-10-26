@@ -1,0 +1,246 @@
+{
+  "task": "RESTAURANT-CORE-1",
+  "owner": "Codex 1 (Windows app)",
+  "assertions": 33091,
+  "fullRegressionPassed": true,
+  "existingSourceAudit": {
+    "existingFilesChecked": 251,
+    "unchanged": 249,
+    "changedByOtherActiveOwner": [
+      "Assets/Scripts/Game/VoyageInterface.cs",
+      "Assets/Scripts/Game/VoyageUiV2Capture.cs"
+    ],
+    "ownerEvidence": "Claude 2 lead 19:05 checkpoint in comms.md holds both UI files",
+    "testedScratch": [
+      {
+        "file": "Assets/Scripts/Game/VoyageInterface.cs",
+        "scratchSha256": "99a1242f74c257e2f530433bb04dc9dbce3281642c3e4a8be41eedc31cf382a0",
+        "mainSha256": "99a1242f74c257e2f530433bb04dc9dbce3281642c3e4a8be41eedc31cf382a0",
+        "beforeSha256": "59166bdf90e238e16cf22f746782845433d28db07c1cb85176431cd76ee724b7"
+      },
+      {
+        "file": "Assets/Scripts/Game/VoyageUiV2Capture.cs",
+        "scratchSha256": "276b4ca599d6d0191b35179f5c43d3d9d284323b0f32707aa7434ac811971c00",
+        "mainSha256": "67e34747572be04b32cef47d49d3b446ce345b3a57c11483e588a37f1c4da47f",
+        "beforeSha256": "b353931f06f4fecf9b60244c9b4b617a57f75469ca94d0ed873b61e106d1c0ec"
+      }
+    ]
+  },
+  "files": [
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantData.cs",
+      "sha256": "92f9bf66d9f8dce4745ea83eb91b22896b1903f543c520e8e587112bf130d0a3",
+      "bytes": 7840
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantData.cs.meta",
+      "sha256": "8f8255722f43a4c1309c778621ce4ac293dc04b064dbb8b551d6a85e55ed32dd",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantForecast.cs",
+      "sha256": "b4065c1d4f43c584c5b1e21cf987e1358341a0d2e5a90d82c3c3cc968e94c85b",
+      "bytes": 6527
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantForecast.cs.meta",
+      "sha256": "323dde9a4c8bd314fe0c492a4621d7e651ae2e9421b8662b4e50c561b7eae877",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantLayout.cs",
+      "sha256": "2b03814de00d9c4cb3f26090e472319f9a48d2dce478f6ce616b4ef6cfeb2674",
+      "bytes": 11242
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantLayout.cs.meta",
+      "sha256": "20f7bd12641d82e7c7c3e252cdd2e3515ebf3d4c14e3ed2e3ee2ea9f32931b81",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantPortions.cs",
+      "sha256": "e49a5bbb32e5ac5faee36bfdfa7785538e372d80d7ef8ede09d33e57d2f0409f",
+      "bytes": 6376
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantPortions.cs.meta",
+      "sha256": "98230b3e944df84eb609de6ff9abad098044fedfaea2def02e1e0849e70a8b7e",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantSim.cs",
+      "sha256": "0902145f53a333e92cd381bdf3fff649727a008383fccf8c4668e75509835037",
+      "bytes": 24688
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantSim.cs.meta",
+      "sha256": "733c11d99a4713abe52a4e90562e6072d625eb8e4c0b0f5ff21c91f3c8329750",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantState.cs",
+      "sha256": "5e619426b38b2ced7ff3118f113a46d706a3cfa73bea27281974005e3cb3c585",
+      "bytes": 1595
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant/RestaurantState.cs.meta",
+      "sha256": "cab4f2cba86b0622addc6f9c0268a2c1cd2340dde4d7f6d733fdfbd814e03d6f",
+      "bytes": 62
+    },
+    {
+      "file": "Assets/Scripts/Game/Restaurant.meta",
+      "sha256": "964f38c8bf14f640dc8ef03637e6d6ddf758004e62bfb0156e2e9064885ab82f",
+      "bytes": 157
+    },
+    {
+      "file": "Assets/Editor/RestaurantChecks.cs",
+      "sha256": "a9006d833acd1b81709167339adc3fef59a7cdcc95ece1ef7151c425d432f6f2",
+      "bytes": 24104
+    },
+    {
+      "file": "Assets/Editor/RestaurantChecks.cs.meta",
+      "sha256": "dce0dfae587a6ecf3ebdfefa00310692f666a8c46e4c3cac86a40123bfc41fb7",
+      "bytes": 62
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/checks.json",
+      "sha256": "78f38753ca635c28a65e56e1081b5f01ade03f66bd218184480fbdbf84ec13be",
+      "bytes": 34
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/checks.txt",
+      "sha256": "32c13bc4a55950d98ac474be7b62e4adfcde21d08c1b20d678aea37b8b4686e6",
+      "bytes": 994716
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/DELIVERY.md",
+      "sha256": "daa9fa34d53ccde781af48e125627bd650dce6d0c670414b75fe868f7e74a04c",
+      "bytes": 2262
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/existing-source-audit.json",
+      "sha256": "00ad6ee1e3c7fe71e1ab87dcc0525dc12d2d876725795cf8cfa70c53eaf6a56e",
+      "bytes": 992
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/existing-source-before.json",
+      "sha256": "3c407354ac62e34858d4bd32d4c9e1f68199e9f79cb00d936984fbbb4283c0b2",
+      "bytes": 27860
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/gull-coast-focused.txt",
+      "sha256": "242f234577e05ecbe5dad616b44971c6cff2cf42b1f27a0a3f6c53073eaa7dfd",
+      "bytes": 2715
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/jig-regression.txt",
+      "sha256": "15efbc474b0fbfd44eb9d30d6000dda9259ab6721a2484ea03e07ba81aaac158",
+      "bytes": 4585
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/nights.json",
+      "sha256": "b72bc5476e7da3797def1cec47b8c907299ec2fd29949c51c8fac2e61c408310",
+      "bytes": 7951
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/README.md",
+      "sha256": "b0e1b468ce47354eeeb6211ce3b9e33f166e68218325f1009438740f6e887a7c",
+      "bytes": 4067
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/regression-before-final-edges.log",
+      "sha256": "55368e2e8be1ed810fc65f0055ce3b7b2a9424b7f8879f9fda11bc7958cccb97",
+      "bytes": 563161
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/regression-final.log",
+      "sha256": "b6a4e61dc85e27bd1d70e30e285bd8706ad9db331fd039cc4dc08bdc621a2cb1",
+      "bytes": 564393
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/regression-passed.txt",
+      "sha256": "80cd0ae5a2c7f68cc4293c44c749cd4fa2d51fef1658e83793b6f5f6415e31c7",
+      "bytes": 132
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/source-under-test.json",
+      "sha256": "944b9d5ef1e59e568159b9837e3a2d19bdf9563a5ef017cf042aae6645519007",
+      "bytes": 1734
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/10x5-52-ortho-1440x900.png",
+      "sha256": "934ea371fb5cfc6a5e1f6d8e321e4dbacbe41db5cb4adddbddb5c2dac39f5a86",
+      "bytes": 59957
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/10x5-52-ortho-844x390.png",
+      "sha256": "476b19d4d00b71594b44927ce332e39dda1ece18c87b40fdc65c421a9af8eb26",
+      "bytes": 22193
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/12x5-52-ortho-1440x900.png",
+      "sha256": "996e5462c3cd9c6c49bc3b3289f95ad0191db3ecfa6319398c10312e29546b04",
+      "bytes": 64195
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/12x5-52-ortho-844x390.png",
+      "sha256": "be77ede0b174d4f903e1f0d218bb08bdfbe2bf7bd5340e9eeedc2ca2f89b1424",
+      "bytes": 24100
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/14x5-52-ortho-1440x900.png",
+      "sha256": "c9376afe1a026d0501aca35ceeb7d0f28b8a3ebd41816c64620f10f4b1f03011",
+      "bytes": 65729
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/14x5-52-ortho-844x390.png",
+      "sha256": "312eca981ef6da242b64eac8f278e610b7e870115a8bfde0306f1b8eed42b435",
+      "bytes": 25152
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/17x5-52-ortho-1440x900.png",
+      "sha256": "08fb5669b52e7e8793311d2485eeed391ddf6c2ae723bf944ab487315a889e3e",
+      "bytes": 64857
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/17x5-52-ortho-844x390.png",
+      "sha256": "74ee6ea270e55fff840988d5c39e6461bd3d2004302e360795f7f89ba4840c49",
+      "bytes": 24881
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/8x5-52-ortho-1440x900.png",
+      "sha256": "f45f4c3a0e01c69a33502419716f12e675b568ccd79097c4e7c29363517e7fea",
+      "bytes": 55280
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/8x5-52-ortho-844x390.png",
+      "sha256": "cae411d4d584978c2b0d2830c5827449fe4becba0b8bc578da1b1e1b7bc6f74f",
+      "bytes": 19978
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/metrics.json",
+      "sha256": "52a6943ded1eb9c51e5431ee3df295ef6e38aaf4285520436b7feae306af9344",
+      "bytes": 7359
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/README.md",
+      "sha256": "b059c425c02ed8aba707555631ddeae06135423fff8c700af6d065a3eba2b238",
+      "bytes": 1342
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/RestaurantCoreView.cs",
+      "sha256": "98746273d131d05fc717a3eee2612173970cabcfc2be6a2f55d3b8db4fde2ea7",
+      "bytes": 6123
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/unity.log",
+      "sha256": "a41ca430961fd48651be97eedf4dc1e2d243e340aa75542a8a7edff9813f9fab",
+      "bytes": 28519
+    },
+    {
+      "file": "docs/screens/restaurant-core-1/view/visual-review.json",
+      "sha256": "3c015335e593a38d811f8eaee6a995c0ed281e28212f153cd6ce2605412f14ef",
+      "bytes": 1566
+    }
+  ]
+}

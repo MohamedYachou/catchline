@@ -46,6 +46,13 @@ namespace Catchline.Game
                 "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
                 screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))
                 return StageHarbourEvidence(screen);
+            if (screen.StartsWith("restaurant-"))
+            {
+                // Restaurant mockup screens with sample numbers (VoyageRestaurantUi.cs).
+                RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-service" => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
+                toastUntil = 0;
+                return true;
+            }
             switch (screen)
             {
                 case "voyage":

@@ -363,8 +363,10 @@ pacing-sim hook) and the 3D room follows it, like the deck simulation. Tile path
 Staff reuse the crew rigs and animations (walk, carry, the prep table's work loop). Layout, stage, popularity and the
 day counter live in a new save block.
 
-## 13. Open questions for Mo
+## 13. Decided (Mo, 10-26 evening)
 
-1. The second barista: Mats (tier 4 deckhand, Purple, same tier as Ines)?
-2. Economy direction (section 8): tonight's catch list as the day's target, the market for the rest, crew tokens from
-   how well the night went instead of the full hold. OK?
+1. The second barista is Mats (tier 4 deckhand), with Ines.
+2. Economy direction of section 8 approved (tonight's list is the target, the rest sells, tokens from the night).
+3. Exterior look 01, whitewashed stone with blue shutters.
+4. The UI must match the concept mockups; the 3D as close as possible to the sheets, with animation and the same
+   cosiness. Claude builds the UI; Codex 2 leads the Blender work; Codex 1 the logic.

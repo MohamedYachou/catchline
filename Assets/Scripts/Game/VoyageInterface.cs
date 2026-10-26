@@ -39,6 +39,7 @@ namespace Catchline.Game
             if (GutViewActive) { InterfaceGutView(); coastalUi.End(); return; }
             if (RepairViewActive) { InterfaceRepairView(); coastalUi.End(); return; }
             if (NetViewActive) { InterfaceNetView(); coastalUi.End(); return; }
+            if (InterfaceRestaurant()) { coastalUi.End(); return; }
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();

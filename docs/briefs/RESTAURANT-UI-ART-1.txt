@@ -1,0 +1,44 @@
+RESTAURANT-UI-ART-1 — Codex 1 (reassigned 10-26: Codex 2 does all 3D) — the UI art the restaurant screens need (Claude 2 lead, 2026-10-26)
+Mo: the game's UI must look exactly like the accepted mockups in Art/Source/Restaurant/concepts/ui-*.png. Claude
+builds the screens in code with the existing Skin kit (Assets/Scripts/Game/Skin.cs, docs/UI-SYSTEM.md); these are the
+pieces the kit does not have yet. Same pipeline, sizes (2x) and naming as the existing v2-icon-*/v2-illus-* files in
+Assets/Art/UI (look at several first and match them exactly: outline weight, bevel, palette, light from top-left).
+PRIORITY (Mo 10-26: "completely copy the UI, every piece, the little details, exactly, nothing different"): first
+everything visible in Art/Source/Restaurant/concepts/ui-service-desktop.png, matched EXACTLY (same shapes, colours,
+proportions, the crew busts with beanie/helmet/cap, the cloche/pan/wrench/cup/bell icons, the green/amber task rings,
+the stock plates, the red-wrench repair chip, the timeline dots and the orange time flag, the blue star, the gold coin,
+the pause/1x/2x pill, Mira's waving portrait in the question card, the order bubbles with fish/cup and the patience
+arcs). Use image generation at 2x or higher; if you cannot generate images, cut them cleanly from the mockup at its
+native size and say so. Then the rest of this list.
+Deliver to Art/Source/Restaurant/ui/ (PNG RGBA, trimmed, transparent), plus a contact sheet and REPORT.md:
+1. Icons, 80x80 (40 logical), named v2-icon-<name>.png: pan (cook), cloche (hauler/serve), wrench (handyman, if not in
+   the kit already), cup (coffee/barista), bell (host/reception), till, plate, plates-dirty, soup, grilled-fish,
+   fillet, trash, trash-full, fridge, sink, star, guests (two people), group-of-4, table, chair (Arrange), kitchen-pot,
+   bar-glass, decor-plant, expand, rotate, tick, cross, cat, calendar, moon, sunset, dashboard, hourglass, cold (a
+   snowflake-cloud for "food going cold"), walk-in, special (ribbon), cart (market).
+2. Dish illustrations, 320x240 (160x120 logical), named v2-dish-<name>.png, in the plate style of ui-3-mira-plan.png:
+   grilled-fish, fish-soup, fillets (pan-fried), fish-and-chips, oven-platter, calamari, crab, coffee, tea, lemonade,
+   beer, fries, bread.
+3. Signs and frames: v2-sign-plank.png (the hanging wooden sign with ropes from ui-3 "Tonight at Mira's", 9-slice
+   friendly: plain centre, record the slice borders), v2-ticket.png (the pinned catch-list ticket, 9-slice),
+   v2-bubble-order.png + v2-ring-patience.png (world order bubble and a ring that can be filled radially), the review
+   card frame from ui-5 (9-slice), v2-staff-card.png (the bottom staff-rail card from ui-2, 9-slice).
+4. v2-restaurant-backdrop.png, 2560x1440: the softly blurred evening restaurant behind full-screen cards (as behind
+   ui-4-prep.png and ui-5-closing.png).
+5. Item cards for the Arrange shop, 320x240, v2-item-rest-<item>.png for all 23 placeables plus trash can and steamer
+   pot, same look as kit-sheet.png on a transparent background.
+CHECKS: every file opened; contact sheet next to the mockups; slice borders recorded in REPORT.md.
+OWNERSHIP: Art/Source/Restaurant/ui/** only. No git, Unity, Assets/, .meta, .cs, player save. comms.md START,
+CHECKPOINTs, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+ADDENDUM (Claude 2 lead, 10-26 19:30): the screens are built and load these exact names (first pass captures:
+docs/screens/restaurant-ui/r1/, compare with the mockups to see every gap). Deliver these first, in this order:
+v2-icon-pan, v2-icon-cloche, v2-icon-wrench, v2-icon-cup, v2-icon-bell, v2-icon-soup, v2-icon-star-blue (the blue
+popularity star of ui-service-desktop), v2-icon-calendar, v2-icon-guests, v2-icon-cross, v2-icon-special;
+v2-mira-wave.png (Mira waving, head and shoulders, square 400x400, as in the desktop question card);
+v2-bust-<name>.png for kofi, sam, ines, mats, mira, noor (head and shoulders cut at the chest, 240x280, matching
+their v2-portrait-<name>-deck faces but in the rail style: beanie / hard hat / captain cap, from the staff rail);
+v2-dish-grilled-fish, v2-dish-fish-soup, v2-dish-coffee, v2-dish-fillets; v2-sign-plank; v2-restaurant-backdrop.
+The task ring is done (Assets/Art/UI/v2-ring-task.png, white, tinted in code); skip v2-ring-patience.
+ADDENDUM 2 (Claude 2, 10-26 19:50): S3-S5 also load v2-sign-fish (the small hanging fish sign of ui-4, 124x100),
+v2-icon-cutlery (fork and knife), v2-icon-drink (the orange drink of ui-5), v2-icon-coins (coin stack), v2-icon-bed,
+v2-illus-cats (two alley cats at a bowl, 160x108, ui-5), v2-catch-pile (mackerel on ice, 212x96, ui-3 Bring back).
