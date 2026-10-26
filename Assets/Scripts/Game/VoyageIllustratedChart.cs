@@ -145,6 +145,11 @@ namespace Catchline.Game
                     Tri(P(0, -.05f), P(-.9f, -.55f), P(-.2f, -.25f), symbol); Tri(P(0, -.05f), P(.9f, -.55f), P(.2f, -.25f), symbol);
                     Tri(P(-.9f, -.55f), P(-.55f, -.7f), P(-.2f, -.25f), symbol); Tri(P(.9f, -.55f), P(.55f, -.7f), P(.2f, -.25f), symbol);
                     L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
+                case 14: // sea cliff: a stepped stack with a gull above, on a wave
+                    Tri(P(-.85f, .62f), P(-.6f, -.4f), P(.05f, -.5f), symbol); Tri(P(-.85f, .62f), P(.05f, -.5f), P(.3f, .1f), symbol);
+                    Tri(P(-.85f, .62f), P(.3f, .1f), P(.8f, .62f), symbol);
+                    L(.22f, -.78f, .45f, -.62f, .08f); L(.45f, -.62f, .7f, -.8f, .08f);
+                    L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);
