@@ -118,6 +118,7 @@ namespace Catchline.Game.Restaurant
                 var atlas=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor");var surface=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
                 foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>(true))foreach(var m in r.sharedMaterials)
                     if(m!=null&&m.shader.name=="Catchline/RestaurantAtlas"&&m.GetTexture("_BaseMap")==null){m.SetTexture("_BaseMap",atlas);m.SetTexture("_SurfaceMap",surface);}
+                AddSea();
                 SetLayer(RoomRoot.gameObject);FrameCamera();Refresh(0);
             }catch{End();throw;}
         }
@@ -176,6 +177,23 @@ namespace Catchline.Game.Restaurant
                 }
                 r.sharedMaterials=mats;
             }
+        }
+        // Codex 2's painted night sea (Restaurant/Sea, placed as in its V4 check): ripples at the water line, lantern streaks over them.
+        void AddSea()
+        {
+            var shader=Resources.Load<Shader>("Restaurant/RestaurantSea");if(shader==null)return;
+            Material Make(string tex,bool additive,float repeat,float gain,float shimmer){
+                var m=new Material(shader);m.SetTexture("_BaseMap",Resources.Load<Texture2D>("Restaurant/"+tex));m.SetFloat("_Repeat",repeat);m.SetFloat("_Gain",gain);m.SetFloat("_Shimmer",shimmer);
+                if(additive){m.SetFloat("_Src",(float)UnityEngine.Rendering.BlendMode.One);m.SetFloat("_Dst",(float)UnityEngine.Rendering.BlendMode.One);m.SetFloat("_ZWrite",0);m.SetVector("_Drift",Vector4.zero);m.renderQueue=3000;}
+                guestMaterials.Add(m);return m;
+            }
+            void Quad(string name,Vector3 at,Vector2 size,Material m){
+                var q=GameObject.CreatePrimitive(PrimitiveType.Quad);q.name=name;Destroy(q.GetComponent<Collider>());
+                q.transform.SetParent(RoomRoot,false);q.transform.localPosition=at;q.transform.localRotation=Quaternion.Euler(90,0,0);q.transform.localScale=new Vector3(size.x,size.y,1);
+                q.GetComponent<MeshRenderer>().sharedMaterial=m;
+            }
+            Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.58f,0));
+            Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,1.3f,.25f));
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
         Actor MakeActor(string id,bool guest)
