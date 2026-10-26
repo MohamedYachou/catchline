@@ -74,7 +74,12 @@ namespace Catchline.Game.Restaurant
             RoomRoot=new GameObject("Restaurant night (quay)").transform;
             RoomRoot.position=HarbourQuayOrigin;
             try {
-                Spawn("RoomShell",Vector3.zero,Quaternion.identity);
+                // Codex 2's dressed V4 room (masonry, lanterns, shelves, terrace, jetty); the layout still places the furniture.
+                var dressed=Resources.Load<GameObject>("Restaurant/Stage1V4");Transform room=null;
+                if(dressed!=null){
+                    room=ArtLibrary.Spawn(dressed,RoomRoot,Vector3.zero,Quaternion.identity).transform;
+                    foreach(var t in room.GetComponentsInChildren<Transform>(true))if(t!=room&&LayoutPlaced(t.name))t.gameObject.SetActive(false);
+                }else Spawn("RoomShell",Vector3.zero,Quaternion.identity);
                 foreach(var item in sim.Layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
                     float x=item.X+(item.Rotated?1:RestaurantData.Get(item.Id).Width)*.5f-.5f;
@@ -82,9 +87,17 @@ namespace Catchline.Game.Restaurant
                     var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?90:0,0));items.Add(item.Uid,t);
                     if(RestaurantData.Get(item.Id).Seats>0){Spawn("TableLantern",pos+Vector3.up*.57f,Quaternion.identity);}
                 }
-                Spawn("PassCounter",new Vector3(-.5f,.04f,0),Quaternion.Euler(0,90,0));
-                Spawn("TrashCan",new Vector3(-2.7f,.04f,2.05f),Quaternion.identity);
-                Spawn("PlantPot1",new Vector3(3.65f,.04f,-.5f),Quaternion.identity);
+                if(dressed==null){
+                    Spawn("PassCounter",new Vector3(-.5f,.04f,0),Quaternion.Euler(0,90,0));
+                    Spawn("TrashCan",new Vector3(-2.7f,.04f,2.05f),Quaternion.identity);
+                    Spawn("PlantPot1",new Vector3(3.65f,.04f,-.5f),Quaternion.identity);
+                }
+                // The dressed room shares the kit's atlas; take the material from a kit piece the layout placed.
+                if(room!=null){
+                    Material kit=null;
+                    foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>())if(!r.transform.IsChildOf(room)){foreach(var m in r.sharedMaterials)if(m!=null&&m.shader.name=="Catchline/RestaurantAtlas"){kit=m;break;}if(kit!=null)break;}
+                    if(kit!=null)foreach(var r in room.GetComponentsInChildren<Renderer>(true)){var mats=r.sharedMaterials;for(int n=0;n<mats.Length;n++)mats[n]=kit;r.sharedMaterials=mats;}
+                }
                 foreach(var clip in ArtLibrary.Get().CrewClips??Array.Empty<AnimationClip>())if(clip!=null){var n=clip.name.Split('|').Last();clips[n]=clip;}
                 foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
                 ServiceCamera=new GameObject("Restaurant camera").AddComponent<Camera>();
@@ -105,6 +118,10 @@ namespace Catchline.Game.Restaurant
                 SetLayer(RoomRoot.gameObject);FrameCamera();Refresh(0);
             }catch{End();throw;}
         }
+        // V4 pieces that the layout places itself (stations, tables and what is set on them).
+        static readonly string[] LayoutPieces={"PrepCounter","Stove","SoupKettle","KettleStand","FridgeV2","Oven","Fryer","SinkDishRack","CoffeeBar","ReceptionDesk",
+            "Booth","DiningTwo_","DiningFour","TerraceTable","TerraceParasol","Candle_","PlaceSetting_","Glass_","V4_Plate_","V4_Glass_","PlateDirty","CoffeeCup","DinnerSoup","DinnerPlate"};
+        static bool LayoutPlaced(string name){if(name.StartsWith("EXPORT_"))name=name.Substring(7);foreach(var p in LayoutPieces)if(name==p||(p.EndsWith("_")&&name.StartsWith(p)))return true;return false;}
         void AddLight(Vector3 position,Color color,float intensity,bool sun)
         {
             var go=new GameObject(sun?"Blue dusk":"Warm practical");go.transform.SetParent(RoomRoot,false);go.transform.localPosition=position;
@@ -150,10 +167,11 @@ namespace Catchline.Game.Restaurant
             // Preserve vertical framing when HUD reduces the viewport; widen for the full 8x5 shell.
             float aspect=width*(1-top-bottom)/Math.Max(1,height); // overridden below by actual viewport aspect
             aspect=width/(height*(1-top-bottom));
-            // Like the mockup: the 8 m room plus its quay edge (about 10.4 m) fills the width between the bars.
+            // Like the mockup: the dressed V4 room with terrace and jetty (about 14 m) fills the width between the bars.
             float distance=ServiceCamera.transform.localPosition.magnitude;
-            float inner=2*Mathf.Atan(5.2f/distance/aspect)*Mathf.Rad2Deg;
+            float inner=2*Mathf.Atan(7f/distance/aspect)*Mathf.Rad2Deg;
             ServiceCamera.fieldOfView=2*Mathf.Atan(Mathf.Tan(inner*.5f*Mathf.Deg2Rad)/(1-top-bottom))*Mathf.Rad2Deg;
+            Debug.Log($"[Catchline] restaurant camera {width}x{height} fov {ServiceCamera.fieldOfView:F2} focal {ServiceCamera.focalLength:F1} sensor {ServiceCamera.sensorSize} dist {distance:F1}");
         }
         public void SetSpeed(int speed){if(speed<0||speed>2)throw new ArgumentOutOfRangeException(nameof(speed));Speed=speed;}
         public bool Answer(bool yes)
