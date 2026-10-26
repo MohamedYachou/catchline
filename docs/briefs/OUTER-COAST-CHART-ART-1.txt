@@ -1,0 +1,35 @@
+OUTER-COAST-CHART-ART-1 — Codex 2 — the second chart illustration, "Outer coast"
+GOAL: Mo (10-26): "a 2nd background image with the 6 things we have already". The chart now has two pages (commit
+26874ad): the Gull coast keeps Assets/Resources/Charts/gull-coast.png; the Outer coast reuses that same picture for
+now, so its pins sit on landmarks that belong to the first page. Paint the Outer coast its own chart, in exactly the
+same style, so each of its six grounds sits on its own landmark.
+
+CONTEXT (read these, nothing else up front):
+- Assets/Resources/Charts/gull-coast.png (1672x941): the style reference. It was AI-generated; generate the new one
+  the same way, then clean it up. Same camera (high three-quarter), same painterly-isometric look, palette, cloud
+  vignette at the corners, white surf, sunlit turquoise shallows to deep blue.
+- docs/screens/overnight/chart-outer.png and chart-outer-phone.png: the current page 2 with its pins and cards.
+- Assets/Scripts/Game/VoyageChart.cs line ~10-13: ChartHarbour and NauticalChartPoint (normalized x right, y down).
+
+WHAT GOES WHERE (normalized x,y of the pin tip; the card hangs ~60 px below each pin):
+- Home harbour at (.483,.711), same quay/town as the Gull coast, seen from further out (smaller, a bit lower is fine
+  as long as the harbour centre stays on that point: all routes start there).
+- Kelp forest (.216,.278): a green bay of tall swaying kelp near a rocky shore.
+- Seal skerries (.40,.24): low granite skerries with hauled-out seals.
+- Lighthouse rock (.66,.24): a lone rock with a white/red lighthouse.
+- Whale shelf (.06,.40): the shelf edge where turquoise drops to deep blue, a whale tail or spout.
+- Seal cliffs (.24,.62): tall sea cliffs with a sea arch and seals on the stones.
+- Wreck bank (.72,.56): a sandbank with a rusted steamer wreck.
+- Open water between them for the dashed routes; more open sea and deeper blues than the Gull coast (this is further
+  out), a few bigger fish shadows (sharks, a manta) in the deep parts.
+KEEP CLEAR (UI floats there; no landmark, only sea or soft cloud): top band y < .13 from x .00-.60 and x .78-1.00;
+bottom band y > .84 (tab bar); the area under each card (about .06 tall below each pin).
+
+CONSTRAINTS: same size 1672x941 PNG, Assets/Resources/Charts/outer-coast.png (no .meta; Claude makes it and wires the
+page). No text or labels in the picture. No UI, no pins drawn in. Source prompts/iterations under
+Art/Source/Charts/outer-coast/. Do not touch gull-coast.png or any .cs file. No git.
+
+DONE = EVIDENCE: the PNG, plus Art/Source/Charts/outer-coast/review.png: the new chart with the six pin points and the
+harbour point marked as small circles, and the keep-clear bands outlined, next to gull-coast.png at the same size.
+Open both and check every landmark sits on its point. One comms.md DONE line with the paths.
+ORDER: after your current BOAT-REFINE-2 FIX; before ICON-OARS-1 and Tier5.

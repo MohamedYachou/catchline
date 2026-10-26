@@ -15,6 +15,7 @@ namespace Catchline.Game
         // on the Gull coast, the later ones on the Outer coast. Kelp forest shares the kelp island with Kelp bank.
         public static int ChartPage(int spot) => Coasts.Of(spot);
         int chartPage = -1, chartPageFocus = -1;
+        static bool? outerChartArt;
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
         {
@@ -34,7 +35,9 @@ namespace Catchline.Game
             // The page follows whatever ground was last focused, so opening the chart shows the selected ground's page.
             if (chartPage < 0 || chartFocus != chartPageFocus) { chartPage = ChartPage(chartPage < 0 && !chartDetailsOpen ? SelectedSpot : chartFocus); chartPageFocus = chartFocus; }
             Block(new Rect(0, 0, iw, ih));
-            coastalUi.ResourceArt("chart/illustrated/field", new Rect(0, 0, iw, ih), "Charts/gull-coast", true);
+            // Each coast has its own painting; the Outer coast borrows the Gull coast's until its own is delivered.
+            outerChartArt ??= Resources.Load<Texture2D>("Charts/outer-coast") != null;
+            coastalUi.ResourceArt("chart/illustrated/field", new Rect(0, 0, iw, ih), chartPage == 1 && outerChartArt.Value ? "Charts/outer-coast" : "Charts/gull-coast", true);
             var routeRect = coastalUi.Box("chart/routes", new Rect(0, 0, iw, ih), "", Color.clear, blocks: false);
             var routeGraphic = ChartGraphic<IllustratedRoutesGraphic>(routeRect);
             routeGraphic.raycastTarget = false; routeGraphic.Page = chartPage; routeGraphic.SetVerticesDirty();
