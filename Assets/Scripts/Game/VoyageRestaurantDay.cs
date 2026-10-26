@@ -320,6 +320,7 @@ namespace Catchline.Game
                 // prep, a live night, closing and sleep. Each step logs what it found for the check log.
                 case "new-harbour":
                     NewGame(); EndIntro(); showTitle = false; State.Tutorial = (int)TutStep.Hello; RestaurantPhase = DayPhase.Off;
+                    restaurantForced = true; // the real game opens the restaurant with the Skiff; the check walks it on the rowboat
                     return CurrentMode == Mode.Harbour && State.Coins >= 0;
                 case "new-plan":
                     departureReady = true;
@@ -332,7 +333,7 @@ namespace Catchline.Game
                     AutoPlay = true;
                     for (int n = 0; n < 40000 && Cooler.Count < 8 && !HoldFull; n++) Tick(.05f);
                     AutoPlay = false;
-                    Debug.Log($"[Catchline] NEWGAME caught {Cooler.Count} fish, mode {CurrentMode}");
+                    Debug.Log($"[Catchline] NEWGAME caught {Cooler.Count} fish, mode {CurrentMode}, deck {OnDeck.Count}, tutorial {Tutorial}, bait {State.HasAnyBait}, cast {AwaitingCast}, captain {(Captain.Idle ? "idle" : Captain.BusyLabel)} carrying {Captain.Carrying != null}, minigame {MinigameRod != null}, manning {Manning != null}, rods {string.Join(",", Rods.Select(r => r.State + (r.Unlocked ? "" : "(locked)") + (CanCommandRod(r) ? "*" : "") + $" reading {r.Reading?.Phase} result {r.ReadingResult} castAge {r.CastAge:0}"))}, strikeRod {botStrikeRod != null}, landed {Stats.Landed} spooked {Stats.Spooked} missed {Stats.Missed} lost {Stats.Lost}, unsold {State.UnsoldCatch.Count}, graph {UsesDeckGraph}, baskets {(DeckGraph == null ? "-" : string.Join(",", DeckGraph.Baskets.Select(b => b.Id + ":" + b.Fish.Count)))}, loose {Scheduler?.Loose.Count}, hold {HoldKg:0.0}/{State.CoolerCapacity}");
                     return CurrentMode == Mode.Fishing && Cooler.Count > 0;
                 case "new-prep":
                     HeadHome();

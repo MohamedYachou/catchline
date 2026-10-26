@@ -314,7 +314,7 @@ namespace Catchline.Game.Restaurant
                 var a=actors[s.Id];var goal=TileToWorld(s.Position);a.Root.position=goal;
                 Vector3 dir=goal-a.Last;if(dir.sqrMagnitude>.000001f)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*12));
                 bool carry=s.Action.StartsWith("Serve")||s.Action=="Clear table";
-                a.Prop.gameObject.SetActive(carry);Animate(a,s.Walking?carry?"Carry":"Walk":s.Busy?"Bait":"Idle");a.Last=goal;
+                a.Prop.gameObject.SetActive(carry);Animate(a,Pose(s,carry));a.Last=goal;
             }
             foreach(var g in Sim.Groups)for(int i=0;i<g.Guests.Count;i++){
                 var order=g.Guests[i];bool active=g.Phase!=GroupPhase.NotArrived&&g.Phase!=GroupPhase.Gone;
@@ -340,6 +340,20 @@ namespace Catchline.Game.Restaurant
             Snapshot.BrokenAppliances.Clear();Snapshot.BrokenAppliances.AddRange(Sim.Broken.OrderBy(x=>x));
             var choice=Sim.Groups.SelectMany(g=>g.Tickets).FirstOrDefault(t=>t.Phase==TicketPhase.Choice);
             Snapshot.Question=choice==null?null:new QuestionSnapshot{GuestId=choice.Order.Id,Title="Offer fish soup instead?",Yes="Offer soup",No="Just drinks"};
+        }
+        // Codex 2's restaurant work clips (CrewRig_Restaurant); Animate falls back to Idle when a rig lacks one.
+        string Pose(RestaurantStaff s,bool carry)
+        {
+            if(s.Walking)return carry?"CarryPlate":"Walk";
+            if(!s.Busy)return"Idle";
+            string label=s.Action;
+            if(label.StartsWith("Cook ")){
+                var at=Sim.Layout.Active.FirstOrDefault(i=>i.Uid==s.Task.Current?.Appliance);
+                return at==null?"Idle":at.Id==ItemId.PrepCounter?"Chop":at.Id==ItemId.Sink?"Wash":"Cook";
+            }
+            if(label.StartsWith("Repair "))return"Repair";
+            return label switch{"Take order"=>"TakeOrder","Take payment"=>"TakeOrder","Seat group"=>"Greet","Clear table"=>"Wipe",
+                "Serve coffee" or "Serve drinks"=>"Pour",_=>"Idle"};
         }
         void Animate(Actor actor,string pose)
         {

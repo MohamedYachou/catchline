@@ -1190,6 +1190,19 @@ namespace Catchline.Game
 
         // ---- autoplay (headless balance checks): only uses the same taps a player has --------
 
+        // Autoplay on a deck-graph hull: the same taps a player makes once a catch waits (stow what was kept, Keep at the sort table,
+        // otherwise carry a rod basket to it). Without them the rowboat check landed fish that never reached the cooler.
+        bool BotDeckWork()
+        {
+            if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !Captain.Idle || Captain.Carrying != null
+                || MinigameRod != null || Manning != null && Manning.State is RodState.Bite or RodState.Reeling) return false;
+            foreach (var kept in DeckGraph.OfKind(Deck.StationKind.SortTable).Select(st => st.Out).Where(b => b != null && b.UnclaimedCount > 0))
+                if (!HoldFull && CaptainHaulFrom(kept)) return true; // kept fish into the cooler first
+            if (CaptainKeepAtSort(true)) return true;
+            foreach (var basket in DeckGraph.OfKind(Deck.StationKind.Rod).Select(st => st.Out).Where(b => b != null && b.UnclaimedCount > 0))
+                if (CaptainHaulFrom(basket)) return true;
+            return false;
+        }
         void BotFish()
         {
             if (HoldFull) { HeadHome(); return; }
@@ -1203,6 +1216,7 @@ namespace Catchline.Game
                 if (botStrikeRod == MinigameRod) StrikeTap();
                 botStrikeRod = null;
             }
+            if (BotDeckWork()) return;
             if (AwaitingCast) ThrowAgain();
             var c = Captain;
             if (!c.Idle || c.Carrying != null || MinigameRod != null) return;
