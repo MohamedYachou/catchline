@@ -25,7 +25,7 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 - [x] B4 Dish props on the tables, candles (r46). Steam sprite: with the markers.
 
 ## C. Gameplay
-- C1 New-save fishing bot catches 0 fish: fix.
+- [x] C1 New-save fishing bot: stows on deck-graph hulls; new-* day chain passes.
 - C2 Service sim: orders, cooking times per station, tips, reviews feed S5.
 - C3 Market step, sleep step, money flow; balance pass.
 - C4 Restaurant upgrades (tables, decor) using arrange mode.
