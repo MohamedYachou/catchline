@@ -1,0 +1,98 @@
+{
+  "triangles": 372,
+  "mesh_bounds": {
+    "WeatheredLog": {
+      "triangles": 212,
+      "world_min_m": [
+        -0.18998417258262634,
+        -0.9200000166893005,
+        -0.15737266838550568
+      ],
+      "world_max_m": [
+        0.33637890219688416,
+        0.9150000214576721,
+        0.257778137922287
+      ],
+      "materials": [
+        "M_WoodDark",
+        "M_Log",
+        "M_LogEnd"
+      ]
+    },
+    "PerchedGull": {
+      "triangles": 160,
+      "world_min_m": [
+        -0.08699999749660492,
+        -0.4804201126098633,
+        0.19584612548351288
+      ],
+      "world_max_m": [
+        0.08699999749660492,
+        0.00223754346370697,
+        0.5039999485015869
+      ],
+      "materials": [
+        "M_Ivory",
+        "M_Wingtip",
+        "M_BuffHead",
+        "M_Bill"
+      ]
+    }
+  },
+  "parents": {
+    "DriftLog": null,
+    "WeatheredLog": "DriftLog",
+    "GullSeat": "DriftLog",
+    "PerchedGull": "GullSeat"
+  },
+  "bounds_unity": [
+    [
+      -0.18998417258262634,
+      -0.15737266838550568,
+      -0.9150000214576721
+    ],
+    [
+      0.33637890219688416,
+      0.5039999485015869,
+      0.9200000166893005
+    ]
+  ],
+  "materials": [
+    "M_Bill",
+    "M_BuffHead",
+    "M_Ivory",
+    "M_Log",
+    "M_LogEnd",
+    "M_Wingtip",
+    "M_WoodDark"
+  ],
+  "name": "DriftLog",
+  "limit": 600,
+  "clips": {},
+  "sha256": {
+    "blend": "c8749fdcc261b0ddde5fcc3b449661f772284f9514947330ffd5a21fcee9f549",
+    "fbx": "9c73f19b73cfd9bc27a2210879a3f8945ecc2aef0be0d78636d83db228474d03"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

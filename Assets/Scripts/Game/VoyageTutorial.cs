@@ -60,7 +60,7 @@ namespace Catchline.Game
                 case TutStep.Sell when harbour && State.UnsoldCatch.Count > 0:
                     return ("point", "Welcome back! The market buys any fish. Sell your haul.", shop && hudTab == HudTab.Market ? "market/sell" : ShopTabId(HudTab.Market), false);
                 case TutStep.Skiff when harbour && !State.CanRefit:
-                    return ("think", $"Next, the skiff. Sell {GameData.SkiffFishGoal} fish in one haul and save {GameData.SkiffCost:N0} coins. She has room for crew, and I'd sail with you.", null, true);
+                    return ("think", $"Next, the skiff. Bring home a full hold and save {GameData.SkiffCost:N0} coins. She has room for crew, and I'd sail with you.", null, true);
                 case TutStep.Skiff when harbour:
                 case TutStep.Refit when harbour && State.CanRefit:
                     if (Tutorial == TutStep.Skiff) SetTutorial(TutStep.Refit);

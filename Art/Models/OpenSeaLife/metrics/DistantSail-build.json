@@ -1,0 +1,77 @@
+{
+  "triangles": 100,
+  "mesh_bounds": {
+    "DistantDinghy": {
+      "triangles": 100,
+      "world_min_m": [
+        -0.3100000023841858,
+        -0.7699999809265137,
+        -0.09000000357627869
+      ],
+      "world_max_m": [
+        0.3100000023841858,
+        0.7699999809265137,
+        1.7799999713897705
+      ],
+      "materials": [
+        "M_Ivory",
+        "M_Wood",
+        "M_WoodDark",
+        "M_Navy",
+        "M_Rope"
+      ]
+    }
+  },
+  "parents": {
+    "DistantSail": null,
+    "DistantDinghy": "DistantSail"
+  },
+  "bounds_unity": [
+    [
+      -0.3100000023841858,
+      -0.09000000357627869,
+      -0.7699999809265137
+    ],
+    [
+      0.3100000023841858,
+      1.7799999713897705,
+      0.7699999809265137
+    ]
+  ],
+  "materials": [
+    "M_Ivory",
+    "M_Navy",
+    "M_Rope",
+    "M_Wood",
+    "M_WoodDark"
+  ],
+  "name": "DistantSail",
+  "limit": 300,
+  "clips": {},
+  "sha256": {
+    "blend": "4b87c9f9e241d0f6a6ce15850e54e02ab5f94fa730f13a26459bcdeb8c6e1359",
+    "fbx": "5b532ad5f27758bb583778eed13835b40aba8555a2932a98b652a2740793a9a2"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

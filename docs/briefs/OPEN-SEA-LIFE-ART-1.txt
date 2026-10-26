@@ -1,0 +1,25 @@
+OPEN-SEA-LIFE-ART-1 — Codex 2 — life for the open-water sailing legs (Claude 2 lead, 2026-10-26 12:40)
+GOAL: between the harbour and a ground (the SeaOut / SeaHome legs and the chart crossing) the sea is empty: only
+the shared gulls/floaters in SceneryLife.cs. Mo's order is "keep both Codex on the maps and art". Make small animated
+pieces Claude/Codex 1 will scatter along the sailing legs and later reuse for light sea events (not built; do not
+design mechanics). Same quality, evidence and report format as GullCoastLife/KelpLife (accepted).
+Art/Models/OpenSeaLife/, one FBX per item, metres, pivots at the waterline/contact point, house palette and low-poly
+style (Art/STYLE.md); check the existing sea/water colours in the game captures (docs/screens) so nothing clashes:
+- DolphinPod: one dolphin (<= 700 tris, grey back, pale belly, curved dorsal) with legacy clips Swim (loop 1.2 s,
+  body undulation at the surface) and Leap (once 1.4 s, a full arc out of and back into the water from a pivot at
+  the waterline); plus DolphinPod: three of them offset in a loose line (pod root, children named Dolphin_1..3).
+- GannetDive: a gannet (<= 450 tris, white body, black wingtips, yellow-buff head) with Glide (loop 2 s) and Dive
+  (once 0.9 s, wings folding back into a vertical plunge). Plus DiveSplash: a static low-poly white splash crown
+  (<= 200 tris) Claude scales/fades in code.
+- BaskingFin: a large shark's dorsal and tail-fin tips (<= 250 tris) cutting the surface, clip Cruise (loop 3 s,
+  gentle side sway). Friendly, not menacing: rounded, grey-brown.
+- Flotsam: FloatingCrate (wooden fish crate, ~0.6 m, 1-2 slats broken), DriftNetBuoy (orange float with a tangle of
+  green net), DriftLog (1.8 m weathered log with a perched gull pivot named GullSeat). Static, pivot at waterline;
+  Claude bobs them in code.
+- DistantSail: a small far-off sailing dinghy silhouette (<= 300 tris, ivory sail, navy hull), static, for the
+  horizon.
+DONE = EVIDENCE: five-view renders per item, sampled clip frames, one assembly render (a few pieces at the sailing
+camera angle on house water, 1440x900 + 844x390), every image opened by you; REPORT.md with the integration contract
+(names, clips, sizes, pivots, suggested spacing along a leg). OWNERSHIP: Art/Models/OpenSeaLife/,
+Art/Source/OpenSeaLife/ only. No git, no Unity, no Assets/, no .meta, no .cs, never the player save. One comms.md line
+per item; CHECKPOINT at safe boundaries; DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

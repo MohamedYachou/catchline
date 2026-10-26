@@ -38,7 +38,7 @@ namespace Catchline.EditorTools
             s.DeepNetUses.Clear(); s.Save(path); Check(GameState.Load(path).DeepNetUses.Count == 0, "exhausted stock never refills");
             File.WriteAllText(path, "{\"Version\":1,\"Coins\":123,\"Hull\":0,\"Owned\":[0],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[],\"UnsoldCatch\":[{\"Species\":0,\"Kg\":0.25}]}");
             loaded = GameState.Load(path);
-            Check(loaded != null && loaded.CoolerCapacity == 35 && loaded.DeepNetUses.Count == 0 && loaded.UnsoldCatch.Single().Kg == .25f && loaded.Coins == 123, "legacy save keeps actual fish and upgrade without granting deep nets");
+            Check(loaded != null && loaded.CoolerCapacity == GameData.RowboatBigCoolerKg && loaded.DeepNetUses.Count == 0 && loaded.UnsoldCatch.Single().Kg == .25f && loaded.Coins == 123, "legacy save keeps actual fish and upgrade without granting deep nets");
             s = new GameState(18) { Coins = 99 }; Check(!s.BuyDeepNet() && s.Coins == 99, "deep insufficient funds atomic");
             s.Coins = 300; Check(s.BuyDeepNet() && s.BuyDeepNet() && s.BuyDeepNet() && !s.BuyDeepNet() && s.Coins == 0, "rack and purchase cost exact");
             s.SpendDeepNetUse(); Check(s.DeepNetUses.SequenceEqual(new[] { 2, 3, 3 }), "one failed/success use preserves reserve");

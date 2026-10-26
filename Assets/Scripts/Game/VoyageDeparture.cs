@@ -1,4 +1,5 @@
 using System.Linq;
+using Catchline.Game.Sea;
 using UnityEngine;
 
 namespace Catchline.Game
@@ -7,6 +8,20 @@ namespace Catchline.Game
     {
         bool departureReady;
         bool departureCrewWarning;
+        int prefetchedSpot = -1;
+        float prefetchedRadius;
+
+        // The selected ground's sea graphs take seconds to build; build them in the background while in harbour so
+        // Let's go starts the trip at once (SeaNav.Prefetch). Leaving harbour consumes them; the next visit rebuilds.
+        void PrefetchSeaNav()
+        {
+            if (CurrentMode != Mode.Harbour) { prefetchedSpot = -1; return; }
+            float radius = State.HullDef.NavigationRadius;
+            if (SelectedSpot == prefetchedSpot && radius == prefetchedRadius || SelectedSpot < 0 || SelectedSpot >= SeaNav.Maps.Length) return;
+            prefetchedSpot = SelectedSpot; prefetchedRadius = radius;
+            SeaNav.Prefetch(SeaNav.Maps[SelectedSpot], radius);
+            foreach (float clearance in SeaLanes.Clearances) SeaNav.Prefetch(SeaNav.Maps[SelectedSpot], clearance);
+        }
 
         public bool ConfirmDeparture()
         {
@@ -19,6 +34,7 @@ namespace Catchline.Game
             if (CurrentMode != Mode.Harbour || State.UnsoldCatch.Count > 0) return;
             departureCrewWarning = false;
             departureReady = true;
+            PrefetchSeaNav();
             toastUntil = 0;
         }
         void DepartureBuy(System.Func<bool> buy)

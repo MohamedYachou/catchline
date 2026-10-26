@@ -31,6 +31,7 @@ namespace Catchline.Game
 
         void HandleInput()
         {
+            PrefetchSeaNav();
             var kb = Keyboard.current;
             if (ManagementOpen)
             {

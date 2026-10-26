@@ -1,0 +1,138 @@
+{
+  "triangles": 1140,
+  "mesh_bounds": {
+    "Dolphin_1Skin": {
+      "triangles": 380,
+      "world_min_m": [
+        -1.600000023841858,
+        -0.7414571046829224,
+        -0.2775000035762787
+      ],
+      "world_max_m": [
+        -0.6000000238418579,
+        1.7200000286102295,
+        0.5299999713897705
+      ],
+      "materials": [
+        "M_DolphinBack",
+        "M_DolphinSide",
+        "M_PaleBelly",
+        "M_Eye"
+      ]
+    },
+    "Dolphin_2Skin": {
+      "triangles": 380,
+      "world_min_m": [
+        -0.5,
+        -1.8414571285247803,
+        -0.2775000035762787
+      ],
+      "world_max_m": [
+        0.5,
+        0.6200000047683716,
+        0.5299999713897705
+      ],
+      "materials": [
+        "M_DolphinBack",
+        "M_DolphinSide",
+        "M_PaleBelly",
+        "M_Eye"
+      ]
+    },
+    "Dolphin_3Skin": {
+      "triangles": 380,
+      "world_min_m": [
+        0.6000000238418579,
+        -1.0414570569992065,
+        -0.2775000035762787
+      ],
+      "world_max_m": [
+        1.600000023841858,
+        1.4200000762939453,
+        0.5299999713897705
+      ],
+      "materials": [
+        "M_DolphinBack",
+        "M_DolphinSide",
+        "M_PaleBelly",
+        "M_Eye"
+      ]
+    }
+  },
+  "parents": {
+    "DolphinPod": null,
+    "Dolphin_1": "DolphinPod",
+    "Dolphin_1Rig": "Dolphin_1",
+    "Dolphin_1Skin": "Dolphin_1Rig",
+    "Dolphin_2": "DolphinPod",
+    "Dolphin_2Rig": "Dolphin_2",
+    "Dolphin_2Skin": "Dolphin_2Rig",
+    "Dolphin_3": "DolphinPod",
+    "Dolphin_3Rig": "Dolphin_3",
+    "Dolphin_3Skin": "Dolphin_3Rig"
+  },
+  "bounds_unity": [
+    [
+      -1.600000023841858,
+      -0.2775000035762787,
+      -1.7200000286102295
+    ],
+    [
+      1.600000023841858,
+      0.5299999713897705,
+      1.8414571285247803
+    ]
+  ],
+  "materials": [
+    "M_DolphinBack",
+    "M_DolphinSide",
+    "M_Eye",
+    "M_PaleBelly"
+  ],
+  "name": "DolphinPod",
+  "limit": 2100,
+  "clips": {
+    "Swim": {
+      "seconds": 1.2,
+      "loop": true,
+      "frames": [
+        1,
+        37
+      ]
+    },
+    "Leap": {
+      "seconds": 1.4,
+      "loop": false,
+      "frames": [
+        1,
+        43
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "2bf79cb4d4275cc791ebcaab1324786a9b91f2e4920f3683257afb4902e32a29",
+    "fbx": "a4b189b9a3636b664ce962f5003fca6e5592370cbaa7b2db9bf2ef707c372a79"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

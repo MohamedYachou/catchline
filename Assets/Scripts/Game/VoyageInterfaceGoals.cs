@@ -39,13 +39,13 @@ namespace Catchline.Game
                 count = $"{contract.Delivered}/{contract.Count}";
                 progress = contract.Delivered / (float)target;
             }
-            else if (State.Hull == 0 && State.BestVoyageFish < GameData.SkiffFishGoal)
+            else if (State.Hull == 0 && !State.SkiffHaulDone)
             {
-                // BestVoyageFish is the actual largest sold haul, not catches
-                // lying on deck or a projected record before returning home.
-                objective = $"Sell {GameData.SkiffFishGoal} in one haul";
-                count = $"{State.BestVoyageFish}/{GameData.SkiffFishGoal}";
-                progress = State.BestVoyageFish / (float)Mathf.Max(1, GameData.SkiffFishGoal);
+                // BestVoyageKg is the largest haul actually brought home, not
+                // catches lying on deck or a projected record before returning.
+                objective = $"Bring home a full {GameData.SkiffKgGoal:0} kg haul";
+                count = $"{State.BestVoyageKg:0.#}/{GameData.SkiffKgGoal:0} kg";
+                progress = State.BestVoyageKg / GameData.SkiffKgGoal;
             }
             else if (State.Hull == 0)
             {

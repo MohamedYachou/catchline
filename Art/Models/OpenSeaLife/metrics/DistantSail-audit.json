@@ -1,0 +1,150 @@
+{
+  "result": "PASS",
+  "name": "DistantSail",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 100,
+    "mesh_bounds": {
+      "DistantDinghy": {
+        "triangles": 100,
+        "world_min_m": [
+          -0.3100000023841858,
+          -0.7699999809265137,
+          -0.09000000357627869
+        ],
+        "world_max_m": [
+          0.3100000023841858,
+          0.7699999809265137,
+          1.7799999713897705
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_Wood",
+          "M_WoodDark",
+          "M_Navy",
+          "M_Rope"
+        ]
+      }
+    },
+    "parents": {
+      "DistantSail": null,
+      "DistantDinghy": "DistantSail"
+    },
+    "bounds_unity": [
+      [
+        -0.3100000023841858,
+        -0.09000000357627869,
+        -0.7699999809265137
+      ],
+      [
+        0.3100000023841858,
+        1.7799999713897705,
+        0.7699999809265137
+      ]
+    ],
+    "materials": [
+      "M_Ivory",
+      "M_Navy",
+      "M_Rope",
+      "M_Wood",
+      "M_WoodDark"
+    ]
+  },
+  "imported": {
+    "triangles": 100,
+    "mesh_bounds": {
+      "DistantDinghy": {
+        "triangles": 100,
+        "world_min_m": [
+          -0.3100000023841858,
+          -0.7699999809265137,
+          -0.09000009298324585
+        ],
+        "world_max_m": [
+          0.3100000023841858,
+          0.7699999809265137,
+          1.7799999713897705
+        ],
+        "materials": [
+          "M_Ivory",
+          "M_Wood",
+          "M_WoodDark",
+          "M_Navy",
+          "M_Rope"
+        ]
+      }
+    },
+    "parents": {
+      "DistantDinghy": "DistantSail",
+      "DistantSail": null
+    },
+    "bounds_unity": [
+      [
+        -0.3100000023841858,
+        -0.09000009298324585,
+        -0.7699999809265137
+      ],
+      [
+        0.3100000023841858,
+        1.7799999713897705,
+        0.7699999809265137
+      ]
+    ],
+    "materials": [
+      "M_Ivory",
+      "M_Navy",
+      "M_Rope",
+      "M_Wood",
+      "M_WoodDark"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 2.905726432800293e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.6200000047683716,
+    1.8699999749660492,
+    1.5399999618530273
+  ],
+  "materials_linear_rgba": {
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_Navy": [
+      0.008568125776946545,
+      0.04970656707882881,
+      0.09530746936798096,
+      1.0
+    ],
+    "M_Rope": [
+      0.637596845626831,
+      0.42869049310684204,
+      0.18116424977779388,
+      1.0
+    ],
+    "M_Wood": [
+      0.5583403706550598,
+      0.2581828534603119,
+      0.0802198201417923,
+      1.0
+    ],
+    "M_WoodDark": [
+      0.2622506618499756,
+      0.10224173218011856,
+      0.03688944876194,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "4b87c9f9e241d0f6a6ce15850e54e02ab5f94fa730f13a26459bcdeb8c6e1359",
+    "fbx": "5b532ad5f27758bb583778eed13835b40aba8555a2932a98b652a2740793a9a2"
+  },
+  "legacy_import_required": false
+}

@@ -1,0 +1,110 @@
+{
+  "result": "PASS",
+  "name": "DiveSplash",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 128,
+    "mesh_bounds": {
+      "DiveSplashCrown": {
+        "triangles": 128,
+        "world_min_m": [
+          -0.3400000035762787,
+          -0.3400000035762787,
+          -0.02500000037252903
+        ],
+        "world_max_m": [
+          0.3400000035762787,
+          0.3400000035762787,
+          0.4050000011920929
+        ],
+        "materials": [
+          "M_Ivory"
+        ]
+      }
+    },
+    "parents": {
+      "DiveSplash": null,
+      "DiveSplashCrown": "DiveSplash"
+    },
+    "bounds_unity": [
+      [
+        -0.3400000035762787,
+        -0.02500000037252903,
+        -0.3400000035762787
+      ],
+      [
+        0.3400000035762787,
+        0.4050000011920929,
+        0.3400000035762787
+      ]
+    ],
+    "materials": [
+      "M_Ivory"
+    ]
+  },
+  "imported": {
+    "triangles": 128,
+    "mesh_bounds": {
+      "DiveSplashCrown": {
+        "triangles": 128,
+        "world_min_m": [
+          -0.3400000035762787,
+          -0.3400000035762787,
+          -0.025000056251883507
+        ],
+        "world_max_m": [
+          0.3400000035762787,
+          0.3400000035762787,
+          0.40500006079673767
+        ],
+        "materials": [
+          "M_Ivory"
+        ]
+      }
+    },
+    "parents": {
+      "DiveSplashCrown": "DiveSplash",
+      "DiveSplash": null
+    },
+    "bounds_unity": [
+      [
+        -0.3400000035762787,
+        -0.025000056251883507,
+        -0.3400000035762787
+      ],
+      [
+        0.3400000035762787,
+        0.40500006079673767,
+        0.3400000035762787
+      ]
+    ],
+    "materials": [
+      "M_Ivory"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 8.429369557916289e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.6800000071525574,
+    0.4300000015646219,
+    0.6800000071525574
+  ],
+  "materials_linear_rgba": {
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "9e504b4860c5667cd36bc4bb6fb62635bb3ef379a0528e71efb9f7dcc87aa207",
+    "fbx": "3146f2f89354f9f57c1d21de941883bd10e5a2a01ce90771c97474c4752b666a"
+  },
+  "legacy_import_required": false
+}

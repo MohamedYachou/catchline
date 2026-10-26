@@ -1,0 +1,81 @@
+{
+  "triangles": 184,
+  "mesh_bounds": {
+    "BaskingFinSkin": {
+      "triangles": 184,
+      "world_min_m": [
+        -0.14499999582767487,
+        -0.25999999046325684,
+        -0.10000000149011612
+      ],
+      "world_max_m": [
+        0.14499999582767487,
+        1.909999966621399,
+        0.5550000071525574
+      ],
+      "materials": [
+        "M_SharkWarm",
+        "M_SharkShade"
+      ]
+    }
+  },
+  "parents": {
+    "BaskingFin": null,
+    "BaskingFinRig": "BaskingFin",
+    "BaskingFinSkin": "BaskingFinRig"
+  },
+  "bounds_unity": [
+    [
+      -0.14499999582767487,
+      -0.10000000149011612,
+      -1.909999966621399
+    ],
+    [
+      0.14499999582767487,
+      0.5550000071525574,
+      0.25999999046325684
+    ]
+  ],
+  "materials": [
+    "M_SharkShade",
+    "M_SharkWarm"
+  ],
+  "name": "BaskingFin",
+  "limit": 250,
+  "clips": {
+    "Cruise": {
+      "seconds": 3.0,
+      "loop": true,
+      "frames": [
+        1,
+        91
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "cd7f177a1acec94c6c75460128b00c26aefec1f10d61f0b42c2be370835b6d20",
+    "fbx": "68c2b55e57c9d5f0c32a5d7f034fbf06679c23225a281017266656709813c31e"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

@@ -122,6 +122,12 @@ namespace Catchline.Game
         }
         float anim;
         bool moving;
+        // The rowboat's thwarts cross the walkable deck: walkers step up onto them instead of through them, and
+        // anyone standing still stands just beside them. Heights come from the mesh, in 5 cm boat-local cells.
+        const float StepCell = .05f;
+        float[,] step;
+        Vector2 stepOrigin;
+        float aside;
 
         public Person(string name, bool captain, Vector3 offset)
         {
@@ -141,6 +147,7 @@ namespace Catchline.Game
         {
             Root = new GameObject(Name).transform;
             Root.SetParent(boat, false);
+            FindThwart(boat);
             Place(tile);
 
             body = new GameObject("Body").transform;
@@ -198,7 +205,82 @@ namespace Catchline.Game
             path.Clear();
             arrive = walkCancel = null;
             pos = (Grid != null ? Grid.GetLocal(tile) : DeckGrid.ToLocal(tile)) + offset;
-            if (Root != null) Root.localPosition = pos;
+            aside = AsideTarget();
+            if (Root != null) Root.localPosition = Stand(0f);
+        }
+
+        void FindThwart(Transform boat)
+        {
+            step = null;
+            var tops = new List<Vector3>();
+            foreach (var mesh in boat.GetComponentsInChildren<MeshFilter>())
+            {
+                if (mesh.name != "CentreThwart" || mesh.sharedMesh == null || !mesh.sharedMesh.isReadable) continue;
+                var matrix = boat.worldToLocalMatrix * mesh.transform.localToWorldMatrix;
+                var v = mesh.sharedMesh.vertices; var tri = mesh.sharedMesh.triangles;
+                for (int i = 0; i < tri.Length; i += 3)
+                {
+                    Vector3 a = matrix.MultiplyPoint3x4(v[tri[i]]), b = matrix.MultiplyPoint3x4(v[tri[i + 1]]), c = matrix.MultiplyPoint3x4(v[tri[i + 2]]);
+                    tops.Add(a); tops.Add(b); tops.Add(c);
+                }
+            }
+            if (tops.Count == 0) return;
+            float minX = float.MaxValue, minZ = float.MaxValue, maxX = float.MinValue, maxZ = float.MinValue;
+            foreach (var t in tops) { minX = Mathf.Min(minX, t.x); maxX = Mathf.Max(maxX, t.x); minZ = Mathf.Min(minZ, t.z); maxZ = Mathf.Max(maxZ, t.z); }
+            // A boot's width of clearance plus a short ramp back down to the deck.
+            const float boot = .1f, ramp = .2f; int pad = Mathf.CeilToInt((boot + ramp) / StepCell);
+            stepOrigin = new Vector2(minX, minZ) - Vector2.one * pad * StepCell;
+            int w = Mathf.CeilToInt((maxX - minX) / StepCell) + 2 * pad + 1, h = Mathf.CeilToInt((maxZ - minZ) / StepCell) + 2 * pad + 1;
+            var raw = new float[w, h];
+            for (int i = 0; i < tops.Count; i += 3)
+            {
+                Vector3 a = tops[i], b = tops[i + 1], c = tops[i + 2];
+                int x0 = Cell(Mathf.Min(a.x, b.x, c.x), true), x1 = Cell(Mathf.Max(a.x, b.x, c.x), true);
+                int z0 = Cell(Mathf.Min(a.z, b.z, c.z), false), z1 = Cell(Mathf.Max(a.z, b.z, c.z), false);
+                for (int x = x0; x <= x1; x++)
+                    for (int z = z0; z <= z1; z++)
+                        raw[x, z] = Mathf.Max(raw[x, z], Mathf.Max(a.y, b.y, c.y));
+            }
+            step = new float[w, h];
+            for (int x = 0; x < w; x++)
+                for (int z = 0; z < h; z++)
+                {
+                    if (raw[x, z] <= 0f) continue;
+                    for (int dx = -pad; dx <= pad; dx++)
+                        for (int dz = -pad; dz <= pad; dz++)
+                        {
+                            int nx = x + dx, nz = z + dz; if (nx < 0 || nz < 0 || nx >= w || nz >= h) continue;
+                            float t = Mathf.Clamp01((new Vector2(dx, dz).magnitude * StepCell - boot) / ramp);
+                            step[nx, nz] = Mathf.Max(step[nx, nz], raw[x, z] * (1f - t * t * (3f - 2f * t)));
+                        }
+                }
+            int Cell(float value, bool x) => Mathf.FloorToInt(((x ? value - stepOrigin.x : value - stepOrigin.y)) / StepCell);
+        }
+
+        float StepHeight(Vector3 at)
+        {
+            if (step == null) return 0f;
+            int x = Mathf.FloorToInt((at.x - stepOrigin.x) / StepCell), z = Mathf.FloorToInt((at.z - stepOrigin.y) / StepCell);
+            if (x < 0 || z < 0 || x >= step.GetLength(0) || z >= step.GetLength(1)) return 0f;
+            return Mathf.Max(0f, step[x, z] - at.y);
+        }
+
+        // The nearest spot along the boat with level deck, aft first.
+        float AsideTarget()
+        {
+            if (StepHeight(pos) < .01f) return 0f;
+            for (float d = StepCell; d < 1f; d += StepCell)
+            {
+                if (StepHeight(pos + Vector3.right * d) < .01f) return d;
+                if (StepHeight(pos - Vector3.right * d) < .01f) return -d;
+            }
+            return 0f;
+        }
+
+        Vector3 Stand(float bob)
+        {
+            var at = pos + Vector3.right * aside;
+            return at + Vector3.up * (bob + StepHeight(at));
         }
 
         public void Stop()
@@ -318,7 +400,8 @@ namespace Catchline.Game
             // made resting and working sailors vibrate against the deck.
             anim += dt;
             float bob = rig == null && moving ? Mathf.Abs(Mathf.Sin(anim * 10f)) * 0.025f : 0f;
-            Root.localPosition = pos + Vector3.up * bob;
+            aside = Mathf.MoveTowards(aside, moving ? 0f : AsideTarget(), dt * 1.2f);
+            Root.localPosition = Stand(bob);
             body.localRotation = Rowing ? Quaternion.Euler(Mathf.Sin(anim * 3.2f) * 18f, 0f, 0f) : Quaternion.identity;
             if (rig != null)
             {

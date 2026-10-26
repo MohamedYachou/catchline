@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Catchline.Game.Deck;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ namespace Catchline.Game.Sea
         public Vector2[] Border { get; private set; }
         public readonly float Radius;
         readonly List<Vector2[]> land = new();
+        readonly List<Rect> landBoxes = new(), shallowBoxes = new();
+        // Polygon boxes grown by a millimetre, so skipping a polygon whose box misses a point or segment is exact.
+        static Rect Box(Vector2[] p) => Rect.MinMaxRect(p.Min(v => v.x) - .001f, p.Min(v => v.y) - .001f, p.Max(v => v.x) + .001f, p.Max(v => v.y) + .001f);
         readonly List<Vector2> vertices = new();
         List<(int to, float cost)>[] edges;
         const float Epsilon = .005f;
@@ -34,17 +38,36 @@ namespace Catchline.Game.Sea
         public static SeaNav Load(string map, HullDef hull) => Load(map, hull.NavigationRadius);
         public static SeaNav Load(string map, float radius)
         {
+            if (prefetched.Remove((map, radius), out var task))
+                try { return task.Result; } catch (AggregateException) { } // rebuilt below so the error surfaces as before
+            var (root, interim) = Source(map);
+            return root != null ? new SeaNav(root, radius, interim) : null;
+        }
+        // A departure builds its graphs on worker threads while the player is still in harbour; Load hands each
+        // prefetched graph out once. Prefetching another map drops the old map's graphs.
+        public static void Prefetch(string map, float radius)
+        {
+            foreach (var old in prefetched.Keys.Where(k => k.map != map).ToList()) prefetched.Remove(old);
+            if (prefetched.ContainsKey((map, radius))) return;
+            var (root, interim) = Source(map);
+            if (root != null) prefetched[(map, radius)] = Task.Run(() => new SeaNav(root, radius, interim));
+        }
+        static readonly Dictionary<(string map, float radius), Task<SeaNav>> prefetched = new();
+        static (Dictionary<string, object> root, bool interim) Source(string map)
+        {
             // Parse the map id inside each asset: every map's asset has the same file name.
             var files = ArtLibrary.Get()?.NavigationFiles;
-            if (files == null) return null;
+            if (files == null) return (null, false);
             foreach (bool interim in new[] { false, true })
                 foreach (var file in files.Where(f => f != null && f.name.EndsWith(interim ? "navigation.interim" : "navigation", StringComparison.Ordinal)))
                 {
-                    var root = (Dictionary<string, object>)MiniJson.Parse(file.text);
-                    if (Text(root, "map") == map) return new SeaNav(root, radius, interim);
+                    // Each file is parsed once per session; SeaNav only reads the parsed tree.
+                    if (!parsed.TryGetValue(file, out var root)) parsed[file] = root = (Dictionary<string, object>)MiniJson.Parse(file.text);
+                    if (Text(root, "map") == map) return (root, interim);
                 }
-            return null;
+            return (null, false);
         }
+        static readonly Dictionary<TextAsset, Dictionary<string, object>> parsed = new();
         // The sea-lane entry replaces the authored harbour point (docs/plans/HARBOUR-PLAN.md section 3).
         public void SetHarbour(Vector2 p) => Harbour = p;
         public static SeaNav Parse(string json, float radius) => new((Dictionary<string, object>)MiniJson.Parse(json), radius, false);
@@ -58,8 +81,10 @@ namespace Catchline.Game.Sea
             foreach (var p in Polygons(root, "islands"))
             {
                 land.Add(p); Islands.Add(Inflate(p, Radius + .02f));
+                landBoxes.Add(Box(p));
             }
             foreach (var p in Polygons(root, "shallows")) Shallows.Add(Inflate(p, Radius));
+            foreach (var p in Shallows) shallowBoxes.Add(Box(p));
             foreach (Dictionary<string, object> g in (List<object>)root["grounds"])
                 Grounds.Add(new Ground { Id = Text(g, "id"), Name = Text(g, "name"), PoolId = Text(g, "poolId"),
                     Centre = Point(g.TryGetValue("centre", out var c) ? c : g.TryGetValue("center", out c) ? c : g["position"]),
@@ -116,9 +141,11 @@ namespace Catchline.Game.Sea
             foreach (var v in Border) { var q = Snap(v); if (!Blocked(q)) vertices.Add(q); }
             edges = new List<(int, float)>[vertices.Count];
             for (int i = 0; i < edges.Length; i++) edges[i] = new();
+            // Endpoint checks once per vertex instead of once per pair; the pair test is Visible's segment test.
+            var usable = vertices.Select(v => !Blocked(v) && InsideBorder(v)).ToArray();
             for (int i = 0; i < vertices.Count; i++)
                 for (int j = 0; j < i; j++)
-                    if (Visible(vertices[i], vertices[j]))
+                    if (usable[i] && usable[j] && SegmentClear(vertices[i], vertices[j]))
                     {
                         float cost = Cost(vertices[i], vertices[j]);
                         edges[i].Add((j, cost)); edges[j].Add((i, cost));
@@ -182,24 +209,48 @@ namespace Catchline.Game.Sea
         public bool Visible(Vector2 a, Vector2 b)
         {
             if (Blocked(a) || Blocked(b) || !InsideBorder(a) || !InsideBorder(b)) return false;
+            return SegmentClear(a, b);
+        }
+        bool SegmentClear(Vector2 a, Vector2 b)
+        {
+            // An edge whose box lies farther than the clearance from the segment's box cannot be within it,
+            // so the exact distance test only runs on nearby edges.
+            float r = Radius + .008f;
+            float minX = Mathf.Min(a.x, b.x) - r, maxX = Mathf.Max(a.x, b.x) + r, minY = Mathf.Min(a.y, b.y) - r, maxY = Mathf.Max(a.y, b.y) + r;
+            bool Near(Vector2 c, Vector2 d) => Mathf.Max(c.x, d.x) >= minX && Mathf.Min(c.x, d.x) <= maxX && Mathf.Max(c.y, d.y) >= minY && Mathf.Min(c.y, d.y) <= maxY;
             for (int i = 0; i < Border.Length; i++)
-                if (SegmentDistance(a, b, Border[i], Border[(i + 1) % Border.Length]) < Radius + .008f) return false;
-            var cuts = Cuts(Border, a, b); cuts.Add(0); cuts.Add(1); cuts.Sort();
-            for (int i = 1; i < cuts.Count; i++)
-                if (!InsideBorder(Vector2.Lerp(a, b, (cuts[i - 1] + cuts[i]) * .5f))) return false;
-            foreach (var poly in land)
+            {
+                Vector2 c = Border[i], d = Border[(i + 1) % Border.Length];
+                if (Near(c, d) && SegmentDistance(a, b, c, d) < r) return false;
+            }
+            // With both ends inside and no border edge within the clearance, the segment cannot leave the border.
+            for (int k = 0; k < land.Count; k++)
+            {
+                var box = landBoxes[k];
+                if (box.xMax < minX || box.xMin > maxX || box.yMax < minY || box.yMin > maxY) continue;
+                var poly = land[k];
                 for (int i = 0; i < poly.Length; i++)
-                    if (SegmentDistance(a, b, poly[i], poly[(i + 1) % poly.Length]) < Radius + .008f) return false;
+                {
+                    Vector2 c = poly[i], d = poly[(i + 1) % poly.Length];
+                    if (Near(c, d) && SegmentDistance(a, b, c, d) < r) return false;
+                }
+            }
             return true;
         }
         // Integrate exactly over shallow polygon crossings; overlapping rings cost twice, never four times.
         public float Cost(Vector2 a, Vector2 b)
         {
             var cuts = new List<float> { 0, 1 };
-            foreach (var p in Shallows) cuts.AddRange(Cuts(p, a, b));
+            var near = new List<int>();
+            var span = Rect.MinMaxRect(Mathf.Min(a.x, b.x), Mathf.Min(a.y, b.y), Mathf.Max(a.x, b.x), Mathf.Max(a.y, b.y));
+            for (int k = 0; k < Shallows.Count; k++)
+                if (shallowBoxes[k].Overlaps(span)) { near.Add(k); cuts.AddRange(Cuts(Shallows[k], a, b)); }
             cuts.Sort(); float cost = 0;
             for (int i = 1; i < cuts.Count; i++)
-                cost += (cuts[i] - cuts[i - 1]) * (InShallows(Vector2.Lerp(a, b, (cuts[i] + cuts[i - 1]) * .5f)) ? 2 : 1);
+            {
+                var mid = Vector2.Lerp(a, b, (cuts[i] + cuts[i - 1]) * .5f);
+                cost += (cuts[i] - cuts[i - 1]) * (near.Any(k => Contains(Shallows[k], mid, true)) ? 2 : 1);
+            }
             return cost * Vector2.Distance(a, b);
         }
         public List<Vector2> Plan(Vector2 from, Vector2 to)

@@ -1,0 +1,445 @@
+{
+  "result": "PASS",
+  "name": "DolphinPod",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 1140,
+    "mesh_bounds": {
+      "Dolphin_1Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          -1.600000023841858,
+          -0.7414571046829224,
+          -0.2775000035762787
+        ],
+        "world_max_m": [
+          -0.6000000238418579,
+          1.7200000286102295,
+          0.5299999713897705
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      },
+      "Dolphin_2Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          -0.5,
+          -1.8414571285247803,
+          -0.2775000035762787
+        ],
+        "world_max_m": [
+          0.5,
+          0.6200000047683716,
+          0.5299999713897705
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      },
+      "Dolphin_3Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          0.6000000238418579,
+          -1.0414570569992065,
+          -0.2775000035762787
+        ],
+        "world_max_m": [
+          1.600000023841858,
+          1.4200000762939453,
+          0.5299999713897705
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      }
+    },
+    "parents": {
+      "DolphinPod": null,
+      "Dolphin_1": "DolphinPod",
+      "Dolphin_1Rig": "Dolphin_1",
+      "Dolphin_1Skin": "Dolphin_1Rig",
+      "Dolphin_2": "DolphinPod",
+      "Dolphin_2Rig": "Dolphin_2",
+      "Dolphin_2Skin": "Dolphin_2Rig",
+      "Dolphin_3": "DolphinPod",
+      "Dolphin_3Rig": "Dolphin_3",
+      "Dolphin_3Skin": "Dolphin_3Rig"
+    },
+    "bounds_unity": [
+      [
+        -1.600000023841858,
+        -0.2775000035762787,
+        -1.7200000286102295
+      ],
+      [
+        1.600000023841858,
+        0.5299999713897705,
+        1.8414571285247803
+      ]
+    ],
+    "materials": [
+      "M_DolphinBack",
+      "M_DolphinSide",
+      "M_Eye",
+      "M_PaleBelly"
+    ]
+  },
+  "imported": {
+    "triangles": 1140,
+    "mesh_bounds": {
+      "Dolphin_1Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          -1.600000023841858,
+          -0.7414571046829224,
+          -0.27750009298324585
+        ],
+        "world_max_m": [
+          -0.6000000238418579,
+          1.7200000286102295,
+          0.529999852180481
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      },
+      "Dolphin_2Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          -0.5,
+          -1.8414571285247803,
+          -0.2774999141693115
+        ],
+        "world_max_m": [
+          0.5,
+          0.6200000047683716,
+          0.5300000309944153
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      },
+      "Dolphin_3Skin": {
+        "triangles": 380,
+        "world_min_m": [
+          0.6000000238418579,
+          -1.0414570569992065,
+          -0.2775000333786011
+        ],
+        "world_max_m": [
+          1.600000023841858,
+          1.4200000762939453,
+          0.5299999117851257
+        ],
+        "materials": [
+          "M_DolphinBack",
+          "M_DolphinSide",
+          "M_PaleBelly",
+          "M_Eye"
+        ]
+      }
+    },
+    "parents": {
+      "Dolphin_1Rig": "Dolphin_1",
+      "Dolphin_1Skin": "Dolphin_1Rig",
+      "Dolphin_1": "DolphinPod",
+      "Dolphin_2Rig": "Dolphin_2",
+      "Dolphin_2Skin": "Dolphin_2Rig",
+      "Dolphin_2": "DolphinPod",
+      "Dolphin_3Rig": "Dolphin_3",
+      "Dolphin_3Skin": "Dolphin_3Rig",
+      "Dolphin_3": "DolphinPod",
+      "DolphinPod": null
+    },
+    "bounds_unity": [
+      [
+        -1.600000023841858,
+        -0.27750009298324585,
+        -1.7200000286102295
+      ],
+      [
+        1.600000023841858,
+        0.5300000309944153,
+        1.8414571285247803
+      ]
+    ],
+    "materials": [
+      "M_DolphinBack",
+      "M_DolphinSide",
+      "M_Eye",
+      "M_PaleBelly"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 3,
+    "max_vertex_error_metres": 2.998858690261841e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Swim": {
+      "source": {
+        "seconds": 1.2,
+        "loop": true,
+        "sample_frames": [
+          1,
+          10,
+          19,
+          28,
+          37
+        ],
+        "max_vertex_motion_m": 0.25495771364087816,
+        "end_vs_start_m": 0.0,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.2775000035762787,
+            0.5299999713897705
+          ],
+          "10": [
+            -0.24773693084716797,
+            0.5824532508850098
+          ],
+          "19": [
+            -0.2775000035762787,
+            0.5299999713897705
+          ],
+          "28": [
+            -0.3071501851081848,
+            0.47530829906463623
+          ],
+          "37": [
+            -0.2775000035762787,
+            0.5299999713897705
+          ]
+        }
+      },
+      "imported": {
+        "seconds": 1.2,
+        "loop": true,
+        "sample_frames": [
+          1,
+          10,
+          19,
+          28,
+          37
+        ],
+        "max_vertex_motion_m": 0.25495780307685595,
+        "end_vs_start_m": 0.0,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.27750009298324585,
+            0.5300000309944153
+          ],
+          "10": [
+            -0.24773705005645752,
+            0.5824533700942993
+          ],
+          "19": [
+            -0.27750009298324585,
+            0.5300000309944153
+          ],
+          "28": [
+            -0.307150274515152,
+            0.4753083884716034
+          ],
+          "37": [
+            -0.27750009298324585,
+            0.5300000309944153
+          ]
+        }
+      },
+      "surface_samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 2.998858690261841e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "10": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 3.2175813657886465e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "19": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 3.14075322194185e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "28": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 4.805480102731963e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "37": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 2.998858690261841e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Leap": {
+      "source": {
+        "seconds": 1.4,
+        "loop": false,
+        "sample_frames": [
+          1,
+          11,
+          22,
+          32,
+          43
+        ],
+        "max_vertex_motion_m": 1.6802524015942712,
+        "end_vs_start_m": 0.0,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.2775000035762787,
+            0.5299999713897705
+          ],
+          "11": [
+            -0.01682502031326294,
+            1.557402491569519
+          ],
+          "22": [
+            1.372499942779541,
+            2.179999828338623
+          ],
+          "32": [
+            0.03318244218826294,
+            1.60178542137146
+          ],
+          "43": [
+            -0.2775000035762787,
+            0.5299999713897705
+          ]
+        }
+      },
+      "imported": {
+        "seconds": 1.4,
+        "loop": false,
+        "sample_frames": [
+          1,
+          11,
+          22,
+          32,
+          43
+        ],
+        "max_vertex_motion_m": 1.6802523173444082,
+        "end_vs_start_m": 0.0,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.27750009298324585,
+            0.5300000309944153
+          ],
+          "11": [
+            -0.01682533323764801,
+            1.5574027299880981
+          ],
+          "22": [
+            1.3724998235702515,
+            2.179999828338623
+          ],
+          "32": [
+            0.0331825390458107,
+            1.60178542137146
+          ],
+          "43": [
+            -0.27750009298324585,
+            0.5300000309944153
+          ]
+        }
+      },
+      "surface_samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 3.0034249220989295e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "11": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 3.7013717246736633e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "22": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 4.2981520209650625e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "32": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 5.331201577973843e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "43": {
+          "result": "PASS",
+          "mesh_count": 3,
+          "max_vertex_error_metres": 3.0034249220989295e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    3.200000047683716,
+    0.8074999749660492,
+    3.5614571571350098
+  ],
+  "materials_linear_rgba": {
+    "M_DolphinBack": [
+      0.16202937066555023,
+      0.2462013214826584,
+      0.24228112399578094,
+      1.0
+    ],
+    "M_DolphinSide": [
+      0.3613067865371704,
+      0.46207699179649353,
+      0.43415364623069763,
+      1.0
+    ],
+    "M_Eye": [
+      0.008568125776946545,
+      0.03433980792760849,
+      0.04666508734226227,
+      1.0
+    ],
+    "M_PaleBelly": [
+      0.715693473815918,
+      0.7454041838645935,
+      0.6239603757858276,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "2bf79cb4d4275cc791ebcaab1324786a9b91f2e4920f3683257afb4902e32a29",
+    "fbx": "a4b189b9a3636b664ce962f5003fca6e5592370cbaa7b2db9bf2ef707c372a79"
+  },
+  "legacy_import_required": true
+}

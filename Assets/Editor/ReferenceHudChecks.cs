@@ -53,9 +53,9 @@ namespace Catchline.EditorTools
             Check(Text(game, "reference/goal/count").text == "0/3", "unsold fish cannot falsely complete delivered goal");
             game.State.Active[0].Delivered = 2; game.Tick(0);
             Check(Text(game, "reference/goal/count").text == "2/3", "actual delivered progress updates");
-            game.State.Active.Clear(); game.State.BestVoyageFish = 0; game.Tick(0);
-            Check(Text(game, "reference/goal/count").text == "0/" + GameData.SkiffFishGoal, "no-contract record requirement preserved");
-            game.State.BestVoyageFish = GameData.SkiffFishGoal; game.State.Coins = GameData.SkiffCost; game.Tick(0);
+            game.State.Active.Clear(); game.State.BestVoyageKg = 0; game.Tick(0);
+            Check(Text(game, "reference/goal/count").text == $"0/{GameData.SkiffKgGoal:0} kg", "no-contract record requirement preserved");
+            game.State.BestVoyageKg = GameData.SkiffKgGoal; game.State.Coins = GameData.SkiffCost; game.Tick(0);
             Check(Text(game, "reference/goal/objective").text == "Skiff refit ready", "existing ready state is exposed without executing refit");
             Check(game.State.Hull == 0, "HUD does not buy or mutate hull");
             foreach (var size in new[] { new Vector2Int(1672, 941), new Vector2Int(1440, 900), new Vector2Int(844, 390) })

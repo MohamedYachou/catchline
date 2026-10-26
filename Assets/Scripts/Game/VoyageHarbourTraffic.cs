@@ -32,7 +32,7 @@ namespace Catchline.Game
             trafficDistance += dt * TrafficSpeed;
             if (trafficDistance >= trafficLength)
             {
-                trafficBoat.gameObject.SetActive(false); trafficDistance = -1; trafficWait = Random.Range(25f, 55f);
+                trafficBoat.gameObject.SetActive(false); trafficDistance = -1; trafficYaw = float.NaN; trafficWait = Random.Range(25f, 55f);
                 return;
             }
             PlaceTraffic(trafficDistance);
@@ -42,7 +42,7 @@ namespace Catchline.Game
         public void ShowHarbourTraffic(float u)
         {
             if (!EnsureTrafficBoat()) return;
-            trafficDistance = Mathf.Clamp01(u) * trafficLength; PlaceTraffic(trafficDistance);
+            trafficDistance = Mathf.Clamp01(u) * trafficLength; trafficYaw = float.NaN; PlaceTraffic(trafficDistance);
         }
 
         bool EnsureTrafficBoat()
@@ -84,22 +84,40 @@ namespace Catchline.Game
             return true;
         }
 
+        Vector3 TrafficPoint(float distance)
+        {
+            distance = Mathf.Clamp(distance, 0, trafficLength);
+            for (int i = 1; i < trafficPath.Count; i++)
+            {
+                float step = Vector3.Distance(trafficPath[i - 1], trafficPath[i]);
+                if (distance <= step || i == trafficPath.Count - 1) return Vector3.Lerp(trafficPath[i - 1], trafficPath[i], step > 0 ? distance / step : 0);
+                distance -= step;
+            }
+            return trafficPath[trafficPath.Count - 1];
+        }
+
+        float trafficYaw = float.NaN, trafficLean;
+
         void PlaceTraffic(float distance)
         {
             trafficBoat.gameObject.SetActive(true);
-            int i = 1;
-            for (; i < trafficPath.Count - 1; i++)
-            {
-                float step = Vector3.Distance(trafficPath[i - 1], trafficPath[i]);
-                if (distance <= step) break;
-                distance -= step;
-            }
-            var a = trafficPath[i - 1]; var dir = trafficPath[i] - a;
-            var at = a + dir.normalized * Mathf.Min(distance, dir.magnitude);
-            float time = Time.time;
-            trafficBoat.localPosition = at + Vector3.up * (.04f * Mathf.Sin(time * 1.7f));
+            var at = TrafficPoint(distance);
+            // Heading from the curve's tangent over a boat length, not the 1 m polyline segments (those snapped the bow
+            // round the basin turn in 20-30 degree steps), then eased so the hull swings round like a real boat.
+            var dir = TrafficPoint(distance + .9f) - TrafficPoint(distance - .9f);
+            float time = Time.time, dt = Mathf.Max(Time.deltaTime, 1e-4f);
             if (dir.sqrMagnitude > 1e-6f)
-                trafficBoat.localRotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0, 0, 2f * Mathf.Sin(time * 1.3f)) * trafficTurn;
+            {
+                float target = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+                float prev = trafficYaw;
+                trafficYaw = float.IsNaN(trafficYaw) || distance < .05f ? target : Mathf.LerpAngle(trafficYaw, target, 1 - Mathf.Exp(-dt * 6f));
+                // Lean a little into the turn (outboard skiff heel), eased the same way.
+                float turnRate = float.IsNaN(prev) ? 0 : Mathf.DeltaAngle(prev, trafficYaw) / dt;
+                trafficLean = Mathf.Lerp(trafficLean, Mathf.Clamp(-turnRate * .12f, -7f, 7f), 1 - Mathf.Exp(-dt * 3f));
+            }
+            trafficBoat.localPosition = at + Vector3.up * (.04f * Mathf.Sin(time * 1.7f));
+            if (!float.IsNaN(trafficYaw))
+                trafficBoat.localRotation = Quaternion.Euler(0, trafficYaw, 0) * Quaternion.Euler(0, 0, trafficLean + 2f * Mathf.Sin(time * 1.3f)) * trafficTurn;
         }
     }
 }

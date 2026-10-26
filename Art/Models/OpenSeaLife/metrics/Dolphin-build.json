@@ -1,0 +1,93 @@
+{
+  "triangles": 380,
+  "mesh_bounds": {
+    "DolphinSkin": {
+      "triangles": 380,
+      "world_min_m": [
+        -0.5,
+        -1.2414571046829224,
+        -0.2775000035762787
+      ],
+      "world_max_m": [
+        0.5,
+        1.2200000286102295,
+        0.5299999713897705
+      ],
+      "materials": [
+        "M_DolphinBack",
+        "M_DolphinSide",
+        "M_PaleBelly",
+        "M_Eye"
+      ]
+    }
+  },
+  "parents": {
+    "Dolphin": null,
+    "DolphinRig": "Dolphin",
+    "DolphinSkin": "DolphinRig"
+  },
+  "bounds_unity": [
+    [
+      -0.5,
+      -0.2775000035762787,
+      -1.2200000286102295
+    ],
+    [
+      0.5,
+      0.5299999713897705,
+      1.2414571046829224
+    ]
+  ],
+  "materials": [
+    "M_DolphinBack",
+    "M_DolphinSide",
+    "M_Eye",
+    "M_PaleBelly"
+  ],
+  "name": "Dolphin",
+  "limit": 700,
+  "clips": {
+    "Swim": {
+      "seconds": 1.2,
+      "loop": true,
+      "frames": [
+        1,
+        37
+      ]
+    },
+    "Leap": {
+      "seconds": 1.4,
+      "loop": false,
+      "frames": [
+        1,
+        43
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "c914309d12418b73656015d0e1fc4640c9710971de4470a9cc146703a514654d",
+    "fbx": "46d2851c677a281f10cf92f4f469a380a7c95f0c49933d9175585bd6869fa5d3"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

@@ -112,7 +112,7 @@ namespace Catchline.EditorTools
             Shot(game, Path.Combine(folder, "fishing-catch-desktop.png"), 1440, 900);
             Shot(game, Path.Combine(folder, "fishing-catch-phone.png"), 844, 390);
             UnityEngine.Object.DestroyImmediate(game.gameObject);
-            game = Fixture(); game.State.Coins = 5000; game.State.BestVoyageFish = GameData.SkiffFishGoal;
+            game = Fixture(); game.State.Coins = 5000; game.State.BestVoyageKg = GameData.SkiffKgGoal;
             Check(game.RefitSkiff(), "crew capture refit"); game.Tick(2);
             for (int i = 0; i < 3 && game.State.Board.Count > 0; i++) game.State.Hire(game.State.Board[0]);
             game.SyncCrew(); game.Showcase(1, 0); game.Tick(.1f);

@@ -82,7 +82,8 @@ namespace Catchline.Game
         public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
         public int CrabPots; // pots the captain sets beside a hull 1-3 boat at every ground (VoyageCrabPots.cs)
         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
-        public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
+        public bool CanRefit => Hull == 0 && SkiffHaulDone && Coins >= GameData.SkiffCost;
+        public bool SkiffHaulDone => BestVoyageKg >= GameData.SkiffKgGoal - .001f;
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
         // M4: richness per ground per species (Grounds.Slot), the ground the boat is anchored at (-1 = none, legacy map tables)
@@ -128,7 +129,7 @@ namespace Catchline.Game
         }
 
         public bool Has(UpgradeId id) => Owned.Contains(id);
-        public float CoolerCapacity => Hull == 0 ? (Has(UpgradeId.BigCooler) ? 35f : 20f) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
+        public float CoolerCapacity => Hull == 0 ? (Has(UpgradeId.BigCooler) ? GameData.RowboatBigCoolerKg : GameData.RowboatHoldKg) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
         public float FuelCapacity => Has(UpgradeId.LunchTin) ? 20f : 10f;
         public float FuelFraction => Mathf.Clamp01(Fuel / FuelCapacity);
         public int FuelFillCost => Mathf.CeilToInt(Mathf.Max(0, FuelCapacity - Fuel) - .00001f);

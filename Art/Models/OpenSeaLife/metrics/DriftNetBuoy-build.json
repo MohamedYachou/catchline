@@ -1,0 +1,89 @@
+{
+  "triangles": 586,
+  "mesh_bounds": {
+    "OrangeNetFloat": {
+      "triangles": 100,
+      "world_min_m": [
+        -0.2199999988079071,
+        -0.20923243463039398,
+        -0.19499999284744263
+      ],
+      "world_max_m": [
+        0.2199999988079071,
+        0.20923243463039398,
+        0.3499999940395355
+      ],
+      "materials": [
+        "M_Orange"
+      ]
+    },
+    "TangledNet": {
+      "triangles": 486,
+      "world_min_m": [
+        -0.4317699372768402,
+        -0.36682480573654175,
+        -0.3325282335281372
+      ],
+      "world_max_m": [
+        0.441472589969635,
+        0.3718322217464447,
+        0.2559221684932709
+      ],
+      "materials": [
+        "M_Net",
+        "M_NetDark"
+      ]
+    }
+  },
+  "parents": {
+    "DriftNetBuoy": null,
+    "OrangeNetFloat": "DriftNetBuoy",
+    "TangledNet": "DriftNetBuoy"
+  },
+  "bounds_unity": [
+    [
+      -0.4317699372768402,
+      -0.3325282335281372,
+      -0.3718322217464447
+    ],
+    [
+      0.441472589969635,
+      0.3499999940395355,
+      0.36682480573654175
+    ]
+  ],
+  "materials": [
+    "M_Net",
+    "M_NetDark",
+    "M_Orange"
+  ],
+  "name": "DriftNetBuoy",
+  "limit": 1100,
+  "clips": {},
+  "sha256": {
+    "blend": "122edd3e544230cbbf5505d4c89950e11500eff469f0a7455341cc2b8373b3a1",
+    "fbx": "4ab594e0d1f7fba0d7a31df3a980dc6be4dc02008a631fd21fd5a91bafc2a9b6"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

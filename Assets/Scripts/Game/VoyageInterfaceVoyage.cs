@@ -49,8 +49,8 @@ namespace Catchline.Game
                 var contract = State.Active[0];
                 return ($"Sell {contract.Title} · {contract.Delivered}/{contract.Count}", contract.Delivered / (float)Mathf.Max(1, contract.Count));
             }
-            if (State.Hull == 0 && State.BestVoyageFish < GameData.SkiffFishGoal)
-                return ($"Sell {GameData.SkiffFishGoal} in one haul · {State.BestVoyageFish}/{GameData.SkiffFishGoal}", State.BestVoyageFish / (float)Mathf.Max(1, GameData.SkiffFishGoal));
+            if (State.Hull == 0 && !State.SkiffHaulDone)
+                return ($"Bring home a full {GameData.SkiffKgGoal:0} kg haul", State.BestVoyageKg / GameData.SkiffKgGoal);
             if (State.Hull == 0)
                 return (State.CanRefit ? "Skiff refit ready" : $"Save {GameData.SkiffCost:N0} coins", State.Coins / (float)Mathf.Max(1, GameData.SkiffCost));
             return ("fill the hold", HoldKg / Mathf.Max(.01f, State.CoolerCapacity));

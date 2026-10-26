@@ -1,0 +1,15 @@
+MAP11-SAND-EDGES-ART-1 — Codex 2 — soften the Kelp forest sand clearings (Claude 2 lead, 2026-10-26 13:00)
+REVIEW of MAP11 (accepted, committed 8272232): the raised "Sand clearing" patches read now, but their outlines are
+hard straight polygon edges, which looks cut-out next to the rounded kelp and rocks.
+DO (art source only, Art/Models/Maps/GullKelpForest/GullKelpForestSeaV2.{blend,fbx}; Codex 1 released MAP11):
+- Give every sand-clearing outline an organic edge: rounded, irregular, 12-24 segments per patch, plus a narrow
+  feathered ring (vertex colour or a mid-tone sand/seabed step) so sand fades into the seabed instead of a hard cut.
+- Keep the clearing heights, positions, footprint (within +-0.5 m), every named empty/anchor, every other mesh,
+  object names, units and the map's tri budget in REPORT.md. No navigation/route data changes.
+- Re-run your own MAP audit (bounds, names, anchors unchanged vs the accepted FBX; write the diff to
+  SeaV2-sand-edges-audit.json) and render the same sand-clearing views the accepted review used (top + deck-angle,
+  1440x900 + 844x390), old vs new side by side, every image opened. Add a "Sand edges" section to REPORT.md.
+OWNERSHIP: those two files plus new SeaV2-sand-edges-* evidence in the same folder, Art/Source/Maps/GullKelpForest/**
+if you need a script. Back up the accepted .blend/.fbx first (scratch), delete the backup after your audit passes.
+No git, no Unity, no Assets/, no .meta, no .cs, never the player save. Claude reimports into Unity after review.
+DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

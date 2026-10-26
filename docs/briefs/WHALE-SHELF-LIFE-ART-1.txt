@@ -1,0 +1,19 @@
+WHALE-SHELF-LIFE-ART-1 — Codex 2 — life art for Whale shelf (map 9) (Claude 2 lead, 2026-10-26 13:40)
+GOAL: every Outer-coast ground has its own life (Skerries, Wreck bank, Lighthouse rock, Seal cliffs, Kelp forest)
+except Whale shelf, which shows only the shared gulls. Look at Art/Models/Maps/GullWhaleShelf (its renders, REPORT,
+anchors; do not edit). Same quality, evidence and report format as KelpLife/GullCoastLife/OpenSeaLife (accepted).
+Art/Models/WhaleShelfLife/, one FBX per item, metres, waterline pivots, house palette and low-poly style (Art/STYLE.md):
+- Humpback (<= 1,400 tris): dark slate back, pale knobbly long pectorals, ventral throat grooves suggested by facets,
+  friendly. Legacy clips: Surface (once 3 s, back rolls up and down, dorsal hump showing), Blow (once 1.5 s, at the
+  surface), Fluke (once 3 s, the tail lifts high and slips under; the "goodbye" shot). Root fixed at the waterline.
+- BlowSpout: a static low-poly vapour column/bush (~3 m tall, ivory, soft rounded facets, <= 200 tris) Claude scales
+  and fades in code.
+- KittiwakeFlock: three small gulls (black wingtips, yellow bill; <= 300 tris each) wheeling over the feeding spot:
+  clip Circle (loop 4 s, the three on a ~3 m circle at differing heights). Root at waterline centre.
+- BaitBall: a dark shimmering patch of small fish just under the surface (flat low-poly disc of fish tiles, <= 400
+  tris), clip Swirl (loop 2 s, slow rotation and ripple). For the humpback to feed beside; pivot at waterline.
+DONE = EVIDENCE: five-view renders per item, sampled clip frames, one assembly render at the deck-camera angle on house
+water (1440x900 + 844x390), every image opened by you; REPORT.md with the integration contract and suggested spots on
+the Whale shelf map (from its renders/anchors). OWNERSHIP: Art/Models/WhaleShelfLife/, Art/Source/WhaleShelfLife/
+only. No git, no Unity, no Assets/, no .meta, no .cs, never the player save. One comms.md line per item; CHECKPOINT at
+safe boundaries; DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

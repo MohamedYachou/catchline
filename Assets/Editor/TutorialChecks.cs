@@ -162,7 +162,7 @@ namespace Catchline.EditorTools
 
                 // Match LeadShots' refit prerequisites; this suite tests tutorial actions, not savings pacing.
                 g.State.Coins = GameData.SkiffCost;
-                g.State.BestVoyageFish = GameData.SkiffFishGoal;
+                g.State.BestVoyageKg = GameData.SkiffKgGoal;
                 Step(g, VoyageGame.TutStep.Refit, "shop/tab/Chandlery");
                 SaveChecks(g, path);
                 Press(g, "shop/tab/Chandlery");

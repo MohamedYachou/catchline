@@ -1,0 +1,229 @@
+{
+  "result": "PASS",
+  "name": "BaskingFin",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 184,
+    "mesh_bounds": {
+      "BaskingFinSkin": {
+        "triangles": 184,
+        "world_min_m": [
+          -0.14499999582767487,
+          -0.25999999046325684,
+          -0.10000000149011612
+        ],
+        "world_max_m": [
+          0.14499999582767487,
+          1.909999966621399,
+          0.5550000071525574
+        ],
+        "materials": [
+          "M_SharkWarm",
+          "M_SharkShade"
+        ]
+      }
+    },
+    "parents": {
+      "BaskingFin": null,
+      "BaskingFinRig": "BaskingFin",
+      "BaskingFinSkin": "BaskingFinRig"
+    },
+    "bounds_unity": [
+      [
+        -0.14499999582767487,
+        -0.10000000149011612,
+        -1.909999966621399
+      ],
+      [
+        0.14499999582767487,
+        0.5550000071525574,
+        0.25999999046325684
+      ]
+    ],
+    "materials": [
+      "M_SharkShade",
+      "M_SharkWarm"
+    ]
+  },
+  "imported": {
+    "triangles": 184,
+    "mesh_bounds": {
+      "BaskingFinSkin": {
+        "triangles": 184,
+        "world_min_m": [
+          -0.14499999582767487,
+          -0.25999999046325684,
+          -0.1000003069639206
+        ],
+        "world_max_m": [
+          0.14499999582767487,
+          1.909999966621399,
+          0.5550000071525574
+        ],
+        "materials": [
+          "M_SharkWarm",
+          "M_SharkShade"
+        ]
+      }
+    },
+    "parents": {
+      "BaskingFinRig": "BaskingFin",
+      "BaskingFinSkin": "BaskingFinRig",
+      "BaskingFin": null
+    },
+    "bounds_unity": [
+      [
+        -0.14499999582767487,
+        -0.1000003069639206,
+        -1.909999966621399
+      ],
+      [
+        0.14499999582767487,
+        0.5550000071525574,
+        0.25999999046325684
+      ]
+    ],
+    "materials": [
+      "M_SharkShade",
+      "M_SharkWarm"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 3.2098083124765253e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Cruise": {
+      "source": {
+        "seconds": 3.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.11249825340478142,
+        "end_vs_start_m": 2.3666301117016443e-17,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.10000000149011612,
+            0.5550000071525574
+          ],
+          "23": [
+            -0.10060551017522812,
+            0.5547147393226624
+          ],
+          "46": [
+            -0.10000000149011612,
+            0.5550000071525574
+          ],
+          "68": [
+            -0.10060551017522812,
+            0.5547147393226624
+          ],
+          "91": [
+            -0.10000000149011612,
+            0.5550000071525574
+          ]
+        }
+      },
+      "imported": {
+        "seconds": 3.0,
+        "loop": true,
+        "sample_frames": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.11249825340478142,
+        "end_vs_start_m": 2.3666301117016443e-17,
+        "fixed_root_all_frames": true,
+        "sample_z_ranges": {
+          "1": [
+            -0.1000003069639206,
+            0.5550000071525574
+          ],
+          "23": [
+            -0.10060551762580872,
+            0.5547147393226624
+          ],
+          "46": [
+            -0.1000003069639206,
+            0.5550000071525574
+          ],
+          "68": [
+            -0.10060551762580872,
+            0.5547147393226624
+          ],
+          "91": [
+            -0.1000003069639206,
+            0.5550000071525574
+          ]
+        }
+      },
+      "surface_samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.2098083124765253e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.2098083124765253e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.2098083124765253e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "68": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.2098083124765253e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.2098083124765253e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.28999999165534973,
+    0.6550000086426735,
+    2.1699999570846558
+  ],
+  "materials_linear_rgba": {
+    "M_SharkShade": [
+      0.1384316086769104,
+      0.15292614698410034,
+      0.12743768095970154,
+      1.0
+    ],
+    "M_SharkWarm": [
+      0.21952620148658752,
+      0.21223075687885284,
+      0.16202937066555023,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "cd7f177a1acec94c6c75460128b00c26aefec1f10d61f0b42c2be370835b6d20",
+    "fbx": "68c2b55e57c9d5f0c32a5d7f034fbf06679c23225a281017266656709813c31e"
+  },
+  "legacy_import_required": true
+}

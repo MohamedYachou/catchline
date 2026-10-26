@@ -206,7 +206,7 @@ namespace Catchline.Game
         public static readonly UpgradeDef[] Upgrades =
         {
             new() { Id = UpgradeId.RodHolder, Name = "Rod holder", Cost = 250, Desc = "A second rod. A rod nobody is holding hooks a biting fish by itself 35% of the time; otherwise the fish usually keeps nibbling." },
-            new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 60, Desc = "Rowboat: 20 to 35 kg. Powered boats: 50% more hold weight." },
+            new() { Id = UpgradeId.BigCooler, Name = "Big cooler", Cost = 60, Desc = "Rowboat: 5 to 8 kg. Powered boats: 50% more hold weight." },
             new() { Id = UpgradeId.IceBox, Name = "Ice box", Cost = 250, Desc = "Fish keep full value. Without ice they lose up to 40% the longer they sit." },
             new() { Id = UpgradeId.LunchTin, Name = "Extra fuel tank", Cost = 100, Desc = "Double fuel capacity: 20 minutes instead of 10.", Shop = "Supplies" },
             // Retired from the market (crew cards v2): the captain's rod tool picks the rods now (GameState.RodTier).
@@ -304,7 +304,9 @@ namespace Catchline.Game
         public static int TripFuel(int spot) => Mathf.CeilToInt(Spots[spot].RowSeconds / 5f);
 
         // Hull goal
-        public const int SkiffFishGoal = 16, SkiffCost = 1500;
+        // Mo 10-26: the rowboat is a one-trip start. Bring home one full 5 kg hold, save 500 coins, refit the skiff.
+        public const int SkiffCost = 500;
+        public const float SkiffKgGoal = 5f, RowboatHoldKg = 5f, RowboatBigCoolerKg = 8f;
 
         // Crew contracts: experienced costs 2x for 1.5x the voyages; veterans are rare.
         public static int ContractVoyages(Grade g) => g switch { Grade.Hand => 2, Grade.Experienced => 3, _ => 5 };

@@ -26,6 +26,7 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 Holding: docs/briefs/**.
 
 ## Done (latest first)
+- (this commit) Let's go no longer freezes ~30 s (SeaNav 10x faster, identical graphs, built in background); fish hang mouth-up; captain steps over the rowboat thwart; Keep primary; rowboat 5 kg, skiff = full haul + 500; Mira hi-res + voice samples; open-sea life + MAP11 sand edges art (Codex 2)
 - 74f0541 Docs cleanup (69 old docs to docs/archive, CURRENT/AGENTS/README/QUESTIONS refreshed); Codex one-shot runners
 - 1ee580d Outer coast painting, oars icon, Compact/Prep fishers re-exported (no stray plane), Tier5 trim (Codex 2, accepted)
 - c3d4a28 / 26874ad / bc687f0 two charts (Gull coast / Outer coast), Coasts.cs fish rules, chart prices per boat tier

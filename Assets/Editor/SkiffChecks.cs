@@ -23,12 +23,12 @@ namespace Catchline.EditorTools
             game.AutoPlay = true;
             game.Build();
             var state = game.State;
-            state.Coins = 1500;
-            Check(!game.RefitSkiff() && state.Coins == 1500, "goal blocks refit without spending");
-            state.BestVoyageFish = 16;
-            state.Coins = 1499;
+            state.Coins = GameData.SkiffCost;
+            Check(!game.RefitSkiff() && state.Coins == GameData.SkiffCost, "goal blocks refit without spending");
+            state.BestVoyageFish = 16; state.BestVoyageKg = GameData.SkiffKgGoal;
+            state.Coins = GameData.SkiffCost - 1;
             Check(!game.RefitSkiff() && state.Hull == 0, "fee blocks refit");
-            state.Coins = 1500;
+            state.Coins = GameData.SkiffCost;
             game.Rods[0].State = RodState.Ready;
             game.Rods[0].Squid = true;
             state.Owned.Add(UpgradeId.BigCooler);
@@ -104,7 +104,7 @@ namespace Catchline.EditorTools
             game.AutoPlay = true;
             game.Build();
             var s = game.State;
-            s.Coins = 10000; s.BestVoyageFish = 16;
+            s.Coins = 10000; s.BestVoyageFish = 16; s.BestVoyageKg = GameData.SkiffKgGoal;
             Check(game.RefitSkiff(), "automation refit");
             s.Board.Clear();
             var deckhand = new CrewMember { Name = "Test hand", Role = CrewRole.Deckhand, Grade = Grade.Hand, VoyagesLeft = 2 };

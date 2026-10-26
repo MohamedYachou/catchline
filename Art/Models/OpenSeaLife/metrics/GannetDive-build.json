@@ -1,0 +1,95 @@
+{
+  "triangles": 252,
+  "mesh_bounds": {
+    "GannetDiveSkin": {
+      "triangles": 252,
+      "world_min_m": [
+        -1.034999966621399,
+        -0.570136547088623,
+        1.0
+      ],
+      "world_max_m": [
+        1.034999966621399,
+        0.44037091732025146,
+        1.2309999465942383
+      ],
+      "materials": [
+        "M_Ivory",
+        "M_Wingtip",
+        "M_BuffHead",
+        "M_Bill",
+        "M_Eye"
+      ]
+    }
+  },
+  "parents": {
+    "GannetDive": null,
+    "GannetDiveRig": "GannetDive",
+    "GannetDiveSkin": "GannetDiveRig"
+  },
+  "bounds_unity": [
+    [
+      -1.034999966621399,
+      1.0,
+      -0.44037091732025146
+    ],
+    [
+      1.034999966621399,
+      1.2309999465942383,
+      0.570136547088623
+    ]
+  ],
+  "materials": [
+    "M_Bill",
+    "M_BuffHead",
+    "M_Eye",
+    "M_Ivory",
+    "M_Wingtip"
+  ],
+  "name": "GannetDive",
+  "limit": 450,
+  "clips": {
+    "Glide": {
+      "seconds": 2.0,
+      "loop": true,
+      "frames": [
+        1,
+        61
+      ]
+    },
+    "Dive": {
+      "seconds": 0.9,
+      "loop": false,
+      "frames": [
+        1,
+        28
+      ]
+    }
+  },
+  "sha256": {
+    "blend": "1e17d97cbd972f43e998f181a8b49dacc16c9c2c85f161c04651d15558c8a4d9",
+    "fbx": "a8447efcf470816a49575addaa32e026094e85a732734783db02934f24d3300d"
+  },
+  "palette": {
+    "M_DolphinBack": "#708887",
+    "M_DolphinSide": "#A2B5B0",
+    "M_PaleBelly": "#DCE0CF",
+    "M_Ivory": "#F3F0DC",
+    "M_Wingtip": "#28343B",
+    "M_BuffHead": "#D8BE79",
+    "M_Bill": "#A9B7AD",
+    "M_Eye": "#17343D",
+    "M_SharkWarm": "#817F70",
+    "M_SharkShade": "#686D64",
+    "M_Wood": "#C58B50",
+    "M_WoodLight": "#DFB77A",
+    "M_WoodDark": "#8C5A36",
+    "M_Log": "#9A8B70",
+    "M_LogEnd": "#C2AF8C",
+    "M_Net": "#477A56",
+    "M_NetDark": "#355B48",
+    "M_Orange": "#E36A35",
+    "M_Navy": "#173F57",
+    "M_Rope": "#D1AF76"
+  }
+}

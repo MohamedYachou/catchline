@@ -1,0 +1,130 @@
+{
+  "result": "PASS",
+  "name": "FloatingCrate",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 264,
+    "mesh_bounds": {
+      "BrokenFishCrate": {
+        "triangles": 264,
+        "world_min_m": [
+          -0.3199999928474426,
+          -0.3149999976158142,
+          -0.13499999046325684
+        ],
+        "world_max_m": [
+          0.3199999928474426,
+          0.3149999976158142,
+          0.1850000023841858
+        ],
+        "materials": [
+          "M_Wood",
+          "M_WoodLight",
+          "M_WoodDark"
+        ]
+      }
+    },
+    "parents": {
+      "FloatingCrate": null,
+      "BrokenFishCrate": "FloatingCrate"
+    },
+    "bounds_unity": [
+      [
+        -0.3199999928474426,
+        -0.13499999046325684,
+        -0.3149999976158142
+      ],
+      [
+        0.3199999928474426,
+        0.1850000023841858,
+        0.3149999976158142
+      ]
+    ],
+    "materials": [
+      "M_Wood",
+      "M_WoodDark",
+      "M_WoodLight"
+    ]
+  },
+  "imported": {
+    "triangles": 264,
+    "mesh_bounds": {
+      "BrokenFishCrate": {
+        "triangles": 264,
+        "world_min_m": [
+          -0.3199999928474426,
+          -0.3150000274181366,
+          -0.13500003516674042
+        ],
+        "world_max_m": [
+          0.3199999928474426,
+          0.3150000274181366,
+          0.18500004708766937
+        ],
+        "materials": [
+          "M_Wood",
+          "M_WoodLight",
+          "M_WoodDark"
+        ]
+      }
+    },
+    "parents": {
+      "BrokenFishCrate": "FloatingCrate",
+      "FloatingCrate": null
+    },
+    "bounds_unity": [
+      [
+        -0.3199999928474426,
+        -0.13500003516674042,
+        -0.3150000274181366
+      ],
+      [
+        0.3199999928474426,
+        0.18500004708766937,
+        0.3150000274181366
+      ]
+    ],
+    "materials": [
+      "M_Wood",
+      "M_WoodDark",
+      "M_WoodLight"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 6.006850128414953e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.6399999856948853,
+    0.3199999928474426,
+    0.6299999952316284
+  ],
+  "materials_linear_rgba": {
+    "M_Wood": [
+      0.5583403706550598,
+      0.2581828534603119,
+      0.0802198201417923,
+      1.0
+    ],
+    "M_WoodDark": [
+      0.2622506618499756,
+      0.10224173218011856,
+      0.03688944876194,
+      1.0
+    ],
+    "M_WoodLight": [
+      0.7379103899002075,
+      0.47353148460388184,
+      0.1946178376674652,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "a9974573ae360f4ff8b8c3ccfb5fb869352440742ea0158ec08bd3742d742797",
+    "fbx": "4fe2ce44bc61b1dae2c943329751511a6a15fbd9e37d7106515585d8e6550cda"
+  },
+  "legacy_import_required": false
+}

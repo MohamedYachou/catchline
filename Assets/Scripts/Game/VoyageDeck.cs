@@ -245,8 +245,9 @@ namespace Catchline.Game
             if (!DeckGraph.OfKind(StationKind.SortTable).Any(s => s.In != null && s.In.UnclaimedCount > 0)) return;
             float w = compactInterface ? 100 : 150, h = compactInterface ? 72 : 96, y = ih / 2 - h / 2;
             var left = new Rect(HudGapLeft, y, w, h); var right = new Rect(HudGapRight - w, y, w, h);
-            coastalUi.Primary("deck/throw", left, "Throw", () => { CommandKeep(false); MenuSound(); }); Block(left);
-            coastalUi.Secondary("deck/keep", right, "Keep", () => { CommandKeep(true); MenuSound(); }); Block(right);
+            // Keep is the inviting choice (Mo 10-26): it gets the bold primary button, Throw the quiet one.
+            coastalUi.Secondary("deck/throw", left, "Throw", () => { CommandKeep(false); MenuSound(); }); Block(left);
+            coastalUi.Primary("deck/keep", right, "Keep", () => { CommandKeep(true); MenuSound(); }); Block(right);
         }
 
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);

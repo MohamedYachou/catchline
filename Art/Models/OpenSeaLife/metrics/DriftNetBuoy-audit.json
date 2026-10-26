@@ -1,0 +1,162 @@
+{
+  "result": "PASS",
+  "name": "DriftNetBuoy",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 586,
+    "mesh_bounds": {
+      "OrangeNetFloat": {
+        "triangles": 100,
+        "world_min_m": [
+          -0.2199999988079071,
+          -0.20923243463039398,
+          -0.19499999284744263
+        ],
+        "world_max_m": [
+          0.2199999988079071,
+          0.20923243463039398,
+          0.3499999940395355
+        ],
+        "materials": [
+          "M_Orange"
+        ]
+      },
+      "TangledNet": {
+        "triangles": 486,
+        "world_min_m": [
+          -0.4317699372768402,
+          -0.36682480573654175,
+          -0.3325282335281372
+        ],
+        "world_max_m": [
+          0.441472589969635,
+          0.3718322217464447,
+          0.2559221684932709
+        ],
+        "materials": [
+          "M_Net",
+          "M_NetDark"
+        ]
+      }
+    },
+    "parents": {
+      "DriftNetBuoy": null,
+      "OrangeNetFloat": "DriftNetBuoy",
+      "TangledNet": "DriftNetBuoy"
+    },
+    "bounds_unity": [
+      [
+        -0.4317699372768402,
+        -0.3325282335281372,
+        -0.3718322217464447
+      ],
+      [
+        0.441472589969635,
+        0.3499999940395355,
+        0.36682480573654175
+      ]
+    ],
+    "materials": [
+      "M_Net",
+      "M_NetDark",
+      "M_Orange"
+    ]
+  },
+  "imported": {
+    "triangles": 586,
+    "mesh_bounds": {
+      "OrangeNetFloat": {
+        "triangles": 100,
+        "world_min_m": [
+          -0.2199999988079071,
+          -0.20923243463039398,
+          -0.19499999284744263
+        ],
+        "world_max_m": [
+          0.2199999988079071,
+          0.20923244953155518,
+          0.3499999940395355
+        ],
+        "materials": [
+          "M_Orange"
+        ]
+      },
+      "TangledNet": {
+        "triangles": 486,
+        "world_min_m": [
+          -0.4317699372768402,
+          -0.36682483553886414,
+          -0.332528293132782
+        ],
+        "world_max_m": [
+          0.441472589969635,
+          0.3718321621417999,
+          0.2559221684932709
+        ],
+        "materials": [
+          "M_Net",
+          "M_NetDark"
+        ]
+      }
+    },
+    "parents": {
+      "OrangeNetFloat": "DriftNetBuoy",
+      "TangledNet": "DriftNetBuoy",
+      "DriftNetBuoy": null
+    },
+    "bounds_unity": [
+      [
+        -0.4317699372768402,
+        -0.332528293132782,
+        -0.3718321621417999
+      ],
+      [
+        0.441472589969635,
+        0.3499999940395355,
+        0.36682483553886414
+      ]
+    ],
+    "materials": [
+      "M_Net",
+      "M_NetDark",
+      "M_Orange"
+    ]
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 2,
+    "max_vertex_error_metres": 8.429369557916289e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    0.8732425272464752,
+    0.6825282275676727,
+    0.7386570274829865
+  ],
+  "materials_linear_rgba": {
+    "M_Net": [
+      0.06301001459360123,
+      0.1946178376674652,
+      0.09305896610021591,
+      1.0
+    ],
+    "M_NetDark": [
+      0.03560131415724754,
+      0.10461648553609848,
+      0.06480326503515244,
+      1.0
+    ],
+    "M_Orange": [
+      0.7681511640548706,
+      0.1441284716129303,
+      0.03560131415724754,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "122edd3e544230cbbf5505d4c89950e11500eff469f0a7455341cc2b8373b3a1",
+    "fbx": "4ab594e0d1f7fba0d7a31df3a980dc6be4dc02008a631fd21fd5a91bafc2a9b6"
+  },
+  "legacy_import_required": false
+}

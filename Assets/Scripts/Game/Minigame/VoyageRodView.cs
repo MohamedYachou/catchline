@@ -336,7 +336,8 @@ namespace Catchline.Game
                     var view = g.Cam.transform;
                     var nose = Quaternion.AngleAxis(swing, view.forward) * Vector3.up;
                     var flank = Vector3.ProjectOnPlane(view.position - mouth, nose).normalized;
-                    var hanging = Quaternion.LookRotation(nose, Vector3.Cross(nose, flank))
+                    // Older fish carry their head at -Z; point whichever end holds the mouth up the line.
+                    var hanging = Quaternion.LookRotation(landedMouth.z < 0 ? -nose : nose, Vector3.Cross(nose, flank))
                         * Quaternion.AngleAxis(flap * (flat ? 1.4f : 1), flat ? Vector3.forward : Vector3.up);
                     var thrashing = Quaternion.LookRotation(right) * Quaternion.Euler(Mathf.Sin(a * 17) * 25 * m.Thrash, 0,
                         Mathf.Sin(a * 9) * 6 + (jump < 1 ? Mathf.Lerp(-45, 45, jump) : 0));

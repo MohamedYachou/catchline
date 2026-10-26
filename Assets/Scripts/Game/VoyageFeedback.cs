@@ -75,7 +75,7 @@ namespace Catchline.Game
             var upgrade = GameData.Upgrade(id);
             GUILayout.Space(12f);
             GUILayout.Label("Make the next trip better", Ui.H2);
-            GUILayout.Label(id == UpgradeId.BigCooler ? "A bigger cooler carries six more fish and makes the skiff's 16-fish goal possible." : "A second rod lets you keep another line fishing while you work. Then hire a deckhand to handle bait and carrying.", Ui.Body);
+            GUILayout.Label(id == UpgradeId.BigCooler ? "A bigger cooler carries a few more fish home each trip." : "A second rod lets you keep another line fishing while you work. Then hire a deckhand to handle bait and carrying.", Ui.Body);
             int shortfall = Mathf.Max(0, upgrade.Cost - State.Coins);
             GUILayout.Label(shortfall > 0 ? $"{upgrade.Name}: {upgrade.Cost} coins · {shortfall} more to go" : $"{upgrade.Name}: {upgrade.Cost} coins · you can afford it", Ui.Small);
             if (GUILayout.Button("Visit Chandlery", Ui.BtnAlt, GUILayout.Height(44f))) OpenShop(HudTab.Chandlery);

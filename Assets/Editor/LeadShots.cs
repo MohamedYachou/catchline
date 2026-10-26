@@ -118,7 +118,7 @@ namespace Catchline.EditorTools
         static void Refit()
         {
             var g = Game("Refit shot"); Rebuild(g, 0);
-            g.State.Coins = 5000; g.State.BestVoyageFish = GameData.SkiffFishGoal;
+            g.State.Coins = 5000; g.State.BestVoyageKg = GameData.SkiffKgGoal;
             g.RefitSkiff();
             float clock = 0;
             foreach (float at in new[] { .3f, .7f, 1.6f })
@@ -143,8 +143,8 @@ namespace Catchline.EditorTools
             void Both(string name) { ShotUi(g, name); ShotUi(g, name + "-phone", 844, 390); }
             Set("panelOpen", false);
             Step(VoyageGame.TutStep.Hello); Both("tut-hello");
-            s.Coins = 200; s.BestVoyageFish = 3; Step(VoyageGame.TutStep.Skiff); Both("tut-skiff");
-            s.Coins = 5000; s.BestVoyageFish = GameData.SkiffFishGoal; Step(VoyageGame.TutStep.Refit); Both("tut-refit-tab");
+            s.Coins = 200; s.BestVoyageKg = 2f; Step(VoyageGame.TutStep.Skiff); Both("tut-skiff");
+            s.Coins = 5000; s.BestVoyageKg = GameData.SkiffKgGoal; Step(VoyageGame.TutStep.Refit); Both("tut-refit-tab");
             Set("panelOpen", true); Set("hudTab", VoyageGame.HudTab.Chandlery); ShotUi(g, "tut-refit-shop");
             Rebuild(g, 1); s.Roster.Clear(); s.Deployment.Clear(); s.EnsureCards();
             Set("panelOpen", false); Step(VoyageGame.TutStep.Welcome); Both("tut-welcome-tab");
