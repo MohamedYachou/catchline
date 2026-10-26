@@ -7,7 +7,7 @@ namespace Catchline.Game
 {
     public partial class VoyageGame
     {
-        public bool IsPrepFisher => State != null && State.Hull >= 3;
+        public bool IsPrepFisher => State != null && State.Tier >= 4;
         public Vector2Int[] PrepWorkerTiles { get; private set; } = System.Array.Empty<Vector2Int>();
         Transform rawBuckets, rawIceCoolers;
 

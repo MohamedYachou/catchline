@@ -9,6 +9,7 @@ namespace Catchline.Game
     {
         void DressSkerries(GameObject environment, ArtLibrary lib)
         {
+            if (DressGullCoastLife(environment, lib)) return;
             int reef = 0;
             foreach (var t in environment.GetComponentsInChildren<Transform>())
             {

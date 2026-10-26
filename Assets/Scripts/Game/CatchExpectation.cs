@@ -26,7 +26,7 @@ namespace Catchline.Game
             {
                 foreach(var e in state.FishTable(spot))
                 {
-                    if(state.Hull<GameData.MinimumHull(e.species))continue;
+                    if(state.Tier<GameData.MinimumHull(e.species))continue;
                     float h=GameData.Get(e.species).Heaviness;
                     float weight=e.weight*Mathf.Lerp(1-.7f*h,1+1.6f*h,power);
                     if(bait==BaitPermission.Chum)weight*=.01f+h*h*8;
@@ -73,7 +73,7 @@ namespace Catchline.Game
                 float remaining=target-mass,total=0;
                 foreach(var e in table)
                 {
-                    if(hull<GameData.MinimumHull(e.species))continue;
+                    if(GameData.HullTier(hull)<GameData.MinimumHull(e.species))continue;
                     var d=GameData.Get(e.species);if(!large&&!SmallSchool(e.species))continue;
                     float min=Mathf.Lerp(d.MinKg,d.MaxKg,large?.65f:.05f);if(min>remaining)continue;
                     total+=e.weight*(large?.08f+6f*d.Heaviness*d.Heaviness:1);
@@ -82,7 +82,7 @@ namespace Catchline.Game
                 float roll=(float)rng.NextDouble()*total;Species species=table[0].species;
                 foreach(var e in table)
                 {
-                    if(hull<GameData.MinimumHull(e.species))continue;
+                    if(GameData.HullTier(hull)<GameData.MinimumHull(e.species))continue;
                     var d=GameData.Get(e.species);if(!large&&!SmallSchool(e.species))continue;
                     float min=Mathf.Lerp(d.MinKg,d.MaxKg,large?.65f:.05f);if(min>remaining)continue;
                     species=e.species;roll-=e.weight*(large?.08f+6f*d.Heaviness*d.Heaviness:1);if(roll<=0)break;

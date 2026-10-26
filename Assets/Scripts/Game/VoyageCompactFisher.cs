@@ -7,7 +7,7 @@ namespace Catchline.Game
 {
     public partial class VoyageGame
     {
-        public bool IsNetFisher => State != null && State.Hull >= 2;
+        public bool IsNetFisher => State != null && State.Tier >= 2;
         Transform netModelRoot;
         Quaternion compactLidRest;
         public int CompactWalkableTiles { get; private set; }
@@ -21,6 +21,7 @@ namespace Catchline.Game
             foreach (var t in model.GetComponentsInChildren<Transform>())
                 if (t.name.StartsWith("RodVisual_")) t.gameObject.SetActive(false);
             compactLidRest = ArtLibrary.Find(model, "HoldLid")?.localRotation ?? Quaternion.identity;
+            if (IsJigBoat) ConfigureJigBoat(model);
             if (IsPrepFisher) ConfigurePrepFisher(model);
             if (IsTier5) ConfigureTier5(model);
             BuildSecondNetModuleVisual(model);
@@ -66,7 +67,8 @@ namespace Catchline.Game
                     bool blocked = segments.Any(s => SegmentDistance(point, s.a, s.b) < .28f);
                     // Hold opening below the first body-height slice.
                     var native = new Vector2(State.HullDef.Center.z - local.z, State.HullDef.Center.x - local.x);
-                    if (!IsPrepFisher && native.x > -.97f - .28f && native.x < -.33f + .28f && native.y > -1.13f - .28f && native.y < -.37f + .28f) blocked = true;
+                    if (!IsPrepFisher && !IsJigBoat && native.x > -.97f - .28f && native.x < -.33f + .28f && native.y > -1.13f - .28f && native.y < -.37f + .28f) blocked = true;
+                    if (IsJigBoat && local.x > 2.795f && local.x < 4.305f && local.z > .58f && local.z < 1.82f) blocked = true;
                     // The low net basket sits below the body slices too.
                     var basket = NetBasketLocal;
                     var nearBasket = new Vector2(Mathf.Clamp(local.x, basket.x - .18f, basket.x + .18f), Mathf.Clamp(local.z, basket.z - .24f, basket.z + .24f));
@@ -129,7 +131,7 @@ namespace Catchline.Game
 
         public bool TrialCompactFisher()
         {
-            if (!SessionOnly || CurrentMode != Mode.Harbour || State.Hull == 2) return false;
+            if (!SessionOnly || CurrentMode != Mode.Harbour || State.Tier == 2) return false;
             State.Hull = 2;
             // A layout-trial downgrade releases the extra temporary trial berth.
             while (State.CrewCount > State.HullDef.CrewCap && State.ExtraCrew.Count > 0)

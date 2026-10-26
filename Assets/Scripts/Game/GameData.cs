@@ -124,10 +124,10 @@ namespace Catchline.Game
         // UI041 append-only IDs: rarity controls presentation; these values are first-pass tuning.
         public static int MinimumHull(Species s) => s switch
         {
-            Species.Crab => 4,
+            Species.Crab => 5,
             Species.YellowfinTuna or Species.Barracuda or Species.MahiMahi or Species.Monkfish => 2,
             Species.GoldenPuffer or Species.SpottedEagleRay or Species.BlueSpottedStingray or Species.FlyingFish or Species.Lionfish => 2,
-            Species.ApexReefShark or Species.GoldTipShark or Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish or Species.ScallopedHammerhead or Species.PelagicThresherShark or Species.GiantSquid => 3,
+            Species.ApexReefShark or Species.GoldTipShark or Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish or Species.ScallopedHammerhead or Species.PelagicThresherShark or Species.GiantSquid => 4,
             _ => 0
         };
 
@@ -258,6 +258,9 @@ namespace Catchline.Game
         public const float FreshnessLossPerMinute = 0.07f, MinFreshness = 0.6f;
         public const int MaxActiveContracts = 2;
 
+        // Saved IDs remain append-only; tiers describe progression, never save identity.
+        public static int HullTier(int hullId) => hullId switch { 0 => 0, 1 => 1, 2 => 2, 3 => 4, 4 => 5, 5 => 3, _ => 0 };
+
         public static readonly HullDef[] Hulls =
         {
             // Crew roles are flexible; every hull keeps enough offers for each available berth.
@@ -297,6 +300,14 @@ namespace Catchline.Game
                 Blocked = System.Array.Empty<Vector2Int>(),
                 RodTiles = new[] { new Vector2Int(33,31), new Vector2Int(33,3), new Vector2Int(47,3), new Vector2Int(62,3) },
                 RodBases = new[] { new Vector3(3.25f,.47f,3.6f), new Vector3(3.25f,.47f,-.2f), new Vector3(4.7f,.47f,-.2f), new Vector3(6.15f,.47f,-.2f) } },
+            // Appended saved ID 5: Jig slots measured from the native imported FBX, bow -X.
+            new() { Name = "Jig boat", Model = "JigBoatV1", SailSpeed = 10f, Width = 61, Height = 25, CellSize = .1f,
+                Capacity = 130, CrewCap = 5, TravelMultiplier = .5f,
+                Hold = new(36,12), HoldAccess = new(36,5), Seat = new(23,12), Rest = new(28,5), NetAccess = new(54,9),
+                CrewRest = new[] { new Vector2Int(28,5), new Vector2Int(45,12), new Vector2Int(24,21), new Vector2Int(45,20), new Vector2Int(53,12) },
+                Blocked = System.Array.Empty<Vector2Int>(),
+                RodTiles = new[] { new Vector2Int(29,20), new Vector2Int(41,20), new Vector2Int(52,20) },
+                RodBases = new[] { new Vector3(2.88f,.64f,2.7f), new Vector3(4.08f,.64f,2.7f), new Vector3(5.25f,.64f,2.7f) } },
         };
 
         // Legacy pack constants retained for fixtures. Timed tanks use GameState.FuelFillCost.

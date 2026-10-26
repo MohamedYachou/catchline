@@ -24,7 +24,7 @@ namespace Catchline.Game
             float power=.55f+(bait==BaitPermission.Squid?GameData.SquidPowerBonus:0);
             foreach(var entry in state.FishTable(spot))
             {
-                if(state.Hull<GameData.MinimumHull(entry.species))continue;
+                if(state.Tier<GameData.MinimumHull(entry.species))continue;
                 var fish=GameData.Get(entry.species);float h=fish.Heaviness;
                 float weight=entry.weight*UnityEngine.Mathf.Lerp(1-.7f*h,1+1.6f*h,power);
                 if(bait==BaitPermission.Chum)weight*=.01f+h*h*8;

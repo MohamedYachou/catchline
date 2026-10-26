@@ -21,7 +21,7 @@ namespace Catchline.Game
         public int NetBasketCount => UsesDeckGraph ? DeckGraph.OfKind(Deck.StationKind.Net).Sum(s => s.Out?.Count ?? 0) : OnDeck.FindAll(f => f.FromNetBasket).Count;
         public bool NetBasketBlocked => NetBasketCount > 0;
         Vector2Int NetAccess => IsTier5 && tier5RearNetAccess.HasValue ? tier5RearNetAccess.Value : IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
-        Vector3 NetBasketLocal => IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
+        Vector3 NetBasketLocal => IsJigBoat ? new(5.9f,.14f,.9f) : IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
 
         void BuildNetKit()
         {

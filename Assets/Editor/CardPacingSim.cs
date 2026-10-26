@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -21,7 +21,7 @@ namespace Catchline.EditorTools
         {
             public int Seed, Profile;
             public int[] Reached = { Missing, Missing, Missing, Missing };
-            public int[] HullDays = { 1, Missing, Missing, Missing };
+            public int[] HullDays = { 1, Missing, Missing, Missing, Missing };
             public int[] Road = new int[3], Renown = new int[3];
             public long Earned, Spent, Haul, ChestTokens, RoadTokens, Sales, Wages, Operating, Hulls, Levels, ChestCoins;
             public int ChestCount, SeaCount, Blueprints, FocusBlueprints, Daily, Contract, Missed, EndingCoins, EndingTokens;
@@ -86,23 +86,24 @@ namespace Catchline.EditorTools
         static void BuyHull(GameState s, Result r, int day)
         {
             int before = s.Coins, hull = s.Hull;
-            // One necessary hold upgrade clears the real 100kg Prep refit gate.
+            // Retain the previous experiment's tier-2 cooler policy for comparability; Jig no longer requires it.
             if (s.Hull == 2 && !s.Has(UpgradeId.BigCooler) && s.Coins >= s.UpgradeCost(UpgradeId.BigCooler) + s.DepartureWages + OperatingCoins) s.TryBuy(UpgradeId.BigCooler);
-            int nextTier = s.Hull == 1 ? 2 : s.Hull == 2 ? 4 : 5;
+            int nextTier = Math.Min(s.Tier + 1, 5);
             int reserve = Cards.All.Where(d => d.TierGranted <= nextTier).Take(CardRoster.BerthsForTier(nextTier)).Sum(d => (CardRoster.Find(s.Roster, d.Id) ?? new CardState(d.Id)).Wage()) + OperatingCoins;
-            int cost = s.Hull == 1 ? GameState.CompactFisherCost : s.Hull == 2 ? GameState.PrepFisherCost : GameState.Tier5Cost;
+            int cost = s.Tier switch { 1 => GameState.CompactFisherCost, 2 => GameState.JigBoatCost, 3 => GameState.PrepFisherCost, _ => GameState.Tier5Cost };
             if (s.Coins < cost + reserve) { r.Hulls += before - s.Coins; return; }
             if (s.Hull == 1) s.RefitCompact();
-            else if (s.Hull == 2) s.RefitPrep();
-            else if (s.Hull == 3) s.RefitTier5();
+            else if (s.Tier == 2) s.RefitJig();
+            else if (s.Tier == 3) s.RefitPrep();
+            else if (s.Tier == 4) s.RefitTier5();
             r.Hulls += before - s.Coins;
-            if (s.Hull != hull) { r.HullDays[s.Hull - 1] = day; Deploy(s); }
+            if (s.Hull != hull) { r.HullDays[s.Tier - 1] = day; Deploy(s); }
         }
         static List<CaughtFish> Catch(GameState s, System.Random rng, float kg)
         {
             // Equal draws among ordinary early fish eligible on this hull. No rare jackpots; this is an assumed haul, not catch-time simulation.
             Species[] pool = { Species.Herring, Species.Mackerel, Species.Pollock, Species.SeaBass, Species.Cod };
-            var eligible = pool.Where(x => GameData.MinimumHull(x) <= s.Hull).ToArray();
+            var eligible = pool.Where(x => GameData.MinimumHull(x) <= s.Tier).ToArray();
             var fish = new List<CaughtFish>();
             while (kg > .0001f)
             {
@@ -181,11 +182,11 @@ namespace Catchline.EditorTools
                 for (int k = 0; k < 4; k++) report.Append(" | " + Range(rows.Select(r => r.Reached[k])));
                 report.AppendLine(" | " + rows.Count(r => r.Reached[2] <= Days) + "/200 |");
             }
-            report.AppendLine().AppendLine("| Profile | Road milestone day 30 / 60 / 180 (median) | Renown day 30 / 60 / 180 (median) | Tier 2 / 4 / 5 days (median [p10,p90]) |").AppendLine("|---|---|---|---|");
+            report.AppendLine().AppendLine("| Profile | Road milestone day 30 / 60 / 180 (median) | Renown day 30 / 60 / 180 (median) | Tier 2 / 3 / 4 / 5 days (median [p10,p90]) |").AppendLine("|---|---|---|---|");
             for (int p = 0; p < 3; p++)
             {
                 var rows = all.Where(r => r.Profile == p).ToArray();
-                report.AppendLine("| " + Profiles[p] + " | " + string.Join(" / ", Enumerable.Range(0, 3).Select(k => Quantile(rows.Select(r => r.Road[k]), .5))) + " | " + string.Join(" / ", Enumerable.Range(0, 3).Select(k => Quantile(rows.Select(r => r.Renown[k]), .5))) + " | " + string.Join(" / ", Enumerable.Range(1, 3).Select(k => Range(rows.Select(r => r.HullDays[k])))) + " |");
+                report.AppendLine("| " + Profiles[p] + " | " + string.Join(" / ", Enumerable.Range(0, 3).Select(k => Quantile(rows.Select(r => r.Road[k]), .5))) + " | " + string.Join(" / ", Enumerable.Range(0, 3).Select(k => Quantile(rows.Select(r => r.Renown[k]), .5))) + " | " + string.Join(" / ", Enumerable.Range(1, 4).Select(k => Range(rows.Select(r => r.HullDays[k])))) + " |");
             }
             report.AppendLine().AppendLine("180-day means (tokens earned and spent are exact per-run reconciled ledgers):");
             report.AppendLine("| Profile | Haul tokens | Chest tokens | Road tokens | Total earned | Spent | Banked | Chests / sea chests | Dropped BP / focused BP |").AppendLine("|---|---:|---:|---:|---:|---:|---:|---:|---:|");
@@ -216,10 +217,10 @@ namespace Catchline.EditorTools
             string logs = Path.GetFullPath(Path.Combine(Application.dataPath, "../Logs")); Directory.CreateDirectory(logs);
             var report = new StringBuilder("# Crew card pacing — measured real API\n\n");
             report.AppendLine("200 seeds (1..200) per profile, 180 days, 2/5/10 trips daily. Focus Noor from White level 1; Mira excluded from focus progression. GrantTrialCards at every hull fills the unlocked roster for free (welcome reward removed); this isolates progression with full deployments and DOES NOT measure recruitment time or cost. All rarity/level/star costs and reward rolls use GameState APIs. No save is read or written. No game data source is edited.\n");
-            report.AppendLine("Start already owning tier-1 Skiff, default StartCoins, no other equipment. Refit costs come from live constants (Compact 4000, Prep 9500, Buoy 18000). Buy BigCooler at tier2 (3000) to clear Prep's100kg gate; it persists on later hulls. The real CardTier path is 1/2/4/5: future tier3 is unavailable. Hull days below emerge from actual cash, not invented unlock dates.\n");
+            report.AppendLine("Start already owning tier-1 Skiff, default StartCoins, no other equipment. Refit costs come from live constants (Compact 4000, Jig 6500, Prep 9500, Buoy 18000). Retain the prior experiment's optional BigCooler purchase at tier2 (3000); it persists on later hulls. Jig's130kg hold can clear the100kg Prep gate without it. The real CardTier path is 1/2/3/4/5, with saved Jig ID5 mapped to tier3. Hull days below emerge from actual cash, not invented unlock dates.\n");
             report.AppendLine("Income assumption: each trip's target fill is uniform[0.6,1.0); fill each hold with equal draws of eligible Herring/Mackerel/Pollock/SeaBass/Cod, weight uniform within real species limits. Last fish is clipped to remaining target kg (synthetic haul approximation). Sell at time0 (fresh), with real specimen prices; no rare jackpot, depletion, catch-time, ability productivity, gear upgrades or contract cash. Deduct real wages and an assumed10coins/trip fuel/bait reserve. These are conditional economy estimates, not a one-hour gameplay measurement.\n");
             report.AppendLine("Working capital: level spending keeps departure wages +20coins; hull purchases retain the next deployment wages +10coins. Policy per return: real Sell; AwardHaulTokens using departure deployment; daily crate deduplicated by simulated date; one contract crate every third day. Open all chests, focus-level before rank/stars, claim renown immediately to Noor (after maxing, unused choices go to another eligible card), repeat to convergence. Then buy the next affordable hull/cooler, then repeatedly buy sea chests while coins exceed3xprice, settling after each. Other cards stay at starting rarity/level; deploy navigator then roster order to all real berths. No prestige. Separate seeded fill/income and chest RNG streams; same seeds per scenario, but hull timing can change with costs/rewards.\n");
-            var csv = new StringBuilder("scenario,profile,seed,purple,gold,mythic,stars5,tier2,tier4,tier5,road30,road60,road180,tokensEarned,tokensSpent,coinsEnd,chests,seaChests\n");
+            var csv = new StringBuilder("scenario,profile,seed,purple,gold,mythic,stars5,tier2,tier3,tier4,tier5,road30,road60,road180,tokensEarned,tokensSpent,coinsEnd,chests,seaChests\n");
             var sea = Chests.Def(ChestKind.SeaChest); float original = sea.BlueprintChance; int originalPrice = sea.PriceBase;
             try
             {
@@ -232,7 +233,7 @@ namespace Catchline.EditorTools
                     for (int p = 0; p < 3; p++) for (int seed = 1; seed <= Seeds; seed++)
                     {
                         var r = Simulate(p, seed); results.Add(r);
-                        csv.AppendLine(string.Join(",", new object[] { sea.PriceBase, Profiles[p], seed, r.Reached[0], r.Reached[1], r.Reached[2], r.Reached[3], r.HullDays[1], r.HullDays[2], r.HullDays[3], r.Road[0], r.Road[1], r.Road[2], r.Earned, r.Spent, r.EndingCoins, r.ChestCount, r.SeaCount }));
+                        csv.AppendLine(string.Join(",", new object[] { sea.PriceBase, Profiles[p], seed, r.Reached[0], r.Reached[1], r.Reached[2], r.Reached[3], r.HullDays[1], r.HullDays[2], r.HullDays[3], r.HullDays[4], r.Road[0], r.Road[1], r.Road[2], r.Earned, r.Spent, r.EndingCoins, r.ChestCount, r.SeaCount }));
                     }
                     Tables(report, name, results);
                     var regular = results.Where(r => r.Profile == 1).ToArray();

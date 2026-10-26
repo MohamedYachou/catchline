@@ -41,8 +41,8 @@ namespace Catchline.Game
         public readonly List<ChestKind> PendingChests = new();
         public string LastCrateDay = "";                     // yyyy-MM-dd of the last first-sale crate
         readonly List<CrewMember> cardCrew = new();
-        // Existing hull indexes skip the future tier-3 jig boat.
-        public int CardTier => Hull >= 3 ? Hull + 1 : Hull;
+        // Crew progression follows tiers; append-only hull IDs are a separate identity.
+        public int CardTier => Tier;
         public int CardBerths => CardRoster.BerthsForTier(CardTier);
         public int DepartureWages { get { EnsureCards(); return CardRoster.TotalWages(Roster, Deployment); } }
         public bool CardAvailable(CardState card) => CardRoster.Available(card, CardTier);

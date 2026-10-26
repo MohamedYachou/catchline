@@ -81,8 +81,9 @@ namespace Catchline.Game
         public int NetInventory = 3;
         public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
         public int CrabPots; // pots the captain sets beside a hull 1-3 boat at every ground (VoyageCrabPots.cs)
+        public int Tier => GameData.HullTier(Hull);
         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
-        public bool CanRefit => Hull == 0 && SkiffHaulDone && Coins >= GameData.SkiffCost;
+        public bool CanRefit => Tier == 0 && SkiffHaulDone && Coins >= GameData.SkiffCost;
         public bool SkiffHaulDone => BestVoyageKg >= GameData.SkiffKgGoal - .001f;
         public readonly HashSet<UpgradeId> Owned = new();
         public readonly float[] Richness;
@@ -129,11 +130,11 @@ namespace Catchline.Game
         }
 
         public bool Has(UpgradeId id) => Owned.Contains(id);
-        public float CoolerCapacity => Hull == 0 ? (Has(UpgradeId.BigCooler) ? GameData.RowboatBigCoolerKg : GameData.RowboatHoldKg) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
+        public float CoolerCapacity => Tier == 0 ? (Has(UpgradeId.BigCooler) ? GameData.RowboatBigCoolerKg : GameData.RowboatHoldKg) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
         public float FuelCapacity => Has(UpgradeId.LunchTin) ? 20f : 10f;
         public float FuelFraction => Mathf.Clamp01(Fuel / FuelCapacity);
         public int FuelFillCost => Mathf.CeilToInt(Mathf.Max(0, FuelCapacity - Fuel) - .00001f);
-        public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Hull > 0 ? 4f : 1f);
+        public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Tier > 0 ? 4f : 1f);
         public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
         public float BiteWindow => RodTier >= 2 ? 1.4f : RodTier >= 1 ? 1.15f : GameData.BiteWindow;
         public float ReelSpeed => RodTier >= 2 ? 1.5f : RodTier >= 1 ? 1.25f : 1f;
@@ -175,7 +176,7 @@ namespace Catchline.Game
         public bool BuyFuel()
         {
             int cost = FuelFillCost;
-            if (Hull == 0 || cost <= 0 || Coins < cost) return false;
+            if (Tier == 0 || cost <= 0 || Coins < cost) return false;
             Coins -= cost;
             Fuel = FuelCapacity;
             return true;
@@ -358,7 +359,7 @@ namespace Catchline.Game
             if (Rand() < 0.75f) Board.Add(NewCrew(Grade.Hand));
             if (Rand() < 0.4f) Board.Add(NewCrew(Grade.Experienced));
             if (Rand() < 0.06f) Board.Add(NewCrew(Grade.Veteran));
-            if (Hull > 0)
+            if (Tier > 0)
             {
                 if (Rand() < .8f) Board.Add(NewCrew(Grade.Hand, CrewRole.Fisherman));
                 if (Rand() < .5f) Board.Add(NewCrew(Grade.Experienced, CrewRole.Fisherman));
@@ -416,7 +417,7 @@ namespace Catchline.Game
             for (int i = 0; i < GameData.Spots.Length; i++)
                 if (Known(i))
                     foreach (var e in GameData.Spots[i].Table)
-                        if (Hull >= GameData.MinimumHull(e.species) && Coasts.Allowed(i, e.species)) pool.Add(e);
+                        if (Tier >= GameData.MinimumHull(e.species) && Coasts.Allowed(i, e.species)) pool.Add(e);
             float total = 0f;
             foreach (var e in pool) total += e.Item2;
             float roll = Rand() * total;
@@ -456,7 +457,7 @@ namespace Catchline.Game
             var weights = new float[table.Length];
             for (int i = 0; i < table.Length; i++)
             {
-                if (Hull < GameData.MinimumHull(table[i].species)) { weights[i] = 0; continue; }
+                if (Tier < GameData.MinimumHull(table[i].species)) { weights[i] = 0; continue; }
                 float h = GameData.Get(table[i].species).Heaviness;
                 weights[i] = table[i].weight * Mathf.Lerp(1f - 0.7f * h, 1f + 1.6f * h, power);
                 // Premium bait targets substantial fish; small schools remain possible, not dominant.
@@ -514,7 +515,7 @@ namespace Catchline.Game
             }
         }
 
-        public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
+        public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Tier >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
 
         // M4: at a ground the catch drains that species there: rods and lines -0.02 per catch, nets -0.004 per kg.
         public void OnCatch(int spot, float kg, Species species, bool net)

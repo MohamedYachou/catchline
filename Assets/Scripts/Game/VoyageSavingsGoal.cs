@@ -10,7 +10,8 @@ namespace Catchline.Game
         {
             0 => ("Skiff", GameData.SkiffCost, !State.SkiffHaulDone ? $"Best haul {State.BestVoyageKg:0.#}/{GameData.SkiffKgGoal:0} kg" : null),
             1 => ("Compact fisher", GameState.CompactFisherCost, null),
-            2 => ("Prep fisher", GameState.PrepFisherCost, State.BestVoyageKg < GameState.PrepFisherKgGoal ? $"Best haul {State.BestVoyageKg:0}/{GameState.PrepFisherKgGoal} kg" : null),
+            2 => ("Jig boat", GameState.JigBoatCost, null),
+            5 => ("Prep fisher", GameState.PrepFisherCost, State.BestVoyageKg < GameState.PrepFisherKgGoal ? $"Best haul {State.BestVoyageKg:0}/{GameState.PrepFisherKgGoal} kg" : null),
             3 => ("Buoy fisher", GameState.Tier5Cost, null),
             _ => null,
         };

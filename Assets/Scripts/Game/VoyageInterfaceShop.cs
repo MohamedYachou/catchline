@@ -46,14 +46,15 @@ namespace Catchline.Game
             {
                 "supplies/worms" or "supplies/worms-bulk" => "v2-item-worms", "supplies/squid" or "supplies/squid-bulk" => "v2-item-squid",
                 "supplies/fuel" => "v2-item-fuel", "supplies/net" => "v2-item-net", "supplies/deep-net" => "v2-item-deep-net",
+                "refit/jig" => "v2-item-hull-jig",
                 "module/second-net" => "v2-item-netsystem", "refit" => "v2-item-skiff", _ => "v2-item-compact-fisher"
             };
         }
         // The boat on the refit card: its own illustration when one exists, else the nearest boat we have drawn (PS-15).
         string HullArt()
         {
-            string own = "v2-item-hull" + State.Hull;
-            return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Hull >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
+            string own = State.Hull == 5 ? "v2-item-hull-jig" : "v2-item-hull" + State.Hull;
+            return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Tier >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
         }
         // Card line: the first clause of the description, as short as the concept's "+50% hold space".
         static string Effect(string description)
@@ -250,14 +251,15 @@ namespace Catchline.Game
                 "icon-net", State.SecondNetOwned ? State.SecondNetEnabled ? "Switch off · restore rods" : "Switch on / two nets" : "Buy / 2,000 coins",
                 State.SecondNetOwned || State.Coins >= GameState.SecondNetModuleCost,
                 () => { if (State.SecondNetOwned) ToggleSecondNetModule(); else BuySecondNetModule(); });
-            if (State.Hull == 3) Product("refit/tier5", "Buoy fisher · Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
+            if (State.Tier == 4) Product("refit/tier5", "Buoy fisher · Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
             foreach (var u in GameData.Upgrades.Where(u => u.Shop == "Chandlery")) InterfaceUpgrade(u);
-            Product("refit", State.Hull > 0 ? State.HullDef.Name : "Skiff refit", State.Hull > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home a full {GameData.SkiffKgGoal:0} kg haul. Best: {State.BestVoyageKg:0.#} kg.", "icon-skiff",
-                State.Hull > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
-                State.Hull == 0 && State.SkiffHaulDone && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
-            if (State.Hull == 1) Product("refit/compact", "Compact fisher", "Tier 3 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
+            Product("refit", State.Tier > 0 ? State.HullDef.Name : "Skiff refit", State.Tier > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home a full {GameData.SkiffKgGoal:0} kg haul. Best: {State.BestVoyageKg:0.#} kg.", "icon-skiff",
+                State.Tier > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
+                State.Tier == 0 && State.SkiffHaulDone && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
+            if (State.Tier == 1) Product("refit/compact", "Compact fisher", "Tier 2 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
-            if (State.Hull == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
+            if (State.Tier == 2) Product("refit/jig", "Jig boat · Tier 3", "130 kg hold · five crew berths · three jig reels · squid lamps. Your crew and upgrades transfer.", "icon-skiff", $"Refit / {GameState.JigBoatCost:N0} coins", State.CanRefitJig, () => RefitJig());
+            if (State.Tier == 3) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
                 $"Refit / {GameState.PrepFisherCost:N0} coins", State.CanRefitPrep, () => RefitPrep());
         }
         void InterfaceUpgrade(UpgradeDef u)
@@ -278,7 +280,7 @@ namespace Catchline.Game
             Product("supplies/squid-bulk", "Squid · bulk box", $"{GameData.SquidBulkSize} hooks · favour bigger specimens", "icon-squid", $"Buy · {GameData.SquidBulkCost} coins", State.Coins >= GameData.SquidBulkCost, () => { if (State.BuySquid(true)) SaveGame(); });
             int cost = State.FuelFillCost;
             foreach (var upgrade in GameData.Upgrades.Where(u => u.Shop == "Supplies")) InterfaceUpgrade(upgrade);
-            if (State.Hull > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at 10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
+            if (State.Tier > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at 10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
             if (IsNetFisher)
             {
                 bool rackFull = State.NetInventory >= GameData.NetInventoryCapacity;

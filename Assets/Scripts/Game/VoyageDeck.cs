@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Catchline.Game.Deck;
@@ -16,7 +16,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         // Hull models already running on the deck graph. Grows as each hull migrates.
-        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat", "Skiff", "CompactFisherV1", "PrepFisherV1", "Tier5DeepLines103" };
+        static readonly HashSet<string> DeckGraphHulls = new() { "Rowboat", "Skiff", "CompactFisherV1", "PrepFisherV1", "Tier5DeepLines103", "JigBoatV1" };
         public DeckGraph DeckGraph { get; private set; }
         public DeckScheduler Scheduler { get; private set; }
         public bool UsesDeckGraph => Scheduler != null;
@@ -52,6 +52,10 @@ namespace Catchline.Game
             DeckGraph = DeckGraph.Load(State.HullDef);
             if (DeckGraph == null) { Debug.LogWarning("[Catchline] No station file for " + State.HullDef.Model + "; legacy deck code stays active."); return; }
             // Idle movement and gear operators must use the same walkability as hauling jobs.
+            if (IsJigBoat)
+                for (int y = 0; y < Grid.Height; y++)
+                    for (int x = 0; x < Grid.Width; x++)
+                        if (Grid.IsBlocked(new Vector2Int(x,y))) DeckGraph.Grid.Block(new RectInt(x,y,1,1));
             Grid = DeckGraph.Grid;
             foreach (var p in People) { p.Stop(); p.Grid = Grid; p.Place(DeckGraph.Nearest(p.Tile)); }
             Scheduler = new DeckScheduler(DeckGraph)
@@ -253,4 +257,5 @@ namespace Catchline.Game
         public bool CaptainHaulFrom(Basket b) => Scheduler != null && workers.TryGetValue(Captain, out var w) && Scheduler.CaptainHaul(w, b);
     }
 }
+
 

@@ -17,7 +17,7 @@ namespace Catchline.Game
 
         public static int Of(int spot) => spot < OuterFirstSpot ? 0 : 1;
         public static bool Outer(int spot) => Of(spot) == 1;
-        public static bool Open(int spot, int hull) => !Outer(spot) || hull >= OuterMinimumHull;
+        public static bool Open(int spot, int hull) => !Outer(spot) || GameData.HullTier(hull) >= GameData.HullTier(OuterMinimumHull);
 
         // Whether a species may bite at this ground at all.
         public static bool Allowed(int spot, Species species)

@@ -1,0 +1,92 @@
+Mono path[0] = 'C:/Users/momoy/Projects/Catchline-sim/Builds/GullCoastCapture/Catchline_Data/Managed'
+Mono config path = 'C:/Users/momoy/Projects/Catchline-sim/Builds/GullCoastCapture/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.25f1 (e1dba0a9aba4)
+[Subsystems] Discovering subsystems at path C:/Users/momoy/Projects/Catchline-sim/Builds/GullCoastCapture/Catchline_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4080 Laptop GPU
+[D3D12 Device Filter] Driver Version: 32.0.16.1656
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 11995 MB
+[D3D12 Device Filter] Processor Count: 24
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4080 Laptop GPU (ID=0x27e0)
+    Vendor:          NVIDIA
+    VRAM:            11995 MB
+    App VRAM Budget: 11227 MB
+    Driver:          32.0.16.1656
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  5.882 seconds
+- Finished resetting the current domain, in  0.004 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+UnloadTime: 2.935100 ms
+[Catchline] Launch mode: TEST / no save reads or writes; save=C:/Users/momoy/AppData/LocalLow/DefaultCompany/Catchline\catchline-save.json
+[Catchline] GULL FRAME map1-ground-1-1440.png mode=Fishing ground=quay-shallows boat=(-64.91, 26.69) supplementaryCamera=False
+[Catchline] GULL FRAME map1-ground-1-844.png mode=Fishing ground=quay-shallows boat=(-64.91, 26.69) supplementaryCamera=False
+[Catchline] GULL LIVE MOTION PASS map=0 birds=0 bobs=1
+[Catchline] GULL FRAME map1-life-detail-1440.png mode=Fishing ground=quay-shallows boat=(-64.91, 26.69) supplementaryCamera=True
+[Catchline] GULL FRAME map1-life-detail-844.png mode=Fishing ground=quay-shallows boat=(-64.91, 26.69) supplementaryCamera=True
+[Catchline] GULL FRAME map1-ground-2-1440.png mode=Fishing ground=channel boat=(6.05, -33.67) supplementaryCamera=False
+[Catchline] GULL FRAME map1-ground-2-844.png mode=Fishing ground=channel boat=(6.05, -33.67) supplementaryCamera=False
+[Catchline] GULL FRAME map1-ground-3-1440.png mode=Fishing ground=mouth-flats boat=(67.71, -0.16) supplementaryCamera=False
+[Catchline] GULL FRAME map1-ground-3-844.png mode=Fishing ground=mouth-flats boat=(67.71, -0.16) supplementaryCamera=False
+[Catchline] GULL MAP COMPLETE 0
+[Catchline] GULL FRAME map2-ground-1-1440.png mode=Fishing ground=kelp-shallows boat=(-67.75, -33.19) supplementaryCamera=False
+[Catchline] GULL FRAME map2-ground-1-844.png mode=Fishing ground=kelp-shallows boat=(-67.75, -33.19) supplementaryCamera=False
+[Catchline] GULL LIVE MOTION PASS map=1 birds=0 bobs=1
+[Catchline] GULL FRAME map2-life-detail-1440.png mode=Fishing ground=kelp-shallows boat=(-67.75, -33.19) supplementaryCamera=True
+[Catchline] GULL FRAME map2-life-detail-844.png mode=Fishing ground=kelp-shallows boat=(-67.75, -33.19) supplementaryCamera=True
+[Catchline] GULL FRAME map2-ground-2-1440.png mode=Fishing ground=kelp-edge boat=(5.18, 59.71) supplementaryCamera=False
+[Catchline] GULL FRAME map2-ground-2-844.png mode=Fishing ground=kelp-edge boat=(5.18, 59.71) supplementaryCamera=False
+[Catchline] GULL FRAME map2-ground-3-1440.png mode=Fishing ground=open boat=(87.78, -43.77) supplementaryCamera=False
+[Catchline] GULL FRAME map2-ground-3-844.png mode=Fishing ground=open boat=(87.78, -43.77) supplementaryCamera=False
+[Catchline] GULL MAP COMPLETE 1
+[Catchline] GULL FRAME map3-ground-1-1440.png mode=Fishing ground=the-bar boat=(-37.32, 4.93) supplementaryCamera=False
+[Catchline] GULL FRAME map3-ground-1-844.png mode=Fishing ground=the-bar boat=(-37.32, 4.93) supplementaryCamera=False
+[Catchline] GULL LIVE MOTION PASS map=2 birds=1 bobs=0
+[Catchline] GULL FRAME map3-life-detail-1440.png mode=Fishing ground=the-bar boat=(-37.32, 4.93) supplementaryCamera=True
+[Catchline] GULL FRAME map3-life-detail-844.png mode=Fishing ground=the-bar boat=(-37.32, 4.93) supplementaryCamera=True
+[Catchline] GULL FRAME map3-ground-2-1440.png mode=Fishing ground=gully boat=(36.84, 15.31) supplementaryCamera=False
+[Catchline] GULL FRAME map3-ground-2-844.png mode=Fishing ground=gully boat=(36.84, 15.31) supplementaryCamera=False
+[Catchline] GULL FRAME map3-ground-3-1440.png mode=Fishing ground=open boat=(85.80, -52.72) supplementaryCamera=False
+[Catchline] GULL FRAME map3-ground-3-844.png mode=Fishing ground=open boat=(85.80, -52.72) supplementaryCamera=False
+[Catchline] GULL MAP COMPLETE 2
+[Catchline] GULL FRAME map4-ground-1-1440.png mode=Fishing ground=reef boat=(-64.71, -39.13) supplementaryCamera=False
+[Catchline] GULL FRAME map4-ground-1-844.png mode=Fishing ground=reef boat=(-64.71, -39.13) supplementaryCamera=False
+[Catchline] GULL LIVE MOTION PASS map=3 birds=1 bobs=0
+[Catchline] GULL FRAME map4-life-detail-1440.png mode=Fishing ground=reef boat=(-64.71, -39.13) supplementaryCamera=True
+[Catchline] GULL FRAME map4-life-detail-844.png mode=Fishing ground=reef boat=(-64.71, -39.13) supplementaryCamera=True
+[Catchline] GULL FRAME map4-ground-2-1440.png mode=Fishing ground=drop-off boat=(47.66, -57.01) supplementaryCamera=False
+[Catchline] GULL FRAME map4-ground-2-844.png mode=Fishing ground=drop-off boat=(47.66, -57.01) supplementaryCamera=False
+[Catchline] GULL FRAME map4-ground-3-1440.png mode=Fishing ground=open boat=(-88.75, 53.80) supplementaryCamera=False
+[Catchline] GULL FRAME map4-ground-3-844.png mode=Fishing ground=open boat=(-88.75, 53.80) supplementaryCamera=False
+[Catchline] GULL MAP COMPLETE 3
+[Catchline] GULL FRAME map5-ground-1-1440.png mode=Fishing ground=drop-off boat=(-103.07, -36.34) supplementaryCamera=False
+[Catchline] GULL FRAME map5-ground-1-844.png mode=Fishing ground=drop-off boat=(-103.07, -36.34) supplementaryCamera=False
+[Catchline] GULL LIVE MOTION PASS map=4 birds=0 bobs=2
+[Catchline] GULL FRAME map5-life-detail-1440.png mode=Fishing ground=drop-off boat=(-103.07, -36.34) supplementaryCamera=True
+[Catchline] GULL FRAME map5-life-detail-844.png mode=Fishing ground=drop-off boat=(-103.07, -36.34) supplementaryCamera=True
+[Catchline] GULL FRAME map5-ground-2-1440.png mode=Fishing ground=trench boat=(-2.95, 76.69) supplementaryCamera=False
+[Catchline] GULL FRAME map5-ground-2-844.png mode=Fishing ground=trench boat=(-2.95, 76.69) supplementaryCamera=False
+[Catchline] GULL FRAME map5-ground-3-1440.png mode=Fishing ground=open boat=(109.68, 48.08) supplementaryCamera=False
+[Catchline] GULL FRAME map5-ground-3-844.png mode=Fishing ground=open boat=(109.68, 48.08) supplementaryCamera=False
+[Catchline] GULL MAP COMPLETE 4
+[Catchline] GULL CAPTURE COMPLETE 40 frames
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

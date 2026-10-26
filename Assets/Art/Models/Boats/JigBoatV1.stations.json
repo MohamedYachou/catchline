@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "hull": "JigBoatV1",
+  "grid": {
+    "width": 61,
+    "height": 25,
+    "cellSize": 0.1
+  },
+  "stations": [
+    {
+      "id": "sort1",
+      "kind": "SortTable",
+      "pos": [
+        5.13,
+        0,
+        0.16
+      ],
+      "workTile": [
+        49,
+        9
+      ],
+      "basketIn": [
+        4.7,
+        0,
+        0.25
+      ],
+      "basketOut": [
+        5.45,
+        0,
+        0.28
+      ]
+    },
+    {
+      "id": "hold",
+      "kind": "HoldHatch",
+      "pos": [
+        3.55,
+        0,
+        1.2
+      ],
+      "workTile": [
+        36,
+        5
+      ]
+    },
+    {
+      "id": "rod1",
+      "kind": "Rod",
+      "pos": [
+        2.88,
+        0.64,
+        2.7
+      ],
+      "workTile": [
+        29,
+        20
+      ],
+      "basketOut": [
+        2.73,
+        0,
+        2.2
+      ],
+      "existing": true
+    },
+    {
+      "id": "rod2",
+      "kind": "Rod",
+      "pos": [
+        4.08,
+        0.64,
+        2.7
+      ],
+      "workTile": [
+        41,
+        20
+      ],
+      "basketOut": [
+        3.93,
+        0,
+        2.2
+      ],
+      "existing": true
+    },
+    {
+      "id": "rod3",
+      "kind": "Rod",
+      "pos": [
+        5.25,
+        0.64,
+        2.7
+      ],
+      "workTile": [
+        52,
+        20
+      ],
+      "basketOut": [
+        5.1,
+        0,
+        2.2
+      ],
+      "existing": true
+    },
+    {
+      "id": "net1",
+      "kind": "Net",
+      "pos": [
+        6.4,
+        0.15,
+        0.9
+      ],
+      "workTile": [
+        54,
+        9
+      ],
+      "basketOut": [
+        5.9,
+        0,
+        0.9
+      ],
+      "existing": true
+    }
+  ],
+  "blocked": []
+}

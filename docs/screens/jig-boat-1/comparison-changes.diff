@@ -1,0 +1,778 @@
+Assets\Scripts\Game\GameData.cs
+--- before
++++ after
+@@ -124,10 +124,10 @@
+         // UI041 append-only IDs: rarity controls presentation; these values are first-pass tuning.
+         public static int MinimumHull(Species s) => s switch
+         {
+-            Species.Crab => 4,
++            Species.Crab => 5,
+             Species.YellowfinTuna or Species.Barracuda or Species.MahiMahi or Species.Monkfish => 2,
+             Species.GoldenPuffer or Species.SpottedEagleRay or Species.BlueSpottedStingray or Species.FlyingFish or Species.Lionfish => 2,
+-            Species.ApexReefShark or Species.GoldTipShark or Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish or Species.ScallopedHammerhead or Species.PelagicThresherShark or Species.GiantSquid => 3,
++            Species.ApexReefShark or Species.GoldTipShark or Species.AbyssalGreatWhite or Species.AbyssalLeviathan or Species.GiantDevilManta or Species.AtlanticSwordfish or Species.OceanSunfish or Species.ScallopedHammerhead or Species.PelagicThresherShark or Species.GiantSquid => 4,
+             _ => 0
+         };
+ 
+@@ -257,6 +257,9 @@
+         public const float FreshnessGraceSeconds = 60f;
+         public const float FreshnessLossPerMinute = 0.07f, MinFreshness = 0.6f;
+         public const int MaxActiveContracts = 2;
++
++        // Saved IDs remain append-only; tiers describe progression, never save identity.
++        public static int HullTier(int hullId) => hullId switch { 0 => 0, 1 => 1, 2 => 2, 3 => 4, 4 => 5, 5 => 3, _ => 0 };
+ 
+         public static readonly HullDef[] Hulls =
+         {
+@@ -297,6 +300,14 @@
+                 Blocked = System.Array.Empty<Vector2Int>(),
+                 RodTiles = new[] { new Vector2Int(33,31), new Vector2Int(33,3), new Vector2Int(47,3), new Vector2Int(62,3) },
+                 RodBases = new[] { new Vector3(3.25f,.47f,3.6f), new Vector3(3.25f,.47f,-.2f), new Vector3(4.7f,.47f,-.2f), new Vector3(6.15f,.47f,-.2f) } },
++            // Appended saved ID 5: Jig slots measured from the native imported FBX, bow -X.
++            new() { Name = "Jig boat", Model = "JigBoatV1", SailSpeed = 10f, Width = 61, Height = 25, CellSize = .1f,
++                Capacity = 130, CrewCap = 5, TravelMultiplier = .5f,
++                Hold = new(36,12), HoldAccess = new(36,5), Seat = new(20,12), Rest = new(28,5), NetAccess = new(56,5),
++                CrewRest = new[] { new Vector2Int(28,5), new Vector2Int(43,12), new Vector2Int(18,21), new Vector2Int(45,20), new Vector2Int(53,12) },
++                Blocked = System.Array.Empty<Vector2Int>(),
++                RodTiles = new[] { new Vector2Int(29,20), new Vector2Int(41,20), new Vector2Int(52,20) },
++                RodBases = new[] { new Vector3(2.88f,.64f,2.7f), new Vector3(4.08f,.64f,2.7f), new Vector3(5.25f,.64f,2.7f) } },
+         };
+ 
+         // Legacy pack constants retained for fixtures. Timed tanks use GameState.FuelFillCost.
+
+Assets\Scripts\Game\GameState.cs
+--- before
++++ after
+@@ -82,7 +82,7 @@
+         public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
+         public int CrabPots; // pots the captain sets beside a hull 1-3 boat at every ground (VoyageCrabPots.cs)
+         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
+-        public bool CanRefit => Hull == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
++        public bool CanRefit => Tier == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
+         public readonly HashSet<UpgradeId> Owned = new();
+         public readonly float[] Richness;
+         // M4: richness per ground per species (Grounds.Slot), the ground the boat is anchored at (-1 = none, legacy map tables)
+@@ -128,11 +128,11 @@
+         }
+ 
+         public bool Has(UpgradeId id) => Owned.Contains(id);
+-        public float CoolerCapacity => Hull == 0 ? (Has(UpgradeId.BigCooler) ? 35f : 20f) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
++        public float CoolerCapacity => Tier == 0 ? (Has(UpgradeId.BigCooler) ? 35f : 20f) : HullDef.Capacity * (Has(UpgradeId.BigCooler) ? 1.5f : 1f);
+         public float FuelCapacity => Has(UpgradeId.LunchTin) ? 20f : 10f;
+         public float FuelFraction => Mathf.Clamp01(Fuel / FuelCapacity);
+         public int FuelFillCost => Mathf.CeilToInt(Mathf.Max(0, FuelCapacity - Fuel) - .00001f);
+-        public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Hull > 0 ? 4f : 1f);
++        public float FoodCapacity => (Has(UpgradeId.LunchTin) ? 12f : 6f) * (Tier > 0 ? 4f : 1f);
+         public bool Known(int spot) => GameData.Spots[spot].ChartCost == 0 || Charts.Contains(spot);
+         public float BiteWindow => RodTier >= 2 ? 1.4f : RodTier >= 1 ? 1.15f : GameData.BiteWindow;
+         public float ReelSpeed => RodTier >= 2 ? 1.5f : RodTier >= 1 ? 1.25f : 1f;
+@@ -174,7 +174,7 @@
+         public bool BuyFuel()
+         {
+             int cost = FuelFillCost;
+-            if (Hull == 0 || cost <= 0 || Coins < cost) return false;
++            if (Tier == 0 || cost <= 0 || Coins < cost) return false;
+             Coins -= cost;
+             Fuel = FuelCapacity;
+             return true;
+@@ -357,7 +357,7 @@
+             if (Rand() < 0.75f) Board.Add(NewCrew(Grade.Hand));
+             if (Rand() < 0.4f) Board.Add(NewCrew(Grade.Experienced));
+             if (Rand() < 0.06f) Board.Add(NewCrew(Grade.Veteran));
+-            if (Hull > 0)
++            if (Tier > 0)
+             {
+                 if (Rand() < .8f) Board.Add(NewCrew(Grade.Hand, CrewRole.Fisherman));
+                 if (Rand() < .5f) Board.Add(NewCrew(Grade.Experienced, CrewRole.Fisherman));
+@@ -415,7 +415,7 @@
+             for (int i = 0; i < GameData.Spots.Length; i++)
+                 if (Known(i))
+                     foreach (var e in GameData.Spots[i].Table)
+-                        if (Hull >= GameData.MinimumHull(e.species) && Coasts.Allowed(i, e.species)) pool.Add(e);
++                        if (Tier >= GameData.MinimumHull(e.species) && Coasts.Allowed(i, e.species)) pool.Add(e);
+             float total = 0f;
+             foreach (var e in pool) total += e.Item2;
+             float roll = Rand() * total;
+@@ -455,7 +455,7 @@
+             var weights = new float[table.Length];
+             for (int i = 0; i < table.Length; i++)
+             {
+-                if (Hull < GameData.MinimumHull(table[i].species)) { weights[i] = 0; continue; }
++                if (Tier < GameData.MinimumHull(table[i].species)) { weights[i] = 0; continue; }
+                 float h = GameData.Get(table[i].species).Heaviness;
+                 weights[i] = table[i].weight * Mathf.Lerp(1f - 0.7f * h, 1f + 1.6f * h, power);
+                 // Premium bait targets substantial fish; small schools remain possible, not dominant.
+@@ -513,7 +513,7 @@
+             }
+         }
+ 
+-        public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
++        public void OnCatch(int spot, float kg) => Richness[spot] = Mathf.Max(0.3f, Richness[spot] - (Tier >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
+ 
+         // M4: at a ground the catch drains that species there: rods and lines -0.02 per catch, nets -0.004 per kg.
+         public void OnCatch(int spot, float kg, Species species, bool net)
+
+Assets\Scripts\Game\GameStateProgression.cs
+--- before
++++ after
+@@ -2,19 +2,19 @@
+ {
+     public partial class GameState
+     {
+-        public float NetCapacityKg => Hull >= 3 ? Has(UpgradeId.NetSystem) ? 44f : 30f : Has(UpgradeId.NetSystem) ? 30f : 20f;
++        public float NetCapacityKg => Tier >= 4 ? Has(UpgradeId.NetSystem) ? 44f : 30f : Has(UpgradeId.NetSystem) ? 30f : 20f;
+         public const int PrepFisherCost = 9500;
+         public const float PrepFisherKgGoal = 100f;
+-        public bool CanRefitPrep => Hull == 2 && BestVoyageKg >= PrepFisherKgGoal && Coins >= PrepFisherCost;
++        public bool CanRefitPrep => Tier == 2 && BestVoyageKg >= PrepFisherKgGoal && Coins >= PrepFisherCost;
+         public bool RefitPrep()
+         {
+             if (!CanRefitPrep) return false;
+             Coins -= PrepFisherCost; Hull = 3; Fuel = FuelCapacity;
+             EnsureCrewRoleOffers(); return true;
+         }
+-        public bool UpgradeAvailable(UpgradeId id) => (id != UpgradeId.ThirdDeepLine || Hull == 4) && (id != UpgradeId.NetSystem || Hull >= 2) && (id != UpgradeId.RodHolder || Hull == 0);
++        public bool UpgradeAvailable(UpgradeId id) => (id != UpgradeId.ThirdDeepLine || Tier == 5) && (id != UpgradeId.NetSystem || Tier >= 2) && (id != UpgradeId.RodHolder || Tier == 0);
+         public const int CompactFisherCost = 4000;
+-        public bool CanRefitCompact => Hull == 1 && Coins >= CompactFisherCost;
++        public bool CanRefitCompact => Tier == 1 && Coins >= CompactFisherCost;
+         public bool RefitCompact()
+         {
+             if (!CanRefitCompact) return false;
+@@ -24,7 +24,7 @@
+         public int UpgradeCost(UpgradeId id)
+         {
+             if (id == UpgradeId.NetSystem) return 5000;
+-            if (Hull < 2) return GameData.Upgrade(id).Cost;
++            if (Tier < 2) return GameData.Upgrade(id).Cost;
+             return id switch
+             {
+                 UpgradeId.RodHolder => 1500,
+@@ -37,9 +37,9 @@
+             };
+         }
+         public string UpgradeDescription(UpgradeId id) => id == UpgradeId.BigCooler
+-            ? Hull == 0 ? "Expand the hold from 20 kg to 35 kg."
++            ? Tier == 0 ? "Expand the hold from 20 kg to 35 kg."
+                 : $"Expand the hold from {HullDef.Capacity} kg to {HullDef.Capacity * 1.5f:0} kg."
+-            : id == UpgradeId.NetSystem ? $"Raise net capacity from {(Hull >= 3 ? 30 : 20)} kg to {(Hull >= 3 ? 44 : 30)} kg."
++            : id == UpgradeId.NetSystem ? $"Raise net capacity from {(Tier >= 4 ? 30 : 20)} kg to {(Tier >= 4 ? 44 : 30)} kg."
+             : GameData.Upgrade(id).Desc;
+     }
+ }
+
+Assets\Scripts\Game\GameStateBoatModules.cs
+--- before
++++ after
+@@ -4,10 +4,10 @@
+     {
+         public const int SecondNetModuleCost = 2000;
+         public bool SecondNetOwned, SecondNetEnabled;
+-        public bool SecondNetActive => Hull >= 3 && SecondNetOwned && SecondNetEnabled;
++        public bool SecondNetActive => Tier >= 4 && SecondNetOwned && SecondNetEnabled;
+         public bool BuySecondNetModule()
+         {
+-            if (Hull < 3 || SecondNetOwned || Coins < SecondNetModuleCost) return false;
++            if (Tier < 4 || SecondNetOwned || Coins < SecondNetModuleCost) return false;
+             Coins -= SecondNetModuleCost;
+             SecondNetOwned = SecondNetEnabled = true;
+             return true;
+
+Assets\Scripts\Game\GameStateTier5.cs
+--- before
++++ after
+@@ -4,7 +4,7 @@
+     public partial class GameState
+     {
+         public const int Tier5Cost = 18000; // Initial tuning, not a promised voyage count.
+-        public bool CanRefitTier5 => Hull == 3 && Coins >= Tier5Cost;
++        public bool CanRefitTier5 => Tier == 4 && Coins >= Tier5Cost;
+         public bool RefitTier5()
+         {
+             if (!CanRefitTier5) return false;
+
+Assets\Scripts\Game\VoyageCompactFisher.cs
+--- before
++++ after
+@@ -7,7 +7,7 @@
+ {
+     public partial class VoyageGame
+     {
+-        public bool IsNetFisher => State != null && State.Hull >= 2;
++        public bool IsNetFisher => State != null && State.Tier >= 2;
+         Transform netModelRoot;
+         Quaternion compactLidRest;
+         public int CompactWalkableTiles { get; private set; }
+@@ -129,7 +129,7 @@
+ 
+         public bool TrialCompactFisher()
+         {
+-            if (!SessionOnly || CurrentMode != Mode.Harbour || State.Hull == 2) return false;
++            if (!SessionOnly || CurrentMode != Mode.Harbour || State.Tier == 2) return false;
+             State.Hull = 2;
+             // A layout-trial downgrade releases the extra temporary trial berth.
+             while (State.CrewCount > State.HullDef.CrewCap && State.ExtraCrew.Count > 0)
+
+Assets\Scripts\Game\VoyagePrepFisher.cs
+--- before
++++ after
+@@ -7,7 +7,7 @@
+ {
+     public partial class VoyageGame
+     {
+-        public bool IsPrepFisher => State != null && State.Hull >= 3;
++        public bool IsPrepFisher => State != null && State.Tier >= 4;
+         public Vector2Int[] PrepWorkerTiles { get; private set; } = System.Array.Empty<Vector2Int>();
+         Transform rawBuckets, rawIceCoolers;
+ 
+
+Assets\Scripts\Game\VoyageGame.cs
+--- before
++++ after
+@@ -184,7 +184,7 @@
+             Boat.SetParent(world, false);
+ 
+             var lib = ArtLibrary.Get();
+-            if (State.Hull > 0)
++            if (State.Tier > 0)
+             {
+                 var prefab = lib?.M(hull.Model);
+                 if (prefab != null)
+@@ -225,7 +225,7 @@
+             var cooler = new GameObject("Cooler");
+             cooler.transform.SetParent(Boat, false);
+             cooler.transform.localPosition = Grid.GetLocal(CoolerTile);
+-            if (State.Hull > 0)
++            if (State.Tier > 0)
+             {
+                 // The skiff FBX already contains FishHold and its hinged lid.
+             }
+@@ -262,7 +262,7 @@
+                 Rods.Add(rod);
+                 var rodModel = State.RodTier >= 2 ? lib?.M("FishingRod_Carbon") : State.RodTier == 1 ? lib?.M("FishingRod_Fibreglass") : null;
+                 rod.Build(Boat, world, hull.RodBases[i], rodModel, IsNetFisher && hull.RodBases[i].z > hull.Center.z ? Vector3.forward : Vector3.back);
+-                if (!IsNetFisher && i > 0 && (State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman)))
++                if (!IsNetFisher && i > 0 && (State.Tier > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman)))
+                     ArtLibrary.Spawn(lib?.M("RodHolderClamp"), Boat, hull.RodBases[i], Quaternion.identity);
+             }
+             BuildNetKit();
+@@ -422,7 +422,7 @@
+         {
+             State.SyncCardCrew();
+             for (int i = 1; i < Rods.Count; i++)
+-                Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
++                Rods[i].SetUnlocked(State.Tier > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
+             if (Hand != null && Hand.Contract != State.Deckhand)
+             {
+                 Visuals.Kill(Hand.Root.gameObject);
+@@ -456,7 +456,7 @@
+         public void SyncUpgrades()
+         {
+             if (CurrentMode == Mode.Harbour && boatVisualSignature != BoatVisualSignature) { RebuildBoat(); return; }
+-            for (int i = 1; i < Rods.Count; i++) Rods[i].SetUnlocked(State.Hull > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
++            for (int i = 1; i < Rods.Count; i++) Rods[i].SetUnlocked(State.Tier > 0 || State.Has(UpgradeId.RodHolder) || State.Crew.Any(c => c.Role == CrewRole.Fisherman));
+             bool ice = State.Has(UpgradeId.IceBox);
+             if (IsPrepFisher) SyncPrepStorage();
+             if (coolerModel != null)
+@@ -465,12 +465,12 @@
+                 iceBoxModel.SetActive(ice);
+                 coolerLid = ArtLibrary.Find(ice ? iceBoxModel : coolerModel, "HingedLid");
+             }
+-            else if (State.Hull == 0 && coolerLid != null) coolerLid.GetComponentInChildren<Renderer>().sharedMaterial = Visuals.Mat(ice ? Palette.Hex("4FB3C4") : Palette.Accent);
++            else if (State.Tier == 0 && coolerLid != null) coolerLid.GetComponentInChildren<Renderer>().sharedMaterial = Visuals.Mat(ice ? Palette.Hex("4FB3C4") : Palette.Accent);
+         }
+ 
+         void SetRowing(bool on)
+         {
+-            if (State.Hull > 0) return;
++            if (State.Tier > 0) return;
+             if (modelOars)
+             {
+                 oarPort.transform.localRotation = oarPortBase;
+@@ -578,7 +578,7 @@
+             if (CurrentMode != Mode.Harbour) return "Not in the harbour";
+             if (State.UnsoldCatch.Count > 0) return "Sell your haul first";
+             if (State.Coins < State.DepartureWages) return $"Crew wages need {State.DepartureWages} coins";
+-            if (State.Hull > 0 && State.FuelFraction <= .1f) return "Buy fuel at Supplies";
++            if (State.Tier > 0 && State.FuelFraction <= .1f) return "Buy fuel at Supplies";
+             return null;
+         }
+ 
+@@ -660,7 +660,7 @@
+             Captain.Stop();
+             Captain.Place(SeatTile);
+             Captain.Face(new Vector3(-bowSign, 0f, 0f)); // rowers face the stern
+-            Captain.Rowing = State.Hull == 0;
++            Captain.Rowing = State.Tier == 0;
+             Hand?.Stop();
+             Hand?.Place(HandRest);
+             foreach (var p in ExtraPeople) { p.Stop(); p.Place(RestFor(p)); }
+@@ -729,7 +729,7 @@
+                     else if (Navigation != null) TickSeaTravel(dt);
+                     else
+                     {
+-                        modeTimer += dt * AbilityTravel * (State.Hull > 0 ? 1f : WorkSpeed.Rate(Captain));
++                        modeTimer += dt * AbilityTravel * (State.Tier > 0 ? 1f : WorkSpeed.Rate(Captain));
+                         UpdateTravel();
+                     }
+                     float stroke = Mathf.Sin(SimTime * 3.2f);
+@@ -773,7 +773,7 @@
+ 
+         void BurnFuel(float dt)
+         {
+-            if (State.Hull == 0) return;
++            if (State.Tier == 0) return;
+             State.Fuel = Mathf.Max(0, State.Fuel - dt * (Abilities?.Fuel ?? 1) / 60f);
+             if (CurrentMode == Mode.Fishing && State.FuelFraction <= .1f)
+             {
+@@ -828,8 +828,8 @@
+             bool inTransit = CurrentMode is Mode.SailingOut or Mode.SailingHome;
+             if (CurrentMode == Mode.Harbour && Leg == TripLeg.None) PlaceAtBerth();
+             TickUnload();
+-            audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Hull == 0 && travelWake > .1f, ActiveSpot == 5, AtFishingGround ? ActiveSpot : -1, harbourEvening);
+-            PtsWater.HullPose(world.TransformPoint(travelOffset + State.HullDef.Center), travelYaw, State.Hull > 0,
++            audio?.Mix(MenuOpen || captureFreeze || !Application.isFocused, CurrentMode == Mode.Harbour, inTransit && State.Tier == 0 && travelWake > .1f, ActiveSpot == 5, AtFishingGround ? ActiveSpot : -1, harbourEvening);
++            PtsWater.HullPose(world.TransformPoint(travelOffset + State.HullDef.Center), travelYaw, State.Tier > 0,
+                 SimTime, out float heave, out Quaternion tilt);
+             Boat.localRotation = Quaternion.Euler(0, travelYaw, 0) * tilt * SeaBankRotation(frameDt);
+             // Rotate about the hull centre, rather than the corner of the deck grid.
+@@ -840,7 +840,7 @@
+             {
+                 seaMat.SetFloat("_Clock", PtsWater.Clock(SimTime));
+                 seaMat.SetVector("_BoatCenter", Boat.TransformPoint(State.HullDef.Center));
+-                seaMat.SetVector("_BoatShape", new Vector4(IsPrepFisher ? 3.85f : State.Hull > 0 ? 3.25f : 2.1f, IsPrepFisher ? 2f : State.Hull > 0 ? 1.75f : 1.2f,
++                seaMat.SetVector("_BoatShape", new Vector4(IsPrepFisher ? 3.85f : State.Tier > 0 ? 3.25f : 2.1f, IsPrepFisher ? 2f : State.Tier > 0 ? 1.75f : 1.2f,
+                     inTransit ? travelWake : 0f, travelYaw * Mathf.Deg2Rad));
+             }
+             // Camera: wide on the harbour (shifted left of the shop panel), close on the water.
+@@ -863,7 +863,7 @@
+             float k = snapCamera ? 1f : 1f - Mathf.Exp(-frameDt * 3f);
+             snapCamera = false;
+             camCenter = Vector3.Lerp(camCenter, center, k);
+-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(HarbourLaneActive ? framing.size : Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Hull > 0 ? 4.8f : 3.2f, framing.size, harbourBlend)) + ZoomOffset + TripCameraLift, k);
++            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, SeaCameraSize(HarbourLaneActive ? framing.size : Mathf.Lerp(IsTier5 ? 6.15f : IsPrepFisher ? 5.35f : State.Tier > 0 ? 4.8f : 3.2f, framing.size, harbourBlend)) + ZoomOffset + TripCameraLift, k);
+             Cam.transform.position = camCenter - Cam.transform.forward * SeaCameraDistance();
+             ApplyIntroCamera(frameDt);
+             UpdateNavigableSeaVisual(frameDt);
+@@ -1190,7 +1190,7 @@
+         void BotFish()
+         {
+             if (HoldFull) { HeadHome(); return; }
+-            if (State.Hull > 0 && Captain.Idle && Captain.Carrying == null && MinigameRod == null && Manning == null)
++            if (State.Tier > 0 && Captain.Idle && Captain.Carrying == null && MinigameRod == null && Manning == null)
+             {
+                 if (Net == NetState.Ready) { HaulNet(); return; }
+                 if (Net == NetState.Stowed && HoldKg + OnDeck.Sum(f => f.Kg) < State.CoolerCapacity) { SetNet(); return; }
+@@ -1207,7 +1207,7 @@
+             bool handBusy = Hand != null && (Hand.Carrying != null || !Hand.Idle && Hand.BusyLabel == "Picking up");
+             bool full = HoldFull;
+             bool noBait = !State.HasAnyBait && Rods.All(r => !r.Unlocked || r.State == RodState.Unbaited);
+-            if (full || State.Hull == 0 && noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
++            if (full || State.Tier == 0 && noBait && OnDeck.Count == 0 && !handBusy && Rods.All(r => r.State is not RodState.Reeling))
+             {
+                 HeadHome();
+                 return;
+@@ -1247,8 +1247,8 @@
+             foreach (var c in State.Roster.Where(c => c.Def.Role != CardRole.Navigator))
+                 if (State.Coins > State.DepartureWages + c.Wage() + 100) State.DeployCard(c.Id,true);
+             SyncCrew();
+-            while (State.Bait < (State.Hull > 0 ? 60 : State.Has(UpgradeId.RodHolder) ? 40 : 25) && State.BuyBait()) { }
+-            if (State.Hull > 0) State.BuyFuel();
++            while (State.Bait < (State.Tier > 0 ? 60 : State.Has(UpgradeId.RodHolder) ? 40 : 25) && State.BuyBait()) { }
++            if (State.Tier > 0) State.BuyFuel();
+ 
+             float best = -1f;
+             for (int i = 0; i < GameData.Spots.Length; i++)
+@@ -1264,7 +1264,7 @@
+                 float score = value / total * State.Richness[i] / (1f + s.RowSeconds / 30f);
+                 if (score > best) { best = score; SelectedSpot = i; }
+             }
+-            if (State.Hull > 0)
++            if (State.Tier > 0)
+                 while (State.FuelFraction <= .1f && State.BuyFuel()) { }
+             SetSail();
+         }
+
+Assets\Scripts\Game\VoyageInterfaceShop.cs
+--- before
++++ after
+@@ -53,7 +53,7 @@
+         string HullArt()
+         {
+             string own = "v2-item-hull" + State.Hull;
+-            return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Hull >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
++            return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Tier >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
+         }
+         // Card line: the first clause of the description, as short as the concept's "+50% hold space".
+         static string Effect(string description)
+@@ -250,14 +250,14 @@
+                 "icon-net", State.SecondNetOwned ? State.SecondNetEnabled ? "Switch off · restore rods" : "Switch on / two nets" : "Buy / 2,000 coins",
+                 State.SecondNetOwned || State.Coins >= GameState.SecondNetModuleCost,
+                 () => { if (State.SecondNetOwned) ToggleSecondNetModule(); else BuySecondNetModule(); });
+-            if (State.Hull == 3) Product("refit/tier5", "Buoy fisher · Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
++            if (State.Tier == 4) Product("refit/tier5", "Buoy fisher · Tier 5", "Six hired crew, two buoy stations, processing and engineering. Choose four rods + one net or two rods + two nets.", "icon-skiff", $"Refit / {GameState.Tier5Cost:N0} coins", State.CanRefitTier5, () => RefitTier5());
+             foreach (var u in GameData.Upgrades.Where(u => u.Shop == "Chandlery")) InterfaceUpgrade(u);
+-            Product("refit", State.Hull > 0 ? State.HullDef.Name : "Skiff refit", State.Hull > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
+-                State.Hull > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
+-                State.Hull == 0 && State.BestVoyageFish >= GameData.SkiffFishGoal && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
+-            if (State.Hull == 1) Product("refit/compact", "Compact fisher", "Tier 3 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
++            Product("refit", State.Tier > 0 ? State.HullDef.Name : "Skiff refit", State.Tier > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
++                State.Tier > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
++                State.Tier == 0 && State.BestVoyageFish >= GameData.SkiffFishGoal && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
++            if (State.Tier == 1) Product("refit/compact", "Compact fisher", "Tier 3 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
+                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
+-            if (State.Hull == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
++            if (State.Tier == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
+                 $"Refit / {GameState.PrepFisherCost:N0} coins", State.CanRefitPrep, () => RefitPrep());
+         }
+         void InterfaceUpgrade(UpgradeDef u)
+@@ -278,7 +278,7 @@
+             Product("supplies/squid-bulk", "Squid · bulk box", $"{GameData.SquidBulkSize} hooks · favour bigger specimens", "icon-squid", $"Buy · {GameData.SquidBulkCost} coins", State.Coins >= GameData.SquidBulkCost, () => { if (State.BuySquid(true)) SaveGame(); });
+             int cost = State.FuelFillCost;
+             foreach (var upgrade in GameData.Upgrades.Where(u => u.Shop == "Supplies")) InterfaceUpgrade(upgrade);
+-            if (State.Hull > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at 10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
++            if (State.Tier > 0) Product("supplies/fuel", "Outboard fuel", $"{State.FuelFraction:P0} aboard · {State.FuelCapacity:0} minute tank · return at 10%", "icon-fuel", cost > 0 ? $"Fill · {cost} coins" : "Tank full", cost > 0 && State.Coins >= cost, () => { if (State.BuyFuel()) SaveGame(); });
+             if (IsNetFisher)
+             {
+                 bool rackFull = State.NetInventory >= GameData.NetInventoryCapacity;
+
+Assets\Scripts\Game\VoyageManagement.cs
+--- before
++++ after
+@@ -263,7 +263,7 @@
+             DPatch("ops/description",115,180,1434,31,1428,204,95,8);
+             DText("ops/description",115,179,1434,33,IsPrepFisher?"Catch → haul to processing → prepare → carry to main hold. Tap any stage for live queues.":"Catch → haul directly to main hold. This boat has no processing station.",22,DashBody);
+             int[] crew={State.Crew.Count(c=>c.Role==CrewRole.Fisherman)+1,CarrierCount+(CaptainHaulingIn?1:0),ProcessorCount,CarrierCount+(CaptainHaulingOut?1:0)};
+-            int[] equip={FittedRodCount+FittedNetCount+FittedTrapCount+FittedDeepLineCount,State.Hull>0?SecondNetActive?2:1:0,IsPrepFisher?2:0,1};
++            int[] equip={FittedRodCount+FittedNetCount+FittedTrapCount+FittedDeepLineCount,State.Tier>0?SecondNetActive?2:1:0,IsPrepFisher?2:0,1};
+             for(int i=0;i<4;i++)
+             {
+                 float x=new[]{114f,489f,859f,1229f}[i];
+
+Assets\Scripts\Game\VoyageManagementForecast.cs
+--- before
++++ after
+@@ -22,7 +22,7 @@
+         public float ForecastCost=>DashboardCosts.Sum();
+         public float ForecastVoyageMinutes {get;private set;}
+         public int FittedTrapCount=>IsTier5?Enumerable.Range(0,Mathf.Min(buoyTiles.Length,buoyModels.Length)).Count(i=>buoyModels[i]!=null&&buoyModels[i].gameObject.activeInHierarchy):0;
+-        public int FittedNetCount=>State.Hull>0&&netFloats!=null?1+(SecondNetActive&&secondNetFloats!=null?1:0):0;
++        public int FittedNetCount=>State.Tier>0&&netFloats!=null?1+(SecondNetActive&&secondNetFloats!=null?1:0):0;
+         public int FittedRodCount=>Rods.Count(r=>r.Unlocked&&r.Root!=null&&r.Root.gameObject.activeInHierarchy);
+         public int[] ForecastShares=>CatchExpectation.Shares(Forecast.Select(f=>f.ValuePerMinute).ToArray());
+         static float NominalValue(Species species,float kg)=>CatchExpectation.NominalValue(species,kg);
+@@ -154,11 +154,11 @@
+                 storageRate=Mathf.Min(kgRate*(1-EstimatedChumShare),prepRate*(fishRate>0?kgRate/fishRate:0));
+             }
+             float fill=storageRate>0?Mathf.Max(0,State.CoolerCapacity-HoldKg)/storageRate:float.PositiveInfinity;
+-            float remaining=State.Hull>0?Mathf.Min(fill,Mathf.Max(0,State.Fuel-.1f*State.FuelCapacity)):float.IsInfinity(fill)?0:fill;
+-            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Hull>0?1:WorkSpeed.Rate(Captain))/60;
++            float remaining=State.Tier>0?Mathf.Min(fill,Mathf.Max(0,State.Fuel-.1f*State.FuelCapacity)):float.IsInfinity(fill)?0:fill;
++            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Tier>0?1:WorkSpeed.Rate(Captain))/60;
+             ForecastVoyageMinutes=Mathf.Max(1,(float)Flow.Clock/60+remaining+travel);
+             foreach(var f in Forecast)f.CostPerMinute=f.SupplyCostPerMinute;
+-            DashboardCosts=new float[4];DashboardCosts[0]=Forecast.Sum(f=>f.SupplyCostPerMinute)+(State.Hull>0?1:0);
++            DashboardCosts=new float[4];DashboardCosts[0]=Forecast.Sum(f=>f.SupplyCostPerMinute)+(State.Tier>0?1:0);
+             foreach(var crew in State.Crew)
+             {
+                 float fee=crew.Fee/(float)GameData.ContractVoyages(crew.Grade)/ForecastVoyageMinutes;
+
+Assets\Scripts\Game\VoyageCards.cs
+--- before
++++ after
+@@ -35,7 +35,7 @@
+             string id = AbilityOwner(rod.Fisher);
+             if (Abilities?.PredatorNext(id) == true && !rod.Scraps)
+             {
+-                var legal = State.FishTable(ActiveSpot).Where(e => e.weight > 0 && State.Hull >= GameData.MinimumHull(e.species)
++                var legal = State.FishTable(ActiveSpot).Where(e => e.weight > 0 && State.Tier >= GameData.MinimumHull(e.species)
+                     && BiteModel.StyleOf(e.species) == FishStyle.Heavy).ToArray();
+                 if (legal.Length > 0)
+                 {
+@@ -71,7 +71,7 @@
+             if (mult == 1) { State.OnCatch(spot, kg, species, net); return; }
+             if (State.CurrentGround < 0 || Grounds.Get(spot, State.CurrentGround) == null)
+             {
+-                State.Richness[spot] = Mathf.Max(.3f, State.Richness[spot] - mult * (State.Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
++                State.Richness[spot] = Mathf.Max(.3f, State.Richness[spot] - mult * (State.Tier >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
+                 return;
+             }
+             Grounds.Drain(State.GroundRich, spot, State.CurrentGround, species, mult * (net ? Grounds.NetDrainPerKg * kg : Grounds.RodDrain));
+
+Assets\Scripts\Game\VoyageCrabPots.cs
+--- before
++++ after
+@@ -10,7 +10,7 @@
+     public partial class VoyageGame
+     {
+         public const int CrabPotCost = 120;
+-        public int MaxCrabPots => State == null ? 0 : State.Hull == 1 ? 1 : State.Hull is 2 or 3 ? 2 : 0;
++        public int MaxCrabPots => State == null ? 0 : State.Tier == 1 ? 1 : State.Tier is 2 or 3 or 4 ? 2 : 0;
+         public int PotsSet => IsTier5 ? 0 : buoyAnchors.Length;
+ 
+         public bool BuyCrabPot()
+@@ -36,7 +36,7 @@
+             for (int i = 0; i < n; i++)
+             {
+                 Vector2Int tile; Vector3 at;
+-                if (State.Hull == 1)
++                if (State.Tier == 1)
+                 {
+                     // The skiff's pot rides behind the outboard.
+                     int stern = open.Max(t => t.x);
+@@ -85,7 +85,7 @@
+                 "Set beside the boat at every ground. When it has soaked, haul it yourself: tap to winch, drag it free of snags, flick crabs to keep or throw back. " + stock,
+                 "v2-icon-cage", full ? "Pots full" : $"Buy · {CrabPotCost} coins", !full && State.Coins >= CrabPotCost,
+                 () => { if (BuyCrabPot()) Toast("Crab pot aboard. Haul it when it has soaked."); },
+-                full ? stock + (State.Hull < 2 ? " A bigger boat carries two." : "") : State.Coins < CrabPotCost ? CoinShortfall(CrabPotCost) + "." : null);
++                full ? stock + (State.Tier < 2 ? " A bigger boat carries two." : "") : State.Coins < CrabPotCost ? CoinShortfall(CrabPotCost) + "." : null);
+         }
+     }
+ }
+
+Assets\Scripts\Game\GameState.cs
+--- before
++++ after
+@@ -81,6 +81,7 @@
+         public int NetInventory = 3;
+         public int TornNets; // shallow nets torn at sea, waiting in the net loft to be mended
+         public int CrabPots; // pots the captain sets beside a hull 1-3 boat at every ground (VoyageCrabPots.cs)
++        public int Tier => GameData.HullTier(Hull);
+         public HullDef HullDef => GameData.Hulls[Mathf.Clamp(Hull, 0, GameData.Hulls.Length - 1)];
+         public bool CanRefit => Tier == 0 && BestVoyageFish >= GameData.SkiffFishGoal && Coins >= GameData.SkiffCost;
+         public readonly HashSet<UpgradeId> Owned = new();
+
+Assets\Scripts\Game\GameStateCards.cs
+--- before
++++ after
+@@ -42,7 +42,7 @@
+         public string LastCrateDay = "";                     // yyyy-MM-dd of the last first-sale crate
+         readonly List<CrewMember> cardCrew = new();
+         // Existing hull indexes skip the future tier-3 jig boat.
+-        public int CardTier => Hull >= 3 ? Hull + 1 : Hull;
++        public int CardTier => Tier;
+         public int CardBerths => CardRoster.BerthsForTier(CardTier);
+         public int DepartureWages { get { EnsureCards(); return CardRoster.TotalWages(Roster, Deployment); } }
+         public bool CardAvailable(CardState card) => CardRoster.Available(card, CardTier);
+
+Assets\Scripts\Game\GameStateProgression.cs
+--- before
++++ after
+@@ -3,9 +3,17 @@
+     public partial class GameState
+     {
+         public float NetCapacityKg => Tier >= 4 ? Has(UpgradeId.NetSystem) ? 44f : 30f : Has(UpgradeId.NetSystem) ? 30f : 20f;
++        public const int JigBoatCost = 6500;
++        public bool CanRefitJig => Tier == 2 && Coins >= JigBoatCost;
++        public bool RefitJig()
++        {
++            if (!CanRefitJig) return false;
++            Coins -= JigBoatCost; Hull = 5; Fuel = FuelCapacity;
++            EnsureCrewRoleOffers(); return true;
++        }
+         public const int PrepFisherCost = 9500;
+         public const float PrepFisherKgGoal = 100f;
+-        public bool CanRefitPrep => Tier == 2 && BestVoyageKg >= PrepFisherKgGoal && Coins >= PrepFisherCost;
++        public bool CanRefitPrep => Tier == 3 && BestVoyageKg >= PrepFisherKgGoal && Coins >= PrepFisherCost;
+         public bool RefitPrep()
+         {
+             if (!CanRefitPrep) return false;
+
+Assets\Scripts\Game\CatchExpectation.cs
+--- before
++++ after
+@@ -26,7 +26,7 @@
+             {
+                 foreach(var e in state.FishTable(spot))
+                 {
+-                    if(state.Hull<GameData.MinimumHull(e.species))continue;
++                    if(state.Tier<GameData.MinimumHull(e.species))continue;
+                     float h=GameData.Get(e.species).Heaviness;
+                     float weight=e.weight*Mathf.Lerp(1-.7f*h,1+1.6f*h,power);
+                     if(bait==BaitPermission.Chum)weight*=.01f+h*h*8;
+@@ -73,7 +73,7 @@
+                 float remaining=target-mass,total=0;
+                 foreach(var e in table)
+                 {
+-                    if(hull<GameData.MinimumHull(e.species))continue;
++                    if(GameData.HullTier(hull)<GameData.MinimumHull(e.species))continue;
+                     var d=GameData.Get(e.species);if(!large&&!SmallSchool(e.species))continue;
+                     float min=Mathf.Lerp(d.MinKg,d.MaxKg,large?.65f:.05f);if(min>remaining)continue;
+                     total+=e.weight*(large?.08f+6f*d.Heaviness*d.Heaviness:1);
+@@ -82,7 +82,7 @@
+                 float roll=(float)rng.NextDouble()*total;Species species=table[0].species;
+                 foreach(var e in table)
+                 {
+-                    if(hull<GameData.MinimumHull(e.species))continue;
++                    if(GameData.HullTier(hull)<GameData.MinimumHull(e.species))continue;
+                     var d=GameData.Get(e.species);if(!large&&!SmallSchool(e.species))continue;
+                     float min=Mathf.Lerp(d.MinKg,d.MaxKg,large?.65f:.05f);if(min>remaining)continue;
+                     species=e.species;roll-=e.weight*(large?.08f+6f*d.Heaviness*d.Heaviness:1);if(roll<=0)break;
+
+Assets\Scripts\Game\DeepLineRules.cs
+--- before
++++ after
+@@ -24,7 +24,7 @@
+             float power=.55f+(bait==BaitPermission.Squid?GameData.SquidPowerBonus:0);
+             foreach(var entry in state.FishTable(spot))
+             {
+-                if(state.Hull<GameData.MinimumHull(entry.species))continue;
++                if(state.Tier<GameData.MinimumHull(entry.species))continue;
+                 var fish=GameData.Get(entry.species);float h=fish.Heaviness;
+                 float weight=entry.weight*UnityEngine.Mathf.Lerp(1-.7f*h,1+1.6f*h,power);
+                 if(bait==BaitPermission.Chum)weight*=.01f+h*h*8;
+
+Assets\Scripts\Game\Data\Coasts.cs
+--- before
++++ after
+@@ -17,7 +17,7 @@
+ 
+         public static int Of(int spot) => spot < OuterFirstSpot ? 0 : 1;
+         public static bool Outer(int spot) => Of(spot) == 1;
+-        public static bool Open(int spot, int hull) => !Outer(spot) || hull >= OuterMinimumHull;
++        public static bool Open(int spot, int hull) => !Outer(spot) || GameData.HullTier(hull) >= GameData.HullTier(OuterMinimumHull);
+ 
+         // Whether a species may bite at this ground at all.
+         public static bool Allowed(int spot, Species species)
+
+Assets\Scripts\Game\VoyageHarbour.cs
+--- before
++++ after
+@@ -10,7 +10,7 @@
+     public partial class VoyageGame
+     {
+         public enum Berth { Slipway, Pontoon, FishQuay, OuterWharf }
+-        public static Berth BerthFor(int hull) => hull switch { 0 => Berth.Slipway, 1 => Berth.Pontoon, 2 or 3 => Berth.FishQuay, _ => Berth.OuterWharf };
++        public static Berth BerthFor(int hull) => GameData.HullTier(hull) switch { 0 => Berth.Slipway, 1 => Berth.Pontoon, 2 or 3 or 4 => Berth.FishQuay, _ => Berth.OuterWharf };
+ 
+         const float HarbourQuayTop = .35f, QuayFace = 2.3f;
+         public static readonly Vector2 HarbourBasin = new(-2.5f, -7.5f), HarbourMouth = new(-6.5f, -13.5f), HarbourOutside = new(-6.5f, -25f);
+@@ -63,7 +63,7 @@
+         {
+             Shops.Clear();
+             float q = HarbourQuayTop;
+-            int hull = State.Hull;
++            int hull = State.Tier;
+             var stone = Palette.Hex("8E8A80");
+             GameObject M(string n) => lib?.M(n);
+             GameObject Place(GameObject prefab, Vector3 p, float yaw = 0f, float scale = 1f)
+@@ -120,7 +120,7 @@
+                 Visuals.Prim(PrimitiveType.Cylinder, "MouthBeacon", root, new Vector3(-18.6f, .9f, -14f), new Vector3(.45f, .9f, .45f), Palette.Hex("3E9B5B"));
+ 
+             // Outer wharf on the breakwater's inner face, built for the buoy fisher.
+-            if (hull >= 4)
++            if (hull >= 5)
+                 for (float x = 12f; x <= 24f; x += 4f)
+                     if (Place(M("OuterWharf"), new Vector3(x, .6f, -10.6f)) == null)
+                         Visuals.Box("OuterWharf", root, new Vector3(x, .35f, -10.6f), new Vector3(4.05f, .5f, 1.8f), Palette.Hex("C2BCB0"));
+@@ -216,15 +216,15 @@
+                     Visuals.Box("CraneJib", root, new Vector3(15.4f, q + 4.7f, 3.6f), new Vector3(2.6f, .25f, .25f), Palette.Accent);
+                 }
+             }
+-            if (hull >= 3)
++            if (hull >= 4)
+             {
+                 hallH = House(true, "ShopFront_FishMarket", hall); Sign("FISH MARKET", new Vector3(hall.x, q, 5.05f), 1.55f);
+                 officeH = House(false, "ShopFront_HarbourMaster", office); Sign("HARBOUR MASTER", new Vector3(office.x, q, 5.05f), 1.55f);
+                 Building("IceHouse", new Vector3(5.0f, q, 6.4f), new Vector3(3.2f, 2.8f, 2.8f), Palette.Hex("DCE7EA"));
+             }
+ 
+-            Host(HudTab.Market, hull >= 3 ? hall : stall, hull >= 3 ? hallH : stallH);
+-            Host(HudTab.HarbourMaster, hull >= 3 ? office : hut, hull >= 3 ? officeH : hutH);
++            Host(HudTab.Market, hull >= 4 ? hall : stall, hull >= 4 ? hallH : stallH);
++            Host(HudTab.HarbourMaster, hull >= 4 ? office : hut, hull >= 4 ? officeH : hutH);
+             Host(HudTab.CrewOffice, hull >= 1 ? crew : board, hull >= 1 ? crewH : boardH);
+             Host(HudTab.Chandlery, hull >= 1 ? chandlery : shed + Vector3.right * 1.2f, hull >= 1 ? chandleryH : shedH);
+             Host(HudTab.Supplies, shed + Vector3.left * 1.2f, shedH);
+@@ -265,8 +265,9 @@
+                 go.transform.localPosition = new Vector3(s.x - centre.x, 0, s.y - centre.z);
+                 go.AddComponent<Floater>();
+             }
+-            for (int h = 0; h < State.Hull; h++)
+-            {
++            for (int h = 0; h < GameData.Hulls.Length; h++)
++            {
++                if (GameData.HullTier(h) >= State.Tier) continue;
+                 var def = GameData.Hulls[h];
+                 Moor(lib?.M(def.Model), def, BerthFor(h), Next(BerthFor(h)));
+             }
+
+Assets\Scripts\Game\VoyageInterfaceShop.cs
+--- before
++++ after
+@@ -46,13 +46,14 @@
+             {
+                 "supplies/worms" or "supplies/worms-bulk" => "v2-item-worms", "supplies/squid" or "supplies/squid-bulk" => "v2-item-squid",
+                 "supplies/fuel" => "v2-item-fuel", "supplies/net" => "v2-item-net", "supplies/deep-net" => "v2-item-deep-net",
++                "refit/jig" => "v2-item-hull-jig",
+                 "module/second-net" => "v2-item-netsystem", "refit" => "v2-item-skiff", _ => "v2-item-compact-fisher"
+             };
+         }
+         // The boat on the refit card: its own illustration when one exists, else the nearest boat we have drawn (PS-15).
+         string HullArt()
+         {
+-            string own = "v2-item-hull" + State.Hull;
++            string own = State.Hull == 5 ? "v2-item-hull-jig" : "v2-item-hull" + State.Hull;
+             return ArtLibrary.Get()?.UiTex(own) != null ? own : State.Tier >= 2 ? "v2-item-compact-fisher" : "v2-item-skiff";
+         }
+         // Card line: the first clause of the description, as short as the concept's "+50% hold space".
+@@ -255,9 +256,10 @@
+             Product("refit", State.Tier > 0 ? State.HullDef.Name : "Skiff refit", State.Tier > 0 ? $"{State.CoolerCapacity:0.#} kg hold / {UsableRodCount} rods / {(SecondNetActive ? 2 : 1)} nets" : $"Bring home {GameData.SkiffFishGoal} fish in one trip. Best: {State.BestVoyageFish}.", "icon-skiff",
+                 State.Tier > 0 ? "Refitted" : $"Refit · {GameData.SkiffCost} coins", State.CanRefit, () => RefitSkiff(),
+                 State.Tier == 0 && State.BestVoyageFish >= GameData.SkiffFishGoal && State.Coins < GameData.SkiffCost ? CoinShortfall(GameData.SkiffCost) : null);
+-            if (State.Tier == 1) Product("refit/compact", "Compact fisher", "Tier 3 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
++            if (State.Tier == 1) Product("refit/compact", "Compact fisher", "Tier 2 · 100 kg hold · three rods · stern net system. Your crew and owned upgrades transfer.", "icon-skiff",
+                 $"Refit · {GameState.CompactFisherCost:N0} coins", State.CanRefitCompact, () => RefitCompact(), State.CanRefitCompact ? null : CoinShortfall(GameState.CompactFisherCost));
+-            if (State.Tier == 2) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
++            if (State.Tier == 2) Product("refit/jig", "Jig boat · Tier 3", "130 kg hold · five crew berths · three jig reels · squid lamps. Your crew and upgrades transfer.", "icon-skiff", $"Refit / {GameState.JigBoatCost:N0} coins", State.CanRefitJig, () => RefitJig());
++            if (State.Tier == 3) Product("refit/prep", "Prep fisher", $"Deliver 100 kg in one voyage. Best: {State.BestVoyageKg:0.##} kg. 160 kg hold, four crew and prep table.", "icon-skiff",
+                 $"Refit / {GameState.PrepFisherCost:N0} coins", State.CanRefitPrep, () => RefitPrep());
+         }
+         void InterfaceUpgrade(UpgradeDef u)
+
+Assets\Scripts\Game\VoyageCompactFisher.cs
+--- before
++++ after
+@@ -21,6 +21,7 @@
+             foreach (var t in model.GetComponentsInChildren<Transform>())
+                 if (t.name.StartsWith("RodVisual_")) t.gameObject.SetActive(false);
+             compactLidRest = ArtLibrary.Find(model, "HoldLid")?.localRotation ?? Quaternion.identity;
++            if (IsJigBoat) ConfigureJigBoat(model);
+             if (IsPrepFisher) ConfigurePrepFisher(model);
+             if (IsTier5) ConfigureTier5(model);
+             BuildSecondNetModuleVisual(model);
+@@ -66,7 +67,8 @@
+                     bool blocked = segments.Any(s => SegmentDistance(point, s.a, s.b) < .28f);
+                     // Hold opening below the first body-height slice.
+                     var native = new Vector2(State.HullDef.Center.z - local.z, State.HullDef.Center.x - local.x);
+-                    if (!IsPrepFisher && native.x > -.97f - .28f && native.x < -.33f + .28f && native.y > -1.13f - .28f && native.y < -.37f + .28f) blocked = true;
++                    if (!IsPrepFisher && !IsJigBoat && native.x > -.97f - .28f && native.x < -.33f + .28f && native.y > -1.13f - .28f && native.y < -.37f + .28f) blocked = true;
++                    if (IsJigBoat && local.x > 2.795f && local.x < 4.305f && local.z > .58f && local.z < 1.82f) blocked = true;
+                     // The low net basket sits below the body slices too.
+                     var basket = NetBasketLocal;
+                     var nearBasket = new Vector2(Mathf.Clamp(local.x, basket.x - .18f, basket.x + .18f), Mathf.Clamp(local.z, basket.z - .24f, basket.z + .24f));
+
+Assets\Scripts\Game\VoyageGame.cs
+--- before
++++ after
+@@ -873,6 +873,7 @@
+             UpdateRepairView(frameDt);
+             UpdateHarbourTraffic(frameDt);
+             UpdateHarbourDusk(frameDt);
++            UpdateJigLamps();
+             UpdateNetView(frameDt);
+             RefreshInterface();
+ 
+
+Assets\Scripts\Game\VoyageNet.cs
+--- before
++++ after
+@@ -21,7 +21,7 @@
+         public int NetBasketCount => UsesDeckGraph ? DeckGraph.OfKind(Deck.StationKind.Net).Sum(s => s.Out?.Count ?? 0) : OnDeck.FindAll(f => f.FromNetBasket).Count;
+         public bool NetBasketBlocked => NetBasketCount > 0;
+         Vector2Int NetAccess => IsTier5 && tier5RearNetAccess.HasValue ? tier5RearNetAccess.Value : IsNetFisher ? State.HullDef.NetAccess : new(3, 1);
+-        Vector3 NetBasketLocal => IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
++        Vector3 NetBasketLocal => IsJigBoat ? new(5.9f,.14f,.9f) : IsTier5 ? Grid.GetLocal(NetAccess)+new Vector3(.55f,.14f,0) : IsPrepFisher ? new(5.65f, .14f, 1.6f) : new(4.2f, .14f, 1.15f);
+ 
+         void BuildNetKit()
+         {

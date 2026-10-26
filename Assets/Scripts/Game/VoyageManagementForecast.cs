@@ -22,7 +22,7 @@ namespace Catchline.Game
         public float ForecastCost=>DashboardCosts.Sum();
         public float ForecastVoyageMinutes {get;private set;}
         public int FittedTrapCount=>IsTier5?Enumerable.Range(0,Mathf.Min(buoyTiles.Length,buoyModels.Length)).Count(i=>buoyModels[i]!=null&&buoyModels[i].gameObject.activeInHierarchy):0;
-        public int FittedNetCount=>State.Hull>0&&netFloats!=null?1+(SecondNetActive&&secondNetFloats!=null?1:0):0;
+        public int FittedNetCount=>State.Tier>0&&netFloats!=null?1+(SecondNetActive&&secondNetFloats!=null?1:0):0;
         public int FittedRodCount=>Rods.Count(r=>r.Unlocked&&r.Root!=null&&r.Root.gameObject.activeInHierarchy);
         public int[] ForecastShares=>CatchExpectation.Shares(Forecast.Select(f=>f.ValuePerMinute).ToArray());
         static float NominalValue(Species species,float kg)=>CatchExpectation.NominalValue(species,kg);
@@ -154,11 +154,11 @@ namespace Catchline.Game
                 storageRate=Mathf.Min(kgRate*(1-EstimatedChumShare),prepRate*(fishRate>0?kgRate/fishRate:0));
             }
             float fill=storageRate>0?Mathf.Max(0,State.CoolerCapacity-HoldKg)/storageRate:float.PositiveInfinity;
-            float remaining=State.Hull>0?Mathf.Min(fill,Mathf.Max(0,State.Fuel-.1f*State.FuelCapacity)):float.IsInfinity(fill)?0:fill;
-            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Hull>0?1:WorkSpeed.Rate(Captain))/60;
+            float remaining=State.Tier>0?Mathf.Min(fill,Mathf.Max(0,State.Fuel-.1f*State.FuelCapacity)):float.IsInfinity(fill)?0:fill;
+            float travel=2*GameData.Spots[ActiveSpot].RowSeconds*State.HullDef.TravelMultiplier/(State.Tier>0?1:WorkSpeed.Rate(Captain))/60;
             ForecastVoyageMinutes=Mathf.Max(1,(float)Flow.Clock/60+remaining+travel);
             foreach(var f in Forecast)f.CostPerMinute=f.SupplyCostPerMinute;
-            DashboardCosts=new float[4];DashboardCosts[0]=Forecast.Sum(f=>f.SupplyCostPerMinute)+(State.Hull>0?1:0);
+            DashboardCosts=new float[4];DashboardCosts[0]=Forecast.Sum(f=>f.SupplyCostPerMinute)+(State.Tier>0?1:0);
             foreach(var crew in State.Crew)
             {
                 float fee=crew.Fee/(float)GameData.ContractVoyages(crew.Grade)/ForecastVoyageMinutes;

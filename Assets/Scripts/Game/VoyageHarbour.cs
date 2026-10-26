@@ -10,7 +10,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         public enum Berth { Slipway, Pontoon, FishQuay, OuterWharf }
-        public static Berth BerthFor(int hull) => hull switch { 0 => Berth.Slipway, 1 => Berth.Pontoon, 2 or 3 => Berth.FishQuay, _ => Berth.OuterWharf };
+        public static Berth BerthFor(int hull) => GameData.HullTier(hull) switch { 0 => Berth.Slipway, 1 => Berth.Pontoon, 2 or 3 or 4 => Berth.FishQuay, _ => Berth.OuterWharf };
 
         const float HarbourQuayTop = .35f, QuayFace = 2.3f;
         public static readonly Vector2 HarbourBasin = new(-2.5f, -7.5f), HarbourMouth = new(-6.5f, -13.5f), HarbourOutside = new(-6.5f, -25f);
@@ -63,7 +63,7 @@ namespace Catchline.Game
         {
             Shops.Clear();
             float q = HarbourQuayTop;
-            int hull = State.Hull;
+            int hull = State.Tier;
             var stone = Palette.Hex("8E8A80");
             GameObject M(string n) => lib?.M(n);
             GameObject Place(GameObject prefab, Vector3 p, float yaw = 0f, float scale = 1f)
@@ -120,7 +120,7 @@ namespace Catchline.Game
                 Visuals.Prim(PrimitiveType.Cylinder, "MouthBeacon", root, new Vector3(-18.6f, .9f, -14f), new Vector3(.45f, .9f, .45f), Palette.Hex("3E9B5B"));
 
             // Outer wharf on the breakwater's inner face, built for the buoy fisher.
-            if (hull >= 4)
+            if (hull >= 5)
                 for (float x = 12f; x <= 24f; x += 4f)
                     if (Place(M("OuterWharf"), new Vector3(x, .6f, -10.6f)) == null)
                         Visuals.Box("OuterWharf", root, new Vector3(x, .35f, -10.6f), new Vector3(4.05f, .5f, 1.8f), Palette.Hex("C2BCB0"));
@@ -216,15 +216,15 @@ namespace Catchline.Game
                     Visuals.Box("CraneJib", root, new Vector3(15.4f, q + 4.7f, 3.6f), new Vector3(2.6f, .25f, .25f), Palette.Accent);
                 }
             }
-            if (hull >= 3)
+            if (hull >= 4)
             {
                 hallH = House(true, "ShopFront_FishMarket", hall); Sign("FISH MARKET", new Vector3(hall.x, q, 5.05f), 1.55f);
                 officeH = House(false, "ShopFront_HarbourMaster", office); Sign("HARBOUR MASTER", new Vector3(office.x, q, 5.05f), 1.55f);
                 Building("IceHouse", new Vector3(5.0f, q, 6.4f), new Vector3(3.2f, 2.8f, 2.8f), Palette.Hex("DCE7EA"));
             }
 
-            Host(HudTab.Market, hull >= 3 ? hall : stall, hull >= 3 ? hallH : stallH);
-            Host(HudTab.HarbourMaster, hull >= 3 ? office : hut, hull >= 3 ? officeH : hutH);
+            Host(HudTab.Market, hull >= 4 ? hall : stall, hull >= 4 ? hallH : stallH);
+            Host(HudTab.HarbourMaster, hull >= 4 ? office : hut, hull >= 4 ? officeH : hutH);
             Host(HudTab.CrewOffice, hull >= 1 ? crew : board, hull >= 1 ? crewH : boardH);
             Host(HudTab.Chandlery, hull >= 1 ? chandlery : shed + Vector3.right * 1.2f, hull >= 1 ? chandleryH : shedH);
             Host(HudTab.Supplies, shed + Vector3.left * 1.2f, shedH);
@@ -265,8 +265,9 @@ namespace Catchline.Game
                 go.transform.localPosition = new Vector3(s.x - centre.x, 0, s.y - centre.z);
                 go.AddComponent<Floater>();
             }
-            for (int h = 0; h < State.Hull; h++)
+            for (int h = 0; h < GameData.Hulls.Length; h++)
             {
+                if (GameData.HullTier(h) >= State.Tier) continue;
                 var def = GameData.Hulls[h];
                 Moor(lib?.M(def.Model), def, BerthFor(h), Next(BerthFor(h)));
             }

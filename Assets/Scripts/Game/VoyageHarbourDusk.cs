@@ -21,7 +21,7 @@ namespace Catchline.Game
 
         void UpdateHarbourDusk(float dt)
         {
-            bool dusk = harbourEvening && CurrentMode == Mode.Harbour;
+            bool dusk = harbourEvening && CurrentMode == Mode.Harbour || State != null && State.NightVoyage && CurrentMode != Mode.Harbour;
             duskBlend = Mathf.MoveTowards(duskBlend, dusk ? 1 : 0, dt / (dusk ? 3f : 1.5f));
             if (sunLight == null) sunLight = transform.Find("Sun")?.GetComponent<Light>();
             float k = duskBlend * duskBlend * (3 - 2 * duskBlend);

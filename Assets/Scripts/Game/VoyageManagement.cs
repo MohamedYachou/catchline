@@ -263,7 +263,7 @@ namespace Catchline.Game
             DPatch("ops/description",115,180,1434,31,1428,204,95,8);
             DText("ops/description",115,179,1434,33,IsPrepFisher?"Catch → haul to processing → prepare → carry to main hold. Tap any stage for live queues.":"Catch → haul directly to main hold. This boat has no processing station.",22,DashBody);
             int[] crew={State.Crew.Count(c=>c.Role==CrewRole.Fisherman)+1,CarrierCount+(CaptainHaulingIn?1:0),ProcessorCount,CarrierCount+(CaptainHaulingOut?1:0)};
-            int[] equip={FittedRodCount+FittedNetCount+FittedTrapCount+FittedDeepLineCount,State.Hull>0?SecondNetActive?2:1:0,IsPrepFisher?2:0,1};
+            int[] equip={FittedRodCount+FittedNetCount+FittedTrapCount+FittedDeepLineCount,State.Tier>0?SecondNetActive?2:1:0,IsPrepFisher?2:0,1};
             for(int i=0;i<4;i++)
             {
                 float x=new[]{114f,489f,859f,1229f}[i];

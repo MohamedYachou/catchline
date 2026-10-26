@@ -1,0 +1,463 @@
+{
+  "task": "MIRA-TALK-ART-1",
+  "coordinate_system": "source pixels, top-left origin; boxes [left,top,right,bottom), right/bottom exclusive",
+  "expected_size": [
+    1122,
+    1402
+  ],
+  "source_hashes_unchanged": true,
+  "poses": {
+    "wave": {
+      "source": "Art/Source/Tutorial/generated/wave.png",
+      "source_sha256": "1722b780c1cf4d5ce6b1e446e62dbcbd3c70d4e21d2784071014a12aa8ac65d8",
+      "face_box": [
+        425,
+        365,
+        685,
+        590
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "wave-mouth-mid.png",
+          "sha256": "587ca3b9d9cce123b227edd84d9cddf21617551e5c13379f1774300e987a7393",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 11965,
+          "changed_bounds": [
+            500,
+            479,
+            647,
+            588
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/wave-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "wave-mouth-open.png",
+          "sha256": "3ed3b36aead5145ce9ac50cc39e764971b31ae08d5c1c1fb5bbf024a819ac6d0",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 11893,
+          "changed_bounds": [
+            501,
+            480,
+            648,
+            587
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/wave-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "wave-blink.png",
+          "sha256": "8dd6301d8c7bb212231c04f1b87034ebd7945db24a7e0d76859660aae84a33e8",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 19522,
+          "changed_bounds": [
+            426,
+            365,
+            684,
+            483
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/wave-blink-diff.png",
+          "pass": true
+        }
+      }
+    },
+    "point": {
+      "source": "Art/Source/Tutorial/generated/point.png",
+      "source_sha256": "7b6f12308d7f6c8cfaf74439e8f691f982854549709f3de96b7279c606b8e7c3",
+      "face_box": [
+        390,
+        375,
+        610,
+        570
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "point-mouth-mid.png",
+          "sha256": "040a95d100dee2c7ac40d5ba5559e7fb26875d1c4caafb2c109d354b3835935f",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 9153,
+          "changed_bounds": [
+            449,
+            486,
+            582,
+            570
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/point-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "point-mouth-open.png",
+          "sha256": "d7a5cacbf13df6331ee370e53e935dcba6df1f03c8c4bce71d95b7cc924e31a2",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 9048,
+          "changed_bounds": [
+            448,
+            486,
+            582,
+            570
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/point-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "point-blink.png",
+          "sha256": "aeb995b2fe2a1a45c738f2641f49425a39c7da35ba8af19dd982227460b83536",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 15983,
+          "changed_bounds": [
+            390,
+            375,
+            610,
+            477
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/point-blink-diff.png",
+          "pass": true
+        }
+      }
+    },
+    "explain": {
+      "source": "Art/Source/Tutorial/generated/explain.png",
+      "source_sha256": "93186c80cfd8c59eccb2e9a2bb3a37f91423e6019332945095b731d94cb18e64",
+      "face_box": [
+        450,
+        365,
+        690,
+        590
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "explain-mouth-mid.png",
+          "sha256": "70a35f55905a32d3b2c17dc11cc74a5d9293615c104437686d13f5baa2b65221",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 11882,
+          "changed_bounds": [
+            515,
+            482,
+            652,
+            590
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/explain-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "explain-mouth-open.png",
+          "sha256": "a0b35d6a9526d906dee19f995d9b500ff41ee45cb060e49dfb1c27fe4a6f54e0",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 12163,
+          "changed_bounds": [
+            515,
+            481,
+            653,
+            590
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/explain-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "explain-blink.png",
+          "sha256": "7ca7548d0f05ca2c9229eae64e0934bfacf2ab4a6f36c046359fd291e870b769",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 18355,
+          "changed_bounds": [
+            450,
+            365,
+            690,
+            480
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/explain-blink-diff.png",
+          "pass": true
+        }
+      }
+    },
+    "cheer": {
+      "source": "Art/Source/Tutorial/generated/cheer.png",
+      "source_sha256": "3e87de13dc5a978ea435c4f9bc84051a5888fc78f92c1c9bc55f9e389e2d80f5",
+      "face_box": [
+        412,
+        360,
+        645,
+        592
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "cheer-mouth-mid.png",
+          "sha256": "643cd37f5e32bba029b6ae9b1ab463a8671c006c999d6cb6ead875a9b142029a",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 13710,
+          "changed_bounds": [
+            464,
+            468,
+            610,
+            592
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/cheer-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "cheer-mouth-open.png",
+          "sha256": "99ba8c3d0341a6a647d0d4b0cdd14e334e9093679abe1d671304c5407e69032c",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 13965,
+          "changed_bounds": [
+            464,
+            467,
+            610,
+            592
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/cheer-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "cheer-blink.png",
+          "sha256": "53e2b18c215362c38b5ee49894f38205e172a26e16394c00aa667f24641f439b",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 18066,
+          "changed_bounds": [
+            412,
+            360,
+            645,
+            473
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/cheer-blink-diff.png",
+          "pass": true
+        }
+      }
+    },
+    "think": {
+      "source": "Art/Source/Tutorial/generated/think.png",
+      "source_sha256": "2aed1c00b1f50c039df9c069f5afe4f40ecf55472a22bef4fd92ebcee7e3f7c7",
+      "face_box": [
+        410,
+        365,
+        645,
+        570
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "think-mouth-mid.png",
+          "sha256": "638d0aff9b0124426d2e0eedb3df716ecd8a7b7f2b686518c2f6d6b31467fc75",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 8014,
+          "changed_bounds": [
+            441,
+            486,
+            565,
+            570
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/think-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "think-mouth-open.png",
+          "sha256": "6195050287733a8caeb016bc6edda8aed1f652c1a080ff663aaaea1cbc3fa769",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 8216,
+          "changed_bounds": [
+            440,
+            486,
+            565,
+            570
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/think-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "think-blink.png",
+          "sha256": "d5828c5963f89d92ec8ac08cea66828fd202e5f1d6f1d743f1c3e9a2ad3ff955",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 19152,
+          "changed_bounds": [
+            410,
+            365,
+            645,
+            477
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/think-blink-diff.png",
+          "pass": true
+        }
+      }
+    },
+    "map": {
+      "source": "Art/Source/Tutorial/generated/map.png",
+      "source_sha256": "c511835c94f27e6596f2a8e3eace7ee7089e4a52be9899da074318800d4d07d6",
+      "face_box": [
+        399,
+        355,
+        638,
+        559
+      ],
+      "frames": {
+        "mouth-mid": {
+          "file": "map-mouth-mid.png",
+          "sha256": "822fcb40825346fa2265ee490bee722a09e9e3c7d2a9e51d0f083d622b55950e",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 10223,
+          "changed_bounds": [
+            468,
+            461,
+            607,
+            559
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/map-mouth-mid-diff.png",
+          "pass": true
+        },
+        "mouth-open": {
+          "file": "map-mouth-open.png",
+          "sha256": "cc3f71860fd701e8bb478edccc6bbf77ab41edac0e86e9c7655e4e91bc174777",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 11132,
+          "changed_bounds": [
+            466,
+            459,
+            608,
+            559
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/map-mouth-open-diff.png",
+          "pass": true
+        },
+        "blink": {
+          "file": "map-blink.png",
+          "sha256": "e6b2dff554487de8db5664daf02c67458370a7129ae609cc968835faea01c954",
+          "size": [
+            1122,
+            1402
+          ],
+          "mode": "RGBA",
+          "changed_pixel_count": 17303,
+          "changed_bounds": [
+            399,
+            355,
+            638,
+            471
+          ],
+          "outside_face_changed_pixels": 0,
+          "alpha_identical": true,
+          "opposite_features_identical": true,
+          "diff_mask": "diff-masks/map-blink-diff.png",
+          "pass": true
+        }
+      }
+    }
+  },
+  "all_pass": true,
+  "delivered_frames": 18
+}

@@ -10,7 +10,7 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         public const int CrabPotCost = 120;
-        public int MaxCrabPots => State == null ? 0 : State.Hull == 1 ? 1 : State.Hull is 2 or 3 ? 2 : 0;
+        public int MaxCrabPots => State == null ? 0 : State.Tier == 1 ? 1 : State.Tier is 2 or 3 or 4 ? 2 : 0;
         public int PotsSet => IsTier5 ? 0 : buoyAnchors.Length;
 
         public bool BuyCrabPot()
@@ -36,7 +36,7 @@ namespace Catchline.Game
             for (int i = 0; i < n; i++)
             {
                 Vector2Int tile; Vector3 at;
-                if (State.Hull == 1)
+                if (State.Tier == 1)
                 {
                     // The skiff's pot rides behind the outboard.
                     int stern = open.Max(t => t.x);
@@ -85,7 +85,7 @@ namespace Catchline.Game
                 "Set beside the boat at every ground. When it has soaked, haul it yourself: tap to winch, drag it free of snags, flick crabs to keep or throw back. " + stock,
                 "v2-icon-cage", full ? "Pots full" : $"Buy · {CrabPotCost} coins", !full && State.Coins >= CrabPotCost,
                 () => { if (BuyCrabPot()) Toast("Crab pot aboard. Haul it when it has soaked."); },
-                full ? stock + (State.Hull < 2 ? " A bigger boat carries two." : "") : State.Coins < CrabPotCost ? CoinShortfall(CrabPotCost) + "." : null);
+                full ? stock + (State.Tier < 2 ? " A bigger boat carries two." : "") : State.Coins < CrabPotCost ? CoinShortfall(CrabPotCost) + "." : null);
         }
     }
 }

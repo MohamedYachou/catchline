@@ -35,7 +35,7 @@ namespace Catchline.Game
             string id = AbilityOwner(rod.Fisher);
             if (Abilities?.PredatorNext(id) == true && !rod.Scraps)
             {
-                var legal = State.FishTable(ActiveSpot).Where(e => e.weight > 0 && State.Hull >= GameData.MinimumHull(e.species)
+                var legal = State.FishTable(ActiveSpot).Where(e => e.weight > 0 && State.Tier >= GameData.MinimumHull(e.species)
                     && BiteModel.StyleOf(e.species) == FishStyle.Heavy).ToArray();
                 if (legal.Length > 0)
                 {
@@ -71,7 +71,7 @@ namespace Catchline.Game
             if (mult == 1) { State.OnCatch(spot, kg, species, net); return; }
             if (State.CurrentGround < 0 || Grounds.Get(spot, State.CurrentGround) == null)
             {
-                State.Richness[spot] = Mathf.Max(.3f, State.Richness[spot] - mult * (State.Hull >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
+                State.Richness[spot] = Mathf.Max(.3f, State.Richness[spot] - mult * (State.Tier >= 2 ? .0035f * kg : GameData.RichnessPerCatch));
                 return;
             }
             Grounds.Drain(State.GroundRich, spot, State.CurrentGround, species, mult * (net ? Grounds.NetDrainPerKg * kg : Grounds.RodDrain));
