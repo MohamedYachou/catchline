@@ -196,19 +196,34 @@ namespace Catchline.Game.Restaurant
             Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,1.3f,.25f));
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
+        // Mo 10-26: classic restaurant clothes per job; women in dresses/tops, men in suits, Mira the best-dressed host.
+        static readonly HashSet<string> Women=new(){"mira","noor","tess","rosa","ana","lise","ines","tove"};
+        (string outfit,string hat) Wardrobe(string id)
+        {
+            var staff=Sim?.Staff.FirstOrDefault(s=>s.Id==id);
+            if(id=="mira")return("Outfit_HostFormal","Hat_HairUpClip");
+            switch(staff?.Job??Job.Helper){
+                case Job.Reception:return(Women.Contains(id)?"Outfit_Host":"Outfit_HelperSuit",null);
+                case Job.Cook:return("Outfit_CookWhites","Hat_Toque");
+                case Job.Waiter:return(Women.Contains(id)?"Outfit_WaiterSkirt":"Outfit_WaiterSuit",null);
+                case Job.Barista:return("Outfit_Barista",null);
+                case Job.Handyman:return("Outfit_Handyman",null);
+                default:return(id=="captain"||!Women.Contains(id)?"Outfit_HelperSuit":"Outfit_WaiterSkirt",null);
+            }
+        }
         Actor MakeActor(string id,bool guest)
         {
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
             var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn"};
-            var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[guests.Count%civilians.Length]:"CrewRig");
+            var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[guests.Count%civilians.Length]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
             foreach(var a in rig.GetComponentsInChildren<Animation>())a.enabled=false;
             foreach(var a in rig.GetComponentsInChildren<Animator>())a.enabled=false;
-            string outfit=id=="captain"?"Outfit_Captain":"Outfit_Deckhand";
+            var (outfit,hat)=guest?(null,null):Wardrobe(id);
             foreach(var t in rig.GetComponentsInChildren<Transform>(true)){
                 if(!guest&&t.name.StartsWith("Outfit_"))t.gameObject.SetActive(t.name==outfit); // guests keep their own clothes
-                if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(!guest&&t.name==(id=="captain"||id=="mira"?"Hat_CaptainCap":"Hat_Beanie"));
+                if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(!guest&&t.name==hat);
             }
             if(guest&&prefab.name=="CrewRig"){
                 // Clearly temporary civilian colours on the accepted boat skeleton, without modifying shared materials.
