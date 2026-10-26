@@ -1,0 +1,115 @@
+{
+  "triangles": 566,
+  "vertices": 297,
+  "bounds_unity": [
+    [
+      -1.5024447441101074,
+      -0.0949999988079071,
+      -0.1593714952468872
+    ],
+    [
+      1.5020272731781006,
+      0.14000000059604645,
+      0.1593714952468872
+    ]
+  ],
+  "meshes": [
+    "SlackPotRope",
+    "PotFloat_1",
+    "PotFloat_2",
+    "PotFloat_3"
+  ],
+  "materials": [
+    "M_BillOrange",
+    "M_Ivory",
+    "M_Rope"
+  ],
+  "parents": {
+    "PotBuoyLine": null,
+    "SlackPotRope": "PotBuoyLine",
+    "PotFloat_1": "PotBuoyLine",
+    "PotFloat_2": "PotBuoyLine",
+    "PotFloat_3": "PotBuoyLine"
+  },
+  "mesh_bounds_unity": {
+    "SlackPotRope": [
+      [
+        -1.5024447441101074,
+        -0.022412678226828575,
+        -0.1120000034570694
+      ],
+      [
+        1.5020272731781006,
+        0.018412679433822632,
+        0.10970820486545563
+      ]
+    ],
+    "PotFloat_1": [
+      [
+        -1.409999966621399,
+        -0.0949999988079071,
+        -0.1593714952468872
+      ],
+      [
+        -1.090000033378601,
+        0.14000000059604645,
+        0.059371497482061386
+      ]
+    ],
+    "PotFloat_2": [
+      [
+        -0.1599999964237213,
+        -0.0949999988079071,
+        -0.10937149822711945
+      ],
+      [
+        0.1599999964237213,
+        0.14000000059604645,
+        0.10937149822711945
+      ]
+    ],
+    "PotFloat_3": [
+      [
+        1.090000033378601,
+        -0.0949999988079071,
+        -0.059371497482061386
+      ],
+      [
+        1.409999966621399,
+        0.14000000059604645,
+        0.1593714952468872
+      ]
+    ]
+  },
+  "name": "PotBuoyLine",
+  "contract": {
+    "static": true,
+    "span_m": 3,
+    "floats": 3,
+    "pivot": "surface centre; floats cross waterline",
+    "rope": "3m gentle S slack on water; no hanging vertical legs"
+  },
+  "limit": 1000,
+  "sha256": {
+    "blend": "ac19802ffc5412e310facfd1166740d2847dc1b95ac9f2b0f2220fd6640367ba",
+    "fbx": "fd27ba818230338959cee81444a25203ec298a1fed91be7d1260ef61cecf3b90"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

@@ -1,0 +1,26 @@
+TUTORIAL-ART-1 — Codex 2 (WSL artist) — Mira as the tutorial guide, plus coach-mark sprites
+
+GOAL (Mo, 2026-10-25 night): the game opens with a tutorial. The player sails the rowboat alone, buys the skiff,
+opens a free welcome chest that brings Mira (navigator, first mate) and learns what she does. Then she shows how
+chests bring new crew. Mira speaks in a coach-mark dialog. She needs expressive poses, and the UI needs pointer and
+highlight sprites.
+
+CONTEXT (read these, nothing else up front): Art/Source/Art108 and Assets/Art/UI/Portraits/art108-mira.png (her
+approved 2D look: navy captain's cap, curly dark hair, warm brown skin; keep her identical); Art/STYLE.md;
+docs/briefs/CREW-FX-ART-1.txt for UI sprite conventions; Assets/Art/UI/v2-pill-cream.png and v2-card*.png for the
+panel style the dialog sits on.
+
+DELIVER (PNG, transparent, into Art/Source/Tutorial/ AND copied to Assets/Art/UI/Tutorial/, no .meta files):
+A. mira-pose-{wave,point,explain,cheer,think,map}: 512x640 half-body, same rendering as art108-mira. wave = hello;
+   point = arm toward screen right; explain = open palm; cheer = fist up, big smile; think = finger on chin; map =
+   holding a folded sea chart. Identical face, cap and outfit in all six.
+B. tut-bubble: 9-slice speech bubble, cream (#F4EBDA) with the ink outline of the UI kit, tail at bottom left, 256x160
+   with a 48 px slice border noted in the REPORT.
+C. tut-pointer: 128x128 hand pointer (Mira's glove, ink outline) pointing up-left; tut-arrow: 128x128 chunky brass arrow.
+D. tut-ring: 256x256 soft teal highlight ring (additive-friendly, transparent centre) for circling a button.
+
+DONE = EVIDENCE: Art/Source/Tutorial/review/sheet.png with all six poses side by side next to art108-mira at the same
+head size (open it; check the face matches), plus the bubble, pointer, arrow and ring on navy (#1C3A5A) and cream.
+OWNERSHIP: Art/Source/Tutorial/**, Assets/Art/UI/Tutorial/*.png, append-only comms.md. Never write scripts, scenes,
+.meta files or other agents' folders. No git.
+ORDER: A (wave and point first), B, C, D; one comms.md DONE line per letter. QUESTION line if blocked, then the next.

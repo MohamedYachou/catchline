@@ -1,0 +1,26 @@
+POLISH-SWEEP-1 — Codex 1 (Windows) — a native defect list for the whole playable slice (Claude, 2026-10-25 08:20)
+
+GOAL (Mo: "polish everything"): Claude fixes; you find. Play the current game natively, the way a phone player would,
+and capture every screen and moment at phone landscape (844x390) and desktop (1440x900). Write down each visible
+defect, located and concrete. Do NOT fix code (Claude owns Minigame/**, VoyageHarbour*, VoyageIntro, VoyageChart*,
+VoyageWreckLife, VoyageSkerriesLife, VoyageGutView, the HUD and interface files); you may only add capture fixtures.
+
+COVER, in this order (each a native frame or two, opened one by one):
+ 1. New game: title, intro fly-in (start, mid, end), first harbour view with hints.
+ 2. Harbour at hulls 0-4: each shop tab (Supplies, Boatyard, Crew office, Chart), the chart with all seven pins, a
+    visiting skiff in the basin (VoyageHarbourTraffic), bubbles and signs.
+ 3. Leaving: the departure, the trip chart, arrival at a ground of each of the seven maps.
+ 4. Fishing: rod minigame (cast, bite, fight, catch card), net view (setting, hauling), cage view (pull, sort),
+    gutting view at the prep fisher's process table (board, clean cut, ragged cut, Leave), deck bubbles, keep/throw,
+    the hold filling, crew walking and carrying.
+ 5. Going home, selling, the result screen, a save and reload (session-only preview; never the player's save).
+ 6. Phone specifics: text clipped or overlapping, touch targets under 44 px, anything under the notch area, HUD
+    covering the action, buttons that linger after their moment.
+For each defect: ID, screen, frame path, what is wrong in one sentence, where (pixel area or object), severity
+(blocker / ugly / nit). Also list what looked good, so it is kept.
+
+OWNERSHIP: Catchline-sim, docs/screens/polish-sweep/ (frames), docs/reports/POLISH-SWEEP-1.md (the list), your own
+capture fixture files under Assets/Editor/PolishSweep*.cs. Never batchmode the main project; never touch the player
+save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+DONE = EVIDENCE: the report with every frame linked and opened, defects sorted blockers first. One comms.md line per
+section (1-6); CHECKPOINT at safe boundaries; QUESTION and continue on conflict.

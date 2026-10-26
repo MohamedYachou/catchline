@@ -1,0 +1,221 @@
+{
+  "result": "PASS",
+  "name": "CormorantRock",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 806,
+    "vertices": 469,
+    "bounds_unity": [
+      [
+        -0.5042971968650818,
+        -0.13506264984607697,
+        -0.4610162675380707
+      ],
+      [
+        0.5303783416748047,
+        0.9631400108337402,
+        0.5184078812599182
+      ]
+    ],
+    "meshes": [
+      "CormorantRockBase",
+      "PerchedCormorant_1",
+      "PerchedCormorant_2"
+    ],
+    "materials": [
+      "M_BillHorn",
+      "M_Eye",
+      "M_EyeTeal",
+      "M_FeatherDark",
+      "M_FeatherGloss",
+      "M_Ivory",
+      "M_Rock",
+      "M_RockShade"
+    ],
+    "parents": {
+      "CormorantRock": null,
+      "CormorantRockBase": "CormorantRock",
+      "PerchedCormorant_1": "CormorantRock",
+      "PerchedCormorant_2": "CormorantRock"
+    },
+    "mesh_bounds_unity": {
+      "CormorantRockBase": [
+        [
+          -0.5042971968650818,
+          -0.13506264984607697,
+          -0.4610162675380707
+        ],
+        [
+          0.5303783416748047,
+          0.28999999165534973,
+          0.5184078812599182
+        ]
+      ],
+      "PerchedCormorant_1": [
+        [
+          -0.3068992793560028,
+          0.29701998829841614,
+          -0.2884400486946106
+        ],
+        [
+          -0.0013769622892141342,
+          0.9631400108337402,
+          0.3764367699623108
+        ]
+      ],
+      "PerchedCormorant_2": [
+        [
+          -0.026661749929189682,
+          0.29701998829841614,
+          -0.3959158957004547
+        ],
+        [
+          0.31828662753105164,
+          0.9631400108337402,
+          0.2543777823448181
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 806,
+    "vertices": 469,
+    "bounds_unity": [
+      [
+        -0.5042971968650818,
+        -0.13506262004375458,
+        -0.4610162675380707
+      ],
+      [
+        0.5303783416748047,
+        0.9631400108337402,
+        0.5184078812599182
+      ]
+    ],
+    "meshes": [
+      "CormorantRockBase",
+      "PerchedCormorant_1",
+      "PerchedCormorant_2"
+    ],
+    "materials": [
+      "M_BillHorn",
+      "M_Eye",
+      "M_EyeTeal",
+      "M_FeatherDark",
+      "M_FeatherGloss",
+      "M_Ivory",
+      "M_Rock",
+      "M_RockShade"
+    ],
+    "parents": {
+      "CormorantRockBase": "CormorantRock",
+      "PerchedCormorant_1": "CormorantRock",
+      "PerchedCormorant_2": "CormorantRock",
+      "CormorantRock": null
+    },
+    "mesh_bounds_unity": {
+      "CormorantRockBase": [
+        [
+          -0.5042971968650818,
+          -0.13506262004375458,
+          -0.4610162675380707
+        ],
+        [
+          0.5303783416748047,
+          0.2900000214576721,
+          0.5184078812599182
+        ]
+      ],
+      "PerchedCormorant_1": [
+        [
+          -0.3068992793560028,
+          0.29701998829841614,
+          -0.288440078496933
+        ],
+        [
+          -0.0013769622892141342,
+          0.9631400108337402,
+          0.376436710357666
+        ]
+      ],
+      "PerchedCormorant_2": [
+        [
+          -0.026661749929189682,
+          0.29701998829841614,
+          -0.3959159255027771
+        ],
+        [
+          0.31828662753105164,
+          0.9631400108337402,
+          0.25437772274017334
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 3,
+    "max_vertex_error_metres": 7.450580596923828e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    1.0346755385398865,
+    1.0982026606798172,
+    0.9794241487979889
+  ],
+  "materials": {
+    "M_BillHorn": [
+      0.47353148460388184,
+      0.35640013217926025,
+      0.19120168685913086,
+      1.0
+    ],
+    "M_Eye": [
+      0.006995410192757845,
+      0.019382361322641373,
+      0.023153366521000862,
+      1.0
+    ],
+    "M_EyeTeal": [
+      0.16202937066555023,
+      0.4564110338687897,
+      0.35153260827064514,
+      1.0
+    ],
+    "M_FeatherDark": [
+      0.01850022003054619,
+      0.039546236395835876,
+      0.045186202973127365,
+      1.0
+    ],
+    "M_FeatherGloss": [
+      0.03433980792760849,
+      0.07421357184648514,
+      0.06847816705703735,
+      1.0
+    ],
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_Rock": [
+      0.27049779891967773,
+      0.2541520893573761,
+      0.2158605009317398,
+      1.0
+    ],
+    "M_RockShade": [
+      0.15896083414554596,
+      0.1441284716129303,
+      0.11953842639923096,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "b415ce1d22ba6eefb5487a203c0156be461a525b83640a839ea2cb599352f228",
+    "fbx": "f63242f57b369d115d5ea4505af7e0da263a3cef9635c2fa926ed6855da4632f"
+  }
+}

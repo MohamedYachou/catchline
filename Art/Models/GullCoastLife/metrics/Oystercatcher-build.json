@@ -1,0 +1,102 @@
+{
+  "triangles": 316,
+  "vertices": 196,
+  "bounds_unity": [
+    [
+      -0.1439102590084076,
+      0.0010314579121768475,
+      -0.3131484091281891
+    ],
+    [
+      0.1439102590084076,
+      0.41999998688697815,
+      0.4300808608531952
+    ]
+  ],
+  "meshes": [
+    "OystercatcherSkin"
+  ],
+  "materials": [
+    "M_BillOrange",
+    "M_Eye",
+    "M_FeatherDark",
+    "M_Ivory",
+    "M_LegPink"
+  ],
+  "parents": {
+    "Oystercatcher": null,
+    "OystercatcherSkin": "OystercatcherRig",
+    "OystercatcherRig": "Oystercatcher"
+  },
+  "mesh_bounds_unity": {
+    "OystercatcherSkin": [
+      [
+        -0.1439102590084076,
+        0.0010314579121768475,
+        -0.3131484091281891
+      ],
+      [
+        0.1439102590084076,
+        0.41999998688697815,
+        0.4300808608531952
+      ]
+    ]
+  },
+  "name": "Oystercatcher",
+  "contract": {
+    "rig": "OystercatcherRig",
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Wing.L",
+      "Wing.R",
+      "Leg.L",
+      "Leg.R"
+    ],
+    "clips": {
+      "Walk": {
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": true
+      },
+      "Probe": {
+        "frames": [
+          1,
+          46
+        ],
+        "seconds": 1.5,
+        "loop": true
+      }
+    },
+    "root_motion": false,
+    "pivot": "feet contact at origin",
+    "forward": "Blender -Y / Unity +Z"
+  },
+  "limit": 400,
+  "sha256": {
+    "blend": "f594ab4cef90c2079dd0a09e6820a129cb28a4b12bb25937bc640c8064edbd7e",
+    "fbx": "6acd6fbd15774e08f88cd01650e5315826a107d74381fb08c9620b7405501a5c"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

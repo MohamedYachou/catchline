@@ -1,0 +1,106 @@
+{
+  "triangles": 806,
+  "vertices": 469,
+  "bounds_unity": [
+    [
+      -0.5042971968650818,
+      -0.13506264984607697,
+      -0.4610162675380707
+    ],
+    [
+      0.5303783416748047,
+      0.9631400108337402,
+      0.5184078812599182
+    ]
+  ],
+  "meshes": [
+    "CormorantRockBase",
+    "PerchedCormorant_1",
+    "PerchedCormorant_2"
+  ],
+  "materials": [
+    "M_BillHorn",
+    "M_Eye",
+    "M_EyeTeal",
+    "M_FeatherDark",
+    "M_FeatherGloss",
+    "M_Ivory",
+    "M_Rock",
+    "M_RockShade"
+  ],
+  "parents": {
+    "CormorantRock": null,
+    "CormorantRockBase": "CormorantRock",
+    "PerchedCormorant_1": "CormorantRock",
+    "PerchedCormorant_2": "CormorantRock"
+  },
+  "mesh_bounds_unity": {
+    "CormorantRockBase": [
+      [
+        -0.5042971968650818,
+        -0.13506264984607697,
+        -0.4610162675380707
+      ],
+      [
+        0.5303783416748047,
+        0.28999999165534973,
+        0.5184078812599182
+      ]
+    ],
+    "PerchedCormorant_1": [
+      [
+        -0.3068992793560028,
+        0.29701998829841614,
+        -0.2884400486946106
+      ],
+      [
+        -0.0013769622892141342,
+        0.9631400108337402,
+        0.3764367699623108
+      ]
+    ],
+    "PerchedCormorant_2": [
+      [
+        -0.026661749929189682,
+        0.29701998829841614,
+        -0.3959158957004547
+      ],
+      [
+        0.31828662753105164,
+        0.9631400108337402,
+        0.2543777823448181
+      ]
+    ]
+  },
+  "name": "CormorantRock",
+  "contract": {
+    "static": true,
+    "birds": 2,
+    "rock_width_m": 1,
+    "pivot": "rock at waterline; birds feet on flat angular top",
+    "animation": "Static group; use Cormorant for animated independent birds"
+  },
+  "limit": 1800,
+  "sha256": {
+    "blend": "b415ce1d22ba6eefb5487a203c0156be461a525b83640a839ea2cb599352f228",
+    "fbx": "f63242f57b369d115d5ea4505af7e0da263a3cef9635c2fa926ed6855da4632f"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

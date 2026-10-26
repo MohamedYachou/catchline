@@ -1,0 +1,288 @@
+{
+  "result": "PASS",
+  "name": "Oystercatcher",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 316,
+    "vertices": 196,
+    "bounds_unity": [
+      [
+        -0.1439102590084076,
+        0.0010314579121768475,
+        -0.3131484091281891
+      ],
+      [
+        0.1439102590084076,
+        0.41999998688697815,
+        0.4300808608531952
+      ]
+    ],
+    "meshes": [
+      "OystercatcherSkin"
+    ],
+    "materials": [
+      "M_BillOrange",
+      "M_Eye",
+      "M_FeatherDark",
+      "M_Ivory",
+      "M_LegPink"
+    ],
+    "parents": {
+      "Oystercatcher": null,
+      "OystercatcherSkin": "OystercatcherRig",
+      "OystercatcherRig": "Oystercatcher"
+    },
+    "mesh_bounds_unity": {
+      "OystercatcherSkin": [
+        [
+          -0.1439102590084076,
+          0.0010314579121768475,
+          -0.3131484091281891
+        ],
+        [
+          0.1439102590084076,
+          0.41999998688697815,
+          0.4300808608531952
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 316,
+    "vertices": 196,
+    "bounds_unity": [
+      [
+        -0.1439102590084076,
+        0.001031467574648559,
+        -0.3131484389305115
+      ],
+      [
+        0.1439102590084076,
+        0.42000001668930054,
+        0.4300808012485504
+      ]
+    ],
+    "meshes": [
+      "OystercatcherSkin"
+    ],
+    "materials": [
+      "M_BillOrange",
+      "M_Eye",
+      "M_FeatherDark",
+      "M_Ivory",
+      "M_LegPink"
+    ],
+    "parents": {
+      "OystercatcherRig": "Oystercatcher",
+      "OystercatcherSkin": "OystercatcherRig",
+      "Oystercatcher": null
+    },
+    "mesh_bounds_unity": {
+      "OystercatcherSkin": [
+        [
+          -0.1439102590084076,
+          0.001031467574648559,
+          -0.3131484389305115
+        ],
+        [
+          0.1439102590084076,
+          0.42000001668930054,
+          0.4300808012485504
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 8.429369557916289e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Walk": {
+      "source": {
+        "action_name": "Walk",
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": true,
+        "samples": [
+          1,
+          8,
+          16,
+          23,
+          31
+        ],
+        "max_vertex_motion_m": 0.052418193061586606,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "OystercatcherRig|OystercatcherRig|Walk",
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": true,
+        "samples": [
+          1,
+          8,
+          16,
+          23,
+          31
+        ],
+        "max_vertex_motion_m": 0.05241819250636276,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "8": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Probe": {
+      "source": {
+        "action_name": "Probe",
+        "frames": [
+          1,
+          46
+        ],
+        "seconds": 1.5,
+        "loop": true,
+        "samples": [
+          1,
+          12,
+          23,
+          34,
+          46
+        ],
+        "max_vertex_motion_m": 0.32932795186202707,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "OystercatcherRig|OystercatcherRig|Probe",
+        "frames": [
+          1,
+          46
+        ],
+        "seconds": 1.5,
+        "loop": true,
+        "samples": [
+          1,
+          12,
+          23,
+          34,
+          46
+        ],
+        "max_vertex_motion_m": 0.3293279801415135,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "12": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.541398782175747e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.996002603429588e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "34": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 9.541398782175747e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 8.429369557916289e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.2878205180168152,
+    0.4189685289748013,
+    0.7432292699813843
+  ],
+  "materials": {
+    "M_BillOrange": [
+      0.7681511640548706,
+      0.1441284716129303,
+      0.03560131415724754,
+      1.0
+    ],
+    "M_Eye": [
+      0.006995410192757845,
+      0.019382361322641373,
+      0.023153366521000862,
+      1.0
+    ],
+    "M_FeatherDark": [
+      0.01850022003054619,
+      0.039546236395835876,
+      0.045186202973127365,
+      1.0
+    ],
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_LegPink": [
+      0.5840784311294556,
+      0.2345505803823471,
+      0.21223075687885284,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "f594ab4cef90c2079dd0a09e6820a129cb28a4b12bb25937bc640c8064edbd7e",
+    "fbx": "6acd6fbd15774e08f88cd01650e5315826a107d74381fb08c9620b7405501a5c"
+  }
+}

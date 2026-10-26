@@ -1,0 +1,17 @@
+LIGHTHOUSE-LIFE-1 — Codex 2 — life for the eighth map, Lighthouse rock (Claude, 2026-10-25 09:20)
+
+GOAL (Mo: "3d assets, animations"): small animated pieces Claude spawns on MAP8's anchor empties (Codex 1 builds the
+terrain). Same quality, evidence and report format as WreckLife (accepted). Art/Models/LighthouseLife/, one FBX per
+item, metres, pivots at the contact point, house palette and low-poly style:
+- Puffin (<= 600 tris): black back, white face and belly, big orange-red striped bill, orange feet; standing pose.
+  Legacy clips: Idle (loop 3 s, head turns and a bob), Flap (loop 0.4 s, wings out). About 0.3 m tall.
+- PuffinGroup: three puffins standing on a 1.2 m angular rock ledge piece (pivot at the ledge base).
+- TideRace: a 6 x 2 m band of low angular standing waves and white crests, flat-shaded, a loose triangle strip Claude
+  scrolls (no baked foam fins sticking up; crests at most 0.25 m).
+- LighthouseGlow: a soft lantern glow quad pair (cross) and a 12 m long thin beam cone, M_LampGlow (#FFE7A3), pivot at
+  the lantern centre; Claude rotates the beam.
+DONE = EVIDENCE: five-view renders per item, sampled frames of each clip, one assembly render (three puffins on the
+ledge beside the tide race at the deck-camera angle, 1440x900 and 844x390), every image opened; REPORT.md with the
+integration contract. OWNERSHIP: Art/Models/LighthouseLife/, Art/Source/LighthouseLife/ only. No git, no Unity, no
+Assets/. One comms.md line per item; CHECKPOINT at safe boundaries; QUESTION and skip on conflict.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

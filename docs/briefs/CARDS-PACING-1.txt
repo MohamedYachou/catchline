@@ -1,0 +1,33 @@
+CARDS-PACING-1 — Codex 1 (Windows) — measure how fast the crew card economy really moves
+
+GOAL: Mo's target (CREW-CARDS-V2.md): "one crew member maxed in 1–2 months; all crew much longer". Prove or
+disprove it with numbers from the real code, and propose the smallest tuning that hits the target. You change
+NO game data: proposals only.
+
+CONTEXT (read these, nothing else up front): docs/plans/CREW-CARDS-V2.md; Assets/Scripts/Game/Data/CardProgression.cs,
+Chests.cs, RenownRoad.cs, CardState.cs; GameStateCards.cs (AwardHaulTokens, GrantDailyCrate, OpenChest, ClaimRenown,
+LevelUpCard, RankUpCard); GameState.cs sale report. Commits d521a5a, fa7e4c6, 11eadcf.
+
+BUILD: a new editor tool Assets/Editor/CardPacingSim.cs (namespace Catchline.EditorTools, entry CardPacingSim.Run)
+that drives the REAL GameState card API (no copies of the formulas) through simulated days:
+- Player profiles: casual (2 trips/day), regular (5), heavy (10). Boat tier path: tier 1 day 1, then each tier at a
+  day you derive from current hull prices and typical income (state your assumption in the report).
+- Each trip: crew aboard = berths at that tier, hold fill drawn 0.6–1.0, sell via the real token/crate path
+  (AwardHaulTokens; GrantDailyCrate on the day's first sale; contract crate every 3rd day).
+- Spend policy: focus one card (Mira excluded); level the focus card first, rank up whenever possible, open every
+  chest, buy a sea chest when coins exceed 3x its price, claim renown immediately (blueprint choice -> focus card).
+- 200 seeds per profile, 180 simulated days.
+
+REPORT (docs/plans/CARDS-PACING.md): per profile, the median and 10th/90th percentile day the focus card reaches
+Purple, Gold, Mythic, Mythic 5 stars; renown milestone reached by day 30/60/180; tokens earned vs spent; whether coin
+or tokens or blueprints is the binding limit at each stage. Then up to three tuning proposals (exact constant, old ->
+new, predicted effect, re-measured by the sim) that put "regular" one-card Mythic between day 30 and 60.
+
+OWNERSHIP: Assets/Editor/CardPacingSim.cs (+meta), docs/plans/CARDS-PACING.md, append-only comms.md.
+Never write: Data/*.cs, GameStateCards.cs, SaveV2.cs, CrewUi/*, any art or audio. No git. Never batchmode the main
+project: run in Catchline-sim via docs/tools/check.ps1. Never touch the player save.
+
+DONE = EVIDENCE: the sim log (Catchline-sim/Logs) and the report with tables; one comms.md DONE line with the three
+headline numbers (regular profile: day to Gold, day to Mythic, binding limit).
+REPORTING: CHECKPOINT lines at safe boundaries; QUESTION line in comms.md if a rule is ambiguous, then continue with
+the most literal reading.

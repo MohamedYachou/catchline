@@ -1,0 +1,23 @@
+SEAL-CLIFFS-LIFE-AND-MAP11-1 — Codex 1 (Windows) — bring Seal cliffs to life, then an eleventh map (Mo, 10-26: "new maps", "keep codex going")
+PART 1, Seal cliffs life (Claude releases Voyage*Life files for this): new file Assets/Scripts/Game/VoyageCliffsLife.cs
+modelled exactly on VoyageSkerriesLife.cs / VoyageShelfLife.cs and hooked the same way (one dispatch line where those
+are dispatched). On the map's empties: SealHaulout_1..3 get the existing SealColony + Seal models with SealLife and
+the SealBark cue (low volume, rare); CliffGulls_1..2 get the existing gull life used at Lighthouse rock; ArchSpray_1
+gets a periodic white spray burst at water level (reuse an existing splash/spray effect). Existing models and cues
+only. Evidence: seal-cove, stack-race and arch-pool deck frames 1440x900 + 844x390 showing seals/gulls, opened by you,
+in docs/screens/cliffs-life-1/; full regression passes.
+PART 2, MAP11 "Kelp forest": built exactly like MAP9/MAP10 (your pipeline, REPORT, LESSONS). Claude's design calls:
+- Theme: a sheltered bay with a dense kelp forest seen through clear green-teal water (3A8F86 shallows), sandy
+  clearings, a few low weed-covered rocks and an old wooden mooring post line; no buildings. House low-poly style.
+- Size 320 x 260 m, three grounds: "Kelp edge" (wrasse 40, pollock 30, sea bass 20, rare lobster 2), "Sand clearing"
+  (plaice/flatfish 40, whiting 30, gurnard 20, rare turbot 3), "Post line" (mackerel 45, garfish/herring 30,
+  conger 15, rare john dory 2). Existing species only; substitute the nearest existing one where missing and say so.
+- Spot data: RowSeconds 28, BiteWait 1.4, ChartCost 3,300, unlocks one step after Seal cliffs.
+  Blurb: "A green bay of swaying kelp. Wrasse on the edge, flatfish on the sand."
+- Empties for life: KelpSway_1..4 (water level, in the kelp), OtterRaft_1 (water level), PostGulls_1..2 (post tops).
+- Chart: leave a QUESTION for spot 10's point and glyph (Claude's).
+OWNERSHIP/DONE: as MAP10 (art, import, GameData Spots + map lists, Grounds.ByMap[10], checks in Catchline-sim with
+eleven maps and a trip to each new ground, native frames opened one by one, REPORT.md, comms lines per step).
+Never: Minigame/**, VoyageHarbour*.cs, VoyageIntro.cs, VoyageChart*.cs, VoyageIllustratedChart.cs, VoyageTutorial.cs,
+CrewUi/**, Skin.cs, CoastalCanvas.cs, Codex 2's folders; never batchmode the main project; never touch the player save;
+no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS. Do not copy full source snapshots into docs/screens.

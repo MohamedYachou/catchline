@@ -1,0 +1,135 @@
+{
+  "triangles": 1292,
+  "vertices": 800,
+  "bounds_unity": [
+    [
+      -1.0,
+      -0.05999999865889549,
+      -0.5
+    ],
+    [
+      1.0,
+      0.43799999356269836,
+      0.5048263669013977
+    ]
+  ],
+  "meshes": [
+    "WetSandBar",
+    "Forager_1",
+    "Forager_2",
+    "Forager_3",
+    "Forager_4"
+  ],
+  "materials": [
+    "M_BillOrange",
+    "M_Eye",
+    "M_FeatherDark",
+    "M_Ivory",
+    "M_LegPink",
+    "M_WetSand"
+  ],
+  "parents": {
+    "OystercatcherGroup": null,
+    "WetSandBar": "OystercatcherGroup",
+    "Forager_1": "OystercatcherGroup",
+    "Forager_2": "OystercatcherGroup",
+    "Forager_3": "OystercatcherGroup",
+    "Forager_4": "OystercatcherGroup"
+  },
+  "mesh_bounds_unity": {
+    "WetSandBar": [
+      [
+        -1.0,
+        -0.05999999865889549,
+        -0.5
+      ],
+      [
+        1.0,
+        0.017999999225139618,
+        0.5
+      ]
+    ],
+    "Forager_1": [
+      [
+        -0.7853782176971436,
+        0.019031457602977753,
+        -0.2616361677646637
+      ],
+      [
+        -0.4963729977607727,
+        0.43799999356269836,
+        0.4538065493106842
+      ]
+    ],
+    "Forager_2": [
+      [
+        -0.33522236347198486,
+        0.019031457602977753,
+        -0.40701350569725037
+      ],
+      [
+        -0.04825183376669884,
+        0.43799999356269836,
+        0.32179906964302063
+      ]
+    ],
+    "Forager_3": [
+      [
+        0.1653805524110794,
+        0.019031457602977753,
+        -0.22954250872135162
+      ],
+      [
+        0.4506441056728363,
+        0.43799999356269836,
+        0.5048263669013977
+      ]
+    ],
+    "Forager_4": [
+      [
+        0.4547364115715027,
+        0.019031457602977753,
+        -0.436861127614975
+      ],
+      [
+        0.8579081296920776,
+        0.43799999356269836,
+        0.2181800901889801
+      ]
+    ]
+  },
+  "name": "OystercatcherGroup",
+  "contract": {
+    "static": true,
+    "birds": 4,
+    "sand_footprint_m": [
+      2,
+      1
+    ],
+    "pivot": "sandbar waterline; feet on top .018m",
+    "animation": "Static habitat group; use Oystercatcher for Walk/Probe"
+  },
+  "limit": 1800,
+  "sha256": {
+    "blend": "8c7be278058c9b0cb5d88dc1a034d278e7ca6a566e603d1bf4d3f60db466f69a",
+    "fbx": "c9f6c95776693dd34b9ea05fae3633c6fca06aca848eef5b5a76e118755742a8"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

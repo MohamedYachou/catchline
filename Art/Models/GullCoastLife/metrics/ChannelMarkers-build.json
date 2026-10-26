@@ -1,0 +1,102 @@
+{
+  "triangles": 520,
+  "vertices": 292,
+  "bounds_unity": [
+    [
+      -1.4700000286102295,
+      -0.2199999988079071,
+      -0.30433809757232666
+    ],
+    [
+      1.4700000286102295,
+      1.559999942779541,
+      0.30433809757232666
+    ]
+  ],
+  "meshes": [
+    "RedCanMesh",
+    "GreenConeMesh"
+  ],
+  "materials": [
+    "M_FeatherDark",
+    "M_Green",
+    "M_Ivory",
+    "M_LampGlow",
+    "M_Red"
+  ],
+  "parents": {
+    "ChannelMarkers": null,
+    "RedCan": "ChannelMarkers",
+    "RedCanMesh": "RedCan",
+    "GreenCone": "ChannelMarkers",
+    "GreenConeMesh": "GreenCone"
+  },
+  "mesh_bounds_unity": {
+    "RedCanMesh": [
+      [
+        -1.4700000286102295,
+        -0.2199999988079071,
+        -0.30433809757232666
+      ],
+      [
+        -0.8299999237060547,
+        1.559999942779541,
+        0.30433809757232666
+      ]
+    ],
+    "GreenConeMesh": [
+      [
+        0.8299999237060547,
+        -0.2199999988079071,
+        -0.30433809757232666
+      ],
+      [
+        1.4700000286102295,
+        1.559999942779541,
+        0.30433809757232666
+      ]
+    ]
+  },
+  "name": "ChannelMarkers",
+  "contract": {
+    "static": true,
+    "height_above_water_m": 1.56,
+    "children": {
+      "RedCan": [
+        -1.15,
+        0,
+        0
+      ],
+      "GreenCone": [
+        1.15,
+        0,
+        0
+      ]
+    },
+    "pivot": "pair centre at waterline; each child also waterline centred, independently placeable",
+    "light_material": "M_LampGlow only small top lens; emission runtime bind"
+  },
+  "limit": 1600,
+  "sha256": {
+    "blend": "a99b3e31e956ea814d108e4d9c1be85710cf16c7861df78b79d53017febf07dc",
+    "fbx": "1a939eec14ae8dd536505f1e37370f77b59d1b5709b65188f8f65646e7a781e4"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

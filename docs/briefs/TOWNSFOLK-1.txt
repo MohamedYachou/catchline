@@ -1,0 +1,24 @@
+TOWNSFOLK-1 — Codex 2 — people who walk the harbour quay (Claude, 2026-10-25 09:10)
+
+GOAL (Mo: "polish everything ... animations"; harbour plan to-do "townsfolk walking"): a few townsfolk stroll the quay
+and stop to look at the boats. Claude writes the walking code; you make the people. They must be driven by the game's
+existing crew clips, so they share the crew skeleton exactly.
+
+DELIVER Art/Models/Townsfolk/Townsfolk.blend + .fbx and REPORT.md:
+- Start from the crew rig in Assets/Art/Models/Crew/CrewRig.fbx (read only; its Blender source is in Art/Source,
+  find it). Keep the armature object name, every bone name, the hierarchy above the meshes and the rest pose
+  IDENTICAL, so Unity legacy clips recorded on CrewRig (Walk, Idle, Carry, Wait ...) play on Townsfolk unchanged.
+  Prove it: in Blender, bind CrewRig's Walk action to the Townsfolk armature and render sampled frames.
+- Five townsfolk as sibling meshes named Town_*, each skinned to that armature; the game shows one at a time:
+  Town_OldWoman (headscarf, long coat, shopping basket on the arm), Town_Kid (smaller: scale the mesh, not the bones,
+  about 0.75 of adult height; striped jumper, cap), Town_Fisherman (yellow oilskins, sou'wester, rubber boots),
+  Town_Shopkeeper (apron, rolled sleeves), Town_Walker (a woman in a knitted jumper and a red beanie).
+  More women than men. Same chunky low-poly proportions, faces and palette as the crew (Art/STYLE.md), <= 2500 tris
+  each. Shared M_ material names only (the crew's skin/hair/cloth names plus new M_Oilskin #E8B43A, M_Basket #B98F5E).
+- Optional, only if time: Dog, its own small rig (<= 1200 tris) with Legacy clips Trot (loop 0.6 s) and Sit (loop).
+
+OWNERSHIP: write only Art/Models/Townsfolk/ and Art/Source/Townsfolk/. No git, no Unity, no Assets/.
+DONE = EVIDENCE: five-view studio renders per person (front, back, both sides, three-quarter: the side and back views
+are where crew defects hid before); five sampled frames of CrewRig's Walk on each; one line-up render of all five
+beside a crew member at the same scale; every image opened. One comms.md line per person; CHECKPOINT at safe
+boundaries; QUESTION and skip on conflict. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

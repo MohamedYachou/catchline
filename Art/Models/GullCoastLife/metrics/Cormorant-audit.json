@@ -1,0 +1,368 @@
+{
+  "result": "PASS",
+  "name": "Cormorant",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 378,
+    "vertices": 221,
+    "bounds_unity": [
+      [
+        -0.17499999701976776,
+        0.008999999612569809,
+        -0.43395599722862244
+      ],
+      [
+        0.17499999701976776,
+        0.8630000352859497,
+        0.44422152638435364
+      ]
+    ],
+    "meshes": [
+      "CormorantSkin"
+    ],
+    "materials": [
+      "M_BillHorn",
+      "M_Eye",
+      "M_EyeTeal",
+      "M_FeatherDark",
+      "M_FeatherGloss",
+      "M_Ivory"
+    ],
+    "parents": {
+      "Cormorant": null,
+      "CormorantSkin": "CormorantRig",
+      "CormorantRig": "Cormorant"
+    },
+    "mesh_bounds_unity": {
+      "CormorantSkin": [
+        [
+          -0.17499999701976776,
+          0.008999999612569809,
+          -0.43395599722862244
+        ],
+        [
+          0.17499999701976776,
+          0.8630000352859497,
+          0.44422152638435364
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 378,
+    "vertices": 221,
+    "bounds_unity": [
+      [
+        -0.17499999701976776,
+        0.009000002406537533,
+        -0.4339560270309448
+      ],
+      [
+        0.17499999701976776,
+        0.8630000948905945,
+        0.4442214071750641
+      ]
+    ],
+    "meshes": [
+      "CormorantSkin"
+    ],
+    "materials": [
+      "M_BillHorn",
+      "M_Eye",
+      "M_EyeTeal",
+      "M_FeatherDark",
+      "M_FeatherGloss",
+      "M_Ivory"
+    ],
+    "parents": {
+      "CormorantRig": "Cormorant",
+      "CormorantSkin": "CormorantRig",
+      "Cormorant": null
+    },
+    "mesh_bounds_unity": {
+      "CormorantSkin": [
+        [
+          -0.17499999701976776,
+          0.009000002406537533,
+          -0.4339560270309448
+        ],
+        [
+          0.17499999701976776,
+          0.8630000948905945,
+          0.4442214071750641
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 1.6049041562382627e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Idle": {
+      "source": {
+        "action_name": "Idle",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.034388866295820095,
+        "end_vs_start_m": 5.510909621219977e-18,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "CormorantRig|CormorantRig|Idle",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.03438887645160455,
+        "end_vs_start_m": 5.510909621219977e-18,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.7441361421788315e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "68": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.7441361421788315e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "DryWings": {
+      "source": {
+        "action_name": "DryWings",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.01761528935919776,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "CormorantRig|CormorantRig|DryWings",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.01761528935919776,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.1490760104825313e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Dive": {
+      "source": {
+        "action_name": "Dive",
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": false,
+        "samples": [
+          1,
+          8,
+          16,
+          23,
+          31
+        ],
+        "max_vertex_motion_m": 2.0443323441482324,
+        "end_vs_start_m": 2.0443323441482324,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "CormorantRig|CormorantRig|Dive",
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": false,
+        "samples": [
+          1,
+          8,
+          16,
+          23,
+          31
+        ],
+        "max_vertex_motion_m": 2.0443325974413535,
+        "end_vs_start_m": 2.0443325974413535,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6049041562382627e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "8": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.674309686450215e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.1490760104825313e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.980232238769531e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.3499999940395355,
+    0.8540000356733799,
+    0.8781775236129761
+  ],
+  "materials": {
+    "M_BillHorn": [
+      0.47353148460388184,
+      0.35640013217926025,
+      0.19120168685913086,
+      1.0
+    ],
+    "M_Eye": [
+      0.006995410192757845,
+      0.019382361322641373,
+      0.023153366521000862,
+      1.0
+    ],
+    "M_EyeTeal": [
+      0.16202937066555023,
+      0.4564110338687897,
+      0.35153260827064514,
+      1.0
+    ],
+    "M_FeatherDark": [
+      0.01850022003054619,
+      0.039546236395835876,
+      0.045186202973127365,
+      1.0
+    ],
+    "M_FeatherGloss": [
+      0.03433980792760849,
+      0.07421357184648514,
+      0.06847816705703735,
+      1.0
+    ],
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "5f77af78fb829ced996f8c9f462efadf203160c918257c2220d3d562bd41f056",
+    "fbx": "aa1e660e7e614ee1b10d95f777ef78b9b0187a79d5f90063da9b0897d261a920"
+  }
+}

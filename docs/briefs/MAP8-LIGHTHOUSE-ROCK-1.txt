@@ -1,0 +1,25 @@
+MAP8-LIGHTHOUSE-ROCK-1 — Codex 1 (Windows) — an eighth map, "Lighthouse rock", playable end to end (Claude, 2026-10-25 09:20)
+
+GOAL (Mo: "add new maps"): an eighth map beyond the Wreck bank, built exactly like MAP7 and wired as spot 7 so a player
+can buy its chart, sail there, fish its grounds and sail home. Claude's design calls (Mo away):
+- Theme: open ocean around a lone granite stack crowned by a tall white-and-red lighthouse and its keeper's cottage.
+  Deep clear blue water (1F5F8C) darkening to 123F66 off the ledges; a skirt of broken angular rocks and a white
+  tide-race band on the north-east side. Same house palette and low-poly style as Art/STYLE.md and MAP6/MAP7.
+- Size 320 x 260 m, three grounds: "The pinnacle" (pollock 40, sea bass 30, conger 20, rare gold-tip shark 1),
+  "Tide race" (mackerel 45, sea bass 35, rare yellowfin tuna 3), "Deep ledge" (cod 35, monkfish 30, turbot 10, rare
+  Atlantic swordfish 1). Existing species only.
+- Spot data: RowSeconds 30, BiteWait 1.4, ChartCost 1,370 (1.4x the Wreck bank), unlock one step after it.
+  Blurb: "A lighthouse on a lone rock. Bass in the tide race, cod and monkfish down the ledge."
+LESSONS (from MAP6/MAP7, do them first time): every ground's deck-camera frame (10.24 m span) shows its landmark in the
+lower corners, 6-12 m from the anchor, never under the hull or the bubbles; terrain angular and low near the boat
+(no pale flat slabs: give the shelves broken edges and two tones); no baked foam fins. Leave anchor EMPTIES for life
+Claude spawns: PuffinLedge_1..3 on the stack's lower ledges, TideRace_1..2 on the race band, LighthouseLamp_1 at the
+lantern, CardinalBuoy_1 off the deep ledge. Do not bake those props.
+CONTEXT: your MAP7 pipeline (Art/Source/Art108/map7_wreck_bank.py, Art/Models/Maps/GullWreckBank/REPORT.md), GameData
+Spots, the map lists you extended for MAP7 (SeaNav.Maps, Grounds.ByMap). The chart point and glyph for spot 7 are
+Claude's (VoyageChart); leave a QUESTION if your capture needs them before Claude lands them.
+ORDER/DONE/OWNERSHIP: as MAP7 (art, import, code in GameData Spots + map lists, Grounds.ByMap[7], WreckBankMapChecks-
+style checks in Catchline-sim with eight maps and a trip to each new ground, 10 native frames opened one by one,
+REPORT.md, one comms.md line per step, QUESTION and continue on conflict). Never: Minigame/**, VoyageHarbour*.cs,
+VoyageIntro.cs, Voyage*Life.cs, VoyageChart*.cs, VoyageTownsfolk.cs, Skin.cs, CoastalCanvas.cs, Codex 2's folders;
+never batchmode the main project; never touch the player save; no git; NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

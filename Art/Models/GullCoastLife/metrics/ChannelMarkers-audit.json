@@ -1,0 +1,173 @@
+{
+  "result": "PASS",
+  "name": "ChannelMarkers",
+  "raw_fbx_unit_scale_factor": 100.0,
+  "source": {
+    "triangles": 520,
+    "vertices": 292,
+    "bounds_unity": [
+      [
+        -1.4700000286102295,
+        -0.2199999988079071,
+        -0.30433809757232666
+      ],
+      [
+        1.4700000286102295,
+        1.559999942779541,
+        0.30433809757232666
+      ]
+    ],
+    "meshes": [
+      "RedCanMesh",
+      "GreenConeMesh"
+    ],
+    "materials": [
+      "M_FeatherDark",
+      "M_Green",
+      "M_Ivory",
+      "M_LampGlow",
+      "M_Red"
+    ],
+    "parents": {
+      "ChannelMarkers": null,
+      "RedCan": "ChannelMarkers",
+      "RedCanMesh": "RedCan",
+      "GreenCone": "ChannelMarkers",
+      "GreenConeMesh": "GreenCone"
+    },
+    "mesh_bounds_unity": {
+      "RedCanMesh": [
+        [
+          -1.4700000286102295,
+          -0.2199999988079071,
+          -0.30433809757232666
+        ],
+        [
+          -0.8299999237060547,
+          1.559999942779541,
+          0.30433809757232666
+        ]
+      ],
+      "GreenConeMesh": [
+        [
+          0.8299999237060547,
+          -0.2199999988079071,
+          -0.30433809757232666
+        ],
+        [
+          1.4700000286102295,
+          1.559999942779541,
+          0.30433809757232666
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 520,
+    "vertices": 292,
+    "bounds_unity": [
+      [
+        -1.4700000286102295,
+        -0.2200000286102295,
+        -0.30433809757232666
+      ],
+      [
+        1.4700000286102295,
+        1.559999942779541,
+        0.30433809757232666
+      ]
+    ],
+    "meshes": [
+      "GreenConeMesh",
+      "RedCanMesh"
+    ],
+    "materials": [
+      "M_FeatherDark",
+      "M_Green",
+      "M_Ivory",
+      "M_LampGlow",
+      "M_Red"
+    ],
+    "parents": {
+      "GreenConeMesh": "GreenCone",
+      "GreenCone": "ChannelMarkers",
+      "RedCanMesh": "RedCan",
+      "RedCan": "ChannelMarkers",
+      "ChannelMarkers": null
+    },
+    "mesh_bounds_unity": {
+      "GreenConeMesh": [
+        [
+          0.8299999237060547,
+          -0.2200000286102295,
+          -0.30433809757232666
+        ],
+        [
+          1.4700000286102295,
+          1.559999942779541,
+          0.30433809757232666
+        ]
+      ],
+      "RedCanMesh": [
+        [
+          -1.4700000286102295,
+          -0.2200000286102295,
+          -0.30433809757232666
+        ],
+        [
+          -0.8299999237060547,
+          1.559999942779541,
+          0.30433809757232666
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 2,
+    "max_vertex_error_metres": 2.541562480473658e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    2.940000057220459,
+    1.7799999415874481,
+    0.6086761951446533
+  ],
+  "materials": {
+    "M_FeatherDark": [
+      0.01850022003054619,
+      0.039546236395835876,
+      0.045186202973127365,
+      1.0
+    ],
+    "M_Green": [
+      0.06301001459360123,
+      0.1946178376674652,
+      0.09305896610021591,
+      1.0
+    ],
+    "M_Ivory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_LampGlow": [
+      1.0,
+      0.7991027235984802,
+      0.366252601146698,
+      1.0
+    ],
+    "M_Red": [
+      0.520995557308197,
+      0.07818742096424103,
+      0.04666508734226227,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "a99b3e31e956ea814d108e4d9c1be85710cf16c7861df78b79d53017febf07dc",
+    "fbx": "1a939eec14ae8dd536505f1e37370f77b59d1b5709b65188f8f65646e7a781e4"
+  }
+}

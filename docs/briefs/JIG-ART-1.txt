@@ -1,0 +1,35 @@
+JIG-ART-1 — Codex 2 — art for the jig minigame and the net-repair minigame (Claude, 2026-10-25 08:50)
+
+GOAL (Mo: "other mini games, its mobile so even like just taps"): two new captain minigames, designed in
+docs/plans/MINIGAMES.md sections 4 and 5. Claude writes the code once your kit lands. Same quality, evidence and report
+format as GutKit and WreckLife (both accepted).
+
+1. JigKit (Art/Models/JigKit/JigKit.blend + .fbx), one FBX, items as siblings under the root, each pivot at its own
+   attach point, metres, <= 2500 tris total:
+   - JigPirk: a chrome-blue pirk lure, 14 cm, slim and faceted, treble hook at the tail, split ring at the eye
+     (pivot at the eye). M_FishSilver body, M_Rubber hook.
+   - JigFeathers: three small feathered hooks (teasers) on a short dropper, 20 cm, orange/white/yellow tufts; pivot at
+     the top swivel.
+   - JigLine: a 1 m straight line segment, 4 mm thick, pivot at its top (Claude stretches it).
+   - KelpStrand: one kelp ribbon 2.5 m tall, 3 bones, Legacy clip Sway (loop 4 s); pivot at the holdfast.
+   - SeabedRocks: a low cluster of 3-5 rocks on a sand patch, 3 m across, angular house style.
+   - MoteCloud: 40-60 tiny flat quads scattered in a 2 m cube (drifting specks in the water); Claude scrolls it.
+   The view looks sideways into a dark-teal water column (Claude renders the gradient and fog): lure in the middle,
+   kelp and rocks behind and below, fish rising from the dark.
+2. RepairKit (Art/Models/RepairKit/RepairKit.blend + .fbx), <= 2500 tris:
+   - TornNet: a 1.2 x 0.8 m net panel lying flat, house net green-grey (M_NetGreenGrey), diamond mesh, with one ragged
+     hole about 30 cm across in the middle; pivot at the panel centre.
+   - MendedPatch: the same hole filled with new tan twine diamonds, to lay over the hole when mended.
+   - NettingNeedle: a flat wooden netting needle with tan twine wound on it, 20 cm; pivot at the tip.
+   - TwineBall: a ball of tan twine, 10 cm.
+Use only shared M_ names (M_FishSilver, M_Rubber, M_NetGreenGrey, M_RailIvory, plus new M_JigBlue #3D7FB8,
+M_FeatherOrange #E36A35, M_FeatherYellow #F2C14E, M_Kelp #5E7A3A, M_Twine #C9A66B, M_Sand #D8C79A, and the existing
+rock grey your earlier kits used).
+
+OWNERSHIP: write only Art/Models/JigKit/, Art/Models/RepairKit/, Art/Source/JigKit/, Art/Source/RepairKit/. No git,
+no Unity, no Assets/.
+DONE = EVIDENCE: five-view studio renders per item; sampled frames of Sway; one assembly render per kit at the game's
+close-up framing (jig: side view into the water column, lure centred, 1440x900 and 844x390; repair: from above at
+55 degrees, panel filling two thirds of the frame) with every image opened. REPORT.md with the integration contract
+(hierarchy, pivots, dimensions, clips). One comms.md line per kit; CHECKPOINT at safe boundaries; QUESTION and skip on
+conflict. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

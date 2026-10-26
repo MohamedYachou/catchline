@@ -1,0 +1,21 @@
+INTEGRATION-CHECK-1 — Codex 1 (Windows) — one combined check of the uncommitted night work (Claude W, 10-26 06:15)
+Start now (queue empty after MAP10 E).
+GOAL: STRIKE-TAP-1, MAP9 Whale shelf, MAP10 Seal cliffs and HARBOUR-PETS-1 are all DONE but still uncommitted and were
+each checked on its own. Prove they work together on the current tree so the lead can review and commit them in one
+pass, and list exactly which files each delivery owns.
+BUILD (no production edits):
+1. Inventory: for each of the four deliveries list every changed/new file it owns (git status + your DONE lines),
+   with the hunk ranges in shared files (VoyageGame.cs, VoyageRodView.cs, VoyageScenery.cs, SeaNav.cs, Grounds.cs,
+   GameData.cs, ArtImport.cs). Flag any file whose changes belong to someone else or to nobody. Check every new
+   Assets file has a .meta with a unique guid.
+2. One scratch Catchline-sim build of the exact current tree via docs/tools/check.ps1, then the full regression
+   (CrewCardsAbilityChecks.Regression) plus your existing MAP9/MAP10 map checks and the strike-fx and pets captures.
+3. One native SessionOnly harbour-to-sea run that passes all four features in one session: harbour with pets
+   visible, chart showing Whale shelf and Seal cliffs pins, a strike tap at sea. Captures at 1440x900 and 844x390
+   into docs/screens/integration-1/; open each one.
+DELIVERABLE: docs/screens/integration-1/README.md with the per-delivery file/hunk inventory (ready to `git add`),
+check results with exit codes, captures, and any conflict found.
+OWNERSHIP: docs/screens/integration-1/**, Catchline-sim, append-only comms.md. No source/asset edits, no git.
+If a check fails, record it as QUESTION with the failing check and file, do not fix. Never: the main Unity project in
+batchmode, the player save, Codex 2's folders. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+DONE = EVIDENCE: exit codes, opened captures, inventory. REPORTING: START, CHECKPOINTs, DONE in comms.md; then IDLE.

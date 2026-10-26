@@ -1,0 +1,111 @@
+{
+  "triangles": 378,
+  "vertices": 221,
+  "bounds_unity": [
+    [
+      -0.17499999701976776,
+      0.008999999612569809,
+      -0.43395599722862244
+    ],
+    [
+      0.17499999701976776,
+      0.8630000352859497,
+      0.44422152638435364
+    ]
+  ],
+  "meshes": [
+    "CormorantSkin"
+  ],
+  "materials": [
+    "M_BillHorn",
+    "M_Eye",
+    "M_EyeTeal",
+    "M_FeatherDark",
+    "M_FeatherGloss",
+    "M_Ivory"
+  ],
+  "parents": {
+    "Cormorant": null,
+    "CormorantSkin": "CormorantRig",
+    "CormorantRig": "Cormorant"
+  },
+  "mesh_bounds_unity": {
+    "CormorantSkin": [
+      [
+        -0.17499999701976776,
+        0.008999999612569809,
+        -0.43395599722862244
+      ],
+      [
+        0.17499999701976776,
+        0.8630000352859497,
+        0.44422152638435364
+      ]
+    ]
+  },
+  "name": "Cormorant",
+  "contract": {
+    "rig": "CormorantRig",
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Wing.L",
+      "Wing.R",
+      "Leg.L",
+      "Leg.R"
+    ],
+    "clips": {
+      "Idle": {
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true
+      },
+      "DryWings": {
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true
+      },
+      "Dive": {
+        "frames": [
+          1,
+          31
+        ],
+        "seconds": 1.0,
+        "loop": false
+      }
+    },
+    "root_motion": false,
+    "pivot": "feet contact at origin",
+    "forward": "Blender -Y / Unity +Z"
+  },
+  "limit": 600,
+  "sha256": {
+    "blend": "5f77af78fb829ced996f8c9f462efadf203160c918257c2220d3d562bd41f056",
+    "fbx": "aa1e660e7e614ee1b10d95f777ef78b9b0187a79d5f90063da9b0897d261a920"
+  },
+  "palette": {
+    "M_FeatherDark": "#25383C",
+    "M_FeatherGloss": "#344D4A",
+    "M_Ivory": "#F3F0DC",
+    "M_BillHorn": "#B7A179",
+    "M_BillOrange": "#E36A35",
+    "M_LegPink": "#C9857F",
+    "M_Eye": "#14262A",
+    "M_EyeTeal": "#70B4A0",
+    "M_Rock": "#8E8A80",
+    "M_RockShade": "#6F6A61",
+    "M_WetSand": "#A69775",
+    "M_SandShade": "#8F856F",
+    "M_Red": "#BF4F3D",
+    "M_Green": "#477A56",
+    "M_Rope": "#D1AF76",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

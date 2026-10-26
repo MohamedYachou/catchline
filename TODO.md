@@ -34,8 +34,9 @@ then the last ~100 lines of `comms.md`. The old to-do list (to 2026-10-21) is in
 - [ ] **Tier 6 boat:** Mo picked hull C (10-26); Codex 2 does `docs/briefs/TIER6-BOAT-1.txt` (every earlier tier's kit). Whale shelf / Seal cliffs / Kelp forest are priced for it.
 - [ ] **Refit-card pictures** from Codex 2 (`Art/Source/BoatsV2/ui/v2-item-hull{0,1,3,4}.png`, accepted art, committed
   1ee580d) are not in `Assets/` yet: import with metas and use them in the chandlery/refit cards.
-- [ ] **MAP11 Kelp forest** (Codex 1, SEAL-CLIFFS-LIFE-AND-MAP11-1): its uncommitted hunks in GameData.cs, Grounds.cs,
-  SeaNav.cs, VoyageScenery.cs and the map 11 assets are Codex 1's; review its DONE, then commit.
+- [ ] **MAP11 Kelp forest** committed 8272232; polish: the sand clearings have hard straight polygon edges (soften).
+- [ ] **Gull coast life** art accepted 10-26 (`Art/Models/GullCoastLife/`: cormorants, oystercatchers, channel
+  markers, pot buoys, suggested spots in its REPORT): place it on maps 1-5 (Codex 1 after the Jig wiring).
 - [ ] **Sea events (light, never punishing):** not built (old night plan C4).
 - [ ] **Economy check:** rerun the pacing sim (`docs/plans/CARDS-PACING.md`) with the new chart prices; Kelp bank is
   no longer free.
