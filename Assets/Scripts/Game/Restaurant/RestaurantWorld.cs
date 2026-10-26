@@ -48,7 +48,7 @@ namespace Catchline.Game.Restaurant
         float animationTime;
         sealed class Actor
         {
-            public Transform Root,Rig,Prop; public Vector3 Last; public float Phase;
+            public Transform Root,Rig,Prop,Dish; public Vector3 Last; public float Phase; public string DishName;
         }
         static readonly Dictionary<ItemId,string> Models=new(){
             [ItemId.Stove]="Stove",[ItemId.SoupKettle]="SoupKettle",[ItemId.PrepCounter]="PrepCounter",
@@ -87,7 +87,13 @@ namespace Catchline.Game.Restaurant
                     float x=item.X+(item.Rotated?1:RestaurantData.Get(item.Id).Width)*.5f-.5f;
                     var pos=new Vector3(3.5f-x,.04f,2-item.Y);
                     var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?-90:0,0));items.Add(item.Uid,t);
-                    if(RestaurantData.Get(item.Id).Seats>0){Spawn("TableLantern",pos+Vector3.up*.57f,Quaternion.identity);}
+                    if(RestaurantData.Get(item.Id).Seats>0){var top=TableBounds(t);Spawn(Model("TableCandle")!=null?"TableCandle":"TableLantern",new Vector3(top.center.x,top.max.y,top.center.z),Quaternion.identity);}
+                }
+                // V4's own small dressing (plants, crates, lanterns) must not stand in a chair the layout put there.
+                if(room!=null){
+                    var placed=items.Values.SelectMany(t=>t.GetComponentsInChildren<Renderer>()).Select(r=>{var b=r.bounds;b.Expand(new Vector3(-.1f,0,-.1f));return b;}).ToList();
+                    foreach(var r in room.GetComponentsInChildren<Renderer>()){var b=r.bounds;
+                        if(b.size.x<1.5f&&b.size.z<1.5f&&placed.Any(p=>p.Intersects(b)))r.gameObject.SetActive(false);}
                 }
                 if(dressed==null){
                     Spawn("PassCounter",new Vector3(-.5f,.04f,0),Quaternion.Euler(0,90,0));
@@ -211,10 +217,33 @@ namespace Catchline.Game.Restaurant
                 default:return(id=="captain"||!Women.Contains(id)?"Outfit_HelperSuit":"Outfit_WaiterSkirt",null);
             }
         }
+        // Codex 2's table dishes (Dishes/Restaurant_Dish_*.fbx, pivot at the table contact).
+        static string DishModel(Dish d)=>d switch{
+            Dish.Soup=>"Dish_FishSoup",Dish.Coffee or Dish.Tea or Dish.Bread=>"Dish_CoffeeBiscuits",Dish.Lemonade or Dish.Beer=>"Dish_Lemonade",
+            Dish.PanFish or Dish.Platter or Dish.FishAndChips or Dish.Fries=>"Dish_FilletsLemon",_=>"Dish_GrilledFish"};
+        // Kit pivots sit off the mesh once rotated, so seats and plates go by the table's rendered bounds.
+        static Bounds TableBounds(Transform table)
+        {
+            var rs=table.GetComponentsInChildren<Renderer>();if(rs.Length==0)return new Bounds(table.position,Vector3.zero);
+            var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);return b;
+        }
+        // The kit tables seat guests front and back (the round chair back faces the camera), pairs side by side.
+        static Vector3 Seat(int i)=>new Vector3((i/2)*.5f-(i>=2?.25f:0),0,i%2==0?.38f:-.38f);
+        void PlaceDish(Actor a,Dish? dish,Transform table,int seat)
+        {
+            string name=dish==null||table==null?null:DishModel(dish.Value);
+            if(name!=a.DishName){
+                if(a.Dish!=null)Destroy(a.Dish.gameObject);a.Dish=null;a.DishName=name;
+                if(name!=null&&Model(name)!=null){a.Dish=Spawn(name,Vector3.zero,Quaternion.identity,RoomRoot);SetLayer(a.Dish.gameObject);}
+            }
+            if(a.Dish==null)return;
+            var b=TableBounds(table);
+            var s=Seat(seat);a.Dish.position=new Vector3(b.center.x+s.x,b.max.y,b.center.z+s.z*.4f);
+        }
         Actor MakeActor(string id,bool guest)
         {
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
-            var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn"};
+            var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena"};
             var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[guests.Count%civilians.Length]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
@@ -234,7 +263,8 @@ namespace Catchline.Game.Restaurant
                     r.sharedMaterials=mats;
                 }
             }
-            if(guest&&prefab.name.StartsWith("Restaurant_Guest_"))TintGuest(rig,(guests.Count)%civilians.Length);
+            // Gus..Lena have their own material names, so only the first six need their palette back.
+            if(guest&&prefab.name.StartsWith("Restaurant_Guest_")&&guests.Count%civilians.Length<GuestPalette.GetLength(0))TintGuest(rig,guests.Count%civilians.Length);
             var prop=Spawn("GrilledFishPlate",new Vector3(0,.65f,.27f),Quaternion.identity,holder);prop.gameObject.SetActive(false);
             SetLayer(holder.gameObject);
             return new Actor{Root=holder,Rig=rig,Prop=prop,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
@@ -292,12 +322,14 @@ namespace Catchline.Game.Restaurant
                 a.Root.gameObject.SetActive(active);if(!active)continue;
                 bool seated=g.TableUid!=0&&g.Phase!=GroupPhase.Seating&&g.Phase!=GroupPhase.Queue;
                 Vector3 p=TileToWorld(new Vector2(Sim.Layout.Door.x,Sim.Layout.Door.y))+new Vector3(-(i%2)*.5f,0,.9f+(g.Id%4)*.45f);
-                if(seated&&items.TryGetValue(g.TableUid,out var table))p=table.position+new Vector3(i%2==0?-.42f:.42f,0,(i/2)*.45f);
+                Transform table=null;if(seated&&items.TryGetValue(g.TableUid,out table)){var tb=TableBounds(table);p=new Vector3(tb.center.x,table.position.y,tb.center.z)+Seat(i);}
                 if(a.Last==Vector3.zero||a.Root.position==RoomRoot.position)a.Root.position=p;
                 a.Root.position=Vector3.MoveTowards(a.Root.position,p,Mathf.Max(.01f,dt)*GameData.WalkSpeed);
-                a.Root.localRotation=Quaternion.Euler(0,seated?(i%2==0?90:270):180,0);
+                a.Root.localRotation=Quaternion.Euler(0,seated?(i%2==0?180:0):180,0); // 0 faces the camera; the queue and front seats face into the room
                 // Existing boat work loop is a placeholder for eating; knees are folded on the same skeleton.
                 Animate(a,seated?g.Phase==GroupPhase.Eating?"Eat":"Sit":"Walk");
+                var ticket=g.Tickets.FirstOrDefault(t=>t.Order.Id==order.Id);
+                PlaceDish(a,seated&&ticket!=null&&ticket.Phase==TicketPhase.Delivered&&g.Phase==GroupPhase.Eating?ticket.Dish:null,seated?table:null,i);
                 
                 a.Last=a.Root.position;
             }

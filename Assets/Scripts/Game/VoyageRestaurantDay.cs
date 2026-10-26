@@ -306,6 +306,11 @@ namespace Catchline.Game
                     while (night.Hour < 19.6f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;
+                case "day-service-late": // tables eating, plates on the tables
+                    if (night == null) return false;
+                    while (night.Hour < 21f && !night.Finished) night.Tick(.5f);
+                    RestaurantTick(0f);
+                    return RestaurantPhase == DayPhase.Service;
                 case "day-closing":
                     if (night == null) return false;
                     while (!night.Finished) night.Tick(.5f);

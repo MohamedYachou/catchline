@@ -340,7 +340,7 @@ namespace Catchline.Game
         // At night the crew wear their restaurant clothes (Codex 1's CLOTHES-1 busts); anyone without one keeps the sea portrait.
         static string ServiceBust(string portrait)
         {
-            string id = portrait == "mira" ? "mira-a" : portrait;
+            string id = portrait == "mira" ? "mira-d" : portrait;
             if (ArtLibrary.Get()?.UiTex("rc-bust-" + id) != null) return "rc-bust-" + id;
             return portrait == "captain" ? "v2-portrait-captain" : $"v2-bust-{portrait}";
         }
