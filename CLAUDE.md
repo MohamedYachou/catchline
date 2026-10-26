@@ -15,10 +15,11 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 
 ## Claude 2 (WSL) — goals, in order (lead since 10-26 01:30, Claude 1 paused)
-1. Direct the two Codex agents (skill codex-director); when the guard rings, queue the next brief in
-   CONTINUE-CODEX1/2.txt and `team start codexN` (Codex never starts by itself; Claude 1 is away until Wed).
-   Mo's 10-26 pivot: fish by day, restaurant at night (docs/plans/RESTAURANT.md). Codex 2: RESTAURANT-CONCEPT-1;
-   Codex 1: RESTAURANT-SCALE-1. Review both, show Mo the looks, settle section 13, then brief R1 (arrange mode).
+1. Restaurant pivot (docs/plans/RESTAURANT.md), UI first, exact copy of the mockups. Claude: screens S1-S5 built in
+   VoyageRestaurantUi.cs (captures docs/screens/restaurant-ui/, compare.html), temporary mockup crops listed in
+   Art/Source/Restaurant/ui-TEMP-CROPS.md; next S6 dashboard, then wire the 3D room. Codex 1: RESTAURANT-UI-ART-1
+   (clean art replacing the crops). Codex 2: RESTAURANT-LOOK-DETAIL-2 (painted, lit stage-1 room like
+   ui-service-desktop.png). When the guard rings: review, queue in CONTINUE-CODEXN.txt, `team start codexN`.
 2. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
    https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
 3. Claude 1's open UI item while it is paused: D1 HUD mockups (17-hud-fishing, 18-hud-harbour).
@@ -26,6 +27,7 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 Holding: docs/briefs/**.
 
 ## Done (latest first)
+- ec24c40 / 92264f0 / (this commit) restaurant screens S1-S5 to the mockups, staff rail one card per person (Mo), CORE-1 logic + stage-1 3D accepted
 - (this commit) Let's go no longer freezes ~30 s (SeaNav 10x faster, identical graphs, built in background); fish hang mouth-up; captain steps over the rowboat thwart; Keep primary; rowboat 5 kg, skiff = full haul + 500; Mira hi-res + voice samples; open-sea life + MAP11 sand edges art (Codex 2)
 - 74f0541 Docs cleanup (69 old docs to docs/archive, CURRENT/AGENTS/README/QUESTIONS refreshed); Codex one-shot runners
 - 1ee580d Outer coast painting, oars icon, Compact/Prep fishers re-exported (no stray plane), Tier5 trim (Codex 2, accepted)

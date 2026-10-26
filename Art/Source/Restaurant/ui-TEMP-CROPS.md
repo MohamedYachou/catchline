@@ -25,3 +25,15 @@ Replace each with Codex 1's clean RESTAURANT-UI-ART-1 file of the same name when
 - Assets/Art/UI/v2-icon-cutlery.png
 - Assets/Art/UI/v2-dish-fillets.png
 - Assets/Art/UI/v2-restaurant-backdrop.png
+- Assets/Art/UI/v2-item-rest-table2.png (ui-1-arrange)
+- Assets/Art/UI/v2-item-rest-table4.png (ui-1-arrange)
+- Assets/Art/UI/v2-item-rest-booth.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-kitchen-pot.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-chair.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-bar-glass.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-decor-plant.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-expand.png (ui-1-arrange)
+- Assets/Art/UI/v2-btn-rotate.png (ui-1-arrange)
+- Assets/Art/UI/v2-btn-cancel.png (ui-1-arrange)
+- Assets/Art/UI/v2-btn-confirm.png (ui-1-arrange)
+- Assets/Art/UI/v2-icon-undo.png (ui-1-arrange)

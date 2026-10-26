@@ -373,5 +373,5 @@ day counter live in a new save block.
 5. The night runs 18:00-23:00 (as the mockups), still about 10 real minutes.
 6. Temporary UI pieces may be cut from the mockups until Codex's clean art lands (list: Art/Source/Restaurant/ui-TEMP-CROPS.md).
 7. Staff rail: one card per person cannot fit 5-8 crew plus Mira and the baristas. Mo leans to small portrait chips grouped
-   by job; three variants (per job / per person scrolling / chips) are captured for him to choose
+   by job; Mo compared three captured variants and picked ONE CARD PER PERSON (mockup style), paged with arrows
    (docs/screens/restaurant-ui/r6/restaurant-service-{jobs,scroll,chips}-*.png).

@@ -8,7 +8,7 @@ namespace Catchline.Game
     // numbers before the restaurant logic is wired in; art not delivered yet falls back to the nearest kit icon.
     public partial class VoyageGame
     {
-        public enum RestaurantScreen { None, Plan, Prep, Closing, Service }
+        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange }
         public RestaurantScreen RestaurantPreview;
 
         public sealed class RestaurantDish { public string Name, Art, Fallback; public int Low, High; }
@@ -93,7 +93,8 @@ namespace Catchline.Game
             public string QuestionTitle = "A late table?", QuestionBody = "A party of four\nhas arrived.", QuestionBodyShort = "A group just arrived.\nShall we seat them?", QuestionYes = "Seat them", QuestionNo = "Not tonight";
             // Expected guests per half hour, 18:00-23:00, for the phone's arrival strip.
             public float[] Arrivals = { .4f, .7f, 1f, .9f, .75f, .6f, .45f, .3f, .2f, .1f };
-            public RestaurantRailMode Rail;
+            public RestaurantRailMode Rail = RestaurantRailMode.Scroll; // Mo 10-26 picked one card per person
+            public int RailFirst;
             // A full stage-4 night: eight sailed crew, Mira, and the captain walking around.
             public List<RestaurantStaff> Crew = new()
             {
@@ -363,24 +364,28 @@ namespace Catchline.Game
                 }
                 case RestaurantRailMode.Scroll:
                 {
-                    // One card per person; whatever does not fit waits behind the arrow.
-                    float arrow = h * .7f, cw = phone ? 150 : 250 * rail.width / 1368f, x0 = rail.x + pad + arrow + pad;
+                    // Mo's pick: one card per person in the mockup's style; the arrows page through a bigger crew.
+                    float arrow = h * (phone ? .8f : .6f), cw = (phone ? 158 : 236) * rail.width / (phone ? 824f : 1368f);
+                    float x0 = rail.x + pad + arrow + pad;
                     int fit = Mathf.Max(1, Mathf.FloorToInt((rail.width - (arrow + pad) * 2 - pad) / cw));
-                    coastalUi.Secondary($"{id}/left", new Rect(rail.x + pad, rail.y + (rail.height - arrow) / 2, arrow, arrow), "‹", () => { }, null, false);
-                    for (int i = 0; i < fit && i < v.Crew.Count; i++)
+                    cw = (rail.width - (arrow + pad) * 2 - pad) / fit;
+                    v.RailFirst = Mathf.Clamp(v.RailFirst, 0, Mathf.Max(0, v.Crew.Count - fit));
+                    int first = v.RailFirst, before = first, after = Mathf.Max(0, v.Crew.Count - first - fit);
+                    coastalUi.Secondary($"{id}/left", new Rect(rail.x + pad, rail.y + (rail.height - arrow) / 2, arrow, arrow), before > 0 ? $"‹{before}" : "‹",
+                        () => v.RailFirst -= fit, null, before > 0);
+                    for (int i = 0; i < fit && first + i < v.Crew.Count; i++)
                     {
-                        var s = v.Crew[i]; string cid = $"{id}/card/{i}";
+                        var s = v.Crew[first + i]; string cid = $"{id}/card/{i}";
                         var c = coastalUi.Card(cid, new Rect(x0 + i * cw, rail.y + pad, cw - pad, h), Skin.Card.Soft);
-                        float face = h - 10;
-                        coastalUi.Portrait($"{cid}/face", new Rect(5, 5, face, face), s.Portrait, c);
-                        coastalUi.Text($"{cid}/job", new Rect(face + 8, 2, cw - face - h * .5f - 14, h * .5f), s.Job, phone ? Skin.Type.Small : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
-                        coastalUi.Icon($"{cid}/icon", new Rect(face + 10, h * .52f, h * .36f, h * .36f), s.Icon, c, null, s.Fallback);
-                        float ring = h * .5f;
-                        RestaurantRing($"{cid}/ring", new Rect(cw - pad - ring - 6, (h - ring) / 2, ring, ring), s.Busy, c);
+                        float bust = h * 1.06f, bw = bust * .9f, ring = h * (phone ? .5f : .6f);
+                        coastalUi.Icon($"{cid}/bust", new Rect(4, h - bust, bw, bust), $"v2-bust-{s.Portrait}", c, null, $"v2-portrait-{s.Portrait}-deck");
+                        float tw = cw - pad - bw - ring - 18;
+                        coastalUi.Text($"{cid}/job", new Rect(bw + 6, 2, tw, h * .46f), s.Job, phone ? Skin.Type.Small : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
+                        coastalUi.Icon($"{cid}/icon", new Rect(bw + 8, h * .5f, h * .4f, h * .4f), s.Icon, c, null, s.Fallback);
+                        RestaurantRing($"{cid}/ring", new Rect(cw - pad - ring - 8, (h - ring) / 2, ring, ring), s.Busy, c);
                     }
-                    int more = v.Crew.Count - fit;
-                    var right = new Rect(rail.xMax - pad - arrow, rail.y + (rail.height - arrow) / 2, arrow, arrow);
-                    coastalUi.Secondary($"{id}/right", right, more > 0 ? $"+{more}" : "›", () => { });
+                    coastalUi.Secondary($"{id}/right", new Rect(rail.xMax - pad - arrow, rail.y + (rail.height - arrow) / 2, arrow, arrow), after > 0 ? $"{after}›" : "›",
+                        () => v.RailFirst += fit, null, after > 0);
                     break;
                 }
                 default:
@@ -414,6 +419,83 @@ namespace Catchline.Game
             }
         }
 
+
+        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; }
+        public sealed class RestaurantArrangeView
+        {
+            public int Coins = 2450, Category = 1, Selected;
+            public string[] Categories = { "Kitchen", "Guests", "Bar", "Decor", "Expand" };
+            public string[] CategoryIcons = { "v2-icon-kitchen-pot", "v2-icon-chair", "v2-icon-bar-glass", "v2-icon-decor-plant", "v2-icon-expand" };
+            public List<RestaurantShopItem> Items = new()
+            {
+                new() { Name = "Table for 2", Art = "v2-item-rest-table2", Fallback = "v2-icon-table", Footprint = "1×1", Price = 120 },
+                new() { Name = "Table for 4", Art = "v2-item-rest-table4", Fallback = "v2-icon-table", Footprint = "2×1", Price = 220 },
+                new() { Name = "Booth", Art = "v2-item-rest-booth", Fallback = "v2-icon-table", Footprint = "2×1", Price = 380 },
+            };
+            // The item being placed: its label and where its action bubble sits (screen fractions until the room is live).
+            public string Placing = "Table for 2 · 1×1"; public Vector2 PlacingAt = new(.69f, .44f);
+        }
+        public RestaurantArrangeView RestaurantArrange = new();
+
+        // S1: arrange mode over the room (ui-1-arrange.png): top bar, the placing bubble, the shop tray.
+        void InterfaceRestaurantArrange(RestaurantArrangeView v)
+        {
+            float k = Mathf.Min(iw / 844f, ih / 390f);
+            Rect L(float x, float y, float w, float h) => new(x * k, y * k, w * k, h * k);                 // top-left anchored
+            Rect TR(float x, float y, float w, float h) => new(iw - (844 - x) * k, y * k, w * k, h * k);    // top-right
+            Rect BL(float x, float y, float w, float h) => new(x * k, ih - (390 - y) * k, w * k, h * k);   // bottom-left
+            Rect BR(float x, float y, float w, float h) => new(iw - (844 - x) * k, ih - (390 - y) * k, w * k, h * k);
+
+            coastalUi.Sliced("rarr/bar", new Rect(0, 0, iw, 42 * k), "v2-pill-navy", null, Skin.HeaderNavy, true);
+            coastalUi.IconButton("rarr/back", L(22, 5, 56, 32), "v2-icon-back", null, () => RestaurantPreview = RestaurantScreen.None);
+            coastalUi.Icon("rarr/icon", L(94, 8, 24, 26), "v2-icon-chair", null, Skin.Cream);
+            coastalUi.Text("rarr/title", L(124, 0, 200, 42), "Arrange", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, null, true);
+            var coins = coastalUi.Card("rarr/coins", TR(602, 5, 98, 32), Skin.Card.Soft);
+            coastalUi.Icon("rarr/coins/icon", new Rect(6 * k, 4 * k, 24 * k, 24 * k), "v2-icon-coin", coins, null, "icon-coin");
+            coastalUi.Text("rarr/coins/n", new Rect(32 * k, 0, 62 * k, 32 * k), v.Coins.ToString("N0"), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coins);
+            coastalUi.Secondary("rarr/undo", TR(736, 5, 88, 32), "Undo", () => { }, "v2-icon-undo");
+
+            // The placing bubble: rotate, cancel, confirm, and the item's name and footprint.
+            if (v.Placing != null)
+            {
+                float bx = v.PlacingAt.x * iw, by = v.PlacingAt.y * ih, b = 44 * k;
+                coastalUi.HitArea("rarr/rotate", new Rect(bx - b * 1.6f, by - b, b, b), () => { });
+                coastalUi.Icon("rarr/rotate/art", new Rect(bx - b * 1.6f, by - b, b, b), "v2-btn-rotate", null, null, "v2-icon-cycle");
+                coastalUi.HitArea("rarr/cancel", new Rect(bx - b * .5f, by - b, b, b), () => v.Placing = null);
+                coastalUi.Icon("rarr/cancel/art", new Rect(bx - b * .5f, by - b, b, b), "v2-btn-cancel", null, null, "v2-icon-warning");
+                coastalUi.HitArea("rarr/confirm", new Rect(bx + b * .6f, by - b, b, b), () => v.Placing = null);
+                coastalUi.Icon("rarr/confirm/art", new Rect(bx + b * .6f, by - b, b, b), "v2-btn-confirm", null, null, "v2-icon-tick");
+                var tag = coastalUi.Card("rarr/tag", new Rect(bx + b * 1.8f, by - b * 1.4f, 170 * k, 36 * k), Skin.Card.Soft);
+                coastalUi.Icon("rarr/tag/art", new Rect(6 * k, 3 * k, 34 * k, 30 * k), v.Items[v.Selected].Art, tag, null, v.Items[v.Selected].Fallback);
+                coastalUi.Text("rarr/tag/text", new Rect(44 * k, 0, 122 * k, 36 * k), v.Placing, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, tag);
+            }
+
+            // The shop tray: categories on the left, this category's items on the right.
+            coastalUi.Sliced("rarr/tray", new Rect(0, ih - 92 * k, iw, 92 * k), "v2-slab", null, Skin.Paper, true);
+            for (int i = 0; i < v.Categories.Length; i++)
+            {
+                int c = i; bool on = v.Category == i; var r = BL(16 + i * 66, 306, 60, 70);
+                var t = on ? coastalUi.Sliced($"rarr/cat/{i}", r, "v2-btn-primary", null, Color.white) : coastalUi.Card($"rarr/cat/{i}", r, Skin.Card.Soft);
+                coastalUi.Icon($"rarr/cat/{i}/icon", new Rect(16 * k, 8 * k, 28 * k, 30 * k), v.CategoryIcons[i], t, on ? Skin.Cream : null);
+                coastalUi.Text($"rarr/cat/{i}/label", new Rect(0, 42 * k, 60 * k, 24 * k), v.Categories[i], Skin.Type.Small, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, t, on);
+                coastalUi.HitArea($"rarr/cat/{i}/hit", new Rect(0, 0, r.width, r.height), () => v.Category = c, t);
+            }
+            float[] cardX = { 350, 507, 664 }, cardW = { 150, 150, 164 };
+            for (int i = 0; i < v.Items.Count && i < 3; i++)
+            {
+                int s = i; var it = v.Items[i]; bool on = v.Selected == i; var r = BR(cardX[i], 306, cardW[i], 72);
+                if (on) coastalUi.Sliced($"rarr/item/{i}/glow", new Rect(r.x - 3 * k, r.y - 3 * k, r.width + 6 * k, r.height + 6 * k), "v2-btn-primary", null, Color.white);
+                var c = coastalUi.Card($"rarr/item/{i}", r, Skin.Card.Soft);
+                float w = r.width / k;
+                coastalUi.Icon($"rarr/item/{i}/art", new Rect(4 * k, 4 * k, (w * .48f) * k, 64 * k), it.Art, c, null, it.Fallback);
+                coastalUi.Text($"rarr/item/{i}/name", new Rect(w * .5f * k, 4 * k, w * .5f * k, 22 * k), it.Name, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, c);
+                coastalUi.Icon($"rarr/item/{i}/coin", new Rect(w * .5f * k, 28 * k, 18 * k, 18 * k), "v2-icon-coin", c, null, "icon-coin");
+                coastalUi.Text($"rarr/item/{i}/price", new Rect((w * .5f + 22) * k, 24 * k, 60 * k, 26 * k), it.Price.ToString(), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
+                coastalUi.Text($"rarr/item/{i}/size", new Rect((w * .5f + 22) * k, 48 * k, 60 * k, 20 * k), it.Footprint, Skin.Type.Caption, Skin.InkSoft, TextAnchor.MiddleLeft, c);
+                coastalUi.HitArea($"rarr/item/{i}/hit", new Rect(0, 0, r.width, r.height), () => { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }, c);
+            }
+        }
+
         // Returns true when a restaurant screen took the frame.
         bool InterfaceRestaurant()
         {
@@ -423,6 +505,7 @@ namespace Catchline.Game
                 case RestaurantScreen.Prep: InterfaceRestaurantPrep(RestaurantPrep); return true;
                 case RestaurantScreen.Closing: InterfaceRestaurantClosing(RestaurantClosing); return true;
                 case RestaurantScreen.Service: InterfaceRestaurantService(RestaurantService); return true;
+                case RestaurantScreen.Arrange: InterfaceRestaurantArrange(RestaurantArrange); return true;
             }
             return false;
         }
