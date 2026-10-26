@@ -195,6 +195,12 @@ namespace Catchline.Game
                 ChartCost = 32000, MapPos = new Vector2(.08f, .88f),
                 Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
             },
+            new()
+            {
+                Name = "Kelp forest", Blurb = "A green bay of swaying kelp. Wrasse on the edge, flatfish on the sand.", RowSeconds = 28f, BiteWait = 1.4f, Water = Palette.Hex("3A8F86"),
+                ChartCost = 36000, MapPos = new Vector2(.12f, .78f),
+                Table = new[] { (Species.RedMullet, 60f), (Species.Pollock, 30f), (Species.SeaBass, 20f), (Species.Crab, 2f), (Species.Plaice, 40f), (Species.Whiting, 30f), (Species.Turbot, 5f), (Species.Mackerel, 45f), (Species.Herring, 30f), (Species.Conger, 15f) },
+            },
         };
 
         public static readonly UpgradeDef[] Upgrades =

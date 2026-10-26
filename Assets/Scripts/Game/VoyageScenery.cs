@@ -103,7 +103,7 @@ namespace Catchline.Game
 
         void BuildSeaDressing(int kind, Transform root, ArtLibrary lib, System.Func<float, float, float> R, System.Action<Vector3, float> rock)
         {
-            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs" };
+            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs", "GullKelpForest" };
             if (kind >= 0 && kind < environments.Length && lib?.M(environments[kind]) != null)
             {
                 var environment = Put(root, lib.M(environments[kind]), new Vector3(0, WaterY, 0));

@@ -1,0 +1,34 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+JIG AUDIT PASS 5635 43 UNIT 100.0
+00:00.813  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\JigBoatV1.blend"
+BLEND PARITY 5.960464477539062e-07
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\review_jig.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\review_jig.py:78: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Review cool fill');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.74,.80,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\review_jig.py:79: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.85));f=bpy.context.object;f.name='REVIEW_ONLY_floor';m=bpy.data.materials.new('REVIEW_ONLY_cream');m.diffuse_color=(.78,.74,.64,1);m.use_nodes=True;m.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=m.diffuse_color;m.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=1;f.data.materials.append(m)
+00:18.813  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\front-three-quarter.png'
+FBX version: 7400
+JIG RENDER PASS front-three-quarter
+00:35.844  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\back-three-quarter.png'
+JIG RENDER PASS back-three-quarter
+00:53.500  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\top.png'
+JIG RENDER PASS top
+01:11.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\low-waterline.png'
+JIG RENDER PASS low-waterline
+01:30.328  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\deck-55.png'
+JIG RENDER PASS deck-55
+02:16.766  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lineup-top.png'
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+JIG RENDER PASS lineup-top
+03:17.047  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lineup-three-quarter.png'
+JIG RENDER PASS lineup-three-quarter
+JIG REVIEW COMPLETE
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

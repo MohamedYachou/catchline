@@ -9,7 +9,7 @@ namespace Catchline.Game
     {
         void DressShelf(Transform anchor, float waterY, ArtLibrary lib)
         {
-            if (!anchor.name.StartsWith("WhaleSpout_")) return;
+            if (!anchor.name.StartsWith("WhaleSpout_")) { DressCliffs(anchor, waterY, lib); return; }
             var water = new Vector3(anchor.position.x, waterY, anchor.position.z);
             var tail = Spawn(lib.M("WhaleTail"), anchor, Vector3.zero);
             if (tail != null) { tail.transform.position = water; tail.transform.Rotate(0, anchor.GetSiblingIndex() * 55, 0); tail.AddComponent<WhaleTail>(); }

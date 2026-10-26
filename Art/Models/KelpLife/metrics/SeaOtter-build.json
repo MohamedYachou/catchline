@@ -1,0 +1,100 @@
+{
+  "triangles": 444,
+  "vertices": 254,
+  "bounds_unity": [
+    [
+      -0.2150000035762787,
+      -0.13100001215934753,
+      -0.6104068756103516
+    ],
+    [
+      0.2150000035762787,
+      0.2809999883174896,
+      0.47226691246032715
+    ]
+  ],
+  "meshes": [
+    "SeaOtterSkin"
+  ],
+  "materials": [
+    "M_OtterBrown",
+    "M_OtterCream",
+    "M_OtterPaw",
+    "M_Rubber"
+  ],
+  "parents": {
+    "SeaOtter": null,
+    "SeaOtterSkin": "SeaOtterRig",
+    "SeaOtterRig": "SeaOtter"
+  },
+  "mesh_bounds_unity": {
+    "SeaOtterSkin": [
+      [
+        -0.2150000035762787,
+        -0.13100001215934753,
+        -0.6104068756103516
+      ],
+      [
+        0.2150000035762787,
+        0.2809999883174896,
+        0.47226691246032715
+      ]
+    ]
+  },
+  "name": "SeaOtter",
+  "contract": {
+    "pivot": "fixed waterline centre, through torso; body partly submerged",
+    "forward": "Blender -Y / Unity +Z (head)",
+    "rig": "SeaOtterRig",
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Tail",
+      "Paw.L",
+      "Paw.R"
+    ],
+    "clips": {
+      "Float": {
+        "frames": [
+          1,
+          121
+        ],
+        "seconds": 4.0,
+        "loop": true
+      },
+      "Groom": {
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true
+      },
+      "Dive": {
+        "frames": [
+          1,
+          37
+        ],
+        "seconds": 1.2,
+        "loop": false
+      }
+    },
+    "root_motion": false,
+    "dive": "Body rolls180deg longitudinally and sinks1.05m; root stays at waterline. Hide/reset after once clip."
+  },
+  "limit": 700,
+  "sha256": {
+    "blend": "21747c09e974d904d6d7acd9f4ca8e01a983715cee7d4ee351b939a314856a75",
+    "fbx": "66bde83e8c56e78a8719935c60a259014585b995c863ad3aac78ac2a570ef320"
+  },
+  "palette": {
+    "M_OtterBrown": "#705040",
+    "M_OtterCream": "#C8C3AF",
+    "M_OtterPaw": "#50392E",
+    "M_Rubber": "#28343B",
+    "M_KelpGreen": "#477A56",
+    "M_KelpGold": "#739453",
+    "M_KelpBulb": "#8C7949"
+  }
+}

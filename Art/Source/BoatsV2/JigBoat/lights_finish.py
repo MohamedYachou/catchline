@@ -1,0 +1,37 @@
+"""Create report bounds table, visual review sheet and sealed delivery receipt."""
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib
+S=Path(__file__).resolve().parent;R=S.parents[3];O=R/'Art/Models/BoatsV2/JigBoatV1';P=O/'renders/lights'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+a=json.loads((O/'lights-audit.json').read_text());assert a['pass'];rows=a['bounds'];images=[]
+for phase in ['day','night']:
+ for w,h in [(1440,900),(844,390)]:
+  p=P/f'{phase}-{w}x{h}.png';im=Image.open(p);assert im.size==(w,h);images.append({'file':p.relative_to(R).as_posix(),'size':[w,h],'sha256':sha(p)})
+sheet=Image.new('RGB',(1688,1120),'#F4EFE3');d=ImageDraw.Draw(sheet)
+for i,phase in enumerate(['day','night']):
+ x=i*844;d.text((x+18,12),phase.upper()+' - game-exact-45 / FBX geometry / isolated Blender fixture',fill='#173F57')
+ im=Image.open(P/f'{phase}-1440x900.png').convert('RGB');im.thumbnail((844,528));sheet.paste(im,(x,38))
+ d.text((x+18,584),'LANDSCAPE PHONE - 844 x 390 native pixels',fill='#173F57');sheet.paste(Image.open(P/f'{phase}-844x390.png').convert('RGB'),(x,610))
+d.text((20,1032),'Same camera, pivot and geometry. Day: bulbs unlit / FX hidden. Night: bulbs + eight feathered crosses + green water pool.',fill='#173F57')
+d.text((20,1060),'Source-only art evidence. Warm point lights in night fixture are illustrative; Unity shader/light setup belongs to the lead.',fill='#173F57')
+sheet.save(P/'review-sheet.png')
+# Refresh current FBX metrics, retaining legacy verification fields whose geometry did not change.
+vpath=O/'validation.json';v=json.loads(vpath.read_text());v['fbx_sha256']=sha(O/'JigBoatV1.fbx');v['lights_audit']='lights-audit.json';v['bulb_material']='M_JigBulb';vpath.write_text(json.dumps(v,indent=2)+'\n')
+bpath=O/'bounds-audit.json';b=json.loads(bpath.read_text());b['fbx_sha256']=v['fbx_sha256']
+for row in b['rows']:
+ current=next(r for r in rows if r['asset']=='JigBoatV1' and r['name']==row['name']);row['materials']=current['materials']
+bpath.write_text(json.dumps(b,indent=2)+'\n')
+report=O/'REPORT.md';text=report.read_text();text=text.split('\n## Lights\n')[0]
+text=text.replace('Bulbs use existing M_BandIvory, not new emissive materials; native night-light effects/material setup remain integration scope.','Original B delivery used M_BandIvory on bulbs; the Lights revision below isolates those surfaces as M_JigBulb. Native night-light shader setup remains integration scope.')
+text+='''\n## Lights\n\nJIG-LIGHTS-ART-1: **5635 boat triangles unchanged**, plus **1488 effect triangles** (eight 144-triangle quad-crosses and one 336-triangle water pool). Editable `JigBoatV1.blend` and `JigLampGlow.blend`; both FBXs independently reimported. Every boat vertex, face, mesh name and parent matches the pre-lights FBX exactly (maximum world vertex delta **0 m**). Only the eight bulbs’ former `M_BandIvory` face regions change to `M_JigBulb`; sockets/caps/tips retain their previous materials. No other ivory becomes emissive. Both raw FBX UnitScaleFactor=100, metre-scale geometry, no extra100× root scale or stage mesh.\n\n### Integration contract\n\n- `JigBoatV1.fbx`: unchanged root `Catchline_JigBoatV1`; the eight `SquidLamp_01`…`SquidLamp_08` meshes retain names, geometry and transforms. `M_JigBulb` has the original unlit ivory #F3DEA1. At night/jigging, assign warm emission #FFE7A3; day restores zero emission. Do not enable emission on shared ivory materials.\n- `JigLampGlow.fbx`: one identity root `JigLampGlow` at the **same boat origin**, no offset. Parent beside the boat model and copy exactly the same model-to-runtime rotation/scale/position; do not place its origin at waterline. Authoring axes X right, -Y bow, Z up; usual FBX import maps to Unity Y up.\n- `LampGlow_01`…`LampGlow_08`: each0.60m across, two perpendicular vertical feathered quad grids, centred exactly on the actual corresponding bulb’s ivory-region bounds centre. Shared `M_LampGlow` #FFE7A3, matching LighthouseGlow. `GlowAlpha` vertex COLOR alpha fades from0.38 at centre to0 around every edge.\n- `WaterLightPool`: one flat oval **6.0m along boat Y ×3.5m across X**, centre authoring **(3.20,0.96,-0.395)m**, beside the starboard lamp line. `M_JigWaterLight` #CFEFC0; `GlowAlpha` centre0.22, three feather rings, perimeter0. It sits5mm above the fixture’s Z=-0.400m waterline. Adjust only this node’s height to the actual water surface after hull placement if runtime sea height differs; its local bounds and node pivot are stable.\n- Both effect materials require **unlit additive**, RGB=material tint multiplied by vertex COLOR.a, double-sided, ZWrite Off, ordinary depth test, no collider, no cast/receive shadows. **Read vertex alpha**: opaque Standard/Lit rendering will show sheets. No texture needed. FBX carries tint and vertex alpha; Blender shader nodes do not configure Unity shaders. Toggle the FX root with bulb emission for dusk/night/jigging. Pool may remain independent from boat bobbing if the lead follows the live water surface.\n- Four renders in `renders/lights/`: day/night1440×900 and844×390, orthographic exact45° elevation/35° azimuth, same13.7m horizontal span, same pose/framing. Night has darker sea, warm bulbs, feathered halos and pale green pool. Illustrative12W Blender point lights per bulb show nearby spill; these lights are review-only and are **not exported** or required as eight runtime lights. No heavy bloom.\n\n### Current exported bounds (metres, authoring coordinates)\n\n| Asset / mesh | World minimum XYZ | World maximum XYZ | Triangles |\n| --- | --- | --- | ---: |\n'''
+for r in rows:
+ fmt=lambda v:'('+', '.join(f'{x:.5f}' for x in v)+')'
+ text+=f"| {r['asset']} / {r['name']} | {fmt(r['min_m'])} | {fmt(r['max_m'])} | {r['triangles']} |\n"
+text+='''\n`lights-audit.json`: actual FBX every-mesh bounds/finite-face/unit checks, original/current boat parity, bulb-only material mapping, exact eight glow alignments, source/FX FBX parity, vertex alpha and flat6×3.5m pool dimensions. `lights-original-mesh.json` is a machine-readable geometry/material audit baseline, not a backup model. The pre-lights temporary model/report backups are deleted only after verified completion.\n\n`lights-receipt.json` seals this revision. Previous Jig A-C renders/card receipts remain historical evidence of their accepted handoff; their old report hash predates this appended Lights section. Current validation/bounds receipts now name the new boat FBX hash. No accepted concept/card/other boat content regenerated. Native import, actual water alignment, shader brightness, dusk switching and gameplay acceptance remain lead scope.\n'''
+report.write_text(text)
+validation={'pass':True,'images':images,'boat_triangles':5635,'fx_triangles':sum(r['triangles'] for r in rows if r['asset']=='JigLampGlow'),'opened_and_visually_checked':False,'native_tested':False}
+(O/'lights-visual-validation.json').write_text(json.dumps(validation,indent=2)+'\n')
+files=[O/n for n in ['JigBoatV1.blend','JigBoatV1.fbx','JigLampGlow.blend','JigLampGlow.fbx','REPORT.md','validation.json','bounds-audit.json','lights-audit.json','lights-visual-validation.json']]+list(P.glob('*.png'))+[p for p in S.glob('lights*') if p.is_file() and p.suffix in ['.py','.json']]
+(O/'lights-receipt.json').write_text(json.dumps({'files':{p.relative_to(R).as_posix():sha(p) for p in files}},indent=2)+'\n')
+print('LIGHTS FINISH PASS',len(files),'files',validation['fx_triangles'],'FXtri')

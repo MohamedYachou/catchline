@@ -1,0 +1,28 @@
+00:01.047  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\JigLampGlow.blend"
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+FBX version: 7400
+LIGHTS AUDIT PASS 0 52
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\lights_review.py:54: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;nt=m.node_tree;nt.nodes.clear();out=nt.nodes.new('ShaderNodeOutputMaterial');mix=nt.nodes.new('ShaderNodeMixShader');attr=nt.nodes.new('ShaderNodeVertexColor');attr.layer_name='GlowAlpha';tr=nt.nodes.new('ShaderNodeBsdfTransparent');em=nt.nodes.new('ShaderNodeEmission');em.inputs['Color'].default_value=colour(h);em.inputs['Strength'].default_value=2
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\lights_review.py:51: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.diffuse_color=colour(h);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=m.diffuse_color;bs.inputs['Roughness'].default_value=.42
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\JigBoat\lights_review.py:65: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Review dusk' if night else 'Review day');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.22,.32,.50,1) if night else (.65,.74,.80,1);world.node_tree.nodes['Background'].inputs[1].default_value=.38 if night else .6;sc.world=world
+00:28.781  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\day-1440x900.png'
+FBX version: 7400
+FBX version: 7400
+LIGHTS RENDER PASS C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\day-1440x900.png
+00:34.968  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\day-844x390.png'
+LIGHTS RENDER PASS C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\day-844x390.png
+01:09.922  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\night-1440x900.png'
+FBX version: 7400
+FBX version: 7400
+LIGHTS RENDER PASS C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\night-1440x900.png
+01:18.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\night-844x390.png'
+LIGHTS RENDER PASS C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\JigBoatV1\renders\lights\night-844x390.png
+LIGHTS REVIEW COMPLETE
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

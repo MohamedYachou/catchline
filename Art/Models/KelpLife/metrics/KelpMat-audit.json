@@ -1,0 +1,125 @@
+{
+  "result": "PASS",
+  "name": "KelpMat",
+  "source": {
+    "triangles": 334,
+    "vertices": 336,
+    "bounds_unity": [
+      [
+        -1.25,
+        -0.03199999779462814,
+        -0.800000011920929
+      ],
+      [
+        1.25,
+        0.09799999743700027,
+        0.800000011920929
+      ]
+    ],
+    "meshes": [
+      "KelpMatMesh"
+    ],
+    "materials": [
+      "M_KelpBulb",
+      "M_KelpGold",
+      "M_KelpGreen"
+    ],
+    "parents": {
+      "KelpMat": null,
+      "KelpMatMesh": "KelpMat"
+    },
+    "mesh_bounds_unity": {
+      "KelpMatMesh": [
+        [
+          -1.25,
+          -0.03199999779462814,
+          -0.800000011920929
+        ],
+        [
+          1.25,
+          0.09799999743700027,
+          0.800000011920929
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 334,
+    "vertices": 336,
+    "bounds_unity": [
+      [
+        -1.25,
+        -0.032000016421079636,
+        -0.800000011920929
+      ],
+      [
+        1.25,
+        0.09800001978874207,
+        0.800000011920929
+      ]
+    ],
+    "meshes": [
+      "KelpMatMesh"
+    ],
+    "materials": [
+      "M_KelpBulb",
+      "M_KelpGold",
+      "M_KelpGreen"
+    ],
+    "parents": {
+      "KelpMatMesh": "KelpMat",
+      "KelpMat": null
+    },
+    "mesh_bounds_unity": {
+      "KelpMatMesh": [
+        [
+          -1.25,
+          -0.032000016421079636,
+          -0.800000011920929
+        ],
+        [
+          1.25,
+          0.09800001978874207,
+          0.800000011920929
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 6.05359673500061e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    2.5,
+    0.12999999523162842,
+    1.600000023841858
+  ],
+  "materials": {
+    "M_KelpBulb": [
+      0.2622506618499756,
+      0.19120168685913086,
+      0.0666259378194809,
+      1.0
+    ],
+    "M_KelpGold": [
+      0.08650045841932297,
+      0.15292614698410034,
+      0.04666508734226227,
+      1.0
+    ],
+    "M_KelpGreen": [
+      0.04666508734226227,
+      0.09530746936798096,
+      0.04373503103852272,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "49c7ba458fe03ddd2b411829533f331b4ba49c18d44c113a453be3f75e6df01c",
+    "fbx": "71b12945aef4faadd1e01d301080f2c01905a3b4d81db7b5f58a7d53393a8fa2"
+  },
+  "vertex_alpha_roundtrip": false
+}

@@ -1,0 +1,37 @@
+{
+  "asset": "Art/Source/BoatsV2/ui/v2-item-hull-jig.png",
+  "dimensions": [
+    480,
+    360
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "visible_bounds": [
+    35,
+    24,
+    445,
+    336
+  ],
+  "master_dimensions": [
+    1448,
+    1086
+  ],
+  "master_visible_bounds_threshold8": [
+    73,
+    50,
+    1375,
+    1041
+  ],
+  "sha256": "22df5b8284b364e89079932fc017706e4c40f2d0900e806362b7898ab10b4136",
+  "export": "Alpha bbox >8 crop, Lanczos thumbnail within432x312, centred480x360; alpha preserved; no repainting",
+  "visual_review": "PASS: final card and Skiff/Jig/Prep comparison opened during C resume. Eight bulbs, cable, three reels, enclosed forward wheelhouse and clear deck read. Full silhouette and alpha margins clear; navy/ivory/honey palette and shaded volume fit accepted cards. Subject checked against delivered game-exact-45. Asset-level review only, no native UI acceptance.",
+  "independent_checks": {
+    "exact_master_export_pixel_parity": true,
+    "transparent_corners": true,
+    "dimensions_rgba_alpha_margin_sha256": true
+  },
+  "provenance": "Existing built-in imagegen master and exact prompt-card.txt recovered from previous session. No generation this resume."
+}

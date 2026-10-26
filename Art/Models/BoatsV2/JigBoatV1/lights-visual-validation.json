@@ -1,0 +1,48 @@
+{
+  "pass": true,
+  "images": [
+    {
+      "file": "Art/Models/BoatsV2/JigBoatV1/renders/lights/day-1440x900.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "2fe45f6623d7dc042ffad43c65ece61d6c566a5de48098365885508358d10fe7"
+    },
+    {
+      "file": "Art/Models/BoatsV2/JigBoatV1/renders/lights/day-844x390.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "d63d8cd2f58c0568835822217139b0d6471f8bc5c1fbb7c65ad763fe8a778086"
+    },
+    {
+      "file": "Art/Models/BoatsV2/JigBoatV1/renders/lights/night-1440x900.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c290cb40afcbb590f663a5e55455cc7d6cad250fe4b35d476ad24697dcb81d9c"
+    },
+    {
+      "file": "Art/Models/BoatsV2/JigBoatV1/renders/lights/night-844x390.png",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "1cd793563ae77b779e9412d877648d08f27f24d4e2dab670abe11abb79c11a02"
+    }
+  ],
+  "boat_triangles": 5635,
+  "fx_triangles": 1488,
+  "opened_and_visually_checked": true,
+  "native_tested": false,
+  "review_sheet_opened": true,
+  "reviewers": {
+    "lead": "Codex 2 (WSL CLI): all four final images and review sheet opened; PASS",
+    "technical": "jig_lights_technical: source and audit-data review PASS, no independent binary import or Unity check",
+    "design": "jig_lights_design: all four images and sheet opened; visual preview PASS"
+  },
+  "limits": "Blender fixture evidence only; Unity additive shader, live water placement, dusk toggle and target-device acceptance remain lead scope."
+}

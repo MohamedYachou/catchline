@@ -1,0 +1,600 @@
+{
+  "sources": [
+    {
+      "path": "Assets\\Scripts\\Game\\ArtLibrary.cs",
+      "sha256": "abbb57ec879394f76dd81795a6146d1fe6d0d6d2de9ed8e80150d18560f2aa76"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CatchExpectation.cs",
+      "sha256": "e4987b6e9b9204ae9ec1db53ca98ca187f25ea123c9ad6eaf12dd2aa3b7f8a9d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CatchPresentation.cs",
+      "sha256": "bb7ebe8d0b6de065f5edfcb896447a1f8650870be96e63aa3db2b42e43064ea5"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CatchRewardGraphic.cs",
+      "sha256": "0f38274f8907d3b357b299ae7f00aef0e80e4394788f24f6b1964c7ddb00d551"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CoastalCanvas.cs",
+      "sha256": "742b018c2e9b021582402f789b11df91afc6881ee2b16b55a5367e13bed73e0c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CoastalCanvasFx.cs",
+      "sha256": "572a52c38911954229555650339d74df061c73a4a478fad9779b07da9dc5a92f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CoastalWater.cs",
+      "sha256": "ca86d02efb3277f4be5199bfe9b2c5bae20a0924e5878ca7b7d5942983e1e227"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\DeckActors.cs",
+      "sha256": "63a44bb15ce13d45142d69931f261645698deefa93ad4163ab87145a7d32ca36"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\DeepLineRules.cs",
+      "sha256": "9c734185108ae4dc706ea5e0024daaad8fea467c3afa2ed988cd26297e6dee26"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\FishReferenceStyle.cs",
+      "sha256": "1971c27f0cf5443f645ed324e77569a1d9a2304d289a6242c2a93dcdd1e0a424"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\FlowTelemetry.cs",
+      "sha256": "e3e1795a838e49dba8dda1facdbd23f7a69ef5c9f17902919c53fe5a28eba1fe"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameData.cs",
+      "sha256": "e6d245a5d6e6b697aa8f41fa8ad72835de3e93b635faa542ebf0ebd8a864934a"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameState.cs",
+      "sha256": "497293f38f83bf4528541748006ecaf0b2763a3dfd737bad7294ca1f080661fa"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateBoatModules.cs",
+      "sha256": "8effba1941b7262f60de278553cb21b0cf82637991040ac0fda527758559e2b6"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateCards.cs",
+      "sha256": "9529864cec17424900cecd0c075117bcbf86a0ceae72c95b5d86837aee71e366"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateCrewBait.cs",
+      "sha256": "237cf26b862c1d4849b688340d069a91a038a4c3fd30c53f5b1fca2eb8726aa0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateNetLoadout.cs",
+      "sha256": "79c8b72ab2c330bc1bce7ccefb0d0a98917f55fddeb3dfd98521678c38257194"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateProgression.cs",
+      "sha256": "85b31c720d763df7391e110399f6e1c9008c7c66a0fc680b193b4b45099d5827"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GameStateTier5.cs",
+      "sha256": "263bc5ee8b19b63e8e94813ec23fcf813c1740f1b46e18d5ea0a88cc96fd70d2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GeminiFishModels.cs",
+      "sha256": "0616a8257b88011c17be5d9d8641d11efa9faa6e663a2249c03ab4987eb1cfdc"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\GeminiUiSkin.cs",
+      "sha256": "5252af290c67e97c3dfce41db7ea3862d16cbe1a7a51bb9689d4e760d1d9835e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map10Capture.cs",
+      "sha256": "b9e51cd10b3f353a9fe6aa7c0a0bfe2e08b88b386726b03f66cf454206c75ec2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map11Capture.cs",
+      "sha256": "225e78ad28253abd136cfa55684f31abe93b653f72442ef165a34db3a1263a16"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map6Capture.cs",
+      "sha256": "e2ac5256e6631617388aaea1f96e0a6f4e68c65b28ebb9560e051931dc7710c2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map7Capture.cs",
+      "sha256": "502f9c85f58536f4e8b40649f8b29742eee9f414a0b6e8e2ffe808a6cdb5a8a9"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map8Capture.cs",
+      "sha256": "cece4f63d6d92fd93bc3bc532396127fadbe7f9fe9d51a4108fabf71a0c8ee8c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Map9Capture.cs",
+      "sha256": "e45f3d217a94c20a1a11180c81dde8c883419fb63a9f7811f2ec17e8670ca396"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\PtsWater.cs",
+      "sha256": "3c0897b518f71dc8a18508458d085bcfcf732bba981ee0aa77228c6d9b4529ad"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\SceneryLife.cs",
+      "sha256": "205fe3579b66e6cb193817c0855d42091572883a5f47a176584bdc8d617161c3"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Skin.cs",
+      "sha256": "51095b037835a8bc0cb78702c144d36f6e13a352fcadd8924562c0c8f0ff767c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\SkinSlices.cs",
+      "sha256": "e81d7015659c2777c9a63e540afe1b3defeb249499daff5642d3100af3040e57"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Ui.cs",
+      "sha256": "02711c845c41dbb18109d742ba00f9fd8a2c8d55d5962fc9451ced603def411c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageAudio.cs",
+      "sha256": "a715e2271f34349b37e2fd979b207958f43f768d2d8d13f70a3308fafcb30c3d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCapture.cs",
+      "sha256": "f06ef36d2f2419d94e62801683f047f77262d277fb65328ffdf13933977b8830"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCards.cs",
+      "sha256": "7c299e8e325c0c8a77d51d0269cbf14ca91a8a3841418fd77c99ce131c9b25ea"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCastFx.cs",
+      "sha256": "2deff6736265cec723ec4e2bc62cc2d8eb20fbef483dd0c02de538e3a920054e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCatchRewards.cs",
+      "sha256": "cb2810a5db60b6143880102236273dd5e31b3aa63c8b976ee7e46a818a5cbceb"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageChart.cs",
+      "sha256": "3fb288e55ae0c3cc7b874018d2bcc490c786216e516a14beefa5201711c6da80"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCliffsLife.cs",
+      "sha256": "24f2564bc3a1fb4df8cd6ac05167ef5f5d78f97726a16b9d1775aa57e660288f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCoinFx.cs",
+      "sha256": "015a569f6e72c010b5c9c56cbd8117281d4c0daec59a26faaecad18c4de6d1ac"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCompactFisher.cs",
+      "sha256": "252900f519b36313f5ba953be2579f82e18e9f08ed3b106ebd0fe5246d4ce93b"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCrabPots.cs",
+      "sha256": "8cc4be72f53774e00391cc5f0d9756299e2a167747a859cd756e8f22482802e7"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCrewBait.cs",
+      "sha256": "a1eafd340255d3d98dd4c9e39d68c219ae1cc6679bce4daffb32e15807319380"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCrewCounters.cs",
+      "sha256": "ed42743db4b4bc4f9349ddaca5e910582548f6958b33721df213c0a843c42125"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCrewFallback.cs",
+      "sha256": "e968375709a6f3ef3b75b515ef0a2c035aab512a6975db645d4c1bbe472d86bb"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageCrewLife.cs",
+      "sha256": "dcee201718b409a2b25c7f7fc4ece6e13bb94d6e9277c6b6a4cf465c156d98bc"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageDeck.cs",
+      "sha256": "8b0ba1dfabff8b3283689fc727e434816a3de554e719843d99aa62ea525aecfe"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageDeepLines.cs",
+      "sha256": "fd787946802936e9a03580a5476e43a505ee7d5bc757aef0d42a13c1439266da"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageDeparture.cs",
+      "sha256": "8b867ead7a91372a466d6555b1231723a688a34fb495a7190b7a4bcc8006043f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageFeedback.cs",
+      "sha256": "2b2fca4640347aef0b99be11458dfb647efe65a8ea8477340d82746ccd11133b"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageFirstCatchFx.cs",
+      "sha256": "002ca45e5e6429cbe3ecb7328246a05bece35bf8789f73c5816f9955bfb42aea"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageGame.cs",
+      "sha256": "2134d89bb1f21a3b4a2bf714f33ac207887a1a9a1583ac23ad1c810a1210f903"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageGrounds.cs",
+      "sha256": "c5af4d90f0c1181dd46ca0bef89b7349ba65112655bbede12b7c1c3bd81185d6"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHarbour.cs",
+      "sha256": "b5266b2536125acac5c53ff49c1428b9231b3209505884539284735b67710cb2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHarbourDusk.cs",
+      "sha256": "eb1c250121f4b865b62b3d98ebf83d4438d6cd37ae1bc478aadd4e6b4c776dc0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHarbourPets.cs",
+      "sha256": "7e32ceade97331cda517d7296c6f16332ada0e4a12a90b775e0f41e2f0df6a50"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHarbourTraffic.cs",
+      "sha256": "da8603d631679a8159e1d8c0032e136fce1b32ad86ea25d54599a46e6532cfd5"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHaul.cs",
+      "sha256": "9e76f3a327a8c69bba8a20723fece23644c004f0a10e0a5ed21a22466582a0ba"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageHud.cs",
+      "sha256": "3a77b20857279fc6e339cdcbcd0261c48ca989b87d76824fd25c80e8e09d80b6"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageIllustratedChart.cs",
+      "sha256": "42928d3a7db4488ada9091ba4d7c5124054474b6b0629425f4f6b808b56b8704"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageInterface.cs",
+      "sha256": "59166bdf90e238e16cf22f746782845433d28db07c1cb85176431cd76ee724b7"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageInterfaceCrew.cs",
+      "sha256": "c99fdf147b6c6f21925cc730c653b2018160c3253fac201f5d6c5d9d811a8875"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageInterfaceGoals.cs",
+      "sha256": "843c97f8c2f0e92234c3e34b19aa911bd263b442d0be9edfa5141a5b0a20f7d7"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageInterfaceShop.cs",
+      "sha256": "60005ebeb1ad2f6ceffc9fdc9456434b03c0568b03a8dac8272c1c557dad8a49"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageInterfaceVoyage.cs",
+      "sha256": "12a5c8e2556764b5024e87b5891159e6452e4adba64b5aee8bc379178f02c907"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageIntro.cs",
+      "sha256": "52ffa6f256538d8706fcfc720f389d4fc65dfb5e5bd4e8447c10c98b41834001"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageLighthouseLife.cs",
+      "sha256": "f5ea45541b27ef4cea38cc87770d38849c1926478d49d9cadb8b2051b821b1db"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageManagement.cs",
+      "sha256": "059d361453f55c8799bdfe42ce4f61849102c5a4d0645272e00c73e3043be1f5"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageManagementForecast.cs",
+      "sha256": "2e6b1827548df36f5f99741229391c1f7e080760375acb2930997ca2b22dc2ab"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageManagementPages.cs",
+      "sha256": "790acbab78e3214a162e760930139f35d4afe429329d16738633568567b24a0d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageMenus.cs",
+      "sha256": "0820e2bd5c7798cc1a1c945086b43d3c776c1787af6f2e66337732e3fe04d81a"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageNet.cs",
+      "sha256": "930f93f69b673c1a3018a735d40165f63926ebf1c354b9c8763c37a6b317f460"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageNetGame.cs",
+      "sha256": "ab896cb460cafc08011bde95b600207330fafce2f098ca33f027bdae51f76992"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageNetInterface.cs",
+      "sha256": "b3a2c8ff4fa67156f97b3b2dcaea53b684b038b4d5cfa909faa47472de7afe56"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageNetLoadout.cs",
+      "sha256": "1cafa7ae79cad90dd2cc5b7223cc757aa745eb4b3b13e21bcb43869eca1ff8dd"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageNetUnload.cs",
+      "sha256": "c448fe05d34f2b616f5d9439fa6b1b51ef41980af27081d89a3797a9b03b39ee"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyagePrepFisher.cs",
+      "sha256": "17d670cafa439364cdd7390c261f58626f865799eb5339c94eaf5a7daedd4244"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyagePrepOrders.cs",
+      "sha256": "1ab7cc52ba4535f634657ce7fc39573ce4db3515f57fb7c4ab42ab2711379fee"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageProcessingPipeline.cs",
+      "sha256": "6c0e61748ecde1c8c04b55e6f40b56eabbe0e9e55578b77b213c5ed5408577b0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageRefitFx.cs",
+      "sha256": "29457849e5c3db06d5529566021dc3f2013c4335776970d0076f1f1b0a5b154e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSavingsGoal.cs",
+      "sha256": "a9d11241408c5b02e7c9ac13991f2377cb8d5908a2a196f7e59f93a512b9f9ef"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageScenery.cs",
+      "sha256": "44c2e8dd20b32b62d68c4b9d3d0891641af8c2ca3ddeae75f236d2f30358ae75"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSea.cs",
+      "sha256": "a8fe1c4e7cfcaf7f316e439501cefde8d4c1ab85f6cf0fbb5a814efa24638a03"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSeaLayout.cs",
+      "sha256": "53084e7ee0aaefd4a6d6a6e9da6b927146e757a114d1cd06e73285bf367951a1"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSeaMoments.cs",
+      "sha256": "373af59047827ff91defe62079860fcfbcf87637156fe1e8baa968201160427e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSecondNetModule.cs",
+      "sha256": "e7c66f04a778e8e49dff741284bd12988adee0c0e24be4c8af2c07f34fe11a91"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageShelfLife.cs",
+      "sha256": "ab6d42f70c367493ba1afbc0cb4bc6e389f1780b41cf8736e008b1b0c4c8a46f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageSkerriesLife.cs",
+      "sha256": "71635a48348d4c6cc9564a2a57a0b97d0660a7873ec188178a6b2610eb51af0d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageStorage.cs",
+      "sha256": "688cdfdaec59950962d9b14c788b1783617038d0a0823a7abb9f6c902c3dbc23"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageStrikeFx.cs",
+      "sha256": "e69f040b7e4e9a0ab92931f6c42bc099e08e5027783e7051342ac3a4117d9e54"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTier5.cs",
+      "sha256": "c9c37a87e57a77e834a818cd2d7950ac87e9795feb82977a7bd0a01391f31ca7"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTownsfolk.cs",
+      "sha256": "ab204780c6d106330496a2e058e418562983ed9ca79e44553a2fef00709b62aa"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTravel.cs",
+      "sha256": "0df8918211232b413e8d8ff266b93b6276dbc5bfc056b777bdc30a505bc14f44"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTrip.cs",
+      "sha256": "2c3e59f1c20e7113de09563638bbe5919ab760314060de78048e473dd87b8dd6"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTripChart.cs",
+      "sha256": "0a232e64b8d3311caf3706826564fc4bbbb7a91bd56f3b7a879943d2d1ddd3b2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageTutorial.cs",
+      "sha256": "aff70a1f38bc2386654e9f24168a43856e035e9e5dd03aad23d345daf03c79a4"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageUiV2Capture.cs",
+      "sha256": "b353931f06f4fecf9b60244c9b4b617a57f75469ca94d0ed873b61e106d1c0ec"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\VoyageWreckLife.cs",
+      "sha256": "9856b533e6a52c14b91158314dcf04148270d9abb182706af37890291ec2c48d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\WorkSpeed.cs",
+      "sha256": "88fcdcf6b7e75103f5e2ca1530b5db4eee1b3ac256fc0e0b3d1db3b43ed479f4"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Crew\\CrewAbilityEngine.cs",
+      "sha256": "6713ab4dee9c32091be7419388a075c4a1a6eaad541173513845205e124b72f2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Crew\\DeliverySortBonus.cs",
+      "sha256": "fc4ede3b31002d6080d8e11adc924f9ddb4b2bb8c1f1988cf2c9554e3a1c595a"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Crew\\VoyageAbilityHooks.cs",
+      "sha256": "0912bb83641a90d4a6312a20111b1a7786462e0487669edb0387c4493d48d406"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CrewUi\\AbilityPops.cs",
+      "sha256": "4fe13fc454315b2bfa816e87a4e3900703c271c56f90d3331be8d9492967ad5e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CrewUi\\CrewGarage.cs",
+      "sha256": "f430d19670b7df0a27b2b0f57656f3b5979775becffa7be5d18e34e8789a117c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CrewUi\\CrewGarageFx.cs",
+      "sha256": "ad9381b7fca9d1d1a7689e8dab856c9f5a3a74948c4c784f6d3e2d7bcf7a5bc0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\CrewUi\\CrewRecruit.cs",
+      "sha256": "1bf44034e27de823113053c2ad69dfc7b8dc7affb7e24fdde6d051fa3b545eef"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Bait.cs",
+      "sha256": "a663d2cc1e19c26086c909dc4c9c5f5aa67e6bfd4d8a0b9380f5a7bfc209e445"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Buyers.cs",
+      "sha256": "8fc3d4a89e3b3dffd65a7bb72233c7987d89d63af5be7876ca9f1a0d7e5da6d0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\CardProgression.cs",
+      "sha256": "5a21fcfba4f2e5ca52384bd233360fe7cf10961ed1d2c897af2745180bb8b112"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Cards.cs",
+      "sha256": "56abaedc151f5aa4f308faaff8f180058fe23fcfcddee6a57765bdb00ff70ef4"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\CardState.cs",
+      "sha256": "c0e5660406238adcaadf1f86612a4526f1e87207654cdb7a303624a1fe9cc58f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\CardTools.cs",
+      "sha256": "201c0098d4f370eea8428b3233544adb71ab90a3116782d9c86eb70d35673b3d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Chests.cs",
+      "sha256": "a9ba8d335d615c0d5b1b1662828cc5628c7f822a637a94957029b9172faeb687"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Contracts.cs",
+      "sha256": "efb655e3db44bb3f2c9307d56308f98acd7eed73b40b56cd388a3286438e2b04"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Grounds.cs",
+      "sha256": "a054183457f02c56cd89dc264e6dfc0d68348b0c33d5aa39312dbf2163f4b39e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Products.cs",
+      "sha256": "160a125d512bdfd4893bd8980034f156b65c624c8d041235bee6815319899692"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\Quota.cs",
+      "sha256": "b8087dd2e8df27eefb73a0e7f4c7c5b81c98515b658ffd05a2aa962b2ed3a67f"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\RenownRoad.cs",
+      "sha256": "1478da9a76ab56f866462038922b556ffa7ee25f604d41a4a555976b3041fe29"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Data\\SaveV2.cs",
+      "sha256": "73dd4a630fbd29963e53d876a905994adf0b7cb8361a978411cb2e9a030cbe37"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Deck\\DeckGraph.cs",
+      "sha256": "546bcb5a78a5360633a723799b752c600c6222aa38c34100fd8d0a259059685e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Deck\\DeckScheduler.cs",
+      "sha256": "0cd13d813e0cb81f2c4222670cc64c46556dff09532763ee73c73dd7257569fa"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Deck\\Jobs.cs",
+      "sha256": "1285f763315c3a71e384dbe750697f067c663c7a071fa58a4a31c9d7d927af0c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Deck\\MiniJson.cs",
+      "sha256": "a9a1c4b9f6b9bbddcf70c85b13b64bab54d1ec47bb5ca0bb5064e944b897204c"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Deck\\Station.cs",
+      "sha256": "7055ba644a27d8049fcb2229c859ea6a0a849fd253b775066fcadb1ac0ce89a4"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\BiteModel.cs",
+      "sha256": "b6d809be00059ce420ee0b19a5fda03ca5d7416c552210580039063624518d1a"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\CageModel.cs",
+      "sha256": "9e39ee7e17d9c4bd4e8bebabfecd311f8f879534b2fe5b58e791a2f7c63eba1d"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\FishShadow.cs",
+      "sha256": "08d929224a860ab5ec2a1fd807c3b5a625d278f3e5ae5f0028390015abf8cddc"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\RodViewAnimation.cs",
+      "sha256": "dbda5d38899601b041d1a006d086168bfb3b09d26b116ddc8e3e64f309edb2c0"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\RodViewArt.cs",
+      "sha256": "699bc8d062257e7432a21e05327c4c3b95e50f34aad77877701922193c4618d2"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\RodViewAtmosphere.cs",
+      "sha256": "0de02a8f6e8e3b02572e7edfce956050596645d3fa255f9f8afa7e45b6fb33c5"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageCageView.cs",
+      "sha256": "3cd30ab572637ccac35839900404ae237373d546ad4f3620549f3d8ba6634390"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageFishPolishCapture.cs",
+      "sha256": "6fa79058a809888c191b699505d38a0483d2d14522b17c850e48ef9b6337ec82"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageGutView.cs",
+      "sha256": "2ebcfad5373a932442600941afdb78aadd25a07f2dab8558fddf0018dee9a278"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageNetView.cs",
+      "sha256": "6abc03c1ea9820409dc400aeb38fd23a54b6c7ad223d46b13b9c111721b758b9"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRepairView.cs",
+      "sha256": "09e958b760562d713a363634bc0ee77e378dd7878fe223cd2971cbfd268d2110"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRodView.cs",
+      "sha256": "211883fc88f12a70c0fb4f6e4f3ef94fafe1d6a560a4e29ce5efcaca29dcda83"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Minigame\\VoyageRodViewCapture.cs",
+      "sha256": "71a9032154540e8b888bf9349a6b08be787482ecf1e5bca631d6ee2b9f38ad58"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\BoatSailor.cs",
+      "sha256": "a9318e063cb137789ee00bb7be4dd8ba6c1f7abccf9998ba28e456102d47a754"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\Schools.cs",
+      "sha256": "fc4cd2e82ed00d59c8e7e0a7620f4b1b25e2b660f7dde212aeb3033634cc0b6e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaCamera.cs",
+      "sha256": "99c1593e14b66ebbeff5e8724b5279f214021676ff611bf84876294970a63615"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaCapture.cs",
+      "sha256": "f5650134db53a7e66ef237c430acbc7c3064210b0e251e3adb1c05a7f71a0340"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaInput.cs",
+      "sha256": "85f7f8fdcb077629dd500c1a213341abb66b36c6deb99875fd165209c49726df"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaLanes.cs",
+      "sha256": "60e217f8dbee4471694fc3016c5fa2701fefffbf6cc5faaf13c619c54dad3eba"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaModeChecks.cs",
+      "sha256": "56c2f2c67340d4e205c443e3bd6fd820601ad043238f2b5a27d83df9780994a4"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaNav.cs",
+      "sha256": "bbd94b9c83d660b8b88bb0b57d1f992e05163ed80afb2af8b23a0a9910eafba8"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaSailingEffects.cs",
+      "sha256": "9a1321e8b588b5aa38fea47cbe155be3150b79947bc5ef3f84078e09ecc9f52e"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaSceneChecks.cs",
+      "sha256": "e908bfb4b822b9973a18132015b80dd4592b768c7f2baae46ad39a969804dece"
+    },
+    {
+      "path": "Assets\\Scripts\\Game\\Sea\\SeaScenery.cs",
+      "sha256": "bcec36bc91f73c42ce1ba60dadcab6d1f055764189fbcbc10a145454a07ebab0"
+    }
+  ],
+  "sourceCount": 148,
+  "nativeLaunched": false,
+  "buildWrapperExit": 0,
+  "buildUnityExit": 0
+}

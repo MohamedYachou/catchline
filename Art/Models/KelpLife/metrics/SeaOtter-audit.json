@@ -1,0 +1,352 @@
+{
+  "result": "PASS",
+  "name": "SeaOtter",
+  "source": {
+    "triangles": 444,
+    "vertices": 254,
+    "bounds_unity": [
+      [
+        -0.2150000035762787,
+        -0.13100001215934753,
+        -0.6104068756103516
+      ],
+      [
+        0.2150000035762787,
+        0.2809999883174896,
+        0.47226691246032715
+      ]
+    ],
+    "meshes": [
+      "SeaOtterSkin"
+    ],
+    "materials": [
+      "M_OtterBrown",
+      "M_OtterCream",
+      "M_OtterPaw",
+      "M_Rubber"
+    ],
+    "parents": {
+      "SeaOtter": null,
+      "SeaOtterSkin": "SeaOtterRig",
+      "SeaOtterRig": "SeaOtter"
+    },
+    "mesh_bounds_unity": {
+      "SeaOtterSkin": [
+        [
+          -0.2150000035762787,
+          -0.13100001215934753,
+          -0.6104068756103516
+        ],
+        [
+          0.2150000035762787,
+          0.2809999883174896,
+          0.47226691246032715
+        ]
+      ]
+    }
+  },
+  "imported": {
+    "triangles": 444,
+    "vertices": 254,
+    "bounds_unity": [
+      [
+        -0.2150000035762787,
+        -0.13100001215934753,
+        -0.6104068756103516
+      ],
+      [
+        0.2150000035762787,
+        0.2810000479221344,
+        0.47226688265800476
+      ]
+    ],
+    "meshes": [
+      "SeaOtterSkin"
+    ],
+    "materials": [
+      "M_OtterBrown",
+      "M_OtterCream",
+      "M_OtterPaw",
+      "M_Rubber"
+    ],
+    "parents": {
+      "SeaOtterRig": "SeaOtter",
+      "SeaOtterSkin": "SeaOtterRig",
+      "SeaOtter": null
+    },
+    "mesh_bounds_unity": {
+      "SeaOtterSkin": [
+        [
+          -0.2150000035762787,
+          -0.13100001215934753,
+          -0.6104068756103516
+        ],
+        [
+          0.2150000035762787,
+          0.2810000479221344,
+          0.47226688265800476
+        ]
+      ]
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 1.0058283805847168e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Float": {
+      "source": {
+        "action_name": "Float",
+        "frames": [
+          1,
+          121
+        ],
+        "seconds": 4.0,
+        "loop": true,
+        "samples": [
+          1,
+          31,
+          61,
+          91,
+          121
+        ],
+        "max_vertex_motion_m": 0.04776457594868429,
+        "end_vs_start_m": 1.0900800534138509e-17,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "SeaOtterRig|SeaOtterRig|Float",
+        "frames": [
+          1,
+          121
+        ],
+        "seconds": 4.0,
+        "loop": true,
+        "samples": [
+          1,
+          31,
+          61,
+          91,
+          121
+        ],
+        "max_vertex_motion_m": 0.047764578157463086,
+        "end_vs_start_m": 1.0900798954515368e-17,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.077117914860537e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0058526100920062e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "121": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Groom": {
+      "source": {
+        "action_name": "Groom",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.14107326425665573,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "SeaOtterRig|SeaOtterRig|Groom",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.1410732524458114,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0058283805847168e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3738191739776084e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0058283805847168e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Dive": {
+      "source": {
+        "action_name": "Dive",
+        "frames": [
+          1,
+          37
+        ],
+        "seconds": 1.2,
+        "loop": false,
+        "samples": [
+          1,
+          10,
+          19,
+          28,
+          37
+        ],
+        "max_vertex_motion_m": 1.611999963514266,
+        "end_vs_start_m": 1.611999963514266,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "SeaOtterRig|SeaOtterRig|Dive",
+        "frames": [
+          1,
+          37
+        ],
+        "seconds": 1.2,
+        "loop": false,
+        "samples": [
+          1,
+          10,
+          19,
+          28,
+          37
+        ],
+        "max_vertex_motion_m": 1.6119998895631154,
+        "end_vs_start_m": 1.6119998895631154,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.0745380052412656e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "10": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.2019474127100693e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "19": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.3466371601443825e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "28": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.998401041371835e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "37": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 3.223614157832344e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.4300000071525574,
+    0.41200000047683716,
+    1.0826737880706787
+  ],
+  "materials": {
+    "M_OtterBrown": [
+      0.16202937066555023,
+      0.0802198201417923,
+      0.05126945674419403,
+      1.0
+    ],
+    "M_OtterCream": [
+      0.577580451965332,
+      0.5457244515419006,
+      0.42869049310684204,
+      1.0
+    ],
+    "M_OtterPaw": [
+      0.0802198201417923,
+      0.040915198624134064,
+      0.027320891618728638,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "21747c09e974d904d6d7acd9f4ca8e01a983715cee7d4ee351b939a314856a75",
+    "fbx": "66bde83e8c56e78a8719935c60a259014585b995c863ad3aac78ac2a570ef320"
+  },
+  "vertex_alpha_roundtrip": false
+}

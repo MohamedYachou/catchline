@@ -1,0 +1,11 @@
+# Seal cliffs wildlife
+
+Production life dispatch populates three haulouts with the existing SealColony and animated Seal, two cliff gull pairs, and a periodic DiveSplash at water level. SealLife requests its existing bark rarely, with an additional 15% gate and volume 0.1. Six existing foreground rocks each hold one seal and two gulls so life reads from the actual fishing camera. Terrain geometry and navigation are unchanged.
+
+All six native frames were opened individually at 1440?900 and 844?390: arch-pool, seal-cove and stack-race. Seals and gulls read clearly on the right foreground ledge; the left ledge is partly behind the HUD. Materials render correctly. Images are listed with dimensions and hashes in [review.json](review.json).
+
+The scratch checks verify all requested anchor groups, the spray at water level, six foreground perches, seal animation assets and exclusion of the older Lighthouse map. Full CrewCardsAbilityChecks regression passes (286 ability assertions, 217 tutorial assertions, M2/bite/cage). Corrected native build and check wrapper both exit 0: [final-wrapper.log](final-wrapper.log), [checks.log](checks.log). The SessionOnly native run purchased the chart, departed normally, visited all three grounds, returned home and exited 0: [native.log](native.log), [native-exit.json](native-exit.json). [native-run.json](native-run.json) records executable/assembly hashes and matching main/scratch Game source hashes at launch. MAP11 data additions started after that launch, so these stills establish the pre-MAP11 wildlife tree.
+
+The native capture freezes simulation for stable frames; stills establish placement and materials, not animation timing, spray cadence or listening acceptance. Source/asset checks establish the animation hook and periodic effect implementation. Mo listening and lead review remain separate. Initial checks/build retained in initial-* logs; a runtime mesh-read issue was caught before native launch and removed in the corrected build. No player saves, main-project batchmode, Git mutations or installed-player changes.
+
+CliffsCapture.cs and check-with-fixture.ps1 are scratch-only capture support, never copied into the production Assets tree.

@@ -1,0 +1,958 @@
+{
+    "inputs":  [
+                   {
+                       "path":  "Assets\\Scripts\\Game\\ArtLibrary.cs",
+                       "sha256":  "ABBB57EC879394F76DD81795A6146D1FE6D0D6D2DE9ED8E80150D18560F2AA76",
+                       "matchesMain":  true,
+                       "mainSha256":  "ABBB57EC879394F76DD81795A6146D1FE6D0D6D2DE9ED8E80150D18560F2AA76"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CatchExpectation.cs",
+                       "sha256":  "E4987B6E9B9204AE9EC1DB53CA98CA187F25EA123C9AD6EAF12DD2AA3B7F8A9D",
+                       "matchesMain":  true,
+                       "mainSha256":  "E4987B6E9B9204AE9EC1DB53CA98CA187F25EA123C9AD6EAF12DD2AA3B7F8A9D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CatchPresentation.cs",
+                       "sha256":  "BB7EBE8D0B6DE065F5EDFCB896447A1F8650870BE96E63AA3DB2B42E43064EA5",
+                       "matchesMain":  true,
+                       "mainSha256":  "BB7EBE8D0B6DE065F5EDFCB896447A1F8650870BE96E63AA3DB2B42E43064EA5"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CatchRewardGraphic.cs",
+                       "sha256":  "0F38274F8907D3B357B299AE7F00AEF0E80E4394788F24F6B1964C7DDB00D551",
+                       "matchesMain":  true,
+                       "mainSha256":  "0F38274F8907D3B357B299AE7F00AEF0E80E4394788F24F6B1964C7DDB00D551"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CoastalCanvas.cs",
+                       "sha256":  "742B018C2E9B021582402F789B11DF91AFC6881EE2B16B55A5367E13BED73E0C",
+                       "matchesMain":  true,
+                       "mainSha256":  "742B018C2E9B021582402F789B11DF91AFC6881EE2B16B55A5367E13BED73E0C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CoastalCanvasFx.cs",
+                       "sha256":  "572A52C38911954229555650339D74DF061C73A4A478FAD9779B07DA9DC5A92F",
+                       "matchesMain":  true,
+                       "mainSha256":  "572A52C38911954229555650339D74DF061C73A4A478FAD9779B07DA9DC5A92F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CoastalWater.cs",
+                       "sha256":  "CA86D02EFB3277F4BE5199BFE9B2C5BAE20A0924E5878CA7B7D5942983E1E227",
+                       "matchesMain":  true,
+                       "mainSha256":  "CA86D02EFB3277F4BE5199BFE9B2C5BAE20A0924E5878CA7B7D5942983E1E227"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\DeckActors.cs",
+                       "sha256":  "63A44BB15CE13D45142D69931F261645698DEEFA93AD4163AB87145A7D32CA36",
+                       "matchesMain":  true,
+                       "mainSha256":  "63A44BB15CE13D45142D69931F261645698DEEFA93AD4163AB87145A7D32CA36"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\DeepLineRules.cs",
+                       "sha256":  "9C734185108AE4DC706EA5E0024DAAAD8FEA467C3AFA2ED988CD26297E6DEE26",
+                       "matchesMain":  true,
+                       "mainSha256":  "9C734185108AE4DC706EA5E0024DAAAD8FEA467C3AFA2ED988CD26297E6DEE26"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\FishReferenceStyle.cs",
+                       "sha256":  "1971C27F0CF5443F645ED324E77569A1D9A2304D289A6242C2A93DCDD1E0A424",
+                       "matchesMain":  true,
+                       "mainSha256":  "1971C27F0CF5443F645ED324E77569A1D9A2304D289A6242C2A93DCDD1E0A424"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\FlowTelemetry.cs",
+                       "sha256":  "E3E1795A838E49DBA8DDA1FACDBD23F7A69EF5C9F17902919C53FE5A28EBA1FE",
+                       "matchesMain":  true,
+                       "mainSha256":  "E3E1795A838E49DBA8DDA1FACDBD23F7A69EF5C9F17902919C53FE5A28EBA1FE"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameData.cs",
+                       "sha256":  "172E40B2BCC0B5857B09072A708DD5554083F3952D6AA59B1DC4F54D7A51C434",
+                       "matchesMain":  true,
+                       "mainSha256":  "172E40B2BCC0B5857B09072A708DD5554083F3952D6AA59B1DC4F54D7A51C434"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameState.cs",
+                       "sha256":  "F89A7A0BA38FBEE9F4ECB6B843B75AC7BEF8C07D7FA497ADF3CD3B5B23D5D0CF",
+                       "matchesMain":  true,
+                       "mainSha256":  "F89A7A0BA38FBEE9F4ECB6B843B75AC7BEF8C07D7FA497ADF3CD3B5B23D5D0CF"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateBoatModules.cs",
+                       "sha256":  "8EFFBA1941B7262F60DE278553CB21B0CF82637991040AC0FDA527758559E2B6",
+                       "matchesMain":  true,
+                       "mainSha256":  "8EFFBA1941B7262F60DE278553CB21B0CF82637991040AC0FDA527758559E2B6"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateCards.cs",
+                       "sha256":  "9529864CEC17424900CECD0C075117BCBF86A0CEAE72C95B5D86837AEE71E366",
+                       "matchesMain":  true,
+                       "mainSha256":  "9529864CEC17424900CECD0C075117BCBF86A0CEAE72C95B5D86837AEE71E366"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateCrewBait.cs",
+                       "sha256":  "237CF26B862C1D4849B688340D069A91A038A4C3FD30C53F5B1FCA2EB8726AA0",
+                       "matchesMain":  true,
+                       "mainSha256":  "237CF26B862C1D4849B688340D069A91A038A4C3FD30C53F5B1FCA2EB8726AA0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateNetLoadout.cs",
+                       "sha256":  "79C8B72AB2C330BC1BCE7CCEFB0D0A98917F55FDDEB3DFD98521678C38257194",
+                       "matchesMain":  true,
+                       "mainSha256":  "79C8B72AB2C330BC1BCE7CCEFB0D0A98917F55FDDEB3DFD98521678C38257194"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateProgression.cs",
+                       "sha256":  "85B31C720D763DF7391E110399F6E1C9008C7C66A0FC680B193B4B45099D5827",
+                       "matchesMain":  true,
+                       "mainSha256":  "85B31C720D763DF7391E110399F6E1C9008C7C66A0FC680B193B4B45099D5827"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GameStateTier5.cs",
+                       "sha256":  "263BC5EE8B19B63E8E94813EC23FCF813C1740F1B46E18D5EA0A88CC96FD70D2",
+                       "matchesMain":  true,
+                       "mainSha256":  "263BC5EE8B19B63E8E94813EC23FCF813C1740F1B46E18D5EA0A88CC96FD70D2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GeminiFishModels.cs",
+                       "sha256":  "0616A8257B88011C17BE5D9D8641D11EFA9FAA6E663A2249C03AB4987EB1CFDC",
+                       "matchesMain":  true,
+                       "mainSha256":  "0616A8257B88011C17BE5D9D8641D11EFA9FAA6E663A2249C03AB4987EB1CFDC"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\GeminiUiSkin.cs",
+                       "sha256":  "5252AF290C67E97C3DFCE41DB7EA3862D16CBE1A7A51BB9689D4E760D1D9835E",
+                       "matchesMain":  true,
+                       "mainSha256":  "5252AF290C67E97C3DFCE41DB7EA3862D16CBE1A7A51BB9689D4E760D1D9835E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map10Capture.cs",
+                       "sha256":  "B9E51CD10B3F353A9FE6AA7C0A0BFE2E08B88B386726B03F66CF454206C75EC2",
+                       "matchesMain":  true,
+                       "mainSha256":  "B9E51CD10B3F353A9FE6AA7C0A0BFE2E08B88B386726B03F66CF454206C75EC2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map11Capture.cs",
+                       "sha256":  "641FB4F81DBEAB919A2580B8DF3779CE0C164D0BA2B69A0EC6FE2220F0A61640",
+                       "matchesMain":  true,
+                       "mainSha256":  "641FB4F81DBEAB919A2580B8DF3779CE0C164D0BA2B69A0EC6FE2220F0A61640"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map6Capture.cs",
+                       "sha256":  "E2AC5256E6631617388AAEA1F96E0A6F4E68C65B28EBB9560E051931DC7710C2",
+                       "matchesMain":  true,
+                       "mainSha256":  "E2AC5256E6631617388AAEA1F96E0A6F4E68C65B28EBB9560E051931DC7710C2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map7Capture.cs",
+                       "sha256":  "502F9C85F58536F4E8B40649F8B29742EEE9F414A0B6E8E2FFE808A6CDB5A8A9",
+                       "matchesMain":  true,
+                       "mainSha256":  "502F9C85F58536F4E8B40649F8B29742EEE9F414A0B6E8E2FFE808A6CDB5A8A9"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map8Capture.cs",
+                       "sha256":  "CECE4F63D6D92FD93BC3BC532396127FADBE7F9FE9D51A4108FABF71A0C8EE8C",
+                       "matchesMain":  true,
+                       "mainSha256":  "CECE4F63D6D92FD93BC3BC532396127FADBE7F9FE9D51A4108FABF71A0C8EE8C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Map9Capture.cs",
+                       "sha256":  "E45F3D217A94C20A1A11180C81DDE8C883419FB63A9F7811F2EC17E8670CA396",
+                       "matchesMain":  true,
+                       "mainSha256":  "E45F3D217A94C20A1A11180C81DDE8C883419FB63A9F7811F2EC17E8670CA396"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\PtsWater.cs",
+                       "sha256":  "3C0897B518F71DC8A18508458D085BCFCF732BBA981EE0AA77228C6D9B4529AD",
+                       "matchesMain":  true,
+                       "mainSha256":  "3C0897B518F71DC8A18508458D085BCFCF732BBA981EE0AA77228C6D9B4529AD"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\SceneryLife.cs",
+                       "sha256":  "205FE3579B66E6CB193817C0855D42091572883A5F47A176584BDC8D617161C3",
+                       "matchesMain":  true,
+                       "mainSha256":  "205FE3579B66E6CB193817C0855D42091572883A5F47A176584BDC8D617161C3"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Skin.cs",
+                       "sha256":  "51095B037835A8BC0CB78702C144D36F6E13A352FCADD8924562C0C8F0FF767C",
+                       "matchesMain":  true,
+                       "mainSha256":  "51095B037835A8BC0CB78702C144D36F6E13A352FCADD8924562C0C8F0FF767C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\SkinSlices.cs",
+                       "sha256":  "E81D7015659C2777C9A63E540AFE1B3DEFEB249499DAFF5642D3100AF3040E57",
+                       "matchesMain":  true,
+                       "mainSha256":  "E81D7015659C2777C9A63E540AFE1B3DEFEB249499DAFF5642D3100AF3040E57"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Ui.cs",
+                       "sha256":  "02711C845C41DBB18109D742BA00F9FD8A2C8D55D5962FC9451CED603DEF411C",
+                       "matchesMain":  true,
+                       "mainSha256":  "02711C845C41DBB18109D742BA00F9FD8A2C8D55D5962FC9451CED603DEF411C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageAudio.cs",
+                       "sha256":  "A715E2271F34349B37E2FD979B207958F43F768D2D8D13F70A3308FAFCB30C3D",
+                       "matchesMain":  true,
+                       "mainSha256":  "A715E2271F34349B37E2FD979B207958F43F768D2D8D13F70A3308FAFCB30C3D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCapture.cs",
+                       "sha256":  "F06EF36D2F2419D94E62801683F047F77262D277FB65328FFDF13933977B8830",
+                       "matchesMain":  true,
+                       "mainSha256":  "F06EF36D2F2419D94E62801683F047F77262D277FB65328FFDF13933977B8830"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCards.cs",
+                       "sha256":  "7C299E8E325C0C8A77D51D0269CBF14CA91A8A3841418FD77C99CE131C9B25EA",
+                       "matchesMain":  true,
+                       "mainSha256":  "7C299E8E325C0C8A77D51D0269CBF14CA91A8A3841418FD77C99CE131C9B25EA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCastFx.cs",
+                       "sha256":  "2DEFF6736265CEC723EC4E2BC62CC2D8EB20FBEF483DD0C02DE538E3A920054E",
+                       "matchesMain":  true,
+                       "mainSha256":  "2DEFF6736265CEC723EC4E2BC62CC2D8EB20FBEF483DD0C02DE538E3A920054E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCatchRewards.cs",
+                       "sha256":  "CB2810A5DB60B6143880102236273DD5E31B3AA63C8B976EE7E46A818A5CBCEB",
+                       "matchesMain":  true,
+                       "mainSha256":  "CB2810A5DB60B6143880102236273DD5E31B3AA63C8B976EE7E46A818A5CBCEB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageChart.cs",
+                       "sha256":  "821EA9F248575D9D63727CA58F553BA4CE078E9FE5E229892C3601EFCE3139D5",
+                       "matchesMain":  true,
+                       "mainSha256":  "821EA9F248575D9D63727CA58F553BA4CE078E9FE5E229892C3601EFCE3139D5"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCliffsLife.cs",
+                       "sha256":  "7CAB5F891625566FC4C33690AFADE12F10F7339E0721AD0ED140C390FBDF359F",
+                       "matchesMain":  true,
+                       "mainSha256":  "7CAB5F891625566FC4C33690AFADE12F10F7339E0721AD0ED140C390FBDF359F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCoinFx.cs",
+                       "sha256":  "015A569F6E72C010B5C9C56CBD8117281D4C0DAEC59A26FAAECAD18C4DE6D1AC",
+                       "matchesMain":  true,
+                       "mainSha256":  "015A569F6E72C010B5C9C56CBD8117281D4C0DAEC59A26FAAECAD18C4DE6D1AC"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCompactFisher.cs",
+                       "sha256":  "252900F519B36313F5BA953BE2579F82E18E9F08ED3B106EBD0FE5246D4CE93B",
+                       "matchesMain":  true,
+                       "mainSha256":  "252900F519B36313F5BA953BE2579F82E18E9F08ED3B106EBD0FE5246D4CE93B"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCrabPots.cs",
+                       "sha256":  "8CC4BE72F53774E00391CC5F0D9756299E2A167747A859CD756E8F22482802E7",
+                       "matchesMain":  true,
+                       "mainSha256":  "8CC4BE72F53774E00391CC5F0D9756299E2A167747A859CD756E8F22482802E7"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCrewBait.cs",
+                       "sha256":  "A1EAFD340255D3D98DD4C9E39D68C219AE1CC6679BCE4DAFFB32E15807319380",
+                       "matchesMain":  true,
+                       "mainSha256":  "A1EAFD340255D3D98DD4C9E39D68C219AE1CC6679BCE4DAFFB32E15807319380"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCrewCounters.cs",
+                       "sha256":  "ED42743DB4B4BC4F9349DDACA5E910582548F6958B33721DF213C0A843C42125",
+                       "matchesMain":  true,
+                       "mainSha256":  "ED42743DB4B4BC4F9349DDACA5E910582548F6958B33721DF213C0A843C42125"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCrewFallback.cs",
+                       "sha256":  "E968375709A6F3EF3B75B515EF0A2C035AAB512A6975DB645D4C1BBE472D86BB",
+                       "matchesMain":  true,
+                       "mainSha256":  "E968375709A6F3EF3B75B515EF0A2C035AAB512A6975DB645D4C1BBE472D86BB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageCrewLife.cs",
+                       "sha256":  "DCEE201718B409A2B25C7F7FC4ECE6E13BB94D6E9277C6B6A4CF465C156D98BC",
+                       "matchesMain":  true,
+                       "mainSha256":  "DCEE201718B409A2B25C7F7FC4ECE6E13BB94D6E9277C6B6A4CF465C156D98BC"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageDeck.cs",
+                       "sha256":  "8B0BA1DFABFF8B3283689FC727E434816A3DE554E719843D99AA62EA525AECFE",
+                       "matchesMain":  true,
+                       "mainSha256":  "8B0BA1DFABFF8B3283689FC727E434816A3DE554E719843D99AA62EA525AECFE"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageDeepLines.cs",
+                       "sha256":  "FD787946802936E9A03580A5476E43A505EE7D5BC757AEF0D42A13C1439266DA",
+                       "matchesMain":  true,
+                       "mainSha256":  "FD787946802936E9A03580A5476E43A505EE7D5BC757AEF0D42A13C1439266DA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageDeparture.cs",
+                       "sha256":  "8B867EAD7A91372A466D6555B1231723A688A34FB495A7190B7A4BCC8006043F",
+                       "matchesMain":  true,
+                       "mainSha256":  "8B867EAD7A91372A466D6555B1231723A688A34FB495A7190B7A4BCC8006043F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageFeedback.cs",
+                       "sha256":  "2B2FCA4640347AEF0B99BE11458DFB647EFE65A8EA8477340D82746CCD11133B",
+                       "matchesMain":  true,
+                       "mainSha256":  "2B2FCA4640347AEF0B99BE11458DFB647EFE65A8EA8477340D82746CCD11133B"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageFirstCatchFx.cs",
+                       "sha256":  "002CA45E5E6429CBE3ECB7328246A05BECE35BF8789F73C5816F9955BFB42AEA",
+                       "matchesMain":  true,
+                       "mainSha256":  "002CA45E5E6429CBE3ECB7328246A05BECE35BF8789F73C5816F9955BFB42AEA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageGame.cs",
+                       "sha256":  "2134D89BB1F21A3B4A2BF714F33AC207887A1A9A1583AC23AD1C810A1210F903",
+                       "matchesMain":  true,
+                       "mainSha256":  "2134D89BB1F21A3B4A2BF714F33AC207887A1A9A1583AC23AD1C810A1210F903"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageGrounds.cs",
+                       "sha256":  "C5AF4D90F0C1181DD46CA0BEF89B7349BA65112655BBEDE12B7C1C3BD81185D6",
+                       "matchesMain":  true,
+                       "mainSha256":  "C5AF4D90F0C1181DD46CA0BEF89B7349BA65112655BBEDE12B7C1C3BD81185D6"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHarbour.cs",
+                       "sha256":  "B5266B2536125ACAC5C53FF49C1428B9231B3209505884539284735B67710CB2",
+                       "matchesMain":  true,
+                       "mainSha256":  "B5266B2536125ACAC5C53FF49C1428B9231B3209505884539284735B67710CB2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHarbourDusk.cs",
+                       "sha256":  "EB1C250121F4B865B62B3D98EBF83D4438D6CD37AE1BC478AADD4E6B4C776DC0",
+                       "matchesMain":  true,
+                       "mainSha256":  "EB1C250121F4B865B62B3D98EBF83D4438D6CD37AE1BC478AADD4E6B4C776DC0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHarbourPets.cs",
+                       "sha256":  "7E32CEADE97331CDA517D7296C6F16332ADA0E4A12A90B775E0F41E2F0DF6A50",
+                       "matchesMain":  true,
+                       "mainSha256":  "7E32CEADE97331CDA517D7296C6F16332ADA0E4A12A90B775E0F41E2F0DF6A50"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHarbourTraffic.cs",
+                       "sha256":  "DA8603D631679A8159E1D8C0032E136FCE1B32AD86EA25D54599A46E6532CFD5",
+                       "matchesMain":  true,
+                       "mainSha256":  "DA8603D631679A8159E1D8C0032E136FCE1B32AD86EA25D54599A46E6532CFD5"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHaul.cs",
+                       "sha256":  "9E76F3A327A8C69BBA8A20723FECE23644C004F0A10E0A5ED21A22466582A0BA",
+                       "matchesMain":  true,
+                       "mainSha256":  "9E76F3A327A8C69BBA8A20723FECE23644C004F0A10E0A5ED21A22466582A0BA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageHud.cs",
+                       "sha256":  "3A77B20857279FC6E339CDCBCD0261C48CA989B87D76824FD25C80E8E09D80B6",
+                       "matchesMain":  true,
+                       "mainSha256":  "3A77B20857279FC6E339CDCBCD0261C48CA989B87D76824FD25C80E8E09D80B6"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageIllustratedChart.cs",
+                       "sha256":  "42928D3A7DB4488ADA9091BA4D7C5124054474B6B0629425F4F6B808B56B8704",
+                       "matchesMain":  true,
+                       "mainSha256":  "42928D3A7DB4488ADA9091BA4D7C5124054474B6B0629425F4F6B808B56B8704"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageInterface.cs",
+                       "sha256":  "59166BDF90E238E16CF22F746782845433D28DB07C1CB85176431CD76EE724B7",
+                       "matchesMain":  true,
+                       "mainSha256":  "59166BDF90E238E16CF22F746782845433D28DB07C1CB85176431CD76EE724B7"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageInterfaceCrew.cs",
+                       "sha256":  "C99FDF147B6C6F21925CC730C653B2018160C3253FAC201F5D6C5D9D811A8875",
+                       "matchesMain":  true,
+                       "mainSha256":  "C99FDF147B6C6F21925CC730C653B2018160C3253FAC201F5D6C5D9D811A8875"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageInterfaceGoals.cs",
+                       "sha256":  "843C97F8C2F0E92234C3E34B19AA911BD263B442D0BE9EDFA5141A5B0A20F7D7",
+                       "matchesMain":  true,
+                       "mainSha256":  "843C97F8C2F0E92234C3E34B19AA911BD263B442D0BE9EDFA5141A5B0A20F7D7"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageInterfaceShop.cs",
+                       "sha256":  "60005EBEB1AD2F6CEFFC9FDC9456434B03C0568B03A8DAC8272C1C557DAD8A49",
+                       "matchesMain":  true,
+                       "mainSha256":  "60005EBEB1AD2F6CEFFC9FDC9456434B03C0568B03A8DAC8272C1C557DAD8A49"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageInterfaceVoyage.cs",
+                       "sha256":  "12A5C8E2556764B5024E87B5891159E6452E4ADBA64B5AEE8BC379178F02C907",
+                       "matchesMain":  true,
+                       "mainSha256":  "12A5C8E2556764B5024E87B5891159E6452E4ADBA64B5AEE8BC379178F02C907"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageIntro.cs",
+                       "sha256":  "52FFA6F256538D8706FCFC720F389D4FC65DFB5E5BD4E8447C10C98B41834001",
+                       "matchesMain":  true,
+                       "mainSha256":  "52FFA6F256538D8706FCFC720F389D4FC65DFB5E5BD4E8447C10C98B41834001"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageKelpLife.cs",
+                       "sha256":  "6591C7583262240EA7ABF85C6D8B57E76BAB64F1354BBA22D2864D66BD764B4B",
+                       "matchesMain":  true,
+                       "mainSha256":  "6591C7583262240EA7ABF85C6D8B57E76BAB64F1354BBA22D2864D66BD764B4B"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageLighthouseLife.cs",
+                       "sha256":  "F5EA45541B27EF4CEA38CC87770D38849C1926478D49D9CADB8B2051B821B1DB",
+                       "matchesMain":  true,
+                       "mainSha256":  "F5EA45541B27EF4CEA38CC87770D38849C1926478D49D9CADB8B2051B821B1DB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageManagement.cs",
+                       "sha256":  "059D361453F55C8799BDFE42CE4F61849102C5A4D0645272E00C73E3043BE1F5",
+                       "matchesMain":  true,
+                       "mainSha256":  "059D361453F55C8799BDFE42CE4F61849102C5A4D0645272E00C73E3043BE1F5"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageManagementForecast.cs",
+                       "sha256":  "2E6B1827548DF36F5F99741229391C1F7E080760375ACB2930997CA2B22DC2AB",
+                       "matchesMain":  true,
+                       "mainSha256":  "2E6B1827548DF36F5F99741229391C1F7E080760375ACB2930997CA2B22DC2AB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageManagementPages.cs",
+                       "sha256":  "790ACBAB78E3214A162E760930139F35D4AFE429329D16738633568567B24A0D",
+                       "matchesMain":  true,
+                       "mainSha256":  "790ACBAB78E3214A162E760930139F35D4AFE429329D16738633568567B24A0D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageMenus.cs",
+                       "sha256":  "7EA53F85B125F8CA5BE6D10E77E2B0F41BD01866C28D34C34F26C497CD917BDB",
+                       "matchesMain":  true,
+                       "mainSha256":  "7EA53F85B125F8CA5BE6D10E77E2B0F41BD01866C28D34C34F26C497CD917BDB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageNet.cs",
+                       "sha256":  "930F93F69B673C1A3018A735D40165F63926EBF1C354B9C8763C37A6B317F460",
+                       "matchesMain":  true,
+                       "mainSha256":  "930F93F69B673C1A3018A735D40165F63926EBF1C354B9C8763C37A6B317F460"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageNetGame.cs",
+                       "sha256":  "AB896CB460CAFC08011BDE95B600207330FAFCE2F098CA33F027BDAE51F76992",
+                       "matchesMain":  true,
+                       "mainSha256":  "AB896CB460CAFC08011BDE95B600207330FAFCE2F098CA33F027BDAE51F76992"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageNetInterface.cs",
+                       "sha256":  "B3A2C8FF4FA67156F97B3B2DCAEA53B684B038B4D5CFA909FAA47472DE7AFE56",
+                       "matchesMain":  true,
+                       "mainSha256":  "B3A2C8FF4FA67156F97B3B2DCAEA53B684B038B4D5CFA909FAA47472DE7AFE56"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageNetLoadout.cs",
+                       "sha256":  "1CAFA7AE79CAD90DD2CC5B7223CC757AA745EB4B3B13E21BCB43869ECA1FF8DD",
+                       "matchesMain":  true,
+                       "mainSha256":  "1CAFA7AE79CAD90DD2CC5B7223CC757AA745EB4B3B13E21BCB43869ECA1FF8DD"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageNetUnload.cs",
+                       "sha256":  "C448FE05D34F2B616F5D9439FA6B1B51EF41980AF27081D89A3797A9B03B39EE",
+                       "matchesMain":  true,
+                       "mainSha256":  "C448FE05D34F2B616F5D9439FA6B1B51EF41980AF27081D89A3797A9B03B39EE"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyagePrepFisher.cs",
+                       "sha256":  "17D670CAFA439364CDD7390C261F58626F865799EB5339C94EAF5A7DAEDD4244",
+                       "matchesMain":  true,
+                       "mainSha256":  "17D670CAFA439364CDD7390C261F58626F865799EB5339C94EAF5A7DAEDD4244"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyagePrepOrders.cs",
+                       "sha256":  "1AB7CC52BA4535F634657CE7FC39573CE4DB3515F57FB7C4AB42AB2711379FEE",
+                       "matchesMain":  true,
+                       "mainSha256":  "1AB7CC52BA4535F634657CE7FC39573CE4DB3515F57FB7C4AB42AB2711379FEE"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageProcessingPipeline.cs",
+                       "sha256":  "6C0E61748ECDE1C8C04B55E6F40B56EABBE0E9E55578B77B213C5ED5408577B0",
+                       "matchesMain":  true,
+                       "mainSha256":  "6C0E61748ECDE1C8C04B55E6F40B56EABBE0E9E55578B77B213C5ED5408577B0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageRefitFx.cs",
+                       "sha256":  "29457849E5C3DB06D5529566021DC3F2013C4335776970D0076F1F1B0A5B154E",
+                       "matchesMain":  true,
+                       "mainSha256":  "29457849E5C3DB06D5529566021DC3F2013C4335776970D0076F1F1B0A5B154E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSavingsGoal.cs",
+                       "sha256":  "A9D11241408C5B02E7C9AC13991F2377CB8D5908A2A196F7E59F93A512B9F9EF",
+                       "matchesMain":  true,
+                       "mainSha256":  "A9D11241408C5B02E7C9AC13991F2377CB8D5908A2A196F7E59F93A512B9F9EF"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageScenery.cs",
+                       "sha256":  "44C2E8DD20B32B62D68C4B9D3D0891641AF8C2CA3DDEAE75F236D2F30358AE75",
+                       "matchesMain":  true,
+                       "mainSha256":  "44C2E8DD20B32B62D68C4B9D3D0891641AF8C2CA3DDEAE75F236D2F30358AE75"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSea.cs",
+                       "sha256":  "A8FE1C4E7CFCAF7F316E439501CEFDE8D4C1AB85F6CF0FBB5A814EFA24638A03",
+                       "matchesMain":  true,
+                       "mainSha256":  "A8FE1C4E7CFCAF7F316E439501CEFDE8D4C1AB85F6CF0FBB5A814EFA24638A03"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSeaLayout.cs",
+                       "sha256":  "53084E7EE0AAEFD4A6D6A6E9DA6B927146E757A114D1CD06E73285BF367951A1",
+                       "matchesMain":  true,
+                       "mainSha256":  "53084E7EE0AAEFD4A6D6A6E9DA6B927146E757A114D1CD06E73285BF367951A1"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSeaMoments.cs",
+                       "sha256":  "373AF59047827FF91DEFE62079860FCFBCF87637156FE1E8BAA968201160427E",
+                       "matchesMain":  true,
+                       "mainSha256":  "373AF59047827FF91DEFE62079860FCFBCF87637156FE1E8BAA968201160427E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSecondNetModule.cs",
+                       "sha256":  "E7C66F04A778E8E49DFF741284BD12988ADEE0C0E24BE4C8AF2C07F34FE11A91",
+                       "matchesMain":  true,
+                       "mainSha256":  "E7C66F04A778E8E49DFF741284BD12988ADEE0C0E24BE4C8AF2C07F34FE11A91"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageShelfLife.cs",
+                       "sha256":  "AB6D42F70C367493BA1AFBC0CB4BC6E389F1780B41CF8736E008B1B0C4C8A46F",
+                       "matchesMain":  true,
+                       "mainSha256":  "AB6D42F70C367493BA1AFBC0CB4BC6E389F1780B41CF8736E008B1B0C4C8A46F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageSkerriesLife.cs",
+                       "sha256":  "71635A48348D4C6CC9564A2A57A0B97D0660A7873EC188178A6B2610EB51AF0D",
+                       "matchesMain":  true,
+                       "mainSha256":  "71635A48348D4C6CC9564A2A57A0B97D0660A7873EC188178A6B2610EB51AF0D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageStorage.cs",
+                       "sha256":  "688CDFDAEC59950962D9B14C788B1783617038D0A0823A7ABB9F6C902C3DBC23",
+                       "matchesMain":  true,
+                       "mainSha256":  "688CDFDAEC59950962D9B14C788B1783617038D0A0823A7ABB9F6C902C3DBC23"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageStrikeFx.cs",
+                       "sha256":  "E69F040B7E4E9A0AB92931F6C42BC099E08E5027783E7051342AC3A4117D9E54",
+                       "matchesMain":  true,
+                       "mainSha256":  "E69F040B7E4E9A0AB92931F6C42BC099E08E5027783E7051342AC3A4117D9E54"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTier5.cs",
+                       "sha256":  "C9C37A87E57A77E834A818CD2D7950AC87E9795FEB82977A7BD0A01391F31CA7",
+                       "matchesMain":  true,
+                       "mainSha256":  "C9C37A87E57A77E834A818CD2D7950AC87E9795FEB82977A7BD0A01391F31CA7"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTownsfolk.cs",
+                       "sha256":  "AB204780C6D106330496A2E058E418562983ED9CA79E44553A2FEF00709B62AA",
+                       "matchesMain":  true,
+                       "mainSha256":  "AB204780C6D106330496A2E058E418562983ED9CA79E44553A2FEF00709B62AA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTravel.cs",
+                       "sha256":  "0DF8918211232B413E8D8FF266B93B6276DBC5BFC056B777BDC30A505BC14F44",
+                       "matchesMain":  true,
+                       "mainSha256":  "0DF8918211232B413E8D8FF266B93B6276DBC5BFC056B777BDC30A505BC14F44"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTrip.cs",
+                       "sha256":  "2C3E59F1C20E7113DE09563638BBE5919AB760314060DE78048E473DD87B8DD6",
+                       "matchesMain":  true,
+                       "mainSha256":  "2C3E59F1C20E7113DE09563638BBE5919AB760314060DE78048E473DD87B8DD6"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTripChart.cs",
+                       "sha256":  "0A232E64B8D3311CAF3706826564FC4BBBB7A91BD56F3B7A879943D2D1DDD3B2",
+                       "matchesMain":  true,
+                       "mainSha256":  "0A232E64B8D3311CAF3706826564FC4BBBB7A91BD56F3B7A879943D2D1DDD3B2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageTutorial.cs",
+                       "sha256":  "AFF70A1F38BC2386654E9F24168A43856E035E9E5DD03AAD23D345DAF03C79A4",
+                       "matchesMain":  true,
+                       "mainSha256":  "AFF70A1F38BC2386654E9F24168A43856E035E9E5DD03AAD23D345DAF03C79A4"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageUiV2Capture.cs",
+                       "sha256":  "B353931F06F4FECF9B60244C9B4B617A57F75469CA94D0ED873B61E106D1C0EC",
+                       "matchesMain":  true,
+                       "mainSha256":  "B353931F06F4FECF9B60244C9B4B617A57F75469CA94D0ED873B61E106D1C0EC"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\VoyageWreckLife.cs",
+                       "sha256":  "9856B533E6A52C14B91158314DCF04148270D9ABB182706AF37890291EC2C48D",
+                       "matchesMain":  true,
+                       "mainSha256":  "9856B533E6A52C14B91158314DCF04148270D9ABB182706AF37890291EC2C48D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\WorkSpeed.cs",
+                       "sha256":  "88FCDCF6B7E75103F5E2CA1530B5DB4EEE1B3AC256FC0E0B3D1DB3B43ED479F4",
+                       "matchesMain":  true,
+                       "mainSha256":  "88FCDCF6B7E75103F5E2CA1530B5DB4EEE1B3AC256FC0E0B3D1DB3B43ED479F4"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Crew\\CrewAbilityEngine.cs",
+                       "sha256":  "6713AB4DEE9C32091BE7419388A075C4A1A6EAAD541173513845205E124B72F2",
+                       "matchesMain":  true,
+                       "mainSha256":  "6713AB4DEE9C32091BE7419388A075C4A1A6EAAD541173513845205E124B72F2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Crew\\DeliverySortBonus.cs",
+                       "sha256":  "FC4EDE3B31002D6080D8E11ADC924F9DDB4B2BB8C1F1988CF2C9554E3A1C595A",
+                       "matchesMain":  true,
+                       "mainSha256":  "FC4EDE3B31002D6080D8E11ADC924F9DDB4B2BB8C1F1988CF2C9554E3A1C595A"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Crew\\VoyageAbilityHooks.cs",
+                       "sha256":  "0912BB83641A90D4A6312A20111B1A7786462E0487669EDB0387C4493D48D406",
+                       "matchesMain":  true,
+                       "mainSha256":  "0912BB83641A90D4A6312A20111B1A7786462E0487669EDB0387C4493D48D406"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CrewUi\\AbilityPops.cs",
+                       "sha256":  "4FE13FC454315B2BFA816E87A4E3900703C271C56F90D3331BE8D9492967AD5E",
+                       "matchesMain":  true,
+                       "mainSha256":  "4FE13FC454315B2BFA816E87A4E3900703C271C56F90D3331BE8D9492967AD5E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CrewUi\\CrewGarage.cs",
+                       "sha256":  "F430D19670B7DF0A27B2B0F57656F3B5979775BECFFA7BE5D18E34E8789A117C",
+                       "matchesMain":  true,
+                       "mainSha256":  "F430D19670B7DF0A27B2B0F57656F3B5979775BECFFA7BE5D18E34E8789A117C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CrewUi\\CrewGarageFx.cs",
+                       "sha256":  "AD9381B7FCA9D1D1A7689E8DAB856C9F5A3A74948C4C784F6D3E2D7BCF7A5BC0",
+                       "matchesMain":  true,
+                       "mainSha256":  "AD9381B7FCA9D1D1A7689E8DAB856C9F5A3A74948C4C784F6D3E2D7BCF7A5BC0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\CrewUi\\CrewRecruit.cs",
+                       "sha256":  "1BF44034E27DE823113053C2AD69DFC7B8DC7AFFB7E24FDDE6D051FA3B545EEF",
+                       "matchesMain":  true,
+                       "mainSha256":  "1BF44034E27DE823113053C2AD69DFC7B8DC7AFFB7E24FDDE6D051FA3B545EEF"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Bait.cs",
+                       "sha256":  "A663D2CC1E19C26086C909DC4C9C5F5AA67E6BFD4D8A0B9380F5A7BFC209E445",
+                       "matchesMain":  true,
+                       "mainSha256":  "A663D2CC1E19C26086C909DC4C9C5F5AA67E6BFD4D8A0B9380F5A7BFC209E445"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Buyers.cs",
+                       "sha256":  "8FC3D4A89E3B3DFFD65A7BB72233C7987D89D63AF5BE7876CA9F1A0D7E5DA6D0",
+                       "matchesMain":  true,
+                       "mainSha256":  "8FC3D4A89E3B3DFFD65A7BB72233C7987D89D63AF5BE7876CA9F1A0D7E5DA6D0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\CardProgression.cs",
+                       "sha256":  "5A21FCFBA4F2E5CA52384BD233360FE7CF10961ED1D2C897AF2745180BB8B112",
+                       "matchesMain":  true,
+                       "mainSha256":  "5A21FCFBA4F2E5CA52384BD233360FE7CF10961ED1D2C897AF2745180BB8B112"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Cards.cs",
+                       "sha256":  "56ABAEDC151F5AA4F308FAAFF8F180058FE23FCFCDDEE6A57765BDB00FF70EF4",
+                       "matchesMain":  true,
+                       "mainSha256":  "56ABAEDC151F5AA4F308FAAFF8F180058FE23FCFCDDEE6A57765BDB00FF70EF4"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\CardState.cs",
+                       "sha256":  "C0E5660406238ADCAADF1F86612A4526F1E87207654CDB7A303624A1FE9CC58F",
+                       "matchesMain":  true,
+                       "mainSha256":  "C0E5660406238ADCAADF1F86612A4526F1E87207654CDB7A303624A1FE9CC58F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\CardTools.cs",
+                       "sha256":  "201C0098D4F370EEA8428B3233544ADB71AB90A3116782D9C86EB70D35673B3D",
+                       "matchesMain":  true,
+                       "mainSha256":  "201C0098D4F370EEA8428B3233544ADB71AB90A3116782D9C86EB70D35673B3D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Chests.cs",
+                       "sha256":  "A9BA8D335D615C0D5B1B1662828CC5628C7F822A637A94957029B9172FAEB687",
+                       "matchesMain":  true,
+                       "mainSha256":  "A9BA8D335D615C0D5B1B1662828CC5628C7F822A637A94957029B9172FAEB687"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Coasts.cs",
+                       "sha256":  "8F6B8A1D9CF4B2BBBF77DCC8DCA8361DEE94FDA1DB060B601EEC04002B1137CB",
+                       "matchesMain":  true,
+                       "mainSha256":  "8F6B8A1D9CF4B2BBBF77DCC8DCA8361DEE94FDA1DB060B601EEC04002B1137CB"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Contracts.cs",
+                       "sha256":  "EFB655E3DB44BB3F2C9307D56308F98ACD7EED73B40B56CD388A3286438E2B04",
+                       "matchesMain":  true,
+                       "mainSha256":  "EFB655E3DB44BB3F2C9307D56308F98ACD7EED73B40B56CD388A3286438E2B04"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Grounds.cs",
+                       "sha256":  "A054183457F02C56CD89DC264E6DFC0D68348B0C33D5AA39312DBF2163F4B39E",
+                       "matchesMain":  true,
+                       "mainSha256":  "A054183457F02C56CD89DC264E6DFC0D68348B0C33D5AA39312DBF2163F4B39E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Products.cs",
+                       "sha256":  "160A125D512BDFD4893BD8980034F156B65C624C8D041235BEE6815319899692",
+                       "matchesMain":  true,
+                       "mainSha256":  "160A125D512BDFD4893BD8980034F156B65C624C8D041235BEE6815319899692"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\Quota.cs",
+                       "sha256":  "B8087DD2E8DF27EEFB73A0E7F4C7C5B81C98515B658FFD05A2AA962B2ED3A67F",
+                       "matchesMain":  true,
+                       "mainSha256":  "B8087DD2E8DF27EEFB73A0E7F4C7C5B81C98515B658FFD05A2AA962B2ED3A67F"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\RenownRoad.cs",
+                       "sha256":  "1478DA9A76AB56F866462038922B556FFA7EE25F604D41A4A555976B3041FE29",
+                       "matchesMain":  true,
+                       "mainSha256":  "1478DA9A76AB56F866462038922B556FFA7EE25F604D41A4A555976B3041FE29"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Data\\SaveV2.cs",
+                       "sha256":  "73DD4A630FBD29963E53D876A905994ADF0B7CB8361A978411CB2E9A030CBE37",
+                       "matchesMain":  true,
+                       "mainSha256":  "73DD4A630FBD29963E53D876A905994ADF0B7CB8361A978411CB2E9A030CBE37"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Deck\\DeckGraph.cs",
+                       "sha256":  "546BCB5A78A5360633A723799B752C600C6222AA38C34100FD8D0A259059685E",
+                       "matchesMain":  true,
+                       "mainSha256":  "546BCB5A78A5360633A723799B752C600C6222AA38C34100FD8D0A259059685E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Deck\\DeckScheduler.cs",
+                       "sha256":  "0CD13D813E0CB81F2C4222670CC64C46556DFF09532763EE73C73DD7257569FA",
+                       "matchesMain":  true,
+                       "mainSha256":  "0CD13D813E0CB81F2C4222670CC64C46556DFF09532763EE73C73DD7257569FA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Deck\\Jobs.cs",
+                       "sha256":  "1285F763315C3A71E384DBE750697F067C663C7A071FA58A4A31C9D7D927AF0C",
+                       "matchesMain":  true,
+                       "mainSha256":  "1285F763315C3A71E384DBE750697F067C663C7A071FA58A4A31C9D7D927AF0C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Deck\\MiniJson.cs",
+                       "sha256":  "A9A1C4B9F6B9BBDDCF70C85B13B64BAB54D1EC47BB5CA0BB5064E944B897204C",
+                       "matchesMain":  true,
+                       "mainSha256":  "A9A1C4B9F6B9BBDDCF70C85B13B64BAB54D1EC47BB5CA0BB5064E944B897204C"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Deck\\Station.cs",
+                       "sha256":  "7055BA644A27D8049FCB2229C859EA6A0A849FD253B775066FCADB1AC0CE89A4",
+                       "matchesMain":  true,
+                       "mainSha256":  "7055BA644A27D8049FCB2229C859EA6A0A849FD253B775066FCADB1AC0CE89A4"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\BiteModel.cs",
+                       "sha256":  "B6D809BE00059CE420EE0B19A5FDA03CA5D7416C552210580039063624518D1A",
+                       "matchesMain":  true,
+                       "mainSha256":  "B6D809BE00059CE420EE0B19A5FDA03CA5D7416C552210580039063624518D1A"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\CageModel.cs",
+                       "sha256":  "9E39EE7E17D9C4BD4E8BEBABFECD311F8F879534B2FE5B58E791A2F7C63EBA1D",
+                       "matchesMain":  true,
+                       "mainSha256":  "9E39EE7E17D9C4BD4E8BEBABFECD311F8F879534B2FE5B58E791A2F7C63EBA1D"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\FishShadow.cs",
+                       "sha256":  "08D929224A860AB5EC2A1FD807C3B5A625D278F3E5AE5F0028390015ABF8CDDC",
+                       "matchesMain":  true,
+                       "mainSha256":  "08D929224A860AB5EC2A1FD807C3B5A625D278F3E5AE5F0028390015ABF8CDDC"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\RodViewAnimation.cs",
+                       "sha256":  "DBDA5D38899601B041D1A006D086168BFB3B09D26B116DDC8E3E64F309EDB2C0",
+                       "matchesMain":  true,
+                       "mainSha256":  "DBDA5D38899601B041D1A006D086168BFB3B09D26B116DDC8E3E64F309EDB2C0"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\RodViewArt.cs",
+                       "sha256":  "699BC8D062257E7432A21E05327C4C3B95E50F34AAD77877701922193C4618D2",
+                       "matchesMain":  true,
+                       "mainSha256":  "699BC8D062257E7432A21E05327C4C3B95E50F34AAD77877701922193C4618D2"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\RodViewAtmosphere.cs",
+                       "sha256":  "0DE02A8F6E8E3B02572E7EDFCE956050596645D3FA255F9F8AFA7E45B6FB33C5",
+                       "matchesMain":  true,
+                       "mainSha256":  "0DE02A8F6E8E3B02572E7EDFCE956050596645D3FA255F9F8AFA7E45B6FB33C5"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageCageView.cs",
+                       "sha256":  "3CD30AB572637CCAC35839900404AE237373D546AD4F3620549F3D8BA6634390",
+                       "matchesMain":  true,
+                       "mainSha256":  "3CD30AB572637CCAC35839900404AE237373D546AD4F3620549F3D8BA6634390"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageFishPolishCapture.cs",
+                       "sha256":  "6FA79058A809888C191B699505D38A0483D2D14522B17C850E48EF9B6337EC82",
+                       "matchesMain":  true,
+                       "mainSha256":  "6FA79058A809888C191B699505D38A0483D2D14522B17C850E48EF9B6337EC82"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageGutView.cs",
+                       "sha256":  "2EBCFAD5373A932442600941AFDB78AADD25A07F2DAB8558FDDF0018DEE9A278",
+                       "matchesMain":  true,
+                       "mainSha256":  "2EBCFAD5373A932442600941AFDB78AADD25A07F2DAB8558FDDF0018DEE9A278"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageNetView.cs",
+                       "sha256":  "6ABC03C1EA9820409DC400AEB38FD23A54B6C7AD223D46B13B9C111721B758B9",
+                       "matchesMain":  true,
+                       "mainSha256":  "6ABC03C1EA9820409DC400AEB38FD23A54B6C7AD223D46B13B9C111721B758B9"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageRepairView.cs",
+                       "sha256":  "09E958B760562D713A363634BC0EE77E378DD7878FE223CD2971CBFD268D2110",
+                       "matchesMain":  true,
+                       "mainSha256":  "09E958B760562D713A363634BC0EE77E378DD7878FE223CD2971CBFD268D2110"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageRodView.cs",
+                       "sha256":  "211883FC88F12A70C0FB4F6E4F3EF94FAFE1D6A560A4E29CE5EFCACA29DCDA83",
+                       "matchesMain":  true,
+                       "mainSha256":  "211883FC88F12A70C0FB4F6E4F3EF94FAFE1D6A560A4E29CE5EFCACA29DCDA83"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Minigame\\VoyageRodViewCapture.cs",
+                       "sha256":  "71A9032154540E8B888BF9349A6B08BE787482ECF1E5BCA631D6EE2B9F38AD58",
+                       "matchesMain":  true,
+                       "mainSha256":  "71A9032154540E8B888BF9349A6B08BE787482ECF1E5BCA631D6EE2B9F38AD58"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\BoatSailor.cs",
+                       "sha256":  "A9318E063CB137789EE00BB7BE4DD8BA6C1F7ABCCF9998BA28E456102D47A754",
+                       "matchesMain":  true,
+                       "mainSha256":  "A9318E063CB137789EE00BB7BE4DD8BA6C1F7ABCCF9998BA28E456102D47A754"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\Schools.cs",
+                       "sha256":  "FC4CD2E82ED00D59C8E7E0A7620F4B1B25E2B660F7DDE212AEB3033634CC0B6E",
+                       "matchesMain":  true,
+                       "mainSha256":  "FC4CD2E82ED00D59C8E7E0A7620F4B1B25E2B660F7DDE212AEB3033634CC0B6E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaCamera.cs",
+                       "sha256":  "99C1593E14B66EBBEFF5E8724B5279F214021676FF611BF84876294970A63615",
+                       "matchesMain":  true,
+                       "mainSha256":  "99C1593E14B66EBBEFF5E8724B5279F214021676FF611BF84876294970A63615"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaCapture.cs",
+                       "sha256":  "F5650134DB53A7E66EF237C430ACBC7C3064210B0E251E3ADB1C05A7F71A0340",
+                       "matchesMain":  true,
+                       "mainSha256":  "F5650134DB53A7E66EF237C430ACBC7C3064210B0E251E3ADB1C05A7F71A0340"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaInput.cs",
+                       "sha256":  "85F7F8FDCB077629DD500C1A213341ABB66B36C6DEB99875FD165209C49726DF",
+                       "matchesMain":  true,
+                       "mainSha256":  "85F7F8FDCB077629DD500C1A213341ABB66B36C6DEB99875FD165209C49726DF"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaLanes.cs",
+                       "sha256":  "60E217F8DBEE4471694FC3016C5FA2701FEFFFBF6CC5FAAF13C619C54DAD3EBA",
+                       "matchesMain":  true,
+                       "mainSha256":  "60E217F8DBEE4471694FC3016C5FA2701FEFFFBF6CC5FAAF13C619C54DAD3EBA"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaModeChecks.cs",
+                       "sha256":  "56C2F2C67340D4E205C443E3BD6FD820601AD043238F2B5A27D83DF9780994A4",
+                       "matchesMain":  true,
+                       "mainSha256":  "56C2F2C67340D4E205C443E3BD6FD820601AD043238F2B5A27D83DF9780994A4"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaNav.cs",
+                       "sha256":  "BBD94B9C83D660B8B88BB0B57D1F992E05163ED80AFB2AF8B23A0A9910EAFBA8",
+                       "matchesMain":  true,
+                       "mainSha256":  "BBD94B9C83D660B8B88BB0B57D1F992E05163ED80AFB2AF8B23A0A9910EAFBA8"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaSailingEffects.cs",
+                       "sha256":  "9A1321E8B588B5AA38FEA47CBE155BE3150B79947BC5EF3F84078E09ECC9F52E",
+                       "matchesMain":  true,
+                       "mainSha256":  "9A1321E8B588B5AA38FEA47CBE155BE3150B79947BC5EF3F84078E09ECC9F52E"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaSceneChecks.cs",
+                       "sha256":  "E908BFB4B822B9973A18132015B80DD4592B768C7F2BAAE46AD39A969804DECE",
+                       "matchesMain":  true,
+                       "mainSha256":  "E908BFB4B822B9973A18132015B80DD4592B768C7F2BAAE46AD39A969804DECE"
+                   },
+                   {
+                       "path":  "Assets\\Scripts\\Game\\Sea\\SeaScenery.cs",
+                       "sha256":  "BCEC36BC91F73C42CE1BA60DADCAB6D1F055764189FBCBC10A145454A07EBAB0",
+                       "matchesMain":  true,
+                       "mainSha256":  "BCEC36BC91F73C42CE1BA60DADCAB6D1F055764189FBCBC10A145454A07EBAB0"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\grounds.json",
+                       "sha256":  "0785755EDE014002B1E0EC79FC44E0E219D715475A881C89F7FD16055FD4732C",
+                       "matchesMain":  true,
+                       "mainSha256":  "0785755EDE014002B1E0EC79FC44E0E219D715475A881C89F7FD16055FD4732C"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\grounds.json.meta",
+                       "sha256":  "2D3CBCFB140E977F503608F8A02721836E5E44EC9745727B0963F08C939B5E92",
+                       "matchesMain":  true,
+                       "mainSha256":  "2D3CBCFB140E977F503608F8A02721836E5E44EC9745727B0963F08C939B5E92"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\GullKelpForestSeaV2.fbx",
+                       "sha256":  "57FAAFDD330AF446BE397B69173FA216086CEBE7D111781D00CF455259279F7F",
+                       "matchesMain":  true,
+                       "mainSha256":  "57FAAFDD330AF446BE397B69173FA216086CEBE7D111781D00CF455259279F7F"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\GullKelpForestSeaV2.fbx.meta",
+                       "sha256":  "7AF839ECA53A705CA5F96778E70D224655C34769AB32B5028274839C0EA0BDA2",
+                       "matchesMain":  true,
+                       "mainSha256":  "7AF839ECA53A705CA5F96778E70D224655C34769AB32B5028274839C0EA0BDA2"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\navigation.json",
+                       "sha256":  "A09A0D874BE264850A158B883D347A50A61CDDF51CCEE3535767CF522E26AA76",
+                       "matchesMain":  true,
+                       "mainSha256":  "A09A0D874BE264850A158B883D347A50A61CDDF51CCEE3535767CF522E26AA76"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\navigation.json.meta",
+                       "sha256":  "EE751B6DF87E35A03BBFEB85301EF409B12BD1467B105E98617F2A9A8DCDDB6F",
+                       "matchesMain":  true,
+                       "mainSha256":  "EE751B6DF87E35A03BBFEB85301EF409B12BD1467B105E98617F2A9A8DCDDB6F"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\OtterRaft.fbx",
+                       "sha256":  "281D28A66186E69D37AE40538CF8AD8BAB0CC05735519707DE6E48239A43256D",
+                       "matchesMain":  true,
+                       "mainSha256":  "281D28A66186E69D37AE40538CF8AD8BAB0CC05735519707DE6E48239A43256D"
+                   },
+                   {
+                       "path":  "Assets\\Art\\Models\\Environment\\GullKelpForest\\OtterRaft.fbx.meta",
+                       "sha256":  "683ABD99D4583E509228C94CE1AA3EF34CEA01814F50E0B0FEC33CFE7D9E4211",
+                       "matchesMain":  true,
+                       "mainSha256":  "683ABD99D4583E509228C94CE1AA3EF34CEA01814F50E0B0FEC33CFE7D9E4211"
+                   }
+               ],
+    "exeSha256":  "3070E580E019576B9AFCDEB4FEC18D03CEBC119F6AE84D597412905C749AD653",
+    "exe":  "C:\\Users\\momoy\\Projects\\Catchline-sim\\Builds\\Map11Capture\\Catchline.exe",
+    "pid":  117288,
+    "assemblySha256":  "D7CAB8BE9ED89B7AC2B186C3264085F54FB4D35E9AF4DEB8A7DE63560CF51725",
+    "sessionOnly":  true,
+    "utc":  "2026-10-26T08:11:46.3258531Z"
+}

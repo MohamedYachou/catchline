@@ -1,0 +1,59 @@
+diff --git a/Assets/Scripts/Game/Data/Grounds.cs b/Assets/Scripts/Game/Data/Grounds.cs
+index 6c5def2..c6404c9 100644
+--- a/Assets/Scripts/Game/Data/Grounds.cs
++++ b/Assets/Scripts/Game/Data/Grounds.cs
+@@ -86,6 +86,11 @@ public static class Grounds
+                 G("arch-pool", "Arch pool", "arch", (Species.Pollock, 40f), (Species.RedMullet, 30f), (Species.Conger, 15f), (Species.Crab, 2f)),
+                 G("seal-cove", "Seal cove", "cove", (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.RedMullet, 3f)),
+                 G("stack-race", "Stack race", "stack", (Species.Cod, 35f), (Species.Pollock, 30f), (Species.Conger, 15f), (Species.Turbot, 1f)) },
++            // Kelp forest (MAP11): append without moving prior saved richness slots.
++            new[] {
++                G("kelp-edge", "Kelp edge", "kelp", (Species.RedMullet, 40f), (Species.Pollock, 30f), (Species.SeaBass, 20f), (Species.Crab, 2f)),
++                G("sand-clearing", "Sand clearing", "sand", (Species.Plaice, 40f), (Species.Whiting, 30f), (Species.RedMullet, 20f), (Species.Turbot, 3f)),
++                G("post-line", "Post line", "posts", (Species.Mackerel, 45f), (Species.Herring, 30f), (Species.Conger, 15f), (Species.Turbot, 2f)) },
+         };
+ 
+         static readonly int[][] offsets;
+diff --git a/Assets/Scripts/Game/GameData.cs b/Assets/Scripts/Game/GameData.cs
+index e1cdf23..0bda85e 100644
+--- a/Assets/Scripts/Game/GameData.cs
++++ b/Assets/Scripts/Game/GameData.cs
+@@ -195,6 +195,12 @@ public static class GameData
+                 ChartCost = 32000, MapPos = new Vector2(.08f, .88f),
+                 Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
+             },
++            new()
++            {
++                Name = "Kelp forest", Blurb = "A green bay of swaying kelp. Wrasse on the edge, flatfish on the sand.", RowSeconds = 28f, BiteWait = 1.4f, Water = Palette.Hex("3A8F86"),
++                ChartCost = 36000, MapPos = new Vector2(.12f, .78f),
++                Table = new[] { (Species.RedMullet, 60f), (Species.Pollock, 30f), (Species.SeaBass, 20f), (Species.Crab, 2f), (Species.Plaice, 40f), (Species.Whiting, 30f), (Species.Turbot, 5f), (Species.Mackerel, 45f), (Species.Herring, 30f), (Species.Conger, 15f) },
++            },
+         };
+ 
+         public static readonly UpgradeDef[] Upgrades =
+diff --git a/Assets/Scripts/Game/Sea/SeaNav.cs b/Assets/Scripts/Game/Sea/SeaNav.cs
+index 848d35e..73d8251 100644
+--- a/Assets/Scripts/Game/Sea/SeaNav.cs
++++ b/Assets/Scripts/Game/Sea/SeaNav.cs
+@@ -16,7 +16,7 @@ public sealed class Ground
+             public float Radius, Depth;
+             public bool Contains(Vector2 p) => (p - Centre).sqrMagnitude <= Radius * Radius;
+         }
+-        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs" };
++        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs", "GullKelpForest" };
+         public string Map { get; private set; }
+         public string ModelId { get; private set; }
+         public bool Interim { get; private set; }
+diff --git a/Assets/Scripts/Game/VoyageScenery.cs b/Assets/Scripts/Game/VoyageScenery.cs
+index f47c7b8..bb7997a 100644
+--- a/Assets/Scripts/Game/VoyageScenery.cs
++++ b/Assets/Scripts/Game/VoyageScenery.cs
+@@ -103,7 +103,7 @@ void BuildSea(int kind, Transform root, ArtLibrary lib, System.Func<float, float
+ 
+         void BuildSeaDressing(int kind, Transform root, ArtLibrary lib, System.Func<float, float, float> R, System.Action<Vector3, float> rock)
+         {
+-            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs" };
++            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs", "GullKelpForest" };
+             if (kind >= 0 && kind < environments.Length && lib?.M(environments[kind]) != null)
+             {
+                 var environment = Put(root, lib.M(environments[kind]), new Vector3(0, WaterY, 0));

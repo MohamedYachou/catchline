@@ -1,0 +1,1253 @@
+{
+  "schema": 2,
+  "map": "GullKelpForest",
+  "runtimeModelId": "GullKelpForestSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullKelpForest/GullKelpForestSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "mid-bay-weed-rock-0",
+      "vertices": [
+        {
+          "x": -48.64815,
+          "z": 1.02889
+        },
+        {
+          "x": -46.4963,
+          "z": -1.64815
+        },
+        {
+          "x": -41.39333,
+          "z": -1.13333
+        },
+        {
+          "x": -37.45852,
+          "z": 0.66852
+        },
+        {
+          "x": -36.35185,
+          "z": 4.16926
+        },
+        {
+          "x": -39.11852,
+          "z": 8.03037
+        },
+        {
+          "x": -43.72963,
+          "z": 8.64815
+        },
+        {
+          "x": -47.84889,
+          "z": 6.17704
+        }
+      ],
+      "sourceObject": "Terrain_mid-bay-weed-rock",
+      "sliceY": 0
+    },
+    {
+      "id": "north-bay-rim-0",
+      "vertices": [
+        {
+          "x": -112.14815,
+          "z": 92.68889
+        },
+        {
+          "x": -72.8963,
+          "z": 85.85185
+        },
+        {
+          "x": 20.18667,
+          "z": 87.16667
+        },
+        {
+          "x": 91.96148,
+          "z": 91.76852
+        },
+        {
+          "x": 112.14815,
+          "z": 100.70926
+        },
+        {
+          "x": 61.68148,
+          "z": 110.57037
+        },
+        {
+          "x": -22.42963,
+          "z": 112.14815
+        },
+        {
+          "x": -97.56889,
+          "z": 105.83704
+        }
+      ],
+      "sourceObject": "Terrain_north-bay-rim",
+      "sliceY": 0
+    },
+    {
+      "id": "west-bay-rock-0",
+      "vertices": [
+        {
+          "x": -138.14815,
+          "z": 31.36889
+        },
+        {
+          "x": -133.5463,
+          "z": 19.85185
+        },
+        {
+          "x": -122.63334,
+          "z": 22.06667
+        },
+        {
+          "x": -114.21851,
+          "z": 29.81852
+        },
+        {
+          "x": -111.85185,
+          "z": 44.87926
+        },
+        {
+          "x": -117.76852,
+          "z": 61.49037
+        },
+        {
+          "x": -127.62963,
+          "z": 64.14815
+        },
+        {
+          "x": -136.43889,
+          "z": 53.51704
+        }
+      ],
+      "sourceObject": "Terrain_west-bay-rock",
+      "sliceY": 0
+    },
+    {
+      "id": "east-bay-rock-0",
+      "vertices": [
+        {
+          "x": 111.85185,
+          "z": 34.88889
+        },
+        {
+          "x": 116.4537,
+          "z": 22.85185
+        },
+        {
+          "x": 127.36666,
+          "z": 25.16667
+        },
+        {
+          "x": 135.78148,
+          "z": 33.26852
+        },
+        {
+          "x": 138.14815,
+          "z": 49.00926
+        },
+        {
+          "x": 132.23148,
+          "z": 66.37037
+        },
+        {
+          "x": 122.37037,
+          "z": 69.14815
+        },
+        {
+          "x": 113.56111,
+          "z": 58.03704
+        }
+      ],
+      "sourceObject": "Terrain_east-bay-rock",
+      "sliceY": 0
+    },
+    {
+      "id": "MooringPost_0-0",
+      "vertices": [
+        {
+          "x": 77.72555,
+          "z": -23.46695
+        },
+        {
+          "x": 77.88111,
+          "z": -23.53139
+        },
+        {
+          "x": 78.03667,
+          "z": -23.46695
+        },
+        {
+          "x": 78.10111,
+          "z": -23.31139
+        },
+        {
+          "x": 78.03667,
+          "z": -23.15583
+        },
+        {
+          "x": 77.88111,
+          "z": -23.09139
+        },
+        {
+          "x": 77.72555,
+          "z": -23.15583
+        },
+        {
+          "x": 77.66111,
+          "z": -23.31139
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_0",
+      "sliceY": 0
+    },
+    {
+      "id": "MooringPost_1-0",
+      "vertices": [
+        {
+          "x": 79.44576,
+          "z": -24.67146
+        },
+        {
+          "x": 79.60133,
+          "z": -24.7359
+        },
+        {
+          "x": 79.75689,
+          "z": -24.67146
+        },
+        {
+          "x": 79.82133,
+          "z": -24.5159
+        },
+        {
+          "x": 79.75689,
+          "z": -24.36034
+        },
+        {
+          "x": 79.60133,
+          "z": -24.2959
+        },
+        {
+          "x": 79.44576,
+          "z": -24.36034
+        },
+        {
+          "x": 79.38132,
+          "z": -24.5159
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_1",
+      "sliceY": 0
+    },
+    {
+      "id": "MooringPost_2-0",
+      "vertices": [
+        {
+          "x": 87.1458,
+          "z": -30.06308
+        },
+        {
+          "x": 87.30136,
+          "z": -30.12752
+        },
+        {
+          "x": 87.45692,
+          "z": -30.06308
+        },
+        {
+          "x": 87.52136,
+          "z": -29.90752
+        },
+        {
+          "x": 87.45692,
+          "z": -29.75196
+        },
+        {
+          "x": 87.30136,
+          "z": -29.68752
+        },
+        {
+          "x": 87.1458,
+          "z": -29.75196
+        },
+        {
+          "x": 87.08136,
+          "z": -29.90752
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_2",
+      "sliceY": 0
+    },
+    {
+      "id": "MooringPost_3-0",
+      "vertices": [
+        {
+          "x": 88.86601,
+          "z": -31.26759
+        },
+        {
+          "x": 89.02158,
+          "z": -31.33203
+        },
+        {
+          "x": 89.17714,
+          "z": -31.26759
+        },
+        {
+          "x": 89.24158,
+          "z": -31.11203
+        },
+        {
+          "x": 89.17714,
+          "z": -30.95647
+        },
+        {
+          "x": 89.02158,
+          "z": -30.89203
+        },
+        {
+          "x": 88.86601,
+          "z": -30.95647
+        },
+        {
+          "x": 88.80157,
+          "z": -31.11203
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_3",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "mid-bay-weed-rock-0",
+      "vertices": [
+        {
+          "x": -49.88272,
+          "z": 0.4363
+        },
+        {
+          "x": -47.29877,
+          "z": -2.88272
+        },
+        {
+          "x": -41.17111,
+          "z": -2.24444
+        },
+        {
+          "x": -36.44617,
+          "z": -0.01049
+        },
+        {
+          "x": -35.11728,
+          "z": 4.32975
+        },
+        {
+          "x": -38.43951,
+          "z": 9.11679
+        },
+        {
+          "x": -43.97654,
+          "z": 9.88272
+        },
+        {
+          "x": -48.92296,
+          "z": 6.81901
+        }
+      ],
+      "sourceObject": "Terrain_mid-bay-weed-rock",
+      "sliceY": -1
+    },
+    {
+      "id": "north-bay-rim-0",
+      "vertices": [
+        {
+          "x": -113.38271,
+          "z": 92.0963
+        },
+        {
+          "x": -73.69877,
+          "z": 84.61729
+        },
+        {
+          "x": 20.40889,
+          "z": 86.05556
+        },
+        {
+          "x": 92.97383,
+          "z": 91.08951
+        },
+        {
+          "x": 113.38271,
+          "z": 100.86975
+        },
+        {
+          "x": 62.36049,
+          "z": 111.65679
+        },
+        {
+          "x": -22.67654,
+          "z": 113.38271
+        },
+        {
+          "x": -98.64297,
+          "z": 106.47901
+        }
+      ],
+      "sourceObject": "Terrain_north-bay-rim",
+      "sliceY": -1
+    },
+    {
+      "id": "west-bay-rock-0",
+      "vertices": [
+        {
+          "x": -139.38272,
+          "z": 30.7763
+        },
+        {
+          "x": -134.34877,
+          "z": 18.61728
+        },
+        {
+          "x": -122.41112,
+          "z": 20.95555
+        },
+        {
+          "x": -113.20617,
+          "z": 29.13951
+        },
+        {
+          "x": -110.61729,
+          "z": 45.03975
+        },
+        {
+          "x": -117.08951,
+          "z": 62.57679
+        },
+        {
+          "x": -127.87654,
+          "z": 65.38271
+        },
+        {
+          "x": -137.51297,
+          "z": 54.15901
+        }
+      ],
+      "sourceObject": "Terrain_west-bay-rock",
+      "sliceY": -1
+    },
+    {
+      "id": "east-bay-rock-0",
+      "vertices": [
+        {
+          "x": 110.61729,
+          "z": 34.2963
+        },
+        {
+          "x": 115.65124,
+          "z": 21.61728
+        },
+        {
+          "x": 127.58888,
+          "z": 24.05556
+        },
+        {
+          "x": 136.79382,
+          "z": 32.5895
+        },
+        {
+          "x": 139.38272,
+          "z": 49.16975
+        },
+        {
+          "x": 132.91049,
+          "z": 67.45679
+        },
+        {
+          "x": 122.12346,
+          "z": 70.38271
+        },
+        {
+          "x": 112.48704,
+          "z": 58.67901
+        }
+      ],
+      "sourceObject": "Terrain_east-bay-rock",
+      "sliceY": -1
+    },
+    {
+      "id": "MooringPost_0-0",
+      "vertices": [
+        {
+          "x": 77.72555,
+          "z": -23.46695
+        },
+        {
+          "x": 77.88111,
+          "z": -23.53139
+        },
+        {
+          "x": 78.03667,
+          "z": -23.46695
+        },
+        {
+          "x": 78.10111,
+          "z": -23.31139
+        },
+        {
+          "x": 78.03667,
+          "z": -23.15583
+        },
+        {
+          "x": 77.88111,
+          "z": -23.09139
+        },
+        {
+          "x": 77.72555,
+          "z": -23.15583
+        },
+        {
+          "x": 77.66111,
+          "z": -23.31139
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_0",
+      "sliceY": -1
+    },
+    {
+      "id": "MooringPost_1-0",
+      "vertices": [
+        {
+          "x": 79.44576,
+          "z": -24.67146
+        },
+        {
+          "x": 79.60133,
+          "z": -24.7359
+        },
+        {
+          "x": 79.75689,
+          "z": -24.67146
+        },
+        {
+          "x": 79.82133,
+          "z": -24.5159
+        },
+        {
+          "x": 79.75689,
+          "z": -24.36034
+        },
+        {
+          "x": 79.60133,
+          "z": -24.2959
+        },
+        {
+          "x": 79.44576,
+          "z": -24.36034
+        },
+        {
+          "x": 79.38132,
+          "z": -24.5159
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_1",
+      "sliceY": -1
+    },
+    {
+      "id": "MooringPost_2-0",
+      "vertices": [
+        {
+          "x": 87.1458,
+          "z": -30.06308
+        },
+        {
+          "x": 87.30136,
+          "z": -30.12752
+        },
+        {
+          "x": 87.45692,
+          "z": -30.06308
+        },
+        {
+          "x": 87.52136,
+          "z": -29.90752
+        },
+        {
+          "x": 87.45692,
+          "z": -29.75196
+        },
+        {
+          "x": 87.30136,
+          "z": -29.68752
+        },
+        {
+          "x": 87.1458,
+          "z": -29.75196
+        },
+        {
+          "x": 87.08136,
+          "z": -29.90752
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_2",
+      "sliceY": -1
+    },
+    {
+      "id": "MooringPost_3-0",
+      "vertices": [
+        {
+          "x": 88.86601,
+          "z": -31.26759
+        },
+        {
+          "x": 89.02158,
+          "z": -31.33203
+        },
+        {
+          "x": 89.17714,
+          "z": -31.26759
+        },
+        {
+          "x": 89.24158,
+          "z": -31.11203
+        },
+        {
+          "x": 89.17714,
+          "z": -30.95647
+        },
+        {
+          "x": 89.02158,
+          "z": -30.89203
+        },
+        {
+          "x": 88.86601,
+          "z": -30.95647
+        },
+        {
+          "x": 88.80157,
+          "z": -31.11203
+        }
+      ],
+      "sourceObject": "Terrain_MooringPost_3",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -160.0,
+      "z": -130.0
+    },
+    {
+      "x": 160.0,
+      "z": -130.0
+    },
+    {
+      "x": 160.0,
+      "z": 130.0
+    },
+    {
+      "x": -160.0,
+      "z": 130.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "kelp-edge",
+      "name": "Kelp edge",
+      "centre": {
+        "x": -85.0,
+        "z": -28.0
+      },
+      "radius": 13,
+      "nominalDepth": 2.5,
+      "poolId": "GullKelpForest/kelp-edge",
+      "position": [
+        -85,
+        0,
+        -28
+      ],
+      "heading": 0
+    },
+    {
+      "id": "sand-clearing",
+      "name": "Sand clearing",
+      "centre": {
+        "x": 0.0,
+        "z": 35.0
+      },
+      "radius": 14,
+      "nominalDepth": 3.0,
+      "poolId": "GullKelpForest/sand-clearing",
+      "position": [
+        0,
+        0,
+        35
+      ],
+      "heading": 0
+    },
+    {
+      "id": "post-line",
+      "name": "Post line",
+      "centre": {
+        "x": 85.0,
+        "z": -25.0
+      },
+      "radius": 13,
+      "nominalDepth": 2.6,
+      "poolId": "GullKelpForest/post-line",
+      "position": [
+        85,
+        0,
+        -25
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -125.0,
+    "z": -90.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -152.0,
+      "z": -122.0
+    },
+    "max": {
+      "x": 152.0,
+      "z": 122.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -160.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -133.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -106.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -80.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -53.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -26.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": 0.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 26.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 53.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 80.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 106.66667,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 133.33333,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 160.0,
+        "z": -130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 160.0,
+        "z": -104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 160.0,
+        "z": -78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 160.0,
+        "z": -52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 160.0,
+        "z": -26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 160.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 160.0,
+        "z": 26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 160.0,
+        "z": 52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 160.0,
+        "z": 78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 160.0,
+        "z": 104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 160.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 133.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 106.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 80.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": 53.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": 26.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": 0.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": -26.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -53.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -80.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -106.66667,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -133.33333,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -160.0,
+        "z": 130.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -160.0,
+        "z": 104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -160.0,
+        "z": 78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -160.0,
+        "z": 52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -160.0,
+        "z": 26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -160.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-40",
+      "position": {
+        "x": -160.0,
+        "z": -26.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-41",
+      "position": {
+        "x": -160.0,
+        "z": -52.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-42",
+      "position": {
+        "x": -160.0,
+        "z": -78.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-43",
+      "position": {
+        "x": -160.0,
+        "z": -104.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": [
+      {
+        "id": "HorizonBayRim_0",
+        "kind": "low-rock",
+        "centre": {
+          "x": -125,
+          "z": 210
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonBayRim_1",
+        "kind": "low-rock",
+        "centre": {
+          "x": 30,
+          "z": 210
+        },
+        "reachable": false
+      },
+      {
+        "id": "HorizonBayRim_2",
+        "kind": "low-rock",
+        "centre": {
+          "x": 155,
+          "z": 210
+        },
+        "reachable": false
+      }
+    ]
+  },
+  "islandPurposes": {
+    "mid-bay-weed-rock": "Low weed-covered outcrop divides two sailing approaches.",
+    "north-bay-rim": "Low weed-covered northern shelter; no buildings.",
+    "west-bay-rock": "Low western shelter outside the fishing grounds.",
+    "east-bay-rock": "Broken weed-covered eastern shelter."
+  },
+  "artReviewAnchors": {
+    "kelp-edge": {
+      "x": -85.0,
+      "z": -28.0
+    },
+    "sand-clearing": {
+      "x": 0.0,
+      "z": 35.0
+    },
+    "post-line": {
+      "x": 85.0,
+      "z": -25.0
+    }
+  },
+  "sealColonyAnchors": [],
+  "lifeAnchors": [
+    {
+      "id": "KelpSway_1",
+      "position": [
+        -90.8164895304981,
+        -0.32,
+        -27.589573951111745
+      ]
+    },
+    {
+      "id": "KelpSway_2",
+      "position": [
+        -82.62496908760818,
+        -0.32,
+        -33.32533831462221
+      ]
+    },
+    {
+      "id": "KelpSway_3",
+      "position": [
+        3.1941829566808124,
+        -0.32,
+        29.10108524902675
+      ]
+    },
+    {
+      "id": "KelpSway_4",
+      "position": [
+        78.36435842521291,
+        -0.32,
+        -24.015997514760702
+      ]
+    },
+    {
+      "id": "OtterRaft_1",
+      "position": [
+        -92,
+        -0.32,
+        -22
+      ]
+    },
+    {
+      "id": "PostGulls_1",
+      "position": [
+        79.60132901369391,
+        1.28,
+        -24.515901268730364
+      ]
+    },
+    {
+      "id": "PostGulls_2",
+      "position": [
+        87.30135823001044,
+        1.28,
+        -29.907519770430195
+      ]
+    }
+  ]
+}

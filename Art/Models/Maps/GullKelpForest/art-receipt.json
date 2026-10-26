@@ -1,0 +1,383 @@
+{
+  "utc": "2026-10-26T06:49:21.652772+00:00",
+  "files": [
+    {
+      "file": "Art\\Models\\Maps\\GullKelpForest\\GullKelpForestSeaV2.blend",
+      "sha256": "d767adeb744d3789f9e141ce346116af70ed6393881ab076d3a5b8a211f133e7"
+    },
+    {
+      "file": "Art\\Models\\Maps\\GullKelpForest\\GullKelpForestSeaV2.fbx",
+      "sha256": "f95115ef749ebeeaf8e156b0c69eb00b24fdbfccbe7fee6e85a4776475d5e7a2"
+    },
+    {
+      "file": "Art\\Models\\Maps\\GullKelpForest\\navigation.json",
+      "sha256": "a09a0d874be264850a158b883d347a50a61cddf51ccee3535767cf522e26aa76"
+    },
+    {
+      "file": "Art\\Models\\Maps\\GullKelpForest\\grounds.json",
+      "sha256": "0785755ede014002b1e0ec79fc44e0e219d715475a881c89f7fd16055fd4732c"
+    }
+  ],
+  "triangles": 66282,
+  "meshCount": 295,
+  "sourceAudit": {
+    "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+    "allPassed": true,
+    "maps": [
+      {
+        "map": "GullKelpForest",
+        "checks": [
+          {
+            "check": "saved source and export hashes match current build receipt",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "source has only authoring meshes, one identity root and declared anchors",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "identity root and metre scale",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "source triangle and mesh counts match",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_1 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_2 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_3 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_4 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "OtterRaft_1 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "PostGulls_1 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "PostGulls_2 source world anchor on rock",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "all navigation source objects actually present",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_mid-bay-weed-rock closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_mid-bay-weed-rock 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_mid-bay-weed-rock 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 4.074098465594068e-06
+          },
+          {
+            "check": "Terrain_mid-bay-weed-rock -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_mid-bay-weed-rock -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 5.3947966093944364e-06
+          },
+          {
+            "check": "Terrain_north-bay-rim closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_north-bay-rim 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_north-bay-rim 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.62939453125e-06
+          },
+          {
+            "check": "Terrain_north-bay-rim -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_north-bay-rim -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 3.814697265625e-06
+          },
+          {
+            "check": "Terrain_west-bay-rock closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_west-bay-rock 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_west-bay-rock 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 3.814697265625e-06
+          },
+          {
+            "check": "Terrain_west-bay-rock -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_west-bay-rock -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 5.7220458984375e-06
+          },
+          {
+            "check": "Terrain_east-bay-rock closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_east-bay-rock 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_east-bay-rock 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.864199877963372e-06
+          },
+          {
+            "check": "Terrain_east-bay-rock -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_east-bay-rock -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 5.7220458984375e-06
+          },
+          {
+            "check": "Terrain_MooringPost_0 closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_0 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_0 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 8.529922399520072e-06
+          },
+          {
+            "check": "Terrain_MooringPost_0 -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_0 -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 8.529922399520072e-06
+          },
+          {
+            "check": "Terrain_MooringPost_1 closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_1 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_1 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.864199877963372e-06
+          },
+          {
+            "check": "Terrain_MooringPost_1 -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_1 -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.864199877963372e-06
+          },
+          {
+            "check": "Terrain_MooringPost_2 closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_2 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_2 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 8.529922399520072e-06
+          },
+          {
+            "check": "Terrain_MooringPost_2 -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_2 -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 8.529922399520072e-06
+          },
+          {
+            "check": "Terrain_MooringPost_3 closed positive-volume terrain",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_3 0m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_3 0m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.864199877963372e-06
+          },
+          {
+            "check": "Terrain_MooringPost_3 -1m fresh slice exists",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "Terrain_MooringPost_3 -1m JSON matches saved mesh edges",
+            "passed": true,
+            "detail": 7.864199877963372e-06
+          },
+          {
+            "check": "fresh actual FBX mesh names and triangle counts",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "all actual FBX material names retained",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_1 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_2 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_3 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "KelpSway_4 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "OtterRaft_1 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "PostGulls_1 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "PostGulls_2 actual FBX compensated world anchor",
+            "passed": true,
+            "detail": null
+          },
+          {
+            "check": "fresh actual FBX all source vertices within0.1mm",
+            "passed": true,
+            "detail": 1.7642974853515625e-05
+          }
+        ],
+        "allPassed": true,
+        "maxFbxErrorMetres": 1.7642974853515625e-05,
+        "sourceSha256": "d767adeb744d3789f9e141ce346116af70ed6393881ab076d3a5b8a211f133e7",
+        "fbxSha256": "f95115ef749ebeeaf8e156b0c69eb00b24fdbfccbe7fee6e85a4776475d5e7a2",
+        "navigationSha256": "a09a0d874be264850a158b883d347a50a61cddf51ccee3535767cf522e26aa76"
+      }
+    ],
+    "totalChecks": 62
+  },
+  "navPassed": true,
+  "navigationChecks": 65,
+  "rawExceptions": "four foreground mooring posts intersect full post-line circle; raw two failures preserved; lead review requested",
+  "anchorPassed": true,
+  "anchorCount": 7,
+  "visualReview": "art-review.json:18 individually opened PNGs",
+  "runtime": {
+    "technicalDelivery": "complete; lead review pending",
+    "evidence": "docs/screens/map11-kelp-forest-1/README.md",
+    "baselineRoutes": 660,
+    "currentAffectedRoutes": 60,
+    "maps": 11,
+    "lanes": 33,
+    "harbourHulls": 5,
+    "newGroundTrips": 3,
+    "nativeFramesOpened": 10,
+    "nativeSizes": [
+      [
+        1440,
+        900
+      ],
+      [
+        844,
+        390
+      ]
+    ],
+    "nativeExit": 0,
+    "regression": "286 ability /217 tutorial /M2 bite cage integration PASS",
+    "reviewQuestions": [
+      "Narrow foreground posts intersect broad13m circle; actual routes and >4m anchor clearance pass.",
+      "Sand-clearing seabed subdued under production water."
+    ]
+  }
+}

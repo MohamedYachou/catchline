@@ -86,6 +86,11 @@ namespace Catchline.Game
                 G("arch-pool", "Arch pool", "arch", (Species.Pollock, 40f), (Species.RedMullet, 30f), (Species.Conger, 15f), (Species.Crab, 2f)),
                 G("seal-cove", "Seal cove", "cove", (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.RedMullet, 3f)),
                 G("stack-race", "Stack race", "stack", (Species.Cod, 35f), (Species.Pollock, 30f), (Species.Conger, 15f), (Species.Turbot, 1f)) },
+            // Kelp forest (MAP11): append without moving prior saved richness slots.
+            new[] {
+                G("kelp-edge", "Kelp edge", "kelp", (Species.RedMullet, 40f), (Species.Pollock, 30f), (Species.SeaBass, 20f), (Species.Crab, 2f)),
+                G("sand-clearing", "Sand clearing", "sand", (Species.Plaice, 40f), (Species.Whiting, 30f), (Species.RedMullet, 20f), (Species.Turbot, 3f)),
+                G("post-line", "Post line", "posts", (Species.Mackerel, 45f), (Species.Herring, 30f), (Species.Conger, 15f), (Species.Turbot, 2f)) },
         };
 
         static readonly int[][] offsets;

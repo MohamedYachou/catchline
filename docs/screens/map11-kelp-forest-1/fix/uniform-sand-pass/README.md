@@ -1,0 +1,1 @@
+Incomplete historical receipt copy from the uniform-sand trial. No image was copied here: the preservation command used the wrong filename. These receipts are not final evidence. Use the parent directory's native-run.json, native-exit.json and visual-review.json for the final material-patch and revised-ribbon capture.

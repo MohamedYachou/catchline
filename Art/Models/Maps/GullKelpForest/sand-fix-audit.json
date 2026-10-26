@@ -1,0 +1,132 @@
+{
+  "allPassed": true,
+  "checks": [
+    {
+      "check": "all accepted terrain/post meshes unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation bytes unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all connected bed vertices below true shallow slice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge bed ray 0m",
+      "passed": true,
+      "detail": 2.470144271850586
+    },
+    {
+      "check": "kelp-edge actual anchor pocket depth retained",
+      "passed": true,
+      "detail": 2.470144271850586
+    },
+    {
+      "check": "kelp-edge bed ray 6m",
+      "passed": true,
+      "detail": 1.1550960540771484
+    },
+    {
+      "check": "kelp-edge raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.1550960540771484
+    },
+    {
+      "check": "kelp-edge bed ray 10m",
+      "passed": true,
+      "detail": 1.1524896621704102
+    },
+    {
+      "check": "kelp-edge raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.1524896621704102
+    },
+    {
+      "check": "sand-clearing bed ray 0m",
+      "passed": true,
+      "detail": 2.992875099182129
+    },
+    {
+      "check": "sand-clearing actual anchor pocket depth retained",
+      "passed": true,
+      "detail": 2.992875099182129
+    },
+    {
+      "check": "sand-clearing bed ray 6m",
+      "passed": true,
+      "detail": 1.153696060180664
+    },
+    {
+      "check": "sand-clearing raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.153696060180664
+    },
+    {
+      "check": "sand-clearing bed ray 10m",
+      "passed": true,
+      "detail": 1.153080940246582
+    },
+    {
+      "check": "sand-clearing raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.153080940246582
+    },
+    {
+      "check": "post-line bed ray 0m",
+      "passed": true,
+      "detail": 2.5645084381103516
+    },
+    {
+      "check": "post-line actual anchor pocket depth retained",
+      "passed": true,
+      "detail": 2.5645084381103516
+    },
+    {
+      "check": "post-line bed ray 6m",
+      "passed": true,
+      "detail": 1.1517057418823242
+    },
+    {
+      "check": "post-line raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.1517057418823242
+    },
+    {
+      "check": "post-line bed ray 10m",
+      "passed": true,
+      "detail": 1.152358055114746
+    },
+    {
+      "check": "post-line raised shelf visible beside hull",
+      "passed": true,
+      "detail": 1.152358055114746
+    },
+    {
+      "check": "localized cluster KelpSway_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "localized cluster KelpSway_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "localized cluster KelpSway_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "localized cluster KelpSway_4",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "sourceSha256": "b4e91fd52fc97350b6799550bfe2279e1b110f6207b9f9b680647a98308722fe",
+  "limits": "Source geometry and vertical ray audit; production-water visibility requires native frames."
+}

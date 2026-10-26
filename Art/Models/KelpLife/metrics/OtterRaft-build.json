@@ -1,0 +1,119 @@
+{
+  "triangles": 1666,
+  "vertices": 1098,
+  "bounds_unity": [
+    [
+      -1.5,
+      -0.0950000137090683,
+      -1.0
+    ],
+    [
+      1.5,
+      0.39006999135017395,
+      1.0
+    ]
+  ],
+  "meshes": [
+    "RaftKelp",
+    "AdultA",
+    "AdultB",
+    "Pup"
+  ],
+  "materials": [
+    "M_KelpBulb",
+    "M_KelpGold",
+    "M_KelpGreen",
+    "M_OtterBrown",
+    "M_OtterCream",
+    "M_OtterPaw",
+    "M_Rubber"
+  ],
+  "parents": {
+    "OtterRaft": null,
+    "RaftKelp": "OtterRaft",
+    "AdultA": "OtterRaft",
+    "AdultB": "OtterRaft",
+    "Pup": "OtterRaft"
+  },
+  "mesh_bounds_unity": {
+    "RaftKelp": [
+      [
+        -1.5,
+        -0.03199999779462814,
+        -1.0
+      ],
+      [
+        1.5,
+        0.09799999743700027,
+        1.0
+      ]
+    ],
+    "AdultA": [
+      [
+        -0.6415210962295532,
+        -0.09300000965595245,
+        -0.5925601720809937
+      ],
+      [
+        -0.17089739441871643,
+        0.3189999759197235,
+        0.4829351603984833
+      ]
+    ],
+    "AdultB": [
+      [
+        0.20929597318172455,
+        -0.0950000137090683,
+        -0.7570433020591736
+      ],
+      [
+        0.6990769505500793,
+        0.31700000166893005,
+        0.310527503490448
+      ]
+    ],
+    "Pup": [
+      [
+        -0.5782713294029236,
+        0.1964299976825714,
+        -0.13603773713111877
+      ],
+      [
+        -0.28800293803215027,
+        0.39006999135017395,
+        0.3264729380607605
+      ]
+    ]
+  },
+  "name": "OtterRaft",
+  "contract": {
+    "pivot": "waterline centre",
+    "footprint_m": [
+      3,
+      2
+    ],
+    "otters": 3,
+    "adults": 2,
+    "pups": 1,
+    "pup_scale": 0.47,
+    "static": true,
+    "animation": "Static raft pose. Runtime may gently bob/roll whole root; spawn animated SeaOtter separately for individual behaviours.",
+    "kelp_ribbons": 15,
+    "float_bulbs": 2,
+    "shader": "Opaque matte, TWO SIDED kelp leaves."
+  },
+  "limit": 2800,
+  "sha256": {
+    "blend": "d72090fdd257c821544acaaf2f89cb67090e5a01a6d59eb99b3d95db0175c297",
+    "fbx": "458593cd81022ce920dd9f9866f43975ffccaca74926a9fef3149e508cec7f6d"
+  },
+  "palette": {
+    "M_OtterBrown": "#705040",
+    "M_OtterCream": "#C8C3AF",
+    "M_OtterPaw": "#50392E",
+    "M_Rubber": "#28343B",
+    "M_KelpGreen": "#3D573B",
+    "M_KelpGold": "#536D3D",
+    "M_KelpBulb": "#8C7949"
+  }
+}

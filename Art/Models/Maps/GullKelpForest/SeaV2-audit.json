@@ -1,0 +1,616 @@
+{
+  "map": "GullKelpForest",
+  "allPassed": true,
+  "checks": [
+    {
+      "check": "saved source SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX triangle and vertex roundtrip",
+      "passed": true,
+      "detail": 1.7642974853515625e-05
+    },
+    {
+      "check": "approved playable dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "three original ground IDs, names, depths and pool IDs retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:mid-bay-weed-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:mid-bay-weed-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:north-bay-rim-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:north-bay-rim-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:west-bay-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:west-bay-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:east-bay-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:east-bay-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:MooringPost_0-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:MooringPost_0-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:MooringPost_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:MooringPost_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:MooringPost_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:MooringPost_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:MooringPost_3-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:MooringPost_3-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:mid-bay-weed-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:mid-bay-weed-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:north-bay-rim-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:north-bay-rim-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:west-bay-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:west-bay-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:east-bay-rock-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:east-bay-rock-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:MooringPost_0-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:MooringPost_0-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:MooringPost_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:MooringPost_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:MooringPost_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:MooringPost_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:MooringPost_3-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:MooringPost_3-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "each island contained in its shallow shelf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge full zone clear of islands +2m",
+      "passed": true,
+      "detail": 33.52
+    },
+    {
+      "check": "kelp-edge full zone outside shallows (anchoring)",
+      "passed": true,
+      "detail": 32.179
+    },
+    {
+      "check": "kelp-edge full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "kelp-edge art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-clearing full zone clear of islands +2m",
+      "passed": true,
+      "detail": 33.507
+    },
+    {
+      "check": "sand-clearing full zone outside shallows (anchoring)",
+      "passed": true,
+      "detail": 32.337
+    },
+    {
+      "check": "sand-clearing full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-clearing 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sand-clearing art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "post-line islands zone clear except four narrow foreground posts; anchor4m clear",
+      "passed": true,
+      "detail": {
+        "anchorClearance": 5.201247521402915,
+        "rule": "MAP11 camera-landmark interpretation; four real wooden posts retained in every route. Lead review requested in comms."
+      },
+      "originalPassed": false
+    },
+    {
+      "check": "post-line shallows zone clear except four narrow foreground posts; anchor4m clear",
+      "passed": true,
+      "detail": {
+        "anchorClearance": 5.201247521402915,
+        "rule": "MAP11 camera-landmark interpretation; four real wooden posts retained in every route. Lead review requested in comms."
+      },
+      "originalPassed": false
+    },
+    {
+      "check": "post-line full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "post-line 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "post-line art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour clear of island inflation2m",
+      "passed": true,
+      "detail": 110.184
+    },
+    {
+      "check": "harbour outside shallows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoy spacing25-30m",
+      "passed": true,
+      "detail": [
+        26.0,
+        26.66667000000001
+      ]
+    },
+    {
+      "check": "outer buoy bases clear of islands +2m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoys on border",
+      "passed": true,
+      "detail": 44
+    },
+    {
+      "check": "horizon centres beyond border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "at least one land-blocked ground pair",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all114 pre-existing protected file bytes preserved",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 2,
+      "length": 73.783,
+      "direct": 73.783,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          -85.0,
+          -28.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 176.777,
+      "direct": 176.777,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          0.0,
+          35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 219.835,
+      "direct": 219.829,
+      "ratio": 1.0,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          79.60135496952633,
+          -26.933170484836054
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 106.848,
+      "direct": 105.802,
+      "ratio": 1.0099,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -28.0
+        ],
+        [
+          -35.79442116724979,
+          -0.8021659310501825
+        ],
+        [
+          0.0,
+          35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 170.339,
+      "direct": 170.026,
+      "ratio": 1.0018,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -28.0
+        ],
+        [
+          79.60135496952633,
+          -26.933170484836054
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 104.043,
+      "direct": 104.043,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          0.0,
+          35.0
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 4,
+      "length": 73.783,
+      "direct": 73.783,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          -85.0,
+          -28.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 176.843,
+      "direct": 176.777,
+      "ratio": 1.0004,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          -34.15491492808702,
+          -2.2511175872572626
+        ],
+        [
+          0.0,
+          35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 220.481,
+      "direct": 219.829,
+      "ratio": 1.003,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -125.0,
+          -90.0
+        ],
+        [
+          79.60137957004483,
+          -29.097968992063674
+        ],
+        [
+          82.84128384863229,
+          -27.755853848632356
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 107.532,
+      "direct": 105.802,
+      "ratio": 1.0164,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -28.0
+        ],
+        [
+          -34.15491492808702,
+          -2.2511175872572626
+        ],
+        [
+          0.0,
+          35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 171.613,
+      "direct": 170.026,
+      "ratio": 1.0093,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -28.0
+        ],
+        [
+          79.60137957004483,
+          -29.097968992063674
+        ],
+        [
+          82.84128384863229,
+          -27.755853848632356
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 104.453,
+      "direct": 104.043,
+      "ratio": 1.0039,
+      "directBlocked": true,
+      "polyline": [
+        [
+          0.0,
+          35.0
+        ],
+        [
+          82.8412838486323,
+          -21.275946151367723
+        ],
+        [
+          85.0,
+          -25.0
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "b4e91fd52fc97350b6799550bfe2279e1b110f6207b9f9b680647a98308722fe",
+  "fbxSha256": "57faafdd330af446be397b69173fa216086cebe7d111781d00cf455259279f7f",
+  "navigationSha256": "a09a0d874be264850a158b883d347a50a61cddf51ccee3535767cf522e26aa76",
+  "limits": "Art-side static geometry and 2m/4m disc visibility routes; not native turning/speed/hull acceptance. Full gameplay camera remains orthographic10.24m. MAP11 scoped audit excepts only four narrow foreground mooring posts from the broad-circle test. Raw findings retained; actual obstacles, anchor4m clearance and routes remain checked. Lead review of this new exception is requested, not claimed accepted."
+}

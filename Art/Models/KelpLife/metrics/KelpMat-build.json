@@ -1,0 +1,68 @@
+{
+  "triangles": 334,
+  "vertices": 336,
+  "bounds_unity": [
+    [
+      -1.25,
+      -0.03199999779462814,
+      -0.800000011920929
+    ],
+    [
+      1.25,
+      0.09799999743700027,
+      0.800000011920929
+    ]
+  ],
+  "meshes": [
+    "KelpMatMesh"
+  ],
+  "materials": [
+    "M_KelpBulb",
+    "M_KelpGold",
+    "M_KelpGreen"
+  ],
+  "parents": {
+    "KelpMat": null,
+    "KelpMatMesh": "KelpMat"
+  },
+  "mesh_bounds_unity": {
+    "KelpMatMesh": [
+      [
+        -1.25,
+        -0.03199999779462814,
+        -0.800000011920929
+      ],
+      [
+        1.25,
+        0.09799999743700027,
+        0.800000011920929
+      ]
+    ]
+  },
+  "name": "KelpMat",
+  "contract": {
+    "pivot": "waterline centre",
+    "footprint_m": [
+      2.5,
+      1.6
+    ],
+    "static": true,
+    "kelp_ribbons": 15,
+    "float_bulbs": 2,
+    "shader": "Opaque matte, TWO SIDED leaves. Very shallow noncoplanar ribbons, no texture."
+  },
+  "limit": 700,
+  "sha256": {
+    "blend": "49c7ba458fe03ddd2b411829533f331b4ba49c18d44c113a453be3f75e6df01c",
+    "fbx": "71b12945aef4faadd1e01d301080f2c01905a3b4d81db7b5f58a7d53393a8fa2"
+  },
+  "palette": {
+    "M_OtterBrown": "#705040",
+    "M_OtterCream": "#C8C3AF",
+    "M_OtterPaw": "#50392E",
+    "M_Rubber": "#28343B",
+    "M_KelpGreen": "#3D573B",
+    "M_KelpGold": "#536D3D",
+    "M_KelpBulb": "#8C7949"
+  }
+}

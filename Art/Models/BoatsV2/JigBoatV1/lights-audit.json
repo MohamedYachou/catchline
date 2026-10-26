@@ -1,0 +1,1135 @@
+{
+  "pass": true,
+  "boat_old_new_max_vertex_delta_m": 0,
+  "boat_geometry_names_hierarchy_unchanged": true,
+  "only_bulb_surface_materials_changed": true,
+  "units": {
+    "JigBoatV1": 100,
+    "JigLampGlow": 100
+  },
+  "bulb_centres_m": [
+    [
+      1.350000023841858,
+      -0.7724997401237488,
+      1.614531397819519
+    ],
+    [
+      1.350000023841858,
+      -0.2774997651576996,
+      1.5057812333106995
+    ],
+    [
+      1.350000023841858,
+      0.217500239610672,
+      1.4332812428474426
+    ],
+    [
+      1.350000023841858,
+      0.7125002145767212,
+      1.3970311284065247
+    ],
+    [
+      1.350000023841858,
+      1.2075002193450928,
+      1.397031009197235
+    ],
+    [
+      1.350000023841858,
+      1.7025002241134644,
+      1.4332810044288635
+    ],
+    [
+      1.350000023841858,
+      2.197500228881836,
+      1.5057808756828308
+    ],
+    [
+      1.350000023841858,
+      2.692500352859497,
+      1.6145308017730713
+    ]
+  ],
+  "bounds": [
+    {
+      "asset": "JigBoatV1",
+      "name": "CabinAftDoor",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.32499998807907104,
+        -1.2139999866485596,
+        0.020000195130705833
+      ],
+      "max_m": [
+        0.32499998807907104,
+        -1.1899999380111694,
+        1.100000262260437
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_DeckWood"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "CabinBeaconAerial",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.41200000047683716,
+        -2.304999828338623,
+        1.4300001859664917
+      ],
+      "max_m": [
+        0.5049999952316284,
+        -1.737999677658081,
+        1.950000286102295
+      ],
+      "triangles": 116,
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "CabinDoorGlass",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.2150000035762787,
+        -1.2339998483657837,
+        0.7200002074241638
+      ],
+      "max_m": [
+        0.2150000035762787,
+        -1.2059998512268066,
+        1.0800002813339233
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "CabinLifeRing",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.7650333046913147,
+        -2.2170000076293945,
+        0.16300031542778015
+      ],
+      "max_m": [
+        -0.6749666929244995,
+        -1.682999849319458,
+        0.6970003247261047
+      ],
+      "triangles": 288,
+      "materials": [
+        "M_RailIvory",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "DeckCleats",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.5399999618530273,
+        -2.7350001335144043,
+        0.3851560950279236
+      ],
+      "max_m": [
+        1.590000033378601,
+        2.884999990463257,
+        0.6234228610992432
+      ],
+      "triangles": 240,
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "DoorLatch",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        0.20000000298023224,
+        -1.1959998607635498,
+        0.48000016808509827
+      ],
+      "max_m": [
+        0.25999999046325684,
+        -1.1559998989105225,
+        0.5800001621246338
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "EngineLegPropeller",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.19499999284744263,
+        3.3499999046325684,
+        -0.6715584397315979
+      ],
+      "max_m": [
+        0.19499999284744263,
+        3.6475000381469727,
+        0.10155734419822693
+      ],
+      "triangles": 68,
+      "materials": [
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "FlushHoldHatch",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.3400000035762787,
+        0.07500000298023224,
+        -1.660161643712854e-07
+      ],
+      "max_m": [
+        0.3400000035762787,
+        1.024999976158142,
+        0.015999987721443176
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "FrontWindow-0.335",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.6000000238418579,
+        -2.7134997844696045,
+        0.7400004267692566
+      ],
+      "max_m": [
+        -0.07000000029802322,
+        -2.688499689102173,
+        1.2200005054473877
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "FrontWindow0.335",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        0.07000000029802322,
+        -2.7134997844696045,
+        0.7400004267692566
+      ],
+      "max_m": [
+        0.6000000238418579,
+        -2.688499689102173,
+        1.2200005054473877
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "HatchHandle",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.09000000357627869,
+        0.5224999785423279,
+        0.023999907076358795
+      ],
+      "max_m": [
+        0.09000000357627869,
+        0.5774999856948853,
+        0.02999991364777088
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "HoldHatchLid",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.3149999976158142,
+        0.10000000149011612,
+        0.011999838054180145
+      ],
+      "max_m": [
+        0.3149999976158142,
+        1.0,
+        0.023999983444809914
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_DeckWood"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "Hull",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.6679999828338623,
+        -3.5,
+        -0.6200004816055298
+      ],
+      "max_m": [
+        1.6679999828338623,
+        3.5,
+        0.565000593662262
+      ],
+      "triangles": 465,
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_ClinkerRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "InnerBulwark",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.649999976158142,
+        -3.5,
+        -0.025000562891364098
+      ],
+      "max_m": [
+        1.649999976158142,
+        3.5,
+        0.565000593662262
+      ],
+      "triangles": 76,
+      "materials": [
+        "M_WoodHighlight",
+        "M_DeckWood"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "JigReel_01",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.6809829473495483,
+        -0.2999998927116394,
+        -0.34999996423721313
+      ],
+      "max_m": [
+        -1.2400000095367432,
+        0.05500010401010513,
+        0.8186625838279724
+      ],
+      "triangles": 272,
+      "materials": [
+        "M_HullNavy",
+        "M_Steel",
+        "M_SafetyOrange",
+        "M_Rope",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "JigReel_02",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.6809829473495483,
+        0.9000000953674316,
+        -0.35000014305114746
+      ],
+      "max_m": [
+        -1.2400000095367432,
+        1.255000114440918,
+        0.8186623454093933
+      ],
+      "triangles": 272,
+      "materials": [
+        "M_HullNavy",
+        "M_Steel",
+        "M_SafetyOrange",
+        "M_Rope",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "JigReel_03",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.680983066558838,
+        2.069999933242798,
+        -0.3500003516674042
+      ],
+      "max_m": [
+        -1.2400000095367432,
+        2.4250001907348633,
+        0.818662166595459
+      ],
+      "triangles": 272,
+      "materials": [
+        "M_HullNavy",
+        "M_Steel",
+        "M_SafetyOrange",
+        "M_Rope",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "KeelAndRakedStem",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.05000000074505806,
+        -3.566801071166992,
+        -0.7250005602836609
+      ],
+      "max_m": [
+        0.05000000074505806,
+        3.2200000286102295,
+        0.6075977087020874
+      ],
+      "triangles": 24,
+      "materials": [
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "LampCable",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.3380000591278076,
+        -1.0228084325790405,
+        1.6196084022521973
+      ],
+      "max_m": [
+        1.3619999885559082,
+        2.9428091049194336,
+        1.930005669593811
+      ],
+      "triangles": 480,
+      "materials": [
+        "M_Rubber"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "MotorOrangeCap",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.22499999403953552,
+        3.259999990463257,
+        0.3624994158744812
+      ],
+      "max_m": [
+        0.22499999403953552,
+        3.6600000858306885,
+        0.41749945282936096
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "OutboardMotor",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.2199999988079071,
+        3.2699999809265137,
+        -0.13000057637691498
+      ],
+      "max_m": [
+        0.2199999988079071,
+        3.6500000953674316,
+        0.3699994683265686
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "PlankDeck",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.5642000436782837,
+        -3.440500020980835,
+        -0.04500056058168411
+      ],
+      "max_m": [
+        1.5642000436782837,
+        3.440500020980835,
+        5.605286332865944e-07
+      ],
+      "triangles": 178,
+      "materials": [
+        "M_WoodHighlight",
+        "M_DeckWood"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "RoofTimberLip",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.7350000143051147,
+        -2.7849998474121094,
+        1.284500241279602
+      ],
+      "max_m": [
+        0.7350000143051147,
+        -1.114999771118164,
+        1.31950044631958
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SafetyFenders",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.7300000190734863,
+        -1.4165740013122559,
+        -0.2400004118680954
+      ],
+      "max_m": [
+        1.7300000190734863,
+        2.5665738582611084,
+        0.39836692810058594
+      ],
+      "triangles": 336,
+      "materials": [
+        "M_Rope",
+        "M_RailIvory"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SideWindow-0.661-1.65",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.6735000014305115,
+        -1.9249998331069946,
+        0.7400002479553223
+      ],
+      "max_m": [
+        -0.6485000252723694,
+        -1.374999761581421,
+        1.2200003862380981
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SideWindow-0.661-2.35",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.6735000014305115,
+        -2.624999761581421,
+        0.7400003671646118
+      ],
+      "max_m": [
+        -0.6485000252723694,
+        -2.0749998092651367,
+        1.2200005054473877
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SideWindow0.661-1.65",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        0.6485000252723694,
+        -1.9249998331069946,
+        0.7400002479553223
+      ],
+      "max_m": [
+        0.6735000014305115,
+        -1.374999761581421,
+        1.2200003862380981
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SideWindow0.661-2.35",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        0.6485000252723694,
+        -2.624999761581421,
+        0.7400003671646118
+      ],
+      "max_m": [
+        0.6735000014305115,
+        -2.0749998092651367,
+        1.2200005054473877
+      ],
+      "triangles": 28,
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SortingTray",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        0.6675000190734863,
+        1.727500081062317,
+        -3.967118686887261e-07
+      ],
+      "max_m": [
+        1.412500023841858,
+        2.5325002670288086,
+        0.8549997210502625
+      ],
+      "triangles": 440,
+      "materials": [
+        "M_Steel",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_01",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        -0.837499737739563,
+        1.5020313262939453
+      ],
+      "max_m": [
+        1.4149999618530273,
+        -0.7074997425079346,
+        1.86203134059906
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_02",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        -0.3424997627735138,
+        1.3932812213897705
+      ],
+      "max_m": [
+        1.4149999618530273,
+        -0.21249976754188538,
+        1.7532812356948853
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_03",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        0.1525002419948578,
+        1.3207812309265137
+      ],
+      "max_m": [
+        1.4149999618530273,
+        0.2825002372264862,
+        1.6807812452316284
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_04",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        0.647500216960907,
+        1.2845311164855957
+      ],
+      "max_m": [
+        1.4149999618530273,
+        0.7775002121925354,
+        1.6445311307907104
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_05",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        1.1425001621246338,
+        1.2845309972763062
+      ],
+      "max_m": [
+        1.4149999618530273,
+        1.2725002765655518,
+        1.644531011581421
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_06",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        1.637500286102295,
+        1.3207809925079346
+      ],
+      "max_m": [
+        1.4149999618530273,
+        1.7675001621246338,
+        1.6807810068130493
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_07",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        2.132500171661377,
+        1.3932808637619019
+      ],
+      "max_m": [
+        1.4149999618530273,
+        2.262500286102295,
+        1.7532808780670166
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SquidLamp_08",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2850000858306885,
+        2.627500295639038,
+        1.5020307302474976
+      ],
+      "max_m": [
+        1.4149999618530273,
+        2.757500410079956,
+        1.8620307445526123
+      ],
+      "triangles": 114,
+      "materials": [
+        "M_Rubber",
+        "M_HullNavy",
+        "M_BandIvory",
+        "M_WoodHighlight",
+        "M_JigBulb"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SternLocker",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.0499999523162842,
+        2.755000114440918,
+        -5.148293666934478e-07
+      ],
+      "max_m": [
+        -0.25,
+        3.184999942779541,
+        0.41999953985214233
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SternLockerLid",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.0750000476837158,
+        2.734999895095825,
+        0.4099994897842407
+      ],
+      "max_m": [
+        -0.22499999403953552,
+        3.2049999237060547,
+        0.4699995517730713
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "SweptCapAndRubber",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -1.7000000476837158,
+        -3.5,
+        0.27511656284332275
+      ],
+      "max_m": [
+        1.7000000476837158,
+        3.5,
+        0.6220005750656128
+      ],
+      "triangles": 304,
+      "materials": [
+        "M_RailIvory",
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "TwoShortLampMasts",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        1.2400000095367432,
+        -1.1349999904632568,
+        -4.977226808478008e-07
+      ],
+      "max_m": [
+        1.4600000381469727,
+        3.055000066757202,
+        1.945000171661377
+      ],
+      "triangles": 168,
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "WheelhouseBody",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.6499999761581421,
+        -2.690000057220459,
+        2.044654650035227e-07
+      ],
+      "max_m": [
+        0.6499999761581421,
+        -1.2099997997283936,
+        1.3200005292892456
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "asset": "JigBoatV1",
+      "name": "WheelhouseRoof",
+      "parent": "Catchline_JigBoatV1",
+      "min_m": [
+        -0.7599999904632568,
+        -2.809999704360962,
+        1.3100001811981201
+      ],
+      "max_m": [
+        0.7599999904632568,
+        -1.089999794960022,
+        1.4300004243850708
+      ],
+      "triangles": 44,
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_01",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        -1.0724997520446777,
+        1.3145313262939453
+      ],
+      "max_m": [
+        1.6500000953674316,
+        -0.47249966859817505,
+        1.9145314693450928
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_02",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        -0.5774998068809509,
+        1.205781102180481
+      ],
+      "max_m": [
+        1.6500000953674316,
+        0.02250029519200325,
+        1.8057812452316284
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_03",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        -0.08249982446432114,
+        1.1332811117172241
+      ],
+      "max_m": [
+        1.6500000953674316,
+        0.5175002813339233,
+        1.7332812547683716
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_04",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        0.41250014305114746,
+        1.0970311164855957
+      ],
+      "max_m": [
+        1.6500000953674316,
+        1.012500286102295,
+        1.6970312595367432
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_05",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        0.907500147819519,
+        1.0970309972763062
+      ],
+      "max_m": [
+        1.6500000953674316,
+        1.5075002908706665,
+        1.6970311403274536
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_06",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        1.4025001525878906,
+        1.133280873298645
+      ],
+      "max_m": [
+        1.6500000953674316,
+        2.002500295639038,
+        1.7332810163497925
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_07",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        1.8975001573562622,
+        1.2057807445526123
+      ],
+      "max_m": [
+        1.6500000953674316,
+        2.49750018119812,
+        1.8057808876037598
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "LampGlow_08",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.0499999523162842,
+        2.392500400543213,
+        1.3145307302474976
+      ],
+      "max_m": [
+        1.6500000953674316,
+        2.9925003051757812,
+        1.914530873298645
+      ],
+      "triangles": 144,
+      "materials": [
+        "M_LampGlow"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.3803921937942505
+      ]
+    },
+    {
+      "asset": "JigLampGlow",
+      "name": "WaterLightPool",
+      "parent": "JigLampGlow",
+      "min_m": [
+        1.4500000476837158,
+        -2.0399999618530273,
+        -0.3950006365776062
+      ],
+      "max_m": [
+        4.949999809265137,
+        3.9600000381469727,
+        -0.3949996829032898
+      ],
+      "triangles": 336,
+      "materials": [
+        "M_JigWaterLight"
+      ],
+      "vertex_alpha_minmax": [
+        0.0,
+        0.2196078598499298
+      ]
+    }
+  ],
+  "native_Unity_tested": false
+}
