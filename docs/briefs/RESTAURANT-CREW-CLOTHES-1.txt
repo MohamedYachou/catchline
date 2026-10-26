@@ -1,0 +1,18 @@
+RESTAURANT-CREW-CLOTHES-1 (Claude 2 lead, 26 Oct 21:05, Mo's order)
+
+Goal: the crew wear classic restaurant clothes for night service, per job. Mo's words: "classic restaurant,
+females with robes and tops, males with suits, mira needs to look the best as she's the face of the restaurant".
+- Mira (host, front of house): the finest outfit in the game, an elegant evening dress or tailored dress with a
+  smart top, name pin, hair done. She must read as the face of the restaurant at phone size.
+- Women on staff: dresses ("robes") or skirts/trousers with smart tops, aprons only for kitchen jobs.
+- Men on staff: suits (waistcoat or jacket, shirt, tie/bow tie). Cooks: classic chef whites and toque over that.
+- Jobs: host, server, cook, prep cook, dishwasher, bartender if present in Data. Read the crew list and jobs in
+  Assets/Scripts (Restaurant*/Crew*) and Art/Source/Restaurant first; keep each person's face/identity.
+- Match Art/STYLE.md and the restaurant mockups (Art/Source/Restaurant/concepts/ui-*.png) in look and light.
+
+Codex 1 (2D): one outfit sheet per person (full body front, plus bust for the staff rail at 3x), PNG with alpha,
+in Art/Source/Restaurant/clothes/2d/. Start with Mira and 2 options for her.
+Codex 2 (3D): restaurant outfit variants on the existing crew rig (Art/Models/Restaurant/Guests crew rig), one per
+job, exported like the Stage1 kit, renders beside the 2D sheets, in Art/Models/Restaurant/Clothes/.
+Done = sheets/renders opened and compared to the mockup look, REPORT.md with paths, DONE in comms.md. No Assets/
+code/git edits; Claude wires them in.
