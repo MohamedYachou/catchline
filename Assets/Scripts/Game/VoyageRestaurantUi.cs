@@ -129,114 +129,112 @@ namespace Catchline.Game
             if (img != null) { img.type = UnityEngine.UI.Image.Type.Filled; img.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360; img.fillOrigin = 2; img.fillClockwise = true; img.fillAmount = Mathf.Clamp01(value); }
         }
 
-        // S2: the evening service HUD, laid out from ui-service-desktop.png (1440x900) as fractions of the screen.
+        // S2 on a desktop: the service HUD over the 3D room (ui-service-desktop.png), in the mockup's own 1440x900 frame.
         void InterfaceRestaurantService(RestaurantServiceView v)
         {
             if (compactInterface) { InterfaceRestaurantServicePhone(v); return; }
-            bool phone = false;
-            float sx = iw / 1440f, sy = ih / 900f, u = Mathf.Min(sx, sy);
-            Rect R(float x, float y, float w, float h) => new(x * sx, y * sy, w * sx, h * sy);
+            float k = Mathf.Min(iw / 1440f, ih / 900f);
+            var f = coastalUi.Sliced("rsvc/frame", new Rect((iw - 1440 * k) / 2, (ih - 900 * k) / 2, 1440, 900), "");
+            f.localScale = new Vector3(k, k, 1); frameScale = k;
+            float ox = (iw - 1440 * k) / 2 / k, oy = (ih - 900 * k) / 2 / k;
+            RectTransform D(string id, string key, Rect? at = null, string sprite = null) =>
+                Rx(id, "desktop", key, f, at ?? RestaurantExact.Pieces["desktop:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            void T(string id, string style, string text, Rect? at = null, TextAnchor align = TextAnchor.MiddleLeft, Color? fill = null) =>
+                RxText(id, "desktop", style, text, f, at, align, fill);
+            var cream = new Color(1, .973f, .92f);
 
-            // Top band: back, title, the evening timeline, coins, stars, speed.
-            float barH = Mathf.Max(phone ? 44 : 0, 78 * sy);
-            coastalUi.Sliced("rsvc/bar", new Rect(0, 0, iw, barH), "v3-topbar", null, Color.white, true);
-            float bs = barH - 16 * sy;
-            coastalUi.Secondary("rsvc/back", new Rect(24 * sx, (barH - bs) / 2, bs * 1.36f, bs), "", () => { if (RestaurantPhase == DayPhase.Service) v.Paused = !v.Paused; else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-back");
-            coastalUi.Text("rsvc/title", new Rect(24 * sx + bs * 1.36f + 22 * sx, 0, 430 * sx, barH), $"{v.Name} · Evening service", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, null, true);
-            coastalUi.SetTextSize("rsvc/title", Mathf.RoundToInt(Mathf.Max(phone ? 20 : 24, 34 * u)));
-            float tx = 570 * sx, tw = 265 * sx, ty = barH * .48f;
-            coastalUi.Sliced("rsvc/time/line", new Rect(tx, ty - 1.5f, tw, 3), "v2-bar-track", null, Skin.Cream);
-            float At(float h) => h <= 20 ? Mathf.InverseLerp(v.Open, 20, h) * .54f : .54f + Mathf.InverseLerp(20, v.Close, h) * .46f;
-            float t = At(v.Hour);
-            coastalUi.Sliced("rsvc/time/done", new Rect(tx, ty - 1.5f, tw * t, 3), "v2-bar-warn", null, Skin.Orange);
-            float[] dots = { 18, 19, 20, 21.5f, 23 };
-            for (int i = 0; i < dots.Length; i++)
-            {
-                float dx = tx + tw * At(dots[i]); bool past = dots[i] <= v.Hour;
-                coastalUi.Icon($"rsvc/time/dot{i}", new Rect(dx - 5, ty - 5, 10, 10), "v2-light-good", null, past ? Skin.Orange : Skin.Cream);
-            }
-            string[] labels = { "18:00", "20:00", "23:00" }; float[] at = { 0, .54f, 1 };
-            for (int i = 0; i < 3; i++)
-                coastalUi.Text($"rsvc/time/l{i}", new Rect(tx + tw * at[i] - 40, ty + 6, 80, barH - ty - 6), labels[i], Skin.Type.Small, Skin.Cream, TextAnchor.UpperCenter);
-            float nowX = tx + tw * t;
-            coastalUi.Sliced("rsvc/time/flag", new Rect(nowX - 26, 3, 52, ty - 10), "v2-btn-primary", null, Color.white);
+            D("rsvc/bar", "v2-bar-service#desktop-bar-service-01", new Rect(-ox, -oy, iw / k, 80 + oy));
+            D("rsvc/back", "v2-btn-back#desktop-btn-back-01", null, "rx-s12-btn-back");
+            coastalUi.HitArea("rsvc/back/hit", new Rect(21, 12, 73, 58), () => { if (RestaurantPhase != DayPhase.Service) RestaurantPreview = RestaurantScreen.None; }, f);
+            T("rsvc/title", "title", $"{v.Name} · Evening service", new Rect(114, 20, 430, 41));
+
+            // The evening: 18:00-23:00 with the clock in a flag riding the curve.
+            D("rsvc/strip", "v2-timeline-track#desktop-timeline-track-01");
+            D("rsvc/strip/curve", "v2-timeline-curve-desktop#desktop-timeline-curve-desktop-01");
+            float t = Mathf.InverseLerp(v.Open, v.Close, v.Hour), nowX = 566 + 256 * t;
+            D("rsvc/strip/dot", "v2-timeline-dot#desktop-timeline-dot-01", new Rect(nowX - 7.5f, 30, 15, 15));
+            D("rsvc/strip/flag", "v2-timeline-flag#desktop-timeline-flag-01", new Rect(nowX - 28, 3, 56, 31));
             int hh = Mathf.FloorToInt(v.Hour), mm = Mathf.FloorToInt((v.Hour - hh) * 60);
-            coastalUi.Text("rsvc/time/now", new Rect(nowX - 26, 3, 52, ty - 12), $"{hh}:{mm:00}", Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter);
-            coastalUi.Icon("rsvc/time/pin", new Rect(nowX - 7, ty - 7, 14, 14), "v2-light-good", null, Skin.Orange);
+            T("rsvc/strip/clock", "clock", $"{hh}:{mm:00}", new Rect(nowX - 28, 6, 56, 21), TextAnchor.MiddleCenter);
+            T("rsvc/strip/l0", "timeline-label-1", "18:00", new Rect(548, 52, 50, 18), TextAnchor.MiddleCenter);
+            T("rsvc/strip/l1", "timeline-label-2", "20:00", new Rect(693, 52, 50, 18), TextAnchor.MiddleCenter);
+            T("rsvc/strip/l2", "timeline-label-3", "23:00", new Rect(814, 52, 50, 18), TextAnchor.MiddleCenter);
 
-            float ph = barH - 26 * sy, py = (barH - ph) / 2;
-            var cr = R(938, 0, 120, 0);
-            var coins = coastalUi.Sliced("rsvc/coins", new Rect(cr.x, py, cr.width, ph), "v2-pill-navy", null, Skin.PlankDark);
-            coastalUi.Icon("rsvc/coins/icon", new Rect(-6, -4, ph + 8, ph + 8), "v2-icon-coin", coins, null, "icon-coin");
-            coastalUi.Text("rsvc/coins/n", new Rect(ph + 6, 0, cr.width - ph - 10, ph), v.Coins.ToString("N0"), Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, coins, true);
-            var sr = R(1084, 0, 116, 0);
-            var stars = coastalUi.Sliced("rsvc/stars", new Rect(sr.x, py, sr.width, ph), "v2-pill-navy", null, Skin.PlankDark);
-            coastalUi.Icon("rsvc/stars/icon", new Rect(-4, -4, ph + 8, ph + 8), "v2-icon-star-blue", stars, null, "icon-star");
-            coastalUi.Text("rsvc/stars/n", new Rect(ph + 8, 0, sr.width - ph - 12, ph), v.Popularity.ToString(), Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, stars, true);
-            var spd = R(1226, 0, 194, 0);
-            var speed = coastalUi.Sliced("rsvc/speed", new Rect(spd.x, py, spd.width, ph), "v2-pill-navy", null, Skin.PlankDark);
-            float seg = spd.width / 3f;
-            string[] sl = { "II", "1×", "2×" };
-            for (int i = 0; i < 3; i++)
+            D("rsvc/coins", "v2-wallet-pill#desktop-wallet-pill-01");
+            D("rsvc/coins/icon", "v2-icon-coin-service#desktop-icon-coin-service-01", null, "rx-s12-icon-coin-service");
+            T("rsvc/coins/n", "wallet-1", v.Coins.ToString("N0"), new Rect(993, 25, 64, 30));
+            D("rsvc/stars", "v2-wallet-pill#desktop-wallet-pill-02");
+            D("rsvc/stars/icon", "v2-icon-star-blue#desktop-icon-star-blue-01");
+            T("rsvc/stars/n", "wallet-2", v.Popularity.ToString(), new Rect(1146, 25, 52, 30));
+            D("rsvc/speed", "v2-speed-pill#desktop-speed-pill-01");
+            if (v.Paused) D("rsvc/speed/p", "v2-speed-selected#desktop-speed-selected-01", new Rect(1229, 15, 59, 51));
+            D("rsvc/speed/pi", "v2-icon-pause#desktop-icon-pause-01");
+            coastalUi.HitArea("rsvc/speed/p/hit", new Rect(1229, 15, 59, 51), () => v.Paused = !v.Paused, f);
+            var speedStyle = RestaurantExact.Texts["desktop:speed-1"];
+            Rect[] speedAt = { new(1292, 15, 62, 51), new(1358, 15, 59, 51) };
+            for (int i = 1; i <= 2; i++)
             {
-                int k = i; bool on = i == 0 ? v.Paused : !v.Paused && v.Speed == i;
-                if (on) coastalUi.Sliced($"rsvc/speed/{i}/on", new Rect(seg * i + 3, 3, seg - 6, ph - 6), "v2-btn-primary", speed, Color.white);
-                coastalUi.Text($"rsvc/speed/{i}", new Rect(seg * i, 0, seg, ph), sl[i], Skin.Type.Heading, on ? Skin.Cream : new Color(.8f, .85f, .9f), TextAnchor.MiddleCenter, speed, on);
-                coastalUi.HitArea($"rsvc/speed/{i}/hit", new Rect(seg * i, 0, seg, ph), () => { if (k == 0) v.Paused = !v.Paused; else { v.Paused = false; v.Speed = k; } }, speed);
+                int s = i; bool on = !v.Paused && v.Speed == i; var r = speedAt[i - 1];
+                if (on) D($"rsvc/speed/{i}", "v2-speed-selected#desktop-speed-selected-01", r);
+                coastalUi.StyledText($"rsvc/speed/{i}/t", r, $"{i}×", speedStyle.Size, on ? cream : speedStyle.Fill, speedStyle.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
+                coastalUi.HitArea($"rsvc/speed/{i}/hit", r, () => { v.Paused = false; v.Speed = s; }, f);
             }
 
-            // Left: tonight's stock and the repair alert.
-            var st = R(18, 92, 190, 0);
-            float rowH = Mathf.Max(phone ? 40 : 0, 62 * sy), stockH = 36 * sy + rowH * v.Stock.Count + (v.Alert != null ? rowH * 1.15f : 0) + 12 * sy;
-            var stock = coastalUi.Slab("rsvc/stock", new Rect(st.x, st.y, st.width, stockH));
-            coastalUi.Text("rsvc/stock/title", new Rect(14 * sx, 4, st.width - 20 * sx, 34 * sy), "Tonight's stock", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, stock);
-            for (int i = 0; i < v.Stock.Count; i++)
+            // Left: tonight's stock and the repair chip.
+            // The slab ends under the last row unless the repair chip needs its place.
+            D("rsvc/stock", "v2-stock-slab#desktop-stock-slab-01", string.IsNullOrEmpty(v.Alert) ? new Rect(16, 90, 194, 248) : null);
+            T("rsvc/stock/title", "stock-title", "Tonight's stock", new Rect(33, 105, 170, 25));
+            string[] stockIcon = { "v2-icon-fish-stock#desktop-icon-fish-stock-01", "v2-icon-soup#desktop-icon-soup-01", "v2-icon-cup#desktop-icon-cup-02" };
+            for (int i = 0; i < v.Stock.Count && i < 3; i++)
             {
-                var s = v.Stock[i];
-                var c = coastalUi.Card($"rsvc/stock/{i}", new Rect(10 * sx, 38 * sy + i * rowH, st.width - 20 * sx, rowH - 6 * sy), Skin.Card.Soft, stock);
-                float ch = rowH - 6 * sy;
-                coastalUi.Icon($"rsvc/stock/{i}/icon", new Rect(8 * sx, 3, ch * 1.3f, ch - 6), s.Art, c, null, s.Fallback);
-                coastalUi.Text($"rsvc/stock/{i}/n", new Rect(ch * 1.3f + 20 * sx, 0, st.width * .4f, ch), s.Count.ToString(), Skin.Type.Number, s.Count <= 2 ? Skin.BadInk : Skin.Ink, TextAnchor.MiddleLeft, c);
+                var row = RestaurantExact.Pieces[$"desktop:v2-stock-row#desktop-stock-row-0{i + 1}"].rect;
+                D($"rsvc/stock/{i}", $"v2-stock-row#desktop-stock-row-0{i + 1}");
+                D($"rsvc/stock/{i}/icon", stockIcon[i]);
+                T($"rsvc/stock/{i}/n", $"stock-count-{i + 1}", v.Stock[i].Count.ToString(), new Rect(124, row.y + 12, 60, 34), TextAnchor.MiddleLeft, v.Stock[i].Count == 0 ? Skin.BadInk : null);
             }
-            if (v.Alert != null)
+            if (!string.IsNullOrEmpty(v.Alert))
             {
-                var a = coastalUi.Sliced("rsvc/alert", new Rect(10 * sx, 38 * sy + v.Stock.Count * rowH, st.width - 20 * sx, rowH * 1.1f), "v2-card-alert", stock, Color.white);
-                coastalUi.Icon("rsvc/alert/icon", new Rect(6 * sx, rowH * .25f, rowH * .55f, rowH * .55f), "v2-icon-wrench", a, Skin.Bad, "v2-icon-warning");
-                coastalUi.Text("rsvc/alert/text", new Rect(rowH * .55f + 12 * sx, 0, st.width - rowH * .55f - 36 * sx, rowH * 1.1f), v.Alert, Skin.Type.Small, Skin.BadInk, TextAnchor.MiddleLeft, a);
+                D("rsvc/repair", "v2-chip-repair#desktop-chip-repair-01");
+                D("rsvc/repair/icon", "v2-icon-wrench-repair#desktop-icon-wrench-repair-01");
+                T("rsvc/repair/t", "repair", v.Alert, new Rect(81, 343, 110, 42));
             }
 
-            // Right: Mira asks you something.
+            // Right: Mira asks.
             if (v.QuestionTitle != null)
             {
-                var q = R(1155, 84, 272, 262);
-                var card = coastalUi.Slab("rsvc/ask", q);
-                float face = Mathf.Min(q.width * .44f, q.height * .44f);
-                coastalUi.Icon("rsvc/ask/mira", new Rect(4, 2, face, face), "v2-mira-wave", card, null, "v2-portrait-mira");
-                coastalUi.Text("rsvc/ask/title", new Rect(face + 6, 10 * sy, q.width - face - 12, 34 * sy), v.QuestionTitle, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
-                coastalUi.Text("rsvc/ask/body", new Rect(face + 6, 44 * sy, q.width - face - 12, face - 46 * sy), v.QuestionBody, Skin.Type.Small, Skin.InkSoft, TextAnchor.UpperLeft, card);
-                float bw = q.width - 28 * sx, bh = Mathf.Max(phone ? 40 : 0, 50 * sy);
-                coastalUi.Primary("rsvc/ask/yes", new Rect(14 * sx, face + 4 * sy, bw, bh), v.QuestionYes, () => v.QuestionTitle = null, null, true, card);
-                coastalUi.Secondary("rsvc/ask/no", new Rect(14 * sx, face + bh + 12 * sy, bw, bh), v.QuestionNo, () => v.QuestionTitle = null, null, true, card);
+                D("rsvc/ask", "v2-service-card#desktop-service-card-01");
+                D("rsvc/ask/mira", "v2-mira-service-bust#desktop-mira-service-bust-01");
+                T("rsvc/ask/title", "late-title", v.QuestionTitle, new Rect(1284, 121, 136, 27));
+                T("rsvc/ask/body", "late-copy", v.QuestionBody, new Rect(1292, 151, 124, 48), TextAnchor.UpperLeft);
+                D("rsvc/ask/yes", "v2-btn-primary#desktop-btn-primary-01", null, "rx-s12-btn-primary");
+                T("rsvc/ask/yes/t", "seat", v.QuestionYes, new Rect(1179, 238, 233, 28), TextAnchor.MiddleCenter);
+                coastalUi.HitArea("rsvc/ask/yes/hit", new Rect(1179, 228, 233, 49), () => v.QuestionTitle = null, f);
+                D("rsvc/ask/no", "v2-btn-secondary#desktop-btn-secondary-01", null, "rx-s12-btn-secondary");
+                T("rsvc/ask/no/t", "decline", v.QuestionNo, new Rect(1179, 294, 233, 27), TextAnchor.MiddleCenter);
+                coastalUi.HitArea("rsvc/ask/no/hit", new Rect(1179, 286, 233, 45), () => v.QuestionTitle = null, f);
             }
 
-            // Bottom: the staff rail, one card per crew member with their fixed job and how busy they are.
-            if (v.Rail != RestaurantRailMode.Mockup) { RestaurantRail("rsvc/crew", R(36, 762, 1368, 108), false, v); return; }
-            var rail = R(36, 762, 1368, 108);
-            coastalUi.Slab("rsvc/rail", rail);
-            float cw = (rail.width - 16 * sx) / Mathf.Max(1, v.Staff.Count);
-            for (int i = 0; i < v.Staff.Count; i++)
+            // Bottom: one card per person (Mo 10-26), five at a time as in the mockup.
+            D("rsvc/rail", "v2-staff-rail#desktop-staff-rail-01");
+            Rect[] card = { new(44, 769, 246, 89), new(298, 769, 270, 89), new(575, 769, 246, 89), new(828, 769, 255, 89), new(1090, 769, 305, 89) };
+            float[] roleX = { 146, 406, 658, 931, 1210 }, ringX = { 218, 490, 741, 999, 1316 };
+            var crew = v.Crew;
+            int first = crew.Count > 5 ? Mathf.Clamp(v.RailFirst, 0, crew.Count - 5) : 0;
+            for (int n = 0; n < 5 && first + n < crew.Count; n++)
             {
-                var s = v.Staff[i];
-                var c = coastalUi.Card($"rsvc/staff/{i}", new Rect(rail.x + 8 * sx + i * cw, rail.y + 6 * sy, cw - 8 * sx, rail.height - 12 * sy), Skin.Card.Soft);
-                float h = rail.height - 12 * sy, bust = h * 1.06f;
-                coastalUi.Icon($"rsvc/staff/{i}/bust", new Rect(6 * sx, h - bust, bust * .9f, bust), ServiceBust(s.Portrait), c, null, s.Portrait == "captain" ? "v2-portrait-captain" : $"v2-portrait-{s.Portrait}-deck");
-                coastalUi.Text($"rsvc/staff/{i}/job", new Rect(bust * .9f + 10 * sx, 4, cw - 8 * sx - bust * .9f - h * .64f - 30 * sx, h * .42f), s.Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
-                coastalUi.Icon($"rsvc/staff/{i}/icon", new Rect(bust * .9f + 14 * sx, h * .44f, h * .46f, h * .46f), s.Icon, c, null, s.Fallback);
-                float ring = h * .64f;
-                RestaurantRing($"rsvc/staff/{i}/ring", new Rect(cw - 8 * sx - ring - 14 * sx, (h - ring) / 2, ring, ring), s.Busy, c);
+                var s = crew[first + n]; var c = card[n];
+                D($"rsvc/staff/{n}", "v2-staff-card#desktop-staff-card-01", c);
+                Rx($"rsvc/staff/{n}/bust", "desktop", "", f, new Rect(c.x + 12, 770, 80, 87), ServiceBust(s.Portrait));
+                T($"rsvc/staff/{n}/job", "staff-role-1", s.Job, new Rect(roleX[n], 783, 110, 25));
+                Rx($"rsvc/staff/{n}/icon", "desktop", "", f, new Rect(roleX[n] + 4, 802, 50, 46), RoleIcon(s.Icon));
+                var ring = new Rect(ringX[n], 785, 63, 62);
+                D($"rsvc/staff/{n}/track", "v2-meter-ring-track#desktop-meter-ring-track-01", ring);
+                var fill = D($"rsvc/staff/{n}/ring", s.Busy >= .7f ? "v2-meter-ring-fill#server-ring" : "v2-s12x-meter-ring-fill-orange#desktop-s12x-meter-ring-fill-orange-01", ring);
+                var img = fill.GetComponent<UnityEngine.UI.Image>();
+                if (img != null) { img.type = UnityEngine.UI.Image.Type.Filled; img.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360; img.fillOrigin = 2; img.fillClockwise = true; img.fillAmount = Mathf.Clamp01(s.Busy); }
             }
+            if (crew.Count > 5) coastalUi.HitArea("rsvc/staff/more", new Rect(34, 758, 1374, 112), () => v.RailFirst = first + 5 >= crew.Count ? 0 : first + 5, f);
         }
-
 
         // S2 on a phone: the service HUD over the 3D room (ui-2-service.png), every piece and text at its measured place.
         void InterfaceRestaurantServicePhone(RestaurantServiceView v)

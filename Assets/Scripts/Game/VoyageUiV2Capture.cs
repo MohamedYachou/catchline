@@ -252,6 +252,7 @@ namespace Catchline.Game
             var ui = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
             // The restaurant night draws through its own camera (RestaurantWorld) while it runs.
             var view = restaurantWorld != null && restaurantWorld.ServiceCamera != null ? restaurantWorld.ServiceCamera : Cam;
+            if (view != Cam) { restaurantWorld.captureFraming = true; restaurantWorld.FrameCamera(size.x, size.y); }
             var previous = view.targetTexture;
             view.targetTexture = scene;
             UnityEngine.Rendering.RenderPipeline.SubmitRenderRequest(view, new UnityEngine.Rendering.RenderPipeline.StandardRequest { destination = scene });

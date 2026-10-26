@@ -178,9 +178,12 @@ namespace Catchline.Game.Restaurant
             SetLayer(holder.gameObject);
             return new Actor{Root=holder,Rig=rig,Prop=prop,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
         }
-        void FrameCamera()
+        void FrameCamera()=>FrameCamera(Screen.width,Screen.height);
+        // Captures render at their own size, not the window's; they frame for that size first.
+        public bool captureFraming;
+        public void FrameCamera(int w,int h)
         {
-            width=Screen.width;height=Screen.height;if(ServiceCamera==null)return;
+            width=w;height=h;if(ServiceCamera==null)return;
             bool phone=width/(float)Math.Max(1,height)>1.9f;
             float top=phone?46f/390:78f/900,bottom=phone?72f/390:140f/900;
             // Full screen like the mockup (the sea runs under the HUD); a lens shift keeps the room between the bars.
@@ -215,7 +218,7 @@ namespace Catchline.Game.Restaurant
         }
         public void Refresh(float dt)
         {
-            if(Sim==null)return;if(width!=Screen.width||height!=Screen.height)FrameCamera();animationTime+=dt;
+            if(Sim==null)return;if(!captureFraming&&(width!=Screen.width||height!=Screen.height))FrameCamera();animationTime+=dt;
             foreach(var s in Sim.Staff){
                 var a=actors[s.Id];var goal=TileToWorld(s.Position);a.Root.position=goal;
                 Vector3 dir=goal-a.Last;if(dir.sqrMagnitude>.000001f)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*12));
