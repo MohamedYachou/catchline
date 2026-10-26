@@ -25,7 +25,7 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 Holding: docs/briefs/**.
 
 ## Done (latest first)
-- first-catch reveal uses the trophy catch-card (name/kg in its band, ribbon above, stamp on the window); tutorial checks 217 PASS
+- 9b20d56 first-catch reveal uses the trophy catch-card (name/kg in its band, ribbon above, stamp on the window); tutorial checks 217 PASS
 - 7cafc46 refined Rowboat/Skiff in game (Codex 2 BOAT-REFINE-1, accepted; captures intro-*, refit-skiff-*)
 - 514717c / 7c0ebcd / fa54ee5 / 08531a9 cast splash, purchase glint/burst, strike-tap art (Codex 1/2, accepted)
 - 9c99409 purchase coin flight, crew badge/gems/reward bands, bigger chest art, Mira's first pointer fix; Codex SOUND-WIRE-4/5, TUTORIAL-CHECK-1, UI-POLISH-ART-1 accepted
