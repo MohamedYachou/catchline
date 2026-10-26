@@ -1,0 +1,1344 @@
+{
+  "sheer_bow_lift_m": 0.25986337661743164,
+  "sheer_stern_lift_m": 0.09986227750778198,
+  "pass": true,
+  "triangles": 14795,
+  "original_triangles": 13968,
+  "triangle_cap": 19555,
+  "legacy_nodes": 86,
+  "unchanged_meshes": [
+    "BowLocker",
+    "CanopyFrame",
+    "EngineFittings",
+    "HelmConsole",
+    "HelmFittings",
+    "NetCrank",
+    "NetDrum",
+    "NetMountFittings",
+    "OutboardMotor",
+    "PlankDeck",
+    "Chum pail under table",
+    "Cutting board 1",
+    "Cutting board 2",
+    "Fish on cutting board 1",
+    "Fish on cutting board 2",
+    "Knife blade 1",
+    "Knife blade 2",
+    "Knife handle 1",
+    "Knife handle 2",
+    "Prep stainless rim",
+    "Prep table leg",
+    "Prep table leg.001",
+    "Prep table leg.002",
+    "Prep table leg.003",
+    "Prep table lower shelf",
+    "Prep washable top",
+    "Worker standing mat 1",
+    "Worker standing mat 2",
+    "Insulated lid 1",
+    "Insulated lid 2",
+    "PREPARED freezer 1",
+    "PREPARED freezer 2",
+    "Recessed lid handle 1",
+    "Recessed lid handle 2",
+    "Storage front latch 1",
+    "Storage front latch 2",
+    "Propeller",
+    "Bucket handle",
+    "Bucket handle.001",
+    "Bucket handle.002",
+    "Bucket handle.003",
+    "RAW bucket 1",
+    "RAW bucket 2",
+    "Raw fish in bucket",
+    "Raw fish in bucket.001",
+    "Raw fish in bucket.002",
+    "Raw fish in bucket.003",
+    "Ice marker horizontal",
+    "Ice marker horizontal.001",
+    "Ice marker vertical",
+    "Ice marker vertical.001",
+    "Insulated lid 1.002",
+    "Insulated lid 2.002",
+    "RAW ice cooler 1",
+    "RAW ice cooler 2",
+    "Recessed lid handle 1.002",
+    "Recessed lid handle 2.002",
+    "Storage front latch 1.002",
+    "Storage front latch 2.002",
+    "RodSocket_1",
+    "RodSocket_2",
+    "RodSocket_3",
+    "RodVisual_1",
+    "RodVisual_2",
+    "RodVisual_3",
+    "SafetyFenders",
+    "SternNetRoller",
+    "SternNet_Stowed",
+    "orange beacon",
+    "patched plank over previous hold",
+    "short mast",
+    "squared helm canopy",
+    "teal canopy brow"
+  ],
+  "deck_old_bounds": [
+    [
+      -1.5237503051757812,
+      -3.0222222805023193,
+      -0.035000499337911606
+    ],
+    [
+      1.5243747234344482,
+      3.0725924968719482,
+      4.923825258629222e-07
+    ]
+  ],
+  "deck_new_bounds": [
+    [
+      -1.5237503051757812,
+      -3.0222222805023193,
+      -0.035000868141651154
+    ],
+    [
+      1.5243747234344482,
+      3.0725924968719482,
+      8.526594683644362e-07
+    ]
+  ],
+  "nodes": [
+    {
+      "node": "BowLocker",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "CanopyFrame",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "EngineFittings",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "GunwaleHardware",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HelmConsole",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HelmFittings",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Hull",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HullPaintBand",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetCrank",
+      "old_source_world_pivot": [
+        1.119999647140503,
+        3.5320003032684326,
+        0.7599995732307434
+      ],
+      "new_source_world_pivot": [
+        1.119999647140503,
+        3.5320003032684326,
+        0.7599995732307434
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetDrum",
+      "old_source_world_pivot": [
+        0.6749999523162842,
+        3.429999828338623,
+        0.6698538064956665
+      ],
+      "new_source_world_pivot": [
+        0.6749999523162842,
+        3.429999828338623,
+        0.6698538064956665
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetMountFittings",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "OutboardMotor",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PlankDeck",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Chum pail under table",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200000882148743,
+        0.24999988079071045
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200000882148743,
+        0.2499997913837433
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Cutting board 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        0.720000147819519,
+        0.6599999070167542
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        0.7200002074241638,
+        0.6599998474121094
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Cutting board 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        0.720000147819519,
+        0.6599999070167542
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        0.7200002074241638,
+        0.6599998474121094
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Fish on cutting board 1",
+      "old_source_world_pivot": [
+        -0.4000000059604645,
+        0.720000147819519,
+        0.7049998641014099
+      ],
+      "new_source_world_pivot": [
+        -0.4000000059604645,
+        0.7200002074241638,
+        0.7049998044967651
+      ],
+      "max_matrix_delta": 5.960464477539063e-08
+    },
+    {
+      "node": "Fish on cutting board 2",
+      "old_source_world_pivot": [
+        0.320000022649765,
+        0.720000147819519,
+        0.7049998641014099
+      ],
+      "new_source_world_pivot": [
+        0.320000022649765,
+        0.7200002074241638,
+        0.7049998044967651
+      ],
+      "max_matrix_delta": 5.960464477539063e-08
+    },
+    {
+      "node": "Knife blade 1",
+      "old_source_world_pivot": [
+        -0.1800002157688141,
+        0.705000102519989,
+        0.7019999027252197
+      ],
+      "new_source_world_pivot": [
+        -0.1800002157688141,
+        0.7050001621246338,
+        0.701999843120575
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife blade 2",
+      "old_source_world_pivot": [
+        0.5400000810623169,
+        0.705000102519989,
+        0.7019999027252197
+      ],
+      "new_source_world_pivot": [
+        0.5400000810623169,
+        0.7050001621246338,
+        0.701999843120575
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife handle 1",
+      "old_source_world_pivot": [
+        -0.1800002157688141,
+        0.8550001382827759,
+        0.7019999027252197
+      ],
+      "new_source_world_pivot": [
+        -0.1800002157688141,
+        0.8550001978874207,
+        0.7019997835159302
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife handle 2",
+      "old_source_world_pivot": [
+        0.5400000810623169,
+        0.8550001382827759,
+        0.7019999027252197
+      ],
+      "new_source_world_pivot": [
+        0.5400000810623169,
+        0.8550001978874207,
+        0.7019997835159302
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep stainless rim",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        0.720000147819519,
+        0.5699998736381531
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200002074241638,
+        0.5699998140335083
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg",
+      "old_source_world_pivot": [
+        -0.5900000333786011,
+        0.5000000596046448,
+        0.2749999165534973
+      ],
+      "new_source_world_pivot": [
+        -0.5900000333786011,
+        0.5000000596046448,
+        0.27499985694885254
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.001",
+      "old_source_world_pivot": [
+        -0.5900000333786011,
+        0.940000057220459,
+        0.27499985694885254
+      ],
+      "new_source_world_pivot": [
+        -0.5900000333786011,
+        0.940000057220459,
+        0.274999737739563
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.002",
+      "old_source_world_pivot": [
+        0.5900000333786011,
+        0.5000000596046448,
+        0.2749999165534973
+      ],
+      "new_source_world_pivot": [
+        0.5900000333786011,
+        0.5000000596046448,
+        0.27499985694885254
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.003",
+      "old_source_world_pivot": [
+        0.5900000333786011,
+        0.940000057220459,
+        0.27499985694885254
+      ],
+      "new_source_world_pivot": [
+        0.5900000333786011,
+        0.940000057220459,
+        0.274999737739563
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table lower shelf",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200000882148743,
+        0.1999998837709427
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200000882148743,
+        0.19999979436397552
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep washable top",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        0.720000147819519,
+        0.6299998760223389
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        0.7200002074241638,
+        0.6299998164176941
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Worker standing mat 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        1.399999976158142,
+        0.015999773517251015
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        1.399999976158142,
+        0.015999605879187584
+      ],
+      "max_matrix_delta": 1.6763806343078613e-07
+    },
+    {
+      "node": "Worker standing mat 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        1.399999976158142,
+        0.015999773517251015
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        1.399999976158142,
+        0.015999605879187584
+      ],
+      "max_matrix_delta": 1.6763806343078613e-07
+    },
+    {
+      "node": "PrepStation",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepWorker_1",
+      "old_source_world_pivot": [
+        -0.36000001430511475,
+        1.399999976158142,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        -0.36000001430511475,
+        1.399999976158142,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepWorker_2",
+      "old_source_world_pivot": [
+        0.36000001430511475,
+        1.399999976158142,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.36000001430511475,
+        1.399999976158142,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        2.0399999618530273,
+        0.4899996817111969
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        2.0400002002716064,
+        0.4899994432926178
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Insulated lid 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        2.0399999618530273,
+        0.4899996817111969
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        2.0400002002716064,
+        0.4899994432926178
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "PREPARED freezer 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        2.0399999618530273,
+        0.24499967694282532
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        2.0399999618530273,
+        0.24499942362308502
+      ],
+      "max_matrix_delta": 2.5331974029541016e-07
+    },
+    {
+      "node": "PREPARED freezer 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        2.0399999618530273,
+        0.24499967694282532
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        2.0399999618530273,
+        0.24499942362308502
+      ],
+      "max_matrix_delta": 2.5331974029541016e-07
+    },
+    {
+      "node": "Recessed lid handle 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        2.0399999618530273,
+        0.534999668598175
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        2.0400002002716064,
+        0.534999430179596
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Recessed lid handle 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        2.0399999618530273,
+        0.534999668598175
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        2.0400002002716064,
+        0.534999430179596
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Storage front latch 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        1.790000081062317,
+        0.3899996876716614
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        1.790000081062317,
+        0.38999947905540466
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "Storage front latch 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        1.790000081062317,
+        0.3899996876716614
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        1.790000081062317,
+        0.38999947905540466
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "PreparedHold",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PreparedOutput_1",
+      "old_source_world_pivot": [
+        -0.36000001430511475,
+        2.0399999618530273,
+        0.23999999463558197
+      ],
+      "new_source_world_pivot": [
+        -0.36000001430511475,
+        2.0399999618530273,
+        0.23999999463558197
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PreparedOutput_2",
+      "old_source_world_pivot": [
+        0.36000001430511475,
+        2.0399999618530273,
+        0.23999999463558197
+      ],
+      "new_source_world_pivot": [
+        0.36000001430511475,
+        2.0399999618530273,
+        0.23999999463558197
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Propeller",
+      "old_source_world_pivot": [
+        -0.5004124641418457,
+        3.695000171661377,
+        -0.5500004887580872
+      ],
+      "new_source_world_pivot": [
+        -0.5004124641418457,
+        3.695000171661377,
+        -0.5500004887580872
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Bucket handle",
+      "old_source_world_pivot": [
+        -0.6239999532699585,
+        0.130000039935112,
+        0.29999998211860657
+      ],
+      "new_source_world_pivot": [
+        -0.6239999532699585,
+        0.13000008463859558,
+        0.29999998211860657
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Bucket handle.001",
+      "old_source_world_pivot": [
+        -0.09600009769201279,
+        0.130000039935112,
+        0.29999998211860657
+      ],
+      "new_source_world_pivot": [
+        -0.09600009769201279,
+        0.13000008463859558,
+        0.29999998211860657
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Bucket handle.002",
+      "old_source_world_pivot": [
+        0.0960000529885292,
+        0.130000039935112,
+        0.29999998211860657
+      ],
+      "new_source_world_pivot": [
+        0.0960000529885292,
+        0.13000008463859558,
+        0.29999998211860657
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Bucket handle.003",
+      "old_source_world_pivot": [
+        0.6239999532699585,
+        0.130000039935112,
+        0.29999998211860657
+      ],
+      "new_source_world_pivot": [
+        0.6239999532699585,
+        0.13000008463859558,
+        0.29999998211860657
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW bucket 1",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW bucket 2",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Raw fish in bucket",
+      "old_source_world_pivot": [
+        -0.4300002157688141,
+        0.130000039935112,
+        0.3099999725818634
+      ],
+      "new_source_world_pivot": [
+        -0.4300002157688141,
+        0.13000008463859558,
+        0.3099999725818634
+      ],
+      "max_matrix_delta": 4.470348358154297e-08
+    },
+    {
+      "node": "Raw fish in bucket.001",
+      "old_source_world_pivot": [
+        -0.2899998724460602,
+        0.130000039935112,
+        0.3099999725818634
+      ],
+      "new_source_world_pivot": [
+        -0.2899998724460602,
+        0.13000008463859558,
+        0.3099999725818634
+      ],
+      "max_matrix_delta": 4.470348358154297e-08
+    },
+    {
+      "node": "Raw fish in bucket.002",
+      "old_source_world_pivot": [
+        0.2900000512599945,
+        0.130000039935112,
+        0.3099999725818634
+      ],
+      "new_source_world_pivot": [
+        0.2900000512599945,
+        0.13000008463859558,
+        0.3099999725818634
+      ],
+      "max_matrix_delta": 4.470348358154297e-08
+    },
+    {
+      "node": "Raw fish in bucket.003",
+      "old_source_world_pivot": [
+        0.4299999177455902,
+        0.130000039935112,
+        0.3099999725818634
+      ],
+      "new_source_world_pivot": [
+        0.4299999177455902,
+        0.13000008463859558,
+        0.3099999725818634
+      ],
+      "max_matrix_delta": 4.470348358154297e-08
+    },
+    {
+      "node": "RawBuckets",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker horizontal",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        -0.12799996137619019,
+        0.2500000298023224
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        -0.1279999315738678,
+        0.2500000298023224
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker horizontal.001",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        -0.12799996137619019,
+        0.2500000298023224
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        -0.1279999315738678,
+        0.2500000298023224
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker vertical",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        -0.12699995934963226,
+        0.2500000298023224
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        -0.12699992954730988,
+        0.2500000298023224
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker vertical.001",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        -0.12699995934963226,
+        0.2500000298023224
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        -0.12699992954730988,
+        0.2500000298023224
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 1.002",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        0.14000007510185242,
+        0.4899999797344208
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        0.1400001347064972,
+        0.4899999797344208
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 2.002",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        0.14000007510185242,
+        0.4899999797344208
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        0.1400001347064972,
+        0.4899999797344208
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW ice cooler 1",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        0.14000004529953003,
+        0.2449999749660492
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        0.14000007510185242,
+        0.244999960064888
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW ice cooler 2",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        0.14000004529953003,
+        0.2449999749660492
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        0.14000007510185242,
+        0.244999960064888
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 1.002",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        0.1400000900030136,
+        0.5350000262260437
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        0.1400001496076584,
+        0.5349999666213989
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 2.002",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        0.1400000900030136,
+        0.5350000262260437
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        0.1400001496076584,
+        0.5349999666213989
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 1.002",
+      "old_source_world_pivot": [
+        -0.36000004410743713,
+        -0.10999993234872818,
+        0.39000001549720764
+      ],
+      "new_source_world_pivot": [
+        -0.36000004410743713,
+        -0.1099998876452446,
+        0.39000001549720764
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 2.002",
+      "old_source_world_pivot": [
+        0.35999998450279236,
+        -0.10999993234872818,
+        0.39000001549720764
+      ],
+      "new_source_world_pivot": [
+        0.35999998450279236,
+        -0.1099998876452446,
+        0.39000001549720764
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RawIceCoolers",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RawInput_1",
+      "old_source_world_pivot": [
+        -0.36000001430511475,
+        0.14000000059604645,
+        0.23999999463558197
+      ],
+      "new_source_world_pivot": [
+        -0.36000001430511475,
+        0.14000000059604645,
+        0.23999999463558197
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RawInput_2",
+      "old_source_world_pivot": [
+        0.36000001430511475,
+        0.14000000059604645,
+        0.23999999463558197
+      ],
+      "new_source_world_pivot": [
+        0.36000001430511475,
+        0.14000000059604645,
+        0.23999999463558197
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_1",
+      "old_source_world_pivot": [
+        -1.6000003814697266,
+        1.0803341865539551e-07,
+        0.4700000286102295
+      ],
+      "new_source_world_pivot": [
+        -1.6000003814697266,
+        1.0803341865539551e-07,
+        0.4700000286102295
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_2",
+      "old_source_world_pivot": [
+        1.5999999046325684,
+        1.0803341865539551e-07,
+        0.4700000286102295
+      ],
+      "new_source_world_pivot": [
+        1.5999999046325684,
+        1.0803341865539551e-07,
+        0.4700000286102295
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_3",
+      "old_source_world_pivot": [
+        -1.5375003814697266,
+        2.2037038803100586,
+        0.4699997305870056
+      ],
+      "new_source_world_pivot": [
+        -1.5375003814697266,
+        2.2037038803100586,
+        0.4699997305870056
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodVisual_1",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodVisual_2",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodVisual_3",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SafetyFenders",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SternNetRoller",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SternNet_Stowed",
+      "old_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        3.8499999046325684,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "orange beacon",
+      "old_source_world_pivot": [
+        0.5800000429153442,
+        -1.899999976158142,
+        1.9800000190734863
+      ],
+      "new_source_world_pivot": [
+        0.5800000429153442,
+        -1.899999976158142,
+        1.9800000190734863
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "patched plank over previous hold",
+      "old_source_world_pivot": [
+        -0.8124998807907104,
+        1.0700000524520874,
+        -0.017999999225139618
+      ],
+      "new_source_world_pivot": [
+        -0.8124998807907104,
+        1.0700000524520874,
+        -0.017999999225139618
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "short mast",
+      "old_source_world_pivot": [
+        0.5800000429153442,
+        -1.899999976158142,
+        1.7100000381469727
+      ],
+      "new_source_world_pivot": [
+        0.5800000429153442,
+        -1.899999976158142,
+        1.7100000381469727
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "squared helm canopy",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        -1.600000023841858,
+        1.4299999475479126
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        -1.600000023841858,
+        1.4299999475479126
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "teal canopy brow",
+      "old_source_world_pivot": [
+        9.536743306171047e-08,
+        -0.7400000095367432,
+        1.4299999475479126
+      ],
+      "new_source_world_pivot": [
+        9.536743306171047e-08,
+        -0.7400000095367432,
+        1.4299999475479126
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    }
+  ],
+  "new_nodes": [
+    "CanopyDripLip",
+    "CanopyTimberKnees",
+    "KeelAndRakedStem",
+    "SweptCapAndRubber"
+  ],
+  "original_sha256": "5e7ca921e2e661a57ce71d442b2aebb710184a721023b75cee3182c76485b099",
+  "source_fbx_preserved": true,
+  "native_Unity_tested": false,
+  "exported_fbx_sha256": "6c98b625efb8999d4ba1afda35c43e43866603fdc2b7bfdbce7898c9fa8e825a",
+  "material_names": [
+    "M_BandIvory",
+    "M_ClinkerRecess",
+    "M_DeckWood",
+    "M_FishSilver",
+    "M_HullBlue",
+    "M_HullNavy",
+    "M_KelpGreen",
+    "M_OilskinYellow",
+    "M_RailIvory",
+    "M_Rope",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_SeaTeal",
+    "M_Skin",
+    "M_Steel",
+    "M_WoodHighlight",
+    "M_WoodRecess"
+  ],
+  "unknown_material_names": []
+}

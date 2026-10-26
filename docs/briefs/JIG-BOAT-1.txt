@@ -1,0 +1,31 @@
+JIG-BOAT-1 — Codex 2 — the tier 3 boat, "Jig boat", from concept to a reviewed 3D hull
+GOAL: Mo's boat ladder is 0 Rowboat, 1 Skiff, 2 Compact fisher, 3 Jig boat, 4 Prep fisher, 5 Buoy fisher (the crew
+office already lists it: CrewRecruit.cs TierBoat). Tier 3 is missing, so a Compact fisher jumps straight to the Prep
+fisher. Make the Jig boat: a night squid-jigging boat between the two in size and look.
+
+CONTEXT (read these, nothing else up front):
+- Art/Models/BoatsV2/CompactFisherV1/ and PrepFisherV1/: REPORT.md, renders/, validation.json, bounds-audit.json.
+  Same build pipeline (Art/Source/BoatsV2/build2.py), same unit fix (UnitScaleFactor 100, see your bounds FIX).
+- Art/Source/BoatsV2/ui/v2-item-hull{0,1,3,4}.png and the accepted hull2 card: the refit-card style.
+- docs/BLUEPRINT.md lines ~100-110 and ~190 (jigs: night, no bait, a lamp), docs/ART-PLAN.md line ~116 (jig rig).
+- Art/STYLE.md.
+
+WHAT IT IS: about 7.0 x 3.3 m (Compact 5.4, Prep 6.8 m span: make it a touch longer than the Compact and lower and
+leaner than the Prep). Same navy hull, warm timber deck and ivory wheelhouse family. Its identity: a row of squid-jig
+lamps on a wire along the length (bulbs on a cable between two short masts), 2-3 small jig reels on the rail, a compact
+wheelhouse forward, an open working deck aft with a sorting tray. Deck must stay walkable: a clear flat deck for crew
+and stations like the Compact and Prep (look at their deck-55 renders).
+
+ORDER (finish and log each before the next):
+A. Concept: 3 painted options as one sheet (Art/Source/BoatsV2/JigBoat/concepts.png), side + three-quarter each,
+   then pick the one that best fits between the two neighbours; write why in REPORT.md. Do not wait for Claude.
+B. 3D: Art/Models/BoatsV2/JigBoatV1/{JigBoatV1.blend,.fbx,REPORT.md,renders/,validation.json,bounds-audit.json}.
+   Tri cap 13,000. Exported with the corrected units; bounds table for every mesh. Renders: the same seven views as
+   the Prep fisher (side, top, front/back three-quarter, deck-55, low waterline, game-exact-45), plus a three-boat
+   lineup (Compact, Jig, Prep) at the same scale.
+C. Refit card: Art/Source/BoatsV2/ui/v2-item-hull-jig.png, 480x360 RGBA in the same style as the other cards.
+
+CONSTRAINTS: no git, no .meta, no Unity, no .cs files, do not touch other boats' files. Sockets/deck coordinates and
+game wiring are Claude's job after acceptance.
+DONE = EVIDENCE: the renders and lineup opened and checked from every angle (no gaps, no floating parts, no oversized
+mesh); one comms.md DONE line per letter with paths and tri count. QUESTION line and go on if blocked.

@@ -1,0 +1,22 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+FBX version: 7400
+AUDIT PASS CompactFisherV1 10825
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:51: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Review soft cool fill');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.74,.80,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:58: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,floorz));floor=bpy.context.object;floor.name='REVIEW_ONLY_floor';m=bpy.data.materials.new('REVIEW_ONLY_cream');m.diffuse_color=(.78,.74,.64,1);m.use_nodes=True;m.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=m.diffuse_color;m.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=1;floor.data.materials.append(m)
+FBX version: 7400
+RAY front-three-quarter 500 463 PlankDeck [-0.8730096817016602, -2.229708671569824, -0.013792362995445728]
+RENDER PASS CompactFisherV1 new front-three-quarter
+RAY front-three-quarter 463 470 PlankDeck [-1.2061185836791992, -2.09783935546875, -0.0008395952172577381]
+RENDER PASS CompactFisherV1 new front-three-quarter
+RAY side 605 350 Hull [-1.2490234375, -1.9071484804153442, -0.015874890610575676]
+RENDER PASS CompactFisherV1 new side
+REVIEW COMPLETE CompactFisherV1
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,2118 @@
+{
+  "pass": true,
+  "triangles": 17472,
+  "original_triangles": 17096,
+  "triangle_cap": 23934,
+  "legacy_nodes": 139,
+  "unchanged_meshes": [
+    "BowLocker",
+    "CanopyFrame",
+    "Deep 1 hanging fishing line",
+    "Deep 1 line guide",
+    "Deep 1 line guide.001",
+    "Deep 1 line guide.002",
+    "Deep 1 line guide.003",
+    "Deep 1 orange grip",
+    "Deep 1 tapered pole 0",
+    "Deep 1 tapered pole 1",
+    "Deep 1 tapered pole 2",
+    "Deep 1 tapered pole 3",
+    "Deep 1 crank",
+    "Deep 1 hand reel",
+    "Deep 1 handle",
+    "Deep 1 reel flange",
+    "Deep 1 reel flange.001",
+    "Deep 2 hanging fishing line",
+    "Deep 2 line guide",
+    "Deep 2 line guide.001",
+    "Deep 2 line guide.002",
+    "Deep 2 line guide.003",
+    "Deep 2 orange grip",
+    "Deep 2 tapered pole 0",
+    "Deep 2 tapered pole 1",
+    "Deep 2 tapered pole 2",
+    "Deep 2 tapered pole 3",
+    "Deep 2 crank",
+    "Deep 2 hand reel",
+    "Deep 2 handle",
+    "Deep 2 reel flange",
+    "Deep 2 reel flange.001",
+    "EngineFittings",
+    "GunwaleHardware",
+    "HelmConsole",
+    "HelmFittings",
+    "Hull",
+    "HullPaintBand",
+    "NetCrank",
+    "NetDrum",
+    "NetMountFittings",
+    "SternNetRoller",
+    "SternNet_Stowed",
+    "Module2_NetCrank",
+    "Module2_NetDrum",
+    "Module2_NetMountFittings",
+    "Module2_SternNetRoller",
+    "Module2_SternNet_Stowed",
+    "RodHolder_3",
+    "RodHolder_4",
+    "OutboardMotor",
+    "PlankDeck",
+    "Cutting board 1",
+    "Cutting board 2",
+    "Knife blade 1",
+    "Knife blade 2",
+    "Knife handle 1",
+    "Knife handle 2",
+    "Prep stainless rim",
+    "Prep table leg",
+    "Prep table leg.001",
+    "Prep table leg.002",
+    "Prep table leg.003",
+    "Prep table lower shelf",
+    "Prep washable top",
+    "Insulated lid 1.001",
+    "Insulated lid 2.001",
+    "PREPARED freezer 1",
+    "PREPARED freezer 2",
+    "Recessed lid handle 1.001",
+    "Recessed lid handle 2.001",
+    "Storage front latch 1.001",
+    "Storage front latch 2.001",
+    "Propeller",
+    "Plain_Insulated lid 1",
+    "Plain_Insulated lid 2",
+    "Plain_RAW ice cooler 1",
+    "Plain_RAW ice cooler 2",
+    "Plain_Recessed lid handle 1",
+    "Plain_Recessed lid handle 2",
+    "Plain_Storage front latch 1",
+    "Plain_Storage front latch 2",
+    "Ice marker horizontal",
+    "Ice marker horizontal.001",
+    "Ice marker vertical",
+    "Ice marker vertical.001",
+    "Insulated lid 1",
+    "Insulated lid 2",
+    "RAW ice cooler 1",
+    "RAW ice cooler 2",
+    "Recessed lid handle 1",
+    "Recessed lid handle 2",
+    "Storage front latch 1",
+    "Storage front latch 2",
+    "RodHolder_1",
+    "RodHolder_2",
+    "SafetyFenders",
+    "orange beacon",
+    "patched plank over previous hold",
+    "short mast",
+    "squared helm canopy",
+    "teal canopy brow"
+  ],
+  "deck_old_bounds": [
+    [
+      -1.8285001516342163,
+      -3.777777910232544,
+      -0.035000625997781754
+    ],
+    [
+      1.8292499780654907,
+      3.84074068069458,
+      6.15478143117798e-07
+    ]
+  ],
+  "deck_new_bounds": [
+    [
+      -1.8285001516342163,
+      -3.777777910232544,
+      -0.035001084208488464
+    ],
+    [
+      1.8292499780654907,
+      3.84074068069458,
+      1.0658243354555452e-06
+    ]
+  ],
+  "nodes": [
+    {
+      "node": "BowLocker",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "BuoyAccess_1",
+      "old_source_world_pivot": [
+        -1.350000023841858,
+        -2.049999952316284,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        -1.350000023841858,
+        -2.049999952316284,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "BuoyAccess_2",
+      "old_source_world_pivot": [
+        0.949999988079071,
+        -2.049999952316284,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.949999988079071,
+        -2.049999952316284,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "BuoyAnchor_1",
+      "old_source_world_pivot": [
+        -2.799999952316284,
+        -2.049999952316284,
+        -0.30000001192092896
+      ],
+      "new_source_world_pivot": [
+        -2.799999952316284,
+        -2.049999952316284,
+        -0.30000001192092896
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "BuoyAnchor_2",
+      "old_source_world_pivot": [
+        2.799999952316284,
+        -2.049999952316284,
+        -0.30000001192092896
+      ],
+      "new_source_world_pivot": [
+        2.799999952316284,
+        -2.049999952316284,
+        -0.30000001192092896
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "CanopyFrame",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "DeepLineBase_1",
+      "old_source_world_pivot": [
+        1.8700000047683716,
+        0.40000009536743164,
+        0.4599999487400055
+      ],
+      "new_source_world_pivot": [
+        1.8700000047683716,
+        0.40000012516975403,
+        0.4599998891353607
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "DeepLineBase_2",
+      "old_source_world_pivot": [
+        1.8700000047683716,
+        1.820000171661377,
+        0.4599997103214264
+      ],
+      "new_source_world_pivot": [
+        1.8700000047683716,
+        1.820000171661377,
+        0.4599995017051697
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "Deep 1 hanging fishing line",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        0.4000002443790436,
+        1.4299999475479126
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        0.4000003933906555,
+        1.429999828338623
+      ],
+      "max_matrix_delta": 1.4901161193847656e-07
+    },
+    {
+      "node": "Deep 1 line guide",
+      "old_source_world_pivot": [
+        1.9800000190734863,
+        0.40000027418136597,
+        1.5149998664855957
+      ],
+      "new_source_world_pivot": [
+        1.9800000190734863,
+        0.4000004529953003,
+        1.5149998664855957
+      ],
+      "max_matrix_delta": 1.7881393432617188e-07
+    },
+    {
+      "node": "Deep 1 line guide.001",
+      "old_source_world_pivot": [
+        2.25,
+        0.4000004231929779,
+        2.5250000953674316
+      ],
+      "new_source_world_pivot": [
+        2.25,
+        0.4000007212162018,
+        2.5249998569488525
+      ],
+      "max_matrix_delta": 2.980232238769531e-07
+    },
+    {
+      "node": "Deep 1 line guide.002",
+      "old_source_world_pivot": [
+        2.75,
+        0.40000051259994507,
+        3.0850000381469727
+      ],
+      "new_source_world_pivot": [
+        2.75,
+        0.4000008702278137,
+        3.0849997997283936
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 1 line guide.003",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        0.40000054240226746,
+        3.1750001907348633
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        0.4000009298324585,
+        3.174999952316284
+      ],
+      "max_matrix_delta": 3.8743019104003906e-07
+    },
+    {
+      "node": "Deep 1 orange grip",
+      "old_source_world_pivot": [
+        1.934999942779541,
+        0.4000001847743988,
+        0.9899998903274536
+      ],
+      "new_source_world_pivot": [
+        1.934999942779541,
+        0.40000030398368835,
+        0.9899997711181641
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 rail clamp",
+      "old_source_world_pivot": [
+        1.8600000143051147,
+        0.40000009536743164,
+        0.43999993801116943
+      ],
+      "new_source_world_pivot": [
+        1.8600000143051147,
+        0.4000001549720764,
+        0.43999987840652466
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 tapered pole 0",
+      "old_source_world_pivot": [
+        1.9249999523162842,
+        0.4000001847743988,
+        0.9699999094009399
+      ],
+      "new_source_world_pivot": [
+        1.9249999523162842,
+        0.40000030398368835,
+        0.9699997901916504
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 tapered pole 1",
+      "old_source_world_pivot": [
+        2.115000009536743,
+        0.40000033378601074,
+        1.9849998950958252
+      ],
+      "new_source_world_pivot": [
+        2.115000009536743,
+        0.40000054240226746,
+        1.9849998950958252
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "Deep 1 tapered pole 2",
+      "old_source_world_pivot": [
+        2.5,
+        0.4000004827976227,
+        2.7699999809265137
+      ],
+      "new_source_world_pivot": [
+        2.5,
+        0.40000081062316895,
+        2.7699997425079346
+      ],
+      "max_matrix_delta": 3.2782554626464844e-07
+    },
+    {
+      "node": "Deep 1 tapered pole 3",
+      "old_source_world_pivot": [
+        3.0450000762939453,
+        0.40000051259994507,
+        3.0950000286102295
+      ],
+      "new_source_world_pivot": [
+        3.0450000762939453,
+        0.4000008702278137,
+        3.0949997901916504
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 1 crank",
+      "old_source_world_pivot": [
+        1.815000057220459,
+        0.20000015199184418,
+        0.800000011920929
+      ],
+      "new_source_world_pivot": [
+        1.815000057220459,
+        0.20000027120113373,
+        0.800000011920929
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 hand reel",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        0.4000001549720764,
+        0.7399999499320984
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        0.4000002443790436,
+        0.7399998903274536
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 handle",
+      "old_source_world_pivot": [
+        1.690000057220459,
+        0.13500019907951355,
+        0.8600000143051147
+      ],
+      "new_source_world_pivot": [
+        1.690000057220459,
+        0.1350002884864807,
+        0.85999995470047
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 reel flange",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        0.2400001436471939,
+        0.7399999499320984
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        0.24000023305416107,
+        0.7399999499320984
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 1 reel flange.001",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        0.5600001811981201,
+        0.7399999499320984
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        0.5600003004074097,
+        0.7399998903274536
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "DeepLineReelPivot_1",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        0.4000001549720764,
+        0.7399999499320984
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        0.4000002443790436,
+        0.7399998903274536
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "DeepLineRig_1",
+      "old_source_world_pivot": [
+        1.8700000047683716,
+        0.40000009536743164,
+        0.4599999487400055
+      ],
+      "new_source_world_pivot": [
+        1.8700000047683716,
+        0.40000012516975403,
+        0.4599998891353607
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 2 hanging fishing line",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        1.8200002908706665,
+        1.4299997091293335
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        1.820000410079956,
+        1.4299994707107544
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 line guide",
+      "old_source_world_pivot": [
+        1.9800000190734863,
+        1.8200002908706665,
+        1.5149996280670166
+      ],
+      "new_source_world_pivot": [
+        1.9800000190734863,
+        1.820000410079956,
+        1.5149993896484375
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 line guide.001",
+      "old_source_world_pivot": [
+        2.25,
+        1.8200005292892456,
+        2.5249998569488525
+      ],
+      "new_source_world_pivot": [
+        2.25,
+        1.8200008869171143,
+        2.5249996185302734
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 2 line guide.002",
+      "old_source_world_pivot": [
+        2.75,
+        1.8200006484985352,
+        3.0849997997283936
+      ],
+      "new_source_world_pivot": [
+        2.75,
+        1.8200010061264038,
+        3.0849995613098145
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 2 line guide.003",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        1.8200006484985352,
+        3.174999952316284
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        1.8200010061264038,
+        3.174999713897705
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 2 orange grip",
+      "old_source_world_pivot": [
+        1.934999942779541,
+        1.8200002908706665,
+        0.9899996519088745
+      ],
+      "new_source_world_pivot": [
+        1.934999942779541,
+        1.820000410079956,
+        0.9899994134902954
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 rail clamp",
+      "old_source_world_pivot": [
+        1.8600000143051147,
+        1.820000171661377,
+        0.43999969959259033
+      ],
+      "new_source_world_pivot": [
+        1.8600000143051147,
+        1.820000171661377,
+        0.4399994909763336
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "Deep 2 tapered pole 0",
+      "old_source_world_pivot": [
+        1.9249999523162842,
+        1.8200002908706665,
+        0.9699996709823608
+      ],
+      "new_source_world_pivot": [
+        1.9249999523162842,
+        1.820000410079956,
+        0.9699994325637817
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 tapered pole 1",
+      "old_source_world_pivot": [
+        2.115000009536743,
+        1.820000410079956,
+        1.984999656677246
+      ],
+      "new_source_world_pivot": [
+        2.115000009536743,
+        1.8200006484985352,
+        1.984999418258667
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 tapered pole 2",
+      "old_source_world_pivot": [
+        2.5,
+        1.8200005292892456,
+        2.7699997425079346
+      ],
+      "new_source_world_pivot": [
+        2.5,
+        1.8200007677078247,
+        2.7699995040893555
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Deep 2 tapered pole 3",
+      "old_source_world_pivot": [
+        3.0450000762939453,
+        1.8200006484985352,
+        3.0949997901916504
+      ],
+      "new_source_world_pivot": [
+        3.0450000762939453,
+        1.8200010061264038,
+        3.0949995517730713
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "Deep 2 crank",
+      "old_source_world_pivot": [
+        1.815000057220459,
+        1.6200001239776611,
+        0.7999997735023499
+      ],
+      "new_source_world_pivot": [
+        1.815000057220459,
+        1.6200002431869507,
+        0.7999995946884155
+      ],
+      "max_matrix_delta": 1.7881393432617188e-07
+    },
+    {
+      "node": "Deep 2 hand reel",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        1.8200000524520874,
+        0.7399997115135193
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        1.820000171661377,
+        0.739999532699585
+      ],
+      "max_matrix_delta": 1.7881393432617188e-07
+    },
+    {
+      "node": "Deep 2 handle",
+      "old_source_world_pivot": [
+        1.690000057220459,
+        1.5550001859664917,
+        0.8599997758865356
+      ],
+      "new_source_world_pivot": [
+        1.690000057220459,
+        1.5550003051757812,
+        0.8599995970726013
+      ],
+      "max_matrix_delta": 1.7881393432617188e-07
+    },
+    {
+      "node": "Deep 2 reel flange",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        1.6600000858306885,
+        0.7399997115135193
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        1.660000205039978,
+        0.7399995923042297
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Deep 2 reel flange.001",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        1.9800001382827759,
+        0.7399997115135193
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        1.9800002574920654,
+        0.7399994730949402
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "DeepLineReelPivot_2",
+      "old_source_world_pivot": [
+        1.940000057220459,
+        1.820000171661377,
+        0.7399997115135193
+      ],
+      "new_source_world_pivot": [
+        1.940000057220459,
+        1.8200002908706665,
+        0.739999532699585
+      ],
+      "max_matrix_delta": 1.7881393432617188e-07
+    },
+    {
+      "node": "DeepLineRig_2",
+      "old_source_world_pivot": [
+        1.8700000047683716,
+        1.820000171661377,
+        0.4599997103214264
+      ],
+      "new_source_world_pivot": [
+        1.8700000047683716,
+        1.820000171661377,
+        0.4599995017051697
+      ],
+      "max_matrix_delta": 2.086162567138672e-07
+    },
+    {
+      "node": "DeepLineTip_1",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        0.40000051259994507,
+        3.140000104904175
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        0.4000009000301361,
+        3.140000104904175
+      ],
+      "max_matrix_delta": 3.8743019104003906e-07
+    },
+    {
+      "node": "DeepLineTip_2",
+      "old_source_world_pivot": [
+        3.3399999141693115,
+        1.8200005292892456,
+        3.1399998664855957
+      ],
+      "new_source_world_pivot": [
+        3.3399999141693115,
+        1.8200008869171143,
+        3.1399996280670166
+      ],
+      "max_matrix_delta": 3.5762786865234375e-07
+    },
+    {
+      "node": "DeepLineWorker_1",
+      "old_source_world_pivot": [
+        1.25,
+        0.4000000059604645,
+        -6.516827255609314e-08
+      ],
+      "new_source_world_pivot": [
+        1.25,
+        0.4000000059604645,
+        -1.1285199263966206e-07
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "DeepLineWorker_2",
+      "old_source_world_pivot": [
+        1.25,
+        1.8200000524520874,
+        -2.965156511436362e-07
+      ],
+      "new_source_world_pivot": [
+        1.25,
+        1.8200000524520874,
+        -5.134765501679794e-07
+      ],
+      "max_matrix_delta": 2.1696089902434323e-07
+    },
+    {
+      "node": "DeepLineModule",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "EngineFittings",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "GunwaleHardware",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HelmConsole",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HelmFittings",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Hull",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "HullPaintBand",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetCrank",
+      "old_source_world_pivot": [
+        1.344000220298767,
+        4.419046401977539,
+        0.8057132959365845
+      ],
+      "new_source_world_pivot": [
+        1.344000220298767,
+        4.419046401977539,
+        0.8057127594947815
+      ],
+      "max_matrix_delta": 5.364418029785156e-07
+    },
+    {
+      "node": "NetDrum",
+      "old_source_world_pivot": [
+        0.8314812183380127,
+        4.287494659423828,
+        0.6757209897041321
+      ],
+      "new_source_world_pivot": [
+        0.8314812183380127,
+        4.287494659423828,
+        0.6757205128669739
+      ],
+      "max_matrix_delta": 4.76837158203125e-07
+    },
+    {
+      "node": "NetMountFittings",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SternNetRoller",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SternNet_Stowed",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetModule1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Module2_NetCrank",
+      "old_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -1.6292068494294654e-07
+      ],
+      "new_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -2.821299744937278e-07
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Module2_NetDrum",
+      "old_source_world_pivot": [
+        2.0674946308135986,
+        1.8314810991287231,
+        0.6757214069366455
+      ],
+      "new_source_world_pivot": [
+        2.0674946308135986,
+        1.8314812183380127,
+        0.6757211685180664
+      ],
+      "max_matrix_delta": 2.384185791015625e-07
+    },
+    {
+      "node": "Module2_NetMountFittings",
+      "old_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -1.6292068494294654e-07
+      ],
+      "new_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -2.821299744937278e-07
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Module2_SternNetRoller",
+      "old_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -1.6292068494294654e-07
+      ],
+      "new_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -2.821299744937278e-07
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Module2_SternNet_Stowed",
+      "old_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -1.6292068494294654e-07
+      ],
+      "new_source_world_pivot": [
+        -2.2200000286102295,
+        1.0,
+        -2.821299744937278e-07
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetModule2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetWorker_1",
+      "old_source_world_pivot": [
+        0.949999988079071,
+        3.0999999046325684,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.949999988079071,
+        3.0999999046325684,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "NetWorker_2",
+      "old_source_world_pivot": [
+        1.25,
+        1.7999999523162842,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        1.25,
+        1.7999999523162842,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodHolder_3",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        1.1000001430511475,
+        0.42999982833862305
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        1.1000001430511475,
+        0.4299997091293335
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodHolder_4",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        2.549999952316284,
+        0.42999958992004395
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        2.5500001907348633,
+        0.42999929189682007
+      ],
+      "max_matrix_delta": 2.980232238769531e-07
+    },
+    {
+      "node": "RodSocket_3",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        1.1000001430511475,
+        0.4699998199939728
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        1.1000001430511475,
+        0.4699997007846832
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_4",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        2.549999952316284,
+        0.4699995815753937
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        2.5500001907348633,
+        0.4699992835521698
+      ],
+      "max_matrix_delta": 2.980232238769531e-07
+    },
+    {
+      "node": "OptionalRodModule",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "OutboardMotor",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PlankDeck",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepInput",
+      "old_source_world_pivot": [
+        0.0,
+        0.17499999701976776,
+        0.4000000059604645
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.17499999701976776,
+        0.4000000059604645
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Cutting board 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Cutting board 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife blade 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife blade 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife handle 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Knife handle 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep stainless rim",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.002",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table leg.003",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep table lower shelf",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Prep washable top",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepStation",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepSurface",
+      "old_source_world_pivot": [
+        0.0,
+        0.8999999761581421,
+        0.699999988079071
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.8999999761581421,
+        0.699999988079071
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepWorker_1",
+      "old_source_world_pivot": [
+        -0.4300000071525574,
+        1.75,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        -0.4300000071525574,
+        1.75,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PrepWorker_2",
+      "old_source_world_pivot": [
+        0.4300000071525574,
+        1.75,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.4300000071525574,
+        1.75,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 1.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 2.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PREPARED freezer 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PREPARED freezer 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 1.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 2.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 1.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 2.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PreparedHold",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "PreparedOutput",
+      "old_source_world_pivot": [
+        0.0,
+        2.549999952316284,
+        0.5
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        2.549999952316284,
+        0.5
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Propeller",
+      "old_source_world_pivot": [
+        -0.635999858379364,
+        4.640809535980225,
+        -0.5500003099441528
+      ],
+      "new_source_world_pivot": [
+        -0.635999858379364,
+        4.640809535980225,
+        -0.5500003099441528
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Insulated lid 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Insulated lid 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_RAW ice cooler 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_RAW ice cooler 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Recessed lid handle 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Recessed lid handle 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Storage front latch 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Plain_Storage front latch 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RawBuckets",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker horizontal",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker horizontal.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker vertical",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Ice marker vertical.001",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Insulated lid 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW ice cooler 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RAW ice cooler 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Recessed lid handle 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 1",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "Storage front latch 2",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RawIceCoolers",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodHolder_1",
+      "old_source_world_pivot": [
+        -1.899999976158142,
+        -0.3499999940395355,
+        0.4300000071525574
+      ],
+      "new_source_world_pivot": [
+        -1.899999976158142,
+        -0.3499999940395355,
+        0.4300000071525574
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodHolder_2",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        -0.3499999940395355,
+        0.4300000071525574
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        -0.3499999940395355,
+        0.4300000071525574
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_1",
+      "old_source_world_pivot": [
+        -1.899999976158142,
+        -0.3499999940395355,
+        0.4699999988079071
+      ],
+      "new_source_world_pivot": [
+        -1.899999976158142,
+        -0.3499999940395355,
+        0.4699999988079071
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "RodSocket_2",
+      "old_source_world_pivot": [
+        1.899999976158142,
+        -0.3499999940395355,
+        0.4699999988079071
+      ],
+      "new_source_world_pivot": [
+        1.899999976158142,
+        -0.3499999940395355,
+        0.4699999988079071
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "SafetyFenders",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "ServiceAccess_1",
+      "old_source_world_pivot": [
+        0.6499999761581421,
+        -1.0499999523162842,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.6499999761581421,
+        -1.0499999523162842,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "ServiceAccess_2",
+      "old_source_world_pivot": [
+        -0.8500000238418579,
+        -1.0499999523162842,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        -0.8500000238418579,
+        -1.0499999523162842,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "orange beacon",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "patched plank over previous hold",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "short mast",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "squared helm canopy",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    },
+    {
+      "node": "teal canopy brow",
+      "old_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "new_source_world_pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_matrix_delta": 1.1920928955078125e-07
+    }
+  ],
+  "new_nodes": [
+    "FleetIvoryCap",
+    "FleetRubbingAndQuietCourses"
+  ],
+  "original_sha256": "e25e0e3d49f3caaeb2bbcb4dcc68e09b83cc671f79e7298b9a3cfbf2b69c23ae",
+  "source_fbx_preserved": true,
+  "native_Unity_tested": false,
+  "exported_fbx_sha256": "027aab2954f5832e8e448186ff6941716b1e770e9c64e91c2b43a09f73707026",
+  "material_names": [
+    "M_BandIvory",
+    "M_ClinkerRecess",
+    "M_DeckWood",
+    "M_DeckWood.001",
+    "M_FishSilver",
+    "M_HullBlue",
+    "M_HullNavy",
+    "M_KelpGreen",
+    "M_OilskinYellow",
+    "M_RailIvory",
+    "M_RailIvory.002",
+    "M_Rope",
+    "M_Rubber",
+    "M_Rubber.002",
+    "M_SafetyOrange",
+    "M_SafetyOrange.002",
+    "M_SeaTeal",
+    "M_SeaTeal.002",
+    "M_SeaTeal.003",
+    "M_Skin",
+    "M_Steel",
+    "M_Steel.002",
+    "M_WoodHighlight",
+    "M_WoodRecess"
+  ],
+  "unknown_material_names": []
+}

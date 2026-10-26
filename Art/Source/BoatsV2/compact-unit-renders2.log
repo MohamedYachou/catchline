@@ -1,0 +1,30 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+FBX version: 7400
+AUDIT PASS CompactFisherV1 10863
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:62: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Review soft cool fill');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.74,.80,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review2.py:64: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,floorz));floor=bpy.context.object;floor.name='REVIEW_ONLY_floor';m=bpy.data.materials.new('REVIEW_ONLY_cream');m.diffuse_color=(.78,.74,.64,1);m.use_nodes=True;m.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=m.diffuse_color;m.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=1;floor.data.materials.append(m)
+00:38.016  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-front-three-quarter.png'
+FBX version: 7400
+RENDER PASS CompactFisherV1 new front-three-quarter
+01:07.391  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-side.png'
+RENDER PASS CompactFisherV1 new side
+01:41.688  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-back-three-quarter.png'
+RENDER PASS CompactFisherV1 new back-three-quarter
+02:13.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-top.png'
+RENDER PASS CompactFisherV1 new top
+02:28.188  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-low-waterline.png'
+RENDER PASS CompactFisherV1 new low-waterline
+02:44.797  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-deck-55.png'
+RENDER PASS CompactFisherV1 new deck-55
+03:01.547  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\CompactFisherV1\renders\new-game-exact-45.png'
+RENDER PASS CompactFisherV1 new game-exact-45
+REVIEW COMPLETE CompactFisherV1
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
