@@ -1,0 +1,24 @@
+HARBOUR-PETS-1 — Codex 1 (Windows) — the harbour dog and cat on Gull Harbour's quay (Claude L, 10-26 01:50)
+Start after MAP9-FINISH-AND-MAP10-1 is DONE.
+GOAL: Codex 2's HARBOUR-LIFE-2 dog and cat (accepted art, never wired) live on the quay between the townsfolk: the
+dog trots a short beat along the quay, stops to sniff or sit, trots on; the cat sleeps curled on a crate or bollard
+and now and then sits up and looks around. Small, calm, never in the way of boats, buttons or the crew.
+CONTEXT: Art/Models/HarbourLife/{Dog.fbx,Cat.fbx,REPORT.md,renders/} (actions Trot/Sit/Sniff, Sleep/Look; pivots and
+scale in REPORT); VoyageTownsfolk.cs (the pattern to copy: lib.M(...), ArtLibrary.Spawn, quay walk, legacy Animation);
+VoyageLighthouseLife.cs (Puffin: legacy clips); Assets/Editor/ArtImport.cs (importAnimation list, BuildLibrary).
+BUILD:
+1. Copy Dog.fbx and Cat.fbx to Assets/Art/Models/HarbourLife/ with fresh .meta files (docs/tools/metas.py style),
+   add both to the importAnimation list in ArtImport.cs and to the library so lib.M("Dog")/lib.M("Cat") work.
+2. New file Assets/Scripts/Game/VoyageHarbourPets.cs (partial VoyageGame). One call line where DressTownsfolk is
+   called. Dog: patrols a 6-10 m stretch of quay top at walking pace, Trot while moving, Sniff or Sit 3-8 s at random
+   stops, turns smoothly. Cat: one fixed perch (a crate/bollard on the quay), Sleep most of the time, Look 3 s every
+   20-40 s. Both stay on the quay surface (no floating/sinking), clear of the berths and the townsfolk paths.
+3. Captures: NEW editor file Assets/Editor/PetsCapture.cs (never edit LeadShots.cs): harbour at 1440x900 and 844x390
+   with both animals visible, plus a close crop of each.
+OWNERSHIP: the files above, one line in the townsfolk call site (VoyageHarbour.cs or VoyageTownsfolk.cs, whichever
+calls DressTownsfolk), ArtImport.cs import list/library lines only. No git. Never: VoyageTutorial.cs, CrewUi/**,
+CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface*.cs, VoyageMenus.cs, VoyageAudio.cs, Codex 2's folders.
+Never batchmode the main project; never touch the player save. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+DONE = EVIDENCE: captures opened one by one (animals on the quay surface, correct scale next to a townsperson, not
+pink/untextured); full regression passes in Catchline-sim; DONE line lists files and capture paths.
+REPORTING: START, CHECKPOINTs, DONE in comms.md; QUESTION and skip when blocked.

@@ -1,0 +1,18 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+FBX version: 7400
+AUDIT PASS Rowboat 2267
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review.py:40: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review.py:45: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Review soft cool fill');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.74,.80,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\review.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,floorz));floor=bpy.context.object;floor.name='REVIEW_ONLY_floor';m=bpy.data.materials.new('REVIEW_ONLY_cream');m.diffuse_color=(.78,.74,.64,1);m.use_nodes=True;m.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=m.diffuse_color;m.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=1;floor.data.materials.append(m)
+00:08.203  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\BoatsV2\Rowboat\renders\new-front-three-quarter.png'
+FBX version: 7400
+RENDER PASS Rowboat new front-three-quarter
+REVIEW COMPLETE Rowboat
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

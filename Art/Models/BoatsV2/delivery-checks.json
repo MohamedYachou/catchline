@@ -1,0 +1,50 @@
+{
+  "task": "BOAT-REFINE-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "status": "artist delivery complete including both Claude sheer/clinker FIX requests",
+  "verified_receipt_files": 59,
+  "deliveries": {
+    "Rowboat": {
+      "receipt_files_verified": 28,
+      "receipt_sha256": "ebad5e35876a37a4b914410f1e4a3be36a3f327b36b1f6917f0a968297f09fa2",
+      "triangles": 2393,
+      "legacy_nodes": 11,
+      "sheer_bow_lift_m": 0.15576869249343872,
+      "sheer_stern_lift_m": 0.07999998331069946,
+      "protected_Assets_fbx_unchanged": true
+    },
+    "Skiff": {
+      "receipt_files_verified": 28,
+      "receipt_sha256": "04a763e058061b8c0d0b56b21029a7d023640833ff56555287b36c7f2e76b8a4",
+      "triangles": 3731,
+      "legacy_nodes": 12,
+      "sheer_bow_lift_m": 0.184137761592865,
+      "sheer_stern_lift_m": 0.07999998331069946,
+      "protected_Assets_fbx_unchanged": true
+    },
+    "OtherHulls": {
+      "receipt_files_verified": 3,
+      "receipt_sha256": "726ce174d1a55ca06413504126187c71d47569e652de2875f12d61f16e78bb6b"
+    }
+  },
+  "other_hulls_provenance_images_verified": 6,
+  "temporary_pre_fix_backup_removed": true,
+  "source_files_sha256": {
+    "Art/Source/BoatsV2/Rowboat-build.log": "862b6d6f409776e4c67ca4a9ebae4ac89d9c911a84db7ffa9d04a82bc29dabc6",
+    "Art/Source/BoatsV2/Rowboat-lift-audit.log": "daac41ce2ad9cd1531a097b798cd2e7d19bb08517e628cfba648e30fb23165e6",
+    "Art/Source/BoatsV2/Rowboat-preview.log": "ca482599e9091a8425a0cac036a1543f83ec9f37e04c811b463445cd7c12b1b5",
+    "Art/Source/BoatsV2/Rowboat-review.log": "badc779e68dd24bd7f062ac3bdb623d855c11f7087bf0df1f1303e82a0f4853c",
+    "Art/Source/BoatsV2/Skiff-build.log": "bae390412dae5439b9e445a834a00c5e311349f62bf77ec4ac529d35d0bee5f1",
+    "Art/Source/BoatsV2/Skiff-review.log": "b7180a1b14ea24085748cac7411167b58ed10eab4b761cd4818ba54a73c87e7d",
+    "Art/Source/BoatsV2/build.py": "f359f5afa5a3706a4ba281f9514289a6f0a28ee6111bf8f83582f4b5d382f35d",
+    "Art/Source/BoatsV2/other_sheet.py": "a51227c00ae66cc52dd424dcc8acb3be319408ab6e8e448d80f637aeafeb5deb",
+    "Art/Source/BoatsV2/probe.log": "a5f77148a9c57aa02828b9314af1eda768a9936700f2105b502319979c7d82c9",
+    "Art/Source/BoatsV2/probe.py": "bd1d1a453f5da0cce167aef23e6cd421e12a79f66803261905196a39f80835fb",
+    "Art/Source/BoatsV2/report.py": "ad7216dc0dd2f0ca4b68a36985baa395eeea54941fa78be52317e0ad266c3abf",
+    "Art/Source/BoatsV2/review.py": "f1403fe299998fb9e8360768c2310ef63ef13c66452dabcadb2a580ead039908",
+    "Art/Source/BoatsV2/sheets.py": "fedf13cb5dd14543578090aaed307ade32835354698dea5bf57c48bcff161416"
+  },
+  "baseline_sha256": "2490aa8b67cc789ec93e7d90285a944ff824dff930b3787bfc958c480958dd7a",
+  "native_Unity_tested": false,
+  "next": "Claude reviews and imports the corrected additive FBXs; Mo native acceptance remains pending."
+}

@@ -2,33 +2,31 @@
 
 # Two Claude sessions: goals and done list
 
-Mo runs two Claude accounts here: **Claude 1** (Windows desktop app, "W" in ClaudeCom.md) and **Claude 2** (WSL CLI on
-/mnt/c/Users/momoy/Projects/Catchline, "L"). This file holds each one's current goals and what is done; keep it true
-and short. Delete a goal's line when it is done and add it (one line, commit id) under Done; prune Done to the last ~10.
-Live status (heartbeat, plan usage, chat between the two) is in ClaudeCom.md. When one runs out, the other takes over
-its goals here, in order, after checking the actual files. Codex orders and logs stay in comms.md.
-
-@ClaudeCom.md
+Mo runs two Claude accounts here, both Claude Code CLI in WSL: **claude1** (`cld`) and **claude2** (`cl2`, or plain
+`claude` from home or this folder). Lead, takeover and live usage work as in the **catchline-team** skill (`team usage`,
+`team peek`, SendMessage between the two; the `team` guard rings you when something changes). This file holds the
+goals and the done list; keep it true and short, delete a goal's line when done and add it (one line, commit id) under
+Done; prune Done to the last ~10. Codex orders and logs stay in comms.md. ClaudeCom.md is retired.
 
 ## Claude 1 (Windows) — goals, in order
-1. Weekly plan at 90% (10-26 00:15): paused. Open: review CAST-SPLASH-1 (Codex 1) and CAST-SPLASH-ART-1 (Codex 2),
-   metas for the two fx-cast-* PNGs, captures docs/screens/cast-fx, regression, commit. Then: catch-card art in the
+1. Weekly plan at 91% (10-26 01:10): paused until Wed 07:00 reset. Open: review STRIKE-TAP-1 (Codex 1, then
+   MAP9-FINISH-AND-MAP10-1) and BOAT-REFINE-1 (Codex 2); Claude L directs Codex meanwhile. Then: catch-card art in the
    first-catch reveal; D1 HUD mockups. Morning report to Mo with docs/QUESTIONS.md.
 Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs, VoyageInterface.cs, VoyageMenus.cs.
 
-## Claude 2 (WSL) — goals, in order
-1. Direct the two Codex agents (skill codex-director): Codex 1 is on docs/briefs/SOUND-WIRE-4.txt (ungated),
-   Codex 2 on docs/briefs/FIRST-CATCH-ART-1.txt. Review each delivery against its brief, make .meta files for new Assets files, commit only
-   accepted files, write the next brief, append it to Art/Source/UIv2/CONTINUE-CODEX1.txt / CONTINUE-CODEX2.txt.
-   Keep both always busy (Mo's order); their watchdogs relaunch about every 10 minutes and read those files.
-2. Sound: review Codex 1's SOUND-WIRE-4 and listen-check the mix (all real CC0 clips are installed since 89f52bf).
-   Mo's own picks may come from the Sound picks artifact https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC.
-3. Pending integrations: HARBOUR-LIFE-2, the MAP9 D5 chart/water handoff (Codex 1's uncommitted MAP9 hunks in
-   Grounds.cs, SeaNav.cs, VoyageScenery.cs, GameData.cs grounds are its own; do not commit them as yours).
-4. Morning report to Mo: what was done overnight, plus docs/QUESTIONS.md.
-Holding: VoyageAudio.cs (after Codex 1 finishes), Assets/Resources/Audio/**, docs/briefs/**.
+## Claude 2 (WSL) — goals, in order (lead since 10-26 01:30, Claude 1 paused)
+1. Direct the two Codex agents (skill codex-director); keep both queues non-empty in CONTINUE-CODEX1/2.txt.
+   Codex 1: finish STRIKE-TAP-1 (review its captures in docs/screens/strike-fx), then MAP9-FINISH-AND-MAP10-1, then
+   HARBOUR-PETS-1. Codex 2: BOAT-REFINE-2 (Compact, Prep, refit-card pictures, Tier5 trim).
+2. Commit BOAT-REFINE-1 import (Rowboat/Skiff FBX + ArtLibrary M_ClinkerRecess) once the in-game capture looks right.
+3. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
+   https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
+4. Claude 1's open UI items while it is paused: catch-card art in the first-catch reveal; D1 HUD mockups.
+5. Morning report to Mo: what was done overnight, plus docs/QUESTIONS.md.
+Holding: ArtLibrary.cs, Assets/Art/Models/Boats/Rowboat.fbx, Skiff.fbx, docs/briefs/**.
 
 ## Done (latest first)
+- 514717c / 7c0ebcd / fa54ee5 / 08531a9 cast splash, purchase glint/burst, strike-tap art (Codex 1/2, accepted)
 - 9c99409 purchase coin flight, crew badge/gems/reward bands, bigger chest art, Mira's first pointer fix; Codex SOUND-WIRE-4/5, TUTORIAL-CHECK-1, UI-POLISH-ART-1 accepted
 - 4095521 harbour savings goal tile (VoyageSavingsGoal.cs; captures hud-goal-*)
 - 5344fd4 first-catch reveal (VoyageFirstCatchFx.cs; captures first-catch-*)

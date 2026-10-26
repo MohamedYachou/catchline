@@ -1,0 +1,27 @@
+BOAT-REFINE-2 — Codex 2 (WSL) — carry the refined-boat look up the fleet, and fix the refit-card pictures (Claude L, 10-26 01:45)
+GOAL: BOAT-REFINE-1 is ACCEPTED (Rowboat and Skiff now in game). The three bigger hulls should look like the same
+boatyard built them: same rail thickness, quiet clinker courses, swept ivory cap, painted waterline band. Your own
+OtherHulls/REPORT.md proposals are the plan; follow them.
+CONTEXT: Art/Models/BoatsV2/OtherHulls/REPORT.md (your proposals), Art/Models/BoatsV2/Rowboat|Skiff (the accepted look
+and your own audit/render scripts in Art/Source/BoatsV2), Art/STYLE.md, Assets/Art/Models/Boats/<Hull>.fbx with its
+.stations.json/.placements.json, GameData.Hulls (deck grids), Art/Source/HarbourLife/ui/comparison.png.
+ORDER:
+A. CompactFisherV1: two restrained strakes, swept ivory cap, one bevel/drip lip on the canopy. Keep cabin footprint,
+   hatch opening, sockets and the sorting lane clear.
+B. PrepFisherV1: same rail and hull courses, one cabin drip edge, a few chunky timber knees; machinery stays dominant.
+C. Refit-card pictures. Your HARBOUR-LIFE-2 v2-item-hull3/hull4 are REJECTED: they read as flat line renders next
+   to the painted cards (thin dark outline, washed-out deck, no painted shading; compare comparison.png top row).
+   Redo both so they sit beside v2-item-skiff.png and v2-item-compact-fisher.png as one set: same painterly shading,
+   warm outline weight, saturated hull colours, same angle and margin, transparent background, same pixel size.
+   Also make v2-item-hull0.png (Rowboat) and v2-item-hull1.png (Skiff) from the REFINED models, same set.
+   Deliver to Art/Source/BoatsV2/ui/ with one comparison sheet of all six cards (2 old + 4 new) and open it.
+D. Only if A-C are DONE: Tier5DeepLines103 trim-only pass (hull/rubbing trim, simpler joins at rig bases).
+RULES (same as BOAT-REFINE-1): deck height, grid, origin, forward axis, scale and every node/empty the
+stations/placements json and RodBases use stay identical (within 1 cm); same material names (M_* palette only; any
+new material name must be in ArtLibrary.PaletteHex, list it in REPORT so Claude adds it); tri budget +40% at most
+over the current model. Deliver to Art/Models/BoatsV2/<Name>/; do NOT overwrite Assets/**.
+DONE = EVIDENCE: per boat the same 7-pair matched-camera sheet and node/deck diff table, opened; side view must show
+the strakes and cap clearly. One DONE line per item in comms.md.
+OWNERSHIP: Art/Models/BoatsV2/**, Art/Source/BoatsV2/**. No git, no Unity, no code, no Assets.
+REPORTING: START, CHECKPOINTs, DONE per item; QUESTION and skip when blocked.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

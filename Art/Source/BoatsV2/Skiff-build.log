@@ -1,0 +1,13 @@
+C:\Users\momoy\Projects\Catchline\Art\Source\BoatsV2\build.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  c=tuple(lin(int(PALETTE[n][i:i+2],16)/255) for i in (0,2,4))+(1,);m.diffuse_color=c;m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=c;bs.inputs['Roughness'].default_value=.8;bs.inputs['Metallic'].default_value=0
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\BoatsV2\\Skiff\\Skiff.fbx'
+export finished in 0.0149 sec.
+Info: Saved as "Skiff.blend"
+BUILD PASS Skiff 3731
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
