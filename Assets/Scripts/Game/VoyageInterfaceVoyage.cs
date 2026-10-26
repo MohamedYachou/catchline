@@ -75,7 +75,7 @@ namespace Catchline.Game
             y += tileH + gap;
             if (State.Hull > 0)
                 coastalUi.StatTile("voyage/fuel", new Rect(x, y, w, tileH), "v2-icon-fuel", "Fuel", $"{State.FuelFraction * 100:0}%", State.FuelFraction, State.FuelFraction < .2f ? Skin.Bar.Bad : Skin.Bar.Good, slab, "icon-fuel");
-            else coastalUi.StatTile("voyage/fuel", new Rect(x, y, w, tileH), "v2-icon-fuel", "Oars", "No fuel needed", null, Skin.Bar.Good, slab, "icon-fuel");
+            else coastalUi.StatTile("voyage/fuel", new Rect(x, y, w, tileH), HasUi("v2-icon-oars") ? "v2-icon-oars" : "v2-icon-fuel", "Oars", "No fuel needed", null, Skin.Bar.Good, slab, "icon-fuel");
             y += tileH + gap;
             if (State.Chum > 0) coastalUi.StatTile("voyage/bait", new Rect(x, y, w, tileH), "v2-icon-chum", "Chum", State.Chum.ToString(), null, Skin.Bar.Good, slab);
             else if (State.WillUseSquid) coastalUi.StatTile("voyage/bait", new Rect(x, y, w, tileH), "v2-icon-squid", "Squid", State.Squid.ToString(), null, Skin.Bar.Good, slab, "icon-bait-squid");
@@ -175,7 +175,12 @@ namespace Catchline.Game
                 coastalUi.IconButton("management/crew", crew, "v2-icon-crew", "Crew", () => { OpenManagement(); managementTab = 2; audio?.Play(VoyageAudio.Cue.Select, .45f); }, null, "icon-crew"); Block(crew);
             }
             var home = HomeButtonRect();
-            coastalUi.Primary("home", home, "Head home", () => { RequestHeadHome(); audio?.Play(VoyageAudio.Cue.Select, .45f); }, "v2-icon-home"); Block(home);
+            // Head home is the call to action once there is a haul to sell; with nothing aboard yet it stays quiet so the
+            // first thing a new captain is pushed toward is fishing, not leaving.
+            System.Action goHome = () => { RequestHeadHome(); audio?.Play(VoyageAudio.Cue.Select, .45f); };
+            if (Cooler.Count + OnDeck.Count > 0 || HoldFull) coastalUi.Primary("home", home, "Head home", goHome, "v2-icon-home");
+            else coastalUi.Secondary("home", home, "Head home", goHome, "v2-icon-home");
+            Block(home);
         }
     }
 }

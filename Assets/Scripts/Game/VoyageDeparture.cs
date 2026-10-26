@@ -51,7 +51,7 @@ namespace Catchline.Game
                 coastalUi.Secondary("depart/refuel", new Rect(pad + lw - bw, y + (tileH - 48) / 2, bw, 48), fill > 0 ? $"Fill · {fill}" : "Tank full",
                     () => DepartureBuy(State.BuyFuel), fill > 0 ? "v2-icon-coin" : null, fill > 0 && State.Coins >= fill, slab);
             }
-            else coastalUi.StatTile("depart/fuel", new Rect(pad, y, lw, tileH), "v2-icon-fuel", "Under oars", "No fuel needed", null, Skin.Bar.Good, slab, "icon-fuel");
+            else coastalUi.StatTile("depart/fuel", new Rect(pad, y, lw, tileH), HasUi("v2-icon-oars") ? "v2-icon-oars" : "v2-icon-fuel", "Under oars", "No fuel needed", null, Skin.Bar.Good, slab, "icon-fuel");
             float by = y + tileH + (phone ? 8 : 14);
             coastalUi.Text("depart/bait/title", new Rect(pad, by, lw, phone ? 24 : 30), "Bait aboard", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, slab);
             by += phone ? 26 : 34;
