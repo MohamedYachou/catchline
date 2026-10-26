@@ -110,7 +110,7 @@ namespace Catchline.Game
             : person.Contract.Role == CrewRole.Engineer ? "v2-icon-engine" : person.Contract.Role == CrewRole.Fisherman ? "v2-icon-fish" : "v2-icon-net";
         // Fishers wear the navy beanie, deckhands and processors the orange one (concept crew rail).
         static string PortraitKey(Person person, Person captain) => person == captain ? "captain"
-            : person.Contract.Role == CrewRole.Engineer ? "engineer" : person.Contract.Role == CrewRole.Fisherman ? person.Name : person.Name + "-deck";
+            : person.Contract.Role == CrewRole.Engineer ? "engineer" : person.Contract.Role is CrewRole.Fisherman or CrewRole.Navigator ? person.Name : person.Name + "-deck";
 
         // Card crew show their rank and level; the old contract hires still count down their trips.
         string Trips(Person person)
@@ -122,7 +122,8 @@ namespace Catchline.Game
 
         void InterfaceVoyageCrewRail()
         {
-            var people = People.ToList();
+            // Captain first, the navigator (Mira, the first mate) right below, then the rest in hiring order.
+            var people = People.OrderBy(p => p == Captain ? 0 : p.Contract?.Role == CrewRole.Navigator ? 1 : 2).ToList();
             float bottom = ih - Edge - HudButtonHeight - 12;
             float w = HudRailWidth, rowGap = 6;
             if (compactInterface) rowGap = 4;
@@ -151,7 +152,7 @@ namespace Catchline.Game
                 // The bar shows only a timed job: reeling, a bite window or a busy task.
                 float? job = rod != null && rod.State == RodState.Reeling ? rod.ReelProgress : person.Busy ? person.BusyProgress : (float?)null;
                 coastalUi.CrewCard($"voyage/crew/{i}", new Rect(10, Skin.HeaderBand + 14 + i * (rowH + rowGap), w - 20, rowH), PortraitKey(person, Captain),
-                    RoleTitle(person, Captain), captain ? "You" : person.Name, Capitalise(status), Speciality(person, Captain), job, false, null, rail);
+                    captain ? RoleTitle(person, Captain) : person.Name, captain ? "You" : RoleTitle(person, Captain), Capitalise(status), Speciality(person, Captain), job, false, null, rail);
             }
         }
         static string Capitalise(string s) => string.IsNullOrEmpty(s) ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);

@@ -15,6 +15,8 @@ namespace Catchline.EditorTools
         {
             // The v2 sprites live in the art library; a stale library silently falls back to old art.
             ArtImport.BuildLibrary();
+            // Captures freeze Time.timeScale and batchmode saves it into ProjectSettings; never ship a frozen clock.
+            if (Time.timeScale != 1f) { Debug.LogWarning($"[Catchline] Project time scale was {Time.timeScale}; reset to 1 before building"); Time.timeScale = 1f; }
             foreach (bool test in new[] { false, true })
             {
                 string mode = test ? "Test" : "Real";

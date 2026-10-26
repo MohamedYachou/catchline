@@ -13,6 +13,9 @@ namespace Catchline.Game
         void Start()
         {
             var args = Environment.GetCommandLineArgs();
+            // A batchmode capture can leave the project's saved time scale at 0, and a build made from that project then
+            // starts with a frozen clock (10-26: intro stuck, nothing moves). Captures set their own freeze after this.
+            if (Time.timeScale != 1f) { Debug.LogWarning($"[Catchline] Time scale was {Time.timeScale}; reset to 1"); Time.timeScale = 1f; }
             Debug.Log($"[Catchline] Launch mode: {(SessionOnly ? "TEST / no save reads or writes" : "REAL / persistent progress")}; save={GameState.SavePath}");
             StartUiV2Capture(args);
             if (Array.IndexOf(args, "-native-display") >= 0)
