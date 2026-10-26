@@ -28,8 +28,8 @@ then the last ~100 lines of `comms.md`. The old to-do list (to 2026-10-21) is in
 
 - [ ] **Gold-fish minigame.** Mo is thinking about it. Claude's proposal: a line-tension fight (hold to reel, ease off
   when the line goes red, 3–4 runs). When built, it gates gold catches and lets red fish come back.
-- [ ] **Jig boat (tier 3).** Art accepted 10-26 (`Art/Models/BoatsV2/JigBoatV1/`, card `v2-item-hull-jig.png`, lit lamps `JigLampGlow.fbx`). Claude wires
-  it: hull data (between Compact and Prep), refit price/goal, sockets, `CardTier` mapping (today `Hull >= 3 ? Hull+1`
+- [ ] **Jig boat (tier 3).** Art accepted 10-26 (`Art/Models/BoatsV2/JigBoatV1/`, card `v2-item-hull-jig.png`, lit lamps `JigLampGlow.fbx`). Codex 1 wires it next
+  (`docs/briefs/JIG-BOAT-WIRE-1.txt`: saved ID 5, tier 3 via HullTier, refit 6,500): hull data (between Compact and Prep), refit price/goal, sockets, `CardTier` mapping (today `Hull >= 3 ? Hull+1`
   skips tier 3), crew office tier 3 opens with it (QUESTIONS #3).
 - [ ] **Tier 6 boat:** Mo picked hull C (10-26); Codex 2 does `docs/briefs/TIER6-BOAT-1.txt` (every earlier tier's kit). Whale shelf / Seal cliffs / Kelp forest are priced for it.
 - [ ] **Refit-card pictures** from Codex 2 (`Art/Source/BoatsV2/ui/v2-item-hull{0,1,3,4}.png`, accepted art, committed

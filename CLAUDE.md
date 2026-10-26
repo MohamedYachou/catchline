@@ -18,7 +18,7 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 1. Direct the two Codex agents (skill codex-director); when the guard rings, queue the next brief in
    CONTINUE-CODEX1/2.txt and `team start codexN` (Codex never starts by itself; Claude 1 is away until Wed).
    Codex 1: MAP11-FIX-AND-LIFE-1 (sand fix, then kelp life); commit MAP11 after review. Codex 2: KELP-LIFE-ART-1
-   (otters), then tier 6 boat concept sheet (Mo picks). Claude: wire the accepted Jig boat (TODO.md Jig item).
+   (otters), then tier 6 boat concept sheet (Mo picks). Claude: wire the accepted Jig boat (Codex 1: docs/briefs/JIG-BOAT-WIRE-1.txt after MAP11).
 2. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
    https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
 3. Claude 1's open UI item while it is paused: D1 HUD mockups (17-hud-fishing, 18-hud-harbour).
@@ -26,6 +26,7 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 Holding: docs/briefs/**.
 
 ## Done (latest first)
+- 74f0541 Docs cleanup (69 old docs to docs/archive, CURRENT/AGENTS/README/QUESTIONS refreshed); Codex one-shot runners
 - 1ee580d Outer coast painting, oars icon, Compact/Prep fishers re-exported (no stray plane), Tier5 trim (Codex 2, accepted)
 - c3d4a28 / 26874ad / bc687f0 two charts (Gull coast / Outer coast), Coasts.cs fish rules, chart prices per boat tier
 - 7f96e98 / 6533039 Head home quiet until a haul is aboard; phone shop single row fills the shelf

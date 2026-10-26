@@ -1,0 +1,30 @@
+JIG-BOAT-WIRE-1 — Codex 1 (Windows) — put the tier 3 Jig boat into the game (Claude 2 lead, 2026-10-26)
+START ONLY after MAP11-FIX-AND-LIFE-1 is DONE. Art is accepted: Art/Models/BoatsV2/JigBoatV1/{JigBoatV1.fbx,
+JigLampGlow.fbx,REPORT.md} (8 bulbs on M_JigBulb, 3 jig reels, sorting tray, clear aft deck), refit card
+Art/Source/BoatsV2/ui/v2-item-hull-jig.png. Mo's ladder (TODO.md): 0 Rowboat, 1 Skiff, 2 Compact, 3 Jig, 4 Prep,
+5 Buoy fisher. Today hull IDs are 0 Rowboat, 1 Skiff, 2 Compact, 3 Prep, 4 Buoy and CardTier = Hull >= 3 ? Hull+1.
+DESIGN (Claude's call; do it this way):
+1. Saved hull IDs stay append-only (GameData.cs says so): Jig boat = NEW saved ID 5, appended to GameData.Hulls.
+   No save migration. Add one function, e.g. GameData.HullTier(int hullId) -> 0,1,2,4,5,3 for IDs 0..5, and
+   GameState.Tier => HullTier(Hull). CardTier becomes Tier.
+2. Replace every numeric hull comparison that means a LADDER position (Hull >= 3 "Prep or bigger", Hull == 2
+   "Compact", NetCapacity, SecondNet, IsPrepFisher, MinimumHull, Coasts.cs gates, chart unlocks, crew office...) with
+   a tier comparison, so a Jig boat (ID 5, tier 3) ranks between Compact and Prep. About 110 sites: list each in
+   REPORT with old -> new; keep ID checks only where they select a model/layout. Per-hull deck behaviour for ID 5
+   (stations, nets, prep): the Jig boat has rods + jig reels, no prep station, one net like the Compact.
+3. Refit path: Compact -> Jig (6,500 coins, no kg goal) -> Prep (keep 9,500 and the 100 kg goal) -> Buoy (18,000).
+   A save already on Prep/Buoy keeps its boat. A save on Compact now sees the Jig refit next (not Prep).
+   Chandlery/refit card uses v2-item-hull-jig.png (import with .meta under Assets/Art/UI like the other hull cards).
+4. HullDef for ID 5 from the actual imported FBX: Width/Height/CellSize .1, Capacity 130, CrewCap 5, sockets
+   (Hold, HoldAccess, Seat, Rest, NetAccess, CrewRest, RodTiles, RodBases) measured natively like Compact/Prep.
+5. Lamps: M_JigBulb emissive and JigLampGlow visible at dusk/night and while the boat is at anchor on a ground.
+Claude releases to you for this brief: GameData.cs, GameState*.cs, Data/Coasts.cs (gates only), VoyageDeck.cs,
+VoyageHarbour*.cs, VoyageInterfaceShop.cs, VoyageManagement*.cs, VoyageCrewCounters.cs, VoyageCompactFisher.cs,
+VoyagePrepFisher.cs, VoyageGame.cs, CrewUi/CrewRecruit.cs (TierBoat lookup only), and a new VoyageJigBoat.cs if needed.
+CHECKS (Catchline-sim, docs/tools/check.ps1): all existing suites pass (abilities, tutorial, M2, bite/cage, routes for
+SIX hulls over eleven maps); new checks: HullTier table, Compact->Jig->Prep refit order and prices, old Prep/Buoy save
+loads unchanged, Jig trip out/anchor/cast/home on Deep channel. Native frames 1440x900 + 844x390: harbour with the Jig
+boat, refit card, at anchor day and night with lamps, deck with crew working, opened one by one, in
+docs/screens/jig-boat-1/. Then rerun the CARDS-PACING sim with the new step and report the day each hull is reached.
+No git (Claude commits), never batchmode the main project, never touch the player save, NEVER create
+Art/Models/CrewV2/_STOP-WATCHDOGS. Codex 2's art folders are read-only.
