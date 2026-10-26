@@ -1,0 +1,39 @@
+RESTAURANT-UI-EXACT-1 — Codex 1 AND Codex 2 — every UI piece 1:1 from the mockups (Claude 2 lead, 2026-10-26)
+Mo (10-26, overrides all other work): the game screens must look 1 to 1 like the mockups, not "good enough", with the
+REAL UI pieces from the mockups, not textures Claude made up. Both Codex agents work on this now, split below.
+Mockups (the only style reference): Art/Source/Restaurant/concepts/ui-1-arrange.png, ui-2-service.png,
+ui-service-desktop.png, ui-3-mira-plan.png, ui-4-prep.png, ui-5-closing.png.
+Where we are: docs/screens/restaurant-ui/r10/*.png (game captured at device resolution: 2880x1800 desktop,
+2532x1170 phone). Compare them with the mockups yourself before starting; the gaps Claude sees:
+ - Buttons: mockup buttons are glossy, thick dark-navy outline, darker bottom lip, white highlight; labels are
+   white/cream with a dark stroke; the Back button has a filled navy arrow; the check/cross icons are bold white with
+   an outline. Ours are flat with thin icons.
+ - Signs/headers: the wood title sign has ropes and a lit lantern; the closing header is a navy slab with gold
+   rivets; "Today's catch"/"Portions" headers have an icon and white outlined text. Ours lack these.
+ - Paper cards: cream paper with a rope/brass pin, slight tilt for the special note, divider lines; ours plain.
+ - Text: titles and button labels have a dark outline/drop shadow; numbers are heavy navy.
+ - Illustrations: Mira (crisp, mockup poses), fish (painted, species-correct), plates/icons are bigger.
+ - Backgrounds: the blue plank wall, the prep restaurant backdrop and the closing harbour backdrop exactly as in
+   the mockups.
+DELIVER for every screen: each visible piece as a clean, transparent, high-resolution PNG (at least 3x the
+mockup's 844x390 size, so a piece 100 px wide in the mockup is >= 300 px), redrawn to match the mockup exactly in
+shape, colour, outline, bevel and shadow, with NO text baked in (Claude draws text). Nine-slice frames: give exact
+borders (L/T/R/B source px) and keep corners crisp. Plus a STYLE SHEET (REPORT.md table) for every text style seen:
+which text, font weight, size in mockup px at 844x390, fill colour hex, stroke colour hex + width, shadow
+offset/colour. Plus a layout sheet: each piece's rect (x,y,w,h) in the 844x390 mockup (and 1440x900 for the desktop
+service mockup), so Claude can place them exactly.
+SPLIT:
+ Codex 1 (Windows): ui-3-mira-plan (S3), ui-4-prep (S4), ui-5-closing (S5): every frame, button, sign, pin, divider,
+   toggle, stepper, bars, star bar, speech bubble, icons, backgrounds; Mira full-body plan pose and closing wave pose
+   (crisp 1600x2000); the painted fish for all species (v2-fishart-<species>, 1024x512: mackerel, pollock, cod,
+   herring, whiting, plaice, seabass, redmullet, turbot, conger, crab, squid); guest review portraits (6).
+   Output: Art/Source/Restaurant/exact/s3-s5/**
+ Codex 2 (WSL): ui-2-service + ui-service-desktop (S2) and ui-1-arrange (S1): top bar, timeline with flag/dots,
+   coin/star pills, speed control, stock slab and rows, repair chip, Mira late-table card with its buttons, staff
+   rail cards and rings, order bubbles, arrange top bar/undo/tabs/item cards/placement buttons/name tag; Mira bust
+   for the service card; crew busts for every crew member (v2-bust-<id> for all deck portraits in
+   Assets/Art/UI/v2-portrait-*-deck.png, mockup style). Output: Art/Source/Restaurant/exact/s1-s2/**
+Names: keep the existing names where a piece already exists (v2-btn-primary, v2-sign-plank, v2-ticket, ...) and
+list every new name in REPORT.md. Open every image, side-by-side contact of each piece next to its mockup crop.
+OWNERSHIP your output folder only. No Assets/, no .cs, no git, no player save. comms.md START, CHECKPOINT per
+screen, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

@@ -57,6 +57,17 @@ namespace Catchline.Game
         public static float TouchPixels => Skin.MinTouch * Mathf.Max(1, Screen.dpi / 163f);
         float MinHit => TouchPixels / Mathf.Max(.001f, canvas.scaleFactor);
 
+        // Restaurant pieces cut 1:1 from the mockups (RESTAURANT-UI-ART-1, UI-EXACT-1): their own nine-slice borders
+        // (left, bottom, right, top, source px) and how many source px make one layout px.
+        public static readonly Dictionary<string, (Vector4 border, float scale)> PieceSlices = new()
+        {
+            ["v2-ticket"] = (new Vector4(250, 70, 70, 72), 2),
+            ["v2-sign-plank"] = (new Vector4(110, 80, 110, 84), 2),
+            ["v2-review-card"] = (new Vector4(40, 40, 40, 40), 2),
+            ["v2-staff-card"] = (new Vector4(30, 28, 30, 28), 2),
+            ["v2-stock-card"] = (new Vector4(40, 40, 40, 40), 2),
+        };
+
         Sprite V2(string name, float multiplier = 2)
         {
             if (name == null) return null;
@@ -68,7 +79,9 @@ namespace Catchline.Game
             Sprite result = null;
             if (texture != null)
             {
-                SkinSlices.Border.TryGetValue(name, out var border);
+                Vector4 border;
+                if (PieceSlices.TryGetValue(name, out var piece)) border = piece.border;
+                else SkinSlices.Border.TryGetValue(name, out border);
                 result = UnityEngine.Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * .5f, 100, 0, SpriteMeshType.FullRect, border);
                 result.name = name;
             }
@@ -83,7 +96,7 @@ namespace Catchline.Game
             if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<Image>();
             var s = V2(sprite);
             e.Image.sprite = s; e.Image.type = s != null && s.border != Vector4.zero ? Image.Type.Sliced : Image.Type.Simple;
-            e.Image.pixelsPerUnitMultiplier = 2; e.Image.preserveAspect = false; e.Image.fillCenter = true;
+            e.Image.pixelsPerUnitMultiplier = PieceSlices.TryGetValue(sprite ?? "", out var piece) ? piece.scale : 2; e.Image.preserveAspect = false; e.Image.fillCenter = true;
             e.Image.color = s == null && tint == null ? Color.clear : tint ?? Skin.Paper; e.Image.raycastTarget = blocks;
             return e.Rect;
         }
@@ -98,6 +111,7 @@ namespace Catchline.Game
             e.Image.color = s == null ? Color.clear : tint ?? Color.white; e.Image.raycastTarget = false;
         }
 
+        static readonly Color KitStroke = new Color(.09f, .13f, .25f, 1f);
         public void Text(string id, Rect r, string value, Skin.Type type, Color? colour = null, TextAnchor align = TextAnchor.MiddleLeft,
             Transform parent = null, bool outline = false)
         {
@@ -114,9 +128,13 @@ namespace Catchline.Game
             if (o != null)
             {
                 o.enabled = outline;
-                // The v3 kit's labels are clean with a faint warm edge (mockups), not v2's navy outline.
-                if (outline) { o.effectColor = Kit != null ? new Color(.3f, .1f, .02f, .3f) : Skin.Ink; o.effectDistance = Kit != null ? new Vector2(1, -1) : new Vector2(2, -2); }
+                // The v3 kit (restaurant mockups): cream/white labels with a solid dark navy stroke and a drop below it.
+                if (outline) { o.effectColor = Kit != null ? KitStroke : Skin.Ink; o.effectDistance = Kit != null ? new Vector2(1.1f, -1.1f) : new Vector2(2, -2); }
             }
+            Shadow drop = null;
+            foreach (var sh in t.GetComponents<Shadow>()) if (sh.GetType() == typeof(Shadow)) drop = sh;
+            if (outline && Kit != null && drop == null) drop = t.gameObject.AddComponent<Shadow>();
+            if (drop != null) { drop.enabled = outline && Kit != null; drop.effectColor = KitStroke; drop.effectDistance = new Vector2(0, -2f); }
             if (t.text != value) t.text = value;
         }
         float TextWidth(string id) => elements.TryGetValue(id, out var e) && e.Text != null ? Mathf.Min(e.Text.preferredWidth, e.Rect.rect.width) : 0;

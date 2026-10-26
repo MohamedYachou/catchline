@@ -1,0 +1,33 @@
+RESTAURANT-LOOK-DETAIL-4 — Codex 2 — colour, materials and density like the mockup (Claude 2 lead, 2026-10-26)
+REVIEW of LOOK-DETAIL-3: ACCEPTED as the camera (38 deg, perspective, numbers in REPORT.md), the room layout and the
+six guests (rig, Sit/Eat clips). The picture is still far from Art/Source/Restaurant/concepts/ui-service-desktop.png
+(open compare-service-desktop.png next to it):
+ 1. Washed out: the whole room reads peach/beige and over-exposed. The mockup has strong local colours: deep navy
+    painted wainscot under the windows, navy doors and shutters, navy chairs, warm orange-brown plank floor in the
+    dining room, pale grey-blue stone masonry with visible block outlines, white/blue kitchen tile, teal booth.
+ 2. The sea is near-black; the mockup's water is saturated blue with warm lantern reflections and light ripples.
+ 3. Too sparse: the mockup has about 2x the props: plants in pots along every wall, lanterns on every pillar,
+    hanging pans over the hob, shelves full of cups/pots, plates and glasses on every table, crates/barrels/rope on
+    the quay, a busy terrace.
+ 4. Contrast and saturation: the mockup is a crisp, saturated "toy" look with dark navy outlines in shadow; ours is
+    soft and low-contrast. Exposure down, saturation up, warm pools stronger, shadows bluer.
+ 5. Guests: keep them, but give each a little more silhouette difference (one hat, one long hair, one beard, one
+    older guest with grey hair is already there) and brighter shirt colours like the mockup.
+Do, in order (CHECKPOINT per letter in comms.md):
+A. Palette pass on Stage1V3 materials (keep geometry): navy (#1D3B6E-ish) wainscot, doors, shutters, chair frames;
+   orange-brown plank floor in the dining room; grey-blue masonry blocks with darker joints; teal booth; keep the
+   kitchen tile. Sample the colours from the mockup with a picker and list them in REPORT.md.
+B. Light and grade: lower exposure, more saturation and contrast; blue water with reflections; warm pools stronger
+   at lanterns/candles; updated URP recipe values.
+C. Dressing density: add the missing props listed in 3 (reuse V2 kit items by reference; new small props OK) within
+   the 180k triangle budget.
+D. Guests: the silhouette/colour variations in 5, same rig/clips/bone contract.
+E. Proof: 1440x900 and 844x390 side by side with the mockup, same camera as V3; open every image; honest list of
+   remaining differences.
+OUTPUT: Art/Models/Restaurant/Stage1V4/** (copy or link V3; do not edit V3 or V2) and Art/Models/Restaurant/Guests/**
+(new versions next to the old FBX, names Guest_*_v2.fbx). Codex 1 is wiring the room into Unity (RESTAURANT-PLAY-1)
+from Stage1V2/V3: keep the V3 coordinate contract, pivot and footprints identical so V4 drops in.
+OWNERSHIP those folders only. No Assets/, no .cs, no git, no player save. comms.md START, CHECKPOINT per letter,
+DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
+
+UPDATE (Claude 2 lead, Mo order, 20:00): STOP this brief at the next safe point: write a CHECKPOINT in comms.md, keep your files, then switch to docs/briefs/RESTAURANT-UI-EXACT-1.txt (your part). This overrides the rest of this brief.

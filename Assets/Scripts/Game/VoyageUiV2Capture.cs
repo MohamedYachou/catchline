@@ -13,7 +13,9 @@ namespace Catchline.Game
     public partial class VoyageGame
     {
         public static readonly string[] UiV2Screens = { "voyage", "operations", "crew" };
+        // Device pixels: a retina desktop (1440x900 layout at 2x) and an iPhone in landscape (844x390 at 3x).
         static readonly Vector2Int[] UiV2Sizes = { new(1440, 900), new(844, 390) };
+        static readonly (Vector2Int size, int density)[] UiV2DeviceSizes = { (new(2880, 1800), 2), (new(2532, 1170), 3) };
 
         void StartUiV2Capture(string[] args)
         {
@@ -228,14 +230,13 @@ namespace Catchline.Game
             {
                 if (!StageUiV2(screen)) { Debug.LogError("[Catchline] UIV2 stage failed: " + screen); QuitCapture(5); yield break; }
                 captureFreeze = true;
-                foreach (var size in UiV2Sizes)
+                foreach (var (size, density) in UiV2DeviceSizes)
                 {
-                    if (!Application.isEditor) { Screen.SetResolution(size.x, size.y, false); for (int n = 0; n < 20; n++) yield return null; }
-                    PrepareInterface(size.x, size.y); Visual(0);
+                    // Rendered off screen at full device resolution (bigger than most monitors), named by layout width.
+                    PrepareInterface(size.x, size.y, 0, density); Visual(0);
                     for (int n = 0; n < 8; n++) yield return null;
-                    string name = $"{screen}-{size.x}";
-                    if (Application.isEditor) yield return CompositeFrame(directory, name, size);
-                    else yield return CaptureFrame(directory, name);
+                    string name = $"{screen}-{size.x / density}";
+                    yield return CompositeFrame(directory, name, size);
                     Debug.Log($"[Catchline] UIV2 frame {name}");
                 }
             }

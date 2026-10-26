@@ -1,0 +1,21 @@
+RESTAURANT-MIRA-FISH-ART-1 — Codex 1 — big crisp Mira and the fish, in the mockups' painted style (Claude 2, 2026-10-26)
+Mo: "we need a few big crisp mira 2d art like the renders; even the fish are low res". The screens are now captured
+at device resolution (2880x1800 desktop, 2532x1170 phone), so every illustration must hold up at 3x.
+Style reference: Art/Source/Restaurant/concepts/ui-3-mira-plan.png (Mira presenting, clipboard with anchor,
+binoculars, navy captain coat, cream knit, curly dark hair), ui-5-closing.png (Mira waving), ui-2-service.png /
+ui-service-desktop.png (Mira bust on the late-table card). Same face and outfit in every pose; match the mockup
+painting (clean navy outline, soft cel shading, warm top-left light), NOT the older tutorial poses.
+A. Mira, transparent PNG, 1600x2000 each (full body to mid-thigh like the plan card), names:
+   v2-mira-plan (presenting, open palm, clipboard), v2-mira-wave2 (waving, closing), v2-mira-ask (bust, waving,
+   for the service card; 800x800), v2-mira-cheer, v2-mira-think, v2-mira-point (pointing right), v2-mira-worried.
+B. Fish in the same painted style as the mockup's "bring back" fish (blue-grey mackerel with stripes etc.),
+   transparent PNG 1024x512, side view facing left, names v2-fishart-<species>: mackerel, pollock, cod, herring,
+   whiting, plaice, seabass, redmullet, turbot, conger, crab (top view), squid. Each must read correctly as its
+   species (markings, fin shapes, colours).
+C. v2-catch-pile at 1280x580 (the iced fish pile) re-done at that size.
+D2. Guest review portraits for the closing card, 400x400 round-bust, matching Codex 2's 3D guests
+   (Art/Models/Restaurant/Guests/renders/guests-idle-sheet.png: Ada, Ben, Cora, Dan, Edda, Finn) in the mockup's
+   painted style (ui-5-closing.png reviewers): v2-guest-ada ... v2-guest-finn.
+D. Contacts: each next to the mockup piece it replaces; open every image; REPORT.md with names/sizes.
+OUTPUT: Art/Source/Restaurant/ui2/** only. Claude imports into Assets/Art/UI. No Assets/, no .cs, no git.
+comms.md START / CHECKPOINT / DONE then IDLE.

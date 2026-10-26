@@ -57,12 +57,14 @@ namespace Catchline.Game
             return ui;
         }
 
-        public void Begin(int width, int height, float typeScale, Rect safeArea)
+        // density = device pixels per layout pixel (3 on a retina phone): the layout is chosen from the physical size,
+        // the canvas still draws at full device resolution.
+        public void Begin(int width, int height, float typeScale, Rect safeArea, float density = 1)
         {
             canvas.enabled = true;
             TypeScale = typeScale;
             if (safeArea.width <= 0 || safeArea.height <= 0) safeArea = new Rect(0, 0, width, height);
-            Height = safeArea.height < 600 ? 480 : 720;
+            Height = safeArea.height / Mathf.Max(1, density) < 600 ? 480 : 720;
             canvas.scaleFactor = safeArea.height / Height;
             Width = safeArea.width / canvas.scaleFactor;
             // Safe-area root; children use logical top-left coordinates.

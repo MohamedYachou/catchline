@@ -44,6 +44,9 @@ namespace Catchline.Game
             [PreparedForm.Whole] = Dish.GrilledFish, [PreparedForm.Fillet] = Dish.PanFish, [PreparedForm.Stock] = Dish.Soup,
             [PreparedForm.Platter] = Dish.Platter, [PreparedForm.Crab] = Dish.Crab, [PreparedForm.Squid] = Dish.Calamari,
         };
+        // Guests write the reviews. Stand-in faces (deck portraits of people not on the night's staff) until the guest
+        // portraits of RESTAURANT-MIRA-FISH-ART-1 D2 arrive.
+        static readonly string[] GuestFaces = { "ana-deck", "bram-deck", "lise-deck", "olaf-deck", "tess-deck", "yusuf-deck" };
         static string FishArt(Species s) => "fish-" + s.ToString().ToLowerInvariant();
         static string FishName(Species s) => GameData.Get(s).Name.ToLowerInvariant();
 
@@ -247,11 +250,10 @@ namespace Catchline.Game
             v.PopularityBefore = Mathf.Clamp01(popularityBefore / 50f); v.Popularity = Mathf.Clamp01(restaurantPopularity / 50f);
             var best = r.Walking.OrderByDescending(w => w.Metres).FirstOrDefault(w => w.Id != "mira");
             v.CrewOfTheNight = best != null ? Cap(best.Id) : "Mira"; v.CrewPortrait = best?.Id ?? "mira";
-            var crewIds = night.Staff.Select(s => s.Id).Where(id => id != "mira").ToArray();
             string[] good = { "Fish worth the wait.", "Cosy, even in the rain.", "We'll be back!" }, mid = { "More coffee, please!", "A bit slow tonight.", "Nice view, cold plate." };
             v.Reviews = night.Groups.Where(g => g.Paid).Take(3).Select((g, i) => new RestaurantReview
             {
-                Portrait = crewIds.Length > 0 ? crewIds[i % crewIds.Length] : "captain", Stars = Mathf.Clamp(g.Stars, 1, 5),
+                Portrait = GuestFaces[(g.Id + i) % GuestFaces.Length], Stars = Mathf.Clamp(g.Stars, 1, 5),
                 Quote = g.Stars >= 4 ? good[i % good.Length] : mid[i % mid.Length],
             }).ToList();
             v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "We'll do better tomorrow.";

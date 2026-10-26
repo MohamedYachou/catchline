@@ -12,19 +12,21 @@ namespace Catchline.Game
         float iw, ih;
         bool compactInterface => ih < 600;
         Color SeaInk => Palette.Hex("3E626D");
-        public void PrepareInterface(int width, int height, float textScale = 0)
+        public void PrepareInterface(int width, int height, float textScale = 0, float density = 0)
         {
-            interfaceWidth = width; interfaceHeight = height;
+            interfaceWidth = width; interfaceHeight = height; interfaceDensity = density;
             interfaceTextScale = textScale;
             RefreshInterface();
         }
         public bool InvokeInterface(string control) => coastalUi != null && coastalUi.Invoke(control);
+        float interfaceDensity;
         void RefreshInterface()
         {
             if (coastalUi == null) coastalUi = CoastalCanvas.Create(transform, Cam);
             int width = interfaceWidth > 0 ? interfaceWidth : Screen.width;
             int height = interfaceHeight > 0 ? interfaceHeight : Screen.height;
-            coastalUi.Begin(width, height, interfaceTextScale > 0 ? interfaceTextScale : UiScales[UiScaleIndex], interfaceWidth > 0 ? new Rect(0, 0, width, height) : Screen.safeArea);
+            coastalUi.Begin(width, height, interfaceTextScale > 0 ? interfaceTextScale : UiScales[UiScaleIndex], interfaceWidth > 0 ? new Rect(0, 0, width, height) : Screen.safeArea,
+                interfaceDensity > 0 ? interfaceDensity : Application.isMobilePlatform && Screen.dpi > 0 ? Mathf.Max(1, Screen.dpi / 160f) : 1);
             iw = coastalUi.Width; ih = coastalUi.Height;
             hudRects.Clear();
             foreach (Transform t in coastalUi.Root)
