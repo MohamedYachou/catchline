@@ -150,6 +150,15 @@ namespace Catchline.Game
                     Tri(P(-.85f, .62f), P(.3f, .1f), P(.8f, .62f), symbol);
                     L(.22f, -.78f, .45f, -.62f, .08f); L(.45f, -.62f, .7f, -.8f, .08f);
                     L(-.9f, .8f, -.3f, .68f, .14f); L(-.3f, .68f, .3f, .82f, .14f); L(.3f, .82f, .9f, .68f, .14f); break;
+                case 15: // kelp forest: three tall swaying stalks with float bulbs, unlike the branching kelp bank fronds
+                    for (int stem = -1; stem <= 1; stem++)
+                    {
+                        float baseX = stem * .5f, top = stem == 0 ? -.9f : -.62f;
+                        var previous = P(baseX, .85f);
+                        for (int i = 1; i <= 8; i++) { float y = Mathf.Lerp(.85f, top, i / 8f); var next = P(baseX + Mathf.Sin(y * 4 + stem) * .12f, y); Line(previous, next, r * .12f, symbol); previous = next; }
+                        for (int j = 1; j <= 3; j++) { float y = Mathf.Lerp(.85f, top, j / 3.6f); C(baseX + Mathf.Sin(y * 4 + stem) * .12f + (j % 2 == 0 ? .17f : -.17f), y, .11f); }
+                    }
+                    break;
                 default: // port office
                     L(-.75f, .85f, -.75f, -.2f, .2f); L(.75f, .85f, .75f, -.2f, .2f); L(-.8f, -.2f, .8f, -.2f, .2f);
                     L(-.3f, -.3f, -.3f, -.75f, .2f); L(.3f, -.3f, .3f, -.75f, .2f); L(-.4f, -.75f, .4f, -.75f, .2f);
