@@ -28,6 +28,24 @@ guesses for the pacing sim, not decisions.
 - Crew keep their ship models and clothes for now; restaurant outfits (2D and 3D) come later. Passive restaurant
   income: later, not now.
 
+Mo, later on 10-26:
+- **Jobs are fixed per card**: fishers cook, deckhands are haulers (serving, clearing and cleaning tables, washing
+  plates, emptying trash cans into an outside container), the engineer is the handyman (things break quite
+  regularly), Mira is the navigator and so the host who seats guests and takes payment, and two baristas (a girl and a
+  boy: Ines and one more) come at higher tiers. The captain walks around helping.
+- **Who you take fishing by day works the night**, so spread the right crew.
+- **A dashboard like the boat's** shows who does what and the bottlenecks: how fast groups are seated, how long the
+  food takes, how long it waits before it's served.
+- **Food served more than about 30 s after it's ready is cold**; the guests are a bit less happy.
+- **The night is about 10 minutes**: four game hours of guests, spread out ("about 4 an hour", so about 4 tables),
+  each group about 2 to 2.5 minutes from sitting down to leaving. Then close.
+- Money, hold weight and catch are rethought around the restaurant; the rest of the catch sells.
+- Answers: the crew who sailed work the night; popularity goes up and down, with stars that bring more guests and
+  higher prices; the fridge caps the prep but is upgradeable per tier; special requests yes; renaming yes; night
+  fishing not now.
+- **Mo, on the concept sheets: the game must look exactly like them** (UI, 3D, styling, movement). They are the visual
+  target now, alongside the fishing view.
+
 ## 1. The day
 
 | Phase | Where | What the player does | About |
@@ -38,17 +56,18 @@ guesses for the pacing sim, not decisions.
 | Fishing | Ground | Fish as now. The catch list ticks off on screen. Mira may call with a change. | 3-5 min |
 | Trip home | Sea lane | The prep plan: what gets prepared for tonight, what stays whole for the market. Crew prepare it; you may fillet the special fish yourself. | 0.5-1 min |
 | Arrival | Harbour, dusk | Whole fish sell at the market automatically (a short tally). | seconds |
-| Service | Restaurant, 18:00-23:00 | Guests arrive, crew cook and serve, you manage. | 4-5 min |
+| Service | Restaurant, 18:00-22:00 arrivals | Groups arrive spread out, the crew work their fixed jobs, you help and manage. | about 10 min |
 | Closing | Restaurant | Till, reviews, popularity, leftovers to the cats, crew of the night. Sleep. | 30 s |
 
-A full day is about 10-13 minutes, a good phone session. The rowboat days before Mira (tier 0) stay as they are now:
+A full day is about 16-20 minutes. The rowboat days before Mira (tier 0) stay as they are now:
 fish, sell everything at the market. The closed restaurant is already visible on the quay, shutters down.
 
 ## 2. Guests and what they order
 
 **How many.** Tonight's guest count is rolled at departure from popularity × weekday × weather *(tune)*:
 Monday quiet (×0.8), Friday and Saturday busy (×1.3), Sunday more families (groups of 4); rain ×0.85 and no terrace,
-sun fills the terrace. Groups of 1-4 (later 6 for booths).
+sun fills the terrace. Groups of 1-4 (later 6 for booths). The plan shows it as a rate, "about 4 groups an hour", so
+you can see how many tables you need.
 
 **What they order.** Each guest wants one fish dish, drawn from the chosen ground's fish (weighted like the catch
 pool, so common fish are asked for most), filtered to dishes your kitchen can cook. Most also want a drink; some want
@@ -143,8 +162,8 @@ layout always reads.
 
 Each stage also changes the building outside (Codex 2's exterior sheet), so the harbour shows your progress.
 
-**Starting kit (stage 1, free):** stove, soup kettle, prep counter, fridge, coffee machine, reception desk, two tables
-for 2.
+**Starting kit (stage 1, free):** stove, soup kettle, prep counter, fridge, sink, trash can, coffee machine, reception
+desk with the till, two tables for 2.
 
 **Items** *(prices tune)*:
 
@@ -157,15 +176,16 @@ for 2.
 | | Fryer | 1×1 | Fish and chips, calamari, fries |
 | | Oven | 1×1 | Big-fish platters for a whole table |
 | | Steamer pot | 1×1 | Crab (later mussels) |
-| | Fridge | 1×1 | Holds tonight's stock, 15 portions each |
-| | Sink and dish rack | 2×1 | Clean plates (from R4) |
-| Bar | Coffee machine | 1×1 | Coffee, tea |
+| | Fridge | 1×1 | Holds tonight's stock, 15 portions each, upgradeable |
+| | Sink and dish rack | 2×1 | Haulers wash plates here; holds the clean stack |
+| | Trash can | 1×1 | Scraps; a hauler empties it into the outside container in the alley |
+| Bar | Coffee machine | 1×1 | Coffee, tea (baristas, or you) |
 | | Drinks fridge | 1×1 | Lemonade, beer |
 | | Bar counter with stools | 2×1 | Seats solo guests and drinkers |
 | Guests | Table for 2 / for 4 | 1×1 / 2×1 | Seats |
 | | Booth for 6 | 2×1 | Big groups (stage 3) |
 | | Terrace table | 1×1 | Outside seats (stage 2), empty in rain |
-| | Reception desk | 1×1 | Mira's spot, next to the door |
+| | Reception desk with till | 1×1 | Mira's spot by the door; guests pay here (the till can break) |
 | Decor | Trophy mount | wall | One of YOUR record fish, from the catch records |
 | | Net with floats, lamp, plant, framed chart | 1×1 / wall | Ambience |
 | | Jukebox | 1×1 | Ambience, more patience |
@@ -177,75 +197,98 @@ time. After each night Mira may give one tip ("Our waiters walked 900 m tonight.
 
 ## 6. The night service
 
-Service runs from 18:00 to 23:00 game time, about 4 minutes at normal speed *(tune)*, with pause, ×1 and ×2. Guests
-arrive in a curve: a trickle at six, the rush from seven to nine, a tail until half past ten, when the door closes.
-Service ends when the last table leaves.
+**Length and rhythm.** Guests arrive for four game hours, 18:00 to 22:00, about **10 minutes at ×1** (a game hour is
+about 2.5 minutes) *(tune)*, with pause, ×1 and ×2. Then the door closes and service ends when the last group leaves.
+Groups come **spread out, never all at once**: the plan and the clock show the rate, "about 4 groups an hour", and
+because a visit takes about one game hour, that also says how many tables you need (4 an hour ≈ 4 tables in use).
 
-**A guest's evening:** arrives → waits at the door (patience ring) → Mira seats the group at a free table that fits →
-a waiter takes the order → drinks from the bar → the ticket goes to the kitchen → a cook takes stock from the fridge,
-cooks it on the right appliance, plates it at the pass → a waiter carries it out → they eat → they pay (dishes,
-drinks, tip by satisfaction) → the waiter clears the table. From R4 the plates go to the sink and need washing
-(PlateUp's dish bottleneck).
+**A group's visit** (about 2 to 2.5 minutes from sitting down to leaving *(tune)*):
+1. They arrive and wait at the door (patience ring).
+2. Mira seats them at a free, **clean** table that fits and takes their order.
+3. The ticket goes to the kitchen. A cook takes the prepared fish from the fridge, finishes it (cutting, portioning),
+   cooks it on the right appliance, and plates it at the pass on a clean plate.
+4. A hauler carries it to the table. **Serve it within about 30 seconds** of it being plated, or it goes cold and the
+   group is a little less happy (the dish is never lost).
+5. They eat.
+6. A hauler clears the plates: dirty plates to the sink, scraps into the nearest trash can.
+7. Some want a coffee or a drink afterwards, made by a barista.
+8. They pay at the till, to Mira or to you, tip by how happy they are, and leave.
+9. A hauler wipes the table. Only then can the next group sit there.
 
-**Satisfaction** (1-3 stars per table): waiting times, got what they asked for, quality (fresh today, cook level,
-captain's cut, special served), ambience. Groups that run out of patience at the door leave; at the table they still
-pay, with no tip and a bad review.
+**The supply lines that can jam** (PlateUp-style, all visible in the room and on the dashboard):
+- **Plates.** A stack of clean plates; dirty plates pile up at the sink until a hauler washes them. No clean plates,
+  no plating.
+- **Trash.** Trash cans fill with scraps from the kitchen and the tables. A full can takes no more; a hauler carries
+  the bag out the back door to the **outside container** in the alley (fixed, not placeable).
+- **Breakdowns.** Things break quite regularly *(tune: about one every two or three minutes at stage 1, more with
+  more machines)*: the oven, stove, grill, fryer, coffee machine, the till, the fridge, the sink, the lights. A broken
+  item stops until the handyman fixes it, or until you hold it to fix it yourself. Upgraded machines break less.
 
-### The crew at night
+**Satisfaction** (1-5 stars per group): wait at the door, time until the food comes, food still hot, got what they
+asked for, quality (fresh today, cook level, captain's cut, special served), ambience, wait at the till. Groups that
+run out of patience at the door leave; at the table they still pay, with no tip and a bad review.
 
-Tonight's staff are the crew who sailed today, plus Mira.
+### The crew at night: fixed jobs
 
-| On the boat | In the restaurant | What their card does |
+**Who sails today works tonight**, and every card has one fixed night job. So the crew you pick in the morning has to
+work for both: good fishers by day are your cooks at night, deckhands are your haulers.
+
+| By day | At night | Does |
 |---|---|---|
-| Fisher | Cook | Cooking speed; higher rarity, better dishes |
-| Deckhand | Waiter | Walking and order speed, tips |
-| Engineer | Handyman | Fixes breakdowns, fewer of them; washes plates when idle (R4) |
-| Navigator | Barista | Drinks and coffee; serves drinks to waiting guests |
-| Mira | Reception | Seats guests, patience at the door, popularity bonus |
-| Captain (you) | Manager | The manager's actions below |
+| Fisher | **Cook** | Finishes the prep (cutting, portioning), cooks, plates at the pass, throws kitchen scraps away |
+| Deckhand | **Hauler** | Serves plates, clears and wipes tables, washes plates, empties full trash cans into the outside container |
+| Engineer | **Handyman** | Repairs whatever breaks |
+| Navigator (Mira) | **Host** | The face of the restaurant: seats groups, takes payment at the till |
+| Ines (engineer) and Mats (deckhand), tier 4 | **Barista** | Coffee and drinks after the meal, and for guests waiting at the door |
+| Captain (you) | **Helps anywhere** | Tap a task and you walk over and do it |
 
-Any crew member can take any job; in their own role they work at full speed, in another at 70% *(tune)*. Level and
-rarity use the one work-speed model from `docs/CARDS-AND-SPEEDS.md`. Each card shows a second line, e.g. "Restaurant:
-cook, +10% cooking speed". Card abilities get restaurant twins later (R6); v1 uses level and rarity only. Crew who
-stayed ashore don't work in v1 (later: a few "shore staff" slots for bench cards).
+- Level and rarity use the one work-speed model (`docs/CARDS-AND-SPEEDS.md`); each card shows a second line, e.g.
+  "Night: cook, +10% cooking speed". Card abilities get night twins later (R6).
+- Before the baristas join (tier 4), after-meal drinks only happen if you make them yourself (a cup bubble on the
+  coffee machine).
+- The arc: at the café you do a lot yourself (Mira, one crew member and you); with every bigger boat you bring more
+  crew, so the night runs itself more and you become the manager. The same automation idea as on the boat.
+- Crew who stayed ashore don't work in v1.
 
-### What the manager does (a few taps)
+### What the manager does
 
-1. **Move crew between jobs.** Tap a portrait on the staff rail, pick a job. "Two fishers on waiting tonight, the
-   kitchen is quiet": that is the core decision.
-2. **Serve this first.** Tap a table to pin it; staff handle it before others. One pin at a time.
-3. **Seat a group yourself** (optional): drag a waiting group onto a table. Otherwise Mira seats them.
-4. **Sold out?** A small card: offer soup (they pay less) / another fish if one is spare / sorry and a free coffee.
-   Picks soup by itself after a few seconds.
-5. **Fix things.** A broken item (a smoking fryer, the stove flame out, the fridge door, a wobbly table, a flickering
-   light) stops working. Tap it and the handyman goes; with no handyman free, hold it to fix it yourself.
-6. **Captain's moments.** Carry the catch of the day or a special to its table (tap when it's at the pass: big tip and
-   popularity); shoo the cat that sneaks in; greet a VIP with Mira.
-7. **Close the door** early when the fridge is empty.
+1. **Pick the crew in the morning** with the night in mind. The biggest decision of the day.
+2. **Set priorities on the dashboard** (section 10, S6), like the boat's: each hauler's order of jobs (serve, clear,
+   wash, trash), each cook's order (oldest ticket first or the biggest table first), Mira's (seat first or the till
+   first). "Sam on dishes and trash first, Ana on serving" is the core management decision.
+3. **Help where it hurts.** Tap a task (a plate waiting at the pass, a dirty table, a full trash can, a broken
+   machine, a group at the till, a cup bubble) and the captain goes. A short queue of up to three taps.
+4. **Decide:** a late group at the door (seat them / not tonight), a sold-out dish (offer soup / another fish / a free
+   coffee; soup by itself after a few seconds), a special or a VIP.
+5. **Close the door** early when the fridge is empty.
 
-**Events** (light, a few per night, from R4): a birthday table (offer a cake for a big tip), the alley cat sneaks in
-(shoo it or it eats a portion), a tour group of 6 (needs a booth or two tables), a regular with a favourite dish, rain
-moving terrace guests inside, and later the food critic.
+**Events** (light, a few per night, from R4): a birthday table, the alley cat sneaking in, a tour group of 6, a
+regular with a favourite dish, rain moving terrace guests inside, and later the food critic.
 
 ## 7. Closing
 
-A closing card: guests served (and any who left), coins from dishes, drinks and tips, the total; three review cards
-with stars and a funny line ("The mackerel was so fresh it winked at me"); the popularity bar filling; leftovers
-("3 portions went to the alley cats", the cats eating out back, the lost value greyed); crew of the night (a small
-token bonus *(tune)*); Mira's personal line. Then **Sleep** → next morning.
+A closing card: groups served (and any who left), coins from dishes, drinks and tips, the total; three review cards
+with stars and a funny line ("The mackerel was so fresh it winked at me"); popularity and stars; leftovers
+("3 portions went to the alley cats", the cats eating out back, the lost value greyed); crew of the night; Mira's
+personal line. Then **Sleep** → next morning.
 
-**Popularity** only grows; a bad night just grows it less *(Mo to confirm)*. Its levels raise the guest count, bring
-new guest types (tourists, fishermen's groups, the critic) and open the stages. Later: critic stars, up to three, as
-the long-term goal.
+**Popularity goes up and down** with how happy the guests were. The restaurant's **stars (1 to 5)** follow popularity
+with a buffer, so one bad night doesn't cost a star. Each star brings more guests an hour **and higher prices**
+*(tune: about +10% per star)*, brings new guest types (tourists, fishermen's groups, the critic) and opens the stages.
 
 ## 8. Economy
 
-- Restaurant income becomes the main income; the market pays less. The pacing sim (`docs/plans/CARDS-PACING.md`) is
-  rerun with the restaurant before numbers are fixed; boat, chart and crew prices are rebalanced against it.
-- Restaurant items and stages are a new coin sink.
-- **Watch:** the restaurant's guests per night must grow with the boat tiers (stages, popularity, more crew as staff,
-  pricier Outer coast fish), or a bigger hold stops mattering. The surplus that doesn't fit tonight still sells at
-  the market, so big hauls are never worthless.
+Direction (numbers come from the pacing sim, `docs/plans/CARDS-PACING.md`, rerun with the restaurant):
+- **The restaurant is the money maker.** A dish earns about 3× its raw fish *(tune)*, plus drinks, tips and the star
+  bonus. The market pays about half of today's prices for whole fish.
+- **The day's target is tonight's catch list, not a full hold.** When the list is complete, "Head home" lights up.
+  Whatever else you catch sells at the market, so staying out longer still pays a little.
+- **Bigger boats still matter:** more berths mean more crew at night (the restaurant's capacity), new grounds bring
+  pricier fish and specials, and a bigger hold carries more for the market and for bigger nights.
+- **Fridges are upgradeable** so each tier's night always fits; the fridge never becomes a chore.
+- Restaurant items, stages and machine upgrades are a new coin sink; boat, chart and crew prices are rebalanced.
+- Crew tokens (today: tier × crew × fill, +15% for a full hold) should follow the night instead: tier × crew × how
+  well the night went, +15% for a full house *(to confirm with Mo)*.
 - No paid currency, no timers to wait out.
 
 ## 9. Mira
@@ -271,11 +314,17 @@ you pay on ✓. Tap a placed item to lift it: drag, rotate, store, or sell back.
 reason ("Kitchen items go in the kitchen", "Leave a way to the door"). A path check keeps door → every table and pass →
 every appliance open. Dragging on empty floor pans sideways when the room is wider than the screen (stage 4 with its terrace).
 
-**S2 Service HUD.** Top: the evening clock (18:00-23:00) as a strip with the arrival curve and a now-marker, coins
-tonight, popularity, speed (pause, ×1, ×2). Left: tonight's stock, one plate icon per dish with its count, red when
-low. Bottom: the staff rail, crew portraits with a job icon (pan, tray, wrench, cup, desk) and a busy ring; tap to
-change job. In the room: guests' bubbles (order icon and patience ring), broken items flashing, event cards sliding in
-from the right with Mira's face and two or three buttons.
+**S2 Service HUD.** Top: the evening clock (18:00-22:00) as a strip with the arrival curve, "about 4 an hour" and a
+now-marker, coins tonight, stars, speed (pause, ×1, ×2), a dashboard button. Left: tonight's stock, one plate icon per
+dish with its count, red when low. Bottom: the staff rail, crew portraits with their fixed job (Cook, Hauler, Fix,
+Barista, Host), their current task and a busy ring; tap one for its priorities. In the room: guests' bubbles (order
+icon and patience ring), plates at the pass with a 30-second ring, dirty tables, full trash cans and broken items
+marked as tap targets for the captain, event cards sliding in from the right with Mira's face and two buttons.
+
+**S6 Dashboard** (like the boat's management screen; the game pauses or slows while it's open). The guest journey as
+a row of steps with live average times: door → seated, seated → food out, pass → table, eating, waiting to pay, table
+dirty → clean. The slowest step glows, with the job behind it and a hint ("Plates are piling up at the sink: put Sam
+on dishes first"). Per crew: busy %, current task, and their priority list to reorder.
 
 **S3 Mira's plan card** (trip out). Mira on the left. "Tonight: Friday, 18-22 guests (plus a few walk-ins)". The
 dishes they'll want as icons with ranges. The catch list in fish ("about 8 mackerel, 3 kg pollock"). Special request
@@ -289,7 +338,8 @@ the right, margin choice, fridge space, the restaurant/market totals, "Prepare",
 
 ## 11. Not in v1 (TODO)
 
-Restaurant outfits for the crew (2D and 3D), passive restaurant income, card abilities' restaurant twins, shore staff
+Restaurant outfits for the crew (2D and 3D), passive restaurant income (later idea: the restaurant runs on its own
+at night with the crew who stayed ashore while the captain goes night fishing with others), card abilities' restaurant twins, shore staff
 slots, critic stars, smoker, live tank, more dishes per fish (a recipe book), night fishing (see below).
 
 **Night fishing** is half built and never reachable: `GameState.NightVoyage`, night fish pools in `Data/Grounds.cs`,
@@ -302,9 +352,9 @@ restaurant, it stays parked. A later option: "closed tonight, gone fishing" for 
 |---|---|---|
 | R0 | Concepts: look options, exterior stages, interiors, item kit, service moment, UI mockups (Codex 2); camera and room-size study (Codex 1). Mo picks the look. | now |
 | R1 | The restaurant in the harbour: building (closed → café), go in and out, interior view with grid and zones, arrange mode with shop and placement, layout saved. No service yet. | |
-| R2 | Service core: guests, arrival curve, Mira seating, waiters, cooks, appliances, dishes from stock, pay, closing card; staff = today's crew; the staff rail. | |
+| R2 | Service core: groups spread over the night, Mira seating and the till, cooks, haulers (serve, clear, wipe, plates, trash), handyman and breakdowns, the 30-second rule, the captain helping, closing card; staff = today's crew with fixed jobs; staff rail and dashboard. | |
 | R3 | The day plan: forecast, chart pins, Mira's plan card, the ticket and her calls while fishing, the prep plan, market sale of the rest, leftovers to the cats. | |
-| R4 | Manager moments and events, plates and sink, popularity levels, stages 2-4, the rest of the items. | |
+| R4 | Events, stars, stages 2-4, baristas, machine upgrades, the rest of the items. | |
 | R5 | Economy rebalance with the pacing sim, the first-night tutorial and Mira's story, the Mira message pass. | |
 | R6 | Later list (section 11). | |
 
@@ -315,9 +365,6 @@ day counter live in a new save block.
 
 ## 13. Open questions for Mo
 
-1. Tonight's staff: only the crew who sailed today (my pick for v1), or can crew who stayed ashore work too?
-2. Popularity only grows, a bad night just grows it less: OK?
-3. Fridge space caps how much you prepare: OK?
-4. Special requests with Accept / Not tonight: OK?
-5. The player can rename the restaurant (default "Mira's"): OK?
-6. Night fishing stays parked: OK?
+1. The second barista: Mats (tier 4 deckhand, Purple, same tier as Ines)?
+2. Economy direction (section 8): tonight's catch list as the day's target, the market for the rest, crew tokens from
+   how well the night went instead of the full hold. OK?

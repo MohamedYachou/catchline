@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "owner": "Codex 2 (WSL CLI)",
+  "final_pngs": 14,
+  "raw_pngs": 24,
+  "exact_prompts_and_receipts": 24,
+  "helper_syntax_checks": 3,
+  "source_matches": {
+    "look": "look-options.png",
+    "kit": "kit-sheet.png",
+    "interior1": "interior-1.png",
+    "interior4": "interior-4.png",
+    "stages": "exterior-stages.png",
+    "night": "exterior-night.png",
+    "service": "service-moment.png",
+    "stages_fix": "exterior-stages-v2.png",
+    "night_fix": "exterior-night-v2.png",
+    "ui-1-arrange": "ui-1-arrange.png",
+    "ui-2-service": "ui-2-service.png",
+    "ui-3-mira-plan": "ui-3-mira-plan.png",
+    "ui-4-prep": "ui-4-prep.png",
+    "ui-5-closing": "ui-5-closing.png",
+    "ui-service-desktop": "ui-service-desktop.png",
+    "ui_service_fix": "ui-2-service-v2.png",
+    "ui_desktop_fix": "ui-service-desktop-v2.png",
+    "ui_arrange_fix": "ui-1-arrange-v2.png",
+    "ui_prep_fix": "ui-4-prep-v2.png",
+    "interior1_fix": "interior-1-v2.png",
+    "interior4_fix": "interior-4-v2.png",
+    "interior1_camera": "interior-1-v3.png",
+    "ui_arrange_grid": "ui-1-arrange-v3.png",
+    "ui_prep_fillets": "ui-4-prep-v3.png"
+  },
+  "checks": [
+    "PNG full decode, RGB and independent expected sizes",
+    "final hashes match dimension and manual-open receipts",
+    "24 original imagegen outputs match 24 project-local raw hashes",
+    "all final-sheet reviews and exact prompt sections present",
+    "report and existing gallery local links resolve (delivery receipt checked after sealing)",
+    "Python helper AST parse"
+  ],
+  "limits": [
+    "Visual review observations are manual, recorded earlier; this audit does not calculate artistic quality.",
+    "No Unity/runtime/touch/economy acceptance.",
+    "No browser acceptance of existing index.html."
+  ]
+}

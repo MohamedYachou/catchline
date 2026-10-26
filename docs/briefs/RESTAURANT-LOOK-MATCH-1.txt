@@ -1,0 +1,22 @@
+RESTAURANT-LOOK-MATCH-1 — Codex 2 — make the real 3D look like the concept sheets (Claude 2 lead, 2026-10-26)
+REVIEW of RESTAURANT-CONCEPT-1: ACCEPTED, all 14 sheets. Mo: "this looks so unbelievably good, I want my game to look
+EXACTLY like this, the UI, the 3D, the movement, the styling, literally everything; a screenshot should look exactly
+like these renders." The concept sheets in Art/Source/Restaurant/concepts/ are now the visual target.
+QUESTION THIS JOB ANSWERS: how close can real low-poly 3D, lit the way Unity URP can light it, get to interior-1.png
+and kit-sheet.png? Prove it on a small piece before anything is mass-produced.
+A. Model, in Blender, the stage-1 set from kit-sheet.png as close to the painting as you can (shape, bevels, colours,
+   proportions, the navy enamel / ivory tops / honey wood family): prep counter, stove, soup kettle, fridge, sink with
+   dish rack, coffee machine, table for 2 with chairs, reception desk with till, pass counter, trash can (new, same
+   family), plus the room shell (honey plank floor, ivory tiled kitchen floor, LOW whitewashed walls ~1 m with blue
+   shutters, the back door with the two alley cats). Art/Models/Restaurant/Stage1V1/{.blend,.fbx,REPORT.md}, game-
+   ready (same unit fix and pipeline as the boats), tri budget in the REPORT.
+B. Lay them out as the runtime room: 8x5 tiles, kitchen LEFT (3x5), pass running front to back, guests right, door at
+   the front right with the reception desk (docs/plans/RESTAURANT.md section 5). Render with an orthographic camera at
+   52° (docs/screens/restaurant-scale-1/README.md), warm evening lighting that Unity URP can reproduce (key + warm
+   point lamps + soft AO; write the exact light setup in the REPORT so Claude can rebuild it in Unity), at 1440x900 and
+   844x390. Add two crew (Assets/Art/Models/Crew rig, ship clothes) and Mira for scale.
+C. Side-by-side sheets: your render next to interior-1.png and next to the kit sheet; list honestly what still differs
+   (texture richness, soft shadows, outlines, colour) and what would close each gap (baked AO/lightmaps, a vertex-
+   colour gradient, a post-process grade, hand-painted textures). Every image opened by you.
+OWNERSHIP: Art/Models/Restaurant/** only. No git, no Unity, no Assets/, no .meta, no .cs, never the player save.
+comms.md START, CHECKPOINT per letter, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

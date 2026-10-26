@@ -1,0 +1,133 @@
+{
+  "owner": "Codex 2 (WSL CLI)",
+  "date": "2026-10-26",
+  "method": "Individually opened final images with view_image during this task; observations logged in comms.md. This file binds those manual reviews to final hashes; not an automated visual test.",
+  "images": {
+    "look-options.png": {
+      "sha256": "39b1733632c93b80ad97d743f494b215cab307c90b176223ff22d46cd7584253",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Matching miniature corner buildings, water-facing terrace and harbour palette. Material texture and props are richer than runtime; roof/window details are not mesh specifications."
+    },
+    "exterior-stages.png": {
+      "sha256": "2e61379583841b96e7088a38ff6836c28c8309ab2e20db063f2bc9c71c80ef3e",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Five comparable views: closed, caf\u00e9, bistro, joined-house restaurant, string-lit seafood house. Window contents are illustrative, not an exact countable floorplan; silhouettes are comparable rather than registered CAD cameras."
+    },
+    "exterior-night.png": {
+      "sha256": "c262ea681609bda88f64f8c954717a20f4baae7ce62524f1f19df79538332bb6",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Joined neighbouring frontage, guests and queue present. Detail/noisy stonework should be simplified for actual harbour distance; the terrace railing is atmosphere rather than a walkability solution."
+    },
+    "interior-1.png": {
+      "sha256": "36fb5bc03101360929491a9e70fd7dee032c52c3baf4b402f82950f20c416965",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Two tables/two chairs each; separate fridge, soup kettle, stove, prep and coffee. Camera corrected to a front-down view. Faint grid is not an exact8x5 surveyed layout; horizontal pass explores the original brief, not the newer front-to-back runtime divider."
+    },
+    "interior-4.png": {
+      "sha256": "64e4eb82b8648eca81ab051515b7bf1b7179ed1b4f8d07386ebf36e709e4e1b8",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Five small indoor tables + booth + terrace table = seven table groups. Grill/fryer/oven/sink-rack/bar visible. Brief14x7 mood study clearly labelled; current plan14x5/low walls takes precedence for implementation. Rendered Mira corrected toward accepted identity; miniature faces remain approximations."
+    },
+    "kit-sheet.png": {
+      "sha256": "a6e437f822bd4f3014eb886806eb67bd2258f5ac1ca92856238a489ad2c6cff2",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "All23 requested placeables plus one ship-clothes scale figure. Labels give proposed1x1/2x1 sizes and wall slots, with table4 corrected2x1. Plinths/chairs are illustrative: not measured collision or aisle footprints. Wall-net display has freestanding support in the concept; runtime can mount the net directly."
+    },
+    "service-moment.png": {
+      "sha256": "5fef243f586a17230923ed5bf0e27813bf11672ca8936da423001db72932ac48",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "Fishers stove/grill, deckhand plates, hardhat engineer at smoking fryer, navigator coffee, Mira/queue and fish/coffee orders visible. Kitchen worktops/hands visible; waist-high pass can hide legs. No chef/waiter outfits. Crowd spacing and all foot routes unverified."
+    },
+    "ui-1-arrange.png": {
+      "sha256": "cdab7d1cf6dbb9c02a2ca2078c3a2a453646649ce761cffc560338780e9af90f",
+      "size": [
+        844,
+        390
+      ],
+      "individually_opened": true,
+      "observation": "One green1x1 ghost under two-chair table; big rotate/cancel/check; clean table4 glyph/label2x1. Room is a mood background, not latest5-deep camera fit.44px targets, finger offset, undo, pathfinding, invalid-state copy and pan require interactive validation; drawer does not prove exact84px implementation."
+    },
+    "ui-2-service.png": {
+      "sha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+      "size": [
+        844,
+        390
+      ],
+      "individually_opened": true,
+      "observation": "Four ship-clothes role portraits, repair cue and order bubbles. Reception is the in-world desk/event rather than a fifth phone rail slot; actual staff rail should allow Reception. Speed controls and some tabs are visibly smaller than44px; expand hit areas in implementation."
+    },
+    "ui-3-mira-plan.png": {
+      "sha256": "a1ed2d725dba49eef7c225272b5087f296e6f39af259900975264ba7a4554672",
+      "size": [
+        844,
+        390
+      ],
+      "individually_opened": true,
+      "observation": "Accepted Mira portrait language, dishes/ranges, fish/kg catch list and two special actions. Numbers illustrative; catch yields must be calculated from simulation. Plan card should be composited on the outbound voyage, not treated as a new location."
+    },
+    "ui-4-prep.png": {
+      "sha256": "877df846f09f46a200c5098608bc43c31a232bad792a16b9f6597982b2319516",
+      "size": [
+        844,
+        390
+      ],
+      "individually_opened": true,
+      "observation": "Coffee removed from catch prep;10 grilled +8 soup +12 fillets =30 portions; fridge30/30 and market2fish cleaned. Controls deliberately enlarged. Fish art depicts finished dishes as category icons; boat prepares raw forms only. Forecast numerical range/market coin value and unavailable-recipe reason still need real data and native layout."
+    },
+    "ui-5-closing.png": {
+      "sha256": "c787a17164dde6b50ba0187ff5a41d43aee8fe87756c848c8e18d0824243f51f",
+      "size": [
+        844,
+        390
+      ],
+      "individually_opened": true,
+      "observation": "420 dishes +96 drinks +48 tips =564. Unsupported generated reward-unlock text replaced with neutral harbour reputation copy. Names, values and reviews are examples, not economy or crew decisions."
+    },
+    "ui-service-desktop.png": {
+      "sha256": "623efaf65065dc953eac6425e8186925097a08124977b5e67372b4736296115b",
+      "size": [
+        1440,
+        900
+      ],
+      "individually_opened": true,
+      "observation": "Distinct cook/serve/fix/coffee/reception portraits, rounded title, no chef outfits. Tiny world Mira cap still varies from accepted navy compass cap; reuse accepted Mira asset in production. Crew/world positions and view fit are concept art only."
+    },
+    "contact.png": {
+      "sha256": "bf7f023bfe841323af8dda821076e9b030221c879c4ec17561eacc5146a14f0e",
+      "size": [
+        2400,
+        1350
+      ],
+      "individually_opened": true,
+      "observation": "A-D only as brief requests; UI screens are separate full-size PNGs. Contact thumbnails are for selection; inspect full sheets for detail."
+    }
+  }
+}
