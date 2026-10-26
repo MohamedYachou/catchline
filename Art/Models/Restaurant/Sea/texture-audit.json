@@ -1,0 +1,49 @@
+{
+  "dimension_format_pass": true,
+  "assets": [
+    {
+      "file": "night-water-2048.png",
+      "sha256": "9c4439a77d68b89dfa7ebae7fbd5efe14d48b786512b10559b47d8a4946b1d58",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "opaque": true,
+      "wrap_edge_mean_abs_rgb_0_255": {
+        "x": 5.947916666666667,
+        "y": 6.8583984375
+      },
+      "adjacent_interior_mean_abs_rgb_0_255": {
+        "x": 0.8216024975574011,
+        "y": 2.176083553421674
+      },
+      "pure_black_fraction": 0.0
+    },
+    {
+      "file": "lantern-reflections-additive-2048.png",
+      "sha256": "2a8e78d2bb1372fac3fc03433f2f7423ef4d85581eac11345e7788f821820573",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "opaque": true,
+      "wrap_edge_mean_abs_rgb_0_255": {
+        "x": 0.4064127604166667,
+        "y": 7.458821614583333
+      },
+      "adjacent_interior_mean_abs_rgb_0_255": {
+        "x": 1.1350707113306058,
+        "y": 4.689571517897126
+      },
+      "pure_black_fraction": 0.5106911659240723
+    }
+  ],
+  "seam_metrics_are_measurements_not_visual_acceptance": true,
+  "generated_source_pixels": [
+    1254,
+    1254
+  ],
+  "delivery_resampling": "Lanczos2048; no painted content generated procedurally"
+}

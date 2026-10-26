@@ -1,0 +1,11 @@
+# Restaurant wardrobe on the production CrewRig
+
+Delivered CrewRig_Restaurant.fbx / .blend. Original production Body, all four outfits and all three hats are preserved; original 20 bones and all 11 clips retained. Fresh FBX reimport passes original vertices/faces/material slots and assignments/UVs/weights, bone hierarchy/rest and five sampled poses in each clip. See clothes2-validation.json for exact hashes, deltas, mesh world bounds and triangle counts.
+
+Added toggle siblings: Outfit_Host, Outfit_CookWhites, Outfit_WaiterSkirt, Outfit_WaiterSuit, Outfit_Barista, Outfit_Handyman, Outfit_HelperSuit, Outfit_Dishwasher, Hat_Toque. Enable Body plus one outfit; enable Hat_Toque for CookWhites; hide other outfit/hat siblings. Face, hair, skin and hands belong to the original Body, with no person-specific crown or hands added. The original rigid hats keep their original binding.
+
+Garment shapes reuse accepted CLOTHES-1 work, reconstructed on this rig with their original bone groups. Head/skin polygons are excluded. Each new garment includes an 8 mm opaque lining derived from the original body's navy upper clothing surface with its exact weights, preventing blue shoulders showing through ivory sleeves. Original Body is unchanged. All new materials are palette colors; no external texture dependencies were added.
+
+Opened clothes2-lineup-Idle.jpg, clothes2-lineup-Walk.jpg and clothes2-lineup-Carry.jpg: all eight jobs reviewed, chef sleeves corrected, coat/apron/neckwear visible. These contacts use fresh-FBX renders at V4's 38 degree elevation, -2 degree yaw, 58 mm lens, translated toward each actor for readable wardrobe review, then alpha-cropped and uniformly presented. They are wardrobe proofs rather than a native game screenshot. WaiterSuit and HelperSuit intentionally share the accepted suit silhouette. Head scalp spots remain the original unchanged Body geometry.
+
+Native Unity toggle wiring, engine material import and all animation transitions remain for Claude's runtime review. No Assets, code, metas or git changes were made. Accepted standalone CLOTHES-1 files are preserved. Builders: clothes2-build.py, clothes2-validate.py; source inventory clothes2-source-inventory.json.

@@ -1,0 +1,613 @@
+{
+  "objects": [
+    {
+      "name": "CrewRig",
+      "type": "ARMATURE",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          0.0
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [],
+      "vertices": null,
+      "groups": [],
+      "bones": [
+        "Hips",
+        "Spine",
+        "Spine1",
+        "Neck",
+        "Head",
+        "HatMount",
+        "LeftShoulder",
+        "LeftArm",
+        "LeftForeArm",
+        "LeftHand",
+        "RightShoulder",
+        "RightArm",
+        "RightForeArm",
+        "RightHand",
+        "LeftUpLeg",
+        "LeftLeg",
+        "LeftFoot",
+        "RightUpLeg",
+        "RightLeg",
+        "RightFoot"
+      ]
+    },
+    {
+      "name": "Hat_Beanie",
+      "type": "MESH",
+      "location": [
+        0.0,
+        -1.1999999284744263,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          2.821299744937278e-07,
+          4.7246999201888684e-08
+        ],
+        [
+          0.0,
+          -2.821299744937278e-07,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 606,
+      "groups": [],
+      "bones": []
+    },
+    {
+      "name": "Hat_CaptainCap",
+      "type": "MESH",
+      "location": [
+        0.0,
+        -1.1999999284744263,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          2.821299744937278e-07,
+          4.7246999201888684e-08
+        ],
+        [
+          0.0,
+          -2.821299744937278e-07,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 680,
+      "groups": [],
+      "bones": []
+    },
+    {
+      "name": "Hat_Hood",
+      "type": "MESH",
+      "location": [
+        0.0,
+        -1.1999999284744263,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          2.821299744937278e-07,
+          4.7246999201888684e-08
+        ],
+        [
+          0.0,
+          -2.821299744937278e-07,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 170,
+      "groups": [],
+      "bones": []
+    },
+    {
+      "name": "Outfit_Captain",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          1.517317117591822e-16
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          9.313225746154785e-10
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 960,
+      "groups": [
+        "Hips",
+        "Spine",
+        "Spine1",
+        "LeftUpLeg",
+        "RightUpLeg"
+      ],
+      "bones": []
+    },
+    {
+      "name": "Outfit_Deckhand",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          1.517317117591822e-16
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          9.313225746154785e-10
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 680,
+      "groups": [
+        "Hips",
+        "Spine",
+        "Spine1",
+        "LeftUpLeg",
+        "RightUpLeg"
+      ],
+      "bones": []
+    },
+    {
+      "name": "Body",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          1.517317117591822e-16
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          9.313225746154785e-10
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 5510,
+      "groups": [
+        "Hips",
+        "Spine",
+        "Neck",
+        "Head",
+        "LeftArm",
+        "LeftForeArm",
+        "LeftHand",
+        "RightArm",
+        "RightForeArm",
+        "RightHand",
+        "LeftUpLeg",
+        "LeftLeg",
+        "LeftFoot",
+        "RightUpLeg",
+        "RightLeg",
+        "RightFoot"
+      ],
+      "bones": []
+    },
+    {
+      "name": "Outfit_Fisherman",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          1.517317117591822e-16
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          9.313225746154785e-10
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 882,
+      "groups": [
+        "Hips",
+        "Spine",
+        "Spine1",
+        "Neck",
+        "LeftUpLeg",
+        "RightUpLeg"
+      ],
+      "bones": []
+    },
+    {
+      "name": "Outfit_Veteran",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.6292068494294654e-07,
+          1.517317117591822e-16
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          1.0,
+          9.313225746154785e-10
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Steel",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_BandIvory",
+        "M_Skin",
+        "M_OilskinYellow",
+        "M_HairChestnut",
+        "M_HairSilver"
+      ],
+      "vertices": 2956,
+      "groups": [
+        "Hips",
+        "Spine",
+        "Head",
+        "LeftUpLeg",
+        "RightUpLeg"
+      ],
+      "bones": []
+    }
+  ],
+  "actions": {
+    "CrewRig|CrewRig|Bait": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Carry": [
+      1.0,
+      25.0
+    ],
+    "CrewRig|CrewRig|Cast": [
+      1.0,
+      33.0
+    ],
+    "CrewRig|CrewRig|Cheer": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Idle": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Reel": [
+      1.0,
+      25.0
+    ],
+    "CrewRig|CrewRig|Row": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Stow": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Strike": [
+      1.0,
+      19.0
+    ],
+    "CrewRig|CrewRig|Wait": [
+      1.0,
+      49.0
+    ],
+    "CrewRig|CrewRig|Walk": [
+      1.0,
+      25.0
+    ]
+  }
+}

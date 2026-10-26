@@ -1,0 +1,30 @@
+{
+  "reviewer": "Codex 2 (WSL CLI)",
+  "reviewed_against": "Art/Source/Restaurant/concepts/ui-service-desktop.png",
+  "opened_final_views": [
+    "night-water-2x2.jpg",
+    "lantern-reflections-additive-2x2.jpg",
+    "renders/night-sea-room-1440x900.png",
+    "renders/night-sea-room-844x390.png"
+  ],
+  "findings": [
+    "Painted broad blue ripples remain readable at both saved V4 sizes.",
+    "Gold broken reflection streaks visible along front quay after correcting overlay height.",
+    "2x2 contact boundaries visually quiet; edges are not numerically identical.",
+    "Original room, guests, lighting and exact saved V4 cameras retained in review-only scene."
+  ],
+  "limits": [
+    "No Unity runtime/material acceptance.",
+    "Generated originals are1254 square, mechanically resampled to2048.",
+    "Additive reflection intensity and placement are adjustable separately; proof uses transparent plus emission in Blender."
+  ],
+  "sha256": {
+    "night-water-2048.png": "9c4439a77d68b89dfa7ebae7fbd5efe14d48b786512b10559b47d8a4946b1d58",
+    "lantern-reflections-additive-2048.png": "2a8e78d2bb1372fac3fc03433f2f7423ef4d85581eac11345e7788f821820573",
+    "night-water-2x2.jpg": "2764f1499242fa61ac6dff0a649c2bbffc7286a76863ced526344e287448123c",
+    "lantern-reflections-additive-2x2.jpg": "86bab1457333836b6b2de0c28378a91f24c683303bb6b8818f4de3d3e34d5f7f",
+    "renders/night-sea-room-1440x900.png": "42a813b53c70916422c274959be17769853a0685548d60e26725d7f1638124fb",
+    "renders/night-sea-room-844x390.png": "164f3df10085f1d857394fe98b71acdaea641e874894881d77a8b713c9de3a33",
+    "NightSea-V4-check.blend": "70f8159d4a395e26e67138e4a6ded0be690e2f7381d42959ad82e00f56fe2cc6"
+  }
+}

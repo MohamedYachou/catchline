@@ -122,3 +122,9 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-26 23:58, overrides everything above): CLO
 1) RESTAURANT-CREW-CLOTHES-2: one CrewRig FBX for the game, Art/Models/Restaurant/Clothes/CrewRig_Restaurant.fbx: the original Assets/Art/Models/Crew/CrewRig.fbx (same 20 bones, clips, every existing Outfit_*/Hat_* mesh unchanged) PLUS sibling skinned outfit meshes the game toggles by name exactly like Outfit_Deckhand/Outfit_Captain today (RestaurantWorld.MakeActor): Outfit_Host (Mira A look), Outfit_CookWhites (+ Hat_Toque), Outfit_WaiterSkirt, Outfit_WaiterSuit, Outfit_Barista, Outfit_Handyman, Outfit_HelperSuit, Outfit_Dishwasher. Neutral (not person-specific) crowns/hands; faces/hair stay whatever the rig shows. Render a lineup at the V4 game camera. Validate like CLOTHES-1.
 2) Then the sea tile (NEXT line above).
 CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 00:55, overrides everything above): CLOTHES-2 rig and RESTAURANT-SEA accepted as delivered (Claude imports). Next, in order:
+1) Mo picked nothing yet; Mira D (clothes/2d/mira-d-sheet.png: navy tailored coat-dress, gold trim, teal scarf, gold earrings, hair up with gold clip) is the interim host look. Add Outfit_HostFormal (+ Hat_HairUpClip if the crown needs it) to CrewRig_Restaurant.fbx in that look; she must read as the best-dressed person at the game camera.
+2) Six more guests (Guest_Gus..Guest_Lena style names, unique), more variety: older couple, teenager, fisherman in a cap, smart dinner couple; same rig + Sit/Eat clips; colours as real material colours whose names do NOT reuse the crew palette names (the game remaps M_SeaTeal/M_HullNavy/M_Skin/M_HairChestnut to crew colours, which made every V1 guest teal).
+3) Dish props at table scale matching the plan/prep art: fish soup bowl, fillets plate with lemon, grilled fish plate, coffee cup with two biscuits, lemonade glass; atlas-coloured like the V4 kit.
+CHECKPOINT after each. No Assets/code/git.

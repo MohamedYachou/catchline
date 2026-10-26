@@ -152,6 +152,31 @@ namespace Catchline.Game.Restaurant
             var l=go.AddComponent<Light>();l.type=sun?LightType.Directional:LightType.Point;l.color=color;l.intensity=intensity;l.range=range;l.cullingMask=1<<Layer;
             if(sun)go.transform.localRotation=Quaternion.Euler(42,-25,0);
         }
+        // Codex 2's guest palettes (Guests/build-metrics.json: skin, hair, shirt, trousers). Spawning maps the guests' crew-named
+        // materials onto the shared crew palette, which dressed every guest in deckhand teal; each guest gets its own colours back.
+        static readonly string[,] GuestPalette={
+            {"#C58C60","#7B4530","#BA5968","#253F58"},{"#8A5238","#292C2B","#F0DDAB","#254960"},{"#E5B38E","#C79842","#267879","#353E56"},
+            {"#B87550","#4A302A","#596D89","#2C3D51"},{"#8E6049","#999C98","#B68542","#344F64"},{"#D6A477","#94603C","#364B6B","#8A6C50"}};
+        static readonly string[] GuestSource={"#B9784B","#50392E","#168F9F","#173F57"}; // M_Skin, M_HairChestnut, M_SeaTeal, M_HullNavy
+        readonly Dictionary<(int,int),Material> guestTints=new();
+        void TintGuest(Transform rig,int index)
+        {
+            foreach(var r in rig.GetComponentsInChildren<Renderer>(true)){
+                var mats=r.sharedMaterials;
+                for(int n=0;n<mats.Length;n++){
+                    if(mats[n]==null)continue;
+                    // Spawning has already swapped in the shared palette material, so match on its colour.
+                    int slot=-1;for(int k=0;k<GuestSource.Length;k++){ColorUtility.TryParseHtmlString(GuestSource[k],out var src);var have=mats[n].color;
+                        if(Mathf.Abs(have.r-src.r)+Mathf.Abs(have.g-src.g)+Mathf.Abs(have.b-src.b)<.06f){slot=k;break;}}
+                    if(slot<0)continue;
+                    if(!guestTints.TryGetValue((index,slot),out var m)){
+                        m=new Material(mats[n]);ColorUtility.TryParseHtmlString(GuestPalette[index,slot],out var c);m.color=c;guestTints[(index,slot)]=m;guestMaterials.Add(m);
+                    }
+                    mats[n]=m;
+                }
+                r.sharedMaterials=mats;
+            }
+        }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
         Actor MakeActor(string id,bool guest)
         {
@@ -164,7 +189,7 @@ namespace Catchline.Game.Restaurant
             foreach(var a in rig.GetComponentsInChildren<Animator>())a.enabled=false;
             string outfit=id=="captain"?"Outfit_Captain":"Outfit_Deckhand";
             foreach(var t in rig.GetComponentsInChildren<Transform>(true)){
-                if(t.name.StartsWith("Outfit_"))t.gameObject.SetActive(t.name==outfit);
+                if(!guest&&t.name.StartsWith("Outfit_"))t.gameObject.SetActive(t.name==outfit); // guests keep their own clothes
                 if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(!guest&&t.name==(id=="captain"||id=="mira"?"Hat_CaptainCap":"Hat_Beanie"));
             }
             if(guest&&prefab.name=="CrewRig"){
@@ -176,6 +201,7 @@ namespace Catchline.Game.Restaurant
                     r.sharedMaterials=mats;
                 }
             }
+            if(guest&&prefab.name.StartsWith("Restaurant_Guest_"))TintGuest(rig,(guests.Count)%civilians.Length);
             var prop=Spawn("GrilledFishPlate",new Vector3(0,.65f,.27f),Quaternion.identity,holder);prop.gameObject.SetActive(false);
             SetLayer(holder.gameObject);
             return new Actor{Root=holder,Rig=rig,Prop=prop,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
@@ -262,7 +288,7 @@ namespace Catchline.Game.Restaurant
         {
             foreach(var c in previousCameras)if(c!=null)c.enabled=true;previousCameras.Clear();
             if(RoomRoot!=null){if(Application.isPlaying)Destroy(RoomRoot.gameObject);else DestroyImmediate(RoomRoot.gameObject);}
-            foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();
+            foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();guestTints.Clear();
             items.Clear();actors.Clear();guests.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;
             Snapshot.Staff.Clear();Snapshot.Orders.Clear();Snapshot.Stock.Clear();Snapshot.BrokenAppliances.Clear();Snapshot.Question=null;
         }

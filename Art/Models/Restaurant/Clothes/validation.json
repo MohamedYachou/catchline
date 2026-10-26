@@ -1,0 +1,1209 @@
+{
+  "pass": true,
+  "reference": "C:\\Users\\momoy\\Projects\\Catchline\\Assets\\Art\\Models\\Crew\\CrewRig.fbx",
+  "native_unity_unverified": true,
+  "assets": [
+    {
+      "asset": "Host_Mira",
+      "fbx_sha256": "643341aaceeb728b3cfe678c16e0f3cbc3c1c1a5f5b0f49d601a14a9d283a591",
+      "textures": [
+        {
+          "image": "Mira_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Mira_Mira_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        },
+        {
+          "image": "Mira_Hair.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Mira_Mira_Hair.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Mira_EyesExpression",
+          "world_bounds_rest": [
+            [
+              -0.10160411149263382,
+              -0.15495029091835022,
+              0.6619046926498413
+            ],
+            [
+              0.101603664457798,
+              -0.1163594201207161,
+              0.8407387733459473
+            ]
+          ],
+          "triangles": 2500,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Mira_Face",
+          "world_bounds_rest": [
+            [
+              -0.19845513999462128,
+              -0.16094940900802612,
+              0.515999972820282
+            ],
+            [
+              0.19900000095367432,
+              0.15500013530254364,
+              0.950059711933136
+            ]
+          ],
+          "triangles": 2300,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Host_Mira_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.18999996781349182,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.20300015807151794,
+              0.9859885573387146
+            ]
+          ],
+          "triangles": 1838,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Mira_HairSculpt",
+          "world_bounds_rest": [
+            [
+              -0.21074555814266205,
+              -0.15919199585914612,
+              0.5809821486473083
+            ],
+            [
+              0.22631339728832245,
+              0.3244155943393707,
+              0.9390000104904175
+            ]
+          ],
+          "triangles": 6448,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Host_Mira-front.png",
+        "Host_Mira-game45.png",
+        "Host_Mira-back.png",
+        "Host_Mira-walk.png"
+      ]
+    },
+    {
+      "asset": "Cook_Dirk",
+      "fbx_sha256": "fbc8e63ac34555367c84f467ef5696d9c1aa8bc398d08b5282e8857b6fe87bea",
+      "textures": [
+        {
+          "image": "Dirk_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Dirk_Dirk_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Dirk_Expression",
+          "world_bounds_rest": [
+            [
+              -0.12153490632772446,
+              -0.15264514088630676,
+              0.6759375333786011
+            ],
+            [
+              0.12158074229955673,
+              -0.10714828968048096,
+              0.8417478203773499
+            ]
+          ],
+          "triangles": 1500,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Cook_Dirk_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.14099983870983124,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.15100015699863434,
+              1.0950000286102295
+            ]
+          ],
+          "triangles": 1440,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Dirk_Hair",
+          "world_bounds_rest": [
+            [
+              -0.1986260712146759,
+              -0.16917113959789276,
+              0.6266676187515259
+            ],
+            [
+              0.19881688058376312,
+              0.1792697012424469,
+              0.9433326721191406
+            ]
+          ],
+          "triangles": 6500,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Dirk_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.17591974139213562,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500386118888855
+            ]
+          ],
+          "triangles": 2300,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Cook_Dirk-front.png",
+        "Cook_Dirk-game45.png",
+        "Cook_Dirk-back.png",
+        "Cook_Dirk-walk.png"
+      ]
+    },
+    {
+      "asset": "Server_Ana",
+      "fbx_sha256": "16dfe24c33d4f3c1119f77edfaa7512f9454e31ceb35094283c4aa8d8f3ed525",
+      "textures": [
+        {
+          "image": "Ana_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Ana_Ana_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        },
+        {
+          "image": "Ana_Hair.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Ana_Ana_Hair.png",
+          "dimensions": [
+            256,
+            256
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Ana_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.1619446724653244,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500339031219482
+            ]
+          ],
+          "triangles": 2200,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Server_Ana_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.18999996781349182,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.1900000274181366,
+              0.9600000381469727
+            ]
+          ],
+          "triangles": 1504,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Ana_Expression",
+          "world_bounds_rest": [
+            [
+              -0.09789928793907166,
+              -0.15649208426475525,
+              0.6724033951759338
+            ],
+            [
+              0.09790276736021042,
+              -0.11744841188192368,
+              0.8434047698974609
+            ]
+          ],
+          "triangles": 1600,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Ana_Hair",
+          "world_bounds_rest": [
+            [
+              -0.20925354957580566,
+              -0.15647688508033752,
+              0.6540052890777588
+            ],
+            [
+              0.20925560593605042,
+              0.28714409470558167,
+              1.0778117179870605
+            ]
+          ],
+          "triangles": 8500,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Server_Ana-front.png",
+        "Server_Ana-game45.png",
+        "Server_Ana-back.png",
+        "Server_Ana-walk.png"
+      ]
+    },
+    {
+      "asset": "Barista_Ines",
+      "fbx_sha256": "8a3496e9d1bca39164ea4524114cceec0970bb2b06b1a6a6343d3ff4e112f95d",
+      "textures": [
+        {
+          "image": "Ines_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Ines_Ines_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        },
+        {
+          "image": "Ines_Hair.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Ines_Ines_Hair.png",
+          "dimensions": [
+            256,
+            256
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Ines_Hair",
+          "world_bounds_rest": [
+            [
+              -0.21127304434776306,
+              -0.15647688508033752,
+              0.31181803345680237
+            ],
+            [
+              0.21127304434776306,
+              0.1796097457408905,
+              0.9393147826194763
+            ]
+          ],
+          "triangles": 7799,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Barista_Ines_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.18999996781349182,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.1900000274181366,
+              0.9859885573387146
+            ]
+          ],
+          "triangles": 1628,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Ines_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.16594327986240387,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500957131385803
+            ]
+          ],
+          "triangles": 2200,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Ines_Expression",
+          "world_bounds_rest": [
+            [
+              -0.10443229973316193,
+              -0.16342663764953613,
+              0.6721577048301697
+            ],
+            [
+              0.10442351549863815,
+              -0.11395969241857529,
+              0.8444980382919312
+            ]
+          ],
+          "triangles": 1600,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Barista_Ines-front.png",
+        "Barista_Ines-game45.png",
+        "Barista_Ines-back.png",
+        "Barista_Ines-walk.png"
+      ]
+    },
+    {
+      "asset": "Handyman_Olaf",
+      "fbx_sha256": "5d59f2952882a731c52bfc7261bc9b1386c94936d07501bde475849d9abdb203",
+      "textures": [
+        {
+          "image": "Olaf_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Olaf_Olaf_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        },
+        {
+          "image": "Olaf_Hair.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Olaf_Olaf_Hair.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Olaf_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.17591974139213562,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500327706336975
+            ]
+          ],
+          "triangles": 2200,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Olaf_Expression",
+          "world_bounds_rest": [
+            [
+              -0.12153490632772446,
+              -0.15264514088630676,
+              0.6759375333786011
+            ],
+            [
+              0.12158074229955673,
+              -0.10714828968048096,
+              0.8417478203773499
+            ]
+          ],
+          "triangles": 1400,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Handyman_Olaf_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.13799984753131866,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.16800014674663544,
+              0.9859885573387146
+            ]
+          ],
+          "triangles": 1612,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Olaf_Hair",
+          "world_bounds_rest": [
+            [
+              -0.1986260712146759,
+              -0.17720957100391388,
+              0.570284366607666
+            ],
+            [
+              0.19857554137706757,
+              0.17925679683685303,
+              0.943259060382843
+            ]
+          ],
+          "triangles": 9000,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Handyman_Olaf-front.png",
+        "Handyman_Olaf-game45.png",
+        "Handyman_Olaf-back.png",
+        "Handyman_Olaf-walk.png"
+      ]
+    },
+    {
+      "asset": "Helper_Captain",
+      "fbx_sha256": "11817f029b2174bc1e832821355e77fa61c69b16799789109b9ebb21e88be1bb",
+      "textures": [
+        {
+          "image": "Captain_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Captain_Captain_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Helper_Captain_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.13799984753131866,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.16800014674663544,
+              0.9859885573387146
+            ]
+          ],
+          "triangles": 1612,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Captain_Face",
+          "world_bounds_rest": [
+            [
+              -0.20000000298023224,
+              -0.1659442037343979,
+              0.5049999952316284
+            ],
+            [
+              0.20000000298023224,
+              0.15500013530254364,
+              0.9500327706336975
+            ]
+          ],
+          "triangles": 2300,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Captain_Expression",
+          "world_bounds_rest": [
+            [
+              -0.08799588680267334,
+              -0.15254837274551392,
+              0.6759251356124878
+            ],
+            [
+              0.08799588680267334,
+              -0.1185079887509346,
+              0.8417478203773499
+            ]
+          ],
+          "triangles": 1700,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Captain_Hair",
+          "world_bounds_rest": [
+            [
+              -0.19922491908073425,
+              -0.16826052963733673,
+              0.6705253720283508
+            ],
+            [
+              0.19856570661067963,
+              0.18073038756847382,
+              0.9429970979690552
+            ]
+          ],
+          "triangles": 5899,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Helper_Captain-front.png",
+        "Helper_Captain-game45.png",
+        "Helper_Captain-back.png",
+        "Helper_Captain-walk.png"
+      ]
+    },
+    {
+      "asset": "PrepCook_Dirk",
+      "fbx_sha256": "7491568259ce16ab81ba1ece44514caad913171024add062039bad9e74e7f0ed",
+      "textures": [
+        {
+          "image": "Dirk_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Dirk_Dirk_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Dirk_Hair",
+          "world_bounds_rest": [
+            [
+              -0.1986260712146759,
+              -0.16917113959789276,
+              0.6266676187515259
+            ],
+            [
+              0.19881688058376312,
+              0.1792697012424469,
+              0.9433326721191406
+            ]
+          ],
+          "triangles": 6500,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Dirk_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.17591974139213562,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500386118888855
+            ]
+          ],
+          "triangles": 2300,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Dirk_Expression",
+          "world_bounds_rest": [
+            [
+              -0.12153490632772446,
+              -0.15264514088630676,
+              0.6759375333786011
+            ],
+            [
+              0.12158074229955673,
+              -0.10714828968048096,
+              0.8417478203773499
+            ]
+          ],
+          "triangles": 1500,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "PrepCook_Dirk_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.14099983870983124,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.15100015699863434,
+              1.0950000286102295
+            ]
+          ],
+          "triangles": 1588,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "PrepCook_Dirk-front.png",
+        "PrepCook_Dirk-game45.png",
+        "PrepCook_Dirk-back.png",
+        "PrepCook_Dirk-walk.png"
+      ]
+    },
+    {
+      "asset": "Dishwasher_Olaf",
+      "fbx_sha256": "9efd5f893505fae0517f3e19dfedd3ff41cfee97585bfb22e5259307f792905c",
+      "textures": [
+        {
+          "image": "Olaf_Face.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Olaf_Olaf_Face.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        },
+        {
+          "image": "Olaf_Hair.png",
+          "path": "C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Clothes\\textures\\Olaf_Olaf_Hair.png",
+          "dimensions": [
+            512,
+            512
+          ],
+          "packed": true,
+          "exists": true
+        }
+      ],
+      "bone_rest_delta": 0.0,
+      "original_idle_walk_motion_delta": {
+        "Idle": 0.0,
+        "Walk": 0.0
+      },
+      "clips": {
+        "Bait": [
+          1.0,
+          49.0
+        ],
+        "Carry": [
+          1.0,
+          25.0
+        ],
+        "Cast": [
+          1.0,
+          33.0
+        ],
+        "Cheer": [
+          1.0,
+          49.0
+        ],
+        "Idle": [
+          1.0,
+          49.0
+        ],
+        "Reel": [
+          1.0,
+          25.0
+        ],
+        "Row": [
+          1.0,
+          49.0
+        ],
+        "Stow": [
+          1.0,
+          49.0
+        ],
+        "Strike": [
+          1.0,
+          19.0
+        ],
+        "Wait": [
+          1.0,
+          49.0
+        ],
+        "Walk": [
+          1.0,
+          25.0
+        ]
+      },
+      "meshes": [
+        {
+          "mesh": "Olaf_Face",
+          "world_bounds_rest": [
+            [
+              -0.19988171756267548,
+              -0.17591974139213562,
+              0.5049999952316284
+            ],
+            [
+              0.19988171756267548,
+              0.15500013530254364,
+              0.9500327706336975
+            ]
+          ],
+          "triangles": 2200,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Olaf_Hair",
+          "world_bounds_rest": [
+            [
+              -0.1986260712146759,
+              -0.17720957100391388,
+              0.570284366607666
+            ],
+            [
+              0.19857554137706757,
+              0.17925679683685303,
+              0.943259060382843
+            ]
+          ],
+          "triangles": 9000,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Dishwasher_Olaf_Outfit",
+          "world_bounds_rest": [
+            [
+              -0.4660000205039978,
+              -0.1349998414516449,
+              5.818943105140306e-09
+            ],
+            [
+              0.4660000205039978,
+              0.15500016510486603,
+              0.9959999918937683
+            ]
+          ],
+          "triangles": 1412,
+          "normalized_weights": true
+        },
+        {
+          "mesh": "Olaf_Expression",
+          "world_bounds_rest": [
+            [
+              -0.12153490632772446,
+              -0.15264514088630676,
+              0.6759375333786011
+            ],
+            [
+              0.12158074229955673,
+              -0.10714828968048096,
+              0.8417478203773499
+            ]
+          ],
+          "triangles": 1400,
+          "normalized_weights": true
+        }
+      ],
+      "rendered_from_reimported_fbx": true,
+      "images": [
+        "Dishwasher_Olaf-front.png",
+        "Dishwasher_Olaf-game45.png",
+        "Dishwasher_Olaf-back.png",
+        "Dishwasher_Olaf-walk.png"
+      ]
+    }
+  ]
+}

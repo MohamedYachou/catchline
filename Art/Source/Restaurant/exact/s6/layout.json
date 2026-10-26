@@ -1,0 +1,1171 @@
+{
+  "canvas": [
+    844,
+    390
+  ],
+  "screen": 6,
+  "origin": "top-left",
+  "reference": "../../concepts/ui-6-dashboard.png",
+  "placements": [
+    {
+      "name": "v2-s6-background",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0
+    },
+    {
+      "name": "v2-s6-title-sign",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        233,
+        0,
+        395,
+        61
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-button-back",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        14,
+        10,
+        122,
+        43
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-button-close",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        789,
+        9,
+        44,
+        44
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-tab-selected",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        20,
+        58,
+        175,
+        38
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-tab-idle",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        198,
+        58,
+        169,
+        38
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-week-selector",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        650,
+        58,
+        179,
+        38
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-tab-idle",
+      "screen": 6,
+      "use": "crew-priorities",
+      "rect": [
+        369,
+        58,
+        172,
+        38
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s6-panel",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        16,
+        98,
+        278,
+        214
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s6-upgrade-strip",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        16,
+        314,
+        813,
+        73
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s6-panel",
+      "screen": 6,
+      "use": "popularity",
+      "rect": [
+        296,
+        98,
+        252,
+        214
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s6-panel",
+      "screen": 6,
+      "use": "menu-performance",
+      "rect": [
+        551,
+        98,
+        278,
+        214
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s6-menu-row",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        563,
+        149,
+        256,
+        51
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s6-income-summary",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        27,
+        267,
+        255,
+        38
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s6-popularity-caption",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        307,
+        276,
+        232,
+        29
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s6-menu-row",
+      "screen": 6,
+      "use": "soup",
+      "rect": [
+        563,
+        202,
+        256,
+        51
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s6-menu-row",
+      "screen": 6,
+      "use": "coffee",
+      "rect": [
+        563,
+        255,
+        256,
+        51
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s6-button-upgrades",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        641,
+        324,
+        169,
+        57
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-progress-track",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        284,
+        360,
+        352,
+        22
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-horizontal",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        31,
+        129,
+        245,
+        2
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-vertical",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        108,
+        274,
+        2,
+        26
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-horizontal",
+      "screen": 6,
+      "use": "income-baseline",
+      "rect": [
+        28,
+        244,
+        250,
+        1
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-horizontal",
+      "screen": 6,
+      "use": "popularity-baseline",
+      "rect": [
+        310,
+        255,
+        222,
+        1
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-vertical",
+      "screen": 6,
+      "use": "summary-second",
+      "rect": [
+        197,
+        274,
+        1,
+        26
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-vertical",
+      "screen": 6,
+      "use": "income-axis",
+      "rect": [
+        28,
+        192,
+        1,
+        53
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-divider-vertical",
+      "screen": 6,
+      "use": "popularity-axis",
+      "rect": [
+        310,
+        207,
+        1,
+        49
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s6-progress-fill",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        286,
+        363,
+        291,
+        15
+      ],
+      "z": 35
+    },
+    {
+      "name": "v2-s6-arrow-back",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        27,
+        19,
+        29,
+        24
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-icon-close",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        800,
+        20,
+        21,
+        23
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-chevron-left",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        664,
+        66,
+        18,
+        23
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bistro",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        24,
+        307,
+        255,
+        78
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-coin",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        38,
+        135,
+        91,
+        55
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-full",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        349,
+        135,
+        29,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-empty",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        438,
+        135,
+        28,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-people",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        319,
+        278,
+        31,
+        24
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-dish-fish",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        567,
+        151,
+        84,
+        47
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-dish-soup",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        573,
+        205,
+        74,
+        45
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-dish-coffee",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        574,
+        257,
+        68,
+        45
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        105,
+        209,
+        24,
+        36
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-gold",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        209,
+        191,
+        26,
+        55
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-trend",
+      "screen": 6,
+      "use": "primary",
+      "rect": [
+        310,
+        207,
+        224,
+        49
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-chevron-left",
+      "screen": 6,
+      "use": "next-week",
+      "rect": [
+        799,
+        66,
+        18,
+        23
+      ],
+      "flipX": true,
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-full",
+      "screen": 6,
+      "use": "rating-2",
+      "rect": [
+        379,
+        135,
+        29,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-full",
+      "screen": 6,
+      "use": "rating-3",
+      "rect": [
+        408,
+        135,
+        29,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-full",
+      "screen": 6,
+      "use": "bistro-requirement",
+      "rect": [
+        482,
+        321,
+        31,
+        32
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-star-empty",
+      "screen": 6,
+      "use": "rating-5",
+      "rect": [
+        467,
+        135,
+        28,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "monday",
+      "rect": [
+        38,
+        227,
+        24,
+        18
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "tuesday",
+      "rect": [
+        71,
+        217,
+        24,
+        28
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "thursday",
+      "rect": [
+        140,
+        222,
+        24,
+        23
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "friday",
+      "rect": [
+        174,
+        209,
+        25,
+        36
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "use": "sunday",
+      "rect": [
+        244,
+        205,
+        25,
+        40
+      ],
+      "z": 40
+    }
+  ],
+  "measured_assets": [
+    {
+      "name": "v2-s6-background",
+      "screen": 6,
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "size": [
+        2532,
+        1170
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-title-sign",
+      "screen": 6,
+      "rect": [
+        233,
+        0,
+        395,
+        61
+      ],
+      "size": [
+        1185,
+        183
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-button-back",
+      "screen": 6,
+      "rect": [
+        14,
+        10,
+        122,
+        43
+      ],
+      "size": [
+        366,
+        129
+      ],
+      "borders": [
+        45,
+        42,
+        45,
+        42
+      ]
+    },
+    {
+      "name": "v2-s6-arrow-back",
+      "screen": 6,
+      "rect": [
+        27,
+        19,
+        29,
+        24
+      ],
+      "size": [
+        87,
+        72
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-button-close",
+      "screen": 6,
+      "rect": [
+        789,
+        9,
+        44,
+        44
+      ],
+      "size": [
+        132,
+        132
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-icon-close",
+      "screen": 6,
+      "rect": [
+        800,
+        20,
+        21,
+        23
+      ],
+      "size": [
+        63,
+        69
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-tab-selected",
+      "screen": 6,
+      "rect": [
+        20,
+        58,
+        175,
+        38
+      ],
+      "size": [
+        525,
+        114
+      ],
+      "borders": [
+        45,
+        39,
+        45,
+        39
+      ]
+    },
+    {
+      "name": "v2-s6-tab-idle",
+      "screen": 6,
+      "rect": [
+        198,
+        58,
+        169,
+        38
+      ],
+      "size": [
+        516,
+        114
+      ],
+      "borders": [
+        42,
+        36,
+        42,
+        36
+      ]
+    },
+    {
+      "name": "v2-s6-week-selector",
+      "screen": 6,
+      "rect": [
+        650,
+        58,
+        179,
+        38
+      ],
+      "size": [
+        537,
+        114
+      ],
+      "borders": [
+        45,
+        39,
+        45,
+        39
+      ]
+    },
+    {
+      "name": "v2-s6-chevron-left",
+      "screen": 6,
+      "rect": [
+        664,
+        66,
+        18,
+        23
+      ],
+      "size": [
+        54,
+        69
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-panel",
+      "screen": 6,
+      "rect": [
+        16,
+        98,
+        278,
+        214
+      ],
+      "size": [
+        834,
+        642
+      ],
+      "borders": [
+        57,
+        48,
+        57,
+        60
+      ]
+    },
+    {
+      "name": "v2-s6-menu-row",
+      "screen": 6,
+      "rect": [
+        563,
+        149,
+        256,
+        51
+      ],
+      "size": [
+        768,
+        153
+      ],
+      "borders": [
+        27,
+        27,
+        27,
+        27
+      ]
+    },
+    {
+      "name": "v2-s6-income-summary",
+      "screen": 6,
+      "rect": [
+        27,
+        267,
+        255,
+        38
+      ],
+      "size": [
+        765,
+        114
+      ],
+      "borders": [
+        27,
+        24,
+        27,
+        24
+      ]
+    },
+    {
+      "name": "v2-s6-popularity-caption",
+      "screen": 6,
+      "rect": [
+        307,
+        276,
+        232,
+        29
+      ],
+      "size": [
+        696,
+        87
+      ],
+      "borders": [
+        27,
+        24,
+        27,
+        24
+      ]
+    },
+    {
+      "name": "v2-s6-upgrade-strip",
+      "screen": 6,
+      "rect": [
+        16,
+        314,
+        813,
+        73
+      ],
+      "size": [
+        2439,
+        219
+      ],
+      "borders": [
+        66,
+        60,
+        66,
+        60
+      ]
+    },
+    {
+      "name": "v2-s6-bistro",
+      "screen": 6,
+      "rect": [
+        24,
+        307,
+        255,
+        78
+      ],
+      "size": [
+        765,
+        234
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-button-upgrades",
+      "screen": 6,
+      "rect": [
+        641,
+        324,
+        169,
+        57
+      ],
+      "size": [
+        507,
+        171
+      ],
+      "borders": [
+        81,
+        66,
+        81,
+        66
+      ]
+    },
+    {
+      "name": "v2-s6-progress-track",
+      "screen": 6,
+      "rect": [
+        284,
+        360,
+        352,
+        22
+      ],
+      "size": [
+        1056,
+        66
+      ],
+      "borders": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "name": "v2-s6-progress-fill",
+      "screen": 6,
+      "rect": [
+        286,
+        363,
+        291,
+        15
+      ],
+      "size": [
+        873,
+        45
+      ],
+      "borders": [
+        21,
+        21,
+        21,
+        21
+      ]
+    },
+    {
+      "name": "v2-s6-coin",
+      "screen": 6,
+      "rect": [
+        38,
+        135,
+        91,
+        55
+      ],
+      "size": [
+        273,
+        165
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-star-full",
+      "screen": 6,
+      "rect": [
+        349,
+        135,
+        29,
+        29
+      ],
+      "size": [
+        93,
+        96
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-star-empty",
+      "screen": 6,
+      "rect": [
+        438,
+        135,
+        28,
+        29
+      ],
+      "size": [
+        84,
+        87
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-people",
+      "screen": 6,
+      "rect": [
+        319,
+        278,
+        31,
+        24
+      ],
+      "size": [
+        93,
+        72
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-dish-fish",
+      "screen": 6,
+      "rect": [
+        567,
+        151,
+        84,
+        47
+      ],
+      "size": [
+        252,
+        141
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-dish-soup",
+      "screen": 6,
+      "rect": [
+        573,
+        205,
+        74,
+        45
+      ],
+      "size": [
+        222,
+        135
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-dish-coffee",
+      "screen": 6,
+      "rect": [
+        574,
+        257,
+        68,
+        45
+      ],
+      "size": [
+        204,
+        135
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-bar-teal",
+      "screen": 6,
+      "rect": [
+        105,
+        209,
+        24,
+        36
+      ],
+      "size": [
+        75,
+        120
+      ],
+      "borders": [
+        18,
+        15,
+        18,
+        15
+      ]
+    },
+    {
+      "name": "v2-s6-bar-gold",
+      "screen": 6,
+      "rect": [
+        209,
+        191,
+        26,
+        55
+      ],
+      "size": [
+        78,
+        165
+      ],
+      "borders": [
+        18,
+        15,
+        18,
+        15
+      ]
+    },
+    {
+      "name": "v2-s6-trend",
+      "screen": 6,
+      "rect": [
+        310,
+        207,
+        224,
+        49
+      ],
+      "size": [
+        672,
+        147
+      ],
+      "borders": null
+    },
+    {
+      "name": "v2-s6-divider-horizontal",
+      "screen": 6,
+      "rect": [
+        31,
+        129,
+        245,
+        2
+      ],
+      "size": [
+        750,
+        6
+      ],
+      "borders": [
+        3,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "name": "v2-s6-divider-vertical",
+      "screen": 6,
+      "rect": [
+        108,
+        274,
+        2,
+        26
+      ],
+      "size": [
+        6,
+        159
+      ],
+      "borders": [
+        0,
+        3,
+        0,
+        3
+      ]
+    }
+  ]
+}
