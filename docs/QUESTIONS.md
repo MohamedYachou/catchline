@@ -26,3 +26,12 @@ you want changed.
 - **Listen to the five SOUND-4 cues** (coach pop, refit fanfare, tab tap, coin buy, page turn): open
   Art/Audio/Real/sound4-listening.html. No agent can hear; they are wired in on the technical check only.
   Also: Horn_1/2 and SealBark_1/2 in Assets/Resources/Audio are not from the real pack. *Default: keep them.*
+
+## HUD (Claude 2, 10-26 night)
+- **D1 "match 17-hud-fishing / 18-hud-harbour precisely"** is from the 10-15 night plan. The live HUD has since moved
+  to the UI v2 kit (cream panels, crew rail, Display type; see docs/screens/overnight/hud-*.png), which goes beyond those
+  flat concepts. Matching them now would undo accepted work. The part of D1 still open, the TAP burst and press
+  ripple in the strike panel, is STRIKE-TAP-1 (Codex 1, finishing tonight).
+  *Default: count D1 done once STRIKE-TAP-1 is accepted. Say if you want new HUD mockups instead, and for which screens.*
+- **Boats:** the Rowboat and Skiff are refined in game (7cafc46; captures intro-8.0s, refit-skiff-1.6). Codex 2 now
+  does the Compact, Prep and Tier-5 trim the same way, plus new refit-card pictures.
