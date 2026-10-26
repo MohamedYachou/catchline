@@ -66,7 +66,9 @@ namespace Catchline.Game.Restaurant
             if(prefab==null)throw new InvalidOperationException("Restaurant asset missing: "+name+". Rebuild ArtLibrary after importing the Restaurant folder.");
             return ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation).transform;
         }
-        public Vector3 TileToWorld(Vector2 tile,float y=.04f)=>RoomRoot.TransformPoint(new Vector3(tile.x-3.5f,y,2-tile.y));
+        // Tile x runs kitchen-to-door; the camera looks down -z, so world +x is screen left. The V4 room (kitchen left,
+        // jetty right, like the mockups) is laid out that way, so tile x maps to -x.
+        public Vector3 TileToWorld(Vector2 tile,float y=.04f)=>RoomRoot.TransformPoint(new Vector3(3.5f-tile.x,y,2-tile.y));
         public void Begin(RestaurantSim sim)
         {
             if(sim==null)throw new ArgumentNullException(nameof(sim));
@@ -83,8 +85,8 @@ namespace Catchline.Game.Restaurant
                 foreach(var item in sim.Layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
                     float x=item.X+(item.Rotated?1:RestaurantData.Get(item.Id).Width)*.5f-.5f;
-                    var pos=new Vector3(x-3.5f,.04f,2-item.Y);
-                    var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?90:0,0));items.Add(item.Uid,t);
+                    var pos=new Vector3(3.5f-x,.04f,2-item.Y);
+                    var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?-90:0,0));items.Add(item.Uid,t);
                     if(RestaurantData.Get(item.Id).Seats>0){Spawn("TableLantern",pos+Vector3.up*.57f,Quaternion.identity);}
                 }
                 if(dressed==null){
@@ -230,7 +232,7 @@ namespace Catchline.Game.Restaurant
                 if(!guests.TryGetValue(order.Id,out var a)){if(!active)continue;a=MakeActor(order.Id.ToString(),true);guests[order.Id]=a;}
                 a.Root.gameObject.SetActive(active);if(!active)continue;
                 bool seated=g.TableUid!=0&&g.Phase!=GroupPhase.Seating&&g.Phase!=GroupPhase.Queue;
-                Vector3 p=TileToWorld(new Vector2(Sim.Layout.Door.x,Sim.Layout.Door.y))+new Vector3((i%2)*.5f,0,.9f+(g.Id%4)*.45f);
+                Vector3 p=TileToWorld(new Vector2(Sim.Layout.Door.x,Sim.Layout.Door.y))+new Vector3(-(i%2)*.5f,0,.9f+(g.Id%4)*.45f);
                 if(seated&&items.TryGetValue(g.TableUid,out var table))p=table.position+new Vector3(i%2==0?-.42f:.42f,0,(i/2)*.45f);
                 if(a.Last==Vector3.zero||a.Root.position==RoomRoot.position)a.Root.position=p;
                 a.Root.position=Vector3.MoveTowards(a.Root.position,p,Mathf.Max(.01f,dt)*GameData.WalkSpeed);
