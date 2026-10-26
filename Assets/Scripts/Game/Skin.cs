@@ -89,6 +89,48 @@ namespace Catchline.Game
             return result;
         }
 
+        // A piece cut 1:1 from a mockup (RestaurantExact): drawn at its measured rect, nine-sliced by its own
+        // borders (source px, left/top/right/bottom) when it has them, else stretched to the rect like the mockup.
+        public RectTransform Piece(string id, Rect r, string sprite, Transform parent, Vector4 borderLTRB, float sourcePerUnit)
+        {
+            if (!PieceSlices.ContainsKey(sprite)) PieceSlices[sprite] = (new Vector4(borderLTRB.x, borderLTRB.w, borderLTRB.z, borderLTRB.y), Mathf.Max(.01f, sourcePerUnit));
+            var e = Sliced(id, r, sprite, parent, Color.white);
+            var image = e.GetComponent<Image>();
+            if (image.sprite == null) image.color = Color.clear;
+            return e;
+        }
+
+        // An empty rect that clips its children (a mockup illustration cut by the frame edge).
+        public RectTransform Clip(string id, Rect r, Transform parent = null)
+        {
+            var e = Get(id, r, parent);
+            if (e.Rect.GetComponent<RectMask2D>() == null) e.Rect.gameObject.AddComponent<RectMask2D>();
+            return e.Rect;
+        }
+
+        // Text in a mockup's measured style: size in mockup px, fill, stroke and drop. upscale = the frame's scale, so
+        // the glyphs are rasterised at their final size (a scaled-up Text blurs).
+        public void StyledText(string id, Rect r, string value, float size, Color fill, Color stroke, float strokeWidth, float shadowY,
+            Color shadow, bool bold, TextAnchor align, Transform parent, float upscale = 1)
+        {
+            upscale = Mathf.Max(.01f, upscale);
+            var e = Get(id, new Rect(r.x, r.y, r.width * upscale, r.height * upscale), parent);
+            e.Rect.localScale = new Vector3(1 / upscale, 1 / upscale, 1);
+            if (e.Text == null) e.Text = e.Rect.gameObject.AddComponent<Text>();
+            var t = e.Text;
+            t.font = bold ? DisplayOverride ?? DisplayFont : BodyOverride ?? DisplayOverride ?? DisplayFont;
+            t.fontSize = Mathf.RoundToInt(size * upscale); t.resizeTextForBestFit = false; t.supportRichText = false; t.lineSpacing = .92f;
+            t.color = fill; t.alignment = align; t.raycastTarget = false;
+            t.horizontalOverflow = HorizontalWrapMode.Overflow; t.verticalOverflow = VerticalWrapMode.Overflow;
+            Outline o = null; Shadow drop = null;
+            foreach (var sh in t.GetComponents<Shadow>()) if (sh is Outline ol) o = ol; else drop = sh;
+            if (strokeWidth > 0 && o == null) o = t.gameObject.AddComponent<Outline>();
+            if (o != null) { o.enabled = strokeWidth > 0; o.effectColor = stroke; o.effectDistance = new Vector2(strokeWidth, -strokeWidth) * upscale * .75f; }
+            if (shadowY > 0 && drop == null) drop = t.gameObject.AddComponent<Shadow>();
+            if (drop != null) { drop.enabled = shadowY > 0; drop.effectColor = shadow; drop.effectDistance = new Vector2(0, -(shadowY + strokeWidth * .5f) * upscale); }
+            if (t.text != value) t.text = value;
+        }
+
         // Sliced kit sprites are 2x; the multiplier draws their borders at logical size.
         public RectTransform Sliced(string id, Rect r, string sprite, Transform parent = null, Color? tint = null, bool blocks = false)
         {

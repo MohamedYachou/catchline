@@ -250,10 +250,12 @@ namespace Catchline.Game
             yield return new WaitForEndOfFrame();
             var scene = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
             var ui = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
-            var previous = Cam.targetTexture;
-            Cam.targetTexture = scene;
-            UnityEngine.Rendering.RenderPipeline.SubmitRenderRequest(Cam, new UnityEngine.Rendering.RenderPipeline.StandardRequest { destination = scene });
-            Cam.targetTexture = previous;
+            // The restaurant night draws through its own camera (RestaurantWorld) while it runs.
+            var view = restaurantWorld != null && restaurantWorld.ServiceCamera != null ? restaurantWorld.ServiceCamera : Cam;
+            var previous = view.targetTexture;
+            view.targetTexture = scene;
+            UnityEngine.Rendering.RenderPipeline.SubmitRenderRequest(view, new UnityEngine.Rendering.RenderPipeline.StandardRequest { destination = scene });
+            view.targetTexture = previous;
             coastalUi.RenderCapture(ui);
             Texture2D Read(RenderTexture rt)
             {

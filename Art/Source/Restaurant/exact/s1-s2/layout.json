@@ -1,0 +1,1415 @@
+{
+  "coordinates": "top-left origin; x,y,width,height in original mockup pixels; rectangles include authored shadow allowance; foreground art only, no scene reconstruction",
+  "screens": {
+    "arrange": {
+      "file": "ui-1-arrange.png",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "phone": {
+      "file": "ui-2-service.png",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "desktop": {
+      "file": "ui-service-desktop.png",
+      "size": [
+        1440,
+        900
+      ]
+    }
+  },
+  "fontSizes": "text-styles.json uses each native mockup size; desktop sizes are not phone sizes",
+  "placements": [
+    {
+      "asset": "v2-btn-primary",
+      "screen": "phone",
+      "rect": [
+        665,
+        139,
+        161,
+        35
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-secondary",
+      "screen": "phone",
+      "rect": [
+        665,
+        178,
+        161,
+        34
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-back",
+      "screen": "arrange",
+      "rect": [
+        23,
+        5,
+        51,
+        33
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-undo",
+      "screen": "arrange",
+      "rect": [
+        735,
+        5,
+        88,
+        33
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-tab-idle",
+      "screen": "arrange",
+      "rect": [
+        16,
+        310,
+        58,
+        64
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-tab-selected",
+      "screen": "arrange",
+      "rect": [
+        78,
+        309,
+        68,
+        65
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-item-card",
+      "screen": "arrange",
+      "rect": [
+        350,
+        306,
+        149,
+        71
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-item-card-idle",
+      "screen": "arrange",
+      "rect": [
+        505,
+        306,
+        152,
+        71
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-name-tag",
+      "screen": "arrange",
+      "rect": [
+        650,
+        138,
+        175,
+        37
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-rotate",
+      "screen": "arrange",
+      "rect": [
+        512,
+        151,
+        44,
+        49
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-cancel",
+      "screen": "arrange",
+      "rect": [
+        559,
+        151,
+        45,
+        49
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-btn-confirm",
+      "screen": "arrange",
+      "rect": [
+        607,
+        151,
+        44,
+        49
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-stock-card",
+      "screen": "phone",
+      "rect": [
+        9,
+        55,
+        149,
+        62
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-stock-slab",
+      "screen": "desktop",
+      "rect": [
+        16,
+        90,
+        194,
+        316
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-stock-row",
+      "screen": "desktop",
+      "rect": [
+        28,
+        137,
+        166,
+        57
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-chip-repair",
+      "screen": "desktop",
+      "rect": [
+        28,
+        335,
+        167,
+        56
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-staff-card",
+      "screen": "desktop",
+      "rect": [
+        44,
+        769,
+        246,
+        89
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-staff-card-phone",
+      "screen": "phone",
+      "rect": [
+        15,
+        323,
+        166,
+        55
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-staff-rail",
+      "screen": "desktop",
+      "rect": [
+        34,
+        758,
+        1374,
+        112
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-arrange-tray",
+      "screen": "arrange",
+      "rect": [
+        0,
+        299,
+        844,
+        91
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-speed-pill",
+      "screen": "desktop",
+      "rect": [
+        1225,
+        13,
+        194,
+        55
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-speed-selected",
+      "screen": "phone",
+      "rect": [
+        701,
+        6,
+        44,
+        33
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-speed-idle",
+      "screen": "phone",
+      "rect": [
+        745,
+        6,
+        44,
+        33
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-pause",
+      "screen": "desktop",
+      "rect": [
+        1249,
+        26,
+        20,
+        24
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-wallet-pill",
+      "screen": "phone",
+      "rect": [
+        529,
+        7,
+        77,
+        32
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-wallet-arrange",
+      "screen": "arrange",
+      "rect": [
+        603,
+        5,
+        99,
+        33
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-track",
+      "screen": "phone",
+      "rect": [
+        177,
+        6,
+        326,
+        34
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-flag",
+      "screen": "phone",
+      "rect": [
+        359,
+        3,
+        34,
+        22
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-dot",
+      "screen": "desktop",
+      "rect": [
+        650,
+        30,
+        15,
+        15
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-guest",
+      "screen": "phone",
+      "rect": [
+        270,
+        9,
+        16,
+        23
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-meter-track",
+      "screen": "phone",
+      "rect": [
+        71,
+        99,
+        75,
+        10
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-meter-fill",
+      "screen": "phone",
+      "rect": [
+        72,
+        163,
+        37,
+        10
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-meter-ring-track",
+      "screen": "desktop",
+      "rect": [
+        218,
+        785,
+        63,
+        62
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-meter-ring-fill",
+      "screen": "desktop",
+      "rect": [
+        218,
+        785,
+        63,
+        62
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-bubble-order",
+      "screen": "desktop",
+      "rect": [
+        931,
+        165,
+        69,
+        65
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-mira-service-bust",
+      "screen": "desktop",
+      "rect": [
+        1140,
+        98,
+        149,
+        135
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-bar-service",
+      "screen": "desktop",
+      "rect": [
+        0,
+        0,
+        1440,
+        80
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-bar-arrange",
+      "screen": "arrange",
+      "rect": [
+        0,
+        0,
+        844,
+        43
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-coin-service",
+      "screen": "desktop",
+      "rect": [
+        936,
+        13,
+        52,
+        52
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-star",
+      "screen": "phone",
+      "rect": [
+        618,
+        7,
+        32,
+        32
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-star-blue",
+      "screen": "desktop",
+      "rect": [
+        1086,
+        11,
+        53,
+        53
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-sun",
+      "screen": "phone",
+      "rect": [
+        18,
+        5,
+        39,
+        39
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-kitchen-pot",
+      "screen": "arrange",
+      "rect": [
+        28,
+        320,
+        29,
+        25
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-chair",
+      "screen": "arrange",
+      "rect": [
+        99,
+        317,
+        23,
+        27
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-bar-glass",
+      "screen": "arrange",
+      "rect": [
+        169,
+        318,
+        22,
+        27
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-decor-plant",
+      "screen": "arrange",
+      "rect": [
+        227,
+        318,
+        24,
+        27
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-expand",
+      "screen": "arrange",
+      "rect": [
+        288,
+        319,
+        28,
+        25
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-pan",
+      "screen": "desktop",
+      "rect": [
+        151,
+        800,
+        54,
+        44
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-cloche",
+      "screen": "phone",
+      "rect": [
+        246,
+        330,
+        22,
+        22
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-wrench",
+      "screen": "desktop",
+      "rect": [
+        686,
+        805,
+        45,
+        47
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-cup",
+      "screen": "desktop",
+      "rect": [
+        937,
+        807,
+        49,
+        46
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-bell",
+      "screen": "desktop",
+      "rect": [
+        1220,
+        807,
+        50,
+        47
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-fish-stock",
+      "screen": "desktop",
+      "rect": [
+        41,
+        145,
+        65,
+        49
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-soup",
+      "screen": "desktop",
+      "rect": [
+        42,
+        205,
+        64,
+        57
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-wrench-repair",
+      "screen": "desktop",
+      "rect": [
+        37,
+        343,
+        40,
+        40
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-icon-warning",
+      "screen": "phone",
+      "rect": [
+        127,
+        64,
+        20,
+        22
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-item-rest-table2",
+      "screen": "arrange",
+      "rect": [
+        358,
+        319,
+        68,
+        46
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-item-rest-table4",
+      "screen": "arrange",
+      "rect": [
+        517,
+        314,
+        69,
+        56
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-item-rest-booth",
+      "screen": "arrange",
+      "rect": [
+        669,
+        311,
+        79,
+        62
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-curve",
+      "screen": "phone",
+      "rect": [
+        186,
+        7,
+        308,
+        28
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-timeline-curve-desktop",
+      "screen": "desktop",
+      "rect": [
+        551,
+        22,
+        286,
+        27
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-placement-highlight",
+      "screen": "arrange",
+      "rect": [
+        545,
+        195,
+        84,
+        58
+      ],
+      "source": "manifest measured reference crop"
+    },
+    {
+      "asset": "v2-bar-service",
+      "screen": "phone",
+      "rect": [
+        0,
+        0,
+        844,
+        46
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-pause",
+      "screen": "phone",
+      "rect": [
+        807,
+        14,
+        17,
+        18
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-speed-pill",
+      "screen": "phone",
+      "rect": [
+        699,
+        5,
+        90,
+        35
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-speed-idle",
+      "screen": "phone",
+      "rect": [
+        797,
+        6,
+        36,
+        34
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-wallet-pill",
+      "screen": "phone",
+      "rect": [
+        616,
+        7,
+        72,
+        32
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-service-card",
+      "screen": "phone",
+      "rect": [
+        654,
+        53,
+        182,
+        170
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-mira-service-bust",
+      "screen": "phone",
+      "rect": [
+        662,
+        58,
+        73,
+        77
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-stock-card",
+      "screen": "phone",
+      "rect": [
+        9,
+        120,
+        149,
+        61
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-stock-card",
+      "screen": "phone",
+      "rect": [
+        9,
+        184,
+        149,
+        63
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-fish-stock",
+      "screen": "phone",
+      "rect": [
+        20,
+        67,
+        41,
+        36
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-soup",
+      "screen": "phone",
+      "rect": [
+        21,
+        133,
+        39,
+        35
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-cup",
+      "screen": "phone",
+      "rect": [
+        20,
+        194,
+        42,
+        41
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-btn-primary",
+      "screen": "phone",
+      "rect": [
+        665,
+        139,
+        161,
+        35
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-btn-secondary",
+      "screen": "phone",
+      "rect": [
+        665,
+        178,
+        161,
+        34
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-bubble-order",
+      "screen": "phone",
+      "rect": [
+        404,
+        131,
+        57,
+        46
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-bubble-order",
+      "screen": "phone",
+      "rect": [
+        524,
+        140,
+        48,
+        47
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card-phone",
+      "screen": "phone",
+      "rect": [
+        183,
+        323,
+        164,
+        55
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card-phone",
+      "screen": "phone",
+      "rect": [
+        349,
+        323,
+        160,
+        55
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card-phone",
+      "screen": "phone",
+      "rect": [
+        512,
+        323,
+        158,
+        55
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-track",
+      "screen": "phone",
+      "rect": [
+        81,
+        356,
+        88,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-track",
+      "screen": "phone",
+      "rect": [
+        249,
+        356,
+        88,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-track",
+      "screen": "phone",
+      "rect": [
+        412,
+        356,
+        87,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-track",
+      "screen": "phone",
+      "rect": [
+        574,
+        356,
+        87,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-pan",
+      "screen": "phone",
+      "rect": [
+        81,
+        332,
+        22,
+        15
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-wrench",
+      "screen": "phone",
+      "rect": [
+        413,
+        331,
+        19,
+        20
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-cup",
+      "screen": "phone",
+      "rect": [
+        575,
+        331,
+        20,
+        20
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-btn-back",
+      "screen": "desktop",
+      "rect": [
+        21,
+        12,
+        73,
+        58
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-service-card",
+      "screen": "desktop",
+      "rect": [
+        1153,
+        83,
+        275,
+        264
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-btn-primary",
+      "screen": "desktop",
+      "rect": [
+        1179,
+        228,
+        233,
+        49
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-btn-secondary",
+      "screen": "desktop",
+      "rect": [
+        1179,
+        286,
+        233,
+        45
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-stock-row",
+      "screen": "desktop",
+      "rect": [
+        28,
+        201,
+        166,
+        59
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-stock-row",
+      "screen": "desktop",
+      "rect": [
+        28,
+        266,
+        166,
+        59
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-cup",
+      "screen": "desktop",
+      "rect": [
+        42,
+        270,
+        64,
+        56
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-speed-selected",
+      "screen": "desktop",
+      "rect": [
+        1292,
+        15,
+        62,
+        51
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-speed-idle",
+      "screen": "desktop",
+      "rect": [
+        1358,
+        15,
+        59,
+        51
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-wallet-pill",
+      "screen": "desktop",
+      "rect": [
+        935,
+        14,
+        125,
+        51
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-wallet-pill",
+      "screen": "desktop",
+      "rect": [
+        1081,
+        13,
+        120,
+        52
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-timeline-flag",
+      "screen": "desktop",
+      "rect": [
+        630,
+        3,
+        56,
+        31
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-timeline-track",
+      "screen": "desktop",
+      "rect": [
+        551,
+        20,
+        286,
+        32
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card",
+      "screen": "desktop",
+      "rect": [
+        298,
+        769,
+        270,
+        89
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card",
+      "screen": "desktop",
+      "rect": [
+        575,
+        769,
+        246,
+        89
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card",
+      "screen": "desktop",
+      "rect": [
+        828,
+        769,
+        255,
+        89
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-staff-card",
+      "screen": "desktop",
+      "rect": [
+        1090,
+        769,
+        305,
+        89
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-ring-track",
+      "screen": "desktop",
+      "rect": [
+        490,
+        785,
+        63,
+        62
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-ring-track",
+      "screen": "desktop",
+      "rect": [
+        741,
+        785,
+        63,
+        62
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-ring-track",
+      "screen": "desktop",
+      "rect": [
+        999,
+        785,
+        63,
+        62
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-ring-track",
+      "screen": "desktop",
+      "rect": [
+        1316,
+        785,
+        63,
+        62
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-bubble-order",
+      "screen": "desktop",
+      "rect": [
+        620,
+        355,
+        58,
+        60
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-bubble-order",
+      "screen": "desktop",
+      "rect": [
+        988,
+        370,
+        65,
+        62
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-tab-idle",
+      "screen": "arrange",
+      "rect": [
+        151,
+        310,
+        56,
+        64
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-tab-idle",
+      "screen": "arrange",
+      "rect": [
+        211,
+        310,
+        56,
+        64
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-tab-idle",
+      "screen": "arrange",
+      "rect": [
+        271,
+        310,
+        60,
+        64
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-item-card-idle",
+      "screen": "arrange",
+      "rect": [
+        662,
+        306,
+        165,
+        71
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-coin-arrange",
+      "screen": "arrange",
+      "rect": [
+        614,
+        11,
+        23,
+        23
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-chair",
+      "screen": "arrange",
+      "rect": [
+        95,
+        7,
+        22,
+        29
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-fill-orange",
+      "screen": "phone",
+      "rect": [
+        72,
+        98,
+        42,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-fill-yellow",
+      "screen": "phone",
+      "rect": [
+        440,
+        356,
+        27,
+        11
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-guest-patience-arc",
+      "screen": "desktop",
+      "rect": [
+        834,
+        302,
+        50,
+        22
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-group",
+      "screen": "phone",
+      "rect": [
+        690,
+        145,
+        25,
+        19
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-cross",
+      "screen": "phone",
+      "rect": [
+        692,
+        186,
+        18,
+        18
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-tile1",
+      "screen": "arrange",
+      "rect": [
+        436,
+        355,
+        13,
+        12
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-tile2",
+      "screen": "arrange",
+      "rect": [
+        594,
+        355,
+        23,
+        12
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-icon-order-dish",
+      "screen": "phone",
+      "rect": [
+        413,
+        146,
+        32,
+        19
+      ],
+      "source": "instance"
+    },
+    {
+      "asset": "v2-meter-ring-fill-orange",
+      "screen": "desktop",
+      "rect": [
+        741,
+        785,
+        63,
+        62
+      ],
+      "source": "instance"
+    }
+  ]
+}

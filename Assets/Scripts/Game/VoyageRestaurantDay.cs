@@ -23,6 +23,10 @@ namespace Catchline.Game
         PrepPlan dayPrep;
         RestaurantSim night;
         int popularityBefore;
+        RestaurantWorld restaurantWorld;
+        // Mo 10-26: the restaurant opens once the Skiff is bought (Mira joins); the rowboat days stay the fishing tutorial.
+        bool RestaurantOpen => RestaurantLoop && (State.Hull >= 1 || restaurantForced);
+        bool restaurantForced;
         int restaurantPopularity { get => State.RestaurantPopularity; set => State.RestaurantPopularity = value; }
         readonly Dictionary<string, float> staffLoad = new();
 
@@ -55,7 +59,7 @@ namespace Catchline.Game
         // Called where Let's go would sail; true when the plan card took over (its Got it sails).
         bool RestaurantPlanBeforeSail()
         {
-            if (!RestaurantLoop || RestaurantPhase != DayPhase.Off) return false;
+            if (!RestaurantOpen || RestaurantPhase != DayPhase.Off) return false;
             var pool = Grounds.ForMap(SelectedSpot).SelectMany(g => g.Day).GroupBy(e => e.species)
                 .Select(g => (g.Key, g.Sum(e => e.weight))).ToArray();
             try
@@ -75,7 +79,7 @@ namespace Catchline.Game
             v.BringBack = dayForecast.DishRanges.GroupBy(k => k.Key.Item1).OrderByDescending(g => g.Sum(x => x.Value.Max)).Take(2)
                 .Select(g => new RestaurantFish { Name = FishName(g.Key), Art = FishArt(g.Key), Amount = g.Sum(x => x.Value.Max).ToString() }).ToList();
             var special = dayForecast.Guests.FirstOrDefault(g => g.Special);
-            v.SpecialTitle = special != null ? "A birthday table for four" : "No special requests tonight"; v.SpecialReward = special != null ? "+120" : null; v.SpecialAccepted = special != null ? null : (bool?)true;
+            v.SpecialTitle = special != null ? "A birthday table for four" : "No special\nrequests tonight"; v.SpecialReward = special != null ? "+120" : null; v.SpecialAccepted = special != null ? null : (bool?)true;
             specialGuest = special?.Id ?? -1;
             RestaurantPhase = DayPhase.Plan;
             RestaurantPreview = RestaurantScreen.Plan;
@@ -171,15 +175,18 @@ namespace Catchline.Game
             {
                 var card = State.Roster.FirstOrDefault(c => c.Id == id);
                 if (card == null || card.Def == null || card.Id == "mira") continue;
-                var job = RestaurantData.NativeJob(card.Def.Role);
-                var start = job == Job.Cook ? Kitchen.PassKitchen : Kitchen.Door;
-                staff.Add(SimStaff.FromCard(card, job, start));
+                var s = SimStaff.FromCard(card, Job.Cook, Kitchen.Door);
+                if (s.Job == Job.Cook) { s.Tile = Kitchen.PassKitchen; s.Position = s.Tile; }
+                staff.Add(s);
             }
-            // The captain walks around helping (design section 6). Until the rules have a helper role (RESTAURANT-PLAY-1 A),
-            // the captain covers whichever of cooking and serving nobody else does; the kitchen half stays off the rail.
-            if (!staff.Any(s => s.Job == Job.Waiter)) staff.Add(new SimStaff { Id = "captain", Job = Job.Waiter, NativeJob = Job.Waiter, Tile = Kitchen.Door, Position = Kitchen.Door });
-            if (!staff.Any(s => s.Job == Job.Cook)) staff.Add(new SimStaff { Id = "captain-kitchen", Job = Job.Cook, NativeJob = Job.Cook, Tile = Kitchen.PassKitchen, Position = Kitchen.PassKitchen });
-            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff);
+            // The captain walks around helping wherever the queue is longest (design section 6).
+            staff.Add(SimStaff.Captain(Kitchen.Door));
+            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = true };
+            // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
+            restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
+            restaurantWorld.DriveSimulation = false;
+            try { restaurantWorld.Begin(night); }
+            catch (Exception e) { Debug.LogError("[Catchline] restaurant room failed: " + e.Message); }
             popularityBefore = restaurantPopularity;
             staffLoad.Clear();
             RestaurantService.Rail = RestaurantRailMode.Scroll;
@@ -214,6 +221,7 @@ namespace Catchline.Game
                 staffLoad[s.Id] = load;
                 return new RestaurantStaff_View(s, load);
             }).Select(x => x.View).ToList();
+            if (restaurantWorld != null && restaurantWorld.Sim == night) restaurantWorld.Refresh(dt * (v.Paused ? 0 : Mathf.Max(1, v.Speed)));
             if (night.Finished) ShowClosing();
         }
 
@@ -266,6 +274,7 @@ namespace Catchline.Game
         void RestaurantSleep()
         {
             if (night != null) State.Coins += Mathf.Max(0, night.Result.NetCoins);
+            if (restaurantWorld != null) restaurantWorld.End();
             night = null; dayForecast = null; dayPrep = null;
             RestaurantPhase = DayPhase.Off;
             RestaurantPreview = RestaurantScreen.None;
@@ -281,7 +290,7 @@ namespace Catchline.Game
             switch (step)
             {
                 case "day-plan":
-                    RestaurantPhase = DayPhase.Off; SelectedSpot = 0;
+                    RestaurantPhase = DayPhase.Off; SelectedSpot = 0; restaurantForced = true;
                     return RestaurantPlanBeforeSail();
                 case "day-prep":
                     if (RestaurantPhase == DayPhase.Plan) { RestaurantPreview = RestaurantScreen.None; RestaurantPhase = DayPhase.Out; }

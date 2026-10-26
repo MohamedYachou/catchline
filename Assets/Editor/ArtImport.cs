@@ -10,6 +10,8 @@ namespace Catchline.EditorTools
     public class ArtImport : AssetPostprocessor
     {
         const string UiFolder = "Assets/Art/UI/";
+        // Bumped when the import rules change, so Unity reimports with them (3: v3/rx UI at full size).
+        public override uint GetVersion() => 3;
         static bool rebuildQueued;
 
         static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom)
@@ -61,9 +63,9 @@ namespace Catchline.EditorTools
             ti.npotScale = TextureImporterNPOTScale.None;
             ti.textureCompression = TextureImporterCompression.Uncompressed;
             string name = Path.GetFileNameWithoutExtension(assetPath);
-            if (name.StartsWith("v2-"))
+            if (name.StartsWith("v2-") || name.StartsWith("v3-") || name.StartsWith("rx-"))
             {
-                // UI v2 kit: 2x authored, never downscaled; planks and rope tile.
+                // UI v2/v3 kits and the restaurant's 1:1 mockup pieces (rx-): authored at 2-3x, never downscaled.
                 ti.maxTextureSize = 2048;
                 if (name.StartsWith("v2-plank") || name.StartsWith("v2-rope")) ti.wrapMode = TextureWrapMode.Repeat;
                 return;
@@ -71,7 +73,7 @@ namespace Catchline.EditorTools
             ti.maxTextureSize = assetPath.StartsWith("Assets/gemini/") ? 1024 : name == "title-backdrop" || name.StartsWith("header-") || name == "sea-chart" ? 2048
                 : name == "logo-catchline" || name == "strike-water" ? 1024
                 : name == "daily-gift" ? 512
-                : name.StartsWith("fish-") && name != "fish-shadow" || name.StartsWith("portrait-") ? 256
+                : name.StartsWith("fish-") && name != "fish-shadow" ? 512 : name.StartsWith("portrait-") ? 256
                 : name.StartsWith("bar-") ? 64 : name.EndsWith("-tail") ? 32 : 128;
         }
 

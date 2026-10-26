@@ -63,7 +63,8 @@ namespace Catchline.Game.Restaurant
         }
         void AddGuests(int count,bool families=false)
         {
-            while(count>0){int group=++nextGroup;int n=Math.Min(count,families?4:random.Next(1,5));
+            int seats=Math.Max(1,kitchen.Active.Max(i=>RestaurantData.Get(i.Id).Seats));
+            while(count>0){int group=++nextGroup;int n=Math.Min(count,families?Math.Min(4,seats):random.Next(1,Math.Min(4,seats)+1));
                 // One oven platter is shared by a whole table; grouping it here avoids multiple platter orders.
                 Species species=RollSpecies();var options=Options(species);Dish common=options[random.Next(options.Count)];
                 for(int i=0;i<n;i++){

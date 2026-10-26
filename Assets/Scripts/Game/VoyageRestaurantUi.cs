@@ -552,6 +552,7 @@ namespace Catchline.Game
             float k = Mathf.Min(iw / 844f, ih / 390f);
             var frame = coastalUi.Sliced(id, new Rect((iw - 844 * k) / 2, (ih - 390 * k) / 2, 844, 390), "");
             frame.localScale = new Vector3(k, k, 1);
+            frameScale = k;
             return frame;
         }
 
@@ -564,54 +565,97 @@ namespace Catchline.Game
             coastalUi.HitArea(id + "/hit", new Rect(0, 0, r.width, r.height), action, b);
         }
 
-        // S3: Mira's plan card on the way out (ui-3-mira-plan.png).
+        // ---- 1:1 mockup pieces (Codex's RESTAURANT-UI-EXACT-1, RestaurantExact.cs) ----------------------------------
+        float frameScale = 1;
+
+        // A measured piece at its mockup rect (or at a given rect in the same frame).
+        RectTransform Rx(string id, int screen, string piece, Transform parent, Rect? at = null, string sprite = null)
+        {
+            if (!RestaurantExact.Pieces.TryGetValue($"{screen}:{piece}", out var p)) p = (at ?? default, Vector2.zero, Vector4.zero);
+            var r = at ?? p.rect;
+            // Repeated instances ("name#use") share the measured base piece's source size and borders.
+            if (p.size == Vector2.zero && piece.Contains("#") && RestaurantExact.Pieces.TryGetValue($"{screen}:{piece.Split('#')[0]}", out var b))
+                p = (p.rect, b.size * (p.rect.width > 0 ? 1 : 0), b.border);
+            const float perUnit = 3; // every exact piece is cut at 3x the 844x390 layout
+            string name = sprite ?? "rx-" + piece.Split('#')[0].Substring(3);
+            return coastalUi.Piece(id, r, name, parent, p.border, perUnit);
+        }
+
+        // Text in a measured mockup style, at its measured rect or a given one.
+        void RxText(string id, int screen, string style, string text, Transform parent, Rect? at = null, TextAnchor align = TextAnchor.MiddleCenter, Color? fill = null)
+        {
+            var s = RestaurantExact.Texts[$"{screen}:{style}"];
+            coastalUi.StyledText(id, at ?? s.Rect, text, s.Size, fill ?? s.Fill, s.StrokeColour, s.Stroke, s.ShadowY, s.Shadow, s.Bold, align, parent, frameScale);
+        }
+
+        static string FishPicture(string art) => art != null && art.StartsWith("fish-") ? "rx-fishart-" + art.Substring(5) : art;
+
+        // S3: Mira's plan card on the way out (ui-3-mira-plan.png), every piece and text at its measured place.
         void InterfaceRestaurantPlan(RestaurantPlanView v)
         {
             Block(new Rect(0, 0, iw, ih));
             coastalUi.Planks("rplan/planks", false);
             var f = RestaurantFrame("rplan/frame");
-            coastalUi.Secondary("rplan/back", new Rect(14, 12, 124, 46), "Back", () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; }, "v2-icon-back", true, f);
-            coastalUi.Icon("rplan/mira", new Rect(-14, 38 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 300, 356), "mira-pose-explain", f, null, "art108-mira");
-            RestaurantSign("rplan/sign", new Rect(236, 6, 392, 56), "Tonight at Mira's", f);
+            Rx("rplan/bg", 3, "v2-bg-plan", f);
+            // As in the mockup: big, cut at mid-thigh by the frame's bottom edge.
+            var miraClip = coastalUi.Clip("rplan/mira/clip", new Rect(0, 0, 300, 390), f);
+            Rx("rplan/mira", 3, "v2-mira-plan", miraClip, new Rect(-78, 10 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 434, 543));
 
-            var card = coastalUi.Slab("rplan/card", new Rect(260, 82, 394, 276), null, false, f);
-            coastalUi.Icon("rplan/cal", new Rect(32, 12, 40, 40), "v2-icon-calendar", card, null, "v2-icon-clock");
-            coastalUi.Text("rplan/day", new Rect(90, 8, 300, 28), $"{v.Day.ToUpperInvariant()} · {v.Hours}", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
-            coastalUi.Text("rplan/guests", new Rect(90, 34, 300, 22), $"{v.GuestsLow} – {v.GuestsHigh} guests + walk-ins", Skin.Type.Body, Skin.Ink, TextAnchor.MiddleLeft, card);
+            Rx("rplan/back", 3, "v2-btn-back", f);
+            Rx("rplan/back/icon", 3, "v2-icon-back", f);
+            RxText("rplan/back/label", 3, "back", "Back", f, null, TextAnchor.MiddleLeft);
+            coastalUi.HitArea("rplan/back/hit", new Rect(12, 8, 130, 51), () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; }, f);
+
+            Rx("rplan/sign", 3, "v2-sign-plank", f);
+            RxText("rplan/title", 3, "title-wood", "Tonight at Mira's", f);
+
+            Rx("rplan/paper", 3, "v2-plan-paper", f);
+            Rx("rplan/cal", 3, "v2-icon-calendar", f);
+            RxText("rplan/day", 3, "date", $"{v.Day.ToUpperInvariant()} · {v.Hours}", f, null, TextAnchor.MiddleLeft);
+            RxText("rplan/guests", 3, "forecast-guests", $"{v.GuestsLow} – {v.GuestsHigh} guests + walk-ins", f, null, TextAnchor.MiddleLeft);
+            float[] cardX = { 275, 402, 529 };
             for (int i = 0; i < v.Dishes.Count && i < 3; i++)
             {
-                var d = v.Dishes[i];
-                var dc = coastalUi.Card($"rplan/dish/{i}", new Rect(16 + i * 126, 80, 118, 120), Skin.Card.Soft, card);
-                coastalUi.Icon($"rplan/dish/{i}/art", new Rect(8, 6, 102, 66), d.Art, dc, null, d.Fallback);
-                coastalUi.Text($"rplan/dish/{i}/name", new Rect(4, 72, 110, 22), d.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, dc);
-                coastalUi.Icon($"rplan/dish/{i}/who", new Rect(30, 96, 18, 18), "v2-icon-guests", dc, Skin.Ink, "v2-icon-crew");
-                coastalUi.Text($"rplan/dish/{i}/range", new Rect(52, 94, 60, 22), $"{d.Low} – {d.High}", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, dc);
+                var d = v.Dishes[i]; float x = cardX[i];
+                Rx($"rplan/dish/{i}", 3, "v2-plan-dish-card", f, new Rect(x, 162, 122, 123));
+                coastalUi.Icon($"rplan/dish/{i}/art", new Rect(x + 6, 166, 110, 75), d.Art, f, null, d.Fallback);
+                RxText($"rplan/dish/{i}/name", 3, "dish-label", d.Name, f, new Rect(x, 235, 122, 22));
+                Rx($"rplan/dish/{i}/who", 3, "v2-icon-guests", f, new Rect(x + 26, 257, 21, 20));
+                RxText($"rplan/dish/{i}/range", 3, "dish-guests", $"{d.Low} – {d.High}", f, new Rect(x + 50, 258, 66, 22), TextAnchor.MiddleLeft);
             }
-            var bring = coastalUi.Card("rplan/bring", new Rect(16, 210, 362, 56), Skin.Card.Soft, card);
-            coastalUi.Icon("rplan/bring/fish", new Rect(6, 4, 106, 48), "v2-catch-pile", bring, null, "fish-mackerel");
-            coastalUi.Text("rplan/bring/title", new Rect(124, 4, 120, 20), "Bring back:", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, bring);
+            Rx("rplan/bring", 3, "v2-paper-row#bring-back inset", f, null, "rx-paper-row");
+            Rx("rplan/bring/pile", 3, "v2-catch-pile", f);
+            RxText("rplan/bring/title", 3, "bring-back-heading", "Bring back:", f, null, TextAnchor.MiddleLeft);
             for (int i = 0; i < v.BringBack.Count && i < 2; i++)
             {
-                var fish = v.BringBack[i]; float x = 124 + i * 118;
-                coastalUi.Icon($"rplan/bring/{i}/icon", new Rect(x, 28, 30, 20), fish.Art, bring, null, "v2-icon-fish");
-                coastalUi.Text($"rplan/bring/{i}/n", new Rect(x + 34, 24, 60, 28), fish.Amount, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, bring);
-                coastalUi.Text($"rplan/bring/{i}/name", new Rect(x + 38 + fish.Amount.Length * 9, 26, 64, 26), fish.Name, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, bring);
-                if (i == 0) coastalUi.Sliced("rplan/bring/split", new Rect(x + 112, 26, 2, 24), "v2-bar-track", bring, Skin.CreamDeep);
+                var fish = v.BringBack[i]; float x = i == 0 ? 399 : 520;
+                coastalUi.Icon($"rplan/bring/{i}/icon", new Rect(x, 321, 32, 20), FishPicture(fish.Art), f, null, fish.Art);
+                RxText($"rplan/bring/{i}/text", 3, "bring-back-items", $"{fish.Amount} {fish.Name}", f, new Rect(x + 35, 321, 110, 22), TextAnchor.MiddleLeft);
             }
+            if (v.BringBack.Count > 1) Rx("rplan/bring/split", 3, "v2-divider#catch request separator", f, null, "rx-divider");
 
-            var special = coastalUi.Slab("rplan/special", new Rect(668, 70, 170, 214), null, false, f);
-            coastalUi.Icon("rplan/special/icon", new Rect(12, 14, 26, 26), "v2-icon-special", special, null, "v2-icon-goal");
-            coastalUi.Text("rplan/special/head", new Rect(42, 12, 124, 30), "Special request", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, special);
-            coastalUi.Text("rplan/special/body", new Rect(10, 52, 150, 48), v.SpecialTitle, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, special);
-            if (v.SpecialReward == null) { }
-            else if (v.SpecialAccepted == null)
+            Rx("rplan/special", 3, "v2-ticket", f);
+            Rx("rplan/special/icon", 3, "v2-icon-special", f);
+            RxText("rplan/special/head", 3, "special-heading", "Special request", f, null, TextAnchor.MiddleLeft);
+            RxText("rplan/special/body", 3, "special-copy", v.SpecialTitle, f);
+            if (v.SpecialReward != null && v.SpecialAccepted == null)
             {
-                RestaurantGoodButton("rplan/special/yes", new Rect(14, 116, 142, 40), "Accept", () => v.SpecialAccepted = true, special);
-                coastalUi.Secondary("rplan/special/no", new Rect(14, 162, 142, 40), "Not tonight", () => v.SpecialAccepted = false, "v2-icon-cross", true, special);
+                Rx("rplan/special/yes", 3, "v2-btn-accept", f);
+                Rx("rplan/special/yes/icon", 3, "v2-icon-tick#accept button check; cream glyph", f, null, "rx-icon-tick");
+                RxText("rplan/special/yes/label", 3, "accept", "Accept", f);
+                coastalUi.HitArea("rplan/special/yes/hit", new Rect(681, 184, 139, 51), () => v.SpecialAccepted = true, f);
+                Rx("rplan/special/no", 3, "v2-btn-secondary", f);
+                Rx("rplan/special/no/icon", 3, "v2-icon-cross", f);
+                RxText("rplan/special/no/label", 3, "not-tonight", "Not tonight", f);
+                coastalUi.HitArea("rplan/special/no/hit", new Rect(679, 230, 140, 51), () => v.SpecialAccepted = false, f);
             }
-            else coastalUi.Text("rplan/special/state", new Rect(10, 116, 150, 86), v.SpecialAccepted == true ? $"Accepted\n{v.SpecialReward}" : "Not tonight.",
-                Skin.Type.Heading, v.SpecialAccepted == true ? Skin.GoodInk : Skin.InkSoft, TextAnchor.MiddleCenter, special);
-            coastalUi.Primary("rplan/go", new Rect(672, 298, 162, 56), "Got it", () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPlanAccepted(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-tick", true, f);
+            else if (v.SpecialReward != null)
+                RxText("rplan/special/state", 3, "special-copy", v.SpecialAccepted == true ? $"Accepted  {v.SpecialReward}" : "Not tonight.", f, new Rect(688, 200, 133, 42));
+
+            Rx("rplan/go", 3, "v2-btn-primary", f);
+            Rx("rplan/go/icon", 3, "v2-icon-tick", f);
+            RxText("rplan/go/label", 3, "got-it", "Got it", f);
+            coastalUi.HitArea("rplan/go/hit", new Rect(668, 297, 165, 70), () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPlanAccepted(); else RestaurantPreview = RestaurantScreen.None; }, f);
         }
 
         // A navy kit square with a glyph, used for the mockups' blue minus buttons.
@@ -622,66 +666,86 @@ namespace Catchline.Game
             if (enabled) coastalUi.HitArea(id + "/hit", new Rect(0, 0, r.width, r.height), action, b);
         }
 
-        // S4: what to prepare on the way home (ui-4-prep.png).
+        // S4: what to prepare on the way home (ui-4-prep.png), every piece and text at its measured place.
         void InterfaceRestaurantPrep(RestaurantPrepView v)
         {
             Block(new Rect(0, 0, iw, ih));
             RestaurantBackdrop("rprep/backdrop");
             float scale = Mathf.Min(iw / 844f, ih / 390f);
-            coastalUi.Sliced("rprep/band", new Rect(0, 0, iw, (ih - 390 * scale) / 2 + 58 * scale), "v3-topbar", null, Color.white);
+            coastalUi.Sliced("rprep/band", new Rect(0, 0, iw, (ih - 390 * scale) / 2 + 52 * scale), "v3-topbar", null, Color.white);
             var f = RestaurantFrame("rprep/frame");
-            coastalUi.IconButton("rprep/back", new Rect(12, 8, 52, 44), "v2-icon-back", null, () => { if (RestaurantPhase != DayPhase.Prep) RestaurantPreview = RestaurantScreen.None; }, f);
-            coastalUi.Icon("rprep/sign", new Rect(230, 4, 62, 50), "v2-sign-fish", f, null, "v2-icon-fish");
-            coastalUi.Text("rprep/title", new Rect(296, 4, 320, 50), "Prepare for tonight", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, f, true);
-            var fridge = coastalUi.Card("rprep/fridge", new Rect(628, 8, 152, 44), Skin.Card.Soft, f);
-            coastalUi.Icon("rprep/fridge/icon", new Rect(10, 4, 46, 36), "v2-icon-fridge", fridge, null, "icon-cooler");
-            coastalUi.Text("rprep/fridge/n", new Rect(62, 0, 84, 44), $"{v.Fridge} / {v.FridgeCapacity}", Skin.Type.Heading,
-                v.Fridge > v.FridgeCapacity ? Skin.BadInk : Skin.Ink, TextAnchor.MiddleCenter, fridge);
+            Rx("rprep/back", 4, "v2-btn-back#square back control; nine-slice", f, null, "rx-btn-back");
+            Rx("rprep/back/icon", 4, "v2-icon-back#back arrow", f, null, "rx-icon-back");
+            coastalUi.HitArea("rprep/back/hit", new Rect(13, 6, 53, 46), () => { if (RestaurantPhase != DayPhase.Prep) RestaurantPreview = RestaurantScreen.None; }, f);
+            Rx("rprep/sign", 4, "v2-sign-fish", f);
+            RxText("rprep/title", 4, "prep-title", "Prepare for tonight", f, null, TextAnchor.MiddleLeft);
+            Rx("rprep/fridge", 4, "v2-number-field", f, new Rect(630, 8, 150, 42));
+            Rx("rprep/fridge/icon", 4, "v2-icon-cooler", f);
+            RxText("rprep/fridge/n", 4, "capacity", $"{v.Fridge} / {v.FridgeCapacity}", f, null, TextAnchor.MiddleCenter, v.Fridge > v.FridgeCapacity ? Skin.BadInk : null);
 
-            var left = coastalUi.Slab("rprep/catch", new Rect(70, 64, 268, 248), "Today's catch", false, f);
+            Rx("rprep/catch", 4, "v2-prep-catch-panel", f);
+            Rx("rprep/catch/icon", 4, "v2-icon-fish-white", f);
+            RxText("rprep/catch/title", 4, "panel-heading", "Today's catch", f, new Rect(134, 71, 196, 31), TextAnchor.MiddleLeft);
+            float[] catchY = { 118, 207 };
             for (int i = 0; i < v.Catch.Count && i < 2; i++)
             {
-                var c = v.Catch[i];
-                var card = coastalUi.Card($"rprep/catch/{i}", new Rect(14, 54 + i * 94, 240, 86), Skin.Card.Soft, left);
-                coastalUi.Icon($"rprep/catch/{i}/art", new Rect(6, 10, 126, 66), c.Art, card, null, "v2-icon-fish");
-                coastalUi.Text($"rprep/catch/{i}/name", new Rect(138, 12, 100, 26), c.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
-                coastalUi.Text($"rprep/catch/{i}/n", new Rect(138, 38, 100, 34), c.Amount, Skin.Type.Number, Skin.Ink, TextAnchor.MiddleLeft, card);
+                var c = v.Catch[i]; float y = catchY[i];
+                Rx($"rprep/catch/{i}", 4, i == 0 ? "v2-paper-row" : "v2-paper-row#second fish row", f, null, "rx-paper-row");
+                coastalUi.Icon($"rprep/catch/{i}/art", new Rect(88, y + 12, 126, 64), FishPicture(c.Art), f, null, c.Art);
+                RxText($"rprep/catch/{i}/name", 4, "catch-species", c.Name, f, new Rect(222, y + 16, 104, 22), TextAnchor.MiddleLeft);
+                RxText($"rprep/catch/{i}/n", 4, "catch-count", c.Amount, f, new Rect(223, y + 38, 98, 32), TextAnchor.MiddleLeft);
             }
 
-            var right = coastalUi.Slab("rprep/portions", new Rect(346, 64, 460, 252), "Portions", false, f);
+            Rx("rprep/portions", 4, "v2-prep-portions-panel", f);
+            Rx("rprep/portions/icon", 4, "v2-icon-cutlery-white", f);
+            RxText("rprep/portions/title", 4, "panel-heading", "Portions", f, new Rect(405, 71, 160, 31), TextAnchor.MiddleLeft);
             for (int i = 0; i < v.Rows.Count && i < 3; i++)
             {
-                var r = v.Rows[i]; int k = i; float y = 50 + i * 58;
-                var row = coastalUi.Card($"rprep/row/{i}", new Rect(10, y, 440, 54), Skin.Card.Soft, right);
-                coastalUi.Icon($"rprep/row/{i}/art", new Rect(8, 4, 80, 46), r.Art, row, null, r.Fallback);
-                coastalUi.Text($"rprep/row/{i}/name", new Rect(98, 0, 120, 54), r.Name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, row);
-                RestaurantInkButton($"rprep/row/{i}/minus", new Rect(214, 6, 48, 42), "-", () => v.Rows[k].Portions = Mathf.Max(0, v.Rows[k].Portions - 1), r.Portions > 0, row);
-                coastalUi.Inset($"rprep/row/{i}/box", new Rect(270, 4, 98, 30), row);
-                coastalUi.Text($"rprep/row/{i}/n", new Rect(270, 4, 98, 30), r.Portions.ToString(), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, row);
-                // Forecast track: the range in teal, the chosen amount as an amber marker.
+                var r = v.Rows[i]; int k = i; float y = 112 + i * 57.5f;
+                Rx($"rprep/row/{i}", 4, "v2-paper-row#portion row 1; slice to rect", f, new Rect(359, y, 435, 55), "rx-paper-row");
+                coastalUi.Icon($"rprep/row/{i}/art", new Rect(363, y + 2, 91, 51), r.Art, f, null, r.Fallback);
+                RxText($"rprep/row/{i}/name", 4, "portion-label", r.Name, f, new Rect(463, y + 16, 103, 22), TextAnchor.MiddleLeft);
+                Rx($"rprep/row/{i}/minus", 4, "v2-btn-minus", f, new Rect(570, y, 52, 51));
+                coastalUi.HitArea($"rprep/row/{i}/minus/hit", new Rect(570, y, 52, 51), () => v.Rows[k].Portions = Mathf.Max(0, v.Rows[k].Portions - 1), f);
+                Rx($"rprep/row/{i}/box", 4, "v2-number-field", f, new Rect(629, y, 99, 38));
+                RxText($"rprep/row/{i}/n", 4, "portion-count", r.Portions.ToString(), f, new Rect(629, y + 2, 99, 34));
+                // The forecast track under the number: the knob sits at the chosen amount within the forecast range.
+                Rx($"rprep/row/{i}/track", 4, "v2-bar-track", f, new Rect(628, y + 38, 102, 14));
                 int hi = Mathf.Max(r.ForecastHigh + 4, r.Portions + 1);
-                coastalUi.ProgressBar($"rprep/row/{i}/track", new Rect(274, 38, 90, 8), 0, Skin.Bar.Good, row);
-                coastalUi.Sliced($"rprep/row/{i}/range", new Rect(274 + 90f * r.ForecastLow / hi, 38, Mathf.Max(6, 90f * (r.ForecastHigh - r.ForecastLow) / hi), 8), "v2-bar-good", row, Skin.Teal);
-                coastalUi.Sliced($"rprep/row/{i}/mark", new Rect(274 + 90f * r.Portions / hi - 4, 34, 8, 16), "v2-bar-warn", row);
-                coastalUi.Primary($"rprep/row/{i}/plus", new Rect(380, 6, 48, 42), "+", () => v.Rows[k].Portions++, null, true, row);
+                Rx($"rprep/row/{i}/knob", 4, "v2-bar-knob", f, new Rect(628 + 96f * Mathf.Clamp01(r.Portions / (float)hi), y + 36, 12, 18));
+                Rx($"rprep/row/{i}/plus", 4, "v2-btn-plus", f, new Rect(734, y - 1, 57, 52));
+                coastalUi.HitArea($"rprep/row/{i}/plus/hit", new Rect(734, y - 1, 57, 52), () => v.Rows[k].Portions++, f);
             }
-            coastalUi.Icon("rprep/margin/icon", new Rect(74, 222, 20, 20), "v2-icon-ops", right, Skin.Ink);
-            coastalUi.Text("rprep/margin/label", new Rect(98, 218, 84, 28), "Forecast", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, right);
+            Rx("rprep/margin/icon", 4, "v2-icon-forecast", f);
+            RxText("rprep/margin/label", 4, "forecast-label", "Forecast", f, null, TextAnchor.MiddleLeft);
             string[] margins = { "Tight", "+10%", "+20%" };
-            coastalUi.PageSwitch("rprep/margin", new Rect(184, 218, 240, 28), margins, v.Margin, i => v.Margin = i, null, right);
+            float[] marginX = { 529, 611, 692 };
+            var pill = RestaurantExact.Texts["4:forecast-pill"];
+            for (int i = 0; i < 3; i++)
+            {
+                int m = i; bool on = v.Margin == i; var r = new Rect(marginX[i], 285, 80, 30);
+                Rx($"rprep/margin/{i}", 4, on ? "v2-toggle-selected" : "v2-toggle-unselected", f, r);
+                coastalUi.StyledText($"rprep/margin/{i}/label", r, margins[i], pill.Size, on ? new Color(1, .973f, .91f) : pill.Fill, pill.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
+                coastalUi.HitArea($"rprep/margin/{i}/hit", r, () => v.Margin = m, f);
+            }
 
-            var sum = coastalUi.Card("rprep/sum", new Rect(200, 322, 418, 60), Skin.Card.Soft, f);
-            coastalUi.Icon("rprep/sum/rest/icon", new Rect(14, 14, 32, 32), "v2-icon-cutlery", sum, Skin.Ink, "icon-food");
-            coastalUi.Text("rprep/sum/rest/l", new Rect(52, 8, 100, 20), "Restaurant:", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Text("rprep/sum/rest", new Rect(52, 26, 100, 26), $"{v.RestaurantPortions} portions", Skin.Type.Body, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Sliced("rprep/sum/split1", new Rect(156, 10, 2, 40), "v2-bar-track", sum, Skin.CreamDeep);
-            coastalUi.Icon("rprep/sum/market/icon", new Rect(166, 14, 44, 32), "v2-icon-fish", sum, null, "icon-fish");
-            coastalUi.Text("rprep/sum/market/l", new Rect(214, 8, 70, 20), "Market:", Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Text("rprep/sum/market", new Rect(214, 26, 74, 26), $"{v.MarketFish} fish", Skin.Type.Body, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Sliced("rprep/sum/split2", new Rect(288, 10, 2, 40), "v2-bar-track", sum, Skin.CreamDeep);
-            coastalUi.Toggle("rprep/sum/cut", new Rect(298, 17, 26, 26), v.CaptainsCut, () => v.CaptainsCut = !v.CaptainsCut, sum);
-            coastalUi.Text("rprep/sum/cut/label", new Rect(346, 0, 70, 60), "Captain's cut", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Primary("rprep/go", new Rect(632, 324, 198, 56), "Prepare", () => { if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-cloche", true, f);
+            Rx("rprep/sum", 4, "v2-summary-strip", f);
+            Rx("rprep/sum/rest/icon", 4, "v2-icon-cutlery", f);
+            RxText("rprep/sum/rest/l", 4, "summary-label", "Restaurant:", f, new Rect(252, 334, 100, 14), TextAnchor.MiddleLeft);
+            RxText("rprep/sum/rest", 4, "summary-value", $"{v.RestaurantPortions} portions", f, new Rect(251, 349, 100, 20), TextAnchor.MiddleLeft);
+            Rx("rprep/sum/split1", 4, "v2-divider", f);
+            Rx("rprep/sum/market/icon", 4, "v2-icon-fish-market", f);
+            RxText("rprep/sum/market/l", 4, "summary-label", "Market:", f, new Rect(414, 334, 60, 14), TextAnchor.MiddleLeft);
+            RxText("rprep/sum/market", 4, "summary-value", $"{v.MarketFish} fish", f, new Rect(414, 349, 60, 20), TextAnchor.MiddleLeft);
+            Rx("rprep/sum/split2", 4, "v2-divider#market/captain separator", f, null, "rx-divider");
+            Rx("rprep/sum/cut", 4, v.CaptainsCut ? "v2-checkbox-on" : "v2-checkbox-off", f);
+            coastalUi.HitArea("rprep/sum/cut/hit", new Rect(486, 326, 140, 50), () => v.CaptainsCut = !v.CaptainsCut, f);
+            var cutStyle = RestaurantExact.Texts["4:summary-label"]; // the mockup sets it larger, on one line before the button
+            coastalUi.StyledText("rprep/sum/cut/label", new Rect(532, 338, 96, 26), "Captain's cut", 13, cutStyle.Fill, cutStyle.StrokeColour, cutStyle.Stroke, cutStyle.ShadowY, cutStyle.Shadow, cutStyle.Bold, TextAnchor.MiddleLeft, f, frameScale);
+            Rx("rprep/go", 4, "v2-btn-primary#Prepare button; nine-slice", f, null, "rx-btn-primary");
+            Rx("rprep/go/icon", 4, "v2-icon-cloche", f);
+            RxText("rprep/go/label", 4, "prepare", "Prepare", f);
+            coastalUi.HitArea("rprep/go/hit", new Rect(631, 322, 200, 58), () => { if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared(); else RestaurantPreview = RestaurantScreen.None; }, f);
         }
 
         // S5: the closing card after service (ui-5-closing.png).
