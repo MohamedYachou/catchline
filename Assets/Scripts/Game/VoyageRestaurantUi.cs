@@ -76,6 +76,8 @@ namespace Catchline.Game
 
         public sealed class RestaurantStock { public string Name, Art, Fallback; public int Count, Max; public bool Alert; }
         public sealed class RestaurantStaff { public string Portrait, Job, Icon, Fallback; public float Busy; }
+        // How the staff rail shows a crew bigger than the mockup's five (Mo 10-26: compare these before choosing).
+        public enum RestaurantRailMode { Mockup, Jobs, Scroll, Chips }
         public sealed class RestaurantServiceView
         {
             public string Name = "Mira's";
@@ -91,6 +93,21 @@ namespace Catchline.Game
             public string QuestionTitle = "A late table?", QuestionBody = "A party of four\nhas arrived.", QuestionBodyShort = "A group just arrived.\nShall we seat them?", QuestionYes = "Seat them", QuestionNo = "Not tonight";
             // Expected guests per half hour, 18:00-23:00, for the phone's arrival strip.
             public float[] Arrivals = { .4f, .7f, 1f, .9f, .75f, .6f, .45f, .3f, .2f, .1f };
+            public RestaurantRailMode Rail;
+            // A full stage-4 night: eight sailed crew, Mira, and the captain walking around.
+            public List<RestaurantStaff> Crew = new()
+            {
+                new() { Portrait = "kofi", Job = "Cook", Icon = "v2-icon-pan", Fallback = "icon-food", Busy = .8f },
+                new() { Portrait = "rosa", Job = "Cook", Icon = "v2-icon-pan", Fallback = "icon-food", Busy = .6f },
+                new() { Portrait = "sam", Job = "Serve", Icon = "v2-icon-cloche", Fallback = "v2-icon-haul", Busy = .95f },
+                new() { Portrait = "jo", Job = "Serve", Icon = "v2-icon-cloche", Fallback = "v2-icon-haul", Busy = .75f },
+                new() { Portrait = "mei", Job = "Serve", Icon = "v2-icon-cloche", Fallback = "v2-icon-haul", Busy = .5f },
+                new() { Portrait = "dirk", Job = "Fix", Icon = "v2-icon-wrench", Fallback = "v2-icon-engine", Busy = .45f },
+                new() { Portrait = "ines", Job = "Coffee", Icon = "v2-icon-cup", Fallback = "v2-icon-clock", Busy = .85f },
+                new() { Portrait = "mats", Job = "Coffee", Icon = "v2-icon-cup", Fallback = "v2-icon-clock", Busy = .7f },
+                new() { Portrait = "mira", Job = "Host", Icon = "v2-icon-bell", Fallback = "v2-icon-anchor", Busy = 1f },
+                new() { Portrait = "captain", Job = "Help", Icon = "v2-icon-crew", Fallback = "icon-crew", Busy = .6f },
+            };
             public List<RestaurantStaff> Staff = new()
             {
                 new() { Portrait = "kofi", Job = "Cook", Icon = "v2-icon-pan", Fallback = "icon-food", Busy = .7f },
@@ -202,6 +219,7 @@ namespace Catchline.Game
             }
 
             // Bottom: the staff rail, one card per crew member with their fixed job and how busy they are.
+            if (v.Rail != RestaurantRailMode.Mockup) { RestaurantRail("rsvc/crew", R(36, 762, 1368, 108), false, v); return; }
             var rail = R(36, 762, 1368, 108);
             coastalUi.Slab("rsvc/rail", rail);
             float cw = (rail.width - 16 * sx) / Mathf.Max(1, v.Staff.Count);
@@ -292,6 +310,7 @@ namespace Catchline.Game
             }
 
             // Bottom: staff cards (Mira hosts from her card, so the rail shows the other four).
+            if (v.Rail != RestaurantRailMode.Mockup) { RestaurantRail("rsph/crew", R(10, 318, 824, 68), true, v); return; }
             int n = 0;
             foreach (var s in v.Staff)
             {
@@ -302,6 +321,96 @@ namespace Catchline.Game
                 coastalUi.Text($"rsph/staff/{n}/job", new Rect(62 * sx + 26 * sy, 6 * sy, 70 * sx, 26 * sy), s.Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
                 coastalUi.ProgressBar($"rsph/staff/{n}/bar", new Rect(62 * sx, 38 * sy, 86 * sx, 12 * sy), s.Busy, s.Busy >= .7f ? Skin.Bar.Good : Skin.Bar.Warn, c);
                 n++;
+            }
+        }
+
+
+        // The staff rail for a whole crew, in one of the three layouts Mo is choosing between.
+        void RestaurantRail(string id, Rect rail, bool phone, RestaurantServiceView v)
+        {
+            coastalUi.Slab(id, rail);
+            var groups = new List<List<RestaurantStaff>>();
+            foreach (var s in v.Crew)
+            {
+                var g = groups.Find(x => x[0].Job == s.Job);
+                if (g == null) groups.Add(g = new List<RestaurantStaff>());
+                g.Add(s);
+            }
+            float pad = phone ? 5 : 8, h = rail.height - pad * 2;
+            switch (v.Rail)
+            {
+                case RestaurantRailMode.Jobs:
+                {
+                    // One card per job: its people as overlapping faces, a count, one ring for the job's load.
+                    float cw = (rail.width - pad) / groups.Count;
+                    for (int i = 0; i < groups.Count; i++)
+                    {
+                        var g = groups[i]; string gid = $"{id}/job/{i}";
+                        var c = coastalUi.Card(gid, new Rect(rail.x + pad + i * cw, rail.y + pad, cw - pad, h), Skin.Card.Soft);
+                        float face = h * (phone ? .58f : .56f), step = face * .5f, load = 0;
+                        foreach (var s in g) load += s.Busy;
+                        load /= g.Count;
+                        for (int k = 0; k < g.Count && k < 3; k++)
+                            coastalUi.Portrait($"{gid}/face{k}", new Rect(6 + k * step, h - face - 4, face, face), g[k].Portrait, c);
+                        float tx = 6 + Mathf.Min(g.Count, 3) * step + face * .5f;
+                        coastalUi.Icon($"{gid}/icon", new Rect(8, 4, h * .3f, h * .3f), g[0].Icon, c, null, g[0].Fallback);
+                        coastalUi.Text($"{gid}/job", new Rect(12 + h * .3f, 2, cw - h * .3f - 20, h * .34f), g[0].Job, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
+                        float ring = h * (phone ? .46f : .56f);
+                        if (g.Count > 1) coastalUi.Text($"{gid}/n", new Rect(tx - 2, h * .45f, cw - pad - ring - 12 - tx, h * .5f), $"×{g.Count}", Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleLeft, c);
+                        RestaurantRing($"{gid}/ring", new Rect(cw - pad - ring - 8, h - ring - 6, ring, ring), load, c);
+                    }
+                    break;
+                }
+                case RestaurantRailMode.Scroll:
+                {
+                    // One card per person; whatever does not fit waits behind the arrow.
+                    float arrow = h * .7f, cw = phone ? 150 : 250 * rail.width / 1368f, x0 = rail.x + pad + arrow + pad;
+                    int fit = Mathf.Max(1, Mathf.FloorToInt((rail.width - (arrow + pad) * 2 - pad) / cw));
+                    coastalUi.Secondary($"{id}/left", new Rect(rail.x + pad, rail.y + (rail.height - arrow) / 2, arrow, arrow), "‹", () => { }, null, false);
+                    for (int i = 0; i < fit && i < v.Crew.Count; i++)
+                    {
+                        var s = v.Crew[i]; string cid = $"{id}/card/{i}";
+                        var c = coastalUi.Card(cid, new Rect(x0 + i * cw, rail.y + pad, cw - pad, h), Skin.Card.Soft);
+                        float face = h - 10;
+                        coastalUi.Portrait($"{cid}/face", new Rect(5, 5, face, face), s.Portrait, c);
+                        coastalUi.Text($"{cid}/job", new Rect(face + 8, 2, cw - face - h * .5f - 14, h * .5f), s.Job, phone ? Skin.Type.Small : Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
+                        coastalUi.Icon($"{cid}/icon", new Rect(face + 10, h * .52f, h * .36f, h * .36f), s.Icon, c, null, s.Fallback);
+                        float ring = h * .5f;
+                        RestaurantRing($"{cid}/ring", new Rect(cw - pad - ring - 6, (h - ring) / 2, ring, ring), s.Busy, c);
+                    }
+                    int more = v.Crew.Count - fit;
+                    var right = new Rect(rail.xMax - pad - arrow, rail.y + (rail.height - arrow) / 2, arrow, arrow);
+                    coastalUi.Secondary($"{id}/right", right, more > 0 ? $"+{more}" : "›", () => { });
+                    break;
+                }
+                default:
+                {
+                    // Chips: every person as a round face in its own task ring, grouped under the job.
+                    float head = h * .34f, chip = h - head - 2, gap = phone ? 10 : 22;
+                    float total = 0;
+                    foreach (var g in groups) total += g.Count * (chip + 4);
+                    float extra = (rail.width - pad * 2 - total - gap * (groups.Count - 1)) / groups.Count;
+                    float x = rail.x + pad;
+                    for (int i = 0; i < groups.Count; i++)
+                    {
+                        var g = groups[i]; string gid = $"{id}/group/{i}";
+                        float gw = g.Count * (chip + 4) + extra;
+                        coastalUi.Icon($"{gid}/icon", new Rect(x + 4, rail.y + pad + 2, head - 4, head - 4), g[0].Icon, null, null, g[0].Fallback);
+                        coastalUi.Text($"{gid}/job", new Rect(x + head + 4, rail.y + pad, gw - head, head), g[0].Job, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft);
+                        float cx = x + (gw - g.Count * (chip + 4)) / 2;
+                        for (int k = 0; k < g.Count; k++)
+                        {
+                            var r = new Rect(cx + k * (chip + 4), rail.y + pad + head, chip, chip);
+                            RestaurantRing($"{gid}/ring{k}", r, g[k].Busy, null);
+                            float inset = chip * .13f;
+                            coastalUi.Portrait($"{gid}/face{k}", new Rect(r.x + inset, r.y + inset, chip - inset * 2, chip - inset * 2), g[k].Portrait);
+                        }
+                        x += gw;
+                        if (i < groups.Count - 1) coastalUi.Sliced($"{gid}/split", new Rect(x + gap / 2 - 1, rail.y + pad + 4, 2, h - 8), "v2-bar-track", null, Skin.CreamDeep);
+                        x += gap;
+                    }
+                    break;
+                }
             }
         }
 

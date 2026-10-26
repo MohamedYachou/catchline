@@ -370,3 +370,8 @@ day counter live in a new save block.
 3. Exterior look 01, whitewashed stone with blue shutters.
 4. The UI must match the concept mockups; the 3D as close as possible to the sheets, with animation and the same
    cosiness. Claude builds the UI; Codex 2 leads the Blender work; Codex 1 the logic.
+5. The night runs 18:00-23:00 (as the mockups), still about 10 real minutes.
+6. Temporary UI pieces may be cut from the mockups until Codex's clean art lands (list: Art/Source/Restaurant/ui-TEMP-CROPS.md).
+7. Staff rail: one card per person cannot fit 5-8 crew plus Mira and the baristas. Mo leans to small portrait chips grouped
+   by job; three variants (per job / per person scrolling / chips) are captured for him to choose
+   (docs/screens/restaurant-ui/r6/restaurant-service-{jobs,scroll,chips}-*.png).
