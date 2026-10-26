@@ -19,7 +19,7 @@ Codex 1: rest of the S5 pieces, then S6 pieces, every piece trimmed and uniquely
 Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 
 ## B. Restaurant room and visuals
-- B1 Service camera framing like ui-service-desktop.png; warm evening lighting.
+- [x] B1 camera frames the dressed V4 room, V4 night light recipe, Forward+ lights in the atlas shader (r31). Sea backdrop: Codex 2 paints water tile.
 - B2 Queue at the right-hand jetty; guests walk in, sit, eat, leave.
 - B3 Distinct guest looks (Codex 2 guest variants).
 - B4 Dish props on the tables, steam, candles.

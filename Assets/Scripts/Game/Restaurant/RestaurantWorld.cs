@@ -109,8 +109,9 @@ namespace Catchline.Game.Restaurant
                 ServiceCamera.transform.localRotation=Quaternion.Euler(38,178,0);
                 ServiceCamera.orthographic=false;ServiceCamera.fieldOfView=21.9542f;
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
-                AddLight(new Vector3(-3,7,3),new Color(.68f,.78f,1),.6f,true);
-                foreach(float x in new[]{-3.6f,.15f,3.6f})AddLight(new Vector3(x,2.5f,-1.9f),new Color(1,.68f,.3f),2.5f,false);
+                // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
+                AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);
+                foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
                 var atlas=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor");var surface=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
                 foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>(true))foreach(var m in r.sharedMaterials)
@@ -122,10 +123,31 @@ namespace Catchline.Game.Restaurant
         static readonly string[] LayoutPieces={"PrepCounter","Stove","SoupKettle","KettleStand","FridgeV2","Oven","Fryer","SinkDishRack","CoffeeBar","ReceptionDesk",
             "Booth","DiningTwo_","DiningFour","TerraceTable","TerraceParasol","Candle_","PlaceSetting_","Glass_","V4_Plate_","V4_Glass_","PlateDirty","CoffeeCup","DinnerSoup","DinnerPlate"};
         static bool LayoutPlaced(string name){if(name.StartsWith("EXPORT_"))name=name.Substring(7);foreach(var p in LayoutPieces)if(name==p||(p.EndsWith("_")&&name.StartsWith(p)))return true;return false;}
-        void AddLight(Vector3 position,Color color,float intensity,bool sun)
+        static readonly (float x,float y,float z,float watts)[] NightLights={
+            (-3.35f,1.49f,-1.99f,74.8f),
+            (-0.70f,1.49f,-1.99f,74.8f),
+            (1.02f,1.49f,-1.99f,74.8f),
+            (3.42f,1.49f,-1.99f,74.8f),
+            (0.65f,0.98f,1.35f,8.1f),
+            (2.25f,0.98f,1.35f,8.1f),
+            (1.35f,0.98f,-0.48f,8.1f),
+            (2.15f,0.98f,-1.74f,8.1f),
+            (-2.85f,0.90f,3.48f,8.1f),
+            (-3.78f,1.14f,-2.27f,32.2f),
+            (0.15f,1.14f,-2.30f,32.2f),
+            (3.70f,1.14f,-2.27f,32.2f),
+            (3.82f,1.14f,1.10f,32.2f),
+            (-3.83f,1.14f,2.40f,32.2f),
+            (2.15f,1.14f,2.40f,32.2f),
+            (-2.65f,0.60f,2.95f,32.2f),
+            (-0.60f,0.60f,2.95f,32.2f),
+            (1.45f,0.60f,2.95f,32.2f),
+            (1.35f,1.34f,3.12f,74.8f)
+        };
+        void AddLight(Vector3 position,Color color,float intensity,bool sun,float range=6)
         {
             var go=new GameObject(sun?"Blue dusk":"Warm practical");go.transform.SetParent(RoomRoot,false);go.transform.localPosition=position;
-            var l=go.AddComponent<Light>();l.type=sun?LightType.Directional:LightType.Point;l.color=color;l.intensity=intensity;l.range=6;l.cullingMask=1<<Layer;
+            var l=go.AddComponent<Light>();l.type=sun?LightType.Directional:LightType.Point;l.color=color;l.intensity=intensity;l.range=range;l.cullingMask=1<<Layer;
             if(sun)go.transform.localRotation=Quaternion.Euler(42,-25,0);
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
