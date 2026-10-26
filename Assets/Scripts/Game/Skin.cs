@@ -47,7 +47,11 @@ namespace Catchline.Game
     public sealed partial class CoastalCanvas
     {
         Font display;
-        Font DisplayFont => display != null ? display : display = ArtLibrary.Get()?.DisplayFont ?? font;
+        Font DisplayFont => DisplayOverride != null ? DisplayOverride : display != null ? display : display = ArtLibrary.Get()?.DisplayFont ?? font;
+        // A screen family can draw with another kit and display face (the restaurant mockups' look, 10-26):
+        // Kit "v3-" loads v3-<name> where it exists and keeps v2's slices; everything else stays v2.
+        public string Kit;
+        public Font DisplayOverride, BodyOverride;
         public bool Phone => Height < 600;
         // 44 points, not 44 device pixels: a 3x phone screen needs three times the pixels for the same fingertip.
         public static float TouchPixels => Skin.MinTouch * Mathf.Max(1, Screen.dpi / 163f);
@@ -56,9 +60,11 @@ namespace Catchline.Game
         Sprite V2(string name, float multiplier = 2)
         {
             if (name == null) return null;
-            string key = "v2:" + name;
+            string kitName = Kit != null && name.StartsWith("v2-") ? Kit + name.Substring(3) : null;
+            string key = "v2:" + (kitName ?? "") + ":" + name;
             if (sprites.TryGetValue(key, out var cached)) return cached;
-            var texture = ArtLibrary.Get()?.UiTex(name);
+            var texture = kitName != null ? ArtLibrary.Get()?.UiTex(kitName) : null;
+            texture ??= ArtLibrary.Get()?.UiTex(name);
             Sprite result = null;
             if (texture != null)
             {
@@ -97,7 +103,7 @@ namespace Catchline.Game
         {
             var e = Get(id, r, parent);
             var t = ClippedText(e, id);
-            t.font = Skin.IsDisplayFace(type) ? DisplayFont : font;
+            t.font = Skin.IsDisplayFace(type) ? DisplayFont : BodyOverride != null ? BodyOverride : font;
             int size = Mathf.RoundToInt(Skin.Size(type) * TypeScale);
             t.fontSize = size; t.resizeTextForBestFit = true; t.resizeTextMaxSize = size;
             t.resizeTextMinSize = Mathf.Min(size, Mathf.Max(13, Mathf.RoundToInt(size * .72f)));
@@ -105,7 +111,12 @@ namespace Catchline.Game
             t.horizontalOverflow = HorizontalWrapMode.Wrap; t.verticalOverflow = VerticalWrapMode.Truncate; t.raycastTarget = false;
             var o = t.GetComponent<UnityEngine.UI.Outline>();
             if (outline && o == null) { o = t.gameObject.AddComponent<UnityEngine.UI.Outline>(); o.effectColor = Skin.Ink; o.effectDistance = new Vector2(2, -2); }
-            if (o != null) o.enabled = outline;
+            if (o != null)
+            {
+                o.enabled = outline;
+                // The v3 kit's labels are clean with a faint warm edge (mockups), not v2's navy outline.
+                if (outline) { o.effectColor = Kit != null ? new Color(.3f, .1f, .02f, .3f) : Skin.Ink; o.effectDistance = Kit != null ? new Vector2(1, -1) : new Vector2(2, -2); }
+            }
             if (t.text != value) t.text = value;
         }
         float TextWidth(string id) => elements.TryGetValue(id, out var e) && e.Text != null ? Mathf.Min(e.Text.preferredWidth, e.Rect.rect.width) : 0;

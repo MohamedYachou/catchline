@@ -196,7 +196,7 @@ namespace Catchline.Game
             var e = Get(id, r, parent);
             if (fitted) ClippedText(e, id);
             else if (e.Text == null) e.Text = e.Rect.gameObject.AddComponent<Text>();
-            e.Text.font = font;
+            e.Text.font = BodyOverride != null ? BodyOverride : font;
             e.Text.fontSize = Mathf.RoundToInt(size * TypeScale);
             e.Text.resizeTextForBestFit = fitted;
             e.Text.resizeTextMaxSize = e.Text.fontSize;

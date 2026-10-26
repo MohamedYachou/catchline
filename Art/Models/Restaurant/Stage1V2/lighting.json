@@ -1,0 +1,233 @@
+{
+  "render_engine": "Cycles OPTIX 48 samples denoised",
+  "view_transform": "AgX Medium High Contrast",
+  "exposure_ev": 0.35,
+  "world_linear_rgb": [
+    0.29,
+    0.43,
+    0.68
+  ],
+  "world_strength": 0.18,
+  "sun": {
+    "energy": 0.3,
+    "linear_rgb": [
+      0.65,
+      0.76,
+      1
+    ],
+    "source_position": [
+      -3,
+      -4,
+      7
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "angular_diameter_deg": 9
+  },
+  "points": [
+    {
+      "name": "REVIEW_Lantern1",
+      "position_blender_m": [
+        -3.7799999713897705,
+        2.2699999809265137,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Lantern2",
+      "position_blender_m": [
+        0.15000000596046448,
+        2.299999952316284,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Lantern3",
+      "position_blender_m": [
+        3.700000047683716,
+        2.2699999809265137,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Lantern4",
+      "position_blender_m": [
+        3.819999933242798,
+        -1.100000023841858,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Lantern5",
+      "position_blender_m": [
+        -3.8299999237060547,
+        -2.4000000953674316,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Lantern6",
+      "position_blender_m": [
+        2.1500000953674316,
+        -2.4000000953674316,
+        1.1799999475479126
+      ],
+      "watts": 90.0,
+      "linear_rgb": [
+        1.0,
+        0.5699999928474426,
+        0.2199999988079071
+      ],
+      "source_radius_m": 0.1599999964237213
+    },
+    {
+      "name": "REVIEW_Candle1",
+      "position_blender_m": [
+        1.3200000524520874,
+        0.8399999737739563,
+        0.9599999785423279
+      ],
+      "watts": 9.0,
+      "linear_rgb": [
+        1.0,
+        0.6200000047683716,
+        0.30000001192092896
+      ],
+      "source_radius_m": 0.10999999940395355
+    },
+    {
+      "name": "REVIEW_Candle2",
+      "position_blender_m": [
+        1.2000000476837158,
+        -1.399999976158142,
+        0.9700000286102295
+      ],
+      "watts": 9.0,
+      "linear_rgb": [
+        1.0,
+        0.6200000047683716,
+        0.30000001192092896
+      ],
+      "source_radius_m": 0.10999999940395355
+    },
+    {
+      "name": "REVIEW_Window1",
+      "position_blender_m": [
+        -2.6500000953674316,
+        -2.950000047683716,
+        0.6000000238418579
+      ],
+      "watts": 18.0,
+      "linear_rgb": [
+        1.0,
+        0.5899999737739563,
+        0.23999999463558197
+      ],
+      "source_radius_m": 0.2800000011920929
+    },
+    {
+      "name": "REVIEW_Window2",
+      "position_blender_m": [
+        -0.6000000238418579,
+        -2.950000047683716,
+        0.6000000238418579
+      ],
+      "watts": 18.0,
+      "linear_rgb": [
+        1.0,
+        0.5899999737739563,
+        0.23999999463558197
+      ],
+      "source_radius_m": 0.2800000011920929
+    },
+    {
+      "name": "REVIEW_Window3",
+      "position_blender_m": [
+        1.4500000476837158,
+        -2.950000047683716,
+        0.6000000238418579
+      ],
+      "watts": 18.0,
+      "linear_rgb": [
+        1.0,
+        0.5899999737739563,
+        0.23999999463558197
+      ],
+      "source_radius_m": 0.2800000011920929
+    }
+  ],
+  "area_lights": [
+    {
+      "name": "REVIEW_KitchenWarmFill",
+      "position_m": [
+        -2.5,
+        0.4000000059604645,
+        3.5
+      ],
+      "watts": 190.0,
+      "linear_rgb": [
+        1.0,
+        0.7699999809265137,
+        0.4699999988079071
+      ],
+      "size_m": 4.0
+    },
+    {
+      "name": "REVIEW_DiningWarmFill",
+      "position_m": [
+        1.600000023841858,
+        0.30000001192092896,
+        3.799999952316284
+      ],
+      "watts": 150.0,
+      "linear_rgb": [
+        1.0,
+        0.8100000023841858,
+        0.5699999928474426
+      ],
+      "size_m": 4.0
+    }
+  ],
+  "bloom": false,
+  "dof": false,
+  "global_outline": false,
+  "note": "Cycles indirect diffuse/contact shadows require URP baked room lightmap + probes or restrained SSAO; numerical watt-to-URP intensity parity is not asserted."
+}

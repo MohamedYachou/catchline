@@ -84,6 +84,7 @@ namespace Catchline.Game
         {
             if (!built) return;
             Tick(paused || captureFreeze ? 0f : Time.deltaTime); // the harbour keeps bobbing behind the title screen
+            RestaurantTick(paused || captureFreeze ? 0f : Time.deltaTime);
             HandleInput();
         }
 
@@ -549,6 +550,7 @@ namespace Catchline.Game
             if (!State.Known(SelectedSpot)) SelectedSpot = 0;
             SaveGame();
             botHarbourAt = SimTime + 0.5f;
+            RestaurantArrived(arrived);
         }
 
         public bool SellHaul()

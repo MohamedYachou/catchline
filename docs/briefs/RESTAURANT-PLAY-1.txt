@@ -1,0 +1,34 @@
+RESTAURANT-PLAY-1 — Codex 1 — the restaurant night running in the game (Claude 2 lead, 2026-10-26 21:00)
+Mo 10-26: "keep working until we have that UI and a testable begin game". Claude has built every restaurant screen
+(Assets/Scripts/Game/VoyageRestaurantUi.cs, captures docs/screens/restaurant-ui/) and wires the day flow (plan ->
+fish -> prep -> market -> service -> closing). You make the night itself run in 3D behind the service HUD.
+READ FIRST: docs/plans/RESTAURANT.md sections 0, 5-8 and 13 (newest rules), your own Restaurant/** code and reports,
+Art/Models/Restaurant/Stage1V1/REPORT.md (Codex 2's room; a dressed V2 follows later at Stage1V2/ with the same pivots),
+Art/Source/Restaurant/concepts/ui-service-desktop.png (the target picture).
+A. Rules (update RestaurantSim/Tuning + checks). FIRST the captain as a real helper: a new save starts with only the
+   captain and Mira (crew join later), so the captain must cook AND serve/clear, taking whichever task is most urgent
+   (Claude's stopgap in VoyageRestaurantDay.cs adds a hidden 'captain-kitchen' cook; replace it with the helper and say so).
+   Then: the night is 18:00-23:00 played in about 600 s; arrivals "about 4
+   groups an hour" with an early-evening peak; a visit 2-2.5 min; food served > 30 s after it is ready is cold (less pay,
+   lower stars); FIXED jobs from the card's role (fisher = cook, deckhand = serve/clear/plates, engineer = fix,
+   Ines + Mats = coffee, Mira = host: seats and takes payment, captain = helps where the queue is longest); breakdowns
+   (oven, fryer, till, coffee machine) that the engineer fixes. Plates/sink/trash may stay simplified (note it).
+   Keep every existing check passing or update it with the reason; deterministic for a seed.
+B. RestaurantWorld (new MonoBehaviour, Assets/Scripts/Game/Restaurant/RestaurantWorld.cs): imports and places the
+   stage-1 room (use Art/Models/Restaurant/Stage1V2: RoomShell.fbx + items/ + textures/, copied into Assets/Art/Models/Restaurant/ with stable metas; Codex 2's Stage1V3 adds the mockup camera numbers, night-light recipe, dressing and guests later) at a fixed spot on the harbour
+   quay; a restaurant camera (start at 52 deg orthographic yaw 0; switch to the numbers in Stage1V3/REPORT.md when they land) framing the 8x5 room between the HUD bands (top 78/900,
+   bottom 140/900 at 1440x900; 46/390 and 72/390 on 844x390); the real crew models (the same rigs the boat uses)
+   walking between stations from the sim, carrying a plate/cup prop when serving; guests from the crew rig with
+   guest colours as placeholders, sitting at tables; Mira at reception. Smooth walking, idle and work animations
+   from the existing clips.
+C. API for Claude's HUD (no UI drawing yourself): RestaurantWorld.Begin(RestaurantSim sim), End(); a Snapshot each
+   frame with clock (hour float), coins tonight, popularity, stock per dish, each staff member (portrait key, job,
+   busy 0-1, current task word), open orders per table with patience 0-1 and the dish, broken appliances, and a
+   pending question (e.g. late group: Seat / Not tonight) with methods Answer(bool), SetSpeed(0/1/2), and
+   WorldToScreen(tableId) / WorldToScreen(applianceId) so the HUD can pin order bubbles and the repair chip.
+D. Proof: a Catchline-sim scene or editor runner that plays a whole stage-1 night at 4x in Game view and records
+   captures at 18:30, 20:00, 22:30 (1440x900 and 844x390) plus the end-of-night result; open every image.
+OWNERSHIP: Assets/Scripts/Game/Restaurant/** (yours), Assets/Editor/RestaurantChecks.cs, new
+Assets/Art/Models/Restaurant/** with metas, docs/screens/restaurant-play-1/**. Do NOT edit VoyageGame/*.cs, Skin*.cs,
+VoyageRestaurantUi.cs (Claude's); if you need a hook there, write it in DONE. Never batchmode the main project; never
+the player save; comms.md START, CHECKPOINT per letter, DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

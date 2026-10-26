@@ -12,6 +12,12 @@ in its section 12, open questions in section 13).
   for phones). Mo picks the look.
 - [ ] **R1** the restaurant in the harbour with arrange mode (shop, placement, saved layout), then R2 service, R3 the
   day plan (forecast, Mira's plan card, prep on the way home, market, cats), R4 events and stages, R5 economy and story.
+- [ ] **UI v3 look (Mo 10-26): the whole game's UI to the restaurant mockups' look.** Restaurant screens first: kit
+  textures switched to the render look (Assets/Art/UI/v3-*.png, `CoastalCanvas.Kit = "v3-"`, Fredoka Bold/SemiBold in
+  Assets/Resources/Fonts). Once the restaurant runs: move every other screen (harbour, voyage, fishing, shop, crew
+  cards, menus) to the same kit, font and detail level, and retire v2. Codex makes the clean final kit art.
+- [ ] **Testable start of the new game (Mo 10-26):** a new save starts at the restaurant loop (Mira's plan, fish,
+  prep, market, service, closing) with the 3D stage-1 room, playable end to end.
 - [ ] Later (Mo): restaurant outfits for the crew in 2D and 3D (crew keep their ship models for now).
 - [ ] Later (Mo): passive restaurant income. Not now.
 - [ ] Many more Mira messages through the whole game (RESTAURANT.md section 9).

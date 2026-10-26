@@ -27,6 +27,7 @@ namespace Catchline.Game
         {
             if (!departureReady || SailBlocker() != null) return false;
             if (ExcessFishermen > 0) { departureCrewWarning = true; return false; }
+            if (RestaurantPlanBeforeSail()) { departureReady = false; return true; } // Mira's plan first; its Got it sails
             SetSail(); return true;
         }
         public void RequestDeparture()

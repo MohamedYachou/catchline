@@ -139,9 +139,9 @@ namespace Catchline.Game
 
             // Top band: back, title, the evening timeline, coins, stars, speed.
             float barH = Mathf.Max(phone ? 44 : 0, 78 * sy);
-            coastalUi.Sliced("rsvc/bar", new Rect(0, 0, iw, barH), "v2-pill-navy", null, Skin.HeaderNavy, true);
+            coastalUi.Sliced("rsvc/bar", new Rect(0, 0, iw, barH), "v3-topbar", null, Color.white, true);
             float bs = barH - 16 * sy;
-            coastalUi.Secondary("rsvc/back", new Rect(24 * sx, (barH - bs) / 2, bs * 1.36f, bs), "", () => RestaurantPreview = RestaurantScreen.None, "v2-icon-back");
+            coastalUi.Secondary("rsvc/back", new Rect(24 * sx, (barH - bs) / 2, bs * 1.36f, bs), "", () => { if (RestaurantPhase == DayPhase.Service) v.Paused = !v.Paused; else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-back");
             coastalUi.Text("rsvc/title", new Rect(24 * sx + bs * 1.36f + 22 * sx, 0, 430 * sx, barH), $"{v.Name} · Evening service", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, null, true);
             coastalUi.SetTextSize("rsvc/title", Mathf.RoundToInt(Mathf.Max(phone ? 20 : 24, 34 * u)));
             float tx = 570 * sx, tw = 265 * sx, ty = barH * .48f;
@@ -200,7 +200,7 @@ namespace Catchline.Game
             }
             if (v.Alert != null)
             {
-                var a = coastalUi.Card("rsvc/alert", new Rect(10 * sx, 38 * sy + v.Stock.Count * rowH, st.width - 20 * sx, rowH * 1.1f), Skin.Card.Alert, stock);
+                var a = coastalUi.Sliced("rsvc/alert", new Rect(10 * sx, 38 * sy + v.Stock.Count * rowH, st.width - 20 * sx, rowH * 1.1f), "v2-card-alert", stock, Color.white);
                 coastalUi.Icon("rsvc/alert/icon", new Rect(6 * sx, rowH * .25f, rowH * .55f, rowH * .55f), "v2-icon-wrench", a, Skin.Bad, "v2-icon-warning");
                 coastalUi.Text("rsvc/alert/text", new Rect(rowH * .55f + 12 * sx, 0, st.width - rowH * .55f - 36 * sx, rowH * 1.1f), v.Alert, Skin.Type.Small, Skin.BadInk, TextAnchor.MiddleLeft, a);
             }
@@ -246,7 +246,7 @@ namespace Catchline.Game
             Rect R(float x, float y, float w, float h) => new(x * sx, y * sy, w * sx, h * sy);
 
             var bar = R(0, 0, 844, 46);
-            coastalUi.Sliced("rsph/bar", bar, "v2-pill-navy", null, Skin.HeaderNavy, true);
+            coastalUi.Sliced("rsph/bar", bar, "v3-topbar", null, Color.white, true);
             coastalUi.Icon("rsph/sun", R(8, 5, 36, 36), "v2-icon-sun", null, null, "icon-Sun");
             int hh = Mathf.FloorToInt(v.Hour), mm = Mathf.FloorToInt((v.Hour - hh) * 60);
             coastalUi.Text("rsph/clock", R(52, 2, 110, 26), $"{hh}:{mm:00}", Skin.Type.Number, Skin.Cream, TextAnchor.MiddleLeft, null, true);
@@ -446,7 +446,7 @@ namespace Catchline.Game
             Rect BL(float x, float y, float w, float h) => new(x * k, ih - (390 - y) * k, w * k, h * k);   // bottom-left
             Rect BR(float x, float y, float w, float h) => new(iw - (844 - x) * k, ih - (390 - y) * k, w * k, h * k);
 
-            coastalUi.Sliced("rarr/bar", new Rect(0, 0, iw, 42 * k), "v2-pill-navy", null, Skin.HeaderNavy, true);
+            coastalUi.Sliced("rarr/bar", new Rect(0, 0, iw, 42 * k), "v3-topbar", null, Color.white, true);
             coastalUi.IconButton("rarr/back", L(22, 5, 56, 32), "v2-icon-back", null, () => RestaurantPreview = RestaurantScreen.None);
             coastalUi.Icon("rarr/icon", L(94, 8, 24, 26), "v2-icon-chair", null, Skin.Cream);
             coastalUi.Text("rarr/title", L(124, 0, 200, 42), "Arrange", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, null, true);
@@ -497,17 +497,28 @@ namespace Catchline.Game
         }
 
         // Returns true when a restaurant screen took the frame.
+        Font restaurantDisplay, restaurantBody;
+
         bool InterfaceRestaurant()
         {
-            switch (RestaurantPreview)
+            if (RestaurantPreview == RestaurantScreen.None) return false;
+            // The restaurant draws in the mockups' kit and rounded face; the rest of the game keeps v2 for now (TODO.md).
+            coastalUi.Kit = "v3-";
+            coastalUi.DisplayOverride = restaurantDisplay ??= Resources.Load<Font>("Fonts/Fredoka-Bold");
+            coastalUi.BodyOverride = restaurantBody ??= Resources.Load<Font>("Fonts/Fredoka-SemiBold");
+            try
             {
-                case RestaurantScreen.Plan: InterfaceRestaurantPlan(RestaurantPlan); return true;
-                case RestaurantScreen.Prep: InterfaceRestaurantPrep(RestaurantPrep); return true;
-                case RestaurantScreen.Closing: InterfaceRestaurantClosing(RestaurantClosing); return true;
-                case RestaurantScreen.Service: InterfaceRestaurantService(RestaurantService); return true;
-                case RestaurantScreen.Arrange: InterfaceRestaurantArrange(RestaurantArrange); return true;
+                switch (RestaurantPreview)
+                {
+                    case RestaurantScreen.Plan: InterfaceRestaurantPlan(RestaurantPlan); break;
+                    case RestaurantScreen.Prep: InterfaceRestaurantPrep(RestaurantPrep); break;
+                    case RestaurantScreen.Closing: InterfaceRestaurantClosing(RestaurantClosing); break;
+                    case RestaurantScreen.Service: InterfaceRestaurantService(RestaurantService); break;
+                    case RestaurantScreen.Arrange: InterfaceRestaurantArrange(RestaurantArrange); break;
+                }
             }
-            return false;
+            finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
+            return true;
         }
 
         // A hanging plank sign with the screen's title; the generated sign art when it exists, a navy slab otherwise.
@@ -559,7 +570,7 @@ namespace Catchline.Game
             Block(new Rect(0, 0, iw, ih));
             coastalUi.Planks("rplan/planks", false);
             var f = RestaurantFrame("rplan/frame");
-            coastalUi.Secondary("rplan/back", new Rect(14, 12, 124, 46), "Back", () => RestaurantPreview = RestaurantScreen.None, "v2-icon-back", true, f);
+            coastalUi.Secondary("rplan/back", new Rect(14, 12, 124, 46), "Back", () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; }, "v2-icon-back", true, f);
             coastalUi.Icon("rplan/mira", new Rect(-14, 38 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 300, 356), "mira-pose-explain", f, null, "art108-mira");
             RestaurantSign("rplan/sign", new Rect(236, 6, 392, 56), "Tonight at Mira's", f);
 
@@ -592,14 +603,15 @@ namespace Catchline.Game
             coastalUi.Icon("rplan/special/icon", new Rect(12, 14, 26, 26), "v2-icon-special", special, null, "v2-icon-goal");
             coastalUi.Text("rplan/special/head", new Rect(42, 12, 124, 30), "Special request", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, special);
             coastalUi.Text("rplan/special/body", new Rect(10, 52, 150, 48), v.SpecialTitle, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, special);
-            if (v.SpecialAccepted == null)
+            if (v.SpecialReward == null) { }
+            else if (v.SpecialAccepted == null)
             {
                 RestaurantGoodButton("rplan/special/yes", new Rect(14, 116, 142, 40), "Accept", () => v.SpecialAccepted = true, special);
                 coastalUi.Secondary("rplan/special/no", new Rect(14, 162, 142, 40), "Not tonight", () => v.SpecialAccepted = false, "v2-icon-cross", true, special);
             }
             else coastalUi.Text("rplan/special/state", new Rect(10, 116, 150, 86), v.SpecialAccepted == true ? $"Accepted\n{v.SpecialReward}" : "Not tonight.",
                 Skin.Type.Heading, v.SpecialAccepted == true ? Skin.GoodInk : Skin.InkSoft, TextAnchor.MiddleCenter, special);
-            coastalUi.Primary("rplan/go", new Rect(672, 298, 162, 56), "Got it", () => RestaurantPreview = RestaurantScreen.None, "v2-icon-tick", true, f);
+            coastalUi.Primary("rplan/go", new Rect(672, 298, 162, 56), "Got it", () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPlanAccepted(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-tick", true, f);
         }
 
         // A navy kit square with a glyph, used for the mockups' blue minus buttons.
@@ -616,9 +628,9 @@ namespace Catchline.Game
             Block(new Rect(0, 0, iw, ih));
             RestaurantBackdrop("rprep/backdrop");
             float scale = Mathf.Min(iw / 844f, ih / 390f);
-            coastalUi.Sliced("rprep/band", new Rect(0, 0, iw, (ih - 390 * scale) / 2 + 58 * scale), "v2-pill-navy", null, Skin.HeaderNavy);
+            coastalUi.Sliced("rprep/band", new Rect(0, 0, iw, (ih - 390 * scale) / 2 + 58 * scale), "v3-topbar", null, Color.white);
             var f = RestaurantFrame("rprep/frame");
-            coastalUi.IconButton("rprep/back", new Rect(12, 8, 52, 44), "v2-icon-back", null, () => RestaurantPreview = RestaurantScreen.None, f);
+            coastalUi.IconButton("rprep/back", new Rect(12, 8, 52, 44), "v2-icon-back", null, () => { if (RestaurantPhase != DayPhase.Prep) RestaurantPreview = RestaurantScreen.None; }, f);
             coastalUi.Icon("rprep/sign", new Rect(230, 4, 62, 50), "v2-sign-fish", f, null, "v2-icon-fish");
             coastalUi.Text("rprep/title", new Rect(296, 4, 320, 50), "Prepare for tonight", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, f, true);
             var fridge = coastalUi.Card("rprep/fridge", new Rect(628, 8, 152, 44), Skin.Card.Soft, f);
@@ -669,7 +681,7 @@ namespace Catchline.Game
             coastalUi.Sliced("rprep/sum/split2", new Rect(288, 10, 2, 40), "v2-bar-track", sum, Skin.CreamDeep);
             coastalUi.Toggle("rprep/sum/cut", new Rect(298, 17, 26, 26), v.CaptainsCut, () => v.CaptainsCut = !v.CaptainsCut, sum);
             coastalUi.Text("rprep/sum/cut/label", new Rect(346, 0, 70, 60), "Captain's cut", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, sum);
-            coastalUi.Primary("rprep/go", new Rect(632, 324, 198, 56), "Prepare", () => RestaurantPreview = RestaurantScreen.None, "v2-icon-cloche", true, f);
+            coastalUi.Primary("rprep/go", new Rect(632, 324, 198, 56), "Prepare", () => { if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-cloche", true, f);
         }
 
         // S5: the closing card after service (ui-5-closing.png).
@@ -736,7 +748,7 @@ namespace Catchline.Game
             coastalUi.Icon("rclose/mira", new Rect(596, 222, 136, 168), "mira-pose-wave", f, null, "art108-mira");
             var say = coastalUi.Card("rclose/say", new Rect(490, 262, 100, 50), Skin.Card.Soft, f);
             coastalUi.Text("rclose/say/text", new Rect(4, 2, 88, 46), v.MiraLine, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleCenter, say);
-            coastalUi.Primary("rclose/sleep", new Rect(532, 320, 184, 54), "Sleep", () => RestaurantPreview = RestaurantScreen.None, "v2-icon-bed", true, f);
+            coastalUi.Primary("rclose/sleep", new Rect(532, 320, 184, 54), "Sleep", () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, "v2-icon-bed", true, f);
         }
     }
 }

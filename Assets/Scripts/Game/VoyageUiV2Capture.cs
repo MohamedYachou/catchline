@@ -46,6 +46,7 @@ namespace Catchline.Game
                 "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
                 screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))
                 return StageHarbourEvidence(screen);
+            if (screen.StartsWith("day-")) { toastUntil = 0; return StageRestaurantDay(screen); }
             if (screen.StartsWith("restaurant-"))
             {
                 // Restaurant mockup screens with sample numbers (VoyageRestaurantUi.cs).

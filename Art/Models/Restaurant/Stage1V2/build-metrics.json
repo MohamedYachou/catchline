@@ -1,0 +1,2144 @@
+{
+  "budget_triangles": 150000,
+  "unique_library_plus_shell_triangles": 98844,
+  "dressed_assembly_triangles": 92868,
+  "atlas_maps": 2,
+  "atlas_resolution": [
+    2048,
+    2048
+  ],
+  "texture_channels": {
+    "R": "roughness",
+    "G": "metallic",
+    "B": "emission mask"
+  },
+  "room_tiles": [
+    8,
+    5
+  ],
+  "kitchen_tiles": [
+    3,
+    5
+  ],
+  "waterline_blender_z_m": -0.55,
+  "roots": [
+    {
+      "root": "PrepCounter",
+      "mesh": "PrepCounter_Mesh",
+      "fbx": "items/PrepCounter.fbx",
+      "local_min_m": [
+        -0.47749999165534973,
+        -0.46631479263305664,
+        0.0
+      ],
+      "local_max_m": [
+        0.47749999165534973,
+        0.42750000953674316,
+        1.0099999904632568
+      ],
+      "local_dimensions_m": [
+        0.9549999833106995,
+        0.8938148021697998,
+        1.0099999904632568
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1596,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Stove",
+      "mesh": "Stove_Mesh",
+      "fbx": "items/Stove.fbx",
+      "local_min_m": [
+        -0.4699999988079071,
+        -0.46849995851516724,
+        0.0
+      ],
+      "local_max_m": [
+        0.4699999988079071,
+        0.41999998688697815,
+        0.8100000023841858
+      ],
+      "local_dimensions_m": [
+        0.9399999976158142,
+        0.8884999454021454,
+        0.8100000023841858
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 4280,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "SoupKettle",
+      "mesh": "SoupKettle_Mesh",
+      "fbx": "items/SoupKettle.fbx",
+      "local_min_m": [
+        -0.3737764060497284,
+        -0.3400000035762787,
+        0.0
+      ],
+      "local_max_m": [
+        0.3737764060497284,
+        0.31999996304512024,
+        0.7450000047683716
+      ],
+      "local_dimensions_m": [
+        0.7475528120994568,
+        0.6599999666213989,
+        0.7450000047683716
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1304,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "FridgeV2",
+      "mesh": "FridgeV2_Mesh",
+      "fbx": "items/FridgeV2.fbx",
+      "local_min_m": [
+        -0.38999998569488525,
+        -0.5109802484512329,
+        0.0
+      ],
+      "local_max_m": [
+        0.38999998569488525,
+        0.38999998569488525,
+        1.159999966621399
+      ],
+      "local_dimensions_m": [
+        0.7799999713897705,
+        0.9009802341461182,
+        1.159999966621399
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 556,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "SinkDishRack",
+      "mesh": "SinkDishRack_Mesh",
+      "fbx": "items/SinkDishRack.fbx",
+      "local_min_m": [
+        -0.9300000071525574,
+        -0.46631479263305664,
+        0.0
+      ],
+      "local_max_m": [
+        0.9299999475479126,
+        0.4150000214576721,
+        1.0119339227676392
+      ],
+      "local_dimensions_m": [
+        1.85999995470047,
+        0.8813148140907288,
+        1.0119339227676392
+      ],
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "triangles": 2860,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "CoffeeBar",
+      "mesh": "CoffeeBar_Mesh",
+      "fbx": "items/CoffeeBar.fbx",
+      "local_min_m": [
+        -0.47749999165534973,
+        -0.46631479263305664,
+        0.0
+      ],
+      "local_max_m": [
+        0.47749996185302734,
+        0.42750000953674316,
+        1.3339999914169312
+      ],
+      "local_dimensions_m": [
+        0.9549999535083771,
+        0.8938148021697998,
+        1.3339999914169312
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 3608,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TableFor2",
+      "mesh": "TableFor2_Mesh",
+      "fbx": "items/TableFor2.fbx",
+      "local_min_m": [
+        -0.48500001430511475,
+        -0.2800000011920929,
+        0.0
+      ],
+      "local_max_m": [
+        0.48500001430511475,
+        0.2800000309944153,
+        0.9149999618530273
+      ],
+      "local_dimensions_m": [
+        0.9700000286102295,
+        0.5600000321865082,
+        0.9149999618530273
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 2548,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "ReceptionDesk",
+      "mesh": "ReceptionDesk_Mesh",
+      "fbx": "items/ReceptionDesk.fbx",
+      "local_min_m": [
+        -0.4699999988079071,
+        -0.4699999988079071,
+        0.0
+      ],
+      "local_max_m": [
+        0.4699999988079071,
+        0.4699999690055847,
+        0.9090038537979126
+      ],
+      "local_dimensions_m": [
+        0.9399999976158142,
+        0.9399999678134918,
+        0.9090038537979126
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 2792,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PassCounter",
+      "mesh": "PassCounter_Mesh",
+      "fbx": "items/PassCounter.fbx",
+      "local_min_m": [
+        -0.949999988079071,
+        -0.3100000023841858,
+        0.0
+      ],
+      "local_max_m": [
+        0.949999988079071,
+        0.3100000023841858,
+        1.1125000715255737
+      ],
+      "local_dimensions_m": [
+        1.899999976158142,
+        0.6200000047683716,
+        1.1125000715255737
+      ],
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "triangles": 1216,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TrashCan",
+      "mesh": "TrashCan_Mesh",
+      "fbx": "items/TrashCan.fbx",
+      "local_min_m": [
+        -0.26021692156791687,
+        -0.3100000023841858,
+        0.0
+      ],
+      "local_max_m": [
+        0.26021692156791687,
+        0.25,
+        0.6200000047683716
+      ],
+      "local_dimensions_m": [
+        0.5204338431358337,
+        0.5600000023841858,
+        0.6200000047683716
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 788,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Oven",
+      "mesh": "Oven_Mesh",
+      "fbx": "items/Oven.fbx",
+      "local_min_m": [
+        -0.41999998688697815,
+        -0.4683148264884949,
+        0.0
+      ],
+      "local_max_m": [
+        0.41999998688697815,
+        0.3800000250339508,
+        1.2200000286102295
+      ],
+      "local_dimensions_m": [
+        0.8399999737739563,
+        0.8483148515224457,
+        1.2200000286102295
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1344,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Fryer",
+      "mesh": "Fryer_Mesh",
+      "fbx": "items/Fryer.fbx",
+      "local_min_m": [
+        -0.4649999737739563,
+        -0.4663148820400238,
+        0.0
+      ],
+      "local_max_m": [
+        0.4650000333786011,
+        0.4150000810623169,
+        0.9350001215934753
+      ],
+      "local_dimensions_m": [
+        0.9300000071525574,
+        0.8813149631023407,
+        0.9350001215934753
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 3420,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "FryerBroken",
+      "mesh": "FryerBroken_Mesh",
+      "fbx": "items/FryerBroken.fbx",
+      "local_min_m": [
+        -0.4649999737739563,
+        -0.4663148820400238,
+        0.0
+      ],
+      "local_max_m": [
+        0.4650000333786011,
+        0.4150000810623169,
+        0.9350001215934753
+      ],
+      "local_dimensions_m": [
+        0.9300000071525574,
+        0.8813149631023407,
+        0.9350001215934753
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 3448,
+      "service_prop": false,
+      "in_dressed_room": false
+    },
+    {
+      "root": "KettleStand",
+      "mesh": "KettleStand_Mesh",
+      "fbx": "items/KettleStand.fbx",
+      "local_min_m": [
+        -0.47749999165534973,
+        -0.46631479263305664,
+        0.0
+      ],
+      "local_max_m": [
+        0.47749999165534973,
+        0.42750000953674316,
+        0.6625000238418579
+      ],
+      "local_dimensions_m": [
+        0.9549999833106995,
+        0.8938148021697998,
+        0.6625000238418579
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1176,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TableFor4",
+      "mesh": "TableFor4_Mesh",
+      "fbx": "items/TableFor4.fbx",
+      "local_min_m": [
+        -0.5600000023841858,
+        -0.49000000953674316,
+        0.0
+      ],
+      "local_max_m": [
+        0.5600000619888306,
+        0.4900001287460327,
+        0.7850000858306885
+      ],
+      "local_dimensions_m": [
+        1.1200000643730164,
+        0.9800001382827759,
+        0.7850000858306885
+      ],
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "triangles": 3188,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Booth",
+      "mesh": "Booth_Mesh",
+      "fbx": "items/Booth.fbx",
+      "local_min_m": [
+        -0.9599999785423279,
+        -0.4300000071525574,
+        0.0
+      ],
+      "local_max_m": [
+        0.9599999785423279,
+        0.4699999690055847,
+        0.9350000023841858
+      ],
+      "local_dimensions_m": [
+        1.9199999570846558,
+        0.8999999761581421,
+        0.9350000023841858
+      ],
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "triangles": 1012,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TerraceTable",
+      "mesh": "TerraceTable_Mesh",
+      "fbx": "items/TerraceTable.fbx",
+      "local_min_m": [
+        -0.4999999701976776,
+        -0.2800000309944153,
+        0.0
+      ],
+      "local_max_m": [
+        0.5000001192092896,
+        0.2800000309944153,
+        0.7850000858306885
+      ],
+      "local_dimensions_m": [
+        1.0000000894069672,
+        0.5600000619888306,
+        0.7850000858306885
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1740,
+      "service_prop": false,
+      "in_dressed_room": false
+    },
+    {
+      "root": "Parasol",
+      "mesh": "Parasol_Mesh",
+      "fbx": "items/Parasol.fbx",
+      "local_min_m": [
+        -0.4932371973991394,
+        -0.493237167596817,
+        0.0
+      ],
+      "local_max_m": [
+        0.4932371973991394,
+        0.49323713779449463,
+        1.8650001287460327
+      ],
+      "local_dimensions_m": [
+        0.9864743947982788,
+        0.9864743053913116,
+        1.8650001287460327
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 788,
+      "service_prop": false,
+      "in_dressed_room": false
+    },
+    {
+      "root": "PlantPot1",
+      "mesh": "PlantPot1_Mesh",
+      "fbx": "items/PlantPot1.fbx",
+      "local_min_m": [
+        -0.17864590883255005,
+        -0.22776392102241516,
+        0.0
+      ],
+      "local_max_m": [
+        0.2165759652853012,
+        0.19613635540008545,
+        0.721156120300293
+      ],
+      "local_dimensions_m": [
+        0.39522187411785126,
+        0.4239002764225006,
+        0.721156120300293
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 476,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PlantPot2",
+      "mesh": "PlantPot2_Mesh",
+      "fbx": "items/PlantPot2.fbx",
+      "local_min_m": [
+        -0.2037031501531601,
+        -0.24379317462444305,
+        0.0
+      ],
+      "local_max_m": [
+        0.23960891366004944,
+        0.22506240010261536,
+        0.786541223526001
+      ],
+      "local_dimensions_m": [
+        0.44331206381320953,
+        0.4688555747270584,
+        0.786541223526001
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 476,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PlantPot3",
+      "mesh": "PlantPot3_Mesh",
+      "fbx": "items/PlantPot3.fbx",
+      "local_min_m": [
+        -0.23593251407146454,
+        -0.27274101972579956,
+        0.0
+      ],
+      "local_max_m": [
+        0.24997228384017944,
+        0.2639564573764801,
+        0.8388458490371704
+      ],
+      "local_dimensions_m": [
+        0.485904797911644,
+        0.5366974771022797,
+        0.8388458490371704
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 476,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Barrel",
+      "mesh": "Barrel_Mesh",
+      "fbx": "items/Barrel.fbx",
+      "local_min_m": [
+        -0.2590000033378601,
+        -0.25999996066093445,
+        0.0
+      ],
+      "local_max_m": [
+        0.2590000033378601,
+        0.25999996066093445,
+        0.6000000834465027
+      ],
+      "local_dimensions_m": [
+        0.5180000066757202,
+        0.5199999213218689,
+        0.6000000834465027
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 708,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Crate",
+      "mesh": "Crate_Mesh",
+      "fbx": "items/Crate.fbx",
+      "local_min_m": [
+        -0.23999999463558197,
+        -0.23999999463558197,
+        0.0
+      ],
+      "local_max_m": [
+        0.23999999463558197,
+        0.23999999463558197,
+        0.42750000953674316
+      ],
+      "local_dimensions_m": [
+        0.47999998927116394,
+        0.47999998927116394,
+        0.42750000953674316
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 748,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "LampPost",
+      "mesh": "LampPost_Mesh",
+      "fbx": "items/LampPost.fbx",
+      "local_min_m": [
+        -0.15999998152256012,
+        -0.1599999964237213,
+        0.0
+      ],
+      "local_max_m": [
+        0.3799999952316284,
+        0.1599999964237213,
+        1.75
+      ],
+      "local_dimensions_m": [
+        0.5399999767541885,
+        0.3199999928474426,
+        1.75
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 1120,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "RopeFencePost",
+      "mesh": "RopeFencePost_Mesh",
+      "fbx": "items/RopeFencePost.fbx",
+      "local_min_m": [
+        -0.10999999940395355,
+        -0.10999999940395355,
+        0.0
+      ],
+      "local_max_m": [
+        0.10999999940395355,
+        0.10999999940395355,
+        0.6225000023841858
+      ],
+      "local_dimensions_m": [
+        0.2199999988079071,
+        0.2199999988079071,
+        0.6225000023841858
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 384,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PlateClean",
+      "mesh": "PlateClean_Mesh",
+      "fbx": "items/PlateClean.fbx",
+      "local_min_m": [
+        -0.14000000059604645,
+        -0.14000000059604645,
+        0.0
+      ],
+      "local_max_m": [
+        0.14000000059604645,
+        0.14000000059604645,
+        0.04099999740719795
+      ],
+      "local_dimensions_m": [
+        0.2800000011920929,
+        0.2800000011920929,
+        0.04099999740719795
+      ],
+      "footprint_tiles": null,
+      "triangles": 336,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PlateDirty",
+      "mesh": "PlateDirty_Mesh",
+      "fbx": "items/PlateDirty.fbx",
+      "local_min_m": [
+        -0.14000000059604645,
+        -0.14000000059604645,
+        0.0
+      ],
+      "local_max_m": [
+        0.14000001549720764,
+        0.14000001549720764,
+        0.04100000485777855
+      ],
+      "local_dimensions_m": [
+        0.2800000160932541,
+        0.2800000160932541,
+        0.04100000485777855
+      ],
+      "footprint_tiles": null,
+      "triangles": 464,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "GrilledFishPlate",
+      "mesh": "GrilledFishPlate_Mesh",
+      "fbx": "items/GrilledFishPlate.fbx",
+      "local_min_m": [
+        -0.14000000059604645,
+        -0.14000000059604645,
+        0.0
+      ],
+      "local_max_m": [
+        0.14000000059604645,
+        0.14000000059604645,
+        0.06431184709072113
+      ],
+      "local_dimensions_m": [
+        0.2800000011920929,
+        0.2800000011920929,
+        0.06431184709072113
+      ],
+      "footprint_tiles": null,
+      "triangles": 3352,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "SoupBowl",
+      "mesh": "SoupBowl_Mesh",
+      "fbx": "items/SoupBowl.fbx",
+      "local_min_m": [
+        -0.10599999874830246,
+        -0.10599999874830246,
+        0.0
+      ],
+      "local_max_m": [
+        0.10599999874830246,
+        0.10599999874830246,
+        0.0949999988079071
+      ],
+      "local_dimensions_m": [
+        0.21199999749660492,
+        0.21199999749660492,
+        0.0949999988079071
+      ],
+      "footprint_tiles": null,
+      "triangles": 440,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "CoffeeCup",
+      "mesh": "CoffeeCup_Mesh",
+      "fbx": "items/CoffeeCup.fbx",
+      "local_min_m": [
+        -0.04800000041723251,
+        -0.04800000041723251,
+        0.0
+      ],
+      "local_max_m": [
+        0.08855950832366943,
+        0.04800000041723251,
+        0.09399999678134918
+      ],
+      "local_dimensions_m": [
+        0.13655950874090195,
+        0.09600000083446503,
+        0.09399999678134918
+      ],
+      "footprint_tiles": null,
+      "triangles": 564,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Glass",
+      "mesh": "Glass_Mesh",
+      "fbx": "items/Glass.fbx",
+      "local_min_m": [
+        -0.03999999910593033,
+        -0.03999999910593033,
+        0.0
+      ],
+      "local_max_m": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.11800000071525574
+      ],
+      "local_dimensions_m": [
+        0.07999999821186066,
+        0.07999999821186066,
+        0.11800000071525574
+      ],
+      "footprint_tiles": null,
+      "triangles": 252,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TableLantern",
+      "mesh": "TableLantern_Mesh",
+      "fbx": "items/TableLantern.fbx",
+      "local_min_m": [
+        -0.0624765120446682,
+        -0.0624765120446682,
+        0.0
+      ],
+      "local_max_m": [
+        0.0624765120446682,
+        0.0624765120446682,
+        0.16187499463558197
+      ],
+      "local_dimensions_m": [
+        0.1249530240893364,
+        0.1249530240893364,
+        0.16187499463558197
+      ],
+      "footprint_tiles": null,
+      "triangles": 696,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Cloche",
+      "mesh": "Cloche_Mesh",
+      "fbx": "items/Cloche.fbx",
+      "local_min_m": [
+        -0.15000000596046448,
+        -0.15000000596046448,
+        0.0
+      ],
+      "local_max_m": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.19599999487400055
+      ],
+      "local_dimensions_m": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.19599999487400055
+      ],
+      "footprint_tiles": null,
+      "triangles": 400,
+      "service_prop": true,
+      "in_dressed_room": true
+    },
+    {
+      "root": "RoomShell",
+      "mesh": "RoomShell_Mesh",
+      "fbx": "RoomShell.fbx",
+      "local_min_m": [
+        -4.859999656677246,
+        -4.734999656677246,
+        -0.9049999713897705
+      ],
+      "local_max_m": [
+        4.805000305175781,
+        3.2100000381469727,
+        1.7850000858306885
+      ],
+      "local_dimensions_m": [
+        9.664999961853027,
+        7.944999694824219,
+        2.690000057220459
+      ],
+      "footprint_tiles": null,
+      "triangles": 48368,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "TableLantern_B",
+      "mesh": "TableLantern_B_Mesh",
+      "fbx": "items/TableLantern_B.fbx",
+      "local_min_m": [
+        -0.0624765120446682,
+        -0.0624765120446682,
+        0.0
+      ],
+      "local_max_m": [
+        0.0624765120446682,
+        0.0624765120446682,
+        0.16187499463558197
+      ],
+      "local_dimensions_m": [
+        0.1249530240893364,
+        0.1249530240893364,
+        0.16187499463558197
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 696,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "PlantPot1_B",
+      "mesh": "PlantPot1_B_Mesh",
+      "fbx": "items/PlantPot1_B.fbx",
+      "local_min_m": [
+        -0.17864590883255005,
+        -0.22776392102241516,
+        0.0
+      ],
+      "local_max_m": [
+        0.2165759652853012,
+        0.19613635540008545,
+        0.721156120300293
+      ],
+      "local_dimensions_m": [
+        0.39522187411785126,
+        0.4239002764225006,
+        0.721156120300293
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 476,
+      "service_prop": false,
+      "in_dressed_room": true
+    },
+    {
+      "root": "Crate_B",
+      "mesh": "Crate_B_Mesh",
+      "fbx": "items/Crate_B.fbx",
+      "local_min_m": [
+        -0.23999999463558197,
+        -0.23999999463558197,
+        0.0
+      ],
+      "local_max_m": [
+        0.23999999463558197,
+        0.23999999463558197,
+        0.42750000953674316
+      ],
+      "local_dimensions_m": [
+        0.47999998927116394,
+        0.47999998927116394,
+        0.42750000953674316
+      ],
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "triangles": 748,
+      "service_prop": false,
+      "in_dressed_room": true
+    }
+  ],
+  "assembly": [
+    {
+      "mesh": "PrepCounter_Mesh",
+      "root": "PrepCounter",
+      "min_m": [
+        -2.9574999809265137,
+        -0.5163148045539856,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -2.002500057220459,
+        0.3774999976158142,
+        1.0499999523162842
+      ],
+      "triangles": 1596
+    },
+    {
+      "mesh": "Stove_Mesh",
+      "root": "Stove",
+      "min_m": [
+        -3.9100000858306885,
+        1.4514999389648438,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -2.9700000286102295,
+        2.3399999141693115,
+        0.8500000238418579
+      ],
+      "triangles": 4280
+    },
+    {
+      "mesh": "SoupKettle_Mesh",
+      "root": "SoupKettle",
+      "min_m": [
+        -3.799999952316284,
+        0.2762235701084137,
+        0.6899999976158142
+      ],
+      "max_m": [
+        -3.140000104904175,
+        1.0237764120101929,
+        1.434999942779541
+      ],
+      "triangles": 1304
+    },
+    {
+      "mesh": "FridgeV2_Mesh",
+      "root": "FridgeV2",
+      "min_m": [
+        -1.8700000047683716,
+        1.4090197086334229,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -1.090000033378601,
+        2.309999942779541,
+        1.1999999284744263
+      ],
+      "triangles": 556
+    },
+    {
+      "mesh": "SinkDishRack_Mesh",
+      "root": "SinkDishRack",
+      "min_m": [
+        -3.8949999809265137,
+        -2.6600000858306885,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -3.0136852264404297,
+        -0.8000000715255737,
+        1.0519338846206665
+      ],
+      "triangles": 2860
+    },
+    {
+      "mesh": "CoffeeBar_Mesh",
+      "root": "CoffeeBar",
+      "min_m": [
+        3.0136852264404297,
+        -0.45749998092651367,
+        0.03999999910593033
+      ],
+      "max_m": [
+        3.9075000286102295,
+        0.4975000023841858,
+        1.3739999532699585
+      ],
+      "triangles": 3608
+    },
+    {
+      "mesh": "TableFor2_Mesh",
+      "root": "TableFor2",
+      "min_m": [
+        0.7649999856948853,
+        0.41999998688697815,
+        0.03999999910593033
+      ],
+      "max_m": [
+        1.7350000143051147,
+        0.9800000190734863,
+        0.9549999833106995
+      ],
+      "triangles": 2548
+    },
+    {
+      "mesh": "ReceptionDesk_Mesh",
+      "root": "ReceptionDesk",
+      "min_m": [
+        2.549999952316284,
+        -2.309999942779541,
+        0.03999999910593033
+      ],
+      "max_m": [
+        3.490000009536743,
+        -1.3700001239776611,
+        0.9490038752555847
+      ],
+      "triangles": 2792
+    },
+    {
+      "mesh": "PassCounter_Mesh",
+      "root": "PassCounter",
+      "min_m": [
+        -0.9300000667572021,
+        -0.949999988079071,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -0.3099999725818634,
+        0.949999988079071,
+        1.152500033378601
+      ],
+      "triangles": 1216
+    },
+    {
+      "mesh": "TrashCan_Mesh",
+      "root": "TrashCan",
+      "min_m": [
+        -1.7602169513702393,
+        -2.2799999713897705,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -1.2397830486297607,
+        -1.7200000286102295,
+        0.6600000262260437
+      ],
+      "triangles": 788
+    },
+    {
+      "mesh": "Oven_Mesh",
+      "root": "Oven",
+      "min_m": [
+        -2.9000000953674316,
+        1.4516851902008057,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -2.059999942779541,
+        2.299999952316284,
+        1.2599999904632568
+      ],
+      "triangles": 1344
+    },
+    {
+      "mesh": "Fryer_Mesh",
+      "root": "Fryer",
+      "min_m": [
+        -3.8950002193450928,
+        -0.8149999976158142,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -3.0136852264404297,
+        0.11500005424022675,
+        0.9750001430511475
+      ],
+      "triangles": 3420
+    },
+    {
+      "mesh": "KettleStand_Mesh",
+      "root": "KettleStand",
+      "min_m": [
+        -3.9075000286102295,
+        0.17249996960163116,
+        0.03999999910593033
+      ],
+      "max_m": [
+        -3.0136852264404297,
+        1.1274999380111694,
+        0.70250004529953
+      ],
+      "triangles": 1176
+    },
+    {
+      "mesh": "TableFor4_Mesh",
+      "root": "TableFor4",
+      "min_m": [
+        0.64000004529953,
+        -1.8899999856948853,
+        0.03999999910593033
+      ],
+      "max_m": [
+        1.7600001096725464,
+        -0.9099998474121094,
+        0.8250001072883606
+      ],
+      "triangles": 3188
+    },
+    {
+      "mesh": "Booth_Mesh",
+      "root": "Booth",
+      "min_m": [
+        1.190000057220459,
+        1.4600000381469727,
+        0.03999999910593033
+      ],
+      "max_m": [
+        3.1100001335144043,
+        2.359999895095825,
+        0.9750000238418579
+      ],
+      "triangles": 1012
+    },
+    {
+      "mesh": "PlantPot1_Mesh",
+      "root": "PlantPot1",
+      "min_m": [
+        3.4113540649414062,
+        1.6522361040115356,
+        0.03999999910593033
+      ],
+      "max_m": [
+        3.8065757751464844,
+        2.076136350631714,
+        0.7611561417579651
+      ],
+      "triangles": 476
+    },
+    {
+      "mesh": "PlantPot2_Mesh",
+      "root": "PlantPot2",
+      "min_m": [
+        -0.03370314836502075,
+        1.8162068128585815,
+        0.03999999910593033
+      ],
+      "max_m": [
+        0.4096089005470276,
+        2.285062313079834,
+        0.8265412449836731
+      ],
+      "triangles": 476
+    },
+    {
+      "mesh": "PlantPot3_Mesh",
+      "root": "PlantPot3",
+      "min_m": [
+        3.4540674686431885,
+        -2.052741050720215,
+        0.03999999910593033
+      ],
+      "max_m": [
+        3.939972400665283,
+        -1.5160435438156128,
+        0.8788458704948425
+      ],
+      "triangles": 476
+    },
+    {
+      "mesh": "Barrel_Mesh",
+      "root": "Barrel",
+      "min_m": [
+        -4.688999652862549,
+        -2.049999952316284,
+        -0.03999999910593033
+      ],
+      "max_m": [
+        -4.171000003814697,
+        -1.5299999713897705,
+        0.5600000619888306
+      ],
+      "triangles": 708
+    },
+    {
+      "mesh": "Crate_Mesh",
+      "root": "Crate",
+      "min_m": [
+        -4.649999618530273,
+        1.5,
+        -0.03999999910593033
+      ],
+      "max_m": [
+        -4.170000076293945,
+        1.9800000190734863,
+        0.38750001788139343
+      ],
+      "triangles": 748
+    },
+    {
+      "mesh": "LampPost_Mesh",
+      "root": "LampPost",
+      "min_m": [
+        -4.609999656677246,
+        -3.0299999713897705,
+        -0.029999999329447746
+      ],
+      "max_m": [
+        -4.069999694824219,
+        -2.7099997997283936,
+        1.7200000286102295
+      ],
+      "triangles": 1120
+    },
+    {
+      "mesh": "RopeFencePost_Mesh",
+      "root": "RopeFencePost",
+      "min_m": [
+        4.339999675750732,
+        -2.9499998092651367,
+        -0.029999999329447746
+      ],
+      "max_m": [
+        4.559999942779541,
+        -2.7300000190734863,
+        0.5925000309944153
+      ],
+      "triangles": 384
+    },
+    {
+      "mesh": "PlateClean_Mesh",
+      "root": "PlateClean",
+      "min_m": [
+        -0.7599999904632568,
+        -0.7899999618530273,
+        0.7599999904632568
+      ],
+      "max_m": [
+        -0.48000001907348633,
+        -0.5099999904632568,
+        0.8009999990463257
+      ],
+      "triangles": 336
+    },
+    {
+      "mesh": "PlateDirty_Mesh",
+      "root": "PlateDirty",
+      "min_m": [
+        -3.440000057220459,
+        -2.0399999618530273,
+        0.7099999785423279
+      ],
+      "max_m": [
+        -3.1599998474121094,
+        -1.7599999904632568,
+        0.7509999871253967
+      ],
+      "triangles": 464
+    },
+    {
+      "mesh": "GrilledFishPlate_Mesh",
+      "root": "GrilledFishPlate",
+      "min_m": [
+        1.090000033378601,
+        0.49000000953674316,
+        0.7200000286102295
+      ],
+      "max_m": [
+        1.3700000047683716,
+        0.7699999809265137,
+        0.7843118906021118
+      ],
+      "triangles": 3352
+    },
+    {
+      "mesh": "SoupBowl_Mesh",
+      "root": "SoupBowl",
+      "min_m": [
+        1.1340000629425049,
+        -1.4559999704360962,
+        0.7300000190734863
+      ],
+      "max_m": [
+        1.3459999561309814,
+        -1.2440000772476196,
+        0.8250000476837158
+      ],
+      "triangles": 440
+    },
+    {
+      "mesh": "CoffeeCup_Mesh",
+      "root": "CoffeeCup",
+      "min_m": [
+        3.3320000171661377,
+        -0.14800000190734863,
+        0.800000011920929
+      ],
+      "max_m": [
+        3.468559741973877,
+        -0.052000001072883606,
+        0.8939999938011169
+      ],
+      "triangles": 564
+    },
+    {
+      "mesh": "Glass_Mesh",
+      "root": "Glass",
+      "min_m": [
+        1.0099999904632568,
+        -1.4900000095367432,
+        0.7300000190734863
+      ],
+      "max_m": [
+        1.0899999141693115,
+        -1.4100000858306885,
+        0.8480000495910645
+      ],
+      "triangles": 252
+    },
+    {
+      "mesh": "TableLantern_Mesh",
+      "root": "TableLantern",
+      "min_m": [
+        1.257523536682129,
+        0.7775234580039978,
+        0.7200000286102295
+      ],
+      "max_m": [
+        1.382476568222046,
+        0.9024764895439148,
+        0.8818750381469727
+      ],
+      "triangles": 696
+    },
+    {
+      "mesh": "Cloche_Mesh",
+      "root": "Cloche",
+      "min_m": [
+        -0.7699999809265137,
+        0.3499999940395355,
+        0.7599999904632568
+      ],
+      "max_m": [
+        -0.4699999988079071,
+        0.6499999761581421,
+        0.9559999704360962
+      ],
+      "triangles": 400
+    },
+    {
+      "mesh": "RoomShell_Mesh",
+      "root": "RoomShell",
+      "min_m": [
+        -4.859999656677246,
+        -4.734999656677246,
+        -0.9049999713897705
+      ],
+      "max_m": [
+        4.805000305175781,
+        3.2100000381469727,
+        1.7850000858306885
+      ],
+      "triangles": 48368
+    },
+    {
+      "mesh": "TableLantern_B_Mesh",
+      "root": "TableLantern_B",
+      "min_m": [
+        1.1375235319137573,
+        -1.4624764919281006,
+        0.7300000190734863
+      ],
+      "max_m": [
+        1.2624765634536743,
+        -1.3375234603881836,
+        0.8918750286102295
+      ],
+      "triangles": 696
+    },
+    {
+      "mesh": "PlantPot1_B_Mesh",
+      "root": "PlantPot1_B",
+      "min_m": [
+        -4.59864616394043,
+        -0.6577639579772949,
+        -0.029999999329447746
+      ],
+      "max_m": [
+        -4.203423976898193,
+        -0.23386365175247192,
+        0.6911561489105225
+      ],
+      "triangles": 476
+    },
+    {
+      "mesh": "Crate_B_Mesh",
+      "root": "Crate_B",
+      "min_m": [
+        -4.669999599456787,
+        1.5099999904632568,
+        0.38999998569488525
+      ],
+      "max_m": [
+        -4.190000057220459,
+        1.9900000095367432,
+        0.8174999952316284
+      ],
+      "triangles": 748
+    }
+  ],
+  "placements": {
+    "PrepCounter": [
+      [
+        -2.48,
+        -0.05,
+        0.04
+      ],
+      0
+    ],
+    "Stove": [
+      [
+        -3.44,
+        1.92,
+        0.04
+      ],
+      0
+    ],
+    "SoupKettle": [
+      [
+        -3.48,
+        0.65,
+        0.69
+      ],
+      90
+    ],
+    "KettleStand": [
+      [
+        -3.48,
+        0.65,
+        0.04
+      ],
+      90
+    ],
+    "FridgeV2": [
+      [
+        -1.48,
+        1.92,
+        0.04
+      ],
+      0
+    ],
+    "Oven": [
+      [
+        -2.48,
+        1.92,
+        0.04
+      ],
+      0
+    ],
+    "Fryer": [
+      [
+        -3.48,
+        -0.35,
+        0.04
+      ],
+      90
+    ],
+    "SinkDishRack": [
+      [
+        -3.48,
+        -1.73,
+        0.04
+      ],
+      90
+    ],
+    "CoffeeBar": [
+      [
+        3.48,
+        0.02,
+        0.04
+      ],
+      -90
+    ],
+    "ReceptionDesk": [
+      [
+        3.02,
+        -1.84,
+        0.04
+      ],
+      0
+    ],
+    "PassCounter": [
+      [
+        -0.62,
+        0,
+        0.04
+      ],
+      90
+    ],
+    "TrashCan": [
+      [
+        -1.5,
+        -1.97,
+        0.04
+      ],
+      0
+    ],
+    "TableFor2": [
+      [
+        1.25,
+        0.7,
+        0.04
+      ],
+      0
+    ],
+    "TableFor4": [
+      [
+        1.2,
+        -1.4,
+        0.04
+      ],
+      0
+    ],
+    "Booth": [
+      [
+        2.15,
+        1.89,
+        0.04
+      ],
+      0
+    ],
+    "PlantPot1": [
+      [
+        3.59,
+        1.88,
+        0.04
+      ],
+      0
+    ],
+    "PlantPot2": [
+      [
+        0.17,
+        2.06,
+        0.04
+      ],
+      0
+    ],
+    "PlantPot3": [
+      [
+        3.69,
+        -1.78,
+        0.04
+      ],
+      0
+    ],
+    "Barrel": [
+      [
+        -4.43,
+        -1.79,
+        -0.04
+      ],
+      0
+    ],
+    "Crate": [
+      [
+        -4.41,
+        1.74,
+        -0.04
+      ],
+      0
+    ],
+    "LampPost": [
+      [
+        -4.45,
+        -2.87,
+        -0.03
+      ],
+      0
+    ],
+    "RopeFencePost": [
+      [
+        4.45,
+        -2.84,
+        -0.03
+      ],
+      0
+    ],
+    "PlateClean": [
+      [
+        -0.62,
+        -0.65,
+        0.76
+      ],
+      0
+    ],
+    "PlateDirty": [
+      [
+        -3.3,
+        -1.9,
+        0.71
+      ],
+      0
+    ],
+    "GrilledFishPlate": [
+      [
+        1.23,
+        0.63,
+        0.72
+      ],
+      0
+    ],
+    "SoupBowl": [
+      [
+        1.24,
+        -1.35,
+        0.73
+      ],
+      0
+    ],
+    "CoffeeCup": [
+      [
+        3.38,
+        -0.1,
+        0.8
+      ],
+      0
+    ],
+    "Glass": [
+      [
+        1.05,
+        -1.45,
+        0.73
+      ],
+      0
+    ],
+    "TableLantern": [
+      [
+        1.32,
+        0.84,
+        0.72
+      ],
+      0
+    ],
+    "Cloche": [
+      [
+        -0.62,
+        0.5,
+        0.76
+      ],
+      0
+    ],
+    "TableLantern_B": [
+      [
+        1.2,
+        -1.4,
+        0.73
+      ],
+      0
+    ],
+    "PlantPot1_B": [
+      [
+        -4.42,
+        -0.43,
+        -0.03
+      ],
+      0
+    ],
+    "Crate_B": [
+      [
+        -4.43,
+        1.75,
+        0.39
+      ],
+      0
+    ]
+  },
+  "AO": [
+    {
+      "root": "PrepCounter",
+      "vertices": 848,
+      "min": 0.7700788257348452,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Stove",
+      "vertices": 2244,
+      "min": 0.770317104576535,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "SoupKettle",
+      "vertices": 676,
+      "min": 0.771402254624488,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "FridgeV2",
+      "vertices": 316,
+      "min": 0.771846666988003,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "SinkDishRack",
+      "vertices": 1624,
+      "min": 0.77,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "CoffeeBar",
+      "vertices": 1920,
+      "min": 0.7710817682018086,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TableFor2",
+      "vertices": 1360,
+      "min": 0.7714900747275644,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "ReceptionDesk",
+      "vertices": 1464,
+      "min": 0.7713960810380619,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PassCounter",
+      "vertices": 744,
+      "min": 0.7720652434203922,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TrashCan",
+      "vertices": 408,
+      "min": 0.7809306416654197,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Oven",
+      "vertices": 836,
+      "min": 0.7730879536784734,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Fryer",
+      "vertices": 1832,
+      "min": 0.7727087904880208,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "FryerBroken",
+      "vertices": 1856,
+      "min": 0.7727087904880208,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "KettleStand",
+      "vertices": 616,
+      "min": 0.773293604277353,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TableFor4",
+      "vertices": 1752,
+      "min": 0.770558384153864,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Booth",
+      "vertices": 528,
+      "min": 0.7704466664772321,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TerraceTable",
+      "vertices": 944,
+      "min": 0.77,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Parasol",
+      "vertices": 421,
+      "min": 0.7700260942038867,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlantPot1",
+      "vertices": 276,
+      "min": 0.7708811577256093,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlantPot2",
+      "vertices": 276,
+      "min": 0.7723570068023576,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlantPot3",
+      "vertices": 276,
+      "min": 0.7725831841264859,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Barrel",
+      "vertices": 370,
+      "min": 0.777787845562482,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Crate",
+      "vertices": 408,
+      "min": 0.7720862389455115,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "LampPost",
+      "vertices": 584,
+      "min": 0.7707406986766331,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "RopeFencePost",
+      "vertices": 200,
+      "min": 0.7803265052329692,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlateClean",
+      "vertices": 216,
+      "min": 0.9736118160199487,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlateDirty",
+      "vertices": 288,
+      "min": 0.770756431480113,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "GrilledFishPlate",
+      "vertices": 1782,
+      "min": 0.77,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "SoupBowl",
+      "vertices": 300,
+      "min": 0.7738087271942375,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "CoffeeCup",
+      "vertices": 308,
+      "min": 0.7717695857235539,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Glass",
+      "vertices": 176,
+      "min": 0.7742980224203678,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TableLantern",
+      "vertices": 364,
+      "min": 0.7727437102085749,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Cloche",
+      "vertices": 264,
+      "min": 0.7847868570973956,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "RoomShell",
+      "vertices": 25762,
+      "min": 0.77,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "TableLantern_B",
+      "vertices": 364,
+      "min": 0.7727437102085749,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "PlantPot1_B",
+      "vertices": 276,
+      "min": 0.7708811577256093,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    },
+    {
+      "root": "Crate_B",
+      "vertices": 408,
+      "min": 0.7720862389455115,
+      "max": 1.0,
+      "ray_count_per_vertex": 12,
+      "radius_m": 0.22,
+      "world_floor_excluded": true
+    }
+  ],
+  "architectural_lantern_positions_m": [
+    [
+      -3.78,
+      2.27,
+      1.02
+    ],
+    [
+      0.15,
+      2.3,
+      1.02
+    ],
+    [
+      3.7,
+      2.27,
+      1.02
+    ],
+    [
+      3.82,
+      -1.1,
+      1.02
+    ],
+    [
+      -3.83,
+      -2.4,
+      1.02
+    ],
+    [
+      2.15,
+      -2.4,
+      1.02
+    ]
+  ],
+  "units": "1 Blender unit =1 metre; FBX UnitScaleFactor100; X right Y rear Z up"
+}

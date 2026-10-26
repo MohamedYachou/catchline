@@ -1,0 +1,24 @@
+RESTAURANT-LOOK-DETAIL-3 — Codex 2 — the room picture itself like the mockup (Claude 2 lead, 2026-10-26 21:30)
+REVIEW of LOOK-DETAIL-2: ACCEPTED as the kit (98.8k tris, two 2048 atlases, 35 items incl. oven/fryer/broken fryer,
+booth, terrace, service props; clean painted enamel/wood/brass). The ROOM render is still far from
+Art/Source/Restaurant/concepts/ui-service-desktop.png: (1) the camera reads almost top-down; the mockup looks in at
+about 40 deg with mild perspective so walls, faces and furniture fronts show; (2) flat daylight instead of the warm
+night with lanterns, candles and window glow; (3) the room is sparse; (4) no guests, no lit quay with a queue.
+Mo: the game must look EXACTLY like the mockup. Do, in order:
+A. Camera: match the mockup framing: measure its elevation/yaw/FOV (perspective, narrow FOV ~25-35 deg, or ortho if
+   that matches better: show both) on the stage-1 room and give exact numbers for Unity in REPORT.md.
+B. Night light and grade like the mockup: dusk-blue ambient, warm lantern pools on walls/quay, candle glow on tables,
+   lit windows, warm kitchen light, soft shadows, slight bloom on lights; deliver the Blender look + a URP recipe
+   (light list with sRGB colours/intensities/ranges, emissive values, post grade).
+C. Dress the 8x5 stage-1 room as full as the mockup: 3 tables (2 for two + 1 for four) with candles/plates, the booth,
+   pass with plates, wall shelves with pots/cups, extractor hood, trophy fish, wall lanterns, plants, the terrace
+   with parasol and table at the front-left, quay edge with posts, rope, lamp post, barrel, crates and the jetty at
+   the door (right). Keep footprints from docs/plans/RESTAURANT.md section 5.
+D. Guests: 6 guest characters (adults, varied hair/skin/clothes, a few women, as in the mockup) on the same rig as the
+   crew (Art/Models/CrewV2, same skeleton and clips so Unity can animate them: sit, walk, idle, eat), as FBX.
+E. Proof: render at 1440x900 and 844x390 with crew, Mira at reception and guests seated/queuing, side by side with
+   ui-service-desktop.png and ui-2-service.png; open every image; list remaining differences honestly.
+OUTPUT: Art/Models/Restaurant/Stage1V3/** (room scene + any new items; reuse V2 items by reference) and
+Art/Models/Restaurant/Guests/**. Budget: room+kit+props <= 180k tris, guests <= 12k tris each.
+OWNERSHIP those folders only. No Assets/, no .cs, no git, no player save. comms.md START, CHECKPOINT per letter,
+DONE then IDLE. NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.
