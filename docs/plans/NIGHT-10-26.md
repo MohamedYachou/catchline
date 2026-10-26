@@ -12,7 +12,7 @@ the face of the restaurant (host).
 Claude:
 - [x] A1 S5 closing rebuilt on the rx pieces (screen-5 manifest), sbs-checked at 2532x1170.
 - [x] A2 S2 phone service HUD on phone:* pieces (r25). Desktop 1440 HUD still old (A5).
-- A3 S1 arrange on rx-s12 pieces.
+- [x] A3 S1 arrange on arrange:* pieces (r33). Room behind arrange: with C4.
 - A4 S6 dashboard / week screen (mockup needed → Codex cuts).
 - A5 Desktop 1440/2880 checks of every screen.
 Codex 1: rest of the S5 pieces, then S6 pieces, every piece trimmed and uniquely named.

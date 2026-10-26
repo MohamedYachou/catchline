@@ -466,62 +466,78 @@ namespace Catchline.Game
         }
         public RestaurantArrangeView RestaurantArrange = new();
 
-        // S1: arrange mode over the room (ui-1-arrange.png): top bar, the placing bubble, the shop tray.
+        // S1: arrange mode over the room (ui-1-arrange.png), every piece and text at its measured place.
         void InterfaceRestaurantArrange(RestaurantArrangeView v)
         {
-            float k = Mathf.Min(iw / 844f, ih / 390f);
-            Rect L(float x, float y, float w, float h) => new(x * k, y * k, w * k, h * k);                 // top-left anchored
-            Rect TR(float x, float y, float w, float h) => new(iw - (844 - x) * k, y * k, w * k, h * k);    // top-right
-            Rect BL(float x, float y, float w, float h) => new(x * k, ih - (390 - y) * k, w * k, h * k);   // bottom-left
-            Rect BR(float x, float y, float w, float h) => new(iw - (844 - x) * k, ih - (390 - y) * k, w * k, h * k);
+            var f = RestaurantFrame("rarr/frame");
+            float ox = (iw - 844 * frameScale) / 2 / frameScale, oy = (ih - 390 * frameScale) / 2 / frameScale;
+            RectTransform A(string id, string key, Rect? at = null, string sprite = null) =>
+                Rx(id, "arrange", key, f, at ?? RestaurantExact.Pieces["arrange:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            void T(string id, string style, string text, Rect? at = null, TextAnchor align = TextAnchor.MiddleLeft, Color? fill = null) =>
+                RxText(id, "arrange", style, text, f, at, align, fill);
+            var cream = new Color(1, .973f, .92f);
 
-            coastalUi.Sliced("rarr/bar", new Rect(0, 0, iw, 42 * k), "v3-topbar", null, Color.white, true);
-            coastalUi.IconButton("rarr/back", L(22, 5, 56, 32), "v2-icon-back", null, () => RestaurantPreview = RestaurantScreen.None);
-            coastalUi.Icon("rarr/icon", L(94, 8, 24, 26), "v2-icon-chair", null, Skin.Cream);
-            coastalUi.Text("rarr/title", L(124, 0, 200, 42), "Arrange", Skin.Type.Display, Skin.Cream, TextAnchor.MiddleLeft, null, true);
-            var coins = coastalUi.Card("rarr/coins", TR(602, 5, 98, 32), Skin.Card.Soft);
-            coastalUi.Icon("rarr/coins/icon", new Rect(6 * k, 4 * k, 24 * k, 24 * k), "v2-icon-coin", coins, null, "icon-coin");
-            coastalUi.Text("rarr/coins/n", new Rect(32 * k, 0, 62 * k, 32 * k), v.Coins.ToString("N0"), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coins);
-            coastalUi.Secondary("rarr/undo", TR(736, 5, 88, 32), "Undo", () => { }, "v2-icon-undo");
+            A("rarr/bar", "v2-bar-arrange#arrange-bar-arrange-01", new Rect(-ox, -oy, iw / frameScale, 43 + oy));
+            A("rarr/back", "v2-btn-back#arrange-btn-back-01", null, "rx-s12-btn-back");
+            coastalUi.HitArea("rarr/back/hit", new Rect(23, 5, 51, 33), () => RestaurantPreview = RestaurantScreen.None, f);
+            A("rarr/icon", "v2-icon-chair#arrange-icon-chair-02");
+            T("rarr/title", "title", "Arrange", new Rect(127, 7, 160, 29));
+            A("rarr/coins", "v2-wallet-arrange#arrange-wallet-arrange-01");
+            A("rarr/coins/icon", "v2-icon-coin-arrange#arrange-icon-coin-arrange-01");
+            T("rarr/coins/n", "wallet", v.Coins.ToString("N0"), new Rect(641, 12, 58, 20), TextAnchor.MiddleCenter);
+            A("rarr/undo", "v2-btn-undo#arrange-btn-undo-01");
+            T("rarr/undo/t", "undo", "Undo", new Rect(772, 13, 46, 16));
+            coastalUi.HitArea("rarr/undo/hit", new Rect(735, 5, 88, 33), () => { }, f);
 
-            // The placing bubble: rotate, cancel, confirm, and the item's name and footprint.
+            // The placing bubble: highlight on the floor, rotate / cancel / confirm, and the item's name tag.
             if (v.Placing != null)
             {
-                float bx = v.PlacingAt.x * iw, by = v.PlacingAt.y * ih, b = 44 * k;
-                coastalUi.HitArea("rarr/rotate", new Rect(bx - b * 1.6f, by - b, b, b), () => { });
-                coastalUi.Icon("rarr/rotate/art", new Rect(bx - b * 1.6f, by - b, b, b), "v2-btn-rotate", null, null, "v2-icon-cycle");
-                coastalUi.HitArea("rarr/cancel", new Rect(bx - b * .5f, by - b, b, b), () => v.Placing = null);
-                coastalUi.Icon("rarr/cancel/art", new Rect(bx - b * .5f, by - b, b, b), "v2-btn-cancel", null, null, "v2-icon-warning");
-                coastalUi.HitArea("rarr/confirm", new Rect(bx + b * .6f, by - b, b, b), () => v.Placing = null);
-                coastalUi.Icon("rarr/confirm/art", new Rect(bx + b * .6f, by - b, b, b), "v2-btn-confirm", null, null, "v2-icon-tick");
-                var tag = coastalUi.Card("rarr/tag", new Rect(bx + b * 1.8f, by - b * 1.4f, 170 * k, 36 * k), Skin.Card.Soft);
-                coastalUi.Icon("rarr/tag/art", new Rect(6 * k, 3 * k, 34 * k, 30 * k), v.Items[v.Selected].Art, tag, null, v.Items[v.Selected].Fallback);
-                coastalUi.Text("rarr/tag/text", new Rect(44 * k, 0, 122 * k, 36 * k), v.Placing, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, tag);
+                var d = new Vector2((v.PlacingAt.x - .69f) * 844, (v.PlacingAt.y - .44f) * 390);
+                Rect M(string key) { var r = RestaurantExact.Pieces["arrange:" + key].rect; return new Rect(r.x + d.x, r.y + d.y, r.width, r.height); }
+                A("rarr/spot", "v2-placement-highlight#arrange-placement-highlight-01", M("v2-placement-highlight#arrange-placement-highlight-01"));
+                A("rarr/rotate", "v2-btn-rotate#arrange-btn-rotate-01", M("v2-btn-rotate#arrange-btn-rotate-01"));
+                coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { }, f);
+                A("rarr/cancel", "v2-btn-cancel#arrange-btn-cancel-01", M("v2-btn-cancel#arrange-btn-cancel-01"));
+                coastalUi.HitArea("rarr/cancel/hit", M("v2-btn-cancel#arrange-btn-cancel-01"), () => v.Placing = null, f);
+                A("rarr/confirm", "v2-btn-confirm#arrange-btn-confirm-01", M("v2-btn-confirm#arrange-btn-confirm-01"));
+                coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => v.Placing = null, f);
+                A("rarr/tag", "v2-name-tag#arrange-name-tag-01", M("v2-name-tag#arrange-name-tag-01"));
+                var thumb = M("v2-item-rest-table2#selected-table-name-tag-thumbnail");
+                A("rarr/tag/art", "v2-item-rest-table2#selected-table-name-tag-thumbnail", thumb, "rx-" + v.Items[v.Selected].Art.Substring(3));
+                T("rarr/tag/text", "world-tag", v.Placing, new Rect(thumb.xMax + 6, thumb.y + 5, 120, 17));
             }
 
             // The shop tray: categories on the left, this category's items on the right.
-            coastalUi.Sliced("rarr/tray", new Rect(0, ih - 92 * k, iw, 92 * k), "v2-slab", null, Skin.Paper, true);
-            for (int i = 0; i < v.Categories.Length; i++)
+            A("rarr/tray", "v2-arrange-tray#arrange-arrange-tray-01", new Rect(-ox, 299, iw / frameScale, 91 + oy));
+            Rect[] tab = { new(16, 310, 58, 64), new(78, 309, 68, 65), new(151, 310, 56, 64), new(211, 310, 56, 64), new(271, 310, 60, 64) };
+            string[] icon = { "v2-icon-kitchen-pot#arrange-icon-kitchen-pot-01", "v2-icon-chair#arrange-icon-chair-01", "v2-icon-bar-glass#arrange-icon-bar-glass-01",
+                "v2-icon-decor-plant#arrange-icon-decor-plant-01", "v2-icon-expand#arrange-icon-expand-01" };
+            for (int i = 0; i < v.Categories.Length && i < 5; i++)
             {
-                int c = i; bool on = v.Category == i; var r = BL(16 + i * 66, 306, 60, 70);
-                var t = on ? coastalUi.Sliced($"rarr/cat/{i}", r, "v2-btn-primary", null, Color.white) : coastalUi.Card($"rarr/cat/{i}", r, Skin.Card.Soft);
-                coastalUi.Icon($"rarr/cat/{i}/icon", new Rect(16 * k, 8 * k, 28 * k, 30 * k), v.CategoryIcons[i], t, on ? Skin.Cream : null);
-                coastalUi.Text($"rarr/cat/{i}/label", new Rect(0, 42 * k, 60 * k, 24 * k), v.Categories[i], Skin.Type.Small, on ? Skin.Cream : Skin.Ink, TextAnchor.MiddleCenter, t, on);
-                coastalUi.HitArea($"rarr/cat/{i}/hit", new Rect(0, 0, r.width, r.height), () => v.Category = c, t);
+                int c = i; bool on = v.Category == i;
+                A($"rarr/cat/{i}", on ? "v2-tab-selected#arrange-tab-selected-01" : "v2-tab-idle#arrange-tab-idle-01", tab[i]);
+                var ic = A($"rarr/cat/{i}/icon", icon[i]);
+                var img = ic.GetComponent<UnityEngine.UI.Image>(); if (img != null && img.sprite != null) img.color = on ? cream : Color.white;
+                T($"rarr/cat/{i}/label", $"tabs-{i + 1}", v.Categories[i], new Rect(tab[i].x, 348, tab[i].width, 15), TextAnchor.MiddleCenter, on ? cream : null);
+                coastalUi.HitArea($"rarr/cat/{i}/hit", tab[i], () => v.Category = c, f);
             }
-            float[] cardX = { 350, 507, 664 }, cardW = { 150, 150, 164 };
+            Rect[] card = { new(350, 306, 149, 71), new(505, 306, 152, 71), new(662, 306, 165, 71) };
+            string[] art = { "v2-item-rest-table2#arrange-item-rest-table2-01", "v2-item-rest-table4#arrange-item-rest-table4-01", "v2-item-rest-booth#arrange-item-rest-booth-01" };
+            string[] coin = { "v2-icon-coin-arrange#catalog-table2-coin", "v2-icon-coin-arrange#catalog-table4-coin", "v2-icon-coin-arrange#catalog-booth-coin" };
+            float[] textX = { 429, 589, 756 };
             for (int i = 0; i < v.Items.Count && i < 3; i++)
             {
-                int s = i; var it = v.Items[i]; bool on = v.Selected == i; var r = BR(cardX[i], 306, cardW[i], 72);
-                if (on) coastalUi.Sliced($"rarr/item/{i}/glow", new Rect(r.x - 3 * k, r.y - 3 * k, r.width + 6 * k, r.height + 6 * k), "v2-btn-primary", null, Color.white);
-                var c = coastalUi.Card($"rarr/item/{i}", r, Skin.Card.Soft);
-                float w = r.width / k;
-                coastalUi.Icon($"rarr/item/{i}/art", new Rect(4 * k, 4 * k, (w * .48f) * k, 64 * k), it.Art, c, null, it.Fallback);
-                coastalUi.Text($"rarr/item/{i}/name", new Rect(w * .5f * k, 4 * k, w * .5f * k, 22 * k), it.Name, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, c);
-                coastalUi.Icon($"rarr/item/{i}/coin", new Rect(w * .5f * k, 28 * k, 18 * k, 18 * k), "v2-icon-coin", c, null, "icon-coin");
-                coastalUi.Text($"rarr/item/{i}/price", new Rect((w * .5f + 22) * k, 24 * k, 60 * k, 26 * k), it.Price.ToString(), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, c);
-                coastalUi.Text($"rarr/item/{i}/size", new Rect((w * .5f + 22) * k, 48 * k, 60 * k, 20 * k), it.Footprint, Skin.Type.Caption, Skin.InkSoft, TextAnchor.MiddleLeft, c);
-                coastalUi.HitArea($"rarr/item/{i}/hit", new Rect(0, 0, r.width, r.height), () => { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }, c);
+                int s = i; var it = v.Items[i]; bool on = v.Selected == i; float tx = textX[i];
+                A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", card[i]);
+                A($"rarr/item/{i}/art", art[i], null, "rx-" + it.Art.Substring(3));
+                T($"rarr/item/{i}/name", $"catalog-name-{i + 1}", it.Name, new Rect(tx, 315, 80, 14));
+                A($"rarr/item/{i}/coin", coin[i]);
+                T($"rarr/item/{i}/price", $"catalog-price-{i + 1}", it.Price.ToString(), new Rect(tx + 26, 333, 50, 17));
+                bool one = it.Footprint == "1×1";
+                A($"rarr/item/{i}/tile", one ? "v2-s12x-icon-tile1#arrange-s12x-icon-tile1-01" : "v2-s12x-icon-tile2#arrange-s12x-icon-tile2-01",
+                    one ? new Rect(tx + 4, 355, 13, 12) : new Rect(tx + 4, 355, 23, 12));
+                T($"rarr/item/{i}/size", $"catalog-size-{i + 1}", it.Footprint, new Rect(tx + 32, 354, 34, 13));
+                coastalUi.HitArea($"rarr/item/{i}/hit", card[i], () => { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }, f);
             }
         }
 
