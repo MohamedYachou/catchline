@@ -1,0 +1,27 @@
+RESTAURANT-SCALE-1 — Codex 1 — camera and room-size study for the restaurant (Claude 2 lead, 2026-10-26 18:14)
+MO'S CALL (10-26): Catchline becomes a restaurant game with a fishing outing: fish by day, serve at night, in Mira's
+family's old restaurant on the quay. By day the player buys tables and appliances and places them on a grid, with a
+clear kitchen area and a clear guest area; at night the crew work and the captain manages with taps. Mobile
+landscape first, so it must be easy to touch. Design: docs/plans/RESTAURANT.md (Claude is writing it now).
+QUESTION TO ANSWER before anything is modelled: which camera and how big a room stay easy to read and touch on a phone
+(844x390) and on desktop (1440x900)?
+DO, in Catchline-sim only (a throwaway study scene and capture script there; NOTHING in the main tree's Assets/):
+1. A greybox room: 1 m floor tiles with a visible grid, back and side walls 2.4 m high, no front wall (dollhouse
+   cutaway). Kitchen zone at the back/left (warm tint), a pass counter (1 tile deep) along its edge, guest zone at the
+   front/right (wood tint), a door tile at the front right, a back door in the kitchen wall. For scale use the real
+   rigged crew models (Assets/Art/Models/Crew) standing at stove-sized boxes (0.9 x 0.6 x 0.9 m), table boxes with chair
+   boxes (table for 2 and for 4), a reception desk box by the door.
+2. Room sizes 8x5, 10x5, 12x6, 14x7 tiles. Cameras: pitch 45, 52 and 60 degrees, each as perspective (FOV about 30)
+   and orthographic, framed so the room fits between the HUD bands. HUD bands to overlay at 844x390: top bar 44 px,
+   bottom drawer / staff rail 84 px (scale them for 1440x900 the way the game's UI scaler does).
+3. Capture every combination at 844x390 and 1440x900 (the IMGUI bands drawn as plain overlays are fine).
+MEASURE per capture (README table): smallest tile on screen in px (width and depth, back row), crew height in px,
+whether the whole room fits between the bands, whether the back of the kitchen can be seen past the pass counter and
+the crew, and whether a 1-tile item could be tapped without touching its neighbour (a tile at least 44 px).
+RECOMMEND: camera (pitch, perspective or ortho, FOV) and the largest room per stage that keeps tiles >= 44 px on the
+phone; whether bigger rooms need a pan or a zoom step; anything that makes placement awkward (e.g. the finger hiding
+the item, so the dragged ghost should float above the finger).
+OUTPUT: docs/screens/restaurant-scale-1/ (captures, contact sheets, README.md), each image opened by you.
+OWNERSHIP: Catchline-sim study files and docs/screens/restaurant-scale-1/** only. No git; never batchmode the main
+project; never the player save; no main-tree .cs/.meta/scene edits; comms.md START, CHECKPOINTs, DONE then IDLE.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

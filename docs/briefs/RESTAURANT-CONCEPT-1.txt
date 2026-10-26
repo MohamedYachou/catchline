@@ -1,0 +1,45 @@
+RESTAURANT-CONCEPT-1 — Codex 2 — concept art for the harbour restaurant (Claude 2 lead, 2026-10-26 18:14)
+MO'S CALL (10-26): Catchline becomes a restaurant game with a fishing outing: fish by day, serve at night. The
+restaurant is Mira's family's old place on Gull Harbour's quay, closed for years, reopened when she joins (Skiff).
+A PlateUp-like evening: guests come in from early evening into the night and get served; the crew are the staff
+(fishers cook, deckhands wait tables, the engineer is the handyman, the navigator runs coffee and the bar, Mira is at
+reception); the captain manages with a few taps. By day the player buys tables and appliances and chooses where they
+go, with a clear kitchen area and a clear guest area. Mobile landscape first. Mo picks the look from these sheets.
+Design: docs/plans/RESTAURANT.md (Claude is writing it now; read it when it exists).
+STYLE: Art/STYLE.md (palette, chunky miniature shapes, no outlines). Match the harbour: Art/Concepts/15-gull-harbour-
+tier1.png, 18-hud-harbour.png, docs/screens/harbour-1/ captures, the HouseA/HouseB proportions in
+Art/Models/GullHarbour*/. Crew: Art/Concepts/02-crew-turnaround.png, 03-crew-roles.png; they wear their SHIP clothes
+(no chef or waiter outfits yet, that comes later). Cosy and warm: evening = warm windows and lanterns, blue dusk outside.
+SHEETS in Art/Source/Restaurant/concepts/ (2400x1350 PNG unless stated; image generation, then clean labels):
+A. look-options.png: the building at its "restaurant" stage in three looks for Mo to choose from: 1 whitewashed stone
+   with blue shutters, 2 painted timber with a red roof, 3 brick harbour house with a green awning. Corner building at
+   the end of the quay's house row, terrace side facing the water. Then exterior-stages.png in look 1 (Mo may switch):
+   the same camera, left to right: 0 closed (shutters, faded sign, crates), 1 café (2 tables inside, a bench and a
+   chalkboard outside), 2 bistro (terrace with 3 tables, an awning), 3 restaurant (knocked through into the next house,
+   bigger sign, lanterns), 4 seafood house (full frontage, string lights over the terrace, a trophy fish over the door).
+   Plus exterior-night.png: stage 3 at night, lit windows, guests at the door and on the terrace.
+B. interior-1.png and interior-4.png: the inside as the player sees it: ONE fixed camera from the front, about 50
+   degrees down, front wall removed (dollhouse cutaway), landscape. Clear split: kitchen at the back/left (tiled floor)
+   behind a pass counter with a serving hatch; guest area at the front/right (wood floor); the door to the quay with
+   Mira's reception desk next to it; a back door from the kitchen to an alley where two cats wait. A faint floor grid
+   (1 tile = about 1 m) so the tile size reads; nothing smaller than one tile.
+   Stage 1: about 8x5 tiles: 2 tables for 2, stove, soup kettle, prep counter, fridge, coffee machine.
+   Stage 4: about 14x7 plus a terrace strip: grill, fryer, oven, sink with dish rack, a bar with stools, 6-8 tables
+   including a booth, a trophy wall with mounted fish.
+C. kit-sheet.png: every placeable item on its tile footprint (1x1 or 2x1), same angle and light, labelled.
+   Kitchen: prep counter, stove, grill, fryer, soup kettle, oven, fridge, sink with dish rack, pass counter.
+   Bar: coffee machine, drinks fridge, bar counter with stools. Guests: table for 2, table for 4, booth for 6, terrace
+   table with parasol, reception desk. Decor: trophy fish mount, net with floats, lamp, plant, framed chart, jukebox.
+   Chunky and readable at phone size; each item must say what it is from its silhouette alone.
+D. service-moment.png: a busy evening in the stage 3 interior: fishers at the stove and grill, a deckhand carrying
+   plates, the engineer fixing a smoking fryer, the navigator at the coffee machine, Mira greeting a group at the door,
+   guests at tables with small order bubbles (fish dish icons, a coffee cup), a queue visible outside. Who is where must
+   be obvious at a glance.
+E. UI mockups, ONLY if docs/plans/RESTAURANT.md exists when you get here (read its "Screens" section; if it is not
+   there, write DONE after D and stop): the five screens it lists as 844x390 phone mockups, plus the service HUD at
+   1440x900, in the existing UI kit style (Art/Concepts/16-ui-kit.png, 17-hud-fishing.png, docs/UI-SYSTEM.md, Fredoka).
+CHECKS: open every sheet you make; contact.png of A-D; REPORT.md with each sheet, its prompt, what Mo chooses between,
+and any style risk you see (for example the cutaway angle hiding the kitchen behind the pass).
+OWNERSHIP: Art/Source/Restaurant/** only. No git, no Unity, no Assets/, no .meta, no .cs, never the player save.
+comms.md: START, one line per sheet, CHECKPOINTs at safe boundaries, DONE then IDLE.
+NEVER create Art/Models/CrewV2/_STOP-WATCHDOGS.

@@ -17,8 +17,8 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 ## Claude 2 (WSL) — goals, in order (lead since 10-26 01:30, Claude 1 paused)
 1. Direct the two Codex agents (skill codex-director); when the guard rings, queue the next brief in
    CONTINUE-CODEX1/2.txt and `team start codexN` (Codex never starts by itself; Claude 1 is away until Wed).
-   Codex 1: MAP11-FIX-AND-LIFE-1 (sand fix, then kelp life); commit MAP11 after review. Codex 2: KELP-LIFE-ART-1
-   (otters), then tier 6 boat concept sheet (Mo picks). Claude: wire the accepted Jig boat (Codex 1: docs/briefs/JIG-BOAT-WIRE-1.txt after MAP11).
+   Mo's 10-26 pivot: fish by day, restaurant at night (docs/plans/RESTAURANT.md). Codex 2: RESTAURANT-CONCEPT-1;
+   Codex 1: RESTAURANT-SCALE-1. Review both, show Mo the looks, settle section 13, then brief R1 (arrange mode).
 2. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
    https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
 3. Claude 1's open UI item while it is paused: D1 HUD mockups (17-hud-fishing, 18-hud-harbour).

@@ -3,6 +3,20 @@
 Updated 2026-10-26 by Claude 1 (W), docs cleanup by Claude 2. Branch `proto/deck-sim`. Read `CURRENT.md` (what the game is now), then this file,
 then the last ~100 lines of `comms.md`. The old to-do list (to 2026-10-21) is in `docs/archive/TODO-2026-10-21.md`.
 
+## Restaurant pivot (Mo, 10-26 evening): fish by day, serve at night
+
+Catchline becomes a restaurant game with a fishing outing. The design is `docs/plans/RESTAURANT.md` (build order R0-R6
+in its section 12, open questions in section 13).
+- [ ] **R0 concepts (running):** Codex 2 `docs/briefs/RESTAURANT-CONCEPT-1.txt` (look options, exterior stages,
+  interiors, item kit, service moment, UI mockups); Codex 1 `docs/briefs/RESTAURANT-SCALE-1.txt` (camera and room size
+  for phones). Mo picks the look.
+- [ ] **R1** the restaurant in the harbour with arrange mode (shop, placement, saved layout), then R2 service, R3 the
+  day plan (forecast, Mira's plan card, prep on the way home, market, cats), R4 events and stages, R5 economy and story.
+- [ ] Later (Mo): restaurant outfits for the crew in 2D and 3D (crew keep their ship models for now).
+- [ ] Later (Mo): passive restaurant income. Not now.
+- [ ] Many more Mira messages through the whole game (RESTAURANT.md section 9).
+- [ ] Night fishing is half built and never reachable (`GameState.NightVoyage`, night pools); parked unless Mo wants it.
+
 ## Decided today (Mo, 10-26), already in the game
 
 - **Two charts.** Chart 1 "Gull coast" = the first 5 grounds; chart 2 "Outer coast" = the next 6, with its own
