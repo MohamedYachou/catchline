@@ -22,7 +22,7 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 - [x] B1 camera frames the dressed V4 room, V4 night light recipe, Forward+ lights in the atlas shader (r31). Sea backdrop: Codex 2 paints water tile.
 - [x] B2 layout tiles mirrored onto the V4 room: kitchen left, queue on the right jetty (r36).
 - [x] B3 guests keep Codex 2 palettes (were remapped to crew teal) (r38). More guests: Codex 2.
-- B4 Dish props on the tables, steam, candles.
+- [x] B4 Dish props on the tables, candles (r46). Steam sprite: with the markers.
 
 ## C. Gameplay
 - C1 New-save fishing bot catches 0 fish: fix.
@@ -32,7 +32,7 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 
 ## D. Crew restaurant clothes (Codex 2 3D, Codex 1 2D busts)
 - D1 Outfit sheet per job: host (Mira, best), cook, server, dishwasher; women dresses/tops, men suits.
-- D2 Models/textures, swapped in for service; busts for the staff rail.
+- [x] D2 CrewRig_Restaurant outfits per job in service (r41), Mira D bust on the rail (interim until Mo picks).
 
 ## Loop rules
 Each Codex run ending: review, append the next order to CONTINUE-CODEXN.txt, `team start codexN`.
