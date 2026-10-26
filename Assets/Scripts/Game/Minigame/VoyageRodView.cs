@@ -77,6 +77,7 @@ namespace Catchline.Game
         void OnDestroy() { rodView?.Dispose(); rodView = null; cageView?.Dispose(); cageView = null; netView?.Dispose(); netView = null; gutView?.Dispose(); gutView = null; }
         void InterfaceRodView()
         {
+            InterfaceStrikeFx();
             // Normal retained deck elements fade over the first .4 seconds of the cast.
             if (RodViewDeckOpacity > .001f)
             {

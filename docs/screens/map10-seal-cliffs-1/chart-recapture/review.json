@@ -1,0 +1,134 @@
+{
+  "utc": "2026-10-26T04:34:16.982880+00:00",
+  "status": "PASS - two chart frames opened, no named-neighbour label overlaps",
+  "handoff": "Claude MAP10 chart 060ef70",
+  "frames": [
+    {
+      "path": "chart-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "470fcc5813dd57c040a9ca33837510e92752b5db5960fc8752983be2ff94701d",
+      "openedBy": "Codex 1 (Windows app)",
+      "cardRectsPixelsTopLeft": {
+        "Seal cliffs": [
+          350.4,
+          452.75,
+          230.0,
+          72.5
+        ],
+        "Kelp bank": [
+          200.64,
+          288.95,
+          230.0,
+          72.5
+        ],
+        "Whale shelf": [
+          10.0,
+          398.75,
+          230.0,
+          72.5
+        ],
+        "Rocky point": [
+          118.56,
+          563.45,
+          230.0,
+          72.5
+        ],
+        "Harbour mouth": [
+          666.18,
+          388.0,
+          245.0,
+          72.5
+        ]
+      },
+      "labelComparisons": [
+        {
+          "neighbour": "Kelp bank",
+          "intersectionAreaPixels": 0.0
+        },
+        {
+          "neighbour": "Whale shelf",
+          "intersectionAreaPixels": 0.0
+        },
+        {
+          "neighbour": "Rocky point",
+          "intersectionAreaPixels": 0
+        },
+        {
+          "neighbour": "Harbour mouth",
+          "intersectionAreaPixels": 0.0
+        }
+      ]
+    },
+    {
+      "path": "chart-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "45d140acf2a63c477ad28b3308f4e7fc5106cb20465c3a367f7265b9258587b8",
+      "openedBy": "Codex 1 (Windows app)",
+      "cardRectsPixelsTopLeft": {
+        "Seal cliffs": [
+          198.32,
+          204.5875,
+          149.5,
+          47.125
+        ],
+        "Kelp bank": [
+          110.544,
+          133.6075,
+          149.5,
+          47.125
+        ],
+        "Whale shelf": [
+          6.5,
+          181.1875,
+          149.5,
+          47.125
+        ],
+        "Rocky point": [
+          62.436,
+          252.5575,
+          149.5,
+          47.125
+        ],
+        "Harbour mouth": [
+          391.893,
+          165.425,
+          159.25,
+          47.125
+        ]
+      },
+      "labelComparisons": [
+        {
+          "neighbour": "Kelp bank",
+          "intersectionAreaPixels": 0.0
+        },
+        {
+          "neighbour": "Whale shelf",
+          "intersectionAreaPixels": 0.0
+        },
+        {
+          "neighbour": "Rocky point",
+          "intersectionAreaPixels": 0.0
+        },
+        {
+          "neighbour": "Harbour mouth",
+          "intersectionAreaPixels": 0.0
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Rendered scripted TEST evidence; no installed-player or physical-device/touch acceptance.",
+    "Existing runner also traversed its downstream trip frames; only the two chart images supersede root evidence.",
+    "Card bounds computed from captured VoyageChart.cs and CoastalCanvas.cs; visual review performed separately."
+  ],
+  "evidence": {
+    "native-run.json": "37d5c29d79f8da90c690bf3984df1047a4cb7b1d922bbdadd2e699d960c33349",
+    "native-exit.json": "e2b565d2f2136c4179c7bfb6186886e32d9845f72038603be7131858638762ac",
+    "native.log": "8cf9c1cad75eef1a38b6098b0131a2625718e98c6da08755282fc711d32779f1",
+    "check-build.log": "f283fad8734179f497dc1afc6157c79ffbcfba07614e6f66072b3dca4f856f14",
+    "build.txt": "69e96ecd6fdb9a64209ea462c8297aea09249554489ad08d89c275bcf30e6f7d",
+    "capture-complete.txt": "d117f9fc64f366be0b6dab8e546af4830af766c068db21d3b1180d3ebc94a2c6"
+  }
+}

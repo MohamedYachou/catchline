@@ -1,0 +1,12 @@
+# MAP10 Seal cliffs evidence
+
+Owned terrain/import/native delivery complete. MAP10 E chart handoff recaptured and verified after Claude's `060ef70`; awaiting lead review.
+
+- Source/actual-FBX audit: 100 checks, 19,860 triangles, export deviation below 0.019 mm. Navigation: 97 checks; six named corner-rock broad-circle exceptions retained in the raw report, actual anchor clearance above 4 m.
+- Seventeen authoring PNGs opened individually: six day/night grounds, two wide views, top, navigation, sheet and six surface markers. Art hashes/review are under Art/Models/Maps/GullSealCliffs/.
+- Isolated Unity exit 0: ten maps, 600 directed hull routes, 30 lanes, five harbour hull trips, three new-ground out/anchor/bait-cast/home trips, exact species/purchase/anchors. See checks.json and check-build.log.
+- SessionOnly native TEST build succeeded. Native run exited 0 after ten frames and normal return home. All ten exact-size screenshots opened individually. review.json binds dimensions, image hashes and findings; native-run.json binds 145 game sources, imported map assets, executable, assembly and scene, with no launch-time main/build source drift.
+- Chart recapture: `chart-1440.png` (1440×900) and `chart-844.png` (844×390) now show spot 9 at (.32,.46) with glyph 14, the sea cliff/gull. Both fresh native frames were opened individually. Seal cliffs' name and 2,600-coin label clear Kelp bank, Whale shelf, Rocky point and Harbour mouth at both sizes. The phone layout is closest to Rocky point, with separate cards and readable labels. The earlier fallback-pin overlap is resolved.
+- `chart-recapture/` retains the isolated rebuild/native logs, exact 146 game-source hashes matched to main at launch, executable/assembly/scene hashes, exit receipts, two-frame visual review and eight card-intersection checks. The existing capture runner also generates downstream trip frames; only the two chart frames supersede the original root images. The original eight terrain/travel frames and their runtime receipts remain historical evidence from the prior run. `chart-recapture/previous-*` retains the superseded chart images and review for comparison.
+
+The six grey corner rocks render without pink materials, clear of the central boat and primary controls. Production blue water is unchanged. Runtime seals/gulls/spray, lead acceptance, installed-player and physical-device/touch acceptance remain separate.

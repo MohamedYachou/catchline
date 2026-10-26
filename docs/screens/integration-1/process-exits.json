@@ -1,0 +1,58 @@
+{
+  "auditedUtc": "2026-10-26T06:13:42.127581+00:00",
+  "note": "No processes rerun at closeout. Wrapper codes are preserved from the execution checkpoint in comms.md; saved logs/JSON independently support the listed outcomes. Individual suites share the initial Unity process and have suite results, not separate process exit codes.",
+  "processes": [
+    {
+      "name": "initial combined scratch build/suites",
+      "unityExitCode": 0,
+      "wrapperExitCode": 1,
+      "evidence": [
+        "check-integration-1.log",
+        "wrapper.log",
+        "suites.tsv",
+        "initial-build.txt"
+      ],
+      "result": "Build succeeded; retained initial regression exception and stale MAP9 assertion prevent a clean pass."
+    },
+    {
+      "name": "initial native session",
+      "processExitCode": 8,
+      "evidence": [
+        "native-initial-exit.json",
+        "native-initial.log"
+      ],
+      "result": "Scratch fixture counted pets before deferred destruction completed; no frames."
+    },
+    {
+      "name": "corrected scratch native build",
+      "unityExitCode": 0,
+      "wrapperExitCode": 0,
+      "evidence": [
+        "check-integration-native-retry.log",
+        "native-retry-build-wrapper.log",
+        "map10-build.txt"
+      ]
+    },
+    {
+      "name": "full original-wrapper regression",
+      "unityExitCode": 0,
+      "wrapperExitCode": 0,
+      "evidence": [
+        "check-integration-regression.log",
+        "regression-wrapper.log",
+        "integration-regression.json"
+      ]
+    },
+    {
+      "name": "corrected native session",
+      "processExitCode": 0,
+      "wrapperExitCode": 0,
+      "evidence": [
+        "native-exit.json",
+        "native-wrapper.log",
+        "native.log",
+        "capture-complete.txt"
+      ]
+    }
+  ]
+}

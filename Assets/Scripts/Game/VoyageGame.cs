@@ -998,6 +998,7 @@ namespace Catchline.Game
             var r = MinigameRod;
             if (r != null && !r.ReadingResult.HasValue && r.State is RodState.Waiting or RodState.Bite)
             {
+                RecordStrikeFx();
                 Captain.PlayOnce("Strike");
                 if (r.State == RodState.Bite) audio?.Play(VoyageAudio.Cue.Reel, .6f);
                 string message = r.Strike(this);

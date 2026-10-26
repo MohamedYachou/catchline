@@ -1,0 +1,262 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullWhaleShelf",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes, one identity root and declared anchors",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WhaleSpout_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WhaleSpout_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WreckGulls_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bird-seamount closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bird-seamount 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bird-seamount 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_bird-seamount -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_bird-seamount -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.76837158203125e-06
+        },
+        {
+          "check": "Terrain_SubmergedShoal closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_SubmergedShoal.001 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal.001 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal.001 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShoal.001 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.925400800034838e-06
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.001 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.001 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.001 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.001 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.76837158203125e-06
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.002 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.002 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.002 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.002 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.003 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.003 0m no intersection in mesh or JSON",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.003 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_SubmergedShelfEdge.003 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "GannetDive_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WhaleSpout_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WhaleSpout_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CardinalBuoy_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "WreckGulls_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.52587890625e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.52587890625e-05,
+      "sourceSha256": "e47c02b8256844036fc25433c42e5140e1f53efa4eb9752fbaac8064ea28203f",
+      "fbxSha256": "c8f8c684efbc38bba426dd9fb66fabefdfe10a5a62231014b4be44a1382735b3",
+      "navigationSha256": "27a606389bad29b9ad2b3870b5b9aeb5e5d41ee97aac04b60bd8763c282752aa"
+    }
+  ],
+  "totalChecks": 49
+}

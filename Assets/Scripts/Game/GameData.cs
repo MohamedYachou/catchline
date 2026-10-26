@@ -183,6 +183,18 @@ namespace Catchline.Game
                 ChartCost = 1370, MapPos = new Vector2(.85f, .08f),
                 Table = new[] { (Species.Pollock, 40f), (Species.SeaBass, 65f), (Species.Conger, 20f), (Species.GoldTipShark, 1f), (Species.Mackerel, 45f), (Species.YellowfinTuna, 3f), (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f) },
             },
+            new()
+            {
+                Name = "Whale shelf", Blurb = "Out where the shelf drops away. Herring shoals, cod on the edge, whales passing through.", RowSeconds = 34f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
+                ChartCost = 1920, MapPos = new Vector2(.88f, .04f),
+                Table = new[] { (Species.Herring, 50f), (Species.Mackerel, 70f), (Species.Whiting, 12f), (Species.FlyingFish, 2f), (Species.Cod, 30f), (Species.Pollock, 50f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f), (Species.SeaBass, 25f), (Species.SpottedEagleRay, 3f) },
+            },
+            new()
+            {
+                Name = "Seal cliffs", Blurb = "Cliffs, a sea arch and seals on the stones. Wrasse in the pool, cod in the race.", RowSeconds = 36f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
+                ChartCost = 2600, MapPos = new Vector2(.08f, .88f),
+                Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
+            },
         };
 
         public static readonly UpgradeDef[] Upgrades =

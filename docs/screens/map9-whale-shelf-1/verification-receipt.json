@@ -1,0 +1,410 @@
+{
+  "utc": "2026-10-25T17:26:32.903383+00:00",
+  "owner": "Codex 1 (Windows app)",
+  "status": "Own MAP9 delivery; Claude review/commit and production chart/water/life acceptance pending",
+  "checks": {
+    "map": "GullWhaleShelf",
+    "utc": "2026-10-25T17:23:21.8510752Z",
+    "maps": 9,
+    "hullRoutes": 60,
+    "lanes": 27,
+    "assets": true,
+    "chartPurchase": true,
+    "anchors": true,
+    "groundPoolsReady": true,
+    "trips": [
+      "HARBOURTRIP PASS \u00b7 27 sea lanes clear \u00b7 hull 0 Rowboat ok (out 38s, home 38s) \u00b7 hull 1 Skiff ok (out 26s, home 24s) \u00b7 hull 2 Compact fisher ok (out 26s, home 27s) \u00b7 hull 3 Prep fisher ok (out 26s, home 27s) \u00b7 hull 4 Buoy fisher ok (out 36s, home 37s)",
+      "GullWhaleShelf/herring-shoals tier5 out/anchor/bait-cast/home PASS",
+      "GullWhaleShelf/shelf-edge tier5 out/anchor/bait-cast/home PASS",
+      "GullWhaleShelf/whale-road tier5 out/anchor/bait-cast/home PASS"
+    ],
+    "groundIds": [
+      "herring-shoals",
+      "shelf-edge",
+      "whale-road"
+    ],
+    "limits": [
+      "Scratch simulation and asset checks; native visuals are separate.",
+      "Runtime gannets/whale spouts/gulls/buoy life, chart glyph and water optics remain lead-owned; see native review."
+    ]
+  },
+  "nativeFrames": {
+    "chart-1440.png": {
+      "sha256": "ee24456ba14c47e8750107fba20dc0a2809b9408acdbe31ab91c5010f11a0c3e",
+      "size": [
+        1440,
+        900
+      ],
+      "openedIndividually": true
+    },
+    "chart-844.png": {
+      "sha256": "0ff5c7a926390d0e15ad16454e4cfdafd75e8d34560410d1ead1ee7d17ebf2a3",
+      "size": [
+        844,
+        390
+      ],
+      "openedIndividually": true
+    },
+    "sail-out-1440.png": {
+      "sha256": "67574d29b6e596ac818a16ff04d3943ff08a30263b6fbada04ee7ceabe8dddaf",
+      "size": [
+        1440,
+        900
+      ],
+      "openedIndividually": true
+    },
+    "sail-out-844.png": {
+      "sha256": "333ed6adda93e6c18406b651f8106908ea64846b0e67d2b7402fa4a55858e6b1",
+      "size": [
+        844,
+        390
+      ],
+      "openedIndividually": true
+    },
+    "herring-shoals-1440.png": {
+      "sha256": "823f57759767a083f04f2a45238f338de23ee92f6f81be0b55dd12c3fa3de15b",
+      "size": [
+        1440,
+        900
+      ],
+      "openedIndividually": true
+    },
+    "herring-shoals-844.png": {
+      "sha256": "ccc07d19ddeb28210e184fdb214a8845d5a889377987920cc84be7ea7697d91a",
+      "size": [
+        844,
+        390
+      ],
+      "openedIndividually": true
+    },
+    "shelf-edge-1440.png": {
+      "sha256": "f8d60e2a6913f92f68c5fce57688bd8b9d4f30568eb68a11adb472149f1ac80a",
+      "size": [
+        1440,
+        900
+      ],
+      "openedIndividually": true
+    },
+    "shelf-edge-844.png": {
+      "sha256": "dfbc2ac9d50df8b452c3eea15c7f18984652e819d82dc0e1f309ba418d80e4b1",
+      "size": [
+        844,
+        390
+      ],
+      "openedIndividually": true
+    },
+    "whale-road-1440.png": {
+      "sha256": "6735761711d5961859078b76a0967464f022707966049ca7c4d55329a8779e03",
+      "size": [
+        1440,
+        900
+      ],
+      "openedIndividually": true
+    },
+    "whale-road-844.png": {
+      "sha256": "84cb448c573a7809dcadd8c71afc6412fe5dd8de066e59d1fca68f0fc2c8a5aa",
+      "size": [
+        844,
+        390
+      ],
+      "openedIndividually": true
+    }
+  },
+  "files": {
+    "Art/Models/Maps/GullWhaleShelf/grounds.json": {
+      "sha256": "f3da816ed736449e1c0cfec8aaa0916751754e3ecca495d0aa51ce992c4441fa",
+      "bytes": 494
+    },
+    "Art/Models/Maps/GullWhaleShelf/GullWhaleShelfSeaV2.blend": {
+      "sha256": "e47c02b8256844036fc25433c42e5140e1f53efa4eb9752fbaac8064ea28203f",
+      "bytes": 419843
+    },
+    "Art/Models/Maps/GullWhaleShelf/GullWhaleShelfSeaV2.fbx": {
+      "sha256": "c8f8c684efbc38bba426dd9fb66fabefdfe10a5a62231014b4be44a1382735b3",
+      "bytes": 1317580
+    },
+    "Art/Models/Maps/GullWhaleShelf/navigation.json": {
+      "sha256": "27a606389bad29b9ad2b3870b5b9aeb5e5d41ee97aac04b60bd8763c282752aa",
+      "bytes": 16904
+    },
+    "Art/Models/Maps/GullWhaleShelf/REPORT.md": {
+      "sha256": "dc155b0fee77007e0ab26359e012e373d81e28178d8b4aeac94793c0f4d913c5",
+      "bytes": 4343
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-audit.json": {
+      "sha256": "6975337650a20dda71cc374c81a9da57a1afdf3d120d0c83ff88c216b9721f55",
+      "bytes": 1385
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-CardinalBuoy_1.png": {
+      "sha256": "7caa9ea0dcf73b35e24d7e6f8646cf4442c63ed004056fd2c8246522f1c6b952",
+      "bytes": 947800
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-GannetDive_1.png": {
+      "sha256": "b58e2687898f31a3d6e8c502b3bc650199d4200c9a258a98b94afd3636f2308c",
+      "bytes": 948092
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-GannetDive_2.png": {
+      "sha256": "3db72ed1f2d1e476239455b6070dd65b9facf95942ea8b88b729dce4cb2a7356",
+      "bytes": 947892
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-WhaleSpout_1.png": {
+      "sha256": "18fbe24aad36ac4a523e047a9d89c2a767dbe4f4fa3be114d32e4519ea4b0b04",
+      "bytes": 947796
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-WhaleSpout_2.png": {
+      "sha256": "b14f21648a6ce0aee17d89e3d5f9e7b211757f572c0176c88fefd2ce0a9f5e1e",
+      "bytes": 947921
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-anchor-WreckGulls_1.png": {
+      "sha256": "a33ed1e65b03d28801ab7e14835789e916b23106b953c3f33c9fb8130990cef4",
+      "bytes": 820470
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-audit-raw.json": {
+      "sha256": "695bf333169711d52e66f93c0501c15ef5995c5a947dfe9413df09def9c0f0bf",
+      "bytes": 11315
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-audit.json": {
+      "sha256": "c9de6d9fb381992072b229c5d65cf0bedaea2d452e8b1a32a31c314aa7118d84",
+      "bytes": 12073
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-herring-shoals-day.png": {
+      "sha256": "e04c4d38d8ee113b4675d514850e542f78d5dccedf138a0bed66272c024fa617",
+      "bytes": 1152886
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-herring-shoals-night.png": {
+      "sha256": "d036196943ee73f31364222617a090d6d2dd06aac2674ed6b0de78788ec8e337",
+      "bytes": 1078458
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-navigation-plate.png": {
+      "sha256": "78c9ad200e9c3ac0d9a31dbfa285a6b80a2e07171a5212177f543a7363f23a14",
+      "bytes": 1355577
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-Review-only.blend": {
+      "sha256": "cd3aec057ee8b5fc8393f6084170272d0f7f57ff4da4d89064ee24bef4b16217",
+      "bytes": 468773
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-review-sheet.png": {
+      "sha256": "2534e875bb0143fcfc3829e7a69ab877eb7d784a3b1d0e2abedeac71582f29d1",
+      "bytes": 1648149
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-shelf-edge-day.png": {
+      "sha256": "d2d0298781db64b9478b81d6a06e166d23f1b357f241456944c5d47cffa68544",
+      "bytes": 1126118
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-shelf-edge-night.png": {
+      "sha256": "56490fd13824e498a4e6e6f3620633ae8cb9a63a7381b32bd39e10b6e2377bbe",
+      "bytes": 1035047
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-source-audit.json": {
+      "sha256": "d0ed7d4a7d112f98f6a416ee99edba6ad0478ddf884edd1c742fbb24805e162c",
+      "bytes": 8218
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-top-base.png": {
+      "sha256": "1408cbf4a5cd7aab5847818a421a29dcf6a074b5093d3e07df3527fa624ee813",
+      "bytes": 2040898
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-validation.json": {
+      "sha256": "eb6dc43759a22d59c7fe16068d7b95fee3477d2691811ce8cec1a830c0fed074",
+      "bytes": 8756
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-whale-road-day.png": {
+      "sha256": "b7fc0f723088b6fc749071a4cbd3727344e243c039bfe48c6246d39eff99c21d",
+      "bytes": 1144648
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-whale-road-night.png": {
+      "sha256": "2b771276b9ca1d1833df55777000c030b10c6c0d1f01eaad6971526a05864446",
+      "bytes": 1068115
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-wide-day.png": {
+      "sha256": "240c8995f434911103bbe7a38ef939bf8dbf60d1cecf7b349970abd6e8656700",
+      "bytes": 1113600
+    },
+    "Art/Models/Maps/GullWhaleShelf/SeaV2-wide-night.png": {
+      "sha256": "42ba35d18b1c5e1ab5acadc6e33ba041dcefecae944632b2a841332a4d396cde",
+      "bytes": 1012218
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/grounds.json": {
+      "sha256": "f3da816ed736449e1c0cfec8aaa0916751754e3ecca495d0aa51ce992c4441fa",
+      "bytes": 494
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/grounds.json.meta": {
+      "sha256": "af302369110a1d5688747c39c41144629c418d6368cdae27cbf2723b63ef6756",
+      "bytes": 62
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/GullWhaleShelfSeaV2.fbx": {
+      "sha256": "c8f8c684efbc38bba426dd9fb66fabefdfe10a5a62231014b4be44a1382735b3",
+      "bytes": 1317580
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/GullWhaleShelfSeaV2.fbx.meta": {
+      "sha256": "e504a22d79c27311ebe1d58e3129afa026d1a71ddc7914d42e192a8360a6640a",
+      "bytes": 3002
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/navigation.json": {
+      "sha256": "27a606389bad29b9ad2b3870b5b9aeb5e5d41ee97aac04b60bd8763c282752aa",
+      "bytes": 16904
+    },
+    "Assets/Art/Models/Environment/GullWhaleShelf/navigation.json.meta": {
+      "sha256": "48c3741e6632d0782a769f0ed52409bd6a3c3a1769ca155ec45adabdb0731c8d",
+      "bytes": 165
+    },
+    "Assets/Editor/WhaleShelfMapChecks.cs": {
+      "sha256": "ec33f297db94e3fa9ded53a08e92212f642a41f4443f5e6b2f8698aff65309e9",
+      "bytes": 13740
+    },
+    "Assets/Scripts/Game/Map9Capture.cs": {
+      "sha256": "e45f3d217a94c20a1a11180c81dde8c883419fb63a9f7811f2ec17e8670ca396",
+      "bytes": 4683
+    },
+    "Assets/Scripts/Game/GameData.cs": {
+      "sha256": "e0aeae19c1e26b36fac2ce637fe51eef467e274ccd848c3f702dbd153f339070",
+      "bytes": 25157
+    },
+    "Assets/Scripts/Game/VoyageScenery.cs": {
+      "sha256": "898a439edf1246eb0c10134e4ff26fd4c3cd9b29915263d1a50931256caac850",
+      "bytes": 14340
+    },
+    "Assets/Scripts/Game/Sea/SeaNav.cs": {
+      "sha256": "1a63ae94500c6fa20c2c375edeac511d91cff1a36064e4d026fff502c2a949f5",
+      "bytes": 18093
+    },
+    "Assets/Scripts/Game/Data/Grounds.cs": {
+      "sha256": "685127ec63dc9fcf828f2e5d9aade880223adb6ec18c8aa6f7807246461c71f0",
+      "bytes": 13381
+    },
+    "Art/Source/Art108/map9_audit.py": {
+      "sha256": "67e3485633b8c3c6699415ecab75e14b2973b0436b92036fe69e6237e475cf03",
+      "bytes": 2103
+    },
+    "Art/Source/Art108/map9_evidence.py": {
+      "sha256": "907aafcab0840d02b5699b018a212644fc5631d73c81560dcb3980adea9bbe45",
+      "bytes": 9160
+    },
+    "Art/Source/Art108/map9_native.ps1": {
+      "sha256": "4bb0e52d6cb0bc24d0096a618ed803363ed7568bff5b2a8f591d30af00196f8b",
+      "bytes": 2644
+    },
+    "Art/Source/Art108/map9_prepare.py": {
+      "sha256": "8d96fb1b5d10b5a363b0b535825a426eb7e8e1b29772964c7e3b17d2f4734c4c",
+      "bytes": 6216
+    },
+    "Art/Source/Art108/map9_resources.ps1": {
+      "sha256": "da766f2710312b609170ab04e536aae7b6c9fecbe67c3101ac3be243652e20b3",
+      "bytes": 952
+    },
+    "Art/Source/Art108/map9_source_audit.py": {
+      "sha256": "6007d73050061d3f2071712dd43a9f92cf73925c13767fcd900d08a10c4d1a95",
+      "bytes": 9258
+    },
+    "Art/Source/Art108/map9_whale_shelf.py": {
+      "sha256": "9ca91949d75aa4a5b850959b5a702b3059a343774c4b0461e08e8f60931d7ec3",
+      "bytes": 9543
+    },
+    "Art/Source/Art108/sea_v2_layouts.py": {
+      "sha256": "e32c6990c5c101889b18ea77a78f306a3253ad69364597dba0c5cbb2d6682078",
+      "bytes": 7423
+    },
+    "docs/screens/map9-whale-shelf-1/art-review.json": {
+      "sha256": "5a5ee2506e08ffbf5f576f091d2d9a0af1ba6bc9dd60906a525e7f1edaf2c7c0",
+      "bytes": 4483
+    },
+    "docs/screens/map9-whale-shelf-1/capture-complete.txt": {
+      "sha256": "eb1f457d18a7d4e28155d0afb9df27bb715482c658da68ab49665ba36f2fe3e5",
+      "bytes": 813
+    },
+    "docs/screens/map9-whale-shelf-1/chart-1440.png": {
+      "sha256": "ee24456ba14c47e8750107fba20dc0a2809b9408acdbe31ab91c5010f11a0c3e",
+      "bytes": 2291607
+    },
+    "docs/screens/map9-whale-shelf-1/chart-844.png": {
+      "sha256": "0ff5c7a926390d0e15ad16454e4cfdafd75e8d34560410d1ead1ee7d17ebf2a3",
+      "bytes": 646844
+    },
+    "docs/screens/map9-whale-shelf-1/check-map9-final-build.log": {
+      "sha256": "1a4107ffe7da00dce889b3a4ca9be6b2f22b6e16f3b923dbd26c6ceff1968b9a",
+      "bytes": 672134
+    },
+    "docs/screens/map9-whale-shelf-1/check-map9-safety-build.log": {
+      "sha256": "be250c77c26ad54c5926165a68bd80c91f3a1d37c6fba386c4e325469fba81ed",
+      "bytes": 353359
+    },
+    "docs/screens/map9-whale-shelf-1/final-build-wrapper.log": {
+      "sha256": "1445d3a5cb40fa9ad22988f3c435104fa2d517683bf9da20e7ecdaa4e5605351",
+      "bytes": 6968
+    },
+    "docs/screens/map9-whale-shelf-1/herring-shoals-1440.png": {
+      "sha256": "823f57759767a083f04f2a45238f338de23ee92f6f81be0b55dd12c3fa3de15b",
+      "bytes": 1147123
+    },
+    "docs/screens/map9-whale-shelf-1/herring-shoals-844.png": {
+      "sha256": "ccc07d19ddeb28210e184fdb214a8845d5a889377987920cc84be7ea7697d91a",
+      "bytes": 372870
+    },
+    "docs/screens/map9-whale-shelf-1/map9-build.txt": {
+      "sha256": "ce6d89fa2e6a30a50242e3119427e1d4fe38c4a7041f6c597a7a0e76b9c80d39",
+      "bytes": 38
+    },
+    "docs/screens/map9-whale-shelf-1/map9-final-checks.json": {
+      "sha256": "e06ab35b0e14c9f004c4eaeb06a15fdae663f157d45686d2c83c5ae660f01e11",
+      "bytes": 1059
+    },
+    "docs/screens/map9-whale-shelf-1/native-exit.json": {
+      "sha256": "c82f11fc1a4a55c5e1f5c1dd99f8ec2120360fc2a7184718a631a58a7f57c0e9",
+      "bytes": 100
+    },
+    "docs/screens/map9-whale-shelf-1/native-run.json": {
+      "sha256": "a2c33287d68cb7fd75fd7a66dc31940dda5a1dc61a2a0ebdc805bcda4ac3a9fa",
+      "bytes": 54450
+    },
+    "docs/screens/map9-whale-shelf-1/native-visual-review.json": {
+      "sha256": "13651c7e7eb4220bb252500dcae043dfc8179f81743a70cc649465d88b7fc7fc",
+      "bytes": 4600
+    },
+    "docs/screens/map9-whale-shelf-1/native.log": {
+      "sha256": "8fce9674b6cda0a75c0bafca3f3c1f3ea247dff8ffe9a4a3349b79eb9c41eb6b",
+      "bytes": 3214
+    },
+    "docs/screens/map9-whale-shelf-1/README.md": {
+      "sha256": "cf44915a6a6d1e7f5f23c02173eb981368f2c199922b892df57f517ffeca706a",
+      "bytes": 5009
+    },
+    "docs/screens/map9-whale-shelf-1/sail-out-1440.png": {
+      "sha256": "67574d29b6e596ac818a16ff04d3943ff08a30263b6fbada04ee7ceabe8dddaf",
+      "bytes": 1485276
+    },
+    "docs/screens/map9-whale-shelf-1/sail-out-844.png": {
+      "sha256": "333ed6adda93e6c18406b651f8106908ea64846b0e67d2b7402fa4a55858e6b1",
+      "bytes": 427381
+    },
+    "docs/screens/map9-whale-shelf-1/shelf-edge-1440.png": {
+      "sha256": "f8d60e2a6913f92f68c5fce57688bd8b9d4f30568eb68a11adb472149f1ac80a",
+      "bytes": 1082199
+    },
+    "docs/screens/map9-whale-shelf-1/shelf-edge-844.png": {
+      "sha256": "dfbc2ac9d50df8b452c3eea15c7f18984652e819d82dc0e1f309ba418d80e4b1",
+      "bytes": 352987
+    },
+    "docs/screens/map9-whale-shelf-1/whale-road-1440.png": {
+      "sha256": "6735761711d5961859078b76a0967464f022707966049ca7c4d55329a8779e03",
+      "bytes": 1084569
+    },
+    "docs/screens/map9-whale-shelf-1/whale-road-844.png": {
+      "sha256": "84cb448c573a7809dcadd8c71afc6412fe5dd8de066e59d1fca68f0fc2c8a5aa",
+      "bytes": 355196
+    }
+  },
+  "sourceSnapshots": [
+    "safety-source/source-hashes.json",
+    "final-source/source-hashes.json"
+  ],
+  "limits": [
+    "Original full run passed 540 routes then failed inherited horizon assertion; actual failed log retained.",
+    "Final run passed 60 affected-map routes, all nine scene assets and 27 lanes, five baseline hull trips and three MAP9 bait/cast/home trips.",
+    "MAP9 open-water horizon assertion is adapted only in the own fixture; shared checks remain unchanged.",
+    "Frozen native stills do not prove animated life, physical touch, caught-fish yield, installed-player acceptance or player-save migration.",
+    "Chart position/glyph, trip landmarks, water optics and life remain Claude-owned. See native review and comms QUESTION lines."
+  ],
+  "commit": null,
+  "playerSaveAccess": false,
+  "installedPlayerReplaced": false,
+  "subagents": []
+}

@@ -1,0 +1,532 @@
+{
+  "map": "GullWhaleShelf",
+  "allPassed": true,
+  "checks": [
+    {
+      "check": "saved source SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX triangle and vertex roundtrip",
+      "passed": true,
+      "detail": 1.52587890625e-05
+    },
+    {
+      "check": "approved playable dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "three original ground IDs, names, depths and pool IDs retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:bird-seamount-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:bird-seamount-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:bird-seamount-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:bird-seamount-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShoal-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShoal-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShoal.001-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShoal.001-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.001-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.001-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.002-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.002-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.003-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:SubmergedShelfEdge.003-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "each island contained in its shallow shelf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-shoals full zone clear of islands +2m",
+      "passed": true,
+      "detail": 44.565
+    },
+    {
+      "check": "herring-shoals zone clear except approved submerged corner landmarks; anchor4m clear",
+      "passed": true,
+      "detail": {
+        "anchorClearance": 4.2641396445824835,
+        "rule": "Claude MAP8 ACCEPTED 17:47, applied only to MAP9 submerged camera landmarks"
+      },
+      "originalPassed": false
+    },
+    {
+      "check": "herring-shoals full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-shoals 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "herring-shoals art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shelf-edge full zone clear of islands +2m",
+      "passed": true,
+      "detail": 27.98
+    },
+    {
+      "check": "shelf-edge zone clear except approved submerged corner landmarks; anchor4m clear",
+      "passed": true,
+      "detail": {
+        "anchorClearance": 4.264136317638077,
+        "rule": "Claude MAP8 ACCEPTED 17:47, applied only to MAP9 submerged camera landmarks"
+      },
+      "originalPassed": false
+    },
+    {
+      "check": "shelf-edge full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shelf-edge 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shelf-edge art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "whale-road full zone clear of islands +2m",
+      "passed": true,
+      "detail": 114.468
+    },
+    {
+      "check": "whale-road zone clear except approved submerged corner landmarks; anchor4m clear",
+      "passed": true,
+      "detail": {
+        "anchorClearance": 4.2641396445824835,
+        "rule": "Claude MAP8 ACCEPTED 17:47, applied only to MAP9 submerged camera landmarks"
+      },
+      "originalPassed": false
+    },
+    {
+      "check": "whale-road full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "whale-road 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "whale-road art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour clear of island inflation2m",
+      "passed": true,
+      "detail": 145.536
+    },
+    {
+      "check": "harbour outside shallows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoy spacing25-30m",
+      "passed": true,
+      "detail": [
+        27.6923,
+        28.0
+      ]
+    },
+    {
+      "check": "outer buoy bases clear of islands +2m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoys on border",
+      "passed": true,
+      "detail": 46
+    },
+    {
+      "check": "horizon centres beyond border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "at least one land-blocked ground pair",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all114 pre-existing protected file bytes preserved",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 2,
+      "length": 90.272,
+      "direct": 90.272,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          -85.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 232.808,
+      "direct": 231.795,
+      "ratio": 1.0044,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          -38.001534960746916,
+          29.054387616248654
+        ],
+        [
+          -24.992324215671246,
+          41.65277001251979
+        ],
+        [
+          10.0,
+          70.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 261.696,
+      "direct": 261.696,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 142.59,
+      "direct": 141.598,
+      "ratio": 1.007,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -35.0
+        ],
+        [
+          -38.001534960746916,
+          29.054387616248654
+        ],
+        [
+          -24.992324215671246,
+          41.65277001251979
+        ],
+        [
+          10.0,
+          70.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 197.124,
+      "direct": 197.124,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -85.0,
+          -35.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 151.486,
+      "direct": 151.486,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          10.0,
+          70.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 4,
+      "length": 90.272,
+      "direct": 90.272,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          -85.0,
+          -35.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 233.343,
+      "direct": 231.795,
+      "ratio": 1.0067,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          -39.93161866591629,
+          29.9693803416168
+        ],
+        [
+          -25.461776644903992,
+          43.98226756180036
+        ],
+        [
+          10.0,
+          70.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 261.696,
+      "direct": 261.696,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -142.0,
+          -105.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 143.196,
+      "direct": 141.598,
+      "ratio": 1.0113,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -85.0,
+          -35.0
+        ],
+        [
+          -39.93161866591629,
+          29.9693803416168
+        ],
+        [
+          -25.461776644903992,
+          43.98226756180036
+        ],
+        [
+          10.0,
+          70.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 197.124,
+      "direct": 197.124,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -85.0,
+          -35.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 151.486,
+      "direct": 151.486,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          10.0,
+          70.0
+        ],
+        [
+          112.0,
+          -42.0
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "e47c02b8256844036fc25433c42e5140e1f53efa4eb9752fbaac8064ea28203f",
+  "fbxSha256": "c8f8c684efbc38bba426dd9fb66fabefdfe10a5a62231014b4be44a1382735b3",
+  "navigationSha256": "27a606389bad29b9ad2b3870b5b9aeb5e5d41ee97aac04b60bd8763c282752aa",
+  "limits": "Art-side static geometry and 2m/4m disc visibility routes; not native turning/speed/hull acceptance. Full gameplay camera remains orthographic10.24m. MAP9 close-landmark exception is restricted to submerged corner shelves; anchor radius4m remains clear. Raw inherited audit retained."
+}

@@ -1,0 +1,67 @@
+diff --git a/Assets/Editor/ArtImport.cs b/Assets/Editor/ArtImport.cs
+index 05f4a8f..af80174 100644
+--- a/Assets/Editor/ArtImport.cs
++++ b/Assets/Editor/ArtImport.cs
+@@ -86 +86 @@ void OnPreprocessModel()
+-            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx");
++            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx") || assetPath.EndsWith("/HarbourLife/Dog.fbx") || assetPath.EndsWith("/HarbourLife/Cat.fbx");
+diff --git a/Assets/Scripts/Game/Data/Grounds.cs b/Assets/Scripts/Game/Data/Grounds.cs
+index 45e7589..6c5def2 100644
+--- a/Assets/Scripts/Game/Data/Grounds.cs
++++ b/Assets/Scripts/Game/Data/Grounds.cs
+@@ -78,0 +79,10 @@ public static class Grounds
++            // Whale shelf (MAP9): append without moving saved richness slots.
++            new[] {
++                G("herring-shoals", "Herring shoals", "shoals", (Species.Herring, 50f), (Species.Mackerel, 35f), (Species.Whiting, 12f), (Species.FlyingFish, 2f)),
++                G("shelf-edge", "Shelf edge", "shelf", (Species.Cod, 30f), (Species.Pollock, 30f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f)),
++                G("whale-road", "Whale road", "whales", (Species.Mackerel, 35f), (Species.SeaBass, 25f), (Species.Pollock, 20f), (Species.SpottedEagleRay, 3f)) },
++            // Seal cliffs (MAP10): append without moving saved richness slots.
++            new[] {
++                G("arch-pool", "Arch pool", "arch", (Species.Pollock, 40f), (Species.RedMullet, 30f), (Species.Conger, 15f), (Species.Crab, 2f)),
++                G("seal-cove", "Seal cove", "cove", (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.RedMullet, 3f)),
++                G("stack-race", "Stack race", "stack", (Species.Cod, 35f), (Species.Pollock, 30f), (Species.Conger, 15f), (Species.Turbot, 1f)) },
+diff --git a/Assets/Scripts/Game/GameData.cs b/Assets/Scripts/Game/GameData.cs
+index 0fe3afd..d4721d2 100644
+--- a/Assets/Scripts/Game/GameData.cs
++++ b/Assets/Scripts/Game/GameData.cs
+@@ -185,0 +186,12 @@ public static class GameData
++            new()
++            {
++                Name = "Whale shelf", Blurb = "Out where the shelf drops away. Herring shoals, cod on the edge, whales passing through.", RowSeconds = 34f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
++                ChartCost = 1920, MapPos = new Vector2(.88f, .04f),
++                Table = new[] { (Species.Herring, 50f), (Species.Mackerel, 70f), (Species.Whiting, 12f), (Species.FlyingFish, 2f), (Species.Cod, 30f), (Species.Pollock, 50f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f), (Species.SeaBass, 25f), (Species.SpottedEagleRay, 3f) },
++            },
++            new()
++            {
++                Name = "Seal cliffs", Blurb = "Cliffs, a sea arch and seals on the stones. Wrasse in the pool, cod in the race.", RowSeconds = 36f, BiteWait = 1.5f, Water = Palette.Hex("2A7F96"),
++                ChartCost = 2600, MapPos = new Vector2(.08f, .88f),
++                Table = new[] { (Species.Pollock, 70f), (Species.RedMullet, 33f), (Species.Conger, 30f), (Species.Crab, 2f), (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.Cod, 35f), (Species.Turbot, 1f) },
++            },
+diff --git a/Assets/Scripts/Game/Minigame/VoyageRodView.cs b/Assets/Scripts/Game/Minigame/VoyageRodView.cs
+index 8309937..30fb62a 100644
+--- a/Assets/Scripts/Game/Minigame/VoyageRodView.cs
++++ b/Assets/Scripts/Game/Minigame/VoyageRodView.cs
+@@ -79,0 +80 @@ void InterfaceRodView()
++            InterfaceStrikeFx();
+diff --git a/Assets/Scripts/Game/Sea/SeaNav.cs b/Assets/Scripts/Game/Sea/SeaNav.cs
+index 0f3be64..848d35e 100644
+--- a/Assets/Scripts/Game/Sea/SeaNav.cs
++++ b/Assets/Scripts/Game/Sea/SeaNav.cs
+@@ -19 +19 @@ public sealed class Ground
+-        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock" };
++        public static readonly string[] Maps = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs" };
+diff --git a/Assets/Scripts/Game/VoyageGame.cs b/Assets/Scripts/Game/VoyageGame.cs
+index 5745a2c..af016bf 100644
+--- a/Assets/Scripts/Game/VoyageGame.cs
++++ b/Assets/Scripts/Game/VoyageGame.cs
+@@ -1000,0 +1001 @@ public void StrikeTap()
++                RecordStrikeFx();
+diff --git a/Assets/Scripts/Game/VoyageScenery.cs b/Assets/Scripts/Game/VoyageScenery.cs
+index 9a8bff0..f47c7b8 100644
+--- a/Assets/Scripts/Game/VoyageScenery.cs
++++ b/Assets/Scripts/Game/VoyageScenery.cs
+@@ -67,0 +68 @@ void DressHarbour(Transform root, ArtLibrary lib, float quayTop, System.Func<flo
++            DressHarbourPets(root, lib, q);
+@@ -105 +106 @@ void BuildSeaDressing(int kind, Transform root, ArtLibrary lib, System.Func<floa
+-            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock" };
++            string[] environments = { "GullHarbourMouth", "GullKelpBank", "GullSandbar", "GullRockyPoint", "GullDeepChannel", "GullSkerries", "GullWreckBank", "GullLighthouseRock", "GullWhaleShelf", "GullSealCliffs" };

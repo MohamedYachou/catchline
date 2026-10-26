@@ -1,0 +1,840 @@
+{
+  "map": "GullSealCliffs",
+  "allPassed": false,
+  "checks": [
+    {
+      "check": "saved source SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "navigation SHA256",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "actual FBX triangle and vertex roundtrip",
+      "passed": true,
+      "detail": 1.8596649169921875e-05
+    },
+    {
+      "check": "approved playable dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "three original ground IDs, names, depths and pool IDs retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:north-cliff-line-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 15
+    },
+    {
+      "check": "islands:north-cliff-line-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:race-stack-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:race-stack-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:ArchPier_-86-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:ArchPier_-86-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:ArchPier_-62-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:ArchPier_-62-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CoveApron_0-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:CoveApron_0-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CoveApron_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:CoveApron_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CoveApron_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:CoveApron_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:HauloutStone_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:HauloutStone_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:HauloutStone_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:HauloutStone_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:HauloutStone_3-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "islands:HauloutStone_3-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_arch-pool_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_arch-pool_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_arch-pool_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_arch-pool_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_seal-cove_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_seal-cove_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_seal-cove_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_seal-cove_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_stack-race_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_stack-race_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "islands:CornerRock_stack-race_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "islands:CornerRock_stack-race_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:north-cliff-line-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 15
+    },
+    {
+      "check": "shallows:north-cliff-line-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:race-stack-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:race-stack-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:ArchPier_-86-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:ArchPier_-86-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:ArchPier_-62-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:ArchPier_-62-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CoveApron_0-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:CoveApron_0-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CoveApron_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:CoveApron_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CoveApron_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:CoveApron_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:HauloutStone_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:HauloutStone_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:HauloutStone_2-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:HauloutStone_2-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:HauloutStone_3-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "check": "shallows:HauloutStone_3-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_arch-pool_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_arch-pool_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_arch-pool_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_arch-pool_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_seal-cove_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_seal-cove_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_seal-cove_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_seal-cove_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_stack-race_-1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_stack-race_-1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "shallows:CornerRock_stack-race_1-0 valid, simple, CCW, <=64 vertices",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "shallows:CornerRock_stack-race_1-0 actual terrain-slice provenance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "each island contained in its shallow shelf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "arch-pool full zone clear of islands +2m",
+      "passed": false,
+      "detail": -6.872
+    },
+    {
+      "check": "arch-pool full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -6.975
+    },
+    {
+      "check": "arch-pool full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "arch-pool 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "arch-pool art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "seal-cove full zone clear of islands +2m",
+      "passed": false,
+      "detail": -8.872
+    },
+    {
+      "check": "seal-cove full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -8.975
+    },
+    {
+      "check": "seal-cove full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "seal-cove 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "seal-cove art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "stack-race full zone clear of islands +2m",
+      "passed": false,
+      "detail": -9.872
+    },
+    {
+      "check": "stack-race full zone outside shallows (anchoring)",
+      "passed": false,
+      "detail": -9.975
+    },
+    {
+      "check": "stack-race full zone inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "stack-race 12-20m radius",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "stack-race art review anchor inside its zone",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour clear of island inflation2m",
+      "passed": true,
+      "detail": 130.712
+    },
+    {
+      "check": "harbour outside shallows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "harbour inside border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoy spacing25-30m",
+      "passed": true,
+      "detail": [
+        26.0,
+        26.153850000000006
+      ]
+    },
+    {
+      "check": "outer buoy bases clear of islands +2m",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer buoys on border",
+      "passed": true,
+      "detail": 46
+    },
+    {
+      "check": "horizon centres beyond border",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all6 harbour/ground routes exist with continuous clearance at radius4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "at least one land-blocked ground pair",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all114 pre-existing protected file bytes preserved",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 2,
+      "length": 136.418,
+      "direct": 136.418,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          -72.0,
+          26.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 195.88,
+      "direct": 195.88,
+      "ratio": 1.0,
+      "directBlocked": false,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          5.0,
+          42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 266.256,
+      "direct": 266.13,
+      "ratio": 1.0005,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          100.9765791850506,
+          16.831163269321827
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 2,
+      "length": 79.217,
+      "direct": 78.645,
+      "ratio": 1.0073,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          26.0
+        ],
+        [
+          0.9765911291581002,
+          38.83116325662051
+        ],
+        [
+          5.0,
+          42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 181.446,
+      "direct": 177.102,
+      "ratio": 1.0245,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          26.0
+        ],
+        [
+          23.626534204264356,
+          4.542806263304036
+        ],
+        [
+          100.9765791850506,
+          16.831163269321827
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 2,
+      "length": 104.569,
+      "direct": 102.391,
+      "ratio": 1.0213,
+      "directBlocked": true,
+      "polyline": [
+        [
+          5.0,
+          42.0
+        ],
+        [
+          29.842484262973425,
+          45.50548480848659
+        ],
+        [
+          40.744026953655286,
+          42.07492730431673
+        ],
+        [
+          99.57204677075886,
+          23.03820967172469
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 1,
+      "radius": 4,
+      "length": 146.887,
+      "direct": 136.418,
+      "ratio": 1.0767,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          -65.19573490099178,
+          14.284435911482387
+        ],
+        [
+          -63.240776757276045,
+          20.856872815289314
+        ],
+        [
+          -67.07368868307431,
+          24.273059668545045
+        ],
+        [
+          -72.0,
+          26.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 205.619,
+      "direct": 195.88,
+      "ratio": 1.0497,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          -4.004194971023848,
+          48.29483639011765
+        ],
+        [
+          0.5879768505563997,
+          46.811833113575204
+        ],
+        [
+          4.4208788984039655,
+          43.39565830150543
+        ],
+        [
+          5.0,
+          42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 0,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 272.376,
+      "direct": 266.13,
+      "ratio": 1.0235,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -135.0,
+          -95.0
+        ],
+        [
+          95.9958093275805,
+          26.294841143334995
+        ],
+        [
+          100.58795491928976,
+          24.811834964064293
+        ],
+        [
+          104.42091100233512,
+          21.395665066664083
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 2,
+      "radius": 4,
+      "length": 83.029,
+      "direct": 78.645,
+      "ratio": 1.0557,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          26.0
+        ],
+        [
+          -4.004194971023848,
+          48.29483639011765
+        ],
+        [
+          0.5879768505563997,
+          46.811833113575204
+        ],
+        [
+          4.4208788984039655,
+          43.39565830150543
+        ],
+        [
+          5.0,
+          42.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 1,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 186.332,
+      "direct": 177.102,
+      "ratio": 1.0521,
+      "directBlocked": true,
+      "polyline": [
+        [
+          -72.0,
+          26.0
+        ],
+        [
+          22.487218149352394,
+          2.28089125178092
+        ],
+        [
+          34.73703975619077,
+          4.686317077502861
+        ],
+        [
+          95.9958093275805,
+          26.294841143334995
+        ],
+        [
+          100.58795491928976,
+          24.811834964064293
+        ],
+        [
+          104.42091100233512,
+          21.395665066664083
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "fromIndex": 2,
+      "toIndex": 3,
+      "radius": 4,
+      "length": 106.524,
+      "direct": 102.391,
+      "ratio": 1.0404,
+      "directBlocked": true,
+      "polyline": [
+        [
+          5.0,
+          42.0
+        ],
+        [
+          29.246675655065474,
+          47.789666885813276
+        ],
+        [
+          42.353649568093985,
+          43.665092136155884
+        ],
+        [
+          100.58795491928976,
+          24.811834964064293
+        ],
+        [
+          104.42091100233512,
+          21.395665066664083
+        ],
+        [
+          105.0,
+          20.0
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "db1690c58d688f16ee6cd4c6bc0ebb3071e6062560004c2dd527e69393958e2e",
+  "fbxSha256": "d2ee5fd30e64e0102eb59ad35041e85efc0c0630c0b23de88bdf47df810e8959",
+  "navigationSha256": "2477608def2ea6eada2515bf14c6ad18707e44a8583e296fddfaf94079602d5e",
+  "limits": "Art-side static geometry and 2m/4m disc visibility routes; not native turning/speed/hull acceptance. Full gameplay camera remains orthographic10.24m."
+}

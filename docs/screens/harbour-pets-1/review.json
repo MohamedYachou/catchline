@@ -1,0 +1,68 @@
+{
+  "owner": "Codex 1 (Windows app)",
+  "task": "HARBOUR-PETS-1",
+  "captureRun": "harbour-pets-capture3",
+  "captureUnityExit": 0,
+  "images": [
+    {
+      "file": "harbour-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "76ce5a899a3ca153c5b3cad6a90c8163f3b5304ffc16deaad5ca4b07680bd57c",
+      "openedIndividually": true
+    },
+    {
+      "file": "harbour-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "98fcce9a2c1e63c8c645a0c98f9580f5a9d6bee5f269806487e83981e652249e",
+      "openedIndividually": true
+    },
+    {
+      "file": "dog-close.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "d652049755c53cf80114369b7ac98ae3e6e9df97dc7b8d637a52628e098fba4d",
+      "openedIndividually": true
+    },
+    {
+      "file": "cat-close.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "fbe6df67a972612a6a8350a3fbc7def75ca055f8db88d2bae12ce5a4188fa227",
+      "openedIndividually": true
+    }
+  ],
+  "sourceSha256": {
+    "Assets\\Art\\Models\\HarbourLife\\Dog.fbx": "41b8d5a21e3fca8a12ab3a6d9ff5e1c4ffa01876058c109933aa77ba39fb90d9",
+    "Assets\\Art\\Models\\HarbourLife\\Cat.fbx": "7238c6602205911af6e390bd0b36caac8c8308c1f15258a57d6fe103e9b56be4",
+    "Assets/Scripts/Game/VoyageHarbourPets.cs": "7e32ceade97331cda517d7296c6f16332ada0e4a12a90b775e0f41e2f0df6a50",
+    "Assets/Editor/PetsCapture.cs": "e40281e72de5ba17c734aa67b54cc561178d5e44adc83678583bed76608f5ad6",
+    "Assets/Editor/ArtImport.cs": "a81ab8be975b451f6658218b50f83a92bb26d56fb293f4dba5aec74367d81bac",
+    "Assets/Scripts/Game/VoyageScenery.cs": "19fa03e23d59a375df996640781d17ce0d2a2ae1ab969592b444aabf25631372",
+    "Assets/Scripts/Game/VoyageHarbourPets.cs.meta": "16b385d26d6f58ff6a487a1fa3d11ec03fd321505b30b15abb2a88910de4a40a",
+    "Assets/Editor/PetsCapture.cs.meta": "db9b3a852c3ce0e03bbe5d9e2adc7c9107b598f3c79667b3bbb0c9f846f7c7fd",
+    "Assets/Art/Models/HarbourLife.meta": "e31790bd709626f911b6646e821eb341b13d0cd2c550999da32dff99e518fb84",
+    "Assets/Art/Models/HarbourLife/Dog.fbx.meta": "d4bda67b3a31303f8d9707f0d2d156386c0642a85af9406821295c6ff7e4bf6d",
+    "Assets/Art/Models/HarbourLife/Cat.fbx.meta": "a1063844d95f0eb66160b7401cf7ef01077f49d933d295953bde4f30381fad22"
+  },
+  "artistFbxBytesPreserved": true,
+  "visualFindings": [
+    "Both pets visible outside HUD buttons at both overview sizes.",
+    "Cat curled on three-board lid, clear of noticeboard and Crew office frontage.",
+    "Dog on quay, townsperson and animal retain artist scale, matte colors/no pink."
+  ],
+  "limits": [
+    "Editor URP plus production Canvas composites; not standalone or installed-player acceptance.",
+    "Townsperson staged solely for scale evidence."
+  ],
+  "regression": {
+    "method": "Catchline.EditorTools.CrewCardsAbilityChecks.Regression",
+    "unityExit": 0,
+    "passed": true,
+    "abilityAssertions": 286,
+    "tutorialAssertions": 217,
+    "unresolvedTargets": 0,
+    "logSha256": "94b07d6168b0edda4ea9be34bef59358e03b42b002537701337742d077ad96a1"
+  }
+}

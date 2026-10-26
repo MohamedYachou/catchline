@@ -1,0 +1,97 @@
+{
+  "utc": "2026-10-26T03:24:39.593458+00:00",
+  "status": "MAP10 E chart handoff recaptured and verified; owned delivery complete, awaiting lead review",
+  "frames": [
+    {
+      "path": "chart-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "470fcc5813dd57c040a9ca33837510e92752b5db5960fc8752983be2ff94701d",
+      "openedBy": "Codex 1 (Windows app)",
+      "captureReceipt": "chart-recapture/review.json"
+    },
+    {
+      "path": "chart-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "45d140acf2a63c477ad28b3308f4e7fc5106cb20465c3a367f7265b9258587b8",
+      "openedBy": "Codex 1 (Windows app)",
+      "captureReceipt": "chart-recapture/review.json"
+    },
+    {
+      "path": "sail-out-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "3a752798b5261e6a7fa37d974ca6e0606480fee53fb67b9bd480fa37df7746c6",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "sail-out-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "e03dcc67685d3001af1aa6a2d40d1e71cf48369d8db16ad82aae42c68e4798f3",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "arch-pool-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "d5a062dccef4adab1af1c12853b93147193cee5a7938f5950b4bee145358fa37",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "arch-pool-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "608c27ae3b71ae328cac3f480f21654b72fdbff9b75c2a981929c8a2cf39565e",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "seal-cove-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "dc2f4862535ddfdca0d280d5bdb101605868aae5e8d4cfd54e4232c1c757430b",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "seal-cove-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "15fc62eeb350dea8288bcca650e765296effe9c51595eba15c2adeee197c609a",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "stack-race-1440.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "7beb9a3b771571f1e553cc515d0aa2e37f70ec4dec827110e2648d189f6dcb49",
+      "openedBy": "Codex 1 (Windows app)"
+    },
+    {
+      "path": "stack-race-844.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "14d896e8c40e0b3c5a792e33a4ba771a4403759679d46b16d4172fcaa419b74d",
+      "openedBy": "Codex 1 (Windows app)"
+    }
+  ],
+  "findings": [
+    "All ten exact-size standalone native frames individually opened by Codex 1.",
+    "Departure, three grounded anchors and return complete in the actual SessionOnly player; native exit 0.",
+    "Six faceted grey corner rocks render without pink materials; central boat/water and primary controls remain clear at both sizes.",
+    "Cliff/arch/cove/stack geometry and surfaced life anchors are separately covered by the 17 opened authoring views.",
+    "Production blue water retained. Runtime seals/gulls/spray and installed-player/device/touch acceptance are outside this delivery.",
+    "Chart failure superseded by chart-recapture/review.json: explicit spot9(.32,.46), cliff/gull glyph14; both charts individually opened and Seal cliffs label clears all four named neighbours. Other eight root frames and original runtime receipts retain their prior capture provenance."
+  ],
+  "evidence": {
+    "checks.json": "b0f7f38128e7c20bfa62672b98f23632e321b42045a65a93565eb36209d69e1b",
+    "check-build.log": "f04dbb44f93e58b415abb53c31df51652c49bfb626fc0d2e433bb50df959ebec",
+    "build.txt": "c76719b14135226827bb8eeee64b84a252855d128d0af646518c85977a26612a",
+    "native-run.json": "5c6405acd2b05b7d2111ed8c985cb3a601da73a9a25a7a5311e9cd521d0ac25f",
+    "native-exit.json": "a085ab3d1455952c27707a137bb1c1af68d958f6b0d26143d070e9c185652b26",
+    "native.log": "570cd9d7549f47cfb86142975fc62edeae90d1f99ab04b132e4e7433f42a52b8",
+    "capture-complete.txt": "efd3d1ab258eb3515590c0ecc6745062d47bb91fb3fadd755ed892eef6834d27"
+  },
+  "chartRecapture": "chart-recapture/review.json",
+  "updatedUtc": "2026-10-26T04:34:16.982880+00:00"
+}

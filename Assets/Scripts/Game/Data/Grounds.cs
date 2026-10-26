@@ -76,6 +76,16 @@ namespace Catchline.Game
                 G("the-pinnacle", "The pinnacle", "pinnacle", (Species.Pollock, 40f), (Species.SeaBass, 30f), (Species.Conger, 20f), (Species.GoldTipShark, 1f)),
                 G("tide-race", "Tide race", "race", (Species.Mackerel, 45f), (Species.SeaBass, 35f), (Species.YellowfinTuna, 3f)),
                 G("deep-ledge", "Deep ledge", "ledge", (Species.Cod, 35f), (Species.Monkfish, 30f), (Species.Turbot, 10f), (Species.AtlanticSwordfish, 1f)) },
+            // Whale shelf (MAP9): append without moving saved richness slots.
+            new[] {
+                G("herring-shoals", "Herring shoals", "shoals", (Species.Herring, 50f), (Species.Mackerel, 35f), (Species.Whiting, 12f), (Species.FlyingFish, 2f)),
+                G("shelf-edge", "Shelf edge", "shelf", (Species.Cod, 30f), (Species.Pollock, 30f), (Species.Conger, 20f), (Species.Turbot, 10f), (Species.AbyssalGreatWhite, 1f)),
+                G("whale-road", "Whale road", "whales", (Species.Mackerel, 35f), (Species.SeaBass, 25f), (Species.Pollock, 20f), (Species.SpottedEagleRay, 3f)) },
+            // Seal cliffs (MAP10): append without moving saved richness slots.
+            new[] {
+                G("arch-pool", "Arch pool", "arch", (Species.Pollock, 40f), (Species.RedMullet, 30f), (Species.Conger, 15f), (Species.Crab, 2f)),
+                G("seal-cove", "Seal cove", "cove", (Species.Mackerel, 40f), (Species.Herring, 30f), (Species.SeaBass, 20f), (Species.RedMullet, 3f)),
+                G("stack-race", "Stack race", "stack", (Species.Cod, 35f), (Species.Pollock, 30f), (Species.Conger, 15f), (Species.Turbot, 1f)) },
         };
 
         static readonly int[][] offsets;

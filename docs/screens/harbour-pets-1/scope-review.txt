@@ -1,0 +1,21 @@
+--- before/Assets/Editor/ArtImport.cs
++++ Assets/Editor/ArtImport.cs
+@@ -83,7 +83,7 @@
+             var mi = (ModelImporter)assetImporter;
+             mi.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
+             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
+-            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx");
++            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx") || assetPath.EndsWith("/HarbourLife/Dog.fbx") || assetPath.EndsWith("/HarbourLife/Cat.fbx");
+             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
+             if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx") || assetPath.EndsWith("/Tier5DeepLines103.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
+             if (assetPath.StartsWith("Assets/gemini/Models/")) mi.isReadable = true;
+--- before/Assets/Scripts/Game/VoyageScenery.cs
++++ Assets/Scripts/Game/VoyageScenery.cs
+@@ -65,6 +65,7 @@
+                 foreach (var (p, yaw) in perches) Put(root, gull, p, yaw)?.AddComponent<Gull>();
+             }
+             DressTownsfolk(root, lib, q);
++            DressHarbourPets(root, lib, q);
+         }
+ 
+         void DressDeck(ArtLibrary lib)

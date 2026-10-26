@@ -1,0 +1,517 @@
+{
+  "scope": "Read-only source reopen, closed terrain, independently re-sliced mesh edges and actual FBX reimport; no Unity/native acceptance",
+  "allPassed": true,
+  "maps": [
+    {
+      "map": "GullSealCliffs",
+      "checks": [
+        {
+          "check": "saved source and export hashes match current build receipt",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source has only authoring meshes, one identity root and declared anchors",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "identity root and metre scale",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "source triangle and mesh counts match",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_3 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CliffGulls_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CliffGulls_2 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ArchSpray_1 source world anchor on rock",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all navigation source objects actually present",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-cliff-line closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-cliff-line 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-cliff-line 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_north-cliff-line -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_north-cliff-line -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 1.0789593218788873e-05
+        },
+        {
+          "check": "Terrain_race-stack closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_race-stack 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_race-stack 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_race-stack -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_race-stack -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_ArchPier_-86 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-86 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-86 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_ArchPier_-86 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-86 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_ArchPier_-62 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-62 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-62 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_ArchPier_-62 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_ArchPier_-62 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CoveApron_0 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_0 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_0 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.62939453125e-06
+        },
+        {
+          "check": "Terrain_CoveApron_0 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_0 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CoveApron_1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.809800793723678e-06
+        },
+        {
+          "check": "Terrain_CoveApron_1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CoveApron_2 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_2 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_2 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 3.814697265625e-06
+        },
+        {
+          "check": "Terrain_CoveApron_2 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CoveApron_2 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.148196931188136e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_2 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_2 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_2 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_2 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_2 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.148196931188136e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_3 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_3 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_3 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_HauloutStone_3 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_HauloutStone_3 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.993247325058084e-06
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_arch-pool_1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.155801773071289e-06
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 4.840836645185221e-06
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.068848520629239e-06
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_seal-cove_1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 5.3947966093944364e-06
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_-1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_-1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_-1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_-1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_-1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 8.529922399520072e-06
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_1 closed positive-volume terrain",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_1 0m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_1 0m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.688768146799611e-06
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_1 -1m fresh slice exists",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "Terrain_CornerRock_stack-race_1 -1m JSON matches saved mesh edges",
+          "passed": true,
+          "detail": 7.864199877963372e-06
+        },
+        {
+          "check": "fresh actual FBX mesh names and triangle counts",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "all actual FBX material names retained",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "SealHaulout_3 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CliffGulls_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "CliffGulls_2 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "ArchSpray_1 actual FBX compensated world anchor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "check": "fresh actual FBX all source vertices within0.1mm",
+          "passed": true,
+          "detail": 1.8596649169921875e-05
+        }
+      ],
+      "allPassed": true,
+      "maxFbxErrorMetres": 1.8596649169921875e-05,
+      "sourceSha256": "db1690c58d688f16ee6cd4c6bc0ebb3071e6062560004c2dd527e69393958e2e",
+      "fbxSha256": "d2ee5fd30e64e0102eb59ad35041e85efc0c0630c0b23de88bdf47df810e8959",
+      "navigationSha256": "2477608def2ea6eada2515bf14c6ad18707e44a8583e296fddfaf94079602d5e"
+    }
+  ],
+  "totalChecks": 100
+}
