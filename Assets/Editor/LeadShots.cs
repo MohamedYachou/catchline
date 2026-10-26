@@ -273,6 +273,9 @@ namespace Catchline.EditorTools
             typeof(VoyageGame).GetField("hudTab", H).SetValue(g, VoyageGame.HudTab.HarbourMaster);
             typeof(VoyageGame).GetField("panelOpen", H).SetValue(g, true);
             ShotUi(g, "chart-all"); ShotUi(g, "chart-all-phone", 844, 390);
+            // The second page (Outer coast) through its header switch.
+            typeof(VoyageGame).GetField("chartPage", H).SetValue(g, 1);
+            ShotUi(g, "chart-outer"); ShotUi(g, "chart-outer-phone", 844, 390);
             typeof(VoyageGame).GetField("chartFocus", H).SetValue(g, GameData.Spots.Length - 1);
             typeof(VoyageGame).GetField("chartDetailsOpen", H).SetValue(g, true);
             ShotUi(g, "chart-last-detail-phone", 844, 390);

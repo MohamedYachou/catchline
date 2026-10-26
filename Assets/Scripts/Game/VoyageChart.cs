@@ -10,7 +10,12 @@ namespace Catchline.Game
         public static readonly Vector2 ChartHarbour = new(.483f, .711f);
         public static Vector2 NauticalChartPoint(int spot) => spot switch {
             1 => new(.216f, .278f), 2 => new(.815f, .414f),
-            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.375f, .115f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), 8 => new(.06f, .40f), 9 => new(.32f, .46f), 10 => new(.55f, .12f), _ => new(.447f, .445f) };
+            3 => new(.159f, .583f), 4 => new(.607f, .08f), 5 => new(.40f, .24f), 6 => new(.72f, .56f), 7 => new(.66f, .24f), 8 => new(.06f, .40f), 9 => new(.24f, .62f), 10 => new(.216f, .278f), _ => new(.447f, .445f) };
+        // Mo (10-26): one chart got too crowded, so it has two pages: the first five grounds on the Gull coast, the
+        // later ones on the Outer coast. Kelp forest shares the kelp island with Kelp bank, a page apart.
+        public static int ChartPage(int spot) => spot < 5 ? 0 : 1;
+        static readonly string[] ChartPageNames = { "Gull coast", "Outer coast" };
+        int chartPage = -1, chartPageFocus = -1;
         bool chartDetailsOpen, chartContractsOpen;
         public static Rect NauticalChartHit(int spot, float width, float height)
         {
@@ -27,13 +32,16 @@ namespace Catchline.Game
         void InterfaceNauticalChart()
         {
             chartFocus = Mathf.Clamp(chartFocus, 0, GameData.Spots.Length - 1);
+            // The page follows whatever ground was last focused, so opening the chart shows the selected ground's page.
+            if (chartPage < 0 || chartFocus != chartPageFocus) { chartPage = ChartPage(chartPage < 0 && !chartDetailsOpen ? SelectedSpot : chartFocus); chartPageFocus = chartFocus; }
             Block(new Rect(0, 0, iw, ih));
             coastalUi.ResourceArt("chart/illustrated/field", new Rect(0, 0, iw, ih), "Charts/gull-coast", true);
             var routeRect = coastalUi.Box("chart/routes", new Rect(0, 0, iw, ih), "", Color.clear, blocks: false);
             var routeGraphic = ChartGraphic<IllustratedRoutesGraphic>(routeRect);
-            routeGraphic.raycastTarget = false; routeGraphic.SetVerticesDirty();
+            routeGraphic.raycastTarget = false; routeGraphic.Page = chartPage; routeGraphic.SetVerticesDirty();
             for (int i = 0; i < GameData.Spots.Length; i++)
             {
+                if (ChartPage(i) != chartPage) continue;
                 int spot = i; var p = NauticalChartPoint(i); float x = p.x * iw, y = p.y * ih;
                 string id = "chart/nautical/pin/" + i;
                 bool selected = SelectedSpot == i;
@@ -61,7 +69,7 @@ namespace Catchline.Game
         }
         // Spots 0-4 use glyphs 0-4; glyph 5 is home, so the Seal skerries (spot 5) gets the seal head (10) and the
         // Wreck bank (6, the open water right of the harbour mouth) the sunken steamer (11), Lighthouse rock (7) the
-        // lighthouse (12), the Whale shelf (8) a whale's tail (13) and the Seal cliffs (9) a cliff with a gull (14), the Kelp forest (10, the only open water left on a phone chart)
+        // lighthouse (12), the Whale shelf (8) a whale's tail (13) and the Seal cliffs (9) a cliff with a gull (14), the Kelp forest (10)
         // tall kelp stalks (15).
         static int SpotGlyph(int spot) => spot == 5 ? 10 : spot == 6 ? 11 : spot == 7 ? 12 : spot == 8 ? 13 : spot == 9 ? 14 : spot == 10 ? 15 : spot;
         void DrawChartPin(string id, Rect r, int glyph, bool selected)
@@ -76,12 +84,14 @@ namespace Catchline.Game
             float h = compactInterface ? 52 : 64;
             var title = new Rect(Edge, Edge, compactInterface ? 220 : 260, h);
             var slab = coastalUi.Slab("chart/title", title);
-            coastalUi.CardButton("shop/close", new Rect(8, (h - 44) / 2, 52, 44), null, () => { panelOpen = false; chartDetailsOpen = chartContractsOpen = false; }, "v2-icon-back", true, slab);
+            coastalUi.CardButton("shop/close", new Rect(8, (h - 44) / 2, 52, 44), null, () => { panelOpen = false; chartDetailsOpen = chartContractsOpen = false; chartPage = -1; }, "v2-icon-back", true, slab);
             coastalUi.Text("chart/title/name", new Rect(72, 0, title.width - 84, h), "CHART", Skin.Type.Display, Skin.Ink, TextAnchor.MiddleLeft, slab);
             float pill = compactInterface ? 170 : 220;
             coastalUi.PricePill("chart/coins", new Rect(iw - Edge - pill, Edge, pill, h), State.Coins);
             coastalUi.Secondary("chart/contracts", new Rect(iw - Edge - pill, Edge + h + 8, pill, compactInterface ? 44 : 52),
                 $"Contracts {State.Active.Count}/{GameData.MaxActiveContracts}", () => { chartContractsOpen = true; chartDetailsOpen = false; MenuSound(); });
+            coastalUi.PageSwitch("chart/page", new Rect(title.xMax + 16, Edge + (compactInterface ? 2 : 8), compactInterface ? 300 : 360, compactInterface ? 48 : 52), ChartPageNames, chartPage,
+                i => { if (i == chartPage) return; chartPage = i; chartDetailsOpen = false; MenuSound(); }, new[] { "chart/page/gull", "chart/page/outer" });
         }
         void DrawChartGroundDetail()
         {

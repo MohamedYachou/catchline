@@ -164,6 +164,20 @@ namespace Catchline.Game
             coastalUi.Primary("shop/buy", new Rect(r.width - bw - 18, (r.height - bh) / 2 - 2, bw, bh), label,
                 () => { int coins = State.Coins; item.Buy(); if (State.Coins < coins) audio?.Play(VoyageAudio.Cue.CoinBuy, .6f); StartSpendFlight("shop/selection/art", coins); }, item.Price >= 0 ? "v2-icon-coin" : null, item.Enabled, slab);
         }
+        // An undiscovered fish names somewhere to go: the earliest ground (grounds run in chart order) where it is at
+        // least 5% of the catch, else wherever its share is largest, so a common fish never sends a beginner far out.
+        static string FishHint(Species species)
+        {
+            int best = -1; float bestShare = 0;
+            for (int s = 0; s < GameData.Spots.Length; s++)
+            {
+                var table = GameData.Spots[s].Table; float total = table.Sum(e => e.weight);
+                float share = table.Where(e => e.species == species).Sum(e => e.weight) / Mathf.Max(total, .01f);
+                if (share >= .05f) { best = s; break; }
+                if (share > bestShare) { best = s; bestShare = share; }
+            }
+            return best < 0 ? "Explore the grounds" : "Try " + GameData.Spots[best].Name;
+        }
         static string Verb(string action) { int dot = action.IndexOfAny(new[] { '·', '/' }); return dot > 0 ? action.Substring(0, dot).Trim() : "Buy"; }
 
         Rect SuppliesOptions(Rect area)
@@ -218,7 +232,7 @@ namespace Catchline.Game
                 coastalUi.Text("log/" + i + "/name", new Rect(8, ch * .46f, r.width - 16, 28), found ? f.Name : "Undiscovered", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
                 // A phone card has room for one line under the name: the market needs the price there, not the record.
                 bool priceLine = compactInterface && found;
-                coastalUi.Text("log/" + i + "/record", new Rect(8, ch * .46f + 28, r.width - 16, 22), priceLine ? $"{State.PricePerKg(f.Species):0.0} / kg" : found ? $"{State.LogCount[(int)f.Species]} caught · best {State.LogBest[(int)f.Species]:0.0} kg" : "Explore the grounds", priceLine ? Skin.Type.Heading : Skin.Type.Caption, priceLine ? Skin.Teal : Skin.InkSoft, TextAnchor.MiddleCenter, card);
+                coastalUi.Text("log/" + i + "/record", new Rect(8, ch * .46f + 28, r.width - 16, 22), priceLine ? $"{State.PricePerKg(f.Species):0.0} / kg" : found ? $"{State.LogCount[(int)f.Species]} caught · best {State.LogBest[(int)f.Species]:0.0} kg" : FishHint(f.Species), priceLine ? Skin.Type.Heading : Skin.Type.Caption, priceLine ? Skin.Teal : Skin.InkSoft, TextAnchor.MiddleCenter, card);
                 if (!compactInterface) coastalUi.Text("log/" + i + "/price", new Rect(8, ch - 40, r.width - 16, 30), $"{State.PricePerKg(f.Species):0.0} / kg", Skin.Type.Heading, Skin.Teal, TextAnchor.MiddleCenter, card);
             }
         }

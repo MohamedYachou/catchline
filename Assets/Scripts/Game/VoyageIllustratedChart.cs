@@ -43,6 +43,7 @@ namespace Catchline.Game
     }
     public sealed class IllustratedRoutesGraphic : CoastGraphic
     {
+        public int Page; // only the chart page on show gets routes
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear(); mesh = vh;
@@ -50,6 +51,7 @@ namespace Catchline.Game
             var start = Vector2.Scale(VoyageGame.ChartHarbour + new Vector2(0, -.035f), size);
             for (int spot = 0; spot < GameData.Spots.Length; spot++)
             {
+                if (VoyageGame.ChartPage(spot) != Page) continue;
                 var end = Vector2.Scale(VoyageGame.NauticalChartPoint(spot), size);
                 end.y += 27;
                 var delta = end - start;
