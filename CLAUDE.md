@@ -18,14 +18,15 @@ Holding: VoyageTutorial.cs, CrewUi/**, CoastalCanvas*.cs, Skin*.cs, LeadShots.cs
 1. Direct the two Codex agents (skill codex-director); keep both queues non-empty in CONTINUE-CODEX1/2.txt.
    Codex 1: finish STRIKE-TAP-1 (review its captures in docs/screens/strike-fx), then MAP9-FINISH-AND-MAP10-1, then
    HARBOUR-PETS-1. Codex 2: BOAT-REFINE-2 (Compact, Prep, refit-card pictures, Tier5 trim).
-2. Commit BOAT-REFINE-1 import (Rowboat/Skiff FBX + ArtLibrary M_ClinkerRecess) once the in-game capture looks right.
-3. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
+2. Sound: Mo does the listening check (Real/sound4-listening.html; picks artifact
    https://claude.ai/artifact/BZn1HJnhiexxQdSfSHLBoC); apply his picks when they come.
-4. Claude 1's open UI items while it is paused: catch-card art in the first-catch reveal; D1 HUD mockups.
-5. Morning report to Mo: what was done overnight, plus docs/QUESTIONS.md.
-Holding: ArtLibrary.cs, Assets/Art/Models/Boats/Rowboat.fbx, Skiff.fbx, docs/briefs/**.
+3. Claude 1's open UI item while it is paused: D1 HUD mockups (17-hud-fishing, 18-hud-harbour).
+4. Morning report to Mo: what was done overnight, plus docs/QUESTIONS.md.
+Holding: docs/briefs/**.
 
 ## Done (latest first)
+- first-catch reveal uses the trophy catch-card (name/kg in its band, ribbon above, stamp on the window); tutorial checks 217 PASS
+- 7cafc46 refined Rowboat/Skiff in game (Codex 2 BOAT-REFINE-1, accepted; captures intro-*, refit-skiff-*)
 - 514717c / 7c0ebcd / fa54ee5 / 08531a9 cast splash, purchase glint/burst, strike-tap art (Codex 1/2, accepted)
 - 9c99409 purchase coin flight, crew badge/gems/reward bands, bigger chest art, Mira's first pointer fix; Codex SOUND-WIRE-4/5, TUTORIAL-CHECK-1, UI-POLISH-ART-1 accepted
 - 4095521 harbour savings goal tile (VoyageSavingsGoal.cs; captures hud-goal-*)
