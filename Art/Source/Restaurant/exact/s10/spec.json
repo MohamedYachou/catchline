@@ -1,0 +1,1005 @@
+{
+  "screen": 10,
+  "concept": "ui-10-service-markers.png",
+  "pieces": [
+    {
+      "id": "background",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0,
+      "copy": "Art/Source/Restaurant/exact/s9/v2-s9-background.png",
+      "opaque": true
+    },
+    {
+      "id": "title-sign",
+      "rect": [
+        245,
+        0,
+        355,
+        42
+      ],
+      "z": 10,
+      "slice": [
+        70,
+        15,
+        80,
+        15
+      ],
+      "copy": "Art/Source/Restaurant/exact/s8/v2-s8-title-sign.png"
+    },
+    {
+      "id": "order-grilled-fish",
+      "rect": [
+        39,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        76,
+        76,
+        305,
+        273
+      ]
+    },
+    {
+      "id": "order-pan-fish",
+      "rect": [
+        151,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "order-pan-fish-cut.png",
+      "sourceBox": [
+        0,
+        0,
+        226,
+        197
+      ]
+    },
+    {
+      "id": "order-fish-chips",
+      "rect": [
+        263,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "bubbles-final.png",
+      "sourceBox": [
+        0,
+        0,
+        701,
+        748
+      ]
+    },
+    {
+      "id": "order-soup",
+      "rect": [
+        375,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "bubbles-final.png",
+      "sourceBox": [
+        701,
+        0,
+        1402,
+        748
+      ]
+    },
+    {
+      "id": "order-platter",
+      "rect": [
+        487,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "bubbles-final.png",
+      "sourceBox": [
+        1402,
+        0,
+        2103,
+        748
+      ]
+    },
+    {
+      "id": "order-crab",
+      "rect": [
+        599,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "order-crab-cut.png",
+      "sourceBox": [
+        0,
+        0,
+        237,
+        197
+      ]
+    },
+    {
+      "id": "order-calamari",
+      "rect": [
+        711,
+        39,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1544,
+        76,
+        1781,
+        273
+      ]
+    },
+    {
+      "id": "order-coffee",
+      "rect": [
+        39,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        76,
+        273,
+        305,
+        470
+      ]
+    },
+    {
+      "id": "order-tea",
+      "rect": [
+        151,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        323,
+        273,
+        549,
+        470
+      ]
+    },
+    {
+      "id": "order-lemonade",
+      "rect": [
+        263,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        570,
+        273,
+        797,
+        470
+      ]
+    },
+    {
+      "id": "order-beer",
+      "rect": [
+        375,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        812,
+        273,
+        1042,
+        470
+      ]
+    },
+    {
+      "id": "order-fries",
+      "rect": [
+        487,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1051,
+        273,
+        1285,
+        470
+      ]
+    },
+    {
+      "id": "order-bread",
+      "rect": [
+        599,
+        133,
+        96,
+        83
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1297,
+        273,
+        1534,
+        470
+      ]
+    },
+    {
+      "id": "dish-label",
+      "rect": [
+        38,
+        114,
+        100,
+        17
+      ],
+      "z": 25,
+      "copy": "Art/Source/Restaurant/exact/s9/v2-s9-job-field.png",
+      "slice": [
+        8,
+        7,
+        8,
+        7
+      ],
+      "uses": [
+        {
+          "use": "pan-fish",
+          "rect": [
+            150,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "fish-chips",
+          "rect": [
+            262,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "soup",
+          "rect": [
+            374,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "platter",
+          "rect": [
+            486,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "crab",
+          "rect": [
+            598,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "calamari",
+          "rect": [
+            710,
+            114,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "coffee",
+          "rect": [
+            38,
+            208,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "tea",
+          "rect": [
+            150,
+            208,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "lemonade",
+          "rect": [
+            262,
+            208,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "beer",
+          "rect": [
+            374,
+            208,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "fries",
+          "rect": [
+            486,
+            208,
+            100,
+            17
+          ]
+        },
+        {
+          "use": "bread",
+          "rect": [
+            598,
+            208,
+            100,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patience-calm",
+      "rect": [
+        27,
+        231,
+        58,
+        58
+      ],
+      "z": 20,
+      "atlas": "rings.png",
+      "sourceBox": [
+        0,
+        150,
+        425,
+        580
+      ]
+    },
+    {
+      "id": "patience-warning",
+      "rect": [
+        105,
+        231,
+        58,
+        58
+      ],
+      "z": 20,
+      "atlas": "rings.png",
+      "sourceBox": [
+        435,
+        150,
+        858,
+        580
+      ]
+    },
+    {
+      "id": "patience-angry",
+      "rect": [
+        183,
+        231,
+        58,
+        58
+      ],
+      "z": 20,
+      "atlas": "rings.png",
+      "sourceBox": [
+        875,
+        150,
+        1280,
+        580
+      ]
+    },
+    {
+      "id": "tip-coin",
+      "rect": [
+        270,
+        231,
+        56,
+        52
+      ],
+      "z": 20,
+      "atlas": "rings.png",
+      "sourceBox": [
+        1283,
+        145,
+        1733,
+        590
+      ]
+    },
+    {
+      "id": "review-star",
+      "rect": [
+        359,
+        231,
+        56,
+        52
+      ],
+      "z": 20,
+      "atlas": "rings.png",
+      "sourceBox": [
+        1745,
+        160,
+        2172,
+        570
+      ]
+    },
+    {
+      "id": "task-seat",
+      "rect": [
+        442,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        959,
+        479,
+        1097,
+        650
+      ]
+    },
+    {
+      "id": "task-cook",
+      "rect": [
+        506,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1098,
+        479,
+        1239,
+        650
+      ]
+    },
+    {
+      "id": "task-serve",
+      "rect": [
+        570,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1239,
+        479,
+        1381,
+        650
+      ]
+    },
+    {
+      "id": "task-clear",
+      "rect": [
+        634,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1382,
+        479,
+        1523,
+        650
+      ]
+    },
+    {
+      "id": "task-wash",
+      "rect": [
+        698,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1525,
+        479,
+        1664,
+        650
+      ]
+    },
+    {
+      "id": "task-repair",
+      "rect": [
+        762,
+        226,
+        60,
+        69
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1664,
+        479,
+        1811,
+        650
+      ]
+    },
+    {
+      "id": "question-card",
+      "rect": [
+        20,
+        310,
+        490,
+        71
+      ],
+      "z": 10,
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-paper-row.png",
+      "slice": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "id": "question-soup",
+      "rect": [
+        29,
+        316,
+        63,
+        61
+      ],
+      "z": 20,
+      "atlas": "bubbles-final.png",
+      "sourceBox": [
+        701,
+        0,
+        1402,
+        748
+      ]
+    },
+    {
+      "id": "button-soup",
+      "rect": [
+        146,
+        345,
+        155,
+        30
+      ],
+      "z": 30,
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-btn-primary.png",
+      "slice": [
+        12,
+        10,
+        12,
+        10
+      ]
+    },
+    {
+      "id": "button-drinks",
+      "rect": [
+        309,
+        345,
+        175,
+        30
+      ],
+      "z": 30,
+      "copy": "Art/Source/Restaurant/exact/s7/v2-s7-button-keep.png",
+      "slice": [
+        12,
+        10,
+        12,
+        10
+      ]
+    },
+    {
+      "id": "broken-warning",
+      "rect": [
+        520,
+        310,
+        305,
+        71
+      ],
+      "z": 20,
+      "atlas": "clean.png",
+      "sourceBox": [
+        1129,
+        650,
+        1814,
+        835
+      ]
+    }
+  ],
+  "texts": [
+    [
+      "title",
+      "Service markers",
+      [
+        319,
+        5,
+        237,
+        31
+      ],
+      28,
+      "#FFF8DE"
+    ],
+    [
+      "dish-grilled-fish",
+      "Grilled fish",
+      [
+        42,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-pan-fish",
+      "Pan fish",
+      [
+        154,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-fish-chips",
+      "Fish & chips",
+      [
+        266,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-soup",
+      "Soup",
+      [
+        378,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-platter",
+      "Platter",
+      [
+        490,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-crab",
+      "Crab",
+      [
+        602,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-calamari",
+      "Calamari",
+      [
+        714,
+        116,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-coffee",
+      "Coffee",
+      [
+        42,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-tea",
+      "Tea",
+      [
+        154,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-lemonade",
+      "Lemonade",
+      [
+        266,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-beer",
+      "Beer",
+      [
+        378,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-fries",
+      "Fries",
+      [
+        490,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "dish-bread",
+      "Bread",
+      [
+        602,
+        210,
+        94,
+        12
+      ],
+      12,
+      "#10263D"
+    ],
+    [
+      "patience-calm",
+      "Calm",
+      [
+        27,
+        290,
+        63,
+        14
+      ],
+      11,
+      "#FFF8DE"
+    ],
+    [
+      "patience-warning",
+      "Warning",
+      [
+        105,
+        290,
+        63,
+        14
+      ],
+      11,
+      "#FFF8DE"
+    ],
+    [
+      "patience-angry",
+      "Angry",
+      [
+        183,
+        290,
+        63,
+        14
+      ],
+      11,
+      "#FFF8DE"
+    ],
+    [
+      "tip-coin-value",
+      "+12",
+      [
+        284,
+        283,
+        48,
+        20
+      ],
+      18,
+      "#FFF8DE"
+    ],
+    [
+      "review-star-value",
+      "+1",
+      [
+        373,
+        283,
+        48,
+        20
+      ],
+      18,
+      "#FFF8DE"
+    ],
+    [
+      "task-seat",
+      "Seat",
+      [
+        449,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "task-cook",
+      "Cook",
+      [
+        513,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "task-serve",
+      "Serve",
+      [
+        577,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "task-clear",
+      "Clear",
+      [
+        641,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "task-wash",
+      "Wash",
+      [
+        705,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "task-repair",
+      "Repair",
+      [
+        769,
+        280,
+        51,
+        14
+      ],
+      11,
+      "#10263D"
+    ],
+    [
+      "question",
+      "Offer fish soup instead?",
+      [
+        115,
+        315,
+        342,
+        22
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "offer-soup",
+      "Offer soup",
+      [
+        176,
+        351,
+        104,
+        18
+      ],
+      17,
+      "#FFF8DE"
+    ],
+    [
+      "just-drinks",
+      "Just drinks",
+      [
+        341,
+        351,
+        119,
+        18
+      ],
+      17,
+      "#10263D"
+    ],
+    [
+      "needs-repair",
+      "Needs repair",
+      [
+        695,
+        335,
+        122,
+        22
+      ],
+      20,
+      "#10263D"
+    ]
+  ]
+}

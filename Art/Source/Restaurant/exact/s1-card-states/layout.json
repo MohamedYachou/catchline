@@ -1,0 +1,120 @@
+{
+  "screens": [
+    {
+      "screen": "arrange",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "../../concepts/ui-1-arrange.png",
+      "backgroundSha256": "cdab7d1cf6dbb9c02a2ca2078c3a2a453646649ce761cffc560338780e9af90f",
+      "placements": [
+        {
+          "name": "v2-s1-state-card",
+          "screen": "arrange",
+          "use": "stored-card",
+          "rect": [
+            350,
+            306,
+            156,
+            73
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-s1-state-stored",
+          "screen": "arrange",
+          "use": "stored-ribbon",
+          "rect": [
+            404,
+            309,
+            94,
+            23
+          ],
+          "z": 22
+        },
+        {
+          "name": "v2-s1-state-card",
+          "screen": "arrange",
+          "use": "locked-card",
+          "rect": [
+            510,
+            306,
+            156,
+            73
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-s1-state-bistro",
+          "screen": "arrange",
+          "use": "locked-stage-tag",
+          "rect": [
+            572,
+            309,
+            85,
+            24
+          ],
+          "z": 22
+        },
+        {
+          "name": "v2-s1-state-card",
+          "screen": "arrange",
+          "use": "poor-card",
+          "rect": [
+            670,
+            306,
+            156,
+            73
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-s1-state-price-disabled",
+          "screen": "arrange",
+          "use": "muted-price",
+          "rect": [
+            690,
+            330,
+            110,
+            30
+          ],
+          "z": 22
+        },
+        {
+          "name": "v2-item-rest-table2",
+          "file": "../s1-s2/v2-item-rest-table2.png",
+          "rect": [
+            355,
+            330,
+            48,
+            42
+          ],
+          "screen": "arrange",
+          "use": "stored-item-illustration",
+          "z": 21
+        },
+        {
+          "name": "v2-item-rest-table4",
+          "file": "../s1-s2/v2-item-rest-table4.png",
+          "rect": [
+            514,
+            332,
+            47,
+            41
+          ],
+          "screen": "arrange",
+          "use": "locked-item-illustration",
+          "z": 21
+        }
+      ],
+      "states": {
+        "stored": "owned item; placing is free",
+        "locked": "stage-gated; locked item cannot be purchased",
+        "poor": "disabled price and readable reason; caller tests affordability"
+      },
+      "notes": "State comparison demo; price/wallet figures are illustrative, not one coherent affordability snapshot. Runtime uses live values."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h; logical mockup pixels; z ascending"
+}

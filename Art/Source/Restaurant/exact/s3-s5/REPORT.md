@@ -6,7 +6,7 @@ Owner: Codex 1 (Windows app). Reference authority: `../../concepts/ui-3-mira-pla
 
 90/90 named pieces packaged. Final visual review status is recorded in `visual-review.json`; inventory/hash checks are in `asset-audit.json`. This report must not be read as lead/Mo acceptance or runtime integration.
 
-All artwork uses the built-in imagegen tool. `provenance/<name>.json` records each exact prompt, reference paths and saved original. `provenance/<name>.png` preserves the untouched generator result. Mechanical packaging only trims alpha, proportionately fits/pads the canvas, and builds comparisons; it does not repaint/recolour artwork. The three full-bleed backgrounds are opaque by design.
+All artwork uses the built-in imagegen tool. `provenance/<name>.json` records each exact prompt, reference paths and saved original. `provenance/<name>.png` preserves the untouched generator result. Mechanical packaging only trims alpha, proportionately fits/pads the canvas, and builds comparisons; it does not repaint/recolour artwork. The three full-bleed backgrounds and prep top strip are opaque by design. The top strip uses source crop [0,0,2154,275] to exclude unrelated white padding, then a proportional bottom-aligned fit; its untouched original is retained.
 
 ## Integration
 
@@ -18,41 +18,41 @@ Mira originals extend the mockup’s cropped upper-body poses to full figures as
 
 ## Slice borders
 
-Borders are exact source-pixel import recommendations **L / T / R / B**, not Unity vector order (L / B / R / T). Rect sizes above are logical pixels. Source borders divide by three for logical slicing; use a centered pivot for ordinary cards. Keep all native canvases and avoid import trimming when applying these values.
+Borders are exact source-pixel import recommendations **L / T / R / B**, not Unity vector order (L / B / R / T). Rect sizes above are logical pixels. Use the source-pixel borders directly for import; canvases are not universally exactly3x. Use a centered pivot for ordinary cards. Keep all native canvases and avoid import trimming when applying these values.
 
 | Piece | Canvas | L / T / R / B | Rule |
 |---|---:|---|---|
-| v2-plan-paper | 1224×885 | 72 / 90 / 72 / 66 | Preserve corners; stretch only centre/edges |
-| v2-plan-dish-card | 366×369 | 27 / 27 / 27 / 27 | Preserve corners; stretch only centre/edges |
-| v2-btn-accept | 417×153 | 42 / 36 / 42 / 42 | Preserve corners; stretch only centre/edges |
-| v2-btn-secondary | 420×153 | 42 / 36 / 42 / 42 | Preserve corners; stretch only centre/edges |
-| v2-btn-primary | 600×210 | 60 / 48 / 60 / 60 | Preserve corners; stretch only centre/edges |
-| v2-btn-back | 390×153 | 39 / 36 / 39 / 39 | Preserve corners; stretch only centre/edges |
-| v2-prep-catch-panel | 816×762 | 66 / 147 / 66 / 57 | Preserve corners; stretch only centre/edges |
-| v2-prep-portions-panel | 1398×786 | 66 / 147 / 66 / 57 | Preserve corners; stretch only centre/edges |
-| v2-paper-row | 1305×267 | 30 / 30 / 30 / 30 | Preserve corners; stretch only centre/edges |
-| v2-number-field | 297×114 | 24 / 24 / 24 / 24 | Preserve corners; stretch only centre/edges |
-| v2-btn-minus | 159×153 | 36 / 36 / 36 / 36 | Preserve corners; stretch only centre/edges |
-| v2-btn-plus | 171×156 | 36 / 36 / 36 / 36 | Preserve corners; stretch only centre/edges |
-| v2-bar-track | 306×42 | 21 / 18 / 21 / 18 | Preserve corners; stretch only centre/edges |
-| v2-toggle-selected | 243×90 | 30 / 27 / 30 / 27 | Preserve corners; stretch only centre/edges |
-| v2-toggle-unselected | 240×90 | 30 / 27 / 30 / 27 | Preserve corners; stretch only centre/edges |
-| v2-summary-strip | 1302×174 | 51 / 42 / 51 / 42 | Preserve corners; stretch only centre/edges |
-| v2-closing-board | 1821×1074 | 63 / 63 / 63 / 63 | Preserve corners; stretch only centre/edges |
-| v2-closing-header | 1821×159 | 75 / 48 / 75 / 48 | Preserve corners; stretch only centre/edges |
-| v2-metric-row | 585×210 | 30 / 30 / 30 / 30 | Preserve corners; stretch only centre/edges |
-| v2-tonight-row | 573×171 | 63 / 30 / 30 / 30 | Preserve corners; stretch only centre/edges |
-| v2-review-card | 657×210 | 27 / 27 / 27 / 27 | Preserve corners; stretch only centre/edges |
-| v2-popularity-card | 504×456 | 30 / 30 / 30 / 30 | Preserve corners; stretch only centre/edges |
-| v2-progress-track | 441×63 | 30 / 27 / 30 / 27 | Preserve corners; stretch only centre/edges |
-| v2-progress-fill | 321×51 | 24 / 18 / 9 / 18 | Preserve corners; stretch only centre/edges |
-| v2-bar-fill | 312×72 | 18 / 12 / 18 / 12 | Preserve corners; stretch only centre/edges |
+| v2-plan-paper | 1224×885 | 80 / 95 / 77 / 82 | Preserve corners; stretch only centre/edges |
+| v2-plan-dish-card | 366×369 | 34 / 37 / 34 / 38 | Preserve corners; stretch only centre/edges |
+| v2-btn-accept | 417×153 | 48 / 49 / 48 / 56 | Preserve corners; stretch only centre/edges |
+| v2-btn-secondary | 420×153 | 48 / 56 / 48 / 62 | Preserve corners; stretch only centre/edges |
+| v2-btn-primary | 600×210 | 77 / 55 / 79 / 67 | Preserve corners; stretch only centre/edges |
+| v2-btn-back | 390×153 | 45 / 47 / 45 / 49 | Preserve corners; stretch only centre/edges |
+| v2-prep-catch-panel | 816×762 | 78 / 210 / 77 / 121 | Preserve corners; stretch only centre/edges |
+| v2-prep-portions-panel | 1398×786 | 78 / 180 / 79 / 91 | Preserve corners; stretch only centre/edges |
+| v2-paper-row | 1305×267 | 277 / 38 / 278 / 38 | Preserve corners; stretch only centre/edges |
+| v2-number-field | 297×114 | 29 / 36 / 29 / 36 | Preserve corners; stretch only centre/edges |
+| v2-btn-minus | 159×153 | 41 / 41 / 41 / 42 | Preserve corners; stretch only centre/edges |
+| v2-btn-plus | 171×156 | 41 / 42 / 41 / 43 | Preserve corners; stretch only centre/edges |
+| v2-bar-track | 306×42 | 26 / 20 / 26 / 20 | Preserve corners; stretch only centre/edges |
+| v2-toggle-selected | 243×90 | 35 / 39 / 35 / 40 | Preserve corners; stretch only centre/edges |
+| v2-toggle-unselected | 240×90 | 35 / 38 / 35 / 38 | Preserve corners; stretch only centre/edges |
+| v2-summary-strip | 1302×174 | 154 / 52 / 152 / 52 | Preserve corners; stretch only centre/edges |
+| v2-closing-board | 1821×1074 | 78 / 116 / 81 / 114 | Preserve corners; stretch only centre/edges |
+| v2-closing-header | 1821×159 | 404 / 62 / 404 / 62 | Preserve corners; stretch only centre/edges |
+| v2-metric-row | 585×210 | 37 / 71 / 37 / 71 | Preserve corners; stretch only centre/edges |
+| v2-tonight-row | 573×171 | 70 / 48 / 37 / 49 | Preserve corners; stretch only centre/edges |
+| v2-review-card | 657×210 | 34 / 34 / 34 / 34 | Preserve corners; stretch only centre/edges |
+| v2-popularity-card | 504×456 | 38 / 57 / 38 / 57 | Preserve corners; stretch only centre/edges |
+| v2-progress-track | 441×63 | 55 / 30 / 56 / 30 | Preserve corners; stretch only centre/edges |
+| v2-progress-fill | 321×51 | 53 / 23 / 39 / 23 | Preserve corners; stretch only centre/edges |
+| v2-bar-fill | 312×72 | 23 / 27 / 23 / 27 | Preserve corners; stretch only centre/edges |
 
 The wood title sign, paper request ticket, Mira speech bubble, fish sign, characters and illustrations are **uniform-scale only**: ropes/lantern/pin/tail are authored decorations and must not be stretched. Panels with header bands preserve that band in their top border. Icons inside plus/minus buttons must remain square. Review panel sizes should remain close to the measured ratio; excessive paper-height stretch changes its shading.
 
 ## Text style sheet
 
-The mockup contains painted lettering; an exact font identity is unproven. Use the installed Fredoka Bold (700) / SemiBold (600) as the closest runtime starting point, then compare actual captures. Sizes, strokes and shadows below are measured visual estimates in mockup pixels, **not** a verified font raster match. Scale size, outline width and shadow offset together at device resolution. UI text remains live. All general body numerals/labels are heavy navy.
+The mockup contains painted lettering; an exact font identity is unproven. Use Fredoka Bold (700) / SemiBold (600), if available, as the closest runtime starting point, then compare actual captures. Sizes, strokes and shadows below are measured visual estimates in mockup pixels, **not** a verified font raster match. Scale size, outline width and shadow offset together at device resolution. UI text remains live. All general body numerals/labels are heavy navy.
 
 | Style / screen | Visible text | Weight / px | Fill | Stroke hex / px | Shadow dx,dy / hex |
 |---|---|---|---|---|---|
@@ -186,7 +186,7 @@ Selected forecast pills use #FFF8E8 with ~0.7 px navy outline; unselected use na
 | v2-fishart-crab | S4 | 88,216,126,67 | 1024×512 |
 | v2-fishart-squid | S4 | 88,216,126,67 | 1024×512 |
 | v2-prep-topbar | S4 | 0,0,844,57 | 2532×171 |
-| v2-accent-rays | S5 | 592,242,35,34 | 210×204 |
+| v2-accent-rays | S5 | 584,217,32,36 | 210×204 |
 | v2-bar-fill | S4 | 629,150,52,12 | 312×72 |
 | v2-icon-fish-bringback | S3 | 397,319,36,24 | 216×144 |
 | v2-icon-pollock-bringback | S3 | 529,319,39,24 | 234×144 |
@@ -252,3 +252,66 @@ Native generator resolution varies by piece; exact original and final dimensions
 ## Reproduce packaging
 
 `uv run --with pillow python Art/Source/Restaurant/exact/s3-s5/build_manifest.py` regenerates reference crops/manifest only. `package.py` packages completed generator sources without overwriting finals. `report.py` regenerates these measured handoff tables. `seal.py` performs the final independent file/inventory checks. Original generation is not silently repeated by these helpers.
+
+## Native resolution disclosure
+
+These canvases exceed at least one original generator dimension. They meet the requested export sizes through proportionate resampling; they do not contain native detail at the export resolution. Both Mira originals are 1122x1402, exported to 1600x2000.
+
+| Piece | Original generator pixels | Export canvas |
+|---|---|---|
+| v2-mira-plan | 1122x1402 | 1600x2000 |
+| v2-bg-plan | 1844x853 | 2532x1170 |
+| v2-bg-prep | 1844x853 | 2532x1170 |
+| v2-closing-board | 1634x963 | 1821x1074 |
+| v2-closing-header | 1342x1172 | 1821x159 |
+| v2-mira-wave | 1122x1402 | 1600x2000 |
+| v2-bg-closing | 1844x853 | 2532x1170 |
+| v2-prep-topbar | 2154x730 | 2532x171 |
+
+## Art-bounds import copies
+
+Claude requested tightly cropped artwork after integrating the first exports. Use `tight/<name>.png` with `tight-layout.json` for those imports. These retain the SAME90piece names; there are no new sprite keys. Canonical root files retain the requested Mira/fish canvas sizes. Tight copies crop the alpha>=8 artwork bounds and uniformly resample only enough to meet >=3x EACH primary/repeated placement. Their crop, actual dimensions, resample factor, exact source-pixel L/T/R/B borders and hashes are recorded per asset. Low-alpha antialias/shadow inside the crop remains. These larger tight canvases do not add painted detail.
+
+Canonical slice coordinates now include the measured transparent margins; tight slice coordinates exclude those margins. The tight copy keeps the measured visual placement rectangle; do not add canonical padding offsets again. The conservative border reserves keep header bands/corners; very thin tracks cap vertical borders so the middle remains stretchable. Use the source-pixel table matching the actual imported file.
+
+| Tight import piece | PNG canvas | L / T / R / B |
+|---|---|---|
+| v2-plan-paper | 1241x885 | 74 / 92 / 74 / 68 |
+| v2-plan-dish-card | 374x369 | 29 / 29 / 29 / 29 |
+| v2-btn-accept | 492x153 | 51 / 44 / 51 / 51 |
+| v2-btn-secondary | 553x153 | 57 / 49 / 57 / 57 |
+| v2-btn-primary | 605x210 | 64 / 51 / 64 / 64 |
+| v2-btn-back | 439x153 | 45 / 42 / 45 / 45 |
+| v2-prep-catch-panel | 952x762 | 79 / 176 / 79 / 68 |
+| v2-prep-portions-panel | 1501x786 | 72 / 161 / 72 / 62 |
+| v2-paper-row | 1305x405 | 48 / 48 / 48 / 48 |
+| v2-number-field | 364x114 | 30 / 30 / 30 / 30 |
+| v2-btn-minus | 161x153 | 39 / 39 / 39 / 39 |
+| v2-btn-plus | 176x156 | 39 / 39 / 39 / 39 |
+| v2-bar-track | 622x42 | 44 / 19 / 44 / 19 |
+| v2-toggle-selected | 323x90 | 42 / 37 / 42 / 37 |
+| v2-toggle-unselected | 305x90 | 40 / 36 / 40 / 36 |
+| v2-summary-strip | 1302x183 | 60 / 50 / 60 / 50 |
+| v2-closing-board | 1980x1074 | 70 / 70 / 70 / 70 |
+| v2-closing-header | 1821x206 | 117 / 75 / 117 / 75 |
+| v2-metric-row | 937x210 | 49 / 49 / 49 / 49 |
+| v2-tonight-row | 714x171 | 80 / 38 / 38 / 38 |
+| v2-review-card | 689x210 | 29 / 29 / 29 / 29 |
+| v2-popularity-card | 554x456 | 34 / 34 / 34 / 34 |
+| v2-progress-track | 482x63 | 37 / 30 / 37 / 30 |
+| v2-progress-fill | 326x51 | 30 / 22 / 11 / 22 |
+| v2-bar-fill | 302x42 | 18 / 12 / 18 / 12 |
+
+### Manual findings
+
+- Corrected and reopened solid cream dish tile, six-cell calendar, wide title sign, centre-hung fish sign, cream bed, tan divider, flat forecast, grey slider track and five-confetti single balloon.
+- Rejected first prep header export: central fit selected generator white padding. Original preserved; explicit source crop 0,0,2154,275 plus proportional bottom-aligned fit now exports blue wood only. Reopened corrected pair.
+- Rays reference rectangle corrected to x584 y217 w32 h36. Rejected first navy-edged version; flat-gold replacement selected, packaged and reopened against full three-ray crop. Slightly stronger highlights remain.
+- All twelve species opened: mackerel bars, cod barbel, orange plaice spots, round turbot, eel silhouette, red mullet barbels, crab claws and squid arm fan differentiated. Source style reference beyond mackerel/pollock uses the same painted mockup fish rather than claiming an unavailable species-specific mockup.
+- Guest portraits 01-03 reproduce the three visible review identities; 04-06 are requested companion faces styled from them, not identities present in the mockup.
+- Contours and gloss are not pixel-identical. Buttons/coins/stars/dishes retain stronger generated highlights; calendar is more upright; plate garnishes, wood grain and face details vary. Lead review required.
+- Prep and closing backgrounds reconstruct occluded scenery. Selected prep correction restores the reference left stonework, fish sign, lamps and bottom wood counter, replacing the earlier railing-heavy candidate. Revealed centre, boats, sky and water remain inferred and are not pixel-identical.
+- Two Mira full bodies extend cropped mockup poses. Runtime must clip at torso scale to preserve face size. Originals are1122x1402, exported1600x2000 by resampling, not native1600 painted detail.
+- This manual opening ledger is not lead/Mo visual acceptance, a game capture, Unity import or runtime verification.
+- Thin divider final alpha peaks at252 after antialiasing; source peak255. Transparent background verified; this is an intentional thin-line audit allowance, not an opacity correction.
+- All90 tight imports opened in15 paired contacts. Crops retain the selected artwork without added transparent canvas; silhouettes and shadows may contain internal transparent pixels. Same sprite names as canonical exports; runtime uses tight-layout.json slices. Shared S1/S2 naming remains lead-owned.

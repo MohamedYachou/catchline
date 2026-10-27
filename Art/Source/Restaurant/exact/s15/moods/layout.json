@@ -1,0 +1,48 @@
+{
+  "screen": "phone",
+  "canvas": [
+    844,
+    390
+  ],
+  "background": "../../../concepts/ui-2-service.png",
+  "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+  "placements": [
+    {
+      "name": "v2-s15-mood-happy",
+      "screen": "phone",
+      "use": "table-happy",
+      "rect": [
+        380,
+        142,
+        32,
+        25
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s15-mood-annoyed",
+      "screen": "phone",
+      "use": "table-annoyed",
+      "rect": [
+        522,
+        210,
+        31,
+        32
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s15-mood-leaving",
+      "screen": "phone",
+      "use": "table-leaving",
+      "rect": [
+        620,
+        258,
+        34,
+        18
+      ],
+      "z": 40
+    }
+  ],
+  "notes": "Illustrative world-anchored mood placements. At runtime anchor above actual table; show one mood at a time, avoid order/task markers."
+}

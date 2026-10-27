@@ -1,0 +1,119 @@
+[
+  {
+    "name": "v2-s9-chip-drag",
+    "file": "v2-s9-chip-drag.png",
+    "screen": 9,
+    "rect": [
+      351,
+      77,
+      159,
+      42
+    ],
+    "size": [
+      477,
+      126
+    ],
+    "logicalSize": [
+      159,
+      42
+    ],
+    "borders": [
+      36,
+      36,
+      36,
+      24
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "cac0e1c7628a38486d7fb917073e3128b9dabeb18266c213171b804ce9795569",
+    "sourceAlphaCrop": [
+      9,
+      142,
+      2163,
+      625
+    ],
+    "sourceFile": "interaction-states/provenance/chip-drag-generated.png",
+    "sourceSha256": "ba17d2e0b1468f4b0f5b045b32bdf0d57c938b79fca234e1f5d6b9cd8f93656b",
+    "exportMethod": "built-in ImageGen state painting; alpha8trim/3x export; no text baked",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "renderRule": "Replace normal chip visual during drag. Overlay live task label/number/handle; shadow already included. Entire bounds159x42, cream face inset approximately4x3."
+  },
+  {
+    "name": "v2-s9-slot-target",
+    "file": "v2-s9-slot-target.png",
+    "screen": 9,
+    "rect": [
+      354,
+      88,
+      151,
+      31
+    ],
+    "size": [
+      453,
+      93
+    ],
+    "logicalSize": [
+      151,
+      31
+    ],
+    "borders": [
+      36,
+      24,
+      36,
+      24
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "3a1af0fe90753e5833388d68690e8e6cce9b44fc971e643183783d83fb76ecfd",
+    "sourceAlphaCrop": [
+      2,
+      72,
+      2171,
+      595
+    ],
+    "sourceFile": "interaction-states/provenance/slot-target-generated.png",
+    "sourceSha256": "eccbd31f5aed764aa8d5117a676a115f8ff400091eae0154d9d81df70acd2773",
+    "exportMethod": "built-in ImageGen state painting; alpha8trim/3x export; no text baked",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "renderRule": "Show behind moving chip over legal insertion slot; transparent centre reveals crew row. Hide after drop/cancel."
+  },
+  {
+    "name": "v2-s9-tooltip",
+    "file": "v2-s9-tooltip.png",
+    "screen": 9,
+    "rect": [
+      155,
+      96,
+      290,
+      76
+    ],
+    "size": [
+      870,
+      228
+    ],
+    "logicalSize": [
+      290,
+      76
+    ],
+    "borders": [
+      240,
+      90,
+      60,
+      40
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "d84e222f2e93d0ecb4ab53d4136816305710e9fa4f660761229524d4079b2832",
+    "sourceAlphaCrop": [
+      34,
+      109,
+      2137,
+      646
+    ],
+    "sourceFile": "interaction-states/provenance/tooltip-generated.png",
+    "sourceSha256": "54d2593e528db50df964c7d102ccb577656fa4b5eeb8e3bce4b442e8546121e8",
+    "exportMethod": "built-in ImageGen state painting; alpha8trim/3x export; no text baked",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "renderRule": "Show on locked-job press/hover; pointer points down at fixed job. Left slice protects pointer; min logical width120. Clamp group within safe area."
+  }
+]

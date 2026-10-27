@@ -1,0 +1,458 @@
+{
+  "screen": 7,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "sourceSize": [
+    1844,
+    853
+  ],
+  "placements": [
+    {
+      "name": "v2-s7-background",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0
+    },
+    {
+      "name": "v2-s7-title-sign",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        248,
+        0,
+        357,
+        60
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-fish-panel",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        28,
+        60,
+        538,
+        267
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-buyer-panel",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        567,
+        60,
+        247,
+        267
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-summary",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        30,
+        328,
+        538,
+        54
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-button-back",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        14,
+        9,
+        121,
+        43
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-wallet",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        685,
+        9,
+        143,
+        44
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s7-fish-row",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        38,
+        100,
+        520,
+        71
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s7-fish-row",
+      "screen": 7,
+      "use": "pollock",
+      "rect": [
+        38,
+        175,
+        520,
+        73
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s7-fish-row",
+      "screen": 7,
+      "use": "plaice",
+      "rect": [
+        38,
+        250,
+        520,
+        71
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s7-stock-note",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        577,
+        261,
+        228,
+        58
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s7-button-sell",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        397,
+        115,
+        74,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-sell",
+      "screen": 7,
+      "use": "pollock",
+      "rect": [
+        397,
+        190,
+        74,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-sell",
+      "screen": 7,
+      "use": "plaice",
+      "rect": [
+        397,
+        266,
+        74,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-keep",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        473,
+        115,
+        79,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-keep",
+      "screen": 7,
+      "use": "pollock",
+      "rect": [
+        473,
+        190,
+        79,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-keep",
+      "screen": 7,
+      "use": "plaice",
+      "rect": [
+        473,
+        266,
+        79,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-button-open",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        569,
+        329,
+        245,
+        52
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        294,
+        335,
+        2,
+        38
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "mackerel-1",
+      "rect": [
+        259,
+        131,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "mackerel-2",
+      "rect": [
+        323,
+        131,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "pollock-1",
+      "rect": [
+        259,
+        207,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "pollock-2",
+      "rect": [
+        323,
+        207,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "plaice-1",
+      "rect": [
+        259,
+        282,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-divider",
+      "screen": 7,
+      "use": "plaice-2",
+      "rect": [
+        323,
+        282,
+        1,
+        18
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s7-fish-mackerel",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        44,
+        107,
+        149,
+        56
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-fish-pollock",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        45,
+        178,
+        148,
+        63
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-fish-plaice",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        47,
+        249,
+        143,
+        67
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-buyer",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        581,
+        72,
+        219,
+        143
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-stock-crate",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        581,
+        266,
+        81,
+        50
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-mood-keen",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        581,
+        216,
+        60,
+        43
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-arrow-back",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        26,
+        17,
+        30,
+        27
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-coin",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        694,
+        14,
+        35,
+        34
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-coin",
+      "screen": 7,
+      "use": "total",
+      "rect": [
+        316,
+        335,
+        42,
+        40
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-whole-fish-glyph",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        52,
+        72,
+        31,
+        23
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-scales",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        76,
+        334,
+        46,
+        40
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s7-boat",
+      "screen": 7,
+      "use": "primary",
+      "rect": [
+        593,
+        335,
+        45,
+        39
+      ],
+      "z": 30
+    }
+  ]
+}

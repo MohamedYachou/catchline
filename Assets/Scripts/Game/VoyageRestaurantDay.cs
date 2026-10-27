@@ -258,7 +258,8 @@ namespace Catchline.Game
             try { restaurantWorld.Begin(night); }
             catch (Exception e) { Debug.LogError("[Catchline] restaurant room failed: " + e.Message); }
             popularityBefore = restaurantPopularity;
-            staffLoad.Clear(); miraSaid.Clear(); miraLines.Clear(); captainFix = captainTable = 0;
+            staffLoad.Clear(); miraSaid.Clear(); miraLines.Clear(); captainFix = captainTable = 0; miraCall = null; miraCallUntil = 0;
+            coachLines.Clear(); coachLine = null; coachOff = State.RestaurantNights.Count > 0;
             nightStock = (night.Stock.Where(s => s.Form != PreparedForm.Stock).Sum(s => s.Count), night.Stock.Where(s => s.Form == PreparedForm.Stock).Sum(s => s.Count));
             RestaurantService.Rail = RestaurantRailMode.Scroll;
             RestaurantService.QuestionTitle = null;
@@ -267,7 +268,7 @@ namespace Catchline.Game
             RestaurantPreview = RestaurantScreen.Service;
             // The very first night opens on Mira's coaching card, the service paused behind it.
             if (State.RestaurantNights.Count == 0 && HasUi("rx-s13-background")) { RestaurantPreview = RestaurantScreen.FirstNight; RestaurantService.Paused = true; }
-            Toast("Mira opens the doors. Service starts at 18:00.");
+            miraSaid.Add("open"); miraLines.Enqueue("Doors open! Service starts at 18:00.");
         }
 
         // Per frame while the night runs: tick the rules, then refresh the service screen's numbers.
@@ -339,14 +340,28 @@ namespace Catchline.Game
 
         // Mira's calls during service (design section 9): each moment once a night, in her words.
         readonly HashSet<string> miraSaid = new();
+        string miraCall; float miraCallUntil;
+        void CloseServiceDoor()
+        {
+            if (night == null || night.DoorClosed) return;
+            night.CloseDoor(); audio?.Play(VoyageAudio.Cue.Select, .45f);
+        }
         (int fish, int soup) nightStock; // portions at the doors opening
+        readonly Queue<string> coachLines = new(); string coachLine; bool coachPaused, coachOff;
+        // Got it shows the next line or lets the night run again; Skip ends the coaching (never the service).
+        void CoachNext(bool skip)
+        {
+            if (skip) { coachOff = true; coachLines.Clear(); }
+            coachLine = null; RestaurantService.Paused = coachPaused;
+            audio?.Play(VoyageAudio.Cue.Select, .4f);
+        }
         readonly Queue<string> miraLines = new(); // one toast at a time, so quick moments at ×2 don't overwrite each other
         void MiraCalls(int fish, int soup, List<RestaurantItem> broken)
         {
             if (RestaurantPreview == RestaurantScreen.FirstNight) return;
             void Say(string key, string line)
             {
-                if (miraSaid.Add(key)) { miraLines.Enqueue("Mira: " + line); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
+                if (miraSaid.Add(key)) { miraLines.Enqueue(line); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
             }
             if (night.Groups.Any(g => g.TableUid != 0)) Say("seated", "First table seated. Here we go!");
             if (night.Groups.Any(g => g.Birthday && g.TableUid != 0)) Say("birthday", "A birthday at our table! Make it special.");
@@ -357,7 +372,23 @@ namespace Catchline.Game
             if (soup == 0 && nightStock.soup > 0 && !night.DoorClosed) Say("no-soup", "Soup's all gone!");
             foreach (var b in broken) Say("broken-" + b.Uid, $"The {RestaurantData.Get(b.Id).Name.ToLower()} broke! Sending help.");
             if (night.DoorClosed) Say("door", "Doors closed. Last plates!");
-            if (miraLines.Count > 0 && SimTime >= toastUntil - 1.2f) { Toast(miraLines.Dequeue()); audio?.Play(VoyageAudio.Cue.CoachPop, .25f); }
+            // The first night's coaching (Codex 1's coach card): the service waits while Mira explains the two controls.
+            void Coach(string key, string line) { if (!coachOff && miraSaid.Add("coach-" + key)) coachLines.Enqueue(line); }
+            if (night.Groups.Any(g => g.TableUid != 0 && g.Phase != GroupPhase.Seating)) Coach("pin", "Tap a table and I'll send the crew there first. Tap a broken station and you fix it yourself.");
+            if (night.Hour >= 21 && !night.DoorClosed) Coach("door", "When the queue thins out, close the door up top. We finish the last plates, then count the till.");
+            if (coachLine == null && coachLines.Count > 0 && HasUi("rx-coach-panel"))
+            {
+                coachLine = coachLines.Dequeue(); coachPaused = RestaurantService.Paused; RestaurantService.Paused = true;
+                audio?.Play(VoyageAudio.Cue.CoachPop, .35f);
+            }
+            // Her lines go to the S2 call strip when Codex 1's sheet is in, else the toast.
+            bool strip = HasUi("rx-s2-call-bubble");
+            if (miraLines.Count > 0 && SimTime >= (strip ? miraCallUntil : toastUntil) - 1.2f)
+            {
+                var line = miraLines.Dequeue();
+                if (strip) { miraCall = line; miraCallUntil = SimTime + 3.6f; } else Toast("Mira: " + line);
+                audio?.Play(VoyageAudio.Cue.CoachPop, .25f);
+            }
         }
 
         // A small adapter so the HUD's staff card (VoyageGame.RestaurantStaff) reads from the rules' staff member.
@@ -569,6 +600,10 @@ namespace Catchline.Game
                     { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = 0, StoredUid = i.Uid })
                 .Concat(RestaurantData.Items.Where(d => areas.Contains(d.Area) && d.Id != ItemId.Reception && d.Stage <= Kitchen.State.Stage)
                 .Select(d => new RestaurantShopItem { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = d.Price }))
+                // ...and a taste of the next stage, locked under its name.
+                .Concat(RestaurantData.Items.Where(d => areas.Contains(d.Area) && d.Id != ItemId.Reception && d.Stage == Kitchen.State.Stage + 1)
+                .Select(d => new RestaurantShopItem { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = d.Price,
+                    Lock = RestaurantData.Stage(d.Stage).Name == "Cafe" ? "Café" : RestaurantData.Stage(d.Stage).Name, LockStage = d.Stage }))
                 .ToList();
         }
 
@@ -576,6 +611,7 @@ namespace Catchline.Game
         void PickArrangeItem(RestaurantArrangeView v, int i)
         {
             CancelArrange(v);
+            if (v.Items[i].Lock != null) { Toast($"Unlocks with the {v.Items[i].Lock} (stage {v.Items[i].LockStage})."); return; }
             var id = v.Items[i].Id; var st = Kitchen.Stage;
             v.Selected = i; v.PlaceId = id; v.Rotated = false;
             v.LiftUid = v.Items[i].StoredUid; v.FromStore = v.LiftUid != 0; // a stored item is put back with Move
@@ -770,6 +806,35 @@ namespace Catchline.Game
                         RestaurantTick(0f);
                         return sent && pinned && !night.Broken.Contains(stove.Uid);
                     }
+                case "day-service-orders": // a table waiting for its food: order bubble, patience, task icons, Mira's call strip
+                    {
+                        if (night == null) { RestaurantPrepared(); if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen(); }
+                        if (night == null) return false;
+                        if (RestaurantPreview == RestaurantScreen.FirstNight) { RestaurantPreview = RestaurantScreen.Service; RestaurantService.Paused = false; }
+                        while (!night.Finished && night.Hour < 22 && !night.Groups.Any(g => g.TableUid != 0 && g.Phase == GroupPhase.Kitchen)) night.Tick(.25f);
+                        var waiting = night.Groups.FirstOrDefault(g => g.TableUid != 0 && g.Phase == GroupPhase.Kitchen);
+                        if (waiting != null && !night.Groups.Any(g => g.Birthday)) waiting.Birthday = true; // the capture shows the event marker too
+                        miraLines.Clear(); RestaurantTick(0f);
+                        Debug.Log($"[Catchline] ORDERS at {night.Hour:0.00}h waiting {waiting?.Id} staff {string.Join(",", night.Staff.Select(x => x.Action))} call '{miraCall}'");
+                        return waiting != null;
+                    }
+                case "day-service-coach": // the first night's coach card over the running service
+                    {
+                        if (night == null) { RestaurantPrepared(); if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen(); }
+                        if (night == null) return false;
+                        if (RestaurantPreview == RestaurantScreen.FirstNight) { RestaurantPreview = RestaurantScreen.Service; RestaurantService.Paused = false; }
+                        coachOff = false;
+                        while (!night.Finished && night.Hour < 22 && coachLine == null) { night.Tick(.25f); RestaurantTick(0f); }
+                        Debug.Log($"[Catchline] COACH at {night.Hour:0.00}h '{coachLine}' paused {RestaurantService.Paused}");
+                        return coachLine != null;
+                    }
+                case "day-service-closed": // door shut: the Closed board over the entrance, last plates going out
+                    if (night == null) return false;
+                    coachLine = null; coachOff = true; RestaurantService.Paused = false;
+                    night.CloseDoor();
+                    while (night.Hour < 22.2f && !night.Finished) night.Tick(.25f);
+                    RestaurantTick(0f);
+                    return RestaurantPhase == DayPhase.Service;
                 case "day-service-late": // tables eating, plates on the tables
                     if (night == null) return false;
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);

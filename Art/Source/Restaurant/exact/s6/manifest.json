@@ -1411,5 +1411,173 @@
     "sha256": "6aaabd7f9f27d58b5cfb4caac08059dfe16067884656091d536cbb7b3c28afec",
     "exportMethod": "imagegen text removal/isolation; discard alpha below8/255 export specks; visible-alpha trim; Lanczos to 3x largest measured use, no canvas padding",
     "pixelExactClaim": false
+  },
+  {
+    "name": "v2-s6-trend-dot",
+    "file": "v2-s6-trend-dot.png",
+    "screen": 6,
+    "rect": [
+      315,
+      238,
+      12,
+      12
+    ],
+    "size": [
+      36,
+      36
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "e1f3ccabc590142799689f101030e70629c7cdd1165f7e8d4eebdb7723c30460",
+    "exportMethod": "accepted trend jewel crop/circular isolation",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false
+  },
+  {
+    "name": "v2-s6-trend-segment",
+    "file": "v2-s6-trend-segment.png",
+    "screen": 6,
+    "rect": [
+      335,
+      230,
+      48,
+      6
+    ],
+    "size": [
+      144,
+      18
+    ],
+    "borders": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "21403ae587b78d15b1da88980030139c4d11eef737e297e4499bed648da18d5d",
+    "exportMethod": "accepted straight stroke affine rectification; centre-column repeat",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "horizontalSlice": true,
+    "renderRule": "Stretch to centre-to-centre distance; rotate about midpoint; draw under nodes. Square ends hidden by nodes."
+  },
+  {
+    "name": "v2-s6-trend-fill",
+    "file": "v2-s6-trend-fill.png",
+    "screen": 6,
+    "rect": [
+      310,
+      207,
+      8,
+      49
+    ],
+    "size": [
+      24,
+      147
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "e5063f34536a46ca6816fc7af3017cb929b725fb45bbbced0fabafb3ee10858f",
+    "exportMethod": "accepted area RGB sample; continuous vertical alpha profile, horizontal rows identical",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "wrapX": "repeat",
+    "wrapY": "clamp",
+    "renderRule": "Clip top to live polyline and bottom to baseline. Never draw as a full rectangle above the curve."
+  },
+  {
+    "name": "v2-s6-bar-empty",
+    "file": "v2-s6-bar-empty.png",
+    "screen": 6,
+    "rect": [
+      38,
+      209,
+      24,
+      36
+    ],
+    "size": [
+      72,
+      108
+    ],
+    "borders": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "a10c7d44407ae882fd2d868721efa5ad78a026b5b94b801eafa5177f40c799c9",
+    "exportMethod": "built-in ImageGen empty variant, alpha trim/3x export",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "renderOpacity": 0.28
+  },
+  {
+    "name": "v2-s6-btn-arrange",
+    "file": "v2-s6-btn-arrange.png",
+    "screen": 6,
+    "rect": [
+      198,
+      58,
+      169,
+      38
+    ],
+    "size": [
+      516,
+      114
+    ],
+    "borders": [
+      42,
+      36,
+      42,
+      36
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "bbe728391e11234152c537d9b8f7f9a599200cda93e257affc0ea9157466a7c8",
+    "provenance": {
+      "method": "Byte-identical accepted v2-s6-tab-idle reuse, unique name",
+      "source": "v2-s6-tab-idle.png",
+      "sourceSha256": "bbe728391e11234152c537d9b8f7f9a599200cda93e257affc0ea9157466a7c8"
+    },
+    "native3xDetailClaim": false
+  },
+  {
+    "name": "v2-s6-arrange-chair",
+    "file": "v2-s6-arrange-chair.png",
+    "screen": 6,
+    "rect": [
+      220,
+      65,
+      19,
+      24
+    ],
+    "size": [
+      57,
+      72
+    ],
+    "borders": null,
+    "sha256": "9ec7d3dd390666f707db3fc3987820cd623da33518a3e9de05120534ba9e5391",
+    "provenance": {
+      "sourceSize": [
+        1300,
+        1210
+      ],
+      "sourceAlphaCrop": [
+        274,
+        97,
+        1071,
+        1114
+      ],
+      "nativeCropSize": [
+        797,
+        1017
+      ],
+      "sourceSha256": "4d085b878b44a11a3500c3768936bb9b22eb27928d475cbdb672a6a02da582a4"
+    },
+    "native3xDetailClaim": false
   }
 ]

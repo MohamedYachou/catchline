@@ -1,0 +1,181 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "origin": "top-left",
+      "background": "../../concepts/ui-2-service.png",
+      "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+      "placements": [
+        {
+          "name": "v2-s2-call-bubble",
+          "screen": "phone",
+          "use": "reusable-call-bubble",
+          "rect": [
+            190,
+            50,
+            320,
+            44
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-s2-call-mira",
+          "screen": "phone",
+          "use": "accepted-host-bust",
+          "rect": [
+            511,
+            47,
+            38,
+            52
+          ],
+          "z": 21
+        },
+        {
+          "name": "v2-s2-close-door-button",
+          "screen": "phone",
+          "use": "top-bar-close-door",
+          "rect": [
+            421,
+            6,
+            97,
+            32
+          ],
+          "z": 22
+        },
+        {
+          "name": "v2-s2-close-door-icon",
+          "screen": "phone",
+          "use": "door-icon",
+          "rect": [
+            429,
+            10,
+            18,
+            24
+          ],
+          "z": 23
+        }
+      ],
+      "headerReflow": {
+        "patchRect": [
+          167,
+          0,
+          357,
+          44
+        ],
+        "blankSourceBox": [
+          164,
+          0,
+          174,
+          44
+        ],
+        "timelineSourceRect": [
+          177,
+          0,
+          326,
+          40
+        ],
+        "timelineRect": [
+          176,
+          0,
+          238,
+          40
+        ],
+        "notes": "Reflow live timeline into destination; reference crop is demonstration only. Desktop title shortened, back/wallet/stars/speeds untouched."
+      },
+      "protectedWorldBelowY": 100
+    },
+    {
+      "screen": "desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "origin": "top-left",
+      "background": "../../concepts/ui-service-desktop.png",
+      "backgroundSha256": "623efaf65065dc953eac6425e8186925097a08124977b5e67372b4736296115b",
+      "placements": [
+        {
+          "name": "v2-s2-call-bubble",
+          "screen": "desktop",
+          "use": "reusable-call-bubble",
+          "rect": [
+            444,
+            86,
+            430,
+            54
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-s2-call-mira",
+          "screen": "desktop",
+          "use": "accepted-host-bust",
+          "rect": [
+            879,
+            80,
+            49,
+            67
+          ],
+          "z": 21
+        },
+        {
+          "name": "v2-s2-close-door-button",
+          "screen": "desktop",
+          "use": "top-bar-close-door",
+          "rect": [
+            804,
+            14,
+            121,
+            50
+          ],
+          "z": 22
+        },
+        {
+          "name": "v2-s2-close-door-icon",
+          "screen": "desktop",
+          "use": "door-icon",
+          "rect": [
+            814,
+            23,
+            24,
+            32
+          ],
+          "z": 23
+        }
+      ],
+      "headerReflow": {
+        "patchRect": [
+          102,
+          0,
+          828,
+          80
+        ],
+        "blankSourceBox": [
+          875,
+          0,
+          905,
+          80
+        ],
+        "timelineSourceRect": [
+          545,
+          0,
+          330,
+          75
+        ],
+        "timelineRect": [
+          467,
+          0,
+          330,
+          75
+        ],
+        "notes": "Reflow live timeline into destination; reference crop is demonstration only. Desktop title shortened, back/wallet/stars/speeds untouched."
+      },
+      "protectedWorldBelowY": 150
+    }
+  ],
+  "notes": "Call is non-blocking; anchors fixed below topbar. Text wraps at measured width; queue controls lifetime in code. Closed state/disabled logic is runtime-owned."
+}

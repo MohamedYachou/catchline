@@ -1,0 +1,29 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "../../concepts/ui-2-service.png",
+      "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+      "placements": [
+        {
+          "name": "v2-closed-sign-board",
+          "screen": "phone",
+          "use": "entrance-closed",
+          "rect": [
+            602,
+            277,
+            112,
+            27
+          ],
+          "z": 20
+        }
+      ],
+      "usage": "Screen-space demo near entrance; anchor over actual room entrance, hide until door is closed. Request panel and reference guests are untouched background, not a closed-service state simulation."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h; logical mockup pixels; z ascending"
+}

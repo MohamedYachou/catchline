@@ -1,0 +1,27 @@
+{
+  "sprites": [
+    {
+      "name": "v2-s8-state-owned-card",
+      "borders": [
+        54,
+        42,
+        54,
+        42
+      ],
+      "border_order": "left,bottom,right,top",
+      "units": "export pixels; divide by3 for logical"
+    },
+    {
+      "name": "v2-s8-state-needs-stage",
+      "borders": [
+        63,
+        15,
+        24,
+        15
+      ],
+      "border_order": "left,bottom,right,top",
+      "units": "export pixels; divide by3 for logical"
+    }
+  ],
+  "notes": "Fixed icons preserve aspect. Atlas frame sprites use explicit frameRects/pivots; never stretch the entire strip."
+}

@@ -1,39 +1,2158 @@
 {
-  "measurementBasis": "Visual measurement of supplied 844x390 phone and1440x900 desktop PNGs; font family is an inferred implementation match, not embedded-font metadata.",
+  "measurementBasis": "Visual measurement of supplied 844x390 phone and1440x900 desktop PNGs; font family is an inferred implementation match, not embedded-font metadata. Codex1: rects are hand-measured ink envelopes in each named native raster; group styles retain original text and fields, individual children provide separate draw positions. No OCR/font extraction or subpixel exactness claimed.",
   "font": "Fredoka Bold/SemiBold already in project; retain source rounded weight, do not substitute default system font.",
   "styles": [
-    {"screen":"s1-phone","text":"Arrange","weight":700,"size":27,"fill":"#FFF8EB","stroke":"#062548","strokeWidth":1.4,"shadow":[0,1.5,"#002944"]},
-    {"screen":"s1-phone","text":"Undo","weight":700,"size":15,"fill":"#062548","stroke":"#FFF4DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"2,450","weight":700,"size":19,"fill":"#061F49","stroke":"#FFF4DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"Kitchen / Guests / Bar / Decor / Expand","weight":700,"size":12,"fill":"#062548","selectedFill":"#FFF8EB","stroke":"#8A330C","strokeWidth":0,"selectedStrokeWidth":0.7,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"Table for2 / Table for4 / Booth (catalog)","weight":700,"size":11,"fill":"#061E49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"120 /220 /380","weight":700,"size":14,"fill":"#061E49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"1x1 /2x1","weight":600,"size":10,"fill":"#123953","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s1-phone","text":"Table for2 ·1x1 (world tag)","weight":700,"size":14,"fill":"#061E49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"18:40","weight":700,"size":21,"fill":"#FFF9ED","stroke":"#08264D","strokeWidth":1,"shadow":[0,1,"#08264D"]},
-    {"screen":"s2-phone","text":"Evening service","weight":600,"size":11,"fill":"#FFF9ED","stroke":"#08264D","strokeWidth":0.6,"shadow":[0,1,"#08264D"]},
-    {"screen":"s2-phone","text":"NOW","weight":700,"size":10,"fill":"#FFF9ED","stroke":"#B6440A","strokeWidth":0.4,"shadow":[0,1,"#B6440A"]},
-    {"screen":"s2-phone","text":"320 /42","weight":700,"size":18,"fill":"#FFF9ED","stroke":"#08264D","strokeWidth":0.7,"shadow":[0,1,"#08264D"]},
-    {"screen":"s2-phone","text":"1x /2x","weight":700,"size":16,"fill":"#FFF9ED","stroke":"#623619","strokeWidth":0.6,"shadow":[0,1,"#6D3315"]},
-    {"screen":"s2-phone","text":"Fish /Soup /Coffee","weight":700,"size":14,"fill":"#061C49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"8 /5 /12 (stock)","weight":700,"size":18,"fill":"#061C49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"A late table?","weight":700,"size":15,"fill":"#061C49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"A group just arrived. Shall we seat them?","weight":500,"size":10,"fill":"#08234C","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"Seat them","weight":700,"size":15,"fill":"#FFF8EB","stroke":"#873B0B","strokeWidth":0.8,"shadow":[0,1,"#6C2E0E"]},
-    {"screen":"s2-phone","text":"Not tonight","weight":700,"size":14,"fill":"#071E47","stroke":"#FFF7E5","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-phone","text":"Cook /Serve /Fix /Coffee","weight":700,"size":13,"fill":"#061E49","stroke":"#FFF5DE","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"Mira's · Evening service","weight":700,"size":39,"fill":"#FFF8EC","stroke":"#092544","strokeWidth":1.1,"shadow":[0,2,"#05233E"]},
-    {"screen":"s2-desktop","text":"18:00 /20:00 /23:00","weight":600,"size":16,"fill":"#FFF8EC","stroke":"#092544","strokeWidth":0.6,"shadow":[0,1,"#05233E"]},
-    {"screen":"s2-desktop","text":"18:40 (flag)","weight":700,"size":17,"fill":"#FFF8EC","stroke":"#B44C0E","strokeWidth":0.5,"shadow":[0,1,"#A94209"]},
-    {"screen":"s2-desktop","text":"320 /42","weight":700,"size":27,"fill":"#FFF8EC","stroke":"#092544","strokeWidth":0.8,"shadow":[0,1,"#05233E"]},
-    {"screen":"s2-desktop","text":"1x /2x","weight":700,"size":27,"fill":"#FFF8EC","stroke":"#092544","strokeWidth":0.7,"shadow":[0,1,"#05233E"]},
-    {"screen":"s2-desktop","text":"Tonight's stock","weight":700,"size":22,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"8 /5 /12 (stock)","weight":700,"size":32,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"Fryer needs repair","weight":700,"size":16,"fill":"#BE1911","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"A late table?","weight":700,"size":23,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"A party of four has arrived.","weight":500,"size":18,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"Seat them","weight":700,"size":23,"fill":"#FFF8EB","stroke":"#8E380C","strokeWidth":0.9,"shadow":[0,1.5,"#8A300A"]},
-    {"screen":"s2-desktop","text":"Not tonight","weight":700,"size":22,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]},
-    {"screen":"s2-desktop","text":"Cook /Serve /Fix /Coffee /Reception","weight":700,"size":20,"fill":"#071D48","stroke":"#FFF7E3","strokeWidth":0,"shadow":[0,0,"#00000000"]}
+    {
+      "screen": "arrange",
+      "text": "Arrange",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EB",
+      "stroke": "#062548",
+      "strokeWidth": 1.4,
+      "shadow": [
+        0,
+        1.5,
+        "#002944"
+      ],
+      "id": "title",
+      "rect": [
+        127,
+        7,
+        103,
+        29
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "Undo",
+      "weight": 700,
+      "size": 15,
+      "fill": "#062548",
+      "stroke": "#FFF4DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "undo",
+      "rect": [
+        774,
+        13,
+        38,
+        16
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "2,450",
+      "weight": 700,
+      "size": 19,
+      "fill": "#061F49",
+      "stroke": "#FFF4DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "wallet",
+      "rect": [
+        643,
+        12,
+        48,
+        20
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "Kitchen / Guests / Bar / Decor / Expand",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs",
+      "rect": [
+        24,
+        348,
+        301,
+        15
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "tabs-1",
+          "text": "Kitchen",
+          "rect": [
+            24,
+            348,
+            42,
+            15
+          ]
+        },
+        {
+          "id": "tabs-2",
+          "text": "Guests",
+          "rect": [
+            89,
+            348,
+            44,
+            15
+          ]
+        },
+        {
+          "id": "tabs-3",
+          "text": "Bar",
+          "rect": [
+            170,
+            348,
+            21,
+            15
+          ]
+        },
+        {
+          "id": "tabs-4",
+          "text": "Decor",
+          "rect": [
+            220,
+            348,
+            37,
+            15
+          ]
+        },
+        {
+          "id": "tabs-5",
+          "text": "Expand",
+          "rect": [
+            280,
+            348,
+            45,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "Kitchen",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs-1",
+      "rect": [
+        24,
+        348,
+        42,
+        15
+      ],
+      "styleRef": "tabs"
+    },
+    {
+      "screen": "arrange",
+      "text": "Guests",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs-2",
+      "rect": [
+        89,
+        348,
+        44,
+        15
+      ],
+      "styleRef": "tabs"
+    },
+    {
+      "screen": "arrange",
+      "text": "Bar",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs-3",
+      "rect": [
+        170,
+        348,
+        21,
+        15
+      ],
+      "styleRef": "tabs"
+    },
+    {
+      "screen": "arrange",
+      "text": "Decor",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs-4",
+      "rect": [
+        220,
+        348,
+        37,
+        15
+      ],
+      "styleRef": "tabs"
+    },
+    {
+      "screen": "arrange",
+      "text": "Expand",
+      "weight": 700,
+      "size": 12,
+      "fill": "#062548",
+      "selectedFill": "#FFF8EB",
+      "stroke": "#8A330C",
+      "strokeWidth": 0,
+      "selectedStrokeWidth": 0.7,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "tabs-5",
+      "rect": [
+        280,
+        348,
+        45,
+        15
+      ],
+      "styleRef": "tabs"
+    },
+    {
+      "screen": "arrange",
+      "text": "Table for2 / Table for4 / Booth (catalog)",
+      "weight": 700,
+      "size": 11,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-name",
+      "rect": [
+        429,
+        315,
+        363,
+        14
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "catalog-name-1",
+          "text": "Table for 2",
+          "rect": [
+            429,
+            315,
+            61,
+            14
+          ]
+        },
+        {
+          "id": "catalog-name-2",
+          "text": "Table for 4",
+          "rect": [
+            589,
+            315,
+            63,
+            14
+          ]
+        },
+        {
+          "id": "catalog-name-3",
+          "text": "Booth",
+          "rect": [
+            756,
+            315,
+            36,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "Table for 2",
+      "weight": 700,
+      "size": 11,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-name-1",
+      "rect": [
+        429,
+        315,
+        61,
+        14
+      ],
+      "styleRef": "catalog-name"
+    },
+    {
+      "screen": "arrange",
+      "text": "Table for 4",
+      "weight": 700,
+      "size": 11,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-name-2",
+      "rect": [
+        589,
+        315,
+        63,
+        14
+      ],
+      "styleRef": "catalog-name"
+    },
+    {
+      "screen": "arrange",
+      "text": "Booth",
+      "weight": 700,
+      "size": 11,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-name-3",
+      "rect": [
+        756,
+        315,
+        36,
+        14
+      ],
+      "styleRef": "catalog-name"
+    },
+    {
+      "screen": "arrange",
+      "text": "120 /220 /380",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-price",
+      "rect": [
+        455,
+        333,
+        354,
+        17
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "catalog-price-1",
+          "text": "120",
+          "rect": [
+            455,
+            333,
+            29,
+            17
+          ]
+        },
+        {
+          "id": "catalog-price-2",
+          "text": "220",
+          "rect": [
+            615,
+            333,
+            29,
+            17
+          ]
+        },
+        {
+          "id": "catalog-price-3",
+          "text": "380",
+          "rect": [
+            780,
+            333,
+            29,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "120",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-price-1",
+      "rect": [
+        455,
+        333,
+        29,
+        17
+      ],
+      "styleRef": "catalog-price"
+    },
+    {
+      "screen": "arrange",
+      "text": "220",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-price-2",
+      "rect": [
+        615,
+        333,
+        29,
+        17
+      ],
+      "styleRef": "catalog-price"
+    },
+    {
+      "screen": "arrange",
+      "text": "380",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-price-3",
+      "rect": [
+        780,
+        333,
+        29,
+        17
+      ],
+      "styleRef": "catalog-price"
+    },
+    {
+      "screen": "arrange",
+      "text": "1x1 /2x1",
+      "weight": 600,
+      "size": 10,
+      "fill": "#123953",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-size",
+      "rect": [
+        455,
+        354,
+        358,
+        13
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "catalog-size-1",
+          "text": "1×1",
+          "rect": [
+            455,
+            354,
+            24,
+            13
+          ]
+        },
+        {
+          "id": "catalog-size-2",
+          "text": "2×1",
+          "rect": [
+            624,
+            354,
+            25,
+            13
+          ]
+        },
+        {
+          "id": "catalog-size-3",
+          "text": "2×1",
+          "rect": [
+            788,
+            354,
+            25,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "arrange",
+      "text": "1×1",
+      "weight": 600,
+      "size": 10,
+      "fill": "#123953",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-size-1",
+      "rect": [
+        455,
+        354,
+        24,
+        13
+      ],
+      "styleRef": "catalog-size"
+    },
+    {
+      "screen": "arrange",
+      "text": "2×1",
+      "weight": 600,
+      "size": 10,
+      "fill": "#123953",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-size-2",
+      "rect": [
+        624,
+        354,
+        25,
+        13
+      ],
+      "styleRef": "catalog-size"
+    },
+    {
+      "screen": "arrange",
+      "text": "2×1",
+      "weight": 600,
+      "size": 10,
+      "fill": "#123953",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "catalog-size-3",
+      "rect": [
+        788,
+        354,
+        25,
+        13
+      ],
+      "styleRef": "catalog-size"
+    },
+    {
+      "screen": "arrange",
+      "text": "Table for2 ·1x1 (world tag)",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "world-tag",
+      "rect": [
+        709,
+        149,
+        101,
+        17
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "18:40",
+      "weight": 700,
+      "size": 21,
+      "fill": "#FFF9ED",
+      "stroke": "#08264D",
+      "strokeWidth": 1,
+      "shadow": [
+        0,
+        1,
+        "#08264D"
+      ],
+      "id": "clock",
+      "rect": [
+        61,
+        6,
+        58,
+        23
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Evening service",
+      "weight": 600,
+      "size": 11,
+      "fill": "#FFF9ED",
+      "stroke": "#08264D",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#08264D"
+      ],
+      "id": "subtitle",
+      "rect": [
+        62,
+        28,
+        86,
+        12
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "NOW",
+      "weight": 700,
+      "size": 10,
+      "fill": "#FFF9ED",
+      "stroke": "#B6440A",
+      "strokeWidth": 0.4,
+      "shadow": [
+        0,
+        1,
+        "#B6440A"
+      ],
+      "id": "now",
+      "rect": [
+        364,
+        5,
+        23,
+        12
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "320 /42",
+      "weight": 700,
+      "size": 18,
+      "fill": "#FFF9ED",
+      "stroke": "#08264D",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#08264D"
+      ],
+      "id": "wallet",
+      "rect": [
+        560,
+        13,
+        119,
+        20
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "wallet-1",
+          "text": "320",
+          "rect": [
+            560,
+            13,
+            35,
+            20
+          ]
+        },
+        {
+          "id": "wallet-2",
+          "text": "42",
+          "rect": [
+            654,
+            13,
+            25,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "320",
+      "weight": 700,
+      "size": 18,
+      "fill": "#FFF9ED",
+      "stroke": "#08264D",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#08264D"
+      ],
+      "id": "wallet-1",
+      "rect": [
+        560,
+        13,
+        35,
+        20
+      ],
+      "styleRef": "wallet"
+    },
+    {
+      "screen": "phone",
+      "text": "42",
+      "weight": 700,
+      "size": 18,
+      "fill": "#FFF9ED",
+      "stroke": "#08264D",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#08264D"
+      ],
+      "id": "wallet-2",
+      "rect": [
+        654,
+        13,
+        25,
+        20
+      ],
+      "styleRef": "wallet"
+    },
+    {
+      "screen": "phone",
+      "text": "1x /2x",
+      "weight": 700,
+      "size": 16,
+      "fill": "#FFF9ED",
+      "stroke": "#623619",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#6D3315"
+      ],
+      "id": "speed",
+      "rect": [
+        712,
+        14,
+        66,
+        20
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "speed-1",
+          "text": "1×",
+          "rect": [
+            712,
+            14,
+            22,
+            20
+          ]
+        },
+        {
+          "id": "speed-2",
+          "text": "2×",
+          "rect": [
+            756,
+            14,
+            22,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "1×",
+      "weight": 700,
+      "size": 16,
+      "fill": "#FFF9ED",
+      "stroke": "#623619",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#6D3315"
+      ],
+      "id": "speed-1",
+      "rect": [
+        712,
+        14,
+        22,
+        20
+      ],
+      "styleRef": "speed"
+    },
+    {
+      "screen": "phone",
+      "text": "2×",
+      "weight": 700,
+      "size": 16,
+      "fill": "#FFF9ED",
+      "stroke": "#623619",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#6D3315"
+      ],
+      "id": "speed-2",
+      "rect": [
+        756,
+        14,
+        22,
+        20
+      ],
+      "styleRef": "speed"
+    },
+    {
+      "screen": "phone",
+      "text": "Fish /Soup /Coffee",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-label",
+      "rect": [
+        70,
+        63,
+        44,
+        146
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "stock-label-1",
+          "text": "Fish",
+          "rect": [
+            70,
+            63,
+            29,
+            17
+          ]
+        },
+        {
+          "id": "stock-label-2",
+          "text": "Soup",
+          "rect": [
+            70,
+            127,
+            34,
+            17
+          ]
+        },
+        {
+          "id": "stock-label-3",
+          "text": "Coffee",
+          "rect": [
+            70,
+            192,
+            44,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Fish",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-label-1",
+      "rect": [
+        70,
+        63,
+        29,
+        17
+      ],
+      "styleRef": "stock-label"
+    },
+    {
+      "screen": "phone",
+      "text": "Soup",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-label-2",
+      "rect": [
+        70,
+        127,
+        34,
+        17
+      ],
+      "styleRef": "stock-label"
+    },
+    {
+      "screen": "phone",
+      "text": "Coffee",
+      "weight": 700,
+      "size": 14,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-label-3",
+      "rect": [
+        70,
+        192,
+        44,
+        17
+      ],
+      "styleRef": "stock-label"
+    },
+    {
+      "screen": "phone",
+      "text": "8 /5 /12 (stock)",
+      "weight": 700,
+      "size": 18,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count",
+      "rect": [
+        70,
+        80,
+        27,
+        149
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "stock-count-1",
+          "text": "8",
+          "rect": [
+            70,
+            80,
+            17,
+            20
+          ]
+        },
+        {
+          "id": "stock-count-2",
+          "text": "5",
+          "rect": [
+            70,
+            144,
+            17,
+            20
+          ]
+        },
+        {
+          "id": "stock-count-3",
+          "text": "12",
+          "rect": [
+            70,
+            209,
+            27,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "8",
+      "weight": 700,
+      "size": 18,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-1",
+      "rect": [
+        70,
+        80,
+        17,
+        20
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "phone",
+      "text": "5",
+      "weight": 700,
+      "size": 18,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-2",
+      "rect": [
+        70,
+        144,
+        17,
+        20
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "phone",
+      "text": "12",
+      "weight": 700,
+      "size": 18,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-3",
+      "rect": [
+        70,
+        209,
+        27,
+        20
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "phone",
+      "text": "A late table?",
+      "weight": 700,
+      "size": 15,
+      "fill": "#061C49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "late-title",
+      "rect": [
+        736,
+        68,
+        84,
+        18
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "A group just arrived. Shall we seat them?",
+      "weight": 500,
+      "size": 10,
+      "fill": "#08234C",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "late-copy",
+      "rect": [
+        737,
+        88,
+        86,
+        25
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Seat them",
+      "weight": 700,
+      "size": 15,
+      "fill": "#FFF8EB",
+      "stroke": "#873B0B",
+      "strokeWidth": 0.8,
+      "shadow": [
+        0,
+        1,
+        "#6C2E0E"
+      ],
+      "id": "seat",
+      "rect": [
+        731,
+        148,
+        68,
+        19
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Not tonight",
+      "weight": 700,
+      "size": 14,
+      "fill": "#071E47",
+      "stroke": "#FFF7E5",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "decline",
+      "rect": [
+        730,
+        187,
+        82,
+        19
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Cook /Serve /Fix /Coffee",
+      "weight": 700,
+      "size": 13,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role",
+      "rect": [
+        106,
+        331,
+        537,
+        16
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "staff-role-1",
+          "text": "Cook",
+          "rect": [
+            106,
+            331,
+            29,
+            16
+          ]
+        },
+        {
+          "id": "staff-role-2",
+          "text": "Serve",
+          "rect": [
+            274,
+            331,
+            35,
+            16
+          ]
+        },
+        {
+          "id": "staff-role-3",
+          "text": "Fix",
+          "rect": [
+            439,
+            331,
+            20,
+            16
+          ]
+        },
+        {
+          "id": "staff-role-4",
+          "text": "Coffee",
+          "rect": [
+            601,
+            331,
+            42,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "phone",
+      "text": "Cook",
+      "weight": 700,
+      "size": 13,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-1",
+      "rect": [
+        106,
+        331,
+        29,
+        16
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "phone",
+      "text": "Serve",
+      "weight": 700,
+      "size": 13,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-2",
+      "rect": [
+        274,
+        331,
+        35,
+        16
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "phone",
+      "text": "Fix",
+      "weight": 700,
+      "size": 13,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-3",
+      "rect": [
+        439,
+        331,
+        20,
+        16
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "phone",
+      "text": "Coffee",
+      "weight": 700,
+      "size": 13,
+      "fill": "#061E49",
+      "stroke": "#FFF5DE",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-4",
+      "rect": [
+        601,
+        331,
+        42,
+        16
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "desktop",
+      "text": "Mira's · Evening service",
+      "weight": 700,
+      "size": 39,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 1.1,
+      "shadow": [
+        0,
+        2,
+        "#05233E"
+      ],
+      "id": "title",
+      "rect": [
+        114,
+        20,
+        421,
+        41
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "18:00 /20:00 /23:00",
+      "weight": 600,
+      "size": 16,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "timeline-label",
+      "rect": [
+        552,
+        52,
+        310,
+        18
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "timeline-label-1",
+          "text": "18:00",
+          "rect": [
+            552,
+            52,
+            44,
+            18
+          ]
+        },
+        {
+          "id": "timeline-label-2",
+          "text": "20:00",
+          "rect": [
+            695,
+            52,
+            46,
+            18
+          ]
+        },
+        {
+          "id": "timeline-label-3",
+          "text": "23:00",
+          "rect": [
+            816,
+            52,
+            46,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "18:00",
+      "weight": 600,
+      "size": 16,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "timeline-label-1",
+      "rect": [
+        552,
+        52,
+        44,
+        18
+      ],
+      "styleRef": "timeline-label"
+    },
+    {
+      "screen": "desktop",
+      "text": "20:00",
+      "weight": 600,
+      "size": 16,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "timeline-label-2",
+      "rect": [
+        695,
+        52,
+        46,
+        18
+      ],
+      "styleRef": "timeline-label"
+    },
+    {
+      "screen": "desktop",
+      "text": "23:00",
+      "weight": 600,
+      "size": 16,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.6,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "timeline-label-3",
+      "rect": [
+        816,
+        52,
+        46,
+        18
+      ],
+      "styleRef": "timeline-label"
+    },
+    {
+      "screen": "desktop",
+      "text": "18:40 (flag)",
+      "weight": 700,
+      "size": 17,
+      "fill": "#FFF8EC",
+      "stroke": "#B44C0E",
+      "strokeWidth": 0.5,
+      "shadow": [
+        0,
+        1,
+        "#A94209"
+      ],
+      "id": "clock",
+      "rect": [
+        638,
+        8,
+        41,
+        21
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "320 /42",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.8,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "wallet",
+      "rect": [
+        993,
+        25,
+        188,
+        30
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "wallet-1",
+          "text": "320",
+          "rect": [
+            993,
+            25,
+            48,
+            30
+          ]
+        },
+        {
+          "id": "wallet-2",
+          "text": "42",
+          "rect": [
+            1148,
+            25,
+            33,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "320",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.8,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "wallet-1",
+      "rect": [
+        993,
+        25,
+        48,
+        30
+      ],
+      "styleRef": "wallet"
+    },
+    {
+      "screen": "desktop",
+      "text": "42",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.8,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "wallet-2",
+      "rect": [
+        1148,
+        25,
+        33,
+        30
+      ],
+      "styleRef": "wallet"
+    },
+    {
+      "screen": "desktop",
+      "text": "1x /2x",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "speed",
+      "rect": [
+        1308,
+        27,
+        95,
+        30
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "speed-1",
+          "text": "1×",
+          "rect": [
+            1308,
+            27,
+            33,
+            30
+          ]
+        },
+        {
+          "id": "speed-2",
+          "text": "2×",
+          "rect": [
+            1370,
+            27,
+            33,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "1×",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "speed-1",
+      "rect": [
+        1308,
+        27,
+        33,
+        30
+      ],
+      "styleRef": "speed"
+    },
+    {
+      "screen": "desktop",
+      "text": "2×",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF8EC",
+      "stroke": "#092544",
+      "strokeWidth": 0.7,
+      "shadow": [
+        0,
+        1,
+        "#05233E"
+      ],
+      "id": "speed-2",
+      "rect": [
+        1370,
+        27,
+        33,
+        30
+      ],
+      "styleRef": "speed"
+    },
+    {
+      "screen": "desktop",
+      "text": "Tonight's stock",
+      "weight": 700,
+      "size": 22,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-title",
+      "rect": [
+        33,
+        105,
+        153,
+        25
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "8 /5 /12 (stock)",
+      "weight": 700,
+      "size": 32,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count",
+      "rect": [
+        124,
+        151,
+        39,
+        162
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "stock-count-1",
+          "text": "8",
+          "rect": [
+            124,
+            151,
+            22,
+            34
+          ]
+        },
+        {
+          "id": "stock-count-2",
+          "text": "5",
+          "rect": [
+            124,
+            215,
+            22,
+            34
+          ]
+        },
+        {
+          "id": "stock-count-3",
+          "text": "12",
+          "rect": [
+            124,
+            279,
+            39,
+            34
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "8",
+      "weight": 700,
+      "size": 32,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-1",
+      "rect": [
+        124,
+        151,
+        22,
+        34
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "desktop",
+      "text": "5",
+      "weight": 700,
+      "size": 32,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-2",
+      "rect": [
+        124,
+        215,
+        22,
+        34
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "desktop",
+      "text": "12",
+      "weight": 700,
+      "size": 32,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "stock-count-3",
+      "rect": [
+        124,
+        279,
+        39,
+        34
+      ],
+      "styleRef": "stock-count"
+    },
+    {
+      "screen": "desktop",
+      "text": "Fryer needs repair",
+      "weight": 700,
+      "size": 16,
+      "fill": "#BE1911",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "repair",
+      "rect": [
+        81,
+        343,
+        97,
+        42
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "A late table?",
+      "weight": 700,
+      "size": 23,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "late-title",
+      "rect": [
+        1289,
+        121,
+        122,
+        27
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "A party of four has arrived.",
+      "weight": 500,
+      "size": 18,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "late-copy",
+      "rect": [
+        1294,
+        153,
+        108,
+        42
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "Seat them",
+      "weight": 700,
+      "size": 23,
+      "fill": "#FFF8EB",
+      "stroke": "#8E380C",
+      "strokeWidth": 0.9,
+      "shadow": [
+        0,
+        1.5,
+        "#8A300A"
+      ],
+      "id": "seat",
+      "rect": [
+        1242,
+        241,
+        117,
+        28
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "Not tonight",
+      "weight": 700,
+      "size": 22,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "decline",
+      "rect": [
+        1241,
+        296,
+        119,
+        27
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "Cook /Serve /Fix /Coffee /Reception",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role",
+      "rect": [
+        146,
+        783,
+        1156,
+        25
+      ],
+      "measurementRole": "style-group; use child instance entries to draw separately",
+      "instances": [
+        {
+          "id": "staff-role-1",
+          "text": "Cook",
+          "rect": [
+            146,
+            783,
+            44,
+            25
+          ]
+        },
+        {
+          "id": "staff-role-2",
+          "text": "Serve",
+          "rect": [
+            406,
+            783,
+            56,
+            25
+          ]
+        },
+        {
+          "id": "staff-role-3",
+          "text": "Fix",
+          "rect": [
+            658,
+            783,
+            30,
+            25
+          ]
+        },
+        {
+          "id": "staff-role-4",
+          "text": "Coffee",
+          "rect": [
+            931,
+            783,
+            65,
+            25
+          ]
+        },
+        {
+          "id": "staff-role-5",
+          "text": "Reception",
+          "rect": [
+            1210,
+            783,
+            92,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "screen": "desktop",
+      "text": "Cook",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-1",
+      "rect": [
+        146,
+        783,
+        44,
+        25
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "desktop",
+      "text": "Serve",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-2",
+      "rect": [
+        406,
+        783,
+        56,
+        25
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "desktop",
+      "text": "Fix",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-3",
+      "rect": [
+        658,
+        783,
+        30,
+        25
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "desktop",
+      "text": "Coffee",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-4",
+      "rect": [
+        931,
+        783,
+        65,
+        25
+      ],
+      "styleRef": "staff-role"
+    },
+    {
+      "screen": "desktop",
+      "text": "Reception",
+      "weight": 700,
+      "size": 20,
+      "fill": "#071D48",
+      "stroke": "#FFF7E3",
+      "strokeWidth": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "id": "staff-role-5",
+      "rect": [
+        1210,
+        783,
+        92,
+        25
+      ],
+      "styleRef": "staff-role"
+    }
+  ],
+  "screens": {
+    "arrange": {
+      "file": "ui-1-arrange.png",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "phone": {
+      "file": "ui-2-service.png",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "desktop": {
+      "file": "ui-service-desktop.png",
+      "size": [
+        1440,
+        900
+      ]
+    }
+  },
+  "coverageNotes": [
+    "All foreground UI words/numbers are listed; currency symbols, pause/check/cross/rotate/arrow and sun are integral artwork icons, not live text.",
+    "Phone timeline has NOW only; desktop timeline has three clock labels and the orange 18:40 flag.",
+    "Visible kitchen/menu scene pictograms are world art, outside the foreground UI text sheet.",
+    "The multiplication glyphs in the original grouped texts are retained; instance text transcribes the mockup × glyph."
   ]
 }

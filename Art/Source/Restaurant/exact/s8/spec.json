@@ -1,0 +1,1126 @@
+{
+  "screen": 8,
+  "concept": "ui-8-upgrades.png",
+  "pieces": [
+    {
+      "id": "background",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "atlas": "background.png",
+      "z": 0,
+      "opaque": true
+    },
+    {
+      "id": "title-sign",
+      "rect": [
+        262,
+        0,
+        332,
+        59
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        0,
+        950,
+        365
+      ]
+    },
+    {
+      "id": "main-panel",
+      "rect": [
+        15,
+        116,
+        814,
+        137
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "slice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "sourceBox": [
+        950,
+        0,
+        1846,
+        365
+      ]
+    },
+    {
+      "id": "stage-current",
+      "rect": [
+        24,
+        65,
+        189,
+        46
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "slice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "sourceBox": [
+        0,
+        365,
+        930,
+        580
+      ]
+    },
+    {
+      "id": "stage-next",
+      "rect": [
+        235,
+        65,
+        183,
+        46
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "slice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "sourceBox": [
+        950,
+        365,
+        1846,
+        580
+      ]
+    },
+    {
+      "id": "stage-locked",
+      "rect": [
+        438,
+        65,
+        174,
+        46
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "slice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "uses": [
+        {
+          "use": "seafood-house",
+          "rect": [
+            633,
+            65,
+            190,
+            46
+          ]
+        }
+      ],
+      "sourceBox": [
+        0,
+        585,
+        930,
+        852
+      ]
+    },
+    {
+      "id": "upgrade-card",
+      "rect": [
+        16,
+        287,
+        270,
+        99
+      ],
+      "atlas": "frames.png",
+      "z": 10,
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "slice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "uses": [
+        {
+          "use": "stove",
+          "rect": [
+            291,
+            287,
+            260,
+            99
+          ]
+        },
+        {
+          "use": "lighting",
+          "rect": [
+            558,
+            287,
+            271,
+            99
+          ]
+        }
+      ],
+      "sourceBox": [
+        950,
+        585,
+        1846,
+        852
+      ]
+    },
+    {
+      "id": "button-back",
+      "rect": [
+        14,
+        10,
+        124,
+        42
+      ],
+      "atlas": "controls-clean.png",
+      "z": 10,
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "slice": [
+        14,
+        13,
+        14,
+        13
+      ],
+      "sourceBox": [
+        80,
+        100,
+        690,
+        330
+      ]
+    },
+    {
+      "id": "wallet",
+      "rect": [
+        679,
+        10,
+        149,
+        43
+      ],
+      "atlas": "controls-clean.png",
+      "z": 10,
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "slice": [
+        14,
+        13,
+        14,
+        13
+      ],
+      "sourceBox": [
+        850,
+        100,
+        1515,
+        330
+      ]
+    },
+    {
+      "id": "button-locked",
+      "rect": [
+        614,
+        158,
+        205,
+        71
+      ],
+      "atlas": "controls-clean.png",
+      "z": 20,
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "slice": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "sourceBox": [
+        20,
+        380,
+        815,
+        690
+      ]
+    },
+    {
+      "id": "button-buy",
+      "rect": [
+        148,
+        340,
+        131,
+        39
+      ],
+      "atlas": "controls-clean.png",
+      "z": 20,
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "slice": [
+        14,
+        12,
+        14,
+        12
+      ],
+      "uses": [
+        {
+          "use": "stove",
+          "rect": [
+            423,
+            340,
+            122,
+            39
+          ]
+        },
+        {
+          "use": "lighting",
+          "rect": [
+            692,
+            340,
+            130,
+            39
+          ]
+        }
+      ],
+      "sourceBox": [
+        850,
+        420,
+        1510,
+        690
+      ]
+    },
+    {
+      "id": "progress-track",
+      "rect": [
+        374,
+        230,
+        232,
+        18
+      ],
+      "atlas": "controls-clean.png",
+      "z": 20,
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "slice": [
+        8,
+        6,
+        8,
+        6
+      ],
+      "sourceBox": [
+        0,
+        760,
+        850,
+        930
+      ]
+    },
+    {
+      "id": "section-sign",
+      "rect": [
+        18,
+        258,
+        191,
+        28
+      ],
+      "atlas": "controls-clean.png",
+      "z": 10,
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "slice": [
+        12,
+        8,
+        12,
+        8
+      ],
+      "sourceBox": [
+        850,
+        740,
+        1536,
+        950
+      ]
+    },
+    {
+      "id": "cafe",
+      "rect": [
+        30,
+        64,
+        80,
+        44
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        200,
+        0,
+        735,
+        320
+      ]
+    },
+    {
+      "id": "bistro-mini",
+      "rect": [
+        243,
+        64,
+        104,
+        45
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        750,
+        0,
+        1340,
+        320
+      ]
+    },
+    {
+      "id": "bistro-main",
+      "rect": [
+        22,
+        122,
+        342,
+        128
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        150,
+        320,
+        1435,
+        740
+      ]
+    },
+    {
+      "id": "fridge",
+      "rect": [
+        25,
+        292,
+        116,
+        90
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        740,
+        510,
+        1024
+      ]
+    },
+    {
+      "id": "stove",
+      "rect": [
+        300,
+        292,
+        115,
+        90
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        520,
+        740,
+        1000,
+        1024
+      ]
+    },
+    {
+      "id": "lighting",
+      "rect": [
+        563,
+        292,
+        123,
+        90
+      ],
+      "atlas": "illustrations.png",
+      "z": 25,
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        1020,
+        740,
+        1536,
+        1024
+      ]
+    },
+    {
+      "id": "arrow-back",
+      "rect": [
+        27,
+        19,
+        28,
+        26
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "cell": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "sourceBox": [
+        80,
+        50,
+        410,
+        340
+      ]
+    },
+    {
+      "id": "coin",
+      "rect": [
+        689,
+        16,
+        34,
+        34
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "uses": [
+        {
+          "use": "bistro",
+          "rect": [
+            377,
+            202,
+            29,
+            28
+          ]
+        },
+        {
+          "use": "fridge",
+          "rect": [
+            174,
+            345,
+            28,
+            30
+          ]
+        },
+        {
+          "use": "stove",
+          "rect": [
+            446,
+            345,
+            28,
+            30
+          ]
+        },
+        {
+          "use": "lighting",
+          "rect": [
+            717,
+            345,
+            28,
+            30
+          ]
+        }
+      ],
+      "cell": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "sourceBox": [
+        600,
+        50,
+        950,
+        340
+      ]
+    },
+    {
+      "id": "chevron-gold",
+      "rect": [
+        216,
+        76,
+        15,
+        22
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "uses": [
+        {
+          "use": "bistro-next",
+          "rect": [
+            420,
+            76,
+            15,
+            22
+          ]
+        }
+      ],
+      "cell": [
+        2,
+        0,
+        3,
+        3
+      ],
+      "sourceBox": [
+        1150,
+        50,
+        1430,
+        340
+      ]
+    },
+    {
+      "id": "chevron-locked",
+      "rect": [
+        616,
+        76,
+        15,
+        22
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "cell": [
+        0,
+        1,
+        3,
+        3
+      ],
+      "sourceBox": [
+        100,
+        370,
+        400,
+        680
+      ]
+    },
+    {
+      "id": "check",
+      "rect": [
+        179,
+        78,
+        24,
+        24
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "uses": [
+        {
+          "use": "stars-met",
+          "rect": [
+            491,
+            173,
+            26,
+            27
+          ]
+        }
+      ],
+      "cell": [
+        1,
+        1,
+        3,
+        3
+      ],
+      "sourceBox": [
+        590,
+        370,
+        960,
+        680
+      ]
+    },
+    {
+      "id": "lock",
+      "rect": [
+        454,
+        74,
+        20,
+        28
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "uses": [
+        {
+          "use": "seafood",
+          "rect": [
+            654,
+            73,
+            21,
+            29
+          ]
+        },
+        {
+          "use": "purchase",
+          "rect": [
+            643,
+            170,
+            34,
+            43
+          ]
+        }
+      ],
+      "cell": [
+        2,
+        1,
+        3,
+        3
+      ],
+      "sourceBox": [
+        1120,
+        370,
+        1450,
+        680
+      ]
+    },
+    {
+      "id": "star",
+      "rect": [
+        378,
+        171,
+        28,
+        28
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "cell": [
+        0,
+        2,
+        3,
+        3
+      ],
+      "sourceBox": [
+        40,
+        690,
+        450,
+        1010
+      ]
+    },
+    {
+      "id": "progress-fill",
+      "rect": [
+        376,
+        233,
+        183,
+        13
+      ],
+      "atlas": "icons-clean.png",
+      "z": 30,
+      "cell": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "slice": [
+        5,
+        4,
+        5,
+        4
+      ],
+      "sourceBox": [
+        480,
+        720,
+        1060,
+        950
+      ]
+    },
+    {
+      "id": "restaurant-building",
+      "rect": [
+        480,
+        73,
+        36,
+        34
+      ],
+      "atlas": "icons.png",
+      "z": 30,
+      "cell": [
+        2,
+        2,
+        3,
+        3
+      ],
+      "sourceBox": [
+        1100,
+        700,
+        1536,
+        1024
+      ]
+    },
+    {
+      "id": "seafood-building",
+      "rect": [
+        674,
+        69,
+        39,
+        37
+      ],
+      "atlas": "mockup.png",
+      "z": 25,
+      "opaque": true,
+      "sourceBox": [
+        1472,
+        151,
+        1558,
+        232
+      ]
+    }
+  ],
+  "texts": [
+    [
+      "back",
+      "Back",
+      [
+        70,
+        18,
+        47,
+        25
+      ],
+      22
+    ],
+    [
+      "title",
+      "Upgrades",
+      [
+        337,
+        11,
+        167,
+        38
+      ],
+      34,
+      "#FFF4DC"
+    ],
+    [
+      "wallet-value",
+      "2,840",
+      [
+        739,
+        17,
+        68,
+        28
+      ],
+      26
+    ],
+    [
+      "stage-cafe",
+      "Café",
+      [
+        116,
+        79,
+        38,
+        20
+      ],
+      19
+    ],
+    [
+      "stage-bistro",
+      "Bistro",
+      [
+        351,
+        80,
+        53,
+        19
+      ],
+      18
+    ],
+    [
+      "stage-restaurant",
+      "Restaurant",
+      [
+        522,
+        82,
+        81,
+        17
+      ],
+      16,
+      "#4D6D88"
+    ],
+    [
+      "stage-seafood",
+      "Seafood house",
+      [
+        720,
+        81,
+        93,
+        18
+      ],
+      16,
+      "#4D6D88"
+    ],
+    [
+      "next-heading",
+      "Next: Bistro",
+      [
+        371,
+        125,
+        150,
+        26
+      ],
+      26
+    ],
+    [
+      "next-effect",
+      "More tables and a terrace",
+      [
+        373,
+        153,
+        183,
+        15
+      ],
+      16
+    ],
+    [
+      "star-requirement",
+      "3 stars",
+      [
+        418,
+        179,
+        56,
+        17
+      ],
+      20
+    ],
+    [
+      "stage-cost",
+      "3,500",
+      [
+        418,
+        203,
+        68,
+        23
+      ],
+      26
+    ],
+    [
+      "shortfall",
+      "Need 660",
+      [
+        681,
+        180,
+        123,
+        26
+      ],
+      27,
+      "#E0E7EB"
+    ],
+    [
+      "saving-value",
+      "2,840 / 3,500",
+      [
+        445,
+        233,
+        94,
+        15
+      ],
+      15
+    ],
+    [
+      "section",
+      "Kitchen & room",
+      [
+        39,
+        262,
+        147,
+        23
+      ],
+      23,
+      "#FFF4DC"
+    ],
+    [
+      "fridge-name",
+      "Bigger fridge",
+      [
+        144,
+        298,
+        110,
+        21
+      ],
+      21
+    ],
+    [
+      "fridge-effect",
+      "+15 portions",
+      [
+        145,
+        321,
+        93,
+        15
+      ],
+      16,
+      "#00868A"
+    ],
+    [
+      "fridge-cost",
+      "600",
+      [
+        210,
+        349,
+        40,
+        24
+      ],
+      24,
+      "#FFF4DC"
+    ],
+    [
+      "stove-name",
+      "Reliable stove",
+      [
+        422,
+        298,
+        121,
+        21
+      ],
+      21
+    ],
+    [
+      "stove-effect",
+      "Fewer breakdowns",
+      [
+        423,
+        321,
+        119,
+        15
+      ],
+      16,
+      "#00868A"
+    ],
+    [
+      "stove-cost",
+      "450",
+      [
+        481,
+        349,
+        40,
+        24
+      ],
+      24,
+      "#FFF4DC"
+    ],
+    [
+      "lighting-name",
+      "Cosy lighting",
+      [
+        693,
+        298,
+        111,
+        21
+      ],
+      21
+    ],
+    [
+      "lighting-effect",
+      "More guest patience",
+      [
+        694,
+        321,
+        123,
+        15
+      ],
+      15,
+      "#00868A"
+    ],
+    [
+      "lighting-cost",
+      "300",
+      [
+        753,
+        349,
+        40,
+        24
+      ],
+      24,
+      "#FFF4DC"
+    ]
+  ]
+}

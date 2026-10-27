@@ -1,0 +1,735 @@
+{
+  "screen": 10,
+  "canvas": [
+    844,
+    390
+  ],
+  "styles": [
+    {
+      "id": "title",
+      "screen": 10,
+      "text": "Service markers",
+      "rect": [
+        319,
+        5,
+        237,
+        31
+      ],
+      "size": 28,
+      "painted_size_estimate": 28,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-grilled-fish",
+      "screen": 10,
+      "text": "Grilled fish",
+      "rect": [
+        42,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-pan-fish",
+      "screen": 10,
+      "text": "Pan fish",
+      "rect": [
+        154,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-fish-chips",
+      "screen": 10,
+      "text": "Fish & chips",
+      "rect": [
+        266,
+        116,
+        94,
+        12
+      ],
+      "size": 10,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-soup",
+      "screen": 10,
+      "text": "Soup",
+      "rect": [
+        378,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-platter",
+      "screen": 10,
+      "text": "Platter",
+      "rect": [
+        490,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-crab",
+      "screen": 10,
+      "text": "Crab",
+      "rect": [
+        602,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-calamari",
+      "screen": 10,
+      "text": "Calamari",
+      "rect": [
+        714,
+        116,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-coffee",
+      "screen": 10,
+      "text": "Coffee",
+      "rect": [
+        42,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-tea",
+      "screen": 10,
+      "text": "Tea",
+      "rect": [
+        154,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-lemonade",
+      "screen": 10,
+      "text": "Lemonade",
+      "rect": [
+        266,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-beer",
+      "screen": 10,
+      "text": "Beer",
+      "rect": [
+        378,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-fries",
+      "screen": 10,
+      "text": "Fries",
+      "rect": [
+        490,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "dish-bread",
+      "screen": 10,
+      "text": "Bread",
+      "rect": [
+        602,
+        210,
+        94,
+        12
+      ],
+      "size": 12,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "patience-calm",
+      "screen": 10,
+      "text": "Calm",
+      "rect": [
+        27,
+        290,
+        63,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "patience-warning",
+      "screen": 10,
+      "text": "Warning",
+      "rect": [
+        105,
+        290,
+        63,
+        14
+      ],
+      "size": 10,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "patience-angry",
+      "screen": 10,
+      "text": "Angry",
+      "rect": [
+        183,
+        290,
+        63,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "tip-coin-value",
+      "screen": 10,
+      "text": "+12",
+      "rect": [
+        284,
+        283,
+        48,
+        20
+      ],
+      "size": 18,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "review-star-value",
+      "screen": 10,
+      "text": "+1",
+      "rect": [
+        373,
+        283,
+        48,
+        20
+      ],
+      "size": 18,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-seat",
+      "screen": 10,
+      "text": "Seat",
+      "rect": [
+        449,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-cook",
+      "screen": 10,
+      "text": "Cook",
+      "rect": [
+        513,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-serve",
+      "screen": 10,
+      "text": "Serve",
+      "rect": [
+        577,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-clear",
+      "screen": 10,
+      "text": "Clear",
+      "rect": [
+        641,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-wash",
+      "screen": 10,
+      "text": "Wash",
+      "rect": [
+        705,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "task-repair",
+      "screen": 10,
+      "text": "Repair",
+      "rect": [
+        769,
+        280,
+        51,
+        14
+      ],
+      "size": 11,
+      "painted_size_estimate": 11,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "question",
+      "screen": 10,
+      "text": "Offer fish soup instead?",
+      "rect": [
+        115,
+        315,
+        342,
+        22
+      ],
+      "size": 20,
+      "painted_size_estimate": 20,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "offer-soup",
+      "screen": 10,
+      "text": "Offer soup",
+      "rect": [
+        176,
+        351,
+        104,
+        18
+      ],
+      "size": 16,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF8DE",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "just-drinks",
+      "screen": 10,
+      "text": "Just drinks",
+      "rect": [
+        341,
+        351,
+        119,
+        18
+      ],
+      "size": 17,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "needs-repair",
+      "screen": 10,
+      "text": "Needs repair",
+      "rect": [
+        695,
+        335,
+        122,
+        22
+      ],
+      "size": 19,
+      "painted_size_estimate": 20,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    }
+  ],
+  "fontIdentification": "closest supplied face, calibrated to measured regions; painted lettering not proven identical"
+}

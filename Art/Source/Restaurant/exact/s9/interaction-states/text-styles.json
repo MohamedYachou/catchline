@@ -1,0 +1,53 @@
+{
+  "canvas": [
+    844,
+    390
+  ],
+  "styles": [
+    {
+      "id": "locked-job-main",
+      "screen": "crew-priorities",
+      "state": "locked-job",
+      "text": "Jobs belong to each card.",
+      "rect": [
+        199,
+        108,
+        232,
+        22
+      ],
+      "font": "Fredoka-Bold",
+      "size": 15,
+      "fill": "#10263D",
+      "stroke": "#F4EFE3",
+      "stroke_width": 0,
+      "shadow_offset": [
+        0,
+        0
+      ],
+      "shadow_colour": "#00000000"
+    },
+    {
+      "id": "locked-job-hint",
+      "screen": "crew-priorities",
+      "state": "locked-job",
+      "text": "Drag tasks to reorder.",
+      "rect": [
+        199,
+        133,
+        232,
+        20
+      ],
+      "font": "Fredoka-SemiBold",
+      "size": 14,
+      "fill": "#173F57",
+      "stroke": "#F4EFE3",
+      "stroke_width": 0,
+      "shadow_offset": [
+        0,
+        0
+      ],
+      "shadow_colour": "#00000000"
+    }
+  ],
+  "note": "Drag chip uses existing live task label/number/handle from S9; example inherits Seat guests."
+}

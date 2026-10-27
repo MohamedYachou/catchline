@@ -1,0 +1,1166 @@
+{
+  "screen": 7,
+  "concept": "ui-7-market.png",
+  "pieces": [
+    {
+      "id": "background",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0,
+      "opaque": true,
+      "atlas": "background.png"
+    },
+    {
+      "id": "title-sign",
+      "rect": [
+        248,
+        0,
+        357,
+        60
+      ],
+      "z": 10,
+      "atlas": "frames.png",
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        0,
+        650,
+        460
+      ]
+    },
+    {
+      "id": "fish-panel",
+      "rect": [
+        28,
+        60,
+        538,
+        267
+      ],
+      "z": 10,
+      "slice": [
+        18,
+        18,
+        18,
+        21
+      ],
+      "atlas": "frames.png",
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        650,
+        0,
+        1254,
+        485
+      ]
+    },
+    {
+      "id": "buyer-panel",
+      "rect": [
+        567,
+        60,
+        247,
+        267
+      ],
+      "z": 10,
+      "slice": [
+        17,
+        17,
+        17,
+        20
+      ],
+      "atlas": "frames.png",
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        480,
+        610,
+        965
+      ]
+    },
+    {
+      "id": "summary",
+      "rect": [
+        30,
+        328,
+        538,
+        54
+      ],
+      "z": 10,
+      "slice": [
+        14,
+        13,
+        14,
+        13
+      ],
+      "atlas": "frames.png",
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        610,
+        480,
+        1254,
+        965
+      ]
+    },
+    {
+      "id": "fish-row",
+      "rect": [
+        38,
+        100,
+        520,
+        71
+      ],
+      "z": 15,
+      "slice": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "uses": [
+        {
+          "use": "pollock",
+          "rect": [
+            38,
+            175,
+            520,
+            73
+          ]
+        },
+        {
+          "use": "plaice",
+          "rect": [
+            38,
+            250,
+            520,
+            71
+          ]
+        }
+      ],
+      "atlas": "frames.png",
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        970,
+        625,
+        1254
+      ]
+    },
+    {
+      "id": "stock-note",
+      "rect": [
+        577,
+        261,
+        228,
+        58
+      ],
+      "z": 15,
+      "slice": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "atlas": "frames.png",
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        630,
+        970,
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "button-back",
+      "rect": [
+        14,
+        9,
+        121,
+        43
+      ],
+      "z": 10,
+      "slice": [
+        15,
+        13,
+        15,
+        13
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        0,
+        675,
+        450
+      ]
+    },
+    {
+      "id": "wallet",
+      "rect": [
+        685,
+        9,
+        143,
+        44
+      ],
+      "z": 10,
+      "slice": [
+        15,
+        13,
+        15,
+        13
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        700,
+        0,
+        1254,
+        450
+      ]
+    },
+    {
+      "id": "button-sell",
+      "rect": [
+        397,
+        115,
+        74,
+        43
+      ],
+      "z": 20,
+      "slice": [
+        13,
+        12,
+        13,
+        12
+      ],
+      "uses": [
+        {
+          "use": "pollock",
+          "rect": [
+            397,
+            190,
+            74,
+            43
+          ]
+        },
+        {
+          "use": "plaice",
+          "rect": [
+            397,
+            266,
+            74,
+            43
+          ]
+        }
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        460,
+        675,
+        800
+      ]
+    },
+    {
+      "id": "button-keep",
+      "rect": [
+        473,
+        115,
+        79,
+        43
+      ],
+      "z": 20,
+      "slice": [
+        13,
+        12,
+        13,
+        12
+      ],
+      "uses": [
+        {
+          "use": "pollock",
+          "rect": [
+            473,
+            190,
+            79,
+            43
+          ]
+        },
+        {
+          "use": "plaice",
+          "rect": [
+            473,
+            266,
+            79,
+            43
+          ]
+        }
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        700,
+        460,
+        1254,
+        800
+      ]
+    },
+    {
+      "id": "button-open",
+      "rect": [
+        569,
+        329,
+        245,
+        52
+      ],
+      "z": 20,
+      "slice": [
+        19,
+        15,
+        19,
+        15
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        800,
+        950,
+        1254
+      ]
+    },
+    {
+      "id": "divider",
+      "rect": [
+        294,
+        335,
+        2,
+        38
+      ],
+      "z": 25,
+      "slice": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "uses": [
+        {
+          "use": "mackerel-1",
+          "rect": [
+            259,
+            131,
+            1,
+            18
+          ]
+        },
+        {
+          "use": "mackerel-2",
+          "rect": [
+            323,
+            131,
+            1,
+            18
+          ]
+        },
+        {
+          "use": "pollock-1",
+          "rect": [
+            259,
+            207,
+            1,
+            18
+          ]
+        },
+        {
+          "use": "pollock-2",
+          "rect": [
+            323,
+            207,
+            1,
+            18
+          ]
+        },
+        {
+          "use": "plaice-1",
+          "rect": [
+            259,
+            282,
+            1,
+            18
+          ]
+        },
+        {
+          "use": "plaice-2",
+          "rect": [
+            323,
+            282,
+            1,
+            18
+          ]
+        }
+      ],
+      "atlas": "controls.png",
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        950,
+        800,
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "fish-mackerel",
+      "rect": [
+        44,
+        107,
+        149,
+        56
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        0,
+        635,
+        355
+      ]
+    },
+    {
+      "id": "fish-pollock",
+      "rect": [
+        45,
+        178,
+        148,
+        63
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "sourceBox": [
+        640,
+        0,
+        1254,
+        355
+      ]
+    },
+    {
+      "id": "fish-plaice",
+      "rect": [
+        47,
+        249,
+        143,
+        67
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        360,
+        625,
+        810
+      ]
+    },
+    {
+      "id": "buyer",
+      "rect": [
+        581,
+        72,
+        219,
+        143
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "sourceBox": [
+        630,
+        355,
+        1254,
+        815
+      ]
+    },
+    {
+      "id": "stock-crate",
+      "rect": [
+        581,
+        266,
+        81,
+        50
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        0,
+        820,
+        625,
+        1254
+      ]
+    },
+    {
+      "id": "mood-keen",
+      "rect": [
+        581,
+        216,
+        60,
+        43
+      ],
+      "z": 30,
+      "atlas": "illustrations.png",
+      "cell": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "sourceBox": [
+        630,
+        820,
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "arrow-back",
+      "rect": [
+        26,
+        17,
+        30,
+        27
+      ],
+      "z": 30,
+      "atlas": "icons.png",
+      "cell": [
+        0,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "coin",
+      "rect": [
+        694,
+        14,
+        35,
+        34
+      ],
+      "z": 30,
+      "uses": [
+        {
+          "use": "total",
+          "rect": [
+            316,
+            335,
+            42,
+            40
+          ]
+        }
+      ],
+      "atlas": "icons.png",
+      "cell": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "whole-fish-glyph",
+      "rect": [
+        52,
+        72,
+        31,
+        23
+      ],
+      "z": 30,
+      "atlas": "icons.png",
+      "cell": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "scales",
+      "rect": [
+        76,
+        334,
+        46,
+        40
+      ],
+      "z": 30,
+      "atlas": "icons.png",
+      "cell": [
+        1,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "boat",
+      "rect": [
+        593,
+        335,
+        45,
+        39
+      ],
+      "z": 30,
+      "atlas": "icons.png",
+      "cell": [
+        0,
+        2,
+        2,
+        3
+      ]
+    }
+  ],
+  "texts": [
+    [
+      "back",
+      "Back",
+      [
+        70,
+        17,
+        46,
+        25
+      ],
+      20
+    ],
+    [
+      "title",
+      "Morning market",
+      [
+        293,
+        13,
+        257,
+        34
+      ],
+      29,
+      "#FFF4DC"
+    ],
+    [
+      "wallet-value",
+      "2,840",
+      [
+        748,
+        18,
+        65,
+        25
+      ],
+      22
+    ],
+    [
+      "whole-fish-heading",
+      "Whole fish to sell",
+      [
+        95,
+        70,
+        190,
+        27
+      ],
+      23
+    ],
+    [
+      "mackerel-name",
+      "Mackerel",
+      [
+        202,
+        107,
+        94,
+        20
+      ],
+      17
+    ],
+    [
+      "mackerel-weight",
+      "2.4 kg",
+      [
+        202,
+        130,
+        53,
+        20
+      ],
+      18
+    ],
+    [
+      "mackerel-price",
+      "12 / kg",
+      [
+        272,
+        131,
+        45,
+        17
+      ],
+      15
+    ],
+    [
+      "mackerel-value",
+      "28 coins",
+      [
+        334,
+        132,
+        55,
+        16
+      ],
+      14
+    ],
+    [
+      "mackerel-weight-label",
+      "Weight",
+      [
+        202,
+        150,
+        40,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "mackerel-price-label",
+      "Price",
+      [
+        272,
+        150,
+        31,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "mackerel-value-label",
+      "Total value",
+      [
+        334,
+        150,
+        57,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "mackerel-sell",
+      "Sell",
+      [
+        419,
+        127,
+        31,
+        20
+      ],
+      17,
+      "#FFF4DC"
+    ],
+    [
+      "mackerel-keep",
+      "Keep",
+      [
+        491,
+        127,
+        42,
+        21
+      ],
+      18
+    ],
+    [
+      "pollock-name",
+      "Pollock",
+      [
+        202,
+        180,
+        78,
+        20
+      ],
+      17
+    ],
+    [
+      "pollock-weight",
+      "3.0 kg",
+      [
+        202,
+        206,
+        53,
+        20
+      ],
+      18
+    ],
+    [
+      "pollock-price",
+      "18 / kg",
+      [
+        272,
+        207,
+        45,
+        17
+      ],
+      15
+    ],
+    [
+      "pollock-value",
+      "54 coins",
+      [
+        334,
+        208,
+        55,
+        16
+      ],
+      14
+    ],
+    [
+      "pollock-weight-label",
+      "Weight",
+      [
+        202,
+        225,
+        40,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "pollock-price-label",
+      "Price",
+      [
+        272,
+        225,
+        31,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "pollock-value-label",
+      "Total value",
+      [
+        334,
+        225,
+        57,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "pollock-sell",
+      "Sell",
+      [
+        419,
+        202,
+        31,
+        20
+      ],
+      17,
+      "#FFF4DC"
+    ],
+    [
+      "pollock-keep",
+      "Keep",
+      [
+        491,
+        202,
+        42,
+        21
+      ],
+      18
+    ],
+    [
+      "plaice-name",
+      "Plaice",
+      [
+        202,
+        256,
+        68,
+        20
+      ],
+      17
+    ],
+    [
+      "plaice-weight",
+      "1.0 kg",
+      [
+        202,
+        281,
+        53,
+        20
+      ],
+      18
+    ],
+    [
+      "plaice-price",
+      "16 / kg",
+      [
+        272,
+        282,
+        45,
+        17
+      ],
+      15
+    ],
+    [
+      "plaice-value",
+      "16 coins",
+      [
+        334,
+        283,
+        55,
+        16
+      ],
+      14
+    ],
+    [
+      "plaice-weight-label",
+      "Weight",
+      [
+        202,
+        300,
+        40,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "plaice-price-label",
+      "Price",
+      [
+        272,
+        300,
+        31,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "plaice-value-label",
+      "Total value",
+      [
+        334,
+        300,
+        57,
+        13
+      ],
+      10,
+      "#617079"
+    ],
+    [
+      "plaice-sell",
+      "Sell",
+      [
+        419,
+        278,
+        31,
+        20
+      ],
+      17,
+      "#FFF4DC"
+    ],
+    [
+      "plaice-keep",
+      "Keep",
+      [
+        491,
+        278,
+        42,
+        21
+      ],
+      18
+    ],
+    [
+      "buyer-mood",
+      "Buyer mood: keen",
+      [
+        648,
+        222,
+        145,
+        18
+      ],
+      15
+    ],
+    [
+      "buyer-demand",
+      "Good demand today.",
+      [
+        648,
+        239,
+        137,
+        15
+      ],
+      12
+    ],
+    [
+      "stock-safe",
+      "Tonight's stock is safe",
+      [
+        665,
+        272,
+        131,
+        17
+      ],
+      14
+    ],
+    [
+      "stock-safe-note",
+      "Prepared portions stay aboard.",
+      [
+        665,
+        290,
+        132,
+        14
+      ],
+      10
+    ],
+    [
+      "selling-label",
+      "Selling",
+      [
+        136,
+        346,
+        52,
+        18
+      ],
+      16
+    ],
+    [
+      "selling-weight",
+      "6.4 kg",
+      [
+        197,
+        338,
+        75,
+        32
+      ],
+      28
+    ],
+    [
+      "total-label",
+      "Total",
+      [
+        370,
+        344,
+        45,
+        22
+      ],
+      18
+    ],
+    [
+      "total-value",
+      "98 coins",
+      [
+        427,
+        338,
+        115,
+        32
+      ],
+      28
+    ],
+    [
+      "open-button",
+      "Sell & open",
+      [
+        650,
+        340,
+        145,
+        29
+      ],
+      25,
+      "#FFF4DC"
+    ]
+  ]
+}

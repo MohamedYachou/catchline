@@ -1,0 +1,1010 @@
+{
+  "screen": 7,
+  "canvas": [
+    844,
+    390
+  ],
+  "styles": [
+    {
+      "id": "back",
+      "screen": 7,
+      "text": "Back",
+      "rect": [
+        70,
+        17,
+        46,
+        25
+      ],
+      "size": 19,
+      "painted_size_estimate": 20,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "title",
+      "screen": 7,
+      "text": "Morning market",
+      "rect": [
+        293,
+        13,
+        257,
+        34
+      ],
+      "size": 34,
+      "painted_size_estimate": 29,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "wallet-value",
+      "screen": 7,
+      "text": "2,840",
+      "rect": [
+        748,
+        18,
+        65,
+        25
+      ],
+      "size": 24,
+      "painted_size_estimate": 22,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "whole-fish-heading",
+      "screen": 7,
+      "text": "Whole fish to sell",
+      "rect": [
+        95,
+        70,
+        190,
+        27
+      ],
+      "size": 21,
+      "painted_size_estimate": 23,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-name",
+      "screen": 7,
+      "text": "Mackerel",
+      "rect": [
+        202,
+        107,
+        94,
+        20
+      ],
+      "size": 21,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-weight",
+      "screen": 7,
+      "text": "2.4 kg",
+      "rect": [
+        202,
+        130,
+        53,
+        20
+      ],
+      "size": 19,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-price",
+      "screen": 7,
+      "text": "12 / kg",
+      "rect": [
+        272,
+        131,
+        45,
+        17
+      ],
+      "size": 14,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-value",
+      "screen": 7,
+      "text": "28 coins",
+      "rect": [
+        334,
+        132,
+        55,
+        16
+      ],
+      "size": 13,
+      "painted_size_estimate": 14,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-weight-label",
+      "screen": 7,
+      "text": "Weight",
+      "rect": [
+        202,
+        150,
+        40,
+        13
+      ],
+      "size": 10,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-price-label",
+      "screen": 7,
+      "text": "Price",
+      "rect": [
+        272,
+        150,
+        31,
+        13
+      ],
+      "size": 11,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-value-label",
+      "screen": 7,
+      "text": "Total value",
+      "rect": [
+        334,
+        150,
+        57,
+        13
+      ],
+      "size": 9,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-sell",
+      "screen": 7,
+      "text": "Sell",
+      "rect": [
+        419,
+        127,
+        31,
+        20
+      ],
+      "size": 13,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "mackerel-keep",
+      "screen": 7,
+      "text": "Keep",
+      "rect": [
+        491,
+        127,
+        42,
+        21
+      ],
+      "size": 17,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-name",
+      "screen": 7,
+      "text": "Pollock",
+      "rect": [
+        202,
+        180,
+        78,
+        20
+      ],
+      "size": 21,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-weight",
+      "screen": 7,
+      "text": "3.0 kg",
+      "rect": [
+        202,
+        206,
+        53,
+        20
+      ],
+      "size": 19,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-price",
+      "screen": 7,
+      "text": "18 / kg",
+      "rect": [
+        272,
+        207,
+        45,
+        17
+      ],
+      "size": 14,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-value",
+      "screen": 7,
+      "text": "54 coins",
+      "rect": [
+        334,
+        208,
+        55,
+        16
+      ],
+      "size": 13,
+      "painted_size_estimate": 14,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-weight-label",
+      "screen": 7,
+      "text": "Weight",
+      "rect": [
+        202,
+        225,
+        40,
+        13
+      ],
+      "size": 10,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-price-label",
+      "screen": 7,
+      "text": "Price",
+      "rect": [
+        272,
+        225,
+        31,
+        13
+      ],
+      "size": 11,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-value-label",
+      "screen": 7,
+      "text": "Total value",
+      "rect": [
+        334,
+        225,
+        57,
+        13
+      ],
+      "size": 9,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-sell",
+      "screen": 7,
+      "text": "Sell",
+      "rect": [
+        419,
+        202,
+        31,
+        20
+      ],
+      "size": 13,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "pollock-keep",
+      "screen": 7,
+      "text": "Keep",
+      "rect": [
+        491,
+        202,
+        42,
+        21
+      ],
+      "size": 17,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-name",
+      "screen": 7,
+      "text": "Plaice",
+      "rect": [
+        202,
+        256,
+        68,
+        20
+      ],
+      "size": 23,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-weight",
+      "screen": 7,
+      "text": "1.0 kg",
+      "rect": [
+        202,
+        281,
+        53,
+        20
+      ],
+      "size": 20,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-price",
+      "screen": 7,
+      "text": "16 / kg",
+      "rect": [
+        272,
+        282,
+        45,
+        17
+      ],
+      "size": 14,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-value",
+      "screen": 7,
+      "text": "16 coins",
+      "rect": [
+        334,
+        283,
+        55,
+        16
+      ],
+      "size": 14,
+      "painted_size_estimate": 14,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-weight-label",
+      "screen": 7,
+      "text": "Weight",
+      "rect": [
+        202,
+        300,
+        40,
+        13
+      ],
+      "size": 10,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-price-label",
+      "screen": 7,
+      "text": "Price",
+      "rect": [
+        272,
+        300,
+        31,
+        13
+      ],
+      "size": 11,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-value-label",
+      "screen": 7,
+      "text": "Total value",
+      "rect": [
+        334,
+        300,
+        57,
+        13
+      ],
+      "size": 9,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#617079",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-sell",
+      "screen": 7,
+      "text": "Sell",
+      "rect": [
+        419,
+        278,
+        31,
+        20
+      ],
+      "size": 13,
+      "painted_size_estimate": 17,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "plaice-keep",
+      "screen": 7,
+      "text": "Keep",
+      "rect": [
+        491,
+        278,
+        42,
+        21
+      ],
+      "size": 17,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "buyer-mood",
+      "screen": 7,
+      "text": "Buyer mood: keen",
+      "rect": [
+        648,
+        222,
+        145,
+        18
+      ],
+      "size": 16,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "buyer-demand",
+      "screen": 7,
+      "text": "Good demand today.",
+      "rect": [
+        648,
+        239,
+        137,
+        15
+      ],
+      "size": 13,
+      "painted_size_estimate": 12,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stock-safe",
+      "screen": 7,
+      "text": "Tonight's stock is safe",
+      "rect": [
+        665,
+        272,
+        131,
+        17
+      ],
+      "size": 10,
+      "painted_size_estimate": 14,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stock-safe-note",
+      "screen": 7,
+      "text": "Prepared portions stay aboard.",
+      "rect": [
+        665,
+        290,
+        132,
+        14
+      ],
+      "size": 7,
+      "painted_size_estimate": 10,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "selling-label",
+      "screen": 7,
+      "text": "Selling",
+      "rect": [
+        136,
+        346,
+        52,
+        18
+      ],
+      "size": 15,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "selling-weight",
+      "screen": 7,
+      "text": "6.4 kg",
+      "rect": [
+        197,
+        338,
+        75,
+        32
+      ],
+      "size": 27,
+      "painted_size_estimate": 28,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "total-label",
+      "screen": 7,
+      "text": "Total",
+      "rect": [
+        370,
+        344,
+        45,
+        22
+      ],
+      "size": 15,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "total-value",
+      "screen": 7,
+      "text": "98 coins",
+      "rect": [
+        427,
+        338,
+        115,
+        32
+      ],
+      "size": 30,
+      "painted_size_estimate": 28,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "open-button",
+      "screen": 7,
+      "text": "Sell & open",
+      "rect": [
+        650,
+        340,
+        145,
+        29
+      ],
+      "size": 27,
+      "painted_size_estimate": 25,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    }
+  ],
+  "fontIdentification": "closest supplied face, calibrated to measured regions; painted lettering not proven identical"
+}

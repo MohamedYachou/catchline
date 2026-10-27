@@ -1,0 +1,33 @@
+{
+  "screen": 6,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "placements": [
+    {
+      "name": "v2-s6-btn-arrange",
+      "rect": [
+        198,
+        58,
+        169,
+        38
+      ],
+      "z": 20,
+      "use": "daytime-arrange-entry"
+    },
+    {
+      "name": "v2-s6-arrange-chair",
+      "rect": [
+        220,
+        65,
+        19,
+        24
+      ],
+      "z": 21,
+      "use": "daytime-arrange-entry"
+    }
+  ],
+  "notes": "Daytime replacement of existing Live service tab slot, not a fourth tab squeezed into this row. Claude decides runtime visibility. Original S6 layout/concept unchanged."
+}

@@ -88,7 +88,7 @@ for name,desc in fish:
     add('v2-fishart-'+name,4,[89,132,123,61] if name=='mackerel' else [88,216,126,67], 'painted species-correct '+desc+'. Single uncooked whole specimen facing RIGHT, crisp dark navy outline, rich natural painted shading like reference prep mackerel/pollock, NO plate ice water props or labels',[1024,512])
 # Final reference pass: foreground variants must retain their own source artwork.
 add('v2-prep-topbar',4,[0,0,844,57],'the exact full-width blue horizontal wood plank top strip, thin dark lower seam; remove Back control, fish sign, title and cooler pill; opaque continuous blue planks only',[2532,171],opaque=True)
-add('v2-accent-rays',5,[592,242,35,34],'exact THREE short golden yellow excitement rays beside Mira, diagonally arranged fan, softly rounded tips, flat warm gold, NO navy contour or glow', [210,204])
+add('v2-accent-rays',5,[584,217,32,36],'exact THREE short golden yellow excitement rays beside Mira, diagonally arranged fan, softly rounded tips, flat warm gold, NO navy contour or glow', [210,204])
 add('v2-bar-fill',4,[629,150,52,12],'only the dark grey left filled part of slider: horizontal rounded grey capsule, flat #626765 grey fill, tiny light upper edge, no thumb, navy contour, cream frame or letters',[312,72],[18,12,18,12])
 add('v2-icon-fish-bringback',3,[397,319,36,24],'exact tiny cyan blue simple fish glyph facing LEFT with black eye, dark blue thin contour, no realistic scales or extra fins; remove surrounding paper and lettering',[216,144])
 add('v2-icon-pollock-bringback',3,[529,319,39,24],'exact tiny grey blue pollock glyph facing LEFT with simple tiny dark spots on upper body, thin navy contour and small black eye; remove surrounding paper and lettering',[234,144])

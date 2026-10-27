@@ -1,0 +1,219 @@
+{
+  "screen": 15,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../concepts/ui-2-service.png",
+  "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+  "placements": [
+    {
+      "name": "v2-s15-order-bubble",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        396,
+        140,
+        66,
+        43
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s15-patience-track",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        403,
+        183,
+        44,
+        44
+      ],
+      "z": 21
+    },
+    {
+      "name": "v2-s15-patience-fill",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        403,
+        183,
+        44,
+        44
+      ],
+      "z": 22
+    },
+    {
+      "name": "v2-s15-tip-pop",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        463,
+        210,
+        30,
+        20
+      ],
+      "z": 23
+    },
+    {
+      "name": "v2-s15-question-bubble",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        580,
+        147,
+        36,
+        37
+      ],
+      "z": 24
+    },
+    {
+      "name": "v2-s15-broken-warning",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        320,
+        69,
+        28,
+        21
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s15-task-cook",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        191,
+        87,
+        24,
+        16
+      ],
+      "z": 26
+    },
+    {
+      "name": "v2-s15-task-chop",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        253,
+        84,
+        24,
+        17
+      ],
+      "z": 27
+    },
+    {
+      "name": "v2-s15-task-wash",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        333,
+        85,
+        24,
+        17
+      ],
+      "z": 28
+    },
+    {
+      "name": "v2-s15-task-repair",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        414,
+        95,
+        24,
+        21
+      ],
+      "z": 29
+    },
+    {
+      "name": "v2-s15-task-take-order",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        457,
+        171,
+        23,
+        24
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s15-task-greet",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        604,
+        229,
+        24,
+        15
+      ],
+      "z": 31
+    },
+    {
+      "name": "v2-s15-task-wipe",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        194,
+        237,
+        24,
+        18
+      ],
+      "z": 32
+    },
+    {
+      "name": "v2-s15-task-pour",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        577,
+        213,
+        24,
+        23
+      ],
+      "z": 33
+    },
+    {
+      "name": "v2-s15-task-carry-plate",
+      "screen": 15,
+      "use": "demo",
+      "rect": [
+        364,
+        233,
+        24,
+        19
+      ],
+      "z": 34
+    },
+    {
+      "name": "v2-s15-steam-strip",
+      "screen": 15,
+      "use": "demo-steam",
+      "rect": [
+        267,
+        110,
+        30,
+        30
+      ],
+      "sourceFrame": 1,
+      "z": 45
+    }
+  ],
+  "externalInserts": [
+    {
+      "file": "../s3-s5/v2-dish-grilled-fish.png",
+      "rect": [
+        411,
+        145,
+        38,
+        27
+      ],
+      "use": "demo order slot",
+      "z": 50
+    }
+  ],
+  "notes": "Marker demonstration only; live anchors must follow world positions. Original HUD is unmodified outside overlays."
+}

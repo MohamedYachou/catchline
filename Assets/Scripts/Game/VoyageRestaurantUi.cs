@@ -176,34 +176,40 @@ namespace Catchline.Game
         void InterfaceRestaurantService(RestaurantServiceView v)
         {
             // The room under the HUD takes the manager's taps (drawn first, so every HUD piece sits above it).
-            if (night != null && restaurantWorld != null && restaurantWorld.Sim == night) coastalUi.HitArea("rsvc/room", new Rect(0, 0, iw, ih), ServiceTap);
+            if (night != null && restaurantWorld != null && restaurantWorld.Sim == night) { coastalUi.HitArea("rsvc/room", new Rect(0, 0, iw, ih), ServiceTap); ServiceMarkers(); }
             if (compactInterface) { InterfaceRestaurantServicePhone(v); return; }
             float k = Mathf.Min(iw / 1440f, ih / 900f);
             var f = coastalUi.Sliced("rsvc/frame", new Rect((iw - 1440 * k) / 2, (ih - 900 * k) / 2, 1440, 900), "");
             f.localScale = new Vector3(k, k, 1); frameScale = k;
             float ox = (iw - 1440 * k) / 2 / k, oy = (ih - 900 * k) / 2 / k;
-            RectTransform D(string id, string key, Rect? at = null, string sprite = null) =>
-                Rx(id, "desktop", key, f, at ?? RestaurantExact.Pieces["desktop:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
-            void T(string id, string style, string text, Rect? at = null, TextAnchor align = TextAnchor.MiddleLeft, Color? fill = null) =>
-                RxText(id, "desktop", style, text, f, at, align, fill);
+            // With Codex 1's Close door the title shortens and the timeline moves left (s2-call headerReflow: 545 -> 467).
+            bool door = HasUi("rx-s2-close-door-button");
+            RectTransform D(string id, string key, Rect? at = null, string sprite = null, Transform into = null) =>
+                Rx(id, "desktop", key, into ?? f, at ?? RestaurantExact.Pieces["desktop:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            void T(string id, string style, string text, Rect? at = null, TextAnchor align = TextAnchor.MiddleLeft, Color? fill = null, Transform into = null) =>
+                RxText(id, "desktop", style, text, into ?? f, at, align, fill);
             var cream = new Color(1, .973f, .92f);
 
             D("rsvc/bar", "v2-bar-service#desktop-bar-service-01", new Rect(-ox, -oy, iw / k, 80 + oy));
             D("rsvc/back", "v2-btn-back#desktop-btn-back-01", null, "rx-s12-btn-back");
             coastalUi.HitArea("rsvc/back/hit", new Rect(21, 12, 73, 58), () => { if (RestaurantPhase != DayPhase.Service) RestaurantPreview = RestaurantScreen.None; }, f);
-            T("rsvc/title", "title", $"{v.Name} · Evening service", new Rect(114, 20, 430, 41));
+            if (door) T("rsvc/title", "service-title", $"{v.Name} · Service");
+            else T("rsvc/title", "title", $"{v.Name} · Evening service", new Rect(114, 20, 430, 41));
 
-            // The evening: 18:00-23:00 with the clock in a flag riding the curve.
-            D("rsvc/strip", "v2-timeline-track#desktop-timeline-track-01");
-            D("rsvc/strip/curve", "v2-timeline-curve-desktop#desktop-timeline-curve-desktop-01");
+            // The evening: 18:00-23:00 with the clock in a flag riding the curve (its holder made here, so it sits over the bar).
+            var tl = coastalUi.Sliced("rsvc/tl", new Rect(door ? -78 : 0, 0, 1440, 900), "", f);
+            D("rsvc/strip", "v2-timeline-track#desktop-timeline-track-01", null, null, tl);
+            D("rsvc/strip/curve", "v2-timeline-curve-desktop#desktop-timeline-curve-desktop-01", null, null, tl);
             float t = Mathf.InverseLerp(v.Open, v.Close, v.Hour), nowX = 566 + 256 * t;
-            D("rsvc/strip/dot", "v2-timeline-dot#desktop-timeline-dot-01", new Rect(nowX - 7.5f, 30, 15, 15));
-            D("rsvc/strip/flag", "v2-timeline-flag#desktop-timeline-flag-01", new Rect(nowX - 28, 3, 56, 31));
+            D("rsvc/strip/dot", "v2-timeline-dot#desktop-timeline-dot-01", new Rect(nowX - 7.5f, 30, 15, 15), null, tl);
+            D("rsvc/strip/flag", "v2-timeline-flag#desktop-timeline-flag-01", new Rect(nowX - 28, 3, 56, 31), null, tl);
             int hh = Mathf.FloorToInt(v.Hour), mm = Mathf.FloorToInt((v.Hour - hh) * 60);
-            T("rsvc/strip/clock", "clock", $"{hh}:{mm:00}", new Rect(nowX - 28, 6, 56, 21), TextAnchor.MiddleCenter);
-            T("rsvc/strip/l0", "timeline-label-1", "18:00", new Rect(548, 52, 50, 18), TextAnchor.MiddleCenter);
-            T("rsvc/strip/l1", "timeline-label-2", "20:00", new Rect(693, 52, 50, 18), TextAnchor.MiddleCenter);
-            T("rsvc/strip/l2", "timeline-label-3", "23:00", new Rect(814, 52, 50, 18), TextAnchor.MiddleCenter);
+            T("rsvc/strip/clock", "clock", $"{hh}:{mm:00}", new Rect(nowX - 28, 6, 56, 21), TextAnchor.MiddleCenter, null, tl);
+            T("rsvc/strip/l0", "timeline-label-1", "18:00", new Rect(548, 52, 50, 18), TextAnchor.MiddleCenter, null, tl);
+            T("rsvc/strip/l1", "timeline-label-2", "20:00", new Rect(693, 52, 50, 18), TextAnchor.MiddleCenter, null, tl);
+            T("rsvc/strip/l2", "timeline-label-3", "23:00", new Rect(814, 52, 50, 18), TextAnchor.MiddleCenter, null, tl);
+            if (door) ServiceDoorAndCall("desktop", "rsvc", f);
+            if (door) ServiceCoach("desktop", "rsvc", f);
 
             D("rsvc/coins", "v2-wallet-pill#desktop-wallet-pill-01");
             D("rsvc/coins/icon", "v2-icon-coin-service#desktop-icon-coin-service-01", null, "rx-s12-icon-coin-service");
@@ -293,20 +299,28 @@ namespace Catchline.Game
             RxText("rsph/clock", "phone", "clock", $"{hh}:{mm:00}", f, new Rect(61, 6, 80, 23), TextAnchor.MiddleLeft);
             RxText("rsph/clock/sub", "phone", "subtitle", "Evening service", f, new Rect(62, 28, 110, 12), TextAnchor.MiddleLeft);
 
-            // The evening's arrivals: the curve, guests ahead of NOW bright, those behind dimmed.
-            P("rsph/strip", "v2-timeline-track#phone-timeline-track-01");
-            P("rsph/strip/curve", "v2-timeline-curve#phone-timeline-curve-01");
-            float t = Mathf.InverseLerp(v.Open, v.Close, v.Hour), nowX = 186 + 308 * t;
+            // The evening's arrivals: the curve, guests ahead of NOW bright, those behind dimmed. With Close door the strip
+            // narrows into Codex 1's measured 238 px (s2-call headerReflow 177+326 -> 176+238): sizes stay, places compress.
+            bool door = HasUi("rx-s2-close-door-button");
+            float X(float x) => door ? 176 + (x - 177) * (238f / 326) : x;
+            Rect Wide(string key) { var r = RestaurantExact.Pieces["phone:" + key].rect; return door ? new Rect(X(r.x), r.y, r.width * 238f / 326, r.height) : r; }
+            Rect Keep(Rect r) => new(X(r.center.x) - r.width / 2, r.y, r.width, r.height);
+            P("rsph/strip", "v2-timeline-track#phone-timeline-track-01", Wide("v2-timeline-track#phone-timeline-track-01"));
+            P("rsph/strip/curve", "v2-timeline-curve#phone-timeline-curve-01", Wide("v2-timeline-curve#phone-timeline-curve-01"));
+            float t = Mathf.InverseLerp(v.Open, v.Close, v.Hour), nowX = X(186 + 308 * t);
             string[] guests = { "timeline-guest-1", "phone-timeline-guest-01", "timeline-guest-3", "timeline-future-guest-4", "timeline-future-guest-5" };
             foreach (var g in guests)
             {
-                var e = P($"rsph/strip/{g}", "v2-timeline-guest#" + g);
+                var gr = Keep(RestaurantExact.Pieces["phone:v2-timeline-guest#" + g].rect);
+                var e = P($"rsph/strip/{g}", "v2-timeline-guest#" + g, gr);
                 var img = e.GetComponent<UnityEngine.UI.Image>();
-                if (img != null && img.sprite != null) img.color = RestaurantExact.Pieces["phone:v2-timeline-guest#" + g].rect.center.x < nowX ? new Color(1, 1, 1, .45f) : Color.white;
+                if (img != null && img.sprite != null) img.color = gr.center.x < nowX ? new Color(1, 1, 1, .45f) : Color.white;
             }
             var flag = RestaurantExact.Pieces["phone:v2-timeline-flag#phone-timeline-flag-01"].rect;
             P("rsph/strip/now", "v2-timeline-flag#phone-timeline-flag-01", new Rect(nowX - flag.width / 2, flag.y, flag.width, flag.height));
             RxText("rsph/strip/now/t", "phone", "now", "NOW", f, new Rect(nowX - flag.width / 2, 5, flag.width, 12));
+            if (door) ServiceDoorAndCall("phone", "rsph", f);
+            if (door) ServiceCoach("phone", "rsph", f);
 
             P("rsph/coins", "v2-wallet-pill#phone-wallet-pill-01");
             Rx("rsph/coins/icon", "phone", "", f, new Rect(527, 7, 32, 32), "rx-s12-icon-coin-service");
@@ -383,6 +397,128 @@ namespace Catchline.Game
         }
 
         // At night the crew wear their restaurant clothes (Codex 1's CLOTHES-1 busts); anyone without one keeps the sea portrait.
+        // Codex 1's S2 call sheet: the Close door button in the top bar (until the door is closed) and Mira's call strip
+        // under it while she has something to say (non-blocking, no tap).
+        void ServiceDoorAndCall(string screen, string id, Transform f)
+        {
+            Rect At(string key) => RestaurantExact.Pieces[$"{screen}:{key}"].rect;
+            if (night != null && !night.DoorClosed)
+            {
+                var b = At("v2-s2-close-door-button#top-bar-close-door");
+                coastalUi.Piece(id + "/door", b, "rx-s2-close-door-button", f, new Vector4(24, 24, 24, 24), 3);
+                Rx(id + "/door/icon", screen, "v2-s2-close-door-icon#door-icon", f, null, "rx-s2-close-door-icon");
+                RxText(id + "/door/t", screen, "close-door", "Close door", f);
+                coastalUi.HitArea(id + "/door/hit", b, CloseServiceDoor, f);
+            }
+            if (miraCall != null && SimTime < miraCallUntil)
+            {
+                coastalUi.Piece(id + "/call", At("v2-s2-call-bubble#reusable-call-bubble"), "rx-s2-call-bubble", f, new Vector4(48, 36, 114, 36), 3);
+                ArrangeArt(Rx(id + "/call/mira", screen, "v2-s2-call-mira#accepted-host-bust", f, null, "rx-s2-call-mira"));
+                RxText(id + "/call/t", screen, "mira-call", miraCall, f, null, TextAnchor.MiddleLeft);
+            }
+        }
+
+        // Breaks a line into rows of at most width characters at spaces (the shared styled text doesn't wrap).
+        static string Lines(string s, int width)
+        {
+            var sb = new System.Text.StringBuilder(); int row = 0;
+            foreach (var w in s.Split(' '))
+            {
+                if (row > 0 && row + 1 + w.Length > width) { sb.Append('\n'); row = 0; }
+                else if (row > 0) { sb.Append(' '); row++; }
+                sb.Append(w); row += w.Length;
+            }
+            return sb.ToString();
+        }
+
+        // Codex 1's coach card: Mira's first-night lines over the paused service, Got it and a quiet Skip.
+        void ServiceCoach(string screen, string id, Transform f)
+        {
+            if (coachLine == null) return;
+            Rect At(string key) => RestaurantExact.Pieces[$"{screen}:{key}"].rect;
+            coastalUi.HitArea(id + "/coach/block", new Rect(-4000, -4000, 9000, 9000), () => { }, f); // the room waits under the card
+            coastalUi.Piece(id + "/coach", At("v2-coach-panel#coach-speech"), "rx-coach-panel", f, new Vector4(48, 48, 114, 48), 3);
+            ArrangeArt(Rx(id + "/coach/mira", screen, "v2-coach-mira#host-portrait", f, null, "rx-coach-mira"));
+            RxText(id + "/coach/t", screen, "coaching-line", Lines(coachLine, 44), f, null, TextAnchor.MiddleLeft); // Codex measured 3 lines of ~44
+            coastalUi.Piece(id + "/coach/ok", At("v2-coach-got-it#acknowledge"), "rx-coach-got-it", f, new Vector4(48, 30, 48, 30), 3);
+            RxText(id + "/coach/ok/t", screen, "got-it", "Got it", f);
+            RxText(id + "/coach/skip", screen, "skip", "Skip", f);
+            var k = RestaurantExact.Texts[$"{screen}:skip"].Rect;
+            coastalUi.HitArea(id + "/coach/ok/hit", At("v2-coach-got-it#acknowledge"), () => CoachNext(false), f);
+            coastalUi.HitArea(id + "/coach/skip/hit", new Rect(k.x, k.y - 10, k.width, k.height + 20), () => CoachNext(true), f);
+        }
+
+        // S15: markers over the 3D room (Codex 1's ui-15-markers set): what each table waits for and how patient it still
+        // is, a question when a dish ran out, a coin pop at the till, a warning on a broken station and each worker's task.
+        void ServiceMarkers()
+        {
+            if (!HasUi("rx-s15-order-bubble")) return;
+            // Sized like the mockup over a room that spans the screen's width.
+            float s = compactInterface ? Mathf.Min(iw / 844f, ih / 390f) : iw / 844f * .62f;
+            Vector2 G(Vector3 vp) => new(vp.x * iw, (1 - vp.y) * ih);
+            void P(string id, string piece, Rect r) => Rx(id, "15", piece, null, r, "rx-" + piece.Substring(3));
+            // Codex 1's Closed board hangs over the entrance once the door is shut (label live, like the mockup's).
+            if (night.DoorClosed && HasUi("rx-closed-sign-board"))
+            {
+                var d = G(restaurantWorld.ViewportOf(new Vector2(night.Layout.Door.x, night.Layout.Door.y - .9f), 1.1f)); // just outside, over the way in
+                var board = new Rect(d.x - 56 * s, d.y - 27 * s, 112 * s, 27 * s);
+                Rx("rmark/closed", "phone", "v2-closed-sign-board#entrance-closed", null, board, "rx-closed-sign-board");
+                var cl = RestaurantExact.Texts["phone:closed-label"];
+                coastalUi.StyledText("rmark/closed/t", new Rect(board.x + 13 * s, board.y + 10 * s, 86 * s, 12 * s), "Closed", cl.Size * s, cl.Fill, cl.StrokeColour, cl.Stroke, cl.ShadowY, cl.Shadow, cl.Bold, TextAnchor.MiddleCenter, null, 1);
+            }
+            foreach (var g in night.Groups)
+            {
+                if (g.TableUid == 0 || g.Phase == GroupPhase.Gone || !restaurantWorld.ItemTop(g.TableUid, out var vp)) continue;
+                var at = G(vp); string id = $"rmark/g{g.Id}";
+                var choice = g.Tickets.FirstOrDefault(t => t.Phase == TicketPhase.Choice);
+                var wait = g.Tickets.FirstOrDefault(t => t.Phase != TicketPhase.Delivered && t.Phase != TicketPhase.Abandoned);
+                float patience = Mathf.Clamp01(1 - (night.Seconds - g.SeatedAt) / (RestaurantTuning.TablePatience + g.LastPatienceBoost));
+                if (choice != null) P(id + "/ask", "v2-s15-question-bubble", new Rect(at.x - 18 * s, at.y - 50 * s, 36 * s, 37 * s));
+                else if (g.Phase == GroupPhase.Payment) P(id + "/tip", "v2-s15-tip-pop", new Rect(at.x - 15 * s, at.y - 34 * s, 30 * s, 20 * s));
+                else if (wait != null && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order))
+                {
+                    // The order bubble with the dish inset (measured slot 15,5 38x27 in the 66x43 bubble), patience ring beside it.
+                    var b = new Rect(at.x - 33 * s, at.y - 56 * s, 66 * s, 43 * s);
+                    P(id + "/order", "v2-s15-order-bubble", b);
+                    if (g.Phase == GroupPhase.Kitchen)
+                        ArrangeArt(Rx(id + "/dish", "15", "", null, new Rect(b.x + 15 * s, b.y + 5 * s, 38 * s, 27 * s), Look(wait.Dish).art));
+                    else P(id + "/dish", "v2-s15-task-take-order", new Rect(b.x + 21 * s, b.y + 6 * s, 23 * s, 24 * s));
+                    var ring = new Rect(b.xMax - 4 * s, b.y + 16 * s, 26 * s, 26 * s);
+                    P(id + "/ring", "v2-s15-patience-track", ring);
+                    var fill = Rx(id + "/fill", "15", "v2-s15-patience-fill", null, ring, "rx-s15-patience-fill").GetComponent<UnityEngine.UI.Image>();
+                    if (fill != null)
+                    {
+                        fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360;
+                        fill.fillOrigin = 2; fill.fillClockwise = true; fill.fillAmount = patience;
+                        fill.color = patience > .5f ? Color.white : patience > .25f ? new Color(1, .78f, .35f) : new Color(1, .42f, .35f);
+                    }
+                }
+            }
+            // Tonight's events sit on their tables: birthday, regular, tour group, and the table the captain works first.
+            foreach (var g in night.Groups)
+            {
+                if (g.TableUid == 0 || g.Phase == GroupPhase.Gone || !restaurantWorld.ItemTop(g.TableUid, out var vp)) continue;
+                string ev = g.Birthday ? "v2-s15-event-birthday" : g.Regular ? "v2-s15-event-regular" : g.Count >= 6 ? "v2-s15-event-tour" : null;
+                if (ev != null) { var at = G(vp); P($"rmark/g{g.Id}/event", ev, new Rect(at.x - 52 * s, at.y - 34 * s, 30 * s, 32 * s)); }
+            }
+            if (captainTable != 0 && restaurantWorld.ItemTop(captainTable, out var cv))
+            { var at = G(cv); P("rmark/captain", "v2-s15-event-captain", new Rect(at.x + 24 * s, at.y - 30 * s, 30 * s, 33 * s)); }
+            foreach (var uid in night.Broken)
+                if (restaurantWorld.ItemTop(uid, out var vp)) { var at = G(vp); P($"rmark/broken{uid}", "v2-s15-broken-warning", new Rect(at.x - 14 * s, at.y - 26 * s, 28 * s, 21 * s)); }
+            foreach (var st in night.Staff)
+            {
+                string icon = TaskIcon(st.Action);
+                if (icon == null || !restaurantWorld.StaffHead(st.Id, out var vp)) continue;
+                var at = G(vp); P($"rmark/staff/{st.Id}", icon, new Rect(at.x - 12 * s, at.y - 22 * s, 24 * s, 19 * s));
+            }
+        }
+
+        static string TaskIcon(string action) =>
+            action.StartsWith("Cook") ? "v2-s15-task-cook" : action.StartsWith("Repair") ? "v2-s15-task-repair" : action.StartsWith("Take order") ? "v2-s15-task-take-order"
+            : action.StartsWith("Seat") || action.StartsWith("Take payment") ? "v2-s15-task-greet" : action.StartsWith("Clear") ? "v2-s15-task-wipe"
+            : action.StartsWith("Serve") ? "v2-s15-task-carry-plate" : action.Contains("Wash") ? "v2-s15-task-wash" : action.Contains("Drink") || action.Contains("Coffee") || action.Contains("Pour") ? "v2-s15-task-pour"
+            : action.Contains("Prep") || action.Contains("Chop") ? "v2-s15-task-chop" : null;
+
         static string ServiceBust(string portrait)
         {
             // Codex 1's restaurant job busts (outfit per job, Mira as host) first, then the earlier crew busts.
@@ -494,7 +630,7 @@ namespace Catchline.Game
         }
 
 
-        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; public ItemId Id; public int StoredUid; }
+        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; public ItemId Id; public int StoredUid; public string Lock; public int LockStage; }
         public sealed class RestaurantArrangeView
         {
             public int Coins = 2450, Category = 1, Selected;
@@ -630,13 +766,45 @@ namespace Catchline.Game
                 float tx = textX[slot] + shift.x;
                 A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", At(card[slot]));
                 ArrangeArt(A($"rarr/item/{i}/art", art[slot], At(RestaurantExact.Pieces["arrange:" + art[slot]].rect), ArrangeSprite(it.Art)));
-                T($"rarr/item/{i}/name", $"catalog-name-{slot + 1}", it.Name, new Rect(tx, 315, 80, 14));
-                A($"rarr/item/{i}/coin", coin[slot], At(RestaurantExact.Pieces["arrange:" + coin[slot]].rect));
-                T($"rarr/item/{i}/price", $"catalog-price-{slot + 1}", it.Price.ToString(), new Rect(tx + 26, 333, 50, 17));
+                // Codex 1's card states (exact/s1-card-states, measured on a card at x 350/510/670): a stored item goes back
+                // for free under a ribbon, a next-stage item waits under a lock with the stage's name, a price out of reach is greyed.
+                float cx = At(card[slot]).x; bool poor = live && it.Lock == null && it.StoredUid == 0 && it.Price > v.Coins;
+                Rect S(string key, float baseX) { var r = RestaurantExact.Pieces["arrange:" + key].rect; return new Rect(cx + r.x - baseX, r.y, r.width, r.height); }
+                Rect ST(string key, float baseX) { var r = RestaurantExact.Texts["arrange:" + key].Rect; return new Rect(cx + r.x - baseX, r.y, r.width, r.height); }
+                if (it.StoredUid != 0 && HasUi("rx-s1-state-stored"))
+                {
+                    A($"rarr/item/{i}/state", "v2-s1-state-stored#stored-ribbon", S("v2-s1-state-stored#stored-ribbon", 350), "rx-s1-state-stored");
+                    T($"rarr/item/{i}/statet", "stored-label", "Stored", ST("stored-label", 350), TextAnchor.MiddleCenter);
+                    T($"rarr/item/{i}/name", "stored-item", it.Name, ST("stored-item", 350));
+                    T($"rarr/item/{i}/free", "stored-free", "Place for free", ST("stored-free", 350));
+                }
+                else if (it.Lock != null && HasUi("rx-s1-state-bistro"))
+                {
+                    A($"rarr/item/{i}/state", "v2-s1-state-bistro#locked-stage-tag", S("v2-s1-state-bistro#locked-stage-tag", 510), "rx-s1-state-bistro");
+                    T($"rarr/item/{i}/statet", "bistro-label", it.Lock, ST("bistro-label", 510));
+                    T($"rarr/item/{i}/name", "locked-item", it.Name, ST("locked-item", 510));
+                    T($"rarr/item/{i}/free", "locked-hint", $"Stage {it.LockStage}", ST("locked-hint", 510));
+                }
+                else if (poor && HasUi("rx-s1-state-price-disabled"))
+                {
+                    A($"rarr/item/{i}/state", "v2-s1-state-price-disabled#muted-price", S("v2-s1-state-price-disabled#muted-price", 670), "rx-s1-state-price-disabled");
+                    T($"rarr/item/{i}/statet", "poor-price", it.Price.ToString(), ST("poor-price", 670));
+                    T($"rarr/item/{i}/name", "poor-item", it.Name, new Rect(tx, 315, 80, 14));
+                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", ST("poor-reason", 670));
+                }
+                else
+                {
+                    A($"rarr/item/{i}/coin", coin[slot], At(RestaurantExact.Pieces["arrange:" + coin[slot]].rect));
+                    T($"rarr/item/{i}/price", $"catalog-price-{slot + 1}", it.Price.ToString(), new Rect(tx + 26, 333, 50, 17));
+                    T($"rarr/item/{i}/name", $"catalog-name-{slot + 1}", it.Name, new Rect(tx, 315, 80, 14));
+                }
                 bool one = it.Footprint == "1×1";
-                A($"rarr/item/{i}/tile", one ? "v2-s12x-icon-tile1#arrange-s12x-icon-tile1-01" : "v2-s12x-icon-tile2#arrange-s12x-icon-tile2-01",
-                    one ? new Rect(tx + 4, 355, 13, 12) : new Rect(tx + 4, 355, 23, 12));
-                T($"rarr/item/{i}/size", $"catalog-size-{slot + 1}", it.Footprint, new Rect(tx + 32, 354, 34, 13));
+                if (it.StoredUid == 0 && it.Lock == null && !poor)
+                {
+                    A($"rarr/item/{i}/tile", one ? "v2-s12x-icon-tile1#arrange-s12x-icon-tile1-01" : "v2-s12x-icon-tile2#arrange-s12x-icon-tile2-01",
+                        one ? new Rect(tx + 4, 355, 13, 12) : new Rect(tx + 4, 355, 23, 12));
+                    T($"rarr/item/{i}/size", $"catalog-size-{slot + 1}", it.Footprint, new Rect(tx + 32, 354, 34, 13));
+                }
                 coastalUi.HitArea($"rarr/item/{i}/hit", At(card[slot]), () =>
                 {
                     if (live) { if (arrangeDrag < 12) PickArrangeItem(v, s); }
@@ -694,7 +862,7 @@ namespace Catchline.Game
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
             // Toasts (Mira's calls in service, why an item can't go there) ride just under the screens' top bars.
-            if (toast != null && SimTime < toastUntil) coastalUi.Toast("toast", toast, null, ih * .14f);
+            if (toast != null && SimTime < toastUntil && coachLine == null) coastalUi.Toast("toast", toast, null, ih * (RestaurantPreview == RestaurantScreen.Service ? .26f : .14f)); // clear of Mira's call strip, not over her coach card
             return true;
         }
 

@@ -1,0 +1,46 @@
+{
+  "screen": "arrange-extras",
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../concepts/ui-1-arrange.png",
+  "backgroundSha256": "cdab7d1cf6dbb9c02a2ca2078c3a2a453646649ce761cffc560338780e9af90f",
+  "placements": [
+    {
+      "name": "v2-s1x-btn-store",
+      "use": "lifted-item-demo",
+      "rect": [
+        418,
+        151,
+        44,
+        49
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s1x-btn-sell",
+      "use": "lifted-item-demo",
+      "rect": [
+        465,
+        151,
+        44,
+        49
+      ],
+      "z": 21
+    },
+    {
+      "name": "v2-s1x-placement-invalid",
+      "use": "invalid-demo-next-to-existing-valid",
+      "rect": [
+        350,
+        196,
+        84,
+        58
+      ],
+      "z": 22
+    }
+  ],
+  "notes": "Additive demonstration of lifted-item controls. Red highlight is on a separate footprint beside the accepted valid example; live renderer anchors either state to the actual ghost. Store/Sell only when an item is lifted; price/recovery logic belongs to Claude."
+}

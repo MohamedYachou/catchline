@@ -151,3 +151,15 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-27 05:00) RESTAURANT-ART-3. RESTAURANT-ART
 2) S1 arrange drawer card states: a "Stored" ribbon/badge for an item that waits in storage (placed back for free), a small lock + "Bistro" stage tag for items not unlocked yet, and a "Not enough coins" dimmed price state, all in the v2-item-card family.
 3) A small "Closed" sign for the room's entrance shown after the door closes (hanging wooden board like the S6 title sign, label separate), and a "Last orders" variant of the Mira call strip is NOT needed (text only).
 CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 05:05) RESTAURANT-ART-4. RESTAURANT-ART-3 (coach card, drawer card states, Closed sign) ACCEPTED; Claude imports. Same 3x tight cuts + manifest/layout/text-styles + actual-size review, under exact/<sheet>/:
+1) exact/dishes/: dish icons in the exact style and size of rx-dish-fish-soup / rx-dish-grilled-fish (Assets/Art/UI) for the menu dishes that have none: pan-fried fish, fish and chips, seafood platter, crab, calamari, tea, beer, fries, bread. Names v2-dish-pan-fish, -fish-and-chips, -platter, -crab, -calamari, -tea, -beer, -fries, -bread. They go in the order bubbles, the plan and the closing receipt.
+2) exact/s15/ guest mood: small faces/icons over a table, same family as the S15 markers: happy (hearts), annoyed (steam puff), leaving (walking-out arrow); plus a 4-frame steam puff strip for hot dishes if S15 B didn't include it (v2-s15-steam-strip).
+3) exact/s5/ stamps for the closing screen: "Best night yet!" ribbon and a "Full house" stamp, in the S5 family.
+CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 05:40) RESTAURANT-ART-5. RESTAURANT-ART-4 (dishes, moods, S5 stamps) ACCEPTED; Claude imports. Same 3x tight cuts + manifest/layout/text-styles + actual-size review:
+1) exact/s8/states/: S8 upgrade card states in the ui-8 family: "Owned" (green check badge + muted card), "Needs <stage>" lock tag, and a short purchase burst (4-frame strip, like the refit sparkle) for the moment an upgrade is bought.
+2) exact/s7/states/: S7 market row states in the ui-7 family: "Sold out" stamp over a row, a small "Fresh today" tag, and +/- quantity stepper buttons (idle/pressed) if the S7 sheet lacks them.
+3) exact/s11/celebrate/: stage-up celebration for S11: soft light rays behind the new facade (sliceable/radial), a confetti burst strip (6 frames), and a "New stage!" ribbon matching the S5 best-night ribbon.
+CHECKPOINT after each. No Assets/code/git.

@@ -1,0 +1,50 @@
+{
+  "screen": 14,
+  "canvas": [
+    1920,
+    1080
+  ],
+  "origin": "top-left",
+  "reference": "../../concepts/ui-14-harbour-entry.png",
+  "background": "../../../../Concepts/18-hud-harbour.png",
+  "background_sha256": "103fb80e81366b7e45e4b069077c48fb1578b99280c0ed8912185a63cc27a412",
+  "placements": [
+    {
+      "name": "v2-s14-button",
+      "screen": 14,
+      "use": "restaurant-entry",
+      "rect": [
+        36,
+        276,
+        440,
+        146
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s14-restaurant-icon",
+      "screen": 14,
+      "use": "restaurant-entry",
+      "rect": [
+        54,
+        282,
+        128,
+        132
+      ],
+      "z": 11
+    },
+    {
+      "name": "v2-s14-badge",
+      "screen": 14,
+      "use": "restaurant-entry",
+      "rect": [
+        194,
+        354,
+        252,
+        48
+      ],
+      "z": 12
+    }
+  ],
+  "responsiveRule": "Anchor below harbour summary, scale group uniformly. 1920x1080 reference; do not reinterpret as844x390. Existing HUD reference is16:9."
+}

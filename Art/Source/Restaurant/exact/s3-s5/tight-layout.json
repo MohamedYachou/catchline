@@ -1,0 +1,3502 @@
+{
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "purpose": "Claude art-bounds import; same sprite names as canonical files",
+  "assets": [
+    {
+      "name": "v2-sign-plank",
+      "file": "tight/v2-sign-plank.png",
+      "screen": 3,
+      "rect": [
+        234,
+        0,
+        398,
+        72
+      ],
+      "size": [
+        1528,
+        266
+      ],
+      "borders": null,
+      "canonical_size": [
+        1592,
+        288
+      ],
+      "canonical_crop": [
+        28,
+        12,
+        1556,
+        278
+      ],
+      "uniform_resample": 1,
+      "sha256": "903be6782692af20cde5e28e0d70b403657f7017755fb75ecca4f3758516c2b8",
+      "required_minimum": [
+        1194,
+        216
+      ]
+    },
+    {
+      "name": "v2-plan-paper",
+      "file": "tight/v2-plan-paper.png",
+      "screen": 3,
+      "rect": [
+        258,
+        69,
+        408,
+        295
+      ],
+      "size": [
+        1241,
+        885
+      ],
+      "borders": [
+        74,
+        92,
+        74,
+        68
+      ],
+      "canonical_size": [
+        1224,
+        885
+      ],
+      "canonical_crop": [
+        8,
+        5,
+        1219,
+        869
+      ],
+      "uniform_resample": 1.0243055555555556,
+      "sha256": "a55ee55ef381760271d6ffd83a3db6a21a1b4ab184f3d2cbdb597700f80c2b0f",
+      "required_minimum": [
+        1224,
+        885
+      ]
+    },
+    {
+      "name": "v2-plan-dish-card",
+      "file": "tight/v2-plan-dish-card.png",
+      "screen": 3,
+      "rect": [
+        275,
+        162,
+        122,
+        123
+      ],
+      "size": [
+        374,
+        369
+      ],
+      "borders": [
+        29,
+        29,
+        29,
+        29
+      ],
+      "canonical_size": [
+        366,
+        369
+      ],
+      "canonical_crop": [
+        7,
+        10,
+        359,
+        358
+      ],
+      "uniform_resample": 1.0603448275862069,
+      "sha256": "ebf0418d37aeefe6b8d105beae3f18053f9139d0f9745ffebd3b45dabbbb515f",
+      "required_minimum": [
+        366,
+        369
+      ]
+    },
+    {
+      "name": "v2-ticket",
+      "file": "tight/v2-ticket.png",
+      "screen": 3,
+      "rect": [
+        670,
+        66,
+        165,
+        224
+      ],
+      "size": [
+        505,
+        672
+      ],
+      "borders": null,
+      "canonical_size": [
+        495,
+        672
+      ],
+      "canonical_crop": [
+        9,
+        18,
+        486,
+        653
+      ],
+      "uniform_resample": 1.058267716535433,
+      "sha256": "c0d96d0a0bd1aba56c580d0e67888a6f8e95990c7c9d94768ca1e320eb89d133",
+      "required_minimum": [
+        495,
+        672
+      ]
+    },
+    {
+      "name": "v2-btn-accept",
+      "file": "tight/v2-btn-accept.png",
+      "screen": 3,
+      "rect": [
+        681,
+        184,
+        139,
+        51
+      ],
+      "size": [
+        492,
+        153
+      ],
+      "borders": [
+        51,
+        44,
+        51,
+        51
+      ],
+      "canonical_size": [
+        417,
+        153
+      ],
+      "canonical_crop": [
+        6,
+        13,
+        411,
+        139
+      ],
+      "uniform_resample": 1.2142857142857142,
+      "sha256": "b2e7c087c78418b5f53089fc1fc296344fd04a105f54f4d174cf06f2f7e6f9ac",
+      "required_minimum": [
+        417,
+        153
+      ]
+    },
+    {
+      "name": "v2-btn-secondary",
+      "file": "tight/v2-btn-secondary.png",
+      "screen": 3,
+      "rect": [
+        679,
+        230,
+        140,
+        51
+      ],
+      "size": [
+        553,
+        153
+      ],
+      "borders": [
+        57,
+        49,
+        57,
+        57
+      ],
+      "canonical_size": [
+        420,
+        153
+      ],
+      "canonical_crop": [
+        6,
+        20,
+        414,
+        133
+      ],
+      "uniform_resample": 1.3539823008849559,
+      "sha256": "cb9b01de3ce7d235b868bbdae1240f4bf33a58e10d3be8de31109af990cc4da1",
+      "required_minimum": [
+        420,
+        153
+      ]
+    },
+    {
+      "name": "v2-btn-primary",
+      "file": "tight/v2-btn-primary.png",
+      "screen": 3,
+      "rect": [
+        668,
+        297,
+        165,
+        70
+      ],
+      "size": [
+        605,
+        210
+      ],
+      "borders": [
+        64,
+        51,
+        64,
+        64
+      ],
+      "canonical_size": [
+        600,
+        210
+      ],
+      "canonical_crop": [
+        17,
+        7,
+        581,
+        203
+      ],
+      "uniform_resample": 1.0714285714285714,
+      "sha256": "a192abee5f7b659f18281b253ed5d726a1a82ef6a5b77295a1c8c49d0921c656",
+      "required_minimum": [
+        600,
+        210
+      ]
+    },
+    {
+      "name": "v2-btn-back",
+      "file": "tight/v2-btn-back.png",
+      "screen": 3,
+      "rect": [
+        12,
+        8,
+        130,
+        51
+      ],
+      "size": [
+        439,
+        153
+      ],
+      "borders": [
+        45,
+        42,
+        45,
+        45
+      ],
+      "canonical_size": [
+        390,
+        153
+      ],
+      "canonical_crop": [
+        6,
+        11,
+        384,
+        143
+      ],
+      "uniform_resample": 1.1590909090909092,
+      "sha256": "55eea3cb910d9055f79af42f8807d486bd9bc37e5b4b2062bd67f408f7dc1b5e",
+      "required_minimum": [
+        390,
+        153
+      ]
+    },
+    {
+      "name": "v2-icon-back",
+      "file": "tight/v2-icon-back.png",
+      "screen": 3,
+      "rect": [
+        26,
+        18,
+        31,
+        30
+      ],
+      "size": [
+        100,
+        90
+      ],
+      "borders": null,
+      "canonical_size": [
+        93,
+        90
+      ],
+      "canonical_crop": [
+        4,
+        6,
+        89,
+        83
+      ],
+      "uniform_resample": 1.1688311688311688,
+      "sha256": "034d814587c3f844e96a46d40994df3419768a5ff32784cbb3f9a7d70f9dbd6a",
+      "required_minimum": [
+        93,
+        90
+      ]
+    },
+    {
+      "name": "v2-icon-calendar",
+      "file": "tight/v2-icon-calendar.png",
+      "screen": 3,
+      "rect": [
+        292,
+        91,
+        47,
+        49
+      ],
+      "size": [
+        150,
+        147
+      ],
+      "borders": null,
+      "canonical_size": [
+        141,
+        147
+      ],
+      "canonical_crop": [
+        5,
+        9,
+        136,
+        138
+      ],
+      "uniform_resample": 1.1395348837209303,
+      "sha256": "4e2c20d9c2450d5ba05ee524774dcabdab732cbc90fcd7c1990a3976906a4c35",
+      "required_minimum": [
+        141,
+        147
+      ]
+    },
+    {
+      "name": "v2-icon-special",
+      "file": "tight/v2-icon-special.png",
+      "screen": 3,
+      "rect": [
+        685,
+        79,
+        44,
+        45
+      ],
+      "size": [
+        132,
+        143
+      ],
+      "borders": null,
+      "canonical_size": [
+        132,
+        135
+      ],
+      "canonical_crop": [
+        8,
+        5,
+        124,
+        130
+      ],
+      "uniform_resample": 1.1379310344827587,
+      "sha256": "8e117b302cbc6da3704bdd32253db1ad622c20f898d13091bec0965f1fcc5a0f",
+      "required_minimum": [
+        132,
+        135
+      ]
+    },
+    {
+      "name": "v2-icon-tick",
+      "file": "tight/v2-icon-tick.png",
+      "screen": 3,
+      "rect": [
+        693,
+        311,
+        39,
+        36
+      ],
+      "size": [
+        133,
+        108
+      ],
+      "borders": null,
+      "canonical_size": [
+        117,
+        108
+      ],
+      "canonical_crop": [
+        5,
+        10,
+        113,
+        98
+      ],
+      "uniform_resample": 1.2272727272727273,
+      "sha256": "d8b085f31d01aab5a78be5fcde447fca97fffff9c69d4219c532376aa25487ce",
+      "required_minimum": [
+        117,
+        108
+      ]
+    },
+    {
+      "name": "v2-icon-cross",
+      "file": "tight/v2-icon-cross.png",
+      "screen": 3,
+      "rect": [
+        698,
+        241,
+        22,
+        22
+      ],
+      "size": [
+        69,
+        66
+      ],
+      "borders": null,
+      "canonical_size": [
+        66,
+        66
+      ],
+      "canonical_crop": [
+        4,
+        5,
+        62,
+        61
+      ],
+      "uniform_resample": 1.1785714285714286,
+      "sha256": "434c5a63e747b550c8ff06780c3408cd5d826005ec7ca654dc72485c6fb6fed5",
+      "required_minimum": [
+        66,
+        66
+      ]
+    },
+    {
+      "name": "v2-icon-guests",
+      "file": "tight/v2-icon-guests.png",
+      "screen": 3,
+      "rect": [
+        301,
+        257,
+        21,
+        20
+      ],
+      "size": [
+        104,
+        78
+      ],
+      "borders": null,
+      "canonical_size": [
+        84,
+        78
+      ],
+      "canonical_crop": [
+        4,
+        10,
+        80,
+        67
+      ],
+      "uniform_resample": 1.368421052631579,
+      "sha256": "9f06097d7c6d3b559d6f45a2d78c1a9762e9703596810ba2402b9fc06afce8e1",
+      "required_minimum": [
+        84,
+        78
+      ]
+    },
+    {
+      "name": "v2-catch-pile",
+      "file": "tight/v2-catch-pile.png",
+      "screen": 3,
+      "rect": [
+        281,
+        298,
+        112,
+        51
+      ],
+      "size": [
+        656,
+        278
+      ],
+      "borders": null,
+      "canonical_size": [
+        672,
+        306
+      ],
+      "canonical_crop": [
+        8,
+        14,
+        664,
+        292
+      ],
+      "uniform_resample": 1,
+      "sha256": "797c5f8e9cbbc177bc1b8e45c844af7fdd8abf5b1a8fd72805f4876dc75c626f",
+      "required_minimum": [
+        336,
+        153
+      ]
+    },
+    {
+      "name": "v2-mira-plan",
+      "file": "tight/v2-mira-plan.png",
+      "screen": 3,
+      "rect": [
+        0,
+        44,
+        281,
+        346
+      ],
+      "size": [
+        976,
+        1964
+      ],
+      "borders": null,
+      "canonical_size": [
+        1600,
+        2000
+      ],
+      "canonical_crop": [
+        313,
+        18,
+        1289,
+        1982
+      ],
+      "uniform_resample": 1,
+      "sha256": "7b9a768ae4d7c0e351979152781378e6681022491ec21e839787d74e9ba7a925",
+      "required_minimum": [
+        843,
+        1038
+      ]
+    },
+    {
+      "name": "v2-bg-plan",
+      "file": "tight/v2-bg-plan.png",
+      "screen": 3,
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "size": [
+        2532,
+        1170
+      ],
+      "borders": null,
+      "canonical_size": [
+        2532,
+        1170
+      ],
+      "canonical_crop": [
+        0,
+        0,
+        2532,
+        1170
+      ],
+      "uniform_resample": 1,
+      "sha256": "d57493da11fc568f4d8302a5f5f63c0f8e2d7159e8fc5c6a3647701209a4471b",
+      "required_minimum": [
+        2532,
+        1170
+      ]
+    },
+    {
+      "name": "v2-prep-catch-panel",
+      "file": "tight/v2-prep-catch-panel.png",
+      "screen": 4,
+      "rect": [
+        66,
+        60,
+        272,
+        254
+      ],
+      "size": [
+        952,
+        762
+      ],
+      "borders": [
+        79,
+        176,
+        79,
+        68
+      ],
+      "canonical_size": [
+        816,
+        762
+      ],
+      "canonical_crop": [
+        12,
+        63,
+        805,
+        698
+      ],
+      "uniform_resample": 1.2,
+      "sha256": "671c942bfe4422f32f802582a8b8cd2593750bea5f68d5032184fd0e3f304752",
+      "required_minimum": [
+        816,
+        762
+      ]
+    },
+    {
+      "name": "v2-prep-portions-panel",
+      "file": "tight/v2-prep-portions-panel.png",
+      "screen": 4,
+      "rect": [
+        343,
+        60,
+        466,
+        262
+      ],
+      "size": [
+        1501,
+        786
+      ],
+      "borders": [
+        72,
+        161,
+        72,
+        62
+      ],
+      "canonical_size": [
+        1398,
+        786
+      ],
+      "canonical_crop": [
+        12,
+        33,
+        1385,
+        752
+      ],
+      "uniform_resample": 1.0931849791376913,
+      "sha256": "c8803483d8651ed9e0244ad0ef1f24c7014be719c5f84104d15581e9ee5baac7",
+      "required_minimum": [
+        1398,
+        786
+      ]
+    },
+    {
+      "name": "v2-paper-row",
+      "file": "tight/v2-paper-row.png",
+      "screen": 4,
+      "rect": [
+        81,
+        118,
+        244,
+        85
+      ],
+      "size": [
+        1305,
+        405
+      ],
+      "borders": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "canonical_size": [
+        1305,
+        267
+      ],
+      "canonical_crop": [
+        247,
+        8,
+        1057,
+        259
+      ],
+      "uniform_resample": 1.6111111111111112,
+      "sha256": "49e30e387604906f6012b9d408a862c215711ab7bb69a072b744f8cc671db62c",
+      "required_minimum": [
+        1305,
+        267
+      ]
+    },
+    {
+      "name": "v2-number-field",
+      "file": "tight/v2-number-field.png",
+      "screen": 4,
+      "rect": [
+        629,
+        112,
+        99,
+        38
+      ],
+      "size": [
+        364,
+        114
+      ],
+      "borders": [
+        30,
+        30,
+        30,
+        30
+      ],
+      "canonical_size": [
+        297,
+        114
+      ],
+      "canonical_crop": [
+        5,
+        12,
+        292,
+        102
+      ],
+      "uniform_resample": 1.2666666666666666,
+      "sha256": "40d9b894d8984ff2c91969daa3181e6d0eda7896ef244fbfbd3de6498b139cce",
+      "required_minimum": [
+        297,
+        114
+      ]
+    },
+    {
+      "name": "v2-btn-minus",
+      "file": "tight/v2-btn-minus.png",
+      "screen": 4,
+      "rect": [
+        569,
+        111,
+        53,
+        50
+      ],
+      "size": [
+        161,
+        153
+      ],
+      "borders": [
+        39,
+        39,
+        39,
+        39
+      ],
+      "canonical_size": [
+        159,
+        153
+      ],
+      "canonical_crop": [
+        5,
+        5,
+        154,
+        147
+      ],
+      "uniform_resample": 1.0774647887323943,
+      "sha256": "13f8253b63c8cb8a443ff9e065db01aab99abb77a49a21ec83dfa7d24ab6efda",
+      "required_minimum": [
+        159,
+        153
+      ]
+    },
+    {
+      "name": "v2-btn-plus",
+      "file": "tight/v2-btn-plus.png",
+      "screen": 4,
+      "rect": [
+        734,
+        110,
+        57,
+        52
+      ],
+      "size": [
+        176,
+        156
+      ],
+      "borders": [
+        39,
+        39,
+        39,
+        39
+      ],
+      "canonical_size": [
+        171,
+        156
+      ],
+      "canonical_crop": [
+        5,
+        6,
+        166,
+        149
+      ],
+      "uniform_resample": 1.0909090909090908,
+      "sha256": "60bb4f44c697af6cf6403693c2bd0326c8d81ae7a4124dccdadd1a166437465e",
+      "required_minimum": [
+        171,
+        156
+      ]
+    },
+    {
+      "name": "v2-bar-track",
+      "file": "tight/v2-bar-track.png",
+      "screen": 4,
+      "rect": [
+        628,
+        150,
+        102,
+        14
+      ],
+      "size": [
+        622,
+        42
+      ],
+      "borders": [
+        44,
+        19,
+        44,
+        19
+      ],
+      "canonical_size": [
+        306,
+        42
+      ],
+      "canonical_crop": [
+        5,
+        11,
+        301,
+        31
+      ],
+      "uniform_resample": 2.1,
+      "sha256": "1e3bd422715ed9b13b0451538db1a9ddda1f94a1d3a7e5f0730eb491da78187a",
+      "required_minimum": [
+        306,
+        42
+      ]
+    },
+    {
+      "name": "v2-bar-knob",
+      "file": "tight/v2-bar-knob.png",
+      "screen": 4,
+      "rect": [
+        672,
+        148,
+        12,
+        18
+      ],
+      "size": [
+        36,
+        118
+      ],
+      "borders": null,
+      "canonical_size": [
+        72,
+        108
+      ],
+      "canonical_crop": [
+        21,
+        5,
+        51,
+        103
+      ],
+      "uniform_resample": 1.2,
+      "sha256": "92c828bd0ada35ccd3cd7f0b1fe3859da49f64916dbaf68c1dda490f935ecc84",
+      "required_minimum": [
+        36,
+        54
+      ]
+    },
+    {
+      "name": "v2-toggle-selected",
+      "file": "tight/v2-toggle-selected.png",
+      "screen": 4,
+      "rect": [
+        611,
+        285,
+        81,
+        30
+      ],
+      "size": [
+        323,
+        90
+      ],
+      "borders": [
+        42,
+        37,
+        42,
+        37
+      ],
+      "canonical_size": [
+        243,
+        90
+      ],
+      "canonical_crop": [
+        5,
+        12,
+        238,
+        77
+      ],
+      "uniform_resample": 1.3846153846153846,
+      "sha256": "8910b075c0587e7203beaad2b5c5ddc304f2b171026848f72c63219b50e2b7eb",
+      "required_minimum": [
+        243,
+        90
+      ]
+    },
+    {
+      "name": "v2-toggle-unselected",
+      "file": "tight/v2-toggle-unselected.png",
+      "screen": 4,
+      "rect": [
+        529,
+        285,
+        80,
+        30
+      ],
+      "size": [
+        305,
+        90
+      ],
+      "borders": [
+        40,
+        36,
+        40,
+        36
+      ],
+      "canonical_size": [
+        240,
+        90
+      ],
+      "canonical_crop": [
+        5,
+        11,
+        235,
+        79
+      ],
+      "uniform_resample": 1.3235294117647058,
+      "sha256": "dfb823dc96a66499c48b255121bda9788aa850d42f2aecf025a506d67f237d20",
+      "required_minimum": [
+        240,
+        90
+      ]
+    },
+    {
+      "name": "v2-summary-strip",
+      "file": "tight/v2-summary-strip.png",
+      "screen": 4,
+      "rect": [
+        198,
+        322,
+        434,
+        58
+      ],
+      "size": [
+        1302,
+        183
+      ],
+      "borders": [
+        60,
+        50,
+        60,
+        50
+      ],
+      "canonical_size": [
+        1302,
+        174
+      ],
+      "canonical_crop": [
+        103,
+        10,
+        1201,
+        164
+      ],
+      "uniform_resample": 1.185792349726776,
+      "sha256": "2c5ff5016ad1da0ddef5541368277f32d62849ead39da682e079a4cdf735ec41",
+      "required_minimum": [
+        1302,
+        174
+      ]
+    },
+    {
+      "name": "v2-checkbox-on",
+      "file": "tight/v2-checkbox-on.png",
+      "screen": 4,
+      "rect": [
+        490,
+        333,
+        38,
+        37
+      ],
+      "size": [
+        114,
+        114
+      ],
+      "borders": null,
+      "canonical_size": [
+        114,
+        111
+      ],
+      "canonical_crop": [
+        6,
+        5,
+        107,
+        106
+      ],
+      "uniform_resample": 1.1287128712871286,
+      "sha256": "8db17469090b5fade8022906bc992391be8d59c2ae4a1d8e39b40c46cf2d939a",
+      "required_minimum": [
+        114,
+        111
+      ]
+    },
+    {
+      "name": "v2-checkbox-off",
+      "file": "tight/v2-checkbox-off.png",
+      "screen": 4,
+      "rect": [
+        490,
+        333,
+        38,
+        37
+      ],
+      "size": [
+        116,
+        112
+      ],
+      "borders": null,
+      "canonical_size": [
+        114,
+        111
+      ],
+      "canonical_crop": [
+        5,
+        5,
+        109,
+        105
+      ],
+      "uniform_resample": 1.11,
+      "sha256": "99f62a21efef2bbcfb394bfdec79935009b0b52632d7b30f608df64f45bb8fcd",
+      "required_minimum": [
+        114,
+        111
+      ]
+    },
+    {
+      "name": "v2-divider",
+      "file": "tight/v2-divider.png",
+      "screen": 4,
+      "rect": [
+        353,
+        331,
+        5,
+        41
+      ],
+      "size": [
+        15,
+        885
+      ],
+      "borders": null,
+      "canonical_size": [
+        30,
+        246
+      ],
+      "canonical_crop": [
+        13,
+        5,
+        17,
+        241
+      ],
+      "uniform_resample": 3.75,
+      "sha256": "9fea7fe1f1e472afeb020ee68c7ece00e0c358d3ff7083d408c76eeade1d4511",
+      "required_minimum": [
+        15,
+        123
+      ]
+    },
+    {
+      "name": "v2-icon-forecast",
+      "file": "tight/v2-icon-forecast.png",
+      "screen": 4,
+      "rect": [
+        418,
+        287,
+        25,
+        24
+      ],
+      "size": [
+        90,
+        72
+      ],
+      "borders": null,
+      "canonical_size": [
+        75,
+        72
+      ],
+      "canonical_crop": [
+        4,
+        9,
+        71,
+        63
+      ],
+      "uniform_resample": 1.3333333333333333,
+      "sha256": "483607c51c9572a3a109f5163def85ba855c9d13737c4207ac15f1f9ca7ab0dd",
+      "required_minimum": [
+        75,
+        72
+      ]
+    },
+    {
+      "name": "v2-icon-cutlery-white",
+      "file": "tight/v2-icon-cutlery-white.png",
+      "screen": 4,
+      "rect": [
+        366,
+        69,
+        30,
+        35
+      ],
+      "size": [
+        90,
+        106
+      ],
+      "borders": null,
+      "canonical_size": [
+        90,
+        105
+      ],
+      "canonical_crop": [
+        5,
+        5,
+        85,
+        99
+      ],
+      "uniform_resample": 1.125,
+      "sha256": "930f8970ebd643f9ff44a90f440ce87cb0ab8b43de6c24aa9bbd47a06ca7e9c4",
+      "required_minimum": [
+        90,
+        105
+      ]
+    },
+    {
+      "name": "v2-icon-cutlery",
+      "file": "tight/v2-icon-cutlery.png",
+      "screen": 4,
+      "rect": [
+        216,
+        331,
+        29,
+        35
+      ],
+      "size": [
+        87,
+        115
+      ],
+      "borders": null,
+      "canonical_size": [
+        87,
+        105
+      ],
+      "canonical_crop": [
+        6,
+        4,
+        80,
+        101
+      ],
+      "uniform_resample": 1.1756756756756757,
+      "sha256": "72b4d4808892482ebf967a2a134e019aec7d0b39fc71d2da6e4ee866aef781cc",
+      "required_minimum": [
+        87,
+        105
+      ]
+    },
+    {
+      "name": "v2-icon-fish-white",
+      "file": "tight/v2-icon-fish-white.png",
+      "screen": 4,
+      "rect": [
+        90,
+        73,
+        36,
+        26
+      ],
+      "size": [
+        117,
+        78
+      ],
+      "borders": null,
+      "canonical_size": [
+        108,
+        78
+      ],
+      "canonical_crop": [
+        4,
+        5,
+        104,
+        72
+      ],
+      "uniform_resample": 1.164179104477612,
+      "sha256": "786175335fd54c179d993cb193a513faf7024e56eee3c2208456eb4a8a740d92",
+      "required_minimum": [
+        108,
+        78
+      ]
+    },
+    {
+      "name": "v2-icon-fish-market",
+      "file": "tight/v2-icon-fish-market.png",
+      "screen": 4,
+      "rect": [
+        366,
+        335,
+        44,
+        29
+      ],
+      "size": [
+        142,
+        87
+      ],
+      "borders": null,
+      "canonical_size": [
+        132,
+        87
+      ],
+      "canonical_crop": [
+        5,
+        6,
+        127,
+        81
+      ],
+      "uniform_resample": 1.16,
+      "sha256": "42c93b666aac76213f793a409e941a675bece23508ffded43c367ca4927fa5bc",
+      "required_minimum": [
+        132,
+        87
+      ]
+    },
+    {
+      "name": "v2-icon-cooler",
+      "file": "tight/v2-icon-cooler.png",
+      "screen": 4,
+      "rect": [
+        642,
+        9,
+        43,
+        39
+      ],
+      "size": [
+        133,
+        118
+      ],
+      "borders": null,
+      "canonical_size": [
+        129,
+        117
+      ],
+      "canonical_crop": [
+        5,
+        5,
+        125,
+        111
+      ],
+      "uniform_resample": 1.1037735849056605,
+      "sha256": "aeadf252f24b089adca03a6a9ef32b31d4771905bdc56e541c14c23bda1308fa",
+      "required_minimum": [
+        129,
+        117
+      ]
+    },
+    {
+      "name": "v2-icon-cloche",
+      "file": "tight/v2-icon-cloche.png",
+      "screen": 4,
+      "rect": [
+        650,
+        332,
+        43,
+        31
+      ],
+      "size": [
+        141,
+        93
+      ],
+      "borders": null,
+      "canonical_size": [
+        129,
+        93
+      ],
+      "canonical_crop": [
+        5,
+        7,
+        124,
+        86
+      ],
+      "uniform_resample": 1.1772151898734178,
+      "sha256": "f1dfc72156c34c0c6aa0936e91bcb4181e0b30952505ab7219cc9850b1e78973",
+      "required_minimum": [
+        129,
+        93
+      ]
+    },
+    {
+      "name": "v2-sign-fish",
+      "file": "tight/v2-sign-fish.png",
+      "screen": 4,
+      "rect": [
+        229,
+        0,
+        53,
+        50
+      ],
+      "size": [
+        170,
+        150
+      ],
+      "borders": null,
+      "canonical_size": [
+        159,
+        150
+      ],
+      "canonical_crop": [
+        5,
+        8,
+        154,
+        140
+      ],
+      "uniform_resample": 1.1363636363636365,
+      "sha256": "738df052bd350e86a3ff850402788fb4d77d4643184bb715e67e306c0c4b72c9",
+      "required_minimum": [
+        159,
+        150
+      ]
+    },
+    {
+      "name": "v2-dish-grilled-fish",
+      "file": "tight/v2-dish-grilled-fish.png",
+      "screen": 4,
+      "rect": [
+        362,
+        111,
+        91,
+        51
+      ],
+      "size": [
+        531,
+        289
+      ],
+      "borders": null,
+      "canonical_size": [
+        546,
+        306
+      ],
+      "canonical_crop": [
+        8,
+        9,
+        539,
+        298
+      ],
+      "uniform_resample": 1,
+      "sha256": "4a041e6a2d97d7733300e25a8aa938620cd0f0d144e42674deb94980ec0b49fb",
+      "required_minimum": [
+        273,
+        153
+      ]
+    },
+    {
+      "name": "v2-dish-fish-soup",
+      "file": "tight/v2-dish-fish-soup.png",
+      "screen": 3,
+      "rect": [
+        408,
+        166,
+        110,
+        75
+      ],
+      "size": [
+        616,
+        432
+      ],
+      "borders": null,
+      "canonical_size": [
+        660,
+        450
+      ],
+      "canonical_crop": [
+        22,
+        9,
+        638,
+        441
+      ],
+      "uniform_resample": 1,
+      "sha256": "2927a1bc9f1898e51a16c6c0edd9ffea849058a65e7b0fc402267223dbbfceaa",
+      "required_minimum": [
+        330,
+        225
+      ]
+    },
+    {
+      "name": "v2-dish-coffee",
+      "file": "tight/v2-dish-coffee.png",
+      "screen": 3,
+      "rect": [
+        541,
+        169,
+        99,
+        73
+      ],
+      "size": [
+        571,
+        420
+      ],
+      "borders": null,
+      "canonical_size": [
+        594,
+        438
+      ],
+      "canonical_crop": [
+        11,
+        9,
+        582,
+        429
+      ],
+      "uniform_resample": 1,
+      "sha256": "4ed3c417dd04dca33b5411415b282ee0423ed6c04d5f5fb026f2fcea45b9aa82",
+      "required_minimum": [
+        297,
+        219
+      ]
+    },
+    {
+      "name": "v2-dish-fillets",
+      "file": "tight/v2-dish-fillets.png",
+      "screen": 4,
+      "rect": [
+        364,
+        228,
+        90,
+        49
+      ],
+      "size": [
+        525,
+        270
+      ],
+      "borders": null,
+      "canonical_size": [
+        540,
+        294
+      ],
+      "canonical_crop": [
+        8,
+        12,
+        533,
+        282
+      ],
+      "uniform_resample": 1,
+      "sha256": "f873899f85c2ac2ac3379549445694d4970089bf0556b18307e63b0b7d3cb38c",
+      "required_minimum": [
+        270,
+        147
+      ]
+    },
+    {
+      "name": "v2-bg-prep",
+      "file": "tight/v2-bg-prep.png",
+      "screen": 4,
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "size": [
+        2532,
+        1170
+      ],
+      "borders": null,
+      "canonical_size": [
+        2532,
+        1170
+      ],
+      "canonical_crop": [
+        0,
+        0,
+        2532,
+        1170
+      ],
+      "uniform_resample": 1,
+      "sha256": "5badb5ce2d5a82c9bec5412e5c86f03215ad0fa8f923cc8600ba468abe889470",
+      "required_minimum": [
+        2532,
+        1170
+      ]
+    },
+    {
+      "name": "v2-closing-board",
+      "file": "tight/v2-closing-board.png",
+      "screen": 5,
+      "rect": [
+        119,
+        11,
+        607,
+        358
+      ],
+      "size": [
+        1980,
+        1074
+      ],
+      "borders": [
+        70,
+        70,
+        70,
+        70
+      ],
+      "canonical_size": [
+        1821,
+        1074
+      ],
+      "canonical_crop": [
+        15,
+        53,
+        1803,
+        1023
+      ],
+      "uniform_resample": 1.1072164948453609,
+      "sha256": "e6999ed4a531702c59fce13a12ff652e5fb0e8e71e2cd7ca4175d7f34d9c2795",
+      "required_minimum": [
+        1821,
+        1074
+      ]
+    },
+    {
+      "name": "v2-closing-header",
+      "file": "tight/v2-closing-header.png",
+      "screen": 5,
+      "rect": [
+        119,
+        11,
+        607,
+        53
+      ],
+      "size": [
+        1821,
+        206
+      ],
+      "borders": [
+        117,
+        75,
+        117,
+        75
+      ],
+      "canonical_size": [
+        1821,
+        159
+      ],
+      "canonical_crop": [
+        329,
+        14,
+        1492,
+        145
+      ],
+      "uniform_resample": 1.5657781599312124,
+      "sha256": "1c266b652f942e8fabd3ae35bb9e50050d267413b10eb44656172104aa5f5013",
+      "required_minimum": [
+        1821,
+        159
+      ]
+    },
+    {
+      "name": "v2-metric-row",
+      "file": "tight/v2-metric-row.png",
+      "screen": 5,
+      "rect": [
+        129,
+        96,
+        191,
+        45
+      ],
+      "size": [
+        937,
+        210
+      ],
+      "borders": [
+        49,
+        49,
+        49,
+        49
+      ],
+      "canonical_size": [
+        585,
+        210
+      ],
+      "canonical_crop": [
+        7,
+        41,
+        578,
+        169
+      ],
+      "uniform_resample": 1.640625,
+      "sha256": "096e42da98f94560692b657d59f69de29994560b0bead62628a56dbd454b76b4",
+      "required_minimum": [
+        585,
+        210
+      ]
+    },
+    {
+      "name": "v2-tonight-row",
+      "file": "tight/v2-tonight-row.png",
+      "screen": 5,
+      "rect": [
+        129,
+        227,
+        191,
+        57
+      ],
+      "size": [
+        714,
+        171
+      ],
+      "borders": [
+        80,
+        38,
+        38,
+        38
+      ],
+      "canonical_size": [
+        573,
+        171
+      ],
+      "canonical_crop": [
+        7,
+        18,
+        566,
+        152
+      ],
+      "uniform_resample": 1.2761194029850746,
+      "sha256": "72300761a24131696dd483b5e41059233ad3ca9a2ffbdee806afe06d861f09e4",
+      "required_minimum": [
+        573,
+        171
+      ]
+    },
+    {
+      "name": "v2-review-card",
+      "file": "tight/v2-review-card.png",
+      "screen": 5,
+      "rect": [
+        327,
+        64,
+        219,
+        64
+      ],
+      "size": [
+        689,
+        210
+      ],
+      "borders": [
+        29,
+        29,
+        29,
+        29
+      ],
+      "canonical_size": [
+        657,
+        210
+      ],
+      "canonical_crop": [
+        7,
+        7,
+        650,
+        203
+      ],
+      "uniform_resample": 1.0714285714285714,
+      "sha256": "4874c18138ee79921f9fddaa0b1fce12b10070053c23e013b0232417039296a5",
+      "required_minimum": [
+        657,
+        210
+      ]
+    },
+    {
+      "name": "v2-popularity-card",
+      "file": "tight/v2-popularity-card.png",
+      "screen": 5,
+      "rect": [
+        552,
+        64,
+        168,
+        152
+      ],
+      "size": [
+        554,
+        456
+      ],
+      "borders": [
+        34,
+        34,
+        34,
+        34
+      ],
+      "canonical_size": [
+        504,
+        456
+      ],
+      "canonical_crop": [
+        8,
+        27,
+        496,
+        429
+      ],
+      "uniform_resample": 1.1343283582089552,
+      "sha256": "8afa24d5b5b9cb03769a6921bfa1e79ca06e125ca79372d42141c22a78e7149a",
+      "required_minimum": [
+        504,
+        456
+      ]
+    },
+    {
+      "name": "v2-star-full",
+      "file": "tight/v2-star-full.png",
+      "screen": 5,
+      "rect": [
+        563,
+        107,
+        44,
+        42
+      ],
+      "size": [
+        251,
+        236
+      ],
+      "borders": null,
+      "canonical_size": [
+        264,
+        252
+      ],
+      "canonical_crop": [
+        6,
+        7,
+        257,
+        243
+      ],
+      "uniform_resample": 1,
+      "sha256": "dc81eaf2c1ab1049bbccc09de15c040e8363aa6c8632f98832ca087b2a97c909",
+      "required_minimum": [
+        132,
+        126
+      ]
+    },
+    {
+      "name": "v2-star-empty",
+      "file": "tight/v2-star-empty.png",
+      "screen": 5,
+      "rect": [
+        471,
+        141,
+        21,
+        21
+      ],
+      "size": [
+        116,
+        110
+      ],
+      "borders": null,
+      "canonical_size": [
+        126,
+        126
+      ],
+      "canonical_crop": [
+        5,
+        8,
+        121,
+        118
+      ],
+      "uniform_resample": 1,
+      "sha256": "8e07f6b0f9e65c9df6b908e2dba5f1cab962b89b25c7df7261ab95d49c700501",
+      "required_minimum": [
+        63,
+        63
+      ]
+    },
+    {
+      "name": "v2-progress-track",
+      "file": "tight/v2-progress-track.png",
+      "screen": 5,
+      "rect": [
+        558,
+        154,
+        147,
+        21
+      ],
+      "size": [
+        482,
+        63
+      ],
+      "borders": [
+        37,
+        30,
+        37,
+        30
+      ],
+      "canonical_size": [
+        441,
+        63
+      ],
+      "canonical_crop": [
+        25,
+        6,
+        415,
+        57
+      ],
+      "uniform_resample": 1.2352941176470589,
+      "sha256": "e28204f32cb5f5312a7b397d9c0605ef9738e37d7c122d070be6f9bb8e914367",
+      "required_minimum": [
+        441,
+        63
+      ]
+    },
+    {
+      "name": "v2-progress-fill",
+      "file": "tight/v2-progress-fill.png",
+      "screen": 5,
+      "rect": [
+        560,
+        156,
+        107,
+        17
+      ],
+      "size": [
+        326,
+        51
+      ],
+      "borders": [
+        30,
+        22,
+        11,
+        22
+      ],
+      "canonical_size": [
+        321,
+        51
+      ],
+      "canonical_crop": [
+        29,
+        5,
+        291,
+        46
+      ],
+      "uniform_resample": 1.2439024390243902,
+      "sha256": "717e08b54e7c43fbbe92383b3aafc33f2ae7e211f339640df0540f3c2a7828f2",
+      "required_minimum": [
+        321,
+        51
+      ]
+    },
+    {
+      "name": "v2-bubble-mira",
+      "file": "tight/v2-bubble-mira.png",
+      "screen": 5,
+      "rect": [
+        486,
+        259,
+        108,
+        52
+      ],
+      "size": [
+        393,
+        156
+      ],
+      "borders": null,
+      "canonical_size": [
+        324,
+        156
+      ],
+      "canonical_crop": [
+        6,
+        16,
+        318,
+        140
+      ],
+      "uniform_resample": 1.2580645161290323,
+      "sha256": "46f0d74315921c42e07f19cf5eb57f36bc7ee527aef357903734b4d0f1d602ae",
+      "required_minimum": [
+        324,
+        156
+      ]
+    },
+    {
+      "name": "v2-illus-cats",
+      "file": "tight/v2-illus-cats.png",
+      "screen": 5,
+      "rect": [
+        130,
+        292,
+        104,
+        69
+      ],
+      "size": [
+        607,
+        382
+      ],
+      "borders": null,
+      "canonical_size": [
+        624,
+        414
+      ],
+      "canonical_crop": [
+        8,
+        16,
+        615,
+        398
+      ],
+      "uniform_resample": 1,
+      "sha256": "01290b14f530f757f19b96b45256ad9bd5299d7881cdf9a2b14cd2178208745f",
+      "required_minimum": [
+        312,
+        207
+      ]
+    },
+    {
+      "name": "v2-dish-lemonade",
+      "file": "tight/v2-dish-lemonade.png",
+      "screen": 5,
+      "rect": [
+        143,
+        141,
+        42,
+        39
+      ],
+      "size": [
+        236,
+        222
+      ],
+      "borders": null,
+      "canonical_size": [
+        252,
+        234
+      ],
+      "canonical_crop": [
+        8,
+        6,
+        244,
+        228
+      ],
+      "uniform_resample": 1,
+      "sha256": "f5121c5e3c8515939a73ba58e9bbea8e15fa742a53c07f6bffa02ba09279ffc9",
+      "required_minimum": [
+        126,
+        117
+      ]
+    },
+    {
+      "name": "v2-icon-coins",
+      "file": "tight/v2-icon-coins.png",
+      "screen": 5,
+      "rect": [
+        143,
+        185,
+        44,
+        39
+      ],
+      "size": [
+        252,
+        195
+      ],
+      "borders": null,
+      "canonical_size": [
+        264,
+        234
+      ],
+      "canonical_crop": [
+        6,
+        19,
+        258,
+        214
+      ],
+      "uniform_resample": 1,
+      "sha256": "ddc55aa3f8c4b1ee8ebc8c57359a5ea5219edc35a5f3be5203c685a8d1ac75ce",
+      "required_minimum": [
+        132,
+        117
+      ]
+    },
+    {
+      "name": "v2-icon-coin-service",
+      "file": "tight/v2-icon-coin-service.png",
+      "screen": 5,
+      "rect": [
+        153,
+        231,
+        53,
+        49
+      ],
+      "size": [
+        280,
+        280
+      ],
+      "borders": null,
+      "canonical_size": [
+        318,
+        294
+      ],
+      "canonical_crop": [
+        19,
+        7,
+        299,
+        287
+      ],
+      "uniform_resample": 1,
+      "sha256": "2ed6d1ef735c5c5ce90198e9d9d261fbd65de8f18c3506e7ae70485c9898e55f",
+      "required_minimum": [
+        159,
+        147
+      ]
+    },
+    {
+      "name": "v2-icon-bed",
+      "file": "tight/v2-icon-bed.png",
+      "screen": 5,
+      "rect": [
+        562,
+        332,
+        43,
+        31
+      ],
+      "size": [
+        144,
+        93
+      ],
+      "borders": null,
+      "canonical_size": [
+        129,
+        93
+      ],
+      "canonical_crop": [
+        4,
+        7,
+        124,
+        85
+      ],
+      "uniform_resample": 1.1923076923076923,
+      "sha256": "abfa3506496caa2bc49211ea196d510be3be374dcf0d104aed947231101fa264",
+      "required_minimum": [
+        129,
+        93
+      ]
+    },
+    {
+      "name": "v2-icon-moon",
+      "file": "tight/v2-icon-moon.png",
+      "screen": 5,
+      "rect": [
+        592,
+        18,
+        34,
+        34
+      ],
+      "size": [
+        102,
+        106
+      ],
+      "borders": null,
+      "canonical_size": [
+        102,
+        102
+      ],
+      "canonical_crop": [
+        6,
+        5,
+        96,
+        98
+      ],
+      "uniform_resample": 1.1333333333333333,
+      "sha256": "5b07d88a310a311ca118a8271727122e038f83aab54730db21ce076598775306",
+      "required_minimum": [
+        102,
+        102
+      ]
+    },
+    {
+      "name": "v2-mira-wave",
+      "file": "tight/v2-mira-wave.png",
+      "screen": 5,
+      "rect": [
+        580,
+        209,
+        148,
+        167
+      ],
+      "size": [
+        1096,
+        1959
+      ],
+      "borders": null,
+      "canonical_size": [
+        1600,
+        2000
+      ],
+      "canonical_crop": [
+        252,
+        20,
+        1348,
+        1979
+      ],
+      "uniform_resample": 1,
+      "sha256": "12fd6de63147a1c19309bb6a0ddb757d36bbddbb93f3478ebde27b05f9931980",
+      "required_minimum": [
+        444,
+        501
+      ]
+    },
+    {
+      "name": "v2-portrait-crew-jo",
+      "file": "tight/v2-portrait-crew-jo.png",
+      "screen": 5,
+      "rect": [
+        329,
+        290,
+        65,
+        68
+      ],
+      "size": [
+        365,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        74,
+        9,
+        439,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "30753556ffa52937b48cee867f3b9740a42794df4cd5093437444a6017deceb7",
+      "required_minimum": [
+        195,
+        204
+      ]
+    },
+    {
+      "name": "v2-bg-closing",
+      "file": "tight/v2-bg-closing.png",
+      "screen": 5,
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "size": [
+        2532,
+        1170
+      ],
+      "borders": null,
+      "canonical_size": [
+        2532,
+        1170
+      ],
+      "canonical_crop": [
+        0,
+        0,
+        2532,
+        1170
+      ],
+      "uniform_resample": 1,
+      "sha256": "7ed7b64c80e38f242d2d74c3f550bfc2b180051fca4dc4d606e101b383ad8637",
+      "required_minimum": [
+        2532,
+        1170
+      ]
+    },
+    {
+      "name": "v2-review-portrait-01",
+      "file": "tight/v2-review-portrait-01.png",
+      "screen": 5,
+      "rect": [
+        335,
+        68,
+        59,
+        56
+      ],
+      "size": [
+        467,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        22,
+        9,
+        489,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "7fc98dc1bcbde213dd62f6de0c233ac1a3723e927811de8e1ba4fcda90369a5d",
+      "required_minimum": [
+        177,
+        168
+      ]
+    },
+    {
+      "name": "v2-review-portrait-02",
+      "file": "tight/v2-review-portrait-02.png",
+      "screen": 5,
+      "rect": [
+        335,
+        132,
+        59,
+        60
+      ],
+      "size": [
+        470,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        21,
+        9,
+        491,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "43bfda05465ce117786eefa713caf0336bcdfc700ff7065c18b31c209257f1a7",
+      "required_minimum": [
+        177,
+        180
+      ]
+    },
+    {
+      "name": "v2-review-portrait-03",
+      "file": "tight/v2-review-portrait-03.png",
+      "screen": 5,
+      "rect": [
+        335,
+        201,
+        59,
+        60
+      ],
+      "size": [
+        373,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        69,
+        9,
+        442,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "71f2e76004683845625400d2769e72687d4ab69493fc1c8aa5b34772938fece4",
+      "required_minimum": [
+        177,
+        180
+      ]
+    },
+    {
+      "name": "v2-review-portrait-04",
+      "file": "tight/v2-review-portrait-04.png",
+      "screen": 5,
+      "rect": [
+        335,
+        68,
+        59,
+        56
+      ],
+      "size": [
+        418,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        47,
+        9,
+        465,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "1dd56d875d9c6b3672b9c94290dd2278dbfd779b2ab904d066a9da4ef7dc62bf",
+      "required_minimum": [
+        177,
+        168
+      ]
+    },
+    {
+      "name": "v2-review-portrait-05",
+      "file": "tight/v2-review-portrait-05.png",
+      "screen": 5,
+      "rect": [
+        335,
+        132,
+        59,
+        60
+      ],
+      "size": [
+        405,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        53,
+        9,
+        458,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "2ee34770f4eaf6712bbfbd0919f8b257de32c44f11453b2e5d42c6cf78dd4251",
+      "required_minimum": [
+        177,
+        180
+      ]
+    },
+    {
+      "name": "v2-review-portrait-06",
+      "file": "tight/v2-review-portrait-06.png",
+      "screen": 5,
+      "rect": [
+        335,
+        201,
+        59,
+        60
+      ],
+      "size": [
+        405,
+        494
+      ],
+      "borders": null,
+      "canonical_size": [
+        512,
+        512
+      ],
+      "canonical_crop": [
+        53,
+        9,
+        458,
+        503
+      ],
+      "uniform_resample": 1,
+      "sha256": "b757fb99b930b0b8c10b07d3052e381afcd5373d46cc70504bd771fad78b1fb3",
+      "required_minimum": [
+        177,
+        180
+      ]
+    },
+    {
+      "name": "v2-fishart-mackerel",
+      "file": "tight/v2-fishart-mackerel.png",
+      "screen": 4,
+      "rect": [
+        89,
+        132,
+        123,
+        61
+      ],
+      "size": [
+        1002,
+        396
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        58,
+        1013,
+        454
+      ],
+      "uniform_resample": 1,
+      "sha256": "7dad782726cf024eff2a8df755d5660b518218ae874d74330974532ffd98a143",
+      "required_minimum": [
+        369,
+        183
+      ]
+    },
+    {
+      "name": "v2-fishart-pollock",
+      "file": "tight/v2-fishart-pollock.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        419
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        46,
+        1013,
+        465
+      ],
+      "uniform_resample": 1,
+      "sha256": "3b64075f7be279af9c9e821d691006791971addfca0d5becc951bedf8cadfb60",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-cod",
+      "file": "tight/v2-fishart-cod.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        407
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        52,
+        1013,
+        459
+      ],
+      "uniform_resample": 1,
+      "sha256": "adc4bae77e9897e2cbafbf105fc57e49cde38ac0f4f89cde6c82614a0ce0d5a5",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-herring",
+      "file": "tight/v2-fishart-herring.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        371
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        70,
+        1013,
+        441
+      ],
+      "uniform_resample": 1,
+      "sha256": "d1c9610330b60330677b9662986bae5f27c247b73d77101bf99e25675900a563",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-whiting",
+      "file": "tight/v2-fishart-whiting.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        390
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        61,
+        1013,
+        451
+      ],
+      "uniform_resample": 1,
+      "sha256": "d17c641809b7eaaf49f11e875635b29d027f0200b5ced8b90ba27861656266a0",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-plaice",
+      "file": "tight/v2-fishart-plaice.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        981,
+        493
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        21,
+        8,
+        1002,
+        501
+      ],
+      "uniform_resample": 1,
+      "sha256": "96e148758f156740de4742c49f4d1dd4e68b851848393879ec6c1220daf3f5a8",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-seabass",
+      "file": "tight/v2-fishart-seabass.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        409
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        51,
+        1013,
+        460
+      ],
+      "uniform_resample": 1,
+      "sha256": "2338a08b5cfcc92357f71fbc957243d751db1b2ac3cc1f905fa355376fd86a76",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-redmullet",
+      "file": "tight/v2-fishart-redmullet.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        448
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        32,
+        1013,
+        480
+      ],
+      "uniform_resample": 1,
+      "sha256": "f6eeb1cbf2f925099c636292088e59f20fefe72f6dad7acd74eaa29885dd325b",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-turbot",
+      "file": "tight/v2-fishart-turbot.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        885,
+        490
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        69,
+        11,
+        954,
+        501
+      ],
+      "uniform_resample": 1,
+      "sha256": "3b6f9681b751ccf3a5925a0640ebe9e92188dc1df1be3fd6d8142fda95255f0a",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-conger",
+      "file": "tight/v2-fishart-conger.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1003,
+        241
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        10,
+        135,
+        1013,
+        376
+      ],
+      "uniform_resample": 1,
+      "sha256": "213b2a53e210b74d9b68d9804287f94ef8c33afbca680a3ded157b2ef5d40a1f",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-crab",
+      "file": "tight/v2-fishart-crab.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1002,
+        398
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        11,
+        57,
+        1013,
+        455
+      ],
+      "uniform_resample": 1,
+      "sha256": "383c4570a1fc85a0cd6317d0f817fb39caf281964f2b24b0ee886d88331dd784",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-fishart-squid",
+      "file": "tight/v2-fishart-squid.png",
+      "screen": 4,
+      "rect": [
+        88,
+        216,
+        126,
+        67
+      ],
+      "size": [
+        1003,
+        308
+      ],
+      "borders": null,
+      "canonical_size": [
+        1024,
+        512
+      ],
+      "canonical_crop": [
+        10,
+        102,
+        1013,
+        410
+      ],
+      "uniform_resample": 1,
+      "sha256": "f1278e2c83bb7d6dc1af8127acae947efdbc777b92b476e8a2cfe59b0ed07044",
+      "required_minimum": [
+        378,
+        201
+      ]
+    },
+    {
+      "name": "v2-prep-topbar",
+      "file": "tight/v2-prep-topbar.png",
+      "screen": 4,
+      "rect": [
+        0,
+        0,
+        844,
+        57
+      ],
+      "size": [
+        2532,
+        171
+      ],
+      "borders": null,
+      "canonical_size": [
+        2532,
+        171
+      ],
+      "canonical_crop": [
+        0,
+        0,
+        2532,
+        171
+      ],
+      "uniform_resample": 1,
+      "sha256": "ca6aad6a7dcd5dadf1bb0ef438c9663ed475705ce8e3c84f1c47776da4dfccba",
+      "required_minimum": [
+        2532,
+        171
+      ]
+    },
+    {
+      "name": "v2-accent-rays",
+      "file": "tight/v2-accent-rays.png",
+      "screen": 5,
+      "rect": [
+        584,
+        217,
+        32,
+        36
+      ],
+      "size": [
+        198,
+        176
+      ],
+      "borders": null,
+      "canonical_size": [
+        210,
+        204
+      ],
+      "canonical_crop": [
+        6,
+        14,
+        204,
+        190
+      ],
+      "uniform_resample": 1,
+      "sha256": "577b84de7f5254ada72a3416c32d801b1c95a3e34b8e62d7d216a104075eefb2",
+      "required_minimum": [
+        96,
+        117
+      ]
+    },
+    {
+      "name": "v2-bar-fill",
+      "file": "tight/v2-bar-fill.png",
+      "screen": 4,
+      "rect": [
+        629,
+        150,
+        52,
+        12
+      ],
+      "size": [
+        302,
+        42
+      ],
+      "borders": [
+        18,
+        12,
+        18,
+        12
+      ],
+      "canonical_size": [
+        312,
+        72
+      ],
+      "canonical_crop": [
+        5,
+        15,
+        307,
+        57
+      ],
+      "uniform_resample": 1,
+      "sha256": "dc7d824869a7040c9cbf155779477f999ffc15f830d524ca138b08bc006b4e98",
+      "required_minimum": [
+        156,
+        36
+      ]
+    },
+    {
+      "name": "v2-icon-fish-bringback",
+      "file": "tight/v2-icon-fish-bringback.png",
+      "screen": 3,
+      "rect": [
+        397,
+        319,
+        36,
+        24
+      ],
+      "size": [
+        204,
+        123
+      ],
+      "borders": null,
+      "canonical_size": [
+        216,
+        144
+      ],
+      "canonical_crop": [
+        6,
+        10,
+        210,
+        133
+      ],
+      "uniform_resample": 1,
+      "sha256": "21aaa9f6f1d941d8b7e4f73839ac618a674beacc1001ba00026e4fb1ed81217c",
+      "required_minimum": [
+        108,
+        72
+      ]
+    },
+    {
+      "name": "v2-icon-pollock-bringback",
+      "file": "tight/v2-icon-pollock-bringback.png",
+      "screen": 3,
+      "rect": [
+        529,
+        319,
+        39,
+        24
+      ],
+      "size": [
+        223,
+        101
+      ],
+      "borders": null,
+      "canonical_size": [
+        234,
+        144
+      ],
+      "canonical_crop": [
+        6,
+        22,
+        229,
+        123
+      ],
+      "uniform_resample": 1,
+      "sha256": "cf55d0fb4453ff2c8616334096e09ee2c5bc2ecfa91747837da9f2c482aeb66b",
+      "required_minimum": [
+        117,
+        72
+      ]
+    },
+    {
+      "name": "v2-dish-grilled-plan",
+      "file": "tight/v2-dish-grilled-plan.png",
+      "screen": 3,
+      "rect": [
+        277,
+        165,
+        118,
+        68
+      ],
+      "size": [
+        669,
+        390
+      ],
+      "borders": null,
+      "canonical_size": [
+        708,
+        408
+      ],
+      "canonical_crop": [
+        19,
+        9,
+        688,
+        399
+      ],
+      "uniform_resample": 1,
+      "sha256": "ed03bea92ba0d989a85b347350e27c44f7fe3b0d27f479ee9686bbb86f83f317",
+      "required_minimum": [
+        354,
+        204
+      ]
+    },
+    {
+      "name": "v2-dish-soup-prep",
+      "file": "tight/v2-dish-soup-prep.png",
+      "screen": 4,
+      "rect": [
+        362,
+        169,
+        91,
+        52
+      ],
+      "size": [
+        391,
+        296
+      ],
+      "borders": null,
+      "canonical_size": [
+        546,
+        312
+      ],
+      "canonical_crop": [
+        77,
+        8,
+        468,
+        304
+      ],
+      "uniform_resample": 1,
+      "sha256": "a980bce5f9aa1da0162bcc7a4f46b0beada16435f6ca86e3303c055071f282b6",
+      "required_minimum": [
+        273,
+        156
+      ]
+    },
+    {
+      "name": "v2-dish-closing-fish",
+      "file": "tight/v2-dish-closing-fish.png",
+      "screen": 5,
+      "rect": [
+        140,
+        101,
+        56,
+        34
+      ],
+      "size": [
+        324,
+        174
+      ],
+      "borders": null,
+      "canonical_size": [
+        336,
+        204
+      ],
+      "canonical_crop": [
+        6,
+        15,
+        330,
+        189
+      ],
+      "uniform_resample": 1,
+      "sha256": "47dd7bac16579dbe4ed39b2d3c5506fb3a03bea3de0c60e31b8f46b3ca332a7b",
+      "required_minimum": [
+        168,
+        102
+      ]
+    }
+  ],
+  "repeated_instances": [
+    {
+      "name": "v2-plan-dish-card",
+      "screen": 3,
+      "rect": [
+        405,
+        162,
+        122,
+        123
+      ],
+      "use": "soup card"
+    },
+    {
+      "name": "v2-plan-dish-card",
+      "screen": 3,
+      "rect": [
+        533,
+        162,
+        122,
+        123
+      ],
+      "use": "coffee card"
+    },
+    {
+      "name": "v2-accent-rays",
+      "screen": 3,
+      "rect": [
+        258,
+        169,
+        31,
+        39
+      ],
+      "use": "Mira planning emphasis; rotate to source"
+    },
+    {
+      "name": "v2-paper-row",
+      "screen": 3,
+      "rect": [
+        275,
+        292,
+        376,
+        61
+      ],
+      "use": "bring-back inset"
+    },
+    {
+      "name": "v2-divider",
+      "screen": 3,
+      "rect": [
+        512,
+        312,
+        5,
+        33
+      ],
+      "use": "catch request separator"
+    },
+    {
+      "name": "v2-icon-guests",
+      "screen": 3,
+      "rect": [
+        431,
+        257,
+        21,
+        20
+      ],
+      "use": "soup guest forecast"
+    },
+    {
+      "name": "v2-icon-guests",
+      "screen": 3,
+      "rect": [
+        550,
+        257,
+        21,
+        20
+      ],
+      "use": "coffee guest forecast"
+    },
+    {
+      "name": "v2-icon-tick",
+      "screen": 3,
+      "rect": [
+        704,
+        193,
+        25,
+        27
+      ],
+      "use": "accept button check; cream glyph"
+    },
+    {
+      "name": "v2-btn-back",
+      "screen": 4,
+      "rect": [
+        13,
+        6,
+        53,
+        46
+      ],
+      "use": "square back control; nine-slice"
+    },
+    {
+      "name": "v2-icon-back",
+      "screen": 4,
+      "rect": [
+        25,
+        16,
+        29,
+        25
+      ],
+      "use": "back arrow"
+    },
+    {
+      "name": "v2-paper-row",
+      "screen": 4,
+      "rect": [
+        81,
+        207,
+        244,
+        89
+      ],
+      "use": "second fish row"
+    },
+    {
+      "name": "v2-paper-row",
+      "screen": 4,
+      "rect": [
+        359,
+        112,
+        435,
+        55
+      ],
+      "use": "portion row 1; slice to rect"
+    },
+    {
+      "name": "v2-paper-row",
+      "screen": 4,
+      "rect": [
+        359,
+        169,
+        435,
+        56
+      ],
+      "use": "portion row 2"
+    },
+    {
+      "name": "v2-paper-row",
+      "screen": 4,
+      "rect": [
+        359,
+        227,
+        435,
+        55
+      ],
+      "use": "portion row 3"
+    },
+    {
+      "name": "v2-btn-minus",
+      "screen": 4,
+      "rect": [
+        570,
+        170,
+        52,
+        51
+      ],
+      "use": "soup minus"
+    },
+    {
+      "name": "v2-btn-minus",
+      "screen": 4,
+      "rect": [
+        570,
+        228,
+        52,
+        51
+      ],
+      "use": "fillets minus"
+    },
+    {
+      "name": "v2-btn-plus",
+      "screen": 4,
+      "rect": [
+        734,
+        169,
+        57,
+        52
+      ],
+      "use": "soup plus"
+    },
+    {
+      "name": "v2-btn-plus",
+      "screen": 4,
+      "rect": [
+        734,
+        227,
+        57,
+        52
+      ],
+      "use": "fillets plus"
+    },
+    {
+      "name": "v2-number-field",
+      "screen": 4,
+      "rect": [
+        629,
+        170,
+        99,
+        38
+      ],
+      "use": "soup quantity"
+    },
+    {
+      "name": "v2-number-field",
+      "screen": 4,
+      "rect": [
+        629,
+        228,
+        99,
+        38
+      ],
+      "use": "fillet quantity"
+    },
+    {
+      "name": "v2-bar-track",
+      "screen": 4,
+      "rect": [
+        628,
+        208,
+        102,
+        14
+      ],
+      "use": "soup track"
+    },
+    {
+      "name": "v2-bar-track",
+      "screen": 4,
+      "rect": [
+        628,
+        266,
+        102,
+        14
+      ],
+      "use": "fillets track"
+    },
+    {
+      "name": "v2-bar-knob",
+      "screen": 4,
+      "rect": [
+        661,
+        206,
+        12,
+        18
+      ],
+      "use": "soup thumb"
+    },
+    {
+      "name": "v2-bar-knob",
+      "screen": 4,
+      "rect": [
+        662,
+        264,
+        12,
+        18
+      ],
+      "use": "fillet thumb"
+    },
+    {
+      "name": "v2-toggle-unselected",
+      "screen": 4,
+      "rect": [
+        692,
+        285,
+        80,
+        30
+      ],
+      "use": "+20% selector"
+    },
+    {
+      "name": "v2-btn-primary",
+      "screen": 4,
+      "rect": [
+        631,
+        322,
+        200,
+        58
+      ],
+      "use": "Prepare button; nine-slice"
+    },
+    {
+      "name": "v2-divider",
+      "screen": 4,
+      "rect": [
+        473,
+        331,
+        5,
+        41
+      ],
+      "use": "market/captain separator"
+    },
+    {
+      "name": "v2-metric-row",
+      "screen": 5,
+      "rect": [
+        129,
+        65,
+        191,
+        31
+      ],
+      "use": "served count row"
+    },
+    {
+      "name": "v2-metric-row",
+      "screen": 5,
+      "rect": [
+        129,
+        141,
+        191,
+        42
+      ],
+      "use": "drinks row"
+    },
+    {
+      "name": "v2-metric-row",
+      "screen": 5,
+      "rect": [
+        129,
+        183,
+        191,
+        43
+      ],
+      "use": "tips row"
+    },
+    {
+      "name": "v2-metric-row",
+      "screen": 5,
+      "rect": [
+        129,
+        290,
+        195,
+        70
+      ],
+      "use": "cats row"
+    },
+    {
+      "name": "v2-review-card",
+      "screen": 5,
+      "rect": [
+        327,
+        132,
+        219,
+        64
+      ],
+      "use": "review row 2"
+    },
+    {
+      "name": "v2-review-card",
+      "screen": 5,
+      "rect": [
+        327,
+        200,
+        219,
+        66
+      ],
+      "use": "review row 3"
+    },
+    {
+      "name": "v2-review-card",
+      "screen": 5,
+      "rect": [
+        327,
+        288,
+        219,
+        70
+      ],
+      "use": "crew of the night row"
+    },
+    {
+      "name": "v2-icon-guests",
+      "screen": 5,
+      "rect": [
+        148,
+        68,
+        28,
+        26
+      ],
+      "use": "served guests"
+    },
+    {
+      "name": "v2-dish-closing-fish",
+      "screen": 5,
+      "rect": [
+        140,
+        101,
+        56,
+        34
+      ],
+      "use": "closing dishes metric"
+    },
+    {
+      "name": "v2-icon-coin-service",
+      "screen": 5,
+      "rect": [
+        276,
+        329,
+        20,
+        20
+      ],
+      "use": "cat food value coin"
+    },
+    {
+      "name": "v2-btn-primary",
+      "screen": 5,
+      "rect": [
+        531,
+        317,
+        190,
+        57
+      ],
+      "use": "Sleep button; nine-slice"
+    },
+    {
+      "name": "v2-star-full",
+      "screen": 5,
+      "rect": [
+        681,
+        149,
+        28,
+        28
+      ],
+      "use": "progress endpoint star"
+    },
+    {
+      "name": "v2-star-full",
+      "screen": 5,
+      "rect": [
+        396,
+        74,
+        18,
+        18
+      ],
+      "use": "review 1 stars start; repeat pitch 19.5, count 5"
+    },
+    {
+      "name": "v2-star-full",
+      "screen": 5,
+      "rect": [
+        396,
+        142,
+        18,
+        18
+      ],
+      "use": "review 2 stars start; repeat pitch 19.5, count 4"
+    },
+    {
+      "name": "v2-star-full",
+      "screen": 5,
+      "rect": [
+        396,
+        210,
+        18,
+        18
+      ],
+      "use": "review 3 stars start; repeat pitch 19.5, count 4"
+    },
+    {
+      "name": "v2-star-empty",
+      "screen": 5,
+      "rect": [
+        474,
+        142,
+        18,
+        18
+      ],
+      "use": "review 2 fifth empty star"
+    },
+    {
+      "name": "v2-star-empty",
+      "screen": 5,
+      "rect": [
+        474,
+        210,
+        18,
+        18
+      ],
+      "use": "review 3 fifth empty star"
+    }
+  ],
+  "native_detail": "Resampling disclosed per asset; no new painted detail"
+}

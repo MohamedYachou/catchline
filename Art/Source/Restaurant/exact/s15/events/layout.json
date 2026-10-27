@@ -1,0 +1,60 @@
+{
+  "screen": 15,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../../concepts/ui-2-service.png",
+  "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+  "placements": [
+    {
+      "name": "v2-s15-event-birthday",
+      "screen": 15,
+      "use": "event-demo",
+      "rect": [
+        369,
+        180,
+        30,
+        32
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s15-event-regular",
+      "screen": 15,
+      "use": "event-demo",
+      "rect": [
+        534,
+        183,
+        30,
+        25
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s15-event-tour",
+      "screen": 15,
+      "use": "event-demo",
+      "rect": [
+        588,
+        232,
+        28,
+        29
+      ],
+      "z": 40
+    },
+    {
+      "name": "v2-s15-event-captain",
+      "screen": 15,
+      "use": "event-demo",
+      "rect": [
+        441,
+        241,
+        30,
+        33
+      ],
+      "z": 40
+    }
+  ]
+}

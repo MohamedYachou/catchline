@@ -1,0 +1,54 @@
+{
+  "screen": 9,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "states": [
+    {
+      "id": "dragging",
+      "placements": [
+        {
+          "name": "v2-s9-chip-drag",
+          "use": "dragged-seat-guests",
+          "rect": [
+            351,
+            77,
+            159,
+            42
+          ],
+          "z": 100
+        },
+        {
+          "name": "v2-s9-slot-target",
+          "use": "legal-insertion-target",
+          "rect": [
+            354,
+            88,
+            151,
+            31
+          ],
+          "z": 90
+        }
+      ]
+    },
+    {
+      "id": "locked-job",
+      "placements": [
+        {
+          "name": "v2-s9-tooltip",
+          "use": "job-explanation",
+          "rect": [
+            155,
+            96,
+            290,
+            76
+          ],
+          "z": 100
+        }
+      ]
+    }
+  ],
+  "note": "State-only sample placements; do not add to static S9 screen."
+}

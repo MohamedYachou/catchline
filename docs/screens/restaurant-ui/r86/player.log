@@ -1,0 +1,69 @@
+Mono path[0] = 'C:/Users/momoy/Projects/Catchline-lead-sim/Builds/Catchline/Test/Catchline_Data/Managed'
+Mono config path = 'C:/Users/momoy/Projects/Catchline-lead-sim/Builds/Catchline/Test/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.25f1 (e1dba0a9aba4)
+[Subsystems] Discovering subsystems at path C:/Users/momoy/Projects/Catchline-lead-sim/Builds/Catchline/Test/Catchline_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 4080 Laptop GPU
+[D3D12 Device Filter] Driver Version: 32.0.16.1656
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 11995 MB
+[D3D12 Device Filter] Processor Count: 24
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4080 Laptop GPU (ID=0x27e0)
+    Vendor:          NVIDIA
+    VRAM:            11995 MB
+    App VRAM Budget: 11227 MB
+    Driver:          32.0.16.1656
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.210 seconds
+- Finished resetting the current domain, in  0.003 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+UnloadTime: 0.771700 ms
+[Catchline] Launch mode: TEST / no save reads or writes; save=C:/Users/momoy/AppData/LocalLow/DefaultCompany/Catchline\catchline-save.json
+[Catchline] restaurant camera 844x390 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] ARRANGE Table for 2 · 1×1 at (6, 2) fits=True items=8
+[Catchline] restaurant camera 2880x1800 fov 22.80 focal 59.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-1440
+[Catchline] restaurant camera 2532x1170 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-844
+[Catchline] restaurant camera 844x390 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] ARRANGE bought: items 8->9, coins 500->420
+[Catchline] restaurant camera 2880x1800 fov 22.80 focal 59.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-buy-1440
+[Catchline] restaurant camera 2532x1170 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-buy-844
+[Catchline] restaurant camera 2880x1800 fov 22.80 focal 59.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-lift-1440
+[Catchline] restaurant camera 2532x1170 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-lift-844
+[Catchline] restaurant camera 844x390 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] ARRANGE stored: active 9->8, drawer first Table for 2 free True
+[Catchline] restaurant camera 2880x1800 fov 22.80 focal 59.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-store-1440
+[Catchline] restaurant camera 2532x1170 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-store-844
+[Catchline] restaurant camera 2880x1800 fov 22.80 focal 59.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-kitchen-1440
+[Catchline] restaurant camera 2532x1170 fov 16.96 focal 80.5 sensor (36.00, 24.00) dist 21.7
+[Catchline] UIV2 frame day-arrange-kitchen-844
+NullReferenceException: Object reference not set to an instance of an object
+  at Catchline.Game.VoyageGame.RestaurantPrepared () [0x00060] in <b7c3fb8e5b8f45a2becf65a792a6c1d6>:0 
+  at Catchline.Game.VoyageGame.StageRestaurantDay (System.String step) [0x00a78] in <b7c3fb8e5b8f45a2becf65a792a6c1d6>:0 
+  at Catchline.Game.VoyageGame.StageUiV2 (System.String screen) [0x000bf] in <b7c3fb8e5b8f45a2becf65a792a6c1d6>:0 
+  at Catchline.Game.VoyageGame+<CaptureUiV2>d__1684.MoveNext () [0x00090] in <b7c3fb8e5b8f45a2becf65a792a6c1d6>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00026] in <9eb5f512edf84b29b73cbc699a604447>:0 
+

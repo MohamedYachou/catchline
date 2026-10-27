@@ -1,0 +1,133 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "../../concepts/ui-1-arrange.png",
+      "backgroundSha256": "cdab7d1cf6dbb9c02a2ca2078c3a2a453646649ce761cffc560338780e9af90f",
+      "placements": [
+        {
+          "name": "v2-coach-panel",
+          "screen": "phone",
+          "use": "coach-speech",
+          "rect": [
+            176,
+            132,
+            548,
+            160
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-coach-mira",
+          "screen": "phone",
+          "use": "host-portrait",
+          "rect": [
+            674,
+            113,
+            102,
+            136
+          ],
+          "z": 21
+        },
+        {
+          "name": "v2-coach-got-it",
+          "screen": "phone",
+          "use": "acknowledge",
+          "rect": [
+            486,
+            236,
+            116,
+            40
+          ],
+          "z": 22
+        }
+      ],
+      "interaction": {
+        "panel": "tutorial focus; optional pause owned by caller",
+        "gotItHitRect": [
+          486,
+          239,
+          116,
+          32
+        ],
+        "skipHitRect": [
+          620,
+          234,
+          64,
+          44
+        ],
+        "pointer": "right tail preserved by right slice cap",
+        "dismissal": "Got it advances; Skip exits coaching, never service"
+      }
+    },
+    {
+      "screen": "desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "background": "../../concepts/ui-service-desktop.png",
+      "backgroundSha256": "623efaf65065dc953eac6425e8186925097a08124977b5e67372b4736296115b",
+      "placements": [
+        {
+          "name": "v2-coach-panel",
+          "screen": "desktop",
+          "use": "coach-speech",
+          "rect": [
+            380,
+            555,
+            800,
+            220
+          ],
+          "z": 20
+        },
+        {
+          "name": "v2-coach-mira",
+          "screen": "desktop",
+          "use": "host-portrait",
+          "rect": [
+            1105,
+            518,
+            146,
+            195
+          ],
+          "z": 21
+        },
+        {
+          "name": "v2-coach-got-it",
+          "screen": "desktop",
+          "use": "acknowledge",
+          "rect": [
+            873,
+            700,
+            160,
+            52
+          ],
+          "z": 22
+        }
+      ],
+      "interaction": {
+        "panel": "tutorial focus; optional pause owned by caller",
+        "gotItHitRect": [
+          873,
+          707,
+          160,
+          36
+        ],
+        "skipHitRect": [
+          1052,
+          703,
+          90,
+          44
+        ],
+        "pointer": "right tail preserved by right slice cap",
+        "dismissal": "Got it advances; Skip exits coaching, never service"
+      }
+    }
+  ],
+  "coordinates": "top-left x,y,w,h; logical mockup pixels; z ascending"
+}

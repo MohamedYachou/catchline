@@ -1,0 +1,106 @@
+[
+  {
+    "name": "v2-s6-trend-dot",
+    "file": "v2-s6-trend-dot.png",
+    "screen": 6,
+    "rect": [
+      315,
+      238,
+      12,
+      12
+    ],
+    "size": [
+      36,
+      36
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "e1f3ccabc590142799689f101030e70629c7cdd1165f7e8d4eebdb7723c30460",
+    "exportMethod": "accepted trend jewel crop/circular isolation",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false
+  },
+  {
+    "name": "v2-s6-trend-segment",
+    "file": "v2-s6-trend-segment.png",
+    "screen": 6,
+    "rect": [
+      335,
+      230,
+      48,
+      6
+    ],
+    "size": [
+      144,
+      18
+    ],
+    "borders": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "21403ae587b78d15b1da88980030139c4d11eef737e297e4499bed648da18d5d",
+    "exportMethod": "accepted straight stroke affine rectification; centre-column repeat",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "horizontalSlice": true,
+    "renderRule": "Stretch to centre-to-centre distance; rotate about midpoint; draw under nodes. Square ends hidden by nodes."
+  },
+  {
+    "name": "v2-s6-trend-fill",
+    "file": "v2-s6-trend-fill.png",
+    "screen": 6,
+    "rect": [
+      310,
+      207,
+      8,
+      49
+    ],
+    "size": [
+      24,
+      147
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "e5063f34536a46ca6816fc7af3017cb929b725fb45bbbced0fabafb3ee10858f",
+    "exportMethod": "accepted area RGB sample; continuous vertical alpha profile, horizontal rows identical",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "wrapX": "repeat",
+    "wrapY": "clamp",
+    "renderRule": "Clip top to live polyline and bottom to baseline. Never draw as a full rectangle above the curve."
+  },
+  {
+    "name": "v2-s6-bar-empty",
+    "file": "v2-s6-bar-empty.png",
+    "screen": 6,
+    "rect": [
+      38,
+      209,
+      24,
+      36
+    ],
+    "size": [
+      72,
+      108
+    ],
+    "borders": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "a10c7d44407ae882fd2d868721efa5ad78a026b5b94b801eafa5177f40c799c9",
+    "exportMethod": "built-in ImageGen empty variant, alpha trim/3x export",
+    "native3xDetailClaim": false,
+    "pixelExactClaim": false,
+    "renderOpacity": 0.28
+  }
+]

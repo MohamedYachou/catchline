@@ -1,0 +1,518 @@
+{
+  "screen": 8,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "sourceSize": [
+    1844,
+    853
+  ],
+  "placements": [
+    {
+      "name": "v2-s8-background",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0
+    },
+    {
+      "name": "v2-s8-title-sign",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        262,
+        0,
+        332,
+        59
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-main-panel",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        15,
+        116,
+        814,
+        137
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-stage-current",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        24,
+        65,
+        189,
+        46
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-stage-next",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        235,
+        65,
+        183,
+        46
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-stage-locked",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        438,
+        65,
+        174,
+        46
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-stage-locked",
+      "screen": 8,
+      "use": "seafood-house",
+      "rect": [
+        633,
+        65,
+        190,
+        46
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-upgrade-card",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        16,
+        287,
+        270,
+        99
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-upgrade-card",
+      "screen": 8,
+      "use": "stove",
+      "rect": [
+        291,
+        287,
+        260,
+        99
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-upgrade-card",
+      "screen": 8,
+      "use": "lighting",
+      "rect": [
+        558,
+        287,
+        271,
+        99
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-button-back",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        14,
+        10,
+        124,
+        42
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-wallet",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        679,
+        10,
+        149,
+        43
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-section-sign",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        18,
+        258,
+        191,
+        28
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s8-button-locked",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        614,
+        158,
+        205,
+        71
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s8-button-buy",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        148,
+        340,
+        131,
+        39
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s8-button-buy",
+      "screen": 8,
+      "use": "stove",
+      "rect": [
+        423,
+        340,
+        122,
+        39
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s8-button-buy",
+      "screen": 8,
+      "use": "lighting",
+      "rect": [
+        692,
+        340,
+        130,
+        39
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s8-progress-track",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        374,
+        230,
+        232,
+        18
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s8-cafe",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        30,
+        64,
+        80,
+        44
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-bistro-mini",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        243,
+        64,
+        104,
+        45
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-bistro-main",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        22,
+        122,
+        342,
+        128
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-fridge",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        25,
+        292,
+        116,
+        90
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-stove",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        300,
+        292,
+        115,
+        90
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-lighting",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        563,
+        292,
+        123,
+        90
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-seafood-building",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        674,
+        69,
+        39,
+        37
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s8-arrow-back",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        27,
+        19,
+        28,
+        26
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-coin",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        689,
+        16,
+        34,
+        34
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-coin",
+      "screen": 8,
+      "use": "bistro",
+      "rect": [
+        377,
+        202,
+        29,
+        28
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-coin",
+      "screen": 8,
+      "use": "fridge",
+      "rect": [
+        174,
+        345,
+        28,
+        30
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-coin",
+      "screen": 8,
+      "use": "stove",
+      "rect": [
+        446,
+        345,
+        28,
+        30
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-coin",
+      "screen": 8,
+      "use": "lighting",
+      "rect": [
+        717,
+        345,
+        28,
+        30
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-chevron-gold",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        216,
+        76,
+        15,
+        22
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-chevron-gold",
+      "screen": 8,
+      "use": "bistro-next",
+      "rect": [
+        420,
+        76,
+        15,
+        22
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-chevron-locked",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        616,
+        76,
+        15,
+        22
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-check",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        179,
+        78,
+        24,
+        24
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-check",
+      "screen": 8,
+      "use": "stars-met",
+      "rect": [
+        491,
+        173,
+        26,
+        27
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-lock",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        454,
+        74,
+        20,
+        28
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-lock",
+      "screen": 8,
+      "use": "seafood",
+      "rect": [
+        654,
+        73,
+        21,
+        29
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-lock",
+      "screen": 8,
+      "use": "purchase",
+      "rect": [
+        643,
+        170,
+        34,
+        43
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-star",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        378,
+        171,
+        28,
+        28
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-progress-fill",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        376,
+        233,
+        183,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s8-restaurant-building",
+      "screen": 8,
+      "use": "primary",
+      "rect": [
+        480,
+        73,
+        36,
+        34
+      ],
+      "z": 30
+    }
+  ]
+}

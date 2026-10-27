@@ -1,0 +1,585 @@
+{
+  "screen": 8,
+  "canvas": [
+    844,
+    390
+  ],
+  "styles": [
+    {
+      "id": "back",
+      "screen": 8,
+      "text": "Back",
+      "rect": [
+        70,
+        18,
+        47,
+        25
+      ],
+      "size": 21,
+      "painted_size_estimate": 22,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "title",
+      "screen": 8,
+      "text": "Upgrades",
+      "rect": [
+        337,
+        11,
+        167,
+        38
+      ],
+      "size": 37,
+      "painted_size_estimate": 34,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "wallet-value",
+      "screen": 8,
+      "text": "2,840",
+      "rect": [
+        739,
+        17,
+        68,
+        28
+      ],
+      "size": 26,
+      "painted_size_estimate": 26,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stage-cafe",
+      "screen": 8,
+      "text": "Café",
+      "rect": [
+        116,
+        79,
+        38,
+        20
+      ],
+      "size": 15,
+      "painted_size_estimate": 19,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stage-bistro",
+      "screen": 8,
+      "text": "Bistro",
+      "rect": [
+        351,
+        80,
+        53,
+        19
+      ],
+      "size": 17,
+      "painted_size_estimate": 18,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stage-restaurant",
+      "screen": 8,
+      "text": "Restaurant",
+      "rect": [
+        522,
+        82,
+        81,
+        17
+      ],
+      "size": 13,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#4D6D88",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stage-seafood",
+      "screen": 8,
+      "text": "Seafood house",
+      "rect": [
+        720,
+        81,
+        93,
+        18
+      ],
+      "size": 11,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#4D6D88",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "next-heading",
+      "screen": 8,
+      "text": "Next: Bistro",
+      "rect": [
+        371,
+        125,
+        150,
+        26
+      ],
+      "size": 26,
+      "painted_size_estimate": 26,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "next-effect",
+      "screen": 8,
+      "text": "More tables and a terrace",
+      "rect": [
+        373,
+        153,
+        183,
+        15
+      ],
+      "size": 13,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "star-requirement",
+      "screen": 8,
+      "text": "3 stars",
+      "rect": [
+        418,
+        179,
+        56,
+        17
+      ],
+      "size": 16,
+      "painted_size_estimate": 20,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stage-cost",
+      "screen": 8,
+      "text": "3,500",
+      "rect": [
+        418,
+        203,
+        68,
+        23
+      ],
+      "size": 27,
+      "painted_size_estimate": 26,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "shortfall",
+      "screen": 8,
+      "text": "Need 660",
+      "rect": [
+        681,
+        180,
+        123,
+        26
+      ],
+      "size": 28,
+      "painted_size_estimate": 27,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#E0E7EB",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "saving-value",
+      "screen": 8,
+      "text": "2,840 / 3,500",
+      "rect": [
+        445,
+        233,
+        94,
+        15
+      ],
+      "size": 14,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "section",
+      "screen": 8,
+      "text": "Kitchen & room",
+      "rect": [
+        39,
+        262,
+        147,
+        23
+      ],
+      "size": 19,
+      "painted_size_estimate": 23,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "fridge-name",
+      "screen": 8,
+      "text": "Bigger fridge",
+      "rect": [
+        144,
+        298,
+        110,
+        21
+      ],
+      "size": 16,
+      "painted_size_estimate": 21,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "fridge-effect",
+      "screen": 8,
+      "text": "+15 portions",
+      "rect": [
+        145,
+        321,
+        93,
+        15
+      ],
+      "size": 15,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#00868A",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "fridge-cost",
+      "screen": 8,
+      "text": "600",
+      "rect": [
+        210,
+        349,
+        40,
+        24
+      ],
+      "size": 21,
+      "painted_size_estimate": 24,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stove-name",
+      "screen": 8,
+      "text": "Reliable stove",
+      "rect": [
+        422,
+        298,
+        121,
+        21
+      ],
+      "size": 16,
+      "painted_size_estimate": 21,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stove-effect",
+      "screen": 8,
+      "text": "Fewer breakdowns",
+      "rect": [
+        423,
+        321,
+        119,
+        15
+      ],
+      "size": 12,
+      "painted_size_estimate": 16,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#00868A",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "stove-cost",
+      "screen": 8,
+      "text": "450",
+      "rect": [
+        481,
+        349,
+        40,
+        24
+      ],
+      "size": 21,
+      "painted_size_estimate": 24,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "lighting-name",
+      "screen": 8,
+      "text": "Cosy lighting",
+      "rect": [
+        693,
+        298,
+        111,
+        21
+      ],
+      "size": 16,
+      "painted_size_estimate": 21,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#10263D",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "lighting-effect",
+      "screen": 8,
+      "text": "More guest patience",
+      "rect": [
+        694,
+        321,
+        123,
+        15
+      ],
+      "size": 11,
+      "painted_size_estimate": 15,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#00868A",
+      "stroke": "#10263D",
+      "stroke_width": 0,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    },
+    {
+      "id": "lighting-cost",
+      "screen": 8,
+      "text": "300",
+      "rect": [
+        753,
+        349,
+        40,
+        24
+      ],
+      "size": 21,
+      "painted_size_estimate": 24,
+      "font": "Fredoka Bold",
+      "weight": 700,
+      "fill": "#FFF4DC",
+      "stroke": "#10263D",
+      "stroke_width": 1,
+      "shadow": [
+        0,
+        0,
+        "#00000000"
+      ],
+      "align": "left",
+      "vertical_align": "middle"
+    }
+  ],
+  "fontIdentification": "closest supplied face, calibrated to measured regions; painted lettering not proven identical"
+}

@@ -465,6 +465,19 @@ namespace Catchline.Game.Restaurant
             if(!floor.Raycast(ray,out var t))return false;
             var p=RoomRoot.InverseTransformPoint(ray.GetPoint(t));tile=new Vector2Int(Mathf.RoundToInt(3.5f-p.x),Mathf.RoundToInt(2-p.z));return true;
         }
+        // Service markers (S15) anchor to the top of a placed item and above a staff member's head (viewport, z>0 in front).
+        public bool ItemTop(int uid,out Vector3 vp)
+        {
+            vp=default;if(ServiceCamera==null||!items.TryGetValue(uid,out var t)||t==null||!t.gameObject.activeInHierarchy)return false;
+            var b=TableBounds(t);vp=ServiceCamera.WorldToViewportPoint(new Vector3(b.center.x,b.max.y,b.center.z));return vp.z>0;
+        }
+        public bool StaffHead(string id,out Vector3 vp)
+        {
+            vp=default;if(ServiceCamera==null||!actors.TryGetValue(id,out var a)||a.Root==null)return false;
+            var rs=a.Root.GetComponentsInChildren<SkinnedMeshRenderer>();float top=a.Root.position.y+1.7f;
+            foreach(var r in rs)top=Mathf.Max(top,r.bounds.max.y);
+            vp=ServiceCamera.WorldToViewportPoint(new Vector3(a.Root.position.x,top,a.Root.position.z));return vp.z>0;
+        }
         public Vector3 ViewportOf(Vector2 tile,float y=.04f)=>ServiceCamera==null?Vector3.zero:ServiceCamera.WorldToViewportPoint(TileToWorld(tile,y));
         public void End()
         {

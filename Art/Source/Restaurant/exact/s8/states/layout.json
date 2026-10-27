@@ -1,0 +1,101 @@
+{
+  "screen": "phone",
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../../concepts/ui-8-upgrades.png",
+  "backgroundSha256": "f9db9a1fb89648e5e20cc2cf877e2a47113b2d1063f22bb8cc52056d72386cce",
+  "placements": [
+    {
+      "name": "v2-s8-state-owned-card",
+      "rect": [
+        16,
+        287,
+        270,
+        99
+      ],
+      "use": "owned-fridge-card",
+      "z": 10
+    },
+    {
+      "name": "v2-s8-state-owned-check",
+      "rect": [
+        153,
+        348,
+        24,
+        24
+      ],
+      "use": "owned-check",
+      "z": 70
+    },
+    {
+      "name": "v2-s8-state-needs-stage",
+      "rect": [
+        422,
+        345,
+        126,
+        30
+      ],
+      "use": "stage-gate-tag",
+      "z": 70
+    },
+    {
+      "name": "v2-s8-fridge",
+      "file": "../v2-s8-fridge.png",
+      "rect": [
+        23,
+        295,
+        116,
+        84
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s8-upgrade-card",
+      "file": "../v2-s8-upgrade-card.png",
+      "rect": [
+        293,
+        287,
+        261,
+        99
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 10,
+      "external": true
+    },
+    {
+      "name": "v2-s8-stove",
+      "file": "../v2-s8-stove.png",
+      "rect": [
+        299,
+        296,
+        117,
+        83
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s8-purchase-strip",
+      "use": "purchase-success-on-lighting",
+      "rect": [
+        567,
+        287,
+        45,
+        50
+      ],
+      "frame": 1,
+      "z": 80,
+      "anchor": [
+        588.8283582089553,
+        311.17218543046357
+      ]
+    }
+  ],
+  "notes": "State demo only. Owned and stage-locked examples illustrate independent conditions; original wallet/example economy retained. Purchased item is noninteractive. Never play the burst for a rejected purchase. Preserve existing effect text."
+}

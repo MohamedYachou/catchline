@@ -1,0 +1,375 @@
+{
+  "expected": 90,
+  "present": 90,
+  "errors": [],
+  "missing": [],
+  "unopened": [],
+  "changed_since_open": [],
+  "tight_errors": [],
+  "tight_unopened_or_changed": [],
+  "structural_pass": true,
+  "manual_open_coverage": true,
+  "exact_visual_acceptance": "NOT CERTIFIED: lead/Mo review required; see visual findings",
+  "files": [
+    {
+      "name": "v2-sign-plank",
+      "sha256": "8e90cefeae835468b19b1d7306e0d01c5661bfa185146986b8c09437e9636546"
+    },
+    {
+      "name": "v2-plan-paper",
+      "sha256": "ffe00a7dc1ab135a032c79b2714e127c10f4726738c4d4ef3d8e1b85cb148c2e"
+    },
+    {
+      "name": "v2-plan-dish-card",
+      "sha256": "1c6354122637d3e281686e394f3228be9a50736a2d2e3db6ce3b90b2819ad893"
+    },
+    {
+      "name": "v2-ticket",
+      "sha256": "b05419b9914a599a319db744e5a5d1662f8f343d9ac6db3162202e971345b18c"
+    },
+    {
+      "name": "v2-btn-accept",
+      "sha256": "651c65f7b4a21de045954d9b91efc3255579383d7e79b86fa44b6a0236b2db80"
+    },
+    {
+      "name": "v2-btn-secondary",
+      "sha256": "ef0cdc4be6cb6ae11976b4a9ce2b31673291e5cdf4ebd781296e2ff6db305eaf"
+    },
+    {
+      "name": "v2-btn-primary",
+      "sha256": "5d4cb668f298410cbbd8c9567a45fed6aced6e0d4d4d68b060fb7c869717ec14"
+    },
+    {
+      "name": "v2-btn-back",
+      "sha256": "8384fbb33b186b2315052e1c1548e24f91cb9d6e294c748bb279cd5b3b3df8f5"
+    },
+    {
+      "name": "v2-icon-back",
+      "sha256": "2368ac3c4ed74b915e4737ef8c8d06b6c90d33537c81ddc56a32eaa71e6f43e4"
+    },
+    {
+      "name": "v2-icon-calendar",
+      "sha256": "eab50776bb7a2d4f077d40650390d019258deadb4a211ff7305d58ddbf6b9307"
+    },
+    {
+      "name": "v2-icon-special",
+      "sha256": "f72f440ddf1e671c621e847716c578fc63954a2a41eeee9f5fb903b02ceac317"
+    },
+    {
+      "name": "v2-icon-tick",
+      "sha256": "b5eee333371e12275f48e06a92162a67845f764fcc957dde76857ed795b829a2"
+    },
+    {
+      "name": "v2-icon-cross",
+      "sha256": "1ad303e5ddf036846c91c5aab9d2c7af03125342f875bdf2de00d902eb6d5404"
+    },
+    {
+      "name": "v2-icon-guests",
+      "sha256": "c58aa9bcb8b5e493f3a1173b9ee84f181f0159d47cbff6760ace0b307b15d4af"
+    },
+    {
+      "name": "v2-catch-pile",
+      "sha256": "1149d081f7601f287bf40fb369da382d5705ee70bcd616a0452db947eb1bc7c8"
+    },
+    {
+      "name": "v2-mira-plan",
+      "sha256": "ff4655c4acbc48c2b7ec11ad3648e62291d04d7e9704996f9d582d791bbc6d31"
+    },
+    {
+      "name": "v2-bg-plan",
+      "sha256": "d57493da11fc568f4d8302a5f5f63c0f8e2d7159e8fc5c6a3647701209a4471b"
+    },
+    {
+      "name": "v2-prep-catch-panel",
+      "sha256": "859806b30e79424e2793850072afa1c9ad0d12d324111b9f4cfe4d5f28b920c4"
+    },
+    {
+      "name": "v2-prep-portions-panel",
+      "sha256": "b2af1b5156e8c96948318798105429efb9a9d5a312089a59be77f48381fa7b83"
+    },
+    {
+      "name": "v2-paper-row",
+      "sha256": "150dc4393430c9088dd458038e683ff06925b94d14fb735950b94fb56db7a953"
+    },
+    {
+      "name": "v2-number-field",
+      "sha256": "fc21597ceb90a8ac7930621e4fc03869dd10db8cd8f352af0f58d204d214b525"
+    },
+    {
+      "name": "v2-btn-minus",
+      "sha256": "459187afe8e349e8837359616ebf4b86ca1dcf73048a054a549c05e73bedee76"
+    },
+    {
+      "name": "v2-btn-plus",
+      "sha256": "35f9216ebeb34ac36e6fb40d6469c1b9815e7afa19f9344c189cc94f8c0a3feb"
+    },
+    {
+      "name": "v2-bar-track",
+      "sha256": "ac756ded4fba4829eca13aa4333c55a3d522e7a7c84c90ba825f9d76dc135f34"
+    },
+    {
+      "name": "v2-bar-knob",
+      "sha256": "6419cd0a86515d85a6e55a0f6ee285da9ca7ca29b3d32c2441f997555e048a2a"
+    },
+    {
+      "name": "v2-toggle-selected",
+      "sha256": "aaed2a29eeeefe72aa6c49c358977f5c2876aea954557c81d768fc3e0d8cedb6"
+    },
+    {
+      "name": "v2-toggle-unselected",
+      "sha256": "80a8eaaa27de883c5d39cb9fb1b92c52336d80f80102d8fb7b018fd04105c2a7"
+    },
+    {
+      "name": "v2-summary-strip",
+      "sha256": "fb843f0832278a7314cbcaec4deb9ff1f8795944c8475d6981171420ad6d7edb"
+    },
+    {
+      "name": "v2-checkbox-on",
+      "sha256": "62c7e5552a39c68a3c8c20a2ae236b49c4a0818f5438653c94158d9fc79d2978"
+    },
+    {
+      "name": "v2-checkbox-off",
+      "sha256": "637d3203a04ae43dd249a5ebc78de86225108a33c3a1e3b19000cf8508717b76"
+    },
+    {
+      "name": "v2-divider",
+      "sha256": "8a59c0c8eb9ef363ce22f983c46adc87853c46d99e81c59343851eb07f74df70"
+    },
+    {
+      "name": "v2-icon-forecast",
+      "sha256": "4d9c60580e7fb55e1fd580a9f742fbb1cffdc4978e3346f9433a44286a391dd5"
+    },
+    {
+      "name": "v2-icon-cutlery-white",
+      "sha256": "121f49f1a1351609324b486e9579eedf49ebabc968ca5d0ab2fbe46901f3ae33"
+    },
+    {
+      "name": "v2-icon-cutlery",
+      "sha256": "ed8f3ec13856b251023813bee5c04257762a3c966917dc345698d47674bc5be5"
+    },
+    {
+      "name": "v2-icon-fish-white",
+      "sha256": "03aaa071d2152a12ab5a8a3c26adcf9b11dd46ad6132adbfb0b74bae7660cf32"
+    },
+    {
+      "name": "v2-icon-fish-market",
+      "sha256": "b5599a439a3d2c8b9af94d26d77866366bce3109b3cd8c78a8cca18d879f314e"
+    },
+    {
+      "name": "v2-icon-cooler",
+      "sha256": "87a1f9b735c0b20b677678c45c3f090d00eec3c78c4c29e6da306ea07e285b39"
+    },
+    {
+      "name": "v2-icon-cloche",
+      "sha256": "5304bbeb05fb14f048ab7dac6ecc5730677c1592881142bce23b3d4c49f8e719"
+    },
+    {
+      "name": "v2-sign-fish",
+      "sha256": "fef7dac5acac881cf3e781d5c6950b9b1658c7602f0042da88b0aa26d126f5e9"
+    },
+    {
+      "name": "v2-dish-grilled-fish",
+      "sha256": "e952989e52741a1cf277bca8c19bb8299253ba09dbc88f3957a1fdc9b412dbba"
+    },
+    {
+      "name": "v2-dish-fish-soup",
+      "sha256": "4cd223e2178f3ded84efbd508bf738082f053128dd2880401c6724ebd98c95c0"
+    },
+    {
+      "name": "v2-dish-coffee",
+      "sha256": "f96b236635706ea87d0dc8b0ee7bd2639fbbc95abda3b6a3a8b3849157418cd2"
+    },
+    {
+      "name": "v2-dish-fillets",
+      "sha256": "4aa9dbda870c35972098465d5abecd119b5111c4c8b72cce7bc0dec423040ad0"
+    },
+    {
+      "name": "v2-bg-prep",
+      "sha256": "5badb5ce2d5a82c9bec5412e5c86f03215ad0fa8f923cc8600ba468abe889470"
+    },
+    {
+      "name": "v2-closing-board",
+      "sha256": "5f727ee4815b440da9a175bf089d1070b55da22eec894d68bbe98eaddd065d7a"
+    },
+    {
+      "name": "v2-closing-header",
+      "sha256": "bbb2293c1f84bdf67e3b72a6e0365a920b0a9be2f56e02d62ecc8eedf22463a8"
+    },
+    {
+      "name": "v2-metric-row",
+      "sha256": "485c046f997e519bd7866cc72e10a06e7a484efcdb8eebe2e6f8b3a4ab6fe89b"
+    },
+    {
+      "name": "v2-tonight-row",
+      "sha256": "eee3e2c353afd5beeedc1b6d50f6811373f6662770b0497ff4858550334ef198"
+    },
+    {
+      "name": "v2-review-card",
+      "sha256": "4a17482f1f45eab67fb9a366cec0d7937160e3d12e0d7f82147598b74e0e945d"
+    },
+    {
+      "name": "v2-popularity-card",
+      "sha256": "87a23c6a494706086c05ffa5023206e49b7b33ea00142a5a8c098984938ac65e"
+    },
+    {
+      "name": "v2-star-full",
+      "sha256": "aaeefd977ca28df3fe60a4a0c5cddcd0ba12f798f610c71731bc7a907a09c21e"
+    },
+    {
+      "name": "v2-star-empty",
+      "sha256": "dc04537384ac9476d8842f65780b72eed4eeed4c064321eb5ba32df65a5835cf"
+    },
+    {
+      "name": "v2-progress-track",
+      "sha256": "869f600b7b80e7afaea49e3674d59119fa10063d1141adec01d6f1a70989aff3"
+    },
+    {
+      "name": "v2-progress-fill",
+      "sha256": "2410fea8619e0cdb86a520e6c4603873af343e28178d57ad4fb5c011ee3a5f39"
+    },
+    {
+      "name": "v2-bubble-mira",
+      "sha256": "8771734a4986059f196fba7711caad8ac476a8b99dc898426a0b7ac637968e3c"
+    },
+    {
+      "name": "v2-illus-cats",
+      "sha256": "5bff3b5b4a77dea889adc72b68e357252f622596ca1e99fbb8464ba7899c3bb8"
+    },
+    {
+      "name": "v2-dish-lemonade",
+      "sha256": "388d793e202cf99a339c91403baf59b14e0a4b339f66e32d3a7cf00cbb55d26a"
+    },
+    {
+      "name": "v2-icon-coins",
+      "sha256": "6d5b67b1b1c49cb5d1d0d2448c5c837be328d7d6a69d0818edcb301d29a6f465"
+    },
+    {
+      "name": "v2-icon-coin-service",
+      "sha256": "0c6d278138947b3a1ca772cd8bebfea1febdf57999ec125a9f8aa52b85162889"
+    },
+    {
+      "name": "v2-icon-bed",
+      "sha256": "e1f1524844a49270a82e00db0f926470dc6d6ec06abde05ec65ebafb69138229"
+    },
+    {
+      "name": "v2-icon-moon",
+      "sha256": "7a8c54bb0d026b5dc0a1095db6e07fc0e780edea0596d2afe2b1842532e76993"
+    },
+    {
+      "name": "v2-mira-wave",
+      "sha256": "93e04dedc924ab9eacc8e6e67e20ab936aabe605c64f6d312a0cb0aec449222d"
+    },
+    {
+      "name": "v2-portrait-crew-jo",
+      "sha256": "2a3226a78093701dba59e750896d03e813f66150c692f1544c3ab7856165b6a4"
+    },
+    {
+      "name": "v2-bg-closing",
+      "sha256": "7ed7b64c80e38f242d2d74c3f550bfc2b180051fca4dc4d606e101b383ad8637"
+    },
+    {
+      "name": "v2-review-portrait-01",
+      "sha256": "1599c2438be293f83c674d914621f3997ba6fbe1f381f17e11891d69e7fd2c45"
+    },
+    {
+      "name": "v2-review-portrait-02",
+      "sha256": "8a1eb393eddb163d302554a815a9b8e66d336f8b7e2e2db3838825a5a3ea6fb9"
+    },
+    {
+      "name": "v2-review-portrait-03",
+      "sha256": "374dc82e73335eb004355ac0474ec6220db33dac1e4b0018463bc59d661bf480"
+    },
+    {
+      "name": "v2-review-portrait-04",
+      "sha256": "c4d9e826cde0e85dfc4ee4e59734e1828261c184149dc8059761d0fec9b9925e"
+    },
+    {
+      "name": "v2-review-portrait-05",
+      "sha256": "456cff1dfbfe87b7bfbc50125ee27dfd8f5cfd4b3cc936c1039c00b5b52f9cca"
+    },
+    {
+      "name": "v2-review-portrait-06",
+      "sha256": "8cc6ce1c478eeb9f9d1d806a63abaa7fc197100d3b6943fb1843d5137b1c5d21"
+    },
+    {
+      "name": "v2-fishart-mackerel",
+      "sha256": "e8d5407d10b09aed0e9e33d0c2896a30ae4d48763606174317351009dd4ec791"
+    },
+    {
+      "name": "v2-fishart-pollock",
+      "sha256": "aab9e437bd7f027d39b83620c182f528bd0f6ec88a8347de0482e47adee7af85"
+    },
+    {
+      "name": "v2-fishart-cod",
+      "sha256": "fd8203c8da14754750559a58c5cd163b794e48efbafe437a04ae77c3d8dd9fa2"
+    },
+    {
+      "name": "v2-fishart-herring",
+      "sha256": "4cdde62b2bed2e19f2da528eb002eb986c711059a6ffda6f10c2393abb084b32"
+    },
+    {
+      "name": "v2-fishart-whiting",
+      "sha256": "cd6cbfb89dd9922341ee5ea0e0039f622f82bc38c126124f66059468cf5462c9"
+    },
+    {
+      "name": "v2-fishart-plaice",
+      "sha256": "500f21a207837387fcab4abcda43e60cde49e90481d7d045c6a0d8194c11ed37"
+    },
+    {
+      "name": "v2-fishart-seabass",
+      "sha256": "86ec23bcfd40e0b8ac2a2971145212d29ccdb3b9a5bd66a3e21133912b35a481"
+    },
+    {
+      "name": "v2-fishart-redmullet",
+      "sha256": "58bb749818c2444e4ec58d4df6a7a18017adda1f86bfd812e7152fd4b8c1be5d"
+    },
+    {
+      "name": "v2-fishart-turbot",
+      "sha256": "5f0df0926924cdb26bac7745f5ee49e70d53b5dbb9b433b5c7516899b775ac83"
+    },
+    {
+      "name": "v2-fishart-conger",
+      "sha256": "ceb83f0e04932204f50a9c20b1064d918634504548648a45dbc9b3de7e029a1b"
+    },
+    {
+      "name": "v2-fishart-crab",
+      "sha256": "9ba420bd6b3dcebc337f7b34cdba5ddd1ec97e7a402eea72ee7dd5ad0258afc1"
+    },
+    {
+      "name": "v2-fishart-squid",
+      "sha256": "cabef8517e88345b5a9407ceb9ecb50a8c91785da5ff47d2d4b67270e7051ad4"
+    },
+    {
+      "name": "v2-prep-topbar",
+      "sha256": "ca6aad6a7dcd5dadf1bb0ef438c9663ed475705ce8e3c84f1c47776da4dfccba"
+    },
+    {
+      "name": "v2-accent-rays",
+      "sha256": "1a488659c8e6d5f818283ee7a28d6ecdfdeda94fea7261f999cec68c27e85bb7"
+    },
+    {
+      "name": "v2-bar-fill",
+      "sha256": "5eafc2826f59081c751746efc1162a4e743733bd91f2bee4bce80ef49f309ab5"
+    },
+    {
+      "name": "v2-icon-fish-bringback",
+      "sha256": "0981202b70c7478a2bb7af5915742182a0ea90c1c9dddd5c4fbe87d7264efdb5"
+    },
+    {
+      "name": "v2-icon-pollock-bringback",
+      "sha256": "c67402aff3884dc0a6a9d803065bf006422b4fed7df8a6d3cd10c1813ffe44a9"
+    },
+    {
+      "name": "v2-dish-grilled-plan",
+      "sha256": "774ddbb557a99ec41f66b4f900dca2febe819468885e99351cd46b1f0bef82d6"
+    },
+    {
+      "name": "v2-dish-soup-prep",
+      "sha256": "d64981fb4f1fb61c962c7022dfd022655a23f42ef39bed426a58e2f2e0cef1e1"
+    },
+    {
+      "name": "v2-dish-closing-fish",
+      "sha256": "f60e8a4ce2b1c9990e675789c555da25e41ca2c4b5cede5d1ccfcb07c88db0f3"
+    }
+  ]
+}

@@ -1,0 +1,1082 @@
+{
+  "screen": 9,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "sourceSize": [
+    1846,
+    852
+  ],
+  "placements": [
+    {
+      "name": "v2-s9-background",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "z": 0
+    },
+    {
+      "name": "v2-s9-title-sign",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        267,
+        0,
+        320,
+        54
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s9-crew-panel",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        11,
+        56,
+        821,
+        292
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s9-button-back",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        11,
+        7,
+        125,
+        42
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s9-crew-plaque",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        690,
+        12,
+        143,
+        37
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s9-footer",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        11,
+        350,
+        637,
+        32
+      ],
+      "z": 10
+    },
+    {
+      "name": "v2-s9-row-selected",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        20,
+        82,
+        804,
+        43
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-row",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        20,
+        126,
+        804,
+        42
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-row",
+      "screen": 9,
+      "use": "1",
+      "rect": [
+        20,
+        169,
+        804,
+        44
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-row",
+      "screen": 9,
+      "use": "2",
+      "rect": [
+        20,
+        213,
+        804,
+        44
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-row",
+      "screen": 9,
+      "use": "3",
+      "rect": [
+        20,
+        258,
+        804,
+        44
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-row",
+      "screen": 9,
+      "use": "4",
+      "rect": [
+        20,
+        304,
+        804,
+        44
+      ],
+      "z": 15
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        354,
+        88,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-0-task-1",
+      "rect": [
+        511,
+        88,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-0-task-2",
+      "rect": [
+        668,
+        88,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-1-task-0",
+      "rect": [
+        354,
+        131,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-1-task-1",
+      "rect": [
+        511,
+        131,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-1-task-2",
+      "rect": [
+        668,
+        131,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-2-task-0",
+      "rect": [
+        354,
+        174,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-2-task-1",
+      "rect": [
+        511,
+        174,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-2-task-2",
+      "rect": [
+        668,
+        174,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-3-task-0",
+      "rect": [
+        354,
+        220,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-3-task-1",
+      "rect": [
+        511,
+        220,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-3-task-2",
+      "rect": [
+        668,
+        220,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-4-task-0",
+      "rect": [
+        354,
+        266,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-4-task-1",
+      "rect": [
+        511,
+        266,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-4-task-2",
+      "rect": [
+        668,
+        266,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-5-task-0",
+      "rect": [
+        354,
+        311,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-5-task-1",
+      "rect": [
+        511,
+        311,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-task-chip",
+      "screen": 9,
+      "use": "row-5-task-2",
+      "rect": [
+        668,
+        311,
+        151,
+        31
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        210,
+        90,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "row-1",
+      "rect": [
+        210,
+        133,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "row-2",
+      "rect": [
+        210,
+        176,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "row-3",
+      "rect": [
+        210,
+        222,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "row-4",
+      "rect": [
+        210,
+        268,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-job-field",
+      "screen": 9,
+      "use": "row-5",
+      "rect": [
+        210,
+        313,
+        122,
+        27
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-button-save",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        656,
+        348,
+        178,
+        35
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-button-scroll",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        606,
+        352,
+        39,
+        29
+      ],
+      "z": 20
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        361,
+        92,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-0-task-1",
+      "rect": [
+        518,
+        92,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-0-task-2",
+      "rect": [
+        675,
+        92,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-1-task-0",
+      "rect": [
+        361,
+        135,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-1-task-1",
+      "rect": [
+        518,
+        135,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-1-task-2",
+      "rect": [
+        675,
+        135,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-2-task-0",
+      "rect": [
+        361,
+        178,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-2-task-1",
+      "rect": [
+        518,
+        178,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-2-task-2",
+      "rect": [
+        675,
+        178,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-3-task-0",
+      "rect": [
+        361,
+        224,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-3-task-1",
+      "rect": [
+        518,
+        224,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-3-task-2",
+      "rect": [
+        675,
+        224,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-4-task-0",
+      "rect": [
+        361,
+        270,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-4-task-1",
+      "rect": [
+        518,
+        270,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-4-task-2",
+      "rect": [
+        675,
+        270,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-5-task-0",
+      "rect": [
+        361,
+        315,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-5-task-1",
+      "rect": [
+        518,
+        315,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-number-badge",
+      "screen": 9,
+      "use": "row-5-task-2",
+      "rect": [
+        675,
+        315,
+        24,
+        24
+      ],
+      "z": 25
+    },
+    {
+      "name": "v2-s9-arrow-back",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        24,
+        15,
+        29,
+        25
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        220,
+        94,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "row-1",
+      "rect": [
+        220,
+        137,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "row-2",
+      "rect": [
+        220,
+        180,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "row-3",
+      "rect": [
+        220,
+        226,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "row-4",
+      "rect": [
+        220,
+        272,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-job-lock",
+      "screen": 9,
+      "use": "row-5",
+      "rect": [
+        220,
+        317,
+        18,
+        20
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        484,
+        98,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-0-task-1",
+      "rect": [
+        641,
+        98,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-0-task-2",
+      "rect": [
+        798,
+        98,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-1-task-0",
+      "rect": [
+        484,
+        141,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-1-task-1",
+      "rect": [
+        641,
+        141,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-1-task-2",
+      "rect": [
+        798,
+        141,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-2-task-0",
+      "rect": [
+        484,
+        184,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-2-task-1",
+      "rect": [
+        641,
+        184,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-2-task-2",
+      "rect": [
+        798,
+        184,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-3-task-0",
+      "rect": [
+        484,
+        230,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-3-task-1",
+      "rect": [
+        641,
+        230,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-3-task-2",
+      "rect": [
+        798,
+        230,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-4-task-0",
+      "rect": [
+        484,
+        276,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-4-task-1",
+      "rect": [
+        641,
+        276,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-4-task-2",
+      "rect": [
+        798,
+        276,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-5-task-0",
+      "rect": [
+        484,
+        321,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-5-task-1",
+      "rect": [
+        641,
+        321,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-grab-handle",
+      "screen": 9,
+      "use": "row-5-task-2",
+      "rect": [
+        798,
+        321,
+        13,
+        13
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-info",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        21,
+        355,
+        23,
+        23
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-scroll-down",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        616,
+        361,
+        18,
+        12
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-mira",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        35,
+        71,
+        61,
+        54
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-dirk",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        41,
+        125,
+        55,
+        44
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-ana",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        37,
+        169,
+        57,
+        44
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-sam",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        35,
+        213,
+        58,
+        46
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-ines",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        36,
+        258,
+        59,
+        46
+      ],
+      "z": 30
+    },
+    {
+      "name": "v2-s9-bust-olaf",
+      "screen": 9,
+      "use": "primary",
+      "rect": [
+        36,
+        304,
+        62,
+        44
+      ],
+      "z": 30
+    }
+  ]
+}

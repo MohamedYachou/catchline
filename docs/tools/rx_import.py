@@ -17,7 +17,8 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign'):
+    before=set(pieces)
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
         if part=='s1-s2' and b in s35: nm='rx-s12-'+nm[3:]
@@ -39,6 +40,8 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
         texts+=t
     if os.path.exists(lay):
         lj=json.load(open(lay))
+        # S2 call: {"screens": [{screen, placements}, ...]} for phone and desktop in one sheet.
+        if isinstance(lj,dict) and isinstance(lj.get('screens'),list) and lj['screens'] and isinstance(lj['screens'][0],dict): lj={'placements':[dict(p,screen=p.get('screen',sc['screen'])) for sc in lj['screens'] for p in sc.get('placements',[])]}
         for p in lj.get('placements',[]) if isinstance(lj,dict) else []: p.setdefault('screen',lj.get('screen'))
         json_lay=lj
         # Codex 2's S1/S2 sheet places every use as asset#use in layout.json's placements.
@@ -54,7 +57,8 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
         # S6+ sheets: a list of sliced sprites, borders already left,bottom,right,top like the manifests
         for v in json.load(open(sl)):
             for key in list(pieces):
-                if key[1].split('#')[0]==v['name'] and str(key[0])==part[1:]:
+                # (the named sheets like coach-card place on phone/arrange screens: match their own new keys)
+                if key[1].split('#')[0]==v['name'] and (str(key[0])==part[1:] or key not in before):
                     r,s_,b=pieces[key]; pieces[key]=(r,v.get('size') or s_,v.get('borders') or b)
     elif os.path.exists(sl) and 'sprites' in json.load(open(sl)):
         pass  # S14 slices are fixed in code (HarbourRestaurantEntry)
@@ -73,6 +77,9 @@ for st in ('stage3','stage4'):
 f=X+'s6/arrange-entry/text-styles.json'
 if os.path.exists(f):
     t=json.load(open(f)); texts+=[dict(x,screen=t.get('screen')) for x in t.get('styles',[])]
+# S15 event markers: their own sheet in s15/events (pieces only).
+for f in glob.glob(X+'s15/events/v2-*.png')+glob.glob(X+'s15/v2-s15-event-*.png'):
+    copy(f,asset_name(os.path.basename(f)[:-4])); n+=1
 # Codex 1's guest review faces (clothes/guests) keep their v2-guest- names.
 for f in glob.glob(R+'Art/Source/Restaurant/clothes/guests/v2-guest-*.png')+glob.glob(R+'Art/Source/Restaurant/clothes/busts/v2-rbust-*.png'):
     copy(f,os.path.basename(f)[:-4]); n+=1

@@ -1,0 +1,55 @@
+{
+  "screen": 6,
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "placements": [
+    {
+      "name": "v2-s6-trend-dot",
+      "screen": 6,
+      "use": "live-chart-reference",
+      "rect": [
+        315,
+        238,
+        12,
+        12
+      ]
+    },
+    {
+      "name": "v2-s6-trend-segment",
+      "screen": 6,
+      "use": "live-chart-reference",
+      "rect": [
+        335,
+        230,
+        48,
+        6
+      ]
+    },
+    {
+      "name": "v2-s6-trend-fill",
+      "screen": 6,
+      "use": "live-chart-reference",
+      "rect": [
+        310,
+        207,
+        8,
+        49
+      ]
+    },
+    {
+      "name": "v2-s6-bar-empty",
+      "screen": 6,
+      "use": "live-chart-reference",
+      "rect": [
+        38,
+        209,
+        24,
+        36
+      ]
+    }
+  ],
+  "note": "Dynamic primitives are reference uses, not additions to the fixed painted mockup."
+}

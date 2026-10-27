@@ -1,0 +1,59 @@
+{
+  "screen": 13,
+  "frames": [
+    {
+      "id": "seat",
+      "title": "Seat the guests",
+      "coaching": "Tap a table to welcome\nour first guests.",
+      "origin": [
+        14,
+        59
+      ],
+      "pointerOffset": [
+        260,
+        39
+      ]
+    },
+    {
+      "id": "cook",
+      "title": "The kitchen cooks",
+      "coaching": "Our cooks turn today's\ncatch into dinner.",
+      "origin": [
+        430,
+        59
+      ],
+      "pointerOffset": [
+        99,
+        37
+      ]
+    },
+    {
+      "id": "serve",
+      "title": "Serve",
+      "coaching": "Take the hot plates\nto their table.",
+      "origin": [
+        14,
+        224
+      ],
+      "pointerOffset": [
+        113,
+        42
+      ]
+    },
+    {
+      "id": "close",
+      "title": "Close up",
+      "coaching": "Last guests gone? Let's\ncount tonight's takings.",
+      "origin": [
+        430,
+        224
+      ],
+      "pointerOffset": [
+        295,
+        28
+      ]
+    }
+  ],
+  "background": "ui-2-service.png",
+  "model": "illustrative coaching sheet, not runtime"
+}

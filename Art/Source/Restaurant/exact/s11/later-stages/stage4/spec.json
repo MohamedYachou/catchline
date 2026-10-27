@@ -1,0 +1,294 @@
+{
+  "screen": 11,
+  "concept": "ui-11-stage4-preview.png",
+  "pieces": [
+    {
+      "id": "background",
+      "rect": [
+        0,
+        0,
+        844,
+        390
+      ],
+      "copy": "Art/Source/Restaurant/exact/s9/v2-s9-background.png",
+      "z": 0,
+      "opaque": true
+    },
+    {
+      "id": "title-sign",
+      "rect": [
+        175,
+        5,
+        494,
+        50
+      ],
+      "copy": "Art/Source/Restaurant/exact/s8/v2-s8-title-sign.png",
+      "z": 5,
+      "slice": [
+        90,
+        16,
+        95,
+        16
+      ]
+    },
+    {
+      "id": "illustration-frame",
+      "rect": [
+        14,
+        66,
+        358,
+        307
+      ],
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-plan-paper.png",
+      "z": 5,
+      "slice": [
+        36,
+        18,
+        36,
+        43
+      ]
+    },
+    {
+      "id": "illustration",
+      "rect": [
+        27,
+        124,
+        332,
+        176
+      ],
+      "z": 10,
+      "opaque": false,
+      "copy": "Art\\Source\\Restaurant\\exact\\s11\\later-stages\\provenance\\stage4.png"
+    },
+    {
+      "id": "reward-panel",
+      "rect": [
+        384,
+        66,
+        446,
+        307
+      ],
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-plan-paper.png",
+      "z": 5,
+      "slice": [
+        36,
+        18,
+        36,
+        43
+      ]
+    },
+    {
+      "id": "primary",
+      "rect": [
+        468,
+        318,
+        278,
+        43
+      ],
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-btn-primary.png",
+      "z": 25,
+      "slice": [
+        20,
+        12,
+        20,
+        12
+      ]
+    },
+    {
+      "id": "stage-strip",
+      "rect": [
+        420,
+        78,
+        375,
+        44
+      ],
+      "copy": "Art/Source/Restaurant/exact/s3-s5/v2-summary-strip.png",
+      "z": 15,
+      "slice": [
+        12,
+        10,
+        12,
+        10
+      ]
+    },
+    {
+      "id": "reward-star",
+      "rect": [
+        420,
+        137,
+        46,
+        46
+      ],
+      "copy": "Art/Source/Restaurant/exact/s6/v2-s6-star-full.png",
+      "z": 20
+    },
+    {
+      "id": "unlock-0",
+      "rect": [
+        423,
+        212,
+        28,
+        27
+      ],
+      "copy": "Art/Source/Restaurant/exact/s10/v2-s10-task-seat.png",
+      "z": 20
+    },
+    {
+      "id": "unlock-1",
+      "rect": [
+        423,
+        243,
+        28,
+        27
+      ],
+      "copy": "Art/Source/Restaurant/exact/s8/v2-s8-stove.png",
+      "z": 20
+    },
+    {
+      "id": "unlock-2",
+      "rect": [
+        423,
+        274,
+        28,
+        27
+      ],
+      "copy": "Art/Source/Restaurant/exact/s10/v2-s10-order-grilled-fish.png",
+      "z": 20
+    }
+  ],
+  "texts": [
+    [
+      "title",
+      "Welcome to the Seafood house!",
+      [
+        215,
+        13,
+        422,
+        33
+      ],
+      27,
+      "#FFF8DE"
+    ],
+    [
+      "stage",
+      "Restaurant > Seafood house",
+      [
+        443,
+        86,
+        336,
+        26
+      ],
+      23,
+      "#10263D"
+    ],
+    [
+      "reward",
+      "Our harbour landmark!",
+      [
+        479,
+        138,
+        311,
+        30
+      ],
+      24,
+      "#10263D"
+    ],
+    [
+      "unlock-heading",
+      "Your new chapter",
+      [
+        421,
+        182,
+        337,
+        24
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "unlock-0",
+      "14 x 5 floor plan",
+      [
+        464,
+        215,
+        330,
+        23
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "unlock-1",
+      "5 x 5 kitchen",
+      [
+        464,
+        246,
+        330,
+        23
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "unlock-2",
+      "Landmark fish sign",
+      [
+        464,
+        277,
+        330,
+        23
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "continue",
+      "Wonderful!",
+      [
+        527,
+        327,
+        163,
+        25
+      ],
+      24,
+      "#FFF8DE"
+    ],
+    [
+      "new-sign",
+      "A new sign on the quay",
+      [
+        65,
+        83,
+        286,
+        25
+      ],
+      20,
+      "#10263D"
+    ],
+    [
+      "new-chapter",
+      "Your next chapter begins",
+      [
+        45,
+        328,
+        308,
+        23
+      ],
+      18,
+      "#10263D"
+    ],
+    [
+      "building-sign",
+      "Seafood house",
+      [
+        184,
+        194,
+        57,
+        13
+      ],
+      12,
+      "#FFF8DE"
+    ]
+  ],
+  "variant": 4
+}

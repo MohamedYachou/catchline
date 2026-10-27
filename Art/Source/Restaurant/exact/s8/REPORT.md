@@ -1,0 +1,11 @@
+# S8 Upgrades - source-art handoff
+
+Reference: ../../concepts/ui-8-upgrades.png (844 x 390). Cafe > Bistro > Restaurant > Seafood house path; current stage, next stage, requirements/progress, and kitchen/room cards. Prices, capacity effects and thresholds are illustrative presentation values. They do not set the economy. The example balance 2,840 versus cost 3,500 leaves 660; the stage action is locked while short of funds.
+
+29 sprites, 42 placements, 23 measured text entries, 12 sliced sprites. Original painting 1844 x 853. Stage building art and card scenery were isolated/recreated, changing facade/plant/bevel details. The tiny seafood building is a literal opaque reference crop with its grey backing and no text; the main building preserves its painted scenic backdrop. Controls-clean and icons-clean are selected corrections; superseded sheet sources are retained. Cafe metadata encoding was corrected and the final offline proof reopened.
+
+Import the v2-s8-* PNGs with manifest.json, layout.json, text-styles.json and slices.json. Layout uses an 844 x 390 top-left canvas and a distinct use for every repeated placement. Text is live; the coin emboss remains painted. Slice borders are left, bottom, right, top in exported pixels. Foreground pieces have tight alpha bounds; background is opaque. Exports are three times the largest measured placement, mechanically resampled; native 3x detail is not claimed.
+
+Provenance includes the original generated painting, prompts, isolation sheets and reference crops. Isolated/recreated clean pieces differ in painted detail from the mockup; pixel-identical cutting is not claimed. Review sheets show actual reference crops above exports. reconstruction-compare.jpg is an offline sprite/text composition, not a Unity capture. Font sizing uses the supplied Fredoka Bold fitted to measured text regions; painted lettering is not proven identical.
+
+Verified: bounds, unique uses/text IDs, RGBA/tight bounds/3x sizes, hashes, no cross-screen filename collisions, slice border validity, and opened export contacts/measurement overlays/reconstruction/slice stress pages. Native integration, interaction, final economy and lead/Mo acceptance remain with Claude. No Assets, production code, Git, saves or watchdog edits. No commit. Source-art scope only.

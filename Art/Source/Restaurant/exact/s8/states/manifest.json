@@ -1,0 +1,267 @@
+[
+  {
+    "name": "v2-s8-state-owned-card",
+    "file": "v2-s8-state-owned-card.png",
+    "logicalSize": [
+      270,
+      99
+    ],
+    "size": [
+      810,
+      297
+    ],
+    "borders": [
+      54,
+      42,
+      54,
+      42
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "928bf6fe945df1f0cf6c7c94cf1809080ed2c70429274c275389cbb86694a2bf",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s8\\states\\provenance\\muted-card.png",
+      "sourceSha256": "89623ad4ea66f606a008a09c175d98689b515bd9f39bcd388c996ef12c6b0a0e",
+      "sourceAlphaCrop": [
+        36,
+        40,
+        2037,
+        700
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "rect": [
+      16,
+      287,
+      270,
+      99
+    ]
+  },
+  {
+    "name": "v2-s8-state-owned-check",
+    "file": "v2-s8-state-owned-check.png",
+    "logicalSize": [
+      24,
+      24
+    ],
+    "size": [
+      72,
+      72
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "b48c4c8a0a9ce89ed64c7807ccb475fa6d52f3c1c6787b264911baf20f8e2f7d",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s8\\states\\provenance\\owned-check.png",
+      "sourceSha256": "3bce113d2aa4928bf8c623bf157efcbcfd3fcc007bca6aac8de643f7fc7f4462",
+      "sourceAlphaCrop": [
+        96,
+        88,
+        1159,
+        1158
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "rect": [
+      153,
+      348,
+      24,
+      24
+    ]
+  },
+  {
+    "name": "v2-s8-state-needs-stage",
+    "file": "v2-s8-state-needs-stage.png",
+    "logicalSize": [
+      126,
+      30
+    ],
+    "size": [
+      378,
+      90
+    ],
+    "borders": [
+      63,
+      15,
+      24,
+      15
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "399c116f51d82152b445b17751fb142c426f392ed825c724dfc079c8a74c862c",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s1-card-states\\v2-s1-state-bistro.png",
+      "sourceSha256": "6937e02f904873a76430b69866f571590d59a59afa480c74bdccada630d80ba8",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        255,
+        72
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "rect": [
+      422,
+      345,
+      126,
+      30
+    ]
+  },
+  {
+    "name": "v2-s8-purchase-strip",
+    "file": "v2-s8-purchase-strip.png",
+    "size": [
+      639,
+      267
+    ],
+    "logicalSize": [
+      213,
+      89
+    ],
+    "borders": null,
+    "sha256": "ebf0570b0009ec074947d2a6c6271e715b4046be4cdfb062246156cddf4a1daa",
+    "native3xDetailClaim": false,
+    "provenance": {
+      "method": "Built-in ImageGen painted particles; deterministic position/rotation/alpha animation; each frame cropped tightly and packed horizontally, no atlas gutters.",
+      "sources": [
+        {
+          "source": "Art\\Source\\Restaurant\\exact\\s8\\states\\provenance\\purchase-sparkle.png",
+          "sourceSha256": "305841de97d56c9d555c6bad6220a313008e76cf172e67fdb2f33272c363c091"
+        }
+      ]
+    },
+    "animation": {
+      "frameCount": 4,
+      "loop": false,
+      "totalDurationMs": 300,
+      "frames": [
+        {
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            66,
+            66
+          ],
+          "durationMs": 75,
+          "pivot": [
+            0.46153846153846156,
+            0.4925373134328358
+          ],
+          "pivotOrigin": "top-left",
+          "logicalSize": [
+            22,
+            22
+          ],
+          "sourceCanvas": [
+            140,
+            140
+          ],
+          "sourceCrop": [
+            180,
+            177,
+            245,
+            244
+          ]
+        },
+        {
+          "index": 1,
+          "rect": [
+            66,
+            0,
+            135,
+            150
+          ],
+          "durationMs": 75,
+          "pivot": [
+            0.48507462686567165,
+            0.48344370860927155
+          ],
+          "pivotOrigin": "top-left",
+          "logicalSize": [
+            45,
+            50
+          ],
+          "sourceCanvas": [
+            140,
+            140
+          ],
+          "sourceCrop": [
+            145,
+            137,
+            279,
+            288
+          ]
+        },
+        {
+          "index": 2,
+          "rect": [
+            201,
+            0,
+            198,
+            216
+          ],
+          "durationMs": 75,
+          "pivot": [
+            0.47738693467336685,
+            0.49074074074074076
+          ],
+          "pivotOrigin": "top-left",
+          "logicalSize": [
+            66,
+            72
+          ],
+          "sourceCanvas": [
+            140,
+            140
+          ],
+          "sourceCrop": [
+            115,
+            104,
+            314,
+            320
+          ]
+        },
+        {
+          "index": 3,
+          "rect": [
+            399,
+            0,
+            240,
+            267
+          ],
+          "durationMs": 75,
+          "pivot": [
+            0.4896265560165975,
+            0.503731343283582
+          ],
+          "pivotOrigin": "top-left",
+          "logicalSize": [
+            80,
+            89
+          ],
+          "sourceCanvas": [
+            140,
+            140
+          ],
+          "sourceCrop": [
+            92,
+            75,
+            333,
+            343
+          ]
+        }
+      ],
+      "packing": "variable-width horizontal; explicit rects required",
+      "playback": "Place each frame pivot at the same world/UI anchor. Rect/pivot origin top-left. For Unity bottom-left pivots use [x,1-y]. Hide at end; do not hold last frame.",
+      "reducedMotion": "Skip motion, or show the peak frame for100ms at the fixed anchor."
+    },
+    "rect": [
+      567,
+      287,
+      45,
+      50
+    ]
+  }
+]
