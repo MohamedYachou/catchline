@@ -28,7 +28,7 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 - [x] C1 New-save fishing bot: stows on deck-graph hulls; new-* day chain passes.
 - C2 Service sim: orders, cooking times per station, tips, reviews feed S5.
 - [x] C3 Market step, sleep step, money flow; S9 priorities in the sim (A/B: same served/left).
-- C4 Restaurant upgrades (tables, decor) using arrange mode. [x] S8 upgrades bought + visible (KitchenKit2), stage rooms load per stage (Bistro interim; Codex 2 refits 2-4 to the grid), exteriors on the quay.
+- [x] C4 Restaurant upgrades (tables, decor) using arrange mode: arrange by day over the 3D room (dc5cff5, r70). Also S8 upgrades bought + visible (KitchenKit2), stage rooms load per stage (Bistro interim; Codex 2 refits 2-4 to the grid), exteriors on the quay.
 
 ## D. Crew restaurant clothes (Codex 2 3D, Codex 1 2D busts)
 - D1 Outfit sheet per job: host (Mira, best), cook, server, dishwasher; women dresses/tops, men suits.
