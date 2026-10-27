@@ -421,6 +421,141 @@ namespace Catchline.Game
             return true;
         }
 
+        // ---- S1 arrange by day: the player's own room in 3D behind the drawer, empty of crew and guests ----
+
+        bool ArrangeLive => RestaurantPreview == RestaurantScreen.Arrange && restaurantWorld != null && restaurantWorld.RoomRoot != null && restaurantWorld.Sim == null;
+        RestaurantScreen arrangeBack;
+
+        public void OpenRestaurantArrange()
+        {
+            if (RestaurantPhase == DayPhase.Service) return;
+            restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
+            restaurantWorld.DriveSimulation = false;
+            try { restaurantWorld.Show(Kitchen); }
+            catch (Exception e) { Debug.LogError("[Catchline] arrange room failed: " + e.Message); }
+            arrangeBack = RestaurantPreview;
+            var v = RestaurantArrange; v.Undo.Clear(); v.PlaceId = null; v.LiftUid = 0; v.Placing = null;
+            RestaurantPreview = RestaurantScreen.Arrange;
+            SetArrangeCategory(v, 1);
+        }
+
+        void CloseRestaurantArrange()
+        {
+            if (!ArrangeLive) { RestaurantPreview = RestaurantScreen.None; return; }
+            CancelArrange(RestaurantArrange);
+            restaurantWorld.End();
+            if (arrangeBack == RestaurantScreen.Dashboard) OpenRestaurantDashboard(); else RestaurantPreview = arrangeBack;
+        }
+
+        static string ArrangeArtKey(ItemId id) => id switch
+        {
+            ItemId.Table2 => "table2", ItemId.Table4 => "table4", ItemId.Booth6 => "booth",
+            _ => string.Concat(id.ToString().Select((c, i) => i > 0 && char.IsUpper(c) ? "-" + char.ToLower(c) : char.ToLower(c).ToString())),
+        };
+        static string ArrangeName(ItemDef d) => d.Id switch
+        {
+            ItemId.Table2 => "Table for 2", ItemId.Table4 => "Table for 4", ItemId.Booth6 => "Booth", ItemId.Sink => "Sink",
+            _ => d.Name,
+        };
+
+        void SetArrangeCategory(RestaurantArrangeView v, int c)
+        {
+            // Expand is the stage card (S8), not something to place.
+            if (c == 4) { CloseRestaurantArrange(); OpenRestaurantUpgrades(); return; }
+            CancelArrange(v);
+            v.Category = c; v.Scroll = 0;
+            var areas = c == 0 ? new[] { Area.Kitchen } : c == 1 ? new[] { Area.Guests } : c == 2 ? new[] { Area.Bar } : new[] { Area.Decor, Area.Wall };
+            v.Items = RestaurantData.Items.Where(d => areas.Contains(d.Area) && d.Id != ItemId.Reception && d.Stage <= Kitchen.State.Stage)
+                .Select(d => new RestaurantShopItem { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = d.Price })
+                .ToList();
+        }
+
+        // A card picked from the drawer: its ghost starts on the free tile nearest the middle of the floor that takes it.
+        void PickArrangeItem(RestaurantArrangeView v, int i)
+        {
+            CancelArrange(v);
+            var id = v.Items[i].Id; var st = Kitchen.Stage;
+            v.Selected = i; v.PlaceId = id; v.Rotated = false;
+            var mid = RestaurantData.Get(id).Area == Area.Kitchen ? new Vector2(st.KitchenWidth / 2f, 2) : new Vector2((st.KitchenWidth + st.Width) / 2f, 2);
+            Vector2Int best = Vector2Int.RoundToInt(mid); float near = float.MaxValue;
+            for (int y = 0; y < st.Depth; y++)
+                for (int x = 0; x < st.TotalWidth; x++)
+                    if ((new Vector2(x, y) - mid).sqrMagnitude < near && Kitchen.CheckPlacement(id, x, y).Ok) { near = (new Vector2(x, y) - mid).sqrMagnitude; best = new Vector2Int(x, y); }
+            v.Tile = best;
+            RefitArrange(v);
+        }
+
+        void RefitArrange(RestaurantArrangeView v)
+        {
+            if (v.PlaceId == null) { restaurantWorld?.Ghost(null, default, false, false); return; }
+            var d = RestaurantData.Get(v.PlaceId.Value);
+            var r = Kitchen.CheckPlacement(v.PlaceId.Value, v.Tile.x, v.Tile.y, v.Rotated, v.LiftUid);
+            v.Fits = r.Ok; v.Reason = r.Ok ? null : r.Message;
+            v.Placing = $"{ArrangeName(d)} · {d.Width}×{d.Height}";
+            restaurantWorld?.Ghost(v.PlaceId, v.Tile, v.Rotated, v.Fits);
+        }
+
+        // A tap on the room moves the ghost there, or lifts the placed item under the finger.
+        void ArrangeTap(RestaurantArrangeView v)
+        {
+            var p = UnityEngine.InputSystem.Pointer.current;
+            if (p == null || restaurantWorld == null) return;
+            var at = p.position.ReadValue();
+            if (!restaurantWorld.TileAt(new Vector2(at.x / Screen.width, at.y / Screen.height), out var tile)) return;
+            ArrangeTapTile(v, tile);
+        }
+
+        void ArrangeTapTile(RestaurantArrangeView v, Vector2Int tile)
+        {
+            if (v.PlaceId != null)
+            {
+                var d = RestaurantData.Get(v.PlaceId.Value);
+                v.Tile = new Vector2Int(tile.x - ((v.Rotated ? d.Height : d.Width) - 1) / 2, tile.y);
+                RefitArrange(v); return;
+            }
+            var hit = Kitchen.Active.FirstOrDefault(i => Kitchen.Cells(i).Contains(tile));
+            if (hit == null) return;
+            v.LiftUid = hit.Uid; v.PlaceId = hit.Id; v.Tile = new Vector2Int(hit.X, hit.Y); v.Rotated = hit.Rotated; v.Selected = -1;
+            restaurantWorld.Hide(hit.Uid, true);
+            RefitArrange(v);
+        }
+
+        void CancelArrange(RestaurantArrangeView v)
+        {
+            if (v.LiftUid != 0) restaurantWorld?.Hide(v.LiftUid, false);
+            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
+            restaurantWorld?.Ghost(null, default, false, false);
+        }
+
+        // ✓ pays for a new item or puts a lifted one down, through the layout's own rules; Undo steps back one.
+        void ConfirmArrange(RestaurantArrangeView v)
+        {
+            if (v.PlaceId == null) return;
+            if (!v.Fits) { Toast(v.Reason); return; }
+            var st = Kitchen.State; st.Coins = State.Coins;
+            var before = (JsonUtility.ToJson(new ItemsOnly { Items = st.Items }), st.NextUid, State.Coins);
+            bool moving = v.LiftUid != 0;
+            var r = moving ? Kitchen.Move(v.LiftUid, v.Tile.x, v.Tile.y, v.Rotated) : Kitchen.Buy(v.PlaceId.Value, v.Tile.x, v.Tile.y, v.Rotated);
+            if (!r.Ok) { Toast(r.Message); return; }
+            v.Undo.Add(before); State.Coins = st.Coins;
+            StoreRestaurant(); SaveGame();
+            audio?.Play(moving ? VoyageAudio.Cue.Select : VoyageAudio.Cue.Purchase, .6f);
+            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
+            restaurantWorld.Show(Kitchen);
+        }
+        [Serializable] class ItemsOnly { public List<RestaurantItem> Items; }
+
+        void UndoArrange(RestaurantArrangeView v)
+        {
+            if (!ArrangeLive) return;
+            CancelArrange(v);
+            if (v.Undo.Count == 0) return;
+            var (items, nextUid, coins) = v.Undo[^1]; v.Undo.RemoveAt(v.Undo.Count - 1);
+            Kitchen.State.Items = JsonUtility.FromJson<ItemsOnly>(items).Items; Kitchen.State.NextUid = nextUid; State.Coins = coins;
+            StoreRestaurant(); SaveGame();
+            restaurantWorld.Show(Kitchen);
+        }
+
         bool BuyRestaurantUpgrade(string id)
         {
             var u = RestaurantUpgrades.First(x => x.id == id);
@@ -515,6 +650,29 @@ namespace Catchline.Game
                     return RestaurantPhase == DayPhase.Closing;
                 case "day-dashboard": OpenRestaurantDashboard(); return true;
                 case "day-upgrades": OpenRestaurantUpgrades(); return true;
+                // Arrange by day over the real room: a table for two picked from the drawer, its ghost on the floor;
+                // day-arrange-buy confirms it, day-arrange-bad drags it into the kitchen (red, with the reason).
+                case "day-arrange":
+                    OpenRestaurantArrange();
+                    if (!ArrangeLive) return false;
+                    PickArrangeItem(RestaurantArrange, 0);
+                    Debug.Log($"[Catchline] ARRANGE {RestaurantArrange.Placing} at {RestaurantArrange.Tile} fits={RestaurantArrange.Fits} items={Kitchen.Active.Count()}");
+                    return RestaurantArrange.Fits;
+                case "day-arrange-bad":
+                    ArrangeTapTile(RestaurantArrange, new Vector2Int(1, 2));
+                    Debug.Log($"[Catchline] ARRANGE bad: {RestaurantArrange.Reason}");
+                    return !RestaurantArrange.Fits;
+                case "day-arrange-kitchen": // the kitchen drawer scrolled one card along
+                    SetArrangeCategory(RestaurantArrange, 0); RestaurantArrange.Scroll = 157;
+                    return RestaurantArrange.Items.Count > 3;
+                case "day-arrange-buy":
+                    {
+                        State.Coins = Math.Max(State.Coins, 500); // a fresh save has 40
+                        int had = Kitchen.Active.Count(), coins = State.Coins;
+                        PickArrangeItem(RestaurantArrange, 0); ConfirmArrange(RestaurantArrange);
+                        Debug.Log($"[Catchline] ARRANGE bought: items {had}->{Kitchen.Active.Count()}, coins {coins}->{State.Coins}");
+                        return Kitchen.Active.Count() == had + 1;
+                    }
                 case "day-sleep":
                     if (RestaurantPhase != DayPhase.Closing) return false;
                     RestaurantPreview = RestaurantScreen.Sleep;

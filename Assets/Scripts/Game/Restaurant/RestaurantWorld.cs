@@ -33,6 +33,8 @@ namespace Catchline.Game.Restaurant
         public bool DriveSimulation=true;
         public float Popularity=1;
         public RestaurantSim Sim {get;private set;}
+        // The room being drawn: the night's layout, or the player's own while arranging (no sim, no people).
+        public RestaurantLayout Layout {get;private set;}
         public RestaurantSnapshot Snapshot {get;}=new();
         public Camera ServiceCamera {get;private set;}
         public int Speed {get;private set;}=1;
@@ -65,8 +67,8 @@ namespace Catchline.Game.Restaurant
         // S8 upgrades show in the room: the big fridge and the reliable stove replace their stations' models.
         string ModelFor(ItemId id,string model)
         {
-            if(id==ItemId.Fridge&&Sim.Layout.HasUpgrade("BigFridge"))model="BigFridge";
-            if(id==ItemId.Stove&&Sim.Layout.HasUpgrade("ReliableStove"))model="ReliableStove";
+            if(id==ItemId.Fridge&&Layout.HasUpgrade("BigFridge"))model="BigFridge";
+            if(id==ItemId.Stove&&Layout.HasUpgrade("ReliableStove"))model="ReliableStove";
             return Model(model)!=null||!StandIn.TryGetValue(model,out var old)?model:old;
         }
         GameObject Model(string name)=>ArtLibrary.Get()?.M("Restaurant_"+name);
@@ -82,12 +84,18 @@ namespace Catchline.Game.Restaurant
         public void Begin(RestaurantSim sim)
         {
             if(sim==null)throw new ArgumentNullException(nameof(sim));
-            End();Sim=sim;Speed=1;animationTime=0;frameHalfWidth=7;cosyLamps.Clear();
+            Show(sim.Layout,sim);
+        }
+        // Arrange mode: the same dressed room and camera, empty of crew and guests.
+        public void Show(RestaurantLayout layout,RestaurantSim sim=null)
+        {
+            if(layout==null)throw new ArgumentNullException(nameof(layout));
+            End();Sim=sim;Layout=layout;Speed=1;animationTime=0;frameHalfWidth=7;cosyLamps.Clear();
             RoomRoot=new GameObject("Restaurant night (quay)").transform;
             RoomRoot.position=HarbourQuayOrigin;
             try {
                 // Each stage's dressed room (Stage2Bistro.. from Codex 2), V4 until that stage's room is imported.
-                roomName=StageRooms[Math.Max(1,Math.Min(4,sim.Layout.Stage.Stage))-1];
+                roomName=StageRooms[Math.Max(1,Math.Min(4,layout.Stage.Stage))-1];
                 var dressed=Resources.Load<GameObject>("Restaurant/"+roomName);
                 if(dressed==null){roomName=StageRooms[0];dressed=Resources.Load<GameObject>("Restaurant/"+roomName);}
                 Transform room=null;
@@ -95,7 +103,7 @@ namespace Catchline.Game.Restaurant
                     room=ArtLibrary.Spawn(dressed,RoomRoot,Vector3.zero,Quaternion.identity).transform;
                     foreach(var t in room.GetComponentsInChildren<Transform>(true))if(t!=room&&LayoutPlaced(t.name))t.gameObject.SetActive(false);
                 }else Spawn("RoomShell",Vector3.zero,Quaternion.identity);
-                foreach(var item in sim.Layout.Active){
+                foreach(var item in layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
                     model=ModelFor(item.Id,model);
                     float x=item.X+(item.Rotated?1:RestaurantData.Get(item.Id).Width)*.5f-.5f;
@@ -103,7 +111,7 @@ namespace Catchline.Game.Restaurant
                     var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?-90:0,0));items.Add(item.Uid,t);
                     if(RestaurantData.Get(item.Id).Seats>0){var top=TableBounds(t);Spawn(Model("TableCandle")!=null?"TableCandle":"TableLantern",new Vector3(top.center.x,top.max.y,top.center.z),Quaternion.identity);
                         // Cosy lighting: a pendant over every table (base height from its footprint), lit warm below.
-                        if(Sim.Layout.HasUpgrade("CosyLighting")&&Model("CosyPendantLamp")!=null){Spawn("CosyPendantLamp",new Vector3(top.center.x,1.65f,top.center.z),Quaternion.identity);cosyLamps.Add(new Vector3(top.center.x,1.6f,top.center.z));}}
+                        if(layout.HasUpgrade("CosyLighting")&&Model("CosyPendantLamp")!=null){Spawn("CosyPendantLamp",new Vector3(top.center.x,1.65f,top.center.z),Quaternion.identity);cosyLamps.Add(new Vector3(top.center.x,1.6f,top.center.z));}}
                 }
                 // V4's own small dressing (plants, crates, lanterns) must not stand in a chair the layout put there.
                 if(room!=null){
@@ -123,7 +131,7 @@ namespace Catchline.Game.Restaurant
                     if(kit!=null)foreach(var r in room.GetComponentsInChildren<Renderer>(true)){var mats=r.sharedMaterials;for(int n=0;n<mats.Length;n++)mats[n]=kit;r.sharedMaterials=mats;}
                 }
                 foreach(var clip in ArtLibrary.Get().CrewClips??Array.Empty<AnimationClip>())if(clip!=null){var n=clip.name.Split('|').Last();clips[n]=clip;}
-                foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
+                if(sim!=null)foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
                 ServiceCamera=new GameObject("Restaurant camera").AddComponent<Camera>();
                 ServiceCamera.transform.SetParent(RoomRoot,false);
                 ServiceCamera.clearFlags=CameraClearFlags.SolidColor;ServiceCamera.backgroundColor=new Color(.09f,.3f,.56f); // the mockup's evening sea
@@ -403,12 +411,47 @@ namespace Catchline.Game.Restaurant
             if(clip==null&&!clips.TryGetValue(pose,out clip)&&!clips.TryGetValue("Idle",out clip))return;
             clip.SampleAnimation(actor.Rig.gameObject,Mathf.Repeat(animationTime+actor.Phase,Mathf.Max(.01f,clip.length)));
         }
+        // Arrange mode: the item being placed stands on its tiles over a lit footprint, green when it fits and red when not.
+        Transform ghost,ghostSpot;ItemId ghostId;bool ghostRotated;
+        public void Ghost(ItemId? id,Vector2Int tile,bool rotated,bool fits)
+        {
+            if(RoomRoot==null)return;
+            if(ghost!=null&&(id==null||ghostId!=id||ghostRotated!=rotated)){Destroy(ghost.gameObject);ghost=null;}
+            if(id==null){if(ghostSpot!=null)ghostSpot.gameObject.SetActive(false);return;}
+            var d=RestaurantData.Get(id.Value);int w=rotated?d.Height:d.Width,h=rotated?d.Width:d.Height;
+            if(ghost==null&&Models.TryGetValue(id.Value,out var model)){
+                ghost=Spawn(ModelFor(id.Value,model),Vector3.zero,Quaternion.Euler(0,rotated?-90:0,0));SetLayer(ghost.gameObject);ghostId=id.Value;ghostRotated=rotated;}
+            float x=tile.x+(rotated?1:d.Width)*.5f-.5f;
+            if(ghost!=null)ghost.localPosition=new Vector3(3.5f-x,.04f,2-tile.y);
+            if(ghostSpot==null){
+                var tex=ArtLibrary.Get()?.UiTex("rx-placement-highlight");if(tex==null)return;
+                var go=new GameObject("Arrange spot");go.transform.SetParent(RoomRoot,false);go.layer=Layer;
+                go.AddComponent<SpriteRenderer>().sprite=Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(.5f,.5f),tex.width);
+                ghostSpot=go.transform;ghostSpot.localRotation=Quaternion.Euler(90,0,0);}
+            var tx=ghostSpot.GetComponent<SpriteRenderer>().sprite.texture;
+            ghostSpot.gameObject.SetActive(true);
+            ghostSpot.localPosition=new Vector3(3.5f-(tile.x+w*.5f-.5f),.06f,2-(tile.y+h*.5f-.5f));
+            ghostSpot.localScale=new Vector3(w*1.1f,h*1.1f*tx.width/tx.height,1);
+            ghostSpot.GetComponent<SpriteRenderer>().color=fits?Color.white:new Color(1,.4f,.35f);
+        }
+        // A placed item lifted for moving hides until it is put down.
+        public void Hide(int uid,bool hidden){if(items.TryGetValue(uid,out var t)&&t!=null)t.gameObject.SetActive(!hidden);}
+        // Floor tile under a viewport point (0..1, bottom-left), and where a tile centre shows on the viewport.
+        public bool TileAt(Vector2 viewport,out Vector2Int tile)
+        {
+            tile=default;if(ServiceCamera==null||RoomRoot==null)return false;
+            var ray=ServiceCamera.ViewportPointToRay(viewport);var floor=new Plane(RoomRoot.up,RoomRoot.TransformPoint(new Vector3(0,.04f,0)));
+            if(!floor.Raycast(ray,out var t))return false;
+            var p=RoomRoot.InverseTransformPoint(ray.GetPoint(t));tile=new Vector2Int(Mathf.RoundToInt(3.5f-p.x),Mathf.RoundToInt(2-p.z));return true;
+        }
+        public Vector3 ViewportOf(Vector2 tile,float y=.04f)=>ServiceCamera==null?Vector3.zero:ServiceCamera.WorldToViewportPoint(TileToWorld(tile,y));
         public void End()
         {
+            ghost=ghostSpot=null;
             foreach(var c in previousCameras)if(c!=null)c.enabled=true;previousCameras.Clear();
             if(RoomRoot!=null){if(Application.isPlaying)Destroy(RoomRoot.gameObject);else DestroyImmediate(RoomRoot.gameObject);}
             foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();guestTints.Clear();
-            items.Clear();actors.Clear();guests.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;
+            items.Clear();actors.Clear();guests.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;Layout=null;
             Snapshot.Staff.Clear();Snapshot.Orders.Clear();Snapshot.Stock.Clear();Snapshot.BrokenAppliances.Clear();Snapshot.Question=null;
         }
         void OnDestroy()=>End();

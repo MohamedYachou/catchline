@@ -490,7 +490,7 @@ namespace Catchline.Game
         }
 
 
-        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; }
+        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; public ItemId Id; }
         public sealed class RestaurantArrangeView
         {
             public int Coins = 2450, Category = 1, Selected;
@@ -504,6 +504,9 @@ namespace Catchline.Game
             };
             // The item being placed: its label and where its action bubble sits (screen fractions until the room is live).
             public string Placing = "Table for 2 · 1×1"; public Vector2 PlacingAt = new(.69f, .44f);
+            // Live over the room: the item on the floor (new from the drawer, or lifted with its uid), whether it fits there.
+            public ItemId? PlaceId; public Vector2Int Tile; public bool Rotated, Fits; public int LiftUid; public string Reason;
+            public float Scroll; public readonly List<(string items, int nextUid, int coins)> Undo = new();
         }
         public RestaurantArrangeView RestaurantArrange = new();
 
@@ -520,7 +523,7 @@ namespace Catchline.Game
 
             A("rarr/bar", "v2-bar-arrange#arrange-bar-arrange-01", new Rect(-ox, -oy, iw / frameScale, 43 + oy));
             A("rarr/back", "v2-btn-back#arrange-btn-back-01", null, "rx-s12-btn-back");
-            coastalUi.HitArea("rarr/back/hit", new Rect(23, 5, 51, 33), () => RestaurantPreview = RestaurantScreen.None, f);
+            coastalUi.HitArea("rarr/back/hit", new Rect(23, 5, 51, 33), CloseRestaurantArrange, f);
             A("rarr/icon", "v2-icon-chair#arrange-icon-chair-02");
             T("rarr/title", "title", "Arrange", new Rect(127, 7, 160, 29));
             A("rarr/coins", "v2-wallet-arrange#arrange-wallet-arrange-01");
@@ -528,24 +531,48 @@ namespace Catchline.Game
             T("rarr/coins/n", "wallet", v.Coins.ToString("N0"), new Rect(641, 12, 58, 20), TextAnchor.MiddleCenter);
             A("rarr/undo", "v2-btn-undo#arrange-btn-undo-01");
             T("rarr/undo/t", "undo", "Undo", new Rect(772, 13, 46, 16));
-            coastalUi.HitArea("rarr/undo/hit", new Rect(735, 5, 88, 33), () => { }, f);
+            coastalUi.HitArea("rarr/undo/hit", new Rect(735, 5, 88, 33), () => UndoArrange(v), f);
+
+            // Live: the room under the bars takes taps (move the ghost there, or lift a placed item).
+            bool live = ArrangeLive;
+            if (live)
+            {
+                v.Coins = State.Coins;
+                coastalUi.HitArea("rarr/room", new Rect(-ox, 43, iw / frameScale, 256), () => ArrangeTap(v), f);
+                if (v.PlaceId != null)
+                {
+                    // The bubble follows the footprint's projected centre (the mockup's spot centre is 587,224).
+                    var d0 = RestaurantData.Get(v.PlaceId.Value); int w = v.Rotated ? d0.Height : d0.Width, h = v.Rotated ? d0.Width : d0.Height;
+                    var vp = restaurantWorld.ViewportOf(new Vector2(v.Tile.x + w * .5f - .5f, v.Tile.y + h * .5f - .5f));
+                    float fx = (vp.x * iw - (iw - 844 * frameScale) / 2) / frameScale, fy = ((1 - vp.y) * ih - (ih - 390 * frameScale) / 2) / frameScale;
+                    v.PlacingAt = new Vector2((fx - 587) / 844 + .69f, (fy - 224) / 390 + .44f);
+                }
+            }
 
             // The placing bubble: highlight on the floor, rotate / cancel / confirm, and the item's name tag.
-            if (v.Placing != null)
+            if (live ? v.PlaceId != null : v.Placing != null)
             {
                 var d = new Vector2((v.PlacingAt.x - .69f) * 844, (v.PlacingAt.y - .44f) * 390);
                 Rect M(string key) { var r = RestaurantExact.Pieces["arrange:" + key].rect; return new Rect(r.x + d.x, r.y + d.y, r.width, r.height); }
-                A("rarr/spot", "v2-placement-highlight#arrange-placement-highlight-01", M("v2-placement-highlight#arrange-placement-highlight-01"));
+                if (!live) A("rarr/spot", "v2-placement-highlight#arrange-placement-highlight-01", M("v2-placement-highlight#arrange-placement-highlight-01"));
                 A("rarr/rotate", "v2-btn-rotate#arrange-btn-rotate-01", M("v2-btn-rotate#arrange-btn-rotate-01"));
-                coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { }, f);
+                coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { v.Rotated = !v.Rotated; RefitArrange(v); }, f);
                 A("rarr/cancel", "v2-btn-cancel#arrange-btn-cancel-01", M("v2-btn-cancel#arrange-btn-cancel-01"));
-                coastalUi.HitArea("rarr/cancel/hit", M("v2-btn-cancel#arrange-btn-cancel-01"), () => v.Placing = null, f);
+                coastalUi.HitArea("rarr/cancel/hit", M("v2-btn-cancel#arrange-btn-cancel-01"), () => { if (live) CancelArrange(v); else v.Placing = null; }, f);
                 A("rarr/confirm", "v2-btn-confirm#arrange-btn-confirm-01", M("v2-btn-confirm#arrange-btn-confirm-01"));
-                coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => v.Placing = null, f);
-                A("rarr/tag", "v2-name-tag#arrange-name-tag-01", M("v2-name-tag#arrange-name-tag-01"));
-                var thumb = M("v2-item-rest-table2#selected-table-name-tag-thumbnail");
-                A("rarr/tag/art", "v2-item-rest-table2#selected-table-name-tag-thumbnail", thumb, "rx-" + v.Items[v.Selected].Art.Substring(3));
-                T("rarr/tag/text", "world-tag", v.Placing, new Rect(thumb.xMax + 6, thumb.y + 5, 120, 17));
+                coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => { if (live) ConfirmArrange(v); else v.Placing = null; }, f);
+                // A red reason is longer than the item's name: the tag pill stretches between its round ends to fit it.
+                var tagAt = M("v2-name-tag#arrange-name-tag-01");
+                string tagText = live && !v.Fits ? v.Reason : v.Placing;
+                float grow = Mathf.Max(0, 58 + tagText.Length * 7.6f - tagAt.width);
+                tagAt.width += grow; float pull = Mathf.Max(0, tagAt.xMax - (844 + ox - 8));
+                tagAt.x -= pull;
+                coastalUi.Piece("rarr/tag", tagAt, "rx-name-tag", f, new Vector4(66, 0, 66, 0), 3);
+                var thumb = M("v2-item-rest-table2#selected-table-name-tag-thumbnail"); thumb.x -= pull;
+                var tagArt = live ? "v2-item-rest-" + ArrangeArtKey(v.PlaceId.Value) : v.Items[v.Selected].Art;
+                ArrangeArt(A("rarr/tag/art", "v2-item-rest-table2#selected-table-name-tag-thumbnail", thumb, ArrangeSprite(tagArt)));
+                T("rarr/tag/text", "world-tag", tagText, new Rect(thumb.xMax + 6, thumb.y + 5, 120 + grow, 17),
+                    TextAnchor.MiddleLeft, live && !v.Fits ? new Color(.78f, .16f, .12f) : null);
             }
 
             // The shop tray: categories on the left, this category's items on the right.
@@ -560,25 +587,54 @@ namespace Catchline.Game
                 var ic = A($"rarr/cat/{i}/icon", icon[i]);
                 var img = ic.GetComponent<UnityEngine.UI.Image>(); if (img != null && img.sprite != null) img.color = on ? cream : Color.white;
                 T($"rarr/cat/{i}/label", $"tabs-{i + 1}", v.Categories[i], new Rect(tab[i].x, 348, tab[i].width, 15), TextAnchor.MiddleCenter, on ? cream : null);
-                coastalUi.HitArea($"rarr/cat/{i}/hit", tab[i], () => v.Category = c, f);
+                coastalUi.HitArea($"rarr/cat/{i}/hit", tab[i], () => { if (live) SetArrangeCategory(v, c); else v.Category = c; }, f);
             }
             Rect[] card = { new(350, 306, 149, 71), new(505, 306, 152, 71), new(662, 306, 165, 71) };
             string[] art = { "v2-item-rest-table2#arrange-item-rest-table2-01", "v2-item-rest-table4#arrange-item-rest-table4-01", "v2-item-rest-booth#arrange-item-rest-booth-01" };
             string[] coin = { "v2-icon-coin-arrange#catalog-table2-coin", "v2-icon-coin-arrange#catalog-table4-coin", "v2-icon-coin-arrange#catalog-booth-coin" };
             float[] textX = { 429, 589, 756 };
-            for (int i = 0; i < v.Items.Count && i < 3; i++)
+            // The mockup's three cards are measured; a longer category scrolls sideways on the same 157 px pitch.
+            if (live) ArrangeScroll(v, ox);
+            for (int i = 0; i < v.Items.Count && (live || i < 3); i++)
             {
-                int s = i; var it = v.Items[i]; bool on = v.Selected == i; float tx = textX[i];
-                A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", card[i]);
-                A($"rarr/item/{i}/art", art[i], null, "rx-" + it.Art.Substring(3));
-                T($"rarr/item/{i}/name", $"catalog-name-{i + 1}", it.Name, new Rect(tx, 315, 80, 14));
-                A($"rarr/item/{i}/coin", coin[i]);
-                T($"rarr/item/{i}/price", $"catalog-price-{i + 1}", it.Price.ToString(), new Rect(tx + 26, 333, 50, 17));
+                int s = i, slot = Mathf.Min(i, 2); var it = v.Items[i]; bool on = v.Selected == i;
+                var shift = live ? new Vector2(350 + i * 157 - v.Scroll - card[slot].x, 0) : Vector2.zero;
+                Rect At(Rect r) => new(r.x + shift.x, r.y, r.width, r.height);
+                if (At(card[slot]).x < 340) { coastalUi.Sliced($"rarr/item/{i}", Rect.zero, null, f); continue; }
+                float tx = textX[slot] + shift.x;
+                A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", At(card[slot]));
+                ArrangeArt(A($"rarr/item/{i}/art", art[slot], At(RestaurantExact.Pieces["arrange:" + art[slot]].rect), ArrangeSprite(it.Art)));
+                T($"rarr/item/{i}/name", $"catalog-name-{slot + 1}", it.Name, new Rect(tx, 315, 80, 14));
+                A($"rarr/item/{i}/coin", coin[slot], At(RestaurantExact.Pieces["arrange:" + coin[slot]].rect));
+                T($"rarr/item/{i}/price", $"catalog-price-{slot + 1}", it.Price.ToString(), new Rect(tx + 26, 333, 50, 17));
                 bool one = it.Footprint == "1×1";
                 A($"rarr/item/{i}/tile", one ? "v2-s12x-icon-tile1#arrange-s12x-icon-tile1-01" : "v2-s12x-icon-tile2#arrange-s12x-icon-tile2-01",
                     one ? new Rect(tx + 4, 355, 13, 12) : new Rect(tx + 4, 355, 23, 12));
-                T($"rarr/item/{i}/size", $"catalog-size-{i + 1}", it.Footprint, new Rect(tx + 32, 354, 34, 13));
-                coastalUi.HitArea($"rarr/item/{i}/hit", card[i], () => { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }, f);
+                T($"rarr/item/{i}/size", $"catalog-size-{slot + 1}", it.Footprint, new Rect(tx + 32, 354, 34, 13));
+                coastalUi.HitArea($"rarr/item/{i}/hit", At(card[slot]), () =>
+                {
+                    if (live) { if (arrangeDrag < 12) PickArrangeItem(v, s); }
+                    else { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }
+                }, f);
+            }
+        }
+
+        // The cut 1:1 piece when Codex made one (rx-), the v2 item art otherwise; never stretched out of shape.
+        string ArrangeSprite(string art) => HasUi("rx-" + art.Substring(3)) ? "rx-" + art.Substring(3) : art;
+        static void ArrangeArt(RectTransform r) { var img = r != null ? r.GetComponent<UnityEngine.UI.Image>() : null; if (img != null) img.preserveAspect = true; }
+
+        // A drag across the drawer's cards scrolls them; the tap that ends a drag doesn't pick a card.
+        float arrangeDrag; Vector2 arrangeLast;
+        void ArrangeScroll(RestaurantArrangeView v, float ox)
+        {
+            var p = UnityEngine.InputSystem.Pointer.current; if (p == null) return;
+            var gui = ToGui(p.position.ReadValue());
+            var at = new Vector2((gui.x - (iw - 844 * frameScale) / 2) / frameScale, (gui.y - (ih - 390 * frameScale) / 2) / frameScale);
+            if (p.press.wasPressedThisFrame) { arrangeDrag = 0; arrangeLast = at; }
+            else if (p.press.isPressed && at.y > 299 && at.x > 340)
+            {
+                float dx = at.x - arrangeLast.x; arrangeDrag += Mathf.Abs(dx); arrangeLast = at;
+                v.Scroll = Mathf.Clamp(v.Scroll - dx, 0, Mathf.Max(0, 350 + v.Items.Count * 157 - (844 + ox)));
             }
         }
 
@@ -857,7 +913,7 @@ namespace Catchline.Game
             coastalUi.HitArea("rdash/close", RestaurantExact.Pieces["6:v2-s6-button-close#primary"].rect, close, f);
             coastalUi.HitArea("rdash/upgrades", RestaurantExact.Pieces["6:v2-s6-button-upgrades#primary"].rect, OpenRestaurantUpgrades, f);
             coastalUi.HitArea("rdash/tab-crew", RestaurantExact.Pieces["6:v2-s6-tab-idle#crew-priorities"].rect, OpenRestaurantCrew, f);
-            coastalUi.HitArea("rdash/tab-service", RestaurantExact.Pieces["6:v2-s6-tab-idle#primary"].rect, () => { if (RestaurantPhase == DayPhase.Service) RestaurantPreview = RestaurantScreen.Service; }, f);
+            coastalUi.HitArea("rdash/tab-service", RestaurantExact.Pieces["6:v2-s6-tab-idle#primary"].rect, () => { if (RestaurantPhase == DayPhase.Service) RestaurantPreview = RestaurantScreen.Service; else OpenRestaurantArrange(); }, f);
         }
 
         // S8: the upgrades shop (ui-8-upgrades.png): the stage path, the next stage, and the kitchen & room cards.
