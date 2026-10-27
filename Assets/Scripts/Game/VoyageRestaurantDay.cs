@@ -471,6 +471,7 @@ namespace Catchline.Game
                 case "day-bistro": // buys stage 2 so the next night runs in the Bistro room
                     State.Coins += 100000; restaurantPopularity = 50;
                     bool bought = BuyRestaurantStage(); RestaurantPreview = RestaurantScreen.None;
+                    foreach (var (id, _, _, _) in RestaurantUpgrades) BuyRestaurantUpgrade(id); // and the three S8 upgrades, shown in the room
                     Debug.Log($"[Catchline] DAY bistro bought {bought}, stage {Kitchen.State.Stage}");
                     return bought;
                 case "day-harbour": // the harbour hub with Mira's entry (S14)

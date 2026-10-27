@@ -52,13 +52,23 @@ namespace Catchline.Game.Restaurant
         }
         static readonly Dictionary<ItemId,string> Models=new(){
             [ItemId.Stove]="Stove",[ItemId.SoupKettle]="SoupKettle",[ItemId.PrepCounter]="PrepCounter",
-            [ItemId.Fridge]="FridgeV2",[ItemId.CoffeeMachine]="CoffeeBar",[ItemId.DrinksFridge]="FridgeV2",
+            [ItemId.Fridge]="FridgeV2",[ItemId.CoffeeMachine]="CoffeeBar",
             [ItemId.Table2]="TableFor2",[ItemId.Table4]="TableFor4",[ItemId.Booth6]="Booth",
             [ItemId.TerraceTable]="TerraceTable",[ItemId.Reception]="ReceptionDesk",[ItemId.Sink]="SinkDishRack",
-            [ItemId.Fryer]="Fryer",[ItemId.Oven]="Oven",[ItemId.Grill]="Stove",[ItemId.Steamer]="SoupKettle",
+            [ItemId.Fryer]="Fryer",[ItemId.Oven]="Oven",[ItemId.Grill]="Grill",[ItemId.Steamer]="Steamer",
             [ItemId.BarCounter]="PassCounter",[ItemId.Plant]="PlantPot1",[ItemId.Lamp]="LampPost",
-            [ItemId.Trophy]="PlantPot2",[ItemId.Net]="PlantPot2",[ItemId.Chart]="PlantPot2",[ItemId.Jukebox]="CoffeeBar"
+            [ItemId.Trophy]="Trophy",[ItemId.Net]="Net",[ItemId.Chart]="Chart",[ItemId.Jukebox]="Jukebox",[ItemId.DrinksFridge]="DrinksFridge"
         };
+        // Until KitchenKit2 is in a build: the stand-ins those items used before.
+        static readonly Dictionary<string,string> StandIn=new(){["Grill"]="Stove",["Steamer"]="SoupKettle",["Trophy"]="PlantPot2",["Net"]="PlantPot2",
+            ["Chart"]="PlantPot2",["Jukebox"]="CoffeeBar",["DrinksFridge"]="FridgeV2",["BigFridge"]="FridgeV2",["ReliableStove"]="Stove"};
+        // S8 upgrades show in the room: the big fridge and the reliable stove replace their stations' models.
+        string ModelFor(ItemId id,string model)
+        {
+            if(id==ItemId.Fridge&&Sim.Layout.HasUpgrade("BigFridge"))model="BigFridge";
+            if(id==ItemId.Stove&&Sim.Layout.HasUpgrade("ReliableStove"))model="ReliableStove";
+            return Model(model)!=null||!StandIn.TryGetValue(model,out var old)?model:old;
+        }
         GameObject Model(string name)=>ArtLibrary.Get()?.M("Restaurant_"+name);
         Transform Spawn(string name,Vector3 p,Quaternion rotation,Transform parent=null)
         {
@@ -72,11 +82,10 @@ namespace Catchline.Game.Restaurant
         public void Begin(RestaurantSim sim)
         {
             if(sim==null)throw new ArgumentNullException(nameof(sim));
-            End();Sim=sim;Speed=1;animationTime=0;frameHalfWidth=7;
+            End();Sim=sim;Speed=1;animationTime=0;frameHalfWidth=7;cosyLamps.Clear();
             RoomRoot=new GameObject("Restaurant night (quay)").transform;
             RoomRoot.position=HarbourQuayOrigin;
             try {
-                // Codex 2's dressed V4 room (masonry, lanterns, shelves, terrace, jetty); the layout still places the furniture.
                 // Each stage's dressed room (Stage2Bistro.. from Codex 2), V4 until that stage's room is imported.
                 roomName=StageRooms[Math.Max(1,Math.Min(4,sim.Layout.Stage.Stage))-1];
                 var dressed=Resources.Load<GameObject>("Restaurant/"+roomName);
@@ -88,10 +97,13 @@ namespace Catchline.Game.Restaurant
                 }else Spawn("RoomShell",Vector3.zero,Quaternion.identity);
                 foreach(var item in sim.Layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
+                    model=ModelFor(item.Id,model);
                     float x=item.X+(item.Rotated?1:RestaurantData.Get(item.Id).Width)*.5f-.5f;
                     var pos=new Vector3(3.5f-x,.04f,2-item.Y);
                     var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?-90:0,0));items.Add(item.Uid,t);
-                    if(RestaurantData.Get(item.Id).Seats>0){var top=TableBounds(t);Spawn(Model("TableCandle")!=null?"TableCandle":"TableLantern",new Vector3(top.center.x,top.max.y,top.center.z),Quaternion.identity);}
+                    if(RestaurantData.Get(item.Id).Seats>0){var top=TableBounds(t);Spawn(Model("TableCandle")!=null?"TableCandle":"TableLantern",new Vector3(top.center.x,top.max.y,top.center.z),Quaternion.identity);
+                        // Cosy lighting: a pendant over every table (base height from its footprint), lit warm below.
+                        if(Sim.Layout.HasUpgrade("CosyLighting")&&Model("CosyPendantLamp")!=null){Spawn("CosyPendantLamp",new Vector3(top.center.x,1.65f,top.center.z),Quaternion.identity);cosyLamps.Add(new Vector3(top.center.x,1.6f,top.center.z));}}
                 }
                 // V4's own small dressing (plants, crates, lanterns) must not stand in a chair the layout put there.
                 if(room!=null){
@@ -124,6 +136,7 @@ namespace Catchline.Game.Restaurant
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
                 // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
                 AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);
+                foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),.45f,false,2.6f);
                 if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
@@ -134,6 +147,7 @@ namespace Catchline.Game.Restaurant
                 SetLayer(RoomRoot.gameObject);FrameCamera();Refresh(0);
             }catch{End();throw;}
         }
+        readonly List<Vector3> cosyLamps=new();
         static readonly string[] StageRooms={"Stage1V4","Stage2Bistro","Stage3Restaurant","Stage4Seafood"};
         string roomName;
         float frameHalfWidth=7;
