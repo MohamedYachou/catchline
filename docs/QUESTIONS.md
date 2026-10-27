@@ -65,3 +65,14 @@ you want changed.
   nightly wage, Hire. Today the restaurant staff are your fishing crew in restaurant clothes, so hiring would be a second
   way to get people. Should restaurant staff be hired separately (wage per night), or stay the crew cards? *Default: crew
   cards only; the board stays unwired.*
+
+## Restaurant, morning 10-27 (Claude 2)
+- **Market partial sales (S7).** Codex cut "Sold out", "Fresh today" and kg +/- buttons. Today the whole catch goes to the
+  buyer or the kitchen per fish (Sell / Keep). Do you want to sell part of a fish by kg, and fish that carries over to the
+  next day (so "Fresh today" means something)? *Default: keep whole-fish Sell / Keep; the pieces stay unwired.*
+- **Pause dims the room.** The pause panel doesn't dim the room behind it yet: the screenshot tool drops full-screen dim
+  layers, so it can't be checked without your screen. *Default: leave until it can be checked in a normal play window.*
+- **Closing Mira.** The closing mockup paints Mira in her captain's coat; in the restaurant she is the host. Codex 1 is
+  repainting that cut in the host outfit (queued). *Default: host outfit.*
+- **Night sea.** Codex 2's new seamless sea came out near-black against the painting's mid-blue, so the old water stays
+  until the repaint (queued).
