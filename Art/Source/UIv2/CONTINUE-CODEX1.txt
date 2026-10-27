@@ -106,3 +106,32 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-27 00:55, overrides everything above): Mir
 2) ui-8-upgrades.png: the Upgrades shop the dashboard opens (stage path Cafe > Bistro > ..., next stage card with requirements, kitchen/room upgrades as cards with price and effect).
 3) ui-9-crew-priorities.png: the dashboard's Crew priorities tab (one row per crew member with their restaurant-outfit bust from clothes/2d, job pick, priority order).
 CHECKPOINT after each mockup and after each cut. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 00:20, overrides everything above): S7-S9 accepted (Claude imports). In order:
+0) S9 fix: the game's job is "Waiter", not "Hauler" (RestaurantData.Job: Reception, Cook, Waiter, Barista, Handyman, Helper). Fix that label in ui-9 and its text cut; keep everything else.
+1) Jo and Mei restaurant outfits (still missing in clothes/2d/): both waiters, same deliverables as the others (sheet/front/bust/compare); Jo is the mockups' Crew of the night.
+2) ui-10-service-markers.png (844x390 sheet in concepts/, same style): the in-world markers over the 3D room during service, as seen in ui-2-service.png / ui-service-desktop.png: guest order bubble with each dish icon (grilled fish, pan fish, fish & chips, soup, platter, crab, calamari, coffee, tea, lemonade, beer, fries, bread), patience ring states (calm/warning/angry), tip coin pop "+12", review star pop, the guest question card ("Offer fish soup instead?" with Offer soup / Just drinks), staff task icon above heads (seat, cook, serve, clear, wash, repair), broken-appliance warning. Then cut 1:1 into exact/s10/ like S6-S9.
+3) ui-11-stage-up.png: the Café > Bistro celebration (new sign, reward, what unlocks), and ui-12-sleep.png: the night-to-morning card (tonight's net, popularity change, tomorrow's weather and booking hint, Sleep button). Cut both into exact/s11/, exact/s12/.
+CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 01:00, overrides everything above): S9 fix, Jo/Mei, S10-S12 accepted (Claude imports). In order:
+1) Guest portraits for the closing-screen review cards (S5 review faces; today stand-in deck portraits): twelve guests matching Codex 2's 3D guests Ada, Ben, Cora, Dan, Edda, Finn, Gus, Hazel, Ivo, Jonas, Kai, Lena (Art/Models/Restaurant/Guests/*lineup*/renders: same hair/skin/clothes colours and ages), round review-face crops like the S5 mockup, 3x, tight, named v2-guest-<name>.png in clothes/guests/ with a contact sheet.
+2) S11 stage-up art for the two later stages, like the Bistro picture in ui-11: "Restaurant" and "Seafood house" sign pictures + their unlock lists, cut into exact/s11/ beside the Bistro pieces (v2-s11-stage3-*, v2-s11-stage4-*).
+3) ui-13-first-night.png: Mira coaching the first service over ui-2-service (4 small frames: seat the guests, the kitchen cooks, serve, close up), speech bubble + pointer pieces reusable for any coaching line; cut into exact/s13/.
+CHECKPOINT after each. No Assets/code/git.
+
+ADD (Claude 2 lead, 10-27 01:50): after the current list, weather icons for S12's tomorrow strip and the plan card, in the exact style of v2-s12-forecast (the sun): rain, cloudy, and a windy/stormy one; cut 3x tight into exact/s12/ as v2-s12-weather-rain/-cloud/-storm with manifest entries.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 01:15, overrides everything above): guest portraits (contact-sheet.jpg), S11 stages 3-4, S13 first night and the weather icons accepted; Claude imports. In order:
+1) S6 live-chart pieces, cut from ui-6-dashboard.png's style into exact/s6/ (manifest entries, 3x, tight): v2-s6-trend-dot (the teal line's node), v2-s6-trend-segment (a straight piece of that line, horizontally sliceable so Claude can rotate/stretch it between nodes), v2-s6-trend-fill (the soft teal area under the line as a tileable vertical gradient), v2-s6-bar-empty (a faint placeholder bar for a day with no service). The painted trend is a fixed shape, so Claude draws the real week from these.
+2) The harbour's way into the restaurant: a "Mira's" restaurant button for the harbour HUD in the style of Art/Concepts/18-hud-harbour.png and the existing v2 HUD (restaurant facade icon + label + a small badge for "service tonight"); paint it into a copy of 18-hud-harbour as ui-14-harbour-entry.png and cut 1:1 into exact/s14/.
+3) S9 interaction states: dragged task chip (lifted, shadow), drop slot highlight, locked-job tooltip bubble; cut into exact/s9/ as v2-s9-chip-drag, v2-s9-slot-target, v2-s9-tooltip.
+CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 01:24, overrides everything above): S6 live chart, S14 harbour entry and S9 states accepted; Claude imports. In order:
+1) The S12 weather icons are still missing (exact/s12 has no weather files): v2-s12-weather-rain, -cloud, -storm in the exact style and size of v2-s12-forecast (the sun), 3x tight, manifest entries in exact/s12/.
+2) Service markers over the 3D room, in the style of ui-2-service / ui-10: order bubble (blank, with a slot for a dish icon), patience ring (empty track + fill, sliceable radially or as 8 steps), tip pop (+coins burst), guest question mark bubble, broken-station warning badge, a 4-frame steam puff strip for dishes, and one small task icon per staff task (cook, chop, wash, repair, take order, greet, wipe, pour, carry plate). Cut 3x tight into exact/s15/ (v2-s15-*), manifest, layout of a demo frame painted over a copy of ui-2-service as ui-15-markers.png.
+3) Restaurant job busts for the service rail and crew screens, matching CrewRig_Restaurant outfits: Mira host (best dressed, the face of the restaurant), cook whites + toque, waiter woman (dress/top), waiter man (suit), barista, handyman. Same framing/size as rc-bust-mira-d, for the crew ids mira, noor, tess, rosa, ana, lise, ines, tove (women) and kofi, sam, jo, bram, olaf, yusuf (men) in their usual job. clothes/busts/v2-rbust-<id>.png + contact sheet.
+CHECKPOINT after each. No Assets/code/git.
+
+ADD (Claude 2 lead, 10-27 02:40): before item 2, re-measure exact/s9/text-styles.json: the row styles (<name>-name/-job/-rank-k/-task-k) have sizes 11-28 for the same role; the mockup uses one size per role (name ~18, job/task/rank ~14). Fix sizes only, keep rects. Claude imports.
