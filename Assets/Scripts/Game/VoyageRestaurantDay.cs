@@ -251,7 +251,7 @@ namespace Catchline.Game
             if (!Environment.GetCommandLineArgs().Contains("-no-priorities")) foreach (var s in staff) s.Order = PriorityOf(s.Id, s.Job); // A/B checks
             // The captain walks around helping wherever the queue is longest (design section 6).
             staff.Add(SimStaff.Captain(Kitchen.Door));
-            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0 }; // nothing breaks on the tutorial night
+            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0, Events = State.RestaurantNights.Count > 0 }; // the tutorial night stays plain
             // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
             restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
             restaurantWorld.DriveSimulation = false;
@@ -349,6 +349,9 @@ namespace Catchline.Game
                 if (miraSaid.Add(key)) { miraLines.Enqueue("Mira: " + line); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
             }
             if (night.Groups.Any(g => g.TableUid != 0)) Say("seated", "First table seated. Here we go!");
+            if (night.Groups.Any(g => g.Birthday && g.TableUid != 0)) Say("birthday", "A birthday at our table! Make it special.");
+            if (night.Groups.Any(g => g.Count >= 6 && g.TableUid != 0)) Say("tour", "A tour group of six! All hands!");
+            if (night.Groups.Any(g => g.Regular && g.TableUid != 0)) Say("regular", "Our regular is here. The usual!");
             if (night.Groups.Count(g => g.Phase == GroupPhase.Queue) >= 3) Say("queue", "The queue's growing, Captain!");
             if (fish == 0 && nightStock.fish > 0 && !night.DoorClosed) Say("no-fish", "We're out of fish!");
             if (soup == 0 && nightStock.soup > 0 && !night.DoorClosed) Say("no-soup", "Soup's all gone!");
@@ -391,7 +394,7 @@ namespace Catchline.Game
             var best = r.Walking.OrderByDescending(w => w.Metres).FirstOrDefault(w => w.Id != "mira");
             v.CrewOfTheNight = best != null ? Cap(best.Id) : "Mira"; v.CrewPortrait = best?.Id ?? "mira";
             // Three tables speak: the best, the worst and one between, each about what really happened at it.
-            var paid = night.Groups.Where(g => g.Paid).OrderByDescending(g => g.Stars).ThenBy(g => g.Id).ToList();
+            var paid = night.Groups.Where(g => g.Paid).OrderByDescending(g => g.Stars).ThenByDescending(g => g.Why is "birthday" or "regular").ThenBy(g => g.Id).ToList();
             var speak = paid.Count <= 3 ? paid : new List<ServiceGroup> { paid[0], paid[paid.Count / 2], paid[^1] };
             // When the queue lost a lot of guests, one of them has the last word.
             var walked = night.Groups.FirstOrDefault(g => !g.Paid && g.Phase == GroupPhase.Gone);
@@ -402,6 +405,7 @@ namespace Catchline.Game
                 Portrait = GuestFaces[(g.Id + i) % GuestFaces.Length], Stars = Mathf.Clamp(g.Stars, 1, 5),
                 Quote = Enumerable.Range(i, 3).Select(k => ReviewQuote(g, k)).FirstOrDefault(quoted.Add) ?? ReviewQuote(g, i),
             }).ToList();
+            Debug.Log($"[Catchline] EVENTS birthday {night.Groups.Count(g => g.Birthday)} regular {night.Groups.Count(g => g.Regular)} happy regulars {r.HappyRegulars} tips {r.Tips} served {r.Served}/{r.Guests} pop +{r.PopularityGain:0.00}");
             Debug.Log("[Catchline] REVIEWS " + string.Join(" | ", speak.Select(g => $"{g.Stars}* {g.Why}")) + " :: " + string.Join(" | ", v.Reviews.Select(x => x.Quote)));
             v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "Better tomorrow!";
             v.Title = r.Served >= r.Guests * .8f ? "A good night on the quay" : r.Served * 2 >= r.Guests ? "A busy night on the quay" : "A rough night on the quay";
@@ -506,6 +510,8 @@ namespace Catchline.Game
                 "slow" => Pick("A bit slow tonight.", "Worth it, but slow."),
                 "special" => Pick("That special! Wow.", "Ask for the special!"),
                 "captain" => Pick("The captain's catch!", "Fresh off the boat!"),
+                "birthday" => Pick("Best birthday ever!", "What a birthday treat!"),
+                "regular" => Pick("My usual. Perfect!", "Same table, same joy."),
                 _ => Pick($"Best {name} in town!", "Fish worth the trip.", "We'll be back!"),
             };
         }

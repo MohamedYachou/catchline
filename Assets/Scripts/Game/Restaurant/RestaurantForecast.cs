@@ -43,6 +43,8 @@ namespace Catchline.Game.Restaurant
             BaseCount=Math.Max(1,(int)Math.Round((RestaurantTuning.BaseGuests+Math.Max(0,popularity)*RestaurantTuning.GuestsPerPopularity)*day*sky*(.9+random.NextDouble()*.2)));
             if(guests>0)BaseCount=guests; // the first night: Mira's short tutorial service (design section 9)
             AddGuests(BaseCount,weekday==DayOfWeek.Sunday);
+            // A tour group of six now and then, once there is a booth to seat them (design section 6 events).
+            if(guests==0&&layout.Active.Any(i=>RestaurantData.Get(i.Id).Seats>=6)&&random.NextDouble()<RestaurantTuning.TourChance)AddGuests(6,false,6);
         }
         ForecastRange Range(int n){int slack=Math.Max(1,(int)Math.Ceiling(n*RestaurantTuning.ForecastUncertainty));return new ForecastRange(Math.Max(0,n-slack),n+slack);}
         List<Dish> Options(Species s)
@@ -62,10 +64,10 @@ namespace Catchline.Game.Restaurant
             double roll=random.NextDouble()*pool.Sum(p=>(double)p.weight);
             foreach(var p in pool){roll-=p.weight;if(roll<=0)return p.species;}return pool[pool.Length-1].species;
         }
-        void AddGuests(int count,bool families=false)
+        void AddGuests(int count,bool families=false,int size=0)
         {
             int seats=Math.Max(1,kitchen.Active.Max(i=>RestaurantData.Get(i.Id).Seats));
-            while(count>0){int group=++nextGroup;int n=Math.Min(count,families?Math.Min(4,seats):random.Next(1,Math.Min(4,seats)+1));
+            while(count>0){int group=++nextGroup;int n=size>0?Math.Min(count,size):Math.Min(count,families?Math.Min(4,seats):random.Next(1,Math.Min(4,seats)+1));
                 // One oven platter is shared by a whole table; grouping it here avoids multiple platter orders.
                 Species species=RollSpecies();var options=Options(species);Dish common=options[random.Next(options.Count)];
                 for(int i=0;i<n;i++){

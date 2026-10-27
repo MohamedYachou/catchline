@@ -35,7 +35,7 @@ namespace Catchline.Game.Restaurant
         public static float CookSeconds(Dish d) => d == Dish.Soup ? 8 : d == Dish.Platter ? 15 : d == Dish.Crab ? 10 : 7;
         public static int StaplePrice(Dish d) => d == Dish.Beer ? 5 : d == Dish.Coffee || d == Dish.Tea ? 4 : 3;
         public const int StapleCost = 1;
-        public const float PopularityPerGuest = .01f, PopularityPerSpecial = .05f;
+        public const float PopularityPerGuest = .01f, PopularityPerSpecial = .05f, PopularityPerRegular = .5f, BirthdayChance = .35f, RegularChance = .4f, TourChance = .3f;
     }
 
     public sealed class ItemDef

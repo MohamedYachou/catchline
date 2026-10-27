@@ -20,6 +20,9 @@ namespace Catchline.Game.Restaurant
         public bool Reserved, DrinksDelivered, CoffeeDelivered, Paid; public int Stars;
         // What the table will say about the night (closing reviews): gave-up, missing, cold, swap, slow, special, captain, great.
         public string Why;
+        // Tonight's light events (design section 6): a birthday table tips double when happy; a regular who gets a good
+        // night spreads the word (popularity).
+        public bool Birthday, Regular;
         public int Count=>Guests.Count;
     }
     // The work a staff member tries, in their priority order (S9 crew priorities); the first that finds work wins.
@@ -65,7 +68,7 @@ namespace Catchline.Game.Restaurant
     }
     [Serializable] public sealed class NightResult
     {
-        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes;
+        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes, HappyRegulars;
         public float PopularityGain;
         public float Stars, Seconds;
         public List<StaffDistance> Walking=new List<StaffDistance>();
@@ -97,11 +100,23 @@ namespace Catchline.Game.Restaurant
         public bool DoorClosed {get;private set;}
         public bool Finished {get;private set;}
         public bool Breakdowns=true;
+        // Birthday tables and regulars; rolled on the first tick (after the caller's initializer) from their own random,
+        // so the rest of the night plays out exactly as it would without them.
+        public bool Events=true; bool eventsRolled; readonly int eventSeed;
+        void RollEvents()
+        {
+            eventsRolled=true;if(!Events)return;
+            var r=new System.Random(eventSeed*31+17);
+            var pairs=Groups.Where(g=>g.Count>=2).ToList();
+            if(pairs.Count>0&&r.NextDouble()<RestaurantTuning.BirthdayChance)pairs[r.Next(pairs.Count)].Birthday=true;
+            var small=Groups.Where(g=>g.Count<=2&&!g.Birthday).ToList();
+            if(small.Count>0&&r.NextDouble()<RestaurantTuning.RegularChance)small[r.Next(small.Count)].Regular=true;
+        }
         public RestaurantSim(int seed,RestaurantLayout layout,RestaurantForecast forecast,IEnumerable<PortionStock> stock,IEnumerable<RestaurantStaff> staff)
         {
             if(!forecast.Locked)throw new ArgumentException("Lock Mira's plan before service");
             if(!layout.Validate().Ok)throw new ArgumentException(layout.Validate().Message);
-            Layout=layout;weather=forecast.Weather;random=new System.Random(seed);Stock=stock.Select(s=>s.Copy()).ToList();Staff=staff.ToList();
+            Layout=layout;weather=forecast.Weather;random=new System.Random(seed);eventSeed=seed;Stock=stock.Select(s=>s.Copy()).ToList();Staff=staff.ToList();
             if(Stock.Any(s=>s.Count<0)||Stock.Sum(s=>s.Count)>layout.FridgeCapacity)throw new ArgumentException("Tonight's stock must fit the fridges");
             if(Staff.Select(s=>s.Id).Distinct().Count()!=Staff.Count)throw new ArgumentException("Staff IDs must be unique");
             foreach(var s in Staff){if(!layout.Walkable(s.Tile))s.Tile=layout.Door;s.Position=s.Tile;s.Metres=0;s.Task=null;}
@@ -117,6 +132,7 @@ namespace Catchline.Game.Restaurant
         {
             if(float.IsNaN(elapsed)||float.IsInfinity(elapsed)||elapsed<0)throw new ArgumentOutOfRangeException(nameof(elapsed));
             accumulator+=elapsed;
+            if(!eventsRolled)RollEvents();
             while(!Finished&&accumulator+1e-8>=RestaurantTuning.TickSeconds){accumulator-=RestaurantTuning.TickSeconds;Step();}
         }
         public bool SetJob(string staffId,Job job)
@@ -333,7 +349,9 @@ namespace Catchline.Game.Restaurant
                 dishCoins+=(int)Math.Round(price);
             }
             Result.DishCoins+=dishCoins;
-            if(!impatient)Result.Tips+=(int)Math.Round(dishCoins*RestaurantTuning.TipRate*((g.Stars-1)*.25f+Layout.Ambience*.02f+g.Tickets.Count(t=>t.CaptainCut)*.02f));
+            if(!impatient)Result.Tips+=(int)Math.Round(dishCoins*RestaurantTuning.TipRate*((g.Stars-1)*.25f+Layout.Ambience*.02f+g.Tickets.Count(t=>t.CaptainCut)*.02f)*(g.Birthday&&g.Stars>=4?2:1));
+            if(g.Regular&&g.Stars>=4)Result.HappyRegulars++;
+            if(g.Stars>=4&&g.Birthday)g.Why="birthday";else if(g.Stars>=4&&g.Regular)g.Why="regular";
             int served=full?g.Count:Math.Min(g.Count,delivered);Result.Served+=served;Result.Left+=g.Count-served;
             Result.Stars+=g.Stars*g.Count;
             foreach(var t in g.Tickets.Where(t=>t.Phase==TicketPhase.Ready)){waste++;t.Phase=TicketPhase.Abandoned;}
@@ -391,7 +409,7 @@ namespace Catchline.Game.Restaurant
         {
             Finished=true;Result.Cats=RestaurantPortions.FeedCats(Stock)+soupReady+waste;soupReady=0;waste=0;
             Result.Seconds=Seconds;Result.Stars=Result.Guests==0?0:Result.Stars/Result.Guests;
-            Result.PopularityGain=Result.Guests==0?0:(Result.Stars-3)*.5f+Result.SpecialServed*RestaurantTuning.PopularityPerSpecial;
+            Result.PopularityGain=Result.Guests==0?0:(Result.Stars-3)*.5f+Result.SpecialServed*RestaurantTuning.PopularityPerSpecial+Result.HappyRegulars*RestaurantTuning.PopularityPerRegular;
             Result.Walking=Staff.Select(s=>new StaffDistance{Id=s.Id,Metres=s.Metres}).ToList();
             float waiters=Staff.Where(s=>s.Job==Job.Waiter).Sum(s=>s.Metres);
             Result.LayoutTip=waiters>0?"Our waiters walked "+Math.Round(waiters)+" m tonight. Tables nearer the pass would help.":"Try assigning a waiter tomorrow.";
