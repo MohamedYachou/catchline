@@ -23,6 +23,25 @@ namespace Catchline.Game
             ["TakeOrder"] = "Idle_Talking_Loop", ["Greet"] = "Idle_Talking_Loop",
         };
 
+        // Game-world height the blob crew were tuned to (CrewFitProbe: blob H=1.10). Real/toon human
+        // puppets come in at their own height (Quaternius ~1.86), so we normalise each to this so they
+        // sit on the deck and fit the boat. Works for any future puppet (e.g. Fable's toon bodies) too.
+        public const float GameHeight = 1.14f;
+
+        // Uniformly scales a freshly-spawned crew puppet so its standing height is GameHeight. The ratio
+        // is applied to localScale, so it is correct regardless of the parent hierarchy's scale.
+        public static void FitHeight(GameObject rig)
+        {
+            if (rig == null) return;
+            var rs = rig.GetComponentsInChildren<Renderer>();
+            if (rs.Length == 0) return;
+            var b = rs[0].bounds;
+            foreach (var r in rs) b.Encapsulate(r.bounds);
+            float h = b.size.y;
+            if (h < 0.01f) return;
+            rig.transform.localScale *= GameHeight / h;
+        }
+
         public static void Fill(Dictionary<string, AnimationClip> dict, AnimationClip[] clips)
         {
             if (clips == null) return;

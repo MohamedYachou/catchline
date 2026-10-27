@@ -391,6 +391,7 @@ namespace Catchline.Game.Restaurant
             bool boatMira=!guest&&staffPuppet==null; // old blob rig in use -> keep the legacy outfit/hat toggles
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
+            if(!guest&&staffPuppet!=null)CrewAnim.FitHeight(rig.gameObject); // human puppet -> normalise to room height
             foreach(var a in rig.GetComponentsInChildren<Animation>())a.enabled=false;
             foreach(var a in rig.GetComponentsInChildren<Animator>())a.enabled=false;
             var (outfit,hat)=guest?(null,null):boatMira?("Outfit_Deckhand","Hat_Beanie"):Wardrobe(id);

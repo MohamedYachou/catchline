@@ -160,6 +160,7 @@ namespace Catchline.Game
             if (prefab != null)
             {
                 rig = ArtLibrary.Spawn(prefab, body, Vector3.zero, Quaternion.identity).transform;
+                if (prefab.name != "CrewRig") CrewAnim.FitHeight(rig.gameObject); // human puppet -> normalise to deck height
                 // Playback is sampled by the same clock as gameplay, including the balance bot.
                 var automatic = rig.GetComponent<Animation>();
                 if (automatic != null) automatic.enabled = false;
