@@ -514,16 +514,23 @@ namespace Catchline.Game
         void InterfaceRestaurantArrange(RestaurantArrangeView v)
         {
             var f = RestaurantFrame("rarr/frame");
-            float ox = (iw - 844 * frameScale) / 2 / frameScale, oy = (ih - 390 * frameScale) / 2 / frameScale;
-            RectTransform A(string id, string key, Rect? at = null, string sprite = null) =>
-                Rx(id, "arrange", key, f, at ?? RestaurantExact.Pieces["arrange:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            float ox = (iw - 844 * frameScale) / 2 / frameScale;
+            // On a taller screen the top bar keeps to the top edge and the drawer to the bottom; the room fills between.
+            Transform Band(string id, float y) { var b = coastalUi.Sliced(id, new Rect((iw - 844 * frameScale) / 2, y, 844, 390), ""); b.localScale = new Vector3(frameScale, frameScale, 1); return b; }
+            var top = Band("rarr/top", 0); var bottom = Band("rarr/bottom", ih - 390 * frameScale);
+            Transform P(Rect r) => r.y < 60 ? top : r.y >= 299 ? bottom : f;
+            RectTransform A(string id, string key, Rect? at = null, string sprite = null)
+            {
+                var r = at ?? RestaurantExact.Pieces["arrange:" + key].rect;
+                return Rx(id, "arrange", key, P(r), r, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            }
             void T(string id, string style, string text, Rect? at = null, TextAnchor align = TextAnchor.MiddleLeft, Color? fill = null) =>
-                RxText(id, "arrange", style, text, f, at, align, fill);
+                RxText(id, "arrange", style, text, P(at ?? RestaurantExact.Texts["arrange:" + style].Rect), at, align, fill);
             var cream = new Color(1, .973f, .92f);
 
-            A("rarr/bar", "v2-bar-arrange#arrange-bar-arrange-01", new Rect(-ox, -oy, iw / frameScale, 43 + oy));
+            A("rarr/bar", "v2-bar-arrange#arrange-bar-arrange-01", new Rect(-ox, 0, iw / frameScale, 43));
             A("rarr/back", "v2-btn-back#arrange-btn-back-01", null, "rx-s12-btn-back");
-            coastalUi.HitArea("rarr/back/hit", new Rect(23, 5, 51, 33), CloseRestaurantArrange, f);
+            coastalUi.HitArea("rarr/back/hit", new Rect(23, 5, 51, 33), CloseRestaurantArrange, top);
             A("rarr/icon", "v2-icon-chair#arrange-icon-chair-02");
             T("rarr/title", "title", "Arrange", new Rect(127, 7, 160, 29));
             A("rarr/coins", "v2-wallet-arrange#arrange-wallet-arrange-01");
@@ -531,14 +538,14 @@ namespace Catchline.Game
             T("rarr/coins/n", "wallet", v.Coins.ToString("N0"), new Rect(641, 12, 58, 20), TextAnchor.MiddleCenter);
             A("rarr/undo", "v2-btn-undo#arrange-btn-undo-01");
             T("rarr/undo/t", "undo", "Undo", new Rect(772, 13, 46, 16));
-            coastalUi.HitArea("rarr/undo/hit", new Rect(735, 5, 88, 33), () => UndoArrange(v), f);
+            coastalUi.HitArea("rarr/undo/hit", new Rect(735, 5, 88, 33), () => UndoArrange(v), top);
 
             // Live: the room under the bars takes taps (move the ghost there, or lift a placed item).
             bool live = ArrangeLive;
             if (live)
             {
                 v.Coins = State.Coins;
-                coastalUi.HitArea("rarr/room", new Rect(-ox, 43, iw / frameScale, 256), () => ArrangeTap(v), f);
+                coastalUi.HitArea("rarr/room", new Rect(-ox, 43 - (ih / frameScale - 390) / 2, iw / frameScale, ih / frameScale - 134), () => ArrangeTap(v), f);
                 if (v.PlaceId != null)
                 {
                     // The bubble follows the footprint's projected centre (the mockup's spot centre is 587,224).
@@ -576,7 +583,7 @@ namespace Catchline.Game
             }
 
             // The shop tray: categories on the left, this category's items on the right.
-            A("rarr/tray", "v2-arrange-tray#arrange-arrange-tray-01", new Rect(-ox, 299, iw / frameScale, 91 + oy));
+            A("rarr/tray", "v2-arrange-tray#arrange-arrange-tray-01", new Rect(-ox, 299, iw / frameScale, 91));
             Rect[] tab = { new(16, 310, 58, 64), new(78, 309, 68, 65), new(151, 310, 56, 64), new(211, 310, 56, 64), new(271, 310, 60, 64) };
             string[] icon = { "v2-icon-kitchen-pot#arrange-icon-kitchen-pot-01", "v2-icon-chair#arrange-icon-chair-01", "v2-icon-bar-glass#arrange-icon-bar-glass-01",
                 "v2-icon-decor-plant#arrange-icon-decor-plant-01", "v2-icon-expand#arrange-icon-expand-01" };
@@ -587,7 +594,7 @@ namespace Catchline.Game
                 var ic = A($"rarr/cat/{i}/icon", icon[i]);
                 var img = ic.GetComponent<UnityEngine.UI.Image>(); if (img != null && img.sprite != null) img.color = on ? cream : Color.white;
                 T($"rarr/cat/{i}/label", $"tabs-{i + 1}", v.Categories[i], new Rect(tab[i].x, 348, tab[i].width, 15), TextAnchor.MiddleCenter, on ? cream : null);
-                coastalUi.HitArea($"rarr/cat/{i}/hit", tab[i], () => { if (live) SetArrangeCategory(v, c); else v.Category = c; }, f);
+                coastalUi.HitArea($"rarr/cat/{i}/hit", tab[i], () => { if (live) SetArrangeCategory(v, c); else v.Category = c; }, bottom);
             }
             Rect[] card = { new(350, 306, 149, 71), new(505, 306, 152, 71), new(662, 306, 165, 71) };
             string[] art = { "v2-item-rest-table2#arrange-item-rest-table2-01", "v2-item-rest-table4#arrange-item-rest-table4-01", "v2-item-rest-booth#arrange-item-rest-booth-01" };
@@ -600,7 +607,7 @@ namespace Catchline.Game
                 int s = i, slot = Mathf.Min(i, 2); var it = v.Items[i]; bool on = v.Selected == i;
                 var shift = live ? new Vector2(350 + i * 157 - v.Scroll - card[slot].x, 0) : Vector2.zero;
                 Rect At(Rect r) => new(r.x + shift.x, r.y, r.width, r.height);
-                if (At(card[slot]).x < 340) { coastalUi.Sliced($"rarr/item/{i}", Rect.zero, null, f); continue; }
+                if (At(card[slot]).x < 340) { coastalUi.Sliced($"rarr/item/{i}", Rect.zero, null, bottom); continue; }
                 float tx = textX[slot] + shift.x;
                 A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", At(card[slot]));
                 ArrangeArt(A($"rarr/item/{i}/art", art[slot], At(RestaurantExact.Pieces["arrange:" + art[slot]].rect), ArrangeSprite(it.Art)));
@@ -615,7 +622,7 @@ namespace Catchline.Game
                 {
                     if (live) { if (arrangeDrag < 12) PickArrangeItem(v, s); }
                     else { v.Selected = s; v.Placing = $"{v.Items[s].Name} · {v.Items[s].Footprint}"; }
-                }, f);
+                }, bottom);
             }
         }
 
@@ -629,7 +636,7 @@ namespace Catchline.Game
         {
             var p = UnityEngine.InputSystem.Pointer.current; if (p == null) return;
             var gui = ToGui(p.position.ReadValue());
-            var at = new Vector2((gui.x - (iw - 844 * frameScale) / 2) / frameScale, (gui.y - (ih - 390 * frameScale) / 2) / frameScale);
+            var at = new Vector2((gui.x - (iw - 844 * frameScale) / 2) / frameScale, (gui.y - (ih - 390 * frameScale)) / frameScale); // the drawer band
             if (p.press.wasPressedThisFrame) { arrangeDrag = 0; arrangeLast = at; }
             else if (p.press.isPressed && at.y > 299 && at.x > 340)
             {
