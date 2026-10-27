@@ -70,7 +70,8 @@ namespace Catchline.Game
                 .Select(g => (g.Key, g.Sum(e => e.weight))).ToArray();
             try
             {
-                dayForecast = new RestaurantForecast(State.Voyage * 7919 + SelectedSpot, restaurantPopularity, RestaurantWeekday(State.RestaurantDay), (Weather)State.RestaurantWeather, pool, Kitchen);
+                dayForecast = new RestaurantForecast(State.Voyage * 7919 + SelectedSpot, restaurantPopularity, RestaurantWeekday(State.RestaurantDay), (Weather)State.RestaurantWeather, pool, Kitchen,
+                    State.RestaurantNights.Count == 0 ? FirstNightGuests : 0);
             }
             catch (ArgumentException) { return false; } // this ground's fish cannot be cooked yet: sail as before
             var v = RestaurantPlan;
@@ -449,6 +450,9 @@ namespace Catchline.Game
         }
 
         // ---- S1 arrange by day: the player's own room in 3D behind the drawer, empty of crew and guests ----
+
+        // The reopening night is a short tutorial service (design section 9: four guests).
+        const int FirstNightGuests = 4;
 
         bool ArrangeLive => RestaurantPreview == RestaurantScreen.Arrange && restaurantWorld != null && restaurantWorld.RoomRoot != null && restaurantWorld.Sim == null;
         RestaurantScreen arrangeBack;

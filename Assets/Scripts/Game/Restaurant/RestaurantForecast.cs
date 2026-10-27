@@ -33,7 +33,7 @@ namespace Catchline.Game.Restaurant
         public ForecastRange GuestRange => Range(guests.Count);
         public Dictionary<(Species,Dish),ForecastRange> DishRanges => guests.GroupBy(g=>(g.Species,g.Dish)).ToDictionary(g=>g.Key,g=>Range(g.Count()));
         public RestaurantForecast(int seed,int popularity,DayOfWeek weekday,Weather weather,
-            IEnumerable<(Species species,float weight)> groundPool,RestaurantLayout layout)
+            IEnumerable<(Species species,float weight)> groundPool,RestaurantLayout layout,int guests=0)
         {
             Seed=seed;random=new Random(seed);kitchen=layout;Weather=weather;
             pool=groundPool.Where(p=>p.weight>0 && !float.IsNaN(p.weight) && !float.IsInfinity(p.weight) && Options(p.species).Count>0).ToArray();
@@ -41,6 +41,7 @@ namespace Catchline.Game.Restaurant
             float day=weekday==DayOfWeek.Monday?RestaurantTuning.Monday:weekday==DayOfWeek.Friday||weekday==DayOfWeek.Saturday?RestaurantTuning.BusyDay:1;
             float sky=weather==Weather.Rain?RestaurantTuning.Rain:weather==Weather.Sun&&layout.Stage.TerraceWidth>0?1+RestaurantTuning.WalkInMax:1;
             BaseCount=Math.Max(1,(int)Math.Round((RestaurantTuning.BaseGuests+Math.Max(0,popularity)*RestaurantTuning.GuestsPerPopularity)*day*sky*(.9+random.NextDouble()*.2)));
+            if(guests>0)BaseCount=guests; // the first night: Mira's short tutorial service (design section 9)
             AddGuests(BaseCount,weekday==DayOfWeek.Sunday);
         }
         ForecastRange Range(int n){int slack=Math.Max(1,(int)Math.Ceiling(n*RestaurantTuning.ForecastUncertainty));return new ForecastRange(Math.Max(0,n-slack),n+slack);}
