@@ -86,6 +86,10 @@ for f in glob.glob(X+'s15/events/v2-*.png')+glob.glob(X+'s15/v2-s15-event-*.png'
 # Codex 1's guest review faces (clothes/guests) keep their v2-guest- names.
 for f in glob.glob(R+'Art/Source/Restaurant/clothes/guests/v2-guest-*.png')+glob.glob(R+'Art/Source/Restaurant/clothes/busts/v2-rbust-*.png'):
     copy(f,os.path.basename(f)[:-4]); n+=1
+# Codex 1's second guest set comes numbered; the game names them (the face decides the name).
+for k,nm in {'09':'marta','10':'nils','11':'pia','12':'greta','13':'henrik','14':'zola','15':'vera','16':'anton'}.items():
+    f=R+'Art/Source/Restaurant/clothes/guests/v2-guest-'+k+'.png'
+    if os.path.exists(f): copy(f,'v2-guest-'+nm); n+=1
 def col(h):
     h=h.lstrip('#'); a=int(h[6:8],16)/255 if len(h)==8 else 1
     return f'C({int(h[0:2],16)/255:.3f}f, {int(h[2:4],16)/255:.3f}f, {int(h[4:6],16)/255:.3f}f, {a:.3f}f)'

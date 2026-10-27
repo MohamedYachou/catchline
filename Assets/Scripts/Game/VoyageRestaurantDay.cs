@@ -61,7 +61,8 @@ namespace Catchline.Game
         };
         // Guests write the reviews. Stand-in faces (deck portraits of people not on the night's staff) until the guest
         // portraits of RESTAURANT-MIRA-FISH-ART-1 D2 arrive.
-        static readonly string[] GuestFaces = { "guest-ada", "guest-ben", "guest-cora", "guest-dan", "guest-edda", "guest-finn", "guest-gus", "guest-hazel", "guest-ivo", "guest-jonas", "guest-kai", "guest-lena" };
+        static readonly string[] GuestFaces = { "guest-ada", "guest-ben", "guest-cora", "guest-dan", "guest-edda", "guest-finn", "guest-gus", "guest-hazel", "guest-ivo", "guest-jonas", "guest-kai", "guest-lena",
+            "guest-marta", "guest-nils", "guest-pia", "guest-greta", "guest-henrik", "guest-zola", "guest-vera", "guest-anton" };
         static string FishArt(Species s) => "fish-" + s.ToString().ToLowerInvariant();
         static string FishName(Species s) => GameData.Get(s).Name.ToLowerInvariant();
 
@@ -93,6 +94,16 @@ namespace Catchline.Game
             var special = dayForecast.Guests.FirstOrDefault(g => g.Special);
             v.SpecialTitle = special != null ? "A birthday table for four" : "No special\nrequests tonight"; v.SpecialReward = special != null ? "+120" : null; v.SpecialAccepted = special != null ? null : (bool?)true;
             specialGuest = special?.Id ?? -1;
+            if (special != null)
+            {
+                // Codex 1's reservation card: who booked (a guest face), how many, and the dish they ask for.
+                var face = GuestFaces[special.Id % GuestFaces.Length];
+                if (face == "guest-pia") face = "guest-marta"; // Pia is a child: her mother books the table
+                v.ReservationFace = "v2-" + face; v.ReservationName = Cap(face.Substring(6));
+                v.ReservationParty = dayForecast.Guests.Count(g => g.Group == special.Group);
+                v.ReservationDish = Look(special.Dish).name; v.ReservationDishArt = Look(special.Dish).art;
+                v.SpecialTitle = $"A table for {v.ReservationParty}";
+            }
             RestaurantPhase = DayPhase.Plan;
             RestaurantPreview = RestaurantScreen.Plan;
             return true;
@@ -446,9 +457,10 @@ namespace Catchline.Game
             var walked = night.Groups.FirstOrDefault(g => !g.Paid && g.Phase == GroupPhase.Gone);
             if (walked != null && r.Left * 3 >= r.Guests) { walked.Stars = 1; walked.Why = "queue"; if (speak.Count >= 3) speak[^1] = walked; else speak.Add(walked); }
             var quoted = new HashSet<string>();
+            var faces = new HashSet<string>(); // three different people speak
             v.Reviews = speak.Select((g, i) => new RestaurantReview
             {
-                Portrait = GuestFaces[(g.Id + i) % GuestFaces.Length], Stars = Mathf.Clamp(g.Stars, 1, 5),
+                Portrait = Enumerable.Range(0, GuestFaces.Length).Select(k => GuestFaces[(g.Id * 7 + i + k) % GuestFaces.Length]).First(faces.Add), Stars = Mathf.Clamp(g.Stars, 1, 5),
                 Quote = Enumerable.Range(i, 3).Select(k => ReviewQuote(g, k)).FirstOrDefault(quoted.Add) ?? ReviewQuote(g, i),
             }).ToList();
             Debug.Log($"[Catchline] EVENTS birthday {night.Groups.Count(g => g.Birthday)} regular {night.Groups.Count(g => g.Regular)} happy regulars {r.HappyRegulars} tips {r.Tips} served {r.Served}/{r.Guests} pop +{r.PopularityGain:0.00}");

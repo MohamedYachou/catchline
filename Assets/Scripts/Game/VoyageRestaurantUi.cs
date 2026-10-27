@@ -35,6 +35,8 @@ namespace Catchline.Game
                 new() { Name = "pollock", Art = "fish-pollock", Amount = "3 kg" },
             };
             public string SpecialTitle = "A birthday table for four", SpecialReward = "+120";
+            public string ReservationName = "Ada", ReservationFace = "v2-guest-ada", ReservationDish = "Grilled fish", ReservationDishArt = "v2-dish-grilled-fish";
+            public int ReservationParty = 4;
             public bool? SpecialAccepted;
         }
 
@@ -1191,7 +1193,7 @@ namespace Catchline.Game
                     Rx($"rdash/star/{i}", 6, i < v.Popularity ? "v2-s6-star-full#primary" : "v2-s6-star-empty#primary", f, new Rect(starX[i], 135, 29, 29), i < v.Popularity ? "rx-s6-star-full" : "rx-s6-star-empty");
                 string[] dishPiece = { "v2-s6-dish-fish#primary", "v2-s6-dish-soup#primary", "v2-s6-dish-coffee#primary" };
                 for (int i = 0; i < v.Menu.Count && i < 3; i++)
-                    coastalUi.Icon($"rdash/dish/{i}", RestaurantExact.Pieces["6:" + dishPiece[i]].rect, Look(v.Menu[i].dish).art, f, null, Look(v.Menu[i].dish).fallback);
+                    coastalUi.Icon($"rdash/dish/{i}", RestaurantExact.Pieces["6:" + dishPiece[i]].rect, ArrangeSprite(Look(v.Menu[i].dish).art), f, null, Look(v.Menu[i].dish).fallback);
                 if (st.Name != null && st.Cost > 0)
                 {
                     var track = RestaurantExact.Pieces["6:v2-s6-progress-fill#primary"].rect;
@@ -1545,7 +1547,7 @@ namespace Catchline.Game
             {
                 var d = v.Dishes[i]; float x = cardX[i];
                 Rx($"rplan/dish/{i}", 3, "v2-plan-dish-card", f, new Rect(x, 162, 122, 123));
-                coastalUi.Icon($"rplan/dish/{i}/art", new Rect(x + 6, 166, 110, 75), d.Art, f, null, d.Fallback);
+                coastalUi.Icon($"rplan/dish/{i}/art", new Rect(x + 6, 166, 110, 75), ArrangeSprite(d.Art), f, null, d.Fallback);
                 RxText($"rplan/dish/{i}/name", 3, "dish-label", d.Name, f, new Rect(x, 235, 122, 22));
                 Rx($"rplan/dish/{i}/who", 3, "v2-icon-guests", f, new Rect(x + 26, 257, 21, 20));
                 RxText($"rplan/dish/{i}/range", 3, "dish-guests", $"{d.Low} – {d.High}", f, new Rect(x + 50, 258, 66, 22), TextAnchor.MiddleLeft);
@@ -1561,6 +1563,7 @@ namespace Catchline.Game
             }
             if (v.BringBack.Count > 1) Rx("rplan/bring/split", 3, "v2-divider#catch request separator", f, null, "rx-divider");
 
+            if (v.SpecialReward != null && HasUi("rx-s3-reservation-card")) { PlanReservation(v, f); goto go; }
             Rx("rplan/special", 3, "v2-ticket", f);
             Rx("rplan/special/icon", 3, "v2-icon-special", f);
             RxText("rplan/special/head", 3, "special-heading", "Special request", f, null, TextAnchor.MiddleLeft);
@@ -1579,10 +1582,37 @@ namespace Catchline.Game
             else if (v.SpecialReward != null)
                 RxText("rplan/special/state", 3, "special-copy", v.SpecialAccepted == true ? $"Accepted  {v.SpecialReward}" : "Not tonight.", f, new Rect(688, 200, 133, 42));
 
+            go:
             Rx("rplan/go", 3, "v2-btn-primary", f);
             Rx("rplan/go/icon", 3, "v2-icon-tick", f);
             RxText("rplan/go/label", 3, "got-it", "Got it", f);
             coastalUi.HitArea("rplan/go/hit", new Rect(668, 297, 165, 70), () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPlanAccepted(); else RestaurantPreview = RestaurantScreen.None; }, f);
+        }
+
+        // S3 with a booking (exact/s3/reservation): the reservation card replaces the special-request ticket.
+        void PlanReservation(RestaurantPlanView v, Transform f)
+        {
+            RectTransform P(string id, string key, string sprite = null) => Rx(id, "plan", key, f, null, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+            void T(string id, string style, string text, TextAnchor a = TextAnchor.MiddleLeft) => RxText(id, "plan", style, text, f, null, a);
+            P("rplan/res/patch", "v2-s3-reservation-wall-patch#context-remove-old-ticket");
+            P("rplan/res", "v2-s3-reservation-card#special-reservation");
+            P("rplan/res/face-slot", "v2-s3-reservation-face-slot#guest-face-slot");
+            ArrangeArt(P("rplan/res/face", "v2-guest-ada#example-guest-ada", v.ReservationFace));
+            P("rplan/res/dish-slot", "v2-s3-reservation-dish-slot#wished-dish-slot");
+            ArrangeArt(P("rplan/res/dish", "v2-dish-grilled-fish#example-wished-dish", ArrangeSprite(v.ReservationDishArt)));
+            T("rplan/res/head", "reservation-heading", "Reservation", TextAnchor.MiddleCenter);
+            T("rplan/res/name", "guest-name", v.ReservationName);
+            T("rplan/res/party", "party-size-time", $"{v.ReservationParty} guests · {v.SpecialReward} coins", TextAnchor.MiddleCenter);
+            T("rplan/res/wish", "wished-dish", v.ReservationDish);
+            if (v.SpecialAccepted == null)
+            {
+                P("rplan/res/yes", "v2-s3-reservation-accept#accept-reservation"); T("rplan/res/yes/t", "accept", "Accept", TextAnchor.MiddleCenter);
+                P("rplan/res/no", "v2-s3-reservation-decline#decline-reservation"); T("rplan/res/no/t", "decline", "Decline", TextAnchor.MiddleCenter);
+                coastalUi.HitArea("rplan/res/yes/hit", RestaurantExact.Pieces["plan:v2-s3-reservation-accept#accept-reservation"].rect, () => v.SpecialAccepted = true, f);
+                coastalUi.HitArea("rplan/res/no/hit", RestaurantExact.Pieces["plan:v2-s3-reservation-decline#decline-reservation"].rect, () => v.SpecialAccepted = false, f);
+            }
+            else RxText("rplan/res/state", "plan", "wished-dish", v.SpecialAccepted == true ? "Booked for tonight" : "Not tonight", f,
+                new Rect(680, 200, 144, 60), TextAnchor.MiddleCenter);
         }
 
         // A navy kit square with a glyph, used for the mockups' blue minus buttons.

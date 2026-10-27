@@ -47,3 +47,21 @@ you want changed.
   house's terrace will come close to the moored boats there. *Default: check when stage 4 is reachable.*
 - **First night.** Mira's 4-panel coaching card shows once before the first service, which waits until it's tapped.
   *Default: keep.*
+
+## Restaurant, early 10-27 (Claude 2)
+- **HUD v3 concepts for the rest of the game.** Codex 1 painted the fishing view and the harbour in the restaurant's
+  look: Art/Source/Restaurant/concepts/ui-v3-17-hud-fishing.png and ui-v3-18-hud-harbour.png. Nothing is cut or wired.
+  Yes means Codex cuts them 1:1 and Claude moves the fishing/harbour HUD over. *Default: wait for your yes.*
+- **Reliable stove needs the Bistro.** Codex's S8 art has a "Needs Bistro" state, so the stove upgrade now opens at stage 2
+  (fridge and lighting stay at the Cafe). Breakdowns start on night 2; until the Bistro, the captain fixes stations by
+  tapping them. *Default: keep.*
+- **Pause menu.** The third button of Codex's pause panel said "Back to the harbour"; the night can't be left halfway, so
+  it opens Upgrades instead (Back returns to the night). *Default: Upgrades.*
+- **Week report (S16).** Shows after every 7th night, before Sleep. "Crew of the week" is whoever walked the most that
+  week (the captain doesn't count). *Default: keep.*
+- **First-night coaching.** Besides the S13 card, Mira pauses the first night twice with the new coach card (tap a table
+  / close the door). Skip ends it. *Default: keep.*
+- **Hiring for the restaurant (S17).** Codex painted a hiring board (concepts/ui-17-hire.png): three candidates a day, a
+  nightly wage, Hire. Today the restaurant staff are your fishing crew in restaurant clothes, so hiring would be a second
+  way to get people. Should restaurant staff be hired separately (wage per night), or stay the crew cards? *Default: crew
+  cards only; the board stays unwired.*
