@@ -434,6 +434,23 @@ namespace Catchline.Game.Restaurant
             ghostSpot.localScale=new Vector3(w*1.1f,h*1.1f*tx.width/tx.height,1);
             ghostSpot.GetComponent<SpriteRenderer>().color=fits?Color.white:new Color(1,.4f,.35f);
         }
+        // Service: the table the captain was told to work first is lit on the floor (null clears it).
+        Transform mark;
+        public void Mark(RestaurantItem item)
+        {
+            if(RoomRoot==null)return;
+            if(item==null){if(mark!=null)mark.gameObject.SetActive(false);return;}
+            if(mark==null){
+                var tex=ArtLibrary.Get()?.UiTex("rx-placement-highlight");if(tex==null)return;
+                var go=new GameObject("Captain's table");go.transform.SetParent(RoomRoot,false);go.layer=Layer;
+                go.AddComponent<SpriteRenderer>().sprite=Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(.5f,.5f),tex.width);
+                mark=go.transform;mark.localRotation=Quaternion.Euler(90,0,0);}
+            var d=RestaurantData.Get(item.Id);int w=item.Rotated?d.Height:d.Width,h=item.Rotated?d.Width:d.Height;
+            var t=mark.GetComponent<SpriteRenderer>().sprite.texture;
+            mark.gameObject.SetActive(true);
+            mark.localPosition=new Vector3(3.5f-(item.X+w*.5f-.5f),.06f,2-(item.Y+h*.5f-.5f));
+            mark.localScale=new Vector3(w*1.1f,h*1.1f*t.width/t.height,1);
+        }
         // A placed item lifted for moving hides until it is put down.
         public void Hide(int uid,bool hidden){if(items.TryGetValue(uid,out var t)&&t!=null)t.gameObject.SetActive(!hidden);}
         // Floor tile under a viewport point (0..1, bottom-left), and where a tile centre shows on the viewport.
@@ -447,7 +464,7 @@ namespace Catchline.Game.Restaurant
         public Vector3 ViewportOf(Vector2 tile,float y=.04f)=>ServiceCamera==null?Vector3.zero:ServiceCamera.WorldToViewportPoint(TileToWorld(tile,y));
         public void End()
         {
-            ghost=ghostSpot=null;
+            ghost=ghostSpot=mark=null;
             foreach(var c in previousCameras)if(c!=null)c.enabled=true;previousCameras.Clear();
             if(RoomRoot!=null){if(Application.isPlaying)Destroy(RoomRoot.gameObject);else DestroyImmediate(RoomRoot.gameObject);}
             foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();guestTints.Clear();

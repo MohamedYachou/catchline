@@ -258,7 +258,7 @@ namespace Catchline.Game
             try { restaurantWorld.Begin(night); }
             catch (Exception e) { Debug.LogError("[Catchline] restaurant room failed: " + e.Message); }
             popularityBefore = restaurantPopularity;
-            staffLoad.Clear(); miraSaid.Clear(); miraLines.Clear();
+            staffLoad.Clear(); miraSaid.Clear(); miraLines.Clear(); captainFix = captainTable = 0;
             nightStock = (night.Stock.Where(s => s.Form != PreparedForm.Stock).Sum(s => s.Count), night.Stock.Where(s => s.Form == PreparedForm.Stock).Sum(s => s.Count));
             RestaurantService.Rail = RestaurantRailMode.Scroll;
             RestaurantService.QuestionTitle = null;
@@ -276,7 +276,7 @@ namespace Catchline.Game
             if (RestaurantPhase == DayPhase.Prep && RestaurantPrep.Margin != prepMargin && dayPrep != null) SuggestPrep();
             if (RestaurantPhase != DayPhase.Service || night == null) return;
             var v = RestaurantService;
-            if (!v.Paused) night.Tick(dt * Mathf.Max(1, v.Speed));
+            if (!v.Paused) { night.Tick(dt * Mathf.Max(1, v.Speed)); CaptainWork(dt * Mathf.Max(1, v.Speed)); }
             v.Hour = night.Hour; v.Open = 18; v.Close = 23;
             v.Coins = State.Coins + night.Result.Coins;
             v.Popularity = restaurantPopularity;
@@ -297,6 +297,44 @@ namespace Catchline.Game
             if (restaurantWorld != null && restaurantWorld.Sim == night) restaurantWorld.Refresh(dt * (v.Paused ? 0 : Mathf.Max(1, v.Speed)));
             MiraCalls(fish, soup, broken);
             if (night.Finished) ShowClosing();
+        }
+
+        // The manager helps where it hurts (design section 6): tap a broken station and the captain goes to fix it;
+        // tap a table and he works that table first (tap it again to let him help everywhere).
+        int captainFix, captainTable;
+        void ServiceTap()
+        {
+            var p = UnityEngine.InputSystem.Pointer.current;
+            if (p == null || night == null || restaurantWorld == null) return;
+            var at = p.position.ReadValue();
+            if (restaurantWorld.TileAt(new Vector2(at.x / Screen.width, at.y / Screen.height), out var tile)) ServiceTapTile(tile);
+        }
+
+        bool ServiceTapTile(Vector2Int tile)
+        {
+            var hit = Kitchen.Active.FirstOrDefault(i => Kitchen.Cells(i).Contains(tile));
+            if (hit == null || night.Finished) return false;
+            var d = RestaurantData.Get(hit.Id);
+            if (night.Broken.Contains(hit.Uid))
+            {
+                captainFix = hit.Uid; Toast($"Captain: on it, fixing the {d.Name.ToLower()}.");
+                audio?.Play(VoyageAudio.Cue.Select, .4f); return true;
+            }
+            if (d.Seats == 0 || !night.Pin(hit.Uid)) return false;
+            captainTable = captainTable == hit.Uid ? 0 : hit.Uid;
+            restaurantWorld.Mark(captainTable == 0 ? null : hit);
+            Toast(captainTable != 0 ? "Captain: I'll take this table first." : "Captain: back to helping everywhere.");
+            audio?.Play(VoyageAudio.Cue.Select, .4f);
+            return true;
+        }
+
+        void CaptainWork(float dt)
+        {
+            if (captainFix == 0) return;
+            if (night.Broken.Contains(captainFix)) { night.CaptainHoldFix(captainFix, dt); if (night.Broken.Contains(captainFix)) return; }
+            var item = Kitchen.Active.FirstOrDefault(i => i.Uid == captainFix);
+            if (item != null) Toast($"Captain: the {RestaurantData.Get(item.Id).Name.ToLower()} works again.");
+            captainFix = 0;
         }
 
         // Mira's calls during service (design section 9): each moment once a night, in her words.
@@ -692,6 +730,18 @@ namespace Catchline.Game
                     while (night.Hour < 19.6f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;
+                case "day-service-help": // the manager's taps: the stove breaks, a tap sends the captain; a table tap pins it
+                    {
+                        if (night == null) return false;
+                        var stove = Kitchen.Active.First(i => i.Id == ItemId.Stove); night.Break(stove.Uid);
+                        bool sent = ServiceTapTile(new Vector2Int(stove.X, stove.Y));
+                        float t = 0; while (night.Broken.Contains(stove.Uid) && t < 120) { night.Tick(.25f); CaptainWork(.25f); t += .25f; }
+                        var table = Kitchen.Active.First(i => RestaurantData.Get(i.Id).Seats > 0);
+                        bool pinned = ServiceTapTile(new Vector2Int(table.X, table.Y));
+                        Debug.Log($"[Catchline] HELP sent {sent}, stove fixed after {t:0.0}s ({!night.Broken.Contains(stove.Uid)}), table {table.Uid} pinned {pinned} ({captainTable})");
+                        RestaurantTick(0f);
+                        return sent && pinned && !night.Broken.Contains(stove.Uid);
+                    }
                 case "day-service-late": // tables eating, plates on the tables
                     if (night == null) return false;
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);

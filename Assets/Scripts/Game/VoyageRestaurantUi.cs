@@ -175,6 +175,8 @@ namespace Catchline.Game
         // S2 on a desktop: the service HUD over the 3D room (ui-service-desktop.png), in the mockup's own 1440x900 frame.
         void InterfaceRestaurantService(RestaurantServiceView v)
         {
+            // The room under the HUD takes the manager's taps (drawn first, so every HUD piece sits above it).
+            if (night != null && restaurantWorld != null && restaurantWorld.Sim == night) coastalUi.HitArea("rsvc/room", new Rect(0, 0, iw, ih), ServiceTap);
             if (compactInterface) { InterfaceRestaurantServicePhone(v); return; }
             float k = Mathf.Min(iw / 1440f, ih / 900f);
             var f = coastalUi.Sliced("rsvc/frame", new Rect((iw - 1440 * k) / 2, (ih - 900 * k) / 2, 1440, 900), "");
