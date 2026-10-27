@@ -1,0 +1,315 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "../../../concepts/ui-9-crew-priorities.png",
+      "backgroundSha256": "b7eb220074ffac20b54ead6b922e95bfb94a55d9d98f42103b07f1381dfbf88a",
+      "placements": [
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-0-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            90,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-host",
+          "use": "crew-0-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            89,
+            28,
+            28
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-1-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            133,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-cook",
+          "use": "crew-1-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            137,
+            28,
+            18
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-2-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            176,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-waiter",
+          "use": "crew-2-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            178,
+            28,
+            22
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-3-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            222,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-waiter",
+          "use": "crew-3-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            224,
+            28,
+            22
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-4-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            268,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-barista",
+          "use": "crew-4-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            267,
+            27,
+            28
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "crew-5-tag",
+          "screen": "phone",
+          "rect": [
+            210,
+            313,
+            122,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-handyman",
+          "use": "crew-5-role",
+          "screen": "phone",
+          "rect": [
+            216,
+            313,
+            28,
+            26
+          ],
+          "z": 10
+        }
+      ]
+    },
+    {
+      "screen": "legend",
+      "canvas": [
+        844,
+        390
+      ],
+      "placements": [
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-0-tag",
+          "screen": "legend",
+          "rect": [
+            35,
+            105,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-host",
+          "use": "legend-0-role",
+          "screen": "legend",
+          "rect": [
+            49,
+            120,
+            28,
+            28
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-1-tag",
+          "screen": "legend",
+          "rect": [
+            305,
+            105,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-cook",
+          "use": "legend-1-role",
+          "screen": "legend",
+          "rect": [
+            319,
+            125,
+            28,
+            18
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-2-tag",
+          "screen": "legend",
+          "rect": [
+            575,
+            105,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-waiter",
+          "use": "legend-2-role",
+          "screen": "legend",
+          "rect": [
+            589,
+            123,
+            28,
+            22
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-3-tag",
+          "screen": "legend",
+          "rect": [
+            35,
+            215,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-dishwasher",
+          "use": "legend-3-role",
+          "screen": "legend",
+          "rect": [
+            49,
+            230,
+            28,
+            27
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-4-tag",
+          "screen": "legend",
+          "rect": [
+            305,
+            215,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-barista",
+          "use": "legend-4-role",
+          "screen": "legend",
+          "rect": [
+            319,
+            230,
+            27,
+            28
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-tag",
+          "use": "legend-5-tag",
+          "screen": "legend",
+          "rect": [
+            575,
+            215,
+            240,
+            58
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-s9-job-handyman",
+          "use": "legend-5-role",
+          "screen": "legend",
+          "rect": [
+            589,
+            231,
+            28,
+            26
+          ],
+          "z": 10
+        }
+      ]
+    }
+  ],
+  "origin": "top-left",
+  "units": "logical pixels; exports 3x",
+  "notes": "Art placement proofs only. Text remains live and separate."
+}

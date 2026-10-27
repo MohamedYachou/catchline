@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign','dishes','s5','s8/states','s7/states','s11/celebrate'):
     before=set(pieces)
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
@@ -26,7 +26,7 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
     man=X+part+'/manifest.json'
     if os.path.exists(man):
         for p in json.load(open(man)):
-            if 'rect' not in p: continue  # S13 manifest lists files only; layout.json carries rects
+            if 'rect' not in p or 'screen' not in p: continue  # S13 manifest lists files only; layout.json carries rects
             pieces[(p['screen'],p['name'])]=(p['rect'],p['size'],p.get('borders'))
     lay=X+part+'/layout.json'
     if os.path.exists(lay):

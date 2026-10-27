@@ -41,13 +41,18 @@ namespace Catchline.Game
         static readonly Dictionary<Dish, (string name, string art, string fallback)> DishLook = new()
         {
             [Dish.GrilledFish] = ("Grilled fish", "v2-dish-grilled-fish", "fish-mackerel"),
-            [Dish.PanFish] = ("Fillets", "v2-dish-fillets", "fish-pollock"),
+            [Dish.PanFish] = ("Fillets", "v2-dish-pan-fish", "fish-pollock"),
             [Dish.FishAndChips] = ("Fish & chips", "v2-dish-fish-and-chips", "icon-food"),
             [Dish.Soup] = ("Fish soup", "v2-dish-fish-soup", "icon-food"),
-            [Dish.Platter] = ("Oven platter", "v2-dish-oven-platter", "icon-food"),
+            [Dish.Platter] = ("Oven platter", "v2-dish-platter", "icon-food"),
             [Dish.Crab] = ("Crab", "v2-dish-crab", "fish-crab"),
             [Dish.Calamari] = ("Calamari", "v2-dish-calamari", "icon-squid"),
             [Dish.Coffee] = ("Coffee", "v2-dish-coffee", "v2-icon-cup"),
+            [Dish.Tea] = ("Tea", "v2-dish-tea", "v2-icon-cup"),
+            [Dish.Lemonade] = ("Lemonade", "v2-dish-lemonade", "v2-icon-cup"),
+            [Dish.Beer] = ("Beer", "v2-dish-beer", "v2-icon-cup"),
+            [Dish.Fries] = ("Fries", "v2-dish-fries", "icon-food"),
+            [Dish.Bread] = ("Bread", "v2-dish-bread", "icon-food"),
         };
         static readonly Dictionary<PreparedForm, Dish> FormDish = new()
         {
@@ -440,6 +445,10 @@ namespace Catchline.Game
             Debug.Log("[Catchline] REVIEWS " + string.Join(" | ", speak.Select(g => $"{g.Stars}* {g.Why}")) + " :: " + string.Join(" | ", v.Reviews.Select(x => x.Quote)));
             v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "Better tomorrow!";
             v.Title = r.Served >= r.Guests * .8f ? "A good night on the quay" : r.Served * 2 >= r.Guests ? "A busy night on the quay" : "A rough night on the quay";
+            // Codex 1's S5 stamps: the best takings so far (from the second night on) and a night nobody walked out of.
+            var before = State.RestaurantNights.Select(n => n.Split('|')).Where(p => p.Length >= 2 && int.TryParse(p[1], out _)).Select(p => int.Parse(p[1])).ToList();
+            v.BestNight = before.Count > 0 && r.NetCoins > before.Max();
+            v.FullHouse = r.Left == 0 && r.Guests >= 6 && r.Served >= r.Guests;
             RecordNight(r);
             var sleep = RestaurantSleepCard;
             sleep.Net = r.NetCoins; sleep.Popularity = restaurantPopularity - popularityBefore;
@@ -814,7 +823,7 @@ namespace Catchline.Game
                         while (!night.Finished && night.Hour < 22 && !night.Groups.Any(g => g.TableUid != 0 && g.Phase == GroupPhase.Kitchen)) night.Tick(.25f);
                         var waiting = night.Groups.FirstOrDefault(g => g.TableUid != 0 && g.Phase == GroupPhase.Kitchen);
                         if (waiting != null && !night.Groups.Any(g => g.Birthday)) waiting.Birthday = true; // the capture shows the event marker too
-                        miraLines.Clear(); RestaurantTick(0f);
+                        miraLines.Clear(); coachOff = true; coachLine = null; RestaurantTick(0f);
                         Debug.Log($"[Catchline] ORDERS at {night.Hour:0.00}h waiting {waiting?.Id} staff {string.Join(",", night.Staff.Select(x => x.Action))} call '{miraCall}'");
                         return waiting != null;
                     }
@@ -835,8 +844,20 @@ namespace Catchline.Game
                     while (night.Hour < 22.2f && !night.Finished) night.Tick(.25f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;
+                case "day-service-moods": // one table's patience running out (annoyed), the next about to walk (leaving)
+                    {
+                        if (night == null) return false;
+                        coachOff = true; coachLine = null; RestaurantService.Paused = false;
+                        var waiting = night.Groups.Where(g => g.TableUid != 0 && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order)).ToList();
+                        if (waiting.Count > 0) waiting[0].SeatedAt = night.Seconds - RestaurantTuning.TablePatience * .85f; // capture only: shows the warning states
+                        if (waiting.Count > 1) waiting[1].SeatedAt = night.Seconds - RestaurantTuning.TablePatience * .95f;
+                        RestaurantTick(0f);
+                        Debug.Log($"[Catchline] MOODS waiting {waiting.Count} eating {night.Groups.Count(g => g.Phase == GroupPhase.Eating)}");
+                        return waiting.Count > 0;
+                    }
                 case "day-service-late": // tables eating, plates on the tables
                     if (night == null) return false;
+                    coachOff = true; coachLine = null; RestaurantService.Paused = false;
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;

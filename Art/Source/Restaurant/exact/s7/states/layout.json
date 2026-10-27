@@ -1,0 +1,191 @@
+{
+  "screen": "phone",
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../../concepts/ui-7-market.png",
+  "backgroundSha256": "c215e7d49eb7fe1ad42d3a4394a1061111f237cabd7ed674f79fbeb66905571f",
+  "placements": [
+    {
+      "name": "v2-s7-fish-row",
+      "file": "../v2-s7-fish-row.png",
+      "rect": [
+        39,
+        100,
+        517,
+        73
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-fish-mackerel",
+      "file": "../v2-s7-fish-mackerel.png",
+      "rect": [
+        47,
+        107,
+        143,
+        55
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-state-sold-out",
+      "rect": [
+        382,
+        116,
+        145,
+        35
+      ],
+      "use": "row-1-empty",
+      "z": 60
+    },
+    {
+      "name": "v2-s7-fish-row",
+      "file": "../v2-s7-fish-row.png",
+      "rect": [
+        39,
+        175,
+        517,
+        73
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-fish-pollock",
+      "file": "../v2-s7-fish-pollock.png",
+      "rect": [
+        48,
+        181,
+        142,
+        55
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-button-sell",
+      "file": "../v2-s7-button-sell.png",
+      "rect": [
+        398,
+        211,
+        73,
+        32
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-button-keep",
+      "file": "../v2-s7-button-keep.png",
+      "rect": [
+        475,
+        211,
+        76,
+        32
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-state-fresh",
+      "rect": [
+        438,
+        177,
+        106,
+        26
+      ],
+      "use": "row-2-fresh",
+      "z": 60
+    },
+    {
+      "name": "v2-s7-fish-row",
+      "file": "../v2-s7-fish-row.png",
+      "rect": [
+        39,
+        252,
+        517,
+        65
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-fish-plaice",
+      "file": "../v2-s7-fish-plaice.png",
+      "rect": [
+        48,
+        257,
+        142,
+        54
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s7-stepper-idle",
+      "rect": [
+        385,
+        274,
+        28,
+        28
+      ],
+      "use": "minus-idle",
+      "z": 70,
+      "variant": "idle",
+      "mutuallyExclusive": "quantity-stepper-state"
+    },
+    {
+      "name": "v2-s7-stepper-idle",
+      "rect": [
+        482,
+        274,
+        28,
+        28
+      ],
+      "use": "plus-idle",
+      "z": 70,
+      "variant": "idle",
+      "mutuallyExclusive": "quantity-stepper-state"
+    },
+    {
+      "name": "v2-s7-stepper-pressed",
+      "rect": [
+        385,
+        274,
+        28,
+        28
+      ],
+      "use": "minus-pressed",
+      "z": 70,
+      "variant": "pressed",
+      "mutuallyExclusive": "quantity-stepper-state"
+    },
+    {
+      "name": "v2-s7-stepper-pressed",
+      "rect": [
+        482,
+        274,
+        28,
+        28
+      ],
+      "use": "plus-pressed",
+      "z": 70,
+      "variant": "pressed",
+      "mutuallyExclusive": "quantity-stepper-state"
+    }
+  ],
+  "notes": "Quantity mock values illustrative. Clamp quantity to available unsold kg; disable minus at0 and plus at available. Sold-out removes Sell/Keep actions, does not hide species. Fresh tag demo occupies row2 top-right; no price/buyer change. Both symbols are live text, same shared background for plus/minus."
+}

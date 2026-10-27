@@ -103,6 +103,7 @@ namespace Catchline.Game
             public int Stars = 3, PopularityFrom = 42, PopularityTo = 46; public float Popularity = .82f, PopularityBefore = .74f;
             public string CrewOfTheNight = "Jo", CrewPortrait = "deckhand";
             public string MiraLine = "Same time tomorrow?", Title = "A good night on the quay";
+            public bool BestNight = true, FullHouse = true;
             public List<RestaurantReview> Reviews = new()
             {
                 new() { Portrait = "fisher", Stars = 5, Quote = "Fish worth the wait." },
@@ -473,6 +474,22 @@ namespace Catchline.Game
                 var choice = g.Tickets.FirstOrDefault(t => t.Phase == TicketPhase.Choice);
                 var wait = g.Tickets.FirstOrDefault(t => t.Phase != TicketPhase.Delivered && t.Phase != TicketPhase.Abandoned);
                 float patience = Mathf.Clamp01(1 - (night.Seconds - g.SeatedAt) / (RestaurantTuning.TablePatience + g.LastPatienceBoost));
+                // Codex 1's moods: hearts at a table served fast and hot, a puff when a plate came cold or the wait runs long,
+                // the walking-out arrow just before they give up.
+                string mood = null;
+                if (g.Phase == GroupPhase.Eating && g.Tickets.Count > 0)
+                {
+                    float served = g.Tickets.Max(t => t.DeliveredAt) - g.SeatedAt;
+                    mood = g.Tickets.Any(t => t.Cold) ? "v2-s15-mood-annoyed" : served < RestaurantTuning.TablePatience * .5f ? "v2-s15-mood-happy" : null;
+                }
+                else if (wait != null && patience < .08f) mood = "v2-s15-mood-leaving";
+                else if (wait != null && patience < .25f) mood = "v2-s15-mood-annoyed";
+                if (mood != null && HasUi("rx-" + mood.Substring(3)))
+                {
+                    var m = mood.EndsWith("happy") ? new Vector2(32, 25) : mood.EndsWith("annoyed") ? new Vector2(31, 32) : new Vector2(34, 18);
+                    bool beside = wait != null; // left of the order bubble, else right above the table
+                    P(id + "/mood", mood, new Rect(at.x + (beside ? -33 - 4 - m.x : -m.x / 2) * s, at.y - (beside ? 44 : 30) * s - m.y * s / 2, m.x * s, m.y * s));
+                }
                 if (choice != null) P(id + "/ask", "v2-s15-question-bubble", new Rect(at.x - 18 * s, at.y - 50 * s, 36 * s, 37 * s));
                 else if (g.Phase == GroupPhase.Payment) P(id + "/tip", "v2-s15-tip-pop", new Rect(at.x - 15 * s, at.y - 34 * s, 30 * s, 20 * s));
                 else if (wait != null && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order))
@@ -1574,6 +1591,16 @@ namespace Catchline.Game
             Rx("rclose/head", 5, "v2-closing-header", f);
             RxText("rclose/title", 5, "closing-title", v.Title, f);
             Rx("rclose/moon", 5, "v2-icon-moon", f);
+            if (v.BestNight && HasUi("rx-s5-best-night-ribbon"))
+            {
+                Rx("rclose/best", "phone", "v2-s5-best-night-ribbon#v2-s5-best-night-ribbon", f, null, "rx-s5-best-night-ribbon");
+                RxText("rclose/best/t", "phone", "best-night-label", "Best night yet!", f);
+            }
+            if (v.FullHouse && HasUi("rx-s5-full-house-stamp"))
+            {
+                Rx("rclose/full", "phone", "v2-s5-full-house-stamp#v2-s5-full-house-stamp", f, null, "rx-s5-full-house-stamp");
+                RxText("rclose/full/t", "phone", "full-house-label", "Full house", f);
+            }
 
             // Column 1: the till.
             Rx("rclose/served", 5, "v2-metric-row#served count row", f, null, "rx-metric-row");

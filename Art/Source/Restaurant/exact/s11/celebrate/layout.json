@@ -1,0 +1,78 @@
+{
+  "screen": "phone",
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "background": "../../../concepts/ui-11-stage-up.png",
+  "backgroundSha256": "969e07b9e2e4ce3b7874dfaaf4625938dd81d6a64fc470e00be4f4391e9df8eb",
+  "placements": [
+    {
+      "name": "v2-s11-illustration-frame",
+      "file": "../v2-s11-illustration-frame.png",
+      "rect": [
+        14,
+        66,
+        358,
+        307
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 10,
+      "external": true
+    },
+    {
+      "name": "v2-s11-celebrate-rays",
+      "rect": [
+        47,
+        80,
+        300,
+        298
+      ],
+      "use": "behind-new-facade",
+      "z": 20,
+      "renderOpacity": 0.55
+    },
+    {
+      "name": "v2-s11-illustration",
+      "file": "../v2-s11-illustration.png",
+      "rect": [
+        27,
+        124,
+        332,
+        176
+      ],
+      "use": "accepted-kit-reuse",
+      "z": 30,
+      "external": true
+    },
+    {
+      "name": "v2-s11-new-stage-ribbon",
+      "rect": [
+        100,
+        300,
+        194,
+        36
+      ],
+      "use": "new-stage-banner",
+      "z": 50
+    },
+    {
+      "name": "v2-s11-confetti-strip",
+      "rect": [
+        136,
+        148,
+        55,
+        53
+      ],
+      "use": "facade-confetti-peak",
+      "frame": 2,
+      "z": 40,
+      "anchor": [
+        162.15853658536585,
+        173.175
+      ]
+    }
+  ],
+  "notes": "Effects behind/over new facade only; right-hand unlock list and Wonderful remain unobscured. Actual-size demo shows peak frame. Labels live. Same effects reuse at all stages. Radial rays scale uniformly rather than nine-slice. Confetti is transient, no input blocking."
+}

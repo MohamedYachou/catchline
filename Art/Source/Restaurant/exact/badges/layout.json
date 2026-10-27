@@ -1,0 +1,42 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "../../concepts/ui-6-dashboard.png",
+      "backgroundSha256": "cc53d3fe76cf84c45a287614a5529618b8fd0b4c8b50c9415e24f539579c782d",
+      "placements": [
+        {
+          "name": "v2-hud-count-badge",
+          "use": "dashboard-count",
+          "screen": "phone",
+          "rect": [
+            345,
+            54,
+            30,
+            22
+          ],
+          "z": 10
+        },
+        {
+          "name": "v2-hud-new-flag",
+          "use": "upgrades-new",
+          "screen": "phone",
+          "rect": [
+            787,
+            319,
+            45,
+            24
+          ],
+          "z": 10
+        }
+      ]
+    }
+  ],
+  "origin": "top-left",
+  "units": "logical pixels; exports 3x",
+  "notes": "Art placement proofs only. Text remains live and separate."
+}

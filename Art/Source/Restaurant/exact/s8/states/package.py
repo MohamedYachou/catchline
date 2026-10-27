@@ -37,16 +37,19 @@ def finish(folder,entries,uses,styles,fits,im,bg,notes):
  im.save(folder/'reconstructed-3x.png')
  im.resize((844,390),Image.Resampling.LANCZOS).convert('RGB').save(folder/'actual-size-context.jpg',quality=97)
  # A bespoke contact avoids clipping the very long animation strips.
- contact=Image.new('RGBA',(1260,len(entries)*210),'#EAE3D4');d=ImageDraw.Draw(contact)
+ heights=[210 if e.get('animation') else max(210,e['logicalSize'][1]+90) for e in entries]
+ contact=Image.new('RGBA',(1260,sum(heights)),'#EAE3D4');d=ImageDraw.Draw(contact)
+ y=0
  for i,e in enumerate(entries):
-  y=i*210;a=Image.open(folder/e['file']).convert('RGBA')
+  a=Image.open(folder/e['file']).convert('RGBA')
   if e.get('animation'):
    for j,f in enumerate(e['animation']['frames']):
     x,yy,w,h=f['rect'];q=a.crop((x,yy,x+w,yy+h));q.thumbnail((155,145));contact.alpha_composite(q,(16+j*185,y+30))
   else:
    q=ImageOps.contain(a,(600,135));contact.alpha_composite(q,(16,y+27))
    tiny=a.resize(tuple(e['logicalSize']),Image.Resampling.LANCZOS);contact.alpha_composite(tiny,(700,y+40))
-  d.text((16,y+175),e['name'],font=ImageFont.truetype(str(k.FONT),19),fill='#173F57')
+  d.text((16,y+heights[i]-35),e['name'],font=ImageFont.truetype(str(k.FONT),19),fill='#173F57')
+  y+=heights[i]
  contact.convert('RGB').save(folder/'contact-sheet.jpg',quality=96)
 
 def particle_strip(folder,name,particles,count,kind):
@@ -194,7 +197,7 @@ def celebrate():
  rays=Image.open(C/e['file']).convert('RGBA');rays.putalpha(rays.getchannel('A').point(lambda a:round(a*.55)));k.put(im,rays,r)
  reuse(im,'s11','v2-s11-illustration.png',[27,124,332,176],uses,z=30)
  text(im,styles,fits,'facade-heading','phone','A new sign on the quay',[48,84,294,26],20,'center')
- text(im,styles,fits,'facade-footer','phone','Your next chapter begins',[45,327,299,26],19,'center')
+ text(im,styles,fits,'facade-footer','phone','Your next chapter begins',[45,343,299,22],17,'center')
  e=entries[2];r=[100,300,194,36];placement(entries,uses,e['name'],r,'new-stage-banner',z=50);paint(im,C,e,r)
  text(im,styles,fits,'new-stage-label','phone','New stage!',[126,307,143,21],18,'center')
  e=entries[1];rec=e['animation']['frames'][2];x,y,w,h=rec['rect'];q=Image.open(C/e['file']).crop((x,y,x+w,y+h));r=[136,148,w//3,h//3];k.put(im,q,r)

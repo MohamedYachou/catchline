@@ -1,0 +1,191 @@
+{
+  "screens": [
+    {
+      "screen": "evening-phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "placements": [
+        {
+          "name": "v2-transition-evening-phone",
+          "use": "full-bleed-evening",
+          "screen": "evening-phone",
+          "rect": [
+            0,
+            0,
+            844,
+            390
+          ],
+          "z": 0
+        },
+        {
+          "name": "v2-transition-title-band",
+          "use": "separate-title-band",
+          "screen": "evening-phone",
+          "rect": [
+            122,
+            284,
+            600,
+            90
+          ],
+          "z": 10
+        }
+      ],
+      "titleRect": [
+        146,
+        291,
+        552,
+        40
+      ],
+      "subtitleRect": [
+        144,
+        335,
+        556,
+        27
+      ],
+      "notes": "No extra action button. Caller owns timing and flow; fade/cut for reduced motion. Subtitle stays on one line."
+    },
+    {
+      "screen": "evening-desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "placements": [
+        {
+          "name": "v2-transition-evening-desktop",
+          "use": "full-bleed-evening",
+          "screen": "evening-desktop",
+          "rect": [
+            0,
+            0,
+            1440,
+            900
+          ],
+          "z": 0
+        },
+        {
+          "name": "v2-transition-title-band",
+          "use": "separate-title-band",
+          "screen": "evening-desktop",
+          "rect": [
+            270,
+            712,
+            900,
+            144
+          ],
+          "z": 10
+        }
+      ],
+      "titleRect": [
+        306,
+        722,
+        828,
+        68
+      ],
+      "subtitleRect": [
+        302,
+        799,
+        836,
+        38
+      ],
+      "notes": "No extra action button. Caller owns timing and flow; fade/cut for reduced motion. Subtitle stays on one line."
+    },
+    {
+      "screen": "morning-phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "placements": [
+        {
+          "name": "v2-transition-morning-phone",
+          "use": "full-bleed-morning",
+          "screen": "morning-phone",
+          "rect": [
+            0,
+            0,
+            844,
+            390
+          ],
+          "z": 0
+        },
+        {
+          "name": "v2-transition-title-band",
+          "use": "separate-title-band",
+          "screen": "morning-phone",
+          "rect": [
+            122,
+            284,
+            600,
+            90
+          ],
+          "z": 10
+        }
+      ],
+      "titleRect": [
+        146,
+        291,
+        552,
+        40
+      ],
+      "subtitleRect": [
+        144,
+        335,
+        556,
+        27
+      ],
+      "notes": "No extra action button. Caller owns timing and flow; fade/cut for reduced motion. Subtitle stays on one line."
+    },
+    {
+      "screen": "morning-desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "placements": [
+        {
+          "name": "v2-transition-morning-desktop",
+          "use": "full-bleed-morning",
+          "screen": "morning-desktop",
+          "rect": [
+            0,
+            0,
+            1440,
+            900
+          ],
+          "z": 0
+        },
+        {
+          "name": "v2-transition-title-band",
+          "use": "separate-title-band",
+          "screen": "morning-desktop",
+          "rect": [
+            270,
+            712,
+            900,
+            144
+          ],
+          "z": 10
+        }
+      ],
+      "titleRect": [
+        306,
+        722,
+        828,
+        68
+      ],
+      "subtitleRect": [
+        302,
+        799,
+        836,
+        38
+      ],
+      "notes": "No extra action button. Caller owns timing and flow; fade/cut for reduced motion. Subtitle stays on one line."
+    }
+  ],
+  "origin": "top-left",
+  "units": "logical pixels; exports 3x",
+  "notes": "Art placement proofs only. Text remains live and separate."
+}
