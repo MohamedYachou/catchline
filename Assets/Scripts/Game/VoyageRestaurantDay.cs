@@ -274,6 +274,7 @@ namespace Catchline.Game
             // The very first night opens on Mira's coaching card, the service paused behind it.
             if (State.RestaurantNights.Count == 0 && HasUi("rx-s13-background")) { RestaurantPreview = RestaurantScreen.FirstNight; RestaurantService.Paused = true; }
             miraSaid.Add("open"); miraLines.Enqueue("Doors open! Service starts at 18:00.");
+            if (HasUi("rx-transition-evening-phone")) Transition("evening");
         }
 
         // Per frame while the night runs: tick the rules, then refresh the service screen's numbers.
@@ -346,6 +347,15 @@ namespace Catchline.Game
         // Mira's calls during service (design section 9): each moment once a night, in her words.
         readonly HashSet<string> miraSaid = new();
         string miraCall; float miraCallUntil;
+        // Codex 1's Mira expressions for each call: worried at trouble, excited at a party, proud at the last plates.
+        readonly Dictionary<string, string> miraMood = new();
+        static string MoodOf(string key) => key is "birthday" or "tour" ? "excited" : key is "queue" or "no-fish" or "no-soup" || key.StartsWith("broken-") ? "worried"
+            : key == "door" ? "proud" : "happy";
+        string MiraSprite(string line, string use)
+        {
+            string s = $"rx-mira-{(line != null && miraMood.TryGetValue(line, out var m) ? m : "happy")}-{use}";
+            return HasUi(s) ? s : use == "call" ? "rx-s2-call-mira" : "rx-coach-mira";
+        }
         void CloseServiceDoor()
         {
             if (night == null || night.DoorClosed) return;
@@ -366,7 +376,7 @@ namespace Catchline.Game
             if (RestaurantPreview == RestaurantScreen.FirstNight) return;
             void Say(string key, string line)
             {
-                if (miraSaid.Add(key)) { miraLines.Enqueue(line); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
+                if (miraSaid.Add(key)) { miraLines.Enqueue(line); miraMood[line] = MoodOf(key); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
             }
             if (night.Groups.Any(g => g.TableUid != 0)) Say("seated", "First table seated. Here we go!");
             if (night.Groups.Any(g => g.Birthday && g.TableUid != 0)) Say("birthday", "A birthday at our table! Make it special.");
@@ -466,10 +476,11 @@ namespace Catchline.Game
 
         // ---- S6 dashboard, S8 upgrades, S11 stage-up ----------------------------------------------------------------
 
-        public static readonly (string id, string name, string effect, int cost)[] RestaurantUpgrades =
+        // The reliable stove is a Bistro kitchen part (Codex 1's S8 "Needs Bistro" state); the others fit the Café.
+        public static readonly (string id, string name, string effect, int cost, int stage)[] RestaurantUpgrades =
         {
-            ("BigFridge", "Bigger fridge", "+15 portions", 600), ("ReliableStove", "Reliable stove", "Fewer breakdowns", 450),
-            ("CosyLighting", "Cosy lighting", "More guest patience", 300),
+            ("BigFridge", "Bigger fridge", "+15 portions", 600, 1), ("ReliableStove", "Reliable stove", "Fewer breakdowns", 450, 2),
+            ("CosyLighting", "Cosy lighting", "More guest patience", 300, 1),
         };
         static readonly string[] StagePitch = { "", "", "More tables and a terrace", "A proper dining room and a bar", "Booths, a fish counter, the big terrace" };
         static readonly (string reward, string[] unlocks)[] StageUnlocks =
@@ -724,7 +735,7 @@ namespace Catchline.Game
         bool BuyRestaurantUpgrade(string id)
         {
             var u = RestaurantUpgrades.First(x => x.id == id);
-            if (Kitchen.HasUpgrade(id) || State.Coins < u.cost) return false;
+            if (Kitchen.HasUpgrade(id) || State.Coins < u.cost || Kitchen.State.Stage < u.stage) return false;
             State.Coins -= u.cost; Kitchen.State.Upgrades.Add(id);
             StoreRestaurant(); SaveGame();
             audio?.Play(VoyageAudio.Cue.Purchase, .6f);
@@ -759,19 +770,27 @@ namespace Catchline.Game
             harbourEvening = false;
             StoreRestaurant();
             SaveGame();
-            Toast("A new morning in Gull Harbour.");
+            if (HasUi("rx-transition-morning-phone")) Transition("morning"); else Toast("A new morning in Gull Harbour.");
         }
 
         // ---- capture / test: walks the real day without sailing (VoyageUiV2Capture "day-*" steps) -----------------
 
         public bool StageRestaurantDay(string step)
         {
+            if (step != "day-evening" && step != "day-morning") transitionCard = null; // the hand-off cards wait for no capture
             switch (step)
             {
+                case "day-evening": // the market closes: Evening falls over the quay before service
+                    if (night == null) { RestaurantPrepared(); if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen(); }
+                    return transitionCard == "evening";
+                case "day-morning": // after sleep: Good morning over the harbour
+                    if (night == null) return false;
+                    RestaurantSleep();
+                    return transitionCard == "morning";
                 case "day-bistro": // buys stage 2 so the next night runs in the Bistro room
                     State.Coins += 100000; restaurantPopularity = 50;
                     bool bought = BuyRestaurantStage(); RestaurantPreview = RestaurantScreen.None;
-                    foreach (var (id, _, _, _) in RestaurantUpgrades) BuyRestaurantUpgrade(id); // and the three S8 upgrades, shown in the room
+                    foreach (var (id, _, _, _, _) in RestaurantUpgrades) BuyRestaurantUpgrade(id); // and the three S8 upgrades, shown in the room
                     Debug.Log($"[Catchline] DAY bistro bought {bought}, stage {Kitchen.State.Stage}");
                     return bought;
                 case "day-exterior": case "day-exterior2": // Mira's house on the quay at its current stage
@@ -844,6 +863,10 @@ namespace Catchline.Game
                     while (night.Hour < 22.2f && !night.Finished) night.Tick(.25f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;
+                case "day-service-paused": // the player holds the night: Codex 1's pause panel
+                    if (night == null) return false;
+                    coachOff = true; coachLine = null; RestaurantService.Paused = true;
+                    return true;
                 case "day-service-moods": // one table's patience running out (annoyed), the next about to walk (leaving)
                     {
                         if (night == null) return false;

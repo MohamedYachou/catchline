@@ -169,3 +169,14 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-27 06:00) RESTAURANT-ART-6. RESTAURANT-ART
 2) exact/s9/jobs/: one job icon per restaurant job in the S9 family (host bell, cook pan, waiter tray, dishwasher sponge+plate, barista cup, handyman wrench), plus a small job tag backing that fits each word.
 3) exact/badges/: a red count badge (1-2 digits, sliceable) and a small "new" flag for dashboard tabs and harbour buttons, in the v2 HUD family.
 CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 06:20) RESTAURANT-ART-7. RESTAURANT-ART-6 (transitions, job icons, badges) ACCEPTED; Claude imports. Same 3x tight cuts + manifest/layout/text-styles + actual-size review:
+1) exact/mira-moods/: Mira host expressions for the call strip and coach card, same framing/size as v2-s2-call-mira and v2-coach-mira: happy (default), worried (out of stock, breakdown), excited (birthday, tour, full house), proud (closing, best night). Names v2-mira-<mood>-call / v2-mira-<mood>-coach.
+2) exact/s3/special/: a "Today's special" chalkboard card for the S3 plan screen (dish slot, name line, "+tips" line), in the ui-3 family.
+3) exact/s2/pause/: the service pause panel (Resume, Speed tips, Back to the harbour) in the S2/S13 family, phone and desktop placements.
+CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 06:45) RESTAURANT-ART-8. RESTAURANT-ART-7 (Mira moods, S3 special, S2 pause) ACCEPTED; Claude imports. Same process as S6-S15 (paint the mockup first, then 3x tight cuts + manifest/layout/text-styles + actual-size review):
+1) exact/s16/: S16 week report, shown after the 7th night's closing: concepts/ui-16-week.png (844x390, S5/S6 family) with this week's takings per night (7 bars), best dish (medal + dish slot), crew of the week (bust slot), popularity start->end, total coins, "Next week" button. Cut every piece 1:1, labels live.
+2) exact/s3/reservation/: a reservation card for the S3 plan (special guest request): guest face slot, party size, time, wished dish slot, Accept / Decline buttons, in the ui-3 family; phone placement over a copy of ui-3.
+CHECKPOINT after each. No Assets/code/git.

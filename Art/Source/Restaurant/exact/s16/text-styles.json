@@ -1,0 +1,585 @@
+{
+  "styles": [
+    {
+      "id": "title",
+      "screen": "week",
+      "text": "A week at Mira's",
+      "rect": [
+        185,
+        19,
+        420,
+        36
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 31,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 33
+    },
+    {
+      "id": "income-title",
+      "screen": "week",
+      "text": "Seven lovely nights",
+      "rect": [
+        42,
+        88,
+        376,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 23,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 25
+    },
+    {
+      "id": "best-dish",
+      "screen": "week",
+      "text": "Best dish",
+      "rect": [
+        654,
+        87,
+        154,
+        24
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 20,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 22
+    },
+    {
+      "id": "dish-name",
+      "screen": "week",
+      "text": "Grilled fish",
+      "rect": [
+        654,
+        116,
+        154,
+        23
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 20,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 22
+    },
+    {
+      "id": "dish-count",
+      "screen": "week",
+      "text": "48 served",
+      "rect": [
+        654,
+        144,
+        154,
+        20
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "crew-title",
+      "screen": "week",
+      "text": "Crew of the week",
+      "rect": [
+        579,
+        198,
+        228,
+        28
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 21,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 23
+    },
+    {
+      "id": "crew-name",
+      "screen": "week",
+      "text": "Jo",
+      "rect": [
+        579,
+        226,
+        218,
+        28
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 27,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 29
+    },
+    {
+      "id": "crew-quote",
+      "screen": "week",
+      "text": "Always one step ahead.",
+      "rect": [
+        579,
+        261,
+        226,
+        20
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 15,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 17
+    },
+    {
+      "id": "popularity-title",
+      "screen": "week",
+      "text": "Popularity",
+      "rect": [
+        82,
+        315,
+        100,
+        22
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 17,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 19
+    },
+    {
+      "id": "popularity-delta",
+      "screen": "week",
+      "text": "+6 this week",
+      "rect": [
+        334,
+        329,
+        101,
+        21
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 13,
+      "fill": "#007B77",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 15
+    },
+    {
+      "id": "total-title",
+      "screen": "week",
+      "text": "Week total",
+      "rect": [
+        516,
+        314,
+        110,
+        22
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "total-coins",
+      "screen": "week",
+      "text": "2,840",
+      "rect": [
+        515,
+        338,
+        111,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 28,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 30
+    },
+    {
+      "id": "next-week",
+      "screen": "week",
+      "text": "Next week",
+      "rect": [
+        666,
+        324,
+        146,
+        32
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 24,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 26
+    },
+    {
+      "id": "popularity-start",
+      "screen": "week",
+      "text": "40",
+      "rect": [
+        184,
+        317,
+        48,
+        38
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 31,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 33
+    },
+    {
+      "id": "popularity-end",
+      "screen": "week",
+      "text": "46",
+      "rect": [
+        267,
+        317,
+        58,
+        38
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 31,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 33
+    },
+    {
+      "id": "night-1-coins",
+      "screen": "week",
+      "text": "280",
+      "rect": [
+        43,
+        176,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-1-day",
+      "screen": "week",
+      "text": "M",
+      "rect": [
+        50,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-2-coins",
+      "screen": "week",
+      "text": "360",
+      "rect": [
+        96,
+        157,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-2-day",
+      "screen": "week",
+      "text": "T",
+      "rect": [
+        103,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-3-coins",
+      "screen": "week",
+      "text": "320",
+      "rect": [
+        149,
+        166,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-3-day",
+      "screen": "week",
+      "text": "W",
+      "rect": [
+        156,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-4-coins",
+      "screen": "week",
+      "text": "410",
+      "rect": [
+        202,
+        144,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-4-day",
+      "screen": "week",
+      "text": "T",
+      "rect": [
+        209,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-5-coins",
+      "screen": "week",
+      "text": "450",
+      "rect": [
+        255,
+        135,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-5-day",
+      "screen": "week",
+      "text": "F",
+      "rect": [
+        262,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-6-coins",
+      "screen": "week",
+      "text": "560",
+      "rect": [
+        308,
+        108,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-6-day",
+      "screen": "week",
+      "text": "S",
+      "rect": [
+        315,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    },
+    {
+      "id": "night-7-coins",
+      "screen": "week",
+      "text": "460",
+      "rect": [
+        361,
+        132,
+        48,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 16,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 18
+    },
+    {
+      "id": "night-7-day",
+      "screen": "week",
+      "text": "S",
+      "rect": [
+        368,
+        270,
+        34,
+        19
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 16
+    }
+  ],
+  "notes": "Live labels; examples are illustrative, not new game rules."
+}

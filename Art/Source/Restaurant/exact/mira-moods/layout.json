@@ -1,0 +1,179 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-2-mira-call-phone.png",
+      "backgroundSha256": "39277397ef2bfdcc46312b2e0386bc2c3480e5b1626a07a38eccc1d48a7b4939",
+      "concept": "ui-mira-moods-phone.png",
+      "placements": [
+        {
+          "name": "v2-coach-panel",
+          "external": "Art\\Source\\Restaurant\\exact\\coach-card\\v2-coach-panel.png",
+          "screen": "phone",
+          "rect": [
+            176,
+            132,
+            548,
+            160
+          ],
+          "use": "coach-speech",
+          "z": 20,
+          "externalBorders": [
+            48,
+            48,
+            114,
+            48
+          ]
+        },
+        {
+          "name": "v2-coach-got-it",
+          "external": "Art\\Source\\Restaurant\\exact\\coach-card\\v2-coach-got-it.png",
+          "screen": "phone",
+          "rect": [
+            486,
+            236,
+            116,
+            40
+          ],
+          "use": "coach-acknowledge",
+          "z": 21,
+          "externalBorders": [
+            48,
+            30,
+            48,
+            30
+          ]
+        },
+        {
+          "name": "v2-mira-excited-call",
+          "screen": "phone",
+          "rect": [
+            511,
+            47,
+            38,
+            51
+          ],
+          "use": "excited-call",
+          "z": 25,
+          "alternatives": [
+            "v2-mira-happy-call",
+            "v2-mira-worried-call",
+            "v2-mira-excited-call",
+            "v2-mira-proud-call"
+          ]
+        },
+        {
+          "name": "v2-mira-proud-coach",
+          "screen": "phone",
+          "rect": [
+            674,
+            113,
+            102,
+            136
+          ],
+          "use": "proud-coach",
+          "z": 26,
+          "alternatives": [
+            "v2-mira-happy-coach",
+            "v2-mira-worried-coach",
+            "v2-mira-excited-coach",
+            "v2-mira-proud-coach"
+          ]
+        }
+      ],
+      "notes": "Two expression examples only; retain accepted call/coach layout and swap same-size sprites by mood."
+    },
+    {
+      "screen": "desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-2-mira-call-desktop.png",
+      "backgroundSha256": "0528c9bd803f8193f0b94f0bd82546bcd108025e9b610f61d454e02897c436fd",
+      "concept": "ui-mira-moods-desktop.png",
+      "placements": [
+        {
+          "name": "v2-coach-panel",
+          "external": "Art\\Source\\Restaurant\\exact\\coach-card\\v2-coach-panel.png",
+          "screen": "desktop",
+          "rect": [
+            380,
+            555,
+            800,
+            220
+          ],
+          "use": "coach-speech",
+          "z": 20,
+          "externalBorders": [
+            48,
+            48,
+            114,
+            48
+          ]
+        },
+        {
+          "name": "v2-coach-got-it",
+          "external": "Art\\Source\\Restaurant\\exact\\coach-card\\v2-coach-got-it.png",
+          "screen": "desktop",
+          "rect": [
+            873,
+            700,
+            160,
+            52
+          ],
+          "use": "coach-acknowledge",
+          "z": 21,
+          "externalBorders": [
+            48,
+            30,
+            48,
+            30
+          ]
+        },
+        {
+          "name": "v2-mira-excited-call",
+          "screen": "desktop",
+          "rect": [
+            879,
+            80,
+            49,
+            66
+          ],
+          "use": "excited-call",
+          "z": 25,
+          "alternatives": [
+            "v2-mira-happy-call",
+            "v2-mira-worried-call",
+            "v2-mira-excited-call",
+            "v2-mira-proud-call"
+          ]
+        },
+        {
+          "name": "v2-mira-proud-coach",
+          "screen": "desktop",
+          "rect": [
+            1105,
+            518,
+            146,
+            195
+          ],
+          "use": "proud-coach",
+          "z": 26,
+          "alternatives": [
+            "v2-mira-happy-coach",
+            "v2-mira-worried-coach",
+            "v2-mira-excited-coach",
+            "v2-mira-proud-coach"
+          ]
+        }
+      ],
+      "notes": "Two expression examples only; retain accepted call/coach layout and swap same-size sprites by mood."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}

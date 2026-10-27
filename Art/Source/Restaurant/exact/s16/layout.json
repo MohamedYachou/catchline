@@ -1,0 +1,318 @@
+{
+  "screens": [
+    {
+      "screen": "week",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-background.png",
+      "backgroundSha256": "ddcf2592219ac1dbb8bcde53214351f19c11b74c3387c6ffa85d647c895bc6da",
+      "concept": "ui-16-week.png",
+      "placements": [
+        {
+          "name": "v2-s16-background",
+          "screen": "week",
+          "rect": [
+            0,
+            0,
+            844,
+            390
+          ],
+          "use": "wall",
+          "z": 0
+        },
+        {
+          "name": "v2-s16-title-sign",
+          "screen": "week",
+          "rect": [
+            160,
+            3,
+            524,
+            61
+          ],
+          "use": "week-title",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-income-panel",
+          "screen": "week",
+          "rect": [
+            18,
+            73,
+            430,
+            222
+          ],
+          "use": "seven-night-income",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-award-panel",
+          "screen": "week",
+          "rect": [
+            460,
+            73,
+            366,
+            102
+          ],
+          "use": "best-dish-card",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-award-panel",
+          "screen": "week",
+          "rect": [
+            460,
+            183,
+            366,
+            112
+          ],
+          "use": "crew-card",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-summary-panel",
+          "screen": "week",
+          "rect": [
+            18,
+            306,
+            430,
+            68
+          ],
+          "use": "popularity-summary",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-total-panel",
+          "screen": "week",
+          "rect": [
+            460,
+            306,
+            178,
+            68
+          ],
+          "use": "week-total",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-primary",
+          "screen": "week",
+          "rect": [
+            652,
+            309,
+            174,
+            60
+          ],
+          "use": "next-week",
+          "z": 10
+        },
+        {
+          "name": "v2-s16-medal",
+          "screen": "week",
+          "rect": [
+            475,
+            94,
+            53,
+            67
+          ],
+          "use": "best-dish-medal",
+          "z": 22
+        },
+        {
+          "name": "v2-s16-dish-slot",
+          "screen": "week",
+          "rect": [
+            535,
+            91,
+            108,
+            72
+          ],
+          "use": "best-dish-slot",
+          "z": 20
+        },
+        {
+          "name": "v2-s16-crew-slot",
+          "screen": "week",
+          "rect": [
+            474,
+            194,
+            92,
+            92
+          ],
+          "use": "crew-bust-slot",
+          "z": 20
+        },
+        {
+          "name": "v2-s16-star",
+          "screen": "week",
+          "rect": [
+            33,
+            323,
+            38,
+            36
+          ],
+          "use": "popularity-star",
+          "z": 22
+        },
+        {
+          "name": "v2-s16-coin",
+          "screen": "week",
+          "rect": [
+            472,
+            331,
+            39,
+            24
+          ],
+          "use": "total-coin",
+          "z": 22
+        },
+        {
+          "name": "v2-s16-axis",
+          "screen": "week",
+          "rect": [
+            44,
+            266,
+            378,
+            2
+          ],
+          "use": "income-baseline",
+          "z": 20
+        },
+        {
+          "name": "v2-dish-grilled-fish",
+          "external": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-dish-grilled-fish.png",
+          "externalSha256": "e952989e52741a1cf277bca8c19bb8299253ba09dbc88f3957a1fdc9b412dbba",
+          "rect": [
+            540,
+            99,
+            98,
+            55
+          ],
+          "screen": "week",
+          "use": "example-best-dish",
+          "z": 25
+        },
+        {
+          "name": "v2-rbust-jo",
+          "external": "Art\\Source\\Restaurant\\clothes\\busts\\v2-rbust-jo.png",
+          "externalSha256": "abddbb7617d19dc5f57a7556ee1e76ec514df4b2f871edb93fe9b2ec1ae68e98",
+          "rect": [
+            480,
+            196,
+            81,
+            90
+          ],
+          "screen": "week",
+          "use": "example-crew-jo",
+          "z": 25
+        },
+        {
+          "name": "v2-s16-arrow",
+          "screen": "week",
+          "rect": [
+            241,
+            328,
+            16,
+            20
+          ],
+          "use": "popularity-direction",
+          "z": 23
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            50,
+            198,
+            34,
+            68
+          ],
+          "use": "night-1",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            103,
+            179,
+            34,
+            87
+          ],
+          "use": "night-2",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            156,
+            188,
+            34,
+            78
+          ],
+          "use": "night-3",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            209,
+            166,
+            34,
+            100
+          ],
+          "use": "night-4",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            262,
+            157,
+            34,
+            109
+          ],
+          "use": "night-5",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-gold",
+          "screen": "week",
+          "rect": [
+            315,
+            130,
+            34,
+            136
+          ],
+          "use": "night-6",
+          "z": 21
+        },
+        {
+          "name": "v2-s16-bar-teal",
+          "screen": "week",
+          "rect": [
+            368,
+            154,
+            34,
+            112
+          ],
+          "use": "night-7",
+          "z": 21
+        }
+      ],
+      "hitRects": {
+        "next-week": [
+          652,
+          309,
+          174,
+          60
+        ]
+      },
+      "notes": "Shown after seventh closing. Seven income values sum to2840; Saturday is highlighted as best night. Example stars/popularity, best dish and crew are live content. No new economy rules. Empty nights use zero-height hidden bars, value0 and day label. Dynamic bars nine-slice vertically; hide below minimum cap height instead of inverting borders."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}

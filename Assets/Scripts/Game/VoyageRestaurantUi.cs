@@ -211,6 +211,7 @@ namespace Catchline.Game
             T("rsvc/strip/l2", "timeline-label-3", "23:00", new Rect(814, 52, 50, 18), TextAnchor.MiddleCenter, null, tl);
             if (door) ServiceDoorAndCall("desktop", "rsvc", f);
             if (door) ServiceCoach("desktop", "rsvc", f);
+            ServicePause("desktop", "rsvc", f);
 
             D("rsvc/coins", "v2-wallet-pill#desktop-wallet-pill-01");
             D("rsvc/coins/icon", "v2-icon-coin-service#desktop-icon-coin-service-01", null, "rx-s12-icon-coin-service");
@@ -322,6 +323,7 @@ namespace Catchline.Game
             RxText("rsph/strip/now/t", "phone", "now", "NOW", f, new Rect(nowX - flag.width / 2, 5, flag.width, 12));
             if (door) ServiceDoorAndCall("phone", "rsph", f);
             if (door) ServiceCoach("phone", "rsph", f);
+            ServicePause("phone", "rsph", f);
 
             P("rsph/coins", "v2-wallet-pill#phone-wallet-pill-01");
             Rx("rsph/coins/icon", "phone", "", f, new Rect(527, 7, 32, 32), "rx-s12-icon-coin-service");
@@ -414,7 +416,7 @@ namespace Catchline.Game
             if (miraCall != null && SimTime < miraCallUntil)
             {
                 coastalUi.Piece(id + "/call", At("v2-s2-call-bubble#reusable-call-bubble"), "rx-s2-call-bubble", f, new Vector4(48, 36, 114, 36), 3);
-                ArrangeArt(Rx(id + "/call/mira", screen, "v2-s2-call-mira#accepted-host-bust", f, null, "rx-s2-call-mira"));
+                ArrangeArt(Rx(id + "/call/mira", screen, "v2-s2-call-mira#accepted-host-bust", f, null, MiraSprite(miraCall, "call")));
                 RxText(id + "/call/t", screen, "mira-call", miraCall, f, null, TextAnchor.MiddleLeft);
             }
         }
@@ -432,6 +434,32 @@ namespace Catchline.Game
             return sb.ToString();
         }
 
+        // Codex 1's pause panel (exact/s2/pause) while the player holds the service: resume, Mira's speed tips, or the
+        // upgrades (whose Back returns to the night).
+        void ServicePause(string screen, string id, Transform f)
+        {
+            var v = RestaurantService;
+            if (!v.Paused || coachLine != null || !HasUi("rx-s2-pause-panel")) return;
+            Rect At(string key) => RestaurantExact.Pieces[$"{screen}:{key}"].rect;
+            coastalUi.HitArea(id + "/hold/block", new Rect(-4000, -4000, 9000, 9000), () => { }, f);
+            coastalUi.Piece(id + "/hold", At("v2-s2-pause-panel#pause-paper"), "rx-s2-pause-panel", f, RestaurantExact.Pieces[$"{screen}:v2-s2-pause-panel#pause-paper"].border, 3);
+            RxText(id + "/hold/title", screen, "pause-title", "Service paused", f);
+            void Button(string use, string piece, string words, System.Action act)
+            {
+                var r = At($"{piece}#{use}");
+                coastalUi.Piece($"{id}/hold/{use}", r, "rx-" + piece.Substring(3), f, RestaurantExact.Pieces[$"{screen}:{piece}#{use}"].border, 3);
+                RxText($"{id}/hold/{use}/t", screen, use, words, f);
+                coastalUi.HitArea($"{id}/hold/{use}/hit", r, () => { act(); audio?.Play(VoyageAudio.Cue.Select, .4f); }, f);
+            }
+            Button("resume", "v2-s2-pause-primary", "Resume", () => v.Paused = false);
+            Button("speed-tips", "v2-s2-pause-secondary", "Speed tips", () =>
+            {
+                coachLine = "At ×2 the evening flies and the crew keeps up. Slow down when a station breaks or the queue grows.";
+                coachPaused = false; miraMood[coachLine] = "happy";
+            });
+            Button("back-harbour", "v2-s2-pause-secondary", "Upgrades", () => { v.Paused = false; OpenRestaurantUpgrades(); });
+        }
+
         // Codex 1's coach card: Mira's first-night lines over the paused service, Got it and a quiet Skip.
         void ServiceCoach(string screen, string id, Transform f)
         {
@@ -439,7 +467,7 @@ namespace Catchline.Game
             Rect At(string key) => RestaurantExact.Pieces[$"{screen}:{key}"].rect;
             coastalUi.HitArea(id + "/coach/block", new Rect(-4000, -4000, 9000, 9000), () => { }, f); // the room waits under the card
             coastalUi.Piece(id + "/coach", At("v2-coach-panel#coach-speech"), "rx-coach-panel", f, new Vector4(48, 48, 114, 48), 3);
-            ArrangeArt(Rx(id + "/coach/mira", screen, "v2-coach-mira#host-portrait", f, null, "rx-coach-mira"));
+            ArrangeArt(Rx(id + "/coach/mira", screen, "v2-coach-mira#host-portrait", f, null, MiraSprite(coachLine, "coach")));
             RxText(id + "/coach/t", screen, "coaching-line", Lines(coachLine, 44), f, null, TextAnchor.MiddleLeft); // Codex measured 3 lines of ~44
             coastalUi.Piece(id + "/coach/ok", At("v2-coach-got-it#acknowledge"), "rx-coach-got-it", f, new Vector4(48, 30, 48, 30), 3);
             RxText(id + "/coach/ok/t", screen, "got-it", "Got it", f);
@@ -852,9 +880,32 @@ namespace Catchline.Game
         // Returns true when a restaurant screen took the frame.
         Font restaurantDisplay, restaurantBody;
 
+        // Codex 1's hand-off cards (exact/transition): Evening falls as service begins, Good morning after sleep; a tap or a
+        // few seconds clears them.
+        string transitionCard; float transitionUntil;
+        void Transition(string card) { transitionCard = card; transitionUntil = SimTime + 2.6f; }
+
+        void InterfaceTransition()
+        {
+            bool phone = compactInterface; string sc = $"{transitionCard}-{(phone ? "phone" : "desktop")}";
+            float W = phone ? 844 : 1440, H = phone ? 390 : 900, k = Mathf.Min(iw / W, ih / H);
+            var f = coastalUi.Sliced("rtrans/frame", new Rect((iw - W * k) / 2, (ih - H * k) / 2, W, H), "");
+            f.localScale = new Vector3(k, k, 1); frameScale = k;
+            // The painting covers the whole screen (cropped, never stretched); band and words keep the mockup frame.
+            float c = Mathf.Max(iw / (W * k), ih / (H * k));
+            coastalUi.Piece("rtrans/bg", new Rect(W / 2 - W * c / 2, H / 2 - H * c / 2, W * c, H * c), $"rx-transition-{sc}", f, Vector4.zero, 3);
+            coastalUi.Piece("rtrans/band", RestaurantExact.Pieces[$"{sc}:v2-transition-title-band#separate-title-band"].rect, "rx-transition-title-band", f, new Vector4(90, 75, 90, 75), 3);
+            RxText("rtrans/title", sc, $"{transitionCard}-title", transitionCard == "evening" ? "Evening falls" : "Good morning", f);
+            RxText("rtrans/sub", sc, $"{transitionCard}-subtitle", transitionCard == "evening"
+                ? (State.RestaurantNights.Count == 0 ? "The lanterns are lit. Time to welcome your first guests." : "The lanterns are lit. Time to welcome your guests.")
+                : "A fresh day at the harbour. Mira has your plan.", f);
+            coastalUi.HitArea("rtrans/hit", new Rect(-4000, -4000, 9000, 9000), () => transitionUntil = 0, f);
+        }
+
         bool InterfaceRestaurant()
         {
-            if (RestaurantPreview == RestaurantScreen.None) return false;
+            if (transitionCard != null && SimTime >= transitionUntil && !captureFreeze) transitionCard = null;
+            if (RestaurantPreview == RestaurantScreen.None && transitionCard == null) return false;
             // The restaurant draws in the mockups' kit and rounded face; the rest of the game keeps v2 for now (TODO.md).
             coastalUi.Kit = "v3-";
             coastalUi.DisplayOverride = restaurantDisplay ??= Resources.Load<Font>("Fonts/Fredoka-Bold");
@@ -876,10 +927,11 @@ namespace Catchline.Game
                     case RestaurantScreen.FirstNight: InterfaceRestaurantFirstNight(); break;
                     case RestaurantScreen.Crew: InterfaceRestaurantCrew(); break;
                 }
+                if (transitionCard != null) InterfaceTransition();
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
             // Toasts (Mira's calls in service, why an item can't go there) ride just under the screens' top bars.
-            if (toast != null && SimTime < toastUntil && coachLine == null) coastalUi.Toast("toast", toast, null, ih * (RestaurantPreview == RestaurantScreen.Service ? .26f : .14f)); // clear of Mira's call strip, not over her coach card
+            if (toast != null && SimTime < toastUntil && coachLine == null && transitionCard == null) coastalUi.Toast("toast", toast, null, ih * (RestaurantPreview == RestaurantScreen.Service ? .26f : .14f)); // clear of Mira's call strip, not over her coach card
             return true;
         }
 
@@ -1152,11 +1204,14 @@ namespace Catchline.Game
             var f = RestaurantFrame("rshop/frame");
             bool top = st.Name == null, canBuy = !top && st.StarsMet && st.Have >= st.Cost;
             string[] cardKey = { "fridge", "stove", "lighting" }, cardUse = { "primary", "stove", "lighting" };
+            bool states = HasUi("rx-s8-state-owned-card");
+            bool Locked(int i) => Kitchen.State.Stage < RestaurantUpgrades[i].stage;
             RxScreen("rshop", 8, f, style =>
             {
                 for (int i = 0; i < 3; i++)
                     if (style == $"{cardKey[i]}-cost")
-                        return HasRestaurantUpgrade(RestaurantUpgrades[i].id) ? "Owned" : Num(RestaurantUpgrades[i].cost);
+                        return HasRestaurantUpgrade(RestaurantUpgrades[i].id) ? (states ? "" : "Owned") : Locked(i) ? (states ? "" : $"Needs {StageWord(RestaurantData.Stage(RestaurantUpgrades[i].stage).Name)}")
+                            : Num(RestaurantUpgrades[i].cost);
                 return style switch
                 {
                     "wallet-value" => Num(State.Coins),
@@ -1182,6 +1237,25 @@ namespace Catchline.Game
                 }
                 for (int i = 0; i < 3; i++)
                 {
+                    // Codex 1's S8 states, measured on the fridge card (x 16) and the stove card (x 291): an owned upgrade is a muted
+                    // card with a green check, a later-stage one carries the lock tag with the stage's name.
+                    var card = RestaurantExact.Pieces[$"8:v2-s8-upgrade-card#{cardUse[i]}"].rect;
+                    Rect At(string key, float baseX) { var r = RestaurantExact.Pieces["phone:" + key].rect; return new Rect(card.x + r.x - baseX, r.y, r.width, r.height); }
+                    Rect AtT(string key, float baseX) { var r = RestaurantExact.Texts["phone:" + key].Rect; return new Rect(card.x + r.x - baseX, r.y, r.width, r.height); }
+                    if (states && HasRestaurantUpgrade(RestaurantUpgrades[i].id))
+                    {
+                        coastalUi.Piece($"rshop/owned/{i}", card, "rx-s8-state-owned-card", f, RestaurantExact.Pieces["phone:v2-s8-state-owned-card#owned-fridge-card"].border, 3);
+                        Rx($"rshop/owned/{i}/art", 8, $"v2-s8-{cardKey[i]}#primary", f, null, $"rx-s8-{cardKey[i]}");
+                        Rx($"rshop/owned/{i}/check", "phone", "v2-s8-state-owned-check#owned-check", f, At("v2-s8-state-owned-check#owned-check", 16), "rx-s8-state-owned-check");
+                        RxText($"rshop/owned/{i}/t", "phone", "owned-label", "Owned", f, AtT("owned-label", 16), TextAnchor.MiddleLeft);
+                        continue;
+                    }
+                    if (states && Locked(i))
+                    {
+                        Rx($"rshop/needs/{i}", "phone", "v2-s8-state-needs-stage#stage-gate-tag", f, At("v2-s8-state-needs-stage#stage-gate-tag", 291), "rx-s8-state-needs-stage");
+                        RxText($"rshop/needs/{i}/t", "phone", "needs-stage-label", $"Needs {StageWord(RestaurantData.Stage(RestaurantUpgrades[i].stage).Name)}", f, AtT("needs-stage-label", 291));
+                        continue;
+                    }
                     bool can = !HasRestaurantUpgrade(RestaurantUpgrades[i].id) && State.Coins >= RestaurantUpgrades[i].cost;
                     Fade(Rx($"rshop/buy-btn/{i}", 8, $"v2-s8-button-buy#{cardUse[i]}", f, null, "rx-s8-button-buy"), can ? 1 : .5f);
                     Fade(Rx($"rshop/buy-coin/{i}", 8, $"v2-s8-coin#{cardKey[i]}", f, null, "rx-s8-coin"), can ? 1 : .5f);

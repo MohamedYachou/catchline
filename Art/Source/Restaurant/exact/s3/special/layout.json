@@ -1,0 +1,55 @@
+{
+  "screens": [
+    {
+      "screen": "plan",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-3-mira-plan.png",
+      "backgroundSha256": "a1ed2d725dba49eef7c225272b5087f296e6f39af259900975264ba7a4554672",
+      "concept": "ui-3-special.png",
+      "placements": [
+        {
+          "name": "v2-s3-special-board",
+          "screen": "plan",
+          "rect": [
+            674,
+            75,
+            162,
+            209
+          ],
+          "use": "special-chalkboard",
+          "z": 20
+        },
+        {
+          "name": "v2-s3-special-dish-slot",
+          "screen": "plan",
+          "rect": [
+            700,
+            124,
+            110,
+            78
+          ],
+          "use": "dish-slot",
+          "z": 21
+        },
+        {
+          "name": "v2-dish-grilled-fish",
+          "external": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-dish-grilled-fish.png",
+          "screen": "plan",
+          "rect": [
+            711,
+            131,
+            88,
+            64
+          ],
+          "use": "example-dish",
+          "z": 22
+        }
+      ],
+      "notes": "Special card occupies right request slot in this illustrative variant; do not stack over an active request. Live dish, title and tips value supplied by caller."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}

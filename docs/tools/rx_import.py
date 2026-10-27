@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign','dishes','s5','s8/states','s7/states','s11/celebrate'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign','dishes','s5','s8/states','s7/states','s11/celebrate','transition','s9/jobs','badges','mira-moods','s3/special','s2/pause'):
     before=set(pieces)
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])

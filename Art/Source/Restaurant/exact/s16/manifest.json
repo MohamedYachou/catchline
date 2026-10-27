@@ -1,0 +1,650 @@
+[
+  {
+    "name": "v2-s16-background",
+    "file": "v2-s16-background.png",
+    "logicalSize": [
+      844,
+      390
+    ],
+    "size": [
+      2532,
+      1170
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "c1f38d85ca5c0dd0b247493a7aa8810640ad7d6af1cd6644288f8fed94b9aae9",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-background.png",
+      "sourceSha256": "ddcf2592219ac1dbb8bcde53214351f19c11b74c3387c6ffa85d647c895bc6da",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        2532,
+        1170
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": true,
+    "rect": [
+      0,
+      0,
+      844,
+      390
+    ],
+    "uses": [
+      "wall"
+    ]
+  },
+  {
+    "name": "v2-s16-title-sign",
+    "file": "v2-s16-title-sign.png",
+    "logicalSize": [
+      524,
+      61
+    ],
+    "size": [
+      1572,
+      183
+    ],
+    "borders": [
+      100,
+      24,
+      190,
+      30
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "10ab3792798c4195411d0f9d546baa4017a6a9e76cb04c0664831bc20213a87a",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-title-sign.png",
+      "sourceSha256": "c5003c933ee99e39517d73be0b0edc9869377ab397b5903539f5429b1960de5d",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        1185,
+        183
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      160,
+      3,
+      524,
+      61
+    ],
+    "uses": [
+      "week-title"
+    ]
+  },
+  {
+    "name": "v2-s16-income-panel",
+    "file": "v2-s16-income-panel.png",
+    "logicalSize": [
+      430,
+      222
+    ],
+    "size": [
+      1290,
+      666
+    ],
+    "borders": [
+      80,
+      60,
+      80,
+      70
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "561a743900bbff5faab5fb5622382ede0721a54fd9aba8a3561d90bed6b884ab",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-panel.png",
+      "sourceSha256": "d6ff02d42b6b236c85b4a07c4ace7bda17af17d6716fa279b7f99281ac5b3963",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        834,
+        642
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      18,
+      73,
+      430,
+      222
+    ],
+    "uses": [
+      "seven-night-income"
+    ]
+  },
+  {
+    "name": "v2-s16-award-panel",
+    "file": "v2-s16-award-panel.png",
+    "logicalSize": [
+      366,
+      102
+    ],
+    "size": [
+      1098,
+      306
+    ],
+    "borders": [
+      80,
+      60,
+      80,
+      70
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "dadb5424ca848fb83da83f6fbdeeb25d24244dd393a221ba5ef789207cf61858",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-panel.png",
+      "sourceSha256": "d6ff02d42b6b236c85b4a07c4ace7bda17af17d6716fa279b7f99281ac5b3963",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        834,
+        642
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      460,
+      73,
+      366,
+      102
+    ],
+    "uses": [
+      "best-dish-card",
+      "crew-card"
+    ]
+  },
+  {
+    "name": "v2-s16-summary-panel",
+    "file": "v2-s16-summary-panel.png",
+    "logicalSize": [
+      430,
+      68
+    ],
+    "size": [
+      1290,
+      204
+    ],
+    "borders": [
+      80,
+      48,
+      80,
+      70
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "8b5c45dbc1933424dd79f07757dfc2237a800ddf44a238d2ebeda2f0c4743b6a",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-panel.png",
+      "sourceSha256": "d6ff02d42b6b236c85b4a07c4ace7bda17af17d6716fa279b7f99281ac5b3963",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        834,
+        642
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      18,
+      306,
+      430,
+      68
+    ],
+    "uses": [
+      "popularity-summary"
+    ]
+  },
+  {
+    "name": "v2-s16-total-panel",
+    "file": "v2-s16-total-panel.png",
+    "logicalSize": [
+      178,
+      68
+    ],
+    "size": [
+      534,
+      204
+    ],
+    "borders": [
+      80,
+      48,
+      80,
+      70
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "cd6b4c19a7b76968b5d6a2f7cc168d359819768ac73d8431d5819f8dc76e9ff1",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-panel.png",
+      "sourceSha256": "d6ff02d42b6b236c85b4a07c4ace7bda17af17d6716fa279b7f99281ac5b3963",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        834,
+        642
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      460,
+      306,
+      178,
+      68
+    ],
+    "uses": [
+      "week-total"
+    ]
+  },
+  {
+    "name": "v2-s16-primary",
+    "file": "v2-s16-primary.png",
+    "logicalSize": [
+      174,
+      60
+    ],
+    "size": [
+      522,
+      180
+    ],
+    "borders": [
+      60,
+      45,
+      60,
+      45
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "5fecaedb77c8959841fc95c7889dd58f2992e4ced099b589cc8b925e4f3063a5",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-btn-primary.png",
+      "sourceSha256": "5d4cb668f298410cbbd8c9567a45fed6aced6e0d4d4d68b060fb7c869717ec14",
+      "sourceAlphaCrop": [
+        17,
+        7,
+        581,
+        203
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      652,
+      309,
+      174,
+      60
+    ],
+    "uses": [
+      "next-week"
+    ]
+  },
+  {
+    "name": "v2-s16-bar-teal",
+    "file": "v2-s16-bar-teal.png",
+    "logicalSize": [
+      34,
+      100
+    ],
+    "size": [
+      102,
+      300
+    ],
+    "borders": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "90965fef4fc128dd69f1a5e36fd21f20dfa5e50cbf0f434dcc1ebfe9bccae1b7",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-bar-teal.png",
+      "sourceSha256": "3296aca6b52b31b3ef5938ddd1af795b9d2f2bfd3eedd217fae8a42c6bbd1cc2",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        75,
+        120
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      50,
+      198,
+      34,
+      68
+    ],
+    "uses": [
+      "night-1",
+      "night-2",
+      "night-3",
+      "night-4",
+      "night-5",
+      "night-7"
+    ]
+  },
+  {
+    "name": "v2-s16-bar-gold",
+    "file": "v2-s16-bar-gold.png",
+    "logicalSize": [
+      34,
+      136
+    ],
+    "size": [
+      102,
+      408
+    ],
+    "borders": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "e663c82badc4ca008145c74b36e994e01264ad77f8d48073c8d10cb7a7d28c83",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-bar-gold.png",
+      "sourceSha256": "1acfb589a3ce161267dae86a423f1aa9fae8918549aa914a7dddc94d157f0140",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        78,
+        165
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      315,
+      130,
+      34,
+      136
+    ],
+    "uses": [
+      "night-6"
+    ]
+  },
+  {
+    "name": "v2-s16-medal",
+    "file": "v2-s16-medal.png",
+    "logicalSize": [
+      53,
+      67
+    ],
+    "size": [
+      159,
+      201
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "b8e8ed6786cd60bbda5d768e4715f52c497cba1fbe5da7d2beaf40cd866aaabf",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s16\\provenance\\medal.png",
+      "sourceSha256": "1f4551d2ee736765fb65f46f440ad0ee3f15c80dc77ffb13432b03a16121bce6",
+      "sourceAlphaCrop": [
+        127,
+        114,
+        1032,
+        1256
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      475,
+      94,
+      53,
+      67
+    ],
+    "uses": [
+      "best-dish-medal"
+    ]
+  },
+  {
+    "name": "v2-s16-dish-slot",
+    "file": "v2-s16-dish-slot.png",
+    "logicalSize": [
+      108,
+      72
+    ],
+    "size": [
+      324,
+      216
+    ],
+    "borders": [
+      27,
+      27,
+      27,
+      27
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "3f9f0af29d2687cd9d2ef41f43c1797524b149245f6dcec9b61508794f3bfb14",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s3\\special\\v2-s3-special-dish-slot.png",
+      "sourceSha256": "b98d1a36ae090b3f598621755e7c4063337b66d47f66dcbf1582d144ede95b3b",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        330,
+        234
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      535,
+      91,
+      108,
+      72
+    ],
+    "uses": [
+      "best-dish-slot"
+    ]
+  },
+  {
+    "name": "v2-s16-crew-slot",
+    "file": "v2-s16-crew-slot.png",
+    "logicalSize": [
+      92,
+      92
+    ],
+    "size": [
+      276,
+      276
+    ],
+    "borders": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "border_order": "left,bottom,right,top",
+    "sha256": "7b267d8fbdb4834961038deefaff2158bf718912a1bf26c81a4e4db2774cb411",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-review-card.png",
+      "sourceSha256": "4a17482f1f45eab67fb9a366cec0d7937160e3d12e0d7f82147598b74e0e945d",
+      "sourceAlphaCrop": [
+        7,
+        7,
+        650,
+        203
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      474,
+      194,
+      92,
+      92
+    ],
+    "uses": [
+      "crew-bust-slot"
+    ]
+  },
+  {
+    "name": "v2-s16-star",
+    "file": "v2-s16-star.png",
+    "logicalSize": [
+      38,
+      36
+    ],
+    "size": [
+      114,
+      108
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "1f68e9c779a69b5ee8df9f169fc9630d9306be0940661969204e9ce30f487e8c",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-star-full.png",
+      "sourceSha256": "aaeefd977ca28df3fe60a4a0c5cddcd0ba12f798f610c71731bc7a907a09c21e",
+      "sourceAlphaCrop": [
+        6,
+        7,
+        257,
+        243
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      33,
+      323,
+      38,
+      36
+    ],
+    "uses": [
+      "popularity-star"
+    ]
+  },
+  {
+    "name": "v2-s16-coin",
+    "file": "v2-s16-coin.png",
+    "logicalSize": [
+      39,
+      24
+    ],
+    "size": [
+      117,
+      72
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "dad5ace1dc8217f23932d5d6f1952b928d3a77a77968bf3252b3f869b356cfe2",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-coin.png",
+      "sourceSha256": "71d9c77bd148a487273392452cc8b89599af6b5fd90644d72837e8a1bd3a4d5e",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        273,
+        165
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      472,
+      331,
+      39,
+      24
+    ],
+    "uses": [
+      "total-coin"
+    ]
+  },
+  {
+    "name": "v2-s16-axis",
+    "file": "v2-s16-axis.png",
+    "logicalSize": [
+      370,
+      2
+    ],
+    "size": [
+      1110,
+      6
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "b2453c1b12138e6403edf96cca0c86963662b86c670835802858890b35077422",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s6\\v2-s6-divider-horizontal.png",
+      "sourceSha256": "921dc23dd1e4e80f01561733c1da71bc5372c7511ddbbd7789cbeeb3513ccc24",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        750,
+        6
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      44,
+      266,
+      378,
+      2
+    ],
+    "uses": [
+      "income-baseline"
+    ]
+  },
+  {
+    "name": "v2-s16-arrow",
+    "file": "v2-s16-arrow.png",
+    "logicalSize": [
+      16,
+      20
+    ],
+    "size": [
+      48,
+      60
+    ],
+    "borders": null,
+    "border_order": "left,bottom,right,top",
+    "sha256": "17d8cc4405822ee3985a06957051054f3fc006826653abf833bf9a0d89df9f53",
+    "provenance": {
+      "source": "Art\\Source\\Restaurant\\exact\\s16\\provenance\\right-chevron.png",
+      "sourceSha256": "d1760675ba455397837e60b1b6a10c8637d39d312146bce0242f18c214ea95b5",
+      "sourceAlphaCrop": [
+        0,
+        0,
+        54,
+        69
+      ],
+      "method": "accepted painted kit reuse or built-in ImageGen; mechanical alpha crop, aspect-preserving resize / nine-slice"
+    },
+    "native3xDetailClaim": false,
+    "opaque": false,
+    "rect": [
+      241,
+      328,
+      16,
+      20
+    ],
+    "uses": [
+      "popularity-direction"
+    ]
+  }
+]

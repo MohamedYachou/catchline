@@ -1,0 +1,171 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-2-service.png",
+      "backgroundSha256": "48cb5c813c627ddcb788dd27b9d5f4310c6b8c8e5ffe4cca76dda56ce95ef09b",
+      "dim": 150,
+      "concept": "ui-pause-phone.png",
+      "placements": [
+        {
+          "name": "v2-s2-pause-panel",
+          "screen": "phone",
+          "rect": [
+            242,
+            49,
+            360,
+            290
+          ],
+          "use": "pause-paper",
+          "z": 20
+        },
+        {
+          "name": "v2-s2-pause-primary",
+          "screen": "phone",
+          "rect": [
+            282,
+            145,
+            280,
+            44
+          ],
+          "use": "resume",
+          "z": 21
+        },
+        {
+          "name": "v2-s2-pause-secondary",
+          "screen": "phone",
+          "rect": [
+            282,
+            202,
+            280,
+            44
+          ],
+          "use": "speed-tips",
+          "z": 22
+        },
+        {
+          "name": "v2-s2-pause-secondary",
+          "screen": "phone",
+          "rect": [
+            282,
+            259,
+            280,
+            44
+          ],
+          "use": "back-harbour",
+          "z": 23
+        }
+      ],
+      "hitRects": {
+        "resume": [
+          282,
+          145,
+          280,
+          44
+        ],
+        "speed-tips": [
+          282,
+          202,
+          280,
+          44
+        ],
+        "back-harbour": [
+          282,
+          259,
+          280,
+          44
+        ]
+      },
+      "behavior": "Caller pauses service clock and sim, blocks room input, traps focus. Resume and Escape return to service. Speed tips opens caller-owned help. Back to the harbour invokes existing safe-exit/confirmation flow; this art defines no save/discard rules.",
+      "dimming": "Uniform #091F30 alpha150/255 overlay; caller primitive, no exported fullscreen sprite."
+    },
+    {
+      "screen": "desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-service-desktop.png",
+      "backgroundSha256": "623efaf65065dc953eac6425e8186925097a08124977b5e67372b4736296115b",
+      "dim": 150,
+      "concept": "ui-pause-desktop.png",
+      "placements": [
+        {
+          "name": "v2-s2-pause-panel",
+          "screen": "desktop",
+          "rect": [
+            470,
+            220,
+            500,
+            440
+          ],
+          "use": "pause-paper",
+          "z": 20
+        },
+        {
+          "name": "v2-s2-pause-primary",
+          "screen": "desktop",
+          "rect": [
+            520,
+            338,
+            400,
+            64
+          ],
+          "use": "resume",
+          "z": 21
+        },
+        {
+          "name": "v2-s2-pause-secondary",
+          "screen": "desktop",
+          "rect": [
+            520,
+            420,
+            400,
+            64
+          ],
+          "use": "speed-tips",
+          "z": 22
+        },
+        {
+          "name": "v2-s2-pause-secondary",
+          "screen": "desktop",
+          "rect": [
+            520,
+            502,
+            400,
+            64
+          ],
+          "use": "back-harbour",
+          "z": 23
+        }
+      ],
+      "hitRects": {
+        "resume": [
+          520,
+          338,
+          400,
+          64
+        ],
+        "speed-tips": [
+          520,
+          420,
+          400,
+          64
+        ],
+        "back-harbour": [
+          520,
+          502,
+          400,
+          64
+        ]
+      },
+      "behavior": "Caller pauses service clock and sim, blocks room input, traps focus. Resume and Escape return to service. Speed tips opens caller-owned help. Back to the harbour invokes existing safe-exit/confirmation flow; this art defines no save/discard rules.",
+      "dimming": "Uniform #091F30 alpha150/255 overlay; caller primitive, no exported fullscreen sprite."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}

@@ -1,0 +1,132 @@
+{
+  "screens": [
+    {
+      "screen": "plan",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\concepts\\ui-3-mira-plan.png",
+      "backgroundSha256": "a1ed2d725dba49eef7c225272b5087f296e6f39af259900975264ba7a4554672",
+      "concept": "ui-3-reservation.png",
+      "placements": [
+        {
+          "name": "v2-s3-reservation-wall-patch",
+          "screen": "plan",
+          "rect": [
+            665,
+            65,
+            179,
+            230
+          ],
+          "use": "context-remove-old-ticket",
+          "z": 29
+        },
+        {
+          "name": "v2-s3-reservation-card",
+          "screen": "plan",
+          "rect": [
+            669,
+            70,
+            168,
+            222
+          ],
+          "use": "special-reservation",
+          "z": 30
+        },
+        {
+          "name": "v2-s3-reservation-face-slot",
+          "screen": "plan",
+          "rect": [
+            680,
+            103,
+            32,
+            32
+          ],
+          "use": "guest-face-slot",
+          "z": 31
+        },
+        {
+          "name": "v2-s3-reservation-dish-slot",
+          "screen": "plan",
+          "rect": [
+            680,
+            158,
+            51,
+            29
+          ],
+          "use": "wished-dish-slot",
+          "z": 31
+        },
+        {
+          "name": "v2-s3-reservation-accept",
+          "screen": "plan",
+          "rect": [
+            680,
+            192,
+            144,
+            44
+          ],
+          "use": "accept-reservation",
+          "z": 31
+        },
+        {
+          "name": "v2-s3-reservation-decline",
+          "screen": "plan",
+          "rect": [
+            680,
+            240,
+            144,
+            44
+          ],
+          "use": "decline-reservation",
+          "z": 31
+        },
+        {
+          "name": "v2-guest-ada",
+          "external": "Art\\Source\\Restaurant\\clothes\\guests\\v2-guest-ada.png",
+          "externalSha256": "2a3eaf191afbc784d0e4a633a5b7b2db4ae4522220a49ee3a8b169c0564a48bf",
+          "rect": [
+            682,
+            105,
+            28,
+            28
+          ],
+          "screen": "plan",
+          "use": "example-guest-ada",
+          "z": 32
+        },
+        {
+          "name": "v2-dish-grilled-fish",
+          "external": "Art\\Source\\Restaurant\\exact\\s3-s5\\v2-dish-grilled-fish.png",
+          "externalSha256": "e952989e52741a1cf277bca8c19bb8299253ba09dbc88f3957a1fdc9b412dbba",
+          "rect": [
+            683,
+            160,
+            45,
+            25
+          ],
+          "screen": "plan",
+          "use": "example-wished-dish",
+          "z": 32
+        }
+      ],
+      "hitRects": {
+        "accept": [
+          680,
+          192,
+          144,
+          44
+        ],
+        "decline": [
+          680,
+          240,
+          144,
+          44
+        ]
+      },
+      "notes": "Replaces the existing right-hand request ticket only. Accept/Decline are localised live labels; use existing special-request actions, no new penalty/rule. Existing Got it button and central plan remain source reference. Guest and requested dish are external content slots. Card and special chalkboard are alternatives, never stack."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}
