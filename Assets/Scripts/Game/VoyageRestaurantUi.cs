@@ -888,11 +888,14 @@ namespace Catchline.Game
                 }
                 else if (poor && HasUi("rx-s1-state-price-disabled"))
                 {
-                    A($"rarr/item/{i}/state", "v2-s1-state-price-disabled#muted-price", S("v2-s1-state-price-disabled#muted-price", 670), "rx-s1-state-price-disabled");
-                    T($"rarr/item/{i}/statet", "poor-price", it.Price.ToString(), ST("poor-price", 670));
+                    // The drawer card is shorter than the mockup's: the grey pill rides 5 px higher and 4 px slimmer so the
+                    // reason clears the card's lower stroke (RESTAURANT-REVIEW-2).
+                    var mp = S("v2-s1-state-price-disabled#muted-price", 670); var pp = ST("poor-price", 670);
+                    A($"rarr/item/{i}/state", "v2-s1-state-price-disabled#muted-price", new Rect(mp.x + 4, mp.y - 5, mp.width - 8, mp.height - 4), "rx-s1-state-price-disabled");
+                    T($"rarr/item/{i}/statet", "poor-price", it.Price.ToString(), new Rect(pp.x, pp.y - 7, pp.width, pp.height));
                     T($"rarr/item/{i}/name", "poor-item", it.Name, ST("poor-item", 670), TextAnchor.MiddleCenter);
                     var pr = ST("poor-reason", 670);
-                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", new Rect(pr.x, pr.y - 7, pr.width, pr.height), TextAnchor.MiddleCenter);
+                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", new Rect(pr.x, mp.yMax - 8, pr.width, pr.height), TextAnchor.MiddleCenter);
                 }
                 else
                 {

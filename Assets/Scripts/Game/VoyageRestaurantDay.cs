@@ -976,6 +976,12 @@ namespace Catchline.Game
                         Debug.Log($"[Catchline] ARRANGE stored: active {had}->{Kitchen.Active.Count()}, drawer first {RestaurantArrange.Items[0].Name} free {RestaurantArrange.Items[0].Price == 0}");
                         return Kitchen.Active.Count() == had - 1 && RestaurantArrange.Items[0].StoredUid != 0;
                     }
+                case "day-arrange-poor": // the guests drawer when the wallet is short: the stored table, then a card it can't pay for
+                    State.Coins = 90; SetArrangeCategory(RestaurantArrange, 1); RestaurantArrange.Scroll = 0;
+                    return RestaurantArrange.Items.Any(i => i.StoredUid == 0 && i.Price > State.Coins);
+                case "day-dash-stored": // after day-arrange-store: the dashboard's Arrange tab counts the piece waiting in the store
+                    CloseRestaurantArrange(); OpenRestaurantDashboard();
+                    return Kitchen.State.Items.Any(i => i.Stored);
                 case "day-arrange-kitchen": // the kitchen drawer scrolled one card along
                     SetArrangeCategory(RestaurantArrange, 0); RestaurantArrange.Scroll = 157;
                     return RestaurantArrange.Items.Count > 3;
