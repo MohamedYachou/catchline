@@ -744,11 +744,13 @@ namespace Catchline.Game
             restaurantWorld.Show(Kitchen);
         }
 
+        string upgradeBought; float upgradeBoughtAt;
         bool BuyRestaurantUpgrade(string id)
         {
             var u = RestaurantUpgrades.First(x => x.id == id);
             if (Kitchen.HasUpgrade(id) || State.Coins < u.cost || Kitchen.State.Stage < u.stage) return false;
             State.Coins -= u.cost; Kitchen.State.Upgrades.Add(id);
+            upgradeBought = id; upgradeBoughtAt = SimTime; // the S8 sparkle
             StoreRestaurant(); SaveGame();
             audio?.Play(VoyageAudio.Cue.Purchase, .6f);
             Toast($"{u.name}: {u.effect.ToLowerInvariant()}.");

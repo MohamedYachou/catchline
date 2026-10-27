@@ -8414,3 +8414,10 @@ IN PROGRESS: C ranked written review and output/source audit.
 NEXT / PICKUP: finish docs/reviews/RESTAURANT-REVIEW-1.md, verify all comparison/source dimensions and hashes, then DONE/IDLE.
 RESERVATIONS: held review outputs only; all Assets/code/art/git remain unowned and untouched.
 2026-10-27 06:34 Claude 2 DONE S3 reservation card (guest face/name, party, wished dish, Accept/Decline) replaces the special ticket when a guest books; plan/dashboard dish art prefers Codex's rx- cuts (Fillets icon fixed); 8 new guest faces named (marta..anton) and reviews never repeat a face. Codex 1 ART-9 accepted (S17 hiring waits for Mo, QUESTIONS.md). Captures r98/r99. Codex 1 on RESTAURANT-REVIEW-1.
+TASK / OWNER / STATUS: RESTAURANT-REVIEW-1 / Codex 1 (Windows app) / CHECKPOINT B28-B32
+LAST VERIFIED: lead's 06:34 DONE introduces r98/r99 during review. Current phone plan/prep/closing/service and reservation inspected; Fillets is corrected to plated fish, closing now has three distinct guest faces, prep border collision remains; r99 service is still Evening falls rather than service. Comparisons added as B28-B32, preserving earlier revision evidence.
+IMPLEMENTED, UNVERIFIED: updated report to distinguish resolved findings and freeze scope at r99; all new desktop overviews and final ledger audit next. Reservation proof path corrected from reconstructed-3x to actual plan-reconstructed-3x.
+IN PROGRESS: C final desktop follow-up review, regeneration/link/hash audit and handoff.
+NEXT / PICKUP: inspect B28-B32 overview desktop rows, final audit, DONE/IDLE. No new historical queue.
+RESERVATIONS: review outputs only; no Assets/game-code/source-art/git edits; no subagents.
+2026-10-27 06:41 Claude 2 DONE frame strips: rx_import emits RestaurantExact.Strips from Codex's animation manifests; VoyageRestaurantUi.Strip plays one atlas frame per draw (pivot on anchor). S11 confetti (3 staggered bursts), S8 purchase sparkle on the card just bought (r100 verified), steam over plates for 30 s after serving (wired, not yet seen in a capture).

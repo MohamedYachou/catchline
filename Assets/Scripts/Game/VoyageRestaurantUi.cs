@@ -433,6 +433,37 @@ namespace Catchline.Game
             }
         }
 
+        // Codex's frame strips (purchase sparkle, confetti, steam): one frame of the atlas per draw, its pivot on the anchor
+        // (frame coordinates), t seconds since it started; false once a one-shot strip has played.
+        readonly Dictionary<string, Sprite> stripFrames = new();
+        readonly Dictionary<string, (int frame, float start)> stripClock = new();
+        float StripTime(string key) // restarts when the strip wasn't drawn last frame
+        {
+            if (!stripClock.TryGetValue(key, out var c) || Time.frameCount - c.frame > 2) c.start = SimTime;
+            stripClock[key] = (Time.frameCount, c.start);
+            return SimTime - c.start;
+        }
+        bool Strip(string id, string name, Vector2 at, float t, Transform parent, float scale = 1, bool loop = false)
+        {
+            string sprite = "rx-" + name.Substring(3);
+            if (!RestaurantExact.Strips.TryGetValue(name, out var fr) || !HasUi(sprite)) return false;
+            float total = fr.Sum(x => x.seconds);
+            if (captureFreeze) t = loop ? total * .3f : total * .45f; // captures show the burst at its fullest
+            if (loop) t %= total; else if (t < 0 || t >= total) return false;
+            int i = 0; while (i < fr.Length - 1 && t >= fr[i].seconds) { t -= fr[i].seconds; i++; }
+            var (r, pv, size, _) = fr[i];
+            var e = coastalUi.Piece(id, new Rect(at.x - size.x * pv.x * scale, at.y - size.y * pv.y * scale, size.x * scale, size.y * scale), sprite, parent, Vector4.zero, 3);
+            var img = e.GetComponent<UnityEngine.UI.Image>();
+            if (img == null || img.sprite == null) return true;
+            if (!stripFrames.TryGetValue(name + i, out var sp))
+            {
+                var tex = img.sprite.texture; float k = tex.width / fr.Max(x => x.rect.xMax); // the atlas may load smaller than its 3x source
+                stripFrames[name + i] = sp = Sprite.Create(tex, new Rect(r.x * k, tex.height - (r.y + r.height) * k, r.width * k, r.height * k), new Vector2(.5f, .5f), 100);
+            }
+            img.type = UnityEngine.UI.Image.Type.Simple; img.sprite = sp; img.color = Color.white;
+            return true;
+        }
+
         // Breaks a line into rows of at most width characters at spaces (the shared styled text doesn't wrap).
         static string Lines(string s, int width)
         {
@@ -519,6 +550,9 @@ namespace Catchline.Game
                 string mood = null;
                 if (g.Phase == GroupPhase.Eating && g.Tickets.Count > 0)
                 {
+                    // Steam rises off plates for the first half minute after they land (Codex 1's 4-frame puff, looping).
+                    if (night.Seconds - g.Tickets.Max(t => t.DeliveredAt) < 30)
+                        Strip(id + "/steam", "v2-s15-steam-strip", new Vector2(at.x, at.y - 6 * s), StripTime(id + "/steam"), null, s * .55f, true);
                     float served = g.Tickets.Max(t => t.DeliveredAt) - g.SeatedAt;
                     mood = g.Tickets.Any(t => t.Cold) ? "v2-s15-mood-annoyed" : served < RestaurantTuning.TablePatience * .5f ? "v2-s15-mood-happy" : null;
                 }
@@ -1261,6 +1295,11 @@ namespace Catchline.Game
                         Rx($"rshop/owned/{i}/art", 8, $"v2-s8-{cardKey[i]}#primary", f, null, $"rx-s8-{cardKey[i]}");
                         Rx($"rshop/owned/{i}/check", "phone", "v2-s8-state-owned-check#owned-check", f, At("v2-s8-state-owned-check#owned-check", 16), "rx-s8-state-owned-check");
                         RxText($"rshop/owned/{i}/t", "phone", "owned-label", "Owned", f, AtT("owned-label", 16), TextAnchor.MiddleLeft);
+                        if (upgradeBought == RestaurantUpgrades[i].id) // over the illustration (demo: x +31, y 312 on the card at 558)
+                        {
+                            var art = RestaurantExact.Pieces[$"8:v2-s8-{cardKey[i]}#primary"].rect;
+                            if (!Strip($"rshop/sparkle/{i}", "v2-s8-purchase-strip", art.center, SimTime - upgradeBoughtAt, f, 2.4f)) upgradeBought = null;
+                        }
                         continue;
                     }
                     if (states && Locked(i))
@@ -1308,6 +1347,10 @@ namespace Catchline.Game
                 Rx("rstage/facade", 11, "v2-s11-illustration#primary", f, null, alt != null && HasUi(alt) ? alt : ill);
                 Rx("rstage/ribbon", "phone", "v2-s11-new-stage-ribbon#new-stage-banner", f, null, "rx-s11-new-stage-ribbon");
                 RxText("rstage/ribbon/t", "phone", "new-stage-label", "New stage!", f);
+                float t = StripTime("stageup");
+                Strip("rstage/confetti/0", "v2-s11-confetti-strip", new Vector2(163, 174), t, f, 2.2f);
+                Strip("rstage/confetti/1", "v2-s11-confetti-strip", new Vector2(268, 150), t - .25f, f, 2f);
+                Strip("rstage/confetti/2", "v2-s11-confetti-strip", new Vector2(95, 210), t - .5f, f, 1.8f);
             }, variant == null ? null : name => HasUi(name.Replace("rx-s11-", $"rx-s11-{variant}-")) ? name.Replace("rx-s11-", $"rx-s11-{variant}-") : name,
             variant == null ? null : "11-" + variant);
             coastalUi.HitArea("rstage/go", RestaurantExact.Pieces["11:v2-s11-primary#primary"].rect, () => RestaurantPreview = RestaurantScreen.Dashboard, f);

@@ -105,6 +105,22 @@ L+=['        };','','        // S6+ sheets: every placement of a screen in paint
 '        public static readonly Dictionary<int, string[]> Layout = new()','        {']
 for scr in sorted(layouts):
     L.append(f'            [{scr}] = new[] {{ '+', '.join(json.dumps(k) for z,k in sorted(layouts[scr],key=lambda x:x[0]))+' },')
+# Animated strips (frame rects in export px from the top-left, pivot top-left normalised, logical size, seconds per frame).
+strips={}
+for f in glob.glob(X+'**/manifest.json',recursive=True):
+    try: m=json.load(open(f))
+    except Exception: continue
+    if not isinstance(m,list): continue
+    for x in m:
+        a=x.get('animation') if isinstance(x,dict) else None
+        if not a: continue
+        if isinstance(a.get('frames'),list):
+            strips[x['name']]=[(fr['rect'],fr.get('pivot',[.5,.5]),fr['logicalSize'],fr['durationMs']/1000) for fr in a['frames']]
+        elif a.get('frameRects'):
+            sz=a['frameSize']; strips[x['name']]=[(r,[.5,1.0],[sz[0]/3,sz[1]/3],a.get('secondsPerFrame',.1)) for r in a['frameRects']]
+L+=['        };','','        public static readonly Dictionary<string, (Rect rect, Vector2 pivot, Vector2 size, float seconds)[]> Strips = new()','        {']
+for k,fr in sorted(strips.items()):
+    L.append(f'            ["{k}"] = new[] {{ '+', '.join(f'(new Rect({r[0]}, {r[1]}, {r[2]}, {r[3]}), new Vector2({pv[0]:.3f}f, {pv[1]:.3f}f), new Vector2({sz[0]:.1f}f, {sz[1]:.1f}f), {sec:.3f}f)' for r,pv,sz,sec in fr)+' },')
 L+=['        };','','        public sealed class Style { public Rect Rect; public float Size, Stroke, ShadowY; public Color Fill, StrokeColour, Shadow; public bool Bold; public string Text; public TextAnchor Align = TextAnchor.MiddleCenter; }',
 '        public static readonly Dictionary<string, Style> Texts = new()','        {']
 for t in texts:

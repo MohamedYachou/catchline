@@ -1014,6 +1014,13 @@ namespace Catchline.Game
             [16] = new[] { "v2-s16-background#wall", "v2-s16-title-sign#week-title", "v2-s16-income-panel#seven-night-income", "v2-s16-award-panel#best-dish-card", "v2-s16-award-panel#crew-card", "v2-s16-summary-panel#popularity-summary", "v2-s16-total-panel#week-total", "v2-s16-primary#next-week", "v2-s16-dish-slot#best-dish-slot", "v2-s16-crew-slot#crew-bust-slot", "v2-s16-axis#income-baseline", "v2-s16-bar-teal#night-1", "v2-s16-bar-teal#night-2", "v2-s16-bar-teal#night-3", "v2-s16-bar-teal#night-4", "v2-s16-bar-teal#night-5", "v2-s16-bar-gold#night-6", "v2-s16-bar-teal#night-7", "v2-s16-medal#best-dish-medal", "v2-s16-star#popularity-star", "v2-s16-coin#total-coin", "v2-s16-arrow#popularity-direction", "v2-dish-grilled-fish#example-best-dish", "v2-rbust-jo#example-crew-jo" },
         };
 
+        public static readonly Dictionary<string, (Rect rect, Vector2 pivot, Vector2 size, float seconds)[]> Strips = new()
+        {
+            ["v2-s11-confetti-strip"] = new[] { (new Rect(0, 0, 66, 63), new Vector2(0.515f, 0.492f), new Vector2(22.0f, 21.0f), 0.100f), (new Rect(66, 0, 117, 114), new Vector2(0.491f, 0.487f), new Vector2(39.0f, 38.0f), 0.100f), (new Rect(183, 0, 165, 159), new Vector2(0.476f, 0.475f), new Vector2(55.0f, 53.0f), 0.100f), (new Rect(348, 0, 213, 207), new Vector2(0.467f, 0.456f), new Vector2(71.0f, 69.0f), 0.100f), (new Rect(561, 0, 261, 252), new Vector2(0.473f, 0.431f), new Vector2(87.0f, 84.0f), 0.100f), (new Rect(822, 0, 300, 285), new Vector2(0.473f, 0.402f), new Vector2(100.0f, 95.0f), 0.100f) },
+            ["v2-s15-steam-strip"] = new[] { (new Rect(0, 0, 192, 192), new Vector2(0.500f, 1.000f), new Vector2(64.0f, 64.0f), 0.160f), (new Rect(192, 0, 192, 192), new Vector2(0.500f, 1.000f), new Vector2(64.0f, 64.0f), 0.160f), (new Rect(384, 0, 192, 192), new Vector2(0.500f, 1.000f), new Vector2(64.0f, 64.0f), 0.160f), (new Rect(576, 0, 192, 192), new Vector2(0.500f, 1.000f), new Vector2(64.0f, 64.0f), 0.160f) },
+            ["v2-s8-purchase-strip"] = new[] { (new Rect(0, 0, 66, 66), new Vector2(0.462f, 0.493f), new Vector2(22.0f, 22.0f), 0.075f), (new Rect(66, 0, 135, 150), new Vector2(0.485f, 0.483f), new Vector2(45.0f, 50.0f), 0.075f), (new Rect(201, 0, 198, 216), new Vector2(0.477f, 0.491f), new Vector2(66.0f, 72.0f), 0.075f), (new Rect(399, 0, 240, 267), new Vector2(0.490f, 0.504f), new Vector2(80.0f, 89.0f), 0.075f) },
+        };
+
         public sealed class Style { public Rect Rect; public float Size, Stroke, ShadowY; public Color Fill, StrokeColour, Shadow; public bool Bold; public string Text; public TextAnchor Align = TextAnchor.MiddleCenter; }
         public static readonly Dictionary<string, Style> Texts = new()
         {
