@@ -96,6 +96,15 @@ namespace Catchline.Game.Restaurant
         {
             if(Locked)return false;var g=guests.FirstOrDefault(x=>x.Id==guestId&&x.Special);if(g==null)return false;g.Accepted=accept;return true;
         }
+        // Mira's radio (design 14.3): a booked table of `size`, all eating `species`, beyond her two walk-in calls.
+        // Returns the group id (0 when the list is locked or the species can't be cooked tonight).
+        public int Book(int size,Species species)
+        {
+            if(Locked||size<1)return 0;var ds=Options(species).Where(x=>x!=Dish.Platter&&x!=Dish.Soup).ToList();if(ds.Count==0)ds=Options(species);if(ds.Count==0)return 0;
+            int group=++nextGroup;
+            for(int i=0;i<size;i++)guests.Add(new GuestOrder{Id=++nextId,Group=group,Species=species,Dish=ds[random.Next(ds.Count)],Drink=random.NextDouble()<RestaurantTuning.DrinkChance,Coffee=kitchen.Has(ItemId.CoffeeMachine)&&random.NextDouble()<RestaurantTuning.CoffeeChance});
+            return group;
+        }
         public void Lock()
         {
             if(Locked)return;WalkIns=random.Next(0,(int)Math.Floor(guests.Count*RestaurantTuning.WalkInMax)+1);AddGuests(WalkIns);Locked=true;

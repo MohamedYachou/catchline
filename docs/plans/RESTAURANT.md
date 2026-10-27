@@ -375,3 +375,80 @@ day counter live in a new save block.
 7. Staff rail: one card per person cannot fit 5-8 crew plus Mira and the baristas. Mo leans to small portrait chips grouped
    by job; Mo compared three captured variants and picked ONE CARD PER PERSON (mockup style), paged with arrows
    (docs/screens/restaurant-ui/r6/restaurant-service-{jobs,scroll,chips}-*.png).
+
+## 14. Day v2: Mira the assistant, multi-stop days, work on the way (Mo, 10-27)
+
+Mo: "our entire planning phase from getting to the fishing spot to the fish needs to be an interactive game with Mira
+getting calls and us going back and forth... I really want her to be our assistant and interactively help with the
+boat and restaurant in meaningful great ways... processing on the way back, on the way to fishing we take calls and
+orders for our restaurant and additional contracts... multi voyage days... easy 1 voyage, medium 2, hard 2-3 and
+bigger fish... rethink fuel... arriving at the port needs some rethinking from start." This section wins over
+sections 1, 2 and 4 where they disagree. Claude's design calls below; Mo can overrule any of them.
+
+### 14.1 The morning: Mira offers the day
+Mira's morning call shows three **day cards** plus "Your own plan" (the chart as today):
+| Card | Stops | Guests | Fish | Extras |
+|---|---|---|---|---|
+| Easy | 1 ground, near | the forecast as today | the ground's commons | — |
+| Medium | 2 grounds | about +30% | one bigger-fish ground | one booking or special |
+| Hard | 2-3 grounds, one far | about +60% | the biggest fish she can reach | a contract or a critic, better pay |
+Each card shows its route on a mini chart, tonight's guests and dishes, the estimated takings, the fuel and the time.
+Mira only offers what the boat can do (tier, hold, range): she is the planner, so the player never does sums.
+
+### 14.2 Multi-stop days
+A day is one trip with 1-3 stops. After a stop's list is ticked, "Next stop" sails ground to ground over the chart
+fly-over leg (no harbour lane in between); "Head home" stays available. Each stop has its own catch list on the
+ticket. A day can end early: what is missing becomes substitutes at night (as today).
+
+### 14.3 The trip out: Mira's radio
+While the boat sails out (and between stops), Mira takes calls and puts them to the captain as **call cards**: a
+face, one line, and two or three answers. The boat keeps sailing. A short leg waits at the ground until every call is
+answered, so no call is lost. Two to four calls per leg, never two at once. Answers change tonight's real list, the
+catch list and the money, and Mira says what changed ("Table for six at eight. I've added 4 cod to the list.").
+- **Bookings**: "The Janssens, six at 20:00, they'd love cod." Accept / Ask them for 20:30 / Not tonight.
+- **Haggling** is the back-and-forth: "Ask for more" sends Mira back. They say yes, meet halfway or walk, with the
+  odds set by popularity and Mira's level; the answer comes back as the next card a few seconds later.
+- **Contracts** (extra money, not the restaurant): "The hotel wants 8 kg mackerel by tonight: 260 coins." It adds a
+  line to the catch list and pays at arrival.
+- **Suppliers**: "Lemons are cheap today: grilled fish +2 coins a plate tonight for 30 coins?"
+- **Crew**: "Noor asks to leave at 22:00 for her sister's birthday." "Ines could do a double for 20 coins."
+- **The room**: "The stove's been clicking. Book the repairman for 40 coins, or risk it tonight?" "Rain at nine:
+  close the terrace, or put the awning up for 25?"
+- **Her tips** (the assistant part, never a cost): "The cod at Deep channel run big after a storm." "We have 6
+  fillets left from yesterday's ice, so we need 4 fewer pollock." "That's a lot of tables for three crew. Shall I ask
+  Tess to come along?"
+Once the boat leaves the last ground the guest list is locked (section 0), so no booking calls on the way home.
+
+### 14.4 The trip home is work
+Leaving the last ground starts the **prep on deck**: the crew fillet, clean and cook stock at the boat's stations
+(the deck simulation, visible), with a progress row per dish. The sail home takes as long as the work: the boat comes
+in when the prep is done, never earlier than the plain sail. The captain can help: the knife cut on the special fish
+(one extra portion), and moving a crew member to the slowest dish. Mira's calls on the way home are prep and market
+ones: "Pollock: fillets or soup?", "The market pays +30% for mackerel today. Sell 5 of the extra?" The prep card of
+section 4 becomes this live view; its margin choice (Tight / +10% / +20%) is a question Mira asks as the boat leaves.
+
+### 14.5 Arriving at port (rebuilt)
+Dusk. The boat docks at the restaurant's own quay, and Mira waits on the jetty. The crew carry the prepared crates
+into the kitchen and the fridge count fills up; the market crates go to the market stall and the coins fly to the
+wallet; contract crates go to the buyer's cart with their pay. Mira turns the sign to Open, the lamps come on, and the
+camera moves into the room. About 12 seconds; a tap skips it.
+
+### 14.6 Fuel, through Mira (Mo 10-27: "she must really become useful")
+The timed tank goes on restaurant days. **Mira fuels the boat at port before every trip** and tells you what the tank
+allows: fuel is a cost by **route distance on the charts** (more for bigger boats), so the order of stops matters.
+Mira plans the order: going A then B then D costs less than A then D then B when D lies past B, and she says so ("If
+we do the kelp bank first and the wreck last, we save 9 fuel."). The day cards show each route already in her best
+order, with its fuel. A route the tank can't do is shown greyed with her reason ("The whale shelf and back is too far
+on one tank. With the extra tank we can."). The extra-tank upgrade extends the range. Running dry is not a way to fail.
+
+Answers from Mo (10-27) on the open questions: calls keep the boat sailing (the boat waits at the ground if a call is
+still open); multi-stop days sail ground to ground in one trip; the sail home lasts as long as the prep work.
+
+### 14.7 Build order
+| Slice | What | Who |
+|---|---|---|
+| D1 | Arrival at port (14.5): docking, crates, fridge and market tally, Open sign, camera into the room | Claude |
+| D2 | Mira's radio (14.3): call cards, the call engine with effects on forecast, list and money, haggle chains, 10+ calls | Claude (cards, animation) + Codex (call effects and checks) |
+| D3 | Live prep on the way home (14.4) | Codex (logic) + Claude (view) |
+| D4 | Day cards and multi-stop trips (14.1, 14.2) | Codex (logic) + Claude (cards) |
+| D5 | Fuel by route and range in stops (14.6) | Codex |

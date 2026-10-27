@@ -101,11 +101,12 @@ namespace Catchline.Game
         }
         void TickSeaTravel(float dt)
         {
-            Sailor.Tick(dt * AbilityTravel); modeTimer += dt * AbilityTravel;
+            Sailor.Tick(dt * AbilityTravel * RadioPace); modeTimer += dt * AbilityTravel * RadioPace;
             UpdateSeaTravel(); TickDeckGraph(); TickDeckFish(dt);
             // Home: the chart rises over the last stretch to the map edge, then the harbour lane takes over.
             if (CurrentMode == Mode.SailingHome && (Sailor.Arrived || Vector2.Distance(Sailor.Position, Navigation.Harbour) < 9f)) { BeginChart(true); return; }
             if (!Sailor.Arrived) return;
+            if (RadioHolds && Leg == TripLeg.SeaOut) { travelWake = 0; return; } // Mira's still on the radio: wait at the ground
             Captain.Rowing = false; SetRowing(false); travelWake = 0;
             if (Leg == TripLeg.SeaOut) Leg = TripLeg.None;
             SetWaterBiome(ActiveSpot);

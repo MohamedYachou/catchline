@@ -636,6 +636,7 @@ namespace Catchline.Game
             Manning = null;
             AwaitingCast = false;
             foreach (var r in Rods) r.ResetForTrip();
+            RadioHeadHome(); // restaurant day: lock the list, the crew start the prep on deck
             BeginTransition(Mode.SailingHome, -1);
             flowReturning = false;
         }
@@ -726,7 +727,8 @@ namespace Catchline.Game
 
                 case Mode.SailingOut:
                 case Mode.SailingHome:
-                    BurnFuel(dt);
+                    if (!RadioHolds) BurnFuel(dt);
+                    TickRadio(dt);
                     if (Leg is TripLeg.HarbourOut or TripLeg.ChartOut or TripLeg.ChartHome or TripLeg.HarbourIn) TickTrip(dt);
                     else if (Navigation != null) TickSeaTravel(dt);
                     else

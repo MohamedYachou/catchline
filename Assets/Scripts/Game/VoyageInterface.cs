@@ -155,6 +155,7 @@ namespace Catchline.Game
                 var fast = new Rect(r.xMax - 168, r.yMax + 8, 168, compactInterface ? 40 : 48);
                 coastalUi.Secondary("journey/fast", fast, TripFast ? "Normal speed" : "Faster", () => TripFast = !TripFast); Block(fast);
             }
+            InterfaceRadio(); // restaurant day: Mira's notebook, calls and the prep on deck
         }
     }
 }

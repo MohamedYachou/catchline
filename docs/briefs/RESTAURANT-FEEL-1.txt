@@ -1,0 +1,49 @@
+RESTAURANT-FEEL-1 — Codex 2 (WSL) — the night service looks and moves smoothly, no sliding, popping or flicker
+GOAL (Mo 10-27): "focus on making the game mechanically play well as it feels very clunky and glitchy". The crew
+models are Mo's own work, so leave them alone. This brief is the 3D presentation of the night service.
+
+ALREADY DONE BY CLAUDE (do not redo, build on it): RestaurantSim now exposes staff PrevPosition, DrawPosition(alpha),
+sim.Alpha (fraction of the next 250 ms step) and sim.Patience(group). RestaurantWorld draws staff at
+DrawPosition(Sim.Alpha), so staff no longer stop four times a second. Guests do not walk out mid-meal any more.
+
+CONTEXT (read these, nothing else up front): Assets/Scripts/Game/Restaurant/RestaurantWorld.cs (Refresh: the guest
+loop is the main problem), RestaurantSim.cs (read only, see OWNERSHIP), RestaurantLayout.cs (Path, Access, Door,
+PassGuests), Assets/Editor/RestaurantChecks.cs, RestaurantPlayCapture.cs, docs/tools/run-lead-check.ps1.
+
+DEFECTS (from Claude's code review; fix in this order, finish and log one before starting the next):
+1. Guests slide. During Seating they stand still at the door until Mira's whole task ends. Then they MoveTowards the
+   seat in a straight line through tables and walls, facing a fixed 180 (moonwalking) and playing "Sit" while moving.
+   Fix: on Seating, the group follows Mira's actor in a short trailing file. Once seated, any guest who is not at
+   their seat walks a tile path (Layout.Path, cached per group) to the table, facing the direction of travel with the
+   Walk clip, and sits only on arrival.
+2. Guests pop out. At Gone (paid, or gave up in the queue or at the table) they vanish on that frame. Fix:
+   presentation-only leavers walk to the door and despawn there (fade or step off-screen).
+3. Queue overlap. The queue spot uses g.Id%4 and only i%2, so groups stack on each other and four or six guests share
+   two spots. Fix: slots by queue order (Queue phase, sorted by Arrival), one row per group, guests side by side. The
+   line shuffles forward smoothly when a group leaves it.
+4. Plates appear late. A dish shows only once the WHOLE table is Eating. Show each guest's plate when their ticket is
+   Delivered, and remove it at Payment.
+5. Carry prop. The fish plate shows for the whole Serve/Clear task, including the empty walk to the pass, and drinks
+   carry a fish plate. Show it only on the carrying leg, with the matching model (drink, coffee, dirty plate).
+6. Staff motion. 4-connected tiles give robotic 90-degree turns, and two staff on one tile overlap exactly. Round the
+   corners in presentation (chase a look-ahead point, or similar) and push apart staff who share a spot.
+7. REPORT ONLY, no tuning: in RestaurantChecks, a balance table for 20 seeds x crew {Mira+captain, +1 cook,
+   +cook+waiter, +cook+waiter+barista}. Columns: served/guests, gave-up, left at door, cold dishes, mean stars,
+   net coins, and each staff member's idle %. Save it to docs/screens/restaurant-feel-1/balance.md. Claude does the
+   tuning from it.
+
+OWNERSHIP: write RestaurantWorld.cs, RestaurantPlayCapture.cs, RestaurantChecks.cs, new files under
+Assets/Scripts/Game/Restaurant/ and docs/screens/restaurant-feel-1/**. RestaurantSim.cs: you may ADD read-only
+accessors (for example the current leg index) and nothing else; no rule or number changes. Never write:
+VoyageRestaurantDay.cs, VoyageRestaurantUi.cs, RestaurantData.cs (Claude's), crew models/CrewAnim/Art/Source/Crew
+(Mo's), any scene. No git. Never batchmode the main project: checks run through run-lead-check.ps1 (scratch copy),
+called from WSL with powershell.exe.
+
+CONSTRAINTS: the sim stays headless and deterministic. RestaurantChecks.Run and Regression must still PASS. The
+existing look (lights, grade, camera) is unchanged. Match the file's dense one-line style and its comment voice.
+
+DONE = EVIDENCE: RestaurantChecks.Run and .Regression PASS lines. A frame strip (12+ frames at 0.1 s of one group
+being seated, one group leaving, a waiter serving), saved as a contact sheet at
+docs/screens/restaurant-feel-1/strip-*.png, opened and looked at by you, with no sliding through furniture, no
+moonwalk, no pop and no stacked guests. Plus balance.md.
+REPORTING: one comms.md line per finished item; CHECKPOINT at safe points; QUESTION line and skip when blocked.

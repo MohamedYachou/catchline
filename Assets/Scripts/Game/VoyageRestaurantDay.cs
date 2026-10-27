@@ -12,7 +12,7 @@ namespace Catchline.Game
     // feeds them from the restaurant rules (Restaurant/*.cs) and moves the day along.
     public partial class VoyageGame
     {
-        public enum DayPhase { Off, Plan, Out, Prep, Market, Service, Closing }
+        public enum DayPhase { Off, Plan, Out, Home, Prep, Market, Service, Closing } // Home: sailing back, the crew prep on deck (design 14.4)
         public DayPhase RestaurantPhase { get; private set; }
         // The new loop is on for every save; captures and old checks can switch it off.
         public bool RestaurantLoop = true;
@@ -118,6 +118,7 @@ namespace Catchline.Game
             RestaurantPreview = RestaurantScreen.None;
             RestaurantPhase = DayPhase.Out;
             SetSail();
+            RadioBeginDay(); // Mira's calls on the way out (design 14.3)
         }
 
         // ---- 2. Home: prepare, then the market ---------------------------------------------------------------------
@@ -125,22 +126,26 @@ namespace Catchline.Game
         // Called at the end of EnterHarbour; on a restaurant day the prep card replaces the plain Sell haul.
         void RestaurantArrived(bool arrived)
         {
-            if (!arrived || RestaurantPhase != DayPhase.Out || dayForecast == null) return;
+            if (!arrived || (RestaurantPhase != DayPhase.Out && RestaurantPhase != DayPhase.Home) || dayForecast == null) return;
+            bool prepped = RestaurantPhase == DayPhase.Home; // the crew prepped on the way home: straight on to the market
             dayForecast.Lock();
             if (State.UnsoldCatch.Count == 0) { StartNight(new List<PortionStock>()); return; }
             SuggestPrep();
+            if (prepped) { panelOpen = false; RestaurantPhase = DayPhase.Prep; RestaurantPrepared(); return; }
             RestaurantPhase = DayPhase.Prep;
             RestaurantPreview = RestaurantScreen.Prep;
             panelOpen = false;
         }
 
-        void SuggestPrep()
+        void SuggestPrep(List<CaughtFish> fish = null)
         {
-            var caught = State.UnsoldCatch.Select(f => new RestaurantCatch { Species = f.Species, Kg = f.Kg }).ToList();
+            fish ??= State.UnsoldCatch;
+            var held = ContractFish(fish); var source = fish.Where(f => !held.Contains(f)).ToList(); // contract fish go to their buyer
+            var caught = source.Select(f => new RestaurantCatch { Species = f.Species, Kg = f.Kg }).ToList();
             var margin = (PrepMargin)Mathf.Clamp(RestaurantPrep.Margin, 0, 2);
             dayPrep = RestaurantPortions.Suggest(caught, dayForecast, Kitchen, margin);
             var v = RestaurantPrep;
-            v.Catch = State.UnsoldCatch.GroupBy(f => f.Species).OrderByDescending(g => g.Sum(f => f.Kg)).Take(2)
+            v.Catch = source.GroupBy(f => f.Species).OrderByDescending(g => g.Sum(f => f.Kg)).Take(2)
                 .Select(g => new RestaurantFish { Name = GameData.Get(g.Key).Name, Art = FishArt(g.Key), Amount = g.Count() > 1 ? g.Count().ToString() : $"{g.Sum(f => f.Kg):0.#} kg" }).ToList();
             var ranges = dayForecast.DishRanges;
             v.Rows = dayPrep.Stock.GroupBy(s => s.Form).Take(3).Select(g =>
@@ -175,8 +180,10 @@ namespace Catchline.Game
             var marketKg = dayPrep.Market.GroupBy(m => m.Species).ToDictionary(g => g.Key, g => g.Sum(m => m.Kg));
             var keep = new List<CaughtFish>();
             var sell = new List<CaughtFish>();
+            radioReserved.Clear(); radioReserved.UnionWith(ContractFish(State.UnsoldCatch));
             foreach (var f in State.UnsoldCatch)
             {
+                if (radioReserved.Contains(f)) { sell.Add(f); continue; }
                 if (marketKg.TryGetValue(f.Species, out var kg) && kg >= f.Kg * .5f) { sell.Add(f); marketKg[f.Species] = kg - f.Kg; }
                 else keep.Add(f);
             }
@@ -209,12 +216,13 @@ namespace Catchline.Game
             {
                 var row = m.Rows.FirstOrDefault(r => r.Species == f.Species);
                 int bowls = RestaurantPortions.Yield(f.Species, f.Kg, PreparedForm.Stock);
-                if (row != null && row.Keep && Kitchen.CanCook(Dish.Soup) && bowls > 0 && bowls <= room)
+                if (row != null && row.Keep && !radioReserved.Contains(f) && Kitchen.CanCook(Dish.Soup) && bowls > 0 && bowls <= room)
                 { RestaurantPortions.Add(marketStock, f.Species, PreparedForm.Stock, bowls); room -= bowls; }
                 else sold.Add(f);
             }
             State.UnsoldCatch.Clear();
             State.UnsoldCatch.AddRange(sold);
+            RadioMarketBonus();
             if (sold.Count > 0) SellHaul(); else { State.TripDeployment.Clear(); State.EndVoyage(new SaleReport()); }
             StartNight(marketStock);
         }
@@ -270,6 +278,7 @@ namespace Catchline.Game
             staff.Add(SimStaff.Captain(Kitchen.Door));
             night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0, Events = State.RestaurantNights.Count > 0 }; // the tutorial night stays plain
             // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
+            RadioNight(night); // what the captain agreed on the radio: Lotte's lemons, Bram's repair or the risk
             restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
             restaurantWorld.DriveSimulation = false;
             try { restaurantWorld.Begin(night); }
@@ -295,7 +304,7 @@ namespace Catchline.Game
             if (RestaurantPhase == DayPhase.Prep && RestaurantPrep.Margin != prepMargin && dayPrep != null) SuggestPrep();
             if (RestaurantPhase != DayPhase.Service || night == null) return;
             var v = RestaurantService;
-            if (!v.Paused) { night.Tick(dt * Mathf.Max(1, v.Speed)); CaptainWork(dt * Mathf.Max(1, v.Speed)); }
+            if (!v.Paused) { night.Tick(dt * Mathf.Max(1, v.Speed)); CaptainWork(dt * Mathf.Max(1, v.Speed)); RadioNightTick(); }
             v.Hour = night.Hour; v.Open = 18; v.Close = 23;
             v.Coins = State.Coins + night.Result.Coins;
             v.Popularity = restaurantPopularity;
@@ -336,7 +345,7 @@ namespace Catchline.Game
             var d = RestaurantData.Get(hit.Id);
             if (night.Broken.Contains(hit.Uid))
             {
-                captainFix = hit.Uid; Toast($"Captain: on it, fixing the {d.Name.ToLower()}.");
+                captainFix = hit.Uid; night.SendToFix(hit.Uid); Toast($"Captain: on my way to the {d.Name.ToLower()}.");
                 audio?.Play(VoyageAudio.Cue.Select, .4f); return true;
             }
             if (d.Seats == 0 || !night.Pin(hit.Uid)) return false;
@@ -350,7 +359,7 @@ namespace Catchline.Game
         void CaptainWork(float dt)
         {
             if (captainFix == 0) return;
-            if (night.Broken.Contains(captainFix)) { night.CaptainHoldFix(captainFix, dt); if (night.Broken.Contains(captainFix)) return; }
+            if (night.Broken.Contains(captainFix)) return; // he walks there and repairs it in the rules (SendToFix)
             var item = Kitchen.Active.FirstOrDefault(i => i.Uid == captainFix);
             if (item != null) Toast($"Captain: the {RestaurantData.Get(item.Id).Name.ToLower()} works again.");
             captainFix = 0;
@@ -827,6 +836,7 @@ namespace Catchline.Game
 
         public bool StageRestaurantDay(string step)
         {
+            RadioAuto = true; // the walk-through answers Mira's calls with her first option
             bool ok = StageRestaurantDayStep(step);
             // The hand-off cards and Mira's queued calls run on real time, which captures freeze: settle them per step.
             if (step != "day-evening" && step != "day-morning") transitionCard = null;
@@ -1035,6 +1045,32 @@ namespace Catchline.Game
                     NewGame(); EndIntro(); showTitle = false; State.Tutorial = (int)TutStep.Hello; RestaurantPhase = DayPhase.Off;
                     restaurantForced = true; // the real game opens the restaurant with the Skiff; the check walks it on the rowboat
                     return CurrentMode == Mode.Harbour && State.Coins >= 0;
+                // Mira's radio (design 14.3-14.4) on a regular day: a call open mid-sail, her notebook after answering, the prep on deck home.
+                case "new-radio-out":
+                    // Run after new-plan (the real departure); a past night makes it a regular day with the full set of calls.
+                    RadioAuto = false; if (State.RestaurantNights.Count == 0) State.RestaurantNights.Add("1|0|0|0|0|1|0|0|");
+                    State.Coins = Mathf.Max(State.Coins, 600);
+                    if (RestaurantPhase != DayPhase.Plan) { Debug.LogError($"[Catchline] RADIO out: phase {RestaurantPhase}, blocker {SailBlocker()}"); return false; }
+                    RestaurantPlanAccepted();
+                    for (int n = 0; n < 4000 && RadioOpen == null; n++) Tick(.05f);
+                    Tick(.6f); RadioAuto = false;
+                    Debug.Log($"[Catchline] RADIO out: '{RadioOpen?.Line}' leg {Leg} queue {radioQueue.Count}");
+                    return RadioOpen != null;
+                case "new-radio-out2":
+                    RadioAuto = false; AnswerRadio(0);
+                    for (int n = 0; n < 4000 && RadioOpen == null; n++) Tick(.05f);
+                    Tick(.6f);
+                    Debug.Log($"[Catchline] RADIO next: '{RadioOpen?.Line}' notes {string.Join(" / ", radioNotes.Select(x => x.text))}");
+                    return RadioOpen != null;
+                case "new-radio-home":
+                    RadioAuto = true;
+                    for (int n = 0; n < 40000 && !(CurrentMode == Mode.Fishing && AtFishingGround); n++) Tick(.05f);
+                    AutoPlay = true; for (int n = 0; n < 40000 && Cooler.Count < 8 && !HoldFull; n++) Tick(.05f); AutoPlay = false;
+                    RadioAuto = false; HeadHome();
+                    for (int n = 0; n < 4000 && RadioOpen == null; n++) Tick(.05f);
+                    AnswerRadio(1); for (int n = 0; n < 80; n++) Tick(.05f);
+                    Debug.Log($"[Catchline] RADIO home: phase {RestaurantPhase}, prep {PrepU:0.00} of {prepWork:0}s, pace {RadioPace:0.00}, rows {string.Join("/", RestaurantPrep.Rows.Select(r => r.Name + " " + r.Portions))}");
+                    return RestaurantPhase == DayPhase.Home;
                 case "new-plan":
                     departureReady = true;
                     if (!ConfirmDeparture()) { Debug.LogError("[Catchline] NEWGAME departure blocked: " + SailBlocker()); return false; }
@@ -1050,11 +1086,11 @@ namespace Catchline.Game
                     return CurrentMode == Mode.Fishing && Cooler.Count > 0;
                 case "new-prep":
                     HeadHome();
-                    for (int n = 0; n < 40000 && RestaurantPhase == DayPhase.Out; n++) Tick(.05f);
+                    for (int n = 0; n < 40000 && RestaurantPhase is DayPhase.Out or DayPhase.Home; n++) Tick(.05f);
                     Debug.Log($"[Catchline] NEWGAME home: phase {RestaurantPhase}, {State.UnsoldCatch.Count} fish, rows {string.Join("/", RestaurantPrep.Rows.Select(r => r.Name + " " + r.Portions))}, market {RestaurantPrep.MarketFish}");
-                    return RestaurantPhase == DayPhase.Prep;
+                    return RestaurantPhase is DayPhase.Prep or DayPhase.Market or DayPhase.Service;
                 case "new-service":
-                    RestaurantPrepared();
+                    if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared();
                     if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen();
                     Debug.Log($"[Catchline] NEWGAME first night card {RestaurantPreview == RestaurantScreen.FirstNight}, paused {RestaurantService.Paused}");
                     if (RestaurantPreview == RestaurantScreen.FirstNight) { RestaurantPreview = RestaurantScreen.Service; RestaurantService.Paused = false; } // the player taps the card

@@ -1,0 +1,19 @@
+TIER6-WIRE-1 — Codex 2 — put the tier 6 Shelter boat C into the game (Claude 2 lead, 2026-10-27)
+START ONLY after RESTAURANT-FEEL-1 is DONE. Model it on docs/briefs/JIG-BOAT-WIRE-1.txt (read it and Codex 1's Jig
+wiring in commit 38498a61: GameData.HullTier, append-only saved IDs, refit path, sockets, checks); do the same here.
+Art accepted 10-26 (Claude 2, 10:03): Art/Models/BoatsV2/Tier6V1/{Tier6V1.fbx,REPORT.md} (every earlier tier's
+kit: rods, jig reels, nets, prep, deep lines, pots), card Art/Source/BoatsV2/ui/v2-item-hull-tier6.png.
+DESIGN (Claude's call): saved hull ID 6, HullTier 6. Refit Buoy -> Shelter boat: 36,000 coins, no kg goal.
+Capacity 260 kg, CrewCap 7. Its deck runs every station kind the earlier tiers have, from the real FBX sockets
+measured natively. Whale shelf / Seal cliffs / Kelp forest stay at their current prices.
+ALSO (same run, before the boat): import the accepted refit-card pictures Art/Source/BoatsV2/ui/v2-item-hull{0,1,3,4}.png
+and v2-item-hull-tier6.png into Assets/Art/UI with metas like v2-item-hull-jig.png, and use them on the
+chandlery/refit cards.
+OWNERSHIP: GameData.cs, GameState*.cs, Data/Coasts.cs (gates), VoyageDeck.cs, Deck/**, VoyageHarbour*.cs,
+VoyageInterfaceShop.cs, VoyageManagement*.cs, VoyageCrewCounters.cs, the per-boat Voyage*Fisher.cs files, a new
+VoyageShelterBoat.cs, Assets/Art/UI hull cards, Assets/Models import of Tier6V1. Never: CrewUi/** and crew models
+(Mo's), Restaurant*, Assets/Editor/** except a new Tier6Checks.cs. No git; never batchmode the main project.
+CHECKS (check.ps1, Catchline-sim): RestaurantChecks.Regression (all suites) PASS, routes for SEVEN hulls over all maps,
+new: HullTier table, Buoy->Shelter refit order/price, old saves unchanged, a Shelter trip out/anchor/fish/home on Whale
+shelf. Native frames 1440x900 + 844x390 in docs/screens/tier6-boat-1/ (harbour, refit card, deck with crew at work),
+opened one by one. One comms line per item; DONE at the end.

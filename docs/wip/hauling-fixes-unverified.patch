@@ -1,0 +1,222 @@
+diff --git a/Assets/Scripts/Game/Deck/DeckScheduler.cs b/Assets/Scripts/Game/Deck/DeckScheduler.cs
+index b479b8ef..64d5978f 100644
+--- a/Assets/Scripts/Game/Deck/DeckScheduler.cs
++++ b/Assets/Scripts/Game/Deck/DeckScheduler.cs
+@@ -82,14 +82,14 @@ public Job Pick(Worker w)
+             {
+                 if (!sweeps.ContainsKey(w))
+                 {
+-                    var waiting = Deck.Baskets.Where(b => b.Kind is not (BasketKind.SortIn or BasketKind.TableIn)).SelectMany(b => b.Unclaimed)
+-                        .Concat(Loose.Where(l => l.Claim == null).Select(l => l.Fish)).ToHashSet();
++                    var waiting = Haulable(true).Concat(Loose.Where(l => l.Claim == null).Select(l => l.Fish)).ToHashSet();
+                     if (waiting.Count >= 6) { sweeps[w] = waiting; deliveredSweep.Remove(w); }
+                 }
+                 if (sweeps.TryGetValue(w, out var snapshot))
+                 {
+-                    // Fish already delivered by other hands no longer belong to this route.
+-                    snapshot.IntersectWith(Deck.Baskets.SelectMany(b => b.Fish).Concat(Loose.Select(l => l.Fish)));
++                    // Fish already delivered by other hands no longer belong to this route: one waiting at a sort or
++                    // process table is not hers to carry, and kept her off every new catch until it reached the hold.
++                    snapshot.IntersectWith(Haulable().Concat(Loose.Select(l => l.Fish)));
+                     if (snapshot.Count == 0) { sweeps.Remove(w); deliveredSweep.Remove(w); }
+                     else
+                     {
+@@ -107,6 +107,14 @@ public Job Pick(Worker w)
+         }
+ 
+         float Dist(Worker w, Station s) => Deck.Distance(w.Actor.Tile, Deck.Access(s));
++        // Fish a hauler may pick up from a basket (sort and process tables feed themselves).
++        IEnumerable<CaughtFish> Haulable(bool unclaimed = false) => Deck.Baskets.Where(b => b.Kind is not (BasketKind.SortIn or BasketKind.TableIn))
++            .SelectMany(b => unclaimed ? b.Unclaimed : b.Fish);
++        // Room left in the hold once every load already bound there lands: two hands finishing together must not both
++        // count the same last kilos. Like the cooler itself, a load may start while any room is left (the last fish may
++        // overfill it); a strict fit left a nearly full hold never full, with keepers waiting on deck for good.
++        float HoldRoom() => HoldRemainingKg() - Workers.Where(o => o.Current != null && o.Current.Target?.Hold == true).Sum(o => o.Current.Fish.Sum(f => f.Kg));
++        static bool HoldTakes(float room, float kg, int count, float next) => count == 0 ? room > 0 : room >= kg + next;
+ 
+         Job PickSort(Worker w)
+         {
+@@ -184,22 +192,24 @@ Job PickHaul(Worker w)
+ 
+         // Where a loose fish goes: to a sort table that can take it (so it is counted and keep/throw is decided there),
+         // else overboard when undersize or into the hold. Oversize fish skip the sort table by design (B2).
+-        Drop LooseDrop(CaughtFish f)
++        Drop LooseDrop(LooseFish lf)
+         {
+-            if (FishRules.FitsBasket(f))
++            if (FishRules.FitsBasket(lf.Fish))
+             {
++                // The nearest sort table to where the fish lies (was the one nearest the boat's origin).
+                 var sort = Deck.OfKind(StationKind.SortTable).Where(t => t.In != null && t.In.Free > 0)
+-                    .OrderBy(t => t.Position.sqrMagnitude).FirstOrDefault();
++                    .OrderBy(t => Deck.Distance(lf.Tile, Deck.Access(t))).FirstOrDefault();
+                 if (sort != null) return Drop.To(sort.In);
+             }
+-            return Decide(f) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
++            return Decide(lf.Fish) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
+         }
+ 
+         // One load of loose fish from a single deck tile, all bound for the same place, up to the hand limits.
+         Job BuildLooseHaul(Worker w, LooseFish lead)
+         {
+-            var drop = LooseDrop(lead.Fish);
+-            if (drop == null || drop.Hold && HoldRemainingKg() < lead.Fish.Kg) return null;
++            var drop = LooseDrop(lead);
++            float room = drop?.Hold == true ? HoldRoom() : float.MaxValue;
++            if (drop == null || drop.Hold && !HoldTakes(room, 0, 0, lead.Fish.Kg)) return null;
+             if (drop.Basket != null && drop.Basket.Free < 1) return null;
+             var job = new Job { Kind = JobKind.Haul, Worker = w, Target = drop, Label = "Hauling" };
+             lead.Claim = job; job.Fish.Add(lead.Fish);
+@@ -209,10 +219,10 @@ Job BuildLooseHaul(Worker w, LooseFish lead)
+                 {
+                     if (job.Fish.Count >= w.HandCount) break;
+                     if (FishRules.NeedsTwo(lf.Fish) || kg + lf.Fish.Kg > w.HandKg) continue;
+-                    var d = LooseDrop(lf.Fish);
++                    var d = LooseDrop(lf);
+                     if (d == null || d.Hold != drop.Hold || d.Overboard != drop.Overboard || d.Basket != drop.Basket) continue;
+                     if (drop.Basket != null && drop.Basket.Free < job.Fish.Count + 1) break;
+-                    if (drop.Hold && HoldRemainingKg() < kg + lf.Fish.Kg) break;
++                    if (drop.Hold && !HoldTakes(room, kg, job.Fish.Count, lf.Fish.Kg)) break;
+                     lf.Claim = job; job.Fish.Add(lf.Fish); kg += lf.Fish.Kg;
+                 }
+             if (drop.Basket != null) { drop.Basket.Reserve(job.Fish.Count); job.reserved = job.Fish.Count; }
+@@ -223,10 +233,12 @@ Job BuildLooseHaul(Worker w, LooseFish lead)
+         Job BuildHaul(Worker w, Basket b)
+         {
+             if (b.UnclaimedCount == 0) return null;
+-            var first = b.Unclaimed.FirstOrDefault(f => SweepAllows(w, f));
++            // The first fish that can go somewhere sets the load's drop: a table-bound fish on top of the sorted tray
++            // (no gutting under way) no longer holds every keeper behind it off the hold.
++            var first = b.Unclaimed.FirstOrDefault(f => SweepAllows(w, f) && NextFor(b, f) != null);
+             if (first == null) return null;
+             var drop = NextFor(b, first);
+-            if (drop == null) return null;
++            float room = drop.Hold ? HoldRoom() : float.MaxValue;
+             var job = new Job { Kind = JobKind.Haul, Worker = w, Source = b, Target = drop, Label = "Hauling" };
+             float kg = 0;
+             bool whole = WholeLoad(w, b);
+@@ -239,7 +251,7 @@ Job BuildHaul(Worker w, Basket b)
+                 var d = NextFor(b, f);
+                 if (d == null || d.Hold != drop.Hold || d.Basket != drop.Basket) continue;
+                 if (drop.Basket != null && drop.Basket.Free < job.Fish.Count + 1) break;
+-                if (drop.Hold && HoldRemainingKg() < kg + f.Kg) break;
++                if (drop.Hold && !HoldTakes(room, kg, job.Fish.Count, f.Kg)) break;
+                 b.Claim(f, job); job.Fish.Add(f); kg += f.Kg;
+             }
+             if (job.Fish.Count == 0) return null;
+@@ -327,7 +339,8 @@ void Done()
+ 
+         void Walk(Job job, Vector2Int tile, Action arrive)
+         {
+-            if (job.Worker.Actor.Tile == tile) { arrive(); return; }
++            // Already there: still end any idle stroll first, or the body works while drifting off along the stroll's path.
++            if (job.Worker.Actor.Tile == tile) { job.Worker.Actor.Stop(); arrive(); return; }
+             if (!job.Worker.Actor.WalkTo(tile, arrive, () => Cancel(job))) Cancel(job);
+         }
+ 
+@@ -338,6 +351,9 @@ void Deliver(Job job)
+             {
+                 w.Hands.Remove(f);
+                 if (job.Target.Overboard) { Thrown++; OnThrown?.Invoke(f); }
++                // The hold filled while this load was on its way (the captain's own carry, a catch stored straight away):
++                // the fish stays on deck by the hatch instead of being counted as stowed and vanishing.
++                else if (job.Target.Hold && HoldRemainingKg() <= 0) Loose.Add(new LooseFish { Fish = f, Tile = w.Actor.Tile });
+                 else if (job.Target.Hold) { Stowed++; forTable.Remove(f); OnStowed?.Invoke(f); }
+                 else job.Target.Basket.Put(f, true);
+             }
+diff --git a/Assets/Scripts/Game/VoyageCompactFisher.cs b/Assets/Scripts/Game/VoyageCompactFisher.cs
+index b6d87ea7..110b62db 100644
+--- a/Assets/Scripts/Game/VoyageCompactFisher.cs
++++ b/Assets/Scripts/Game/VoyageCompactFisher.cs
+@@ -132,8 +132,12 @@ public bool CaptainNetAction()
+             bool oldCastChoice = AwaitingCast;
+             Manning = null;
+             AwaitingCast = false;
+-            if (Net == NetState.Stowed && NetBasketBlocked) { BeginNetUnload(Captain); return true; }
+-            bool started = Net == NetState.Ready ? HaulNet() : SetNet();
++            // Deck-graph hulls keep the net catch in the scheduler's basket, not the old deck list: "Unload catch" tapped
++            // there used to start nothing at all. The captain carries one load from it, like the basket's Carry bubble.
++            if (Net == NetState.Stowed && NetBasketBlocked && !UsesDeckGraph) { BeginNetUnload(Captain); return true; }
++            bool started = Net == NetState.Stowed && NetBasketBlocked
++                ? DeckGraph.OfKind(Deck.StationKind.Net).Select(s => s.Out).Where(b => b != null && b.UnclaimedCount > 0).Any(CaptainHaulFrom)
++                : Net == NetState.Ready ? HaulNet() : SetNet();
+             if (!started) { Manning = oldRod; AwaitingCast = oldCastChoice; }
+             return started;
+         }
+diff --git a/Assets/Scripts/Game/VoyageDeck.cs b/Assets/Scripts/Game/VoyageDeck.cs
+index 5da753a9..f6f9b96f 100644
+--- a/Assets/Scripts/Game/VoyageDeck.cs
++++ b/Assets/Scripts/Game/VoyageDeck.cs
+@@ -60,7 +60,8 @@ void SetupDeckGraph()
+             foreach (var p in People) { p.Stop(); p.Grid = Grid; p.Place(DeckGraph.Nearest(p.Tile)); }
+             Scheduler = new DeckScheduler(DeckGraph)
+             {
+-                HoldRemainingKg = () => State.CoolerCapacity - HoldKg,
++                // The cooler's own exact sum (HoldFull), so "room left" and "stored" never disagree on a rounding.
++                HoldRemainingKg = () => (float)(State.CoolerCapacity - Cooler.Sum(f => (double)f.Kg)),
+                 OnStowed = f => { HideBasketFish(f); TryStore(f); lidPop = 1f; },
+                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
+                 CaptainBench = BeginGut,
+@@ -110,6 +111,7 @@ void FlushDeckGraph()
+             foreach (var t in basketFish.Values) if (t != null) Visuals.Kill(t.gameObject);
+             foreach (var t in stationProps) if (t != null) Visuals.Kill(t.gameObject);
+             basketFish.Clear(); stationProps.Clear(); basketProps.Clear();
++            foreach (var p in workers.Keys) if (p != netUnloader) p.CarryingBatch = false;
+             DeckGraph = null; Scheduler = null; workers.Clear();
+         }
+ 
+@@ -177,12 +179,16 @@ void PlaceBasketFish()
+                     t.localPosition = DeckGraph.Grid.GetLocal(lf.Tile) + new Vector3(0, .07f, 0);
+                 }
+             foreach (var kv in workers)
++            {
++                // A hand with fish walks in the carry pose, not the empty-handed walk.
++                if (kv.Key != netUnloader) kv.Key.CarryingBatch = kv.Value.Hands.Count > 0;
+                 for (int i = 0; i < kv.Value.Hands.Count; i++)
+                     if (basketFish.TryGetValue(kv.Value.Hands[i], out var t) && t != null && t.parent != kv.Key.Root)
+                     {
+                         t.SetParent(kv.Key.Root, false);
+                         t.localPosition = new Vector3(0, .55f + i * .06f, .22f);
+                     }
++            }
+         }
+ 
+         void HideBasketFish(CaughtFish f)
+diff --git a/Assets/Scripts/Game/VoyageHaul.cs b/Assets/Scripts/Game/VoyageHaul.cs
+index 2d57e279..996c6442 100644
+--- a/Assets/Scripts/Game/VoyageHaul.cs
++++ b/Assets/Scripts/Game/VoyageHaul.cs
+@@ -13,19 +13,27 @@ public List<CaughtFish> CurrentHaul()
+             return haul;
+         }
+ 
+-        // A picked-up fish leaves OnDeck, so these two groups do not overlap.
++        // A picked-up fish leaves OnDeck, so these two groups do not overlap. Deck-graph hulls (every hull now) keep
++        // their catch in the scheduler's baskets, loose on deck and in hands: without them the "fish to stow" tag read
++        // "Haul stowed" over full baskets and Head home never warned about the keepers that would not fit.
+         public List<CaughtFish> UnstowedHaul() => OnDeck
+             .Concat(People.Where(p => p != null && p.Carrying != null).Select(p => p.Carrying))
+-            .Select(f => new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.CaughtAt }).ToList();
++            .Select(f => new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.CaughtAt })
++            .Concat(DeckGraphKeepers().Select(f => new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.StowedAt, ValueBonus = f.ValueBonus })).ToList();
++
++        // Keepers on a deck-graph deck in FlushDeckGraph's order (baskets, loose, hands); undersize goes back, not home.
++        IEnumerable<CaughtFish> DeckGraphKeepers() => Scheduler == null ? Enumerable.Empty<CaughtFish>()
++            : DeckGraph.Baskets.SelectMany(b => b.Fish).Concat(Scheduler.Loose.Select(l => l.Fish)).Concat(Scheduler.Workers.SelectMany(w => w.Hands))
++                .Where(f => !Deck.FishRules.Undersize(f));
+ 
+         public int DepartureOverflow()
+         {
+             // Match HeadHome exactly: actors' carried fish first, then deck order.
+-            var fish = People.Where(p => p != null && p.Carrying != null).Select(p => p.Carrying)
+-                .Concat(OnDeck).ToList();
++            var kgs = People.Where(p => p != null && p.Carrying != null).Select(p => p.Carrying.Kg)
++                .Concat(OnDeck.Select(f => f.Kg)).Concat(DeckGraphKeepers().Select(f => f.Kg)).ToList();
+             double kg = Cooler.Sum(f => (double)f.Kg); int left = 0;
+-            foreach (var f in fish)
+-                if (kg < State.CoolerCapacity) kg += f.Kg; else left++;
++            foreach (var f in kgs)
++                if (kg < State.CoolerCapacity) kg += f; else left++;
+             return left;
+         }
+ 

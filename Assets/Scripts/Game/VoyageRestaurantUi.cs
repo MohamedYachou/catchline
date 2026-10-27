@@ -544,7 +544,7 @@ namespace Catchline.Game
                 var at = G(vp); string id = $"rmark/g{g.Id}";
                 var choice = g.Tickets.FirstOrDefault(t => t.Phase == TicketPhase.Choice);
                 var wait = g.Tickets.FirstOrDefault(t => t.Phase != TicketPhase.Delivered && t.Phase != TicketPhase.Abandoned);
-                float patience = Mathf.Clamp01(1 - (night.Seconds - g.SeatedAt) / (RestaurantTuning.TablePatience + g.LastPatienceBoost));
+                float patience = night.Patience(g);
                 // Codex 1's moods: hearts at a table served fast and hot, a puff when a plate came cold or the wait runs long,
                 // the walking-out arrow just before they give up.
                 string mood = null;

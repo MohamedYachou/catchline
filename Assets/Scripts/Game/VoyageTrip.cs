@@ -13,7 +13,7 @@ namespace Catchline.Game
         public enum TripLeg { None, HarbourOut, ChartOut, SeaOut, SeaHome, ChartHome, HarbourIn }
         public TripLeg Leg { get; private set; }
         public bool TripFast;
-        float TripRate => (TripFast ? 3f : 1f) * AbilityTravel;
+        float TripRate => (TripFast ? 3f : 1f) * AbilityTravel * RadioPace; // RadioPace: home lasts as long as the prep (design 14.4)
         SeaNav pendingNav;
         BoatSailor pendingSailor;
         readonly List<SeaNav> laneNavs = new();
@@ -259,7 +259,7 @@ namespace Catchline.Game
                     break;
                 case TripLeg.HarbourIn:
                     TickHarbourLane(dt);
-                    if (laneAt >= laneS[laneS.Count - 1] - .01f && !chartActive) ArriveAtBerth();
+                    if (laneAt >= laneS[laneS.Count - 1] - .01f && !chartActive && !PrepHolds) ArriveAtBerth();
                     break;
             }
         }

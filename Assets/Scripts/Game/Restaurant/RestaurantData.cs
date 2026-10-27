@@ -27,7 +27,7 @@ namespace Catchline.Game.Restaurant
         public const float ForecastUncertainty = .12f, DoorPatience = 90, TablePatience = 180, DrinkPatience = 14;
         public const float SeatSeconds = 1.2f, OrderSeconds = 2, ServeSeconds = 2, ClearSeconds = 2, PlateSeconds = 1.5f;
         public const float EatSeconds = 95, DrinkSeconds = 2, CoffeeSeconds = 3, SubstituteDelay = 4, RepairSeconds = 10;
-        public const float ColdSeconds = 30, ColdPrice = .8f, PaymentSeconds = 2;
+        public const float ColdSeconds = 30, ColdPrice = .8f, PaymentSeconds = 2, CoffeeWait = 40;
         public const float BreakdownPerSecond = .0015f, TipRate = .12f, SpecialMultiplier = 2, AmbiencePatience = 2;
         public const int FridgePortions = 15, KettleBatch = 8, BaseGuests = 18, GuestsPerPopularity = 2;
         public static readonly int[] ItemPrices = { 80,140,100,160,220,360,260,120,180,100,100,220,80,160,300,120,0,80,50,60,40,60,250 };

@@ -1,0 +1,15 @@
+STALE-CHECKS-1 — Codex 1 (Windows) — every editor check suite is green and current (Claude 2 lead, 2026-10-27)
+GOAL: TODO.md "Stale editor checks" and "ChartChecks.cs is stale" are finished, so a failing check means a real bug.
+These fail on HEAD and are NOT game bugs; the checks expect values the game deliberately changed:
+1. ReferenceHudChecks looks for the old `reference/status/coins` HUD -> check the current v2 HUD ids instead.
+2. SkiffChecks expects a 27 kg skiff hold -> Capacity is 40 (GameData Hulls), assert the data value, not a literal.
+3. WeightNetChecks: the Version-1 legacy save now loads as null -> assert the current documented behaviour
+   (read GameState load code; if null-on-v1 is intended, check that; if it is a regression, write QUESTION and skip).
+4. FirstVoyageChecks "early strike still costs bait" -> read the current strike rule and update the assertion.
+5. Assets/Editor/ChartChecks.cs uses old chart017 ids -> rewrite for the two-page chart (Gull coast 5 grounds,
+   Outer coast 6, Data/Coasts.cs prices/tiers) or retire it if VoyageChart checks already cover it (say which).
+OWNERSHIP: Assets/Editor/** only (except RestaurantChecks.cs: Codex 2 holds it). Never edit game code to make a check
+pass; if a check finds a real game bug, write a QUESTION line in comms.md with file:line and leave it.
+CHECKS: docs/tools/check.ps1 in Catchline-sim, each suite's PASSED line. Never batchmode the main project. No git.
+REPORTING: one comms.md line per item, DONE when all five are green. Small task: you have little weekly usage left,
+so finish and log one item at a time.
