@@ -23,10 +23,11 @@ namespace Catchline.Game.Restaurant
         public Vector2Int PassKitchen => new Vector2Int(Stage.KitchenWidth-1,2);
         public Vector2Int PassGuests => new Vector2Int(Stage.KitchenWidth+1,2);
         public IEnumerable<RestaurantItem> Active => State.Items.Where(i=>!i.Stored);
-        public int FridgeCapacity => Active.Count(i=>i.Id==ItemId.Fridge)*RestaurantTuning.FridgePortions;
+        public int FridgeCapacity => (Active.Count(i=>i.Id==ItemId.Fridge)+(HasUpgrade("BigFridge")?1:0))*RestaurantTuning.FridgePortions;
+        public bool HasUpgrade(string id) => State.Upgrades!=null&&State.Upgrades.Contains(id);
         public bool Has(ItemId id) => Active.Any(i=>i.Id==id);
         public bool CanCook(Dish d) => Has(RestaurantData.Get(d).Appliance);
-        public int Ambience => Active.Count(i=>RestaurantData.Get(i.Id).Area==Area.Decor || RestaurantData.Get(i.Id).Area==Area.Wall);
+        public int Ambience => Active.Count(i=>RestaurantData.Get(i.Id).Area==Area.Decor || RestaurantData.Get(i.Id).Area==Area.Wall)+(HasUpgrade("CosyLighting")?2:0);
         public static string Sentence(LayoutReason reason)
         {
             switch(reason) {

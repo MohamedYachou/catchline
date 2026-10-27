@@ -16,6 +16,7 @@ namespace Catchline.Game.Restaurant
         public string Name = "Mira's";
         public List<RestaurantItem> Items = new List<RestaurantItem>();
         public List<PortionStock> Stock = new List<PortionStock>();
+        public List<string> Upgrades = new List<string>(); // bought S8 upgrade cards: BigFridge, ReliableStove, CosyLighting
         public string ToJson() => JsonUtility.ToJson(this,true);
         public static RestaurantState FromJson(string json)
         {

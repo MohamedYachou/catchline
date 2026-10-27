@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Catchline.Game.Restaurant;
 using UnityEngine;
 
 namespace Catchline.Game
@@ -76,6 +77,23 @@ namespace Catchline.Game
             public int Wallet = 2840, Room = 4; public string Mood = "keen", Demand = "Good demand today.";
         }
         public RestaurantMarketView RestaurantMarket = new();
+
+        // S6 / S8: the next stage, shared by the dashboard strip and the upgrades shop.
+        public sealed class RestaurantStageCard { public int Current = 1, Next = 2, Stars = 3, Cost = 3500, Have = 2840; public bool StarsMet = true; public string Name = "Bistro", Pitch = "More tables and a terrace"; }
+        public sealed class RestaurantDashboardView
+        {
+            public int Week = 2, Income = 2840, Dishes = 2160, Drinks = 480, Tips = 200, Popularity = 3, PopularityChange = 1;
+            public int[] DayIncome = { 260, 380, 460, 330, 450, 640, 410 };
+            public string IncomeChange = "+18% last week";
+            public List<(Dish dish, int sold)> Menu = new() { (Dish.GrilledFish, 48), (Dish.Soup, 32), (Dish.Coffee, 40) };
+            public RestaurantStageCard Stage = new();
+        }
+        public RestaurantDashboardView RestaurantDashboard = new();
+        public RestaurantStageCard RestaurantShopStage = new();
+
+        // S11: a new stage opened.
+        public sealed class RestaurantStageUpView { public int Stage = 2; public string From = "Cafe", To = "Bistro", Reward = "Terrace unlocked!"; public string[] Unlocks = { "More dining room", "A bigger kitchen", "Quayside tables" }; }
+        public RestaurantStageUpView RestaurantStageUp = new();
 
         public sealed class RestaurantClosingView
         {
@@ -583,6 +601,9 @@ namespace Catchline.Game
                     case RestaurantScreen.Arrange: InterfaceRestaurantArrange(RestaurantArrange); break;
                     case RestaurantScreen.Sleep: InterfaceRestaurantSleep(RestaurantSleepCard); break;
                     case RestaurantScreen.Market: InterfaceRestaurantMarket(RestaurantMarket); break;
+                    case RestaurantScreen.Dashboard: InterfaceRestaurantDashboard(RestaurantDashboard); break;
+                    case RestaurantScreen.Upgrades: InterfaceRestaurantUpgrades(RestaurantShopStage); break;
+                    case RestaurantScreen.StageUp: InterfaceRestaurantStageUp(RestaurantStageUp); break;
                 }
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
@@ -757,6 +778,150 @@ namespace Catchline.Game
             coastalUi.HitArea("rmarket/open", RestaurantExact.Pieces["7:v2-s7-button-open#primary"].rect, () => { if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen(); else RestaurantPreview = RestaurantScreen.None; }, f);
             coastalUi.HitArea("rmarket/back", RestaurantExact.Pieces["7:v2-s7-button-back#primary"].rect, () => { if (RestaurantPhase != DayPhase.Market) RestaurantPreview = RestaurantScreen.None; }, f); // the portions are cut by now
         }
+
+        static string StageWord(string name) => name == "Cafe" ? "Café" : name;
+        static string Num(int n) => n.ToString("N0");
+
+        // S6: the restaurant dashboard (ui-6-dashboard.png): the week's income by day, popularity, best sellers, next stage.
+        void InterfaceRestaurantDashboard(RestaurantDashboardView v)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rdash/planks", false);
+            var f = RestaurantFrame("rdash/frame");
+            string[] menuKey = { "fish", "soup", "coffee" };
+            var st = v.Stage;
+            RxScreen("rdash", 6, f, style =>
+            {
+                for (int i = 0; i < 3; i++)
+                    if (style.StartsWith($"menu-{menuKey[i]}-"))
+                        return i >= v.Menu.Count ? "" : style.EndsWith("-label") ? Look(v.Menu[i].dish).name : style.EndsWith("-sold") ? v.Menu[i].sold.ToString() : null;
+                return style switch
+                {
+                    "week-number" => $"Week {v.Week}",
+                    "income-value" => Num(v.Income), "income-change" => v.IncomeChange,
+                    "income-dishes-value" => Num(v.Dishes), "income-drinks-value" => Num(v.Drinks), "income-tips-value" => Num(v.Tips),
+                    "popularity-value" => v.Popularity.ToString(),
+                    "popularity-change" => v.PopularityChange == 0 ? "Steady this week" : $"{(v.PopularityChange > 0 ? "+" : "")}{v.PopularityChange} this week",
+                    "popularity-caption" => v.PopularityChange > 0 ? "A warmer welcome" : v.PopularityChange < 0 ? "Guests left unhappy" : "Word is getting around",
+                    "upgrade-heading" => st.Name == null ? "Top of the harbour" : $"Next: {StageWord(st.Name)}",
+                    "upgrade-subtitle" => st.Name == null ? "Every stage is open" : st.Pitch,
+                    "upgrade-stars" => st.Name == null ? "" : $"{st.Stars} stars",
+                    "upgrade-progress" => st.Name == null ? "" : $"{Num(st.Have)} / {Num(st.Cost)}",
+                    _ => null,
+                };
+            }, key =>
+                key.StartsWith("v2-s6-bar-") || key.StartsWith("v2-s6-star-full#rating") || key.StartsWith("v2-s6-star-full#primary") || key.StartsWith("v2-s6-star-empty")
+                || key.StartsWith("v2-s6-trend") // a painted fixed curve; the real week waits for the chart pieces (Codex 1 queue)
+                || key.StartsWith("v2-s6-dish-") || key == "v2-s6-progress-fill#primary" || key == "v2-s6-chevron-left#next-week"
+                || v.Menu.Count < 3 && key == "v2-s6-menu-row#coffee" || v.Menu.Count < 2 && key == "v2-s6-menu-row#soup" || v.Menu.Count < 1 && key == "v2-s6-menu-row#primary",
+            () =>
+            {
+                // Day bars on the measured baseline, the best day in gold, scaled to the week's best night.
+                float[] barX = { 38, 71, 105, 140, 174, 209, 244 };
+                int best = Mathf.Max(1, v.DayIncome.Max());
+                for (int d = 0; d < 7; d++)
+                {
+                    if (v.DayIncome[d] <= 0) continue;
+                    float h = Mathf.Max(6, 55f * v.DayIncome[d] / best);
+                    bool gold = v.DayIncome[d] == best;
+                    Rx($"rdash/bar/{d}", 6, gold ? "v2-s6-bar-gold#primary" : "v2-s6-bar-teal#primary", f, new Rect(barX[d], 246 - h, gold ? 26 : 24, h), gold ? "rx-s6-bar-gold" : "rx-s6-bar-teal");
+                }
+                // The mockup's right chevron is the left one mirrored.
+                var next = RestaurantExact.Pieces["6:v2-s6-chevron-left#next-week"].rect;
+                var chevron = Rx("rdash/next-week", 6, "v2-s6-chevron-left#next-week", f, new Rect(next.xMax, next.y, next.width, next.height), "rx-s6-chevron-left");
+                chevron.localScale = new Vector3(-1, 1, 1);
+                float[] starX = { 349, 379, 408, 438, 467 };
+                for (int i = 0; i < 5; i++)
+                    Rx($"rdash/star/{i}", 6, i < v.Popularity ? "v2-s6-star-full#primary" : "v2-s6-star-empty#primary", f, new Rect(starX[i], 135, 29, 29), i < v.Popularity ? "rx-s6-star-full" : "rx-s6-star-empty");
+                string[] dishPiece = { "v2-s6-dish-fish#primary", "v2-s6-dish-soup#primary", "v2-s6-dish-coffee#primary" };
+                for (int i = 0; i < v.Menu.Count && i < 3; i++)
+                    coastalUi.Icon($"rdash/dish/{i}", RestaurantExact.Pieces["6:" + dishPiece[i]].rect, Look(v.Menu[i].dish).art, f, null, Look(v.Menu[i].dish).fallback);
+                if (st.Name != null && st.Cost > 0)
+                {
+                    var track = RestaurantExact.Pieces["6:v2-s6-progress-fill#primary"].rect;
+                    float k = Mathf.Clamp01(st.Have / (float)st.Cost);
+                    if (k > 0) Rx("rdash/progress", 6, "v2-s6-progress-fill#primary", f, new Rect(track.x, track.y, Mathf.Max(track.height, RestaurantExact.Pieces["6:v2-s6-progress-track#primary"].rect.width * k - 4), track.height), "rx-s6-progress-fill");
+                }
+            });
+            System.Action close = () => RestaurantPreview = RestaurantScreen.None;
+            coastalUi.HitArea("rdash/back", RestaurantExact.Pieces["6:v2-s6-button-back#primary"].rect, close, f);
+            coastalUi.HitArea("rdash/close", RestaurantExact.Pieces["6:v2-s6-button-close#primary"].rect, close, f);
+            coastalUi.HitArea("rdash/upgrades", RestaurantExact.Pieces["6:v2-s6-button-upgrades#primary"].rect, OpenRestaurantUpgrades, f);
+            coastalUi.HitArea("rdash/tab-service", RestaurantExact.Pieces["6:v2-s6-tab-idle#primary"].rect, () => { if (RestaurantPhase == DayPhase.Service) RestaurantPreview = RestaurantScreen.Service; }, f);
+        }
+
+        // S8: the upgrades shop (ui-8-upgrades.png): the stage path, the next stage, and the kitchen & room cards.
+        void InterfaceRestaurantUpgrades(RestaurantStageCard st)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rshop/planks", false);
+            var f = RestaurantFrame("rshop/frame");
+            bool top = st.Name == null, canBuy = !top && st.StarsMet && st.Have >= st.Cost;
+            string[] cardKey = { "fridge", "stove", "lighting" }, cardUse = { "primary", "stove", "lighting" };
+            RxScreen("rshop", 8, f, style =>
+            {
+                for (int i = 0; i < 3; i++)
+                    if (style == $"{cardKey[i]}-cost")
+                        return HasRestaurantUpgrade(RestaurantUpgrades[i].id) ? "Owned" : Num(RestaurantUpgrades[i].cost);
+                return style switch
+                {
+                    "wallet-value" => Num(State.Coins),
+                    "next-heading" => top ? "Top of the harbour" : $"Next: {StageWord(st.Name)}",
+                    "next-effect" => top ? "Every stage is open" : st.Pitch,
+                    "star-requirement" => top ? "" : $"{st.Stars} stars",
+                    "stage-cost" => top ? "" : Num(st.Cost),
+                    "shortfall" => top ? "" : !st.StarsMet ? $"{restaurantPopularity}/{st.Stars} stars" : canBuy ? "Open it" : $"Need {Num(st.Cost - st.Have)}",
+                    "saving-value" => top ? "" : $"{Num(Mathf.Min(st.Have, st.Cost))} / {Num(st.Cost)}",
+                    _ => null,
+                };
+            }, key =>
+                key == "v2-s8-progress-fill#primary" || key == "v2-s8-check#stars-met" && !st.StarsMet
+                || key == "v2-s8-lock#purchase" && canBuy || key.StartsWith("v2-s8-button-buy") || key is "v2-s8-coin#fridge" or "v2-s8-coin#stove" or "v2-s8-coin#lighting",
+            () =>
+            {
+                if (!top && st.Cost > 0)
+                {
+                    var fill = RestaurantExact.Pieces["8:v2-s8-progress-fill#primary"].rect;
+                    var track = RestaurantExact.Pieces["8:v2-s8-progress-track#primary"].rect;
+                    float k = Mathf.Clamp01(st.Have / (float)st.Cost);
+                    if (k > 0) Rx("rshop/progress", 8, "v2-s8-progress-fill#primary", f, new Rect(fill.x, fill.y, Mathf.Max(fill.height, (track.width - 2 * (fill.x - track.x)) * k), fill.height), "rx-s8-progress-fill");
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    bool can = !HasRestaurantUpgrade(RestaurantUpgrades[i].id) && State.Coins >= RestaurantUpgrades[i].cost;
+                    Fade(Rx($"rshop/buy-btn/{i}", 8, $"v2-s8-button-buy#{cardUse[i]}", f, null, "rx-s8-button-buy"), can ? 1 : .5f);
+                    Fade(Rx($"rshop/buy-coin/{i}", 8, $"v2-s8-coin#{cardKey[i]}", f, null, "rx-s8-coin"), can ? 1 : .5f);
+                }
+            });
+            coastalUi.HitArea("rshop/back", RestaurantExact.Pieces["8:v2-s8-button-back#primary"].rect, () => RestaurantPreview = RestaurantPhase == DayPhase.Service ? RestaurantScreen.Service : RestaurantScreen.Dashboard, f);
+            coastalUi.HitArea("rshop/stage", RestaurantExact.Pieces["8:v2-s8-button-locked#primary"].rect, () => { if (canBuy) BuyRestaurantStage(); }, f);
+            for (int i = 0; i < 3; i++)
+            {
+                string id = RestaurantUpgrades[i].id;
+                coastalUi.HitArea($"rshop/buy/{i}", RestaurantExact.Pieces[$"8:v2-s8-button-buy#{cardUse[i]}"].rect, () => { if (BuyRestaurantUpgrade(id)) FillStageCard(RestaurantShopStage); }, f);
+            }
+        }
+
+        // S11: a new stage (ui-11-stage-up.png); the stage 3-4 pictures replace the Bistro's once imported.
+        void InterfaceRestaurantStageUp(RestaurantStageUpView v)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rstage/planks", false);
+            var f = RestaurantFrame("rstage/frame");
+            RxScreen("rstage", 11, f, style => style switch
+            {
+                "title" => $"Welcome to the {StageWord(v.To)}!",
+                "stage" => $"{StageWord(v.From)}  >  {StageWord(v.To)}",
+                "reward" => v.Reward,
+                "unlock-0" => v.Unlocks[0], "unlock-1" => v.Unlocks[1], "unlock-2" => v.Unlocks[2],
+                _ => null,
+            });
+            coastalUi.HitArea("rstage/go", RestaurantExact.Pieces["11:v2-s11-primary#primary"].rect, () => RestaurantPreview = RestaurantScreen.Dashboard, f);
+        }
+
+        void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; }
+        public void OpenRestaurantDashboard() { FillDashboard(); RestaurantPreview = RestaurantScreen.Dashboard; }
+        bool HasRestaurantUpgrade(string id) => Kitchen.HasUpgrade(id);
 
         static void Fade(RectTransform piece, float alpha)
         {

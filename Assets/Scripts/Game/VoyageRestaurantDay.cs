@@ -30,7 +30,13 @@ namespace Catchline.Game
         int restaurantPopularity { get => State.RestaurantPopularity; set => State.RestaurantPopularity = value; }
         readonly Dictionary<string, float> staffLoad = new();
 
-        RestaurantLayout Kitchen => restaurantLayout ??= new RestaurantLayout(restaurantState ??= RestaurantLayout.StartingKit());
+        RestaurantLayout Kitchen => restaurantLayout ??= new RestaurantLayout(restaurantState ??= LoadRestaurant());
+        RestaurantState LoadRestaurant()
+        {
+            if (!string.IsNullOrEmpty(State.RestaurantLayout)) try { return RestaurantState.FromJson(State.RestaurantLayout); } catch (Exception e) { Debug.LogWarning("[Catchline] restaurant layout unreadable, starting kit: " + e.Message); }
+            return RestaurantLayout.StartingKit();
+        }
+        void StoreRestaurant() { if (restaurantState != null) State.RestaurantLayout = JsonUtility.ToJson(restaurantState); }
 
         static readonly Dictionary<Dish, (string name, string art, string fallback)> DishLook = new()
         {
@@ -313,6 +319,85 @@ namespace Catchline.Game
             RestaurantPreview = RestaurantScreen.Closing;
         }
 
+        // ---- S6 dashboard, S8 upgrades, S11 stage-up ----------------------------------------------------------------
+
+        public static readonly (string id, string name, string effect, int cost)[] RestaurantUpgrades =
+        {
+            ("BigFridge", "Bigger fridge", "+15 portions", 600), ("ReliableStove", "Reliable stove", "Fewer breakdowns", 450),
+            ("CosyLighting", "Cosy lighting", "More guest patience", 300),
+        };
+        static readonly string[] StagePitch = { "", "", "More tables and a terrace", "A proper dining room and a bar", "Booths, a fish counter, the big terrace" };
+        static readonly (string reward, string[] unlocks)[] StageUnlocks =
+        {
+            default, default, ("Terrace unlocked!", new[] { "More dining room", "A bigger kitchen", "Quayside tables" }),
+            ("Bar unlocked!", new[] { "Booths for six", "A bar with stools", "A bigger terrace" }),
+            ("Fish counter unlocked!", new[] { "The biggest kitchen", "A fish counter", "Room for the whole harbour" }),
+        };
+
+        // The week so far from the saved nights (RecordNight's format).
+        void FillDashboard()
+        {
+            var v = RestaurantDashboard;
+            int week = State.RestaurantDay / 7;
+            var nights = State.RestaurantNights.Select(n => n.Split('|')).Where(p => p.Length >= 9).ToList();
+            List<string[]> In(int w) => nights.Where(p => int.Parse(p[0]) / 7 == w).ToList();
+            var now = In(week); var last = In(week - 1);
+            v.Week = week + 1;
+            v.DayIncome = new int[7];
+            foreach (var p in now) v.DayIncome[int.Parse(p[0]) % 7] = Mathf.Max(0, int.Parse(p[1]));
+            v.Income = now.Sum(p => int.Parse(p[1]));
+            int before = last.Sum(p => int.Parse(p[1]));
+            v.IncomeChange = before > 0 ? $"{(v.Income >= before ? "+" : "")}{Mathf.RoundToInt((v.Income - before) * 100f / before)}% last week" : now.Count > 0 ? $"{now.Count} night{(now.Count == 1 ? "" : "s")} this week" : "First week";
+            v.Dishes = now.Sum(p => int.Parse(p[2])); v.Drinks = now.Sum(p => int.Parse(p[3])); v.Tips = now.Sum(p => int.Parse(p[4]));
+            v.Popularity = restaurantPopularity;
+            int startPop = now.Count > 0 ? int.Parse(now[0][5]) : restaurantPopularity;
+            v.PopularityChange = restaurantPopularity - startPop + (now.Count > 0 ? 0 : 0);
+            v.Menu = now.SelectMany(p => p[8].Split(';')).Where(x => x.Contains("=")).Select(x => x.Split('='))
+                .GroupBy(x => x[0]).Select(g => (dish: (Dish)Enum.Parse(typeof(Dish), g.Key), sold: g.Sum(x => int.Parse(x[1]))))
+                .OrderByDescending(x => x.sold).Take(3).ToList();
+            FillStageCard(v.Stage);
+        }
+
+        void FillStageCard(RestaurantStageCard c)
+        {
+            int next = Kitchen.State.Stage + 1;
+            c.Current = Kitchen.State.Stage; c.Next = next;
+            if (next > 4) { c.Name = null; return; }
+            var def = RestaurantData.Stage(next);
+            c.Name = def.Name == "Cafe" ? "Café" : def.Name; c.Pitch = StagePitch[next];
+            c.Stars = def.Popularity; c.StarsMet = restaurantPopularity >= def.Popularity;
+            c.Cost = def.Price; c.Have = State.Coins;
+        }
+
+        // Buys the next stage through the layout's own rules, with the game's wallet and popularity.
+        bool BuyRestaurantStage()
+        {
+            var st = Kitchen.State; st.Coins = State.Coins; st.Popularity = restaurantPopularity;
+            int next = st.Stage + 1;
+            var r = Kitchen.Expand(next);
+            if (!r.Ok) { Toast(RestaurantLayout.Sentence(r.Reason)); return false; }
+            State.Coins = st.Coins;
+            var unlock = StageUnlocks[next];
+            var v = RestaurantStageUp;
+            v.From = RestaurantData.Stage(next - 1).Name; v.To = RestaurantData.Stage(next).Name; v.Stage = next;
+            v.Reward = unlock.reward; v.Unlocks = unlock.unlocks;
+            StoreRestaurant(); SaveGame();
+            RestaurantPreview = RestaurantScreen.StageUp;
+            audio?.Play(VoyageAudio.Cue.Purchase, .7f);
+            return true;
+        }
+
+        bool BuyRestaurantUpgrade(string id)
+        {
+            var u = RestaurantUpgrades.First(x => x.id == id);
+            if (Kitchen.HasUpgrade(id) || State.Coins < u.cost) return false;
+            State.Coins -= u.cost; Kitchen.State.Upgrades.Add(id);
+            StoreRestaurant(); SaveGame();
+            audio?.Play(VoyageAudio.Cue.Purchase, .6f);
+            Toast($"{u.name}: {u.effect.ToLowerInvariant()}.");
+            return true;
+        }
+
         // The restaurant keeps its own calendar: night 0 is a Monday. Tomorrow's weather is rolled at bedtime and shown
         // on the sleep card, so the plan card and the forecast agree with it.
         static DayOfWeek RestaurantWeekday(int day) => (DayOfWeek)((day + 1) % 7);
@@ -338,6 +423,7 @@ namespace Catchline.Game
             RestaurantPhase = DayPhase.Off;
             RestaurantPreview = RestaurantScreen.None;
             harbourEvening = false;
+            StoreRestaurant();
             SaveGame();
             Toast("A new morning in Gull Harbour.");
         }
@@ -379,6 +465,8 @@ namespace Catchline.Game
                     while (!night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Closing;
+                case "day-dashboard": OpenRestaurantDashboard(); return true;
+                case "day-upgrades": OpenRestaurantUpgrades(); return true;
                 case "day-sleep":
                     if (RestaurantPhase != DayPhase.Closing) return false;
                     RestaurantPreview = RestaurantScreen.Sleep;

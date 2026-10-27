@@ -330,7 +330,7 @@ namespace Catchline.Game.Restaurant
             }
             if(Breakdowns&&Seconds<RestaurantTuning.NightSeconds){
                 foreach(var item in Layout.Active.Where(i=>i.Id==ItemId.Stove||i.Id==ItemId.Oven||i.Id==ItemId.Fryer||i.Id==ItemId.Reception||i.Id==ItemId.CoffeeMachine))
-                    if(!Broken.Contains(item.Uid)&&random.NextDouble()<RestaurantTuning.BreakdownPerSecond*RestaurantTuning.TickSeconds/(1+Staff.Count(s=>s.NativeJob==Job.Handyman)))Broken.Add(item.Uid);
+                    if(!Broken.Contains(item.Uid)&&random.NextDouble()<RestaurantTuning.BreakdownPerSecond*RestaurantTuning.TickSeconds/(1+Staff.Count(s=>s.NativeJob==Job.Handyman))*(item.Id==ItemId.Stove&&Layout.HasUpgrade("ReliableStove")?.3f:1))Broken.Add(item.Uid);
             }
             foreach(var s in Staff){
                 if(s.Job==Job.Helper&&s.Task?.Current!=null&&s.Task.Current.Appliance!=0&&Broken.Contains(s.Task.Current.Appliance)&&!suspended.ContainsKey(s.Id)){
