@@ -8622,3 +8622,7 @@ STEPS A trace runtime id-to-source models, inspect incumbents/reference and back
 LAST VERIFIED previous KITCHEN-LOOK-1 accepted source, source station finishes flagged for propagation; latest diary/standing order/current contracts read, design-stack loaded. IN PROGRESS A. Native AFTER remains Claude-owned. No subagents, no Assets/code/git, NO COMMIT. HELD named station source/additive scope only; other paths available to owners.
 
 [2026-10-27 09:35] Claude 2 DONE KITCHEN-LOOK-1 import: Stage1V4 fbx + lighting, Stage2Bistro via stage_import; hood, tool rail, pot shelf, warm tile visible in the native kitchens (r135 stage 1, r135b Bistro). Placed stations keep their old finish until Codex 2 STATION-FINISH-1 (started 09:32).
+
+UPDATE / STATION-FINISH-1 A source trace VERIFIED / Codex 2 (WSL CLI): RestaurantWorld.Models + ArtLibrary resolve all eight stations to Stage1V2/items individual exports (Assets import names Restaurant_*). RESERVING Stage1V2/Stage1V2.blend and items/{Stove,Oven,FridgeV2,Fryer,PrepCounter,SoupKettle,SinkDishRack,CoffeeBar}.fbx before edits; additive station-finish artifacts centralized in Stage1V4. KitchenKit2 supplies other appliances, none of these eight: RELEASED all KitchenKit2 scope unchanged. Stage1V4 held as recorded. A backup/inventory IN PROGRESS; no Assets/code/git/subagents.
+
+[2026-10-27 09:37] Claude 2 VERIFIED stage 4 Seafood House night in the lead-sim (r136: day-bistro x3; ice counter, grill, tank, terrace). Queued Codex 2 KITCHEN-LOOK-2 (stage 3-4 kitchens) after STATION-FINISH-1.
