@@ -856,7 +856,15 @@ namespace Catchline.Game
                 if (At(card[slot]).x < 340) { coastalUi.Sliced($"rarr/item/{i}", Rect.zero, null, bottom); continue; }
                 float tx = textX[slot] + shift.x;
                 A($"rarr/item/{i}", on ? "v2-item-card#arrange-item-card-01" : "v2-item-card-idle#arrange-item-card-idle-01", At(card[slot]));
-                ArrangeArt(A($"rarr/item/{i}/art", art[slot], At(RestaurantExact.Pieces["arrange:" + art[slot]].rect), ArrangeSprite(it.Art)));
+                bool poorCard = live && it.Lock == null && it.StoredUid == 0 && it.Price > v.Coins;
+                // The mockup's locked card shows a smaller illustration; the not-enough-coins card shows none (name, grey price, reason).
+                if (it.Lock != null && HasUi("rx-s1-state-bistro"))
+                {
+                    var la = RestaurantExact.Pieces["arrange:v2-item-rest-table4#locked-item-illustration"].rect;
+                    ArrangeArt(A($"rarr/item/{i}/art", art[slot], new Rect(At(card[slot]).x + la.x - 510, la.y, la.width, la.height), ArrangeSprite(it.Art)));
+                }
+                else if (!(poorCard && HasUi("rx-s1-state-price-disabled")))
+                    ArrangeArt(A($"rarr/item/{i}/art", art[slot], At(RestaurantExact.Pieces["arrange:" + art[slot]].rect), ArrangeSprite(it.Art)));
                 // Codex 1's card states (exact/s1-card-states, measured on a card at x 350/510/670): a stored item goes back
                 // for free under a ribbon, a next-stage item waits under a lock with the stage's name, a price out of reach is greyed.
                 float cx = At(card[slot]).x; bool poor = live && it.Lock == null && it.StoredUid == 0 && it.Price > v.Coins;
@@ -880,8 +888,9 @@ namespace Catchline.Game
                 {
                     A($"rarr/item/{i}/state", "v2-s1-state-price-disabled#muted-price", S("v2-s1-state-price-disabled#muted-price", 670), "rx-s1-state-price-disabled");
                     T($"rarr/item/{i}/statet", "poor-price", it.Price.ToString(), ST("poor-price", 670));
-                    T($"rarr/item/{i}/name", "poor-item", it.Name, new Rect(tx, 315, 80, 14));
-                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", ST("poor-reason", 670));
+                    T($"rarr/item/{i}/name", "poor-item", it.Name, ST("poor-item", 670), TextAnchor.MiddleCenter);
+                    var pr = ST("poor-reason", 670);
+                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", new Rect(pr.x, pr.y - 3, pr.width, pr.height), TextAnchor.MiddleCenter);
                 }
                 else
                 {
@@ -1716,14 +1725,16 @@ namespace Catchline.Game
                 Rx($"rprep/row/{i}/plus", 4, "v2-btn-plus", f, new Rect(734, y - 1, 57, 52));
                 coastalUi.HitArea($"rprep/row/{i}/plus/hit", new Rect(734, y - 1, 57, 52), () => v.Rows[k].Portions++, f);
             }
-            Rx("rprep/margin/icon", 4, "v2-icon-forecast", f);
-            RxText("rprep/margin/label", 4, "forecast-label", "Forecast", f, null, TextAnchor.MiddleLeft);
+            // The forecast row sits 14 px higher than measured so it clears the paper's lower outline (RESTAURANT-REVIEW-1).
+            Rect Up(Rect r) => new Rect(r.x, r.y - 14, r.width, r.height);
+            Rx("rprep/margin/icon", 4, "v2-icon-forecast", f, Up(RestaurantExact.Pieces["4:v2-icon-forecast"].rect));
+            RxText("rprep/margin/label", 4, "forecast-label", "Forecast", f, Up(RestaurantExact.Texts["4:forecast-label"].Rect), TextAnchor.MiddleLeft);
             string[] margins = { "Tight", "+10%", "+20%" };
             float[] marginX = { 529, 611, 692 };
             var pill = RestaurantExact.Texts["4:forecast-pill"];
             for (int i = 0; i < 3; i++)
             {
-                int m = i; bool on = v.Margin == i; var r = new Rect(marginX[i], 285, 80, 30);
+                int m = i; bool on = v.Margin == i; var r = new Rect(marginX[i], 271, 80, 30);
                 Rx($"rprep/margin/{i}", 4, on ? "v2-toggle-selected" : "v2-toggle-unselected", f, r);
                 coastalUi.StyledText($"rprep/margin/{i}/label", r, margins[i], pill.Size, on ? new Color(1, .973f, .91f) : pill.Fill, pill.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
                 coastalUi.HitArea($"rprep/margin/{i}/hit", r, () => v.Margin = m, f);

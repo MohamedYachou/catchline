@@ -814,7 +814,15 @@ namespace Catchline.Game
 
         public bool StageRestaurantDay(string step)
         {
-            if (step != "day-evening" && step != "day-morning") transitionCard = null; // the hand-off cards wait for no capture
+            bool ok = StageRestaurantDayStep(step);
+            // The hand-off cards and Mira's queued calls run on real time, which captures freeze: settle them per step.
+            if (step != "day-evening" && step != "day-morning") transitionCard = null;
+            if (night != null && step.StartsWith("day-service")) { while (miraLines.Count > 0) miraCall = miraLines.Dequeue(); miraCallUntil = SimTime + 3.6f; }
+            return ok;
+        }
+
+        bool StageRestaurantDayStep(string step)
+        {
             switch (step)
             {
                 case "day-evening": // the market closes: Evening falls over the quay before service

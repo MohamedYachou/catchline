@@ -124,6 +124,9 @@ for k,fr in sorted(strips.items()):
 L+=['        };','','        public sealed class Style { public Rect Rect; public float Size, Stroke, ShadowY; public Color Fill, StrokeColour, Shadow; public bool Bold; public string Text; public TextAnchor Align = TextAnchor.MiddleCenter; }',
 '        public static readonly Dictionary<string, Style> Texts = new()','        {']
 for t in texts:
+    # S7: Codex measured the Sell labels 13 px against Keep's 17 on equal buttons (RESTAURANT-REVIEW-1); one size for both.
+    if str(t.get('screen'))=='7' and str(t.get('id','')).endswith('-sell') and 'rect' in t:
+        t['size']=17; r=t['rect']; t['rect']=[r[0]-6,r[1],r[2]+12,r[3]+1]
     if 'id' not in t or 'rect' not in t: continue  # Codex 2's S1/S2 sheet has no rects yet
     t.setdefault('stroke_width', t.get('strokeWidth',0))
     sh=t.get('shadow') or [0]+list(t.get('shadow_offset',[0,0]))[1:]+[t.get('shadow_colour','#00000000')]
