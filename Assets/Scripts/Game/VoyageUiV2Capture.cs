@@ -52,7 +52,7 @@ namespace Catchline.Game
             if (screen.StartsWith("restaurant-"))
             {
                 // Restaurant mockup screens with sample numbers (VoyageRestaurantUi.cs).
-                RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-arrange" => RestaurantScreen.Arrange, "restaurant-sleep" => RestaurantScreen.Sleep, "restaurant-dashboard" => RestaurantScreen.Dashboard, "restaurant-market" => RestaurantScreen.Market, "restaurant-upgrades" => RestaurantScreen.Upgrades, "restaurant-crew" or "restaurant-crew-lift" or "restaurant-crew-tip" => RestaurantScreen.Crew, "restaurant-stageup" or "restaurant-stageup3" or "restaurant-stageup4" => RestaurantScreen.StageUp, "restaurant-firstnight" => RestaurantScreen.FirstNight, _ when screen.StartsWith("restaurant-service") => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
+                RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-arrange" => RestaurantScreen.Arrange, "restaurant-sleep" or "restaurant-sleep-rain" or "restaurant-sleep-fair" => RestaurantScreen.Sleep, "restaurant-dashboard" => RestaurantScreen.Dashboard, "restaurant-market" => RestaurantScreen.Market, "restaurant-upgrades" => RestaurantScreen.Upgrades, "restaurant-crew" or "restaurant-crew-lift" or "restaurant-crew-tip" => RestaurantScreen.Crew, "restaurant-stageup" or "restaurant-stageup3" or "restaurant-stageup4" => RestaurantScreen.StageUp, "restaurant-firstnight" => RestaurantScreen.FirstNight, _ when screen.StartsWith("restaurant-service") => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
                 RestaurantService.Rail = screen switch { "restaurant-service-jobs" => RestaurantRailMode.Jobs, "restaurant-service-scroll" => RestaurantRailMode.Scroll, "restaurant-service-chips" => RestaurantRailMode.Chips, "restaurant-service-mockup" => RestaurantRailMode.Mockup, _ => RestaurantRailMode.Scroll };
                 if (screen.StartsWith("restaurant-crew"))
                 {
@@ -64,6 +64,8 @@ namespace Catchline.Game
                     if (screen == "restaurant-crew-lift") crewLifted = (2, 0);
                     if (screen == "restaurant-crew-tip") { crewTooltipUntil = Time.unscaledTime + 600; crewTooltipRow = 4; }
                 }
+                if (screen == "restaurant-sleep-rain") RestaurantSleepCard = new RestaurantSleepView { TomorrowWeather = (int)Restaurant.Weather.Rain, Tomorrow = "Sunday · Rain", Booking = "A quiet night indoors" };
+                if (screen == "restaurant-sleep-fair") RestaurantSleepCard = new RestaurantSleepView { TomorrowWeather = (int)Restaurant.Weather.Fair, Tomorrow = "Tuesday · Some clouds", Booking = "A steady night ahead" };
                 if (screen == "restaurant-stageup3") RestaurantStageUp = new RestaurantStageUpView { Stage = 3, From = "Bistro", To = "Restaurant", Reward = "A room to grow!", Unlocks = new[] { "A proper dining room", "A bar", "Bigger kitchen" } };
                 if (screen == "restaurant-stageup4") RestaurantStageUp = new RestaurantStageUpView { Stage = 4, From = "Restaurant", To = "Seafood house", Reward = "Our harbour landmark!", Unlocks = new[] { "Booths", "A fish counter", "The big terrace" } };
                 toastUntil = 0;

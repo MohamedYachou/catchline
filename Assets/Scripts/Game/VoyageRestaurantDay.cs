@@ -624,7 +624,7 @@ namespace Catchline.Game
         // The restaurant keeps its own calendar: night 0 is a Monday. Tomorrow's weather is rolled at bedtime and shown
         // on the sleep card, so the plan card and the forecast agree with it.
         static DayOfWeek RestaurantWeekday(int day) => (DayOfWeek)((day + 1) % 7);
-        static string WeatherWords(Weather w) => w == Weather.Sun ? "Sunshine" : w == Weather.Rain ? "Rain" : "Clear skies";
+        static string WeatherWords(Weather w) => w == Weather.Sun ? "Clear skies" : w == Weather.Rain ? "Rain" : "Some clouds";
 
         // One line per night for the dashboard: "day|net|dishes|drinks|tips|popularity|served|left|Dish=n;...".
         void RecordNight(NightResult r)

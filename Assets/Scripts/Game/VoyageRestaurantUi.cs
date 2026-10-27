@@ -60,7 +60,7 @@ namespace Catchline.Game
         // S12: the card between closing and the next morning.
         public sealed class RestaurantSleepView
         {
-            public int Net = 564, Popularity = 4, TomorrowWeather;
+            public int Net = 564, Popularity = 4, TomorrowWeather = (int)Weather.Sun; // the mockup's sample: sun, clear skies
             public string Tomorrow = "Saturday · Clear skies", Booking = "Expect a lively terrace";
         }
         public RestaurantSleepView RestaurantSleepCard = new();
@@ -782,7 +782,13 @@ namespace Catchline.Game
                 "tomorrow" => v.Tomorrow,
                 "booking" => v.Booking,
                 _ => null,
-            }, key => key.StartsWith("v2-s12-forecast") && v.TomorrowWeather == 2); // no painted rain icon yet (Codex 1 queue)
+            }, null, null, name => name == "rx-s12-forecast" ? (Weather)v.TomorrowWeather switch
+            {
+                // Codex 1's weather set shares the sun's rect: fair is the cloud, rain its own.
+                Weather.Rain when HasUi("rx-s12-weather-rain") => "rx-s12-weather-rain",
+                Weather.Fair when HasUi("rx-s12-weather-cloud") => "rx-s12-weather-cloud",
+                _ => null,
+            } : null);
             var go = RestaurantExact.Pieces["12:v2-s12-primary#primary"].rect;
             coastalUi.HitArea("rsleep/go", go, () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, f);
         }
