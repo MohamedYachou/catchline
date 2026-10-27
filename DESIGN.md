@@ -118,7 +118,7 @@ Use the supplied Fredoka and86-texture kit consistently. ScreenSpaceOverlay
 keeps UI artwork clear of world tonemapping. Respect safe areas, logical phone
 targets, Larger type, visible keyboard selection and existing confirmations.
 Native capture evidence/checks and remaining physical input limits are in
-`docs/HUD-008.md`; browser/Lighthouse checks do not substitute for Unity evidence.
+`docs/archive/HUD-008.md`; browser/Lighthouse checks do not substitute for Unity evidence.
 
 ## Direct reference HUD — UI-024
 
@@ -128,7 +128,7 @@ shared FishReferenceStyle/CoastalCanvas reference primitives and measured1672x94
 coordinates. Reuse original cream contours/icons/static headings; no independent
 fonts or restyling per side. Actual crew/data stays honest; no fake professions,
 levels or percentages. Phone readability and final pixel parity remain unaccepted.
-See docs/CLI-REFERENCE-HUD-024.md for delivery/native evidence and sampled static pixel comparison; dynamic font identity is unproven, so do not call it pixel-perfect.
+See docs/archive/CLI-REFERENCE-HUD-024.md for delivery/native evidence and sampled static pixel comparison; dynamic font identity is unproven, so do not call it pixel-perfect.
 
 ## Illustrated coastal map — CHART017, 2026-10-16
 
@@ -142,7 +142,7 @@ are live state; never bake them into artwork. Landmark coordinates belong to the
 illustration; they do not claim compass-exact cartography. Contract/details panels
 open on demand so the map remains the main screen. Keep44physical-pixel targets.
 Reference and final native views: docs/screens/chart017. Image generation prompt
-and integration/verification handoff: docs/CHART017.md.
+and integration/verification handoff: docs/archive/CHART017.md.
 
 ## Departure manifest and fuel — FUEL021
 
@@ -200,7 +200,7 @@ controls. Income is expected nominal catch value from probabilities and current
 gear/bait, without freshness/market depletion; Operations measures the actual
 inbound → processing → outbound → main-hold pipeline. Small hulls bypass processing.
 Green/orange/red traffic states include text; unavailable/learning states remain
-neutral. See docs/DASH082.md for definitions and native evidence.
+neutral. See docs/archive/DASH082.md for definitions and native evidence.
 
 
 ## DASH087 — boat-specific values and bottom-right entry
@@ -214,7 +214,7 @@ zero share. Fitted but unoperated gear explains the missing worker. Nominal
 raw catch value excludes an assumed processing premium; integer shares sum100
 only when positive income exists. Details distinguish per100catch/perhaul
 potential from staffed income perminute. Existing actual processing/bypass
-routes and text-labeled bottleneck colors remain. See docs/DASH087.md.
+routes and text-labeled bottleneck colors remain. See docs/archive/DASH087.md.
 
 
 ## CREW096 — crew effects and honest Management numbers
@@ -226,7 +226,7 @@ worth, real completed throughput, estimated capacity, busy workers and actual
 queues. Batches retain original fish/count/mass; partial or changing abilities
 need correct cache invalidation and hauling relearning. Do not retroactively
 rewrite the voyage chart. Gameplay integration and acceptance are mapped in
-[docs/CREW-MANAGEMENT-INTEGRATION.md](docs/CREW-MANAGEMENT-INTEGRATION.md); crew
+[docs/archive/CREW-MANAGEMENT-INTEGRATION.md](docs/archive/CREW-MANAGEMENT-INTEGRATION.md); crew
 choices remain in their canonical design record. No new card UI is specified here.
 
 

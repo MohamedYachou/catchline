@@ -14,7 +14,6 @@ Read `AGENTS.md`, `CURRENT.md`, `Art/STYLE.md`, then this handoff.
 - Contact sheets: `crew-contact-1.jpg`, `crew-contact-2.jpg`, their grid and 844px variants.
 - `REPORT.md` records skeleton, materials, substitutions, checks and limitations.
 - Runtime models: `Assets/Art/Models/Crew/Quaternius/`.
-- Animation wiring: `Assets/Scripts/Game/CrewAnim.cs`, `DeckActors.cs`, and `Restaurant/RestaurantWorld.cs`; import settings: `Assets/Editor/ArtImport.cs`.
 
 Phase 1 bodies/hair are delivered; clothing is still the placeholder bodysuit.
 Preserve the supplied 65-bone skeleton and skin weights. Read the manifest and portraits before changing appearances. Native runtime acceptance of the latest wiring is still pending.

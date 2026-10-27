@@ -1,46 +1,43 @@
 # Catchline — what is current (read this first)
 
-Updated 2026-10-24 by Claude (lead). Branch: `proto/deck-sim` (this is the newest; `main` is behind).
-This repository has months of history. Most files in `docs/` are OLD design rounds and handoffs. Only the files
-listed under "Current" describe the game we are building now. If anything else disagrees with them, it is outdated.
+Updated 2026-10-26 by Claude 2 (lead). Branch: `proto/deck-sim` (the newest; `main` is behind).
+Most of the history lives in `docs/archive/`: old design rounds and handoffs, read only to see why something was
+decided. The files below describe the game we are building now; if anything else disagrees, it is outdated.
 
 ## Current (the only design sources)
 
 | File | What it is |
 |---|---|
+| `docs/plans/RESTAURANT.md` | The restaurant pivot (fish by day, serve at night): the main design now. |
+| `TODO.md` | Open work and today's decisions (two coasts, boat-tier ladder and chart prices, fish by coast). |
 | `docs/MASTER-PLAN.md` | The execution plan, milestones M0–M10. Wins over every older document. |
-| `docs/BLUEPRINT.md` | The game design the plan builds (crew cards, deck jobs, tiers 0–5). |
+| `docs/BLUEPRINT.md` | The game design the plan builds (crew cards, deck jobs, boat tiers). |
 | `docs/CARDS-AND-SPEEDS.md` | All numbers: card levels, XP, wages, work speeds. |
-| `docs/UI-SYSTEM.md` | The interface system (UI v2) and its screens. |
-| `docs/ART-PLAN.md` | Art work for the 3D/visual agents. |
-| `docs/MAP-PLAN.md` | NEW, approved: bigger navigable seas, islands with collision, tap-to-sail, border and horizon. |
-| `comms.md` (last ~100 lines) | Who is doing what right now. |
+| `docs/plans/CREW-CARDS-V2.md`, `CREW-TIERS.md`, `ABILITY-HOOKS.md`, `CARDS-PACING.md` | Crew cards v2, abilities, pacing. |
+| `docs/plans/FISHING-MINIGAME.md`, `MINIGAMES.md`, `HARBOUR-PLAN.md` | Minigames and the harbour. |
+| `docs/UI-SYSTEM.md`, `DESIGN.md`, `PRODUCT.md` | The interface system (UI v2) and the visual direction. |
+| `docs/ART-PLAN.md`, `docs/MAP-PLAN.md`, `Art/STYLE.md` | Art and map plans, house style. |
+| `docs/QUESTIONS.md` | Open questions for Mo. |
+| `comms.md` (last ~100 lines) | Who is doing what right now. `CLAUDE.md` holds each Claude's goals and the done list. |
 
-## State of the build
+## Direction (Mo, 10-26 evening)
 
-- M0 done. M1: the rowboat runs on the new deck system (stations, baskets, sort table, jobs); the other four hulls are
-  next (`docs/briefs/SOL-CODE-1.txt`). Data layers for M2 cards, M3 products/bait and M5 buyers/contracts/quota exist
-  with passing checks but are not wired into the game yet.
-- UI v2: kit, voyage HUD, operations and crew screens rebuilt; harbour/shops, chart, departure, sale, title, catch card
-  still to do.
-- 3D crew (`Art/Models/CrewV2/`): seven men and Lise, Tess, Ines, Noor finished with hair fixes; Mira being reworked;
-  Ana, Rosa, Tove and a female captain not started. Portraits: `Art/Source/UIv2/crew-styles/portrait-*.png`.
-- Maps: GroundsV1 (9× old size) exists; being rebuilt as navigable seas per MAP-PLAN (`docs/briefs/CODEX1-MAPS-V2.txt`).
+Catchline becomes a restaurant game with a fishing outing: fish by day, then run Mira's harbour restaurant at night
+with the same crew. `docs/plans/RESTAURANT.md` is the design and wins over older economy and buyer plans.
 
-## Who is working (live agents)
+## State of the build (10-26)
 
-- Codex 1: map rebuild (CODEX1-MAPS-V2). Codex 2: female 3D crew. Sol: sea navigation (`docs/briefs/SOL-SEANAV-1.txt`),
-  then SOL-CODE-1. Claude: lead, briefs, acceptance.
+- Eleven fishing grounds on two charts: Gull coast (Harbour mouth, Kelp bank, Sandbar, Rocky point, Deep channel) and
+  Outer coast (Seal skerries, Wreck bank, Lighthouse rock, Whale shelf, Seal cliffs, Kelp forest), opening by boat tier
+  with prices per tier (`Data/Coasts.cs`). Kelp forest (map 11) is in final fixes, not committed yet.
+- Boats in game: Rowboat, Skiff, Compact fisher, Prep fisher, Buoy fisher (all refined), Jig boat (tier 3,
+  wired 10-26); the tier 6 boat is being designed (hull C, carrying every earlier tier's kit).
+- Crew cards v2 with the 42-ability engine, chests, deck berths; tutorial with Mira; real sound pack wired;
+  catch/sell/purchase/cast/strike effects; first-catch reveal; savings goal; map life on the Outer coast grounds.
+- Not built yet: the gold-fish minigame (gates gold and red fish), sea events, chart 3.
 
-## Open design question (for Fable / Mo)
+## Who is working
 
-Travel between harbour and fishing grounds is 10–20 s for now, because waiting is boring. Mo is considering turning the
-trip into its own half of the game loop: the crew prepares on the way (bait, gear, nets, cooking, maintenance,
-navigation choices, events), and fishing on arrival is the second half. Ideas must fit the current design above
-(crew cards with roles Fisher / Deckhand / Engineer / Navigator / Captain, deck stations and baskets, tiers 0–5,
-products, buyers, quota, night voyages) — not older documents.
-
-## Old (do not use as design input)
-
-Everything else in `docs/` (e.g. GAMEPLAY.md, CONTINUATION.md, DASH*, PREP*, TIER4-*, TIER5-*, *-HANDOFF.md,
-plans/PLAYABILITY-PLAN.md, CREW-CARDS-DESIGN.md, CARDS106-*) is history. Read it only to see why something was decided.
+- Claude 2: lead (briefs, review, acceptance, commits). Claude 1: away until Wednesday 10-28.
+- Codex 1 (Windows): restaurant camera and room-size study (RESTAURANT-SCALE-1). Codex 2 (WSL): restaurant concept
+  art (RESTAURANT-CONCEPT-1). A Codex only runs when a Claude starts it (`team start codexN`); its orders are `Art/Source/UIv2/CONTINUE-CODEX*.txt`.
