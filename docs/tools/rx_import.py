@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign','dishes','s5','s8/states','s7/states','s11/celebrate','transition','s9/jobs','badges','mira-moods','s3/special','s2/pause'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s1-extras','s2-call','coach-card','s1-card-states','closed-sign','dishes','s5','s8/states','s7/states','s11/celebrate','transition','s9/jobs','badges','mira-moods','s3/special','s2/pause','s16','s3/reservation'):
     before=set(pieces)
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
@@ -37,12 +37,15 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
         t=json.load(open(ts))
         # S1 extras: {"screen": ..., "styles": [...]} with the screen given once for the sheet.
         if isinstance(t,dict): t=[dict(x,screen=x.get('screen',t.get('screen'))) for x in t.get('styles',[])]
+        if part=='s16': t=[dict(x,screen=16) for x in t]
         texts+=t
     if os.path.exists(lay):
         lj=json.load(open(lay))
         # S2 call: {"screens": [{screen, placements}, ...]} for phone and desktop in one sheet.
         if isinstance(lj,dict) and isinstance(lj.get('screens'),list) and lj['screens'] and isinstance(lj['screens'][0],dict): lj={'placements':[dict(p,screen=p.get('screen',sc['screen'])) for sc in lj['screens'] for p in sc.get('placements',[])]}
         for p in lj.get('placements',[]) if isinstance(lj,dict) else []: p.setdefault('screen',lj.get('screen'))
+        if part=='s16':
+            for p in lj.get('placements',[]): p['screen']=16  # the week sheet names its screen 'week'
         json_lay=lj
         # Codex 2's S1/S2 sheet places every use as asset#use in layout.json's placements.
         for p in json_lay.get('placements',[]):
@@ -51,7 +54,7 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
             if p.get('name') and p.get('asset') and p['name']!=p['asset']: pieces.setdefault((p['screen'],p['name']+'#'+p.get('use','')),(p['rect'],None,None))
             # ...and its v2-s12x- assets are the S1/S2 twins of S3-S5 pieces the code names without the prefix.
             if (p.get('asset') or '').startswith('v2-s12x-'): pieces.setdefault((p['screen'],'v2-'+p['asset'][8:]+'#'+p.get('use','')),(p['rect'],None,None))
-            if part[1:].isdigit() and int(part[1:])>=6: layouts.setdefault(p['screen'],[]).append((p.get('z',0),(p.get('asset') or p['name'])+'#'+p.get('use','')))
+            if part[1:].isdigit() and int(part[1:])>=6: layouts.setdefault(int(p['screen']) if str(p['screen']).isdigit() else p['screen'],[]).append((p.get('z',0),(p.get('asset') or p['name'])+'#'+p.get('use','')))
     sl=X+part+'/slices.json'
     if os.path.exists(sl) and isinstance(json.load(open(sl)),list):
         # S6+ sheets: a list of sliced sprites, borders already left,bottom,right,top like the manifests

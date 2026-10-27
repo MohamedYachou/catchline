@@ -1,0 +1,440 @@
+{
+  "screens": [
+    {
+      "screen": "hire",
+      "canvas": [
+        844,
+        390
+      ],
+      "background": "Art\\Source\\Restaurant\\exact\\s9\\v2-s9-background.png",
+      "backgroundSha256": "56121285fd7ec8b678fe47317cb6534d8514d98a83e19e37e55f6f8446d32d87",
+      "concept": "ui-17-hire.png",
+      "placements": [
+        {
+          "name": "v2-s17-background",
+          "screen": "hire",
+          "rect": [
+            0,
+            0,
+            844,
+            390
+          ],
+          "use": "blue-plank-wall",
+          "z": 0
+        },
+        {
+          "name": "v2-s17-title-sign",
+          "screen": "hire",
+          "rect": [
+            262,
+            0,
+            320,
+            58
+          ],
+          "use": "hanging-title",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-back",
+          "screen": "hire",
+          "rect": [
+            10,
+            5,
+            128,
+            44
+          ],
+          "use": "back-button",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-back-arrow",
+          "screen": "hire",
+          "rect": [
+            22,
+            14,
+            26,
+            27
+          ],
+          "use": "back-icon",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-wallet",
+          "screen": "hire",
+          "rect": [
+            690,
+            5,
+            140,
+            44
+          ],
+          "use": "wallet",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-coin",
+          "screen": "hire",
+          "rect": [
+            701,
+            19,
+            27,
+            17
+          ],
+          "use": "wallet-coin",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-footer",
+          "screen": "hire",
+          "rect": [
+            14,
+            351,
+            816,
+            32
+          ],
+          "use": "tomorrow-footer",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-info",
+          "screen": "hire",
+          "rect": [
+            27,
+            356,
+            23,
+            23
+          ],
+          "use": "footer-info",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-candidate-card",
+          "screen": "hire",
+          "rect": [
+            14,
+            66,
+            264,
+            280
+          ],
+          "use": "tess-card",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-bust-slot",
+          "screen": "hire",
+          "rect": [
+            28,
+            82,
+            110,
+            150
+          ],
+          "use": "tess-bust-slot",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-job-tag",
+          "screen": "hire",
+          "rect": [
+            147,
+            115,
+            116,
+            34
+          ],
+          "use": "tess-job-tag",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-rarity-band",
+          "screen": "hire",
+          "rect": [
+            143,
+            156,
+            124,
+            30
+          ],
+          "use": "tess-rarity",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-coin",
+          "screen": "hire",
+          "rect": [
+            153,
+            205,
+            24,
+            15
+          ],
+          "use": "tess-wage-coin",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-hire",
+          "screen": "hire",
+          "rect": [
+            32,
+            282,
+            228,
+            52
+          ],
+          "use": "tess-hire",
+          "z": 20
+        },
+        {
+          "name": "v2-rbust-tess",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\clothes\\busts\\v2-rbust-tess.png",
+          "externalSha256": "c7f6d78eaf94910c5719e98d34d6cc9c9b7f17d3eb765160c94e092b8bc6053e",
+          "rect": [
+            31,
+            103,
+            104,
+            124
+          ],
+          "use": "tess-restaurant-bust",
+          "z": 30
+        },
+        {
+          "name": "v2-s9-job-cook",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\exact\\s9\\jobs\\v2-s9-job-cook.png",
+          "externalSha256": "eb776918e7848ef38a17c0c59d10291fb8e6e99840fb98e84965198abba74588",
+          "rect": [
+            155,
+            124,
+            23,
+            15
+          ],
+          "use": "tess-job-icon",
+          "z": 30
+        },
+        {
+          "name": "v2-s17-candidate-card",
+          "screen": "hire",
+          "rect": [
+            290,
+            66,
+            264,
+            280
+          ],
+          "use": "jo-card",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-bust-slot",
+          "screen": "hire",
+          "rect": [
+            304,
+            82,
+            110,
+            150
+          ],
+          "use": "jo-bust-slot",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-job-tag",
+          "screen": "hire",
+          "rect": [
+            423,
+            115,
+            116,
+            34
+          ],
+          "use": "jo-job-tag",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-rarity-band",
+          "screen": "hire",
+          "rect": [
+            419,
+            156,
+            124,
+            30
+          ],
+          "use": "jo-rarity",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-coin",
+          "screen": "hire",
+          "rect": [
+            429,
+            205,
+            24,
+            15
+          ],
+          "use": "jo-wage-coin",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-hire",
+          "screen": "hire",
+          "rect": [
+            308,
+            282,
+            228,
+            52
+          ],
+          "use": "jo-hire",
+          "z": 20
+        },
+        {
+          "name": "v2-rbust-jo",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\clothes\\busts\\v2-rbust-jo.png",
+          "externalSha256": "abddbb7617d19dc5f57a7556ee1e76ec514df4b2f871edb93fe9b2ec1ae68e98",
+          "rect": [
+            307,
+            112,
+            104,
+            115
+          ],
+          "use": "jo-restaurant-bust",
+          "z": 30
+        },
+        {
+          "name": "v2-s9-job-waiter",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\exact\\s9\\jobs\\v2-s9-job-waiter.png",
+          "externalSha256": "efe46c6a69088d9ad96d0c1f7523906456e41b2b88bf7be6dd5d8ed85e2383d2",
+          "rect": [
+            431,
+            122,
+            23,
+            18
+          ],
+          "use": "jo-job-icon",
+          "z": 30
+        },
+        {
+          "name": "v2-s17-candidate-card",
+          "screen": "hire",
+          "rect": [
+            566,
+            66,
+            264,
+            280
+          ],
+          "use": "ines-card",
+          "z": 10
+        },
+        {
+          "name": "v2-s17-bust-slot",
+          "screen": "hire",
+          "rect": [
+            580,
+            82,
+            110,
+            150
+          ],
+          "use": "ines-bust-slot",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-job-tag",
+          "screen": "hire",
+          "rect": [
+            699,
+            115,
+            116,
+            34
+          ],
+          "use": "ines-job-tag",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-rarity-band",
+          "screen": "hire",
+          "rect": [
+            695,
+            156,
+            124,
+            30
+          ],
+          "use": "ines-rarity",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-coin",
+          "screen": "hire",
+          "rect": [
+            705,
+            205,
+            24,
+            15
+          ],
+          "use": "ines-wage-coin",
+          "z": 20
+        },
+        {
+          "name": "v2-s17-hire",
+          "screen": "hire",
+          "rect": [
+            584,
+            282,
+            228,
+            52
+          ],
+          "use": "ines-hire",
+          "z": 20
+        },
+        {
+          "name": "v2-rbust-ines",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\clothes\\busts\\v2-rbust-ines.png",
+          "externalSha256": "741ba152cbc87b94c09f21121882ed9c1acd4810e384d9c8e877aa951ac54e0a",
+          "rect": [
+            583,
+            110,
+            104,
+            117
+          ],
+          "use": "ines-restaurant-bust",
+          "z": 30
+        },
+        {
+          "name": "v2-s9-job-barista",
+          "screen": "hire",
+          "external": "Art\\Source\\Restaurant\\exact\\s9\\jobs\\v2-s9-job-barista.png",
+          "externalSha256": "ff4ed2cd2e8dca6d3574d060a4ffcb6227e047a82ed267dde271ffa658e0c9e3",
+          "rect": [
+            707,
+            120,
+            22,
+            23
+          ],
+          "use": "ines-job-icon",
+          "z": 30
+        }
+      ],
+      "hitRects": {
+        "back": [
+          10,
+          5,
+          128,
+          44
+        ],
+        "tess-hire": [
+          32,
+          282,
+          228,
+          52
+        ],
+        "jo-hire": [
+          308,
+          282,
+          228,
+          52
+        ],
+        "ines-hire": [
+          584,
+          282,
+          228,
+          52
+        ]
+      },
+      "notes": "All names, jobs, rarity, wages, traits and wallet numbers are live sample content. Fixed jobs follow accepted bust manifest. This screen proposes presentation only; it adds no hiring economy, candidate rotation, duplicate crew or wage rules. Rarity uses a shared blank ribbon; label conveys rarity without colour dependency. All 3 repeated uses are listed. Icons come from accepted S9/jobs."
+    }
+  ],
+  "coordinates": "top-left x,y,w,h in logical mockup pixels; z ascending"
+}

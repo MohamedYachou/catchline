@@ -11,7 +11,7 @@ namespace Catchline.Game
     // numbers before the restaurant logic is wired in; art not delivered yet falls back to the nearest kit icon.
     public partial class VoyageGame
     {
-        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange, Sleep, Dashboard, Market, Upgrades, Crew, StageUp, FirstNight }
+        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange, Sleep, Dashboard, Market, Upgrades, Crew, StageUp, FirstNight, Week }
         public RestaurantScreen RestaurantPreview;
 
         public sealed class RestaurantDish { public string Name, Art, Fallback; public int Low, High; }
@@ -64,6 +64,16 @@ namespace Catchline.Game
             public string Tomorrow = "Saturday · Clear skies", Booking = "Expect a lively terrace";
         }
         public RestaurantSleepView RestaurantSleepCard = new();
+
+        // S16: the week report after the seventh night (sample = Codex 1's illustrative values).
+        public sealed class RestaurantWeekView
+        {
+            public int[] Nights = { 280, 360, 320, 410, 450, 560, 460 };
+            public string Days = "MTWTFSS";
+            public string Dish = "Grilled fish", DishArt = "v2-dish-grilled-fish", Crew = "Jo", CrewId = "jo", Quote = "Always one step ahead.";
+            public int DishCount = 48, PopularityFrom = 40, PopularityTo = 46;
+        }
+        public RestaurantWeekView RestaurantWeek = new();
 
         // S7: the morning market after prep.
         public sealed class RestaurantMarketRow { public Species Species; public string Name, Art; public float Kg; public int Value; public bool Keep; }
@@ -926,6 +936,7 @@ namespace Catchline.Game
                     case RestaurantScreen.StageUp: InterfaceRestaurantStageUp(RestaurantStageUp); break;
                     case RestaurantScreen.FirstNight: InterfaceRestaurantFirstNight(); break;
                     case RestaurantScreen.Crew: InterfaceRestaurantCrew(); break;
+                    case RestaurantScreen.Week: InterfaceRestaurantWeek(RestaurantWeek); break;
                 }
                 if (transitionCard != null) InterfaceTransition();
             }
@@ -1285,7 +1296,17 @@ namespace Catchline.Game
                 "unlock-0" => v.Unlocks[0], "unlock-1" => v.Unlocks[1], "unlock-2" => v.Unlocks[2],
                 "building-sign" => StageWord(v.To),
                 _ => null,
-            }, null, null, variant == null ? null : name => HasUi(name.Replace("rx-s11-", $"rx-s11-{variant}-")) ? name.Replace("rx-s11-", $"rx-s11-{variant}-") : name,
+            }, null, () =>
+            {
+                // Codex 1's celebration (exact/s11/celebrate): soft rays behind the new facade at the demo's .55, the facade
+                // again on top of them, and the New stage ribbon across its foot.
+                if (!HasUi("rx-s11-celebrate-rays")) return;
+                Fade(Rx("rstage/rays", "phone", "v2-s11-celebrate-rays#behind-new-facade", f, null, "rx-s11-celebrate-rays"), .55f);
+                string ill = "rx-s11-illustration", alt = variant == null ? null : ill.Replace("rx-s11-", $"rx-s11-{variant}-");
+                Rx("rstage/facade", 11, "v2-s11-illustration#primary", f, null, alt != null && HasUi(alt) ? alt : ill);
+                Rx("rstage/ribbon", "phone", "v2-s11-new-stage-ribbon#new-stage-banner", f, null, "rx-s11-new-stage-ribbon");
+                RxText("rstage/ribbon/t", "phone", "new-stage-label", "New stage!", f);
+            }, variant == null ? null : name => HasUi(name.Replace("rx-s11-", $"rx-s11-{variant}-")) ? name.Replace("rx-s11-", $"rx-s11-{variant}-") : name,
             variant == null ? null : "11-" + variant);
             coastalUi.HitArea("rstage/go", RestaurantExact.Pieces["11:v2-s11-primary#primary"].rect, () => RestaurantPreview = RestaurantScreen.Dashboard, f);
         }
@@ -1743,7 +1764,51 @@ namespace Catchline.Game
             Rx("rclose/sleep", 5, "v2-btn-primary#Sleep button; nine-slice", f, null, "rx-btn-primary");
             Rx("rclose/sleep/icon", 5, "v2-icon-bed", f);
             RxText("rclose/sleep/label", 5, "sleep", "Sleep", f, new Rect(607, 331, 100, 31), TextAnchor.MiddleLeft);
-            coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => RestaurantPreview = RestaurantScreen.Sleep, f);
+            coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => RestaurantPreview = WeekDone() ? RestaurantScreen.Week : RestaurantScreen.Sleep, f);
+        }
+
+        // S16 (Codex 1's ui-16-week): seven nights' takings as bars on the measured baseline, the best night gold, the
+        // week's best dish and crew member, popularity across the week and the total.
+        void InterfaceRestaurantWeek(RestaurantWeekView v)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rweek/planks", false);
+            var f = RestaurantFrame("rweek/frame");
+            int best = System.Array.IndexOf(v.Nights, v.Nights.Max()), top = Mathf.Max(1, v.Nights.Max());
+            float tallest = Enumerable.Range(1, 7).Max(i => RestaurantExact.Pieces[$"16:{(i == 6 ? "v2-s16-bar-gold" : "v2-s16-bar-teal")}#night-{i}"].rect.height);
+            RxScreen("rweek", 16, f, style =>
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    if (style == $"night-{i + 1}-day") return v.Days[i].ToString();
+                    if (style == $"night-{i + 1}-coins") return ""; // drawn over each live bar below
+                }
+                return style switch
+                {
+                    "title" => $"A week at Mira's", "income-title" => "Seven nights",
+                    "dish-name" => v.Dish, "dish-count" => $"{v.DishCount} served",
+                    "crew-name" => v.Crew, "crew-quote" => v.Quote,
+                    "popularity-start" => v.PopularityFrom.ToString(), "popularity-end" => v.PopularityTo.ToString(),
+                    "popularity-delta" => $"{(v.PopularityTo >= v.PopularityFrom ? "+" : "")}{v.PopularityTo - v.PopularityFrom} this week",
+                    "total-coins" => Num(v.Nights.Sum()), "next-week" => "Next week",
+                    _ => null,
+                };
+            }, key => key.StartsWith("v2-s16-bar-") || key.StartsWith("v2-dish-") || key.StartsWith("v2-rbust-"), () =>
+            {
+                ArrangeArt(Rx("rweek/dish", 16, "v2-dish-grilled-fish#example-best-dish", f, null, ArrangeSprite(v.DishArt)));
+                string bust = HasUi("v2-rbust-" + v.CrewId) ? "v2-rbust-" + v.CrewId : "v2-rbust-jo";
+                ArrangeArt(Rx("rweek/crew", 16, "v2-rbust-jo#example-crew-jo", f, null, bust));
+                for (int i = 0; i < 7; i++)
+                {
+                    var slot = RestaurantExact.Pieces[$"16:{(i == 5 ? "v2-s16-bar-gold" : "v2-s16-bar-teal")}#night-{i + 1}"].rect;
+                    float h = v.Nights[i] <= 0 ? 0 : Mathf.Max(14, tallest * v.Nights[i] / top); // keeps the caps on a small night
+                    if (h > 0) Rx($"rweek/bar/{i}", 16, $"{(i == 5 ? "v2-s16-bar-gold" : "v2-s16-bar-teal")}#night-{i + 1}", f,
+                        new Rect(slot.x, slot.yMax - h, slot.width, h), i == best ? "rx-s16-bar-gold" : "rx-s16-bar-teal");
+                    var t = RestaurantExact.Texts[$"16:night-{i + 1}-coins"].Rect;
+                    RxText($"rweek/coins/{i}", 16, $"night-{i + 1}-coins", v.Nights[i].ToString(), f, new Rect(t.x, slot.yMax - h - 23, t.width, t.height));
+                }
+            });
+            coastalUi.HitArea("rweek/next", RestaurantExact.Pieces["16:v2-s16-primary#next-week"].rect, () => RestaurantPreview = RestaurantScreen.Sleep, f);
         }
 
         // A speech-bubble line broken at the space nearest its middle, as the mockup sets it.

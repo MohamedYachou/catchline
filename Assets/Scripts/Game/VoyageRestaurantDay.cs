@@ -753,8 +753,31 @@ namespace Catchline.Game
         {
             var sold = night.Groups.SelectMany(g => g.Tickets).Where(t => t.Phase == TicketPhase.Delivered)
                 .GroupBy(t => t.Dish).Select(g => $"{g.Key}={g.Count()}");
-            State.RestaurantNights.Add(string.Join("|", State.RestaurantDay, r.NetCoins, r.DishCoins, r.DrinkCoins, r.Tips, restaurantPopularity, r.Served, r.Left, string.Join(";", sold)));
+            var crew = r.Walking.OrderByDescending(w => w.Metres).FirstOrDefault(w => w.Id != "mira" && w.Id != "captain")?.Id ?? "mira"; // the crew award, not the manager
+            State.RestaurantNights.Add(string.Join("|", State.RestaurantDay, r.NetCoins, r.DishCoins, r.DrinkCoins, r.Tips, restaurantPopularity, r.Served, r.Left, string.Join(";", sold), crew));
+            if (State.RestaurantNights.Count % 7 == 0) FillWeek();
             while (State.RestaurantNights.Count > 14) State.RestaurantNights.RemoveAt(0);
+        }
+        // The seventh night closes a week: S16 sums the last seven records (day|net|dishes|drinks|tips|popularity|served|left|sold|crew).
+        bool weekDone;
+        bool WeekDone() { bool d = weekDone && HasUi("rx-s16-background"); weekDone = false; return d; }
+        void FillWeek()
+        {
+            var rec = State.RestaurantNights.Skip(State.RestaurantNights.Count - 7).Select(n => n.Split('|')).ToList();
+            var all = State.RestaurantNights.Select(n => n.Split('|')).ToList();
+            var v = RestaurantWeek;
+            v.Nights = rec.Select(p => int.TryParse(p[1], out var c) ? c : 0).ToArray();
+            v.Days = new string(rec.Select(p => "MTWTFSS"[(int.TryParse(p[0], out var d) ? d : 0) % 7]).ToArray());
+            var dishes = rec.Where(p => p.Length > 8).SelectMany(p => p[8].Split(';')).Select(s => s.Split('=')).Where(s => s.Length == 2 && int.TryParse(s[1], out _))
+                .GroupBy(s => s[0]).Select(g => (dish: g.Key, n: g.Sum(s => int.Parse(s[1])))).OrderByDescending(x => x.n).FirstOrDefault();
+            if (dishes.dish != null && System.Enum.TryParse<Dish>(dishes.dish, out var best)) { v.Dish = Look(best).name; v.DishArt = Look(best).art; v.DishCount = dishes.n; }
+            var crew = rec.Where(p => p.Length > 9 && p[9] != "captain").GroupBy(p => p[9]).OrderByDescending(g => g.Count()).FirstOrDefault()?.Key ?? "mira";
+            v.CrewId = crew; v.Crew = Cap(crew); v.Quote = "Most steps on the floor this week.";
+            int Pop(string[] p) => p.Length > 5 && float.TryParse(p[5], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var x) ? Mathf.RoundToInt(x) : 0;
+            v.PopularityTo = Pop(rec[^1]);
+            v.PopularityFrom = all.Count > 7 ? Pop(all[all.Count - 8]) : Pop(rec[0]);
+            weekDone = true;
+            Debug.Log($"[Catchline] WEEK {string.Join(",", v.Nights)} best dish {v.Dish} x{v.DishCount} crew {v.Crew} pop {v.PopularityFrom}->{v.PopularityTo}");
         }
         static string Cap(string id) => string.IsNullOrEmpty(id) ? id : char.ToUpperInvariant(id[0]) + id.Substring(1);
 
@@ -889,6 +912,19 @@ namespace Catchline.Game
                     while (!night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Closing;
+                case "day-week": // capture only: the real closing's record repeated into a week (varied takings), then S16 from it
+                    {
+                        if (State.RestaurantNights.Count == 0) return false;
+                        var last = State.RestaurantNights[^1].Split('|');
+                        for (int d = 1; State.RestaurantNights.Count % 7 != 0; d++)
+                        {
+                            var p = (string[])last.Clone(); p[0] = (int.Parse(last[0]) + d).ToString(); p[1] = (int.Parse(last[1]) * (4 + d % 3 + d) / 5).ToString();
+                            State.RestaurantNights.Add(string.Join("|", p));
+                        }
+                        FillWeek();
+                        RestaurantPreview = WeekDone() ? RestaurantScreen.Week : RestaurantScreen.None;
+                        return RestaurantPreview == RestaurantScreen.Week;
+                    }
                 case "day-dashboard": OpenRestaurantDashboard(); return true;
                 case "day-upgrades": OpenRestaurantUpgrades(); return true;
                 // Arrange by day over the real room: a table for two picked from the drawer, its ghost on the floor;

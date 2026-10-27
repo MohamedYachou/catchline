@@ -1,0 +1,643 @@
+{
+  "styles": [
+    {
+      "id": "title",
+      "screen": "hire",
+      "text": "Hiring board",
+      "rect": [
+        296,
+        15,
+        242,
+        33
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 27,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 29,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "back",
+      "screen": "hire",
+      "text": "Back",
+      "rect": [
+        54,
+        12,
+        73,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 24,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 26,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "wallet",
+      "screen": "hire",
+      "text": "1,240",
+      "rect": [
+        735,
+        13,
+        83,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 25,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 27,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tomorrow",
+      "screen": "hire",
+      "text": "New faces tomorrow",
+      "rect": [
+        61,
+        354,
+        700,
+        25
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 19,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 21,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-name",
+      "screen": "hire",
+      "text": "Tess",
+      "rect": [
+        150,
+        81,
+        112,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 27,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 29,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-job",
+      "screen": "hire",
+      "text": "Cook",
+      "rect": [
+        183,
+        119,
+        77,
+        26
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-rarity",
+      "screen": "hire",
+      "text": "Common",
+      "rect": [
+        155,
+        159,
+        100,
+        23
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 15,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 17,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-wage",
+      "screen": "hire",
+      "text": "18 / night",
+      "rect": [
+        183,
+        198,
+        82,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 17,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 19,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-trait",
+      "screen": "hire",
+      "text": "Steady hands",
+      "rect": [
+        32,
+        245,
+        228,
+        25
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "tess-hire",
+      "screen": "hire",
+      "text": "Hire",
+      "rect": [
+        48,
+        293,
+        196,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 25,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 27,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-name",
+      "screen": "hire",
+      "text": "Jo",
+      "rect": [
+        426,
+        81,
+        112,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 27,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 29,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-job",
+      "screen": "hire",
+      "text": "Waiter",
+      "rect": [
+        459,
+        119,
+        77,
+        26
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-rarity",
+      "screen": "hire",
+      "text": "Rare",
+      "rect": [
+        431,
+        159,
+        100,
+        23
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 15,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 17,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-wage",
+      "screen": "hire",
+      "text": "24 / night",
+      "rect": [
+        459,
+        198,
+        82,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 17,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 19,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-trait",
+      "screen": "hire",
+      "text": "Quick on their feet",
+      "rect": [
+        308,
+        245,
+        228,
+        25
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "jo-hire",
+      "screen": "hire",
+      "text": "Hire",
+      "rect": [
+        324,
+        293,
+        196,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 25,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 27,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-name",
+      "screen": "hire",
+      "text": "Ines",
+      "rect": [
+        702,
+        81,
+        112,
+        30
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 27,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 29,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-job",
+      "screen": "hire",
+      "text": "Barista",
+      "rect": [
+        735,
+        119,
+        77,
+        26
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-rarity",
+      "screen": "hire",
+      "text": "Uncommon",
+      "rect": [
+        707,
+        159,
+        100,
+        23
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 15,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 17,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-wage",
+      "screen": "hire",
+      "text": "20 / night",
+      "rect": [
+        735,
+        198,
+        82,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 17,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 19,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-trait",
+      "screen": "hire",
+      "text": "A warm welcome",
+      "rect": [
+        584,
+        245,
+        228,
+        25
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 20,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    },
+    {
+      "id": "ines-hire",
+      "screen": "hire",
+      "text": "Hire",
+      "rect": [
+        600,
+        293,
+        196,
+        29
+      ],
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 25,
+      "fill": "#FFF4DC",
+      "stroke_width": 0,
+      "align": "center",
+      "vertical_align": "middle",
+      "wrap": false,
+      "lineHeight": 27,
+      "stroke_fill": null,
+      "shadow": {
+        "offset": [
+          0,
+          0
+        ],
+        "fill": "#00000000"
+      },
+      "textMode": "live; sample content only"
+    }
+  ],
+  "notes": "Live labels; examples are illustrative, not new game rules."
+}
