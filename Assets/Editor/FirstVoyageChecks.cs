@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.Linq;
 using Catchline.Game;
+using Catchline.Game.Deck;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
@@ -28,54 +30,79 @@ namespace Catchline.EditorTools
             var game = new GameObject("First voyage check").AddComponent<VoyageGame>();
             game.SessionOnly = true;
             game.Build();
-            Check(game.FirstVoyage && game.LearningFishing && game.StrikeWindow == 1.5f, "gentle first catches");
-            game.SetSail();
-            Until(game, () => game.CurrentMode == VoyageGame.Mode.Fishing, "arrives at sea");
-            Check(game.VoyageHint().Contains("Tap Fish"), "first cast prompt");
-            var rod = game.Rods[0];
-            // Fail once on purpose: the normal early-strike cost and recovery still work.
-            game.CommandRod(rod);
-            Until(game, () => rod.State == RodState.Waiting, "first cast");
-            Check(game.VoyageHint().Contains("bobber"), "waiting never says tap Fish");
-            game.StrikeTap();
-            Check(game.Stats.Spooked == 1 && rod.State == RodState.Unbaited, "early strike still costs bait");
-
-            for (int n = 0; n < 100 && !game.HoldFull; n++)
-            {
-                // Manning recasts after an early strike; following catches need the real Fish command.
-                if (game.CanCommandRod(rod)) game.CommandRod(rod);
-                Until(game, () => rod.State == RodState.Bite, "bite");
-                Check(game.VoyageHint().Contains("now"), "strike instruction at bite");
-                game.StrikeTap();
-                Until(game, () => game.OnDeck.Count > 0 && game.CanCarry(game.OnDeck[0]), "catch lands and can be carried");
-                Check(game.VoyageHint().Contains("Carry"), "carry prompt");
-                game.CommandCarry(game.OnDeck[0]);
-                int target = n + 1;
-                Until(game, () => game.Cooler.Count == target, "real pickup and stow path");
-                if (n == 2) Check(!game.LearningFishing && Mathf.Approximately(game.StrikeWindow, game.State.BiteWindow), "normal timing after third landed fish");
-            }
-            Check(game.VoyageHint().Contains("Cooler full"), "return prompt");
-            int securedCount = game.Cooler.Count;
-            game.HeadHome();
-            Until(game, () => game.CurrentMode == VoyageGame.Mode.Harbour, "sale at harbour");
-            Check(game.State.UnsoldCatch.Count == securedCount && game.State.LastSale == null, "arrival keeps the haul unsold");
-            Check(game.SellHaul(), "captain explicitly sells haul");
-            Check(game.State.LogCount[0] + game.State.LogCount[1] == securedCount && game.State.LastSale.Coins > 0, "sale and fish log");
-            Debug.Log($"[Catchline] First trip: {game.State.LastSale.Minutes:0.00} min, {game.State.LastSale.Coins} earned, {game.State.Coins} total; cooler costs {GameData.Upgrade(UpgradeId.BigCooler).Cost}");
-            Check(!game.FirstVoyage && !game.LearningFishing, "tutorial stays completed after sale");
-            int coins = game.State.Coins;
-            Check(coins >= GameData.Upgrade(UpgradeId.BigCooler).Cost + GameData.BaitPackCost, "first full trip funds cooler plus replacement bait");
-            Check(game.State.TryBuy(UpgradeId.BigCooler) && game.State.CoolerCapacity == 6, "first upgrade unlocks6kg");
-            Check(!game.State.TryBuy(UpgradeId.BigCooler), "upgrade spends once");
-            string save = Path.GetFullPath("Logs/first-voyage-test-save.json");
+            bool hadAutoCarry = PlayerPrefs.HasKey("catchline.autoCarry");
+            int autoCarry = PlayerPrefs.GetInt("catchline.autoCarry", 1);
             try
             {
-                game.State.Save(save);
-                var loaded = GameState.Load(save);
-                Check(loaded != null && loaded.LogCount[0] + loaded.LogCount[1] == securedCount, "learning progress survives save");
-                Check(ArtLibrary.Get().UiTex("fish-herring") != null && ArtLibrary.Get().UiTex("fish-mackerel") != null, "catch portraits available");
+                PlayerPrefs.SetInt("catchline.autoCarry", 0);
+                Check(game.FirstVoyage && game.LearningFishing && game.StrikeWindow == 1.5f, "gentle first catches");
+                game.SetSail();
+                Until(game, () => game.CurrentMode == VoyageGame.Mode.Fishing, "arrives at sea", 240f);
+                Check(game.VoyageHint().Contains("Tap Fish"), "first cast prompt");
+                var rod = game.Rods[0];
+                Check(game.UsesDeckGraph, "first voyage uses the rowboat deck graph");
+                var basket = game.GearStation(StationKind.Rod, rod.Index).Out;
+                var sort = game.DeckGraph.OfKind(StationKind.SortTable).First();
+                // The reading minigame holds the failed result until the line has returned.
+                game.CommandRod(rod);
+                Until(game, () => rod.State == RodState.Waiting, "first cast");
+                Check(game.VoyageHint().Contains("bobber"), "waiting never says tap Fish");
+                game.StrikeTap();
+                Check(game.Stats.Spooked == 1 && rod.ReadingResult == StrikeResult.TooEarly && rod.State == RodState.Waiting,
+                    "early strike records one failed reading before returning the line");
+                game.StrikeTap();
+                Check(game.Stats.Spooked == 1 && rod.ReadingResult == StrikeResult.TooEarly, "duplicate strike cannot repeat a failed result");
+                Until(game, () => rod.Reading == null && rod.State == RodState.Unbaited, "failed cast returns unbaited");
+
+                for (int n = 0; n < 100 && !game.HoldFull; n++)
+                {
+                    // Each completed reading needs the real Fish command to recast.
+                    if (game.CanCommandRod(rod)) game.CommandRod(rod);
+                    Until(game, () => rod.State == RodState.Bite, "bite");
+                    Check(game.VoyageHint().Contains("now"), "strike instruction at bite");
+                    game.StrikeTap();
+                    Until(game, () => basket.Count == 1, "catch lands in rod basket");
+                    Check(game.OnDeck.Count == 0, "graph catch does not use legacy loose deck list");
+                    bool undersize = FishRules.Undersize(basket.Fish[0]);
+                    int stored = game.Cooler.Count, thrown = game.ThrownBack;
+                    Check(game.CaptainHaulFrom(basket), "Carry starts the captain haul");
+                    Until(game, () => sort.In.Count == 1, "catch reaches sorting table");
+                    game.CommandKeep(true);
+                    Until(game, () => undersize ? game.ThrownBack == thrown + 1 : game.Cooler.Count == stored + 1,
+                        "Keep returns undersize or stows keeper");
+                    Check(game.Scheduler.Balanced, "catch conserved through carry, sort and stow");
+                    if (game.Stats.Landed >= 3) Check(!game.LearningFishing && Mathf.Approximately(game.StrikeWindow, game.State.BiteWindow), "normal timing after third landed fish");
+                }
+                Debug.Log($"[Catchline] First voyage catch totals: {game.Stats.Landed} landed, {game.Cooler.Count} stored, {game.ThrownBack} returned, {game.HoldKg:0.000}/{game.State.CoolerCapacity}kg, {game.State.Bait} bait; hint {game.VoyageHint()}");
+                Check(game.VoyageHint().Contains("Cooler full"), "return prompt");
+                int securedCount = game.Cooler.Count;
+                game.HeadHome();
+                Until(game, () => game.CurrentMode == VoyageGame.Mode.Harbour, "sale at harbour", 240f);
+                Check(game.State.UnsoldCatch.Count == securedCount && game.State.LastSale == null, "arrival keeps the haul unsold");
+                Check(game.SellHaul(), "captain explicitly sells haul");
+                Check(game.State.LogCount.Sum() == securedCount && game.State.LastSale.Coins > 0, "sale and fish log");
+                Debug.Log($"[Catchline] First trip: {game.State.LastSale.Minutes:0.00} min, {game.State.LastSale.Coins} earned, {game.State.Coins} total; cooler costs {GameData.Upgrade(UpgradeId.BigCooler).Cost}");
+                Check(!game.FirstVoyage && !game.LearningFishing, "tutorial stays completed after sale");
+                int coins = game.State.Coins;
+                Check(coins >= GameData.Upgrade(UpgradeId.BigCooler).Cost + GameData.BaitPackCost, "first full trip funds cooler plus replacement bait");
+                Check(game.State.TryBuy(UpgradeId.BigCooler) && Mathf.Approximately(game.State.CoolerCapacity, GameData.RowboatBigCoolerKg), "first upgrade uses current rowboat cooler capacity");
+                Check(!game.State.TryBuy(UpgradeId.BigCooler), "upgrade spends once");
+                string save = Path.GetFullPath("Logs/first-voyage-test-save.json");
+                try
+                {
+                    game.State.Save(save);
+                    var loaded = GameState.Load(save);
+                    Check(loaded != null && loaded.LogCount.Sum() == securedCount, "learning progress survives save");
+                    Check(ArtLibrary.Get().UiTex("fish-herring") != null && ArtLibrary.Get().UiTex("fish-mackerel") != null, "catch portraits available");
+                }
+                finally { if (File.Exists(save)) File.Delete(save); }
             }
-            finally { if (File.Exists(save)) File.Delete(save); }
+            finally
+            {
+                if (hadAutoCarry) PlayerPrefs.SetInt("catchline.autoCarry", autoCarry);
+                else PlayerPrefs.DeleteKey("catchline.autoCarry");
+                UnityEngine.Object.DestroyImmediate(game.gameObject);
+            }
             Debug.Log("[Catchline] FIRST VOYAGE CHECKS PASSED");
         }
 

@@ -36,14 +36,14 @@ namespace Catchline.EditorTools
             for (int i = 0; i < 5; i++) game.LandFish(game.Rods[0], Species.Herring, .25f);
             game.Captain.Carrying = game.OnDeck[0]; game.OnDeck.RemoveAt(0);
             game.Hand.Carrying = game.OnDeck[0]; game.OnDeck.RemoveAt(0);
-            Check(game.CurrentHaul().Count == 13 && game.UnstowedHaul().Count == 5 && game.DepartureOverflow() == 3, "carried/deck fish counted once; exact three-fish loss");
+            Check(game.CurrentHaul().Count == 13 && game.UnstowedHaul().Count == 5 && game.DepartureOverflow() == 0, "carried/deck fish counted once; all board over capacity");
             state.Owned.Add(UpgradeId.BigCooler);
             Check(game.DepartureOverflow() == 0 && state.CoolerCapacity == 6, "larger cooler prevents overflow");
             state.Hull = 1;
             Check(game.DepartureOverflow() == 0 && state.CoolerCapacity == 27, "skiff capacity used");
             state.Hull = 0; state.Owned.Remove(UpgradeId.BigCooler);
             for (int i = 0; i < 2; i++) game.Cooler.Add(new CaughtFish { Species = Species.Herring, Kg = .25f, StowedAt = game.SimTime });
-            Check(game.DepartureOverflow() == 5, "full cooler exposes all unstowed fish");
+            Check(game.DepartureOverflow() == 0, "full cooler still takes every unstowed fish");
             game.Cooler.RemoveRange(8, 2);
 
             state.Active.Clear();

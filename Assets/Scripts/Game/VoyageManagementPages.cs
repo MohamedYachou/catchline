@@ -239,7 +239,7 @@ namespace Catchline.Game
             int stage = Mathf.Clamp(dashboardDetail == 7 && Bottleneck >= 0 ? Bottleneck : dashboardDetail - 3, 0, 3);
             string body = $"{Recommendation.Replace('\n', ' ')}\n\nWorking at {Rate(stageOutput[stage])} fish/min · status {Skin.Word(StageStatus(stageStatus[stage])).ToLowerInvariant()}.\n" +
                 $"On deck or carried: {WaitingDeckKg:0.#} kg. Waiting to process: {ProcessingInput.Count}. Ready to carry: {ProcessingOutput.Count}.\nMain hold: {HoldKg:0} / {State.CoolerCapacity:0} kg.";
-            bool canHelp = ProcessingOutput.Count > 0 && !HoldFull;
+            bool canHelp = ProcessingOutput.Count > 0;
             var slab = coastalUi.Modal("management/detail", StageTitles[stage], body,
                 canHelp ? "Help carry" : IsPrepFisher ? "Table orders" : "Crew duties",
                 canHelp ? () => { CloseManagement(); HelpCarryProcessed(); } : IsPrepFisher ? () => { CloseManagement(); PrepOrdersOpen = true; } : () => { dashboardDetail = -1; managementTab = 2; },

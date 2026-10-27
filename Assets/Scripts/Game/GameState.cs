@@ -445,19 +445,21 @@ namespace Catchline.Game
         // Longer casts shift the odds toward heavier fish and bigger specimens.
         public (Species, float) RollFish(int spot, float power, bool scraps = false, bool squid = false, bool chum = false)
         {
-            // Poor bait is unlimited, but cannot roll a large species or specimen.
-            if (scraps)
-            {
-                var small = GameData.Get(Rng.Next(2) == 0 ? Species.Herring : Species.Mackerel);
-                return (small.Species, Mathf.Lerp(small.MinKg, small.MinKg + (small.MaxKg - small.MinKg) * .2f, Rand()));
-            }
+            // Mo 10-27, the bait ladder. A common species is white small and green big, a rare one blue and purple; "75%"
+            // is that fish's own big line. Scraps: commons up to the line (white). Worms: commons whole, rares up to the
+            // line (blue). Squid: commons and rares whole. Chum: everything including gold and red, 25-100% of the range.
             power = Mathf.Clamp(power, 0f, 1.4f);
             var table = FishTable(spot);
             float total = 0f;
             var weights = new float[table.Length];
+            for (int pass = 0; pass < 2 && total <= 0f; pass++) // a ground with nothing the bait can reach falls back to its whole pool
             for (int i = 0; i < table.Length; i++)
             {
-                if (Tier < GameData.MinimumHull(table[i].species)) { weights[i] = 0; continue; }
+                weights[i] = 0;
+                if (Tier < GameData.MinimumHull(table[i].species)) continue;
+                var tier = CatchPresentation.Tier(table[i].species, GameData.Get(table[i].species).MinKg);
+                bool rare = tier is CatchTier.Rare or CatchTier.BigRare, legend = tier is CatchTier.Legendary or CatchTier.Mythical;
+                if (pass == 0 && (legend && !chum || rare && scraps || tier == CatchTier.BigCommon && scraps || tier == CatchTier.BigRare && !squid && !chum)) continue;
                 float h = GameData.Get(table[i].species).Heaviness;
                 weights[i] = table[i].weight * Mathf.Lerp(1f - 0.7f * h, 1f + 1.6f * h, power);
                 // Premium bait targets substantial fish; small schools remain possible, not dominant.
@@ -465,6 +467,7 @@ namespace Catchline.Game
                 if (squid) weights[i] *= h < .35f ? .04f : .65f + h * 1.6f;
                 total += weights[i];
             }
+            if (total <= 0f) return (table[table.Length - 1].species, GameData.Get(table[table.Length - 1].species).MinKg);
             float roll = Rand() * total;
             int pick = table.Length - 1;
             for (int i = 0; i < table.Length; i++)
@@ -478,8 +481,10 @@ namespace Catchline.Game
             // Outer coast fish run big; on the Gull coast a rare species gets one re-roll down, so purples stay a treat.
             if (Coasts.Outer(spot)) specimen = .25f + .75f * specimen;
             else if (CatchPresentation.IsRare(def.Species)) specimen = Mathf.Min(specimen, Rand());
-            if (squid) specimen = Mathf.Lerp(.35f, 1f, specimen);
-            if (chum) specimen = Mathf.Lerp(.75f, 1f, specimen);
+            if (chum) specimen = Mathf.Lerp(.25f, 1f, specimen);
+            // Scraps keep a common fish white, worms keep a rare fish blue: the roll stops just under its big line.
+            if (scraps || !squid && !chum && CatchPresentation.IsRare(def.Species))
+                specimen *= Mathf.Clamp01((def.MaxKg * .75f - def.MinKg) / Mathf.Max(.001f, def.MaxKg - def.MinKg)) * .999f;
             float kg = Mathf.Lerp(def.MinKg, def.MaxKg, specimen);
             return (def.Species, kg);
         }

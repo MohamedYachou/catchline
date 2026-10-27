@@ -60,7 +60,6 @@ namespace Catchline.Game
             foreach (var p in People) { p.Stop(); p.Grid = Grid; p.Place(DeckGraph.Nearest(p.Tile)); }
             Scheduler = new DeckScheduler(DeckGraph)
             {
-                HoldRemainingKg = () => State.CoolerCapacity - HoldKg,
                 OnStowed = f => { HideBasketFish(f); TryStore(f); lidPop = 1f; },
                 OnThrown = f => { HideBasketFish(f); ThrownBack++; },
                 CaptainBench = BeginGut,

@@ -12,11 +12,12 @@ namespace Catchline.Game.Deck
 
     public static class FishRules
     {
-        // BLUEPRINT §3.2: bottom 25% of the species weight range is undersize and always goes back.
+        // Mo 10-27: the bottom 15% of each species' own weight range is undersize and always goes back.
+        public const float UndersizeFraction = .15f;
         public static bool Undersize(CaughtFish f)
         {
             var d = GameData.Get(f.Species);
-            return f.Kg < d.MinKg + .25f * (d.MaxKg - d.MinKg);
+            return f.Kg < d.MinKg + UndersizeFraction * (d.MaxKg - d.MinKg);
         }
         public static FishClass Class(CaughtFish f) => CatchPresentation.Tier(f.Species, f.Kg) switch
         {

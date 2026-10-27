@@ -611,7 +611,7 @@ namespace Catchline.Game
             netOrdersOpen = false;
             PrepOrdersOpen = false;
             toastUntil = 0; // a deck instruction (keep/throw, sort) must not ride home over the header (polish sweep PS-09)
-            // Grab what's on deck if there's room; the rest goes back in the sea.
+            // Everything aboard goes into the hold, however far over capacity (Mo 10-27).
             foreach (var p in People)
             {
                 if (p == null) continue;
@@ -1104,11 +1104,6 @@ namespace Catchline.Game
         bool TryStow(Person p)
         {
             if (p.Carrying == null) return false;
-            if (HoldFull)
-            {
-                if (p == Captain) Toast("The cooler is full! Head home to sell.");
-                return false;
-            }
             var secured = new CaughtFish { Species = p.Carrying.Species, Kg = p.Carrying.Kg, StowedAt = p.Carrying.CaughtAt };
             if (!DeliverCatch(secured)) return false;
             if (p.Carrying.FromNetBasket) RecordStoredNet(new[] { secured });
@@ -1199,7 +1194,7 @@ namespace Catchline.Game
             if (Scheduler == null || !workers.TryGetValue(Captain, out var w) || !w.Idle || !Captain.Idle || Captain.Carrying != null
                 || MinigameRod != null || Manning != null && Manning.State is RodState.Bite or RodState.Reeling) return false;
             foreach (var kept in DeckGraph.OfKind(Deck.StationKind.SortTable).Select(st => st.Out).Where(b => b != null && b.UnclaimedCount > 0))
-                if (!HoldFull && CaptainHaulFrom(kept)) return true; // kept fish into the cooler first
+                if (CaptainHaulFrom(kept)) return true; // kept fish into the cooler first
             if (CaptainKeepAtSort(true)) return true;
             foreach (var basket in DeckGraph.OfKind(Deck.StationKind.Rod).Select(st => st.Out).Where(b => b != null && b.UnclaimedCount > 0))
                 if (CaptainHaulFrom(basket)) return true;

@@ -39,7 +39,6 @@ namespace Catchline.Game
             var person = netUnloader;
             if (person.Root == null) { ClearNetUnload(); return; }
             if (!person.Idle) return;
-            if (HoldFull) { ClearNetUnload(); return; }
             var basket = AssignedBasket(person);
             var ready = basket == null ? new List<DeckFish>() : OnDeck.Where(f => f.FromNetBasket
                 && f.Tile == basket.Tile && f.ClaimedBy == null && f.Age >= .4f).ToList();
@@ -62,7 +61,7 @@ namespace Catchline.Game
                         var stored = new List<CaughtFish>();
                         foreach (var f in netUnloadBatch.ToArray())
                         {
-                            if (HoldFull || !OnDeck.Contains(f)) continue;
+                            if (!OnDeck.Contains(f)) continue;
                             var secured = new CaughtFish { Species = f.Species, Kg = f.Kg, StowedAt = f.CaughtAt };
                             if (!DeliverCatch(secured)) continue; stored.Add(secured);
                             OnDeck.Remove(f); Visuals.Kill(f.Root.gameObject);

@@ -21,12 +21,8 @@ namespace Catchline.Game
         public int DepartureOverflow()
         {
             // Match HeadHome exactly: actors' carried fish first, then deck order.
-            var fish = People.Where(p => p != null && p.Carrying != null).Select(p => p.Carrying)
-                .Concat(OnDeck).ToList();
-            double kg = Cooler.Sum(f => (double)f.Kg); int left = 0;
-            foreach (var f in fish)
-                if (kg < State.CoolerCapacity) kg += f.Kg; else left++;
-            return left;
+            // Mo 10-27: every fish aboard boards on the way home, so nothing is lost to capacity.
+            return 0;
         }
 
         bool confirmHeadHome;

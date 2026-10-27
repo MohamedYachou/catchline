@@ -38,7 +38,8 @@ namespace Catchline.EditorTools
             s.DeepNetUses.Clear(); s.Save(path); Check(GameState.Load(path).DeepNetUses.Count == 0, "exhausted stock never refills");
             File.WriteAllText(path, "{\"Version\":1,\"Coins\":123,\"Hull\":0,\"Owned\":[0],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[],\"UnsoldCatch\":[{\"Species\":0,\"Kg\":0.25}]}");
             loaded = GameState.Load(path);
-            Check(loaded != null && loaded.CoolerCapacity == GameData.RowboatBigCoolerKg && loaded.DeepNetUses.Count == 0 && loaded.UnsoldCatch.Single().Kg == .25f && loaded.Coins == 123, "legacy save keeps actual fish and upgrade without granting deep nets");
+            // SaveV2.CurrentVersion deliberately discards pre-card progress (Mo, 2026-10-25).
+            Check(loaded == null, "version1 save is rejected by the current save contract");
             s = new GameState(18) { Coins = 99 }; Check(!s.BuyDeepNet() && s.Coins == 99, "deep insufficient funds atomic");
             s.Coins = 300; Check(s.BuyDeepNet() && s.BuyDeepNet() && s.BuyDeepNet() && !s.BuyDeepNet() && s.Coins == 0, "rack and purchase cost exact");
             s.SpendDeepNetUse(); Check(s.DeepNetUses.SequenceEqual(new[] { 2, 3, 3 }), "one failed/success use preserves reserve");
@@ -48,14 +49,14 @@ namespace Catchline.EditorTools
         {
             g.Cooler.Clear(); Check(g.TryStore(new CaughtFish { Kg = g.State.CoolerCapacity - .01f }), "fill just below capacity");
             Check(!g.HoldFull && g.TryStore(new CaughtFish { Kg = 150f }) && g.HoldFull, "unlimited whole final trophy accepted");
-            Check(!g.TryStore(new CaughtFish { Kg = .1f }) && g.Cooler.Count == 2, "next concurrent insert rejected");
+            Check(g.TryStore(new CaughtFish { Kg = .1f }) && g.Cooler.Count == 3, "fish already aboard always boards over capacity (Mo 10-27)");
             g.Cooler.Clear(); Check(!g.TryStore(new CaughtFish { Kg = 0 }) && !g.TryStore(new CaughtFish { Kg = float.NaN }), "invalid fish cannot occupy storage");
             for (int i = 0; i < 80; i++) Check(g.TryStore(new CaughtFish { Kg = .1f }), "no hidden fish-count cap");
             Check(Mathf.Abs(g.HoldKg - 8) < .001f, "mass sum correct"); g.Cooler.Clear();
             for (int i = 0; i < 3; i++)
             {
                 g.State.Hull = i; float basic = g.State.CoolerCapacity; g.State.Owned.Add(UpgradeId.BigCooler);
-                Check(g.State.CoolerCapacity == (i == 0 ? 35f : basic * 1.5f), "upgrade adds kg on every hull"); g.State.Owned.Clear();
+                Check(g.State.CoolerCapacity == (i == 0 ? GameData.RowboatBigCoolerKg : basic * 1.5f), "upgrade adds kg on every hull"); g.State.Owned.Clear();
             }
             g.State.Hull = 2;
         }
@@ -85,8 +86,8 @@ namespace Catchline.EditorTools
             Check(g.HaulNet(), "haul deep with one final fish space"); NetHaulChecks.FinishCaptainHaul(g);
             Check(g.State.DeepNetUses[0] == 2 && g.NetBasketCount == count, "one successful use spent before unloading");
             for (int i = 0; i < 600 && g.NetUnloadActive; i++) g.Tick(.05f);
-            Check(g.Cooler.Count == 2 && g.HoldFull && g.NetBasketCount == count - 1, "batch inserts only one final fish and retains overflow");
-            Check(g.LastNetReceipt != null && g.LastNetReceipt.Count == 1, "manifest counts only actual stored fish");
+            Check(g.Cooler.Count == 1 + count && g.HoldFull && g.NetBasketCount == 0, "the whole hauled batch boards over capacity (Mo 10-27)");
+            Check(g.LastNetReceipt != null && g.LastNetReceipt.Count == count, "manifest counts every stored fish");
             g.Cooler.Clear(); foreach (var f in g.OnDeck.ToArray()) { UnityEngine.Object.DestroyImmediate(f.Root.gameObject); } g.OnDeck.Clear();
             // Real setting mistakes invoke production failure callback; repeat cancel must not spend twice.
             Check(g.SetNet(), "set next deep cycle"); NetHaulChecks.ReachCaptainWinch(g);
@@ -132,9 +133,9 @@ namespace Catchline.EditorTools
                 person.Carrying = new DeckFish { Kg = 10, Root = new GameObject("Concurrent final fish").transform };
                 Call(g, "Stow", person); person.Tick(.01f, Quaternion.identity);
             }
-            Check(g.Captain.Busy && g.Hand.Busy && g.DepartureOverflow() == 1, "both stow concurrently and departure predicts single overflow");
+            Check(g.Captain.Busy && g.Hand.Busy && g.DepartureOverflow() == 0, "both stow concurrently and nothing is lost on departure");
             g.Captain.Tick(10, Quaternion.identity); g.Hand.Tick(10, Quaternion.identity);
-            Check(g.Cooler.Count == 2 && g.Hand.Carrying != null && g.HoldFull, "same-frame deliveries accept only one final whole fish");
+            Check(g.Cooler.Count == 3 && g.Hand.Carrying == null && g.HoldFull, "same-frame deliveries both board over capacity");
             g.Cooler.Clear(); g.Cooler.Add(new CaughtFish { Kg = 50f }); g.Cooler.Add(new CaughtFish { Kg = 49.999996f });
             Check(!g.HoldFull && g.DepartureOverflow() == 0, "departure uses exact sum even when displayed float rounds to capacity");
         }
@@ -150,7 +151,7 @@ namespace Catchline.EditorTools
                     Set(g, "State", new GameState(seed) { Hull = 2, SelectedNet = deep ? NetKind.Deep : NetKind.Shallow });
                     Set(g, "ActiveSpot", spot); Call(g, "RollCompactCatch");
                     var batch = (System.Collections.Generic.List<(Species species, float kg)>)typeof(VoyageGame).GetField("netFish", H).GetValue(g);
-                    Check(batch.All(f => GameData.Spots[spot].Table.Any(e => e.species == f.species)), "every net specimen belongs to selected ground");
+                    Check(batch.All(f => g.State.FishTable(spot).Any(e => e.species == f.species)), "every net specimen belongs to the current coast and ground pool");
                     Check(batch.All(f => f.kg >= GameData.Get(f.species).MinKg && f.kg <= GameData.Get(f.species).MaxKg), "net never fabricates out-of-range specimens");
                     var fish = batch.Select(f => new CaughtFish { Species = f.species, Kg = f.kg }).ToList();
                     count += fish.Count; kg += g.NetCatchKg; value += g.State.QuoteSale(fish, 0).Coins;

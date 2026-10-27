@@ -386,9 +386,13 @@ namespace Catchline.Game.Deck
         // Tier 0: the captain keeps or throws the fish at the sort table himself (two-button bubble).
         public bool CaptainSort(Worker captain, Station sort, bool keep)
         {
-            if (!captain.Idle || sort.In == null || sort.Out == null || sort.In.UnclaimedCount == 0 || keep && sort.Out.Free == 0) return false;
+            if (!captain.Idle || sort.In == null || sort.Out == null || sort.In.UnclaimedCount == 0) return false;
+            var f = sort.In.Unclaimed.First();
+            // An undersize fish goes back whatever the captain taps, so it never waits for room on the sorted tray.
+            keep = keep && !FishRules.Undersize(f);
+            if (keep && sort.Out.Free == 0) return false;
             var job = new Job { Kind = JobKind.Sort, Worker = captain, Source = sort.In, At = sort, Label = "Sorting", Target = Drop.To(sort.Out) };
-            var f = sort.In.Unclaimed.First(); sort.In.Claim(f, job); job.Fish.Add(f);
+            sort.In.Claim(f, job); job.Fish.Add(f);
             if (keep) { sort.Out.Reserve(1); job.reserved = 1; }
             var prior = Decide;
             Decide = x => x == f ? keep && !FishRules.Undersize(x) ? SortOutcome.Keep : SortOutcome.Throw : prior(x);

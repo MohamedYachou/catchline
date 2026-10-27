@@ -347,7 +347,7 @@ namespace Catchline.Game
             float by=p.yMax-72;
             IButton("management/duties",new Rect(p.x+20,by,190,54),"Crew duties",()=>{dashboardDetail=-1;managementTab=2;},false,IsNetFisher);
             IButton("management/orders",new Rect(p.x+220,by,220,54),"Processing orders",()=>{CloseManagement();PrepOrdersOpen=true;},false,IsPrepFisher);
-            IButton("management/help",new Rect(p.x+450,by,p.width-470,54),"Help carry",()=>{CloseManagement();HelpCarryProcessed();},false,ProcessingOutput.Count>0&&!HoldFull);
+            IButton("management/help",new Rect(p.x+450,by,p.width-470,54),"Help carry",()=>{CloseManagement();HelpCarryProcessed();},false,ProcessingOutput.Count>0);
         }
     }
 }
