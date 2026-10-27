@@ -27,6 +27,7 @@ VoyageChart.cs, VoyageIllustratedChart.cs, Data/Coasts.cs.
 Holding: docs/briefs/**.
 
 ## Done (latest first)
+- adc64f3 / a0591ef / (this commit) 10-27 morning: HUD New flag + store count, compact order marker, plan Mira torso crop, room-look3 + stage-fit rooms + outfits2 imported
 - 839608c / 15e3862 night 10-26: S3 reservation, S8 owned/needs-stage, S11 confetti, S16 week report, coach, pause, transitions, moods, stamps; Codex 1 review-1 fixes (pause scrim still open)
 - ec24c40 / 92264f0 / (this commit) restaurant screens S1-S5 to the mockups, staff rail one card per person (Mo), CORE-1 logic + stage-1 3D accepted
 - (this commit) Let's go no longer freezes ~30 s (SeaNav 10x faster, identical graphs, built in background); fish hang mouth-up; captain steps over the rowboat thwart; Keep primary; rowboat 5 kg, skiff = full haul + 500; Mira hi-res + voice samples; open-sea life + MAP11 sand edges art (Codex 2)
