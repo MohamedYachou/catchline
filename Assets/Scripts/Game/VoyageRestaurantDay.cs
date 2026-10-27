@@ -468,6 +468,11 @@ namespace Catchline.Game
         {
             switch (step)
             {
+                case "day-bistro": // buys stage 2 so the next night runs in the Bistro room
+                    State.Coins += 100000; restaurantPopularity = 50;
+                    bool bought = BuyRestaurantStage(); RestaurantPreview = RestaurantScreen.None;
+                    Debug.Log($"[Catchline] DAY bistro bought {bought}, stage {Kitchen.State.Stage}");
+                    return bought;
                 case "day-harbour": // the harbour hub with Mira's entry (S14)
                     RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; restaurantForced = true; panelOpen = false;
                     return true;

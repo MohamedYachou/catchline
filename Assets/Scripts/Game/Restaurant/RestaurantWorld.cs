@@ -72,12 +72,16 @@ namespace Catchline.Game.Restaurant
         public void Begin(RestaurantSim sim)
         {
             if(sim==null)throw new ArgumentNullException(nameof(sim));
-            End();Sim=sim;Speed=1;animationTime=0;
+            End();Sim=sim;Speed=1;animationTime=0;frameHalfWidth=7;
             RoomRoot=new GameObject("Restaurant night (quay)").transform;
             RoomRoot.position=HarbourQuayOrigin;
             try {
                 // Codex 2's dressed V4 room (masonry, lanterns, shelves, terrace, jetty); the layout still places the furniture.
-                var dressed=Resources.Load<GameObject>("Restaurant/Stage1V4");Transform room=null;
+                // Each stage's dressed room (Stage2Bistro.. from Codex 2), V4 until that stage's room is imported.
+                roomName=StageRooms[Math.Max(1,Math.Min(4,sim.Layout.Stage.Stage))-1];
+                var dressed=Resources.Load<GameObject>("Restaurant/"+roomName);
+                if(dressed==null){roomName=StageRooms[0];dressed=Resources.Load<GameObject>("Restaurant/"+roomName);}
+                Transform room=null;
                 if(dressed!=null){
                     room=ArtLibrary.Spawn(dressed,RoomRoot,Vector3.zero,Quaternion.identity).transform;
                     foreach(var t in room.GetComponentsInChildren<Transform>(true))if(t!=room&&LayoutPlaced(t.name))t.gameObject.SetActive(false);
@@ -115,11 +119,13 @@ namespace Catchline.Game.Restaurant
                 // V3's camera study: 38 degree pitch, -2 degree yaw from the quay, 58mm equivalent.
                 ServiceCamera.transform.localPosition=new Vector3(-.598f,13.359f,17.088f);
                 ServiceCamera.transform.localRotation=Quaternion.Euler(38,178,0);
+                var stageLights=roomName==StageRooms[0]?null:StageRecipe(roomName);
                 ServiceCamera.orthographic=false;ServiceCamera.fieldOfView=21.9542f;
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
                 // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
                 AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);
-                foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
+                if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
+                else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
                 var atlas=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor");var surface=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
                 foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>(true))foreach(var m in r.sharedMaterials)
@@ -127,6 +133,26 @@ namespace Catchline.Game.Restaurant
                 AddSea();
                 SetLayer(RoomRoot.gameObject);FrameCamera();Refresh(0);
             }catch{End();throw;}
+        }
+        static readonly string[] StageRooms={"Stage1V4","Stage2Bistro","Stage3Restaurant","Stage4Seafood"};
+        string roomName;
+        float frameHalfWidth=7;
+        [Serializable] class RecipeLight{public string type;public float[] position_unity_m;public float blender_power;}
+        [Serializable] class Recipe{public RecipeLight[] lights;}
+        [Serializable] class RecipeCamera{public string file;public float[] position_unity_m;}
+        [Serializable] class RecipeCameras{public RecipeCamera[] c;}
+        // A later stage's camera and practicals from Codex 2's final-cameras.json / lighting.json (copied beside the room
+        // as <room>-cameras / <room>-lighting). Their "Unity" axes skip the FBX import's X mirror, so X flips here.
+        List<(Vector3 pos,float watts)> StageRecipe(string room)
+        {
+            var cams=Resources.Load<TextAsset>("Restaurant/"+room+"-cameras");
+            var cam=cams==null?null:JsonUtility.FromJson<RecipeCameras>("{\"c\":"+cams.text+"}").c.FirstOrDefault(c=>c.file.Contains("1440"));
+            if(cam!=null){var p=cam.position_unity_m;ServiceCamera.transform.localPosition=new Vector3(-p[0],p[1],p[2]);
+                frameHalfWidth=7*ServiceCamera.transform.localPosition.magnitude/new Vector3(-.598f,13.359f,17.088f).magnitude;}
+            var lights=Resources.Load<TextAsset>("Restaurant/"+room+"-lighting");
+            if(lights==null)return null;
+            return JsonUtility.FromJson<Recipe>(lights.text).lights.Where(l=>l.type=="POINT"&&l.position_unity_m?.Length==3)
+                .Select(l=>(new Vector3(-l.position_unity_m[0],l.position_unity_m[1],l.position_unity_m[2]),l.blender_power)).ToList();
         }
         // V4 pieces that the layout places itself (stations, tables and what is set on them).
         static readonly string[] LayoutPieces={"PrepCounter","Stove","SoupKettle","KettleStand","FridgeV2","Oven","Fryer","SinkDishRack","CoffeeBar","ReceptionDesk",
@@ -285,7 +311,7 @@ namespace Catchline.Game.Restaurant
             aspect=width/(height*(1-top-bottom));
             // Like the mockup: the dressed V4 room with terrace and jetty (about 14 m) fills the width between the bars.
             float distance=ServiceCamera.transform.localPosition.magnitude;
-            float inner=2*Mathf.Atan(7f/distance/aspect)*Mathf.Rad2Deg;
+            float inner=2*Mathf.Atan(frameHalfWidth/distance/aspect)*Mathf.Rad2Deg;
             ServiceCamera.fieldOfView=2*Mathf.Atan(Mathf.Tan(inner*.5f*Mathf.Deg2Rad)/(1-top-bottom))*Mathf.Rad2Deg;
             Debug.Log($"[Catchline] restaurant camera {width}x{height} fov {ServiceCamera.fieldOfView:F2} focal {ServiceCamera.focalLength:F1} sensor {ServiceCamera.sensorSize} dist {distance:F1}");
         }
