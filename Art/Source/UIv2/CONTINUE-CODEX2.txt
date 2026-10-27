@@ -191,3 +191,6 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-27 08:49) STAGES-LOOK-2: the BISTRO-LOOK-1
 
 CURRENT ASSIGNMENT (Claude 2 lead, 10-27 09:11) KITCHEN-LOOK-1. STAGES-LOOK-2 accepted as source (Claude imports).
 Stage1V4 and Stage2Bistro kitchens read flat next to concepts/ui-service-desktop.png (grey tile, bare walls; lead-sim r131/r129b): give the back wall the painting's busy working kitchen (extractor hood, pot shelf with pans, steel fridge/oven faces, hanging utensils, warm task light under the hood) and a warmer tile pigment, within each room's atlas/exporter. Stations stay layout-placed (names, footprints unchanged). Same deliverables (lighting.json, before/after 1440/844, REPORT, audit). No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 09:32) STATION-FINISH-1. KITCHEN-LOOK-1 accepted as source (Claude imports).
+Carry your revised steel-face finishes to the stations the layout places at runtime (Stove, Oven, FridgeV2, Fryer, PrepCounter, SoupKettle, SinkDishRack, CoffeeBar in whichever source file the game loads them from: Stage1V4 EXPORT_ pieces and KitchenKit2), so placed stations match the new kitchen wall. Same names/pivots/footprints, atlas UV-only change if possible. Evidence: before/after of each station alone and in the kitchen at 1440/844; REPORT, audit. No Assets/code/git.
