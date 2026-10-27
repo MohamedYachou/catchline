@@ -1,0 +1,41 @@
+{
+  "name": "SquallOverlay",
+  "revision": "r01",
+  "kind": "RGBA effect",
+  "logical_size": [
+    1024,
+    512
+  ],
+  "pivot": [
+    0.5,
+    0.5
+  ],
+  "use": "Transparent rain-streak sprite; scroll/crossfade during existing Squall event. No scene dimming or flashing baked in.",
+  "provenance": [
+    {
+      "file": "Art/Source/Art108/build_effects.py",
+      "sha256": "6263c29539af17d3df68dcfed226bf58c6ea71b3a63618fa4f6210b9d847d332",
+      "purpose": "read-only existing named effect design"
+    }
+  ],
+  "delivery_sha256": {
+    "SquallOverlay.png": "c875e51a7d701a24278bb07b28d736ab08664822334838ad1c1fc9a89aeb5983",
+    "SquallOverlay.svg": "7749c2803f137f1e1b05a938ec34489300d3dc82673a472932007ae71b7b1cbe"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/SquallOverlay.png",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  }
+}

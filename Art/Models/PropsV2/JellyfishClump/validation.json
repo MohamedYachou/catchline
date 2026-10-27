@@ -1,0 +1,2746 @@
+{
+  "name": "JellyfishClump",
+  "revision": "r02",
+  "delivery_sha256": {
+    "JellyfishClump.blend": "b7e7216a6cd5691583122c1ca677ef3d1c4ca4576b83a21393f6b871534d8497",
+    "JellyfishClump.fbx": "f7a8a0a5cdd434fac2a8ec6d773f68b5d120d8b24c005a877f840a96a01efa61"
+  },
+  "runtime_sha256": "f7a8a0a5cdd434fac2a8ec6d773f68b5d120d8b24c005a877f840a96a01efa61",
+  "checks": [
+    "current delivery SHA256 JellyfishClump.blend",
+    "current delivery SHA256 JellyfishClump.fbx",
+    "protected reference unchanged Art/Models/StationsV1/JellyfishClump.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry JellyBell",
+    "finite vertices JellyBell",
+    "nonempty geometry BellRim",
+    "finite vertices BellRim",
+    "nonempty geometry Tentacle",
+    "finite vertices Tentacle",
+    "nonempty geometry Tentacle.001",
+    "finite vertices Tentacle.001",
+    "nonempty geometry Tentacle.002",
+    "finite vertices Tentacle.002",
+    "nonempty geometry Tentacle.003",
+    "finite vertices Tentacle.003",
+    "nonempty geometry JellyBell.001",
+    "finite vertices JellyBell.001",
+    "nonempty geometry BellRim.001",
+    "finite vertices BellRim.001",
+    "nonempty geometry Tentacle.004",
+    "finite vertices Tentacle.004",
+    "nonempty geometry Tentacle.005",
+    "finite vertices Tentacle.005",
+    "nonempty geometry Tentacle.006",
+    "finite vertices Tentacle.006",
+    "nonempty geometry Tentacle.007",
+    "finite vertices Tentacle.007",
+    "nonempty geometry JellyBell.002",
+    "finite vertices JellyBell.002",
+    "nonempty geometry BellRim.002",
+    "finite vertices BellRim.002",
+    "nonempty geometry Tentacle.008",
+    "finite vertices Tentacle.008",
+    "nonempty geometry Tentacle.009",
+    "finite vertices Tentacle.009",
+    "nonempty geometry Tentacle.010",
+    "finite vertices Tentacle.010",
+    "nonempty geometry Tentacle.011",
+    "finite vertices Tentacle.011",
+    "nonempty geometry LandingNet_Rim",
+    "finite vertices LandingNet_Rim",
+    "nonempty geometry LandingNet_Lattice",
+    "finite vertices LandingNet_Lattice",
+    "nonempty geometry LandingNet_Lattice.001",
+    "finite vertices LandingNet_Lattice.001",
+    "nonempty geometry LandingNet_Lattice.002",
+    "finite vertices LandingNet_Lattice.002",
+    "nonempty geometry LandingNet_Lattice.003",
+    "finite vertices LandingNet_Lattice.003",
+    "nonempty geometry LandingNet_Lattice.004",
+    "finite vertices LandingNet_Lattice.004",
+    "nonempty geometry LandingNet_Lattice.005",
+    "finite vertices LandingNet_Lattice.005",
+    "nonempty geometry LandingNet_Lattice.006",
+    "finite vertices LandingNet_Lattice.006",
+    "nonempty geometry LandingNet_Lattice.007",
+    "finite vertices LandingNet_Lattice.007",
+    "nonempty geometry LandingNet_Lattice.008",
+    "finite vertices LandingNet_Lattice.008",
+    "nonempty geometry LandingNet_Lattice.009",
+    "finite vertices LandingNet_Lattice.009",
+    "nonempty geometry LandingNet_Lattice.010",
+    "finite vertices LandingNet_Lattice.010",
+    "nonempty geometry LandingNet_Lattice.011",
+    "finite vertices LandingNet_Lattice.011",
+    "nonempty geometry LandingNet_Lattice.012",
+    "finite vertices LandingNet_Lattice.012",
+    "nonempty geometry LandingNet_Lattice.013",
+    "finite vertices LandingNet_Lattice.013",
+    "nonempty geometry LandingNet_Lattice.014",
+    "finite vertices LandingNet_Lattice.014",
+    "nonempty geometry LandingNet_Lattice.015",
+    "finite vertices LandingNet_Lattice.015",
+    "nonempty geometry LandingNet_Lattice.016",
+    "finite vertices LandingNet_Lattice.016",
+    "nonempty geometry LandingNet_Lattice.017",
+    "finite vertices LandingNet_Lattice.017",
+    "nonempty geometry LandingNet_Handle",
+    "finite vertices LandingNet_Handle",
+    "source bounds manifest current",
+    "floor pivot at horizontal bounds centre and zero lowest contact",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry BellRim",
+    "finite vertices BellRim",
+    "nonempty geometry BellRim.001",
+    "finite vertices BellRim.001",
+    "nonempty geometry BellRim.002",
+    "finite vertices BellRim.002",
+    "nonempty geometry JellyBell",
+    "finite vertices JellyBell",
+    "nonempty geometry JellyBell.001",
+    "finite vertices JellyBell.001",
+    "nonempty geometry JellyBell.002",
+    "finite vertices JellyBell.002",
+    "nonempty geometry LandingNet_Handle",
+    "finite vertices LandingNet_Handle",
+    "nonempty geometry LandingNet_Lattice",
+    "finite vertices LandingNet_Lattice",
+    "nonempty geometry LandingNet_Lattice.001",
+    "finite vertices LandingNet_Lattice.001",
+    "nonempty geometry LandingNet_Lattice.002",
+    "finite vertices LandingNet_Lattice.002",
+    "nonempty geometry LandingNet_Lattice.003",
+    "finite vertices LandingNet_Lattice.003",
+    "nonempty geometry LandingNet_Lattice.004",
+    "finite vertices LandingNet_Lattice.004",
+    "nonempty geometry LandingNet_Lattice.005",
+    "finite vertices LandingNet_Lattice.005",
+    "nonempty geometry LandingNet_Lattice.006",
+    "finite vertices LandingNet_Lattice.006",
+    "nonempty geometry LandingNet_Lattice.007",
+    "finite vertices LandingNet_Lattice.007",
+    "nonempty geometry LandingNet_Lattice.008",
+    "finite vertices LandingNet_Lattice.008",
+    "nonempty geometry LandingNet_Lattice.009",
+    "finite vertices LandingNet_Lattice.009",
+    "nonempty geometry LandingNet_Lattice.010",
+    "finite vertices LandingNet_Lattice.010",
+    "nonempty geometry LandingNet_Lattice.011",
+    "finite vertices LandingNet_Lattice.011",
+    "nonempty geometry LandingNet_Lattice.012",
+    "finite vertices LandingNet_Lattice.012",
+    "nonempty geometry LandingNet_Lattice.013",
+    "finite vertices LandingNet_Lattice.013",
+    "nonempty geometry LandingNet_Lattice.014",
+    "finite vertices LandingNet_Lattice.014",
+    "nonempty geometry LandingNet_Lattice.015",
+    "finite vertices LandingNet_Lattice.015",
+    "nonempty geometry LandingNet_Lattice.016",
+    "finite vertices LandingNet_Lattice.016",
+    "nonempty geometry LandingNet_Lattice.017",
+    "finite vertices LandingNet_Lattice.017",
+    "nonempty geometry LandingNet_Rim",
+    "finite vertices LandingNet_Rim",
+    "nonempty geometry Tentacle",
+    "finite vertices Tentacle",
+    "nonempty geometry Tentacle.001",
+    "finite vertices Tentacle.001",
+    "nonempty geometry Tentacle.002",
+    "finite vertices Tentacle.002",
+    "nonempty geometry Tentacle.003",
+    "finite vertices Tentacle.003",
+    "nonempty geometry Tentacle.004",
+    "finite vertices Tentacle.004",
+    "nonempty geometry Tentacle.005",
+    "finite vertices Tentacle.005",
+    "nonempty geometry Tentacle.006",
+    "finite vertices Tentacle.006",
+    "nonempty geometry Tentacle.007",
+    "finite vertices Tentacle.007",
+    "nonempty geometry Tentacle.008",
+    "finite vertices Tentacle.008",
+    "nonempty geometry Tentacle.009",
+    "finite vertices Tentacle.009",
+    "nonempty geometry Tentacle.010",
+    "finite vertices Tentacle.010",
+    "nonempty geometry Tentacle.011",
+    "finite vertices Tentacle.011",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions JellyBell",
+    "actual FBX part origin preserved JellyBell",
+    "actual FBX triangle count JellyBell",
+    "actual FBX face materials JellyBell",
+    "actual FBX material slots JellyBell",
+    "actual FBX every world vertex both directions BellRim",
+    "actual FBX part origin preserved BellRim",
+    "actual FBX triangle count BellRim",
+    "actual FBX face materials BellRim",
+    "actual FBX material slots BellRim",
+    "actual FBX every world vertex both directions Tentacle",
+    "actual FBX part origin preserved Tentacle",
+    "actual FBX triangle count Tentacle",
+    "actual FBX face materials Tentacle",
+    "actual FBX material slots Tentacle",
+    "actual FBX every world vertex both directions Tentacle.001",
+    "actual FBX part origin preserved Tentacle.001",
+    "actual FBX triangle count Tentacle.001",
+    "actual FBX face materials Tentacle.001",
+    "actual FBX material slots Tentacle.001",
+    "actual FBX every world vertex both directions Tentacle.002",
+    "actual FBX part origin preserved Tentacle.002",
+    "actual FBX triangle count Tentacle.002",
+    "actual FBX face materials Tentacle.002",
+    "actual FBX material slots Tentacle.002",
+    "actual FBX every world vertex both directions Tentacle.003",
+    "actual FBX part origin preserved Tentacle.003",
+    "actual FBX triangle count Tentacle.003",
+    "actual FBX face materials Tentacle.003",
+    "actual FBX material slots Tentacle.003",
+    "actual FBX every world vertex both directions JellyBell.001",
+    "actual FBX part origin preserved JellyBell.001",
+    "actual FBX triangle count JellyBell.001",
+    "actual FBX face materials JellyBell.001",
+    "actual FBX material slots JellyBell.001",
+    "actual FBX every world vertex both directions BellRim.001",
+    "actual FBX part origin preserved BellRim.001",
+    "actual FBX triangle count BellRim.001",
+    "actual FBX face materials BellRim.001",
+    "actual FBX material slots BellRim.001",
+    "actual FBX every world vertex both directions Tentacle.004",
+    "actual FBX part origin preserved Tentacle.004",
+    "actual FBX triangle count Tentacle.004",
+    "actual FBX face materials Tentacle.004",
+    "actual FBX material slots Tentacle.004",
+    "actual FBX every world vertex both directions Tentacle.005",
+    "actual FBX part origin preserved Tentacle.005",
+    "actual FBX triangle count Tentacle.005",
+    "actual FBX face materials Tentacle.005",
+    "actual FBX material slots Tentacle.005",
+    "actual FBX every world vertex both directions Tentacle.006",
+    "actual FBX part origin preserved Tentacle.006",
+    "actual FBX triangle count Tentacle.006",
+    "actual FBX face materials Tentacle.006",
+    "actual FBX material slots Tentacle.006",
+    "actual FBX every world vertex both directions Tentacle.007",
+    "actual FBX part origin preserved Tentacle.007",
+    "actual FBX triangle count Tentacle.007",
+    "actual FBX face materials Tentacle.007",
+    "actual FBX material slots Tentacle.007",
+    "actual FBX every world vertex both directions JellyBell.002",
+    "actual FBX part origin preserved JellyBell.002",
+    "actual FBX triangle count JellyBell.002",
+    "actual FBX face materials JellyBell.002",
+    "actual FBX material slots JellyBell.002",
+    "actual FBX every world vertex both directions BellRim.002",
+    "actual FBX part origin preserved BellRim.002",
+    "actual FBX triangle count BellRim.002",
+    "actual FBX face materials BellRim.002",
+    "actual FBX material slots BellRim.002",
+    "actual FBX every world vertex both directions Tentacle.008",
+    "actual FBX part origin preserved Tentacle.008",
+    "actual FBX triangle count Tentacle.008",
+    "actual FBX face materials Tentacle.008",
+    "actual FBX material slots Tentacle.008",
+    "actual FBX every world vertex both directions Tentacle.009",
+    "actual FBX part origin preserved Tentacle.009",
+    "actual FBX triangle count Tentacle.009",
+    "actual FBX face materials Tentacle.009",
+    "actual FBX material slots Tentacle.009",
+    "actual FBX every world vertex both directions Tentacle.010",
+    "actual FBX part origin preserved Tentacle.010",
+    "actual FBX triangle count Tentacle.010",
+    "actual FBX face materials Tentacle.010",
+    "actual FBX material slots Tentacle.010",
+    "actual FBX every world vertex both directions Tentacle.011",
+    "actual FBX part origin preserved Tentacle.011",
+    "actual FBX triangle count Tentacle.011",
+    "actual FBX face materials Tentacle.011",
+    "actual FBX material slots Tentacle.011",
+    "actual FBX every world vertex both directions LandingNet_Rim",
+    "actual FBX part origin preserved LandingNet_Rim",
+    "actual FBX triangle count LandingNet_Rim",
+    "actual FBX face materials LandingNet_Rim",
+    "actual FBX material slots LandingNet_Rim",
+    "actual FBX every world vertex both directions LandingNet_Lattice",
+    "actual FBX part origin preserved LandingNet_Lattice",
+    "actual FBX triangle count LandingNet_Lattice",
+    "actual FBX face materials LandingNet_Lattice",
+    "actual FBX material slots LandingNet_Lattice",
+    "actual FBX every world vertex both directions LandingNet_Lattice.001",
+    "actual FBX part origin preserved LandingNet_Lattice.001",
+    "actual FBX triangle count LandingNet_Lattice.001",
+    "actual FBX face materials LandingNet_Lattice.001",
+    "actual FBX material slots LandingNet_Lattice.001",
+    "actual FBX every world vertex both directions LandingNet_Lattice.002",
+    "actual FBX part origin preserved LandingNet_Lattice.002",
+    "actual FBX triangle count LandingNet_Lattice.002",
+    "actual FBX face materials LandingNet_Lattice.002",
+    "actual FBX material slots LandingNet_Lattice.002",
+    "actual FBX every world vertex both directions LandingNet_Lattice.003",
+    "actual FBX part origin preserved LandingNet_Lattice.003",
+    "actual FBX triangle count LandingNet_Lattice.003",
+    "actual FBX face materials LandingNet_Lattice.003",
+    "actual FBX material slots LandingNet_Lattice.003",
+    "actual FBX every world vertex both directions LandingNet_Lattice.004",
+    "actual FBX part origin preserved LandingNet_Lattice.004",
+    "actual FBX triangle count LandingNet_Lattice.004",
+    "actual FBX face materials LandingNet_Lattice.004",
+    "actual FBX material slots LandingNet_Lattice.004",
+    "actual FBX every world vertex both directions LandingNet_Lattice.005",
+    "actual FBX part origin preserved LandingNet_Lattice.005",
+    "actual FBX triangle count LandingNet_Lattice.005",
+    "actual FBX face materials LandingNet_Lattice.005",
+    "actual FBX material slots LandingNet_Lattice.005",
+    "actual FBX every world vertex both directions LandingNet_Lattice.006",
+    "actual FBX part origin preserved LandingNet_Lattice.006",
+    "actual FBX triangle count LandingNet_Lattice.006",
+    "actual FBX face materials LandingNet_Lattice.006",
+    "actual FBX material slots LandingNet_Lattice.006",
+    "actual FBX every world vertex both directions LandingNet_Lattice.007",
+    "actual FBX part origin preserved LandingNet_Lattice.007",
+    "actual FBX triangle count LandingNet_Lattice.007",
+    "actual FBX face materials LandingNet_Lattice.007",
+    "actual FBX material slots LandingNet_Lattice.007",
+    "actual FBX every world vertex both directions LandingNet_Lattice.008",
+    "actual FBX part origin preserved LandingNet_Lattice.008",
+    "actual FBX triangle count LandingNet_Lattice.008",
+    "actual FBX face materials LandingNet_Lattice.008",
+    "actual FBX material slots LandingNet_Lattice.008",
+    "actual FBX every world vertex both directions LandingNet_Lattice.009",
+    "actual FBX part origin preserved LandingNet_Lattice.009",
+    "actual FBX triangle count LandingNet_Lattice.009",
+    "actual FBX face materials LandingNet_Lattice.009",
+    "actual FBX material slots LandingNet_Lattice.009",
+    "actual FBX every world vertex both directions LandingNet_Lattice.010",
+    "actual FBX part origin preserved LandingNet_Lattice.010",
+    "actual FBX triangle count LandingNet_Lattice.010",
+    "actual FBX face materials LandingNet_Lattice.010",
+    "actual FBX material slots LandingNet_Lattice.010",
+    "actual FBX every world vertex both directions LandingNet_Lattice.011",
+    "actual FBX part origin preserved LandingNet_Lattice.011",
+    "actual FBX triangle count LandingNet_Lattice.011",
+    "actual FBX face materials LandingNet_Lattice.011",
+    "actual FBX material slots LandingNet_Lattice.011",
+    "actual FBX every world vertex both directions LandingNet_Lattice.012",
+    "actual FBX part origin preserved LandingNet_Lattice.012",
+    "actual FBX triangle count LandingNet_Lattice.012",
+    "actual FBX face materials LandingNet_Lattice.012",
+    "actual FBX material slots LandingNet_Lattice.012",
+    "actual FBX every world vertex both directions LandingNet_Lattice.013",
+    "actual FBX part origin preserved LandingNet_Lattice.013",
+    "actual FBX triangle count LandingNet_Lattice.013",
+    "actual FBX face materials LandingNet_Lattice.013",
+    "actual FBX material slots LandingNet_Lattice.013",
+    "actual FBX every world vertex both directions LandingNet_Lattice.014",
+    "actual FBX part origin preserved LandingNet_Lattice.014",
+    "actual FBX triangle count LandingNet_Lattice.014",
+    "actual FBX face materials LandingNet_Lattice.014",
+    "actual FBX material slots LandingNet_Lattice.014",
+    "actual FBX every world vertex both directions LandingNet_Lattice.015",
+    "actual FBX part origin preserved LandingNet_Lattice.015",
+    "actual FBX triangle count LandingNet_Lattice.015",
+    "actual FBX face materials LandingNet_Lattice.015",
+    "actual FBX material slots LandingNet_Lattice.015",
+    "actual FBX every world vertex both directions LandingNet_Lattice.016",
+    "actual FBX part origin preserved LandingNet_Lattice.016",
+    "actual FBX triangle count LandingNet_Lattice.016",
+    "actual FBX face materials LandingNet_Lattice.016",
+    "actual FBX material slots LandingNet_Lattice.016",
+    "actual FBX every world vertex both directions LandingNet_Lattice.017",
+    "actual FBX part origin preserved LandingNet_Lattice.017",
+    "actual FBX triangle count LandingNet_Lattice.017",
+    "actual FBX face materials LandingNet_Lattice.017",
+    "actual FBX material slots LandingNet_Lattice.017",
+    "actual FBX every world vertex both directions LandingNet_Handle",
+    "actual FBX part origin preserved LandingNet_Handle",
+    "actual FBX triangle count LandingNet_Handle",
+    "actual FBX face materials LandingNet_Handle",
+    "actual FBX material slots LandingNet_Handle",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 4168,
+  "mesh_count": 38,
+  "source_parts": {
+    "JellyBell": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.4880000054836273,
+          -0.29499998688697815,
+          0.1122797504067421
+        ],
+        [
+          -0.12799999117851257,
+          0.025000005960464478,
+          0.35227975249290466
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.30799999833106995,
+        -0.13499999046325684,
+        0.23227974772453308
+      ]
+    },
+    "BellRim": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.4740000069141388,
+          -0.3009999990463257,
+          0.17842334508895874
+        ],
+        [
+          -0.1419999897480011,
+          0.03100001811981201,
+          0.20613616704940796
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.30799999833106995,
+        -0.13499999046325684,
+        0.19227975606918335
+      ]
+    },
+    "Tentacle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.4419848918914795,
+          -0.17148485779762268,
+          0.014611114747822285
+        ],
+        [
+          -0.3940151333808899,
+          -0.12351512163877487,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.4180000126361847,
+        -0.14749999344348907,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3519848883152008,
+          -0.17148485779762268,
+          0.014611114747822285
+        ],
+        [
+          -0.3040151298046112,
+          -0.12351512163877487,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.328000009059906,
+        -0.14749999344348907,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.002": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3119848668575287,
+          -0.17148485779762268,
+          0.014611114747822285
+        ],
+        [
+          -0.2640151083469391,
+          -0.12351512163877487,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2879999876022339,
+        -0.14749999344348907,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.003": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.2219848483800888,
+          -0.17148485779762268,
+          0.014611114747822285
+        ],
+        [
+          -0.1740151196718216,
+          -0.12351512163877487,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.1979999840259552,
+        -0.14749999344348907,
+        0.09477975964546204
+      ]
+    },
+    "JellyBell.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.14800000190734863,
+          -0.19499999284744263,
+          0.1122797504067421
+        ],
+        [
+          0.2120000123977661,
+          0.125,
+          0.35227975249290466
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.03200000524520874,
+        -0.034999996423721313,
+        0.23227974772453308
+      ]
+    },
+    "BellRim.001": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.20100000500679016,
+          0.17842334508895874
+        ],
+        [
+          0.1980000138282776,
+          0.13100001215934753,
+          0.20613616704940796
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.03200000524520874,
+        -0.034999996423721313,
+        0.19227975606918335
+      ]
+    },
+    "Tentacle.004": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.10198486596345901,
+          -0.07148486375808716,
+          0.014611114747822285
+        ],
+        [
+          -0.05401512235403061,
+          -0.0235151257365942,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07799999415874481,
+        -0.047499995678663254,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.005": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.01198486052453518,
+          -0.07148486375808716,
+          0.014611114747822285
+        ],
+        [
+          0.03598487749695778,
+          -0.02351512759923935,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.012000009417533875,
+        -0.047499995678663254,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.006": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.028015151619911194,
+          -0.07148486375808716,
+          0.014611114747822285
+        ],
+        [
+          0.0759848803281784,
+          -0.02351512387394905,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0520000159740448,
+        -0.047499995678663254,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.007": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.1180151179432869,
+          -0.07148486375808716,
+          0.014611114747822285
+        ],
+        [
+          0.1659848541021347,
+          -0.02351512759923935,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.1419999897480011,
+        -0.047499995678663254,
+        0.09477975964546204
+      ]
+    },
+    "JellyBell.002": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.30799999833106995,
+          0.015000000596046448,
+          0.1122797504067421
+        ],
+        [
+          0.0520000159740448,
+          0.3349999785423279,
+          0.35227975249290466
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        0.17499999701976776,
+        0.23227974772453308
+      ]
+    },
+    "BellRim.002": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.2939999997615814,
+          0.008999988436698914,
+          0.17842334508895874
+        ],
+        [
+          0.038000017404556274,
+          0.3410000205039978,
+          0.20613616704940796
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        0.17499999701976776,
+        0.19227975606918335
+      ]
+    },
+    "Tentacle.008": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.26198485493659973,
+          0.13851512968540192,
+          0.014611114747822285
+        ],
+        [
+          -0.21401512622833252,
+          0.18648485839366913,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23799999058246613,
+        0.16249999403953552,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.009": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.17198485136032104,
+          0.13851512968540192,
+          0.014611114747822285
+        ],
+        [
+          -0.12401512265205383,
+          0.18648485839366913,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.14799998700618744,
+        0.16249999403953552,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.010": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.1319848597049713,
+          0.13851512968540192,
+          0.014611114747822285
+        ],
+        [
+          -0.0840151309967041,
+          0.18648485839366913,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.10799999535083771,
+        0.16249999403953552,
+        0.09477975964546204
+      ]
+    },
+    "Tentacle.011": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.041984859853982925,
+          0.13851512968540192,
+          0.014611114747822285
+        ],
+        [
+          0.005984877236187458,
+          0.18648485839366913,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.01799999177455902,
+        0.16249999403953552,
+        0.09477975964546204
+      ]
+    },
+    "LandingNet_Rim": {
+      "triangles": 392,
+      "bounds": [
+        [
+          -0.5720000267028809,
+          -0.4440000057220459,
+          0.11515539884567261
+        ],
+        [
+          0.31593260169029236,
+          0.4440000057220459,
+          0.13940411806106567
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 392
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.4596405625343323,
+          -0.2554851472377777,
+          0.06982195377349854
+        ],
+        [
+          -0.4514999985694885,
+          0.2554851472377777,
+          0.12015010416507721
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.001": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.37764057517051697,
+          -0.33581045269966125,
+          0.039274848997592926
+        ],
+        [
+          -0.36949998140335083,
+          0.33581045269966125,
+          0.12003052234649658
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.002": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.29564058780670166,
+          -0.3829882740974426,
+          0.017455488443374634
+        ],
+        [
+          -0.2874999940395355,
+          0.3829882740974426,
+          0.11995123326778412
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.003": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.21364057064056396,
+          -0.40868279337882996,
+          0.0043638721108436584
+        ],
+        [
+          -0.20549999177455902,
+          0.40868279337882996,
+          0.11990588903427124
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.004": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.13164056837558746,
+          -0.4168948531150818,
+          0.0
+        ],
+        [
+          -0.12349998950958252,
+          0.4168948531150818,
+          0.11989110708236694
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.005": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.04964056611061096,
+          -0.40868279337882996,
+          0.0043638721108436584
+        ],
+        [
+          -0.04149998724460602,
+          0.40868279337882996,
+          0.11990588903427124
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.006": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.03235943615436554,
+          -0.3829882740974426,
+          0.017455488443374634
+        ],
+        [
+          0.04050001502037048,
+          0.3829882740974426,
+          0.11995123326778412
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.007": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.11435943841934204,
+          -0.33581045269966125,
+          0.039274848997592926
+        ],
+        [
+          0.12250000238418579,
+          0.33581045269966125,
+          0.12003052234649658
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.008": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.19635945558547974,
+          -0.2554851472377777,
+          0.06982195377349854
+        ],
+        [
+          0.2045000195503235,
+          0.2554851472377777,
+          0.12015010416507721
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.009": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.3834851384162903,
+          -0.33250001072883606,
+          0.06982195377349854
+        ],
+        [
+          0.12748515605926514,
+          -0.3243594467639923,
+          0.12015010416507721
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.010": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.46381044387817383,
+          -0.25049999356269836,
+          0.039274848997592926
+        ],
+        [
+          0.20781046152114868,
+          -0.24235941469669342,
+          0.12003052234649658
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.011": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5109882354736328,
+          -0.16849999129772186,
+          0.017455488443374634
+        ],
+        [
+          0.25498828291893005,
+          -0.16035941243171692,
+          0.11995123326778412
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.012": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5366827845573425,
+          -0.08649999648332596,
+          0.0043638721108436584
+        ],
+        [
+          0.2806828022003174,
+          -0.07835941761732101,
+          0.11990588903427124
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.013": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.544894814491272,
+          -0.004499996080994606,
+          0.0
+        ],
+        [
+          0.2888948619365692,
+          0.0036405809223651886,
+          0.11989110708236694
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.014": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5366827845573425,
+          0.07750000059604645,
+          0.0043638721108436584
+        ],
+        [
+          0.2806828022003174,
+          0.08564057946205139,
+          0.11990588903427124
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.015": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5109882354736328,
+          0.15950000286102295,
+          0.017455488443374634
+        ],
+        [
+          0.25498828291893005,
+          0.1676405817270279,
+          0.11995123326778412
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.016": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.46381044387817383,
+          0.24149999022483826,
+          0.039274848997592926
+        ],
+        [
+          0.20781046152114868,
+          0.249640554189682,
+          0.12003052234649658
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Lattice.017": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.3834851384162903,
+          0.32350000739097595,
+          0.06982195377349854
+        ],
+        [
+          0.12748515605926514,
+          0.3316405713558197,
+          0.12015010416507721
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.0077202459797263145
+      ]
+    },
+    "LandingNet_Handle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.2619999647140503,
+          -0.01900000311434269,
+          0.1082797646522522
+        ],
+        [
+          0.5719999670982361,
+          0.018999995663762093,
+          0.14627976715564728
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.4169999659061432,
+        3.725290298461914e-09,
+        0.12727975845336914
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "BellRim": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.4740000069141388,
+          -0.3009999692440033,
+          0.17842334508895874
+        ],
+        [
+          -0.1419999897480011,
+          0.0310000479221344,
+          0.20613619685173035
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.30799999833106995,
+        -0.13499996066093445,
+        0.19227977097034454
+      ]
+    },
+    "BellRim.001": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.1340000033378601,
+          -0.20099997520446777,
+          0.17842333018779755
+        ],
+        [
+          0.1980000138282776,
+          0.13100004196166992,
+          0.20613618195056915
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.03200000524520874,
+        -0.034999966621398926,
+        0.19227975606918335
+      ]
+    },
+    "BellRim.002": {
+      "triangles": 192,
+      "bounds": [
+        [
+          -0.2939999997615814,
+          0.009000018239021301,
+          0.17842330038547516
+        ],
+        [
+          0.038000017404556274,
+          0.3410000205039978,
+          0.20613615214824677
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 192
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        0.17500002682209015,
+        0.19227972626686096
+      ]
+    },
+    "JellyBell": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.4880000054836273,
+          -0.29499995708465576,
+          0.11227976530790329
+        ],
+        [
+          -0.12799999117851257,
+          0.02500005066394806,
+          0.35227975249290466
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.30799999833106995,
+        -0.13499994575977325,
+        0.23227976262569427
+      ]
+    },
+    "JellyBell.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.14800000190734863,
+          -0.19499996304512024,
+          0.1122797504067421
+        ],
+        [
+          0.2120000123977661,
+          0.1250000298023224,
+          0.35227975249290466
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.03200000524520874,
+        -0.03499995917081833,
+        0.23227974772453308
+      ]
+    },
+    "JellyBell.002": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.30799999833106995,
+          0.01500004529953003,
+          0.11227972060441971
+        ],
+        [
+          0.0520000159740448,
+          0.33500003814697266,
+          0.3522797226905823
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 120
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        0.17500004172325134,
+        0.2322797179222107
+      ]
+    },
+    "LandingNet_Handle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.2619999647140503,
+          -0.018999982625246048,
+          0.1082797646522522
+        ],
+        [
+          0.5719999670982361,
+          0.019000016152858734,
+          0.14627976715564728
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.4169999659061432,
+        2.446179614423727e-08,
+        0.12727975845336914
+      ]
+    },
+    "LandingNet_Lattice": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.4596405625343323,
+          -0.2554851174354553,
+          0.06982195377349854
+        ],
+        [
+          -0.4514999985694885,
+          0.2554851770401001,
+          0.12015014886856079
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.001": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.37764057517051697,
+          -0.33581042289733887,
+          0.039274848997592926
+        ],
+        [
+          -0.36949998140335083,
+          0.33581048250198364,
+          0.12003057450056076
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.002": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.29564058780670166,
+          -0.38298824429512024,
+          0.017455488443374634
+        ],
+        [
+          -0.2874999940395355,
+          0.382988303899765,
+          0.1199512928724289
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.003": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.21364057064056396,
+          -0.40868276357650757,
+          0.0043638721108436584
+        ],
+        [
+          -0.20549999177455902,
+          0.40868282318115234,
+          0.11990595608949661
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.004": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.13164056837558746,
+          -0.4168948233127594,
+          -1.1428857860096286e-10
+        ],
+        [
+          -0.12349998950958252,
+          0.4168948829174042,
+          0.11989117413759232
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.005": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.04964056611061096,
+          -0.40868276357650757,
+          0.0043638721108436584
+        ],
+        [
+          -0.04149998724460602,
+          0.40868282318115234,
+          0.11990595608949661
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.006": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.03235943615436554,
+          -0.38298824429512024,
+          0.017455488443374634
+        ],
+        [
+          0.04050001502037048,
+          0.382988303899765,
+          0.1199512928724289
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.007": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.11435943841934204,
+          -0.33581042289733887,
+          0.039274848997592926
+        ],
+        [
+          0.12250000238418579,
+          0.33581048250198364,
+          0.12003057450056076
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.008": {
+      "triangles": 126,
+      "bounds": [
+        [
+          0.19635945558547974,
+          -0.2554851174354553,
+          0.06982195377349854
+        ],
+        [
+          0.2045000195503235,
+          0.2554851770401001,
+          0.12015014886856079
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.009": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.3834851384162903,
+          -0.33250001072883606,
+          0.06982200592756271
+        ],
+        [
+          0.12748515605926514,
+          -0.3243594169616699,
+          0.12015015631914139
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.010": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.46381044387817383,
+          -0.25049999356269836,
+          0.03927488997578621
+        ],
+        [
+          0.20781046152114868,
+          -0.24235939979553223,
+          0.12003056704998016
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.011": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5109882354736328,
+          -0.16849999129772186,
+          0.017455516383051872
+        ],
+        [
+          0.25498828291893005,
+          -0.16035939753055573,
+          0.1199512630701065
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.012": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5366827845573425,
+          -0.08649999648332596,
+          0.00436388561502099
+        ],
+        [
+          0.2806828022003174,
+          -0.07835939526557922,
+          0.11990590393543243
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.013": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.544894814491272,
+          -0.004499994218349457,
+          1.1226530816088598e-10
+        ],
+        [
+          0.2888948619365692,
+          0.00364060141146183,
+          0.11989110708236694
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.014": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5366827845573425,
+          0.07750000059604645,
+          0.004363859072327614
+        ],
+        [
+          0.2806828022003174,
+          0.08564060181379318,
+          0.11990587413311005
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.015": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.5109882354736328,
+          0.15950000286102295,
+          0.017455462366342545
+        ],
+        [
+          0.25498828291893005,
+          0.1676405966281891,
+          0.11995121091604233
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.016": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.46381044387817383,
+          0.24150000512599945,
+          0.03927481174468994
+        ],
+        [
+          0.20781046152114868,
+          0.2496405690908432,
+          0.1200304850935936
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Lattice.017": {
+      "triangles": 126,
+      "bounds": [
+        [
+          -0.3834851384162903,
+          0.32350000739097595,
+          0.06982190161943436
+        ],
+        [
+          0.12748515605926514,
+          0.3316406011581421,
+          0.12015005201101303
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 126
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "LandingNet_Rim": {
+      "triangles": 392,
+      "bounds": [
+        [
+          -0.5720000267028809,
+          -0.4439999759197235,
+          0.11515533179044724
+        ],
+        [
+          0.31593260169029236,
+          0.4440000355243683,
+          0.13940419256687164
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 392
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12799999117851257,
+        -0.034999996423721313,
+        -0.007720240391790867
+      ]
+    },
+    "Tentacle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.4419848918914795,
+          -0.17148485779762268,
+          0.014611135236918926
+        ],
+        [
+          -0.3940151333808899,
+          -0.12351509928703308,
+          0.17494842410087585
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.4180000126361847,
+        -0.14749997854232788,
+        0.09477978199720383
+      ]
+    },
+    "Tentacle.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3519848883152008,
+          -0.17148485779762268,
+          0.014611135236918926
+        ],
+        [
+          -0.3040151298046112,
+          -0.12351509928703308,
+          0.17494842410087585
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.328000009059906,
+        -0.14749997854232788,
+        0.09477978199720383
+      ]
+    },
+    "Tentacle.002": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3119848668575287,
+          -0.17148485779762268,
+          0.014611135236918926
+        ],
+        [
+          -0.2640151083469391,
+          -0.12351509928703308,
+          0.17494842410087585
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2879999876022339,
+        -0.14749997854232788,
+        0.09477978199720383
+      ]
+    },
+    "Tentacle.003": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.2219848483800888,
+          -0.17148485779762268,
+          0.014611135236918926
+        ],
+        [
+          -0.1740151196718216,
+          -0.12351509928703308,
+          0.17494842410087585
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.1979999840259552,
+        -0.14749997854232788,
+        0.09477978199720383
+      ]
+    },
+    "Tentacle.004": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.10198486596345901,
+          -0.07148486375808716,
+          0.014611120335757732
+        ],
+        [
+          -0.05401512607932091,
+          -0.02351509965956211,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07799999415874481,
+        -0.04749998077750206,
+        0.09477976709604263
+      ]
+    },
+    "Tentacle.005": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.01198485866189003,
+          -0.07148486375808716,
+          0.014611120335757732
+        ],
+        [
+          0.03598487749695778,
+          -0.02351509965956211,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.012000009417533875,
+        -0.04749998077750206,
+        0.09477976709604263
+      ]
+    },
+    "Tentacle.006": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.028015151619911194,
+          -0.07148486375808716,
+          0.014611120335757732
+        ],
+        [
+          0.0759848803281784,
+          -0.02351509779691696,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0520000159740448,
+        -0.04749998077750206,
+        0.09477976709604263
+      ]
+    },
+    "Tentacle.007": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.1180151179432869,
+          -0.07148486375808716,
+          0.014611120335757732
+        ],
+        [
+          0.1659848541021347,
+          -0.02351509965956211,
+          0.17494840919971466
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.1419999897480011,
+        -0.04749998077750206,
+        0.09477976709604263
+      ]
+    },
+    "Tentacle.008": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.26198485493659973,
+          0.13851512968540192,
+          0.014611083082854748
+        ],
+        [
+          -0.21401512622833252,
+          0.18648488819599152,
+          0.17494837939739227
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23799999058246613,
+        0.16250000894069672,
+        0.09477972984313965
+      ]
+    },
+    "Tentacle.009": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.17198485136032104,
+          0.13851512968540192,
+          0.014611083082854748
+        ],
+        [
+          -0.12401512265205383,
+          0.18648488819599152,
+          0.17494837939739227
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.14799998700618744,
+        0.16250000894069672,
+        0.09477972984313965
+      ]
+    },
+    "Tentacle.010": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.1319848597049713,
+          0.13851512968540192,
+          0.014611083082854748
+        ],
+        [
+          -0.0840151309967041,
+          0.18648488819599152,
+          0.17494837939739227
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.10799999535083771,
+        0.16250000894069672,
+        0.09477972984313965
+      ]
+    },
+    "Tentacle.011": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.041984859853982925,
+          0.13851512968540192,
+          0.014611083082854748
+        ],
+        [
+          0.005984877236187458,
+          0.18648488819599152,
+          0.17494837939739227
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 44
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.01799999177455902,
+        0.16250000894069672,
+        0.09477972984313965
+      ]
+    }
+  },
+  "max_bounds_error_m": 7.450580596923828e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 8.429369702178807e-08,
+  "max_part_pivot_error_m": 4.470348358154297e-08,
+  "pivot_use": "floor/contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/back.png": "42c76461df1a086c84f30a9da9b61997227781bf07013ae4834832721c24895d",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/front.png": "50714054e726efe65ea6d735fe54870a4215c5e591086919f62fc177c114f443",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/left.png": "e747d0dad9fa80bee934ac6190031c028e0facd6a5d45ac5522f112e684a1126",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/right.png": "e4e9e8bf3cadc715d6713f5d8366183a74013133470899b8923650be2ffa2ea8",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/three-quarter.png": "78fa2ef7937b005cfa272adccb5a36a4fbe431a25b0176dbada90b03562260a5",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/top.png": "b7dd165cbce8c0287b56ddebd429e848fb7269d89cf7af2fb95d64b0daa2a852"
+  },
+  "pass": true
+}

@@ -1,0 +1,46 @@
+PACK-KITCHEN-1 — working-kitchen back-wall dressing (Codex 2, WSL CLI)
+
+WHY
+The restaurant's kitchen side reads as bare counters and a flat wall; the dining side is dressed
+but the kitchen isn't. Mo 10-27 wants the restaurant to look good from the free packs, everything
+fixed-placed. Claude rebuilt the room's look (evening grade, shadows, deep dusk sea, bloom; commit
+5352e7e, docs/screens/restaurant-mood/r155). This brief dresses the KITCHEN with fixed wall pieces
+so it reads as a real working harbour kitchen. Distinct from Codex 1's nautical dressing
+(PACK-DECOR-3, Pack/decor2/) and from your own fixtures (PACK-DECOR-2, Pack/lights/).
+
+OWN (source only, no Assets / no game code / no git — Claude imports and wires, as with PACK-DECOR-1/2):
+  Art/Models/Restaurant/Pack/kitchen/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first for the proven contract you just used:
+  Art/Models/Restaurant/Pack/lights/REPORT.md   (your PACK-DECOR-2 delivery — match this exactly)
+  docs/briefs/PACK-DECOR-1.txt
+DO NOT touch Pack/lights/, Pack/decor/, Pack/decor2/ or the accepted furniture/dishes.
+
+BUILD these stems (fixed kitchen-wall dressing; one Unity FBX each, drop-in):
+  ExtractorHood   stainless/steel range hood to sit above the stove             (wall, ~1 m wide; see GLOW below)
+  PotRail         wall rail with 3-4 hanging pots/pans                           (wall, ~1 m wide)
+  UtensilRail     wall rail with hanging ladles, spatulas, whisk                 (wall)
+  SpiceShelf      wall shelf with a row of spice jars                            (wall)
+  KnifeStrip      wall knife magnet board with a few knives                      (wall)
+  ChoppingBlock   a thick wood butcher's block on the counter                    (floor/counter, small footprint)
+
+GLOW (tie into the new evening grade, same mechanism as PACK-DECOR-2): the ExtractorHood has an
+under-hood TASK LIGHT as a SEPARATE mesh+material named ExtractorHood_Glow, bright ivory #FFE0A0,
+emission strength 0 (Claude binds emission so it blooms warm over the stove). The other five pieces
+have no glow element. Body meshes stay on the normal pack atlas.
+
+CONVENTIONS (identical to PACK-DECOR-1/2): Unity Y-up, 1 unit = 1 m. Wall pieces pivot at the
+wall-contact plane, front facing -Z, hung ~1.4-1.8 m (the hood higher, ~1.8-2.0 m, to clear the
+stove); counter pieces pivot at their base contact, footprint <= 1 m. Root transform identity, axis
+conversion baked, atlas png beside the FBX, steel = the pack's light-steel swatch, warm wood +
+navy/brass accents, no diner-orange. Exact same exporter call as the accepted Pack FBXs.
+
+EVIDENCE: a contact render of all six at the game camera (pitch 38 / yaw 2) on a 1 m grid
+(kitchen-contact.jpg + an 844-wide phone overview), a one-line note per piece (size, wall/counter,
+which pack models it combines, and which mesh is the _Glow element on the hood), plus the same audits
+PACK-DECOR-2 produced (fbx-transform, geometry, mesh, visibility, preservation). REPORT.md in
+Art/Models/Restaurant/Pack/kitchen/.
+
+RULES: fresh session, no memory — your state is comms.md, your CHECKPOINT lines and the files on disk.
+Keep working until your budget runs out; never stop to ask (write QUESTION lines in comms.md).
+CHECKPOINT per 3 pieces. When the six are delivered and audited: DONE in comms.md, then IDLE.
+No Assets, no code, no git.

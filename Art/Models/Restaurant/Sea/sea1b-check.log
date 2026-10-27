@@ -1,0 +1,13 @@
+00:07.172  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\RoomLook3-Check.blend"
+00:07.875  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Sea\sea1b-check.py:8: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  w=bpy.data.objects['REVIEW_WaterPlane'];mat=bpy.data.materials.new('Sea1_PaintedNightWater');mat.use_nodes=True;n=mat.node_tree.nodes;l=mat.node_tree.links;n.clear();out=n.new('ShaderNodeOutputMaterial');bs=n.new('ShaderNodeBsdfPrincipled');bs.inputs['Roughness'].default_value=.8;bs.inputs['Emission Strength'].default_value=.55
+00:35.907  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Sea\sea1b-renders\sea1b-room-1440x900.png'
+00:42.594  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Sea\sea1b-renders\sea1b-room-844x390.png'
+BlenderMCP addon registered
+Info: Saved as "sea1b-V4-check.blend"
+SEA1 V4 check PASS
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

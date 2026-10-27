@@ -1,0 +1,159 @@
+{
+  "name": "FuelDock",
+  "group": "A",
+  "triangles": 1342,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -1.070000171661377,
+      -1.0000001192092896,
+      -0.38999998569488525
+    ],
+    [
+      1.070000171661377,
+      1.0000001192092896,
+      1.4199999570846558
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    2.140000343322754,
+    2.000000238418579,
+    1.809999942779541
+  ],
+  "parts": [
+    {
+      "name": "FloatDeck",
+      "triangles": 994,
+      "vertices": 532,
+      "bounds_min_blender": [
+        -1.070000171661377,
+        -1.0000001192092896,
+        -0.38999998569488525
+      ],
+      "bounds_max_blender": [
+        1.070000171661377,
+        1.0000001192092896,
+        0.13099999725818634
+      ],
+      "mesh_sha256": "d66e58130474d2c938b1faa94e3ed8afc1f20366a12078c5b36d8c54716dcfb6",
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_Rope",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "PumpHoseAndSign",
+      "triangles": 348,
+      "vertices": 194,
+      "bounds_min_blender": [
+        -0.7355927228927612,
+        -0.7600001096725464,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.8699999451637268,
+        0.05597394332289696,
+        1.4199999570846558
+      ],
+      "mesh_sha256": "d6ce4e2aee2245bbf678b26f94a9c123818c169b165625124afe9135e0a9ff7a",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\FuelDock.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\FuelDock.fbx",
+  "sha256": {
+    "blend": "bb70d4722f71c00c9de0f66f229a4641c8cbecebdf4851e5247e479a00a00a65",
+    "fbx": "f7e0e7c28ead247ad5a75c81032779f77c8c39dc78fd941df58330b29eeedc34"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FuelDock\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FuelDock\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FuelDock\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FuelDock\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FuelDock\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 5.960464477539063e-08,
+    "source": {
+      "triangles": 1342,
+      "meshes": 2,
+      "bounds": [
+        [
+          -1.070000171661377,
+          -1.0000001192092896,
+          -0.38999998569488525
+        ],
+        [
+          1.070000171661377,
+          1.0000001192092896,
+          1.4199999570846558
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "FuelDock": null,
+        "FloatDeck": "FuelDock",
+        "PumpHoseAndSign": "FuelDock"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1342,
+      "meshes": 2,
+      "bounds": [
+        [
+          -1.070000171661377,
+          -1.0000001192092896,
+          -0.39000004529953003
+        ],
+        [
+          1.070000171661377,
+          1.0000001192092896,
+          1.4199999570846558
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "FloatDeck": "FuelDock",
+        "PumpHoseAndSign": "FuelDock",
+        "FuelDock": null
+      },
+      "finite": true
+    }
+  }
+}

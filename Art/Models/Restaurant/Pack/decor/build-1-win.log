@@ -1,0 +1,44 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+12:33:15 | INFO: Data are loaded, start creating Blender stuff
+12:33:15 | INFO: Blender create Mesh node Mesh pottedPlant
+12:33:15 | INFO: Blender create Mesh node Mesh plant
+12:33:15 | INFO: glTF import finished in 0.01s
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Pack\decor\build.py:31: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=m.node_tree.nodes.get('Principled BSDF') if m and m.use_nodes else None
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Pack\decor\build.py:16: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('Decor_Furniture_Atlas');m.use_nodes=True
+12:33:15 | INFO: Data are loaded, start creating Blender stuff
+12:33:15 | INFO: Blender create Mesh node Mesh plantSmall3
+12:33:15 | INFO: glTF import finished in 0.00s
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Pack\decor\build.py:149: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if m and m.use_nodes:
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Pack\\decor\\Restaurant_PlantPot2.fbx'
+export finished in 0.0075 sec.
+Info: Saved as "Restaurant_PlantPot2.blend"
+BUILT PlantPot2 [0.5149999856948853, 1.149999976158142, 0.4699999988079071]
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Pack\\decor\\Restaurant_WallShelf.fbx'
+export finished in 0.0124 sec.
+Info: Saved as "Restaurant_WallShelf.blend"
+BUILT WallShelf [0.8600000143051147, 0.3400000035762787, 0.23000000417232513]
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Pack\\decor\\Restaurant_FramedPicture.fbx'
+export finished in 0.0083 sec.
+Info: Saved as "Restaurant_FramedPicture.blend"
+BUILT FramedPicture [0.699999988079071, 0.48000001907348633, 0.10400000959634781]
+FBX version: 7400
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Pack\\decor\\Restaurant_MenuBoard.fbx'
+export finished in 0.0079 sec.
+Info: Saved as "Restaurant_MenuBoard.blend"
+BUILT MenuBoard [0.49000000953674316, 0.85999995470047, 0.32899999618530273]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,123 @@
+{
+  "name": "ChannelMarkerRed",
+  "group": "D",
+  "triangles": 420,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.2532869875431061,
+      -0.24251940846443176,
+      -0.6200000047683716
+    ],
+    [
+      0.2549999952316284,
+      0.24251940846443176,
+      2.0329904556274414
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    0.5082869529724121,
+    0.4850388169288635,
+    2.6529903411865234
+  ],
+  "parts": [
+    {
+      "name": "RedCanSpar",
+      "triangles": 420,
+      "vertices": 222,
+      "bounds_min_blender": [
+        -0.2532869875431061,
+        -0.24251940846443176,
+        -0.6200000047683716
+      ],
+      "bounds_max_blender": [
+        0.2549999952316284,
+        0.24251940846443176,
+        2.0329904556274414
+      ],
+      "mesh_sha256": "d0cbc4b5d6cbec03b433f2f6c4f56caa24be696e76e9dec28f50b733e0c798ae",
+      "materials": [
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Root Y0 at water datum: float submerged toY-.62, upper body1.96m. Green cone/red can topmarks differ by silhouette."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\ChannelMarkerRed.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\ChannelMarkerRed.fbx",
+  "sha256": {
+    "blend": "e4fb86e2685699a6f0b3c84532e70e90102f297c1d511d53848e25b0553bedc2",
+    "fbx": "f90d5e16a3be5a80b86a54987e3b25bebfa614f5a36f076952bb7de61bae8ac6"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerRed\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerRed\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerRed\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerRed\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerRed\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 0.0,
+    "source": {
+      "triangles": 420,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.2532869875431061,
+          -0.24251940846443176,
+          -0.6200000047683716
+        ],
+        [
+          0.2549999952316284,
+          0.24251940846443176,
+          2.0329904556274414
+        ]
+      ],
+      "materials": [
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "parents": {
+        "ChannelMarkerRed": null,
+        "RedCanSpar": "ChannelMarkerRed"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 420,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.2532869875431061,
+          -0.24251940846443176,
+          -0.6200000047683716
+        ],
+        [
+          0.2549999952316284,
+          0.24251940846443176,
+          2.0329904556274414
+        ]
+      ],
+      "materials": [
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "parents": {
+        "RedCanSpar": "ChannelMarkerRed",
+        "ChannelMarkerRed": null
+      },
+      "finite": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+PACK-SIGNAGE-1 — restaurant entrance & signage (Codex 1, Windows)
+
+NOTE: this is the LAST room-dressing set for now. Mo's priority has shifted to the CREW character
+bodies; once that pack is chosen, Claude redirects Codex to the crew. Do this bounded set, then IDLE.
+
+WHY
+When the player sails into the harbour by day they should see their restaurant is "theirs", and the
+entrance should read as a welcoming bistro. These are the branded/entrance pieces. Fixed-placed,
+from the free packs, same drop-in pattern as PACK-DECOR-1/3. Distinct from Codex 2's structure set
+(Pack/structure/) and all earlier sets.
+
+OWN (source only, no Assets / no game code / no git — Claude imports):
+  Art/Models/Restaurant/Pack/signage/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first: Art/Models/Restaurant/Pack/decor2/REPORT.md (your PACK-DECOR-3 delivery — match it).
+
+BUILD these stems (one Unity FBX each, drop-in):
+  HangingSign    a hanging shop sign on a bracket, blank cream board with a painted fish motif (no text) (wall, ~0.9 m)
+  AFrameBoard    a standing A-frame chalkboard sign for the pavement/quay                                (floor)
+  MenuEasel      a tall standing menu easel/stand                                                        (floor)
+  WelcomeLantern a short entrance post with a lantern on top; lantern element a separate WelcomeLantern_Glow
+                 mesh+material (ivory #FFE0A0, emission 0) so Claude makes it glow                       (floor)
+
+CONVENTIONS (identical to PACK-DECOR-1/3 and the _Glow rule from PACK-DECOR-2 for the lantern): Unity
+Y-up, 1 unit = 1 m. Floor pieces pivot at footprint centre; the hanging sign pivots at the wall-contact
+plane, front -Z, hung ~1.8 m. Root transform identity, axis conversion baked, atlas png beside the FBX,
+warm wood + navy/teal + cream + brass, no diner-orange. Exact same exporter call as the accepted Pack FBXs.
+
+EVIDENCE: contact render of all four at the game camera (pitch 38 / yaw 2) on a 1 m grid
+(signage-contact.jpg + 844 overview), one-line note per piece, same audits as PACK-DECOR-3.
+REPORT.md in Art/Models/Restaurant/Pack/signage/.
+
+RULES: fresh session, no memory. Keep working until budget runs out; QUESTION lines in comms.md, never
+stop to ask. CHECKPOINT per 2 pieces. When the four are delivered and audited: DONE in comms.md, IDLE.
+No Assets, no code, no git.

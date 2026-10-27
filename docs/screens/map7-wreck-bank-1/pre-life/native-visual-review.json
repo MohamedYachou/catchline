@@ -1,0 +1,45 @@
+{
+  "task": "MAP7-WRECK-BANK-1",
+  "reviewer": "Codex 1 (Windows app)",
+  "reviewedUtc": "2026-10-25T07:07:43.810377+00:00",
+  "allIndividuallyOpened": true,
+  "imageHashes": {
+    "chart-1440.png": "a4b3831bb8f070cdb80563da52f910030e09812c31745ede9aac0e16f639ad1b",
+    "chart-844.png": "ed2dbdd78e72d7527c2b41f349d9b2a86c3fab206c1502391b99e435cec19700",
+    "sail-out-1440.png": "2994328b6f0e97d5c898fe95757659a91b86f18f5abf3aa61b5a3dd85807307b",
+    "sail-out-844.png": "00bfb7a0f6984f9d8dc1163705dd69513c32a5ed8371e2fb0854de2dcd5f3725",
+    "the-wreck-1440.png": "fd645dde9ca9274c62f3be116b6716aaf0e973727e1d3963583568df5743ef0f",
+    "the-wreck-844.png": "d7cde355554afcf4e245a0dab034c0544051145f3cbb6e39d2608d05a159daf1",
+    "herring-bank-1440.png": "3f688316053067bca7a6ba0ee6d0ab7dff990c180541cbf62988a6eea61f5ef6",
+    "herring-bank-844.png": "e510b0174b324e6ff27955ce71c85de6bcf77ce0f5bba2809e3ef06c9d170993",
+    "sand-edge-1440.png": "b904c9bc1890d6181c15536e973404f930fc3aea0a291de1454b877acb63e17d",
+    "sand-edge-844.png": "57dcf1cf8f6fb3718bcbd056130a9035904b8b000627c6148eb664fe1e1c8cdc"
+  },
+  "observations": {
+    "chart-1440.png": "Wreck bank 980-coin label readable; pin/label overlaps Harbour mouth because spot6 uses the fallback point. Visual chart acceptance pending. Desktop HUD readable.",
+    "chart-844.png": "Wreck bank 980-coin label readable; pin/label overlaps Harbour mouth because spot6 uses the fallback point. Visual chart acceptance pending. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "sail-out-1440.png": "Normal SeaOut route, boat, route/progress and controls visible. Generic buoy/gulls are not WreckLife anchor integration. Desktop HUD readable.",
+    "sail-out-844.png": "Normal SeaOut route, boat, route/progress and controls visible. Generic buoy/gulls are not WreckLife anchor integration. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "the-wreck-1440.png": "Low stepped sand at lower left and cropped rusted bow/broken bulwark at lower right. Open water separates hull/bubbles from terrain. Funnel/mast outside deck crop. Desktop HUD readable.",
+    "the-wreck-844.png": "Low stepped sand at lower left and cropped rusted bow/broken bulwark at lower right. Open water separates hull/bubbles from terrain. Funnel/mast outside deck crop. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "herring-bank-1440.png": "Both low angular pale sand shelves visible below the boat, with clear hull/bubble space. HUD and lower controls cover portions. No gannet dive/boil evidenced. Desktop HUD readable.",
+    "herring-bank-844.png": "Both low angular pale sand shelves visible below the boat, with clear hull/bubble space. HUD and lower controls cover portions. No gannet dive/boil evidenced. Landscape HUD fits; corner shelf portions cropped/covered.",
+    "sand-edge-1440.png": "Both angular pale sand shelves visible below the side-on boat; hull/bubbles remain clear. HUD and bottom controls cover portions. Terrain similar to Herring bank. Desktop HUD readable.",
+    "sand-edge-844.png": "Both angular pale sand shelves visible below the side-on boat; hull/bubbles remain clear. HUD and bottom controls cover portions. Terrain similar to Herring bank. Landscape HUD fits; corner shelf portions cropped/covered."
+  },
+  "scope": "Ten final native PNGs individually opened with view_image; this records manual review, not automated visual or Claude/Mo acceptance.",
+  "limits": [
+    "Six unmodified full-zone art assertions fail: required close corner landmarks intersect the larger 12-20m ground-zone circles. Actual hull route checks are separate. Lead exception/visual acceptance pending.",
+    "Chart spot6 still uses the Harbour mouth fallback position; the chart label/pin overlaps. Chart glyph/position and TripChart landmark row belong to Claude.",
+    "Runtime water remains default blue; requested shallow2E8C8A/deep1C6E7E optics need Claude integration.",
+    "Six imported empty anchors are verified, but WreckLife gannets/gulls/cardinal buoy are not wired in this native snapshot. Generic sailing markers/gulls are not proof of WreckLife.",
+    "The rusted bow/broken bulwark appears at the lower-right wreck corner; funnel and mast are outside the tight deck crop. Herring/Sand terrain is deliberately similar, pending life.",
+    "HUD/bottom controls partly cover lower terrain. Stills freeze presentation time; no animation, touch or installed-player acceptance.",
+    "Native build pins 116 compiled Game source hashes; concurrent Claude-only Minigame/VoyageGutView.cs differed in main at launch. All five owned runtime sources match the build.",
+    "MapNav timing outside target is retained as an advisory about physical distance/one hull speed, separate from collision and border checks."
+  ],
+  "acceptedByLead": false,
+  "runtimeWreckLifeVisible": false,
+  "chartVisualAccepted": false,
+  "requestedWaterOpticsVisible": false
+}

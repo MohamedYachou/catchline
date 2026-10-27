@@ -1,0 +1,190 @@
+{
+  "name": "DolphinFin",
+  "revision": "r01",
+  "delivery_sha256": {
+    "DolphinFin.blend": "8c615f8587754a40f7a5213378c15e006fbe30022611d1588f93b1e4233c504c",
+    "DolphinFin.fbx": "ac4d65a9ce7bdba2aff4f21dbea60bad1306aecb104be1cec2cedb005e8b26c6"
+  },
+  "runtime_sha256": "ac4d65a9ce7bdba2aff4f21dbea60bad1306aecb104be1cec2cedb005e8b26c6",
+  "checks": [
+    "current delivery SHA256 DolphinFin.blend",
+    "current delivery SHA256 DolphinFin.fbx",
+    "protected reference unchanged Art/Models/StationsV1/DolphinFin.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry SurfaceBack",
+    "finite vertices SurfaceBack",
+    "nonempty geometry DolphinFin",
+    "finite vertices DolphinFin",
+    "source bounds manifest current",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry DolphinFin",
+    "finite vertices DolphinFin",
+    "nonempty geometry SurfaceBack",
+    "finite vertices SurfaceBack",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions SurfaceBack",
+    "actual FBX part origin preserved SurfaceBack",
+    "actual FBX triangle count SurfaceBack",
+    "actual FBX face materials SurfaceBack",
+    "actual FBX material slots SurfaceBack",
+    "actual FBX every world vertex both directions DolphinFin",
+    "actual FBX part origin preserved DolphinFin",
+    "actual FBX triangle count DolphinFin",
+    "actual FBX face materials DolphinFin",
+    "actual FBX material slots DolphinFin",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 132,
+  "mesh_count": 2,
+  "source_parts": {
+    "SurfaceBack": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2199999988079071,
+          -0.3400000035762787,
+          -0.04500000178813934
+        ],
+        [
+          0.2199999988079071,
+          0.3400000035762787,
+          0.0949999988079071
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.02500000037252903
+      ]
+    },
+    "DolphinFin": {
+      "triangles": 12,
+      "bounds": [
+        [
+          -0.03500000014901161,
+          -0.2199999988079071,
+          0.0
+        ],
+        [
+          0.03500000014901161,
+          0.18000000715255737,
+          0.46000000834465027
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 12
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "DolphinFin": {
+      "triangles": 12,
+      "bounds": [
+        [
+          -0.03500000014901161,
+          -0.2199999988079071,
+          -2.9325724071327386e-08
+        ],
+        [
+          0.03500000014901161,
+          0.18000000715255737,
+          0.46000000834465027
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 12
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "SurfaceBack": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2199999988079071,
+          -0.3400000035762787,
+          -0.04500000178813934
+        ],
+        [
+          0.2199999988079071,
+          0.3400000035762787,
+          0.0949999988079071
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        4.0730170347558214e-09,
+        0.02500000037252903
+      ]
+    }
+  },
+  "max_bounds_error_m": 2.9325724071327386e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 7.450580596923828e-08,
+  "max_part_pivot_error_m": 4.0730170347558214e-09,
+  "pivot_use": "waterline",
+  "render_sha256": {
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/back.png": "3771b5602eb71dd563245479c092d3f2130158eed53e8d03ffe30df8a363e5c5",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/front.png": "bcb0010957585db797b6a8cd658c4e54cf0c40cd78d2655c0df62294dcbb07de",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/left.png": "d088d3b26c72176a4f3dcfa27ac1b76374919195978243268be5a0dff1ea3e7b",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/right.png": "11e12fa62682101f41f262565b549e302201814d90adb4a2e904071578a69cd1",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/three-quarter.png": "8500efcdb9a4f69950dbd4ce0b958f22b8b941b216c8a9aee5d9ee12174dedcb",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/top.png": "6f23251902131f037b831b310c21756a817270059a839efc94a05f692f09f83a",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/waterline-context.png": "07e089b47d9ff6fb13c6d77321694ead274d3dbe9083f40790ba0e3d0b9fcec2"
+  },
+  "pass": true
+}

@@ -1,0 +1,130 @@
+{
+  "name": "IceHouse",
+  "group": "B",
+  "triangles": 740,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -1.8972450494766235,
+      -1.6750000715255737,
+      0.0
+    ],
+    [
+      1.8972450494766235,
+      2.2347826957702637,
+      3.18500018119812
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.794490098953247,
+    3.909782886505127,
+    3.18500018119812
+  ],
+  "parts": [
+    {
+      "name": "StoneInsulatedHouseAndChute",
+      "triangles": 740,
+      "vertices": 446,
+      "bounds_min_blender": [
+        -1.8972450494766235,
+        -1.6750000715255737,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.8972450494766235,
+        2.2347826957702637,
+        3.18500018119812
+      ],
+      "mesh_sha256": "281e613bd9ea8edf82f83abdecb38e78fa7988675b9b185ea5e3efbdf78b0111",
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\IceHouse.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\IceHouse.fbx",
+  "sha256": {
+    "blend": "accb21beebde47094ef277b1f66bf600d57f4f09191fe09c2a0b557d24231606",
+    "fbx": "02359a5f0bc447d95daa5423dea3cd658c7651ddfcd7de406783eb437764123a"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\IceHouse\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\IceHouse\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\IceHouse\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\IceHouse\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\IceHouse\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.384185791015625e-07,
+    "source": {
+      "triangles": 740,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.8972450494766235,
+          -1.6750000715255737,
+          0.0
+        ],
+        [
+          1.8972450494766235,
+          2.2347826957702637,
+          3.18500018119812
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "IceHouse": null,
+        "StoneInsulatedHouseAndChute": "IceHouse"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 740,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.8972450494766235,
+          -1.6749999523162842,
+          -1.1324686255420602e-07
+        ],
+        [
+          1.8972450494766235,
+          2.2347826957702637,
+          3.185000419616699
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "StoneInsulatedHouseAndChute": "IceHouse",
+        "IceHouse": null
+      },
+      "finite": true
+    }
+  }
+}

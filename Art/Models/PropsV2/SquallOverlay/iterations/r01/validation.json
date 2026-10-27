@@ -1,0 +1,30 @@
+{
+  "name": "SquallOverlay",
+  "revision": "r01",
+  "delivery_sha256": {
+    "SquallOverlay.png": "c875e51a7d701a24278bb07b28d736ab08664822334838ad1c1fc9a89aeb5983",
+    "SquallOverlay.svg": "7749c2803f137f1e1b05a938ec34489300d3dc82673a472932007ae71b7b1cbe"
+  },
+  "runtime_sha256": "c875e51a7d701a24278bb07b28d736ab08664822334838ad1c1fc9a89aeb5983",
+  "checks": [
+    "current delivery SHA256 SquallOverlay.png",
+    "current delivery SHA256 SquallOverlay.svg",
+    "protected reference unchanged Art/Source/Art108/build_effects.py",
+    "runtime bytes equal reviewed delivery",
+    "declared pixel dimensions",
+    "finite bounded RGBA",
+    "all four corners transparent",
+    "restrained nonopaque effect alpha",
+    "sparse transparent rain streaks"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "dimensions": [
+    1024,
+    512
+  ],
+  "alpha_min": 0.0,
+  "alpha_max": 0.22352942824363708,
+  "painted_pixel_fraction": 0.00670623779296875,
+  "render_sha256": {},
+  "pass": true
+}

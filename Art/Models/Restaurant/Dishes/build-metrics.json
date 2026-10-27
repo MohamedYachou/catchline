@@ -1,0 +1,140 @@
+{
+  "dishes": [
+    {
+      "name": "Dish_FishSoup",
+      "bounds_blender_m": [
+        [
+          -0.10700000077486038,
+          -0.10700000077486038,
+          0.0
+        ],
+        [
+          0.10700000077486038,
+          0.10700000077486038,
+          0.10301243513822556
+        ]
+      ],
+      "triangles": 1664,
+      "atlas_cells": [
+        "blue",
+        "fish",
+        "ivory",
+        "lettuce",
+        "soup"
+      ],
+      "fbx_sha256": "1a3d775e672f34d918dbbcf0e49b79feae40d12bfbf95518c1b4435162cb1efc"
+    },
+    {
+      "name": "Dish_FilletsLemon",
+      "bounds_blender_m": [
+        [
+          -0.1420000046491623,
+          -0.1420000046491623,
+          0.0
+        ],
+        [
+          0.1420000046491623,
+          0.1420000046491623,
+          0.0506167933344841
+        ]
+      ],
+      "triangles": 1628,
+      "atlas_cells": [
+        "blue",
+        "brass",
+        "char",
+        "food",
+        "glow",
+        "ivory",
+        "lettuce",
+        "white"
+      ],
+      "fbx_sha256": "f97625be4d5420c0823e2425eadf56f6d3b79880ad5f419ed77d99865b6ea802"
+    },
+    {
+      "name": "Dish_GrilledFish",
+      "bounds_blender_m": [
+        [
+          -0.1420000046491623,
+          -0.1420000046491623,
+          0.0
+        ],
+        [
+          0.1420000046491623,
+          0.1420000046491623,
+          0.05390211567282677
+        ]
+      ],
+      "triangles": 1476,
+      "atlas_cells": [
+        "blue",
+        "brass",
+        "char",
+        "dark",
+        "fish",
+        "food",
+        "glow",
+        "ivory",
+        "lettuce",
+        "white"
+      ],
+      "fbx_sha256": "4658212ec87afa5c629a6a6ca789c6211a02139d766b21fd3666c8d3fc7790bb"
+    },
+    {
+      "name": "Dish_CoffeeBiscuits",
+      "bounds_blender_m": [
+        [
+          -0.09099999815225601,
+          -0.09099999815225601,
+          0.0
+        ],
+        [
+          0.09099999815225601,
+          0.09099999815225601,
+          0.099039226770401
+        ]
+      ],
+      "triangles": 2684,
+      "atlas_cells": [
+        "blue",
+        "brass",
+        "char",
+        "coffee",
+        "food",
+        "ivory"
+      ],
+      "fbx_sha256": "9788918ad47b10e5ce8dd4382f739e6e53b34e57273dfddc37d322ccf109943f"
+    },
+    {
+      "name": "Dish_Lemonade",
+      "bounds_blender_m": [
+        [
+          -0.04100000113248825,
+          -0.04100000113248825,
+          0.0
+        ],
+        [
+          0.04100000113248825,
+          0.04100000113248825,
+          0.17742623388767242
+        ]
+      ],
+      "triangles": 940,
+      "atlas_cells": [
+        "brass",
+        "glass",
+        "glow",
+        "ivory",
+        "white"
+      ],
+      "fbx_sha256": "870b977720f6d144574f4efd418ca9b8e517ec807fde4596d981f1c02323c4a9"
+    }
+  ],
+  "units": "metres",
+  "origin": "table contact, z=0",
+  "material": "Restaurant_Atlas_Dishes",
+  "textures": {
+    "Restaurant_BaseColor.png": "25fb03ca03be931c073afde737918046a6f019eea52b6e6f8091d945ab7e2bcf",
+    "Restaurant_Surface.png": "6598fde9a4b3f43e43a5d275b36567042c3cfe1dd28bc79fb5ec3400fb56695d"
+  }
+}

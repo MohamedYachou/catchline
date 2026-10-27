@@ -1,0 +1,38 @@
+{
+  "name": "Restaurant_Net",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.44554147124290466,
+      -0.05828697979450226,
+      0.0
+    ],
+    [
+      0.44554150104522705,
+      0.012032114900648594,
+      0.6260198354721069
+    ]
+  ],
+  "triangles": 1672,
+  "export_meshes": [
+    "Restaurant_Net"
+  ],
+  "atlas_cells": [
+    "ivory",
+    "orange",
+    "rope"
+  ],
+  "mount": "wall",
+  "recommended_base_height_m": 1.05,
+  "contact_correction_m": 1.986022289202083e-05,
+  "fbx_sha256": "936ffb1be597e2208a401338d16f0c0cbb21b84ac9bcf32df6b7711ad26de533"
+}

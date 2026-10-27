@@ -1,0 +1,68 @@
+{
+  "name": "GullSwoop",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/GullSwoop.blend",
+      "sha256": "130a1169ba90a54c8c7fc88666c1b11fb9ec531016309ecd3ef7d2dd6607c933",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.45320677757263184,
+      -0.19999998807907104,
+      0.11999999731779099
+    ],
+    [
+      0.45320677757263184,
+      0.20000001788139343,
+      0.3400000035762787
+    ]
+  ],
+  "triangles": 632,
+  "mesh_parts": {
+    "SeagullBody": 456,
+    "Wing_L": 88,
+    "Wing_R": 88
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "airborne centre",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "GullSwoop.blend": "ae66a2e5d63b210586d7d4a2b567e59ce98319bed9f47562e391f5ae04047725",
+    "GullSwoop.fbx": "10bfffdacc45fb98dca2c2a4dbaab1ec800ce7aef018c7631ea4def526942ac9"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_GullSwoop.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/back.png",
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/front.png",
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/left.png",
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/right.png",
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/GullSwoop/iterations/r01/top.png"
+  ]
+}

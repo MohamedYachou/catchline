@@ -1,0 +1,494 @@
+{
+  "task": "SOUND-4",
+  "result": "PASS technical; listening NOT performed",
+  "method": "Independent PCM16 decode; BS1770 K-weighted/gated400ms meter with zero padding for shorter cues; 4x polyphase estimated true peak, not certified. Limits: peak<=-3dBFS, DC<.0007, zero endpoints/adjacent<=3PCM, loudness target within1LU/family spread<2LU.",
+  "protected_unchanged_files": 711,
+  "comparisons": [
+    {
+      "click_directory": "Art/Audio/Real/SFX",
+      "quietest_click_lufs": -32.800255983953,
+      "lowest_click_peak_dbfs": -12.500578323176072,
+      "tab_loudness_and_peak_lower": true
+    },
+    {
+      "click_directory": "Art/Audio/SFX",
+      "quietest_click_lufs": -32.200290700907445,
+      "lowest_click_peak_dbfs": -13.498094946457584,
+      "tab_loudness_and_peak_lower": true
+    }
+  ],
+  "files": [
+    {
+      "file": "SFX/CoachPop_0.wav",
+      "family": "CoachPop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 7497,
+      "duration_seconds": 0.17,
+      "sample_peak_dbfs": -15.379428500593736,
+      "true_peak_4x_dbtp": -15.373901125562666,
+      "integrated_lufs": -32.2002942130048,
+      "measurement_zero_padding_seconds": 0.23,
+      "dc_offset_linear": [
+        -1.6689618555755636e-07
+      ],
+      "rms_dbfs": [
+        -27.925519536097458
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "185223eded0ee1d6c4149fa185fef0d9b30abb1cae28119a1acbd037df329658",
+      "target_lufs": -32.2
+    },
+    {
+      "file": "SFX/CoachPop_1.wav",
+      "family": "CoachPop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 7938,
+      "duration_seconds": 0.18,
+      "sample_peak_dbfs": -14.699772041960006,
+      "true_peak_4x_dbtp": -14.676835444929214,
+      "integrated_lufs": -32.000266922408585,
+      "measurement_zero_padding_seconds": 0.22,
+      "dc_offset_linear": [
+        1.153347623771731e-07
+      ],
+      "rms_dbfs": [
+        -29.416864338419767
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "f80125534c2fa21cf5821dda485d384eedb77cf8d547fe24ee8a2bb279913aef",
+      "target_lufs": -32.0
+    },
+    {
+      "file": "SFX/CoachPop_2.wav",
+      "family": "CoachPop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 8379,
+      "duration_seconds": 0.19,
+      "sample_peak_dbfs": -11.011554526438854,
+      "true_peak_4x_dbtp": -11.006027151407782,
+      "integrated_lufs": -31.800276522824934,
+      "measurement_zero_padding_seconds": 0.21,
+      "dc_offset_linear": [
+        -1.49328166025182e-07
+      ],
+      "rms_dbfs": [
+        -29.431928338149078
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "d6f71234604bb35075dfd53853e1ad3cf5e500f216deee3c3e261639200cf39f",
+      "target_lufs": -31.8
+    },
+    {
+      "file": "SFX/RefitFanfare_0.wav",
+      "family": "RefitFanfare",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 96138,
+      "duration_seconds": 2.18,
+      "sample_peak_dbfs": -10.18567018948573,
+      "true_peak_4x_dbtp": -10.18014281445466,
+      "integrated_lufs": -27.200268305084837,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -6.983572767792132e-09
+      ],
+      "rms_dbfs": [
+        -30.45295914573748
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "9db14ff4440313bdbb6f2ede986093a3147e6b17ba92a43220e5b2cd71b52515",
+      "target_lufs": -27.2
+    },
+    {
+      "file": "SFX/RefitFanfare_1.wav",
+      "family": "RefitFanfare",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 100768,
+      "duration_seconds": 2.284988662131519,
+      "sample_peak_dbfs": -8.702964163316123,
+      "true_peak_4x_dbtp": -8.697436788285053,
+      "integrated_lufs": -27.000264206289383,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.632412679992656e-08
+      ],
+      "rms_dbfs": [
+        -29.872360440351358
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "472f3f80a20dc48f01877a235423a193a4be62009abbc03ac723c0fdba6d770e",
+      "target_lufs": -27.0
+    },
+    {
+      "file": "SFX/RefitFanfare_2.wav",
+      "family": "RefitFanfare",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 105399,
+      "duration_seconds": 2.39,
+      "sample_peak_dbfs": -10.097911668387914,
+      "true_peak_4x_dbtp": -10.092384293356842,
+      "integrated_lufs": -26.800280076428447,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.490072694000892e-08
+      ],
+      "rms_dbfs": [
+        -30.6265470297034
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "adf1a1183e8ba80008c58b69c559a3ca93cec2a1cd646a7e5f2466b0d9ce032d",
+      "target_lufs": -26.8
+    },
+    {
+      "file": "SFX/TabTap_0.wav",
+      "family": "TabTap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 3308,
+      "duration_seconds": 0.07501133786848073,
+      "sample_peak_dbfs": -18.97553594707203,
+      "true_peak_4x_dbtp": -18.970008572040957,
+      "integrated_lufs": -38.20025843617222,
+      "measurement_zero_padding_seconds": 0.3249886621315193,
+      "dc_offset_linear": [
+        -2.8598697759220073e-07
+      ],
+      "rms_dbfs": [
+        -30.213659515510205
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "156ad4c3b0b4279527f2d2fc6635303ab41e9321de0b0414f9f78a416f26fc7d",
+      "target_lufs": -38.2
+    },
+    {
+      "file": "SFX/TabTap_1.wav",
+      "family": "TabTap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 3704,
+      "duration_seconds": 0.08399092970521542,
+      "sample_peak_dbfs": -20.56340237033298,
+      "true_peak_4x_dbtp": -20.5430093080576,
+      "integrated_lufs": -38.00025941540527,
+      "measurement_zero_padding_seconds": 0.3160090702947846,
+      "dc_offset_linear": [
+        3.213243917049136e-07
+      ],
+      "rms_dbfs": [
+        -31.99404466698184
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "305d787615efa8687524b0e000813ae0772a05086739cff1fef8cfecaff9d581",
+      "target_lufs": -38.0
+    },
+    {
+      "file": "SFX/TabTap_2.wav",
+      "family": "TabTap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4101,
+      "duration_seconds": 0.09299319727891156,
+      "sample_peak_dbfs": -16.395863500470554,
+      "true_peak_4x_dbtp": -16.39033612543948,
+      "integrated_lufs": -37.80029175789981,
+      "measurement_zero_padding_seconds": 0.30700680272108843,
+      "dc_offset_linear": [
+        2.530108891124116e-07
+      ],
+      "rms_dbfs": [
+        -32.16554769743634
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "b57f9d2cbd798b5e7bad0826dd067c6ce20fffda79bbcbd38cada3320b96759a",
+      "target_lufs": -37.8
+    },
+    {
+      "file": "SFX/CoinBuy_0.wav",
+      "family": "CoinBuy",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 19404,
+      "duration_seconds": 0.44,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.5956945539303797,
+      "integrated_lufs": -24.200267442623378,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        5.488886191313647e-07
+      ],
+      "rms_dbfs": [
+        -27.876716021510262
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "bb424c3821724cb6d6f5e03ee6e79805c57526df0a1ef064df9b9fed77133107",
+      "target_lufs": -24.2
+    },
+    {
+      "file": "SFX/CoinBuy_1.wav",
+      "family": "CoinBuy",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 20066,
+      "duration_seconds": 0.45501133786848075,
+      "sample_peak_dbfs": -7.692035037137185,
+      "true_peak_4x_dbtp": -7.079868597042349,
+      "integrated_lufs": -24.00025632160342,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        3.8325673714243e-07
+      ],
+      "rms_dbfs": [
+        -27.77213129148955
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "7faac99b520a1e7ace68f44f4231c0b407a6c91552ceb46fe91e5cd4008fad4c",
+      "target_lufs": -24.0
+    },
+    {
+      "file": "SFX/CoinBuy_2.wav",
+      "family": "CoinBuy",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 20727,
+      "duration_seconds": 0.47,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -23.800263275931673,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -4.976572300019298e-07
+      ],
+      "rms_dbfs": [
+        -27.606668926375434
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "48c61c5fd4c62e2f023d04207150b1373252ae337ff356f8b394ba1a53811aeb",
+      "target_lufs": -23.8
+    },
+    {
+      "file": "SFX/PageTurn_0.wav",
+      "family": "PageTurn",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 18565,
+      "duration_seconds": 0.42097505668934243,
+      "sample_peak_dbfs": -9.311464301716718,
+      "true_peak_4x_dbtp": -9.305936926685646,
+      "integrated_lufs": -29.20025446690279,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        2.7944994781847563e-08
+      ],
+      "rms_dbfs": [
+        -32.22617911392428
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "c2bbe3bb36e35a269203ea4caa956589096b1631e9453e315e8dfda8bba61587",
+      "target_lufs": -29.2
+    },
+    {
+      "file": "SFX/PageTurn_1.wav",
+      "family": "PageTurn",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 24157,
+      "duration_seconds": 0.5477777777777778,
+      "sample_peak_dbfs": -11.937908088188887,
+      "true_peak_4x_dbtp": -11.80028493479631,
+      "integrated_lufs": -29.00028469644787,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.569168615722151e-08
+      ],
+      "rms_dbfs": [
+        -32.007596929834676
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "9618d76c6b969d44fa2fe1cfb28f68f2bf71c3091b9a474b856e5166931c366c",
+      "target_lufs": -29.0
+    },
+    {
+      "file": "SFX/PageTurn_2.wav",
+      "family": "PageTurn",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 23668,
+      "duration_seconds": 0.5366893424036281,
+      "sample_peak_dbfs": -14.069459812455278,
+      "true_peak_4x_dbtp": -13.932694399317814,
+      "integrated_lufs": -28.80021322333002,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        2.0630439834375527e-08
+      ],
+      "rms_dbfs": [
+        -32.93258862249636
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "b738e8bcddde79d5096414e85a5e4bf3da4775e96f5ea99f6ceee94af4b8f18f",
+      "target_lufs": -28.8
+    }
+  ],
+  "sheets": [
+    {
+      "file": "Art/Audio/review/SOUND4-CoachPop.png",
+      "sha256": "3e9411040e512a32c8d4dd76fbb85a52cc2f3b2c3743c765b595c21c71c04e5b"
+    },
+    {
+      "file": "Art/Audio/review/SOUND4-RefitFanfare.png",
+      "sha256": "5da97ec71615e1d90dc9ec358567bc2bf68ac6753f3acaf177d3d56f12fdb9c9"
+    },
+    {
+      "file": "Art/Audio/review/SOUND4-TabTap.png",
+      "sha256": "56908b100c0eb64bf67bca86ddccb2fa693640ba0564d8dfb309c029c486703a"
+    },
+    {
+      "file": "Art/Audio/review/SOUND4-CoinBuy.png",
+      "sha256": "f8fbc98d48bfa0bc71a4fd022b2e302fbeb423d71aa60cd23cde3c52861e2e2f"
+    },
+    {
+      "file": "Art/Audio/review/SOUND4-PageTurn.png",
+      "sha256": "bdda8f0c216e324fe1bdc979bbe3f6cc810f64bf6eb3b8e28836e21925a6af2e"
+    }
+  ]
+}

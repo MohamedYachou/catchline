@@ -1,0 +1,319 @@
+{
+  "schema": 1,
+  "coordinate_contract": "Sizes are Blender XYZ (width,depth,height); Unity size = [width,height,depth]. Bottom-centre display origin. GLBs bake display dimensions; verify imported Unity scale once.",
+  "decor": [
+    {
+      "model": "pottedPlant",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/pottedPlant.fbx",
+      "display_size_m": [
+        0.36,
+        0.4,
+        1.05
+      ],
+      "source_size_blender_m": [
+        0.21205927431583405,
+        0.24146194756031036,
+        0.6540167927742004
+      ],
+      "scale_blender_xyz": [
+        1.6976385116577148,
+        1.6565756797790527,
+        1.6054633855819702
+      ],
+      "placement": "floor beside reception, outside circulation",
+      "reason": "Natural upright foliage; harbour-bistro corner",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-pottedPlant.glb"
+    },
+    {
+      "model": "plantSmall3",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/plantSmall3.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/plantSmall3.fbx",
+      "display_size_m": [
+        0.13,
+        0.12,
+        0.2
+      ],
+      "source_size_blender_m": [
+        0.09799999743700027,
+        0.08487048745155334,
+        0.14499999582767487
+      ],
+      "scale_blender_xyz": [
+        1.3265306949615479,
+        1.4139190912246704,
+        1.3793103694915771
+      ],
+      "placement": "sill or shelf, not every dining table",
+      "reason": "Small muted plant, avoids table clutter",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-plantSmall3.glb"
+    },
+    {
+      "model": "lampWall",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/lampWall.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/lampWall.fbx",
+      "display_size_m": [
+        0.38,
+        0.22,
+        0.16
+      ],
+      "source_size_blender_m": [
+        0.22663536667823792,
+        0.15033599734306335,
+        0.09279999881982803
+      ],
+      "scale_blender_xyz": [
+        1.6767021417617798,
+        1.4633886814117432,
+        1.7241379022598267
+      ],
+      "placement": "rear wall above booth, wall mounted",
+      "reason": "Warm wall wash, light steel body",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-lampWall.glb"
+    },
+    {
+      "model": "lampRoundFloor",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/lampRoundFloor.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/lampRoundFloor.fbx",
+      "display_size_m": [
+        0.3,
+        0.34,
+        1.65
+      ],
+      "source_size_blender_m": [
+        0.15203940868377686,
+        0.17555999755859375,
+        0.8600000143051147
+      ],
+      "scale_blender_xyz": [
+        1.9731725454330444,
+        1.936659812927246,
+        1.9186046123504639
+      ],
+      "placement": "reading corner behind bench",
+      "reason": "Warm cream shade; keep out of service aisle",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-lampRoundFloor.glb"
+    },
+    {
+      "model": "lampRoundTable",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/lampRoundTable.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/lampRoundTable.fbx",
+      "display_size_m": [
+        0.18,
+        0.2,
+        0.37
+      ],
+      "source_size_blender_m": [
+        0.15203940868377686,
+        0.17555999755859375,
+        0.31424999237060547
+      ],
+      "scale_blender_xyz": [
+        1.1839035749435425,
+        1.139211654663086,
+        1.1774065494537354
+      ],
+      "placement": "reception counter or sideboard",
+      "reason": "Small welcome pool; preserve order-marker clearances",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-lampRoundTable.glb"
+    },
+    {
+      "model": "bookcaseOpenLow",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bookcaseOpenLow.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/bookcaseOpenLow.fbx",
+      "display_size_m": [
+        1.15,
+        0.4,
+        0.95
+      ],
+      "source_size_blender_m": [
+        0.4000000059604645,
+        0.25,
+        0.4000000059604645
+      ],
+      "scale_blender_xyz": [
+        2.875,
+        1.600000023841858,
+        2.375
+      ],
+      "placement": "rear dining wall, away from kitchen",
+      "reason": "Warm timber sideboard for crockery",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-bookcaseOpenLow.glb"
+    },
+    {
+      "model": "bookcaseOpen",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bookcaseOpen.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/bookcaseOpen.fbx",
+      "display_size_m": [
+        0.85,
+        0.35,
+        1.8
+      ],
+      "source_size_blender_m": [
+        0.4000000059604645,
+        0.25,
+        0.8799999356269836
+      ],
+      "scale_blender_xyz": [
+        2.125,
+        1.399999976158142,
+        2.045454740524292
+      ],
+      "placement": "rear wall, stage2+",
+      "reason": "Tall shelf rhythm, do not block door/window",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-bookcaseOpen.glb"
+    },
+    {
+      "model": "bench",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bench.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/bench.fbx",
+      "display_size_m": [
+        1.4,
+        0.48,
+        1.05
+      ],
+      "source_size_blender_m": [
+        0.4000000059604645,
+        0.20000000298023224,
+        0.4699999988079071
+      ],
+      "scale_blender_xyz": [
+        3.5,
+        2.3999998569488525,
+        2.2340426445007324
+      ],
+      "placement": "quay waiting spot",
+      "reason": "Plain timber, good outside seating",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-bench.glb"
+    },
+    {
+      "model": "benchCushion",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/benchCushion.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/benchCushion.fbx",
+      "display_size_m": [
+        1.4,
+        0.48,
+        1.05
+      ],
+      "source_size_blender_m": [
+        0.4000000059604645,
+        0.20000000298023224,
+        0.46000000834465027
+      ],
+      "scale_blender_xyz": [
+        3.5,
+        2.3999998569488525,
+        2.2826087474823
+      ],
+      "placement": "interior waiting wall",
+      "reason": "Teal upholstery instead of bright pink",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-benchCushion.glb"
+    },
+    {
+      "model": "rugRectangle",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/rugRectangle.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/rugRectangle.fbx",
+      "display_size_m": [
+        1.7,
+        1.0,
+        0.012
+      ],
+      "source_size_blender_m": [
+        1.5699999332427979,
+        0.9200000166893005,
+        0.009999999776482582
+      ],
+      "scale_blender_xyz": [
+        1.082802653312683,
+        1.08695650100708,
+        1.2000000476837158
+      ],
+      "placement": "host waiting nook only",
+      "reason": "Teal/navy frame; never kitchen/wet route",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-rugRectangle.glb"
+    },
+    {
+      "model": "rugDoormat",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/rugDoormat.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/rugDoormat.fbx",
+      "display_size_m": [
+        0.7,
+        0.4,
+        0.012
+      ],
+      "source_size_blender_m": [
+        0.4293000102043152,
+        0.23700903356075287,
+        0.009999999776482582
+      ],
+      "scale_blender_xyz": [
+        1.630561351776123,
+        1.6876994371414185,
+        1.2000000476837158
+      ],
+      "placement": "inside entrance threshold",
+      "reason": "Warm woven mat, low profile",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-rugDoormat.glb"
+    },
+    {
+      "model": "coatRackStanding",
+      "source": "Art/Downloads/kenney/furniture/Models/GLTF format/coatRackStanding.glb",
+      "fbx_source": "Art/Downloads/kenney/furniture/Models/FBX format/coatRackStanding.fbx",
+      "display_size_m": [
+        0.5,
+        0.5,
+        1.65
+      ],
+      "source_size_blender_m": [
+        0.2727999985218048,
+        0.2727999985218048,
+        0.7699999809265137
+      ],
+      "scale_blender_xyz": [
+        1.832844614982605,
+        1.832844614982605,
+        2.142857313156128
+      ],
+      "placement": "entrance wall beside host",
+      "reason": "Useful bistro silhouette, keep queue clear",
+      "materials": "furniture-materials-catchline.json",
+      "variant_glb": "derived/decor-coatRackStanding.glb"
+    },
+    {
+      "model": "pictureframe_medium",
+      "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+      "fbx_source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+      "display_size_m": [
+        0.65,
+        0.1,
+        0.45
+      ],
+      "source_size_blender_m": [
+        0.7000001072883606,
+        0.20000018179416656,
+        0.9000000953674316
+      ],
+      "scale_blender_xyz": [
+        0.9285712838172913,
+        0.4999995529651642,
+        0.4999999403953552
+      ],
+      "placement": "rear wall beside shelf",
+      "reason": "KayKit frame; complements Kenney decor. Existing inset art is decorative, not a navigation chart.",
+      "materials": "../kaykit/furniturebits_texture-catchline.png",
+      "variant_glb": "derived/decor-pictureframe_medium.glb"
+    }
+  ],
+  "missing": "No Kenney picture-frame asset. Selected KayKit pictureframe_medium instead. No new wall art was painted."
+}

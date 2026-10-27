@@ -1,0 +1,2483 @@
+{
+  "name": "Tier5DeepLines103_VariantBlue",
+  "group": "C",
+  "triangles": 17096,
+  "limit": 1500,
+  "budget_status": "INHERITED EXCEPTION: exact released hull geometry",
+  "canonical_source": {
+    "path": "Assets\\Art\\Models\\Boats\\Tier5DeepLines103.fbx",
+    "sha256": "e25e0e3d49f3caaeb2bbcb4dcc68e09b83cc671f79e7298b9a3cfbf2b69c23ae"
+  },
+  "paint_changes": [
+    {
+      "mesh": "HelmConsole",
+      "slot": 2,
+      "from": "M_RailIvory",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "Hull",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "Hull",
+      "slot": 11,
+      "from": "M_HullBlue",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "HullPaintBand",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "HullPaintBand",
+      "slot": 11,
+      "from": "M_HullBlue",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "squared helm canopy",
+      "slot": 0,
+      "from": "M_RailIvory.002",
+      "to": "M_HullBlue"
+    },
+    {
+      "mesh": "teal canopy brow",
+      "slot": 0,
+      "from": "M_SeaTeal.002",
+      "to": "M_HullBlue"
+    }
+  ],
+  "authoring_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 104,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "bounds_blender": [
+    [
+      -2.167194366455078,
+      -4.320518970489502,
+      -0.6774940490722656
+    ],
+    [
+      3.3732869625091553,
+      4.7181620597839355,
+      3.2100002765655518
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    5.5404815673828125,
+    9.038681030273438,
+    3.8874943256378174
+  ],
+  "parts": [
+    {
+      "name": "BowLocker",
+      "triangles": 88,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -0.6199997663497925,
+        -3.625000238418579,
+        5.254192387837975e-07
+      ],
+      "bounds_max_blender": [
+        0.6200000047683716,
+        -3.2250001430511475,
+        0.3500005900859833
+      ],
+      "mesh_sha256": "cb8dfb403553d585da1b8282dd9d11b0fb5520cf6c34db2f198fa6a973be2843",
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "CanopyFrame",
+      "triangles": 380,
+      "vertices": 216,
+      "bounds_min_blender": [
+        -0.8350003957748413,
+        -2.8441665172576904,
+        2.1736335042987776e-07
+      ],
+      "bounds_max_blender": [
+        0.834999680519104,
+        -1.334166407585144,
+        1.3900004625320435
+      ],
+      "mesh_sha256": "eb4081c623b329db0f21eedf123d37bc84ec8bd12d0245e56c07db6c5c31a312",
+      "materials": [
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "Deep 1 hanging fishing line",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        3.3314402103424072,
+        0.39099982380867004,
+        -0.28000009059906006
+      ],
+      "bounds_max_blender": [
+        3.348559617996216,
+        0.4090006649494171,
+        3.140000104904175
+      ],
+      "mesh_sha256": "f582d4272c0ab2fd19672a9cd048e2710434bca4d2a85166e6740c5ce4714a39",
+      "materials": [
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "Deep 1 line guide",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.9467130899429321,
+        0.36500027775764465,
+        1.4799998998641968
+      ],
+      "bounds_max_blender": [
+        2.01328706741333,
+        0.4350002706050873,
+        1.5499998331069946
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 1 line guide.001",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.2167129516601562,
+        0.3650004267692566,
+        2.490000009536743
+      ],
+      "bounds_max_blender": [
+        2.2832870483398438,
+        0.4350004196166992,
+        2.56000018119812
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 1 line guide.002",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.7167129516601562,
+        0.36500051617622375,
+        3.049999952316284
+      ],
+      "bounds_max_blender": [
+        2.7832870483398438,
+        0.4350005090236664,
+        3.120000123977661
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 1 line guide.003",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        3.3067128658294678,
+        0.36500054597854614,
+        3.140000104904175
+      ],
+      "bounds_max_blender": [
+        3.3732869625091553,
+        0.43500053882598877,
+        3.2100002765655518
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 1 orange grip",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.8345328569412231,
+        0.3277198076248169,
+        0.7710157036781311
+      ],
+      "bounds_max_blender": [
+        2.0354671478271484,
+        0.4722805619239807,
+        1.208984136581421
+      ],
+      "mesh_sha256": "2cd5d7e4499cf8cef2eae6079eb776cffb4f636bdfe2e6ec2b2fde2d6ec85946",
+      "materials": [
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "Deep 1 rail clamp",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        1.75,
+        0.2500000596046448,
+        0.28999990224838257
+      ],
+      "bounds_max_blender": [
+        1.9700000286102295,
+        0.5500001311302185,
+        0.5899999737739563
+      ],
+      "mesh_sha256": "c4773d46882e3d78ddb81bc4f4a597356cd1d04cf0dea7aed966c234dafd474d",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 1 tapered pole 0",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.8073631525039673,
+        0.340083509683609,
+        0.45324498414993286
+      ],
+      "bounds_max_blender": [
+        2.0426368713378906,
+        0.4599168598651886,
+        1.4867548942565918
+      ],
+      "mesh_sha256": "e276642238c723b1ce143a5dbe0467d66e3b745eb2dea0bac351981d727d6438",
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "Deep 1 tapered pole 1",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.9316961765289307,
+        0.35244736075401306,
+        1.4670870304107666
+      ],
+      "bounds_max_blender": [
+        2.2983038425445557,
+        0.4475533068180084,
+        2.502912759780884
+      ],
+      "mesh_sha256": "b8e9996b35de181f195011d2dc86aa807e3335ebb4b2dd2087dfd245e8392713",
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "Deep 1 tapered pole 2",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.2238922119140625,
+        0.36671343445777893,
+        2.466689348220825
+      ],
+      "bounds_max_blender": [
+        2.7761077880859375,
+        0.43328753113746643,
+        3.073310613632202
+      ],
+      "mesh_sha256": "887b87aecc10b238b837e5de86ec8888b699a9e55d09684a62fa30643fae9c13",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 1 tapered pole 3",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.7469842433929443,
+        0.38097935914993286,
+        3.030228614807129
+      ],
+      "bounds_max_blender": [
+        3.3430159091949463,
+        0.4190216660499573,
+        3.15977144241333
+      ],
+      "mesh_sha256": "0e69f3f93ed8eaf1e524baccf16dc0431d5181325c975ac6f5b9d986867ab1b6",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 1 crank",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.6778836250305176,
+        0.17337052524089813,
+        0.7147573828697205
+      ],
+      "bounds_max_blender": [
+        1.9521164894104004,
+        0.22662977874279022,
+        0.8852426409721375
+      ],
+      "mesh_sha256": "cac4dee609a93d20ffe2e64b07a283f2ffa57a53ee445975db59bc668c2f9418",
+      "materials": [
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "Deep 1 hand reel",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7688097953796387,
+        0.25000011920928955,
+        0.5599998831748962
+      ],
+      "bounds_max_blender": [
+        2.1111903190612793,
+        0.5500001907348633,
+        0.9200000166893005
+      ],
+      "mesh_sha256": "ac765e076c4839914593b4ef3b75112baaa239b0958f634bb2572c72f2dc1b06",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 1 handle",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.6491045951843262,
+        0.07000017911195755,
+        0.8169999718666077
+      ],
+      "bounds_max_blender": [
+        1.7308955192565918,
+        0.20000021159648895,
+        0.9030000567436218
+      ],
+      "mesh_sha256": "d51d303c568a5fcbd3c2075d91cc3381692577bb8a034a4f0bfacb4dbbfd70df",
+      "materials": [
+        "M_Rubber"
+      ]
+    },
+    {
+      "name": "Deep 1 reel flange",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7450335025787354,
+        0.22500008344650269,
+        0.5349999666213989
+      ],
+      "bounds_max_blender": [
+        2.1349666118621826,
+        0.25500020384788513,
+        0.9449999332427979
+      ],
+      "mesh_sha256": "80b8f5e2f1c9edadb1534020c5ad115ff9d43c684824c99c5f46ceff10977e7a",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 1 reel flange.001",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7450335025787354,
+        0.5450001358985901,
+        0.5349999666213989
+      ],
+      "bounds_max_blender": [
+        2.1349666118621826,
+        0.5750002264976501,
+        0.9449999332427979
+      ],
+      "mesh_sha256": "f464d952e3db62cfd41ff234378845763e6147d25c5c545b86533270dbfc4757",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 hanging fishing line",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        3.3314402103424072,
+        1.810999870300293,
+        -0.28000032901763916
+      ],
+      "bounds_max_blender": [
+        3.348559617996216,
+        1.82900071144104,
+        3.1399998664855957
+      ],
+      "mesh_sha256": "f582d4272c0ab2fd19672a9cd048e2710434bca4d2a85166e6740c5ce4714a39",
+      "materials": [
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "Deep 2 line guide",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.9467130899429321,
+        1.7850003242492676,
+        1.4799996614456177
+      ],
+      "bounds_max_blender": [
+        2.01328706741333,
+        1.8550002574920654,
+        1.5499995946884155
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 line guide.001",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.2167129516601562,
+        1.7850005626678467,
+        2.489999771118164
+      ],
+      "bounds_max_blender": [
+        2.2832870483398438,
+        1.8550004959106445,
+        2.559999942779541
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 line guide.002",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.7167129516601562,
+        1.7850006818771362,
+        3.049999713897705
+      ],
+      "bounds_max_blender": [
+        2.7832870483398438,
+        1.855000615119934,
+        3.119999885559082
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 line guide.003",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        3.3067128658294678,
+        1.7850006818771362,
+        3.1399998664855957
+      ],
+      "bounds_max_blender": [
+        3.3732869625091553,
+        1.855000615119934,
+        3.2100000381469727
+      ],
+      "mesh_sha256": "354a197b5ab86632fb5b954cd2891c5046a8b336e41e4be79cf4a3e3fe43d8cf",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 orange grip",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.8345328569412231,
+        1.7477198839187622,
+        0.771015465259552
+      ],
+      "bounds_max_blender": [
+        2.0354671478271484,
+        1.8922806978225708,
+        1.2089838981628418
+      ],
+      "mesh_sha256": "2cd5d7e4499cf8cef2eae6079eb776cffb4f636bdfe2e6ec2b2fde2d6ec85946",
+      "materials": [
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "Deep 2 rail clamp",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        1.75,
+        1.6700001955032349,
+        0.28999966382980347
+      ],
+      "bounds_max_blender": [
+        1.9700000286102295,
+        1.970000147819519,
+        0.5899997353553772
+      ],
+      "mesh_sha256": "c4773d46882e3d78ddb81bc4f4a597356cd1d04cf0dea7aed966c234dafd474d",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 2 tapered pole 0",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.8073631525039673,
+        1.760083556175232,
+        0.45324474573135376
+      ],
+      "bounds_max_blender": [
+        2.0426368713378906,
+        1.879917025566101,
+        1.4867546558380127
+      ],
+      "mesh_sha256": "e276642238c723b1ce143a5dbe0467d66e3b745eb2dea0bac351981d727d6438",
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "Deep 2 tapered pole 1",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.9316961765289307,
+        1.7724474668502808,
+        1.4670867919921875
+      ],
+      "bounds_max_blender": [
+        2.2983038425445557,
+        1.8675533533096313,
+        2.5029125213623047
+      ],
+      "mesh_sha256": "b8e9996b35de181f195011d2dc86aa807e3335ebb4b2dd2087dfd245e8392713",
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "Deep 2 tapered pole 2",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.2238922119140625,
+        1.7867134809494019,
+        2.466689109802246
+      ],
+      "bounds_max_blender": [
+        2.7761077880859375,
+        1.8532875776290894,
+        3.073310375213623
+      ],
+      "mesh_sha256": "887b87aecc10b238b837e5de86ec8888b699a9e55d09684a62fa30643fae9c13",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 2 tapered pole 3",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        2.7469842433929443,
+        1.800979495048523,
+        3.03022837638855
+      ],
+      "bounds_max_blender": [
+        3.3430159091949463,
+        1.8390218019485474,
+        3.159771203994751
+      ],
+      "mesh_sha256": "0e69f3f93ed8eaf1e524baccf16dc0431d5181325c975ac6f5b9d986867ab1b6",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 2 crank",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.6778836250305176,
+        1.5933704376220703,
+        0.7147571444511414
+      ],
+      "bounds_max_blender": [
+        1.9521164894104004,
+        1.646629810333252,
+        0.8852424025535583
+      ],
+      "mesh_sha256": "cac4dee609a93d20ffe2e64b07a283f2ffa57a53ee445975db59bc668c2f9418",
+      "materials": [
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "Deep 2 hand reel",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7688097953796387,
+        1.6699999570846558,
+        0.5599996447563171
+      ],
+      "bounds_max_blender": [
+        2.1111903190612793,
+        1.970000147819519,
+        0.9199997782707214
+      ],
+      "mesh_sha256": "3d44c15bc49004d518fd97ab5b73873a113743c2f941c6f6a6552b5af5a4daa1",
+      "materials": [
+        "M_HullNavy"
+      ]
+    },
+    {
+      "name": "Deep 2 handle",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.6491045951843262,
+        1.4900001287460327,
+        0.8169997334480286
+      ],
+      "bounds_max_blender": [
+        1.7308955192565918,
+        1.6200002431869507,
+        0.9029998183250427
+      ],
+      "mesh_sha256": "d51d303c568a5fcbd3c2075d91cc3381692577bb8a034a4f0bfacb4dbbfd70df",
+      "materials": [
+        "M_Rubber"
+      ]
+    },
+    {
+      "name": "Deep 2 reel flange",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7450335025787354,
+        1.6450001001358032,
+        0.5349997282028198
+      ],
+      "bounds_max_blender": [
+        2.1349666118621826,
+        1.6750000715255737,
+        0.9449996948242188
+      ],
+      "mesh_sha256": "f464d952e3db62cfd41ff234378845763e6147d25c5c545b86533270dbfc4757",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Deep 2 reel flange.001",
+      "triangles": 36,
+      "vertices": 20,
+      "bounds_min_blender": [
+        1.7450335025787354,
+        1.9650001525878906,
+        0.5349997282028198
+      ],
+      "bounds_max_blender": [
+        2.1349666118621826,
+        1.9950001239776611,
+        0.9449996948242188
+      ],
+      "mesh_sha256": "f464d952e3db62cfd41ff234378845763e6147d25c5c545b86533270dbfc4757",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "EngineFittings",
+      "triangles": 172,
+      "vertices": 94,
+      "bounds_min_blender": [
+        -1.086910605430603,
+        4.004725456237793,
+        -0.005000691395252943
+      ],
+      "bounds_max_blender": [
+        -0.40851059556007385,
+        4.226925373077393,
+        0.24499934911727905
+      ],
+      "mesh_sha256": "c5020585d31d29d27da2fb64a167c91024413a43701207df0f3bd46ed7d2553f",
+      "materials": [
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "GunwaleHardware",
+      "triangles": 1008,
+      "vertices": 544,
+      "bounds_min_blender": [
+        -2.167194366455078,
+        -4.320518970489502,
+        0.32050034403800964
+      ],
+      "bounds_max_blender": [
+        2.167194366455078,
+        4.318630218505859,
+        0.8520007133483887
+      ],
+      "mesh_sha256": "faa2125b4d9de308f926911da3345c4528153388d8481fbd949e54a1ab6ba5e1",
+      "materials": [
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "HelmConsole",
+      "triangles": 412,
+      "vertices": 226,
+      "bounds_min_blender": [
+        -0.5157874822616577,
+        -2.752070665359497,
+        3.4426290085320943e-07
+      ],
+      "bounds_max_blender": [
+        0.24421271681785583,
+        -2.113070249557495,
+        0.7650005221366882
+      ],
+      "mesh_sha256": "c111c7227c09e0b7b5976cd5be4d071cceab960dcf7d43523e00b1f7908c7433",
+      "materials": [
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "HelmFittings",
+      "triangles": 224,
+      "vertices": 128,
+      "bounds_min_blender": [
+        -0.5002497434616089,
+        -2.8445000648498535,
+        0.4800003468990326
+      ],
+      "bounds_max_blender": [
+        0.5387750864028931,
+        -2.170499801635742,
+        1.088050365447998
+      ],
+      "mesh_sha256": "5b71a66febddcde40e4fdec9781672f7b154fec6f06f561ecdff14a709f305d0",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Hull",
+      "triangles": 242,
+      "vertices": 145,
+      "bounds_min_blender": [
+        -2.0999999046325684,
+        -4.25,
+        -0.5700007081031799
+      ],
+      "bounds_max_blender": [
+        2.0999999046325684,
+        4.25,
+        0.535000741481781
+      ],
+      "mesh_sha256": "2ee43d4b997c635cc4f962d85f54a33f05770338833118d2c059d842f7fb5325",
+      "materials": [
+        "M_HullBlue",
+        "M_RailIvory",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "HullPaintBand",
+      "triangles": 30,
+      "vertices": 30,
+      "bounds_min_blender": [
+        -2.072700023651123,
+        -4.232370376586914,
+        0.16999931633472443
+      ],
+      "bounds_max_blender": [
+        2.072700023651123,
+        4.2336297035217285,
+        0.3650006949901581
+      ],
+      "mesh_sha256": "ed4102aa6142504549e20aa49ae0083bdbf36f239dfb31eec07c3ffa57bf5cbb",
+      "materials": [
+        "M_HullBlue"
+      ]
+    },
+    {
+      "name": "NetCrank",
+      "triangles": 72,
+      "vertices": 42,
+      "bounds_min_blender": [
+        1.3139997720718384,
+        4.302809715270996,
+        0.6699988842010498
+      ],
+      "bounds_max_blender": [
+        1.3740001916885376,
+        4.528809547424316,
+        0.8499988317489624
+      ],
+      "mesh_sha256": "427d854c57057dff32b0c435cd085355f9a9097edea3a51fc1c049d79e9b6113",
+      "materials": [
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "NetDrum",
+      "triangles": 844,
+      "vertices": 432,
+      "bounds_min_blender": [
+        0.378579705953598,
+        4.175940990447998,
+        0.558439314365387
+      ],
+      "bounds_max_blender": [
+        1.2485796213150024,
+        4.399060249328613,
+        0.7812667489051819
+      ],
+      "mesh_sha256": "8779c4086ae10c98b762699b2be5ec1cd064454e2dd85656e7a03608bc649201",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "NetMountFittings",
+      "triangles": 184,
+      "vertices": 100,
+      "bounds_min_blender": [
+        0.38000020384788513,
+        3.7699999809265137,
+        0.039999354630708694
+      ],
+      "bounds_max_blender": [
+        1.2400003671646118,
+        3.9800000190734863,
+        0.1789993792772293
+      ],
+      "mesh_sha256": "9fc8f635e874f8c958b1deae76fa67d162ba30a4f55861b3b78da9e8a9a51f93",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "SternNetRoller",
+      "triangles": 144,
+      "vertices": 80,
+      "bounds_min_blender": [
+        0.37500056624412537,
+        3.740000009536743,
+        -1.0441443691888708e-06
+      ],
+      "bounds_max_blender": [
+        1.2450004816055298,
+        4.213808059692383,
+        0.673762857913971
+      ],
+      "mesh_sha256": "a155b64cf763b92cad57d0d829cc657835c46c2f307f64a49c95dc106c7bb986",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "SternNet_Stowed",
+      "triangles": 1936,
+      "vertices": 1014,
+      "bounds_min_blender": [
+        0.42809924483299255,
+        4.360690116882324,
+        -0.24856026470661163
+      ],
+      "bounds_max_blender": [
+        1.1798993349075317,
+        4.637237548828125,
+        0.6585587859153748
+      ],
+      "mesh_sha256": "bf338a34b64b44e0a87d9707a16a1a42d67c4f1537dbb459734d9210abdf4ba3",
+      "materials": [
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "Module2_NetCrank",
+      "triangles": 72,
+      "vertices": 42,
+      "bounds_min_blender": [
+        2.0828096866607666,
+        2.314000129699707,
+        0.6699992418289185
+      ],
+      "bounds_max_blender": [
+        2.308809518814087,
+        2.3740007877349854,
+        0.849999189376831
+      ],
+      "mesh_sha256": "af5a1fb5e190d3a5be4d64b08b03f4bbb75008d1bab5ffadd3e52b25d1381cd6",
+      "materials": [
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Module2_NetDrum",
+      "triangles": 844,
+      "vertices": 432,
+      "bounds_min_blender": [
+        1.9559409618377686,
+        1.3785796165466309,
+        0.5584396719932556
+      ],
+      "bounds_max_blender": [
+        2.179060220718384,
+        2.248579502105713,
+        0.7812672257423401
+      ],
+      "mesh_sha256": "abb42337a6e313b8650eeac164b227eb15efa2e609252dc6d9dc7ff6e7fdda4f",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "Module2_NetMountFittings",
+      "triangles": 184,
+      "vertices": 100,
+      "bounds_min_blender": [
+        1.5499999523162842,
+        1.3800005912780762,
+        0.03999963775277138
+      ],
+      "bounds_max_blender": [
+        1.7599999904632568,
+        2.2400007247924805,
+        0.17899976670742035
+      ],
+      "mesh_sha256": "2b16502aa461dad6dd9c53c6d3c66908b6e02ff502204551f8d830072633723e",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Module2_SternNetRoller",
+      "triangles": 144,
+      "vertices": 80,
+      "bounds_min_blender": [
+        1.5199999809265137,
+        1.3750008344650269,
+        -7.233849146359717e-07
+      ],
+      "bounds_max_blender": [
+        1.9938080310821533,
+        2.2450008392333984,
+        0.6737632155418396
+      ],
+      "mesh_sha256": "df1904d23273e98b13d9f90ea1da5d8e648344b35a58948a69ca503570d9e8b4",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Module2_SternNet_Stowed",
+      "triangles": 1936,
+      "vertices": 1014,
+      "bounds_min_blender": [
+        2.1406900882720947,
+        1.4280996322631836,
+        -0.2485598623752594
+      ],
+      "bounds_max_blender": [
+        2.4172375202178955,
+        2.1798996925354004,
+        0.658559262752533
+      ],
+      "mesh_sha256": "750f8338846e6ed65bb1a49831c3b3ea57afd6c01d13a324638028a8560f4e54",
+      "materials": [
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "RodHolder_3",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        1.8350000381469727,
+        1.0350000858306885,
+        0.3199998140335083
+      ],
+      "bounds_max_blender": [
+        1.9649999141693115,
+        1.1650002002716064,
+        0.5399998426437378
+      ],
+      "mesh_sha256": "b92f468f11377e38b2b565ec48522ecedb2cf4a22698502ddc1dab71aa1855d4",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodHolder_4",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        1.8350000381469727,
+        2.484999895095825,
+        0.3199995756149292
+      ],
+      "bounds_max_blender": [
+        1.9649999141693115,
+        2.615000009536743,
+        0.5399996042251587
+      ],
+      "mesh_sha256": "b92f468f11377e38b2b565ec48522ecedb2cf4a22698502ddc1dab71aa1855d4",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "OutboardMotor",
+      "triangles": 368,
+      "vertices": 202,
+      "bounds_min_blender": [
+        -1.0558518171310425,
+        4.027996063232422,
+        -0.5850008130073547
+      ],
+      "bounds_max_blender": [
+        -0.4356631338596344,
+        4.646980285644531,
+        0.5149993300437927
+      ],
+      "mesh_sha256": "81e9dc600319adf5382b4d9cc8483dc95b002dd79df829850c269f292f5b2998",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "PlankDeck",
+      "triangles": 688,
+      "vertices": 370,
+      "bounds_min_blender": [
+        -1.8285001516342163,
+        -3.777777910232544,
+        -0.035000625997781754
+      ],
+      "bounds_max_blender": [
+        1.8292499780654907,
+        3.84074068069458,
+        6.15478143117798e-07
+      ],
+      "mesh_sha256": "fc2cee2e19c5194607ec4e8cce31fe0160c8733fce9a64e833ab18c41337b8e6",
+      "materials": [
+        "M_DeckWood",
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "name": "Cutting board 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.6870001554489136,
+        0.7050001621246338,
+        0.6424998641014099
+      ],
+      "bounds_max_blender": [
+        -0.17699995636940002,
+        1.095000147819519,
+        0.6774998903274536
+      ],
+      "mesh_sha256": "9339e3b4f80a23a738669ec0c4674614f7ccacda62fb01b6439d3792a2366bb4",
+      "materials": [
+        "M_DeckWood.001"
+      ]
+    },
+    {
+      "name": "Cutting board 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.17699965834617615,
+        0.7050001621246338,
+        0.6424998641014099
+      ],
+      "bounds_max_blender": [
+        0.6869999170303345,
+        1.095000147819519,
+        0.6774998903274536
+      ],
+      "mesh_sha256": "d8e5c04803c3eeb9ff5fcd769f66f49c848e63ee847c586c74c333e5692fe2a8",
+      "materials": [
+        "M_DeckWood.001"
+      ]
+    },
+    {
+      "name": "Knife blade 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.2335003912448883,
+        0.7762500643730164,
+        0.6929998397827148
+      ],
+      "bounds_max_blender": [
+        -0.19850054383277893,
+        0.986250102519989,
+        0.7109999060630798
+      ],
+      "mesh_sha256": "2994e85faae3ea4df70f4b1c39dcdd1fb26a2cdc357e5a879be2f5f906f2433f",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Knife blade 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.6305004358291626,
+        0.7762500643730164,
+        0.6929998397827148
+      ],
+      "bounds_max_blender": [
+        0.665500283241272,
+        0.986250102519989,
+        0.7109999060630798
+      ],
+      "mesh_sha256": "e459f6b0cb1bbc76022467f4f9c312f559cfd86bccfc7e359aadb7d851e5e5f7",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Knife handle 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.2400003969669342,
+        1.0212501287460327,
+        0.6844998598098755
+      ],
+      "bounds_max_blender": [
+        -0.19200053811073303,
+        1.1162501573562622,
+        0.7194998264312744
+      ],
+      "mesh_sha256": "d2a103fcae0f7a5b16a31d7a635f00232c3e7012395a5610d2d7eab41307cf2b",
+      "materials": [
+        "M_Rubber.002"
+      ]
+    },
+    {
+      "name": "Knife handle 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.6240001916885376,
+        1.0212501287460327,
+        0.6844998598098755
+      ],
+      "bounds_max_blender": [
+        0.672000527381897,
+        1.1162501573562622,
+        0.7194998264312744
+      ],
+      "mesh_sha256": "aa30ba76ce0d5c814f974bc67aca8faab90ba02c69c3987c050cc9d2ed5091bd",
+      "materials": [
+        "M_Rubber.002"
+      ]
+    },
+    {
+      "name": "Prep stainless rim",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7399998903274536,
+        0.580000102519989,
+        0.5199998021125793
+      ],
+      "bounds_max_blender": [
+        0.7400003671646118,
+        1.220000147819519,
+        0.619999885559082
+      ],
+      "mesh_sha256": "8177e62ccaf479a51a308bcc9702cda25a5bd725e78a0c7b4f3d7108b5cc5aa3",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Prep table leg",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7354999780654907,
+        0.5975000262260437,
+        -1.0630574109882218e-07
+      ],
+      "bounds_max_blender": [
+        -0.6805001497268677,
+        0.6525000929832458,
+        0.5499998927116394
+      ],
+      "mesh_sha256": "e1a60189f37832c28fba9ed93c216c4395d0c3d5baeb5b0542907de6ee788345",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Prep table leg.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7354999780654907,
+        1.147499918937683,
+        -1.959121220806992e-07
+      ],
+      "bounds_max_blender": [
+        -0.6805001497268677,
+        1.2025001049041748,
+        0.5499998331069946
+      ],
+      "mesh_sha256": "657dd24e671e05aed7aff1bba5f699c4d854d37e149faf9e1560d308ae41de8f",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Prep table leg.002",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.6804996728897095,
+        0.5975000262260437,
+        -1.0630574109882218e-07
+      ],
+      "bounds_max_blender": [
+        0.7354999780654907,
+        0.6525000929832458,
+        0.5499998927116394
+      ],
+      "mesh_sha256": "3d63adcb7ed512c24910825c47b293ff00f5fdb57fe016c44a12d587d296ef61",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Prep table leg.003",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.6804996728897095,
+        1.147499918937683,
+        -1.959121220806992e-07
+      ],
+      "bounds_max_blender": [
+        0.7354999780654907,
+        1.2025001049041748,
+        0.5499998331069946
+      ],
+      "mesh_sha256": "93fe8e07030ba816bdf22774858fab6ff54827e1b775369913515e5bebe0a9c9",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Prep table lower shelf",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.6249998807907104,
+        0.6750000715255737,
+        0.17249982059001923
+      ],
+      "bounds_max_blender": [
+        0.6250001192092896,
+        1.125,
+        0.22749990224838257
+      ],
+      "mesh_sha256": "f9c3724da62a22395fa3aa9526173fda829eae32ad6eaa86e2b228b67c3af418",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "Prep washable top",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.6949998140335083,
+        0.6150001287460327,
+        0.6124998331069946
+      ],
+      "bounds_max_blender": [
+        0.6950002908706665,
+        1.1850001811981201,
+        0.6474998593330383
+      ],
+      "mesh_sha256": "14763e0b987794e094c9400460934a25f67185b260b8603e460c9bccf5eaf788",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "Insulated lid 1.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7519999742507935,
+        2.2950000762939453,
+        0.4524995684623718
+      ],
+      "bounds_max_blender": [
+        -0.11200013011693954,
+        2.804999828338623,
+        0.5274996757507324
+      ],
+      "mesh_sha256": "5814bb1995ef14a7a23db51fd349f1130b697f1f78a694940cd5db60f3d6ecbe",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "Insulated lid 2.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.11199960857629776,
+        2.2950000762939453,
+        0.4524995684623718
+      ],
+      "bounds_max_blender": [
+        0.7519999742507935,
+        2.804999828338623,
+        0.5274996757507324
+      ],
+      "mesh_sha256": "8bf8bad74355932e0ac294785e6cdc44f82554c741ed4839aae7cfa10cc8349b",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "PREPARED freezer 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7319999933242798,
+        2.309999942779541,
+        0.019999556243419647
+      ],
+      "bounds_max_blender": [
+        -0.1320001184940338,
+        2.7899999618530273,
+        0.46999961137771606
+      ],
+      "mesh_sha256": "b5ba61e3178c3d12b36335948ba92281881043513a9c1f3b0e0b3d75f78bfb2c",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "PREPARED freezer 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.13199958205223083,
+        2.309999942779541,
+        0.019999556243419647
+      ],
+      "bounds_max_blender": [
+        0.7319999933242798,
+        2.7899999618530273,
+        0.46999961137771606
+      ],
+      "mesh_sha256": "4cafcb65efb908ed1218db8103a2c6c8a544b4ba395b51b6ac0dbd2749cf1c6e",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "Recessed lid handle 1.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.5219999551773071,
+        2.5274999141693115,
+        0.5224996209144592
+      ],
+      "bounds_max_blender": [
+        -0.34200015664100647,
+        2.572499990463257,
+        0.5474995970726013
+      ],
+      "mesh_sha256": "382903bcd5338eb2a2be9ad26086f51b55f7afe6ef26a544cd652fd6ffedbe22",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Recessed lid handle 2.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3419996201992035,
+        2.5274999141693115,
+        0.5224996209144592
+      ],
+      "bounds_max_blender": [
+        0.5219999551773071,
+        2.572499990463257,
+        0.5474995970726013
+      ],
+      "mesh_sha256": "3aede73c431b84cef4f21e6f4ef14fd27181e14fff9d1427145a50960ec75239",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Storage front latch 1.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.47200003266334534,
+        2.2249999046325684,
+        0.34499961137771606
+      ],
+      "bounds_max_blender": [
+        -0.39200010895729065,
+        2.25,
+        0.43499964475631714
+      ],
+      "mesh_sha256": "c049210bac695d08c804c7cb3590e7848659caa373e55f814f99c80271b0b924",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Storage front latch 2.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3919998109340668,
+        2.2249999046325684,
+        0.34499961137771606
+      ],
+      "bounds_max_blender": [
+        0.47199973464012146,
+        2.25,
+        0.43499964475631714
+      ],
+      "mesh_sha256": "572da759b49b17ef68acdb3093117ed54ac529f3f328f23536da9a8f17b857a0",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Propeller",
+      "triangles": 120,
+      "vertices": 68,
+      "bounds_min_blender": [
+        -0.7168253660202026,
+        4.528162002563477,
+        -0.6774940490722656
+      ],
+      "bounds_max_blender": [
+        -0.4959997236728668,
+        4.7181620597839355,
+        -0.4225068986415863
+      ],
+      "mesh_sha256": "03c87721124b0fc95af31570ce16bd9c736927d5c843d4d11d04442573a71aee",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Plain_Insulated lid 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7519999742507935,
+        -0.07999992370605469,
+        0.45249995589256287
+      ],
+      "bounds_max_blender": [
+        -0.11200013011693954,
+        0.43000009655952454,
+        0.5275000333786011
+      ],
+      "mesh_sha256": "b4bc4e49d6e209b400648a9d80ab4d247ff594c33a9fd575e5a65f40c1e3dd12",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "Plain_Insulated lid 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.11199960857629776,
+        -0.07999992370605469,
+        0.45249995589256287
+      ],
+      "bounds_max_blender": [
+        0.7519999742507935,
+        0.43000009655952454,
+        0.5275000333786011
+      ],
+      "mesh_sha256": "b483cfcf235e00bb9dcedec890a8d7930db002423e99fa9c874d209ad178b912",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "Plain_RAW ice cooler 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7319999933242798,
+        -0.06499999761581421,
+        0.019999943673610687
+      ],
+      "bounds_max_blender": [
+        -0.1320001184940338,
+        0.4150000810623169,
+        0.4699999988079071
+      ],
+      "mesh_sha256": "59dc07214bfb74f6c0c7964fbc11a33d34e88b905830014f0d06f8355cc27844",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "Plain_RAW ice cooler 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.13199958205223083,
+        -0.06499999761581421,
+        0.019999943673610687
+      ],
+      "bounds_max_blender": [
+        0.7319999933242798,
+        0.4150000810623169,
+        0.4699999988079071
+      ],
+      "mesh_sha256": "79e313f71c5243b4b3167deeee487ac26617f52249f4b7f8aed8e10abfc0003e",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "Plain_Recessed lid handle 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.5219999551773071,
+        0.15250009298324585,
+        0.5224999785423279
+      ],
+      "bounds_max_blender": [
+        -0.34200015664100647,
+        0.197500079870224,
+        0.5475000143051147
+      ],
+      "mesh_sha256": "34579d8140dfa1150554885d6dbe52eb6b29c56fe57b7b851af2face0eb50933",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Plain_Recessed lid handle 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3419996201992035,
+        0.15250009298324585,
+        0.5224999785423279
+      ],
+      "bounds_max_blender": [
+        0.5219999551773071,
+        0.197500079870224,
+        0.5475000143051147
+      ],
+      "mesh_sha256": "6ec2bb6b329bbb8f26c96226da4699c6c43b74c016d1fd27455ba19031150c80",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Plain_Storage front latch 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.47200003266334534,
+        -0.1499999463558197,
+        0.3449999988079071
+      ],
+      "bounds_max_blender": [
+        -0.39200010895729065,
+        -0.12499992549419403,
+        0.4350000321865082
+      ],
+      "mesh_sha256": "9db77a58eb80bae5b07dec2187edf151bcb4a79809da8ff0d24403df1058bbef",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Plain_Storage front latch 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3919998109340668,
+        -0.1499999463558197,
+        0.3449999988079071
+      ],
+      "bounds_max_blender": [
+        0.47199973464012146,
+        -0.12499992549419403,
+        0.4350000321865082
+      ],
+      "mesh_sha256": "e2a1d1faeb988c9ea980799e8079d631026931135fbe30c290f9e01643ca97d4",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Ice marker horizontal",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.497000128030777,
+        -0.16399995982646942,
+        0.23250003159046173
+      ],
+      "bounds_max_blender": [
+        -0.367000013589859,
+        -0.15599997341632843,
+        0.26750004291534424
+      ],
+      "mesh_sha256": "8aae9f66258386669574b3550a7f1666cc8b22e70bc043d5d4e13cd6403d1647",
+      "materials": [
+        "M_SeaTeal.003"
+      ]
+    },
+    {
+      "name": "Ice marker horizontal.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.36699971556663513,
+        -0.16399995982646942,
+        0.23250003159046173
+      ],
+      "bounds_max_blender": [
+        0.4969998300075531,
+        -0.15599997341632843,
+        0.26750004291534424
+      ],
+      "mesh_sha256": "8f5a0f467c439c7884317ea7068dddc91f4be267cdd6bd14970909e14eecef84",
+      "materials": [
+        "M_SeaTeal.003"
+      ]
+    },
+    {
+      "name": "Ice marker vertical",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.4494999945163727,
+        -0.16274996101856232,
+        0.18500003218650818
+      ],
+      "bounds_max_blender": [
+        -0.4145001471042633,
+        -0.15474995970726013,
+        0.3150000274181366
+      ],
+      "mesh_sha256": "7e3b892d2189ce984328315f9be431ca6f6816c02da2cd1310e87f22065d3698",
+      "materials": [
+        "M_SeaTeal.003"
+      ]
+    },
+    {
+      "name": "Ice marker vertical.001",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.41449984908103943,
+        -0.16274996101856232,
+        0.18500003218650818
+      ],
+      "bounds_max_blender": [
+        0.4494996964931488,
+        -0.15474995970726013,
+        0.3150000274181366
+      ],
+      "mesh_sha256": "4f135663ffffc58be93e0dc62bb704385de0397026c7391ea696cab12c1d59ed",
+      "materials": [
+        "M_SeaTeal.003"
+      ]
+    },
+    {
+      "name": "Insulated lid 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7519999742507935,
+        -0.07999992370605469,
+        0.45249995589256287
+      ],
+      "bounds_max_blender": [
+        -0.11200013011693954,
+        0.43000009655952454,
+        0.5275000333786011
+      ],
+      "mesh_sha256": "b4bc4e49d6e209b400648a9d80ab4d247ff594c33a9fd575e5a65f40c1e3dd12",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "Insulated lid 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.11199960857629776,
+        -0.07999992370605469,
+        0.45249995589256287
+      ],
+      "bounds_max_blender": [
+        0.7519999742507935,
+        0.43000009655952454,
+        0.5275000333786011
+      ],
+      "mesh_sha256": "b483cfcf235e00bb9dcedec890a8d7930db002423e99fa9c874d209ad178b912",
+      "materials": [
+        "M_SeaTeal.002"
+      ]
+    },
+    {
+      "name": "RAW ice cooler 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.7319999933242798,
+        -0.06499999761581421,
+        0.019999943673610687
+      ],
+      "bounds_max_blender": [
+        -0.1320001184940338,
+        0.4150000810623169,
+        0.4699999988079071
+      ],
+      "mesh_sha256": "59dc07214bfb74f6c0c7964fbc11a33d34e88b905830014f0d06f8355cc27844",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "RAW ice cooler 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.13199958205223083,
+        -0.06499999761581421,
+        0.019999943673610687
+      ],
+      "bounds_max_blender": [
+        0.7319999933242798,
+        0.4150000810623169,
+        0.4699999988079071
+      ],
+      "mesh_sha256": "79e313f71c5243b4b3167deeee487ac26617f52249f4b7f8aed8e10abfc0003e",
+      "materials": [
+        "M_RailIvory.002"
+      ]
+    },
+    {
+      "name": "Recessed lid handle 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.5219999551773071,
+        0.15250009298324585,
+        0.5224999785423279
+      ],
+      "bounds_max_blender": [
+        -0.34200015664100647,
+        0.197500079870224,
+        0.5475000143051147
+      ],
+      "mesh_sha256": "34579d8140dfa1150554885d6dbe52eb6b29c56fe57b7b851af2face0eb50933",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Recessed lid handle 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3419996201992035,
+        0.15250009298324585,
+        0.5224999785423279
+      ],
+      "bounds_max_blender": [
+        0.5219999551773071,
+        0.197500079870224,
+        0.5475000143051147
+      ],
+      "mesh_sha256": "6ec2bb6b329bbb8f26c96226da4699c6c43b74c016d1fd27455ba19031150c80",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Storage front latch 1",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.47200003266334534,
+        -0.1499999463558197,
+        0.3449999988079071
+      ],
+      "bounds_max_blender": [
+        -0.39200010895729065,
+        -0.12499992549419403,
+        0.4350000321865082
+      ],
+      "mesh_sha256": "9db77a58eb80bae5b07dec2187edf151bcb4a79809da8ff0d24403df1058bbef",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "Storage front latch 2",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        0.3919998109340668,
+        -0.1499999463558197,
+        0.3449999988079071
+      ],
+      "bounds_max_blender": [
+        0.47199973464012146,
+        -0.12499992549419403,
+        0.4350000321865082
+      ],
+      "mesh_sha256": "e2a1d1faeb988c9ea980799e8079d631026931135fbe30c290f9e01643ca97d4",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "RodHolder_1",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        -1.9649999141693115,
+        -0.4150000214576721,
+        0.3199999928474426
+      ],
+      "bounds_max_blender": [
+        -1.8350000381469727,
+        -0.2849999666213989,
+        0.5400000214576721
+      ],
+      "mesh_sha256": "b92f468f11377e38b2b565ec48522ecedb2cf4a22698502ddc1dab71aa1855d4",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodHolder_2",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        1.8350000381469727,
+        -0.4150000214576721,
+        0.3199999928474426
+      ],
+      "bounds_max_blender": [
+        1.9649999141693115,
+        -0.2849999666213989,
+        0.5400000214576721
+      ],
+      "mesh_sha256": "b92f468f11377e38b2b565ec48522ecedb2cf4a22698502ddc1dab71aa1855d4",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "SafetyFenders",
+      "triangles": 692,
+      "vertices": 372,
+      "bounds_min_blender": [
+        -1.745524287223816,
+        -1.031050682067871,
+        -0.12000028043985367
+      ],
+      "bounds_max_blender": [
+        2.0169754028320312,
+        1.7300751209259033,
+        0.49329686164855957
+      ],
+      "mesh_sha256": "111917ffc8443399d47e8041e1f069a5fe04a9f3acf6dfb7631e5ba74c36f86f",
+      "materials": [
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "orange beacon",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        0.6310001611709595,
+        -2.43999981880188,
+        1.9350004196166992
+      ],
+      "bounds_max_blender": [
+        0.7610002756118774,
+        -2.309999704360962,
+        2.02500057220459
+      ],
+      "mesh_sha256": "6c83e24e6e90ab5d595bdcbdb2f45032dcc969fa71e6c53d49b5c95983e6e532",
+      "materials": [
+        "M_SafetyOrange.002"
+      ]
+    },
+    {
+      "name": "patched plank over previous hold",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -1.4850000143051147,
+        0.7125000953674316,
+        -0.03300032019615173
+      ],
+      "bounds_max_blender": [
+        -0.46499958634376526,
+        1.9625000953674316,
+        -0.003000115742906928
+      ],
+      "mesh_sha256": "9f8e3853cbc0a70a39677dc89633e3026e8a9a40a3407f469472b39610ef93e8",
+      "materials": [
+        "M_DeckWood.001"
+      ]
+    },
+    {
+      "name": "short mast",
+      "triangles": 44,
+      "vertices": 24,
+      "bounds_min_blender": [
+        0.6710001230239868,
+        -2.3999998569488525,
+        1.480000376701355
+      ],
+      "bounds_max_blender": [
+        0.7210003137588501,
+        -2.3499996662139893,
+        1.9400004148483276
+      ],
+      "mesh_sha256": "0ad993a782899b41f7d018b75ccdba5d0a1889dedec8052b3de32aa5c0286827",
+      "materials": [
+        "M_Steel.002"
+      ]
+    },
+    {
+      "name": "squared helm canopy",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.9399999380111694,
+        -2.859999895095825,
+        1.3600001335144043
+      ],
+      "bounds_max_blender": [
+        0.9400001764297485,
+        -1.1399997472763062,
+        1.5000004768371582
+      ],
+      "mesh_sha256": "08ab3443cf1db04f5ba935f98f93ed0c2f3b06eeebbf51daf721ec4ec5b8e10a",
+      "materials": [
+        "M_HullBlue"
+      ]
+    },
+    {
+      "name": "teal canopy brow",
+      "triangles": 108,
+      "vertices": 56,
+      "bounds_min_blender": [
+        -0.9099999666213989,
+        -0.9474997520446777,
+        1.3825000524520874
+      ],
+      "bounds_max_blender": [
+        0.9099999666213989,
+        -0.902499794960022,
+        1.477500081062317
+      ],
+      "mesh_sha256": "33051086fea8c5c2706400e688afe98057d8ed36e0b4ae59f89bd3db53b91a58",
+      "materials": [
+        "M_HullBlue"
+      ]
+    }
+  ],
+  "front_unity": "original canonical hull axes preserved",
+  "notes": [
+    "Paint-only exact released boat; inherited production triangle count exceeds generic prop budget. No decimation or geometry edits."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\Tier5DeepLines103_VariantBlue.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\Tier5DeepLines103_VariantBlue.fbx",
+  "sha256": {
+    "blend": "4775fdb48f1edc91035aff311ef0f3d165aa78a495084f941cdd44fba36dde3b",
+    "fbx": "ad9283d79b2dd04af1203b1a5ae56d81beedb2625cd8978dd5c924aa5648dfae"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Tier5DeepLines103_VariantBlue\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Tier5DeepLines103_VariantBlue\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Tier5DeepLines103_VariantBlue\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Tier5DeepLines103_VariantBlue\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Tier5DeepLines103_VariantBlue\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "geometry_round_trip": {
+    "result": "PASS",
+    "mesh_count": 104,
+    "max_vertex_error_metres": 9.098254167838604e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "canonical_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 104,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 7.748603820800781e-07,
+    "source": {
+      "triangles": 17096,
+      "meshes": 104,
+      "bounds": [
+        [
+          -2.167194366455078,
+          -4.320518970489502,
+          -0.6774940490722656
+        ],
+        [
+          3.3732869625091553,
+          4.7181620597839355,
+          3.2100002765655518
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_DeckWood.001",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_RailIvory.002",
+        "M_Rope",
+        "M_Rubber",
+        "M_Rubber.002",
+        "M_SafetyOrange",
+        "M_SafetyOrange.002",
+        "M_SeaTeal",
+        "M_SeaTeal.002",
+        "M_SeaTeal.003",
+        "M_Steel",
+        "M_Steel.002",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "Tier5DeepLines103_VariantBlue": null,
+        "BowLocker": "Tier5DeepLines103_VariantBlue",
+        "BuoyAccess_1": "Tier5DeepLines103_VariantBlue",
+        "BuoyAccess_2": "Tier5DeepLines103_VariantBlue",
+        "BuoyAnchor_1": "Tier5DeepLines103_VariantBlue",
+        "BuoyAnchor_2": "Tier5DeepLines103_VariantBlue",
+        "CanopyFrame": "Tier5DeepLines103_VariantBlue",
+        "DeepLineBase_1": "DeepLineModule",
+        "DeepLineBase_2": "DeepLineModule",
+        "Deep 1 hanging fishing line": "DeepLineRig_1",
+        "Deep 1 line guide": "DeepLineRig_1",
+        "Deep 1 line guide.001": "DeepLineRig_1",
+        "Deep 1 line guide.002": "DeepLineRig_1",
+        "Deep 1 line guide.003": "DeepLineRig_1",
+        "Deep 1 orange grip": "DeepLineRig_1",
+        "Deep 1 rail clamp": "DeepLineRig_1",
+        "Deep 1 tapered pole 0": "DeepLineRig_1",
+        "Deep 1 tapered pole 1": "DeepLineRig_1",
+        "Deep 1 tapered pole 2": "DeepLineRig_1",
+        "Deep 1 tapered pole 3": "DeepLineRig_1",
+        "Deep 1 crank": "DeepLineReelPivot_1",
+        "Deep 1 hand reel": "DeepLineReelPivot_1",
+        "Deep 1 handle": "DeepLineReelPivot_1",
+        "Deep 1 reel flange": "DeepLineReelPivot_1",
+        "Deep 1 reel flange.001": "DeepLineReelPivot_1",
+        "DeepLineReelPivot_1": "DeepLineRig_1",
+        "DeepLineRig_1": "DeepLineModule",
+        "Deep 2 hanging fishing line": "DeepLineRig_2",
+        "Deep 2 line guide": "DeepLineRig_2",
+        "Deep 2 line guide.001": "DeepLineRig_2",
+        "Deep 2 line guide.002": "DeepLineRig_2",
+        "Deep 2 line guide.003": "DeepLineRig_2",
+        "Deep 2 orange grip": "DeepLineRig_2",
+        "Deep 2 rail clamp": "DeepLineRig_2",
+        "Deep 2 tapered pole 0": "DeepLineRig_2",
+        "Deep 2 tapered pole 1": "DeepLineRig_2",
+        "Deep 2 tapered pole 2": "DeepLineRig_2",
+        "Deep 2 tapered pole 3": "DeepLineRig_2",
+        "Deep 2 crank": "DeepLineReelPivot_2",
+        "Deep 2 hand reel": "DeepLineReelPivot_2",
+        "Deep 2 handle": "DeepLineReelPivot_2",
+        "Deep 2 reel flange": "DeepLineReelPivot_2",
+        "Deep 2 reel flange.001": "DeepLineReelPivot_2",
+        "DeepLineReelPivot_2": "DeepLineRig_2",
+        "DeepLineRig_2": "DeepLineModule",
+        "DeepLineTip_1": "DeepLineModule",
+        "DeepLineTip_2": "DeepLineModule",
+        "DeepLineWorker_1": "DeepLineModule",
+        "DeepLineWorker_2": "DeepLineModule",
+        "DeepLineModule": "Tier5DeepLines103_VariantBlue",
+        "EngineFittings": "Tier5DeepLines103_VariantBlue",
+        "GunwaleHardware": "Tier5DeepLines103_VariantBlue",
+        "HelmConsole": "Tier5DeepLines103_VariantBlue",
+        "HelmFittings": "Tier5DeepLines103_VariantBlue",
+        "Hull": "Tier5DeepLines103_VariantBlue",
+        "HullPaintBand": "Tier5DeepLines103_VariantBlue",
+        "NetCrank": "NetModule1",
+        "NetDrum": "NetModule1",
+        "NetMountFittings": "NetModule1",
+        "SternNetRoller": "NetModule1",
+        "SternNet_Stowed": "NetModule1",
+        "NetModule1": "Tier5DeepLines103_VariantBlue",
+        "Module2_NetCrank": "NetModule2",
+        "Module2_NetDrum": "NetModule2",
+        "Module2_NetMountFittings": "NetModule2",
+        "Module2_SternNetRoller": "NetModule2",
+        "Module2_SternNet_Stowed": "NetModule2",
+        "NetModule2": "Tier5DeepLines103_VariantBlue",
+        "NetWorker_1": "Tier5DeepLines103_VariantBlue",
+        "NetWorker_2": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_3": "OptionalRodModule",
+        "RodHolder_4": "OptionalRodModule",
+        "RodSocket_3": "OptionalRodModule",
+        "RodSocket_4": "OptionalRodModule",
+        "OptionalRodModule": "Tier5DeepLines103_VariantBlue",
+        "OutboardMotor": "Tier5DeepLines103_VariantBlue",
+        "PlankDeck": "Tier5DeepLines103_VariantBlue",
+        "PrepInput": "Tier5DeepLines103_VariantBlue",
+        "Cutting board 1": "PrepStation",
+        "Cutting board 2": "PrepStation",
+        "Knife blade 1": "PrepStation",
+        "Knife blade 2": "PrepStation",
+        "Knife handle 1": "PrepStation",
+        "Knife handle 2": "PrepStation",
+        "Prep stainless rim": "PrepStation",
+        "Prep table leg": "PrepStation",
+        "Prep table leg.001": "PrepStation",
+        "Prep table leg.002": "PrepStation",
+        "Prep table leg.003": "PrepStation",
+        "Prep table lower shelf": "PrepStation",
+        "Prep washable top": "PrepStation",
+        "PrepStation": "Tier5DeepLines103_VariantBlue",
+        "PrepSurface": "Tier5DeepLines103_VariantBlue",
+        "PrepWorker_1": "Tier5DeepLines103_VariantBlue",
+        "PrepWorker_2": "Tier5DeepLines103_VariantBlue",
+        "Insulated lid 1.001": "PreparedHold",
+        "Insulated lid 2.001": "PreparedHold",
+        "PREPARED freezer 1": "PreparedHold",
+        "PREPARED freezer 2": "PreparedHold",
+        "Recessed lid handle 1.001": "PreparedHold",
+        "Recessed lid handle 2.001": "PreparedHold",
+        "Storage front latch 1.001": "PreparedHold",
+        "Storage front latch 2.001": "PreparedHold",
+        "PreparedHold": "Tier5DeepLines103_VariantBlue",
+        "PreparedOutput": "Tier5DeepLines103_VariantBlue",
+        "Propeller": "Tier5DeepLines103_VariantBlue",
+        "Plain_Insulated lid 1": "RawBuckets",
+        "Plain_Insulated lid 2": "RawBuckets",
+        "Plain_RAW ice cooler 1": "RawBuckets",
+        "Plain_RAW ice cooler 2": "RawBuckets",
+        "Plain_Recessed lid handle 1": "RawBuckets",
+        "Plain_Recessed lid handle 2": "RawBuckets",
+        "Plain_Storage front latch 1": "RawBuckets",
+        "Plain_Storage front latch 2": "RawBuckets",
+        "RawBuckets": "Tier5DeepLines103_VariantBlue",
+        "Ice marker horizontal": "RawIceCoolers",
+        "Ice marker horizontal.001": "RawIceCoolers",
+        "Ice marker vertical": "RawIceCoolers",
+        "Ice marker vertical.001": "RawIceCoolers",
+        "Insulated lid 1": "RawIceCoolers",
+        "Insulated lid 2": "RawIceCoolers",
+        "RAW ice cooler 1": "RawIceCoolers",
+        "RAW ice cooler 2": "RawIceCoolers",
+        "Recessed lid handle 1": "RawIceCoolers",
+        "Recessed lid handle 2": "RawIceCoolers",
+        "Storage front latch 1": "RawIceCoolers",
+        "Storage front latch 2": "RawIceCoolers",
+        "RawIceCoolers": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_1": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_2": "Tier5DeepLines103_VariantBlue",
+        "RodSocket_1": "Tier5DeepLines103_VariantBlue",
+        "RodSocket_2": "Tier5DeepLines103_VariantBlue",
+        "SafetyFenders": "Tier5DeepLines103_VariantBlue",
+        "ServiceAccess_1": "Tier5DeepLines103_VariantBlue",
+        "ServiceAccess_2": "Tier5DeepLines103_VariantBlue",
+        "orange beacon": "Tier5DeepLines103_VariantBlue",
+        "patched plank over previous hold": "Tier5DeepLines103_VariantBlue",
+        "short mast": "Tier5DeepLines103_VariantBlue",
+        "squared helm canopy": "Tier5DeepLines103_VariantBlue",
+        "teal canopy brow": "Tier5DeepLines103_VariantBlue"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 17096,
+      "meshes": 104,
+      "bounds": [
+        [
+          -2.167194366455078,
+          -4.320518970489502,
+          -0.6774948239326477
+        ],
+        [
+          3.3732869625091553,
+          4.7181620597839355,
+          3.2100000381469727
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_DeckWood.001",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_RailIvory.002",
+        "M_Rope",
+        "M_Rubber",
+        "M_Rubber.002",
+        "M_SafetyOrange",
+        "M_SafetyOrange.002",
+        "M_SeaTeal",
+        "M_SeaTeal.002",
+        "M_SeaTeal.003",
+        "M_Steel",
+        "M_Steel.002",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "BowLocker": "Tier5DeepLines103_VariantBlue",
+        "BuoyAccess_1": "Tier5DeepLines103_VariantBlue",
+        "BuoyAccess_2": "Tier5DeepLines103_VariantBlue",
+        "BuoyAnchor_1": "Tier5DeepLines103_VariantBlue",
+        "BuoyAnchor_2": "Tier5DeepLines103_VariantBlue",
+        "CanopyFrame": "Tier5DeepLines103_VariantBlue",
+        "DeepLineBase_1": "DeepLineModule",
+        "DeepLineBase_2": "DeepLineModule",
+        "Deep 1 hanging fishing line": "DeepLineRig_1",
+        "Deep 1 line guide": "DeepLineRig_1",
+        "Deep 1 line guide.001": "DeepLineRig_1",
+        "Deep 1 line guide.002": "DeepLineRig_1",
+        "Deep 1 line guide.003": "DeepLineRig_1",
+        "Deep 1 orange grip": "DeepLineRig_1",
+        "Deep 1 rail clamp": "DeepLineRig_1",
+        "Deep 1 tapered pole 0": "DeepLineRig_1",
+        "Deep 1 tapered pole 1": "DeepLineRig_1",
+        "Deep 1 tapered pole 2": "DeepLineRig_1",
+        "Deep 1 tapered pole 3": "DeepLineRig_1",
+        "Deep 1 crank": "DeepLineReelPivot_1",
+        "Deep 1 hand reel": "DeepLineReelPivot_1",
+        "Deep 1 handle": "DeepLineReelPivot_1",
+        "Deep 1 reel flange": "DeepLineReelPivot_1",
+        "Deep 1 reel flange.001": "DeepLineReelPivot_1",
+        "DeepLineReelPivot_1": "DeepLineRig_1",
+        "DeepLineRig_1": "DeepLineModule",
+        "Deep 2 hanging fishing line": "DeepLineRig_2",
+        "Deep 2 line guide": "DeepLineRig_2",
+        "Deep 2 line guide.001": "DeepLineRig_2",
+        "Deep 2 line guide.002": "DeepLineRig_2",
+        "Deep 2 line guide.003": "DeepLineRig_2",
+        "Deep 2 orange grip": "DeepLineRig_2",
+        "Deep 2 rail clamp": "DeepLineRig_2",
+        "Deep 2 tapered pole 0": "DeepLineRig_2",
+        "Deep 2 tapered pole 1": "DeepLineRig_2",
+        "Deep 2 tapered pole 2": "DeepLineRig_2",
+        "Deep 2 tapered pole 3": "DeepLineRig_2",
+        "Deep 2 crank": "DeepLineReelPivot_2",
+        "Deep 2 hand reel": "DeepLineReelPivot_2",
+        "Deep 2 handle": "DeepLineReelPivot_2",
+        "Deep 2 reel flange": "DeepLineReelPivot_2",
+        "Deep 2 reel flange.001": "DeepLineReelPivot_2",
+        "DeepLineReelPivot_2": "DeepLineRig_2",
+        "DeepLineRig_2": "DeepLineModule",
+        "DeepLineTip_1": "DeepLineModule",
+        "DeepLineTip_2": "DeepLineModule",
+        "DeepLineWorker_1": "DeepLineModule",
+        "DeepLineWorker_2": "DeepLineModule",
+        "DeepLineModule": "Tier5DeepLines103_VariantBlue",
+        "EngineFittings": "Tier5DeepLines103_VariantBlue",
+        "GunwaleHardware": "Tier5DeepLines103_VariantBlue",
+        "HelmConsole": "Tier5DeepLines103_VariantBlue",
+        "HelmFittings": "Tier5DeepLines103_VariantBlue",
+        "Hull": "Tier5DeepLines103_VariantBlue",
+        "HullPaintBand": "Tier5DeepLines103_VariantBlue",
+        "NetCrank": "NetModule1",
+        "NetDrum": "NetModule1",
+        "NetMountFittings": "NetModule1",
+        "SternNetRoller": "NetModule1",
+        "SternNet_Stowed": "NetModule1",
+        "NetModule1": "Tier5DeepLines103_VariantBlue",
+        "Module2_NetCrank": "NetModule2",
+        "Module2_NetDrum": "NetModule2",
+        "Module2_NetMountFittings": "NetModule2",
+        "Module2_SternNetRoller": "NetModule2",
+        "Module2_SternNet_Stowed": "NetModule2",
+        "NetModule2": "Tier5DeepLines103_VariantBlue",
+        "NetWorker_1": "Tier5DeepLines103_VariantBlue",
+        "NetWorker_2": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_3": "OptionalRodModule",
+        "RodHolder_4": "OptionalRodModule",
+        "RodSocket_3": "OptionalRodModule",
+        "RodSocket_4": "OptionalRodModule",
+        "OptionalRodModule": "Tier5DeepLines103_VariantBlue",
+        "OutboardMotor": "Tier5DeepLines103_VariantBlue",
+        "PlankDeck": "Tier5DeepLines103_VariantBlue",
+        "PrepInput": "Tier5DeepLines103_VariantBlue",
+        "Cutting board 1": "PrepStation",
+        "Cutting board 2": "PrepStation",
+        "Knife blade 1": "PrepStation",
+        "Knife blade 2": "PrepStation",
+        "Knife handle 1": "PrepStation",
+        "Knife handle 2": "PrepStation",
+        "Prep stainless rim": "PrepStation",
+        "Prep table leg": "PrepStation",
+        "Prep table leg.001": "PrepStation",
+        "Prep table leg.002": "PrepStation",
+        "Prep table leg.003": "PrepStation",
+        "Prep table lower shelf": "PrepStation",
+        "Prep washable top": "PrepStation",
+        "PrepStation": "Tier5DeepLines103_VariantBlue",
+        "PrepSurface": "Tier5DeepLines103_VariantBlue",
+        "PrepWorker_1": "Tier5DeepLines103_VariantBlue",
+        "PrepWorker_2": "Tier5DeepLines103_VariantBlue",
+        "Insulated lid 1.001": "PreparedHold",
+        "Insulated lid 2.001": "PreparedHold",
+        "PREPARED freezer 1": "PreparedHold",
+        "PREPARED freezer 2": "PreparedHold",
+        "Recessed lid handle 1.001": "PreparedHold",
+        "Recessed lid handle 2.001": "PreparedHold",
+        "Storage front latch 1.001": "PreparedHold",
+        "Storage front latch 2.001": "PreparedHold",
+        "PreparedHold": "Tier5DeepLines103_VariantBlue",
+        "PreparedOutput": "Tier5DeepLines103_VariantBlue",
+        "Propeller": "Tier5DeepLines103_VariantBlue",
+        "Plain_Insulated lid 1": "RawBuckets",
+        "Plain_Insulated lid 2": "RawBuckets",
+        "Plain_RAW ice cooler 1": "RawBuckets",
+        "Plain_RAW ice cooler 2": "RawBuckets",
+        "Plain_Recessed lid handle 1": "RawBuckets",
+        "Plain_Recessed lid handle 2": "RawBuckets",
+        "Plain_Storage front latch 1": "RawBuckets",
+        "Plain_Storage front latch 2": "RawBuckets",
+        "RawBuckets": "Tier5DeepLines103_VariantBlue",
+        "Ice marker horizontal": "RawIceCoolers",
+        "Ice marker horizontal.001": "RawIceCoolers",
+        "Ice marker vertical": "RawIceCoolers",
+        "Ice marker vertical.001": "RawIceCoolers",
+        "Insulated lid 1": "RawIceCoolers",
+        "Insulated lid 2": "RawIceCoolers",
+        "RAW ice cooler 1": "RawIceCoolers",
+        "RAW ice cooler 2": "RawIceCoolers",
+        "Recessed lid handle 1": "RawIceCoolers",
+        "Recessed lid handle 2": "RawIceCoolers",
+        "Storage front latch 1": "RawIceCoolers",
+        "Storage front latch 2": "RawIceCoolers",
+        "RawIceCoolers": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_1": "Tier5DeepLines103_VariantBlue",
+        "RodHolder_2": "Tier5DeepLines103_VariantBlue",
+        "RodSocket_1": "Tier5DeepLines103_VariantBlue",
+        "RodSocket_2": "Tier5DeepLines103_VariantBlue",
+        "SafetyFenders": "Tier5DeepLines103_VariantBlue",
+        "ServiceAccess_1": "Tier5DeepLines103_VariantBlue",
+        "ServiceAccess_2": "Tier5DeepLines103_VariantBlue",
+        "orange beacon": "Tier5DeepLines103_VariantBlue",
+        "patched plank over previous hold": "Tier5DeepLines103_VariantBlue",
+        "short mast": "Tier5DeepLines103_VariantBlue",
+        "squared helm canopy": "Tier5DeepLines103_VariantBlue",
+        "teal canopy brow": "Tier5DeepLines103_VariantBlue",
+        "Tier5DeepLines103_VariantBlue": null
+      },
+      "finite": true
+    }
+  }
+}

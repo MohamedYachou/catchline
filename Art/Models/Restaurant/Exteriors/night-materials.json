@@ -1,0 +1,808 @@
+{
+  "pass": true,
+  "same_geometry_names_bounds_footprint": true,
+  "opaque": true,
+  "stages": [
+    {
+      "stage": "Cafe",
+      "file": "RestaurantExterior_Cafe.fbx",
+      "mesh_material_variants": {
+        "DoorsWindowsChimneys": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "TerraceTablesChairs": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "LanternsStringLights": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        }
+      },
+      "default_export": "Night materials on windows and practical fixtures; original day atlas material retained on other production meshes in same FBX; remap listed meshes to day material for day look.",
+      "glow_mask": "Restaurant_Surface.png blue: only glow atlas cell emissive",
+      "night_emission_multiplier": 6,
+      "day_emission_multiplier": 2.5,
+      "lights": [
+        {
+          "name": "Restaurant_Cafe_Practical0_Night",
+          "position_blender_m": [
+            -3.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            -3.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Cafe_Practical1_Night",
+          "position_blender_m": [
+            3.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            3.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        }
+      ],
+      "FBX_UnitScaleFactor": 100.0
+    },
+    {
+      "stage": "Bistro",
+      "file": "RestaurantExterior_Bistro.fbx",
+      "mesh_material_variants": {
+        "DoorsWindowsChimneys": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "TerraceTablesChairs": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "LanternsStringLights": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        }
+      },
+      "default_export": "Night materials on windows and practical fixtures; original day atlas material retained on other production meshes in same FBX; remap listed meshes to day material for day look.",
+      "glow_mask": "Restaurant_Surface.png blue: only glow atlas cell emissive",
+      "night_emission_multiplier": 6,
+      "day_emission_multiplier": 2.5,
+      "lights": [
+        {
+          "name": "Restaurant_Bistro_Practical0_Night",
+          "position_blender_m": [
+            -4.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            -4.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical1_Night",
+          "position_blender_m": [
+            4.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            4.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical2_Night",
+          "position_blender_m": [
+            -4.041666666666666,
+            4.85,
+            2.2071779055671934
+          ],
+          "position_unity_m": [
+            -4.041666666666666,
+            2.2071779055671934,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical3_Night",
+          "position_blender_m": [
+            -2.425,
+            4.85,
+            2.0637258300203047
+          ],
+          "position_unity_m": [
+            -2.425,
+            2.0637258300203047,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical4_Night",
+          "position_blender_m": [
+            -0.8083333333333327,
+            4.85,
+            1.980903735587498
+          ],
+          "position_unity_m": [
+            -0.8083333333333327,
+            1.980903735587498,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical5_Night",
+          "position_blender_m": [
+            0.8083333333333336,
+            4.85,
+            1.980903735587498
+          ],
+          "position_unity_m": [
+            0.8083333333333336,
+            1.980903735587498,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical6_Night",
+          "position_blender_m": [
+            2.425,
+            4.85,
+            2.0637258300203047
+          ],
+          "position_unity_m": [
+            2.425,
+            2.0637258300203047,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Bistro_Practical7_Night",
+          "position_blender_m": [
+            4.041666666666666,
+            4.85,
+            2.2071779055671934
+          ],
+          "position_unity_m": [
+            4.041666666666666,
+            2.2071779055671934,
+            -4.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        }
+      ],
+      "FBX_UnitScaleFactor": 100.0
+    },
+    {
+      "stage": "Restaurant",
+      "file": "RestaurantExterior_Restaurant.fbx",
+      "mesh_material_variants": {
+        "DoorsWindowsChimneys": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "TerraceTablesChairs": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "LanternsStringLights": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        }
+      },
+      "default_export": "Night materials on windows and practical fixtures; original day atlas material retained on other production meshes in same FBX; remap listed meshes to day material for day look.",
+      "glow_mask": "Restaurant_Surface.png blue: only glow atlas cell emissive",
+      "night_emission_multiplier": 6,
+      "day_emission_multiplier": 2.5,
+      "lights": [
+        {
+          "name": "Restaurant_Restaurant_Practical0_Night",
+          "position_blender_m": [
+            -5.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            -5.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical1_Night",
+          "position_blender_m": [
+            5.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            5.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical2_Night",
+          "position_blender_m": [
+            -5.199999999999999,
+            5.35,
+            2.2344325831465826
+          ],
+          "position_unity_m": [
+            -5.199999999999999,
+            2.2344325831465826,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical3_Night",
+          "position_blender_m": [
+            -3.9,
+            5.35,
+            2.13
+          ],
+          "position_unity_m": [
+            -3.9,
+            2.13,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical4_Night",
+          "position_blender_m": [
+            -2.5999999999999996,
+            5.35,
+            2.044865778201927
+          ],
+          "position_unity_m": [
+            -2.5999999999999996,
+            2.044865778201927,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical5_Night",
+          "position_blender_m": [
+            -1.2999999999999998,
+            5.35,
+            1.9892983613485093
+          ],
+          "position_unity_m": [
+            -1.2999999999999998,
+            1.9892983613485093,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical6_Night",
+          "position_blender_m": [
+            0.0,
+            5.35,
+            1.97
+          ],
+          "position_unity_m": [
+            0.0,
+            1.97,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical7_Night",
+          "position_blender_m": [
+            1.3000000000000007,
+            5.35,
+            1.9892983613485093
+          ],
+          "position_unity_m": [
+            1.3000000000000007,
+            1.9892983613485093,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical8_Night",
+          "position_blender_m": [
+            2.5999999999999996,
+            5.35,
+            2.044865778201927
+          ],
+          "position_unity_m": [
+            2.5999999999999996,
+            2.044865778201927,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical9_Night",
+          "position_blender_m": [
+            3.9000000000000004,
+            5.35,
+            2.13
+          ],
+          "position_unity_m": [
+            3.9000000000000004,
+            2.13,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_Restaurant_Practical10_Night",
+          "position_blender_m": [
+            5.199999999999999,
+            5.35,
+            2.234432583146582
+          ],
+          "position_unity_m": [
+            5.199999999999999,
+            2.234432583146582,
+            -5.35
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        }
+      ],
+      "FBX_UnitScaleFactor": 100.0
+    },
+    {
+      "stage": "SeafoodHouse",
+      "file": "RestaurantExterior_SeafoodHouse.fbx",
+      "mesh_material_variants": {
+        "DoorsWindowsChimneys": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "TerraceTablesChairs": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        },
+        "LanternsStringLights": {
+          "day": "Restaurant_Exterior_Atlas",
+          "night": "Restaurant_Exterior_Atlas_Night"
+        }
+      },
+      "default_export": "Night materials on windows and practical fixtures; original day atlas material retained on other production meshes in same FBX; remap listed meshes to day material for day look.",
+      "glow_mask": "Restaurant_Surface.png blue: only glow atlas cell emissive",
+      "night_emission_multiplier": 6,
+      "day_emission_multiplier": 2.5,
+      "lights": [
+        {
+          "name": "Restaurant_SeafoodHouse_Practical0_Night",
+          "position_blender_m": [
+            -6.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            -6.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical1_Night",
+          "position_blender_m": [
+            6.55,
+            2.98,
+            1.85
+          ],
+          "position_unity_m": [
+            6.55,
+            1.85,
+            -2.98
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical2_Night",
+          "position_blender_m": [
+            -6.279166666666667,
+            5.85,
+            2.2482316184895836
+          ],
+          "position_unity_m": [
+            -6.279166666666667,
+            2.2482316184895836,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical3_Night",
+          "position_blender_m": [
+            -5.137499999999999,
+            5.85,
+            2.1675413016431713
+          ],
+          "position_unity_m": [
+            -5.137499999999999,
+            2.1675413016431713,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical4_Night",
+          "position_blender_m": [
+            -3.995833333333333,
+            5.85,
+            2.0951963427172093
+          ],
+          "position_unity_m": [
+            -3.995833333333333,
+            2.0951963427172093,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical5_Night",
+          "position_blender_m": [
+            -2.854166666666666,
+            5.85,
+            2.036126931106805
+          ],
+          "position_unity_m": [
+            -2.854166666666666,
+            2.036126931106805,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical6_Night",
+          "position_blender_m": [
+            -1.7125000000000004,
+            5.85,
+            1.9943585495963883
+          ],
+          "position_unity_m": [
+            -1.7125000000000004,
+            1.9943585495963883,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical7_Night",
+          "position_blender_m": [
+            -0.5708333333333337,
+            5.85,
+            1.9727376443603806
+          ],
+          "position_unity_m": [
+            -0.5708333333333337,
+            1.9727376443603806,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical8_Night",
+          "position_blender_m": [
+            0.5708333333333329,
+            5.85,
+            1.9727376443603806
+          ],
+          "position_unity_m": [
+            0.5708333333333329,
+            1.9727376443603806,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical9_Night",
+          "position_blender_m": [
+            1.7125000000000004,
+            5.85,
+            1.9943585495963883
+          ],
+          "position_unity_m": [
+            1.7125000000000004,
+            1.9943585495963883,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical10_Night",
+          "position_blender_m": [
+            2.854166666666668,
+            5.85,
+            2.036126931106805
+          ],
+          "position_unity_m": [
+            2.854166666666668,
+            2.036126931106805,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical11_Night",
+          "position_blender_m": [
+            3.995833333333332,
+            5.85,
+            2.0951963427172093
+          ],
+          "position_unity_m": [
+            3.995833333333332,
+            2.0951963427172093,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical12_Night",
+          "position_blender_m": [
+            5.137499999999999,
+            5.85,
+            2.1675413016431713
+          ],
+          "position_unity_m": [
+            5.137499999999999,
+            2.1675413016431713,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        },
+        {
+          "name": "Restaurant_SeafoodHouse_Practical13_Night",
+          "position_blender_m": [
+            6.279166666666667,
+            5.85,
+            2.2482316184895836
+          ],
+          "position_unity_m": [
+            6.279166666666667,
+            2.2482316184895836,
+            -5.85
+          ],
+          "color_rgb": [
+            1,
+            0.6,
+            0.24
+          ],
+          "blender_watts": 12,
+          "unity_range_recipe_m": 2.1
+        }
+      ],
+      "FBX_UnitScaleFactor": 100.0
+    }
+  ],
+  "runtime_material_light_switch_pending_lead": true
+}

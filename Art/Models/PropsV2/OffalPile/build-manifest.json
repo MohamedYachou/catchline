@@ -1,0 +1,72 @@
+{
+  "name": "OffalPile",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/OffalPile.blend",
+      "sha256": "75a3b49761141ffe73ae683bf5313e474ea2d26cdb6206afeb926d74d26452e8",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.1524375081062317,
+      -0.1139688566327095,
+      0.0
+    ],
+    [
+      0.1524375081062317,
+      0.1139688491821289,
+      0.07999999821186066
+    ]
+  ],
+  "triangles": 840,
+  "mesh_parts": {
+    "CoarseOffcut": 120,
+    "CoarseOffcut.001": 120,
+    "CoarseOffcut.002": 120,
+    "CoarseOffcut.003": 120,
+    "CoarseOffcut.004": 120,
+    "CoarseOffcut.005": 120,
+    "CoarseOffcut.006": 120
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "floor/contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "OffalPile.blend": "3853d34805f0fcf9b67b76043e2d52c06bacbbd8bce636581f475d3a3195789f",
+    "OffalPile.fbx": "e9dcd96a3d98fea588fc9a11d225e73489e5d1a1e1fba17e3db4563bf58d1732"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_OffalPile.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/OffalPile/iterations/r01/back.png",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/front.png",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/left.png",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/right.png",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/top.png"
+  ]
+}

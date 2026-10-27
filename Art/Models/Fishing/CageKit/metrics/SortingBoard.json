@@ -1,0 +1,380 @@
+{
+  "triangles": 608,
+  "bounds": [
+    [
+      -0.3100000023841858,
+      -0.15149998664855957,
+      0.0
+    ],
+    [
+      0.3100000023841858,
+      0.15000000596046448,
+      0.08900000154972076
+    ]
+  ],
+  "dimensions_blender": [
+    0.6200000047683716,
+    0.30149999260902405,
+    0.08900000154972076
+  ],
+  "parents": {
+    "SortingBoard": null,
+    "BoardAndGauge": "SortingBoard",
+    "LegalMark": "SortingBoard"
+  },
+  "materials": [
+    "M_Brass",
+    "M_DeckWood",
+    "M_HullNavy",
+    "M_LegalRed",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel",
+    "M_WoodHighlight",
+    "M_WoodRecess"
+  ],
+  "objects": {
+    "SortingBoard": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 0
+    },
+    "BoardAndGauge": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 560
+    },
+    "LegalMark": {
+      "location": [
+        -0.14499999582767487,
+        0.12099999934434891,
+        0.052000001072883606
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 48
+    }
+  },
+  "name": "SortingBoard",
+  "contract": {
+    "LegalMark": {
+      "pivot": [
+        -0.14500000000000002,
+        0.121,
+        0.052
+      ],
+      "slide_axis": [
+        1,
+        0,
+        0
+      ],
+      "zero_x": -0.26,
+      "initial_legal_length_metres": 0.115
+    },
+    "gauge": {
+      "zero_x": -0.26,
+      "max_x": 0.26,
+      "minor_tick_metres": 0.02
+    }
+  },
+  "axes": "Blender (X,Y,Z) maps to Unity (X,Z,-Y); board operator/gauge edge source +Y / Unity -Z",
+  "sha256": {
+    "blend": "0108f90b7f1cc090c28a4ea9634948ffdbd2d76b4b69cd697400ae731289d252",
+    "fbx": "5352dcaed9fa9d3ca5f6c3e2242042b2975462feafd0e974520bf8c205131573"
+  },
+  "status": "individual source/actualFBX/visual PASS; assembled/native acceptance separate",
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 2,
+      "max_vertex_error_metres": 1.666000493116826e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "source": {
+      "triangles": 608,
+      "bounds": [
+        [
+          -0.3100000023841858,
+          -0.15149998664855957,
+          0.0
+        ],
+        [
+          0.3100000023841858,
+          0.15000000596046448,
+          0.08900000154972076
+        ]
+      ],
+      "dimensions_blender": [
+        0.6200000047683716,
+        0.30149999260902405,
+        0.08900000154972076
+      ],
+      "parents": {
+        "SortingBoard": null,
+        "BoardAndGauge": "SortingBoard",
+        "LegalMark": "SortingBoard"
+      },
+      "materials": [
+        "M_Brass",
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_LegalRed",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "objects": {
+        "SortingBoard": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        },
+        "BoardAndGauge": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 560
+        },
+        "LegalMark": {
+          "location": [
+            -0.14499999582767487,
+            0.12099999934434891,
+            0.052000001072883606
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 48
+        }
+      }
+    },
+    "imported": {
+      "triangles": 608,
+      "bounds": [
+        [
+          -0.3100000023841858,
+          -0.15149998664855957,
+          -1.1324686077784918e-08
+        ],
+        [
+          0.3100000023841858,
+          0.15000002086162567,
+          0.08900001645088196
+        ]
+      ],
+      "dimensions_blender": [
+        0.6200000047683716,
+        0.30150000751018524,
+        0.08900002777556804
+      ],
+      "parents": {
+        "BoardAndGauge": "SortingBoard",
+        "LegalMark": "SortingBoard",
+        "SortingBoard": null
+      },
+      "materials": [
+        "M_Brass",
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_LegalRed",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "objects": {
+        "BoardAndGauge": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 560
+        },
+        "LegalMark": {
+          "location": [
+            -0.14499999582767487,
+            0.052000001072883606,
+            -0.12099999934434891
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 48
+        },
+        "SortingBoard": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.570796251296997,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        }
+      }
+    },
+    "controls": {
+      "LegalMark": {
+        "pivot_error_metres": 1.0536712127723509e-08,
+        "local_x_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_test": "PASS"
+      }
+    }
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/SortingBoard/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "8e6249d1bfc825fb44074defb9142fff533d0a17ea7c21ac3772e8ccb495dd5d",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SortingBoard/front.png",
+        "view": "front",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "d1631c3ebed6bfaac1046451d3c555b8b143911a68c2ffc155db855b848f44dc",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SortingBoard/right.png",
+        "view": "right",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "873e42ae304fc67f8d8b4fb3d3056e25085b43ac001f1192fc10a6d8987a2c36",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SortingBoard/back.png",
+        "view": "back",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "48dbda05182aa2c4625913cd990e0bbd616157a480e49ae8a2a86440fa7550e9",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SortingBoard/top.png",
+        "view": "top",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "1e95a81c6302538b1895fa403d9948b98a54dd306d02322e5fa301058cf1c01c",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

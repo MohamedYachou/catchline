@@ -1,0 +1,136 @@
+{
+  "name": "SuppliesShed",
+  "group": "B",
+  "triangles": 1984,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -1.6492210626602173,
+      -1.4250000715255737,
+      0.0
+    ],
+    [
+      1.6492210626602173,
+      1.4250000715255737,
+      3.0950000286102295
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.2984421253204346,
+    2.8500001430511475,
+    3.0950000286102295
+  ],
+  "parts": [
+    {
+      "name": "OpenShedSacksCansBait",
+      "triangles": 1984,
+      "vertices": 1102,
+      "bounds_min_blender": [
+        -1.6492210626602173,
+        -1.4250000715255737,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.6492210626602173,
+        1.4250000715255737,
+        3.0950000286102295
+      ],
+      "mesh_sha256": "93c1cf7f595816c1409a673d6b8c1292938f2f12ec14560ce8846a7dca435926",
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\SuppliesShed.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\SuppliesShed.fbx",
+  "sha256": {
+    "blend": "74d96026d09eb615898c1a70772537b4233859ba3f294b0357e46d3fdb57b599",
+    "fbx": "413a8e3e5b3e3d9c1237423d5c3da1f09df08be569d8462bc528c2f9e98c14c7"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SuppliesShed\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SuppliesShed\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SuppliesShed\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SuppliesShed\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SuppliesShed\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1920928955078125e-07,
+    "source": {
+      "triangles": 1984,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.6492210626602173,
+          -1.4250000715255737,
+          0.0
+        ],
+        [
+          1.6492210626602173,
+          1.4250000715255737,
+          3.0950000286102295
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "SuppliesShed": null,
+        "OpenShedSacksCansBait": "SuppliesShed"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1984,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.6492210626602173,
+          -1.4249999523162842,
+          -9.437238901455203e-08
+        ],
+        [
+          1.6492210626602173,
+          1.4250001907348633,
+          3.0950000286102295
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "OpenShedSacksCansBait": "SuppliesShed",
+        "SuppliesShed": null
+      },
+      "finite": true
+    }
+  }
+}

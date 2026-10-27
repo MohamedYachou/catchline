@@ -1,0 +1,123 @@
+{
+  "name": "FloatingCrate",
+  "group": "D",
+  "triangles": 588,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.3775000274181366,
+      -0.30750003457069397,
+      -0.1599999964237213
+    ],
+    [
+      0.38300004601478577,
+      0.30750003457069397,
+      0.3700000047683716
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    0.7605000734329224,
+    0.6150000691413879,
+    0.5299999713897705
+  ],
+  "parts": [
+    {
+      "name": "LashedFloatingCrate",
+      "triangles": 588,
+      "vertices": 326,
+      "bounds_min_blender": [
+        -0.3775000274181366,
+        -0.30750003457069397,
+        -0.1599999964237213
+      ],
+      "bounds_max_blender": [
+        0.38300004601478577,
+        0.30750003457069397,
+        0.3700000047683716
+      ],
+      "mesh_sha256": "4ff9c94b0ee55647e1144b68073327135305439104bc2047c47ba5b5aefaf067",
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Rope",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "RootY0 at floating datum: lower crate -.16, lid .37; no animation/water geometry exported."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\FloatingCrate.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\FloatingCrate.fbx",
+  "sha256": {
+    "blend": "1f7ff08b3dfc08378f9c30a0b7c24b0bf83361b21cf325895df89697e1804527",
+    "fbx": "1ab9467d1ee1d60437afc154a2e065de71d64c15e6d1489d46edda247051b3a0"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FloatingCrate\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FloatingCrate\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FloatingCrate\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FloatingCrate\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\FloatingCrate\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.9802322387695312e-08,
+    "source": {
+      "triangles": 588,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.3775000274181366,
+          -0.30750003457069397,
+          -0.1599999964237213
+        ],
+        [
+          0.38300004601478577,
+          0.30750003457069397,
+          0.3700000047683716
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Rope",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "FloatingCrate": null,
+        "LashedFloatingCrate": "FloatingCrate"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 588,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.3775000274181366,
+          -0.3075000047683716,
+          -0.1600000113248825
+        ],
+        [
+          0.38300004601478577,
+          0.30750006437301636,
+          0.37000003457069397
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Rope",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "LashedFloatingCrate": "FloatingCrate",
+        "FloatingCrate": null
+      },
+      "finite": true
+    }
+  }
+}

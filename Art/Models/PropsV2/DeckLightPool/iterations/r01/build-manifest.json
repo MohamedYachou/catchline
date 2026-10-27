@@ -1,0 +1,41 @@
+{
+  "name": "DeckLightPool",
+  "revision": "r01",
+  "kind": "RGBA effect",
+  "logical_size": [
+    256,
+    256
+  ],
+  "pivot": [
+    0.5,
+    0.5
+  ],
+  "use": "Single station soft warm deck light pool, 1m suggested diameter, centre pivot. Alpha blended/emissive material binding by code owner.",
+  "provenance": [
+    {
+      "file": "Art/Source/Art108/build_effects.py",
+      "sha256": "6263c29539af17d3df68dcfed226bf58c6ea71b3a63618fa4f6210b9d847d332",
+      "purpose": "read-only existing named effect design"
+    }
+  ],
+  "delivery_sha256": {
+    "DeckLightPool.png": "46734ea8012e29572bbcacdd56c99a830a90e23c2d4a8f5a11f4af5ef4d1db91",
+    "DeckLightPool.svg": "1076d995efe58bf6f2055b34badbb19f1fe0612f2261d114a48962fac0bcc548"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/DeckLightPool.png",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  }
+}

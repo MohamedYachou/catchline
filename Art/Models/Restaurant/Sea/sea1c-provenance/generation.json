@@ -1,0 +1,17 @@
+{
+  "tool": "builtin image_gen.imagegen",
+  "model": "tool default; no CLI fallback",
+  "candidate": "candidate-1.png",
+  "candidate_size": [
+    1254,
+    1254
+  ],
+  "transparent_background": false,
+  "prompt_file": "prompt.txt",
+  "references": [
+    "previous sea1-night-water-1024.png (original hash retained in sea1c-baseline.json)",
+    "Art/Source/Restaurant/concepts/ui-service-desktop.png (water style reference only)"
+  ],
+  "output_processing": "Lanczos1024/2048; narrow-band exact-periodic boundary repair only",
+  "no_artistic_python_painting": true
+}

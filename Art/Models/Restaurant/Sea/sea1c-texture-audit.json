@@ -1,0 +1,57 @@
+{
+  "pass": true,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_sha256": "ba73f07b72fa5756bd073d76d5c7ad6fd0743928ebcbb995930f8db366a975b5",
+  "method": "Builtin imagegen repaint; Lanczos resize; symmetric opposing-edge mean correction with cubic smoothstep in1/32-width bands; rounded identical boundaries. No creative raster painting in Python.",
+  "textures": [
+    {
+      "file": "sea1-night-water-1024.png",
+      "sha256": "79f6d55a39554e4c76a1012c6a00e14e6796f8e2210304d5048138ced0d0e5cc",
+      "size": 1024,
+      "repair_band_px": 32,
+      "exact_X_Y": true,
+      "mean_RGB": [
+        16.61896514892578,
+        138.0485372543335,
+        197.55842113494873
+      ],
+      "mean_luma_sRGB": 116.52922384090422,
+      "dark_pixel_fraction_luma_under_30": 0.0,
+      "prior_tile": {
+        "mean_RGB": [
+          4.488137245178223,
+          37.63364028930664,
+          60.7322359085083
+        ],
+        "mean_luma_sRGB": 32.254624945831296
+      },
+      "interior_unchanged": true
+    },
+    {
+      "file": "sea1-night-water-2048.png",
+      "sha256": "20bc0a4f76b3e1b720d4d36e807de8953f8401973af11a5a99b920f685fdf6e4",
+      "size": 2048,
+      "repair_band_px": 64,
+      "exact_X_Y": true,
+      "mean_RGB": [
+        16.601154327392578,
+        138.0501925945282,
+        197.55815052986145
+      ],
+      "mean_luma_sRGB": 116.52660162186622,
+      "dark_pixel_fraction_luma_under_30": 0.0,
+      "prior_tile": {
+        "mean_RGB": [
+          4.4802939891815186,
+          37.63283562660217,
+          60.73191428184509
+        ],
+        "mean_luma_sRGB": 32.25235875339507
+      },
+      "interior_unchanged": true
+    }
+  ]
+}

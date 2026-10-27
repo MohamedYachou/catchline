@@ -1,0 +1,269 @@
+{
+  "task": "JIG-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "triangles": 856,
+    "reviewed_images": 37,
+    "resolved_links": 46,
+    "limits": "Artist source/FBX and isolated Blender evidence; no Unity/native acceptance."
+  },
+  "files": {
+    "Art/Models/JigKit/JigKit-assembly-review.blend": {
+      "bytes": 121372,
+      "sha256": "030b75b3b7fe644fff7c23947d0e09e96369573d7388cba23a6aa8e5df00f894"
+    },
+    "Art/Models/JigKit/JigKit.blend": {
+      "bytes": 116097,
+      "sha256": "f21a52c6144415cf1411c03e09a19dbece4d8c318e0af8849e2b529ad1e6e6e3"
+    },
+    "Art/Models/JigKit/JigKit.fbx": {
+      "bytes": 111836,
+      "sha256": "6f1b8ac627f63963ed9a68066b70eed78cdf119b4337c45e65ffd5a0b937bbc0"
+    },
+    "Art/Models/JigKit/REPORT.md": {
+      "bytes": 6520,
+      "sha256": "3ed66b9f687409df4b7081b8c4323ccc4816d200eef5ee057d32dcf4ca7efe5c"
+    },
+    "Art/Models/JigKit/metrics/audit.json": {
+      "bytes": 10644,
+      "sha256": "fc26ce0fd5e938f68f256f78bac584f00f9f465cfaea5b30b6042e60a1dc270b"
+    },
+    "Art/Models/JigKit/metrics/build.json": {
+      "bytes": 3599,
+      "sha256": "e6ffd2bc981506471c9ff57af0cddf19cc03df066c1e7caeb5445cde7fdb6dfd"
+    },
+    "Art/Models/JigKit/metrics/dependencies.json": {
+      "bytes": 418,
+      "sha256": "a12ffd2ad389b6e98042fda8413ff163a3d82e7edf9fc9571636458acf9d5192"
+    },
+    "Art/Models/JigKit/metrics/rocks-revision.json": {
+      "bytes": 541,
+      "sha256": "3ef00408f7b8c77d8212b0870082c8f280a7357b101a69cf039213391a901b8d"
+    },
+    "Art/Models/JigKit/renders/Assembly/assembly-1440.png": {
+      "bytes": 1281339,
+      "sha256": "c8e1bc17d7a4f2d047135d4a69707ce925bec378c5543ff2ed84db5fe2d41478"
+    },
+    "Art/Models/JigKit/renders/Assembly/assembly-844.png": {
+      "bytes": 339389,
+      "sha256": "1fa61cdf9f4b4c25a287503a9894e2f76467b81368eeaec5e610e3c2f5ec02d7"
+    },
+    "Art/Models/JigKit/renders/JigFeathers/back.png": {
+      "bytes": 345409,
+      "sha256": "3efc42996f41a25fc26573a44e7c709ea55333faa03fab707ea91aca1a0fce5e"
+    },
+    "Art/Models/JigKit/renders/JigFeathers/front.png": {
+      "bytes": 350865,
+      "sha256": "ec2fbe8e909a50f70c44989ad368cedf3686e791f53babbb57a005e5eb8d33ad"
+    },
+    "Art/Models/JigKit/renders/JigFeathers/right.png": {
+      "bytes": 337596,
+      "sha256": "c9969d3df26cda5542b53a4f990d9e218b05cfe7b62458fdfcb9bd3c40b9fb8a"
+    },
+    "Art/Models/JigKit/renders/JigFeathers/three-quarter.png": {
+      "bytes": 348520,
+      "sha256": "92cdc2518c8cb860abd5781ca37227065817b9ebbbcffc30c91828af354d5d1a"
+    },
+    "Art/Models/JigKit/renders/JigFeathers/top.png": {
+      "bytes": 322631,
+      "sha256": "64b2f5b7a7a4749f3c670ad5c56ab7e537ae3944b5ef85251cb477d5bf5e2ca3"
+    },
+    "Art/Models/JigKit/renders/JigLine/back.png": {
+      "bytes": 331923,
+      "sha256": "2dd2fe2e2858d48bae6c7eb6f54d36425fa6dce652a15ed4491047ec254a1ad0"
+    },
+    "Art/Models/JigKit/renders/JigLine/front.png": {
+      "bytes": 332818,
+      "sha256": "c920971d01aedbfcf2fbdcab8da9bcdd1e534b3d1349b0e639dbd83a084a9f0b"
+    },
+    "Art/Models/JigKit/renders/JigLine/right.png": {
+      "bytes": 332369,
+      "sha256": "8e2e50334b3a636ea80e480da3aaa6d36212d0abc17bffc280ad14604fc48d80"
+    },
+    "Art/Models/JigKit/renders/JigLine/three-quarter.png": {
+      "bytes": 320470,
+      "sha256": "ca9feb4685c958d5d4a4d0b9523124cde626202b10774da46f42bdd94174a7a3"
+    },
+    "Art/Models/JigKit/renders/JigLine/top.png": {
+      "bytes": 318934,
+      "sha256": "d80c9c9475b208fe58006cd67c7c260769fe448f8a19a4e733333a46f6bfae55"
+    },
+    "Art/Models/JigKit/renders/JigPirk/back.png": {
+      "bytes": 335518,
+      "sha256": "caf6553bb005f3647a3d67dfe706f40e2b07f8d6586e77dabdaee1d3796c6448"
+    },
+    "Art/Models/JigKit/renders/JigPirk/front.png": {
+      "bytes": 338615,
+      "sha256": "bf266788e8cd340a1e7af9218cf5dd049023400751e37ca44122b61cee78a963"
+    },
+    "Art/Models/JigKit/renders/JigPirk/right.png": {
+      "bytes": 334211,
+      "sha256": "86dec6943c9be7a7a900528d3bde9aee351b8425bcef8ccbb1351b3c8dca4c1f"
+    },
+    "Art/Models/JigKit/renders/JigPirk/three-quarter.png": {
+      "bytes": 348540,
+      "sha256": "84e096aa5662ced0bde651cac63a8573791f3afece8e722c6b6c107cdefd264f"
+    },
+    "Art/Models/JigKit/renders/JigPirk/top.png": {
+      "bytes": 357680,
+      "sha256": "02520ca043f1b87f27b7e0f7672d88a2623a16a7f2454f54d856c043350e886d"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/Sway-0.png": {
+      "bytes": 336357,
+      "sha256": "c6859fb0b7c478b61d68f01d3f552a688a9c004a0ff4052989e12782b1c77b0d"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/Sway-1.png": {
+      "bytes": 335202,
+      "sha256": "ec3edd6067173f39d6d0b199aabb49a966f32e84e77665dc6f5407308545e173"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/Sway-2.png": {
+      "bytes": 336286,
+      "sha256": "7323188f9b570919b1d65275e7df4aa915c4d894c900087eab343f2c820b41de"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/Sway-3.png": {
+      "bytes": 336231,
+      "sha256": "10fd384734777af2442f40647df6ab2561b152b58d044616a02e78eab638dd9a"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/Sway-4.png": {
+      "bytes": 336332,
+      "sha256": "44785e49837fdb75938da930ac1ef413ae1a75897e0643a7fd8fb65920366858"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/back.png": {
+      "bytes": 336231,
+      "sha256": "aa56021dbd76b306729b469eb6f5df77e9a509f26dc80c62a004d636a34e3aa6"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/front.png": {
+      "bytes": 336230,
+      "sha256": "10c449e7ee72dea31d847390fa985c41eda008705f3bc673cde060c39f18ff3e"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/right.png": {
+      "bytes": 333477,
+      "sha256": "8f8b2f085c1af443d99f594597cd3526c1554d2b498f82f04e89cdcd1a3fe57c"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/three-quarter.png": {
+      "bytes": 336930,
+      "sha256": "1654187ca2e082d93424f4f7c220fe8684ac3533d9ddcb00e679f3a3cead009e"
+    },
+    "Art/Models/JigKit/renders/KelpStrand/top.png": {
+      "bytes": 342180,
+      "sha256": "2e0f3047ca52fee3643eb4d914663b9458bc69edc7a9fd1b4dc3b6ee7a486d89"
+    },
+    "Art/Models/JigKit/renders/MoteCloud/back.png": {
+      "bytes": 332449,
+      "sha256": "3b3e0ffb8ee84994604fa6dbc6696b2ad60e7ce7b2ad1dade588c9ec064d6de4"
+    },
+    "Art/Models/JigKit/renders/MoteCloud/front.png": {
+      "bytes": 332672,
+      "sha256": "bec01450cc21f6a5987f32b708c1d407b113efacd94341dc19263d8def4d2458"
+    },
+    "Art/Models/JigKit/renders/MoteCloud/right.png": {
+      "bytes": 333467,
+      "sha256": "00111d57375c892bdd8fa051de514f3632ee770eaff2a41ed37235d2de5d72b2"
+    },
+    "Art/Models/JigKit/renders/MoteCloud/three-quarter.png": {
+      "bytes": 331503,
+      "sha256": "d34b1bf615f1de905086533c05d6d3a15ecf933c3e9d32b9968a2e3600df7664"
+    },
+    "Art/Models/JigKit/renders/MoteCloud/top.png": {
+      "bytes": 332982,
+      "sha256": "c8dfa3304a5203044ef9d61e43d9e96f97cd07a30a5ab29cf6eba6f0a26a080e"
+    },
+    "Art/Models/JigKit/renders/SeabedRocks/back.png": {
+      "bytes": 342191,
+      "sha256": "63b1f2b42f82780d167910935722aa1ca9abfeb6d5563bbca1a41d1c0a4e04e3"
+    },
+    "Art/Models/JigKit/renders/SeabedRocks/front.png": {
+      "bytes": 336812,
+      "sha256": "a7d3d519af38292920be37d8463905e65e544eed10056c754b81f73635f5af7f"
+    },
+    "Art/Models/JigKit/renders/SeabedRocks/right.png": {
+      "bytes": 337134,
+      "sha256": "c797c0de3111288cae7a83f09800decccc8ea1b12952003ff0d526c63f31e291"
+    },
+    "Art/Models/JigKit/renders/SeabedRocks/three-quarter.png": {
+      "bytes": 360074,
+      "sha256": "13223934081ee70f42113db009f23ce4f564eec2274ee157403350f01aa848db"
+    },
+    "Art/Models/JigKit/renders/SeabedRocks/top.png": {
+      "bytes": 361487,
+      "sha256": "0c40bb84a3ffe21c7bdda70b24dd684f448218d4e52248284a48506b3e5d5f28"
+    },
+    "Art/Models/JigKit/renders/manifest.json": {
+      "bytes": 8541,
+      "sha256": "ce3d8c15f13b78344ef82cf19abbafdcfaea58ee970e4cf750ba7c791f141637"
+    },
+    "Art/Models/JigKit/visual-review.json": {
+      "bytes": 17830,
+      "sha256": "a0ffbe29826de88132bc044cad1bd3af4473a391b3a24306ba1628fc1d13cac4"
+    },
+    "Art/Source/JigKit/JigKit-audit.log": {
+      "bytes": 293,
+      "sha256": "aebf985a669d5c07ae1e87d4d551f1a111f90636b85ff1f3edad7bec8089050d"
+    },
+    "Art/Source/JigKit/JigKit-build.log": {
+      "bytes": 368,
+      "sha256": "077557c7fefe3c7cec203cf1e3935ea5a384ab6abc9792f849a62ddfd7351119"
+    },
+    "Art/Source/JigKit/JigKit-compare_rocks-rocks.log": {
+      "bytes": 396,
+      "sha256": "ebbaa30ddae0337c1ac31d1e604593732aeb6c62f3e7c58a6012fc958914dca8"
+    },
+    "Art/Source/JigKit/JigKit-render-motes.log": {
+      "bytes": 1269,
+      "sha256": "71cbfcc74ceae8d30ab9d8f6034ccecad08e5ab33ef481c99c171684708ad8ec"
+    },
+    "Art/Source/JigKit/JigKit-render-rocks.log": {
+      "bytes": 1279,
+      "sha256": "cc3370c4f6b2701ebdb3623269188bae4e193a6ff945c6f15ba2bf1811e1b7a2"
+    },
+    "Art/Source/JigKit/JigKit-render.log": {
+      "bytes": 4879,
+      "sha256": "b610ebc8efc57fac6e9db7facc0854641eb9d9b0a57d2ed8cd05ddeb38d66f8d"
+    },
+    "Art/Source/JigKit/RepairKit-audit.log": {
+      "bytes": 303,
+      "sha256": "1b8b600115ed510a8691d64900e2c6b94b25806d65c5ac1d695c36175acbf101"
+    },
+    "Art/Source/JigKit/RepairKit-build.log": {
+      "bytes": 335,
+      "sha256": "9a5201b29c9cf1c1c68df60860fc5136271b40062489a01c43bcad4c8ea01865"
+    },
+    "Art/Source/JigKit/RepairKit-render.log": {
+      "bytes": 3167,
+      "sha256": "609053fec2d62aa826b10d2b54b132446a5e47e9a86d0c880cb36ee545eb3ee9"
+    },
+    "Art/Source/JigKit/audit.py": {
+      "bytes": 4362,
+      "sha256": "1f83f9925675598d284338f06d14780a6685922ebc38a058648e1469088ab6ad"
+    },
+    "Art/Source/JigKit/build.py": {
+      "bytes": 11345,
+      "sha256": "3fcd3eb7593a5dcf829d9aed2c69829173b1fd9ae576b6a894da3170fe598eba"
+    },
+    "Art/Source/JigKit/compare_rocks.py": {
+      "bytes": 2079,
+      "sha256": "de39db7ad8e3fc6874688f710c0f4e8f7b8daa523b2e724d4e70d30004f1f735"
+    },
+    "Art/Source/JigKit/document.py": {
+      "bytes": 7829,
+      "sha256": "16c5310a99a413ee607b469094d46fade187222b0127a5b65ca31ab1949c2ef1"
+    },
+    "Art/Source/JigKit/finalize.py": {
+      "bytes": 2859,
+      "sha256": "b244641db938085f6670e21dc6e4947910230c4caf0356d18063c559b80193f8"
+    },
+    "Art/Source/JigKit/render.py": {
+      "bytes": 5266,
+      "sha256": "58234b5b5a5681d04265377df132a21f7852409e3af521e949e056707c5d54d6"
+    },
+    "Art/Source/JigKit/run.py": {
+      "bytes": 689,
+      "sha256": "3d83bec7397e44dd3c7d8778eff918699c1537e602e373ef3ee685a3e8a2a7fa"
+    },
+    "Art/Source/RepairKit/README.md": {
+      "bytes": 260,
+      "sha256": "0699c604f7dceca52e840b704aeb8f0810585b5d14bd6871cbb939101a7bdafa"
+    }
+  }
+}

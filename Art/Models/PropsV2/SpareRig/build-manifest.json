@@ -1,0 +1,77 @@
+{
+  "name": "SpareRig",
+  "revision": "r03",
+  "kind": "mesh",
+  "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+  "provenance": [
+    {
+      "file": "Art/Source/Art108/build_stations.py",
+      "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+      "purpose": "read-only chunky primitive/palette reference"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.2607277035713196,
+      -0.14800000190734863,
+      0.0
+    ],
+    [
+      0.2607277035713196,
+      0.14800000190734863,
+      0.11400000005960464
+    ]
+  ],
+  "triangles": 1714,
+  "mesh_parts": {
+    "SpoolCore": 60,
+    "SpoolFlange": 60,
+    "SpoolFlange.001": 60,
+    "SpareLineWrap": 296,
+    "SpareLineWrap.001": 296,
+    "SpareLineWrap.002": 296,
+    "SpareLineWrap.003": 296,
+    "SpoolAxle": 44,
+    "LooseRigLine": 56,
+    "RigSwivel": 28,
+    "OpenHook": 212,
+    "HookPoint": 10
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "floor/contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "SpareRig.blend": "c7e05a0765b5db0764856c04ca2b5c53954b913006586d2233c4967c2d65ccd9",
+    "SpareRig.fbx": "035f72199bb58a632090079694aa20ef44cbf0cc24eade79bda71e30b99fe682"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_SpareRig.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/SpareRig/iterations/r03/back.png",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/front.png",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/left.png",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/right.png",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/three-quarter.png",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/top.png"
+  ]
+}

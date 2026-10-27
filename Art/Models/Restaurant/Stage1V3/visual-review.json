@@ -1,0 +1,315 @@
+{
+  "owner": "Codex 2 (WSL CLI)",
+  "task": "RESTAURANT-LOOK-DETAIL-3",
+  "all_listed_images_actually_opened": true,
+  "review_method": "Actual view_image opens of all final PNGs during this task; source comparisons and per-character side/meal frames inspected. Hash inventory records observed versions, not automated visual acceptance.",
+  "native_unity_acceptance": false,
+  "images": [
+    {
+      "path": "Stage1V3/renders/camera-comparison.png",
+      "sha256": "4a13dfb14f98118ef668c67216181c1f5d86f6de6c89f27f494feb2f4b1703c7",
+      "resolution": [
+        1440,
+        508
+      ],
+      "finding": "Opened camera comparison: perspective chosen for visible furniture fronts/faces; orthographic alternative is more diagrammatic."
+    },
+    {
+      "path": "Stage1V3/renders/camera-ortho.png",
+      "sha256": "fa7d1e7d80dbdbcb47befbba167b801a0ae43e6aeab570813b9cbec490f37828",
+      "resolution": [
+        1440,
+        900
+      ],
+      "finding": "Opened camera comparison: perspective chosen for visible furniture fronts/faces; orthographic alternative is more diagrammatic."
+    },
+    {
+      "path": "Stage1V3/renders/camera-persp.png",
+      "sha256": "2e8c323d1f3a1be88531eaf967d1c4c9121dc73eee431adf61b35c3918e4cb2b",
+      "resolution": [
+        1440,
+        900
+      ],
+      "finding": "Opened camera comparison: perspective chosen for visible furniture fronts/faces; orthographic alternative is more diagrammatic."
+    },
+    {
+      "path": "Stage1V3/renders/compare-service-desktop.png",
+      "sha256": "e9dc4ce7b943d52374ac39c68c3606d20d7cc8f110d2d91ef5bf7ba2e8cef7ec",
+      "resolution": [
+        2880,
+        954
+      ],
+      "finding": "Opened side by side: warm service room and quay populated; accepted illustration remains richer, less regular and differently cropped. Source HUD absent from actual geometry proof."
+    },
+    {
+      "path": "Stage1V3/renders/compare-service-phone.png",
+      "sha256": "5ddf15f5fa5af9dbf8744efa87377ebe3efe6232087319d2bed79b0a43b48f2f",
+      "resolution": [
+        1688,
+        444
+      ],
+      "finding": "Opened side by side: warm service room and quay populated; accepted illustration remains richer, less regular and differently cropped. Source HUD absent from actual geometry proof."
+    },
+    {
+      "path": "Stage1V3/renders/room-1440x900.png",
+      "sha256": "b421754db94e679678c9f583795f18e85afd2a787feeda6daf4865b2d59e3630",
+      "resolution": [
+        1440,
+        900
+      ],
+      "finding": "Opened final populated proof: corrected four-seat guest positions, visible warm kitchen/diners/Mira/right queue; full phone quay framing makes room smaller than source illustration."
+    },
+    {
+      "path": "Stage1V3/renders/room-844x390.png",
+      "sha256": "0ea1bbf908213bf9c9465828e3983880d2818eb0c04f23c2517193c379e29432",
+      "resolution": [
+        844,
+        390
+      ],
+      "finding": "Opened final populated proof: corrected four-seat guest positions, visible warm kitchen/diners/Mira/right queue; full phone quay framing makes room smaller than source illustration."
+    },
+    {
+      "path": "Stage1V3/renders/room-ortho-1440x900.png",
+      "sha256": "ed6108ab3db2479d48af3691138da9ff404f71aebecb5a3aa8ce037df558ef96",
+      "resolution": [
+        1440,
+        900
+      ],
+      "finding": "Opened final populated proof: corrected four-seat guest positions, visible warm kitchen/diners/Mira/right queue; full phone quay framing makes room smaller than source illustration."
+    },
+    {
+      "path": "Guests/renders/Guest_Ada-eat.png",
+      "sha256": "5c36d4e61ffb66b91a5f0d0ba7ec206330347e639fa5856ee2c6c32570fd6538",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Ada-idle.png",
+      "sha256": "c0d26d19d01fc38133c8528792ca2ab4d39e78c7eac4391098b09418cbd46119",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Ada-sit-side.png",
+      "sha256": "93d78f397d19eecfefb6d05ccf3eca68ed4a43425b2fed57d92a666ef6943a00",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Ada-sit.png",
+      "sha256": "cfba9fb38de2a085b745ca6a13b681c8b6b054a2d4ed4567f78b3d7ef7e981e5",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Ben-eat.png",
+      "sha256": "01da0ca8bf6e08bf83e4a122cef8474d79984163e8623fe4bf25eabc9075eb7a",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Ben-idle.png",
+      "sha256": "7cdbb8248160ad935e47c74150bb15bf38273e08d6361f0f8dda8d169b1b310d",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Ben-sit-side.png",
+      "sha256": "6aec3a029f110a3bc60720c261d0e4864c5f670e8116bfa09387bb6c212f000c",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Ben-sit.png",
+      "sha256": "ac783044f5958cd047aedc48e552154413fce2a97629f900e75fb454a3170b28",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Cora-eat.png",
+      "sha256": "ef928b67dc9a6f66bc45b9d800ea9dff625bedad897e28bb2f486a0fdac3bbc6",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Cora-idle.png",
+      "sha256": "6f167b49f40fa4a9276e762e82b8cd93f07b51683714f0d8f83513c99bd5c144",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Cora-sit-side.png",
+      "sha256": "973f57486148a8f42646a3f84bbfccd23a5af17c3eaa11da65971b5db117e35e",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Cora-sit.png",
+      "sha256": "2e802d5f2c858144014eabeb56971d52228737ab5b23a56946893edc95d22eb9",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Dan-eat.png",
+      "sha256": "16417d62f6bf646e8e3364e615cfc998bf2d53978eccd80c5c3fce2fcdd73bf6",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Dan-idle.png",
+      "sha256": "db7738804e4781020284f8e57586d10eb237a4cdad33eccb6777471660c38727",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Dan-sit-side.png",
+      "sha256": "a8a3995d56659caf4b2bda13071fecce5dd7956b12f47a68669e37f15c58ae64",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Dan-sit.png",
+      "sha256": "13eb6a0c920a67a66fdae7c8d2c80b423bc7cf34e7a067cce780aed596b39a92",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Edda-eat.png",
+      "sha256": "bb0e1c80bcbe2d29c0f730636a12c7ee38113c72cd0b1e9fd5fefb1b5dea44c7",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Edda-idle.png",
+      "sha256": "bfc6164df0f4be8036aa931524a6a5547740ffb0cedd13af7ac8f3f2fedee80d",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Edda-sit-side.png",
+      "sha256": "147ee9073de65bc0f2a95f89d954c82782939fb6777fa7a8e86a7af357da7029",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Edda-sit.png",
+      "sha256": "dac9e197ec92ac0e399b49ba65c57e446bd398a4e49feeef3005591e4583fd01",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Finn-eat.png",
+      "sha256": "1b35dd480e076774f53c033b639c8845e2316f75ab6e880a61eee1b5b5f59a19",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/Guest_Finn-idle.png",
+      "sha256": "9ecd3790538f947243ea7ac2d01bec73c33f6b4da18fbd22c00d7614245fc9f8",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Finn-sit-side.png",
+      "sha256": "d294499fe742965f608c848ef6df431207ba6c31f38f2f152914554342d4201b",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/Guest_Finn-sit.png",
+      "sha256": "f7cf44637bed57319359b46421df27e22ed71b3fea62d486b5fc854fb9f368bf",
+      "resolution": [
+        360,
+        440
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    },
+    {
+      "path": "Guests/renders/guests-eat-sheet.png",
+      "sha256": "83925fe93c4d12aa3e3957f3ed99e49f50ea3c5299c09e2fde24f939f067e6ad",
+      "resolution": [
+        1080,
+        932
+      ],
+      "finding": "Opened: low-poly crew proportions, varied palette/hair, no visible mesh tearing; bare-hand Eat gesture and shared body proportions remain limits."
+    },
+    {
+      "path": "Guests/renders/guests-idle-sheet.png",
+      "sha256": "f720ccdfb113200434f73d7e74c24133332c9e020240c1e8d97c661ce68a2bd7",
+      "resolution": [
+        1080,
+        932
+      ],
+      "finding": "Opened: front/rest or seated side silhouette coherent; hands and clothing remain simple crew-style geometry."
+    }
+  ]
+}

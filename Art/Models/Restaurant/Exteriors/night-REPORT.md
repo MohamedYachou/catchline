@@ -1,0 +1,11 @@
+# Restaurant exteriors — evening materials
+
+The same four RestaurantExterior_Cafe/Bistro/Restaurant/SeafoodHouse.fbx exports now include opaque `Restaurant_Exterior_Atlas_Night` variants. Production mesh names, every vertex/face/transform/UV/color, room-footprint origin and stage progression geometry remain identical to the sealed daytime models. Fresh-import comparison against all four prechange exports passes (`night-geometry-audit.json`). Standard fresh mesh/bounds/UV audit also passes (`validation.json`). FBX UnitScaleFactor100 verified for all four via binary metadata, exact Stage1V4 FBX_SCALE_UNITS / LINEAR / -Z,Y export flags.
+
+The original day material remains in each FBX on walls/roofs/dressing. Window/door and practical-light meshes use the `_Night` material by default; `night-materials.json` lists their day/night assignments and practical-light positions. Only the atlas glow mask emits, strength6 instead of daytime2.5: no transparent halos, extra presentation mesh or geometry duplication. Window panes, lanterns and festoon bulbs glow. Warm review point lights pool onto the terraces; the recipe lists positions [x,z,-y], remembering the imported Unity X mirror is lead-managed.
+
+`night-renders/` contains four 1440x900 harbour-camera proofs; each has a packed <Stage>-Harbour-Night-check.blend. `exteriors-night-review.jpg` combines the four views. The accepted neighbouring HouseA and review quay/water are camera-scale witnesses only and are excluded from all FBX exports. Cafe keeps its small lantern-lit frontage; later stages add their existing terrace strings and table lanterns.
+
+Claude must implement native day/night material switching and practical-light intensities from the recipe. Blender powers are not Unity intensity values. No runtime acceptance claimed; no Assets/code/git changes, no commit. Daytime E review images remain unchanged; the new night seal supersedes the E FBX hashes because materials changed. Canonical additive re-export is night-build.py on the packed sources; historical build.py rebuilds the daytime base.
+
+Compressed day-geometry baselines are retained as `*-day-geometry.json.gz`; the preservation audit can be rerun after removal of the temporary FBX/blend backups.

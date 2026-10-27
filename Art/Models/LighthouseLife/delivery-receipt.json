@@ -1,0 +1,339 @@
+{
+  "task": "LIGHTHOUSE-LIFE-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "triangles": {
+      "Puffin": 310,
+      "PuffinGroup": 974,
+      "TideRace": 168,
+      "LighthouseGlow": 64
+    },
+    "reviewed_pngs": 32,
+    "local_report_links": 54,
+    "unchanged_dependencies": 10,
+    "limits": "Blender source/actual-FBX, two looping surface animations and individually opened isolated evidence only; native Unity/Legacy/shader/map/HUD acceptance external."
+  },
+  "dependencies_sha256": {
+    "Art/Source/build_crab_coast_props.py": "9e2777768d83eb475d772d848cc126fc200dcd8151ea3ec1308655163cf0f697",
+    "Art/Source/Skerries/render.py": "ad11e34628955b03c254312e0a0ed32705d31063cd7bf7dc4832eda2ab3df0a5",
+    "Art/Source/HarbourV2/audit.py": "b9b6de86b6333677562672a8afcbe39fbad5dea652704a08f6d89bfe8cedc258",
+    "Art/Source/WreckLife/build.py": "a6391edc86448763b0e1e4461e613aab25854a7cd3e3e0afc714bbae48d7f0f5",
+    "Art/Source/WreckLife/audit.py": "b7c06d07ded8363355249034153e3e8a80f1cc0d8801a2b7fed7d4f14d930cff",
+    "Art/Source/WreckLife/render.py": "71da0d7941a4cf4658b82a32c1d9785808ba29984b8f6c98ccc97136537c493c",
+    "Art/STYLE.md": "a9a70f24a1ac27a2e923a1851c37d57d71e8927712cf3006a6b34e12abc7e4fb",
+    "PRODUCT.md": "dc89641008211180c477d973f6a0e9b9840a604922cc663a62bfc1d9ee4f671b",
+    "DESIGN.md": "8aeac2ae4b377ea5d4d247ca638f26b21b0be4b7d2c444dd8bf0df52be7b88cb",
+    "docs/briefs/LIGHTHOUSE-LIFE-1.txt": "9e219a3d747c4775426d167ad4b1a951d7352ab9ca5e7c0310967e956e8d5b32"
+  },
+  "files": {
+    "Art/Models/LighthouseLife/LighthouseGlow.blend": {
+      "bytes": 89304,
+      "sha256": "85fa5babb444e04dcdae50316b925e69c0bc94189a803ff783c64ea856ddbad5"
+    },
+    "Art/Models/LighthouseLife/LighthouseGlow.fbx": {
+      "bytes": 20652,
+      "sha256": "3d92eed658bb30a7364160f215c97c3331bd05bb8b83cee08213cf2eb844f5fe"
+    },
+    "Art/Models/LighthouseLife/LighthouseLife-assembly-review.blend": {
+      "bytes": 117701,
+      "sha256": "2dd1818bc41cc011d1749411501988564617dc5a3d974e90266ac9a28d3a3cfe"
+    },
+    "Art/Models/LighthouseLife/Puffin.blend": {
+      "bytes": 110342,
+      "sha256": "28e4c41ded3692eff162290ce84fdc86088631e7bbe068e161de05411055dae1"
+    },
+    "Art/Models/LighthouseLife/Puffin.fbx": {
+      "bytes": 134156,
+      "sha256": "7c4eb22c38badafbc46522c91564e6138c3b2be2360756bb386ab913a1b7478c"
+    },
+    "Art/Models/LighthouseLife/PuffinGroup.blend": {
+      "bytes": 106567,
+      "sha256": "04a01545efa2b91a81c1e198ef484b690b0a81a14c5035b023210dbba8831d57"
+    },
+    "Art/Models/LighthouseLife/PuffinGroup.fbx": {
+      "bytes": 38348,
+      "sha256": "e5a2cdd2ec82375f523539b0faeba223d3671ec33599796f804534a4218b2370"
+    },
+    "Art/Models/LighthouseLife/REPORT.md": {
+      "bytes": 9318,
+      "sha256": "dbfadc9c3a9f03774d594356895e0fb4103c1b5ac45989f7dff9ebc31e612bba"
+    },
+    "Art/Models/LighthouseLife/TideRace.blend": {
+      "bytes": 94229,
+      "sha256": "fd42ee175b5201bd96d629c04aac9f170c3240b14689eca0a69cec0e74861f82"
+    },
+    "Art/Models/LighthouseLife/TideRace.fbx": {
+      "bytes": 22988,
+      "sha256": "e675b83c987405fe0d620ce053c6d02bc19b3e28b02303eb97befc91eec25335"
+    },
+    "Art/Models/LighthouseLife/metrics/LighthouseGlow-audit.json": {
+      "bytes": 1926,
+      "sha256": "beee87a4d0c720e8de95e28b8bf2d6ef94695b0d9d9c64e7a1e57d6d7e1f96ed"
+    },
+    "Art/Models/LighthouseLife/metrics/LighthouseGlow-build.json": {
+      "bytes": 1308,
+      "sha256": "89e98281150b9c13ed320aba566175a3e92636d5e6ad7e59ca876918db64625a"
+    },
+    "Art/Models/LighthouseLife/metrics/Puffin-audit.json": {
+      "bytes": 7645,
+      "sha256": "28a56361b11fe3336fab1b4821aa00da32f0e968703bf291683e362f19cc47b3"
+    },
+    "Art/Models/LighthouseLife/metrics/Puffin-build.json": {
+      "bytes": 1505,
+      "sha256": "103136d139583c25c4cd1d4849026a5946e43f2ba0658728c336d367644040c0"
+    },
+    "Art/Models/LighthouseLife/metrics/PuffinGroup-audit.json": {
+      "bytes": 2512,
+      "sha256": "2120bc9c00a9317b8c3bb09a6e8dd474fec5291a3d228d9ef32a47b4163570ae"
+    },
+    "Art/Models/LighthouseLife/metrics/PuffinGroup-build.json": {
+      "bytes": 1200,
+      "sha256": "330c0e971c5e79252137540a0a72e81c6183d920b846ac9fc8bd1bc433f15259"
+    },
+    "Art/Models/LighthouseLife/metrics/TideRace-audit.json": {
+      "bytes": 1843,
+      "sha256": "b344a6ddfc5d1a610f10495216526fbbe2405680bfe8d195eeb12f8c8ab8422c"
+    },
+    "Art/Models/LighthouseLife/metrics/TideRace-build.json": {
+      "bytes": 1165,
+      "sha256": "17232659209863ec3967aca702335304d945edcc559f6934ba5af92013aea408"
+    },
+    "Art/Models/LighthouseLife/metrics/dependencies.json": {
+      "bytes": 989,
+      "sha256": "5e05696a9522939115f9e27a4b4f34c0d6ab7e29f37424227ecb02b9ea786aaf"
+    },
+    "Art/Models/LighthouseLife/renders/Assembly/deck-1440.png": {
+      "bytes": 1296242,
+      "sha256": "fc8a99c896e8968131337c770b97186c0ac1d20e15abdc4d2dd24d703dec7b9f"
+    },
+    "Art/Models/LighthouseLife/renders/Assembly/deck-844.png": {
+      "bytes": 353313,
+      "sha256": "1e030847ffa9eab5f4c6333ac591bff6b8545d9ab715b7460df6b3495e37694b"
+    },
+    "Art/Models/LighthouseLife/renders/Assembly.json": {
+      "bytes": 1401,
+      "sha256": "33f67747325c48bfbde3643368cce0dd298169bbeef94bd9f52c7f86e47b33c8"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow/back.png": {
+      "bytes": 411696,
+      "sha256": "5f0db4580713105becb537263dd799c1cc4d0a13da351b7e1709bdbbfa6bf877"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow/front.png": {
+      "bytes": 411349,
+      "sha256": "154ecd7f64f7590c38efbbc530f2ecb13c470d02bc2ee5bef842ad1a1cb70bce"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow/right.png": {
+      "bytes": 416737,
+      "sha256": "5e0e66649e4ccc19b81051e3252868597ca3197e1d39deb078b12c9f4ecb3246"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow/three-quarter.png": {
+      "bytes": 425007,
+      "sha256": "01b5dac59b33fa04d5301d4f4735761497b1df3189a907b9cc0ee36cd3800581"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow/top.png": {
+      "bytes": 417528,
+      "sha256": "610cdb7b8e03e27460aa2533600dfdadc5ae3001e05a4aa450aec91ea0ce3479"
+    },
+    "Art/Models/LighthouseLife/renders/LighthouseGlow.json": {
+      "bytes": 825,
+      "sha256": "efe3cdf6ef6d5839a3bb263ef208203f8749e28e44002c085a15cbc204a5178b"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Flap-0.png": {
+      "bytes": 325898,
+      "sha256": "d0dc97e30359f9fc3928c087aff429341ee391d81016ef78e4034eadb15c4ad0"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Flap-1.png": {
+      "bytes": 323535,
+      "sha256": "b1bc5185bca15b7512bdd5554540814d0fd275a4f097caab63c63069e1ac4eac"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Flap-2.png": {
+      "bytes": 326162,
+      "sha256": "548450006bd90ae654c67ca79141ebac95e1572c777949219bbc07dca2d8173c"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Flap-3.png": {
+      "bytes": 323825,
+      "sha256": "8035e028b185dd4805d6583a698751c7e111cfdb5191e8dcb55c48772b694414"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Flap-4.png": {
+      "bytes": 326223,
+      "sha256": "07495ef47b9271a9ed0a1e73b613c3a26a028846c4c4c9375710108b99ad1912"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Idle-0.png": {
+      "bytes": 322006,
+      "sha256": "b02b685405712e7e7a22eb8a616edb224b7065441d9a70d0cc4a92b066c6239f"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Idle-1.png": {
+      "bytes": 321346,
+      "sha256": "ae4491e58db79b28d9d0cf8eadcf550b1518e8f0b077afd9785b56a5d2dd79c7"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Idle-2.png": {
+      "bytes": 321789,
+      "sha256": "8558a5ea6aa3f6c49c37a844d1b51349bdc3f2b107626c58c5c449f2efc01842"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Idle-3.png": {
+      "bytes": 323128,
+      "sha256": "a8d92c31a242b49c56b6cef4324f0466c0d84660c25f5ac05f74e6b241ae7b86"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/action-Idle-4.png": {
+      "bytes": 322015,
+      "sha256": "da368f358febdfd27b23b26c7cd7dd13f6bea5e45012a5615c5f0ba5fbce845c"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/back.png": {
+      "bytes": 438603,
+      "sha256": "b6eeeaa575f19d749ad318761ad46e41383af10ace6bd3bbd178beffb2f42819"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/front.png": {
+      "bytes": 441311,
+      "sha256": "52c7df362aba97773fc2aa17b73b50b46bcf2bfc7665c7990ce1b3dd888922cb"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/right.png": {
+      "bytes": 436256,
+      "sha256": "5d2971d088fa245319a6ac275bcc6e972fcf25f92bd4b91aad76e83e3e99d235"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/three-quarter.png": {
+      "bytes": 455433,
+      "sha256": "38c92d845d17a9659cf97c7f30665e2df7fd23741b1217c62f2cf9ef4a6bf436"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin/top.png": {
+      "bytes": 435189,
+      "sha256": "e6b0dd0bf52b9e960ba8934a3e8186bd1ccd0e52caf61cd7d97fc94cbf550939"
+    },
+    "Art/Models/LighthouseLife/renders/Puffin.json": {
+      "bytes": 2781,
+      "sha256": "84ae1c643d8a0958914254cd554258847a790c77f7b7cd5df203bbeb9aa71bf2"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup/back.png": {
+      "bytes": 435296,
+      "sha256": "c8b93e8e36ddc69ec4be57591dcea11103b73e96b28bcce2a6e34212ec3e6623"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup/front.png": {
+      "bytes": 434520,
+      "sha256": "b5942d2b775f9498415192a2941c12cf77747aceef11417bdc39d47c7f4bc42a"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup/right.png": {
+      "bytes": 449767,
+      "sha256": "a53c599c4b393e62a5a6597da8b3972203f8b9db31459aebf6e04544f931187e"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup/three-quarter.png": {
+      "bytes": 461387,
+      "sha256": "eda367fe2a269f845b0023ea808a7f02ba86f2f74f2a27c41c83775bd8ce1222"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup/top.png": {
+      "bytes": 446161,
+      "sha256": "61495ba1f36d75af45c038562433d28741dcf7be0bd563b628491dfe40fef2ea"
+    },
+    "Art/Models/LighthouseLife/renders/PuffinGroup.json": {
+      "bytes": 810,
+      "sha256": "29ca7cc4716761c6e7e8f312e0628afe93ffaa98d6c20cb77149e954b0eebbc1"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace/back.png": {
+      "bytes": 416529,
+      "sha256": "70f3d82b732f4d826da56a9c78520509a54637f0e6afc69f241d2e309d731c32"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace/front.png": {
+      "bytes": 411933,
+      "sha256": "2335aff3d951cc63e473991e965392f5ed944ef6097198ac8d3413bb7c6eac43"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace/right.png": {
+      "bytes": 419540,
+      "sha256": "e0c7feee38125b90ac7362a37adcafee06f64c22928acf5e4210ca57fb2b6064"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace/three-quarter.png": {
+      "bytes": 440846,
+      "sha256": "a46ec9555afa1d392a8ee5a47d5efb3cd89c8f90e566c0df842c52ec3c493432"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace/top.png": {
+      "bytes": 440991,
+      "sha256": "7c2de5c842eb2a34b40e7bf030bc12d4a7b0549046532939964a9418f2055cbc"
+    },
+    "Art/Models/LighthouseLife/renders/TideRace.json": {
+      "bytes": 795,
+      "sha256": "18a7e1135c63b242293a951ad0a93839538a5ede6348daff85909893f5564f17"
+    },
+    "Art/Models/LighthouseLife/visual-review.json": {
+      "bytes": 18828,
+      "sha256": "931bde3a1e861bde24859d1cea290d6121db402df2448865f629855b1f1cbe8f"
+    },
+    "Art/Source/LighthouseLife/Assembly-render.log": {
+      "bytes": 584,
+      "sha256": "204766c851c266cdeece8d3752ee907fb2953a4fdf7bb9af796e89b87005ac8b"
+    },
+    "Art/Source/LighthouseLife/LighthouseGlow-audit.log": {
+      "bytes": 323,
+      "sha256": "c0aa4121526ebb1fd60b3836ddc8cee59dbc569061df5be86f14772287bcc553"
+    },
+    "Art/Source/LighthouseLife/LighthouseGlow-build.log": {
+      "bytes": 624,
+      "sha256": "ba5c8064293cbba1a7b343e8b4a55dbc87a2f5427088b534b98f61ab29f8d8e0"
+    },
+    "Art/Source/LighthouseLife/LighthouseGlow-render.log": {
+      "bytes": 1066,
+      "sha256": "9a98ddfbc2bf9b42d7808391b1d2b220dbb199ed2fa1f80b7bd8c3c7fbc7de2c"
+    },
+    "Art/Source/LighthouseLife/Puffin-audit.log": {
+      "bytes": 308,
+      "sha256": "dfdb64a337b3aa172f3c138d4ea9c17483eb97fd105fa56d5b5549e97d6f9212"
+    },
+    "Art/Source/LighthouseLife/Puffin-build.log": {
+      "bytes": 385,
+      "sha256": "99193ef51057293abea8284dee0d885f3aed5c1c6fb86802d1c6df4dc2e1ec6f"
+    },
+    "Art/Source/LighthouseLife/Puffin-render.log": {
+      "bytes": 2331,
+      "sha256": "92a132ef90be9dae768da7457bd599caa18625f3619fe36bc125d1a3ddfd415b"
+    },
+    "Art/Source/LighthouseLife/PuffinGroup-audit.log": {
+      "bytes": 318,
+      "sha256": "f7de6f23ec1cc7760042c61a051c8d4fb22b50426fb62a3420b301ee4255255c"
+    },
+    "Art/Source/LighthouseLife/PuffinGroup-build.log": {
+      "bytes": 352,
+      "sha256": "ccbc0f0c7adad4adde2be100d342cb1542bc8b03294d41269fd91a02800003ce"
+    },
+    "Art/Source/LighthouseLife/PuffinGroup-render.log": {
+      "bytes": 1045,
+      "sha256": "5364b72c043e0b31ed9d5c015f5cc1efd995244cad615cad85f444b4e6421ab1"
+    },
+    "Art/Source/LighthouseLife/TideRace-audit.log": {
+      "bytes": 312,
+      "sha256": "fed99e43f7d92331c19a9e90fd5ffa88b61129906239ee867fa82cf5391bf635"
+    },
+    "Art/Source/LighthouseLife/TideRace-build.log": {
+      "bytes": 343,
+      "sha256": "16b40bfefe256e3e8559727137901afc51944dec1906d31d4df50b81c418a0ac"
+    },
+    "Art/Source/LighthouseLife/TideRace-render.log": {
+      "bytes": 1024,
+      "sha256": "f6c7cb796f67200f653144810415fa9d9f608f3404d858dbaba5dbc6337f90ae"
+    },
+    "Art/Source/LighthouseLife/audit.py": {
+      "bytes": 6359,
+      "sha256": "06db4b5514ab9c58a7ee443f40f96b290ede37aeaf248e0159dfa92c6395349a"
+    },
+    "Art/Source/LighthouseLife/build.py": {
+      "bytes": 13922,
+      "sha256": "7a9d7c83f8d623312babe76d8d5fe7391e38d3dc18a5ce7a2bf6c1933f4709ad"
+    },
+    "Art/Source/LighthouseLife/document.py": {
+      "bytes": 7436,
+      "sha256": "e0e722a2766a59f1f0eb9e1d29059a3ce0212c005c6e301333e5c7f331bf7bbf"
+    },
+    "Art/Source/LighthouseLife/finalize.py": {
+      "bytes": 6373,
+      "sha256": "358b9e09b15c042bc8c90c3bd80779376b302f33412cf157cac392fb4662bc80"
+    },
+    "Art/Source/LighthouseLife/render.py": {
+      "bytes": 6471,
+      "sha256": "52c6b81837ffcf57112773599647e25131acff45964b304f850596e0cec1985e"
+    },
+    "Art/Source/LighthouseLife/review.py": {
+      "bytes": 2056,
+      "sha256": "1e0cf32bc056a1b777cd0b29cb0033e6b6345758da0a73cfea0cce3833e3cfca"
+    },
+    "Art/Source/LighthouseLife/run.py": {
+      "bytes": 825,
+      "sha256": "6bfbfe5ba03bb1f68824bb8850a34afacf919d0d26120592f09b45d39f87f889"
+    }
+  }
+}

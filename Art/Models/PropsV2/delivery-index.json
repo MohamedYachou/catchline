@@ -1,0 +1,648 @@
+{
+  "schema": "catchline.propsv2.delivery.v1",
+  "items": [
+    {
+      "name": "JigRig",
+      "plan": "A5",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_JigRig.fbx",
+      "runtime_sha256": "180b30d00b0c498fb4bbbc4f6141c6d42fc775425b533fbb480d2ea98a60243c",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "rail clamp contact",
+      "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference.",
+      "checks": 321,
+      "provenance": [
+        {
+          "file": "Art/Source/Art108/build_stations.py",
+          "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+          "purpose": "read-only chunky primitive/palette reference"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/JigRig/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/JigRig/iterations/r01/back.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/front.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/left.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/night-context.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/right.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/JigRig/iterations/r01/top.png"
+      ],
+      "triangles": 2116,
+      "parts": 34,
+      "bounds_source_m": [
+        [
+          -0.3160000145435333,
+          -0.47927144169807434,
+          0.0
+        ],
+        [
+          0.13699999451637268,
+          0.11100000143051147,
+          1.1556532382965088
+        ]
+      ],
+      "max_vertex_error_m": 2.1542358837725164e-07,
+      "max_part_pivot_error_m": 1.4901161193847656e-07
+    },
+    {
+      "name": "SpareRig",
+      "plan": "A5",
+      "revision": "r03",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_SpareRig.fbx",
+      "runtime_sha256": "035f72199bb58a632090079694aa20ef44cbf0cc24eade79bda71e30b99fe682",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "floor/contact",
+      "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+      "checks": 124,
+      "provenance": [
+        {
+          "file": "Art/Source/Art108/build_stations.py",
+          "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+          "purpose": "read-only chunky primitive/palette reference"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/SpareRig/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/SpareRig/iterations/r03/back.png",
+        "Art/Models/PropsV2/SpareRig/iterations/r03/front.png",
+        "Art/Models/PropsV2/SpareRig/iterations/r03/left.png",
+        "Art/Models/PropsV2/SpareRig/iterations/r03/right.png",
+        "Art/Models/PropsV2/SpareRig/iterations/r03/three-quarter.png",
+        "Art/Models/PropsV2/SpareRig/iterations/r03/top.png"
+      ],
+      "triangles": 1714,
+      "parts": 12,
+      "bounds_source_m": [
+        [
+          -0.2607277035713196,
+          -0.14800000190734863,
+          0.0
+        ],
+        [
+          0.2607277035713196,
+          0.14800000190734863,
+          0.11400000005960464
+        ]
+      ],
+      "max_vertex_error_m": 2.6863450374185958e-08,
+      "max_part_pivot_error_m": 1.759543444279643e-08
+    },
+    {
+      "name": "LanternOilCan",
+      "plan": "A5",
+      "revision": "r03",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_LanternOilCan.fbx",
+      "runtime_sha256": "7ff723d2fa523af8fba3c188963aaedd831929e0f03db9a8a4a5cc99558802dd",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "floor/contact",
+      "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+      "checks": 124,
+      "provenance": [
+        {
+          "file": "Art/Source/Art108/build_stations.py",
+          "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+          "purpose": "read-only chunky primitive/palette reference"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/LanternOilCan/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/back.png",
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/front.png",
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/left.png",
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/right.png",
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/three-quarter.png",
+        "Art/Models/PropsV2/LanternOilCan/iterations/r03/top.png"
+      ],
+      "triangles": 914,
+      "parts": 12,
+      "bounds_source_m": [
+        [
+          -0.178083598613739,
+          -0.07999999821186066,
+          0.0
+        ],
+        [
+          0.178083598613739,
+          0.07999999821186066,
+          0.4188677668571472
+        ]
+      ],
+      "max_vertex_error_m": 7.210536109012275e-08,
+      "max_part_pivot_error_m": 6.565824151039124e-08
+    },
+    {
+      "name": "DeckLightPool",
+      "plan": "A5",
+      "revision": "r01",
+      "kind": "RGBA effect",
+      "runtime_file": "Assets/Art/Models/PropsV2/DeckLightPool.png",
+      "runtime_sha256": "46734ea8012e29572bbcacdd56c99a830a90e23c2d4a8f5a11f4af5ef4d1db91",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "placement": "Single station soft warm deck light pool, 1m suggested diameter, centre pivot. Alpha blended/emissive material binding by code owner.",
+      "origin": "Named effect design derivative; PNG plus editable SVG.",
+      "checks": 11,
+      "provenance": [
+        {
+          "file": "Art/Source/Art108/build_effects.py",
+          "sha256": "6263c29539af17d3df68dcfed226bf58c6ea71b3a63618fa4f6210b9d847d332",
+          "purpose": "read-only existing named effect design"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/DeckLightPool/review-sheet.png",
+      "render_files": [],
+      "logical_size": [
+        256,
+        256
+      ],
+      "alpha_max": 0.6470588445663452
+    },
+    {
+      "name": "JellyfishClump",
+      "plan": "A6",
+      "revision": "r02",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_JellyfishClump.fbx",
+      "runtime_sha256": "f7a8a0a5cdd434fac2a8ec6d773f68b5d120d8b24c005a877f840a96a01efa61",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "floor/contact",
+      "origin": "Reuses named StationsV1 geometry; adds visible rope landing net. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+      "checks": 358,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/JellyfishClump.blend",
+          "sha256": "f6cf0df1e11d6bd6e4452c0b82bcea36b079823b3349c470bd4f75fadd37eee7",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/JellyfishClump/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/back.png",
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/front.png",
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/left.png",
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/right.png",
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/three-quarter.png",
+        "Art/Models/PropsV2/JellyfishClump/iterations/r02/top.png"
+      ],
+      "triangles": 4168,
+      "parts": 38,
+      "bounds_source_m": [
+        [
+          -0.5720000267028809,
+          -0.4440000057220459,
+          0.0
+        ],
+        [
+          0.5719999670982361,
+          0.4440000057220459,
+          0.35227975249290466
+        ]
+      ],
+      "max_vertex_error_m": 8.429369702178807e-08,
+      "max_part_pivot_error_m": 4.470348358154297e-08
+    },
+    {
+      "name": "FlyingFishEvent",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_FlyingFishEvent.fbx",
+      "runtime_sha256": "ac1a4c044a92cfbfb403a49e5477daa16cd89c30edbbca694897a3d8216af036",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "airborne centre",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+      "checks": 33,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/FlyingFishEvent.blend",
+          "sha256": "8a6080e991be5b4cb0af90483dd6d0d50fd466cd7c8b4ed672b89bcfdeaf4666",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/FlyingFishEvent/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/back.png",
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/front.png",
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/left.png",
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/right.png",
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/top.png"
+      ],
+      "triangles": 908,
+      "parts": 2,
+      "bounds_source_m": [
+        [
+          -0.2319999784231186,
+          -0.19200000166893005,
+          -0.08800001442432404
+        ],
+        [
+          0.2319999784231186,
+          0.2319999784231186,
+          0.09600000083446503
+        ]
+      ],
+      "max_vertex_error_m": 4.712160915387242e-08,
+      "max_part_pivot_error_m": 0
+    },
+    {
+      "name": "GullSwoop",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_GullSwoop.fbx",
+      "runtime_sha256": "10bfffdacc45fb98dca2c2a4dbaab1ec800ce7aef018c7631ea4def526942ac9",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "airborne centre",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+      "checks": 42,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/GullSwoop.blend",
+          "sha256": "130a1169ba90a54c8c7fc88666c1b11fb9ec531016309ecd3ef7d2dd6607c933",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/GullSwoop/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/back.png",
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/front.png",
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/left.png",
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/right.png",
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/GullSwoop/iterations/r01/top.png"
+      ],
+      "triangles": 632,
+      "parts": 3,
+      "bounds_source_m": [
+        [
+          -0.45320677757263184,
+          -0.19999998807907104,
+          0.11999999731779099
+        ],
+        [
+          0.45320677757263184,
+          0.20000001788139343,
+          0.3400000035762787
+        ]
+      ],
+      "max_vertex_error_m": 7.450580596923828e-08,
+      "max_part_pivot_error_m": 3.5390257835388184e-08
+    },
+    {
+      "name": "SealHead",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_SealHead.fbx",
+      "runtime_sha256": "f94214f5ebc51375d964365134fc13c9c0575939e82cdba0533474cb56db7205",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "waterline",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+      "checks": 96,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/SealHead.blend",
+          "sha256": "5e0d05cacf1455242e50d0ded86d1b87177aaa4b87df1cef35e45e5e7e2de8dc",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/SealHead/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/SealHead/iterations/r01/back.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/front.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/left.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/right.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/top.png",
+        "Art/Models/PropsV2/SealHead/iterations/r01/waterline-context.png"
+      ],
+      "triangles": 776,
+      "parts": 9,
+      "bounds_source_m": [
+        [
+          -0.2506295442581177,
+          -0.35100001096725464,
+          -0.09000000357627869
+        ],
+        [
+          0.2506295442581177,
+          0.27000001072883606,
+          0.3700000047683716
+        ]
+      ],
+      "max_vertex_error_m": 8.429369702178807e-08,
+      "max_part_pivot_error_m": 5.960464477539063e-08
+    },
+    {
+      "name": "DolphinFin",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_DolphinFin.fbx",
+      "runtime_sha256": "ac4d65a9ce7bdba2aff4f21dbea60bad1306aecb104be1cec2cedb005e8b26c6",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "waterline",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+      "checks": 33,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/DolphinFin.blend",
+          "sha256": "d0ab05ffe87d62b36750999c100b367401ee2742013505da258f23b8d4c63a0f",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/DolphinFin/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/back.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/front.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/left.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/right.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/top.png",
+        "Art/Models/PropsV2/DolphinFin/iterations/r01/waterline-context.png"
+      ],
+      "triangles": 132,
+      "parts": 2,
+      "bounds_source_m": [
+        [
+          -0.2199999988079071,
+          -0.3400000035762787,
+          -0.04500000178813934
+        ],
+        [
+          0.2199999988079071,
+          0.3400000035762787,
+          0.46000000834465027
+        ]
+      ],
+      "max_vertex_error_m": 7.450580596923828e-08,
+      "max_part_pivot_error_m": 4.0730170347558214e-09
+    },
+    {
+      "name": "InspectorLaunch",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_InspectorLaunch.fbx",
+      "runtime_sha256": "ce003ca99fac8ff8cdf053943774c2992427a16edc4832dbf882abd451364d15",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "waterline",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+      "checks": 96,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/InspectorLaunch.blend",
+          "sha256": "ffca4c1ded2b7b87019adc0e4025c2a1fbea8fd63b27a36ccdcfd68f45f80e3f",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/InspectorLaunch/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/back.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/front.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/left.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/right.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/top.png",
+        "Art/Models/PropsV2/InspectorLaunch/iterations/r01/waterline-context.png"
+      ],
+      "triangles": 644,
+      "parts": 9,
+      "bounds_source_m": [
+        [
+          -0.5799999833106995,
+          -1.4500000476837158,
+          -0.25
+        ],
+        [
+          0.5799999833106995,
+          1.5099999904632568,
+          1.2699999809265137
+        ]
+      ],
+      "max_vertex_error_m": 5.527507362065139e-07,
+      "max_part_pivot_error_m": 2.2351741790771484e-07
+    },
+    {
+      "name": "RivalBoat",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_RivalBoat.fbx",
+      "runtime_sha256": "685e1d870790c4af707a6d955acef6f79c98bcb5693b0b1ffe748956d07473b7",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "inherited rowboat deck centre; suggested waterline Z=-0.32m",
+      "origin": "Reuses the existing red rowboat model; no invented rival hull.",
+      "checks": 105,
+      "provenance": [
+        {
+          "file": "Assets/Art/Models/Harbour/Rowboat_VariantRed.fbx",
+          "sha256": "dee4e5c5b397eec9caeb2040256d0d8f9af2be25de410578eeeae0bbfb007f1c",
+          "purpose": "existing named rival-boat derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/RivalBoat/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/back.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/front.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/left.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/right.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/top.png",
+        "Art/Models/PropsV2/RivalBoat/iterations/r01/waterline-context.png"
+      ],
+      "triangles": 1790,
+      "parts": 10,
+      "bounds_source_m": [
+        [
+          -2.259999990463257,
+          -2.142500162124634,
+          -0.450000137090683
+        ],
+        [
+          2.259999990463257,
+          2.142500162124634,
+          0.5700001120567322
+        ]
+      ],
+      "max_vertex_error_m": 4.172325134277344e-07,
+      "max_part_pivot_error_m": 1.4901161193847656e-07
+    },
+    {
+      "name": "SquallOverlay",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "RGBA effect",
+      "runtime_file": "Assets/Art/Models/PropsV2/SquallOverlay.png",
+      "runtime_sha256": "c875e51a7d701a24278bb07b28d736ab08664822334838ad1c1fc9a89aeb5983",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "placement": "Transparent rain-streak sprite; scroll/crossfade during existing Squall event. No scene dimming or flashing baked in.",
+      "origin": "Named effect design derivative; PNG plus editable SVG.",
+      "checks": 9,
+      "provenance": [
+        {
+          "file": "Art/Source/Art108/build_effects.py",
+          "sha256": "6263c29539af17d3df68dcfed226bf58c6ea71b3a63618fa4f6210b9d847d332",
+          "purpose": "read-only existing named effect design"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/SquallOverlay/review-sheet.png",
+      "render_files": [],
+      "logical_size": [
+        1024,
+        512
+      ],
+      "alpha_max": 0.22352942824363708
+    },
+    {
+      "name": "OffalPile",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_OffalPile.fbx",
+      "runtime_sha256": "e9dcd96a3d98fea588fc9a11d225e73489e5d1a1e1fba17e3db4563bf58d1732",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "floor/contact",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+      "checks": 79,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/OffalPile.blend",
+          "sha256": "75a3b49761141ffe73ae683bf5313e474ea2d26cdb6206afeb926d74d26452e8",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/OffalPile/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/OffalPile/iterations/r01/back.png",
+        "Art/Models/PropsV2/OffalPile/iterations/r01/front.png",
+        "Art/Models/PropsV2/OffalPile/iterations/r01/left.png",
+        "Art/Models/PropsV2/OffalPile/iterations/r01/right.png",
+        "Art/Models/PropsV2/OffalPile/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/OffalPile/iterations/r01/top.png"
+      ],
+      "triangles": 840,
+      "parts": 7,
+      "bounds_source_m": [
+        [
+          -0.1524375081062317,
+          -0.1139688566327095,
+          0.0
+        ],
+        [
+          0.1524375081062317,
+          0.1139688491821289,
+          0.07999999821186066
+        ]
+      ],
+      "max_vertex_error_m": 2.6863450374185958e-08,
+      "max_part_pivot_error_m": 1.1175870895385742e-08
+    },
+    {
+      "name": "TableEel",
+      "plan": "A6",
+      "revision": "r01",
+      "kind": "mesh",
+      "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_TableEel.fbx",
+      "runtime_sha256": "a9c2e4bf3966b4176360f5bb01447e134862218371b1e6dd3be76d44f81553b0",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "placement": "floor/contact",
+      "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+      "checks": 52,
+      "provenance": [
+        {
+          "file": "Art/Models/StationsV1/TableEel.blend",
+          "sha256": "a8f98454e6cc7edef8a7e92b3746fdc528924acd62c11400fe58a55989e1c6a5",
+          "purpose": "existing named A6 geometry derivative"
+        }
+      ],
+      "review_sheet": "Art/Models/PropsV2/TableEel/review-sheet.png",
+      "render_files": [
+        "Art/Models/PropsV2/TableEel/iterations/r01/back.png",
+        "Art/Models/PropsV2/TableEel/iterations/r01/front.png",
+        "Art/Models/PropsV2/TableEel/iterations/r01/left.png",
+        "Art/Models/PropsV2/TableEel/iterations/r01/right.png",
+        "Art/Models/PropsV2/TableEel/iterations/r01/three-quarter.png",
+        "Art/Models/PropsV2/TableEel/iterations/r01/top.png"
+      ],
+      "triangles": 948,
+      "parts": 4,
+      "bounds_source_m": [
+        [
+          -0.30091774463653564,
+          -0.19200938940048218,
+          0.0
+        ],
+        [
+          0.30091774463653564,
+          0.19200938940048218,
+          0.10000000149011612
+        ]
+      ],
+      "max_vertex_error_m": 3.332000937312528e-08,
+      "max_part_pivot_error_m": 1.4901161193847656e-08
+    }
+  ],
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "native_acceptance": "Not tested; art only, no Unity/code writes."
+}

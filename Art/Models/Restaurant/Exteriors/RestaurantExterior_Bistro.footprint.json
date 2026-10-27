@@ -1,0 +1,89 @@
+{
+  "stage": 2,
+  "name": "Bistro",
+  "tiles": [
+    10,
+    5
+  ],
+  "tile_m": 1,
+  "origin": "room footprint centre; floor contact Blender Z0 / Unity Y0",
+  "facade_blender_direction": [
+    0,
+    1,
+    0
+  ],
+  "facade_unity_direction": [
+    0,
+    0,
+    -1
+  ],
+  "unity_local_rotation_euler": [
+    0,
+    0,
+    0
+  ],
+  "room_bounds_blender_m": [
+    [
+      -5.0,
+      -2.5,
+      0
+    ],
+    [
+      5.0,
+      2.5,
+      0
+    ]
+  ],
+  "terrace_overhang_depth_m": 2.5,
+  "terrace_front_blender_y_m": 5.0,
+  "quay_placement_unity_example_m": [
+    0,
+    0.35,
+    4.95
+  ],
+  "placement_note": "Example centre Z4.95 puts facade at Unity Z2.45 near water edge2.3; terrace projects toward negativeZ/water. Choose free corner slot; not an instruction to overlap existing houses.",
+  "lamp_positions_blender_m": [
+    [
+      -4.55,
+      2.98,
+      1.85
+    ],
+    [
+      4.55,
+      2.98,
+      1.85
+    ],
+    [
+      -4.041666666666666,
+      4.85,
+      2.2071779055671934
+    ],
+    [
+      -2.425,
+      4.85,
+      2.0637258300203047
+    ],
+    [
+      -0.8083333333333327,
+      4.85,
+      1.980903735587498
+    ],
+    [
+      0.8083333333333336,
+      4.85,
+      1.980903735587498
+    ],
+    [
+      2.425,
+      4.85,
+      2.0637258300203047
+    ],
+    [
+      4.041666666666666,
+      4.85,
+      2.2071779055671934
+    ]
+  ],
+  "axis_conversion": "[x,z,-y]",
+  "harbour_comparison": "HouseA3x2.6x3.6m and HouseB3.4x2.8x3.9m; restaurant is 8-14m wide joined row, 5.3m main ridge"
+}

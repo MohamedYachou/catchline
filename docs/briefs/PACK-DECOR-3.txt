@@ -1,0 +1,46 @@
+PACK-DECOR-3 — harbour / bistro wall & floor dressing (Codex 1, Windows)
+
+WHY
+Mo 10-27: the restaurant uses the free CC0 packs with everything fixed-placed, and "we need a
+whole bunch of assets" so each night's room looks rich and characterful. You built the furniture
+(PACK-ITEMS-1) and dishes (PACK-DISHES-1); Codex 2 is building glowing light fixtures
+(PACK-DECOR-2). This brief adds a set of HARBOUR / BISTRO dressing pieces a player buys to make
+the room feel like a real seaside restaurant. Claude just rebuilt the room's look (evening grade,
+real shadows, deep dusk sea, bloom; commit 5352e7e, docs/screens/restaurant-mood/r155) so warm,
+characterful dressing now pays off.
+
+OWN (source only, no Assets / no game code / no git — Claude imports and wires, exactly as PACK-ITEMS/DISHES/DECOR-1):
+  Art/Models/Restaurant/Pack/decor2/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first for the proven pattern, conventions and camera you already used:
+  docs/briefs/PACK-ITEMS-1.txt and docs/briefs/PACK-DECOR-1.txt
+  Art/Models/Restaurant/Pack/decor/REPORT.md   (Codex 2's PACK-DECOR-1 delivery — match its contract)
+DO NOT touch Pack/lights/ (Codex 2 owns it this run) or re-open the accepted furniture/dishes/decor.
+
+BUILD these stems (new, distinct from existing props; one Unity FBX each, drop-in):
+  ShipWheel        wall-mounted ship's wheel, brass + warm wood                 (wall, front -Z)
+  PortholeMirror   round brass porthole mirror                                  (wall)
+  LifeRing         navy/cream life ring with rope                               (wall)
+  WindowFlowerBox  planter box of flowers to sit under a window                 (wall, ~1 m wide)
+  WelcomeMat       woven floor mat, navy/cream border                          (floor, 1.0 x 0.6 m along +X)
+  HangingHerbs     a rail with bunches of dried herbs / garlic / chillies       (wall)
+  BarBottleShelf   wall back-bar shelf with bottles and a few glasses           (wall, ~1 m wide)
+  ReedVase         tall ceramic floor vase with dried reeds / pampas            (floor)
+
+CONVENTIONS (identical to PACK-ITEMS-1 / PACK-DECOR-1): Unity Y-up, 1 unit = 1 m. Floor pieces pivot
+at the floor-footprint centre; wall pieces pivot at the wall-contact plane, front facing -Z, hung
+~1.4-1.8 m; footprint 1x1 m unless noted. Root transform identity, axis conversion baked, atlas png
+beside the FBX, built from KayKit Restaurant/Furniture Bits + Kenney furniture on the Catchline
+atlases (Art/Models/Restaurant/Pack/*.png: restaurantbits_texture-catchline.png,
+furniturebits_texture-catchline.png, food-colormap-catchline.png). Warm wood + navy/teal + cream +
+brass palette, no diner-orange. Exact same exporter call as the accepted Pack FBXs (apply_unit_scale,
+FBX_SCALE_UNITS, axis_forward=-Z, axis_up=Y, colors_type LINEAR).
+
+EVIDENCE: a contact render of all eight at the game camera (pitch 38 / yaw 2) on a 1 m grid
+(decor2-contact.jpg + an 844-wide phone overview), a one-line note per piece (size, wall/floor,
+which pack models it combines), plus the same audits PACK-DECOR-1 produced (fbx-transform, geometry,
+mesh, preservation). REPORT.md in Art/Models/Restaurant/Pack/decor2/.
+
+RULES: fresh session, no memory — your state is comms.md, your CHECKPOINT lines and the files on disk.
+Keep working until your budget runs out; never stop to ask (write QUESTION lines in comms.md).
+CHECKPOINT per 4 pieces. When the eight are delivered and audited: DONE in comms.md, then IDLE.
+No Assets, no code, no git.

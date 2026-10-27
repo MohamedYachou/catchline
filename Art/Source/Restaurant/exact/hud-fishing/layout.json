@@ -1,0 +1,628 @@
+[
+  {
+    "screen": "phone",
+    "canvas": [
+      844,
+      390
+    ],
+    "concept": "Art/Source/Restaurant/concepts/ui-v3-17-hud-fishing.png",
+    "sourceCanvas": [
+      1920,
+      1080
+    ],
+    "placements": [
+      {
+        "name": "v3-hud-fishing-status-panel",
+        "rect": [
+          15,
+          9,
+          227,
+          137
+        ],
+        "use": "v3-hud-fishing-status-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-status-cooler",
+        "rect": [
+          32,
+          38,
+          19,
+          14
+        ],
+        "use": "v3-hud-fishing-status-cooler",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-food",
+        "rect": [
+          32,
+          56,
+          19,
+          13
+        ],
+        "use": "v3-hud-fishing-status-food",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-bait",
+        "rect": [
+          33,
+          72,
+          18,
+          14
+        ],
+        "use": "v3-hud-fishing-status-bait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-rod",
+        "rect": [
+          33,
+          88,
+          18,
+          14
+        ],
+        "use": "v3-hud-fishing-status-rod",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-fish",
+        "rect": [
+          32,
+          107,
+          19,
+          12
+        ],
+        "use": "v3-hud-fishing-status-fish",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-goal",
+        "rect": [
+          33,
+          123,
+          18,
+          15
+        ],
+        "use": "v3-hud-fishing-status-goal",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-meter-track",
+        "rect": [
+          141,
+          40,
+          84,
+          10
+        ],
+        "use": "cooler-track",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-meter-cooler-fill",
+        "rect": [
+          141,
+          42,
+          48,
+          8
+        ],
+        "use": "cooler-sample-fill",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-meter-track",
+        "rect": [
+          141,
+          58,
+          84,
+          10
+        ],
+        "use": "food-track",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-meter-food-fill",
+        "rect": [
+          141,
+          59,
+          58,
+          8
+        ],
+        "use": "food-sample-fill",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-wallet",
+        "rect": [
+          696,
+          7,
+          138,
+          30
+        ],
+        "use": "v3-hud-fishing-wallet",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-wallet-coin",
+        "rect": [
+          697,
+          8,
+          33,
+          27
+        ],
+        "use": "v3-hud-fishing-wallet-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-home-button",
+        "rect": [
+          697,
+          40,
+          138,
+          32
+        ],
+        "use": "v3-hud-fishing-home-button",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-home-anchor",
+        "rect": [
+          707,
+          45,
+          25,
+          21
+        ],
+        "use": "v3-hud-fishing-home-anchor",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-bubble-fish",
+        "rect": [
+          279,
+          109,
+          79,
+          36
+        ],
+        "use": "v3-hud-fishing-bubble-fish",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-fish-icon",
+        "rect": [
+          288,
+          113,
+          18,
+          17
+        ],
+        "use": "v3-hud-fishing-fish-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-bubble-carry",
+        "rect": [
+          482,
+          174,
+          87,
+          36
+        ],
+        "use": "v3-hud-fishing-bubble-carry",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-carry-icon",
+        "rect": [
+          491,
+          181,
+          22,
+          12
+        ],
+        "use": "v3-hud-fishing-carry-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-crew-captain-card",
+        "rect": [
+          15,
+          290,
+          225,
+          38
+        ],
+        "use": "v3-hud-fishing-crew-captain-card",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-crew-captain-portrait",
+        "rect": [
+          20,
+          274,
+          53,
+          51
+        ],
+        "use": "v3-hud-fishing-crew-captain-portrait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-crew-sam-card",
+        "rect": [
+          15,
+          337,
+          225,
+          39
+        ],
+        "use": "v3-hud-fishing-crew-sam-card",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-crew-sam-portrait",
+        "rect": [
+          24,
+          326,
+          44,
+          46
+        ],
+        "use": "v3-hud-fishing-crew-sam-portrait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-strike-panel",
+        "rect": [
+          264,
+          265,
+          316,
+          114
+        ],
+        "use": "v3-hud-fishing-strike-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-strike-water",
+        "rect": [
+          271,
+          288,
+          303,
+          67
+        ],
+        "use": "v3-hud-fishing-strike-water",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-fishing-strike-track",
+        "rect": [
+          294,
+          358,
+          255,
+          12
+        ],
+        "use": "v3-hud-fishing-strike-track",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-strike-timer-fill",
+        "rect": [
+          295,
+          358,
+          169,
+          10
+        ],
+        "use": "v3-hud-fishing-strike-timer-fill",
+        "z": 16
+      }
+    ],
+    "coordinateSpace": "top-left device pixels",
+    "adaptation": "Measured source boxes mapped independently to requested frame axes; preserves concept composition. Device layouts are source proposals, not native captures."
+  },
+  {
+    "screen": "desktop",
+    "canvas": [
+      1440,
+      900
+    ],
+    "concept": "Art/Source/Restaurant/concepts/ui-v3-17-hud-fishing.png",
+    "sourceCanvas": [
+      1920,
+      1080
+    ],
+    "placements": [
+      {
+        "name": "v3-hud-fishing-status-panel",
+        "rect": [
+          26,
+          22,
+          388,
+          316
+        ],
+        "use": "v3-hud-fishing-status-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-status-cooler",
+        "rect": [
+          55,
+          88,
+          32,
+          32
+        ],
+        "use": "v3-hud-fishing-status-cooler",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-food",
+        "rect": [
+          55,
+          129,
+          33,
+          31
+        ],
+        "use": "v3-hud-fishing-status-food",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-bait",
+        "rect": [
+          56,
+          167,
+          32,
+          32
+        ],
+        "use": "v3-hud-fishing-status-bait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-rod",
+        "rect": [
+          56,
+          204,
+          31,
+          33
+        ],
+        "use": "v3-hud-fishing-status-rod",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-fish",
+        "rect": [
+          55,
+          247,
+          32,
+          27
+        ],
+        "use": "v3-hud-fishing-status-fish",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-status-goal",
+        "rect": [
+          56,
+          283,
+          32,
+          35
+        ],
+        "use": "v3-hud-fishing-status-goal",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-meter-track",
+        "rect": [
+          240,
+          93,
+          143,
+          23
+        ],
+        "use": "cooler-track",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-meter-cooler-fill",
+        "rect": [
+          241,
+          96,
+          82,
+          18
+        ],
+        "use": "cooler-sample-fill",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-meter-track",
+        "rect": [
+          240,
+          133,
+          143,
+          22
+        ],
+        "use": "food-track",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-meter-food-fill",
+        "rect": [
+          241,
+          136,
+          98,
+          18
+        ],
+        "use": "food-sample-fill",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-wallet",
+        "rect": [
+          1188,
+          16,
+          236,
+          69
+        ],
+        "use": "v3-hud-fishing-wallet",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-wallet-coin",
+        "rect": [
+          1190,
+          18,
+          57,
+          63
+        ],
+        "use": "v3-hud-fishing-wallet-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-home-button",
+        "rect": [
+          1189,
+          93,
+          236,
+          74
+        ],
+        "use": "v3-hud-fishing-home-button",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-home-anchor",
+        "rect": [
+          1206,
+          103,
+          43,
+          49
+        ],
+        "use": "v3-hud-fishing-home-anchor",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-bubble-fish",
+        "rect": [
+          476,
+          251,
+          134,
+          84
+        ],
+        "use": "v3-hud-fishing-bubble-fish",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-fish-icon",
+        "rect": [
+          492,
+          261,
+          32,
+          38
+        ],
+        "use": "v3-hud-fishing-fish-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-bubble-carry",
+        "rect": [
+          822,
+          402,
+          148,
+          84
+        ],
+        "use": "v3-hud-fishing-bubble-carry",
+        "z": 10
+      },
+      {
+        "name": "v3-hud-fishing-carry-icon",
+        "rect": [
+          837,
+          417,
+          37,
+          28
+        ],
+        "use": "v3-hud-fishing-carry-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-crew-captain-card",
+        "rect": [
+          25,
+          670,
+          384,
+          88
+        ],
+        "use": "v3-hud-fishing-crew-captain-card",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-crew-captain-portrait",
+        "rect": [
+          34,
+          632,
+          90,
+          118
+        ],
+        "use": "v3-hud-fishing-crew-captain-portrait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-crew-sam-card",
+        "rect": [
+          25,
+          778,
+          384,
+          89
+        ],
+        "use": "v3-hud-fishing-crew-sam-card",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-crew-sam-portrait",
+        "rect": [
+          40,
+          753,
+          76,
+          107
+        ],
+        "use": "v3-hud-fishing-crew-sam-portrait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-fishing-strike-panel",
+        "rect": [
+          451,
+          611,
+          539,
+          262
+        ],
+        "use": "v3-hud-fishing-strike-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-fishing-strike-water",
+        "rect": [
+          462,
+          665,
+          518,
+          154
+        ],
+        "use": "v3-hud-fishing-strike-water",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-fishing-strike-track",
+        "rect": [
+          502,
+          825,
+          436,
+          27
+        ],
+        "use": "v3-hud-fishing-strike-track",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-fishing-strike-timer-fill",
+        "rect": [
+          503,
+          826,
+          288,
+          23
+        ],
+        "use": "v3-hud-fishing-strike-timer-fill",
+        "z": 16
+      }
+    ],
+    "coordinateSpace": "top-left device pixels",
+    "adaptation": "Measured source boxes mapped independently to requested frame axes; preserves concept composition. Device layouts are source proposals, not native captures."
+  }
+]

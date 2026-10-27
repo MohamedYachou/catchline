@@ -1,0 +1,687 @@
+{
+  "name": "InspectorLaunch",
+  "revision": "r01",
+  "delivery_sha256": {
+    "InspectorLaunch.blend": "c295d153b085c2e9b711439208b1135337f8acc27f13dd4da029175f90d39242",
+    "InspectorLaunch.fbx": "ce003ca99fac8ff8cdf053943774c2992427a16edc4832dbf882abd451364d15"
+  },
+  "runtime_sha256": "ce003ca99fac8ff8cdf053943774c2992427a16edc4832dbf882abd451364d15",
+  "checks": [
+    "current delivery SHA256 InspectorLaunch.blend",
+    "current delivery SHA256 InspectorLaunch.fbx",
+    "protected reference unchanged Art/Models/StationsV1/InspectorLaunch.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry InspectorHull",
+    "finite vertices InspectorHull",
+    "nonempty geometry WorkingDeck",
+    "finite vertices WorkingDeck",
+    "nonempty geometry IvoryRail",
+    "finite vertices IvoryRail",
+    "nonempty geometry IvoryRail.001",
+    "finite vertices IvoryRail.001",
+    "nonempty geometry SmallConsole",
+    "finite vertices SmallConsole",
+    "nonempty geometry Windshield",
+    "finite vertices Windshield",
+    "nonempty geometry Mast",
+    "finite vertices Mast",
+    "nonempty geometry AmberBeacon",
+    "finite vertices AmberBeacon",
+    "nonempty geometry Outboard",
+    "finite vertices Outboard",
+    "source bounds manifest current",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry AmberBeacon",
+    "finite vertices AmberBeacon",
+    "nonempty geometry InspectorHull",
+    "finite vertices InspectorHull",
+    "nonempty geometry IvoryRail",
+    "finite vertices IvoryRail",
+    "nonempty geometry IvoryRail.001",
+    "finite vertices IvoryRail.001",
+    "nonempty geometry Mast",
+    "finite vertices Mast",
+    "nonempty geometry Outboard",
+    "finite vertices Outboard",
+    "nonempty geometry SmallConsole",
+    "finite vertices SmallConsole",
+    "nonempty geometry Windshield",
+    "finite vertices Windshield",
+    "nonempty geometry WorkingDeck",
+    "finite vertices WorkingDeck",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions InspectorHull",
+    "actual FBX part origin preserved InspectorHull",
+    "actual FBX triangle count InspectorHull",
+    "actual FBX face materials InspectorHull",
+    "actual FBX material slots InspectorHull",
+    "actual FBX every world vertex both directions WorkingDeck",
+    "actual FBX part origin preserved WorkingDeck",
+    "actual FBX triangle count WorkingDeck",
+    "actual FBX face materials WorkingDeck",
+    "actual FBX material slots WorkingDeck",
+    "actual FBX every world vertex both directions IvoryRail",
+    "actual FBX part origin preserved IvoryRail",
+    "actual FBX triangle count IvoryRail",
+    "actual FBX face materials IvoryRail",
+    "actual FBX material slots IvoryRail",
+    "actual FBX every world vertex both directions IvoryRail.001",
+    "actual FBX part origin preserved IvoryRail.001",
+    "actual FBX triangle count IvoryRail.001",
+    "actual FBX face materials IvoryRail.001",
+    "actual FBX material slots IvoryRail.001",
+    "actual FBX every world vertex both directions SmallConsole",
+    "actual FBX part origin preserved SmallConsole",
+    "actual FBX triangle count SmallConsole",
+    "actual FBX face materials SmallConsole",
+    "actual FBX material slots SmallConsole",
+    "actual FBX every world vertex both directions Windshield",
+    "actual FBX part origin preserved Windshield",
+    "actual FBX triangle count Windshield",
+    "actual FBX face materials Windshield",
+    "actual FBX material slots Windshield",
+    "actual FBX every world vertex both directions Mast",
+    "actual FBX part origin preserved Mast",
+    "actual FBX triangle count Mast",
+    "actual FBX face materials Mast",
+    "actual FBX material slots Mast",
+    "actual FBX every world vertex both directions AmberBeacon",
+    "actual FBX part origin preserved AmberBeacon",
+    "actual FBX triangle count AmberBeacon",
+    "actual FBX face materials AmberBeacon",
+    "actual FBX material slots AmberBeacon",
+    "actual FBX every world vertex both directions Outboard",
+    "actual FBX part origin preserved Outboard",
+    "actual FBX triangle count Outboard",
+    "actual FBX face materials Outboard",
+    "actual FBX material slots Outboard",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 644,
+  "mesh_count": 9,
+  "source_parts": {
+    "InspectorHull": {
+      "triangles": 36,
+      "bounds": [
+        [
+          -0.5799999833106995,
+          -1.4500000476837158,
+          -0.25
+        ],
+        [
+          0.5799999833106995,
+          1.25,
+          0.11999999731779099
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 36
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "WorkingDeck": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.46000000834465027,
+          -1.0700000524520874,
+          0.10999999940395355
+        ],
+        [
+          0.46000000834465027,
+          1.0700000524520874,
+          0.17000000178813934
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 108
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.14000000059604645
+      ]
+    },
+    "IvoryRail": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.5550000667572021,
+          -0.8999999761581421,
+          0.25499990582466125
+        ],
+        [
+          -0.4849998950958252,
+          1.0,
+          0.3250000774860382
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.5199999809265137,
+        0.050000011920928955,
+        0.28999999165534973
+      ]
+    },
+    "IvoryRail.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.4849998950958252,
+          -0.8999999761581421,
+          0.25499990582466125
+        ],
+        [
+          0.5550000667572021,
+          1.0,
+          0.3250000774860382
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.5199999809265137,
+        0.050000011920928955,
+        0.28999999165534973
+      ]
+    },
+    "SmallConsole": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.25,
+          0.2199999839067459,
+          0.16999998688697815
+        ],
+        [
+          0.25,
+          0.6200000047683716,
+          0.7100000381469727
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.41999998688697815,
+        0.4399999976158142
+      ]
+    },
+    "Windshield": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.30000001192092896,
+          0.2524999976158142,
+          0.675000011920929
+        ],
+        [
+          0.30000001192092896,
+          0.3075000047683716,
+          0.9449999928474426
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.2800000011920929,
+        0.8100000023841858
+      ]
+    },
+    "Mast": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.023000000044703484,
+          0.5870000123977661,
+          0.7200000286102295
+        ],
+        [
+          0.023000000044703484,
+          0.6330000162124634,
+          1.2000000476837158
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.6100000143051147,
+        0.9600000381469727
+      ]
+    },
+    "AmberBeacon": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.05999999865889549,
+          0.550000011920929,
+          1.190000057220459
+        ],
+        [
+          0.05999999865889549,
+          0.6700000166893005,
+          1.2699999809265137
+        ]
+      ],
+      "material_triangles": {
+        "M_OilskinYellow": 44
+      },
+      "material_colours": {
+        "M_OilskinYellow": [
+          0.7912979125976562,
+          0.41788506507873535,
+          0.039546236395835876,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.6100000143051147,
+        1.2300000190734863
+      ]
+    },
+    "Outboard": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.1599999964237213,
+          1.2300000190734863,
+          -0.12999999523162842
+        ],
+        [
+          0.1599999964237213,
+          1.5099999904632568,
+          0.3700000047683716
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        1.3700000047683716,
+        0.11999999731779099
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "AmberBeacon": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.05999999865889549,
+          0.5500001907348633,
+          1.1899999380111694
+        ],
+        [
+          0.05999999865889549,
+          0.6700001955032349,
+          1.2699998617172241
+        ]
+      ],
+      "material_triangles": {
+        "M_OilskinYellow": 44
+      },
+      "material_colours": {
+        "M_OilskinYellow": [
+          0.7912979125976562,
+          0.41788506507873535,
+          0.039546236395835876,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.6100001931190491,
+        1.2299998998641968
+      ]
+    },
+    "InspectorHull": {
+      "triangles": 36,
+      "bounds": [
+        [
+          -0.5799999833106995,
+          -1.4500000476837158,
+          -0.2500002086162567
+        ],
+        [
+          0.5799999833106995,
+          1.25,
+          0.12000023573637009
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 36
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "IvoryRail": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.5550001263618469,
+          -0.8999999165534973,
+          0.2549995481967926
+        ],
+        [
+          -0.4849998354911804,
+          1.0000001192092896,
+          0.32500043511390686
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.5199999809265137,
+        0.050000060349702835,
+        0.28999999165534973
+      ]
+    },
+    "IvoryRail.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.4849998354911804,
+          -0.8999999165534973,
+          0.2549995481967926
+        ],
+        [
+          0.5550001263618469,
+          1.0000001192092896,
+          0.32500043511390686
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.5199999809265137,
+        0.050000060349702835,
+        0.28999999165534973
+      ]
+    },
+    "Mast": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.023000000044703484,
+          0.5870001316070557,
+          0.7199999094009399
+        ],
+        [
+          0.023000000044703484,
+          0.6330002546310425,
+          1.1999999284744263
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.6100001931190491,
+        0.9599999189376831
+      ]
+    },
+    "Outboard": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.1599999964237213,
+          1.2300000190734863,
+          -0.13000023365020752
+        ],
+        [
+          0.1599999964237213,
+          1.5099999904632568,
+          0.36999979615211487
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        1.3700000047683716,
+        0.11999977380037308
+      ]
+    },
+    "SmallConsole": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.25,
+          0.2200000137090683,
+          0.169999897480011
+        ],
+        [
+          0.25,
+          0.6200000643730164,
+          0.7099999785423279
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.4200000464916229,
+        0.43999993801116943
+      ]
+    },
+    "Windshield": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.30000001192092896,
+          0.25250011682510376,
+          0.6749999523162842
+        ],
+        [
+          0.30000001192092896,
+          0.30750012397766113,
+          0.9449999332427979
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.28000012040138245,
+        0.809999942779541
+      ]
+    },
+    "WorkingDeck": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.46000000834465027,
+          -1.0700000524520874,
+          0.10999983549118042
+        ],
+        [
+          0.46000000834465027,
+          1.0700000524520874,
+          0.17000016570091248
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 108
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        2.2808896105175336e-08,
+        0.14000000059604645
+      ]
+    }
+  },
+  "max_bounds_error_m": 3.5762786865234375e-07,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 5.527507362065139e-07,
+  "max_part_pivot_error_m": 2.2351741790771484e-07,
+  "pivot_use": "waterline",
+  "render_sha256": {
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/back.png": "844a8d63da9a1ccf0afd29ecadb806c461f7e44b8d12344bd306e57ea510215b",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/front.png": "bc6539e22590993f9f51fa53ecb94bc4022ac58939d64d9ca4d130b36df05bb4",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/left.png": "3f062a96177568a14919aeb7cbef1add0f28d42e8a032d83347e80ba25ced166",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/right.png": "0a897d092843cd11fbbc4fb4b0fd47afda278ed7bc79ac6ab43b3d46fc3d43a2",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/three-quarter.png": "775059310ee547dd4959f9f8ea847109a2db93c998da93ad06656e4a4994c864",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/top.png": "24e674d1422ee20f029d5e213c7d80f14f4dbb5a661420a84cbed56f716395b2",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/waterline-context.png": "38a17d6017b06d04c99bd9ba896ddf38087283a71fb5def62e6bce3b530e6ebc"
+  },
+  "pass": true
+}

@@ -85,7 +85,7 @@ namespace Catchline.EditorTools
             var mi = (ModelImporter)assetImporter;
             mi.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
             mi.materialLocation = ModelImporterMaterialLocation.InPrefab;
-            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx") || assetPath.EndsWith("/HarbourLife/Dog.fbx") || assetPath.EndsWith("/HarbourLife/Cat.fbx") || assetPath.EndsWith("/GullCoastLife/Cormorant.fbx") || assetPath.EndsWith("/GullCoastLife/Oystercatcher.fbx");
+            mi.importAnimation = assetPath.EndsWith("/CrewRig.fbx") || assetPath.EndsWith("/UAL1_Standard.fbx") || assetPath.EndsWith("/WreckLife/Gannet.fbx") || assetPath.EndsWith("/Crew/Townsfolk.fbx") || assetPath.EndsWith("/LighthouseLife/Puffin.fbx") || assetPath.EndsWith("/HarbourLife/Dog.fbx") || assetPath.EndsWith("/HarbourLife/Cat.fbx") || assetPath.EndsWith("/GullCoastLife/Cormorant.fbx") || assetPath.EndsWith("/GullCoastLife/Oystercatcher.fbx");
             if (mi.importAnimation) mi.animationType = ModelImporterAnimationType.Legacy;
             if (assetPath.EndsWith("/PrepFisherV1.fbx") || assetPath.EndsWith("/Tier5FisherV1.fbx") || assetPath.EndsWith("/Tier5DeepLines103.fbx")) mi.isReadable = true; // Physical deck slices also run in the player.
             if (assetPath.StartsWith("Assets/gemini/Models/")) mi.isReadable = true;
@@ -134,7 +134,12 @@ namespace Catchline.EditorTools
                 .ToArray();
             if (Directory.Exists("Assets/gemini/Models")) lib.Models=lib.Models.Concat(Directory.GetFiles("Assets/gemini/Models","*.fbx")
                 .Select(p=>AssetDatabase.LoadAssetAtPath<GameObject>(p.Replace('\\','/'))).Where(g=>g!=null)).ToArray();
-            lib.CrewClips = AssetDatabase.LoadAllAssetsAtPath("Assets/Art/Models/Crew/CrewRig.fbx")
+            // Crew are now the Quaternius human bodies, driven by the free Universal Animation Library
+            // (same skeleton). Fall back to the old blob CrewRig clips if the library FBX isn't present.
+            var crewClipSource = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Art/Models/Crew/Quaternius/UAL1_Standard.fbx") != null
+                ? "Assets/Art/Models/Crew/Quaternius/UAL1_Standard.fbx"
+                : "Assets/Art/Models/Crew/CrewRig.fbx";
+            lib.CrewClips = AssetDatabase.LoadAllAssetsAtPath(crewClipSource)
                 .OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__")).ToArray();
             Debug.Log($"[Catchline] Art library: {lib.Models.Length} models");
             var pngs = Directory.GetFiles(Path.GetFullPath(UiFolder), "*.png");

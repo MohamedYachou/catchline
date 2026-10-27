@@ -1,0 +1,39 @@
+{
+  "name": "Chair_Tier3",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.15000000596046448,
+      -0.14499999582767487,
+      0.0
+    ],
+    [
+      0.15000000596046448,
+      0.1574999988079071,
+      0.7815983295440674
+    ]
+  ],
+  "triangles": 1192,
+  "export_meshes": [
+    "Chair_Tier3"
+  ],
+  "atlas_cells": [
+    "brass",
+    "navy",
+    "wood"
+  ],
+  "tier": 3,
+  "seats": 1,
+  "seat_top_z_m": 0.435,
+  "contact_correction_m": 0.0005983278388157487,
+  "fbx_sha256": "6a04ea0ad0108e54f77c9fec6858692d3e67f53774fc81134e1e1897eb1dc46e"
+}

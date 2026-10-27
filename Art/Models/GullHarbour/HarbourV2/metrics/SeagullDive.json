@@ -1,0 +1,123 @@
+{
+  "name": "SeagullDive",
+  "group": "D",
+  "triangles": 280,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.23999999463558197,
+      -0.2078290581703186,
+      -0.36044245958328247
+    ],
+    [
+      0.23999999463558197,
+      0.17749224603176117,
+      0.5032534599304199
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    0.47999998927116394,
+    0.38532131910324097,
+    0.8636959195137024
+  ],
+  "parts": [
+    {
+      "name": "FoldedWingDivingGull",
+      "triangles": 280,
+      "vertices": 160,
+      "bounds_min_blender": [
+        -0.23999999463558197,
+        -0.2078290581703186,
+        -0.36044245958328247
+      ],
+      "bounds_max_blender": [
+        0.23999999463558197,
+        0.17749224603176117,
+        0.5032534599304199
+      ],
+      "mesh_sha256": "50d66243236e204e12c2e663530393df6bf6d231ee9eee1458c811c1c3c3430a",
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_Rubber"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Folded diving wings and downward beak, one mesh; runtime supplies dive trajectory. Root at body centre, no ground-contact claim."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\SeagullDive.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\SeagullDive.fbx",
+  "sha256": {
+    "blend": "c479cd12a780600524f1125f058d35f503b4ef4e2022158d93de2a0d5869b4f2",
+    "fbx": "856e0f9d59505e9b06fa55b7bc2b4b352822ec1dca9e8c7991c0d85b89b96d5e"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SeagullDive\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SeagullDive\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SeagullDive\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SeagullDive\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SeagullDive\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 4.470348358154297e-08,
+    "source": {
+      "triangles": 280,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.23999999463558197,
+          -0.2078290581703186,
+          -0.36044245958328247
+        ],
+        [
+          0.23999999463558197,
+          0.17749224603176117,
+          0.5032534599304199
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_Rubber"
+      ],
+      "parents": {
+        "SeagullDive": null,
+        "FoldedWingDivingGull": "SeagullDive"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 280,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.23999999463558197,
+          -0.20782901346683502,
+          -0.36044245958328247
+        ],
+        [
+          0.23999999463558197,
+          0.17749224603176117,
+          0.5032534599304199
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_Rubber"
+      ],
+      "parents": {
+        "FoldedWingDivingGull": "SeagullDive",
+        "SeagullDive": null
+      },
+      "finite": true
+    }
+  }
+}

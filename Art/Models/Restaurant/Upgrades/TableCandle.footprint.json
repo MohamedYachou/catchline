@@ -1,0 +1,41 @@
+{
+  "name": "TableCandle",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.054999999701976776,
+      -0.054999999701976776,
+      0.0
+    ],
+    [
+      0.054999999701976776,
+      0.054999999701976776,
+      0.1459999978542328
+    ]
+  ],
+  "triangles": 576,
+  "export_meshes": [
+    "TableCandle",
+    "TableCandle_Flame"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "glow",
+    "white"
+  ],
+  "placement": "tabletop",
+  "flame_mesh": "separate child TableCandle_Flame",
+  "emission": "V4 glow cell; Surface.B=1; suggested multiplier2.5; no baked point light",
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "3801ab8e05311337b282feef5a67092c13bb5292cd5ed8d4830f8e5a487d1416"
+}

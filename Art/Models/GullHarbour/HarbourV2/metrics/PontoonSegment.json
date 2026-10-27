@@ -1,0 +1,130 @@
+{
+  "name": "PontoonSegment",
+  "group": "A",
+  "triangles": 1202,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -1.070000171661377,
+      -2.0,
+      -0.38999998569488525
+    ],
+    [
+      1.070000171661377,
+      2.0,
+      0.13099999725818634
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    2.140000343322754,
+    4.0,
+    0.5209999680519104
+  ],
+  "parts": [
+    {
+      "name": "FloatDeck",
+      "triangles": 1202,
+      "vertices": 628,
+      "bounds_min_blender": [
+        -1.070000171661377,
+        -2.0,
+        -0.38999998569488525
+      ],
+      "bounds_max_blender": [
+        1.070000171661377,
+        2.0,
+        0.13099999725818634
+      ],
+      "mesh_sha256": "d2d948277f09ed9a70418c8012549e2e7c3639f11eb282145337ff577d62cec5",
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_Rope",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\PontoonSegment.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\PontoonSegment.fbx",
+  "sha256": {
+    "blend": "a9e96261b20203c041f3971455809a541e36586bfa36bb26bd31b40085c9eeb7",
+    "fbx": "64fdf02dfa5e31c50f2b0d99447cd345b42556045825004b38704f6b02db3283"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonSegment\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonSegment\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonSegment\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonSegment\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonSegment\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.4901161193847656e-07,
+    "source": {
+      "triangles": 1202,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.070000171661377,
+          -2.0,
+          -0.38999998569488525
+        ],
+        [
+          1.070000171661377,
+          2.0,
+          0.13099999725818634
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_Rope",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "PontoonSegment": null,
+        "FloatDeck": "PontoonSegment"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1202,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.070000171661377,
+          -2.0,
+          -0.3900001347064972
+        ],
+        [
+          1.070000171661377,
+          2.0,
+          0.1310000866651535
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullNavy",
+        "M_Rope",
+        "M_Rubber",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "FloatDeck": "PontoonSegment",
+        "PontoonSegment": null
+      },
+      "finite": true
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "name": "BoatCradle",
+  "group": "B",
+  "triangles": 560,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -3.6500000953674316,
+      -1.500000238418579,
+      0.0
+    ],
+    [
+      3.6500000953674316,
+      1.500000238418579,
+      1.1799999475479126
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    7.300000190734863,
+    3.000000476837158,
+    1.1799999475479126
+  ],
+  "parts": [
+    {
+      "name": "KeelBlocksAndHullProps",
+      "triangles": 560,
+      "vertices": 320,
+      "bounds_min_blender": [
+        -3.6500000953674316,
+        -1.500000238418579,
+        0.0
+      ],
+      "bounds_max_blender": [
+        3.6500000953674316,
+        1.500000238418579,
+        1.1799999475479126
+      ],
+      "mesh_sha256": "37e2495ed2bcf7d16b839b5aceaaab0f2ef628d8b187ca76b7e3b5da2d22615f",
+      "materials": [
+        "M_DeckWood",
+        "M_Rubber",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Long axis X,7.5m supported hull; skid envelope7.48x3m. Hull contact pads Y1.12, keel blocksY.58. Ground pivot0."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\BoatCradle.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\BoatCradle.fbx",
+  "sha256": {
+    "blend": "993bf9c35333c772cec19f503034426597169b2776f17eb1c74e5cbb06d9b6c0",
+    "fbx": "51442801804de3136425b9aa5be0b3a5afa57b383dfe91068addc1e5b1bdc136"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatCradle\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatCradle\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatCradle\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatCradle\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatCradle\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1324686965963338e-07,
+    "source": {
+      "triangles": 560,
+      "meshes": 1,
+      "bounds": [
+        [
+          -3.6500000953674316,
+          -1.500000238418579,
+          0.0
+        ],
+        [
+          3.6500000953674316,
+          1.500000238418579,
+          1.1799999475479126
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_Rubber",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "BoatCradle": null,
+        "KeelBlocksAndHullProps": "BoatCradle"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 560,
+      "meshes": 1,
+      "bounds": [
+        [
+          -3.6500000953674316,
+          -1.500000238418579,
+          -1.1324686965963338e-07
+        ],
+        [
+          3.6500000953674316,
+          1.500000238418579,
+          1.1799999475479126
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_Rubber",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "KeelBlocksAndHullProps": "BoatCradle",
+        "BoatCradle": null
+      },
+      "finite": true
+    }
+  }
+}

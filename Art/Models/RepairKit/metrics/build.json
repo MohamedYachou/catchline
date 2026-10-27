@@ -1,0 +1,121 @@
+{
+  "triangles": 1156,
+  "items": {
+    "TornNet": {
+      "triangles": 432,
+      "bounds_blender": [
+        [
+          -0.6060000061988831,
+          -0.406000018119812,
+          -0.006000000052154064
+        ],
+        [
+          0.6060000061988831,
+          0.406000018119812,
+          0.006000000052154064
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_NetGreenGrey"
+      ]
+    },
+    "MendedPatch": {
+      "triangles": 80,
+      "bounds_blender": [
+        [
+          -0.155409574508667,
+          -0.1554095596075058,
+          -0.00277128117159009
+        ],
+        [
+          0.1542782038450241,
+          0.155409574508667,
+          0.00277128117159009
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_Twine"
+      ]
+    },
+    "NettingNeedle": {
+      "triangles": 254,
+      "bounds_blender": [
+        [
+          -0.20000000298023224,
+          -0.014891132712364197,
+          -0.006019049324095249
+        ],
+        [
+          0.0,
+          0.015039230696856976,
+          0.006019049324095249
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_Twine"
+      ]
+    },
+    "TwineBall": {
+      "triangles": 390,
+      "bounds_blender": [
+        [
+          -0.05079999938607216,
+          -0.05014030262827873,
+          -0.0005588455824181437
+        ],
+        [
+          0.08907922357320786,
+          0.05008810758590698,
+          0.10055884718894958
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_Twine"
+      ]
+    }
+  },
+  "parents": {
+    "RepairKit": null,
+    "TornNet": "RepairKit",
+    "MendedPatch": "RepairKit",
+    "NettingNeedle": "RepairKit",
+    "TwineBall": "RepairKit"
+  },
+  "palette": {
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_NetGreenGrey": "#50766C",
+    "M_RailIvory": "#F3F0DC",
+    "M_JigBlue": "#3D7FB8",
+    "M_FeatherOrange": "#E36A35",
+    "M_FeatherYellow": "#F2C14E",
+    "M_Kelp": "#5E7A3A",
+    "M_Twine": "#C9A66B",
+    "M_Sand": "#D8C79A",
+    "M_Steel": "#8FA6AC"
+  },
+  "sha256": {
+    "blend": "d1261c14e1549ebe7645cfac7187e5264deebb75a413cf930f317121b51c0e4b",
+    "fbx": "370415d85b716cceedd46f9d8f3eb3b5c69451d461735f7487cdeb3b91b185a6"
+  }
+}

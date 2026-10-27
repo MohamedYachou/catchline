@@ -1,0 +1,408 @@
+{
+  "assets": [
+    {
+      "name": "Restaurant_Grill",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.41499999165534973,
+          -0.3850000202655792,
+          0.0
+        ],
+        [
+          0.41499999165534973,
+          0.35249999165534973,
+          0.8700000047683716
+        ]
+      ],
+      "triangles": 1956,
+      "export_meshes": [
+        "Restaurant_Grill"
+      ],
+      "atlas_cells": [
+        "dark",
+        "ivory",
+        "navy",
+        "orange",
+        "steel"
+      ],
+      "worktop_z_m": 0.75,
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "54dd13e81ea6cd74481b704d29c6cab773277f86fdd5efae93c39090f6f2f550"
+    },
+    {
+      "name": "Restaurant_Steamer",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.3425000011920929,
+          -0.36000001430511475,
+          0.0
+        ],
+        [
+          0.3425000011920929,
+          0.33250001072883606,
+          1.027500033378601
+        ]
+      ],
+      "triangles": 3052,
+      "export_meshes": [
+        "Restaurant_Steamer"
+      ],
+      "atlas_cells": [
+        "dark",
+        "ivory",
+        "navy",
+        "steel"
+      ],
+      "worktop_z_m": 0.63,
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "eb05fb16b56af69388bc44a3b673c4cd424013b07eeec439be8b866ef11abf39"
+    },
+    {
+      "name": "Restaurant_DrinksFridge",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.3725000023841858,
+          -0.41350001096725464,
+          0.0
+        ],
+        [
+          0.3725000023841858,
+          0.32249999046325684,
+          1.1924999952316284
+        ]
+      ],
+      "triangles": 3164,
+      "export_meshes": [
+        "Restaurant_DrinksFridge"
+      ],
+      "atlas_cells": [
+        "blue",
+        "dark",
+        "glow",
+        "ivory",
+        "leaf",
+        "navy",
+        "orange",
+        "steel",
+        "white"
+      ],
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "3fc192ae8bc9396cb71394927c2794f1621a9cd15ce0aa5793ea21a633c3ab34"
+    },
+    {
+      "name": "Restaurant_Chart",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.4399999976158142,
+          -0.0804409608244896,
+          0.0
+        ],
+        [
+          0.4399999976158142,
+          0.032499998807907104,
+          0.6800000071525574
+        ]
+      ],
+      "triangles": 1414,
+      "export_meshes": [
+        "Restaurant_Chart"
+      ],
+      "atlas_cells": [
+        "brass",
+        "ivory",
+        "leaf",
+        "navy",
+        "rope",
+        "teal",
+        "wooddark"
+      ],
+      "mount": "wall",
+      "recommended_base_height_m": 1.0,
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "27573ba19b84db08819952d34ec3de1577685459c050fc4f3feb7ad5c3396b5a"
+    },
+    {
+      "name": "Restaurant_Jukebox",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.33000001311302185,
+          -0.257999986410141,
+          0.0
+        ],
+        [
+          0.33000001311302185,
+          0.20000000298023224,
+          1.0499999523162842
+        ]
+      ],
+      "triangles": 2668,
+      "export_meshes": [
+        "Restaurant_Jukebox"
+      ],
+      "atlas_cells": [
+        "brass",
+        "ivory",
+        "navy",
+        "teal",
+        "wooddark"
+      ],
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "26b01acb84f2e54133a4b18f10c0b15348ab68685e7ab1acb69e4eea1e903930"
+    },
+    {
+      "name": "Restaurant_BigFridge",
+      "tiles_w": 2,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.7425000071525574,
+          -0.4725373387336731,
+          0.0
+        ],
+        [
+          0.7425000071525574,
+          0.38749998807907104,
+          1.6349999904632568
+        ]
+      ],
+      "triangles": 1344,
+      "export_meshes": [
+        "Restaurant_BigFridge"
+      ],
+      "atlas_cells": [
+        "brass",
+        "dark",
+        "ivory",
+        "navy",
+        "steel"
+      ],
+      "upgrade": "S8 fridge",
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "8a8e43d80942d5a582cbc2d5ae1fff2fcc173041a832fdae4d663364e587fb4c"
+    },
+    {
+      "name": "Restaurant_ReliableStove",
+      "tiles_w": 2,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.7900000214576721,
+          -0.45933663845062256,
+          0.0
+        ],
+        [
+          0.7900000214576721,
+          0.4000000059604645,
+          0.8799999952316284
+        ]
+      ],
+      "triangles": 5228,
+      "export_meshes": [
+        "Restaurant_ReliableStove"
+      ],
+      "atlas_cells": [
+        "brass",
+        "dark",
+        "ivory",
+        "navy",
+        "steel"
+      ],
+      "upgrade": "S8 stove",
+      "worktop_z_m": 0.75,
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "dcd390ea25cff530a1d9ee40fcf6a1a15afcab5871b82324cb37f1029d1cb451"
+    },
+    {
+      "name": "Restaurant_CosyPendantLamp",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.28769683837890625,
+          -0.28769683837890625,
+          0.0
+        ],
+        [
+          0.2868584096431732,
+          0.28769683837890625,
+          0.9300000071525574
+        ]
+      ],
+      "triangles": 1012,
+      "export_meshes": [
+        "Restaurant_CosyPendantLamp"
+      ],
+      "atlas_cells": [
+        "brass",
+        "dark",
+        "glow",
+        "ivory",
+        "navy"
+      ],
+      "mount": "ceiling",
+      "recommended_base_height_m": 1.65,
+      "upgrade": "S8 lighting",
+      "emission": "glow atlas cell, Surface.B; runtime point light recipe separate",
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "8d55d160066ef262393211b42bf770cd291613b25d0e33e4bf9169657c7edf64"
+    },
+    {
+      "name": "Restaurant_Net",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.44554147124290466,
+          -0.05828697979450226,
+          0.0
+        ],
+        [
+          0.44554150104522705,
+          0.012032114900648594,
+          0.6260198354721069
+        ]
+      ],
+      "triangles": 1672,
+      "export_meshes": [
+        "Restaurant_Net"
+      ],
+      "atlas_cells": [
+        "ivory",
+        "orange",
+        "rope"
+      ],
+      "mount": "wall",
+      "recommended_base_height_m": 1.05,
+      "contact_correction_m": 1.986022289202083e-05,
+      "fbx_sha256": "936ffb1be597e2208a401338d16f0c0cbb21b84ac9bcf32df6b7711ad26de533"
+    },
+    {
+      "name": "Restaurant_Trophy",
+      "tiles_w": 1,
+      "tiles_d": 1,
+      "tile_size_m": 1,
+      "origin_blender_m": [
+        0,
+        0,
+        0
+      ],
+      "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+      "floor_contact_z_m": 0,
+      "bounds_blender_m": [
+        [
+          -0.4399999976158142,
+          -0.1459999978542328,
+          0.0
+        ],
+        [
+          0.4399999976158142,
+          0.0,
+          0.3799999952316284
+        ]
+      ],
+      "triangles": 779,
+      "export_meshes": [
+        "Restaurant_Trophy"
+      ],
+      "atlas_cells": [
+        "dark",
+        "fish",
+        "navy",
+        "wooddark"
+      ],
+      "mount": "wall",
+      "recommended_base_height_m": 1.15,
+      "contact_correction_m": -0.0,
+      "fbx_sha256": "14be572577dc79f06609abecaf60ea2691ab9e0f369de4fdde8c1cd8f40a4fa0"
+    }
+  ],
+  "atlas_source": "../Stage1V4/textures",
+  "units": "metres",
+  "atlas_hashes": {
+    "atlas.json": "4dff2fb14d82754cbcaa186062613d542fd628117660fd6316f2026747ee4d02",
+    "Restaurant_BaseColor.png": "25fb03ca03be931c073afde737918046a6f019eea52b6e6f8091d945ab7e2bcf",
+    "Restaurant_Surface.png": "6598fde9a4b3f43e43a5d275b36567042c3cfe1dd28bc79fb5ec3400fb56695d"
+  }
+}

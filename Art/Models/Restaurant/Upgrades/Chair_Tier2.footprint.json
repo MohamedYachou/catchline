@@ -1,0 +1,39 @@
+{
+  "name": "Chair_Tier2",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.15000000596046448,
+      -0.14499999582767487,
+      0.0
+    ],
+    [
+      0.15000000596046448,
+      0.1574999988079071,
+      0.7612177729606628
+    ]
+  ],
+  "triangles": 780,
+  "export_meshes": [
+    "Chair_Tier2"
+  ],
+  "atlas_cells": [
+    "navy",
+    "teal",
+    "wood"
+  ],
+  "tier": 2,
+  "seats": 1,
+  "seat_top_z_m": 0.435,
+  "contact_correction_m": 0.0004842777270823717,
+  "fbx_sha256": "7904ad014fd85fbf6df414d7e1c05de7648587b1a96f87e6240b559173facdd1"
+}

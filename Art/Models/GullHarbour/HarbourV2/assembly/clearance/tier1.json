@@ -1,0 +1,1531 @@
+{
+  "tier": 1,
+  "layout": "clearance",
+  "camera": {
+    "pitch": 45,
+    "yaw": 35,
+    "projection": "orthographic"
+  },
+  "sources": {
+    "Art/Models/GullHarbour/Harbour/Quay4m.blend": "b621ef562255b9b9018ecab7da7e3f0cceb30dfcd33e8c1691906a0d0239bfc9",
+    "Art/Models/GullHarbour/HarbourV2/Slipway.blend": "b5d4322594ce9ea4cb6f48427b01e19a282d25f4c8ef2b879581540d6cb032bb",
+    "Art/Models/GullHarbour/HarbourV2/SuppliesShed.blend": "74d96026d09eb615898c1a70772537b4233859ba3f294b0357e46d3fdb57b599",
+    "Art/Models/GullHarbour/Harbour/MarketStallAwning.blend": "5231e7ba4624c23d071f1740213092f2a9e586f05ec5fbfbbd87db376ea94ea7",
+    "Art/Models/GullHarbour/HarbourV2/HarbourMasterHut.blend": "ae98c378d700f9b3dfd38a4ad73ecde6b93d980093621799ccc6d26a44622346",
+    "Art/Models/GullHarbour/HarbourV2/NoticeBoard.blend": "c64e9efbd054c6409a6bda1776da3b0c3036e8b1f9abc283cbc056780b2a4fd4",
+    "Art/Models/GullHarbour/HarbourV2/BoatyardShed.blend": "d202def238fb752ac75496ced78d92974b0643340a55c92376ddb3be83dce8d5",
+    "Art/Models/GullHarbour/HarbourV2/BoatCradle.blend": "993bf9c35333c772cec19f503034426597169b2776f17eb1c74e5cbb06d9b6c0",
+    "Art/Models/GullHarbour/HarbourV2/PontoonGangway.blend": "6a4609a01fc6c25c3ea84ded133f1324889af84bb4dd51fc6d27f24c271f4ae9",
+    "Art/Models/GullHarbour/HarbourV2/PontoonSegment.blend": "a9e96261b20203c041f3971455809a541e36586bfa36bb26bd31b40085c9eeb7",
+    "Art/Models/GullHarbour/HarbourV2/FuelDock.blend": "bb70d4722f71c00c9de0f66f229a4641c8cbecebdf4851e5247e479a00a00a65",
+    "Art/Models/GullHarbour/Harbour/HouseA.blend": "4b4d55e4997c1834dc41419bd048ae61ad9a867f38a4ae89cb67f9b6ef385050",
+    "Art/Models/GullHarbour/Harbour/ShopFront_CrewOffice.blend": "4bf26dcdc5b1a83091592b0b4d4b83da0ac37d8315ba69012ab2aea361a0e820",
+    "Art/Models/GullHarbour/Harbour/HouseB.blend": "7df3770e04948643407cf4d42c306b2dbd05508d1f64c2c989f292f9d2270abc",
+    "Art/Models/GullHarbour/Harbour/ShopFront_Chandlery.blend": "ed5002a717cd896a1b95b249f0d523b77fc41d91d541e03fd1e9fa2733f73436",
+    "Art/Models/GullHarbour/HarbourV2/BreakwaterWall.blend": "a477fd19df8217e7a06ae1dd3e5b9e7a739c926bbe163a852aa345d89df877c5",
+    "Art/Models/GullHarbour/HarbourV2/BreakwaterEnd.blend": "de3c827c3c5c927e30f07aa8cf6fb5b02768c61e6741c12b3eb9475c60b5d3e1",
+    "Art/Models/GullHarbour/Harbour/Lighthouse.blend": "4c7f15e9d2c5bd97ca7f00f9cc63c14433d1f32f1a2bd53872b3081de1b4ba13",
+    "Art/Models/GullHarbour/Harbour/BreakwaterRockA.blend": "6b97c042fe11b2d19ea00cf45fa48c39076dec3ec1911ea39d2381dd184553dd",
+    "Art/Models/GullHarbour/Harbour/BreakwaterRockB.blend": "a0fc066e9a795c61c76a5acc7b7e415cbe839b60ddaf457e29f129d977cf1549",
+    "Art/Models/GullHarbour/Harbour/BreakwaterRockC.blend": "7eedbfeea826d08defb2c44a6c1e5fd4b33ba795631bb192a2949413a3200606",
+    "Art/Models/GullHarbour/HarbourV2/MouthBeacon.blend": "f4c4664a30950f17b684b61b2c986e04858cf8128c2b3806d02c70e324821e0c",
+    "Assets/Art/Models/Boats/Rowboat.fbx": "383eb68e58a725df9ce51e134f75cd030edc5f865af0a4cfb111fc2b16d605a3",
+    "Assets/Art/Models/Boats/Skiff.fbx": "174076b3ca2d4eba0fa2c3d0d056a701fad04fc0f1a2c5150d48cdc4acb06d24",
+    "Art/Models/GullHarbour/HarbourV2/Skiff_VariantYellow.blend": "a15c6e15f481b3ad400776ecd5034259c2f641922a17f4119af2cff96334f807",
+    "Art/Models/GullHarbour/HarbourV2/CompactFisherV1_VariantRed.blend": "6653464e9697b0fad66ccc16fd5220a3fc528e9fcc5e7a09646a8f79ddedf9b2",
+    "Art/Models/GullHarbour/HarbourV2/PrepFisherV1_VariantGreen.blend": "2837e7a72bd75bf7bc970d0537721c63a45bfdf88445c1a8894b9770f41e4be7",
+    "Art/Models/GullHarbour/HarbourV2/Tier5DeepLines103_VariantBlue.blend": "4775fdb48f1edc91035aff311ef0f3d165aa78a495084f941cdd44fba36dde3b"
+  },
+  "items": [
+    {
+      "name": "QuayBack",
+      "asset": "ground construction",
+      "kind": "ground",
+      "position_unity": [
+        -6,
+        -0.12,
+        8.5
+      ],
+      "bounds_blender": [
+        [
+          -42.0,
+          -12.75,
+          -0.5899999737739563
+        ],
+        [
+          30.0,
+          -4.25,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "BeachWest",
+      "asset": "ground construction",
+      "kind": "ground",
+      "position_unity": [
+        -35.5,
+        -0.4,
+        1.6
+      ],
+      "bounds_blender": [
+        [
+          -42.0,
+          -4.900000095367432,
+          -0.6499999761581421
+        ],
+        [
+          -29.0,
+          1.6999999284744263,
+          -0.15000000596046448
+        ]
+      ]
+    },
+    {
+      "name": "BeachEast",
+      "asset": "ground construction",
+      "kind": "ground",
+      "position_unity": [
+        -20.5,
+        -0.4,
+        1.6
+      ],
+      "bounds_blender": [
+        [
+          -21.0,
+          -4.900000095367432,
+          -0.6499999761581421
+        ],
+        [
+          -20.0,
+          1.6999999284744263,
+          -0.15000000596046448
+        ]
+      ]
+    },
+    {
+      "name": "BeachRampLanding",
+      "asset": "ground construction",
+      "kind": "ground",
+      "position_unity": [
+        -25,
+        -0.12,
+        3.65
+      ],
+      "bounds_blender": [
+        [
+          -29.0,
+          -4.900000095367432,
+          -0.5899999737739563
+        ],
+        [
+          -21.0,
+          -2.4000000953674316,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "BeachBank",
+      "asset": "ground construction",
+      "kind": "ground",
+      "position_unity": [
+        -31,
+        -0.11,
+        4.6
+      ],
+      "bounds_blender": [
+        [
+          -42.0,
+          -5.199999809265137,
+          -0.5600000023841858
+        ],
+        [
+          -20.0,
+          -4.0,
+          0.3400000035762787
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(-18,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        -18,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -20.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          -16.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(-14,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        -14,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -16.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          -12.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(-10,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        -10,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -12.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          -8.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(-6,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        -6,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -8.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          -4.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(-2,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        -2,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -4.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          0.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(2,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        2,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          0.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          4.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(6,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        6,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          4.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          8.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(10,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        10,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          8.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          12.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(14,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        14,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          12.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          16.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(18,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        18,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          16.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          20.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(22,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        22,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          20.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          24.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Quay4m@(26,3.3)",
+      "asset": "Quay4m",
+      "kind": "structure",
+      "position_unity": [
+        26,
+        0.217,
+        3.3
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          24.0,
+          -4.300000190734863,
+          -0.6829999685287476
+        ],
+        [
+          28.0,
+          -2.299999952316284,
+          0.3499999940395355
+        ]
+      ]
+    },
+    {
+      "name": "Slipway@(-25,2.4)",
+      "asset": "Slipway",
+      "kind": "structure",
+      "position_unity": [
+        -25,
+        -0.05,
+        2.4
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -29.0,
+          -2.4000003337860107,
+          -1.1699999570846558
+        ],
+        [
+          -21.0,
+          4.600000381469727,
+          0.44921162724494934
+        ]
+      ]
+    },
+    {
+      "name": "SuppliesShed@(-28,6)",
+      "asset": "SuppliesShed",
+      "kind": "structure",
+      "position_unity": [
+        -28,
+        0.35,
+        6
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -29.649221420288086,
+          -7.425000190734863,
+          0.3499999940395355
+        ],
+        [
+          -26.350778579711914,
+          -4.574999809265137,
+          3.444999933242798
+        ]
+      ]
+    },
+    {
+      "name": "MarketStallAwning@(-21.5,5)",
+      "asset": "MarketStallAwning",
+      "kind": "structure",
+      "position_unity": [
+        -21.5,
+        0.35,
+        5
+      ],
+      "yaw_unity": 180,
+      "bounds_blender": [
+        [
+          -22.700000762939453,
+          -5.820000171661377,
+          0.3499999940395355
+        ],
+        [
+          -20.299999237060547,
+          -4.179999828338623,
+          2.6399998664855957
+        ]
+      ]
+    },
+    {
+      "name": "HarbourMasterHut@(-17.5,6)",
+      "asset": "HarbourMasterHut",
+      "kind": "structure",
+      "position_unity": [
+        -17.5,
+        0.35,
+        6
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -18.969999313354492,
+          -7.175000190734863,
+          0.3499999940395355
+        ],
+        [
+          -16.09964370727539,
+          -4.769999980926514,
+          4.0
+        ]
+      ]
+    },
+    {
+      "name": "NoticeBoard@(-15.6,4.6)",
+      "asset": "NoticeBoard",
+      "kind": "structure",
+      "position_unity": [
+        -15.6,
+        0.35,
+        4.6
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -16.721006393432617,
+          -5.045000076293945,
+          0.3499999940395355
+        ],
+        [
+          -14.47899341583252,
+          -4.154999732971191,
+          2.994999885559082
+        ]
+      ]
+    },
+    {
+      "name": "BoatyardShed@(-35,6.5)",
+      "asset": "BoatyardShed",
+      "kind": "structure",
+      "position_unity": [
+        -35,
+        0.35,
+        6.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -39.64216613769531,
+          -9.17500114440918,
+          0.3499999940395355
+        ],
+        [
+          -30.35783576965332,
+          -3.8249993324279785,
+          5.195000171661377
+        ]
+      ]
+    },
+    {
+      "name": "BoatCradle@(-35,6.5)",
+      "asset": "BoatCradle",
+      "kind": "structure",
+      "position_unity": [
+        -35,
+        0.35,
+        6.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -38.650001525878906,
+          -8.0,
+          0.3499999940395355
+        ],
+        [
+          -31.350000381469727,
+          -5.0,
+          1.5299999713897705
+        ]
+      ]
+    },
+    {
+      "name": "PontoonGangway@(-13,3.5)",
+      "asset": "PontoonGangway",
+      "kind": "structure",
+      "position_unity": [
+        -13,
+        0,
+        3.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -13.630000114440918,
+          -3.5299999713897705,
+          -0.0922136902809143
+        ],
+        [
+          -12.369999885559082,
+          -0.48000001907348633,
+          1.1023484468460083
+        ]
+      ]
+    },
+    {
+      "name": "PontoonSegment@(-13,-1.5)",
+      "asset": "PontoonSegment",
+      "kind": "structure",
+      "position_unity": [
+        -13,
+        0,
+        -1.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -14.069999694824219,
+          -0.5,
+          -0.38999998569488525
+        ],
+        [
+          -11.930000305175781,
+          3.5,
+          0.13099999725818634
+        ]
+      ]
+    },
+    {
+      "name": "PontoonSegment@(-13,-5.5)",
+      "asset": "PontoonSegment",
+      "kind": "structure",
+      "position_unity": [
+        -13,
+        0,
+        -5.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -14.069999694824219,
+          3.5,
+          -0.38999998569488525
+        ],
+        [
+          -11.930000305175781,
+          7.5,
+          0.13099999725818634
+        ]
+      ]
+    },
+    {
+      "name": "FuelDock@(-13,-8.5)",
+      "asset": "FuelDock",
+      "kind": "structure",
+      "position_unity": [
+        -13,
+        0,
+        -8.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -14.069999694824219,
+          7.5,
+          -0.38999998569488525
+        ],
+        [
+          -11.930000305175781,
+          9.5,
+          1.4199999570846558
+        ]
+      ]
+    },
+    {
+      "name": "HouseA@(-10.4,6.6)",
+      "asset": "HouseA",
+      "kind": "structure",
+      "position_unity": [
+        -10.4,
+        0.35,
+        6.6
+      ],
+      "yaw_unity": 180,
+      "bounds_blender": [
+        [
+          -12.014999389648438,
+          -7.958499908447266,
+          0.3499999940395355
+        ],
+        [
+          -8.78499984741211,
+          -5.03249979019165,
+          4.083499908447266
+        ]
+      ]
+    },
+    {
+      "name": "ShopFront_CrewOffice@(-10.4,4.95)",
+      "asset": "ShopFront_CrewOffice",
+      "kind": "structure",
+      "position_unity": [
+        -10.4,
+        0.35,
+        4.95
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -11.699999809265137,
+          -4.794999599456787,
+          0.3499999940395355
+        ],
+        [
+          -10.799999237060547,
+          -4.669999599456787,
+          1.9500000476837158
+        ]
+      ]
+    },
+    {
+      "name": "HouseB@(-6.8,6.6)",
+      "asset": "HouseB",
+      "kind": "structure",
+      "position_unity": [
+        -6.8,
+        0.35,
+        6.6
+      ],
+      "yaw_unity": 180,
+      "bounds_blender": [
+        [
+          -8.605000495910645,
+          -8.053500175476074,
+          0.3499999940395355
+        ],
+        [
+          -4.994999885559082,
+          -4.9375,
+          4.368499755859375
+        ]
+      ]
+    },
+    {
+      "name": "ShopFront_Chandlery@(-6.8,4.95)",
+      "asset": "ShopFront_Chandlery",
+      "kind": "structure",
+      "position_unity": [
+        -6.8,
+        0.35,
+        4.95
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -7.990000247955322,
+          -4.896721839904785,
+          0.3499999940395355
+        ],
+        [
+          -5.650000095367432,
+          -4.426296234130859,
+          1.149999976158142
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(28,0)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        28,
+        0,
+        0
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          26.20115089416504,
+          -2.0,
+          -0.949999988079071
+        ],
+        [
+          29.788721084594727,
+          2.055609941482544,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(28,-4)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        28,
+        0,
+        -4
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          26.20115089416504,
+          2.0,
+          -0.949999988079071
+        ],
+        [
+          29.788721084594727,
+          6.055610179901123,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(28,-8)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        28,
+        0,
+        -8
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          26.20115089416504,
+          6.0,
+          -0.949999988079071
+        ],
+        [
+          29.788721084594727,
+          10.055609703063965,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(26,-12)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        26,
+        0,
+        -12
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          23.94438934326172,
+          10.201149940490723,
+          -0.949999988079071
+        ],
+        [
+          28.0,
+          13.788721084594727,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(22,-12)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        22,
+        0,
+        -12
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          19.94438934326172,
+          10.201149940490723,
+          -0.949999988079071
+        ],
+        [
+          24.0,
+          13.788721084594727,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(18,-12)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        18,
+        0,
+        -12
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          15.944390296936035,
+          10.201149940490723,
+          -0.949999988079071
+        ],
+        [
+          20.0,
+          13.788721084594727,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(14,-12)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        14,
+        0,
+        -12
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          11.944390296936035,
+          10.201149940490723,
+          -0.949999988079071
+        ],
+        [
+          16.0,
+          13.788721084594727,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterWall@(10,-12)",
+      "asset": "BreakwaterWall",
+      "kind": "structure",
+      "position_unity": [
+        10,
+        0,
+        -12
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          7.944390296936035,
+          10.201149940490723,
+          -0.949999988079071
+        ],
+        [
+          12.0,
+          13.788721084594727,
+          0.6039999723434448
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterEnd@(6.5,-12.5)",
+      "asset": "BreakwaterEnd",
+      "kind": "structure",
+      "position_unity": [
+        6.5,
+        0,
+        -12.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          4.733779430389404,
+          10.775492668151855,
+          -0.949999988079071
+        ],
+        [
+          8.299515724182129,
+          14.331462860107422,
+          0.6000000238418579
+        ]
+      ]
+    },
+    {
+      "name": "Lighthouse@(5.8,-12.5)",
+      "asset": "Lighthouse",
+      "kind": "structure",
+      "position_unity": [
+        5.8,
+        0.6,
+        -12.5
+      ],
+      "yaw_unity": 200,
+      "bounds_blender": [
+        [
+          4.85090446472168,
+          11.550904273986816,
+          0.6000000238418579
+        ],
+        [
+          6.749095916748047,
+          13.449095726013184,
+          6.599999904632568
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockA@(-40,1)",
+      "asset": "BreakwaterRockA",
+      "kind": "structure",
+      "position_unity": [
+        -40.0,
+        -0.35,
+        1.0
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -41.439998626708984,
+          -2.119999885559082,
+          -0.3499999940395355
+        ],
+        [
+          -38.560001373291016,
+          0.12000000476837158,
+          1.25
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockB@(-38.9375,-1.70139)",
+      "asset": "BreakwaterRockB",
+      "kind": "structure",
+      "position_unity": [
+        -38.93749999999999,
+        -0.35,
+        -1.7013888888888888
+      ],
+      "yaw_unity": 57,
+      "bounds_blender": [
+        [
+          -39.84761047363281,
+          0.6198051571846008,
+          -0.3499999940395355
+        ],
+        [
+          -37.996307373046875,
+          2.768822431564331,
+          0.9300000667572021
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockC@(-37.75,-4.13889)",
+      "asset": "BreakwaterRockC",
+      "kind": "structure",
+      "position_unity": [
+        -37.75000000000001,
+        -0.35,
+        -4.138888888888889
+      ],
+      "yaw_unity": 114,
+      "bounds_blender": [
+        [
+          -39.198028564453125,
+          2.418910264968872,
+          -0.3499999940395355
+        ],
+        [
+          -36.511295318603516,
+          5.667714595794678,
+          1.5700000524520874
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockA@(-36.4375,-6.3125)",
+      "asset": "BreakwaterRockA",
+      "kind": "structure",
+      "position_unity": [
+        -36.4375,
+        -0.35,
+        -6.3125
+      ],
+      "yaw_unity": 171,
+      "bounds_blender": [
+        [
+          -37.9581413269043,
+          5.157204627990723,
+          -0.3499999940395355
+        ],
+        [
+          -35.03004455566406,
+          7.396158218383789,
+          1.25
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockB@(-35,-8.22222)",
+      "asset": "BreakwaterRockB",
+      "kind": "structure",
+      "position_unity": [
+        -35.00000000000001,
+        -0.35,
+        -8.222222222222221
+      ],
+      "yaw_unity": 228,
+      "bounds_blender": [
+        [
+          -35.944419860839844,
+          7.2034101486206055,
+          -0.3499999940395355
+        ],
+        [
+          -34.046669006347656,
+          9.276074409484863,
+          0.9300000667572021
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockC@(-33.4375,-9.86806)",
+      "asset": "BreakwaterRockC",
+      "kind": "structure",
+      "position_unity": [
+        -33.43749999999999,
+        -0.35,
+        -9.868055555555555
+      ],
+      "yaw_unity": 285,
+      "bounds_blender": [
+        [
+          -34.630104064941406,
+          8.249073028564453,
+          -0.3499999940395355
+        ],
+        [
+          -32.06775665283203,
+          11.597881317138672,
+          1.5700000524520874
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockA@(-31.75,-11.25)",
+      "asset": "BreakwaterRockA",
+      "kind": "structure",
+      "position_unity": [
+        -31.75,
+        -0.35,
+        -11.25
+      ],
+      "yaw_unity": 342,
+      "bounds_blender": [
+        [
+          -33.09025573730469,
+          10.22936725616455,
+          -0.3499999940395355
+        ],
+        [
+          -30.186159133911133,
+          12.487183570861816,
+          1.25
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockB@(-29.9375,-12.3681)",
+      "asset": "BreakwaterRockB",
+      "kind": "structure",
+      "position_unity": [
+        -29.9375,
+        -0.35,
+        -12.368055555555557
+      ],
+      "yaw_unity": 399,
+      "bounds_blender": [
+        [
+          -30.949417114257812,
+          11.367884635925293,
+          -0.3499999940395355
+        ],
+        [
+          -29.013105392456055,
+          13.313158988952637,
+          0.9300000667572021
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockC@(-28,-13.2222)",
+      "asset": "BreakwaterRockC",
+      "kind": "structure",
+      "position_unity": [
+        -28.0,
+        -0.35,
+        -13.222222222222221
+      ],
+      "yaw_unity": 456,
+      "bounds_blender": [
+        [
+          -29.257732391357422,
+          11.525142669677734,
+          -0.3499999940395355
+        ],
+        [
+          -26.827346801757812,
+          14.891494750976562,
+          1.5700000524520874
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockA@(-25.9375,-13.8125)",
+      "asset": "BreakwaterRockA",
+      "kind": "structure",
+      "position_unity": [
+        -25.9375,
+        -0.35,
+        -13.8125
+      ],
+      "yaw_unity": 513,
+      "bounds_blender": [
+        [
+          -27.506032943725586,
+          12.523892402648926,
+          -0.3499999940395355
+        ],
+        [
+          -24.697444915771484,
+          14.882110595703125,
+          1.25
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockB@(-23.75,-14.1389)",
+      "asset": "BreakwaterRockB",
+      "kind": "structure",
+      "position_unity": [
+        -23.75,
+        -0.35,
+        -14.13888888888889
+      ],
+      "yaw_unity": 570,
+      "bounds_blender": [
+        [
+          -24.648923873901367,
+          13.221099853515625,
+          -0.3499999940395355
+        ],
+        [
+          -22.70441436767578,
+          15.060750961303711,
+          0.9300000667572021
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockC@(-21.4375,-14.2014)",
+      "asset": "BreakwaterRockC",
+      "kind": "structure",
+      "position_unity": [
+        -21.4375,
+        -0.35,
+        -14.20138888888889
+      ],
+      "yaw_unity": 627,
+      "bounds_blender": [
+        [
+          -22.646255493164062,
+          12.522928237915039,
+          -0.3499999940395355
+        ],
+        [
+          -20.24146842956543,
+          15.885576248168945,
+          1.5700000524520874
+        ]
+      ]
+    },
+    {
+      "name": "BreakwaterRockA@(-19,-14)",
+      "asset": "BreakwaterRockA",
+      "kind": "structure",
+      "position_unity": [
+        -19.0,
+        -0.35,
+        -14.0
+      ],
+      "yaw_unity": 684,
+      "bounds_blender": [
+        [
+          -20.1909236907959,
+          12.836261749267578,
+          -0.3499999940395355
+        ],
+        [
+          -17.465396881103516,
+          15.308302879333496,
+          1.25
+        ]
+      ]
+    },
+    {
+      "name": "MouthBeacon@(-18.6,-14)",
+      "asset": "MouthBeacon",
+      "kind": "structure",
+      "position_unity": [
+        -18.6,
+        0,
+        -14
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -19.59038543701172,
+          13.170948028564453,
+          -0.800000011920929
+        ],
+        [
+          -17.674274444580078,
+          14.783294677734375,
+          2.2200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Rowboat slot0",
+      "asset": "Rowboat",
+      "kind": "boat",
+      "position_unity": [
+        -27.35,
+        0,
+        -4.8
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -29.610000610351562,
+          2.6574997901916504,
+          -0.45000049471855164
+        ],
+        [
+          -25.09000015258789,
+          6.942500114440918,
+          0.5725002288818359
+        ]
+      ]
+    },
+    {
+      "name": "Rowboat slot1",
+      "asset": "Rowboat",
+      "kind": "boat",
+      "position_unity": [
+        -22.65,
+        0,
+        -4.8
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -24.90999984741211,
+          2.6574997901916504,
+          -0.45000049471855164
+        ],
+        [
+          -20.389999389648438,
+          6.942500114440918,
+          0.5725002288818359
+        ]
+      ]
+    },
+    {
+      "name": "Pontoon slot0",
+      "asset": "Skiff",
+      "kind": "boat",
+      "position_unity": [
+        -10.25,
+        0,
+        -6.5
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -12.043707847595215,
+          2.9822499752044678,
+          -0.8000002503395081
+        ],
+        [
+          -8.456292152404785,
+          10.017749786376953,
+          0.682499885559082
+        ]
+      ]
+    },
+    {
+      "name": "Pontoon slot1",
+      "asset": "Skiff_VariantYellow",
+      "kind": "boat",
+      "position_unity": [
+        -15.75,
+        0,
+        -1.6
+      ],
+      "yaw_unity": 0,
+      "bounds_blender": [
+        [
+          -17.5437068939209,
+          -1.9177500009536743,
+          -0.8000002503395081
+        ],
+        [
+          -13.956292152404785,
+          5.11775016784668,
+          0.682499885559082
+        ]
+      ]
+    },
+    {
+      "name": "FishQuay slot0",
+      "asset": "CompactFisherV1_VariantRed",
+      "kind": "boat",
+      "position_unity": [
+        1.5,
+        0,
+        0.22447865009307844
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          -1.4274001121520996,
+          -2.049999952316284,
+          -0.6774940490722656
+        ],
+        [
+          4.4274001121521,
+          1.601042628288269,
+          1.9199999570846558
+        ]
+      ]
+    },
+    {
+      "name": "FishQuay slot1",
+      "asset": "PrepFisherV1_VariantGreen",
+      "kind": "boat",
+      "position_unity": [
+        12.5,
+        0,
+        -0.2319017171859743
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          8.876792907714844,
+          -2.049999952316284,
+          -0.6774940490722656
+        ],
+        [
+          16.123207092285156,
+          2.513803482055664,
+          2.0250000953674316
+        ]
+      ]
+    },
+    {
+      "name": "OuterWharf slot0",
+      "asset": "Tier5DeepLines103_VariantBlue",
+      "kind": "boat",
+      "position_unity": [
+        11.9,
+        0,
+        -6.629759335517882
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          7.380659580230713,
+          3.8595187664031982,
+          -0.6774940490722656
+        ],
+        [
+          16.419340133666992,
+          9.40000057220459,
+          3.2100002765655518
+        ]
+      ]
+    },
+    {
+      "name": "OuterWharf slot1",
+      "asset": "Tier5DeepLines103_VariantBlue",
+      "kind": "boat",
+      "position_unity": [
+        21.4,
+        0,
+        -6.629759335517882
+      ],
+      "yaw_unity": 90,
+      "bounds_blender": [
+        [
+          16.880659103393555,
+          3.8595187664031982,
+          -0.6774940490722656
+        ],
+        [
+          25.919340133666992,
+          9.40000057220459,
+          3.2100002765655518
+        ]
+      ]
+    }
+  ],
+  "boat_surface_intersections": [],
+  "clearance_result": "NO_SURFACE_INTERSECTIONS",
+  "limitations": [
+    "Surface intersections do not prove containment-free solid clearance.",
+    "Datum/front corrections applied explicitly; this is Blender evidence, not Unity runtime acceptance.",
+    "Phone frame uses landscape844x390 berth focus, whole view uses full harbour."
+  ],
+  "renders": [
+    {
+      "path": "Art/Models/GullHarbour/HarbourV2/assembly/clearance/tier1-whole.png",
+      "sha256": "33f213243e5ba862ff03361859155aec5d02cfdd8188a6d927611e1d02b4bed3",
+      "review": "opened",
+      "reviewer": "Codex 2 (WSL CLI)",
+      "notes": "Final fresh-scene render individually opened; occupied berth/building readability reviewed."
+    },
+    {
+      "path": "Art/Models/GullHarbour/HarbourV2/assembly/clearance/tier1-phone.png",
+      "sha256": "380df3dc5a81519a4250e18030b7a9fd1c284d5e0dc9a32221b38406c29cd8d0",
+      "review": "opened",
+      "reviewer": "Codex 2 (WSL CLI)",
+      "notes": "Final fresh-scene render individually opened; occupied berth/building readability reviewed."
+    }
+  ]
+}

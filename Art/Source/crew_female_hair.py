@@ -71,7 +71,7 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
             # hem sits inside the existing thin tips, with no visible cut plane.
             edge=max(0,-math.sin(a))
             bottom+=.200*edge**2+.003*math.sin(a*11)
-            if name in ('Ana','Rosa','Tove'):
+            if name in ('Ana','Rosa','Tove','CaptainF'):
                 bottom=.688+(.190 if name in ('Rosa','Tove') else .140)*edge**2+.003*math.sin(a*11)
             if name=='Tess':
                 # Support hem stays above the shortest existing rear lock tips.
@@ -106,7 +106,7 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
         length=.260+rng.uniform(-.025,.035) if style in ('waves','sidebraid','bob') else .205+rng.uniform(-.020,.025)
         if style in ('pixie','short'):length=.175+rng.uniform(-.025,.020)
         if style=='bob':length=.255+rng.uniform(-.003,.003)
-        if name=='Ana':length=.238+rng.uniform(-.010,.010)
+        if name in ('Ana','CaptainF'):length=.238+rng.uniform(-.010,.010)
         if name in ('Rosa','Tove'):length=.230+rng.uniform(-.012,.012)
         points=[]
         for k in range(7):
@@ -114,7 +114,7 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
             radx=.148+(.057 if style=='waves' else .040)*math.sin(math.pi*t*.8);rady=.132+(.052 if style=='waves' else .036)*math.sin(math.pi*t*.8)
             wave=(.022 if style=='waves' else .007 if style=='sidebraid' else .0015)*math.sin(t*math.tau*1.7+phase)*math.sin(math.pi*t*.85)
             aa=a+(.12 if style=='waves' else .035)*math.sin(t*8+phase)
-            if name in ('Ana','Rosa','Tove'):
+            if name in ('Ana','Rosa','Tove','CaptainF'):
                 p=Vector(fitted(aa,z,.013));p.x+=.005*math.sin(t*math.tau+phase)*math.sin(t*math.pi)
                 points.append(p)
             else:points.append(((radx+wave)*math.cos(aa),(rady+wave)*math.sin(aa)+.005,z))
@@ -125,6 +125,16 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
             x=-.143+.286*i/11
             clump([(x*.84,-.084,.924),(x*.99,-.119,.883),(x,-.139,.850),(x*.99,-.144,.823+rng.uniform(-.002,.002))],.015,.005,steps=3,blunt=True)
     else:
+        if name=='CaptainF':
+            # Off-centre auburn sweep follows the captain's lineup identity.
+            for j in range(8):
+                clump([(-.065+j*.012,-.100,.922),(-.010+j*.014,-.145,.892),
+                       (.060+j*.011,-.154,.867),(.100+j*.008,-.133,.843-j*.003)],
+                      .012,.004,steps=5,normal=(.2,-.98,0))
+            for j in range(3):
+                clump([(-.052-j*.014,-.105,.921),(-.104-j*.013,-.146,.881),
+                       (-.141-j*.009,-.123,.845),(-.151-j*.010,-.096,.820-j*.004)],
+                      .011,.004,steps=5,normal=(-.6,-.8,0))
         if name=='Tove':
             # Short silver waves part off-centre, with a fuller swept forelock
             # on her right and fine temple layers on the opposite side.
@@ -137,16 +147,16 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
                 clump([(.025+j*.012,-.098,.926),(.075+j*.010,-.143,.887),
                        (.125+j*.007,-.134,.850),(.147+j*.005,-.105,.831-j*.004)],
                        .011,.0032,steps=5,normal=(.5,-.85,0))
-        for i in range(0 if name=='Tove' else 6):
+        for i in range(0 if name in ('Tove','CaptainF') else 6):
             s=-1 if i<3 else 1;j=i%3
             rootx=s*(.007+j*.014);endx=s*(.089+j*.026)
             bottom=.844-j*.009+(0.008 if style=='short' else 0)
             clump([(rootx,-.095,.927),(s*(.035+j*.020),-.134,.896),(s*(.071+j*.025),-.150,.862),(endx,-.137,bottom)],.027-j*.003,.007,steps=5)
         # Fine overlapping tips retain Mira's layered forelock language.
-        for i in range(0 if name=='Tove' else 9):
+        for i in range(0 if name in ('Tove','CaptainF') else 9):
             s=-1 if i<3 else 1;j=i%3
             clump([(s*(.014+j*.017),-.138,.901),(s*(.046+j*.021),-.154,.877),(s*(.075+j*.023),-.141,.849-j*.004)],.0048,.0018,steps=3)
-        if name in ('Lise','Ines','Tess','Ana','Rosa','Tove'):
+        if name in ('Lise','Ines','Tess','Ana','Rosa','Tove','CaptainF'):
             # Continue the existing swept fringe into the side waves, with the
             # same broad shallow lock and fine overlapping tips as the forelock.
             for s in (-1,1):
@@ -159,17 +169,17 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
     # Face framing sides: stay outside cheeks and avoid the ear/eye planes.
     if style in ('waves','sidebraid','twinbraid','bob','highbun','lowbun'):
         for s in (-1,1):
-            nside=5 if name in ('Lise','Tess','Ines','Noor') else 4 if name=='Ana' else 3
+            nside=2 if name=='CaptainF' else 5 if name in ('Lise','Tess','Ines','Noor') else 4 if name in ('Ana','CaptainF') else 3
             for j in range(nside):
                 x=s*(.155+j*(.007 if name in ('Lise','Tess','Ines','Noor') else .012));y=-.095+j*(.017 if name in ('Lise','Tess','Ines','Noor') else .030);phase=j*.8
                 end=.607+rng.uniform(-.025,.030) if style in ('waves','sidebraid','bob') else .670+rng.uniform(-.025,.005)
                 if style=='bob':end=.648+rng.uniform(-.003,.003)
                 pts=[]
                 for k in range(8):
-                    t=k/7;amp=.026 if style=='waves' else .014 if style in ('sidebraid','highbun','twinbraid') else .004
+                    t=k/7;amp=.018 if name=='CaptainF' else .026 if style=='waves' else .014 if style in ('sidebraid','highbun','twinbraid') else .004
                     top=.910
-                    pts.append((x+s*amp*math.sin(t*math.tau*1.4+phase)+ (s*.014*max(0,(t-.7)/.3)**2 if name=='Ana' else 0),y-.014*math.sin(math.pi*t),top-(top-end)*t+(.018*max(0,(t-.8)/.2)**2 if name=='Ana' else 0)))
-                clump(pts,.013 if style=='bob' else .014,.005,steps=3 if name in ('Lise','Tess','Ines','Noor') else 4,normal=(s,0,0) if name in ('Lise','Tess','Ines','Noor','Ana') else (0,-1,0),blunt=style=='bob')
+                    pts.append((x+s*amp*math.sin(t*math.tau*1.4+phase)+ (s*.014*max(0,(t-.7)/.3)**2 if name in ('Ana','CaptainF') else 0),y-.014*math.sin(math.pi*t),top-(top-end)*t+(.018*max(0,(t-.8)/.2)**2 if name in ('Ana','CaptainF') else 0)))
+                clump(pts,.013 if style=='bob' else .014,.005,steps=3 if name in ('Lise','Tess','Ines','Noor') else 4,normal=(s,0,0) if name in ('Lise','Tess','Ines','Noor','Ana','CaptainF') else (0,-1,0),blunt=style=='bob')
     else:
         for s in (-1,1):
             for j in range(5):
@@ -214,7 +224,7 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
               clump([(centre,cy,bottom+.008),(centre+s*.003,cy-.003,bottom-.022),(centre-s*.010,cy+.002,bottom-.050)],.023 if style=='sidebraid' else .020,.006,steps=4)
             # Navy tie around each braid, geometry included in hair mesh group.
             g.sweep([(centre-.018,cy,bottom+.006),(centre-.01,cy-.015,bottom+.006),(centre+.012,cy-.015,bottom+.006),(centre+.018,cy,bottom+.006)],.003,'M_HullNavy','Head',6)
-    if name=='Ana':
+    if name in ('Ana','CaptainF'):
         # Only under-hat locks are fitted; the free bun is added afterwards.
         for i,(x,y,z) in enumerate(g.v):
             if z>.883:
@@ -223,6 +233,7 @@ def build_hair(Mesh,catmull,mats,cfg,name,out,png_chunk):
     if style in ('highbun','lowbun'):
         c=Vector((.018,.171,1.005 if style=='highbun' else .724));rx=.095 if style=='highbun' else .087;rz=.113 if style=='highbun' else .069
         if name=='Ana':c=Vector((.018,.188,.989));rx=.105;rz=.092
+        if name=='CaptainF':c=Vector((.018,.188,.735));rx=.100;rz=.079
         # Solid support volume is buried under flattened swept clumps.
         start=len(g.v);g.ell(c,(rx*.87,.073,rz*.89),name+'_Hair','Head',24,14)
         for idx in range(start,len(g.v)):

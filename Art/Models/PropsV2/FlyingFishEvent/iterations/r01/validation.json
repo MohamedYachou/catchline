@@ -1,0 +1,245 @@
+{
+  "name": "FlyingFishEvent",
+  "revision": "r01",
+  "delivery_sha256": {
+    "FlyingFishEvent.blend": "e62f03164df95983473a5d30f591ce20f5f3f6aaa2dc19fb7b60e9303a1896fa",
+    "FlyingFishEvent.fbx": "ac1a4c044a92cfbfb403a49e5477daa16cd89c30edbbca694897a3d8216af036"
+  },
+  "runtime_sha256": "ac1a4c044a92cfbfb403a49e5477daa16cd89c30edbbca694897a3d8216af036",
+  "checks": [
+    "current delivery SHA256 FlyingFishEvent.blend",
+    "current delivery SHA256 FlyingFishEvent.fbx",
+    "protected reference unchanged Art/Models/StationsV1/FlyingFishEvent.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry Body",
+    "finite vertices Body",
+    "nonempty geometry Tail",
+    "finite vertices Tail",
+    "source bounds manifest current",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry Body",
+    "finite vertices Body",
+    "nonempty geometry Tail",
+    "finite vertices Tail",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions Body",
+    "actual FBX part origin preserved Body",
+    "actual FBX triangle count Body",
+    "actual FBX face materials Body",
+    "actual FBX material slots Body",
+    "actual FBX every world vertex both directions Tail",
+    "actual FBX part origin preserved Tail",
+    "actual FBX triangle count Tail",
+    "actual FBX face materials Tail",
+    "actual FBX material slots Tail",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 908,
+  "mesh_count": 2,
+  "source_parts": {
+    "Body": {
+      "triangles": 892,
+      "bounds": [
+        [
+          -0.2319999784231186,
+          -0.19200000166893005,
+          -0.0560000017285347
+        ],
+        [
+          0.2319999784231186,
+          0.1720000058412552,
+          0.09600000083446503
+        ]
+      ],
+      "material_triangles": {
+        "M_HullBlue": 220,
+        "M_FishSilver": 56,
+        "M_RailIvory": 352,
+        "M_Rubber": 240,
+        "M_SeaTeal": 24
+      },
+      "material_colours": {
+        "M_HullBlue": [
+          0.023153366521000862,
+          0.13286831974983215,
+          0.2345505803823471,
+          1.0
+        ],
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ],
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ],
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ],
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Tail": {
+      "triangles": 16,
+      "bounds": [
+        [
+          -0.0031999999191612005,
+          0.15600000321865082,
+          -0.08800001442432404
+        ],
+        [
+          0.0031999999191612005,
+          0.2319999784231186,
+          0.055999983102083206
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 16
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "Body": {
+      "triangles": 892,
+      "bounds": [
+        [
+          -0.2319999784231186,
+          -0.19200000166893005,
+          -0.056000009179115295
+        ],
+        [
+          0.2319999784231186,
+          0.1720000058412552,
+          0.09600000083446503
+        ]
+      ],
+      "material_triangles": {
+        "M_HullBlue": 220,
+        "M_FishSilver": 56,
+        "M_RailIvory": 352,
+        "M_Rubber": 240,
+        "M_SeaTeal": 24
+      },
+      "material_colours": {
+        "M_HullBlue": [
+          0.023153366521000862,
+          0.13286831974983215,
+          0.2345505803823471,
+          1.0
+        ],
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ],
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ],
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ],
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Tail": {
+      "triangles": 16,
+      "bounds": [
+        [
+          -0.0031999999191612005,
+          0.15600000321865082,
+          -0.08799996972084045
+        ],
+        [
+          0.0031999999191612005,
+          0.23199999332427979,
+          0.05600002780556679
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 16
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "max_bounds_error_m": 4.470348358154297e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 4.712160915387242e-08,
+  "max_part_pivot_error_m": 0,
+  "pivot_use": "airborne centre",
+  "render_sha256": {
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/back.png": "59cc2de8616d6eaf21b3c28dcd6b625528fb3e2dc0122af413357e86773e703d",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/front.png": "e28cc5fe3e1a6c901ff5dfb73e78acaa74ae4e18c8d773bff6cd21f5957cec5e",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/left.png": "0d8a80b8178bcc4d89d8d521d6dd3b557ab9238eccc20891d9a537818835cf5e",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/right.png": "15b7ae854722dcfb512dd3dc0e857d13754b50689e286e68f63d3139485c88f0",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/three-quarter.png": "dfb7461818f9c588b32422c7061d274e19685d5d7a35122c53d7ca27fe94a00b",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/top.png": "5e7fca82d61df8120a06149b2c4d447c3788eb31da8ee9ac00700cb35cfc0bf9"
+  },
+  "pass": true
+}

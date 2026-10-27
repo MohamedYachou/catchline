@@ -400,8 +400,11 @@ elif role=='Engineer':
             for i in range(32):hat.mi[first+1+j*32+i]=mi
     hat.mi[-1]=hat.materials.index('M_RailIvory')
 else:
-    loft(hat,[(.899,.176,.151),(.934,.191,.163),(.971,.210,.175),(1.006,.200,.166),(1.032,.143,.120),(1.044,.001,.001)],'M_RailIvory')
-    loft(hat,[(.890,.178,.153),(.919,.182,.157)],'M_HullNavy')
+    captain_crown=[(.899,.176,.151),(.934,.191,.163),(.971,.210,.175),(1.006,.200,.166),(1.032,.143,.120),(1.044,.001,.001)]
+    loft(hat,captain_crown,'M_RailIvory')
+    bv=[(rx*math.cos(math.tau*i/48),ry*math.sin(math.tau*i/48),z)
+        for z,rx,ry in [(.890,.180,.157),(.894,.181,.158),(.917,.185,.161),(.921,.186,.161)] for i in range(48)]
+    hat.add(bv,[(j*48+i,j*48+(i+1)%48,(j+1)*48+(i+1)%48,(j+1)*48+i) for j in range(3) for i in range(48)],'M_HullNavy','HatMount')
     # Projecting navy visor with a softly bevelled curved edge.
     vv=[];count=28
     for zoff in (0,-.008):
@@ -414,14 +417,32 @@ else:
     ff += [(2*count+i,2*count+i+1,5*count+i+1,5*count+i) for i in range(count-1)]
     hat.add(vv,ff,'M_VisorCrew','HatMount')
     cord(hat,[(-.166,-.063,.921),(-.121,-.132,.925),(0,-.165,.927),(.121,-.132,.925),(.166,-.063,.921)],.004,'M_BrassCrew','HatMount',5,8)
-    disk(hat,(0,-.174,.973),.034,.010,'M_BrassCrew','HatMount',32)
-    disk(hat,(0,-.182,.973),.028,.006,'M_HullNavy','HatMount',32)
+    badge_start=len(hat.v)
+    br=[(-.149,.024),(-.153,.034),(-.159,.034),(-.162,.031),(-.163,.028),(-.164,.001)]
+    vv=[(rr*math.cos(math.tau*i/32),yy,.973+rr*math.sin(math.tau*i/32)) for yy,rr in br for i in range(32)]
+    ff=[tuple(reversed(range(32)))]+[(j*32+i,j*32+(i+1)%32,(j+1)*32+(i+1)%32,(j+1)*32+i) for j in range(len(br)-1) for i in range(32)]
+    ff.append(tuple(range((len(br)-1)*32,len(br)*32)))
+    first=len(hat.f);hat.add(vv,ff,'M_BrassCrew','HatMount')
+    for j in range(3,len(br)-1):
+        for i in range(32):hat.mi[first+1+j*32+i]=hat.materials.index('M_HullNavy')
+    hat.mi[-1]=hat.materials.index('M_HullNavy')
     # Explicit anchor: eye, shank, crossbar, curved flukes.
-    pts=[(.005*math.cos(math.tau*i/16),-.188,.989+.005*math.sin(math.tau*i/16)) for i in range(17)]
+    pts=[(.005*math.cos(math.tau*i/16),-.168,.989+.005*math.sin(math.tau*i/16)) for i in range(17)]
     hat.sweep(pts,.0022,'M_BrassCrewLight','HatMount',6)
-    cord(hat,[(0,-.188,.984),(0,-.188,.954)],.0028,'M_BrassCrewLight','HatMount',1,7)
-    cord(hat,[(-.012,-.188,.979),(.012,-.188,.979)],.0022,'M_BrassCrewLight','HatMount',1,6)
-    cord(hat,[(-.018,-.188,.966),(-.014,-.188,.956),(0,-.188,.951),(.014,-.188,.956),(.018,-.188,.966)],.0027,'M_BrassCrewLight','HatMount',3,6)
+    cord(hat,[(0,-.168,.984),(0,-.168,.954)],.0028,'M_BrassCrewLight','HatMount',1,7)
+    cord(hat,[(-.012,-.168,.979),(.012,-.168,.979)],.0022,'M_BrassCrewLight','HatMount',1,6)
+    cord(hat,[(-.018,-.168,.966),(-.014,-.168,.956),(0,-.168,.951),(.014,-.168,.956),(.018,-.168,.966)],.0027,'M_BrassCrewLight','HatMount',3,6)
+    # Conform the badge backing to the rounded crown. The back intersects the
+    # cap slightly; the relief sits above it without hovering at side angles.
+    for index in range(badge_start,len(hat.v)):
+        x,y,z=hat.v[index]
+        for lower,upper in zip(captain_crown,captain_crown[1:]):
+            if lower[0]<=z<=upper[0]:
+                t=(z-lower[0])/(upper[0]-lower[0])
+                rx=lower[1]*(1-t)+upper[1]*t;ry=lower[2]*(1-t)+upper[2]*t
+                surface=-ry*math.sqrt(max(0,1-(x/rx)**2))
+                hat.v[index]=(x,surface+.004+(y+.149),z)
+                break
     for s in (-1,1): disk(hat,(s*.166,-.067,.922),.008,.005,'M_BrassCrew','HatMount',16)
 meshes.append(hat.object(NAME+'_Hat'))
 
@@ -651,18 +672,48 @@ elif role=='Engineer':
     cord(garment,[(0,-.101,.37),(0,-.103,.447),(0,-.080,.509)],.0017,'M_Steel','Spine1',3,5)
 else:
     # White shirt, navy tie, tailored lapels, double-breasted buttons.
-    garment.patch([torso_surface(x,z,.004) for x,z in [(-.052,.538),(.052,.538),(0,.450)]],'M_RailIvory','Spine1',.002)
-    garment.patch([torso_surface(x,z,.009) for x,z in [(0,.527),(.012,.512),(.006,.465),(0,.451),(-.008,.468),(-.012,.512)]],'M_HullNavy','Spine1',.001)
+    loft(garment,[(.540,.068,.054),(.568,.057,.049)],'M_RailIvory','Neck',32)
+    def chest_panel(spec,mat,lift,cols=7):
+        vv=[];ww=[]
+        for zz,width in spec:
+            for i in range(cols):
+                xx=-width+2*width*i/(cols-1);vv.append(torso_surface(xx,zz,lift))
+                t=max(0,min(1,(zz-.32)/.19));ww.append({'Hips':1-t,'Spine1':t})
+        garment.add(vv,[(j*cols+i,j*cols+i+1,(j+1)*cols+i+1,(j+1)*cols+i) for j in range(len(spec)-1) for i in range(cols-1)],mat,'Spine1',ww)
+    chest_panel([(.451,.001),(.470,.012),(.491,.025),(.515,.040),(.538,.052)],'M_RailIvory',.004)
+    chest_panel([(.451,.0005),(.467,.008),(.503,.006),(.512,.012),(.527,.006)],'M_HullNavy',.007,3)
+    def board_z(x,y):
+        # Match this body's circular upper-arm sweep and its Arm weighting.
+        table=[(.115,.048),(.120,.052),(.150,.058),(.180,.056),(.190,.0553)]
+        for a,b in zip(table,table[1:]):
+            if a[0]<=x<=b[0]+1e-6:
+                u=(x-a[0])/(b[0]-a[0]);r=a[1]*(1-u)+b[1]*u
+                return .510+math.sqrt(max(0,r*r-y*y))+.0015
+        return .555
     for s in (-1,1):
-        garment.patch([torso_surface(s*x,z,.011) for x,z in [(.045,.547),(.113,.520),(.088,.486),(.111,.478),(.040,.405),(.052,.493)]],
+        garment.patch([torso_surface(s*x,z,.010) for x,z in [(0,.537),(.029,.542),(.055,.529),(.020,.508)]],'M_RailIvory','Spine1',.001)
+        garment.patch([torso_surface(s*x,z,.006) for x,z in [(.045,.548),(.109,.529),(.113,.499),(.079,.507)]],
+                      'M_CoatCrew','Spine1',.002)
+        garment.patch([torso_surface(s*x,z,.006) for x,z in [(.077,.507),(.102,.488),(.043,.422),(.047,.500)]],
                       'M_CoatCrew','Spine1',.002)
         cord(garment,[torso_surface(s*x,z,.014) for x,z in [(.045,.545),(.087,.487),(.041,.407)]],.0011,'M_CoatCrewEdge','Spine1',2,5)
-        for z in (.337,.385,.433):disk(garment,(s*.047,torso_surface(s*.047,z,.012)[1],z),.0075,.006,'M_BrassCrew','Spine1' if z>.35 else 'Hips',18)
+        garment.patch([torso_surface(s*x,z,.004) for x,z in [(.074,.338),(.123,.346),(.122,.333),(.073,.326)]],
+                      'M_CoatCrewEdge','Hips',.001)
+        for z in (.337,.385,.433):
+            begin=len(garment.v)
+            disk(garment,(s*.047,torso_surface(s*.047,z,.006)[1],z),.0075,.006,'M_BrassCrew','Spine1' if z>.35 else 'Hips',18)
+            t=max(0,min(1,(z-.32)/.19))
+            for vi in range(begin,len(garment.v)):garment.w[vi]={'Hips':1-t,'Spine1':t}
         side='Left' if s>0 else 'Right'
         # Epaulettes atop T-pose upper arms, move with original arm action.
-        garment.patch([(s*.124,-.035,.566),(s*.185,-.035,.566),(s*.185,.033,.566),(s*.124,.033,.566)],'M_BrassCrew',side+'Arm',.003)
+        xs=[.115,.1325,.150,.170,.190];ys=[-.032,-.016,0,.016,.032]
+        vv=[(s*x,y,board_z(x,y)) for x in xs for y in ys]
+        garment.add(vv,[(j*5+i,j*5+i+1,(j+1)*5+i+1,(j+1)*5+i) for j in range(4) for i in range(4)],'M_CoatCrew',side+'Arm')
         for j in range(3):
-            cord(garment,[(s*(.134+j*.016),-.032,.570),(s*(.134+j*.016),.031,.570)],.003,'M_RailIvory',side+'Arm',1,5)
+            xx=.131+j*.017
+            cord(garment,[(s*xx,y,board_z(xx,y)+.0015) for y in ys],.0025,'M_BrassCrew',side+'Arm',1,6)
+        for yy in (-.032,.032):
+            cord(garment,[(s*x,yy,board_z(x,yy)+.001) for x in xs],.0013,'M_BrassCrew',side+'Arm',1,5)
         for x in (.352,.365):
             pts=[(s*x,.043*math.cos(math.tau*i/20),.51+.043*math.sin(math.tau*i/20)) for i in range(21)]
             garment.sweep(pts,.0025,'M_BrassCrew',side+'ForeArm',6,up=(1,0,0))
@@ -672,6 +723,7 @@ meshes.append(garment.object(NAME+'_OutfitDetails'))
 # Commit topology in rest pose and preserve skinning. All parts stay <=20k total.
 budgets={NAME+'_Face':2200,NAME+'_Expression':1600,NAME+'_Hair':8500,
          NAME+'_Hat':2200,NAME+'_FemaleBody':3000,NAME+'_OutfitDetails':2450}
+if role=='Captain':budgets.update({NAME+'_Hair':6100,NAME+'_Hat':3800,NAME+'_OutfitDetails':3250})
 if role=='Engineer':budgets.update({NAME+'_Hat':2900,NAME+'_Hair':7800})
 assert signature(arm)==baseline
 for ob in meshes:

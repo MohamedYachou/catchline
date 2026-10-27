@@ -1,0 +1,452 @@
+{
+  "triangles": 1352,
+  "bounds": [
+    [
+      -0.30000001192092896,
+      -0.22499999403953552,
+      0.0
+    ],
+    [
+      0.30000001192092896,
+      0.22499999403953552,
+      0.3799999952316284
+    ]
+  ],
+  "dimensions_blender": [
+    0.6000000238418579,
+    0.44999998807907104,
+    0.3799999952316284
+  ],
+  "parents": {
+    "CrabCage": null,
+    "CreelFrame": "CrabCage",
+    "Lid": "CrabCage",
+    "Bridle": "CrabCage"
+  },
+  "materials": [
+    "M_HullNavy",
+    "M_RailIvory",
+    "M_Rope",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_SeaTeal",
+    "M_Steel"
+  ],
+  "objects": {
+    "CrabCage": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 0
+    },
+    "CreelFrame": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 1028
+    },
+    "Lid": {
+      "location": [
+        0.0,
+        0.12999999523162842,
+        0.28385257720947266
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 220
+    },
+    "Bridle": {
+      "location": [
+        0.0,
+        0.21899999678134918,
+        0.35499998927116394
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 104
+    }
+  },
+  "name": "CrabCage",
+  "contract": {
+    "Lid": {
+      "pivot": [
+        0,
+        0.13,
+        0.2838525843244621
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "open_degrees": -90
+    },
+    "Bridle": {
+      "pivot": [
+        0,
+        0.219,
+        0.355
+      ],
+      "attachment": true
+    }
+  },
+  "axes": "Blender (X,Y,Z) maps to Unity (X,Z,-Y); board operator/gauge edge source +Y / Unity -Z",
+  "sha256": {
+    "blend": "9bf586568bcf4c0edc7a0e06659b4cf1a81054cdcef4c02efb08a8f71546733b",
+    "fbx": "e84113c5ce9c68ac269fc2f6e783926bdde53728621e59fb474132edfd19c25e"
+  },
+  "status": "individual source/actualFBX/visual PASS; assembled/native acceptance separate",
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 3,
+      "max_vertex_error_metres": 4.214684778958144e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "source": {
+      "triangles": 1352,
+      "bounds": [
+        [
+          -0.30000001192092896,
+          -0.22499999403953552,
+          0.0
+        ],
+        [
+          0.30000001192092896,
+          0.22499999403953552,
+          0.3799999952316284
+        ]
+      ],
+      "dimensions_blender": [
+        0.6000000238418579,
+        0.44999998807907104,
+        0.3799999952316284
+      ],
+      "parents": {
+        "CrabCage": null,
+        "CreelFrame": "CrabCage",
+        "Lid": "CrabCage",
+        "Bridle": "CrabCage"
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "objects": {
+        "CrabCage": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        },
+        "CreelFrame": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 1028
+        },
+        "Lid": {
+          "location": [
+            0.0,
+            0.12999999523162842,
+            0.28385257720947266
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 220
+        },
+        "Bridle": {
+          "location": [
+            0.0,
+            0.21899999678134918,
+            0.35499998927116394
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 104
+        }
+      }
+    },
+    "imported": {
+      "triangles": 1352,
+      "bounds": [
+        [
+          -0.30000001192092896,
+          -0.22499999403953552,
+          -1.6987026896231328e-08
+        ],
+        [
+          0.30000001192092896,
+          0.2250000238418579,
+          0.37999996542930603
+        ]
+      ],
+      "dimensions_blender": [
+        0.6000000238418579,
+        0.45000001788139343,
+        0.3799999824163329
+      ],
+      "parents": {
+        "Bridle": "CrabCage",
+        "CreelFrame": "CrabCage",
+        "Lid": "CrabCage",
+        "CrabCage": null
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "objects": {
+        "Bridle": {
+          "location": [
+            0.0,
+            0.35499998927116394,
+            -0.21899999678134918
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 104
+        },
+        "CreelFrame": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 1028
+        },
+        "Lid": {
+          "location": [
+            0.0,
+            0.28385257720947266,
+            -0.12999999523162842
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 220
+        },
+        "CrabCage": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.570796251296997,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        }
+      }
+    },
+    "controls": {
+      "Lid": {
+        "pivot_error_metres": 1.4901161193847656e-08,
+        "local_x_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_test": "PASS"
+      },
+      "Bridle": {
+        "pivot_error_metres": 4.2146848510894035e-08,
+        "local_x_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_test": "PASS"
+      }
+    }
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/CrabCage/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "185e86fb8dddea07c3ae9ed1f38eba577bce9d210767535375f0f3be85dbf9ac",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabCage/front.png",
+        "view": "front",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "826126fb559b993e05616c5aef5e6657a3a77fe1d39973873f2c11b882220c9a",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabCage/right.png",
+        "view": "right",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "21a6c6f0c7d25ef4ce444cdc4f209d9abcbb75184a9c14105a55aad9c49c8b34",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabCage/back.png",
+        "view": "back",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "ba1d98d37a8b860a5464ecebe43acbb97f81b8c02fd8d0b4b7c8489b02494530",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabCage/top.png",
+        "view": "top",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "12ef4cfd13413b6d6d19e3109946811c6feca12ca9320575b63d129a9c432b22",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabCage/lid-open.png",
+        "view": "negative90degree local-X hinge open",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "3e68a303b26babf29716366e63c5401c6cb14c8b7f85743456356a5356c5243b",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

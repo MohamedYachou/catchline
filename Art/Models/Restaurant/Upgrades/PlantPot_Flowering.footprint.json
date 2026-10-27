@@ -1,0 +1,39 @@
+{
+  "name": "PlantPot_Flowering",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.23327694833278656,
+      -0.21894985437393188,
+      0.0
+    ],
+    [
+      0.22996832430362701,
+      0.23247404396533966,
+      0.8154377341270447
+    ]
+  ],
+  "triangles": 6004,
+  "export_meshes": [
+    "PlantPot_Flowering"
+  ],
+  "atlas_cells": [
+    "brass",
+    "ivory",
+    "leaf",
+    "lettuce",
+    "white",
+    "wooddark"
+  ],
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "3f995a91aaf8c2fe343239aca81a4ba319490164c7de3d577b4280d6382c70bf"
+}

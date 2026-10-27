@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "scope": "source visual review only",
+  "reviewer": "Codex 2 (WSL CLI)",
+  "opened": {
+    "bistro-look-renders/after-populated-room-1440x900.png": "b96c3f6177c840d36ed82b37afa3a552d207fdacf80dcec93090d7bf004b7d8f",
+    "bistro-look-renders/after-populated-room-844x390.png": "ae937b24c6e934760ca5f2da8df8f9451f141fa42278d6905f32881494bc3289",
+    "bistro-look-renders/after-room-1440x900.png": "60ac033146c20160167d69e02704ff083f686d807df3e9f97dcc562ba317ed8b",
+    "bistro-look-renders/after-room-844x390.png": "0f2cb6a7c71e30666602e0814b3b6d868cc7f96149596e92b7bae59bd03c8b08",
+    "bistro-look-renders/before-populated-room-1440x900.png": "87a254f6e928525122fe58847915a9f92c4b4cb72a66731e3cfaf66b4dd70c78",
+    "bistro-look-renders/before-populated-room-844x390.png": "25e26877f98c43c5309e10030d9483f8605d802b62b9fb816cf19e50528978a5",
+    "bistro-look-renders/before-room-1440x900.png": "0d24d8cff88fc4c1daf786db06ac7daf331c0166a66ecad31a1eec9b07a969db",
+    "bistro-look-renders/before-room-844x390.png": "90eac26b0b7439929c0de79a6d2ccc3c59844e1ebc7ef41e94d3abc09ceba1e1",
+    "bistro-look-review.jpg": "79272751bcc90e24207753ccb7aba72a2d7cc61df2c1d1704e87300c2b07143a",
+    "bistro-look-phone-review.jpg": "60151844026f5753aa97a4ddac9fc5fbad807f8d54df3a60ccb0919e5e5c1575"
+  },
+  "findings": [
+    "Kitchen checker softened to ivory/blue-grey pigment cells.",
+    "Runners break up the broad floor; wood has darker per-tile variation.",
+    "Menu silhouette, edge herbs, lanterns and festoons remain visible at844x390.",
+    "Review furniture sits above floor/runners and is excluded from production export.",
+    "Original station sightlines and side terrace remain open."
+  ],
+  "native_after_verified": false,
+  "limits": [
+    "Native r123 is BEFORE only. AFTER views are Blender proofs.",
+    "Runtime blue fill/intensity conversion may differ; import FBX and lighting recipe together.",
+    "Five illustrative table lights excluded from importable recipe; runtime lights layout tables."
+  ]
+}

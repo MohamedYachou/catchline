@@ -1,0 +1,50 @@
+{
+  "reviewed_utc": "2026-10-27T10:38:16.963123+00:00",
+  "reviewer": "Codex 1 (Windows app)",
+  "scope": "Opened final source proof contacts; all 26 old/new pairs inspected. Not Unity or player acceptance.",
+  "proofs": [
+    {
+      "file": "before-grid-contact.jpg",
+      "sha256": "ade784d7e7a9095fbe6a2ac7deab9a9290245ca4be3902b098a224a20cd30d01"
+    },
+    {
+      "file": "after-grid-contact.jpg",
+      "sha256": "4f8283e05049f807945962208f65143c803159f047500c2768b3421071cad456"
+    },
+    {
+      "file": "comparison-contact-1.jpg",
+      "sha256": "621d959cab8834c0b3ce9698783843b4fd80720cbcdeafdd4e714ff60169ec92"
+    },
+    {
+      "file": "comparison-contact-2.jpg",
+      "sha256": "64dd56d2afa3470ac1374eb1dc8204fabeb65a68d7d80276249a7312bb5ca8cc"
+    },
+    {
+      "file": "comparison-contact-3.jpg",
+      "sha256": "504a6970a2d8bb565329cbb8cc582bfc9572598ba81cee091a3e7d72bf04146b"
+    },
+    {
+      "file": "comparison-contact-4.jpg",
+      "sha256": "2261316bad82d34753d84642e409eccd98a4e77b8eb55b20a2a9f5ee240ed032"
+    },
+    {
+      "file": "comparison-contact-5.jpg",
+      "sha256": "7038f76239843d6ca5d03832525f285098e0860464b8d89c403240a5b27d0be3"
+    }
+  ],
+  "observations": [
+    "All 26 final assets visible; readable labels; no magenta or missing final atlas.",
+    "Appliance controls and doors face the incumbent direction in equal-scale source comparisons.",
+    "Wood dining tops and navy/steel kitchen palette retained.",
+    "11 chair-back directions independently verified outward from table centre, so seating faces inward.",
+    "Small props retain equal pixels/metre instead of independent enlargement."
+  ],
+  "limits": [
+    "TableFor2 front/back chairs follow runtime seat positions rather than incumbent side-chair geometry; native seat alignment pending.",
+    "Six-seat runtime third-pair offset issue is outside this source-only scope.",
+    "Fryer and jukebox are pack-based proxies; net/chart include declared simple detail geometry.",
+    "DrinksFridge is a closed-door pack fridge rather than incumbent glass display.",
+    "Terrace parasol increases height; wide upgrade items retain two-tile size class.",
+    "Unity importer facing, materials, native room appearance and performance remain unverified."
+  ]
+}

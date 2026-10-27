@@ -1,0 +1,71 @@
+{
+  "views": [
+    {
+      "file": "renders/Assembly/deck-1440.png",
+      "size": [
+        1440,
+        900
+      ],
+      "projection": "orthographic",
+      "horizontal_span_m": 8.741435050964355,
+      "down_degrees": 45,
+      "reference_direction": [
+        0.574,
+        -0.819,
+        1
+      ],
+      "asset_projected_bounds_01": [
+        0.18220382928848267,
+        0.21563969552516937,
+        0.8177964687347412,
+        0.7843599915504456
+      ]
+    },
+    {
+      "file": "renders/Assembly/deck-844.png",
+      "size": [
+        844,
+        390
+      ],
+      "projection": "orthographic",
+      "horizontal_span_m": 8.741435050964355,
+      "down_degrees": 45,
+      "reference_direction": [
+        0.574,
+        -0.819,
+        1
+      ],
+      "asset_projected_bounds_01": [
+        0.18220382928848267,
+        0.11538442969322205,
+        0.8177964687347412,
+        0.8846151828765869
+      ]
+    }
+  ],
+  "placements": [
+    [
+      "PuffinGroup",
+      [
+        -1.55,
+        -1.05,
+        0
+      ],
+      "ThreePuffins",
+      null,
+      1
+    ],
+    [
+      "TideRace",
+      [
+        0,
+        0.7,
+        -0.005
+      ],
+      "StandingRace",
+      null,
+      1
+    ]
+  ],
+  "limit": "Isolated Blender water fixture; no Unity water, actual MAP8, HUD, import or runtime acceptance."
+}

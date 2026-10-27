@@ -1,0 +1,45 @@
+{
+  "styles": [
+    {
+      "id": "mira-call-2line",
+      "screen": "phone",
+      "rect": [
+        207,
+        63,
+        278,
+        36
+      ],
+      "text": "The coffee station is broken. Can you help with repairs?",
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 14,
+      "fill": "#173F57",
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": true,
+      "maxLines": 2,
+      "lineHeight": 18
+    },
+    {
+      "id": "mira-call-2line",
+      "screen": "desktop",
+      "rect": [
+        465,
+        103,
+        370,
+        44
+      ],
+      "text": "The coffee station is broken. Can you help with repairs?",
+      "font": "Fredoka-Bold",
+      "weight": 700,
+      "size": 18,
+      "fill": "#173F57",
+      "align": "left",
+      "vertical_align": "middle",
+      "wrap": true,
+      "maxLines": 2,
+      "lineHeight": 22
+    }
+  ],
+  "notes": "Labels live. If a localized line exceeds two lines, use coach card or split message; do not shrink type."
+}

@@ -1,0 +1,257 @@
+{
+  "triangles": 2001,
+  "meshes": 6,
+  "vertices": 1710,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -1.0102660655975342,
+      -0.6384662389755249,
+      0.0
+    ],
+    [
+      0.9750000238418579,
+      0.6550931930541992,
+      0.8765134811401367
+    ]
+  ],
+  "parents": {
+    "PotStack": null,
+    "GraniteLedge": "PotStack",
+    "CrabCage_1": "PotStack",
+    "CrabCage_2": "PotStack",
+    "CrabCage_3": "PotStack",
+    "CrabCage_4": "PotStack",
+    "CrabCage_5": "PotStack"
+  },
+  "materials": [
+    "M_HullNavy",
+    "M_RailIvory",
+    "M_Rope",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_SeaTeal",
+    "M_Steel"
+  ],
+  "name": "PotStack",
+  "contract": {
+    "source": "Art/Models/Fishing/CageKit/CrabCage.blend",
+    "source_sha256": "9bf586568bcf4c0edc7a0e06659b4cf1a81054cdcef4c02efb08a8f71546733b",
+    "cages": 5,
+    "triangles_per_cage": 389,
+    "LOD": "Actual released CreelFrame+Lid+Bridle joined, collapse-decimated32% then degenerate/loose cleanup; static distant stack, no lid controls. Canonical CageKit unchanged."
+  },
+  "limit": 2250,
+  "sha256": {
+    "blend": "1945a13b93b258b012dc22059ec9daba3a65f86d1da7e060f8fb7cbec7f28c68",
+    "fbx": "401e7c0b16d7a643e6e510233fb777877f82e1a3b95b5fadb7f6bc38e6f8e141"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 2001,
+      "meshes": 6,
+      "vertices": 1710,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -1.0102660655975342,
+          -0.6384662389755249,
+          0.0
+        ],
+        [
+          0.9750000238418579,
+          0.6550931930541992,
+          0.8765134811401367
+        ]
+      ],
+      "parents": {
+        "PotStack": null,
+        "GraniteLedge": "PotStack",
+        "CrabCage_1": "PotStack",
+        "CrabCage_2": "PotStack",
+        "CrabCage_3": "PotStack",
+        "CrabCage_4": "PotStack",
+        "CrabCage_5": "PotStack"
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ]
+    },
+    "imported": {
+      "triangles": 2001,
+      "meshes": 6,
+      "vertices": 1710,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -1.0102660655975342,
+          -0.6384662389755249,
+          -3.956652960823703e-08
+        ],
+        [
+          0.9750000238418579,
+          0.6550931930541992,
+          0.8765134811401367
+        ]
+      ],
+      "parents": {
+        "CrabCage_1": "PotStack",
+        "CrabCage_2": "PotStack",
+        "CrabCage_3": "PotStack",
+        "CrabCage_4": "PotStack",
+        "CrabCage_5": "PotStack",
+        "GraniteLedge": "PotStack",
+        "PotStack": null
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 8.679838003899931e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/PotStack/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "087373cc07e471da01747460b060fd3fba763d559991bfb80073793eeebd2801",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "d68bb111b65fbb3f810abd37929b866c01129fb735650ae535fc4a6a48331383",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "ff7a91306475a6065fab2f0a655fb4f9011e6fa6f5e06c42903fc72b0b202c8c",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "7f007c27f23badfbdb6b49d7d37b140ce83d7686776517ae5baf3bfb549a02cf",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "cdccf30ed3773d1b02c8f33cce14e15c6913f4fd27b851825ba4ea182620c42e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "f3db276cece7a01f61bf29715424254df57e25e0aefff23471f7c32e12c8e971",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "fb86d400fbe1415961ed5304a07c1a6485d55de7427572088c81fbd5e908e49d",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 2.1979987288710707,
+        "sha256": "4b2c4c8c426ea7aa36dbde9b2e5557aba491dab9df8e9b5d71de36df227c138a",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotStack/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 2.1979987288710707,
+        "sha256": "0b46ba29f70a3af8727f448d1aceac7c4f99f7463cc5f920b59a3ce95d7b11a8",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

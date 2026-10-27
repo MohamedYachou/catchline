@@ -1,0 +1,127 @@
+{
+  "name": "NoticeBoard",
+  "group": "B",
+  "triangles": 776,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -1.1210066080093384,
+      -0.4450000822544098,
+      0.0
+    ],
+    [
+      1.1210066080093384,
+      0.4450000822544098,
+      2.6449999809265137
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    2.2420132160186768,
+    0.8900001645088196,
+    2.6449999809265137
+  ],
+  "parts": [
+    {
+      "name": "RoofedCrewNoticeBoard",
+      "triangles": 776,
+      "vertices": 454,
+      "bounds_min_blender": [
+        -1.1210066080093384,
+        -0.4450000822544098,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.1210066080093384,
+        0.4450000822544098,
+        2.6449999809265137
+      ],
+      "mesh_sha256": "c588a2d90824e14e0b2098fbdf537908eb28bcacf255655cf6650ff22ae83799",
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\NoticeBoard.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\NoticeBoard.fbx",
+  "sha256": {
+    "blend": "c64e9efbd054c6409a6bda1776da3b0c3036e8b1f9abc283cbc056780b2a4fd4",
+    "fbx": "fb07921efdc1a3bd5025ca79df18d11c9de995f3639f1cd9e644d0b3131d69cc"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NoticeBoard\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NoticeBoard\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NoticeBoard\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NoticeBoard\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NoticeBoard\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.7881393432617188e-07,
+    "source": {
+      "triangles": 776,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.1210066080093384,
+          -0.4450000822544098,
+          0.0
+        ],
+        [
+          1.1210066080093384,
+          0.4450000822544098,
+          2.6449999809265137
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "NoticeBoard": null,
+        "RoofedCrewNoticeBoard": "NoticeBoard"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 776,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.1210066080093384,
+          -0.44499990344047546,
+          -6.794817597466363e-09
+        ],
+        [
+          1.1210066080093384,
+          0.4450002610683441,
+          2.6449999809265137
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "RoofedCrewNoticeBoard": "NoticeBoard",
+        "NoticeBoard": null
+      },
+      "finite": true
+    }
+  }
+}

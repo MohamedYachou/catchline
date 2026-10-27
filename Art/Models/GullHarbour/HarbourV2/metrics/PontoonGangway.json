@@ -1,0 +1,123 @@
+{
+  "name": "PontoonGangway",
+  "group": "A",
+  "triangles": 700,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.6299999952316284,
+      -0.030000055208802223,
+      -0.0922136902809143
+    ],
+    [
+      0.6299999952316284,
+      3.0199999809265137,
+      1.1023484468460083
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    1.2599999904632568,
+    3.049999952316284,
+    1.1945621967315674
+  ],
+  "parts": [
+    {
+      "name": "HingedRamp",
+      "triangles": 700,
+      "vertices": 400,
+      "bounds_min_blender": [
+        -0.6299999952316284,
+        -0.030000055208802223,
+        -0.0922136902809143
+      ],
+      "bounds_max_blender": [
+        0.6299999952316284,
+        3.0199999809265137,
+        1.1023484468460083
+      ],
+      "mesh_sha256": "fdb91773ee57502ff439c23f60b7f1bd3e107075ab3b6f6f717181b62362bbd5",
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Steel",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Root Y=0 datum. HingedRamp child pivot at quay end Y=.35,Z=0; far end Z=-3,Y=0. Deck width1.1m, centreline length3m."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\PontoonGangway.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\PontoonGangway.fbx",
+  "sha256": {
+    "blend": "6a4609a01fc6c25c3ea84ded133f1324889af84bb4dd51fc6d27f24c271f4ae9",
+    "fbx": "131329e06f279af5ce0b7c0b8c1bff5404d8f3bb47ef6fff9d9b6dd4a606f3b7"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonGangway\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonGangway\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonGangway\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonGangway\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\PontoonGangway\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.2351741790771484e-07,
+    "source": {
+      "triangles": 700,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.6299999952316284,
+          -0.030000055208802223,
+          -0.0922136902809143
+        ],
+        [
+          0.6299999952316284,
+          3.0199999809265137,
+          1.1023484468460083
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "PontoonGangway": null,
+        "HingedRamp": "PontoonGangway"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 700,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.6299999952316284,
+          -0.030000030994415283,
+          -0.09221391379833221
+        ],
+        [
+          0.6299999952316284,
+          3.0199999809265137,
+          1.1023484468460083
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "HingedRamp": "PontoonGangway",
+        "PontoonGangway": null
+      },
+      "finite": true
+    }
+  }
+}

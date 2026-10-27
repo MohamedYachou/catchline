@@ -1,0 +1,205 @@
+{
+  "task": "JIG-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "triangles": 1156,
+    "reviewed_images": 22,
+    "resolved_links": 30,
+    "limits": "Artist source/FBX and isolated Blender evidence; no Unity/native acceptance."
+  },
+  "files": {
+    "Art/Models/RepairKit/REPORT.md": {
+      "bytes": 4402,
+      "sha256": "d411a9c75234e419f30ed4661f0a09118291916cf61e6ad47fcaebdbd57fb211"
+    },
+    "Art/Models/RepairKit/RepairKit-assembly-review.blend": {
+      "bytes": 107600,
+      "sha256": "afda860d9f5e0524b960aae90e80c5af719649632222ae84c2b0a71b23f5d5ce"
+    },
+    "Art/Models/RepairKit/RepairKit.blend": {
+      "bytes": 103637,
+      "sha256": "d1261c14e1549ebe7645cfac7187e5264deebb75a413cf930f317121b51c0e4b"
+    },
+    "Art/Models/RepairKit/RepairKit.fbx": {
+      "bytes": 39196,
+      "sha256": "370415d85b716cceedd46f9d8f3eb3b5c69451d461735f7487cdeb3b91b185a6"
+    },
+    "Art/Models/RepairKit/metrics/audit.json": {
+      "bytes": 5358,
+      "sha256": "d9f2cbd19afcd30727b3ea88383219ecf52a0fefaac60b50598afdc3fefc809a"
+    },
+    "Art/Models/RepairKit/metrics/build.json": {
+      "bytes": 2562,
+      "sha256": "da8b32ee37f8c00fd6f6878f10935c98097039cb49facfaff891e7de555092d4"
+    },
+    "Art/Models/RepairKit/metrics/dependencies.json": {
+      "bytes": 418,
+      "sha256": "a12ffd2ad389b6e98042fda8413ff163a3d82e7edf9fc9571636458acf9d5192"
+    },
+    "Art/Models/RepairKit/renders/Assembly/assembly-1440.png": {
+      "bytes": 1556509,
+      "sha256": "679469f432e89d0642fda6772d1386a64a8ec145bedb9f1a1585fc947229c887"
+    },
+    "Art/Models/RepairKit/renders/Assembly/assembly-844.png": {
+      "bytes": 472376,
+      "sha256": "a07649c7d6e7ce30e7a5678bbf276f51eee4c9a5d553a90f0f380497c7edc3be"
+    },
+    "Art/Models/RepairKit/renders/MendedPatch/back.png": {
+      "bytes": 328066,
+      "sha256": "fe057a305b8af8841ede1961168ee117542a39a6744f9042eaf74b6a84934344"
+    },
+    "Art/Models/RepairKit/renders/MendedPatch/front.png": {
+      "bytes": 328053,
+      "sha256": "db3d9273139b759382da209ed5db6df0e6dc9882afc7f0c1e0113870c2bbe5c1"
+    },
+    "Art/Models/RepairKit/renders/MendedPatch/right.png": {
+      "bytes": 326918,
+      "sha256": "803408565c0835c64d7a2f0a996a59be6fa962002e75eead0987c12cbdc273cd"
+    },
+    "Art/Models/RepairKit/renders/MendedPatch/three-quarter.png": {
+      "bytes": 349012,
+      "sha256": "c09a7aee63007831ba2b1cadd68882380d2c7b6da31e8454d2b9d2e01bee020f"
+    },
+    "Art/Models/RepairKit/renders/MendedPatch/top.png": {
+      "bytes": 388247,
+      "sha256": "29d22a6829755306f0d17503db07649d43cd9f3a39c53cade96d52ef9a99c094"
+    },
+    "Art/Models/RepairKit/renders/NettingNeedle/back.png": {
+      "bytes": 330180,
+      "sha256": "067e6e1559e6c478ba8d1e0cba10fb2ec62b21d8c73458382572b841dbb7fe3d"
+    },
+    "Art/Models/RepairKit/renders/NettingNeedle/front.png": {
+      "bytes": 332476,
+      "sha256": "2df57d0e1db852708650025a67e0244957a7c4689827bc1ca20cc2d5933ca512"
+    },
+    "Art/Models/RepairKit/renders/NettingNeedle/right.png": {
+      "bytes": 343780,
+      "sha256": "499778d522536c4cdf2480194748e476b2c502d112eea817ca8a248800a58bdc"
+    },
+    "Art/Models/RepairKit/renders/NettingNeedle/three-quarter.png": {
+      "bytes": 360955,
+      "sha256": "45df62a2e79e2d80bd208dd4ed3453bdbf125b2ba940e87fe834d34c378e015a"
+    },
+    "Art/Models/RepairKit/renders/NettingNeedle/top.png": {
+      "bytes": 325722,
+      "sha256": "f2db7bbe111fcec4f9f05c3212c94c39777dbd2d3fae284679cd8ebc5687ff69"
+    },
+    "Art/Models/RepairKit/renders/TornNet/back.png": {
+      "bytes": 330623,
+      "sha256": "9d059f111bda2bb6f40c2eefea8cbb5d1b22955dea44a68ef46db708a786a2bc"
+    },
+    "Art/Models/RepairKit/renders/TornNet/front.png": {
+      "bytes": 331612,
+      "sha256": "75cbabfa3828f11ec98ca07cb3ee9af72a29ec42e4b645e3ef2e536edf85bbf2"
+    },
+    "Art/Models/RepairKit/renders/TornNet/right.png": {
+      "bytes": 327944,
+      "sha256": "208be3ddbba7c4cd5a888772616c198c2c78ad85713bfbedcd20d421da1f2377"
+    },
+    "Art/Models/RepairKit/renders/TornNet/three-quarter.png": {
+      "bytes": 393406,
+      "sha256": "49b4f5b21545bafe85565fee2859a9820c48cbb98cc7a507bce21090687a6d43"
+    },
+    "Art/Models/RepairKit/renders/TornNet/top.png": {
+      "bytes": 458001,
+      "sha256": "2fd979bf617aab5bb5b992451aa62d797b35e2cca1fe612d40da54e5354e0407"
+    },
+    "Art/Models/RepairKit/renders/TwineBall/back.png": {
+      "bytes": 360748,
+      "sha256": "11ee5a0cc16788df42182ee3e050e5145ddc7f2ed958c2263cf7d04cb97e3a63"
+    },
+    "Art/Models/RepairKit/renders/TwineBall/front.png": {
+      "bytes": 357966,
+      "sha256": "c5b32ed6c4c640b77d9fcd35fb961b69bee79eeaa38a2e3429ef99c84f729bfd"
+    },
+    "Art/Models/RepairKit/renders/TwineBall/right.png": {
+      "bytes": 361031,
+      "sha256": "e89c3005f0f12048d5a5015126d1a1e897fa919593fcafe6a0c39423f8e02641"
+    },
+    "Art/Models/RepairKit/renders/TwineBall/three-quarter.png": {
+      "bytes": 353374,
+      "sha256": "cf277d9395d4a5120531f2b91866512705bab25ccf9eb1f18d0525caf7f33174"
+    },
+    "Art/Models/RepairKit/renders/TwineBall/top.png": {
+      "bytes": 361254,
+      "sha256": "0d191f3cdbd0e6f11df9c76f981f48af20099825b5e0f10b1a495e34e64cd7ed"
+    },
+    "Art/Models/RepairKit/renders/manifest.json": {
+      "bytes": 5455,
+      "sha256": "ac4683d32f5144d28d0a1d2b0856febcc7cd15c58d662195285c01270d208b14"
+    },
+    "Art/Models/RepairKit/visual-review.json": {
+      "bytes": 10703,
+      "sha256": "7d92fbc374c28222c0ae69208107a2f4b4f49ef888a24c314171776effd75397"
+    },
+    "Art/Source/JigKit/JigKit-audit.log": {
+      "bytes": 293,
+      "sha256": "aebf985a669d5c07ae1e87d4d551f1a111f90636b85ff1f3edad7bec8089050d"
+    },
+    "Art/Source/JigKit/JigKit-build.log": {
+      "bytes": 368,
+      "sha256": "077557c7fefe3c7cec203cf1e3935ea5a384ab6abc9792f849a62ddfd7351119"
+    },
+    "Art/Source/JigKit/JigKit-compare_rocks-rocks.log": {
+      "bytes": 396,
+      "sha256": "ebbaa30ddae0337c1ac31d1e604593732aeb6c62f3e7c58a6012fc958914dca8"
+    },
+    "Art/Source/JigKit/JigKit-render-motes.log": {
+      "bytes": 1269,
+      "sha256": "71cbfcc74ceae8d30ab9d8f6034ccecad08e5ab33ef481c99c171684708ad8ec"
+    },
+    "Art/Source/JigKit/JigKit-render-rocks.log": {
+      "bytes": 1279,
+      "sha256": "cc3370c4f6b2701ebdb3623269188bae4e193a6ff945c6f15ba2bf1811e1b7a2"
+    },
+    "Art/Source/JigKit/JigKit-render.log": {
+      "bytes": 4879,
+      "sha256": "b610ebc8efc57fac6e9db7facc0854641eb9d9b0a57d2ed8cd05ddeb38d66f8d"
+    },
+    "Art/Source/JigKit/RepairKit-audit.log": {
+      "bytes": 303,
+      "sha256": "1b8b600115ed510a8691d64900e2c6b94b25806d65c5ac1d695c36175acbf101"
+    },
+    "Art/Source/JigKit/RepairKit-build.log": {
+      "bytes": 335,
+      "sha256": "9a5201b29c9cf1c1c68df60860fc5136271b40062489a01c43bcad4c8ea01865"
+    },
+    "Art/Source/JigKit/RepairKit-render.log": {
+      "bytes": 3167,
+      "sha256": "609053fec2d62aa826b10d2b54b132446a5e47e9a86d0c880cb36ee545eb3ee9"
+    },
+    "Art/Source/JigKit/audit.py": {
+      "bytes": 4362,
+      "sha256": "1f83f9925675598d284338f06d14780a6685922ebc38a058648e1469088ab6ad"
+    },
+    "Art/Source/JigKit/build.py": {
+      "bytes": 11345,
+      "sha256": "3fcd3eb7593a5dcf829d9aed2c69829173b1fd9ae576b6a894da3170fe598eba"
+    },
+    "Art/Source/JigKit/compare_rocks.py": {
+      "bytes": 2079,
+      "sha256": "de39db7ad8e3fc6874688f710c0f4e8f7b8daa523b2e724d4e70d30004f1f735"
+    },
+    "Art/Source/JigKit/document.py": {
+      "bytes": 7829,
+      "sha256": "16c5310a99a413ee607b469094d46fade187222b0127a5b65ca31ab1949c2ef1"
+    },
+    "Art/Source/JigKit/finalize.py": {
+      "bytes": 2859,
+      "sha256": "b244641db938085f6670e21dc6e4947910230c4caf0356d18063c559b80193f8"
+    },
+    "Art/Source/JigKit/render.py": {
+      "bytes": 5266,
+      "sha256": "58234b5b5a5681d04265377df132a21f7852409e3af521e949e056707c5d54d6"
+    },
+    "Art/Source/JigKit/run.py": {
+      "bytes": 689,
+      "sha256": "3d83bec7397e44dd3c7d8778eff918699c1537e602e373ef3ee685a3e8a2a7fa"
+    },
+    "Art/Source/RepairKit/README.md": {
+      "bytes": 260,
+      "sha256": "0699c604f7dceca52e840b704aeb8f0810585b5d14bd6871cbb939101a7bdafa"
+    }
+  }
+}

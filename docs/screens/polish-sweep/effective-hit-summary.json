@@ -1,0 +1,64 @@
+{
+  "sampledControls": 149,
+  "full81of81": 146,
+  "samplesPerControl": 81,
+  "gridSpanPixels": 43,
+  "gridPoints": "9x9; pixel centers spanning -21.5..21.5 from union center",
+  "reportedDpi": [
+    "144.0"
+  ],
+  "exceptions": [
+    {
+      "section": 9,
+      "frame": "9-sort-844.png",
+      "control": "rod/0",
+      "dpi": "144.0",
+      "scale": "0.813",
+      "nominalPixels": "44.00",
+      "x": "370.63",
+      "y": "115.27",
+      "width": "81.25",
+      "height": "44.00",
+      "artWidth": "81.25",
+      "artHeight": "42.25",
+      "centerRoutesTo": "none",
+      "nominalGridHits": "0",
+      "nominalGridTotal": "81"
+    },
+    {
+      "section": 10,
+      "frame": "10-chart-844.png",
+      "control": "chart/nautical/pin/2",
+      "dpi": "144.0",
+      "scale": "0.813",
+      "nominalPixels": "44.00",
+      "x": "616.10",
+      "y": "135.46",
+      "width": "149.50",
+      "height": "98.31",
+      "artWidth": "149.50",
+      "artHeight": "98.31",
+      "centerRoutesTo": "chart/nautical/pin/2",
+      "nominalGridHits": "72",
+      "nominalGridTotal": "81"
+    },
+    {
+      "section": 10,
+      "frame": "10-rod-holder-844.png",
+      "control": "refit/select",
+      "dpi": "144.0",
+      "scale": "0.813",
+      "nominalPixels": "44.00",
+      "x": "17.87",
+      "y": "206.38",
+      "width": "153.85",
+      "height": "40.63",
+      "artWidth": "153.85",
+      "artHeight": "121.88",
+      "centerRoutesTo": "refit/select",
+      "nominalGridHits": "63",
+      "nominalGridTotal": "81"
+    }
+  ],
+  "limit": "No dispatched input; union-center sampling does not prove a largest usable square. Partial scroll cards, nonrectangular unions and covered controls require interpretation; no device safe-area/high-DPI/manual touch proof."
+}

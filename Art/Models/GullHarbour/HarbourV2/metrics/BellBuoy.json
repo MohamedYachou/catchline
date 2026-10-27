@@ -1,0 +1,123 @@
+{
+  "name": "BellBuoy",
+  "group": "D",
+  "triangles": 432,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.6800000071525574,
+      -0.6800000071525574,
+      -0.47999998927116394
+    ],
+    [
+      0.6800000071525574,
+      0.6800000071525574,
+      1.8200000524520874
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    1.3600000143051147,
+    1.3600000143051147,
+    2.299999952316284
+  ],
+  "parts": [
+    {
+      "name": "BellFloatAndCage",
+      "triangles": 432,
+      "vertices": 234,
+      "bounds_min_blender": [
+        -0.6800000071525574,
+        -0.6800000071525574,
+        -0.47999998927116394
+      ],
+      "bounds_max_blender": [
+        0.6800000071525574,
+        0.6800000071525574,
+        1.8200000524520874
+      ],
+      "mesh_sha256": "797a75bb6fad7674088cb45a74cb427fad4d5adf70b74f2bdf84a92a16edff41",
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "RootY0; lower float submerges. Bell and clapper physically supported by three-legged cage."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\BellBuoy.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\BellBuoy.fbx",
+  "sha256": {
+    "blend": "80d7ec3c146fe088411a7ba3167faeb770e52e1099843f4693ead57bd1a5e5dd",
+    "fbx": "0e4a28cd06963773ca00d2b0667d44a993cd98652f7555b037489001ba29cd00"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BellBuoy\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BellBuoy\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BellBuoy\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BellBuoy\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BellBuoy\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.9802322387695312e-08,
+    "source": {
+      "triangles": 432,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.6800000071525574,
+          -0.6800000071525574,
+          -0.47999998927116394
+        ],
+        [
+          0.6800000071525574,
+          0.6800000071525574,
+          1.8200000524520874
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_Steel"
+      ],
+      "parents": {
+        "BellBuoy": null,
+        "BellFloatAndCage": "BellBuoy"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 432,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.6800000071525574,
+          -0.6800000071525574,
+          -0.48000001907348633
+        ],
+        [
+          0.6800000071525574,
+          0.6800000071525574,
+          1.8200000524520874
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_Steel"
+      ],
+      "parents": {
+        "BellFloatAndCage": "BellBuoy",
+        "BellBuoy": null
+      },
+      "finite": true
+    }
+  }
+}

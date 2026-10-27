@@ -1,0 +1,16 @@
+00:02.812  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\PropsV2\JigRig\JigRig.blend"
+C:\Users\momoy\Projects\Catchline\Art\Source\validate_props_v2.py:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  node=next((n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED'),None) if mat.use_nodes else None
+C:\Users\momoy\Projects\Catchline\Art\Source\validate_props_v2.py:51: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat.use_nodes:
+C:\Users\momoy\Projects\Catchline\Art\Source\validate_props_v2.py:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  node=next((n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED'),None) if mat.use_nodes else None
+C:\Users\momoy\Projects\Catchline\Art\Source\validate_props_v2.py:51: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat.use_nodes:
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+PROPSV2 AUDIT PASS JigRig r01 321 checks
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

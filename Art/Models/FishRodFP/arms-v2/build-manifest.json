@@ -1,0 +1,214 @@
+{
+  "status": "AUTHORING PASS; FBX and visual review pending",
+  "triangles": 6574,
+  "new_arm_triangles": 2712,
+  "bones": [
+    "RodRoot",
+    "Rod_01",
+    "Rod_02",
+    "Rod_03",
+    "Rod_04",
+    "Rod_05",
+    "Rod_06",
+    "Rod_07",
+    "Rod_08",
+    "LineTip",
+    "GripHand.L",
+    "ReelHandle",
+    "ReelHand.R",
+    "ReelSpool",
+    "ArmRoot",
+    "UpperArm.R",
+    "Forearm.R",
+    "Hand.R",
+    "Fingers1.R",
+    "Fingers2.R",
+    "Fingers3.R",
+    "Thumb.R",
+    "WristTarget.R",
+    "ElbowPole.R",
+    "UpperArm.L",
+    "Forearm.L",
+    "Hand.L",
+    "Fingers1.L",
+    "Fingers2.L",
+    "Fingers3.L",
+    "Thumb.L",
+    "WristTarget.L",
+    "ElbowPole.L"
+  ],
+  "clips": {
+    "Idle": {
+      "frames": [
+        0,
+        80
+      ],
+      "seconds": 2.0,
+      "loop": true
+    },
+    "Cast": {
+      "frames": [
+        0,
+        36
+      ],
+      "seconds": 0.9,
+      "loop": false
+    },
+    "Hold": {
+      "frames": [
+        0,
+        40
+      ],
+      "seconds": 1.0,
+      "loop": true
+    },
+    "Twitch": {
+      "frames": [
+        0,
+        16
+      ],
+      "seconds": 0.4,
+      "loop": false
+    },
+    "Strike": {
+      "frames": [
+        0,
+        10
+      ],
+      "seconds": 0.25,
+      "loop": false
+    },
+    "Reel": {
+      "frames": [
+        0,
+        32
+      ],
+      "seconds": 0.8,
+      "loop": true
+    },
+    "Lift": {
+      "frames": [
+        0,
+        48
+      ],
+      "seconds": 1.2,
+      "loop": false
+    }
+  },
+  "fps": 40,
+  "atlas": "FishRodFP_Atlas.png",
+  "camera_source": {
+    "location": [
+      0.34,
+      1.15,
+      0.3
+    ],
+    "target": [
+      0.34,
+      -4,
+      -0.75
+    ],
+    "lens_mm": 24,
+    "sensor_width_mm": 36
+  },
+  "shoulders_source": {
+    "R": [
+      0.09000000357627869,
+      0.699999988079071,
+      -0.1599999964237213
+    ],
+    "L": [
+      0.5899999737739563,
+      0.699999988079071,
+      -0.1599999964237213
+    ]
+  },
+  "elbows_rest_source": {
+    "R": [
+      -0.2659527361392975,
+      0.35445770621299744,
+      -0.27831387519836426
+    ],
+    "L": [
+      0.6717351675033569,
+      0.19008752703666687,
+      -0.46546462178230286
+    ]
+  },
+  "wrists_source": {
+    "R": [
+      -0.061000000685453415,
+      0.0020000000949949026,
+      -0.02500000037252903
+    ],
+    "L": [
+      0.17499999701976776,
+      0.18299999833106995,
+      -0.2070000022649765
+    ]
+  },
+  "arm_lengths_m": {
+    "R": [
+      0.51,
+      0.48
+    ],
+    "L": [
+      0.6,
+      0.56
+    ]
+  },
+  "sampled_reach_m": {
+    "R": [
+      0.6748200082212843,
+      0.8573987040940709
+    ],
+    "L": [
+      0.5901158473771102,
+      1.037294850707257
+    ]
+  },
+  "max_ik_wrist_error_m": 3.6378370570342845e-07,
+  "crank_knob_source": [
+    0.1599999964237213,
+    0.0729999989271164,
+    -0.20200000703334808
+  ],
+  "handedness": "screen-right right hand cork; screen-left left hand crank; mirrored reel vs v1",
+  "protected_original_hashes": {
+    "FishRodFP.blend": "e7b8193a90f8e97901651fe6b83fb8c4df3d3a2e41bc92f099af271371934eef",
+    "FishRodFP.fbx": "d08cf6efe33cd72937468e2d476538fee5546bc395f4b2406cfb082f990a09c4",
+    "FishRodFP_Atlas.png": "90493a04148586ce6b7979ff6871f9422415c97a1c27e56af836b448d63a3e23",
+    "FishRodFP_RodOnly.blend": "43eb9aed59cf7df95ca2bcdcdfe7939e10147409e89b4a54d0482753194fc411",
+    "FishRodFP_RodOnly.fbx": "70e7f87cda47aad24e6f03f2080e2a5956e9b7833375e53956e7838e7342686b"
+  },
+  "authoring": "Analytic fixed-shoulder two-link IK baked each40fps frame; 3finger groups+thumb per hand. WristTarget and ElbowPole helper bones retained.",
+  "pre_union_part_triangles": {
+    "OilskinAnatomy.R": 276,
+    "RolledCuff.R": 36,
+    "CaptainStripe0.R": 36,
+    "CaptainStripe1.R": 36,
+    "VisibleWrist.R": 36,
+    "GloveWelt.R": 36,
+    "GloveHeel.R": 36,
+    "Palm.R": 120,
+    "PalmSeam.R": 60,
+    "ClosedGripFingers1.R": 108,
+    "ClosedGripFingers2.R": 108,
+    "ClosedGripFingers3.R": 108,
+    "OpposingThumb.R": 60,
+    "OilskinAnatomy.L": 276,
+    "RolledCuff.L": 36,
+    "CaptainStripe0.L": 36,
+    "CaptainStripe1.L": 36,
+    "VisibleWrist.L": 36,
+    "GloveWelt.L": 36,
+    "GloveHeel.L": 36,
+    "Palm.L": 120,
+    "PalmSeam.L": 60,
+    "ClosedCrankFingers1.L": 92,
+    "ClosedCrankFingers2.L": 92,
+    "ClosedCrankFingers3.L": 92,
+    "OpposingThumb.L": 60
+  },
+  "per_part_triangles_note": "Pre-union source components recorded separately; final continuous glove geometry audited in validation.json. Total6574."
+}

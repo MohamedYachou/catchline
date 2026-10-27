@@ -1,0 +1,328 @@
+{
+  "result": "PASS",
+  "name": "Dog",
+  "source": {
+    "triangles": 728,
+    "vertices": 430,
+    "bounds_unity": [
+      [
+        -0.14499999582767487,
+        0.0,
+        -0.49303174018859863
+      ],
+      [
+        0.14499999582767487,
+        0.550000011920929,
+        0.40799999237060547
+      ]
+    ],
+    "meshes": [
+      "DogSkin"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_HairChestnut",
+      "M_Rubber"
+    ],
+    "parents": {
+      "DogSkin": "DogRig",
+      "Dog": null,
+      "DogRig": "Dog"
+    }
+  },
+  "imported": {
+    "triangles": 728,
+    "vertices": 430,
+    "bounds_unity": [
+      [
+        -0.14499999582767487,
+        -2.3134735016583363e-08,
+        -0.4930318295955658
+      ],
+      [
+        0.14499999582767487,
+        0.5500000715255737,
+        0.4079999327659607
+      ]
+    ],
+    "meshes": [
+      "DogSkin"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_HairChestnut",
+      "M_Rubber"
+    ],
+    "parents": {
+      "DogRig": "Dog",
+      "DogSkin": "DogRig",
+      "Dog": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 1.2644053981603065e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Trot": {
+      "source": {
+        "action_name": "Trot",
+        "frames": [
+          1,
+          19
+        ],
+        "seconds": 0.6,
+        "loop": true,
+        "samples": [
+          1,
+          5,
+          10,
+          14,
+          19
+        ],
+        "max_vertex_motion_m": 0.10899967965043555,
+        "end_vs_start_m": 1.2430158717830455e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": -3.3527612686157227e-08,
+        "allframe_max_z_m": 0.5651627779006958
+      },
+      "imported": {
+        "action_name": "DogRig|DogRig|Trot",
+        "frames": [
+          1,
+          19
+        ],
+        "seconds": 0.6,
+        "loop": true,
+        "samples": [
+          1,
+          5,
+          10,
+          14,
+          19
+        ],
+        "max_vertex_motion_m": 0.10899968625889334,
+        "end_vs_start_m": 1.2430163046805881e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": -1.2682670558206155e-07,
+        "allframe_max_z_m": 0.565162718296051
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "5": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.9992222632936318e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "10": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "14": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 2.133521661562554e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "19": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Sit": {
+      "source": {
+        "action_name": "Sit",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.032188559752883955,
+        "end_vs_start_m": 3.90007377820008e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": -2.3283064365386963e-09,
+        "allframe_max_z_m": 0.5706727504730225
+      },
+      "imported": {
+        "action_name": "DogRig|DogRig|Sit",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.03218856146232447,
+        "end_vs_start_m": 3.900073042352584e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": 3.1717377169115935e-08,
+        "allframe_max_z_m": 0.5706728100776672
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6858739115832577e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.8143349223009864e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6858739115832577e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "68": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.4694842320750467e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.6858739115832577e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Sniff": {
+      "source": {
+        "action_name": "Sniff",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.08224620023634328,
+        "end_vs_start_m": 1.7734359785911743e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": 0.0025862539187073708,
+        "allframe_max_z_m": 0.5038062334060669
+      },
+      "imported": {
+        "action_name": "DogRig|DogRig|Sniff",
+        "frames": [
+          1,
+          61
+        ],
+        "seconds": 2.0,
+        "loop": true,
+        "samples": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "max_vertex_motion_m": 0.08224623725734877,
+        "end_vs_start_m": 1.7734359785911743e-18,
+        "root_stationary_all_frames": true,
+        "allframe_min_z_m": 0.002586234826594591,
+        "allframe_max_z_m": 0.5038063526153564
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "16": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.9599417555582477e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "31": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.8852324501494877e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "61": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 1.3328003944934608e-07,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.28999999165534973,
+    0.550000011920929,
+    0.9010317325592041
+  ],
+  "materials": {
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_HairChestnut": [
+      0.0802198201417923,
+      0.040915198624134064,
+      0.027320891618728638,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "86275d9b0aaf2e3960e9c63ad44631f6dc9149d9fd8b7304961cb132d27338cc",
+    "fbx": "41b8d5a21e3fca8a12ab3a6d9ff5e1c4ffa01876058c109933aa77ba39fb90d9"
+  },
+  "bone_count": 14
+}

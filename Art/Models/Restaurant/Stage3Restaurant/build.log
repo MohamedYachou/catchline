@@ -1,0 +1,13 @@
+00:00.718  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage2Bistro\Stage2Bistro.blend"
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage3Restaurant\build.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Restaurant_Atlas_Restaurant3');mat.use_nodes=True;ns=mat.node_tree.nodes;lk=mat.node_tree.links;bs=ns.get('Principled BSDF');im=ns.new('ShaderNodeTexImage');im.image=bpy.data.images.load(str(T/'Restaurant_BaseColor.png'));im.image.pack();lk.new(im.outputs['Color'],bs.inputs['Base Color']);sf=ns.new('ShaderNodeTexImage');sf.image=bpy.data.images.load(str(T/'Restaurant_Surface.png'));sf.image.colorspace_settings.name='Non-Color';sf.image.pack();sep=ns.new('ShaderNodeSeparateColor');lk.new(sf.outputs['Color'],sep.inputs[0]);lk.new(sep.outputs['Red'],bs.inputs['Roughness']);lk.new(sep.outputs['Green'],bs.inputs['Metallic']);lk.new(im.outputs['Color'],bs.inputs['Emission Color']);mul=ns.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=2.5;lk.new(sep.outputs['Blue'],mul.inputs[0]);lk.new(mul.outputs[0],bs.inputs['Emission Strength'])
+BlenderMCP addon registered
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Stage3Restaurant\\Stage3Restaurant.fbx'
+export finished in 0.5253 sec.
+Info: Saved as "Stage3Restaurant.blend"
+STAGE3 BUILD PASS 195 190106
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

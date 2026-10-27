@@ -1,0 +1,119 @@
+{
+  "stage": 4,
+  "name": "SeafoodHouse",
+  "tiles": [
+    14,
+    5
+  ],
+  "tile_m": 1,
+  "origin": "room footprint centre; floor contact Blender Z0 / Unity Y0",
+  "facade_blender_direction": [
+    0,
+    1,
+    0
+  ],
+  "facade_unity_direction": [
+    0,
+    0,
+    -1
+  ],
+  "unity_local_rotation_euler": [
+    0,
+    0,
+    0
+  ],
+  "room_bounds_blender_m": [
+    [
+      -7.0,
+      -2.5,
+      0
+    ],
+    [
+      7.0,
+      2.5,
+      0
+    ]
+  ],
+  "terrace_overhang_depth_m": 3.5,
+  "terrace_front_blender_y_m": 6.0,
+  "quay_placement_unity_example_m": [
+    0,
+    0.35,
+    4.95
+  ],
+  "placement_note": "Example centre Z4.95 puts facade at Unity Z2.45 near water edge2.3; terrace projects toward negativeZ/water. Choose free corner slot; not an instruction to overlap existing houses.",
+  "lamp_positions_blender_m": [
+    [
+      -6.55,
+      2.98,
+      1.85
+    ],
+    [
+      6.55,
+      2.98,
+      1.85
+    ],
+    [
+      -6.279166666666667,
+      5.85,
+      2.2482316184895836
+    ],
+    [
+      -5.137499999999999,
+      5.85,
+      2.1675413016431713
+    ],
+    [
+      -3.995833333333333,
+      5.85,
+      2.0951963427172093
+    ],
+    [
+      -2.854166666666666,
+      5.85,
+      2.036126931106805
+    ],
+    [
+      -1.7125000000000004,
+      5.85,
+      1.9943585495963883
+    ],
+    [
+      -0.5708333333333337,
+      5.85,
+      1.9727376443603806
+    ],
+    [
+      0.5708333333333329,
+      5.85,
+      1.9727376443603806
+    ],
+    [
+      1.7125000000000004,
+      5.85,
+      1.9943585495963883
+    ],
+    [
+      2.854166666666668,
+      5.85,
+      2.036126931106805
+    ],
+    [
+      3.995833333333332,
+      5.85,
+      2.0951963427172093
+    ],
+    [
+      5.137499999999999,
+      5.85,
+      2.1675413016431713
+    ],
+    [
+      6.279166666666667,
+      5.85,
+      2.2482316184895836
+    ]
+  ],
+  "axis_conversion": "[x,z,-y]",
+  "harbour_comparison": "HouseA3x2.6x3.6m and HouseB3.4x2.8x3.9m; restaurant is 8-14m wide joined row, 5.3m main ridge"
+}

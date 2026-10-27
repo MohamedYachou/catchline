@@ -1,0 +1,85 @@
+{
+  "result": "PASS",
+  "name": "LighthouseGlow",
+  "source": {
+    "triangles": 64,
+    "vertices": 50,
+    "bounds_unity": [
+      [
+        -0.44999998807907104,
+        -0.7300000190734863,
+        -0.7300000190734863
+      ],
+      [
+        12.0,
+        0.7300000190734863,
+        0.7300000190734863
+      ]
+    ],
+    "meshes": [
+      "LanternCross",
+      "LanternBeam"
+    ],
+    "materials": [
+      "M_LampGlow"
+    ],
+    "parents": {
+      "LighthouseGlow": null,
+      "LanternCross": "LighthouseGlow",
+      "LanternBeam": "LighthouseGlow"
+    }
+  },
+  "imported": {
+    "triangles": 64,
+    "vertices": 50,
+    "bounds_unity": [
+      [
+        -0.44999998807907104,
+        -0.7300000190734863,
+        -0.7300000190734863
+      ],
+      [
+        12.0,
+        0.7300000190734863,
+        0.7300000190734863
+      ]
+    ],
+    "meshes": [
+      "LanternBeam",
+      "LanternCross"
+    ],
+    "materials": [
+      "M_LampGlow"
+    ],
+    "parents": {
+      "LanternBeam": "LighthouseGlow",
+      "LanternCross": "LighthouseGlow",
+      "LighthouseGlow": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 2,
+    "max_vertex_error_metres": 8.429369557916289e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    12.449999988079071,
+    1.4600000381469727,
+    1.4600000381469727
+  ],
+  "materials": {
+    "M_LampGlow": [
+      1.0,
+      0.7991027235984802,
+      0.366252601146698,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "85fa5babb444e04dcdae50316b925e69c0bc94189a803ff783c64ea856ddbad5",
+    "fbx": "3d92eed658bb30a7364160f215c97c3331bd05bb8b83cee08213cf2eb844f5fe"
+  },
+  "vertex_alpha_roundtrip": true
+}

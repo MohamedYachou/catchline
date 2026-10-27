@@ -1,0 +1,900 @@
+{
+  "name": "SpareRig",
+  "revision": "r03",
+  "delivery_sha256": {
+    "SpareRig.blend": "c7e05a0765b5db0764856c04ca2b5c53954b913006586d2233c4967c2d65ccd9",
+    "SpareRig.fbx": "035f72199bb58a632090079694aa20ef44cbf0cc24eade79bda71e30b99fe682"
+  },
+  "runtime_sha256": "035f72199bb58a632090079694aa20ef44cbf0cc24eade79bda71e30b99fe682",
+  "checks": [
+    "current delivery SHA256 SpareRig.blend",
+    "current delivery SHA256 SpareRig.fbx",
+    "protected reference unchanged Art/Source/Art108/build_stations.py",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry SpoolCore",
+    "finite vertices SpoolCore",
+    "nonempty geometry SpoolFlange",
+    "finite vertices SpoolFlange",
+    "nonempty geometry SpoolFlange.001",
+    "finite vertices SpoolFlange.001",
+    "nonempty geometry SpareLineWrap",
+    "finite vertices SpareLineWrap",
+    "nonempty geometry SpareLineWrap.001",
+    "finite vertices SpareLineWrap.001",
+    "nonempty geometry SpareLineWrap.002",
+    "finite vertices SpareLineWrap.002",
+    "nonempty geometry SpareLineWrap.003",
+    "finite vertices SpareLineWrap.003",
+    "nonempty geometry SpoolAxle",
+    "finite vertices SpoolAxle",
+    "nonempty geometry LooseRigLine",
+    "finite vertices LooseRigLine",
+    "nonempty geometry RigSwivel",
+    "finite vertices RigSwivel",
+    "nonempty geometry OpenHook",
+    "finite vertices OpenHook",
+    "nonempty geometry HookPoint",
+    "finite vertices HookPoint",
+    "source bounds manifest current",
+    "floor pivot at horizontal bounds centre and zero lowest contact",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry HookPoint",
+    "finite vertices HookPoint",
+    "nonempty geometry LooseRigLine",
+    "finite vertices LooseRigLine",
+    "nonempty geometry OpenHook",
+    "finite vertices OpenHook",
+    "nonempty geometry RigSwivel",
+    "finite vertices RigSwivel",
+    "nonempty geometry SpareLineWrap",
+    "finite vertices SpareLineWrap",
+    "nonempty geometry SpareLineWrap.001",
+    "finite vertices SpareLineWrap.001",
+    "nonempty geometry SpareLineWrap.002",
+    "finite vertices SpareLineWrap.002",
+    "nonempty geometry SpareLineWrap.003",
+    "finite vertices SpareLineWrap.003",
+    "nonempty geometry SpoolAxle",
+    "finite vertices SpoolAxle",
+    "nonempty geometry SpoolCore",
+    "finite vertices SpoolCore",
+    "nonempty geometry SpoolFlange",
+    "finite vertices SpoolFlange",
+    "nonempty geometry SpoolFlange.001",
+    "finite vertices SpoolFlange.001",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions SpoolCore",
+    "actual FBX part origin preserved SpoolCore",
+    "actual FBX triangle count SpoolCore",
+    "actual FBX face materials SpoolCore",
+    "actual FBX material slots SpoolCore",
+    "actual FBX every world vertex both directions SpoolFlange",
+    "actual FBX part origin preserved SpoolFlange",
+    "actual FBX triangle count SpoolFlange",
+    "actual FBX face materials SpoolFlange",
+    "actual FBX material slots SpoolFlange",
+    "actual FBX every world vertex both directions SpoolFlange.001",
+    "actual FBX part origin preserved SpoolFlange.001",
+    "actual FBX triangle count SpoolFlange.001",
+    "actual FBX face materials SpoolFlange.001",
+    "actual FBX material slots SpoolFlange.001",
+    "actual FBX every world vertex both directions SpareLineWrap",
+    "actual FBX part origin preserved SpareLineWrap",
+    "actual FBX triangle count SpareLineWrap",
+    "actual FBX face materials SpareLineWrap",
+    "actual FBX material slots SpareLineWrap",
+    "actual FBX every world vertex both directions SpareLineWrap.001",
+    "actual FBX part origin preserved SpareLineWrap.001",
+    "actual FBX triangle count SpareLineWrap.001",
+    "actual FBX face materials SpareLineWrap.001",
+    "actual FBX material slots SpareLineWrap.001",
+    "actual FBX every world vertex both directions SpareLineWrap.002",
+    "actual FBX part origin preserved SpareLineWrap.002",
+    "actual FBX triangle count SpareLineWrap.002",
+    "actual FBX face materials SpareLineWrap.002",
+    "actual FBX material slots SpareLineWrap.002",
+    "actual FBX every world vertex both directions SpareLineWrap.003",
+    "actual FBX part origin preserved SpareLineWrap.003",
+    "actual FBX triangle count SpareLineWrap.003",
+    "actual FBX face materials SpareLineWrap.003",
+    "actual FBX material slots SpareLineWrap.003",
+    "actual FBX every world vertex both directions SpoolAxle",
+    "actual FBX part origin preserved SpoolAxle",
+    "actual FBX triangle count SpoolAxle",
+    "actual FBX face materials SpoolAxle",
+    "actual FBX material slots SpoolAxle",
+    "actual FBX every world vertex both directions LooseRigLine",
+    "actual FBX part origin preserved LooseRigLine",
+    "actual FBX triangle count LooseRigLine",
+    "actual FBX face materials LooseRigLine",
+    "actual FBX material slots LooseRigLine",
+    "actual FBX every world vertex both directions RigSwivel",
+    "actual FBX part origin preserved RigSwivel",
+    "actual FBX triangle count RigSwivel",
+    "actual FBX face materials RigSwivel",
+    "actual FBX material slots RigSwivel",
+    "actual FBX every world vertex both directions OpenHook",
+    "actual FBX part origin preserved OpenHook",
+    "actual FBX triangle count OpenHook",
+    "actual FBX face materials OpenHook",
+    "actual FBX material slots OpenHook",
+    "actual FBX every world vertex both directions HookPoint",
+    "actual FBX part origin preserved HookPoint",
+    "actual FBX triangle count HookPoint",
+    "actual FBX face materials HookPoint",
+    "actual FBX material slots HookPoint",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 1714,
+  "mesh_count": 12,
+  "source_parts": {
+    "SpoolCore": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.21772772073745728,
+          -0.10499999672174454,
+          0.017000000923871994
+        ],
+        [
+          -0.007727719843387604,
+          0.10499999672174454,
+          0.08900000154972076
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 60
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.05299999937415123
+      ]
+    },
+    "SpoolFlange": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.2607277035713196,
+          -0.14800000190734863,
+          0.0
+        ],
+        [
+          0.03527228534221649,
+          0.14800000190734863,
+          0.024000000208616257
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodHighlight": 60
+      },
+      "material_colours": {
+        "M_WoodHighlight": [
+          0.7379103899002075,
+          0.47353148460388184,
+          0.1946178376674652,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.012000000104308128
+      ]
+    },
+    "SpoolFlange.001": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.2607277035713196,
+          -0.14800000190734863,
+          0.0819999948143959
+        ],
+        [
+          0.03527228534221649,
+          0.14800000190734863,
+          0.10599999874830246
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodHighlight": 60
+      },
+      "material_colours": {
+        "M_WoodHighlight": [
+          0.7379103899002075,
+          0.47353148460388184,
+          0.1946178376674652,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.09399999678134918
+      ]
+    },
+    "SpareLineWrap": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299999594688416,
+          0.019339747726917267
+        ],
+        [
+          0.010186731815338135,
+          0.12299999594688416,
+          0.03666025400161743
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.001": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299999594688416,
+          0.03533974662423134
+        ],
+        [
+          0.010186731815338135,
+          0.12299999594688416,
+          0.0526602528989315
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.002": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299999594688416,
+          0.05133974552154541
+        ],
+        [
+          0.010186731815338135,
+          0.12299999594688416,
+          0.06866025179624557
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.003": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299999594688416,
+          0.06733974069356918
+        ],
+        [
+          0.010186731815338135,
+          0.12299999594688416,
+          0.08466025441884995
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpoolAxle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.1367277204990387,
+          -0.024000000208616257,
+          0.10200000554323196
+        ],
+        [
+          -0.08872771263122559,
+          0.024000000208616257,
+          0.11400000005960464
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodRecess": 44
+      },
+      "material_colours": {
+        "M_WoodRecess": [
+          0.2622506618499756,
+          0.10224173218011856,
+          0.03688944876194,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.1080000028014183
+      ]
+    },
+    "LooseRigLine": {
+      "triangles": 56,
+      "bounds": [
+        [
+          -0.004164360463619232,
+          -0.10794594883918762,
+          0.005937822163105011
+        ],
+        [
+          0.15613122284412384,
+          0.006516812834888697,
+          0.05802366882562637
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 56
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "RigSwivel": {
+      "triangles": 28,
+      "bounds": [
+        [
+          0.15127228200435638,
+          -0.08399999886751175,
+          0.001999999862164259
+        ],
+        [
+          0.17527227103710175,
+          -0.06400000303983688,
+          0.02199999988079071
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 28
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.16327227652072906,
+        -0.07400000095367432,
+        0.012000000104308128
+      ]
+    },
+    "OpenHook": {
+      "triangles": 212,
+      "bounds": [
+        [
+          0.1772722750902176,
+          -0.13332197070121765,
+          0.007236860692501068
+        ],
+        [
+          0.2607277035713196,
+          -0.06849999725818634,
+          0.01676313951611519
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 212
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "HookPoint": {
+      "triangles": 10,
+      "bounds": [
+        [
+          0.18760471045970917,
+          -0.1013561487197876,
+          0.006500000599771738
+        ],
+        [
+          0.20291323959827423,
+          -0.09219639748334885,
+          0.017500000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 10
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.19460470974445343,
+        -0.09477627277374268,
+        0.012000000104308128
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "HookPoint": {
+      "triangles": 10,
+      "bounds": [
+        [
+          0.18760471045970917,
+          -0.1013561487197876,
+          0.0065000164322555065
+        ],
+        [
+          0.20291323959827423,
+          -0.09219639748334885,
+          0.01750001683831215
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 10
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.19460470974445343,
+        -0.09477627277374268,
+        0.012000015936791897
+      ]
+    },
+    "LooseRigLine": {
+      "triangles": 56,
+      "bounds": [
+        [
+          -0.004164360463619232,
+          -0.10794594883918762,
+          0.005937833804637194
+        ],
+        [
+          0.15613122284412384,
+          0.0065168216824531555,
+          0.05802366882562637
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 56
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "OpenHook": {
+      "triangles": 212,
+      "bounds": [
+        [
+          0.1772722750902176,
+          -0.13332197070121765,
+          0.007236872334033251
+        ],
+        [
+          0.2607277035713196,
+          -0.06849999725818634,
+          0.01676316000521183
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 212
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "RigSwivel": {
+      "triangles": 28,
+      "bounds": [
+        [
+          0.15127228200435638,
+          -0.08399999886751175,
+          0.002000011969357729
+        ],
+        [
+          0.17527227103710175,
+          -0.06400000303983688,
+          0.022000012919306755
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 28
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.16327227652072906,
+        -0.07400000095367432,
+        0.012000012211501598
+      ]
+    },
+    "SpareLineWrap": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299998849630356,
+          0.019339729100465775
+        ],
+        [
+          0.010186731815338135,
+          0.12300000339746475,
+          0.036660272628068924
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.001": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299998849630356,
+          0.035339727997779846
+        ],
+        [
+          0.010186731815338135,
+          0.12300000339746475,
+          0.052660271525382996
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.002": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299998849630356,
+          0.05133972689509392
+        ],
+        [
+          0.010186731815338135,
+          0.12300000339746475,
+          0.06866027414798737
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpareLineWrap.003": {
+      "triangles": 296,
+      "bounds": [
+        [
+          -0.2357277125120163,
+          -0.12299998104572296,
+          0.06733971834182739
+        ],
+        [
+          0.010186731815338135,
+          0.12300001084804535,
+          0.08466027677059174
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 296
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        0.0,
+        0.0
+      ]
+    },
+    "SpoolAxle": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.1367277204990387,
+          -0.023999983444809914,
+          0.10199999809265137
+        ],
+        [
+          -0.08872771263122559,
+          0.02400001883506775,
+          0.11400000751018524
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodRecess": 44
+      },
+      "material_colours": {
+        "M_WoodRecess": [
+          0.2622506618499756,
+          0.10224173218011856,
+          0.03688944876194,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        1.759543444279643e-08,
+        0.1080000028014183
+      ]
+    },
+    "SpoolCore": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.21772772073745728,
+          -0.10499999672174454,
+          0.01699998416006565
+        ],
+        [
+          -0.007727719843387604,
+          0.10500001162290573,
+          0.08900001645088196
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 60
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        8.634795989337363e-09,
+        0.05299999937415123
+      ]
+    },
+    "SpoolFlange": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.2607277035713196,
+          -0.14800000190734863,
+          -2.411226240894848e-08
+        ],
+        [
+          0.03527228534221649,
+          0.14800000190734863,
+          0.024000024423003197
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodHighlight": 60
+      },
+      "material_colours": {
+        "M_WoodHighlight": [
+          0.7379103899002075,
+          0.47353148460388184,
+          0.1946178376674652,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        1.955048345436694e-09,
+        0.012000000104308128
+      ]
+    },
+    "SpoolFlange.001": {
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.2607277035713196,
+          -0.14799998700618744,
+          0.08199997246265411
+        ],
+        [
+          0.03527228534221649,
+          0.14800001680850983,
+          0.10600002110004425
+        ]
+      ],
+      "material_triangles": {
+        "M_WoodHighlight": 60
+      },
+      "material_colours": {
+        "M_WoodHighlight": [
+          0.7379103899002075,
+          0.47353148460388184,
+          0.1946178376674652,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11272771656513214,
+        1.5314544299371846e-08,
+        0.09399999678134918
+      ]
+    }
+  },
+  "max_bounds_error_m": 2.421438694000244e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 2.6863450374185958e-08,
+  "max_part_pivot_error_m": 1.759543444279643e-08,
+  "pivot_use": "floor/contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/SpareRig/iterations/r03/back.png": "a9e51f11910d1083af5b9493c150239fee11815cedc6f7ebc3732ea709d0eefe",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/front.png": "389b1c34d8022dd79cec114d953ef5a90544696c1b1d5a6134b6abc2877aa6c8",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/left.png": "82f1904b2bdd0331fca15f60be52b4a13047df01ed4c4ca49e159814ef71fed6",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/right.png": "63f578dfc64b88bbb5931674bfb375be18cf4a0d5279b175e3a4cf8d04666c1c",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/three-quarter.png": "57a92d52f83f85ae76b08f21f13d2485bb71fc04d862c46241ef5b025423a858",
+    "Art/Models/PropsV2/SpareRig/iterations/r03/top.png": "d7744587150e63422d48268ca360d28772544027522cee97ad3879d1eea2648a"
+  },
+  "pass": true
+}

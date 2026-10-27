@@ -1,0 +1,63 @@
+{
+  "camera": {
+    "source_location": [
+      0.0,
+      1.0,
+      1.0
+    ],
+    "down_pitch_degrees": 30,
+    "vertical_fov_degrees": 52,
+    "height_above_rail_metres": 1
+  },
+  "water_source_z": -0.27,
+  "cage_source_base_z": -0.445,
+  "cage_body_height_metres": 0.35,
+  "submerged_body_fraction": 0.5,
+  "hauler_rail_channel_centre_source_z": 0,
+  "placements": {
+    "CrabCage": [
+      0.8199999928474426,
+      -0.8500000238418579,
+      -0.4449999928474426
+    ],
+    "PotHauler": [
+      0.3700000047683716,
+      -0.1599999964237213,
+      -0.06499999761581421
+    ],
+    "SortingBoard": [
+      -0.23000000417232513,
+      -0.02500000037252903,
+      0.026000000536441803
+    ],
+    "CrabBerried": [
+      -0.27000001072883606,
+      -0.02500000037252903,
+      0.06700000166893005
+    ]
+  },
+  "evidence": "isolated Blender fit matching runtime30degree pitch/52degree verticalFOV; artist rail layout, not exact native placement",
+  "images": [
+    {
+      "file": "renders/assembly/cage-view-1440.png",
+      "view": "isolated 30degree rail camera; half-submerged cage, berried crab on board",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "b023625b3b33f4828331932cd462bd7dc1781d2304115f531f6b81bc08db4956",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/assembly/cage-view-844.png",
+      "view": "isolated 30degree rail camera; half-submerged cage, berried crab on board",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "9bf2804c6844f359dc62709094cfdfb91da76ba04a233cd339f8faebc75f4104",
+      "review": "individually opened final image; artist review accepted"
+    }
+  ],
+  "review": "artist source fixture PASS; Unity native placement/water/HUD not verified"
+}

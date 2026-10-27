@@ -1,0 +1,129 @@
+{
+  "name": "HandCart",
+  "group": "D",
+  "triangles": 1352,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.5299999713897705,
+      -0.5200000405311584,
+      0.0
+    ],
+    [
+      0.5299999713897705,
+      0.3500000238418579,
+      1.477500081062317
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    1.059999942779541,
+    0.8700000643730164,
+    1.477500081062317
+  ],
+  "parts": [
+    {
+      "name": "TwoCrateDockHandTruck",
+      "triangles": 1352,
+      "vertices": 746,
+      "bounds_min_blender": [
+        -0.5299999713897705,
+        -0.5200000405311584,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.5299999713897705,
+        0.3500000238418579,
+        1.477500081062317
+      ],
+      "mesh_sha256": "f177a275e0a10e86e09b036e82d1f19ff2fb43d1342a1b2ddffa3aa9b4fb9fe3",
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Ground-contact root, two rubber wheels and toe plate; two stacked fish crates rest on plate/each other."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\HandCart.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\HandCart.fbx",
+  "sha256": {
+    "blend": "328730ccec00296c8b4317b1b5603b2aa248f5368bb787013a6b15021cd21578",
+    "fbx": "2f0d66e6da7c7b61f770180c6e5bf0aa464769c5fd64b2ae55af03554711a0f9"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HandCart\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HandCart\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HandCart\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HandCart\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HandCart\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1920928955078125e-07,
+    "source": {
+      "triangles": 1352,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.5299999713897705,
+          -0.5200000405311584,
+          0.0
+        ],
+        [
+          0.5299999713897705,
+          0.3500000238418579,
+          1.477500081062317
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "parents": {
+        "HandCart": null,
+        "TwoCrateDockHandTruck": "HandCart"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1352,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.5299999713897705,
+          -0.5199999213218689,
+          1.358961920772117e-08
+        ],
+        [
+          0.5299999713897705,
+          0.3500000536441803,
+          1.477500081062317
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "parents": {
+        "TwoCrateDockHandTruck": "HandCart",
+        "HandCart": null
+      },
+      "finite": true
+    }
+  }
+}

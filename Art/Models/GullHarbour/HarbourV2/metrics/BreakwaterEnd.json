@@ -1,0 +1,117 @@
+{
+  "name": "BreakwaterEnd",
+  "group": "A",
+  "triangles": 540,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -1.7662204504013062,
+      -1.724507212638855,
+      -0.949999988079071
+    ],
+    [
+      1.7995156049728394,
+      1.8314629793167114,
+      0.6000000238418579
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.5657360553741455,
+    3.5559701919555664,
+    1.5499999523162842
+  ],
+  "parts": [
+    {
+      "name": "ArmourAndConcreteCap",
+      "triangles": 540,
+      "vertices": 288,
+      "bounds_min_blender": [
+        -1.7662204504013062,
+        -1.724507212638855,
+        -0.949999988079071
+      ],
+      "bounds_max_blender": [
+        1.7995156049728394,
+        1.8314629793167114,
+        0.6000000238418579
+      ],
+      "mesh_sha256": "c7612fb6110b5a4f8a3cf2465c6159dafef6400542e391b91b2c56f2f3b0417e",
+      "materials": [
+        "M_FishSilver",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Root Y=0 harbour datum, rock sole submerged Y=-.95, concrete path topY=.6. Path1.8m wide. Rock apron intentionally broader than cap."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\BreakwaterEnd.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\BreakwaterEnd.fbx",
+  "sha256": {
+    "blend": "de3c827c3c5c927e30f07aa8cf6fb5b02768c61e6741c12b3eb9475c60b5d3e1",
+    "fbx": "779d258001768cc6ad16170bc09dba86ad73d6d231413429cbece7c3301a67eb"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BreakwaterEnd\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BreakwaterEnd\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BreakwaterEnd\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BreakwaterEnd\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BreakwaterEnd\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1920928955078125e-07,
+    "source": {
+      "triangles": 540,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.7662204504013062,
+          -1.724507212638855,
+          -0.949999988079071
+        ],
+        [
+          1.7995156049728394,
+          1.8314629793167114,
+          0.6000000238418579
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_Steel"
+      ],
+      "parents": {
+        "BreakwaterEnd": null,
+        "ArmourAndConcreteCap": "BreakwaterEnd"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 540,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.7662204504013062,
+          -1.724507212638855,
+          -0.9500001072883606
+        ],
+        [
+          1.7995156049728394,
+          1.8314629793167114,
+          0.6000000834465027
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_Steel"
+      ],
+      "parents": {
+        "ArmourAndConcreteCap": "BreakwaterEnd",
+        "BreakwaterEnd": null
+      },
+      "finite": true
+    }
+  }
+}

@@ -1,0 +1,1593 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.25f1 (e1dba0a9aba4) revision 14801824'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy" at "2026-10-24T22:00:00.2279011Z"
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 32406 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-24T22:00:00Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 19912, path: "C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              a870ba2f291c4315927a4ee573f3aa44
+  Correlation Id:          a990dc50f1dabfb8018e3e836f386ebc
+  External correlation Id: 3661089060408407088
+  Machine Id:              PK7Rb4K9KMp5yTvN+koEFJh1zkA=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-momoy" (connect: 0.00s, validation: 0.00s, handshake: 0.06s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy-notifications" at "2026-10-24T22:00:00.2951039Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072384676615-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.08s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\Users\momoy\Projects\Catchline-lead-sim
+-executeMethod
+Catchline.EditorTools.FishPolishChecks.Preview
+-logFile
+C:\Users\momoy\Projects\Catchline\docs\screens\fish-polish-1\quad-preview.log
+Successfully changed project path to: C:\Users\momoy\Projects\Catchline-lead-sim
+C:/Users/momoy/Projects/Catchline-lead-sim
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [48524]  Target information:
+
+Player connection [48524]  * "[IP] 172.23.64.1 [Port] 55505 [Flags] 2 [Guid] 2452459272 [EditorId] 2452459272 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [48524]  * "[IP] 192.168.192.1 [Port] 55505 [Flags] 2 [Guid] 2452459272 [EditorId] 2452459272 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [48524]  * "[IP] 192.168.211.1 [Port] 55505 [Flags] 2 [Guid] 2452459272 [EditorId] 2452459272 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [48524]  * "[IP] 100.75.237.15 [Port] 55505 [Flags] 2 [Guid] 2452459272 [EditorId] 2452459272 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [48524]  * "[IP] 192.168.0.5 [Port] 55505 [Flags] 2 [Guid] 2452459272 [EditorId] 2452459272 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [48524] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [48524] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-51004" after 0.3 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 2 unused hashed content files
+Refreshing native plugins compatible for Editor in 0.78 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.25f1 (e1dba0a9aba4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/momoy/Projects/Catchline-lead-sim/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4080 Laptop GPU (ID=0x27e0)
+    Vendor:          NVIDIA
+    VRAM:            11995 MB
+    App VRAM Budget: 11227 MB
+    Driver:          32.0.16.1656
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56004
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.010749 seconds.
+- Loaded All Assemblies, in  0.434 seconds
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.924 seconds
+Domain Reload Profiling: 3353ms
+	BeginReloadAssembly (153ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (18ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (170ms)
+		LoadAssemblies (131ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (166ms)
+			TypeCache.Refresh (164ms)
+				TypeCache.ScanAssembly (151ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2924ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2889ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (68ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (75ms)
+			ProcessInitializeOnLoadAttributes (124ms)
+			ProcessInitializeOnLoadMethodAttributes (2617ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 59 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.14 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ai.navigation@134dd6a3b97b)
+    com.unity.collab-proxy@2.13.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
+    com.unity.ide.rider@3.0.40 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
+    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.inputsystem@1.20.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.inputsystem@7a4e1a2a8194)
+    com.unity.timeline@1.8.13 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.timeline@3a22918286f5)
+    com.unity.visualscripting@1.9.12 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
+    com.unity.pipeline@0.9.1-exp.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.pipeline@363b8bb9e91d)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.searcher@4.9.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.30 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.6.8 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal@a0dd9d2bd983)
+    com.unity.test-framework@1.6.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ugui@f3ea87521141)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.core@3f80e92e91c2)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.shadergraph@2fa139ee8b62)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.06 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/momoy/Projects/Catchline-lead-sim
+DisplayProgressbar: Compiling Scripts
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/momoy/Projects/Catchline-lead-sim
+ExitCode: 4 Duration: 0s385ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+[738/944    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra requires additional run (0.35 seconds), 1 items updated, 737 evaluated
+ExitCode: 0 Duration: 0s750ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/momoy/Projects/Catchline-lead-sim
+ExitCode: 0 Duration: 3s949ms
+Finished compiling graph: 948 nodes, 18057 flattened edges (15029 ToBuild, 146 ToUse), maximum node priority 967
+[526/944    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.rsp
+[743/944    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[936/944    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Game\VoyageGame.cs(48,21): warning CS0108: 'VoyageGame.audio' hides inherited member 'Component.audio'. Use the new keyword if hiding was intended.
+[937/944    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[938/944    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 139 defines and 328 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[939/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[940/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[941/944    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 137 defines and 353 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[942/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[943/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (3.92 seconds), 10 items updated, 944 evaluated
+Assets\Scripts\Game\VoyageGame.cs(48,21): warning CS0108: 'VoyageGame.audio' hides inherited member 'Component.audio'. Use the new keyword if hiding was intended.
+AssetDatabase: script compilation time: 5.622635s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.147 seconds
+Start importing Assets/Art/Shaders/PtsWater using Guid(4073606810c9b7d4a9929b40c3d043af) (DefaultImporter) -> (artifact id: '0ce5d20884e116dbe5b3400963d74520') in 0.0250309 seconds
+Start importing Assets/Art/Models/PropsV2 using Guid(70f1400e289a3754e928666e06603cbf) (DefaultImporter) -> (artifact id: 'f5d755395a13acec64f2af068cc878ac') in 0.002664 seconds
+Start importing Assets/Art/Models/StationsV1 using Guid(215b65250876eb84c9ecfed3c2c50e5c) (DefaultImporter) -> (artifact id: 'e5eecbfe800b4cd357123e45ee343dcc') in 0.0083919 seconds
+Start importing Assets/Art/Water/PTS using Guid(8237fffc38352aa408ef0922786a8f8e) (DefaultImporter) -> (artifact id: '8b5799e0c5ba2a83e10a6ed19accb4c0') in 0.0024013 seconds
+Start importing Assets/Art/UI/v2 using Guid(48afd673c7cd8774eac068666384e905) (DefaultImporter) -> (artifact id: '04ad459f7518943997c3baab6fbe1d8f') in 0.0075464 seconds
+Start importing Assets/Art/UI/Cards using Guid(b928c62856eb37f45b85b77269d33575) (DefaultImporter) -> (artifact id: '5cbcbeb06a4ccf898fc3e4930eb3f62c') in 0.0093075 seconds
+Start importing Assets/Art/Models/GullHarbourV2 using Guid(c9adf168f102e8345ba9b94d62d7f33b) (DefaultImporter) -> (artifact id: '233a644f76db0a8841140c3e62ed46d1') in 0.0024019 seconds
+Start importing Assets/Art/UI/Portraits using Guid(8cd48cd96c6d89647a25fc694b18a42c) (DefaultImporter) -> (artifact id: '163d801af95005d55536c88bd13623cc') in 0.0072883 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar using Guid(1091b2da1cf07b74f8d9308e1696db86) (DefaultImporter) -> (artifact id: '3929ef265649e763bbfda7e6c8e00ed0') in 0.0021674 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel using Guid(d14998c3d537b1340887f06a7667fd2c) (DefaultImporter) -> (artifact id: '1d40c364a18dad0b5df4e91cc5345d1d') in 0.0084728 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint using Guid(92a9567bf69abc641b9b6eff22cff650) (DefaultImporter) -> (artifact id: '855be1fb83bfbf16c2c7813e06e4bd2c') in 0.0081381 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank using Guid(04cc59e69cac8aa4c89fcb7fcaa3a017) (DefaultImporter) -> (artifact id: 'bfa40bd20896bf98af40f44c6af17981') in 0.0023303 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth using Guid(d6581939295835240911d8de0d72eed6) (DefaultImporter) -> (artifact id: '5f17455193c937f254af3e2f72669c68') in 0.0021472 seconds
+Refreshing native plugins compatible for Editor in 1.87 ms, found 4 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.40 ms, found 4 plugins.
+Start HTTP server: port:7801
+Pipeline: Descriptor written to C:\Users\momoy\Projects\Catchline-lead-sim\Library\Pipeline\.unity-pipeline-port
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.689 seconds
+Domain Reload Profiling: 5829ms
+	BeginReloadAssembly (313ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (26ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (146ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (1727ms)
+		LoadAssemblies (1524ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (305ms)
+			TypeCache.Refresh (232ms)
+				TypeCache.ScanAssembly (218ms)
+			BuildScriptInfoCaches (58ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (3690ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (3472ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (35ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (155ms)
+			ProcessInitializeOnLoadAttributes (3003ms)
+			ProcessInitializeOnLoadMethodAttributes (263ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Start importing Assets/Art/UI/v2/art108-event-current-shift.png using Guid(1089fddf7ce6e1049a97cb75b9db07ae) (TextureImporter) -> (artifact id: '954cafd6ebb6bec0fd7c52374ce62c3d') in 0.0416076 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi-56.png using Guid(40fbd7fa947599c41a300fa2416a4223) (TextureImporter) -> (artifact id: '5c3e052b2113b4a86af5cedd8f06ba78') in 0.0142868 seconds
+Start importing Assets/Art/UI/v2/art108-night-dogfish.png using Guid(50a0164ac2f1a4b46a234dd65e4874a3) (TextureImporter) -> (artifact id: '1331a8974f31cc2777488bc4ef9a62c8') in 0.0193201 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf-96.png using Guid(50f2cd8727f68564288b956177e699b8) (TextureImporter) -> (artifact id: '80c2c2e4f38c0106688130c28d4ce5a1') in 0.0238205 seconds
+Start importing Assets/Art/UI/v2/art108-item-worms.png using Guid(503843944f2f952469ff5e66ebec374f) (TextureImporter) -> (artifact id: 'a2250835c2bfcabc53178ee5dc009010') in 0.0074559 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove.png using Guid(90db319d37b3b004591ea3c2ce19b7c6) (TextureImporter) -> (artifact id: '6f6af2ba6eecdacb60a7da2b729dc622') in 0.0093683 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim-96.png using Guid(d0298c3b02f3d5045aa97baa96e7f10c) (TextureImporter) -> (artifact id: '152d0bad7c0564464058fd6d489c0c77') in 0.0155635 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-market.png using Guid(f0a7ff90f56301a47ae502f21e9f8da4) (TextureImporter) -> (artifact id: 'ad2154a3fbb885ec311a85e525294727') in 0.0065305 seconds
+Start importing Assets/Art/UI/v2/art108-stage-table.png using Guid(11b9d8d045aeef94abff33ce30f22150) (TextureImporter) -> (artifact id: '3334c401320d002c932c02bf8031055e') in 0.0099602 seconds
+Start importing Assets/Art/UI/v2/art108-item-fibreglass-rods.png using Guid(115fae75494aa8843967128c45ed3213) (TextureImporter) -> (artifact id: 'c0ab49fdbaf21feaaeecb02ec550e860') in 0.0153747 seconds
+Start importing Assets/Art/Models/PropsV2/DeckLightPool.png using Guid(311d6944bb8034b4696367f193ef2030) (TextureImporter) -> (artifact id: 'c67b3ec1d3d8433c1266593d4ab6cbad') in 0.0180332 seconds
+Start importing Assets/Art/UI/v2/art108-event-drifting-float.png using Guid(a19a3e9b815ee8a4b87cd83c2215ee63) (TextureImporter) -> (artifact id: '78f4a0bacb47e568ad0d12e26d66d048') in 0.0209543 seconds
+Start importing Assets/Art/UI/v2/art108-event-fog.png using Guid(b150eb72e35e5514181ca985e4ccb1db) (TextureImporter) -> (artifact id: '94f36c4375597c4ea3eb924a64164e9d') in 0.0147035 seconds
+Start importing Assets/Art/UI/v2/art108-event-man-overboard.png using Guid(b1077631f03ee5043a006047d3bf6d7f) (TextureImporter) -> (artifact id: 'f48178d32e462652103501eb3ac82fb9') in 0.0062171 seconds
+Start importing Assets/Art/UI/v2/art108-event-shark-takes-hook.png using Guid(c1381aaf256a15f4fa4410f3f2971a1b) (TextureImporter) -> (artifact id: 'bd23d198ee6ca1bc6216f1b4b61827aa') in 0.0058843 seconds
+Start importing Assets/Art/UI/v2/art108-stage-sorting.png using Guid(32863207312c0664eaf080997abaec33) (TextureImporter) -> (artifact id: '2234684af441508a4c95752da72ed36e') in 0.0155959 seconds
+Start importing Assets/Art/UI/v2/art108-item-ice-box.png using Guid(d2e2dea50f21dd9429d87374fda9f7f7) (TextureImporter) -> (artifact id: '80b83ca104ef98a7e8383cc8e9c3d88d') in 0.017365 seconds
+Start importing Assets/Art/UI/v2/art108-event-spilled-basket.png using Guid(031f5f38aa12af3479c4571c65796b81) (TextureImporter) -> (artifact id: '6228cdfcf60b69a30c0ee4e3eca5c607') in 0.0053108 seconds
+Start importing Assets/Art/UI/v2/art108-chest-gold-open.png using Guid(038f75263f5a3cc40ba117703fd593a1) (TextureImporter) -> (artifact id: '6b1e7611b768f1b475bad20c899f5239') in 0.0120685 seconds
+Start importing Assets/Art/UI/v2/art108-event-seal.png using Guid(3390a59214e764c4492370980652488e) (TextureImporter) -> (artifact id: '9b6bed33f5eeb0bad1ba18568f3c933e') in 0.0110006 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor.png using Guid(33e4a804ec9f70b4abb7f4eb709031f8) (TextureImporter) -> (artifact id: 'e5f2255d040316139d60543a759f0ec5') in 0.0076473 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-cannery.png using Guid(53a12186b89bc0a459a8a73839c7851c) (TextureImporter) -> (artifact id: 'c8e08f92f7367ab1fa55c10784367b70') in 0.0081612 seconds
+Start importing Assets/Art/UI/v2/art108-event-rival-anchors.png using Guid(630d632c8e5c84a4ba431eed0901b259) (TextureImporter) -> (artifact id: 'a7eebd7f234c554a18c9fc792465906e') in 0.0133697 seconds
+Start importing Assets/Art/UI/v2/art108-item-third-deep-line.png using Guid(930e1df490172af4d9ae0f849479c971) (TextureImporter) -> (artifact id: 'fc7dab34987e39830c7182c52b2e9b69') in 0.0065787 seconds
+Start importing Assets/Art/UI/v2/art108-chest-iron-open.png using Guid(c31b72627ec2f37489b9608f7065037d) (TextureImporter) -> (artifact id: '751d289e012a7e4c4c74315ddb0bb4f6') in 0.0140456 seconds
+Start importing Assets/Art/UI/v2/art108-item-squid-bait.png using Guid(d3ab6fbdd2b92f349ae6defbb84405b8) (TextureImporter) -> (artifact id: '1e414c5bc027244686c25d6464b7c5bc') in 0.0061144 seconds
+Start importing Assets/Art/UI/v2/art108-squall-overlay.png using Guid(e303e1dedf71b294c965ac4c6364f174) (TextureImporter) -> (artifact id: '394a6e4cccc3bbf9a41c0f6e0093ea29') in 0.0232894 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats-56.png using Guid(041610eb403efa642b6b6d59952c7801) (TextureImporter) -> (artifact id: 'b2cc51b9d40f4ca9551cd95289c752f3') in 0.0146073 seconds
+Start importing Assets/Art/UI/v2/art108-stage-fishing.png using Guid(44a0a530c0f9b0148983df2c7289a791) (TextureImporter) -> (artifact id: '235ee304538a758d5af8d17a06f36430') in 0.0145989 seconds
+Start importing Assets/Art/UI/v2/art108-event-protected-species.png using Guid(94eb6fcdaa41f4041b82f3a72ec0a4e5) (TextureImporter) -> (artifact id: 'ad731a1f17143886ead9896097704078') in 0.005335 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana-96.png using Guid(944c27f2972b658488c391dcf0103df9) (TextureImporter) -> (artifact id: '15268181a6c95128185f9cbd52c5f232') in 0.0054579 seconds
+Start importing Assets/Art/UI/v2/art108-event-eel-wraps.png using Guid(c4966e2c03fe3ef4ea4fff91f1415dba) (TextureImporter) -> (artifact id: '0d5aad127a4d3d951f925833c2c3be91') in 0.0049224 seconds
+Start importing Assets/Art/UI/v2/art108-event-cargo-shift.png using Guid(45593a9b85a1a904d82dad07570b7e80) (TextureImporter) -> (artifact id: 'b52326420f1e50af8da0de8d1dd48cd7') in 0.0054583 seconds
+Start importing Assets/Art/UI/v2/art108-event-seasick.png using Guid(55a1c609a2958114c999c1d001a31674) (TextureImporter) -> (artifact id: '2071917faff74eb677437a5b99a84092') in 0.0132976 seconds
+Start importing Assets/Art/UI/v2/art108-event-hatch-jam.png using Guid(55151e1de34d5d94b8d0a458e73862c8) (TextureImporter) -> (artifact id: '2610f5263d682790ad21229f0727db9e') in 0.01511 seconds
+Start importing Assets/Art/UI/v2/art108-texture-plank.png using Guid(7575d57ca22cf96438ce3aefd86c472f) (TextureImporter) -> (artifact id: 'e034ecc75a592e257a45c4c2ef20dc6e') in 0.0433887 seconds
+Start importing Assets/Art/UI/v2/art108-event-big-one.png using Guid(85fc0773f3be1ca499a28cfefbe3527c) (TextureImporter) -> (artifact id: '217afba281a83c0036da3e013366910a') in 0.0150637 seconds
+Start importing Assets/Art/UI/v2/art108-texture-rope-h.png using Guid(c52988a24142d414da19f697529166eb) (TextureImporter) -> (artifact id: '06ddb19dd8c13771c52509952ac1cefb') in 0.0114804 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana-56.png using Guid(e54346e1fcc55eb4fb19afe6db0b93cd) (TextureImporter) -> (artifact id: 'bb9a9c43245bcead0a8877e719b61c9b') in 0.005986 seconds
+Start importing Assets/Art/UI/v2/art108-item-lantern-oil.png using Guid(3606797e9e413254f82da0582a80994e) (TextureImporter) -> (artifact id: 'ba968a500adb29cd6b49ae9505ab121a') in 0.0154747 seconds
+Start importing Assets/Art/UI/v2/art108-night-squid.png using Guid(36a8654bd80c6e041b8245e6389e8e4e) (TextureImporter) -> (artifact id: '1c1f8898cfa9c650785ef5b8b22fa9e8') in 0.0148042 seconds
+Start importing Assets/Art/UI/v2/art108-event-flying-fish.png using Guid(46626d486785e72479c80abef350f89f) (TextureImporter) -> (artifact id: 'ff3fc6fe527fe8764ee96a4f3ddc89d5') in 0.0055476 seconds
+Start importing Assets/Art/UI/v2/art108-event-fuel-leak.png using Guid(56b328851ddf57e4e8375d3c205e9184) (TextureImporter) -> (artifact id: 'd5aeb00624e42e6493739278e15c6139') in 0.0146238 seconds
+Start importing Assets/Art/UI/v2/art108-event-cannery-closed.png using Guid(66eca1bc6deb6114db6f9b257d78244e) (TextureImporter) -> (artifact id: 'df49e7e84c44168d25045a20a43f9117') in 0.0153758 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats-96.png using Guid(86b342dfb2ca3934d9ced3e5b7dba85b) (TextureImporter) -> (artifact id: '8e496df208791924d865ab6ea5e4444e') in 0.0152855 seconds
+Start importing Assets/Art/UI/v2/art108-event-dolphins.png using Guid(966e99acfda27cf49b66afac4a791e5a) (TextureImporter) -> (artifact id: '4ce391bcd6bbc61901f4bccb1e57a6a8') in 0.005558 seconds
+Start importing Assets/Art/UI/v2/art108-chest-gold-closed.png using Guid(a6aeaee84c8224445a9712e084bef209) (TextureImporter) -> (artifact id: '175d56c1f2a2ccaeb21242f35c2b95ad') in 0.0065512 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi.png using Guid(e6b4cf3a85ebab04c81e5ea354a8b8cc) (TextureImporter) -> (artifact id: '2202f64356784bb5e52a9523525812da') in 0.0159482 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf.png using Guid(f6c1fe9b331352344a4e7827482c951e) (TextureImporter) -> (artifact id: '6bd5e2e11f6a20f972c9158ad6ecd105') in 0.0181456 seconds
+Start importing Assets/Art/UI/v2/art108-item-heavy-net-system.png using Guid(f6398ac38cff1b6449c503ca69bb35ce) (TextureImporter) -> (artifact id: 'd7126ea5fc998d1ea04c02c9c8f79928') in 0.0150275 seconds
+Start importing Assets/Art/UI/v2/art108-event-wont-work-adjacent.png using Guid(27b044025d4f94942b506d2f34203657) (TextureImporter) -> (artifact id: '1da967bc4d419e5a7b7a26a888cdaa2e') in 0.0068679 seconds
+Start importing Assets/Art/UI/v2/art108-event-jellyfish-bloom.png using Guid(479477808a1d9f849acdcc5c6e90c2d0) (TextureImporter) -> (artifact id: 'bfc54e95fd5b5ecd8046b740fcd73f12') in 0.008845 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana.png using Guid(67d45f9a31ad20040b092cfde1ce1efe) (TextureImporter) -> (artifact id: '70dc2f47b5d0db55a56511f4e14b2229') in 0.0136474 seconds
+Start importing Assets/Art/UI/v2/art108-event-breaker-trip.png using Guid(87e32aab7d70729439db2b408d9b1a6a) (TextureImporter) -> (artifact id: '1c88892ec24077fd9b4175482a4ca307') in 0.0145668 seconds
+Start importing Assets/Art/UI/v2/art108-event-undersize-run.png using Guid(c70f0a9cbec08d748805d850770f0c81) (TextureImporter) -> (artifact id: '1464dadf6a587851e751aef2983f30f6') in 0.0064948 seconds
+Start importing Assets/Art/UI/v2/art108-event-dull-blade.png using Guid(183d5002b10fc94448131ef2fa55f3c4) (TextureImporter) -> (artifact id: '8c30abeb819c3cbec77c936e5f3f9518') in 0.0065984 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-market.png using Guid(383820baf0752e34195617b0e5a56c2b) (TextureImporter) -> (artifact id: 'da00059868a0911b57e3663f285ca37f') in 0.0151582 seconds
+Start importing Assets/Art/UI/v2/art108-event-snag.png using Guid(78e62e5b74d684446b12ff48df5f3e97) (TextureImporter) -> (artifact id: 'e3284318fe5a47780036744c322e7e86') in 0.0116156 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk.png using Guid(8811ee21b8d7d2e4d812d2898214bcc8) (TextureImporter) -> (artifact id: 'fe429925ce19ec0fee37e7f6006b4e11') in 0.0213328 seconds
+Start importing Assets/Art/UI/v2/art108-event-price-spike.png using Guid(b80a4f975db951542a7881c675194e74) (TextureImporter) -> (artifact id: '0fd562aedd821a9f77a3c8b985f06488') in 0.0125405 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-gold.png using Guid(f86ddf19c96ad9f4b9f5b7d5c576056d) (TextureImporter) -> (artifact id: 'ddce4ae2107b17b1449ba8164a137ff4') in 0.017422 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-purple.png using Guid(0999ee3f465befa4fa7b90ba2fda30e1) (TextureImporter) -> (artifact id: '31c1602f90dbf113cba0bdc5008eec5d') in 0.0116931 seconds
+Start importing Assets/Art/UI/v2/art108-item-big-cooler.png using Guid(19a6d5c630428304aa2ecc0540a8d908) (TextureImporter) -> (artifact id: '05e9c3d464f8538227cd11cfdc67b422') in 0.0062042 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi-96.png using Guid(29f734009e9d00e4bb2f594ac9900283) (TextureImporter) -> (artifact id: 'ace082d289022f09c805696c54de5d47') in 0.0156485 seconds
+Start importing Assets/Art/UI/v2/art108-event-weather-warning.png using Guid(49429d6333a38b6479b8a4acba7280e2) (TextureImporter) -> (artifact id: '3a637758192976480bb918cee3e50ec8') in 0.0138664 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam.png using Guid(49a68372680d8ba4a8d8572eddbae360) (TextureImporter) -> (artifact id: 'e43b56a94c7ee4b3877a797c2be9344d') in 0.0076741 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam-56.png using Guid(49eb6daf7dd89874ba447d2b643fa350) (TextureImporter) -> (artifact id: 'f3090be613044cc1e058f8c0647097b8') in 0.0056162 seconds
+Start importing Assets/Art/UI/v2/art108-event-hook-in-hand.png using Guid(498ebd505f798f3408476a043eb3dca4) (TextureImporter) -> (artifact id: 'faa5edb4d0861715aad751175f63b432') in 0.0051912 seconds
+Start importing Assets/Art/UI/v2/art108-event-birds-working.png using Guid(498fa31fe14fb174faa39cf7835049c0) (TextureImporter) -> (artifact id: 'd1cff29750dec8e204452a9fc312ba9d') in 0.0146018 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-blue.png using Guid(498f2588c71b84f40ae821ac4b41947c) (TextureImporter) -> (artifact id: '7b6c5610b47ec17ae58f92d5240aac18') in 0.0199473 seconds
+Start importing Assets/Art/UI/v2/art108-texture-nail.png using Guid(69716b7822592174994557da34078fff) (TextureImporter) -> (artifact id: '99bf5da2958a67689256bbff01c45bc1') in 0.0053089 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim.png using Guid(a981a2a32446e014aae341e1580ca02b) (TextureImporter) -> (artifact id: '57ab620339c0dd59fa6e2ebb57e7eb81') in 0.0179416 seconds
+Start importing Assets/Art/UI/v2/art108-texture-rope-v.png using Guid(b9778f4473dd0484da50816143c0ae6a) (TextureImporter) -> (artifact id: '92356778761cb062dcd9228cfdfa7f7c') in 0.0199598 seconds
+Start importing Assets/Art/UI/v2/art108-event-roe-found.png using Guid(c96dc16f1c05a0346abda2d25ce31803) (TextureImporter) -> (artifact id: 'd6f7df5210ddb54c868ee1d6d6d627b2') in 0.0159631 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira-96.png using Guid(2ac4a58f5ad86d742968b72cc98461d6) (TextureImporter) -> (artifact id: '5e279778e7724c0caf301c845c861aa2') in 0.0159171 seconds
+Start importing Assets/Art/UI/v2/art108-item-fuel.png using Guid(3a27be99e3284b848a9e0326ee6e6f7a) (TextureImporter) -> (artifact id: '99eb3f867d9a7e0a1809ade02837d63b') in 0.0154076 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor-96.png using Guid(3ae9f8b77aefbd340bc6fff155143c5d) (TextureImporter) -> (artifact id: '420e5235883fa9ac93101d04c0884787') in 0.01535 seconds
+Start importing Assets/Art/UI/v2/art108-event-gull-raid.png using Guid(5a018384633eb7d46927f4a0fff1f523) (TextureImporter) -> (artifact id: '4a517ad9799a443ec0861c997b99fd67') in 0.0139802 seconds
+Start importing Assets/Art/UI/v2/art108-chest-wooden-open.png using Guid(aa85f0b27f62f2b4e969d1825b0e7fa5) (TextureImporter) -> (artifact id: 'b72f3a6e6ef1a0ca82fda166ac176f42') in 0.0169011 seconds
+Start importing Assets/Art/UI/v2/art108-item-spare-rig.png using Guid(ba37468babbef2445a9bbac3a6c33d80) (TextureImporter) -> (artifact id: '91b56cc963028c7ac1d28f7da8d95d1c') in 0.0065495 seconds
+Start importing Assets/Art/UI/v2/art108-item-lantern.png using Guid(cad12b501bb8d144696ded21b179bbee) (TextureImporter) -> (artifact id: '052b033ba041d86dc83a501791a19443') in 0.0153015 seconds
+Start importing Assets/Art/UI/v2/art108-stage-hold.png using Guid(da49089d1e43d7947acfa5dad047ea4c) (TextureImporter) -> (artifact id: '78ffdc8b5577e5849c34bbedc4cb777a') in 0.0143748 seconds
+Start importing Assets/Art/UI/v2/art108-stage-hauling.png using Guid(fa2d67946591658458bcc667b5e5de9e) (TextureImporter) -> (artifact id: '926d1983a24f82cad39f69102a56d360') in 0.0148876 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk-96.png using Guid(faee7ed56a82b6e4d95fe12a4a14c4c1) (TextureImporter) -> (artifact id: '12546707420eddf9bd5cf31f690bd5cd') in 0.005913 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove-96.png using Guid(0b72d3810d8572645a06aca51bc9a028) (TextureImporter) -> (artifact id: '2ee4d67b15eb4493329336eb31f5bc29') in 0.0145648 seconds
+Start importing Assets/Art/UI/v2/art108-event-crab-pinch.png using Guid(2b6bfac7383d6e44782b4b81808b9841) (TextureImporter) -> (artifact id: 'cf80c5b575499555b9afbbb5b73f9841') in 0.0053779 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-collector.png using Guid(8bc13151efb71f64bbbd8654ef0c63d2) (TextureImporter) -> (artifact id: '2e44ae5caade0fa6ee48b6db6f6d6bdf') in 0.0062192 seconds
+Start importing Assets/Art/UI/v2/art108-item-carbon-rods.png using Guid(9b5b6ae6070787a4e90eef3695a823bc) (TextureImporter) -> (artifact id: 'b60f870576b7f48491a5b87f952edef6') in 0.0157496 seconds
+Start importing Assets/Art/UI/v2/art108-event-squall.png using Guid(abd9ce49f26386c4a996409a1302ad95) (TextureImporter) -> (artifact id: '9e95c9f256cdda2a1bb750740313bcb1') in 0.008752 seconds
+Start importing Assets/Art/Water/PTS/normalNoise.png using Guid(db5b9f8ed07a42719585509f17e6a094) (TextureImporter) -> (artifact id: 'fbce56a2cc5756dfe7d44b782d436918') in 0.0179004 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor-56.png using Guid(0ca996e80ce845342823dad6d618cb28) (TextureImporter) -> (artifact id: '83cc73d6cbf04fa6bfd2158182be8b02') in 0.0055066 seconds
+Start importing Assets/Art/UI/v2/art108-event-oversized-fish.png using Guid(1c654cc1f853a754698ad640bad476eb) (TextureImporter) -> (artifact id: 'b68a77474366570825c1d1ccc0570e98') in 0.0053862 seconds
+Start importing Assets/Art/Models/StationsV1/DeckLightPool.png using Guid(3c7689f675b705845a72828132f58b76) (TextureImporter) -> (artifact id: 'bf2196fb9f804a728a18ccaca5f9be1d') in 0.0081557 seconds
+Start importing Assets/Art/UI/v2/art108-item-rod-holder.png using Guid(3ccb7c696c5c91d41bab5a4709135b95) (TextureImporter) -> (artifact id: '86b228128b8fd591781aa168604b16c6') in 0.0252284 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise-56.png using Guid(4cf9e070f84129b4989a99aba29f10c1) (TextureImporter) -> (artifact id: '029a291ff721cef26e3690c382bc0bca') in 0.0059914 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-cannery.png using Guid(6cd6285890190054aacf7e76dbe22334) (TextureImporter) -> (artifact id: '360517201564c94bc269340bb15995a0') in 0.0080986 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira-56.png using Guid(9c306647287c30449aaa75c00a6a6888) (TextureImporter) -> (artifact id: '328a13ddf9986911d8aa1b14d25b0ef4') in 0.0064137 seconds
+Start importing Assets/Art/Models/PropsV2/SquallOverlay.png using Guid(ace3866f79c3b5f4cadb28392b97b825) (TextureImporter) -> (artifact id: 'fcd22e2cc738385ee7f5122e442d8f06') in 0.0188267 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk-56.png using Guid(dcbc359b9b459424cbe15c23cddf3bf4) (TextureImporter) -> (artifact id: 'a258b8fe26b96ba6a73542d2078d33d6') in 0.0223415 seconds
+Start importing Assets/Art/UI/v2/art108-event-tide-turn.png using Guid(fc22b3647cb3426478554dc6b255f534) (TextureImporter) -> (artifact id: '883da06ab17a2b4ca125626efce45b68') in 0.0110994 seconds
+Start importing Assets/Art/UI/v2/art108-event-rush-order.png using Guid(0d70b50e3b2cfed4185d0e3b5ef2e7d4) (TextureImporter) -> (artifact id: 'f2e3f6c6e4d8ca907d7d8aa088e9d249') in 0.0052622 seconds
+Start importing Assets/Art/UI/v2/art108-item-squid-bulk.png using Guid(0d89caaac7bb3904d9448b1854b399b2) (TextureImporter) -> (artifact id: '2b6e03760f860e13565f4614d7279c61') in 0.0124702 seconds
+Start importing Assets/Art/UI/v2/art108-event-inspector-boat.png using Guid(1d55b0c3722c20046bd1fcf0899aa981) (TextureImporter) -> (artifact id: 'fee222a9469a7b403efa433b310890fe') in 0.0050344 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-restaurant.png using Guid(7d5c6ec7fb4b58647ba0a69914aa782a) (TextureImporter) -> (artifact id: 'c209b44b16cb5e3b1f30677a61386307') in 0.0078899 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira.png using Guid(8defe5ffbf129184faf276cd161d2d06) (TextureImporter) -> (artifact id: 'f920c87e1d04fbae167f516fc71934b0') in 0.0162589 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats.png using Guid(dd82cf8787481034da5abba1a08dc4d8) (TextureImporter) -> (artifact id: '5cbbd987efc2601285c296ad1c2a2a63') in 0.0167142 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam-96.png using Guid(dd4658ad0b9679e48b4c73ac780136b7) (TextureImporter) -> (artifact id: '947a1384e50153f5f474dee16494b150') in 0.0151741 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove-56.png using Guid(ddfaa3bd4eeed4b4497a3ed919d6f8dd) (TextureImporter) -> (artifact id: '15d29917bdddc36cfa3b169ad7aace1a') in 0.0056981 seconds
+Start importing Assets/Art/UI/v2/art108-event-offal-pile.png using Guid(2efd9b7685fc04243ac356ac1f6c5bb7) (TextureImporter) -> (artifact id: 'cc757c193dd424ccfdc98c77f230d518') in 0.0138941 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-collector.png using Guid(3e6418c997e92e643be3a27f85993da5) (TextureImporter) -> (artifact id: 'f7a5c00aa6fa68a6a4ba01b10c260f42') in 0.0170786 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise.png using Guid(3ee43c1617b78c642a946e94eb81d328) (TextureImporter) -> (artifact id: '377bcb47578826dca197173bb17a981f') in 0.0167574 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise-96.png using Guid(4ee509934fde4784c8c2914e34861061) (TextureImporter) -> (artifact id: 'c748c5cf687f255685d8dcf8bd043fce') in 0.0059924 seconds
+Start importing Assets/Art/UI/v2/art108-product-chum.png using Guid(4e5e90a2cb133c24b8214e0fac961be8) (TextureImporter) -> (artifact id: '36bd0a339176fe04fb334868b5a3b580') in 0.012844 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf-56.png using Guid(5eece914551bdaf4a8c9dc96fca02acb) (TextureImporter) -> (artifact id: '8f5987cee4067784f2dfedb615016279') in 0.0062768 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-bait-shop.png using Guid(7e97b2ef277aad54e899832d92d69c36) (TextureImporter) -> (artifact id: 'd0382339343c310737560633ef21278d') in 0.0083596 seconds
+Start importing Assets/Art/UI/v2/art108-event-crossed-lines.png using Guid(7ed8e4fb8f9bbdc4f8cd14e04a0f6ae0) (TextureImporter) -> (artifact id: '540aa9431cd67db247256151565c7f12') in 0.0147469 seconds
+Start importing Assets/Art/UI/v2/art108-product-fish-oil.png using Guid(9e29df30fca01e54ba434d2fcd4210bc) (TextureImporter) -> (artifact id: 'f029c5f9d820cd09929481e9dc3e71b1') in 0.007026 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-restaurant.png using Guid(be212f92c1ac3824a9a0bacb2d7e93be) (TextureImporter) -> (artifact id: '073b313d6d0cac25e3817e4f6e6d5b73') in 0.0169769 seconds
+Start importing Assets/Art/UI/v2/art108-item-worms-bulk.png using Guid(be4233de43289dc42a3c559a096646d0) (TextureImporter) -> (artifact id: '7da0b83cb3c5587f01e3bf6c92478c75') in 0.0164335 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-locked.png using Guid(de5a6254217b8c84fb69f57641b807af) (TextureImporter) -> (artifact id: 'ceb389b38f3c27bcdb80af2ddfeb0cce') in 0.0119888 seconds
+Start importing Assets/Art/UI/v2/art108-chest-iron-closed.png using Guid(1f2d8007430aa54459c68b7e66765670) (TextureImporter) -> (artifact id: '8a4ba3f49461eef6fc3bda627457962c') in 0.0068687 seconds
+Start importing Assets/Art/UI/v2/art108-event-light-out.png using Guid(1f9d3e5bb89f1f2468a949ae23ac94ed) (TextureImporter) -> (artifact id: 'f2a5648d754eb06efd1e9a44a00a2e6d') in 0.0156236 seconds
+Start importing Assets/Art/UI/v2/art108-chest-wooden-closed.png using Guid(1f2e0bd0301cc8e43a5100ac0da393df) (TextureImporter) -> (artifact id: '2e9fbf0a157b4dc09bbe5f5c9aa8b1b5') in 0.0072581 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim-56.png using Guid(4ffec0ece0df7114682e098aba9c4801) (TextureImporter) -> (artifact id: '804db3627e60ab33b6b1d52a4cd6c0cb') in 0.0135407 seconds
+Start importing Assets/Art/UI/v2/art108-event-school-passes.png using Guid(8f739b02253d0a6499f3d5a40802a0a4) (TextureImporter) -> (artifact id: '1194980defb85e57aa1e161b466cfa5c') in 0.0143955 seconds
+Start importing Assets/Art/UI/v2/art108-item-extra-fuel-tank.png using Guid(9f7823463b1c6e649bf71ef64a36bb0c) (TextureImporter) -> (artifact id: '18440139c6e047483160513d1a4cc3ee') in 0.0173316 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-bait-shop.png using Guid(af9b6421b6caf1043bb6080eddcb6f63) (TextureImporter) -> (artifact id: 'd82a7e5892452467c1ab4c5f8e263209') in 0.0172409 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterInput.hlsl using Guid(a3c78a26997ef594ebdae2abc5cf3168) (ShaderIncludeImporter) -> (artifact id: 'b6cb12e8060ea09bca43352fc2ebe4a0') in 0.0288768 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterLighting.hlsl using Guid(88ec49afd795fec4d8c56591e4741e32) (ShaderIncludeImporter) -> (artifact id: '69c558ab9af9d285aee09c9658a19888') in 0.015494 seconds
+Start importing Assets/Art/Shaders/PtsWater/GerstnerWaves.hlsl using Guid(1a4803ffc02f4044988ac04a749f23fd) (ShaderIncludeImporter) -> (artifact id: '89fb32aa13416cb4330905e28424e997') in 0.0077874 seconds
+Start importing Assets/Art/Shaders/PtsWater/CommonUtilities.hlsl using Guid(fc7c17743eff65049ae459689d2c7135) (ShaderIncludeImporter) -> (artifact id: 'eb9c8c672ec198ad24f532d6bd73bde4') in 0.0075279 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterCommon.hlsl using Guid(3dd2a7cea8f1ed24a8ff91f73281a0c6) (ShaderIncludeImporter) -> (artifact id: '22bbb72eee4e6024c2535f7894d29629') in 0.0173962 seconds
+Start importing Assets/Scripts/Game/Minigame/Resources/RodViewSky.shader using Guid(b829d52de385473eb806deda0b83eb9c) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+ -> (artifact id: '6a3fede2d4729e9db199bad5b754e4ab') in 0.0718793 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_JellyfishClump.fbx using Guid(105e81aac55096d428a328cae1c89f1a) (FBXImporter) -> (artifact id: '5940189d2134c84f4af68d4b2c7c2704') in 0.1729849 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/GullKelpBankSeaV2.fbx using Guid(30782192385242644a4ef397d17205f8) (FBXImporter) -> (artifact id: '963ff32c28c6f04b1e7aaa8afe0ddcd8') in 0.2899514 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_GullSwoop.fbx using Guid(408d3a44532ea6d48984a712eb55b627) (FBXImporter) -> (artifact id: 'cd2b7e19da87b7922e9adc6c29f5d277') in 0.0787024 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_LanternOilCan.fbx using Guid(60150f74a67779a40ac4cd298d26a140) (FBXImporter) -> (artifact id: '4c264b22f6ca82b0118aede22f8e511c') in 0.1084341 seconds
+Start importing Assets/Art/Models/GullHarbourV2/PontoonSegment.fbx using Guid(7079c2ad2af1ad448a9e0fbaac4341c6) (FBXImporter) -> (artifact id: 'bb53f252d6ac2790d45ed63cb475c943') in 0.0555488 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_OffalPile.fbx using Guid(80b32e9f210fc824889d7c350275989c) (FBXImporter) -> (artifact id: '2ca6aca7835dd4abbeadd0f9b4c332d3') in 0.0382033 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_1.fbx using Guid(01691683f967d6046988437c272bc9bd) (FBXImporter) -> (artifact id: 'f9a9f76ca69d91983577cff4fac08118') in 0.0561127 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_ProcessingTableTwoPlace.fbx using Guid(314e071de44d7ca4889cefa2469d3aef) (FBXImporter) -> (artifact id: '8149c731378abcc9df6a63e731fed6a9') in 0.0504565 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_TableEel.fbx using Guid(5167e5bb518856848acd3b35f645beb1) (FBXImporter) -> (artifact id: '47dd483c1cf7e397bf00e141e6487c42') in 0.0416876 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelGroundsV1.fbx using Guid(2244ee95002239b4e8304036cef1f76f) (FBXImporter) -> (artifact id: 'f95aef8e83140f794193c37b864a0854') in 0.068614 seconds
+Start importing Assets/Art/Models/GullHarbourV2/FuelDock.fbx using Guid(322a98dd32b977d40acff802d8ba5370) (FBXImporter) -> (artifact id: '2ed4ab385f9793dbc2b6741a5d8252aa') in 0.0410163 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortBoardRail.fbx using Guid(423872d9297b28c478c5b3df6a996513) (FBXImporter) -> (artifact id: 'cc429fdfd6cce60f26e4e46acbc287b6') in 0.0488408 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/GullSandbarGroundsV1.fbx using Guid(72cf5724d4128eb4ba720e92777e7a26) (FBXImporter) -> (artifact id: '93796d2117da585d4160615a718c34bc') in 0.0738985 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_1.fbx using Guid(8283ee187699ba444a64c51f7c52bd83) (FBXImporter) -> (artifact id: 'e85e8cc834671462627640bcf2c01517') in 0.0564927 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_LineHauler.fbx using Guid(92ea404d3d61a8a4b973918989cd1b18) (FBXImporter) -> (artifact id: '5badef1319a79fbb1789c87ef514abd4') in 0.0412904 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_JigRig.fbx using Guid(e2f60d80dec25dd42bb5602dbef3a056) (FBXImporter) -> (artifact id: '13bbd0e455cc6f6ba1d8e90010359736') in 0.0526153 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_DolphinFin.fbx using Guid(63a3027cc27f5eb4a8c2d60b0ffc1b16) (FBXImporter) -> (artifact id: 'f26c37f63a2bab7167bef2ddba8ab033') in 0.037589 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_3.fbx using Guid(f377f495d3acdb14d8c3998a82f6b12f) (FBXImporter) -> (artifact id: '248606f0c2b130475c7d04bdf837f060') in 0.0457931 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorHelmBracket.fbx using Guid(24b334773c8823f48abf47f9c10e4d62) (FBXImporter) -> (artifact id: 'ba8ee616e0acc45e4ec15d6ce0952422') in 0.0316369 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_2.fbx using Guid(34cff1418be04c24990de1e4de1ff328) (FBXImporter) -> (artifact id: '099013151aa91ee6f27e20fd32302c60') in 0.0517531 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_HatchRing.fbx using Guid(64bcf1376e18f3a4283fa3af28ef1b86) (FBXImporter) -> (artifact id: '1566c9d09b4ea700767f72c5cba2efa0') in 0.0377643 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/GullKelpBankGroundsV1.fbx using Guid(9420ec78e28cdf24e81514c5cf30fd82) (FBXImporter) -> (artifact id: 'ffce021964dfdd95d7a46b46b124e1b7') in 0.0601463 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortTableLarge.fbx using Guid(940bc1b35aadda1469f3637d660053e0) (FBXImporter) -> (artifact id: 'a86df4ba10bedab1785f6bcbc4d85df5') in 0.0419456 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_InspectorLaunch.fbx using Guid(944c0474a8b80be4699b34c43a6d865f) (FBXImporter) -> (artifact id: '85ef223dfe843286b4e4c68d1496c7f1') in 0.0393671 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorPost.fbx using Guid(b409d7e4a46006f4aac68ff90b9b98c9) (FBXImporter) -> (artifact id: 'd3a940b6c6023a686dd6d9ac937c5c51') in 0.0370473 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_3.fbx using Guid(b5d3c28c2616ef9498e9aeb9f3728260) (FBXImporter) -> (artifact id: 'e355e992525c92988e134d20fdfdbea9') in 0.0508932 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelSeaV2.fbx using Guid(f585d26f52742a04fbc7d88014a11e82) (FBXImporter) -> (artifact id: 'c1004fecd8ffd7bbbaf694bd68f331d7') in 0.115557 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_DolphinFin.fbx using Guid(567f2ce1956f1ae4da1e98bfe4644ea0) (FBXImporter) -> (artifact id: '7ff6736e2897f64763249e3f3f9a18cd') in 0.0349408 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_Lantern.fbx using Guid(e6e6bef13ba07f44c9c5b812a57c730c) (FBXImporter) -> (artifact id: '0a4dbeaf14d904437def095e3ddc0782') in 0.0301624 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_JigRig.fbx using Guid(07cdbc4bd0f720c4fb4a308df4da2b59) (FBXImporter) -> (artifact id: 'bcb277e087c5444de9fa4ac39bd56717') in 0.0379736 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_DeckLightMast.fbx using Guid(3724b9299ed789f4cafbec943dd594ad) (FBXImporter) -> (artifact id: '7478cdffee7248fccb98d2ac863be7d3') in 0.0369786 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_GullSwoop.fbx using Guid(a753b9eed680954438efb9b5c040fbd8) (FBXImporter) -> (artifact id: '94f235689c896a96cac5ddff471179ed') in 0.0360281 seconds
+Start importing Assets/Art/Models/GullHarbourV2/BreakwaterWall.fbx using Guid(c7aedac990b4697469f7df126b77a968) (FBXImporter) -> (artifact id: '5b7cc3da70d6ff947aaf0481fcce4982') in 0.0271067 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_LanternOilCan.fbx using Guid(e76ddfd8b57562b4b8baa7a988e022d7) (FBXImporter) -> (artifact id: 'aa121a0873b6bd4efe75b8741bdf24c2') in 0.0296064 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointGroundsV1.fbx using Guid(a8728a638f2119d4aab5606ade7ea1d2) (FBXImporter) -> (artifact id: 'f248b1eb6c763a9ff2605550524a97ba') in 0.049166 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_GeneratorBox.fbx using Guid(e8e6a94a04566cf489e076165fa95af0) (FBXImporter) -> (artifact id: '786121a0b6e7cdb8d458bcccfcb2b8f5') in 0.0274467 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthGroundsV1.fbx using Guid(4960f7fea8547954e885fad0bfdc8de6) (FBXImporter) -> (artifact id: '4bd435f605253c22b9096319545de7d7') in 0.0839472 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_TableEel.fbx using Guid(e94d753bb3da6ad439868067f7e42c54) (FBXImporter) -> (artifact id: '4b22f79d455e99dfbb7a5e2496e2293c') in 0.03634 seconds
+Start importing Assets/Art/Models/GullHarbourV2/PontoonGangway.fbx using Guid(2aadd399efa0ab249add2ecbec803c34) (FBXImporter) -> (artifact id: '86150f3fba454936fb5989f6756ccf75') in 0.0293383 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BaitBin.fbx using Guid(da24417ecd30d1742b4f66c3801948c3) (FBXImporter) -> (artifact id: 'd375763b158c12db5578b49c61f0a1b8') in 0.0380314 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_JellyfishClump.fbx using Guid(3bf0878b298e5be4ca5a9c5e3c923dcc) (FBXImporter) -> (artifact id: '97b31355f3c1cf54e9284089827619dd') in 0.031325 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_SpareRig.fbx using Guid(bb9dc3e3c80d72f49bad242a0a108a05) (FBXImporter) -> (artifact id: 'ac53b5f77a062fa60a2fa957f74c1d42') in 0.0384687 seconds
+Start importing Assets/Art/Models/Crew/NavigatorV1.fbx using Guid(cb4a4954c1a23a642b883813ac944f96) (FBXImporter) -> (artifact id: 'fa76f47d0f86145ff9ab116bdfdb5b12') in 0.0728195 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_FlyingFishEvent.fbx using Guid(dbfc7fbb6e1fbc54688e734f11eb9025) (FBXImporter) -> (artifact id: '9e678fdb1019c056376cebaf0931ce2f') in 0.0372189 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_CuttingBoard.fbx using Guid(eb002d78bc9fdb24586f86f33175b416) (FBXImporter) -> (artifact id: '14e77e3fb7a17cacb59e3c09bba17bfd') in 0.0336773 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_2.fbx using Guid(1c66d3be54fb67145bbe209852a20063) (FBXImporter) -> (artifact id: 'd9ffb63ba4a7478331389f1e3fbd12df') in 0.0462517 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/GullSandbarSeaV2.fbx using Guid(bc659829005265a4e95538904b18b2a8) (FBXImporter) -> (artifact id: 'c231bf8994c456bc7381d6a7062cffa7') in 0.1081232 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_0.fbx using Guid(fc69a7ce921636b41baa1b1859f9716a) (FBXImporter) -> (artifact id: '7d75cac753fae5734754fcdb81495344') in 0.0421705 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointSeaV2.fbx using Guid(2dffe4c9ccf38344e8ab49dc6a53ee5e) (FBXImporter) -> (artifact id: '3a6aaed1da74736107e59e81a008e2a9') in 0.1180319 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_SealHead.fbx using Guid(5d94727e4034f5342989a20e09ea42e3) (FBXImporter) -> (artifact id: '9ad2eda1114ac91db43c490445f3c0db') in 0.0295361 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortTableSmall.fbx using Guid(7df792856d3ef934292fa633ee0260da) (FBXImporter) -> (artifact id: '2a1cf46173f2c214eacb1d0c24d7e13e') in 0.0410235 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_FlyingFishEvent.fbx using Guid(7d492109e0964a04aa9bf3ed39a4283c) (FBXImporter) -> (artifact id: '36284c8fc750a3859d41ff9336832a74') in 0.0373879 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_RivalBoat.fbx using Guid(9dac653f735e9274ea64d9c12d36e745) (FBXImporter) -> (artifact id: '18ff4651c0aa9e4bafc15f4fcde1cdc4') in 0.0301607 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SealHead.fbx using Guid(dd03137b9c4e63342a666539376277e9) (FBXImporter) -> (artifact id: 'e0f536f4f5b5af7402f143760f48beb9') in 0.0383147 seconds
+Start importing Assets/Art/Models/GullHarbourV2/QuayCrane.fbx using Guid(2e68d0abc46756241965f429a30df04b) (FBXImporter) -> (artifact id: '032fd4b56929e4209b73ae4dc6685a9b') in 0.0284358 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorSeat.fbx using Guid(de879054d03c5cd49a51edb0868f59ba) (FBXImporter) -> (artifact id: 'bca626bd1fbe3805941f1758e2cd42ed') in 0.0333439 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Slipway.fbx using Guid(de798cc908ad1ed41a107fec1b473d25) (FBXImporter) -> (artifact id: '3ccaf36ab11c6d546233f6a08c568f2e') in 0.0332711 seconds
+Start importing Assets/Art/Models/PropsV2/PropsV2_OffalPile.fbx using Guid(ee185b93b73bb2c43ab41b3ff110c28e) (FBXImporter) -> (artifact id: '5594937cb44cf48eeb37f5b755fec3b7') in 0.027055 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SpareRig.fbx using Guid(0f314737dae72e7478654dbd0390c25e) (FBXImporter) -> (artifact id: 'c153ae1591ffcba99f7bd0396c64cd15') in 0.0368909 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_InspectorLaunch.fbx using Guid(3f31fcbcda8d96e40a9614c4f4d7b8d1) (FBXImporter) -> (artifact id: '7a6241a25d8543ca1734d7ad59a74cdb') in 0.0370266 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthSeaV2.fbx using Guid(6f25fcd3bc4c1414d9173729b882c1b9) (FBXImporter) -> (artifact id: 'f41890b2eeb7435fc088466bb3311e8a') in 0.1355105 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_0.fbx using Guid(bfea1104667405c4fae120621b7b2515) (FBXImporter) -> (artifact id: '29cc16c6779f5c711eaba7f2338959b6') in 0.0420419 seconds
+Start importing Assets/Settings/UniversalRenderPipelineGlobalSettings.asset using Guid(18dc0cd2c080841dea60987a38ce93fa) (NativeFormatImporter) -> (artifact id: '3a2af54b4fb1e74588b1416bcdbf5d3f') in 0.0044362 seconds
+Start importing Assets/Settings/PC_RPAsset.asset using Guid(4b83569d67af61e458304325a23e5dfd) (NativeFormatImporter) -> (artifact id: '9bf1767ccbfe5c713d349618691d70cf') in 0.0027934 seconds
+Start importing Assets/Settings/DefaultVolumeProfile.asset using Guid(ab09877e2e707104187f6f83e2f62510) (NativeFormatImporter) -> (artifact id: '60dfeb16014e7ae8b1b33b3b4d6292a8') in 0.0029672 seconds
+Start importing Assets/Art/Models/Boats/CompactFisherV1.stations.json using Guid(10a3a7dc658f59e46a9d79d786347b45) (TextScriptImporter) -> (artifact id: '6bb3c59fc32023a2528a82dffffee843') in 0.0173462 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/navigation.json using Guid(135fb9994a43b8a4faef347ceae9f8bd) (TextScriptImporter) -> (artifact id: 'e60d17449285794a67059b2d44a50773') in 0.0120278 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/grounds.json using Guid(73ff95bce4d621a49b4ffd1b2acb7acd) (TextScriptImporter) -> (artifact id: '199302d161c326860382ab5801559ed8') in 0.0112402 seconds
+Start importing Assets/Art/Shaders/PtsWater/LICENSE.md using Guid(b478e6623e10e634ea2b4b265edb250d) (TextScriptImporter) -> (artifact id: '5de9b1f6a8320624a0d8a01133cb078c') in 0.0115064 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/grounds.json using Guid(858369331c3cc66438b6fdedbcdbfb65) (TextScriptImporter) -> (artifact id: '84289d683a5f8037166e72a25d9f7868') in 0.0045288 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/navigation.json using Guid(16402eef3f0b3894b9b3d9f50344647e) (TextScriptImporter) -> (artifact id: '76c7535e355d3de982b0e3925cc7dffc') in 0.0174854 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/grounds.json using Guid(768efa538f82396489b66bca8c198870) (TextScriptImporter) -> (artifact id: '5dafc8622dd97ff02ae952dc962c1aaf') in 0.0044451 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/lighting-presets.json using Guid(d7781fa8ae70408438403e10779c2641) (TextScriptImporter) -> (artifact id: 'f3410f6a3e85b33583ff0a69d75384fc') in 0.0117456 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/lighting-presets.json using Guid(183a99c8f45cae148beee8593c6378e6) (TextScriptImporter) -> (artifact id: '278ee31ec23e6c2c6ab5c6062ee9b586') in 0.0048046 seconds
+Start importing Assets/Art/Shaders/PtsWater/README.md using Guid(3832adfa6c83ddf4ea2f4be59e4b6dce) (TextScriptImporter) -> (artifact id: '1115bc7ccdd91c631184289311b2017a') in 0.0049593 seconds
+Start importing Assets/Art/Water/PTS/README.md using Guid(4878e023b6995594d8071ac99da879b0) (TextScriptImporter) -> (artifact id: '3f9ef7dd5d053e8f9ce4a52ef9b26a0f') in 0.011183 seconds
+Start importing Assets/Art/Models/Boats/Skiff.stations.json using Guid(a8a3afef87b13fe44aa44d0a32e9a84e) (TextScriptImporter) -> (artifact id: '0e0cf454da1c8f4c8658f9ee444ebc95') in 0.0049102 seconds
+Start importing Assets/Art/Models/Boats/Rowboat.stations.json using Guid(79486518a3728ca4fbdeae5a99240ef0) (TextScriptImporter) -> (artifact id: '2a165ea9b59464ee2f9b1211abfd177a') in 0.0106349 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/lighting-presets.json using Guid(3a961bc7be45bbd4a84b7b6bf9c6c64f) (TextScriptImporter) -> (artifact id: '5f3b459ca694b273b53ef0ee81a0a8c9') in 0.0046455 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/grounds.json using Guid(6a7557a1560306341bf6b926247dec30) (TextScriptImporter) -> (artifact id: '9113c0eb7c60e2aac6c5224fe9e19589') in 0.0047568 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/lighting-presets.json using Guid(9be86a01a207f684e9a062caa471b75c) (TextScriptImporter) -> (artifact id: '56887c637a230affac3550ad76705569') in 0.0113894 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/navigation.json using Guid(2d3903ac36e49e746bef23a58e0ed2af) (TextScriptImporter) -> (artifact id: 'a2fd3ddd18083ebe399dac9b20ef8607') in 0.0204468 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/navigation.json using Guid(3d5a4bb4426d9a34d876b043d0fef1ac) (TextScriptImporter) -> (artifact id: '6c5c3a5c99a8f38d4c573f1d97a8510a') in 0.012118 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/navigation.json using Guid(fd29aabb1f2c750459037e9fdb8364c3) (TextScriptImporter) -> (artifact id: '4dea1f8e812167e4d358a2e53ef61ecf') in 0.020333 seconds
+Start importing Assets/Art/Models/Boats/Tier5DeepLines103.stations.json using Guid(2f4a2b8c939ce3b47afcd662bcf336bf) (TextScriptImporter) -> (artifact id: '56a6ee8db457124e67423aa6f47b9c79') in 0.0123337 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/grounds.json using Guid(4ffc6a9a88649024b9b384453e2caf40) (TextScriptImporter) -> (artifact id: '9d21831caa26f432997a833fc9789f17') in 0.0121635 seconds
+Start importing Assets/Art/Shaders/PtsWater/source-sha256.json using Guid(6f9e2b6f92b80174e966897af4466387) (TextScriptImporter) -> (artifact id: '63877445e182e5ae7a84bea0356ca0ea') in 0.0177331 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/lighting-presets.json using Guid(7f2acfa4fe7ffa64082a2b4aca1dce62) (TextScriptImporter) -> (artifact id: 'f4e894e3c31bac1e076a8303dd18d54f') in 0.0121745 seconds
+Start importing Assets/Art/Models/Boats/PrepFisherV1.stations.json using Guid(9f6c8f2e18dbfc443ae22b4de0a48964) (TextScriptImporter) -> (artifact id: 'e1448efc2a103805278e4f3922cbcaa2') in 0.0132508 seconds
+Start importing Assets/Art/UI/v2/art108-manifest.json using Guid(cf042c5524cfb1e46a8a919704a032a9) (TextScriptImporter) -> (artifact id: '361c3f88fd558f72414889bac2b4409b') in 0.0189607 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 5.30 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9893ddc1cb8f65b49baa73218651f5f1): Total: 19.028 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=237 (actual=236, local cache=1, cache server=0)
+		Asset DB Process Time: managed=417 ms, native=10196 ms
+		Asset DB Callback time: managed=371 ms, native=189 ms
+		Scripting: domain reloads=1, domain reload time=2148 ms, compile time=5625 ms, other=77 ms
+		Project Asset Count: scripts=1437, non-scripts=3154
+		Asset File Changes: new=1, changed=258, moved=0, deleted=2
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 64.263ms
+	ApplyChangesToAssetFolders: 0.938ms
+	Scan: 882.581ms
+	OnSourceAssetsModified: 1.710ms
+	CategorizeAssetsWithTransientArtifact: 73.122ms
+	ProcessAssetsWithTransientArtifactChanges: 63.498ms
+	UnregisterDeletedAssets: 0.002ms
+	CategorizeAssets: 57.981ms
+	ImportOutOfDateAssets: 9348.084ms (-1930.644ms without children)
+		ImportManagerImport: 5641.198ms (18.891ms without children)
+			ImportInProcess: 5621.124ms
+			UpdateCategorizedAssets: 1.183ms
+		CompileScripts: 5625.286ms
+		ReloadNativeAssets: 4.775ms
+		UnloadImportedAssets: 0.735ms
+		ReloadImportedAssets: 5.690ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.607ms
+		InitializingProgressBar: 0.007ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.430ms
+	PostProcessAllAssets: 490.041ms
+	Hotreload: 8.307ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 2.874ms
+	PersistCurrentRevisions: 0.300ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 6.781ms
+	Untracked: 8033.917ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 1.697ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Catchline
+Unloading 81 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7144 unused Assets / (5.9 MB). Loaded Objects now: 7933.
+Memory consumption went from 282.6 MB to 276.7 MB.
+Total: 9.918900 ms (FindLiveObjects: 0.566400 ms CreateObjectMapping: 0.516300 ms MarkObjects: 6.343300 ms  DeleteObjects: 2.492000 ms)
+
+[Catchline] Art library: 211 models
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:137)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:26)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 137)
+
+Start importing Assets/Resources/ArtLibrary.asset using Guid(bd9eaf69a4cc67845a86c071b06563f2) (NativeFormatImporter) -> (artifact id: '0e1c7d62a911bd1a8d95638d0d1b66af') in 0.0057574 seconds
+Refreshing native plugins compatible for Editor in 2.20 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ce625f7fd6fa9ac4bbe6fb78e0e2d324): Total: 0.065 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Catchline] Art library: rowboat True [M_DeckWood, M_Rope, M_HullNavy, M_SafetyOrange, M_RailIvory, M_Steel, M_WoodHighlight], 305 UI textures, font True
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:172)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:26)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 172)
+
+[Catchline] HARBOUR IMPORT BreakwaterWall: 544 tris, (4.056, 1.554, 3.588)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT FuelDock: 1342 tris, (2.140, 1.810, 2.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PontoonGangway: 700 tris, (1.260, 1.195, 3.050)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PontoonSegment: 1202 tris, (2.140, 0.521, 4.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT QuayCrane: 684 tris, (1.150, 4.872, 4.590)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Slipway: 456 tris, (6.000, 1.619, 7.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PASS 6 models
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:60)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:49)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 60)
+
+Start importing Assets/Scripts/Game/Minigame/Resources/RodViewArt.asset using Guid(e4403dd9624919843bbc2ec4498373ef) (NativeFormatImporter) -> (artifact id: '26d23a62a1c26dc92d7118603a35b72b') in 0.0026979 seconds
+Refreshing native plugins compatible for Editor in 1.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3b6cc4a20741f4e47973321bbba17d89): Total: 0.036 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Catchline] FP clip FishRodFP_Rig|Twitch 0.400s root=(359.88, 0.00, 180.00) tip=(0.0000, 0.5015, 1.7492)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Cast 0.900s root=(298.35, 342.93, 199.23) tip=(0.0993, 1.8205, 0.5372)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Hold 1.000s root=(0.30, 0.00, 180.00) tip=(0.0000, 0.4973, 1.7505)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Idle 2.000s root=(0.00, 0.00, 180.00) tip=(0.0000, 0.5236, 1.7430)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Lift 1.200s root=(324.63, 0.00, 180.00) tip=(0.0000, 1.1735, 1.3666)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Reel 0.800s root=(350.00, 0.00, 180.00) tip=(0.0000, 0.5162, 1.7151)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP clip FishRodFP_Rig|Strike 0.250s root=(331.46, 0.00, 180.00) tip=(0.0000, 0.7917, 1.5355)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:62)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 62)
+
+[Catchline] FP bone RodRoot position=(0.0000, 0.0000, 0.0000) localRotation=(331.4630, 0.0000, 180.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone Rod_01 position=(0.0000, 0.1142, 0.1121) localRotation=(343.5671, 180.0000, 0.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone Rod_08 position=(0.0000, 0.8269, 1.3310) localRotation=(14.7452, 0.0000, 0.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone LineTip position=(0.0000, 0.7917, 1.5355) localRotation=(343.0000, 180.0000, 0.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone GripHand.L position=(-0.0700, -0.0271, -0.0080) localRotation=(0.0000, 0.0000, 0.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone ReelHandle position=(0.0580, -0.1525, 0.0545) localRotation=(0.0000, 0.0000, 90.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] FP bone ReelHand.R position=(0.1600, -0.2123, 0.0324) localRotation=(0.0000, 0.0000, 270.0000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishRodImport:Prepare () (at Assets/Editor/FishRodImport.cs:67)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishRodImport.cs Line: 67)
+
+[Catchline] Art library: 211 models
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:137)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 137)
+
+Start importing Assets/Resources/ArtLibrary.asset using Guid(bd9eaf69a4cc67845a86c071b06563f2) (NativeFormatImporter) -> (artifact id: '0e1c7d62a911bd1a8d95638d0d1b66af') in 0.0025603 seconds
+Refreshing native plugins compatible for Editor in 2.18 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=45af34f33cec40e4d92b994c2544bf7a): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Catchline] Art library: rowboat True [M_DeckWood, M_Rope, M_HullNavy, M_SafetyOrange, M_RailIvory, M_Steel, M_WoodHighlight], 305 UI textures, font True
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:172)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:18)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 172)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 15561 unused Assets / (192.8 MB). Loaded Objects now: 7933.
+Memory consumption went from 460.0 MB to 267.2 MB.
+Total: 17.128600 ms (FindLiveObjects: 0.811800 ms CreateObjectMapping: 0.926700 ms MarkObjects: 5.663800 ms  DeleteObjects: 9.725400 ms)
+
+[Catchline] FISH VIEW fixture seed=3 fish=Cod kg=5.7484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame:StageFishViewCapture () (at Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs:32)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:22)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs Line: 32)
+
+[Catchline] FISH POLISH CHECKS PASS: cast/cancel overlay lifecycle + late/pre-hidden renderers, sky cleanup, shaders, orange cap 10.15px at844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.FishPolishChecks:Run () (at Assets/Editor/FishPolishChecks.cs:44)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:50)
+
+(Filename: Assets/Editor/FishPolishChecks.cs Line: 44)
+
+Unloading 548 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (333.5 KB). Loaded Objects now: 23665.
+Memory consumption went from 0.53 GB to 0.53 GB.
+Total: 22.276500 ms (FindLiveObjects: 0.825900 ms CreateObjectMapping: 0.898500 ms MarkObjects: 7.574400 ms  DeleteObjects: 12.976800 ms)
+
+[Catchline] FISH VIEW fixture seed=3 fish=Cod kg=5.7484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame:StageFishViewCapture () (at Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs:32)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:51)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs Line: 32)
+
+[Catchline] FISH VIEW fixture seed=3 fish=Cod kg=5.7484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame:StageFishViewCapture () (at Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs:32)
+Catchline.Game.VoyageGame/<CaptureFishPolish>d__3:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:18)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs Line: 32)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame cast-mid-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame waiting-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame fake-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame bubbles-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame take-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame restored-deck-1440
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+[Catchline] FISH VIEW fixture seed=3 fish=Cod kg=5.7484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame:StageFishViewCapture () (at Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs:32)
+Catchline.Game.VoyageGame/<CaptureFishPolish>d__3:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:18)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageRodViewCapture.cs Line: 32)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame cast-mid-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame waiting-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame fake-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame bubbles-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame take-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.Object:Destroy (UnityEngine.Object,single)
+UnityEngine.Object:Destroy (UnityEngine.Object)
+Catchline.Game.VoyageGame/<CompositeFrame>d__1087:MoveNext () (at Assets/Scripts/Game/VoyageUiV2Capture.cs:147)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+[Assets/Scripts/Game/VoyageUiV2Capture.cs line 147]
+
+[Catchline] FISH POLISH frame restored-deck-844
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<>c__DisplayClass3_1/<<CaptureFishPolish>g__Frame|0>d:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:48)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 48)
+
+[Catchline] FISH POLISH CAPTURES COMPLETE
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.Game.VoyageGame/<CaptureFishPolish>d__3:MoveNext () (at Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs:51)
+Catchline.EditorTools.FishPolishChecks:Drain (System.Collections.IEnumerator) (at Assets/Editor/FishPolishChecks.cs:59)
+Catchline.EditorTools.FishPolishChecks:Preview () (at Assets/Editor/FishPolishChecks.cs:56)
+
+(Filename: Assets/Scripts/Game/Minigame/VoyageFishPolishCapture.cs Line: 51)
+
+Batchmode quit successfully invoked - shutting down!
+Pipeline Server stopped
+Killing ADB server in 2.0813608 seconds.
+Start importing ProjectSettings/TimeManager.asset using Guid(00000000000000007000000000000000) (LibraryAssetImporter) -> (artifact id: 'fcd35394ed3ce11a9b90be582fe50514') in 0.0164197 seconds
+Refreshing native plugins compatible for Editor in 2.67 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9bd94406954672f4094ae01edec01384): Total: 0.048 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-momoy-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-momoy channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

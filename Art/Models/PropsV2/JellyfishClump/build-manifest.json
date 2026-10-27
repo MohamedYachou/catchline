@@ -1,0 +1,103 @@
+{
+  "name": "JellyfishClump",
+  "revision": "r02",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; adds visible rope landing net. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/JellyfishClump.blend",
+      "sha256": "f6cf0df1e11d6bd6e4452c0b82bcea36b079823b3349c470bd4f75fadd37eee7",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.5720000267028809,
+      -0.4440000057220459,
+      0.0
+    ],
+    [
+      0.5719999670982361,
+      0.4440000057220459,
+      0.35227975249290466
+    ]
+  ],
+  "triangles": 4168,
+  "mesh_parts": {
+    "JellyBell": 120,
+    "BellRim": 192,
+    "Tentacle": 44,
+    "Tentacle.001": 44,
+    "Tentacle.002": 44,
+    "Tentacle.003": 44,
+    "JellyBell.001": 120,
+    "BellRim.001": 192,
+    "Tentacle.004": 44,
+    "Tentacle.005": 44,
+    "Tentacle.006": 44,
+    "Tentacle.007": 44,
+    "JellyBell.002": 120,
+    "BellRim.002": 192,
+    "Tentacle.008": 44,
+    "Tentacle.009": 44,
+    "Tentacle.010": 44,
+    "Tentacle.011": 44,
+    "LandingNet_Rim": 392,
+    "LandingNet_Lattice": 126,
+    "LandingNet_Lattice.001": 126,
+    "LandingNet_Lattice.002": 126,
+    "LandingNet_Lattice.003": 126,
+    "LandingNet_Lattice.004": 126,
+    "LandingNet_Lattice.005": 126,
+    "LandingNet_Lattice.006": 126,
+    "LandingNet_Lattice.007": 126,
+    "LandingNet_Lattice.008": 126,
+    "LandingNet_Lattice.009": 126,
+    "LandingNet_Lattice.010": 126,
+    "LandingNet_Lattice.011": 126,
+    "LandingNet_Lattice.012": 126,
+    "LandingNet_Lattice.013": 126,
+    "LandingNet_Lattice.014": 126,
+    "LandingNet_Lattice.015": 126,
+    "LandingNet_Lattice.016": 126,
+    "LandingNet_Lattice.017": 126,
+    "LandingNet_Handle": 44
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "floor/contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "JellyfishClump.blend": "b7e7216a6cd5691583122c1ca677ef3d1c4ca4576b83a21393f6b871534d8497",
+    "JellyfishClump.fbx": "f7a8a0a5cdd434fac2a8ec6d773f68b5d120d8b24c005a877f840a96a01efa61"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_JellyfishClump.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/back.png",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/front.png",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/left.png",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/right.png",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/three-quarter.png",
+    "Art/Models/PropsV2/JellyfishClump/iterations/r02/top.png"
+  ]
+}

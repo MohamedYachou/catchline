@@ -1,0 +1,529 @@
+{
+  "size": [
+    2048,
+    2048
+  ],
+  "base_sRGB": true,
+  "surface_linear": true,
+  "surface_channels": {
+    "R": "roughness",
+    "G": "metallic",
+    "B": "emission mask"
+  },
+  "AO": "asset-local baked vertex COLOR_0 RGB",
+  "source": "Authored deterministic brush strokes; no photo noise, external or generated image",
+  "cells": [
+    {
+      "name": "navy",
+      "index": 0,
+      "hex_sRGB": "1D3B6E",
+      "roughness_R": 0.36,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        0,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "blue",
+      "index": 1,
+      "hex_sRGB": "1458A0",
+      "roughness_R": 0.38,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        256,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "ivory",
+      "index": 2,
+      "hex_sRGB": "E8EDF0",
+      "roughness_R": 0.42,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        512,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "plaster",
+      "index": 3,
+      "hex_sRGB": "A9B8CA",
+      "roughness_R": 0.88,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "stone",
+      "pixel_cell": [
+        768,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "wood",
+      "index": 4,
+      "hex_sRGB": "B66B32",
+      "roughness_R": 0.57,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "wood",
+      "pixel_cell": [
+        1024,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "woodlight",
+      "index": 5,
+      "hex_sRGB": "D89247",
+      "roughness_R": 0.56,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "wood",
+      "pixel_cell": [
+        1280,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "wooddark",
+      "index": 6,
+      "hex_sRGB": "653D2B",
+      "roughness_R": 0.68,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "wood",
+      "pixel_cell": [
+        1536,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "steel",
+      "index": 7,
+      "hex_sRGB": "8395A8",
+      "roughness_R": 0.31,
+      "metallic_G": 0.65,
+      "emission_B": 0,
+      "kind": "steel",
+      "pixel_cell": [
+        1792,
+        0,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "dark",
+      "index": 8,
+      "hex_sRGB": "14263F",
+      "roughness_R": 0.77,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "flat",
+      "pixel_cell": [
+        0,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "brass",
+      "index": 9,
+      "hex_sRGB": "C99B4A",
+      "roughness_R": 0.3,
+      "metallic_G": 0.7,
+      "emission_B": 0,
+      "kind": "steel",
+      "pixel_cell": [
+        256,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "orange",
+      "index": 10,
+      "hex_sRGB": "E36A35",
+      "roughness_R": 0.45,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        512,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "teal",
+      "index": 11,
+      "hex_sRGB": "087B8D",
+      "roughness_R": 0.78,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "cloth",
+      "pixel_cell": [
+        768,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "leaf",
+      "index": 12,
+      "hex_sRGB": "356B32",
+      "roughness_R": 0.85,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "leaf",
+      "pixel_cell": [
+        1024,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "tile1",
+      "index": 13,
+      "hex_sRGB": "D7E6EE",
+      "roughness_R": 0.72,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "tile",
+      "pixel_cell": [
+        1280,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "tile2",
+      "index": 14,
+      "hex_sRGB": "B6CEDF",
+      "roughness_R": 0.74,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "tile",
+      "pixel_cell": [
+        1536,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "tile3",
+      "index": 15,
+      "hex_sRGB": "ECF1ED",
+      "roughness_R": 0.7,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "tile",
+      "pixel_cell": [
+        1792,
+        512,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "stone",
+      "index": 16,
+      "hex_sRGB": "8D9DAE",
+      "roughness_R": 0.91,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "stone",
+      "pixel_cell": [
+        0,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "stonecool",
+      "index": 17,
+      "hex_sRGB": "566C86",
+      "roughness_R": 0.94,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "stone",
+      "pixel_cell": [
+        256,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "stonecream",
+      "index": 18,
+      "hex_sRGB": "B4C2D1",
+      "roughness_R": 0.91,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "stone",
+      "pixel_cell": [
+        512,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "glow",
+      "index": 19,
+      "hex_sRGB": "FFD172",
+      "roughness_R": 0.55,
+      "metallic_G": 0,
+      "emission_B": 1,
+      "kind": "glow",
+      "pixel_cell": [
+        768,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "catginger",
+      "index": 20,
+      "hex_sRGB": "CA823B",
+      "roughness_R": 0.84,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "flat",
+      "pixel_cell": [
+        1024,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "catgrey",
+      "index": 21,
+      "hex_sRGB": "666C71",
+      "roughness_R": 0.85,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "flat",
+      "pixel_cell": [
+        1280,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "fish",
+      "index": 22,
+      "hex_sRGB": "BAC9C6",
+      "roughness_R": 0.44,
+      "metallic_G": 0.15,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        1536,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "food",
+      "index": 23,
+      "hex_sRGB": "C47A3B",
+      "roughness_R": 0.64,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "food",
+      "pixel_cell": [
+        1792,
+        1024,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "soup",
+      "index": 24,
+      "hex_sRGB": "D98936",
+      "roughness_R": 0.45,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "food",
+      "pixel_cell": [
+        0,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "lettuce",
+      "index": 25,
+      "hex_sRGB": "4C963B",
+      "roughness_R": 0.88,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "leaf",
+      "pixel_cell": [
+        256,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "white",
+      "index": 26,
+      "hex_sRGB": "F3E5CB",
+      "roughness_R": 0.76,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "cloth",
+      "pixel_cell": [
+        512,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "rope",
+      "index": 27,
+      "hex_sRGB": "D1AF76",
+      "roughness_R": 0.86,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "rope",
+      "pixel_cell": [
+        768,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "terracotta",
+      "index": 28,
+      "hex_sRGB": "AD6948",
+      "roughness_R": 0.86,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "stone",
+      "pixel_cell": [
+        1024,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "glass",
+      "index": 29,
+      "hex_sRGB": "486B78",
+      "roughness_R": 0.27,
+      "metallic_G": 0.1,
+      "emission_B": 0,
+      "kind": "enamel",
+      "pixel_cell": [
+        1280,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "coffee",
+      "index": 30,
+      "hex_sRGB": "573B2C",
+      "roughness_R": 0.42,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "flat",
+      "pixel_cell": [
+        1536,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    },
+    {
+      "name": "char",
+      "index": 31,
+      "hex_sRGB": "67462E",
+      "roughness_R": 0.8,
+      "metallic_G": 0,
+      "emission_B": 0,
+      "kind": "flat",
+      "pixel_cell": [
+        1792,
+        1536,
+        256,
+        512
+      ],
+      "UV_inset_pixels": 16
+    }
+  ]
+}

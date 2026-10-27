@@ -1,0 +1,136 @@
+{
+  "name": "HarbourMasterHut",
+  "group": "B",
+  "triangles": 784,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -1.4700000286102295,
+      -1.1750000715255737,
+      0.0
+    ],
+    [
+      1.4003570079803467,
+      1.2300001382827759,
+      3.6500000953674316
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    2.870357036590576,
+    2.4050002098083496,
+    3.6500000953674316
+  ],
+  "parts": [
+    {
+      "name": "TimberHutWindowFlag",
+      "triangles": 784,
+      "vertices": 462,
+      "bounds_min_blender": [
+        -1.4700000286102295,
+        -1.1750000715255737,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.4003570079803467,
+        1.2300001382827759,
+        3.6500000953674316
+      ],
+      "mesh_sha256": "7975c23023d6428783d28875f4e6817ee94e1988ff955c0059251e4fb8424f1e",
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\HarbourMasterHut.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\HarbourMasterHut.fbx",
+  "sha256": {
+    "blend": "ae98c378d700f9b3dfd38a4ad73ecde6b93d980093621799ccc6d26a44622346",
+    "fbx": "ad7cdf6bbf9a46e8ea596c82b80b8cc0cc3f4d1e170aa0e08e1ad34decc39b35"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HarbourMasterHut\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HarbourMasterHut\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HarbourMasterHut\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HarbourMasterHut\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\HarbourMasterHut\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1920928955078125e-07,
+    "source": {
+      "triangles": 784,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.4700000286102295,
+          -1.1750000715255737,
+          0.0
+        ],
+        [
+          1.4003570079803467,
+          1.2300001382827759,
+          3.6500000953674316
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "HarbourMasterHut": null,
+        "TimberHutWindowFlag": "HarbourMasterHut"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 784,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.4700000286102295,
+          -1.1749999523162842,
+          -9.286242885764295e-08
+        ],
+        [
+          1.4003570079803467,
+          1.2300001382827759,
+          3.6500000953674316
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_SafetyOrange",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "TimberHutWindowFlag": "HarbourMasterHut",
+        "HarbourMasterHut": null
+      },
+      "finite": true
+    }
+  }
+}

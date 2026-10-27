@@ -1,0 +1,123 @@
+{
+  "name": "OuterWharf",
+  "group": "A",
+  "triangles": 388,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -2.0,
+      -0.9000001549720764,
+      -0.8500000238418579
+    ],
+    [
+      2.0,
+      0.9650000929832458,
+      0.7400000095367432
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    4.0,
+    1.8650002479553223,
+    1.590000033378601
+  ],
+  "parts": [
+    {
+      "name": "ConcreteWharfAndBollards",
+      "triangles": 388,
+      "vertices": 216,
+      "bounds_min_blender": [
+        -2.0,
+        -0.9000001549720764,
+        -0.8500000238418579
+      ],
+      "bounds_max_blender": [
+        2.0,
+        0.9650000929832458,
+        0.7400000095367432
+      ],
+      "mesh_sha256": "bf3fe0a6c10c64690845b3d0f88b6372089deef4a4cfd5abf9b176d440ad80d0",
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Root Y=0 datum; deck topY=.35, water-facing fenders local -Z. Segment4x1.8m."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\OuterWharf.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\OuterWharf.fbx",
+  "sha256": {
+    "blend": "ee78055e542eed872c34c8edf6bb51c5b1567fa39b2be0d862102e7dd761431c",
+    "fbx": "138fe276f9c977f0c99acff6a78448931832859767dbdf75bd00cc167eb345f4"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\OuterWharf\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\OuterWharf\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\OuterWharf\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\OuterWharf\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\OuterWharf\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 5.960464477539063e-08,
+    "source": {
+      "triangles": 388,
+      "meshes": 1,
+      "bounds": [
+        [
+          -2.0,
+          -0.9000001549720764,
+          -0.8500000238418579
+        ],
+        [
+          2.0,
+          0.9650000929832458,
+          0.7400000095367432
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "OuterWharf": null,
+        "ConcreteWharfAndBollards": "OuterWharf"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 388,
+      "meshes": 1,
+      "bounds": [
+        [
+          -2.0,
+          -0.9000001549720764,
+          -0.8500000834465027
+        ],
+        [
+          2.0,
+          0.9650000929832458,
+          0.7400000691413879
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "ConcreteWharfAndBollards": "OuterWharf",
+        "OuterWharf": null
+      },
+      "finite": true
+    }
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "task": "TOWNSFOLK-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "bones": 20,
+    "original_actions": 11,
+    "integer_action_frames": 421,
+    "people_triangles": {
+      "Town_OldWoman": 2398,
+      "Town_Kid": 2098,
+      "Town_Fisherman": 1934,
+      "Town_Shopkeeper": 1902,
+      "Town_Walker": 2096
+    },
+    "reviewed_images": 51,
+    "report_links": 75,
+    "limits": "Artist source/actual-FBX parity and isolated Blender evidence; Unity Legacy/native integration remains external."
+  },
+  "files": {
+    "Art/Models/Townsfolk/REPORT.md": {
+      "bytes": 11782,
+      "sha256": "83c3ec51a886ee1906969c1037744ed3a8433a048d39a4fd414e36364d1f567d"
+    },
+    "Art/Models/Townsfolk/Townsfolk-lineup-review.blend": {
+      "bytes": 692848,
+      "sha256": "62bbe3a636bb13a02500c6234cc14a4c955e4c185cc8e4194a0c8fb7ce8a759e"
+    },
+    "Art/Models/Townsfolk/Townsfolk.blend": {
+      "bytes": 451461,
+      "sha256": "c2e57eb57a7193b0a4e6ab67f864ffa0171bb4f5d0b7ca5cfb742721898736c8"
+    },
+    "Art/Models/Townsfolk/Townsfolk.fbx": {
+      "bytes": 2042636,
+      "sha256": "9e4d0aae560dedf1154c74765d88febfb07afd3d1b5f2ba40826c4bd1ec176ac"
+    },
+    "Art/Models/Townsfolk/metrics/audit.json": {
+      "bytes": 42022,
+      "sha256": "565c6536d57a9019d9b46eecc83d21528709cf0f2f6a42999144b7aac0894d5b"
+    },
+    "Art/Models/Townsfolk/metrics/build.json": {
+      "bytes": 4148,
+      "sha256": "65ca8278de00aaeba15e2fc5d6029d8adaedb8787ffa2126b4894595e98c7e1d"
+    },
+    "Art/Models/Townsfolk/metrics/dependencies.json": {
+      "bytes": 540,
+      "sha256": "7724f8c6f2b6f18c5f0ed0bd0837b5286545f16ba29d0b1402b21862d7cf4018"
+    },
+    "Art/Models/Townsfolk/metrics/reference.json": {
+      "bytes": 41144,
+      "sha256": "49c5aa665d54cb5de307924fdb01c486f3c82fbf8efc7a1fa23145af68da9a84"
+    },
+    "Art/Models/Townsfolk/renders/Lineup/all-five-with-crew.png": {
+      "bytes": 1169996,
+      "sha256": "4f3a21449fe8dff73ea72a0a2d9f930794a9e09edb8def55fd18b2c3af650f74"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/Walk-0.png": {
+      "bytes": 355629,
+      "sha256": "7854509825a0ac9477c3a4cf98e6087f081e579b49d186979c56b3eb36fcf90b"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/Walk-1.png": {
+      "bytes": 358478,
+      "sha256": "e39a67f26c12fbfce7e8936ac2127b4de41092420d119a905c8e06b65781871b"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/Walk-2.png": {
+      "bytes": 355641,
+      "sha256": "261e56bf05b4c16888d3228b1f78730368ced924ae9f2829240ca8534ef05450"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/Walk-3.png": {
+      "bytes": 349483,
+      "sha256": "497e3b9a4963dafd5a63622eae485527a7961e5c3da9b1b202923bcd8148fb24"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/Walk-4.png": {
+      "bytes": 355701,
+      "sha256": "ac3ef2d04494a3168b3511242f22e8975cd55b99c6b7619981fd2130fbf340d8"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/back.png": {
+      "bytes": 349410,
+      "sha256": "8c59fe57d31ba877538b22671e563e7a71bf0ca6a3bb3f9d83feb24a3b151d3a"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/front.png": {
+      "bytes": 354841,
+      "sha256": "afe7f051c4123b2ce77db3bac60fed1f9c9d1312d8c13ed2fb34470078e3820b"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/left.png": {
+      "bytes": 337747,
+      "sha256": "3d1ea69f6473b33be9bd117db0cba84a7e551b3a2c2f78e8b0a5cc0cf8414d50"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/right.png": {
+      "bytes": 337225,
+      "sha256": "f304d3429ab91f9c5f2a619f816f619deef170cb609fc5e73d25b80400a53aa0"
+    },
+    "Art/Models/Townsfolk/renders/Town_Fisherman/three-quarter.png": {
+      "bytes": 357902,
+      "sha256": "fc99b7c7b41d26ff199302608ea06e136297e311b012be3fd801aab728f59431"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/Walk-0.png": {
+      "bytes": 364205,
+      "sha256": "9d1e42ce4f0925014b24868e8a60eafe6bfdf4efec98b2c60190f2295edb5b84"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/Walk-1.png": {
+      "bytes": 367763,
+      "sha256": "26398aaf490c183da983de4e1efec0be87c1b9c6716241d5152c688d4ec31eac"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/Walk-2.png": {
+      "bytes": 364212,
+      "sha256": "5f2c3596a2efa478aea89342cf6698a7753134db7114f327dd85fc85c80206b2"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/Walk-3.png": {
+      "bytes": 356439,
+      "sha256": "9b1f65ef72ce5063990ac63e4aaa5fb50f5c9d65131d1fe26d5ecac5700f0da8"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/Walk-4.png": {
+      "bytes": 364263,
+      "sha256": "57856ace85224bfec3ca4f24f7af0df2cad3ff486738adcb83bcc5cecc0ed63c"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/back.png": {
+      "bytes": 352853,
+      "sha256": "2e19a2c098b0c6d31063ed809e0c92d69bf132827aad8cb62e15b52e1d497014"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/front.png": {
+      "bytes": 361212,
+      "sha256": "8622821a046464e93e27ea65114799239aade9ee4bb218184b3b6ce4cfb14377"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/left.png": {
+      "bytes": 341000,
+      "sha256": "71d4e6a15bd856dfd3921752373d002b959f4cb52af76f3385d5d5a16334207f"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/right.png": {
+      "bytes": 340228,
+      "sha256": "aa0f576f600662bdb3b86cabfaeec1170688cc61080f6e0a5756bbae4853967f"
+    },
+    "Art/Models/Townsfolk/renders/Town_Kid/three-quarter.png": {
+      "bytes": 368823,
+      "sha256": "a119a8ededb52491611a8b39639889c40a20571aed91de99f76449163f0beedb"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/Walk-0.png": {
+      "bytes": 366473,
+      "sha256": "37af23f8beba527eb4634ce557253f08e46f4a955d222aa6e0904edbd3e55038"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/Walk-1.png": {
+      "bytes": 370458,
+      "sha256": "9ccef6f910d6dc5827e9b6b6cbd7e38c4d39d974e1d65bd772b34cf94406c187"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/Walk-2.png": {
+      "bytes": 366356,
+      "sha256": "a6593335740f3d4642a2298dac90cf9dec8ae785958802a7214cfbd2f979278a"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/Walk-3.png": {
+      "bytes": 360086,
+      "sha256": "b4aef37db0e02cda67f788a6aabc38392f7dae91dec9985432914aaad248ab06"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/Walk-4.png": {
+      "bytes": 366207,
+      "sha256": "b45d96abd3c5bac83f77e520e16a0d07d843610586b29de6a09e8aaac568c930"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/back.png": {
+      "bytes": 344772,
+      "sha256": "c23d891bbc1edce062078e2bd5ddb675107806622ad8f3426e1d107f81f8e424"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/front.png": {
+      "bytes": 364965,
+      "sha256": "0ca867361bef56fda9250d1dbb40139dd662b8ac5a64bdfbe8d5b55c4cbfee2c"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/left.png": {
+      "bytes": 339438,
+      "sha256": "c5a83c9064d26f256fd83571443ee560dda054c02dd12406169ea4f00044ea6e"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/right.png": {
+      "bytes": 338829,
+      "sha256": "2cf3b076d3358b162cb342b6ae37771672b59f9b197a86448c464cffe4ae588b"
+    },
+    "Art/Models/Townsfolk/renders/Town_OldWoman/three-quarter.png": {
+      "bytes": 370442,
+      "sha256": "98f2cc31472a9d46e0c55ae82d881dfb89f4bb2404d58b669f5bb2084f6da569"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/Walk-0.png": {
+      "bytes": 357968,
+      "sha256": "6981fe63ef4be3be9519aabc95eb4461846669fb2f66920587869ee466fb201a"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/Walk-1.png": {
+      "bytes": 361564,
+      "sha256": "c8ce31c3a953192962041f9567f61bd8aa87e3ffdb8ab37653769e3f17635289"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/Walk-2.png": {
+      "bytes": 358077,
+      "sha256": "6e398b44da7c85d99b2197e12182ef5eb37a11c07ae352ff72c163d42ba77a63"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/Walk-3.png": {
+      "bytes": 351204,
+      "sha256": "7fd9080b754acf413c63dde4142481fd6d46cf13e1dc22fd2aa49e5632ede626"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/Walk-4.png": {
+      "bytes": 358139,
+      "sha256": "0f1d5a1e52153a7c517daa418c12ea82c51a5c1b9c04440e67d6bff288abf147"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/back.png": {
+      "bytes": 352137,
+      "sha256": "d49091909edb8c8a803231d516b7bc055213a2cdcda71e45d9f77080f58b9413"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/front.png": {
+      "bytes": 355938,
+      "sha256": "3c24aea061af2cc5b1092b395a67bba7fcd126d13cee1e4ee12caa4f12715f18"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/left.png": {
+      "bytes": 340845,
+      "sha256": "2f7c0564c33902083d9807ffa63ab2b14d73781b8db14d3fa4d90f264152ee27"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/right.png": {
+      "bytes": 339763,
+      "sha256": "bf7405cb08159b16a0bf616c560a100f63ae74b529f6600d919d87fa8c5c9d1f"
+    },
+    "Art/Models/Townsfolk/renders/Town_Shopkeeper/three-quarter.png": {
+      "bytes": 363875,
+      "sha256": "94377260c8f2af0738a750bf81c33b99c21de20ec4584d915cf15e24f56b5dc6"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/Walk-0.png": {
+      "bytes": 357912,
+      "sha256": "a0f031d8fca2a956a9de2ddc1c537c0af264c64d6c6b7a64d6b3be4bd4685122"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/Walk-1.png": {
+      "bytes": 362068,
+      "sha256": "a6cea1f4666a9f9d947a6317c9742ba38a1b267b648c7eb4e92dac91e2a2ea9d"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/Walk-2.png": {
+      "bytes": 357891,
+      "sha256": "83467af943ec5faf6896f5202eb5db631df72decc96a1713a510c1423f8c6dbe"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/Walk-3.png": {
+      "bytes": 351967,
+      "sha256": "d124346881109f43598b2bd0914ee95cfaaad85b61f199692281f2743a7f9c4c"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/Walk-4.png": {
+      "bytes": 357819,
+      "sha256": "c8e0d79f81d9810ff8451554920d08a39147dd5261899d3da2d2b4617f8d68b8"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/back.png": {
+      "bytes": 347473,
+      "sha256": "a67183af5d98863c69327569751a525c77bc2533c61b155515c568922e2ca17f"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/front.png": {
+      "bytes": 357116,
+      "sha256": "9ae09992912ed8d5dab22fae4c8aabcedfa851a5421b9bd44f9210dc12c74302"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/left.png": {
+      "bytes": 337230,
+      "sha256": "90321c5635a5488a9db7217ff50ea5819eb8bc2939a7fd8978a2e734d04d2e85"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/right.png": {
+      "bytes": 336977,
+      "sha256": "437019df4575c1e8d2df3abfd6505750c95c68157c0895782062bcecf61ad6c1"
+    },
+    "Art/Models/Townsfolk/renders/Town_Walker/three-quarter.png": {
+      "bytes": 362012,
+      "sha256": "9ebd1c723c79f3f1c991bf6e6208b2f6295891f40deebf634ad88248ee622a45"
+    },
+    "Art/Models/Townsfolk/renders/manifest.json": {
+      "bytes": 27833,
+      "sha256": "4a1610dd5b2da09999acb501a34d22e058f3d033a0978b5ee428057236625291"
+    },
+    "Art/Models/Townsfolk/visual-review.json": {
+      "bytes": 23161,
+      "sha256": "38ee3fb928e4650e8f0940483e97bd485b2a517d5c1ad6059cb08efe3b9084f3"
+    },
+    "Art/Source/Townsfolk/audit.log": {
+      "bytes": 2307,
+      "sha256": "eb0a235569b87c50d55f24a0f62d00c697799a4aa53ca95d01bfd34782353aba"
+    },
+    "Art/Source/Townsfolk/audit.py": {
+      "bytes": 6811,
+      "sha256": "1672859c1b16ce394103db805499c6877ba218df6ade18a4f75601b3f6acf19f"
+    },
+    "Art/Source/Townsfolk/build.log": {
+      "bytes": 925,
+      "sha256": "548fc171dae46fc3a759980ab340a76cc5c967a5f69943807f07a474276ea377"
+    },
+    "Art/Source/Townsfolk/build.py": {
+      "bytes": 19980,
+      "sha256": "665214cb3fa0d8f56f3a6dc7b14b3ec1195fe2cb66095eadeecd5420e7f3e9ff"
+    },
+    "Art/Source/Townsfolk/document.py": {
+      "bytes": 9757,
+      "sha256": "dba5f3322c8ec3b318ed7a7fc534c9a3f8dae1dd5c2dbbf5e48e174f20baf6ce"
+    },
+    "Art/Source/Townsfolk/finalize.py": {
+      "bytes": 4189,
+      "sha256": "3a145a8191219eb025c96204c5b28b5b0dd9050082b22625ff1f4444024a65f4"
+    },
+    "Art/Source/Townsfolk/probe.log": {
+      "bytes": 285,
+      "sha256": "7c4d8fa68d4a249060e24ba27ab38c58725653480e7920a2aa400f76768519f7"
+    },
+    "Art/Source/Townsfolk/probe.py": {
+      "bytes": 1036,
+      "sha256": "d4241619b6ef169ec5e42cde351d1927fd2f3f3c901fd3b2967b8994c467351b"
+    },
+    "Art/Source/Townsfolk/render-Town_Fisherman.log": {
+      "bytes": 1841,
+      "sha256": "cab8f6e2e2b4f9c046a8424a9a14d82a83cd54fd462d6cd63f484228db94fa00"
+    },
+    "Art/Source/Townsfolk/render-Town_Kid.log": {
+      "bytes": 1781,
+      "sha256": "21210015a5eb609b0b105a7c3788e225c96803200533bc7a74e14e74eb00f4c3"
+    },
+    "Art/Source/Townsfolk/render-Town_OldWoman.log": {
+      "bytes": 1831,
+      "sha256": "948750d3e72c52709954c05c0d7a39f56852c047a1d8bca989b86676df4eb484"
+    },
+    "Art/Source/Townsfolk/render-Town_Shopkeeper.log": {
+      "bytes": 1851,
+      "sha256": "c4e0b253fa7f6068192a516bc0134c18f78e7c77500366d1538538665a1a8ea5"
+    },
+    "Art/Source/Townsfolk/render-Town_Walker.log": {
+      "bytes": 1811,
+      "sha256": "f86b3b02b6e1e8ee0283afd90c30c347f8cbf131c59f5be904981a6782f4a544"
+    },
+    "Art/Source/Townsfolk/render.py": {
+      "bytes": 4667,
+      "sha256": "0a5267565bcfe254f4d42f0b49454420f5ba2300e895cbc722d346bbc21f77a5"
+    },
+    "Art/Source/Townsfolk/review.py": {
+      "bytes": 1341,
+      "sha256": "01127ae5b49b0225e87e7781c49e96e38837ca3d76011c85ce20c4a171e4d57b"
+    },
+    "Art/Source/Townsfolk/run.py": {
+      "bytes": 683,
+      "sha256": "b615bbedc97dc22af97de83d91659743f2b9e686a4abf749cea18b53f3e5d43b"
+    }
+  }
+}

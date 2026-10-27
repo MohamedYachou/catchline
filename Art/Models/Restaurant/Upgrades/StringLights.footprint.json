@@ -1,0 +1,39 @@
+{
+  "name": "StringLights",
+  "tiles_w": 2,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.9222784042358398,
+      -0.028531694784760475,
+      0.0
+    ],
+    [
+      0.9222784042358398,
+      0.028531694784760475,
+      0.49000000953674316
+    ]
+  ],
+  "triangles": 2388,
+  "export_meshes": [
+    "StringLights"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "glow",
+    "navy"
+  ],
+  "mount": "wall",
+  "recommended_base_height_m": 1.0,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "428c9684ad35cc00c4c4b3399bc66b3b50a83180cbe9e2d204832092f0bb2f5c"
+}

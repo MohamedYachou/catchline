@@ -1,0 +1,1 @@
+Superseded pre-life native evidence: ten frames were individually reviewed before Claude integrated chart/life/water. The old built assembly and scene are retained with their native-run hashes. Current final capture belongs in the parent folder; do not use these images as post-integration acceptance.

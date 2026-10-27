@@ -1,0 +1,23 @@
+00:01.078  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\RestaurantExterior_Cafe.blend"
+00:01.141  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-review.py:9: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('HarbourNight');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.12,.21,.33,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.09
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-review.py:26: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  ma=bpy.data.materials.new(name);ma.diffuse_color=(*col,1);ma.use_nodes=True;bs=ma.node_tree.nodes['Principled BSDF'];bs.inputs['Base Color'].default_value=(*col,1);bs.inputs['Roughness'].default_value=rough;return ma
+00:29.094  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-renders\cafe-harbour-night-1440x900.png'
+00:29.172  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\RestaurantExterior_Bistro.blend"
+00:59.453  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-renders\bistro-harbour-night-1440x900.png'
+00:59.547  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\RestaurantExterior_Restaurant.blend"
+01:29.922  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-renders\restaurant-harbour-night-1440x900.png'
+01:29.985  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\RestaurantExterior_SeafoodHouse.blend"
+01:57.672  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Exteriors\night-renders\seafoodhouse-harbour-night-1440x900.png'
+BlenderMCP addon registered
+Info: Saved as "Cafe-Harbour-Night-check.blend"
+Info: Saved as "Bistro-Harbour-Night-check.blend"
+Info: Saved as "Restaurant-Harbour-Night-check.blend"
+Info: Saved as "SeafoodHouse-Harbour-Night-check.blend"
+EXTERIORS NIGHT HARBOUR REVIEW PASS
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

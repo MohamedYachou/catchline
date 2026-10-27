@@ -1,0 +1,39 @@
+PACK-TERRACE-1 — terrace / quay dressing (Codex 1, Windows)
+
+WHY
+The restaurant's terrace and quay edge (screen right / front) are a big part of the room but sit
+mostly empty. Mo 10-27: the restaurant uses the free packs, everything fixed-placed, and "we need a
+whole bunch of assets." You built furniture, dishes and the nautical dressing (PACK-DECOR-3); this
+adds outdoor TERRACE pieces so the deck over the water feels lived-in. Distinct from Codex 2's
+kitchen set (PACK-KITCHEN-1, Pack/kitchen/) and from the light fixtures (Pack/lights/).
+
+OWN (source only, no Assets / no game code / no git — Claude imports and wires, as with PACK-DECOR-1/3):
+  Art/Models/Restaurant/Pack/terrace/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first for the proven contract and conventions you just used:
+  Art/Models/Restaurant/Pack/decor2/REPORT.md   (your PACK-DECOR-3 delivery — match it exactly)
+DO NOT duplicate the existing Restaurant_TerraceTable (it already bundles table + parasol + chairs),
+and do NOT touch Pack/kitchen/, Pack/lights/, Pack/decor/, Pack/decor2/.
+
+BUILD these stems (new, distinct; one Unity FBX each, drop-in):
+  StandaloneParasol  a parasol on a base, no table, for a shade/standing spot     (floor)
+  DeckChair          a folding wooden deck/lounge chair                           (floor)
+  HarbourBench       a wooden slat bench to sit along the railing                 (floor, ~1.4 m along +X)
+  RailingRopeSwag    a decorative rope + cork-float swag to hang on the fence     (wall/fence, ~1 m wide)
+  PotLadder          an A-frame wooden ladder shelf holding 2-3 potted plants     (floor)
+  QuayBollard        a decorative mooring bollard with a coiled rope loop         (floor)
+
+CONVENTIONS (identical to PACK-DECOR-1/3): Unity Y-up, 1 unit = 1 m. Floor pieces pivot at the
+floor-footprint centre; fence/wall pieces pivot at the contact plane, front facing -Z, hung
+~0.9-1.2 m (railing height). Footprint 1x1 m unless noted. Root transform identity, axis conversion
+baked, atlas png beside the FBX, warm-wood / navy / teal / cream + brass palette, no diner-orange.
+Exact same exporter call as the accepted Pack FBXs.
+
+EVIDENCE: a contact render of all six at the game camera (pitch 38 / yaw 2) on a 1 m grid
+(terrace-contact.jpg + an 844-wide phone overview), a one-line note per piece (size, floor/fence,
+which pack models it combines), plus the same audits PACK-DECOR-3 produced (fbx-transform, geometry,
+mesh, preservation). REPORT.md in Art/Models/Restaurant/Pack/terrace/.
+
+RULES: fresh session, no memory — your state is comms.md, your CHECKPOINT lines and the files on disk.
+Keep working until your budget runs out; never stop to ask (write QUESTION lines in comms.md).
+CHECKPOINT per 3 pieces. When the six are delivered and audited: DONE in comms.md, then IDLE.
+No Assets, no code, no git.

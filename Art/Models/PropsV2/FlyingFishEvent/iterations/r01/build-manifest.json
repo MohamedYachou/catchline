@@ -1,0 +1,67 @@
+{
+  "name": "FlyingFishEvent",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/FlyingFishEvent.blend",
+      "sha256": "8a6080e991be5b4cb0af90483dd6d0d50fd466cd7c8b4ed672b89bcfdeaf4666",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.2319999784231186,
+      -0.19200000166893005,
+      -0.08800001442432404
+    ],
+    [
+      0.2319999784231186,
+      0.2319999784231186,
+      0.09600000083446503
+    ]
+  ],
+  "triangles": 908,
+  "mesh_parts": {
+    "Body": 892,
+    "Tail": 16
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "airborne centre",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "FlyingFishEvent.blend": "e62f03164df95983473a5d30f591ce20f5f3f6aaa2dc19fb7b60e9303a1896fa",
+    "FlyingFishEvent.fbx": "ac1a4c044a92cfbfb403a49e5477daa16cd89c30edbbca694897a3d8216af036"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_FlyingFishEvent.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/back.png",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/front.png",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/left.png",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/right.png",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/FlyingFishEvent/iterations/r01/top.png"
+  ]
+}

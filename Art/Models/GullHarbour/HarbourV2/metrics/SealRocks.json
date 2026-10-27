@@ -1,0 +1,123 @@
+{
+  "name": "SealRocks",
+  "group": "D",
+  "triangles": 1476,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -3.0938050746917725,
+      -1.6817721128463745,
+      -0.6000000238418579
+    ],
+    [
+      3.1409518718719482,
+      1.558294653892517,
+      1.1099998950958252
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    6.234756946563721,
+    3.2400667667388916,
+    1.709999918937683
+  ],
+  "parts": [
+    {
+      "name": "RocksAndThreeRestingSeals",
+      "triangles": 1476,
+      "vertices": 806,
+      "bounds_min_blender": [
+        -3.0938050746917725,
+        -1.6817721128463745,
+        -0.6000000238418579
+      ],
+      "bounds_max_blender": [
+        3.1409518718719482,
+        1.558294653892517,
+        1.1099998950958252
+      ],
+      "mesh_sha256": "292b122fbf2cd8b809c28d6c9a5004820184d619ac83ee6d6201d5a15d6542ca",
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Three complete resting seal silhouettes sit on overlapping rocks. RootY0 water datum; underwater rock foundation intentional. Approx6m rock group."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\SealRocks.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\SealRocks.fbx",
+  "sha256": {
+    "blend": "912f425b4dbe2383f2b6cba2d67d8410e7c5441e17b7f6447f029d69e917898b",
+    "fbx": "644b2076bbf91c0fba047782758eba1da9d054dcdc7ed946cd993fb52b81b890"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SealRocks\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SealRocks\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SealRocks\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SealRocks\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\SealRocks\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.1920928955078125e-07,
+    "source": {
+      "triangles": 1476,
+      "meshes": 1,
+      "bounds": [
+        [
+          -3.0938050746917725,
+          -1.6817721128463745,
+          -0.6000000238418579
+        ],
+        [
+          3.1409518718719482,
+          1.558294653892517,
+          1.1099998950958252
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "SealRocks": null,
+        "RocksAndThreeRestingSeals": "SealRocks"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1476,
+      "meshes": 1,
+      "bounds": [
+        [
+          -3.0938050746917725,
+          -1.6817721128463745,
+          -0.6000001430511475
+        ],
+        [
+          3.1409518718719482,
+          1.558294653892517,
+          1.1099998950958252
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "RocksAndThreeRestingSeals": "SealRocks",
+        "SealRocks": null
+      },
+      "finite": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Restaurant_Grill",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.41499999165534973,
+      -0.3850000202655792,
+      0.0
+    ],
+    [
+      0.41499999165534973,
+      0.35249999165534973,
+      0.8700000047683716
+    ]
+  ],
+  "triangles": 1956,
+  "export_meshes": [
+    "Restaurant_Grill"
+  ],
+  "atlas_cells": [
+    "dark",
+    "ivory",
+    "navy",
+    "orange",
+    "steel"
+  ],
+  "worktop_z_m": 0.75,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "54dd13e81ea6cd74481b704d29c6cab773277f86fdd5efae93c39090f6f2f550"
+}

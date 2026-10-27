@@ -1,0 +1,79 @@
+{
+  "triangles": 604,
+  "vertices": 354,
+  "bounds_unity": [
+    [
+      -0.0883435606956482,
+      0.0,
+      -0.13062025606632233
+    ],
+    [
+      0.1375102996826172,
+      0.30000001192092896,
+      0.1032479926943779
+    ]
+  ],
+  "meshes": [
+    "CatSkin"
+  ],
+  "materials": [
+    "M_Ginger",
+    "M_GingerShade",
+    "M_NoseRose",
+    "M_Rubber",
+    "M_WoodHighlight"
+  ],
+  "parents": {
+    "CatSkin": "CatRig",
+    "Cat": null,
+    "CatRig": "Cat"
+  },
+  "name": "Cat",
+  "limit": 900,
+  "bones": [
+    "Root",
+    "Body",
+    "Head",
+    "Eye.L",
+    "Eye.R",
+    "TailA",
+    "TailB",
+    "TailC",
+    "Fore.L",
+    "Hind.L",
+    "Fore.R",
+    "Hind.R"
+  ],
+  "clips": {
+    "Sleep": {
+      "frames": [
+        1,
+        121
+      ],
+      "seconds": 4.0,
+      "loop": true
+    },
+    "Look": {
+      "frames": [
+        1,
+        91
+      ],
+      "seconds": 3.0,
+      "loop": true
+    }
+  },
+  "sha256": {
+    "blend": "02914d67f8e4d31ca7af176c3e6c217c16fbec258e695a9134592a43d8835648",
+    "fbx": "7238c6602205911af6e390bd0b36caac8c8308c1f15258a57d6fe103e9b56be4"
+  },
+  "palette": {
+    "M_Rubber": "#28343B",
+    "M_GullWhite": "#F1F0EA",
+    "M_HairChestnut": "#50392E",
+    "M_Ginger": "#C58B50",
+    "M_GingerShade": "#9C6036",
+    "M_WoodHighlight": "#DFB77A",
+    "M_NoseRose": "#B97566",
+    "M_Teal": "#168F9F"
+  }
+}

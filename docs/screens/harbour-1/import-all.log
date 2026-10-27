@@ -1,0 +1,878 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.25f1 (e1dba0a9aba4) revision 14801824'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy" at "2026-10-25T00:57:37.6221738Z"
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 32406 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-25T00:57:37Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 19912, path: "C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              bae4324ae39046a287806fbfb6b84f3f
+  Correlation Id:          a990dc50f1dabfb8018e3e836f386ebc
+  External correlation Id: 5321675538772139769
+  Machine Id:              PK7Rb4K9KMp5yTvN+koEFJh1zkA=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-momoy" (connect: 0.00s, validation: 0.00s, handshake: 0.05s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy-notifications" at "2026-10-25T00:57:37.6698384Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072384676615-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.06s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:/Users/momoy/Projects/Catchline-lead-sim
+-executeMethod
+Catchline.EditorTools.HarbourImportChecks.Run
+-logFile
+C:\Users\momoy\Projects\Catchline/docs/screens/harbour-1/import-all.log
+Successfully changed project path to: C:/Users/momoy/Projects/Catchline-lead-sim
+C:/Users/momoy/Projects/Catchline-lead-sim
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [55932]  Target information:
+
+Player connection [55932]  * "[IP] 172.23.64.1 [Port] 55505 [Flags] 2 [Guid] 1930309440 [EditorId] 1930309440 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [55932]  * "[IP] 192.168.192.1 [Port] 55505 [Flags] 2 [Guid] 1930309440 [EditorId] 1930309440 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [55932]  * "[IP] 192.168.211.1 [Port] 55505 [Flags] 2 [Guid] 1930309440 [EditorId] 1930309440 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [55932]  * "[IP] 100.75.237.15 [Port] 55505 [Flags] 2 [Guid] 1930309440 [EditorId] 1930309440 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [55932]  * "[IP] 192.168.0.5 [Port] 55505 [Flags] 2 [Guid] 1930309440 [EditorId] 1930309440 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [55932] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [55932] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-52060" after 0.2 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.25f1 (e1dba0a9aba4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/momoy/Projects/Catchline-lead-sim/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4080 Laptop GPU (ID=0x27e0)
+    Vendor:          NVIDIA
+    VRAM:            11995 MB
+    App VRAM Budget: 11227 MB
+    Driver:          32.0.16.1656
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56060
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.008241 seconds.
+- Loaded All Assemblies, in  0.353 seconds
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.503 seconds
+Domain Reload Profiling: 2852ms
+	BeginReloadAssembly (123ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (142ms)
+		LoadAssemblies (107ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (138ms)
+			TypeCache.Refresh (137ms)
+				TypeCache.ScanAssembly (126ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2504ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2476ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (54ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (60ms)
+			ProcessInitializeOnLoadAttributes (98ms)
+			ProcessInitializeOnLoadMethodAttributes (2260ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 59 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.14 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ai.navigation@134dd6a3b97b)
+    com.unity.collab-proxy@2.13.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
+    com.unity.ide.rider@3.0.40 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
+    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.inputsystem@1.20.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.inputsystem@7a4e1a2a8194)
+    com.unity.timeline@1.8.13 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.timeline@3a22918286f5)
+    com.unity.visualscripting@1.9.12 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
+    com.unity.pipeline@0.9.1-exp.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.pipeline@363b8bb9e91d)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.searcher@4.9.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.30 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.6.8 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal@a0dd9d2bd983)
+    com.unity.test-framework@1.6.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ugui@f3ea87521141)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.core@3f80e92e91c2)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.shadergraph@2fa139ee8b62)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/momoy/Projects/Catchline-lead-sim
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s326ms
+[745/944    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.29 seconds), 1 items updated, 944 evaluated
+AssetDatabase: script compilation time: 0.744304s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.930 seconds
+Refreshing native plugins compatible for Editor in 2.37 ms, found 4 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.18 ms, found 4 plugins.
+Start HTTP server: port:7801
+Pipeline: Descriptor written to C:\Users\momoy\Projects\Catchline-lead-sim\Library\Pipeline\.unity-pipeline-port
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.857 seconds
+Domain Reload Profiling: 3780ms
+	BeginReloadAssembly (293ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (43ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (135ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (546ms)
+		LoadAssemblies (368ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (265ms)
+			TypeCache.Refresh (200ms)
+				TypeCache.ScanAssembly (187ms)
+			BuildScriptInfoCaches (52ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (2858ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2628ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (32ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (132ms)
+			ProcessInitializeOnLoadAttributes (2250ms)
+			ProcessInitializeOnLoadMethodAttributes (193ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (23ms)
+Start importing Assets/Art/Water/PTS/normalNoise.png using Guid(db5b9f8ed07a42719585509f17e6a094) (TextureImporter) -> (artifact id: 'fbce56a2cc5756dfe7d44b782d436918') in 0.0302864 seconds
+Start importing Assets/Art/Models/GullHarbourV2/HandCart.fbx using Guid(70f9c744a52225f438ebebac243cc341) (FBXImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+ -> (artifact id: 'd31603ce036cc40d4533f0a0272880cb') in 0.0807542 seconds
+Start importing Assets/Art/Models/GullHarbourV2/BoatCradle.fbx using Guid(0173103f14380824ca410759ec3b5c06) (FBXImporter) -> (artifact id: '31aae7ca7180aec3806a7b46e8ea938e') in 0.0224817 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Wreck.fbx using Guid(01b7f03865696dd42b335b86f80bdf62) (FBXImporter) -> (artifact id: '01f6e894159853ad55614b42f2d95e37') in 0.0234064 seconds
+Start importing Assets/Art/Models/GullHarbourV2/PrepFisherV1_VariantGreen.fbx using Guid(4134dd27d54e6c64b93f6113b02d91ab) (FBXImporter) -> (artifact id: 'eb268d5271195a053337256445830736') in 0.0564912 seconds
+Start importing Assets/Art/Models/GullHarbourV2/ChannelMarkerRed.fbx using Guid(61f4e011f845dda469a42253e5c0bf14) (FBXImporter) -> (artifact id: 'c2c1280af8ee1bc4415bf3517989fa12') in 0.0239073 seconds
+Start importing Assets/Art/Models/GullHarbourV2/FloatingCrate.fbx using Guid(f24c92dd865620942a584bedbc6e720f) (FBXImporter) -> (artifact id: '576dbab01b6d24f10da58f9bcb4a525c') in 0.0305886 seconds
+Start importing Assets/Art/Models/GullHarbourV2/BoatyardShed.fbx using Guid(0354ff5e317374a4597b8ea08c554534) (FBXImporter) -> (artifact id: 'df65b727b3bfb8303149209d2ad0278c') in 0.0325854 seconds
+Start importing Assets/Art/Models/GullHarbourV2/BreakwaterEnd.fbx using Guid(13178bc71d114084e8826ad812517186) (FBXImporter) -> (artifact id: 'e090644290fd82f5c6853a8d9fccd199') in 0.0212971 seconds
+Start importing Assets/Art/Models/GullHarbourV2/SealRocks.fbx using Guid(838bae79594c1ee419c8e663c6a5b53c) (FBXImporter) -> (artifact id: '9583c2346d7e11228da58e62b24b5fde') in 0.0238926 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Skiff_VariantYellow.fbx using Guid(932eb1d349bfce74ab77090d6ab9aaa5) (FBXImporter) -> (artifact id: '649c1ce9831452a47eab0caaa3991e13') in 0.0292159 seconds
+Start importing Assets/Art/Models/GullHarbourV2/BellBuoy.fbx using Guid(4438e43e837aaee4e9791eaf6dbbd08f) (FBXImporter) -> (artifact id: '36541a50595969d585be478381aa2611') in 0.0215132 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Dolphin.fbx using Guid(54e73629ee477d84fa93bb671014bbe7) (FBXImporter) -> (artifact id: '50c95a5d5c2099e2fc349d88fb7c6b82') in 0.0217556 seconds
+Start importing Assets/Art/Models/GullHarbourV2/WharfLight.fbx using Guid(a4a8c095a9919224cbadab6ebede19bc) (FBXImporter) -> (artifact id: '55620261d7d7be7aed2f46920387b802') in 0.0212892 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Tier5DeepLines103_VariantBlue.fbx using Guid(b4ef656fd5a4d8e4ba9b878fae330826) (FBXImporter) -> (artifact id: 'bbffeae2b6b1f3efc9e8e05ec4845060') in 0.070136 seconds
+Start importing Assets/Art/Models/GullHarbourV2/MouthBeacon.fbx using Guid(254551cb5e950ca469030a14cbaed9c6) (FBXImporter) -> (artifact id: 'bdde0d695722e64fbe894ac4eb31147c') in 0.022916 seconds
+Start importing Assets/Art/Models/GullHarbourV2/NoticeBoard.fbx using Guid(f736af3555248ab49993307a544b980c) (FBXImporter) -> (artifact id: '227fef5a6e1656d9a9f12fe7be181211') in 0.0233007 seconds
+Start importing Assets/Art/Models/GullHarbourV2/HarbourMasterHut.fbx using Guid(993eaec910c5d734ea230c799c018a42) (FBXImporter) -> (artifact id: 'fcc89e8577c9af4e8d7dcf596f6c12d0') in 0.0267783 seconds
+Start importing Assets/Art/Models/GullHarbourV2/OuterWharf.fbx using Guid(4cf4b478f95065a4ea5524e38533d8ea) (FBXImporter) -> (artifact id: '331e0a3aa4c8e953940f2f1b4af94c50') in 0.0431624 seconds
+Start importing Assets/Art/Models/GullHarbourV2/NetLoft.fbx using Guid(6c4d4e6f03e41a149ac771f36ccc88b4) (FBXImporter) -> (artifact id: 'e145f7c2fe8851cf51dd1f3f04aa7c4e') in 0.032863 seconds
+Start importing Assets/Art/Models/GullHarbourV2/IceHouse.fbx using Guid(cd52fc38a2506434fa551eed4eb5a476) (FBXImporter) -> (artifact id: '251d68fd630c38aaa5c40d6478b3e40d') in 0.0258752 seconds
+Start importing Assets/Art/Models/GullHarbourV2/CompactFisherV1_VariantRed.fbx using Guid(be70ecf23dc4ab24d9df489204df4053) (FBXImporter) -> (artifact id: '52be2682204a845971f3a088b7b9b18a') in 0.038655 seconds
+Start importing Assets/Art/Models/GullHarbourV2/Slipway.fbx using Guid(de798cc908ad1ed41a107fec1b473d25) (FBXImporter) -> (artifact id: 'abc4e265f806aa7bbcf1b90d50473404') in 0.0193731 seconds
+Start importing Assets/Art/Models/GullHarbourV2/SuppliesShed.fbx using Guid(fedf13552ddb5f14c86cee9ada001161) (FBXImporter) -> (artifact id: '0f5db96f47c75abce667a113775f820e') in 0.0281202 seconds
+Start importing Assets/Art/Models/GullHarbourV2/ChannelMarkerGreen.fbx using Guid(1f0b417a47e314846b7571a27acc8f64) (FBXImporter) -> (artifact id: '0e598f8863904f771bb896b656526633') in 0.0240247 seconds
+Start importing Assets/Art/Models/GullHarbourV2/SeagullDive.fbx using Guid(bfc6275d3cfa11e45b641e8e07010fe3) (FBXImporter) -> (artifact id: '5cd121dd03cb3c965fe90d81fcdaec47') in 0.0221441 seconds
+Refreshing native plugins compatible for Editor in 1.92 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f459602ae8ae13e409fa496089103390): Total: 6.111 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=26 (actual=26, local cache=0, cache server=0)
+		Asset DB Process Time: managed=85 ms, native=4057 ms
+		Asset DB Callback time: managed=203 ms, native=38 ms
+		Scripting: domain reloads=1, domain reload time=930 ms, compile time=745 ms, other=50 ms
+		Project Asset Count: scripts=1437, non-scripts=3178
+		Asset File Changes: new=24, changed=26, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 28.906ms
+	ApplyChangesToAssetFolders: 0.787ms
+	Scan: 173.093ms
+	OnSourceAssetsModified: 0.756ms
+	CategorizeAssetsWithTransientArtifact: 42.349ms
+	ProcessAssetsWithTransientArtifactChanges: 57.906ms
+	CategorizeAssets: 46.575ms
+	ImportOutOfDateAssets: 3693.983ms (2121.564ms without children)
+		ImportManagerImport: 825.442ms (1.726ms without children)
+			ImportInProcess: 823.539ms
+			UpdateCategorizedAssets: 0.177ms
+		CompileScripts: 745.456ms
+		ReloadNativeAssets: 0.024ms
+		UnloadImportedAssets: 0.520ms
+		ReloadImportedAssets: 0.002ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.469ms
+		InitializingProgressBar: 0.006ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.500ms
+	PostProcessAllAssets: 209.404ms
+	Hotreload: 4.735ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.001ms
+	UnloadStreamsBegin: 2.066ms
+	PersistCurrentRevisions: 0.297ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.347ms
+	Untracked: 1850.335ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 1.533ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Catchline
+Unloading 44 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7119 unused Assets / (4.8 MB). Loaded Objects now: 7945.
+Memory consumption went from 267.6 MB to 262.9 MB.
+Total: 8.732300 ms (FindLiveObjects: 0.494500 ms CreateObjectMapping: 0.472500 ms MarkObjects: 5.366200 ms  DeleteObjects: 2.398200 ms)
+
+[Catchline] Art library: 235 models
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:137)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:26)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 137)
+
+Start importing Assets/Resources/ArtLibrary.asset using Guid(bd9eaf69a4cc67845a86c071b06563f2) (NativeFormatImporter) -> (artifact id: 'c342945aaced28fd9e08620be0b92d63') in 0.0075825 seconds
+Refreshing native plugins compatible for Editor in 2.00 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=ec12f4e3f97e70941be504ca802710ef): Total: 0.069 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Catchline] Art library: rowboat True [M_DeckWood, M_Rope, M_HullNavy, M_SafetyOrange, M_RailIvory, M_Steel, M_WoodHighlight], 305 UI textures, font True
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.ArtImport:BuildLibrary () (at Assets/Editor/ArtImport.cs:172)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:26)
+
+(Filename: Assets/Editor/ArtImport.cs Line: 172)
+
+[Catchline] HARBOUR IMPORT BellBuoy: 432 tris, (1.360, 2.300, 1.360)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT BoatCradle: 560 tris, (7.300, 1.180, 3.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT BoatyardShed: 932 tris, (9.284, 4.845, 5.350)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT BreakwaterEnd: 540 tris, (3.566, 1.550, 3.556)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT BreakwaterWall: 544 tris, (4.056, 1.554, 3.588)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT ChannelMarkerGreen: 420 tris, (0.508, 2.653, 0.485)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT ChannelMarkerRed: 420 tris, (0.508, 2.653, 0.485)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT CompactFisherV1_VariantRed: 10164 tris, (3.651, 2.597, 5.855)m, pivot (0.000, 0.000, 0.000), root rotation (270.020, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Dolphin: 330 tris, (2.200, 0.890, 1.015)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT FloatingCrate: 588 tris, (0.761, 0.530, 0.615)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT FuelDock: 1342 tris, (2.140, 1.810, 2.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT HandCart: 1352 tris, (1.060, 1.478, 0.870)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT HarbourMasterHut: 784 tris, (2.870, 3.650, 2.405)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT IceHouse: 740 tris, (3.794, 3.185, 3.910)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT MouthBeacon: 416 tris, (1.916, 3.020, 1.612)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT NetLoft: 1052 tris, (3.312, 4.665, 3.575)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT NoticeBoard: 776 tris, (2.242, 2.645, 0.890)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT OuterWharf: 388 tris, (4.000, 1.590, 1.865)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PontoonGangway: 700 tris, (1.260, 1.195, 3.050)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PontoonSegment: 1202 tris, (2.140, 0.521, 4.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PrepFisherV1_VariantGreen: 13968 tris, (4.564, 2.702, 7.246)m, pivot (0.000, 0.000, 0.000), root rotation (270.020, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT QuayCrane: 684 tris, (1.150, 4.872, 4.590)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT SeagullDive: 280 tris, (0.480, 0.864, 0.385)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT SealRocks: 1476 tris, (6.235, 1.710, 3.240)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Skiff_VariantYellow: 2494 tris, (3.587, 1.483, 7.035)m, pivot (0.000, 0.000, 0.000), root rotation (270.020, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Slipway: 456 tris, (8.000, 1.619, 7.000)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT SuppliesShed: 1984 tris, (3.298, 3.095, 2.850)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Tier5DeepLines103_VariantBlue: 17006 tris, (5.540, 3.887, 9.039)m, pivot (0.000, 0.000, 0.000), root rotation (270.020, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT WharfLight: 364 tris, (0.420, 2.710, 0.420)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT Wreck: 428 tris, (8.000, 1.430, 2.960)m, pivot (0.000, 0.000, 0.000), root rotation (0.000, 0.000, 0.000), scale (1.000, 1.000, 1.000), M(name) PASS, loose=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks/<>c__DisplayClass2_0:<Run>b__1 (string) (at Assets/Editor/HarbourImportChecks.cs:52)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:PreallocatingToArray (int)
+System.Linq.Enumerable/SelectIPartitionIterator`2<string, Catchline.EditorTools.HarbourImportChecks/Row>:ToArray ()
+System.Linq.Enumerable:ToArray<Catchline.EditorTools.HarbourImportChecks/Row> (System.Collections.Generic.IEnumerable`1<Catchline.EditorTools.HarbourImportChecks/Row>)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:28)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 52)
+
+[Catchline] HARBOUR IMPORT PASS 30 models
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.HarbourImportChecks:Run () (at Assets/Editor/HarbourImportChecks.cs:60)
+
+(Filename: Assets/Editor/HarbourImportChecks.cs Line: 60)
+
+Batchmode quit successfully invoked - shutting down!
+Pipeline Server stopped
+Killing ADB server in 2.0633354 seconds.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-momoy-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-momoy channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

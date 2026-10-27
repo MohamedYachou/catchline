@@ -1,0 +1,39 @@
+{
+  "name": "WallMenuBoard",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.25999999046325684,
+      -0.05118396133184433,
+      0.0
+    ],
+    [
+      0.25999999046325684,
+      0.027499999850988388,
+      0.6399999856948853
+    ]
+  ],
+  "triangles": 1085,
+  "export_meshes": [
+    "WallMenuBoard"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "white",
+    "wood"
+  ],
+  "mount": "wall",
+  "recommended_base_height_m": 0.95,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "f0c3cdf7c706334563885d4c541d1afcec8fdb4a4115fd1c61e7fb8edc3a017f"
+}

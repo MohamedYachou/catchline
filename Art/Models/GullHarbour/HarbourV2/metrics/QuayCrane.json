@@ -1,0 +1,151 @@
+{
+  "name": "QuayCrane",
+  "group": "A",
+  "triangles": 684,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.5750000476837158,
+      -1.0500000715255737,
+      0.0
+    ],
+    [
+      0.5750000476837158,
+      3.5399999618530273,
+      4.872345924377441
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    1.1500000953674316,
+    4.590000152587891,
+    4.872345924377441
+  ],
+  "parts": [
+    {
+      "name": "CranePedestal",
+      "triangles": 396,
+      "vertices": 220,
+      "bounds_min_blender": [
+        -0.5750000476837158,
+        -0.5750000476837158,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.5750000476837158,
+        0.5750000476837158,
+        3.1500000953674316
+      ],
+      "mesh_sha256": "6c1bcf03ea8a4781652abbb70ed455a80d1df42523e37192cd19320252155894",
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Jib",
+      "triangles": 288,
+      "vertices": 160,
+      "bounds_min_blender": [
+        -0.330000102519989,
+        -1.0500000715255737,
+        1.225000023841858
+      ],
+      "bounds_max_blender": [
+        0.32999998331069946,
+        3.5399999618530273,
+        4.872345924377441
+      ],
+      "mesh_sha256": "3d2c39f8e77ec44da5739af18f38eab8c0b8338a35b9a0932c5d68ac519e093b",
+      "materials": [
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Jib is an actual direct child named Jib, origin on slew axis at Y3.16; hook/rope/counterweight follow that child. Height4.85m."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\QuayCrane.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\QuayCrane.fbx",
+  "sha256": {
+    "blend": "21d61a55c97e6714e9389d73518d8bbd0542143facc9a6cfa45fc015d6b079b5",
+    "fbx": "e69ca4c35a373ba6e47492b296a53ce58938ccaf4e0c72883082647732d99250"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\QuayCrane\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\QuayCrane\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\QuayCrane\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\QuayCrane\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\QuayCrane\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.384185791015625e-07,
+    "source": {
+      "triangles": 684,
+      "meshes": 2,
+      "bounds": [
+        [
+          -0.5750000476837158,
+          -1.0500000715255737,
+          0.0
+        ],
+        [
+          0.5750000476837158,
+          3.5399999618530273,
+          4.872345924377441
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "parents": {
+        "QuayCrane": null,
+        "CranePedestal": "QuayCrane",
+        "Jib": "QuayCrane"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 684,
+      "meshes": 2,
+      "bounds": [
+        [
+          -0.5750000476837158,
+          -1.0499998331069946,
+          -4.341129766771701e-08
+        ],
+        [
+          0.5750000476837158,
+          3.5400002002716064,
+          4.872345924377441
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_Steel"
+      ],
+      "parents": {
+        "CranePedestal": "QuayCrane",
+        "Jib": "QuayCrane",
+        "QuayCrane": null
+      },
+      "finite": true
+    }
+  }
+}

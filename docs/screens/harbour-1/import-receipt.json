@@ -1,0 +1,1415 @@
+{
+    "models": [
+        {
+            "name": "BellBuoy",
+            "asset": "Assets/Art/Models/GullHarbourV2/BellBuoy.fbx",
+            "sha256": "0E4A28CD06963773CA00D2B0667D44A993CD98652F7555B037489001BA29CD00",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 432,
+            "min": {
+                "x": -0.6800000071525574,
+                "y": -0.47999995946884158,
+                "z": -0.6800000071525574
+            },
+            "max": {
+                "x": 0.6800000071525574,
+                "y": 1.8199999332427979,
+                "z": 0.6800000071525574
+            },
+            "size": {
+                "x": 1.3600000143051148,
+                "y": 2.299999952316284,
+                "z": 1.3600000143051148
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_OilskinYellow",
+                "M_HullNavy",
+                "M_Rope",
+                "M_Steel"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "BoatCradle",
+            "asset": "Assets/Art/Models/GullHarbourV2/BoatCradle.fbx",
+            "sha256": "51442801804DE3136425B9AA5BE0B3A5AFA57B383DFE91068ADDC1E5B1BDC136",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 560,
+            "min": {
+                "x": -3.6500000953674318,
+                "y": 0.0,
+                "z": -1.500000238418579
+            },
+            "max": {
+                "x": 3.6500000953674318,
+                "y": 1.1799999475479127,
+                "z": 1.500000238418579
+            },
+            "size": {
+                "x": 7.300000190734863,
+                "y": 1.1799999475479127,
+                "z": 3.000000476837158
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodRecess",
+                "M_DeckWood",
+                "M_Rubber",
+                "M_WoodHighlight"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "BoatyardShed",
+            "asset": "Assets/Art/Models/GullHarbourV2/BoatyardShed.fbx",
+            "sha256": "3872D09118D455AA8E2C8ADB1471A9DAF646CA99C0575CEDBF0E6B261D651967",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 932,
+            "min": {
+                "x": -4.642164707183838,
+                "y": 0.0,
+                "z": -2.6750006675720217
+            },
+            "max": {
+                "x": 4.642164707183838,
+                "y": 4.845000267028809,
+                "z": 2.6750006675720217
+            },
+            "size": {
+                "x": 9.284329414367676,
+                "y": 4.845000267028809,
+                "z": 5.350001335144043
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_DeckWood",
+                "M_WoodHighlight",
+                "M_HullNavy",
+                "M_HullBlue"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "BreakwaterEnd",
+            "asset": "Assets/Art/Models/GullHarbourV2/BreakwaterEnd.fbx",
+            "sha256": "779D258001768CC6AD16170BC09DBA86AD73D6D231413429CBECE7C3301A67EB",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 540,
+            "min": {
+                "x": -1.7995156049728394,
+                "y": -0.9499999284744263,
+                "z": -1.8314629793167115
+            },
+            "max": {
+                "x": 1.7662204504013062,
+                "y": 0.6000000238418579,
+                "z": 1.724507212638855
+            },
+            "size": {
+                "x": 3.5657360553741457,
+                "y": 1.5499999523162842,
+                "z": 3.5559701919555666
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_Steel",
+                "M_FishSilver"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "BreakwaterWall",
+            "asset": "Assets/Art/Models/GullHarbourV2/BreakwaterWall.fbx",
+            "sha256": "114A9A80994C53D2C5E97F3A565603630893647AB3270D67110FB89A74B73B8B",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 544,
+            "min": {
+                "x": -1.9999998807907105,
+                "y": -0.9499999284744263,
+                "z": -1.7887213230133057
+            },
+            "max": {
+                "x": 2.055609703063965,
+                "y": 0.6039999723434448,
+                "z": 1.7988498210906983
+            },
+            "size": {
+                "x": 4.055609703063965,
+                "y": 1.553999900817871,
+                "z": 3.587571144104004
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_Steel",
+                "M_FishSilver"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "ChannelMarkerGreen",
+            "asset": "Assets/Art/Models/GullHarbourV2/ChannelMarkerGreen.fbx",
+            "sha256": "BED654E539EA8CF55B9D0311E90F5ABFD1D29FCAE3A9628F7B94A002F02851B0",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 420,
+            "min": {
+                "x": -0.2549999952316284,
+                "y": -0.6199999451637268,
+                "z": -0.24251940846443177
+            },
+            "max": {
+                "x": 0.2532869577407837,
+                "y": 2.0329904556274416,
+                "z": 0.24251940846443177
+            },
+            "size": {
+                "x": 0.5082869529724121,
+                "y": 2.6529903411865236,
+                "z": 0.4850388169288635
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_KelpGreen",
+                "M_RailIvory",
+                "M_Rubber",
+                "M_Steel"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "ChannelMarkerRed",
+            "asset": "Assets/Art/Models/GullHarbourV2/ChannelMarkerRed.fbx",
+            "sha256": "F90D5E16A3BE5A80B86A54987E3B25BEBFA614F5A36F076952BB7DE61BAE8AC6",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 420,
+            "min": {
+                "x": -0.2549999952316284,
+                "y": -0.6199999451637268,
+                "z": -0.24251940846443177
+            },
+            "max": {
+                "x": 0.2532869577407837,
+                "y": 2.0329904556274416,
+                "z": 0.24251940846443177
+            },
+            "size": {
+                "x": 0.5082869529724121,
+                "y": 2.6529903411865236,
+                "z": 0.4850388169288635
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_SafetyOrange",
+                "M_RailIvory",
+                "M_Rubber",
+                "M_Steel"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "CompactFisherV1_VariantRed",
+            "asset": "Assets/Art/Models/GullHarbourV2/CompactFisherV1_VariantRed.fbx",
+            "sha256": "4AA46D8B2795C7893F6962C3060BC9BE572B6D55B8A9B90E73CF54A676BCD0E0",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 10164,
+            "min": {
+                "x": -1.8255212306976319,
+                "y": -0.6774943470954895,
+                "z": -3.0099997520446779
+            },
+            "max": {
+                "x": 1.8255212306976319,
+                "y": 1.9200003147125245,
+                "z": 2.8448004722595217
+            },
+            "size": {
+                "x": 3.6510424613952638,
+                "y": 2.597494602203369,
+                "z": 5.854800224304199
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 270.019775390625,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_RailIvory",
+                "M_DeckWood",
+                "M_Steel",
+                "M_HullNavy",
+                "M_SafetyOrange",
+                "M_KelpGreen",
+                "M_HullBlue",
+                "M_Rope",
+                "M_Rubber",
+                "M_SeaTeal",
+                "M_Crimson",
+                "M_WoodHighlight"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "Dolphin",
+            "asset": "Assets/Art/Models/GullHarbourV2/Dolphin.fbx",
+            "sha256": "32542AE60B62427E2033041BFBC92005C433CF01CA82ECFECA5778F22009AB70",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 330,
+            "min": {
+                "x": -1.100000023841858,
+                "y": -0.25,
+                "z": -0.5074999928474426
+            },
+            "max": {
+                "x": 1.100000023841858,
+                "y": 0.6399999856948853,
+                "z": 0.5074999928474426
+            },
+            "size": {
+                "x": 2.200000047683716,
+                "y": 0.8899999856948853,
+                "z": 1.0149999856948853
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_HullBlue",
+                "M_FishSilver",
+                "M_Rubber"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "FloatingCrate",
+            "asset": "Assets/Art/Models/GullHarbourV2/FloatingCrate.fbx",
+            "sha256": "1AB9467D1EE1D60437AFC154A2E065DE71D64C15E6D1489D46EDDA247051B3A0",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 588,
+            "min": {
+                "x": -0.38300004601478579,
+                "y": -0.15999998152256013,
+                "z": -0.30750003457069399
+            },
+            "max": {
+                "x": 0.3775000274181366,
+                "y": 0.3700000047683716,
+                "z": 0.30750003457069399
+            },
+            "size": {
+                "x": 0.7605000734329224,
+                "y": 0.5299999713897705,
+                "z": 0.6150000691413879
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_DeckWood",
+                "M_RailIvory",
+                "M_WoodHighlight",
+                "M_Rope"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "FuelDock",
+            "asset": "Assets/Art/Models/GullHarbourV2/FuelDock.fbx",
+            "sha256": "F7E0E7C28EAD247AD5A75C81032779F77C8C39DC78FD941DF58330B29EEEDC34",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1342,
+            "min": {
+                "x": -1.070000171661377,
+                "y": -0.38999998569488528,
+                "z": -1.0000001192092896
+            },
+            "max": {
+                "x": 1.070000171661377,
+                "y": 1.4199999570846558,
+                "z": 1.0000001192092896
+            },
+            "size": {
+                "x": 2.140000343322754,
+                "y": 1.809999942779541,
+                "z": 2.000000238418579
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodHighlight",
+                "M_DeckWood",
+                "M_HullNavy",
+                "M_WoodRecess",
+                "M_Steel",
+                "M_Rope",
+                "M_Rubber",
+                "M_SafetyOrange",
+                "M_RailIvory"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "HandCart",
+            "asset": "Assets/Art/Models/GullHarbourV2/HandCart.fbx",
+            "sha256": "2F0D66E6DA7C7B61F770180C6E5BF0AA464769C5FD64B2AE55AF03554711A0F9",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1352,
+            "min": {
+                "x": -0.5299999713897705,
+                "y": 0.0,
+                "z": -0.3500000238418579
+            },
+            "max": {
+                "x": 0.5299999713897705,
+                "y": 1.477500081062317,
+                "z": 0.5200000405311585
+            },
+            "size": {
+                "x": 1.059999942779541,
+                "y": 1.477500081062317,
+                "z": 0.8700000643730164
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_Steel",
+                "M_HullNavy",
+                "M_Rubber",
+                "M_SeaTeal",
+                "M_RailIvory",
+                "M_FishSilver"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "HarbourMasterHut",
+            "asset": "Assets/Art/Models/GullHarbourV2/HarbourMasterHut.fbx",
+            "sha256": "AD7CDF6BBF9A46E8EA596C82B80B8CC0CC3F4D1E170AA0E08E1AD34DECC39B35",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 784,
+            "min": {
+                "x": -1.4003570079803467,
+                "y": 0.0,
+                "z": -1.2300001382827759
+            },
+            "max": {
+                "x": 1.4700000286102296,
+                "y": 3.6500000953674318,
+                "z": 1.1750000715255738
+            },
+            "size": {
+                "x": 2.870357036590576,
+                "y": 3.6500000953674318,
+                "z": 2.4050002098083498
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodRecess",
+                "M_DeckWood",
+                "M_WoodHighlight",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_RailIvory",
+                "M_OilskinYellow",
+                "M_FishSilver",
+                "M_SafetyOrange"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "IceHouse",
+            "asset": "Assets/Art/Models/GullHarbourV2/IceHouse.fbx",
+            "sha256": "02359A5F0BC447D95DAA5423DEA3CD658C7651DDFCD7DE406783EB437764123A",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 740,
+            "min": {
+                "x": -1.8972450494766236,
+                "y": 0.0,
+                "z": -2.2347826957702638
+            },
+            "max": {
+                "x": 1.8972450494766236,
+                "y": 3.18500018119812,
+                "z": 1.6750001907348633
+            },
+            "size": {
+                "x": 3.794490098953247,
+                "y": 3.18500018119812,
+                "z": 3.909782886505127
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_Steel",
+                "M_HullBlue",
+                "M_WoodHighlight",
+                "M_RailIvory",
+                "M_HullNavy",
+                "M_SeaTeal"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "MouthBeacon",
+            "asset": "Assets/Art/Models/GullHarbourV2/MouthBeacon.fbx",
+            "sha256": "E4D7446A9B3ABEC7E8822D2FE8CEAC7CACAD5601E9C6E3FB3A2DBAC61BD02CFF",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 416,
+            "min": {
+                "x": -0.9257258176803589,
+                "y": -0.7999999523162842,
+                "z": -0.7832942605018616
+            },
+            "max": {
+                "x": 0.9903846979141235,
+                "y": 2.2200000286102297,
+                "z": 0.8290522694587708
+            },
+            "size": {
+                "x": 1.9161105155944825,
+                "y": 3.0199999809265138,
+                "z": 1.6123465299606324
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_Steel",
+                "M_RailIvory",
+                "M_KelpGreen",
+                "M_HullNavy"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "NetLoft",
+            "asset": "Assets/Art/Models/GullHarbourV2/NetLoft.fbx",
+            "sha256": "21DAEF1AA9E1A336328F0B5D3C669E9C218BFA7A7B89B658EADEB9E84C67A4C7",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1052,
+            "min": {
+                "x": -1.6557906866073609,
+                "y": 0.0,
+                "z": -2.0999999046325685
+            },
+            "max": {
+                "x": 1.6557906866073609,
+                "y": 4.664999961853027,
+                "z": 1.4749999046325684
+            },
+            "size": {
+                "x": 3.3115813732147219,
+                "y": 4.664999961853027,
+                "z": 3.5749998092651369
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_DeckWood",
+                "M_WoodRecess",
+                "M_WoodHighlight",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_Rope",
+                "M_KelpGreen"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "NoticeBoard",
+            "asset": "Assets/Art/Models/GullHarbourV2/NoticeBoard.fbx",
+            "sha256": "FB07921EFDC1A3BD5025CA79DF18D11C9DE995F3639F1CD9E644D0B3131D69CC",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 776,
+            "min": {
+                "x": -1.1210066080093384,
+                "y": 0.0,
+                "z": -0.4450000822544098
+            },
+            "max": {
+                "x": 1.1210066080093384,
+                "y": 2.6449999809265138,
+                "z": 0.4450000822544098
+            },
+            "size": {
+                "x": 2.2420132160186769,
+                "y": 2.6449999809265138,
+                "z": 0.8900001645088196
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_DeckWood",
+                "M_HullNavy",
+                "M_WoodHighlight",
+                "M_RailIvory",
+                "M_SafetyOrange",
+                "M_HullBlue"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "OuterWharf",
+            "asset": "Assets/Art/Models/GullHarbourV2/OuterWharf.fbx",
+            "sha256": "138FE276F9C977F0C99ACFF6A78448931832859767DBDF75BD00CC167EB345F4",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 388,
+            "min": {
+                "x": -2.0,
+                "y": -0.8500000238418579,
+                "z": -0.9650000929832459
+            },
+            "max": {
+                "x": 2.0,
+                "y": 0.7400000095367432,
+                "z": 0.9000001549720764
+            },
+            "size": {
+                "x": 4.0,
+                "y": 1.590000033378601,
+                "z": 1.8650002479553223
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_Steel",
+                "M_HullNavy",
+                "M_Rubber"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "PontoonGangway",
+            "asset": "Assets/Art/Models/GullHarbourV2/PontoonGangway.fbx",
+            "sha256": "131329E06F279AF5CE0B7C0B8C1BFF5404D8F3BB47EF6FFF9D9B6DD4A606F3B7",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 700,
+            "min": {
+                "x": -0.6299999952316284,
+                "y": -0.0922136902809143,
+                "z": -3.0199999809265138
+            },
+            "max": {
+                "x": 0.6299999952316284,
+                "y": 1.1023483276367188,
+                "z": 0.029999971389770509
+            },
+            "size": {
+                "x": 1.2599999904632569,
+                "y": 1.1945620775222779,
+                "z": 3.049999952316284
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodHighlight",
+                "M_DeckWood",
+                "M_Steel",
+                "M_RailIvory"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "PontoonSegment",
+            "asset": "Assets/Art/Models/GullHarbourV2/PontoonSegment.fbx",
+            "sha256": "64FDF02DFA5E31C50F2B0D99447CD345B42556045825004B38704F6B02DB3283",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1202,
+            "min": {
+                "x": -1.070000171661377,
+                "y": -0.38999998569488528,
+                "z": -2.0
+            },
+            "max": {
+                "x": 1.070000171661377,
+                "y": 0.13099998235702516,
+                "z": 2.0
+            },
+            "size": {
+                "x": 2.140000343322754,
+                "y": 0.5209999680519104,
+                "z": 4.0
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodHighlight",
+                "M_DeckWood",
+                "M_HullNavy",
+                "M_WoodRecess",
+                "M_Steel",
+                "M_Rope",
+                "M_Rubber"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "PrepFisherV1_VariantGreen",
+            "asset": "Assets/Art/Models/GullHarbourV2/PrepFisherV1_VariantGreen.fbx",
+            "sha256": "1A74DD7D22A2CE378A24CDD91B57647550EEE216A9F4580831D9BF4BC68A04C9",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 13968,
+            "min": {
+                "x": -2.2819015979766847,
+                "y": -0.6774944067001343,
+                "z": -3.7899997234344484
+            },
+            "max": {
+                "x": 2.2819020748138429,
+                "y": 2.0250000953674318,
+                "z": 3.4564149379730226
+            },
+            "size": {
+                "x": 4.563803672790527,
+                "y": 2.7024946212768556,
+                "z": 7.246414661407471
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 270.019775390625,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_RailIvory",
+                "M_DeckWood",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_Steel",
+                "M_Rubber",
+                "M_KelpGreen",
+                "M_SafetyOrange",
+                "M_Rope",
+                "M_SeaTeal",
+                "M_WoodHighlight",
+                "M_FishSilver"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "QuayCrane",
+            "asset": "Assets/Art/Models/GullHarbourV2/QuayCrane.fbx",
+            "sha256": "E69CA4C35A373BA6E47492B296A53CE58938CCAF4E0C72883082647732D99250",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 684,
+            "min": {
+                "x": -0.5750000476837158,
+                "y": 0.0,
+                "z": -3.5399999618530275
+            },
+            "max": {
+                "x": 0.5750000476837158,
+                "y": 4.872345924377441,
+                "z": 1.0500001907348633
+            },
+            "size": {
+                "x": 1.1500000953674317,
+                "y": 4.872345924377441,
+                "z": 4.590000152587891
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_HullNavy",
+                "M_Steel",
+                "M_SafetyOrange",
+                "M_OilskinYellow",
+                "M_Rope"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "SeagullDive",
+            "asset": "Assets/Art/Models/GullHarbourV2/SeagullDive.fbx",
+            "sha256": "856E0F9D59505E9B06FA55B7BC2B4B352822EC1DCA9E8C7991C0D85B89B96D5E",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 280,
+            "min": {
+                "x": -0.23999999463558198,
+                "y": -0.36044245958328249,
+                "z": -0.17749226093292237
+            },
+            "max": {
+                "x": 0.23999999463558198,
+                "y": 0.5032534599304199,
+                "z": 0.2078290581703186
+            },
+            "size": {
+                "x": 0.47999998927116396,
+                "y": 0.8636959195137024,
+                "z": 0.38532131910324099
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_RailIvory",
+                "M_HullNavy",
+                "M_Rubber",
+                "M_OilskinYellow"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "SealRocks",
+            "asset": "Assets/Art/Models/GullHarbourV2/SealRocks.fbx",
+            "sha256": "644B2076BBF91C0FBA047782758EBA1DA9D054DCDC7ED946CD993FB52B81B890",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1476,
+            "min": {
+                "x": -3.1409518718719484,
+                "y": -0.6000000238418579,
+                "z": -1.558294653892517
+            },
+            "max": {
+                "x": 3.0938050746917726,
+                "y": 1.1099998950958253,
+                "z": 1.6817721128463746
+            },
+            "size": {
+                "x": 6.234756946563721,
+                "y": 1.709999918937683,
+                "z": 3.2400667667388918
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_Steel",
+                "M_HullNavy",
+                "M_Rubber"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "Skiff_VariantYellow",
+            "asset": "Assets/Art/Models/GullHarbourV2/Skiff_VariantYellow.fbx",
+            "sha256": "D85B6461DFF7F80A01FC907A3697383CCE2C74094FA567A1ECE68F56BBFB9AFC",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 2494,
+            "min": {
+                "x": -1.7937077283859254,
+                "y": -0.7999998927116394,
+                "z": -3.489999532699585
+            },
+            "max": {
+                "x": 1.7937077283859254,
+                "y": 0.6824998259544373,
+                "z": 3.545499563217163
+            },
+            "size": {
+                "x": 3.5874154567718508,
+                "y": 1.4824997186660767,
+                "z": 7.035499095916748
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 270.019775390625,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_OilskinYellow",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_Steel",
+                "M_SeaTeal",
+                "M_DeckWood",
+                "M_WoodRecess",
+                "M_SafetyOrange",
+                "M_RailIvory",
+                "M_Rope",
+                "M_Rubber",
+                "M_WoodHighlight"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "Slipway",
+            "asset": "Assets/Art/Models/GullHarbourV2/Slipway.fbx",
+            "sha256": "D14E371F524D9C792B545E05C1EDB2582ACEC508F65EBC271EED0CA8605E8014",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 456,
+            "min": {
+                "x": -4.0,
+                "y": -1.1200000047683716,
+                "z": -7.000000476837158
+            },
+            "max": {
+                "x": 3.999999761581421,
+                "y": 0.4992116689682007,
+                "z": 4.76837158203125e-7
+            },
+            "size": {
+                "x": 8.0,
+                "y": 1.6192116737365723,
+                "z": 7.000000953674316
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_FishSilver",
+                "M_Steel",
+                "M_Rope"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "SuppliesShed",
+            "asset": "Assets/Art/Models/GullHarbourV2/SuppliesShed.fbx",
+            "sha256": "413A8E3E5B3E3D9C1237423D5C3DA1F09DF08BE569D8462BC528C2F9E98C14C7",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 1984,
+            "min": {
+                "x": -1.6492210626602173,
+                "y": 0.0,
+                "z": -1.4250000715255738
+            },
+            "max": {
+                "x": 1.6492210626602173,
+                "y": 3.0950000286102297,
+                "z": 1.4250000715255738
+            },
+            "size": {
+                "x": 3.2984421253204347,
+                "y": 3.0950000286102297,
+                "z": 2.8500001430511476
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_WoodRecess",
+                "M_DeckWood",
+                "M_WoodHighlight",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_Rope",
+                "M_SafetyOrange",
+                "M_SeaTeal",
+                "M_RailIvory"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "Tier5DeepLines103_VariantBlue",
+            "asset": "Assets/Art/Models/GullHarbourV2/Tier5DeepLines103_VariantBlue.fbx",
+            "sha256": "AD9283D79B2DD04AF1203B1A5AE56D81BEEDB2625CD8978DD5C924AA5648DFAE",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 17006,
+            "min": {
+                "x": -3.3732869625091554,
+                "y": -0.6774945259094238,
+                "z": -4.7181620597839359
+            },
+            "max": {
+                "x": 2.1671946048736574,
+                "y": 3.2100000381469728,
+                "z": 4.3205180168151859
+            },
+            "size": {
+                "x": 5.5404815673828129,
+                "y": 3.8874945640563967,
+                "z": 9.038680076599121
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 270.019775390625,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_RailIvory",
+                "M_DeckWood",
+                "M_HullNavy",
+                "M_HullBlue",
+                "M_Rope",
+                "M_Steel",
+                "M_SafetyOrange",
+                "M_Rubber",
+                "M_SeaTeal",
+                "M_SafetyOrange.002",
+                "M_DeckWood.001",
+                "M_WoodHighlight",
+                "M_SeaTeal.002",
+                "M_RailIvory.002",
+                "M_Steel.002",
+                "M_Rubber.002",
+                "M_SeaTeal.003"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "WharfLight",
+            "asset": "Assets/Art/Models/GullHarbourV2/WharfLight.fbx",
+            "sha256": "E70B66234C68B2792568B32A2A456CA9583082AEE5C05B517335D79EBDDE09B3",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 364,
+            "min": {
+                "x": -0.20999999344348908,
+                "y": 0.0,
+                "z": -0.20999999344348908
+            },
+            "max": {
+                "x": 0.20999999344348908,
+                "y": 2.7100000381469728,
+                "z": 0.20999999344348908
+            },
+            "size": {
+                "x": 0.41999998688697817,
+                "y": 2.7100000381469728,
+                "z": 0.41999998688697817
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_HullNavy",
+                "M_BandIvory"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        },
+        {
+            "name": "Wreck",
+            "asset": "Assets/Art/Models/GullHarbourV2/Wreck.fbx",
+            "sha256": "E30B1D1D91AC22DFC59B265F17970EB04126B0AF8DCF0270F7A53FB8481F254E",
+            "notes": "Embedded materials; geometry unchanged",
+            "triangles": 428,
+            "min": {
+                "x": -4.0,
+                "y": -0.9200000762939453,
+                "z": -1.4799998998641968
+            },
+            "max": {
+                "x": 4.0,
+                "y": 0.5099999904632568,
+                "z": 1.4800001382827759
+            },
+            "size": {
+                "x": 8.0,
+                "y": 1.4300000667572022,
+                "z": 2.9600000381469728
+            },
+            "pivot": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rootScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "materials": [
+                "M_HullNavy",
+                "M_WoodHighlight",
+                "M_DeckWood",
+                "M_HullBlue",
+                "M_Rope"
+            ],
+            "resolves": true,
+            "looseMaterials": false
+        }
+    ]
+}

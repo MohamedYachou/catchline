@@ -1,0 +1,225 @@
+{
+  "status": "PASS",
+  "task": "FISH-ARMS-2 STEP0",
+  "triangles": 3862,
+  "original_triangles": 5878,
+  "removed_triangles": 2016,
+  "retained_vertices": 2029,
+  "removed_vertices": 1054,
+  "removed_sleeve_glove_components": 23,
+  "removal_method": "Remove complete connected mesh islands containing any positive GripHand.L/ReelHand.R skin weight; no retained vertex, material, UV, weight or rig edit.",
+  "bones": {
+    "RodRoot": {
+      "parent": null,
+      "head": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "tail": [
+        -0.0,
+        -0.11999999731779099,
+        0.0
+      ]
+    },
+    "Rod_01": {
+      "parent": "RodRoot",
+      "head": [
+        -0.0,
+        -0.15300875902175903,
+        0.04677946865558624
+      ],
+      "tail": [
+        0.0,
+        -0.35144200921058655,
+        0.1074465960264206
+      ]
+    },
+    "Rod_02": {
+      "parent": "Rod_01",
+      "head": [
+        0.0,
+        -0.35144200921058655,
+        0.1074465960264206
+      ],
+      "tail": [
+        0.0,
+        -0.5498751997947693,
+        0.16811372339725494
+      ]
+    },
+    "Rod_03": {
+      "parent": "Rod_02",
+      "head": [
+        0.0,
+        -0.5498751997947693,
+        0.16811372339725494
+      ],
+      "tail": [
+        0.0,
+        -0.7483084797859192,
+        0.2287808507680893
+      ]
+    },
+    "Rod_04": {
+      "parent": "Rod_03",
+      "head": [
+        0.0,
+        -0.7483084797859192,
+        0.2287808507680893
+      ],
+      "tail": [
+        0.0,
+        -0.9467417001724243,
+        0.28944796323776245
+      ]
+    },
+    "Rod_05": {
+      "parent": "Rod_04",
+      "head": [
+        0.0,
+        -0.9467417001724243,
+        0.28944796323776245
+      ],
+      "tail": [
+        0.0,
+        -1.1451748609542847,
+        0.3501150906085968
+      ]
+    },
+    "Rod_06": {
+      "parent": "Rod_05",
+      "head": [
+        0.0,
+        -1.1451748609542847,
+        0.3501150906085968
+      ],
+      "tail": [
+        0.0,
+        -1.3436081409454346,
+        0.41078221797943115
+      ]
+    },
+    "Rod_07": {
+      "parent": "Rod_06",
+      "head": [
+        0.0,
+        -1.3436081409454346,
+        0.41078221797943115
+      ],
+      "tail": [
+        0.0,
+        -1.542041301727295,
+        0.4714493453502655
+      ]
+    },
+    "Rod_08": {
+      "parent": "Rod_07",
+      "head": [
+        0.0,
+        -1.542041301727295,
+        0.4714493453502655
+      ],
+      "tail": [
+        -0.0,
+        -1.7404747009277344,
+        0.5321164727210999
+      ]
+    },
+    "LineTip": {
+      "parent": "Rod_08",
+      "head": [
+        -0.0,
+        -1.7404747009277344,
+        0.5321164727210999
+      ],
+      "tail": [
+        -0.0,
+        -1.7754746675491333,
+        0.5321164727210999
+      ]
+    },
+    "GripHand.L": {
+      "parent": "RodRoot",
+      "head": [
+        0.07000000029802322,
+        0.019999999552965164,
+        -0.019999999552965164
+      ],
+      "tail": [
+        0.07000000029802322,
+        -0.07000000029802322,
+        -0.019999999552965164
+      ]
+    },
+    "ReelHandle": {
+      "parent": "RodRoot",
+      "head": [
+        -0.057999998331069946,
+        0.02500000037252903,
+        -0.1599999964237213
+      ],
+      "tail": [
+        -0.1379999965429306,
+        0.02500000037252903,
+        -0.1599999964237213
+      ]
+    },
+    "ReelHand.R": {
+      "parent": "ReelHandle",
+      "head": [
+        -0.1599999964237213,
+        0.0729999989271164,
+        -0.2019999921321869
+      ],
+      "tail": [
+        -0.1599999964237213,
+        0.00299999862909317,
+        -0.2019999921321869
+      ]
+    },
+    "ReelSpool": {
+      "parent": "RodRoot",
+      "head": [
+        -0.0,
+        -0.05000000074505806,
+        -0.15700000524520874
+      ],
+      "tail": [
+        -0.0,
+        -0.11999999731779099,
+        -0.15700000524520874
+      ]
+    }
+  },
+  "actions": [
+    "Idle",
+    "Cast",
+    "Hold",
+    "Twitch",
+    "Strike",
+    "Reel",
+    "Lift"
+  ],
+  "fps": 40,
+  "source_and_actual_fbx_samples": 269,
+  "max_bone_error_m": 1.7206169797494437e-06,
+  "max_vertex_error_m": 1.3512512505203726e-06,
+  "retained_v1_deformation_identity": true,
+  "stage_excluded": true,
+  "atlas_resolves": true,
+  "original_hashes_unchanged": {
+    "build-manifest.json": "f6c28ac163ec78ab2cae8715bf165a70d3331cabc62eca877a6a1bafda6286a5",
+    "FishRodFP.blend": "e7b8193a90f8e97901651fe6b83fb8c4df3d3a2e41bc92f099af271371934eef",
+    "FishRodFP.fbx": "d08cf6efe33cd72937468e2d476538fee5546bc395f4b2406cfb082f990a09c4",
+    "FishRodFP_Atlas.png": "90493a04148586ce6b7979ff6871f9422415c97a1c27e56af836b448d63a3e23",
+    "receipts.json": "9a4814be9979593482fa1299b515fd64d194c55b65379361f1d2860e61ede2c6",
+    "REPORT.md": "a378dab1a0a3ca470cd44d486ea72a4cc4fdda32c718688e8ce9e6ac251a21c0",
+    "validation.json": "53d63d65221da7d9f4c588f3c683278903922b1edc4836a5c3baca6d065b6814"
+  },
+  "delivered_sha256": {
+    "FishRodFP_RodOnly.fbx": "70e7f87cda47aad24e6f03f2080e2a5956e9b7833375e53956e7838e7342686b",
+    "FishRodFP_RodOnly.blend": "43eb9aed59cf7df95ca2bcdcdfe7939e10147409e89b4a54d0482753194fc411",
+    "FishRodFP_Atlas.png": "90493a04148586ce6b7979ff6871f9422415c97a1c27e56af836b448d63a3e23"
+  }
+}

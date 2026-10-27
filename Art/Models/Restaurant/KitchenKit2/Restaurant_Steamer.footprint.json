@@ -1,0 +1,38 @@
+{
+  "name": "Restaurant_Steamer",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.3425000011920929,
+      -0.36000001430511475,
+      0.0
+    ],
+    [
+      0.3425000011920929,
+      0.33250001072883606,
+      1.027500033378601
+    ]
+  ],
+  "triangles": 3052,
+  "export_meshes": [
+    "Restaurant_Steamer"
+  ],
+  "atlas_cells": [
+    "dark",
+    "ivory",
+    "navy",
+    "steel"
+  ],
+  "worktop_z_m": 0.63,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "eb05fb16b56af69388bc44a3b673c4cd424013b07eeec439be8b866ef11abf39"
+}

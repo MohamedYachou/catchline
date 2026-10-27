@@ -1,0 +1,1979 @@
+{
+  "units": "metres",
+  "coordinate_contract": "Blender Z-up authoring; bottom centre pivot. FBX Y-up, metre units, baked axis conversion, identity local root. Unity handedness/native import remains lead verification.",
+  "items": [
+    {
+      "name": "Restaurant_Dish_GrilledFish",
+      "components": [
+        {
+          "model": "plate",
+          "target_size_m": [
+            0.22,
+            0.22,
+            0.016322580645161292
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "cream plate",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2466992884874344,
+            0.2466992884874344,
+            0.18136201798915863
+          ],
+          "offset_unity_m": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale_unity_xyz": [
+            0.2466992884874344,
+            0.18136201798915863,
+            0.2466992884874344
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "plate": [
+              [
+                0.2466992884874344,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.2466992884874344,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.18136201798915863,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.10999999940395355,
+              -0.10999999940395355,
+              0.0
+            ],
+            "max": [
+              0.10999999940395355,
+              0.10999999940395355,
+              0.016322581097483635
+            ]
+          }
+        },
+        {
+          "model": "fish",
+          "target_size_m": [
+            0.16322580645161291,
+            0.07806451612903226,
+            0.03406451612903226
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0,
+            0.0,
+            0.019870967741935485
+          ],
+          "rotation_blender_deg": [
+            0,
+            90,
+            -90
+          ],
+          "pack": "food",
+          "palette": "roast",
+          "role": "whole fish on its side; browned palette",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/fish.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2629355192184448,
+            0.24228499829769135,
+            0.17218925058841705
+          ],
+          "offset_unity_m": [
+            0.0,
+            0.019870967741935485,
+            -0.0
+          ],
+          "scale_unity_xyz": [
+            0.2629355192184448,
+            0.17218925058841705,
+            0.24228499829769135
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "fish": [
+              [
+                5.023871524173463e-16,
+                0.2629355192184448,
+                -1.1493276552698717e-08,
+                0.0
+              ],
+              [
+                1.0590613719330122e-08,
+                -1.0590613719330122e-08,
+                -0.24228499829769135,
+                0.03903225064277649
+              ],
+              [
+                -0.17218925058841705,
+                0.0,
+                -7.526630874110651e-09,
+                0.036903224885463715
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.08161290735006332,
+              -0.03903225436806679,
+              0.01987096667289734
+            ],
+            "max": [
+              0.08161290735006332,
+              0.03903225436806679,
+              0.05393548309803009
+            ]
+          }
+        },
+        {
+          "model": "lemon-half",
+          "target_size_m": [
+            0.03903225806451613,
+            0.03903225806451613,
+            0.02270967741935484
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0603225806451613,
+            0.02838709677419355,
+            0.017741935483870968
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "lemon garnish",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/lemon-half.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.22535285353660583,
+            0.19516128301620483,
+            0.20276498794555664
+          ],
+          "offset_unity_m": [
+            0.0603225806451613,
+            0.017741935483870968,
+            -0.02838709677419355
+          ],
+          "scale_unity_xyz": [
+            0.22535285353660583,
+            0.20276498794555664,
+            0.19516128301620483
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "lemon-half": [
+              [
+                0.22535285353660583,
+                0.0,
+                0.0,
+                0.06032257899641991
+              ],
+              [
+                0.0,
+                0.19516128301620483,
+                0.0,
+                0.028387097641825676
+              ],
+              [
+                0.0,
+                0.0,
+                0.20276498794555664,
+                0.017741935327649117
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.040806449949741364,
+              0.008870968595147133,
+              0.017741935327649117
+            ],
+            "max": [
+              0.07983870804309845,
+              0.04790322482585907,
+              0.04045161232352257
+            ]
+          }
+        },
+        {
+          "model": "food_ingredient_lettuce",
+          "target_size_m": [
+            0.048,
+            0.041,
+            0.014
+          ],
+          "offset_bottom_center_blender_m": [
+            -0.048,
+            0.052,
+            0.019
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "kaykit",
+          "palette": "catchline",
+          "role": "lettuce garnish",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/food_ingredient_lettuce.fbx",
+          "scale_after_source_rotation_blender_xyz": [
+            0.04345779865980148,
+            0.036174338310956955,
+            0.017062436789274216
+          ],
+          "offset_unity_m": [
+            -0.048,
+            0.019,
+            -0.052
+          ],
+          "scale_unity_xyz": [
+            0.04345779865980148,
+            0.017062436789274216,
+            0.036174338310956955
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "food_ingredient_lettuce": [
+              [
+                0.04345779865980148,
+                0.0,
+                0.0,
+                -0.04800000041723251
+              ],
+              [
+                0.0,
+                2.7310771422150992e-09,
+                -0.036174338310956955,
+                0.050125133246183395
+              ],
+              [
+                0.0,
+                0.01706237718462944,
+                1.2881781197293662e-09,
+                0.019173508509993553
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.07199999690055847,
+              0.03150000050663948,
+              0.01899999938905239
+            ],
+            "max": [
+              -0.024000000208616257,
+              0.07249999791383743,
+              0.032999999821186066
+            ]
+          }
+        }
+      ],
+      "note": "Kenney plate + roasted whole fish + lemon-half + KayKit lettuce garnish. No grill-score texture in pack.",
+      "bounds_blender": [
+        [
+          -0.10999999940395355,
+          -0.10999999940395355,
+          0.0
+        ],
+        [
+          0.10999999940395355,
+          0.10999999940395355,
+          0.05393548309803009
+        ]
+      ],
+      "size_unity": [
+        0.2199999988079071,
+        0.05393548309803009,
+        0.2199999988079071
+      ],
+      "triangles": 951,
+      "fbx_sha256": "4e737c0d3b1261e82d12f61c296329e636118ec2f66e8ae3de6a735a1902f3ae"
+    },
+    {
+      "name": "Restaurant_Dish_FilletsLemon",
+      "components": [
+        {
+          "model": "plate",
+          "target_size_m": [
+            0.22,
+            0.22,
+            0.017448275862068967
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "cream plate",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2466992884874344,
+            0.2466992884874344,
+            0.19386973977088928
+          ],
+          "offset_unity_m": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale_unity_xyz": [
+            0.2466992884874344,
+            0.19386973977088928,
+            0.2466992884874344
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "plate": [
+              [
+                0.2466992884874344,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.2466992884874344,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.19386973977088928,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.10999999940395355,
+              -0.10999999940395355,
+              0.0
+            ],
+            "max": [
+              0.10999999940395355,
+              0.10999999940395355,
+              0.01744827628135681
+            ]
+          }
+        },
+        {
+          "model": "salmon-fillet",
+          "target_size_m": [
+            0.07206896551724139,
+            0.13655172413793104,
+            0.027310344827586208
+          ],
+          "offset_bottom_center_blender_m": [
+            -0.02655172413793104,
+            -0.0037931034482758625,
+            0.01820689655172414
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "derived",
+          "palette": "catchline",
+          "role": "salmon topping subset; rice removed",
+          "source": "Art/Source/Restaurant/kenney/derived/salmon-fillet.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.9645848274230957,
+            0.6801273822784424,
+            0.5462068915367126
+          ],
+          "offset_unity_m": [
+            -0.02655172413793104,
+            0.01820689655172414,
+            0.0037931034482758625
+          ],
+          "scale_unity_xyz": [
+            0.9645848274230957,
+            0.5462068915367126,
+            0.6801273822784424
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "sushi-salmon": [
+              [
+                0.9645848274230957,
+                0.0,
+                0.0,
+                -0.02655172348022461
+              ],
+              [
+                0.0,
+                0.6801273822784424,
+                0.0,
+                -0.003793103387579322
+              ],
+              [
+                0.0,
+                0.0,
+                0.5462068915367126,
+                -0.003191303461790085
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.06258620321750641,
+              -0.0720689669251442,
+              0.018206896260380745
+            ],
+            "max": [
+              0.009482759982347488,
+              0.06448275595903397,
+              0.045517243444919586
+            ]
+          }
+        },
+        {
+          "model": "salmon-fillet",
+          "target_size_m": [
+            0.056896551724137934,
+            0.10620689655172416,
+            0.023517241379310348
+          ],
+          "offset_bottom_center_blender_m": [
+            0.03413793103448276,
+            0.018965517241379314,
+            0.022000000000000002
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            18
+          ],
+          "pack": "derived",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Source/Restaurant/kenney/derived/salmon-fillet.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.42746996879577637,
+            0.49621185660362244,
+            0.47034481167793274
+          ],
+          "offset_unity_m": [
+            0.03413793103448276,
+            0.022000000000000002,
+            -0.018965517241379314
+          ],
+          "scale_unity_xyz": [
+            0.42746996879577637,
+            0.47034481167793274,
+            0.49621185660362244
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "sushi-salmon.001": [
+              [
+                0.4065481126308441,
+                -0.13209548592567444,
+                0.0,
+                0.03413793072104454
+              ],
+              [
+                0.15333789587020874,
+                0.4719255268573761,
+                0.0,
+                0.018965518102049828
+              ],
+              [
+                0.0,
+                0.0,
+                0.47034481167793274,
+                0.0035737715661525726
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.005689655430614948,
+              -0.03413793072104454,
+              0.02199999988079071
+            ],
+            "max": [
+              0.06258620321750641,
+              0.0720689669251442,
+              0.04551723971962929
+            ]
+          }
+        },
+        {
+          "model": "lemon-half",
+          "target_size_m": [
+            0.04172413793103449,
+            0.04172413793103449,
+            0.02427586206896552
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0606896551724138,
+            -0.056896551724137934,
+            0.01820689655172414
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "lemon garnish",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/lemon-half.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.24089442193508148,
+            0.20862068235874176,
+            0.21674877405166626
+          ],
+          "offset_unity_m": [
+            0.0606896551724138,
+            0.01820689655172414,
+            0.056896551724137934
+          ],
+          "scale_unity_xyz": [
+            0.24089442193508148,
+            0.21674877405166626,
+            0.20862068235874176
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "lemon-half": [
+              [
+                0.24089442193508148,
+                0.0,
+                0.0,
+                0.06068965420126915
+              ],
+              [
+                0.0,
+                0.20862068235874176,
+                0.0,
+                -0.056896552443504333
+              ],
+              [
+                0.0,
+                0.0,
+                0.21674877405166626,
+                0.018206896260380745
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.039827585220336914,
+              -0.07775862514972687,
+              0.018206896260380745
+            ],
+            "max": [
+              0.08155172318220139,
+              -0.0360344834625721,
+              0.042482756078243256
+            ]
+          }
+        },
+        {
+          "model": "fries-loose",
+          "target_size_m": [
+            0.058,
+            0.095,
+            0.026
+          ],
+          "offset_bottom_center_blender_m": [
+            0.048,
+            -0.012,
+            0.025
+          ],
+          "rotation_blender_deg": [
+            90,
+            0,
+            10
+          ],
+          "pack": "derived",
+          "palette": "catchline",
+          "role": "loose fries, carton removed",
+          "source": "Art/Source/Restaurant/kenney/derived/fries-loose.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.26259326934814453,
+            0.36188367009162903,
+            0.11473952978849411
+          ],
+          "offset_unity_m": [
+            0.048,
+            0.025,
+            0.012
+          ],
+          "scale_unity_xyz": [
+            0.26259326934814453,
+            0.11473952978849411,
+            0.36188367009162903
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "fries.001": [
+              [
+                0.30515256524086,
+                2.3519626246581993e-09,
+                0.06941055506467819,
+                0.04265802726149559
+              ],
+              [
+                0.07415171712636948,
+                -1.8382181110609963e-08,
+                -0.5424904823303223,
+                0.029751116409897804
+              ],
+              [
+                0.0,
+                0.13539263606071472,
+                -7.634478826901159e-09,
+                0.03800000250339508
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.018999997526407242,
+              -0.05949999764561653,
+              0.02500000223517418
+            ],
+            "max": [
+              0.07699999958276749,
+              0.03549998998641968,
+              0.05100000277161598
+            ]
+          }
+        }
+      ],
+      "note": "Kenney plate + two salmon toppings (rice removed) + loose fries (carton removed) + lemon-half. Salmon remains salmon coloured.",
+      "bounds_blender": [
+        [
+          -0.10999999940395355,
+          -0.10999999940395355,
+          0.0
+        ],
+        [
+          0.10999999940395355,
+          0.10999999940395355,
+          0.050999999046325684
+        ]
+      ],
+      "size_unity": [
+        0.2199999988079071,
+        0.050999999046325684,
+        0.2199999988079071
+      ],
+      "triangles": 840,
+      "fbx_sha256": "23612c8963d5478cfe4dad8fba1d99fec26ee02a70642cd49ada4b363b84e46a"
+    },
+    {
+      "name": "Restaurant_Dish_CoffeeBiscuits",
+      "components": [
+        {
+          "model": "cup-saucer",
+          "target_size_m": [
+            0.15,
+            0.15,
+            0.012
+          ],
+          "offset_bottom_center_blender_m": [
+            0,
+            0,
+            0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/cup-saucer.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.4205101430416107,
+            0.4205101430416107,
+            0.31578949093818665
+          ],
+          "offset_unity_m": [
+            0,
+            0,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.4205101430416107,
+            0.31578949093818665,
+            0.4205101430416107
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "cup-saucer": [
+              [
+                0.4205101430416107,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.4205101430416107,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.31578949093818665,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.07500000298023224,
+              -0.07500000298023224,
+              0.0
+            ],
+            "max": [
+              0.07500000298023224,
+              0.07500000298023224,
+              0.012000000104308128
+            ]
+          }
+        },
+        {
+          "model": "cup-coffee",
+          "target_size_m": [
+            0.082,
+            0.095,
+            0.075
+          ],
+          "offset_bottom_center_blender_m": [
+            -0.012,
+            0.012,
+            0.01
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/cup-coffee.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.3791208863258362,
+            0.33141523599624634,
+            0.5357142686843872
+          ],
+          "offset_unity_m": [
+            -0.012,
+            0.01,
+            -0.012
+          ],
+          "scale_unity_xyz": [
+            0.3791208863258362,
+            0.5357142686843872,
+            0.33141523599624634
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "cup-coffee": [
+              [
+                0.3791208863258362,
+                0.0,
+                0.0,
+                -0.012000000104308128
+              ],
+              [
+                0.0,
+                0.33141523599624634,
+                0.0,
+                0.005015632137656212
+              ],
+              [
+                0.0,
+                0.0,
+                0.5357142686843872,
+                0.009999999776482582
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.05300000309944153,
+              -0.035499997437000275,
+              0.009999999776482582
+            ],
+            "max": [
+              0.029000001028180122,
+              0.05950000137090683,
+              0.08499999344348907
+            ]
+          }
+        },
+        {
+          "model": "cookie",
+          "target_size_m": [
+            0.041,
+            0.041,
+            0.009
+          ],
+          "offset_bottom_center_blender_m": [
+            0.036,
+            -0.035,
+            0.012
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/cookie.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.18658074736595154,
+            0.215444877743721,
+            0.18083183467388153
+          ],
+          "offset_unity_m": [
+            0.036,
+            0.012,
+            0.035
+          ],
+          "scale_unity_xyz": [
+            0.18658074736595154,
+            0.18083183467388153,
+            0.215444877743721
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "cookie": [
+              [
+                0.18658074736595154,
+                0.0,
+                0.0,
+                0.035999998450279236
+              ],
+              [
+                0.0,
+                0.215444877743721,
+                0.0,
+                -0.03500000014901161
+              ],
+              [
+                0.0,
+                0.0,
+                0.18083183467388153,
+                0.012000000104308128
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.01549999974668026,
+              -0.05550000071525574,
+              0.012000000104308128
+            ],
+            "max": [
+              0.05649999529123306,
+              -0.014500001445412636,
+              0.020999999716877937
+            ]
+          }
+        }
+      ],
+      "note": "Kenney cup-saucer + cup-coffee + cookie. Shared runtime visual for coffee/tea/bread, per existing game mapping.",
+      "bounds_blender": [
+        [
+          -0.07500000298023224,
+          -0.07500000298023224,
+          0.0
+        ],
+        [
+          0.07500000298023224,
+          0.07500000298023224,
+          0.08499999344348907
+        ]
+      ],
+      "size_unity": [
+        0.15000000596046448,
+        0.08499999344348907,
+        0.15000000596046448
+      ],
+      "triangles": 292,
+      "fbx_sha256": "beaf65301a83429abe99e52cd7091cc0a4560bf3128b69a6dd974e8e50e7f958"
+    },
+    {
+      "name": "Restaurant_Dish_Lemonade",
+      "components": [
+        {
+          "model": "soda-glass",
+          "target_size_m": [
+            0.067,
+            0.067,
+            0.15
+          ],
+          "offset_bottom_center_blender_m": [
+            0,
+            0,
+            0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "lemonade",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/soda-glass.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.25592055916786194,
+            0.22579795122146606,
+            0.3628111481666565
+          ],
+          "offset_unity_m": [
+            0,
+            0,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.25592055916786194,
+            0.3628111481666565,
+            0.22579795122146606
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "lemon": [
+              [
+                0.25592055916786194,
+                0.0,
+                0.0,
+                -2.7943735514531984e-15
+              ],
+              [
+                0.0,
+                0.22579795122146606,
+                0.0,
+                0.015436162240803242
+              ],
+              [
+                0.0,
+                0.0,
+                0.3628111481666565,
+                0.09821949899196625
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "soda-glass": [
+              [
+                0.25592055916786194,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.22579795122146606,
+                0.0,
+                -0.00790292676538229
+              ],
+              [
+                0.0,
+                0.0,
+                0.3628111481666565,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "straw": [
+              [
+                0.16593249142169952,
+                0.0,
+                0.0,
+                -0.0037541561760008335
+              ],
+              [
+                0.0,
+                0.14141322672367096,
+                -0.05115360766649246,
+                -0.017642010003328323
+              ],
+              [
+                0.0,
+                0.06088399514555931,
+                0.3067499101161957,
+                0.09171751886606216
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.03350000083446503,
+              -0.03349999710917473,
+              0.0
+            ],
+            "max": [
+              0.03350000083446503,
+              0.03349999710917473,
+              0.15000000596046448
+            ]
+          }
+        },
+        {
+          "model": "lemon-half",
+          "target_size_m": [
+            0.031,
+            0.031,
+            0.018
+          ],
+          "offset_bottom_center_blender_m": [
+            0.029,
+            0,
+            0.098
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/lemon-half.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.1789785921573639,
+            0.1550000011920929,
+            0.1607142984867096
+          ],
+          "offset_unity_m": [
+            0.029,
+            0.098,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.1789785921573639,
+            0.1607142984867096,
+            0.1550000011920929
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "lemon-half": [
+              [
+                0.1789785921573639,
+                0.0,
+                0.0,
+                0.028999999165534973
+              ],
+              [
+                0.0,
+                0.1550000011920929,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.1607142984867096,
+                0.09799999743700027
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.013499998487532139,
+              -0.015500000678002834,
+              0.09799999743700027
+            ],
+            "max": [
+              0.04450000077486038,
+              0.015500000678002834,
+              0.11599999666213989
+            ]
+          }
+        }
+      ],
+      "note": "Kenney soda-glass + lemon-half with accepted lemonade atlas. Shared runtime visual for lemonade/beer, per existing game mapping.",
+      "bounds_blender": [
+        [
+          -0.039000000804662704,
+          -0.03349999710917473,
+          0.0
+        ],
+        [
+          0.039000000804662704,
+          0.03349999710917473,
+          0.15000000596046448
+        ]
+      ],
+      "size_unity": [
+        0.07800000160932541,
+        0.15000000596046448,
+        0.06699999421834946
+      ],
+      "triangles": 240,
+      "fbx_sha256": "a11dd8be64d2399de5383da0999858807532963c9ebcd3dc03841ad4f8d4990a"
+    },
+    {
+      "name": "Restaurant_GrilledFishPlate",
+      "components": [
+        {
+          "model": "plate",
+          "target_size_m": [
+            0.22,
+            0.22,
+            0.016322580645161292
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "cream plate",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2466992884874344,
+            0.2466992884874344,
+            0.18136201798915863
+          ],
+          "offset_unity_m": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "scale_unity_xyz": [
+            0.2466992884874344,
+            0.18136201798915863,
+            0.2466992884874344
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "plate": [
+              [
+                0.2466992884874344,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.2466992884874344,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.18136201798915863,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.10999999940395355,
+              -0.10999999940395355,
+              0.0
+            ],
+            "max": [
+              0.10999999940395355,
+              0.10999999940395355,
+              0.016322581097483635
+            ]
+          }
+        },
+        {
+          "model": "fish",
+          "target_size_m": [
+            0.16322580645161291,
+            0.07806451612903226,
+            0.03406451612903226
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0,
+            0.0,
+            0.019870967741935485
+          ],
+          "rotation_blender_deg": [
+            0,
+            90,
+            -90
+          ],
+          "pack": "food",
+          "palette": "roast",
+          "role": "whole fish on its side; browned palette",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/fish.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2629355192184448,
+            0.24228499829769135,
+            0.17218925058841705
+          ],
+          "offset_unity_m": [
+            0.0,
+            0.019870967741935485,
+            -0.0
+          ],
+          "scale_unity_xyz": [
+            0.2629355192184448,
+            0.17218925058841705,
+            0.24228499829769135
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "fish": [
+              [
+                5.023871524173463e-16,
+                0.2629355192184448,
+                -1.1493276552698717e-08,
+                0.0
+              ],
+              [
+                1.0590613719330122e-08,
+                -1.0590613719330122e-08,
+                -0.24228499829769135,
+                0.03903225064277649
+              ],
+              [
+                -0.17218925058841705,
+                0.0,
+                -7.526630874110651e-09,
+                0.036903224885463715
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.08161290735006332,
+              -0.03903225436806679,
+              0.01987096667289734
+            ],
+            "max": [
+              0.08161290735006332,
+              0.03903225436806679,
+              0.05393548309803009
+            ]
+          }
+        },
+        {
+          "model": "lemon-half",
+          "target_size_m": [
+            0.03903225806451613,
+            0.03903225806451613,
+            0.02270967741935484
+          ],
+          "offset_bottom_center_blender_m": [
+            0.0603225806451613,
+            0.02838709677419355,
+            0.017741935483870968
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "lemon garnish",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/lemon-half.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.22535285353660583,
+            0.19516128301620483,
+            0.20276498794555664
+          ],
+          "offset_unity_m": [
+            0.0603225806451613,
+            0.017741935483870968,
+            -0.02838709677419355
+          ],
+          "scale_unity_xyz": [
+            0.22535285353660583,
+            0.20276498794555664,
+            0.19516128301620483
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "lemon-half": [
+              [
+                0.22535285353660583,
+                0.0,
+                0.0,
+                0.06032257899641991
+              ],
+              [
+                0.0,
+                0.19516128301620483,
+                0.0,
+                0.028387097641825676
+              ],
+              [
+                0.0,
+                0.0,
+                0.20276498794555664,
+                0.017741935327649117
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.040806449949741364,
+              0.008870968595147133,
+              0.017741935327649117
+            ],
+            "max": [
+              0.07983870804309845,
+              0.04790322482585907,
+              0.04045161232352257
+            ]
+          }
+        },
+        {
+          "model": "food_ingredient_lettuce",
+          "target_size_m": [
+            0.048,
+            0.041,
+            0.014
+          ],
+          "offset_bottom_center_blender_m": [
+            -0.048,
+            0.052,
+            0.019
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "kaykit",
+          "palette": "catchline",
+          "role": "lettuce garnish",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/food_ingredient_lettuce.fbx",
+          "scale_after_source_rotation_blender_xyz": [
+            0.04345779865980148,
+            0.036174338310956955,
+            0.017062436789274216
+          ],
+          "offset_unity_m": [
+            -0.048,
+            0.019,
+            -0.052
+          ],
+          "scale_unity_xyz": [
+            0.04345779865980148,
+            0.017062436789274216,
+            0.036174338310956955
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "food_ingredient_lettuce": [
+              [
+                0.04345779865980148,
+                0.0,
+                0.0,
+                -0.04800000041723251
+              ],
+              [
+                0.0,
+                2.7310771422150992e-09,
+                -0.036174338310956955,
+                0.050125133246183395
+              ],
+              [
+                0.0,
+                0.01706237718462944,
+                1.2881781197293662e-09,
+                0.019173508509993553
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.07199999690055847,
+              0.03150000050663948,
+              0.01899999938905239
+            ],
+            "max": [
+              -0.024000000208616257,
+              0.07249999791383743,
+              0.032999999821186066
+            ]
+          }
+        }
+      ],
+      "note": "Exact duplicate mesh/material/UV of Dish_GrilledFish, named for the carried two-handed prop.",
+      "bounds_blender": [
+        [
+          -0.10999999940395355,
+          -0.10999999940395355,
+          0.0
+        ],
+        [
+          0.10999999940395355,
+          0.10999999940395355,
+          0.05393548309803009
+        ]
+      ],
+      "size_unity": [
+        0.2199999988079071,
+        0.05393548309803009,
+        0.2199999988079071
+      ],
+      "triangles": 951,
+      "fbx_sha256": "5ed66ece3617c45e6541c3c6b3bd4d8c1c2c13f1d7dee3f091a62681c506f554"
+    },
+    {
+      "name": "Restaurant_Dish_FishSoup",
+      "components": [
+        {
+          "model": "plate",
+          "target_size_m": [
+            0.22,
+            0.22,
+            0.012
+          ],
+          "offset_bottom_center_blender_m": [
+            0,
+            0,
+            0
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.2466992884874344,
+            0.2466992884874344,
+            0.13333334028720856
+          ],
+          "offset_unity_m": [
+            0,
+            0,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.2466992884874344,
+            0.13333334028720856,
+            0.2466992884874344
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "plate": [
+              [
+                0.2466992884874344,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.2466992884874344,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.13333334028720856,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.10999999940395355,
+              -0.10999999940395355,
+              0.0
+            ],
+            "max": [
+              0.10999999940395355,
+              0.10999999940395355,
+              0.012000000104308128
+            ]
+          }
+        },
+        {
+          "model": "bowl-soup",
+          "target_size_m": [
+            0.16,
+            0.16,
+            0.067
+          ],
+          "offset_bottom_center_blender_m": [
+            0,
+            0,
+            0.01
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bowl-soup.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.3186279535293579,
+            0.2759398818016052,
+            0.3133406639099121
+          ],
+          "offset_unity_m": [
+            0,
+            0.01,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.3186279535293579,
+            0.3133406639099121,
+            0.2759398818016052
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "bowl-soup": [
+              [
+                0.3186279535293579,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.2759398818016052,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.3133406639099121,
+                0.009999999776482582
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.07999999821186066,
+              -0.07999999821186066,
+              0.009999999776482582
+            ],
+            "max": [
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07699999958276749
+            ]
+          }
+        },
+        {
+          "model": "utensil-spoon",
+          "target_size_m": [
+            0.018,
+            0.153,
+            0.009
+          ],
+          "offset_bottom_center_blender_m": [
+            0.086,
+            0,
+            0.014
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            90
+          ],
+          "pack": "food",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/utensil-spoon.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.1499999612569809,
+            0.3190247714519501,
+            0.32374101877212524
+          ],
+          "offset_unity_m": [
+            0.086,
+            0.014,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.1499999612569809,
+            0.32374101877212524,
+            0.3190247714519501
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "utensil-spoon": [
+              [
+                -6.556706733107376e-09,
+                -0.1499999612569809,
+                0.0,
+                0.0860000029206276
+              ],
+              [
+                0.3190247714519501,
+                -1.3945015808758399e-08,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.32374101877212524,
+                0.014000000432133675
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.07700000703334808,
+              -0.07649999856948853,
+              0.014000000432133675
+            ],
+            "max": [
+              0.0949999988079071,
+              0.07649999856948853,
+              0.023000001907348633
+            ]
+          }
+        },
+        {
+          "model": "salmon-fillet",
+          "target_size_m": [
+            0.029,
+            0.018,
+            0.009
+          ],
+          "offset_bottom_center_blender_m": [
+            -0.025,
+            0,
+            0.068
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            0
+          ],
+          "pack": "derived",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Source/Restaurant/kenney/derived/salmon-fillet.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.38814154267311096,
+            0.08965315669775009,
+            0.17999999225139618
+          ],
+          "offset_unity_m": [
+            -0.025,
+            0.068,
+            0
+          ],
+          "scale_unity_xyz": [
+            0.38814154267311096,
+            0.17999999225139618,
+            0.08965315669775009
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "sushi-salmon": [
+              [
+                0.38814154267311096,
+                0.0,
+                0.0,
+                -0.02500000037252903
+              ],
+              [
+                0.0,
+                0.08965315669775009,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.17999999225139618,
+                0.06094832345843315
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              -0.03949999809265137,
+              -0.008999999612569809,
+              0.06800000369548798
+            ],
+            "max": [
+              -0.010500000789761543,
+              0.008999999612569809,
+              0.07700000703334808
+            ]
+          }
+        },
+        {
+          "model": "salmon-fillet",
+          "target_size_m": [
+            0.023,
+            0.016,
+            0.008
+          ],
+          "offset_bottom_center_blender_m": [
+            0.025,
+            0.008,
+            0.068
+          ],
+          "rotation_blender_deg": [
+            0,
+            0,
+            25
+          ],
+          "pack": "derived",
+          "palette": "catchline",
+          "role": "",
+          "source": "Art/Source/Restaurant/kenney/derived/salmon-fillet.glb",
+          "scale_after_source_rotation_blender_xyz": [
+            0.15075497329235077,
+            0.07492785900831223,
+            0.1599999964237213
+          ],
+          "offset_unity_m": [
+            0.025,
+            0.068,
+            -0.008
+          ],
+          "scale_unity_xyz": [
+            0.15075497329235077,
+            0.1599999964237213,
+            0.07492785900831223
+          ],
+          "source_to_dish_mesh_matrices_blender": {
+            "sushi-salmon.001": [
+              [
+                0.13663040101528168,
+                -0.06371180713176727,
+                0.0,
+                0.02500000037252903
+              ],
+              [
+                0.03166588395833969,
+                0.06790769845247269,
+                0.0,
+                0.00800000037997961
+              ],
+              [
+                0.0,
+                0.0,
+                0.1599999964237213,
+                0.06173184514045715
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "verified_bounds_blender_m": {
+            "min": [
+              0.013500000350177288,
+              4.656612873077393e-10,
+              0.06800000369548798
+            ],
+            "max": [
+              0.0364999994635582,
+              0.01600000075995922,
+              0.07600000500679016
+            ]
+          }
+        }
+      ],
+      "note": "Kenney plate + bowl-soup + utensil-spoon + two small salmon topping pieces. Original vegetable broth retained with visible fish pieces.",
+      "bounds_blender": [
+        [
+          -0.10999999940395355,
+          -0.10999999940395355,
+          0.0
+        ],
+        [
+          0.10999999940395355,
+          0.10999999940395355,
+          0.07700000703334808
+        ]
+      ],
+      "size_unity": [
+        0.2199999988079071,
+        0.07700000703334808,
+        0.2199999988079071
+      ],
+      "triangles": 422,
+      "fbx_sha256": "ba98e72f4edbb46ebb02ecd8191d277a074a212de2ffb13bc8daa95f36421c29"
+    }
+  ]
+}

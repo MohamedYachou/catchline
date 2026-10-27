@@ -1,0 +1,448 @@
+{
+  "units": "m",
+  "wall_pivot": "rear contact, height centre; mount1.05m",
+  "coordinate_contract": "Blender [x,y,z] -> FBX [x,z,-y], front +Y -> -Z",
+  "items": [
+    {
+      "name": "Restaurant_StandaloneParasol",
+      "stem": "StandaloneParasol",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.4973910450935364,
+          -0.4973910450935364,
+          0.0
+        ],
+        [
+          0.4973910450935364,
+          0.4973910450935364,
+          2.01200008392334
+        ]
+      ],
+      "size_unity_m": [
+        0.9947820901870728,
+        2.01200008392334,
+        0.9947820901870728
+      ],
+      "components": [
+        {
+          "model": "plate",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "size_blender": [
+            0.39,
+            0.39,
+            0.047
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        }
+      ],
+      "notes": "Kenney food plate weighted base; authored timber mast, brass runner/ribs and eight-panel cream/teal canopy. No table or chairs.",
+      "triangles": 1072,
+      "fbx_sha256": "49452558266883682f430c119adac23e61b42c62ec2ba3c11e29e08f052b7abb"
+    },
+    {
+      "name": "Restaurant_DeckChair",
+      "stem": "DeckChair",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.2985000014305115,
+          -0.4095473885536194,
+          0.0
+        ],
+        [
+          0.2985000014305115,
+          0.4095473885536194,
+          0.9086189270019531
+        ]
+      ],
+      "size_unity_m": [
+        0.597000002861023,
+        0.9086189270019531,
+        0.8190947771072388
+      ],
+      "components": [
+        {
+          "model": "pillow_A",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pillow_A.fbx",
+          "size_blender": [
+            0.35,
+            0.1,
+            0.12
+          ],
+          "bottom_centre_blender": [
+            0,
+            -0.305,
+            0.76
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "notes": "KayKit pillow_A head cushion; authored folding timber X-frame, brass pivots, cream/teal sling and arms.",
+      "triangles": 926,
+      "fbx_sha256": "bda22d4d3518ac30a2addc7e5676fe9289339724c2b82b8771df3ddc3f265a16"
+    },
+    {
+      "name": "Restaurant_HarbourBench",
+      "stem": "HarbourBench",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.6999999284744263,
+          -0.25,
+          0.0
+        ],
+        [
+          0.6999999284744263,
+          0.25,
+          0.8200000524520874
+        ]
+      ],
+      "size_unity_m": [
+        1.3999998569488525,
+        0.8200000524520874,
+        0.5
+      ],
+      "components": [
+        {
+          "model": "bench",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bench.glb",
+          "size_blender": [
+            1.4,
+            0.5,
+            0.82
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "notes": "Kenney bench frame, warm-wood seat/back slats and brass fasteners; 1.4m wide.",
+      "triangles": 546,
+      "fbx_sha256": "fa9f542816d0abf4521b588814554d3289c9bc0fa264e6f5a1535106122f1df1"
+    },
+    {
+      "name": "Restaurant_RailingRopeSwag",
+      "stem": "RailingRopeSwag",
+      "mount": "wall",
+      "mount_height_m": 1.05,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.49300000071525574,
+          0.0,
+          -0.14550000429153442
+        ],
+        [
+          0.49300000071525574,
+          0.13100001215934753,
+          0.14550000429153442
+        ]
+      ],
+      "size_unity_m": [
+        0.9860000014305115,
+        0.29100000858306885,
+        0.13100001215934753
+      ],
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.065,
+            0.035,
+            0.095
+          ],
+          "bottom_centre_blender": [
+            -0.46,
+            0.0175,
+            0.065
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.065,
+            0.035,
+            0.095
+          ],
+          "bottom_centre_blender": [
+            0.46,
+            0.0175,
+            0.065
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "notes": "KayKit shelf_A_small mounting blocks; authored catenary-like rope with cork floats and navy/cream binding bands.",
+      "triangles": 15004,
+      "fbx_sha256": "d54380c4834f59bcaefba25e506ba90a39f8db559bedd41723f9145e84ce3981"
+    },
+    {
+      "name": "Restaurant_PotLadder",
+      "stem": "PotLadder",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.31200000643730164,
+          -0.30131322145462036,
+          0.0
+        ],
+        [
+          0.31200000643730164,
+          0.30131322145462036,
+          1.1737306118011475
+        ]
+      ],
+      "size_unity_m": [
+        0.6240000128746033,
+        1.1737306118011475,
+        0.6026264429092407
+      ],
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.61,
+            0.45,
+            0.035
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.24
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "jar_D_large",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_D_large.fbx",
+          "size_blender": [
+            0.18,
+            0.17,
+            0.16
+          ],
+          "bottom_centre_blender": [
+            -0.07,
+            0.08,
+            0.27599999999999997
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.23,
+            0.2,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            -0.07,
+            0.08,
+            0.41000000000000003
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture",
+          "geometry_subset": "plant material faces only; wooden pot omitted"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.61,
+            0.3,
+            0.035
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.57
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "jar_D_large",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_D_large.fbx",
+          "size_blender": [
+            0.18,
+            0.17,
+            0.16
+          ],
+          "bottom_centre_blender": [
+            0.055,
+            0.035,
+            0.606
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.23,
+            0.2,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            0.055,
+            0.035,
+            0.74
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture",
+          "geometry_subset": "plant material faces only; wooden pot omitted"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.61,
+            0.19,
+            0.035
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.89
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "jar_D_large",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_D_large.fbx",
+          "size_blender": [
+            0.18,
+            0.17,
+            0.16
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.926
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.23,
+            0.2,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            1.06
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture",
+          "geometry_subset": "plant material faces only; wooden pot omitted"
+        }
+      ],
+      "notes": "KayKit shelf_A_small three shelf boards and jar_D_large planters; Kenney pottedPlant leaf-only crowns; authored timber A-frame, spreaders and brass fasteners.",
+      "triangles": 1540,
+      "fbx_sha256": "eb36294fe21820039dc951ec2bca8b28c09a1d37ba0c911e093c7188a6a91028"
+    },
+    {
+      "name": "Restaurant_QuayBollard",
+      "stem": "QuayBollard",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.24135705828666687,
+          -0.25296634435653687,
+          0.0
+        ],
+        [
+          0.24135705828666687,
+          0.25296634435653687,
+          0.4599999785423279
+        ]
+      ],
+      "size_unity_m": [
+        0.48271411657333374,
+        0.4599999785423279,
+        0.5059326887130737
+      ],
+      "components": [
+        {
+          "model": "plate",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/plate.glb",
+          "size_blender": [
+            0.4,
+            0.4,
+            0.037
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        }
+      ],
+      "notes": "Kenney food plate base, authored navy cast mooring post/crosshead with brass collars and coiled rope.",
+      "triangles": 4848,
+      "fbx_sha256": "f2434ea90503bc14c82192943e26c3f17debc33008fea108cfa8adf5f47f87dd"
+    }
+  ]
+}

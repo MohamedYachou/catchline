@@ -1,0 +1,81 @@
+{
+  "stage": 4,
+  "name": "Seafood house",
+  "room_tiles": [
+    14,
+    5
+  ],
+  "kitchen_tiles": [
+    5,
+    5
+  ],
+  "terrace_tiles": [
+    3,
+    5
+  ],
+  "tile_m": 1,
+  "room_bounds_blender_m": [
+    [
+      -4,
+      -2.5,
+      0
+    ],
+    [
+      10,
+      2.5,
+      0
+    ]
+  ],
+  "kitchen_bounds_blender_m": [
+    [
+      -4,
+      -2.5,
+      0
+    ],
+    [
+      1,
+      2.5,
+      0
+    ]
+  ],
+  "terrace_bounds_blender_m": [
+    [
+      10,
+      -2.5,
+      0
+    ],
+    [
+      13,
+      2.5,
+      0
+    ]
+  ],
+  "terrace_tile_x_range": [
+    14,
+    16
+  ],
+  "door_tile": [
+    13,
+    0
+  ],
+  "entry_centre_blender_m": [
+    10,
+    2,
+    0.04
+  ],
+  "door_tile_centre_blender_m": [
+    9.5,
+    2,
+    0.04
+  ],
+  "floor_surface_z_m": 0.04,
+  "terrace_surface_z_m": 0.04,
+  "waterline_z_m": -0.55,
+  "origin": "unchanged V4",
+  "tile_to_blender": "[-4+x+.5,2.5-y-.5,.04]",
+  "convert_blender_to_unity": "[x,z,-y]",
+  "runtime_layout_convention": "all fixed dining tables/chairs/booths omitted; runtime places usable seats",
+  "front_quay": "narrow .70m strip along -Y, no seats",
+  "terrace_open_sky": true,
+  "terrace_open_outer_sides": true
+}

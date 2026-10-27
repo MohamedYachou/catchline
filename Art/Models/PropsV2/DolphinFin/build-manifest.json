@@ -1,0 +1,68 @@
+{
+  "name": "DolphinFin",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/DolphinFin.blend",
+      "sha256": "d0ab05ffe87d62b36750999c100b367401ee2742013505da258f23b8d4c63a0f",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.2199999988079071,
+      -0.3400000035762787,
+      -0.04500000178813934
+    ],
+    [
+      0.2199999988079071,
+      0.3400000035762787,
+      0.46000000834465027
+    ]
+  ],
+  "triangles": 132,
+  "mesh_parts": {
+    "SurfaceBack": 120,
+    "DolphinFin": 12
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "waterline",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "DolphinFin.blend": "8c615f8587754a40f7a5213378c15e006fbe30022611d1588f93b1e4233c504c",
+    "DolphinFin.fbx": "ac4d65a9ce7bdba2aff4f21dbea60bad1306aecb104be1cec2cedb005e8b26c6"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_DolphinFin.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/back.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/front.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/left.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/right.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/top.png",
+    "Art/Models/PropsV2/DolphinFin/iterations/r01/waterline-context.png"
+  ]
+}

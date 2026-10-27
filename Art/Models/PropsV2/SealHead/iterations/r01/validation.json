@@ -1,0 +1,687 @@
+{
+  "name": "SealHead",
+  "revision": "r01",
+  "delivery_sha256": {
+    "SealHead.blend": "2cf5bc8bdb5be20179e6191acbf2b8a3750c12d24cb58e3a743cc89315109073",
+    "SealHead.fbx": "f94214f5ebc51375d964365134fc13c9c0575939e82cdba0533474cb56db7205"
+  },
+  "runtime_sha256": "f94214f5ebc51375d964365134fc13c9c0575939e82cdba0533474cb56db7205",
+  "checks": [
+    "current delivery SHA256 SealHead.blend",
+    "current delivery SHA256 SealHead.fbx",
+    "protected reference unchanged Art/Models/StationsV1/SealHead.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry Head",
+    "finite vertices Head",
+    "nonempty geometry Muzzle",
+    "finite vertices Muzzle",
+    "nonempty geometry Nose",
+    "finite vertices Nose",
+    "nonempty geometry Eye",
+    "finite vertices Eye",
+    "nonempty geometry Whisker",
+    "finite vertices Whisker",
+    "nonempty geometry Whisker.001",
+    "finite vertices Whisker.001",
+    "nonempty geometry Eye.001",
+    "finite vertices Eye.001",
+    "nonempty geometry Whisker.002",
+    "finite vertices Whisker.002",
+    "nonempty geometry Whisker.003",
+    "finite vertices Whisker.003",
+    "source bounds manifest current",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry Eye",
+    "finite vertices Eye",
+    "nonempty geometry Eye.001",
+    "finite vertices Eye.001",
+    "nonempty geometry Head",
+    "finite vertices Head",
+    "nonempty geometry Muzzle",
+    "finite vertices Muzzle",
+    "nonempty geometry Nose",
+    "finite vertices Nose",
+    "nonempty geometry Whisker",
+    "finite vertices Whisker",
+    "nonempty geometry Whisker.001",
+    "finite vertices Whisker.001",
+    "nonempty geometry Whisker.002",
+    "finite vertices Whisker.002",
+    "nonempty geometry Whisker.003",
+    "finite vertices Whisker.003",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions Head",
+    "actual FBX part origin preserved Head",
+    "actual FBX triangle count Head",
+    "actual FBX face materials Head",
+    "actual FBX material slots Head",
+    "actual FBX every world vertex both directions Muzzle",
+    "actual FBX part origin preserved Muzzle",
+    "actual FBX triangle count Muzzle",
+    "actual FBX face materials Muzzle",
+    "actual FBX material slots Muzzle",
+    "actual FBX every world vertex both directions Nose",
+    "actual FBX part origin preserved Nose",
+    "actual FBX triangle count Nose",
+    "actual FBX face materials Nose",
+    "actual FBX material slots Nose",
+    "actual FBX every world vertex both directions Eye",
+    "actual FBX part origin preserved Eye",
+    "actual FBX triangle count Eye",
+    "actual FBX face materials Eye",
+    "actual FBX material slots Eye",
+    "actual FBX every world vertex both directions Whisker",
+    "actual FBX part origin preserved Whisker",
+    "actual FBX triangle count Whisker",
+    "actual FBX face materials Whisker",
+    "actual FBX material slots Whisker",
+    "actual FBX every world vertex both directions Whisker.001",
+    "actual FBX part origin preserved Whisker.001",
+    "actual FBX triangle count Whisker.001",
+    "actual FBX face materials Whisker.001",
+    "actual FBX material slots Whisker.001",
+    "actual FBX every world vertex both directions Eye.001",
+    "actual FBX part origin preserved Eye.001",
+    "actual FBX triangle count Eye.001",
+    "actual FBX face materials Eye.001",
+    "actual FBX material slots Eye.001",
+    "actual FBX every world vertex both directions Whisker.002",
+    "actual FBX part origin preserved Whisker.002",
+    "actual FBX triangle count Whisker.002",
+    "actual FBX face materials Whisker.002",
+    "actual FBX material slots Whisker.002",
+    "actual FBX every world vertex both directions Whisker.003",
+    "actual FBX part origin preserved Whisker.003",
+    "actual FBX triangle count Whisker.003",
+    "actual FBX face materials Whisker.003",
+    "actual FBX material slots Whisker.003",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 776,
+  "mesh_count": 9,
+  "source_parts": {
+    "Head": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.25,
+          -0.27000001072883606,
+          -0.09000000357627869
+        ],
+        [
+          0.25,
+          0.27000001072883606,
+          0.3700000047683716
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.14000000059604645
+      ]
+    },
+    "Muzzle": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.15000000596046448,
+          -0.3400000035762787,
+          0.0299999937415123
+        ],
+        [
+          0.15000000596046448,
+          -0.12000000476837158,
+          0.22999998927116394
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.23000000417232513,
+        0.12999999523162842
+      ]
+    },
+    "Nose": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.05000000074505806,
+          -0.35100001096725464,
+          0.12999999523162842
+        ],
+        [
+          0.05000000074505806,
+          -0.3009999990463257,
+          0.1899999976158142
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.32600000500679016,
+        0.1599999964237213
+      ]
+    },
+    "Eye": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.1379999965429306,
+          -0.22599999606609344,
+          0.22200000286102295
+        ],
+        [
+          -0.10199999809265137,
+          -0.1939999908208847,
+          0.257999986410141
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11999999731779099,
+        -0.20999999344348907,
+        0.23999999463558197
+      ]
+    },
+    "Whisker": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.2506295442581177,
+          -0.31395983695983887,
+          0.1260099560022354
+        ],
+        [
+          -0.10937045514583588,
+          -0.28604018688201904,
+          0.14399002492427826
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.18000000715255737,
+        -0.30000001192092896,
+        0.13499999046325684
+      ]
+    },
+    "Whisker.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.25056570768356323,
+          -0.3139598071575165,
+          0.096002496778965
+        ],
+        [
+          -0.10943432152271271,
+          -0.28604021668434143,
+          0.10899750143289566
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.18000000715255737,
+        -0.30000001192092896,
+        0.10249999910593033
+      ]
+    },
+    "Eye.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          0.10199999809265137,
+          -0.22599999606609344,
+          0.22200000286102295
+        ],
+        [
+          0.1379999965429306,
+          -0.1939999908208847,
+          0.257999986410141
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.11999999731779099,
+        -0.20999999344348907,
+        0.23999999463558197
+      ]
+    },
+    "Whisker.002": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10937045514583588,
+          -0.31395983695983887,
+          0.1260099560022354
+        ],
+        [
+          0.2506295442581177,
+          -0.28604018688201904,
+          0.14399002492427826
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.18000000715255737,
+        -0.30000001192092896,
+        0.13499999046325684
+      ]
+    },
+    "Whisker.003": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10943432152271271,
+          -0.3139598071575165,
+          0.096002496778965
+        ],
+        [
+          0.25056570768356323,
+          -0.28604021668434143,
+          0.10899750143289566
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.18000000715255737,
+        -0.30000001192092896,
+        0.10249999910593033
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "Eye": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.1379999965429306,
+          -0.22599995136260986,
+          0.22200003266334534
+        ],
+        [
+          -0.10199999809265137,
+          -0.19399994611740112,
+          0.2580000162124634
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.11999999731779099,
+        -0.2099999487400055,
+        0.24000002443790436
+      ]
+    },
+    "Eye.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          0.10199999809265137,
+          -0.22599995136260986,
+          0.22200003266334534
+        ],
+        [
+          0.1379999965429306,
+          -0.19399994611740112,
+          0.2580000162124634
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.11999999731779099,
+        -0.2099999487400055,
+        0.24000002443790436
+      ]
+    },
+    "Head": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.25,
+          -0.26999998092651367,
+          -0.09000000357627869
+        ],
+        [
+          0.25,
+          0.27000004053115845,
+          0.3700000047683716
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        2.2808896105175336e-08,
+        0.14000000059604645
+      ]
+    },
+    "Muzzle": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.15000000596046448,
+          -0.3399999737739563,
+          0.03000003844499588
+        ],
+        [
+          0.15000000596046448,
+          -0.11999998986721039,
+          0.23000004887580872
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.22999998927116394,
+        0.130000039935112
+      ]
+    },
+    "Nose": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.05000000074505806,
+          -0.35099998116493225,
+          0.1300000548362732
+        ],
+        [
+          0.05000000074505806,
+          -0.3009999692440033,
+          0.19000005722045898
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.3259999752044678,
+        0.1600000560283661
+      ]
+    },
+    "Whisker": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.2506295442581177,
+          -0.3139598071575165,
+          0.1260100156068802
+        ],
+        [
+          -0.10937046259641647,
+          -0.28604015707969666,
+          0.14399005472660065
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.18000000715255737,
+        -0.29999998211860657,
+        0.13500003516674042
+      ]
+    },
+    "Whisker.001": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.25056570768356323,
+          -0.3139597773551941,
+          0.09600254893302917
+        ],
+        [
+          -0.10943432152271271,
+          -0.28604018688201904,
+          0.10899755358695984
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.18000000715255737,
+        -0.29999998211860657,
+        0.1025000512599945
+      ]
+    },
+    "Whisker.002": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10937046259641647,
+          -0.3139598071575165,
+          0.1260100156068802
+        ],
+        [
+          0.2506295442581177,
+          -0.28604015707969666,
+          0.14399005472660065
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.18000000715255737,
+        -0.29999998211860657,
+        0.13500003516674042
+      ]
+    },
+    "Whisker.003": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10943432152271271,
+          -0.3139597773551941,
+          0.09600254893302917
+        ],
+        [
+          0.25056570768356323,
+          -0.28604018688201904,
+          0.10899755358695984
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 44
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.18000000715255737,
+        -0.29999998211860657,
+        0.1025000512599945
+      ]
+    }
+  },
+  "max_bounds_error_m": 5.960464477539063e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 8.429369702178807e-08,
+  "max_part_pivot_error_m": 5.960464477539063e-08,
+  "pivot_use": "waterline",
+  "render_sha256": {
+    "Art/Models/PropsV2/SealHead/iterations/r01/back.png": "da9ab342357a88b171bc3a7f61a1089ae00925f44a23ce1fcd169c39d200f665",
+    "Art/Models/PropsV2/SealHead/iterations/r01/front.png": "b42b6301dd20028bd417b5df3ac5e559d99fe89d7d54554bec9eecbffb82b01a",
+    "Art/Models/PropsV2/SealHead/iterations/r01/left.png": "dc7838c03f2d312dc1fe7797e4f8fb28e5f4fc3c0cb9c000149516d37d19d734",
+    "Art/Models/PropsV2/SealHead/iterations/r01/right.png": "608f65f8810316d374e96f0330a74ed503dbd31d22119a2e84f69da5b832a1f8",
+    "Art/Models/PropsV2/SealHead/iterations/r01/three-quarter.png": "a17c81f693be1813bb51a5d4bacbfe586e6b301916ce31b831827e9a8c33904b",
+    "Art/Models/PropsV2/SealHead/iterations/r01/top.png": "c4fd13c85aa190fe7c9247ec44bc89fff66d8be73a141e45f9c39581ff25c450",
+    "Art/Models/PropsV2/SealHead/iterations/r01/waterline-context.png": "d68a11571ead3428a3c5d2e7e3971633f3f51c5c2ed6a4659756b9a24f8dc0bb"
+  },
+  "pass": true
+}

@@ -1,0 +1,75 @@
+{
+  "name": "SealHead",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/SealHead.blend",
+      "sha256": "5e0d05cacf1455242e50d0ded86d1b87177aaa4b87df1cef35e45e5e7e2de8dc",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.2506295442581177,
+      -0.35100001096725464,
+      -0.09000000357627869
+    ],
+    [
+      0.2506295442581177,
+      0.27000001072883606,
+      0.3700000047683716
+    ]
+  ],
+  "triangles": 776,
+  "mesh_parts": {
+    "Head": 120,
+    "Muzzle": 120,
+    "Nose": 120,
+    "Eye": 120,
+    "Whisker": 44,
+    "Whisker.001": 44,
+    "Eye.001": 120,
+    "Whisker.002": 44,
+    "Whisker.003": 44
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "waterline",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "SealHead.blend": "2cf5bc8bdb5be20179e6191acbf2b8a3750c12d24cb58e3a743cc89315109073",
+    "SealHead.fbx": "f94214f5ebc51375d964365134fc13c9c0575939e82cdba0533474cb56db7205"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_SealHead.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/SealHead/iterations/r01/back.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/front.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/left.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/right.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/top.png",
+    "Art/Models/PropsV2/SealHead/iterations/r01/waterline-context.png"
+  ]
+}

@@ -153,7 +153,10 @@ namespace Catchline.Game
             body = new GameObject("Body").transform;
             body.SetParent(Root, false);
             var lib = ArtLibrary.Get();
-            var prefab = lib?.M("CrewRig");
+            // Each crew member has their own Quaternius human puppet (file named after the crew, e.g. mira.fbx).
+            // The generic skipper borrows Mira's. Anyone without a delivered puppet falls back to the old blob rig.
+            string puppet = (IsCaptain ? "mira" : Name)?.ToLowerInvariant();
+            var prefab = lib?.M(puppet) ?? lib?.M("CrewRig");
             if (prefab != null)
             {
                 rig = ArtLibrary.Spawn(prefab, body, Vector3.zero, Quaternion.identity).transform;
@@ -175,12 +178,7 @@ namespace Catchline.Game
                     Visuals.Prim(PrimitiveType.Sphere,"Engineer hardhat",body,new Vector3(0,.9f,0),new Vector3(.32f,.16f,.30f),Palette.Hex("E6AD38"));
                     Visuals.Prim(PrimitiveType.Cylinder,"Engineer hardhat brim",body,new Vector3(0,.87f,0),new Vector3(.36f,.025f,.34f),Palette.Hex("E6AD38"));
                 }
-                if (lib.CrewClips != null)
-                    foreach (var clip in lib.CrewClips)
-                    {
-                        var parts = clip.name.Split('|');
-                        clips[parts[parts.Length - 1]] = clip;
-                    }
+                CrewAnim.Fill(clips, lib.CrewClips);
             }
             else
             {

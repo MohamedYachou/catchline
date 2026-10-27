@@ -1,0 +1,39 @@
+PACK-STRUCTURE-1 — overhead structure for the restaurant (Codex 2, WSL CLI)
+
+WHY
+The room is open-topped, so hanging lights (pendants, string lights) have nothing to attach to and
+read as floating. These overhead pieces give them an anchor and add vertical interest and shade over
+the terrace. Mo 10-27: free packs, everything fixed-placed, make it look good. Claude rebuilt the
+look (evening grade, bloom; commit 5352e7e). Distinct from your kitchen set (Pack/kitchen/) and the
+light fixtures (Pack/lights/), and from Codex 1's terrace set (Pack/terrace/).
+
+OWN (source only, no Assets / no game code / no git — Claude imports and wires):
+  Art/Models/Restaurant/Pack/structure/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first for the proven contract you just used:
+  Art/Models/Restaurant/Pack/kitchen/REPORT.md   (your PACK-KITCHEN-1 delivery — match it exactly)
+
+BUILD these stems (one Unity FBX each, drop-in):
+  Pergola       a freestanding wooden beam frame (posts + cross-beams, open top) to span the terrace
+                or a dining bay; string lights/pendants hang from it. ~3 x 1 m (note the exact span).  (floor)
+  CeilingBeam   a single exposed wooden beam with two end brackets, mounted overhead; pendants hang
+                from it. ~2 m along +X.                                                                (overhead/wall)
+  TerraceAwning a striped fabric awning on a wall batten, slanting out over the terrace edge. ~1.5 m.  (wall)
+  HangingBasket a plant basket on a short chain, hangs from a beam/pergola.                            (overhead)
+
+CONVENTIONS (identical to PACK-KITCHEN-1): Unity Y-up, 1 unit = 1 m. Floor pieces (Pergola) pivot at
+the floor-footprint centre, posts at Y=0. Overhead/wall pieces (CeilingBeam, HangingBasket) pivot at
+their top mount point (the beam top / chain top at Y=0, hanging down), so Claude places that origin at
+the mount height; TerraceAwning pivots at the wall-contact plane, front -Z. Note each piece's mount
+convention in footprints.json. Root transform identity, axis conversion baked, atlas png beside the
+FBX, warm wood + navy/teal + cream + brass, no diner-orange. No _Glow elements needed (the lights
+provide the glow). Exact same exporter call as the accepted Pack FBXs.
+
+EVIDENCE: a contact render of all four at the game camera (pitch 38 / yaw 2) on a 1 m grid
+(structure-contact.jpg + an 844-wide phone overview), a one-line note per piece (size, mount, which
+pack models it combines), plus the same audits PACK-KITCHEN-1 produced (fbx-transform, geometry,
+mesh, preservation). REPORT.md in Art/Models/Restaurant/Pack/structure/.
+
+RULES: fresh session, no memory — state is comms.md, your CHECKPOINT lines and the files on disk.
+Keep working until your budget runs out; never stop to ask (write QUESTION lines in comms.md).
+CHECKPOINT per 2 pieces. When the four are delivered and audited: DONE in comms.md, then IDLE.
+No Assets, no code, no git.

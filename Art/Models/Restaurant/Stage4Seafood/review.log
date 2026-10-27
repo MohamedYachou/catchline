@@ -1,0 +1,13 @@
+00:01.390  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage4Seafood\Stage4Seafood.blend"
+00:01.609  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage4Seafood\review.py:9: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  w=bpy.data.objects['REVIEW_WaterPlane'];m=bpy.data.materials.new('REVIEW_PaintedNightSea');m.use_nodes=True;ns=m.node_tree.nodes;lk=m.node_tree.links;bs=ns['Principled BSDF'];bs.inputs['Roughness'].default_value=.74;bs.inputs['Metallic'].default_value=0;bs.inputs['Emission Strength'].default_value=.65;geo=ns.new('ShaderNodeNewGeometry');scale=ns.new('ShaderNodeVectorMath');scale.operation='SCALE';scale.inputs[3].default_value=1/8;lk.new(geo.outputs['Position'],scale.inputs[0]);tx=ns.new('ShaderNodeTexImage');tx.image=bpy.data.images.load(str(O.parent/'Sea/night-water-2048.png'));tx.image.pack();lk.new(scale.outputs[0],tx.inputs[0]);lk.new(tx.outputs['Color'],bs.inputs['Base Color']);lk.new(tx.outputs['Color'],bs.inputs['Emission Color']);w.data=w.data.copy();w.data.materials.clear();w.data.materials.append(m)
+00:46.890  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage4Seafood\renders\seafood-room-1440x900.png'
+01:01.312  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage4Seafood\renders\seafood-room-844x390.png'
+BlenderMCP addon registered
+Info: Saved as "Seafood-V4-check.blend"
+RESTAURANT3 REVIEW PASS
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

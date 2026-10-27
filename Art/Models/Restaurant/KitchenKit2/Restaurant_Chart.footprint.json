@@ -1,0 +1,42 @@
+{
+  "name": "Restaurant_Chart",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.4399999976158142,
+      -0.0804409608244896,
+      0.0
+    ],
+    [
+      0.4399999976158142,
+      0.032499998807907104,
+      0.6800000071525574
+    ]
+  ],
+  "triangles": 1414,
+  "export_meshes": [
+    "Restaurant_Chart"
+  ],
+  "atlas_cells": [
+    "brass",
+    "ivory",
+    "leaf",
+    "navy",
+    "rope",
+    "teal",
+    "wooddark"
+  ],
+  "mount": "wall",
+  "recommended_base_height_m": 1.0,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "27573ba19b84db08819952d34ec3de1577685459c050fc4f3feb7ad5c3396b5a"
+}

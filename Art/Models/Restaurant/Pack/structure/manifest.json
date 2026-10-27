@@ -1,0 +1,298 @@
+{
+  "units": "m",
+  "coordinate_contract": "Blender [x,y,z] -> FBX [x,z,-y]; wall front -Z; axis conversion baked, root identity",
+  "items": [
+    {
+      "stem": "Pergola",
+      "name": "Restaurant_Pergola",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        3,
+        1
+      ],
+      "size_unity_m": [
+        3.0,
+        2.549999952316284,
+        1.0
+      ],
+      "bounds_blender": [
+        [
+          -1.5,
+          -0.5,
+          0.0
+        ],
+        [
+          1.5,
+          0.5,
+          2.549999952316284
+        ]
+      ],
+      "triangles": 2084,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            -1.36,
+            -0.4,
+            2.2
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            -1.36,
+            0.4,
+            2.2
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            1.36,
+            -0.4,
+            2.2
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.14
+          ],
+          "bottom_centre_blender": [
+            1.36,
+            0.4,
+            2.2
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "authored_details": "KayKit shelf_A_small four rafter mounting brackets; authored solid bevelled timbers, squared posts, diagonal knee braces, navy foot/collar shoes and brass bolts. Open rafter frame, no roof.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "mount_convention": "floor footprint centre, feet Y0",
+      "clear_span_unity_m": [
+        2.59,
+        0.67
+      ],
+      "fbx_sha256": "72d4984ee7502d7de69199a8c9b734ef4db6b2fabd47653781a67c48a3ea0ec2"
+    },
+    {
+      "stem": "CeilingBeam",
+      "name": "Restaurant_CeilingBeam",
+      "mount": "ceiling",
+      "mount_height_m": 2.6,
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "size_unity_m": [
+        2.0,
+        0.25,
+        0.20384001731872559
+      ],
+      "bounds_blender": [
+        [
+          -1.0,
+          -0.10192000865936279,
+          -0.25
+        ],
+        [
+          1.0,
+          0.10192000865936279,
+          0.0
+        ]
+      ],
+      "triangles": 1084,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.11,
+            0.2,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            -0.88,
+            0,
+            -0.25
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.11,
+            0.2,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0.88,
+            0,
+            -0.25
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "authored_details": "Authored solid bevelled timber beam with two KayKit shelf_A_small end brackets, navy straps and brass pendant eyes.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "mount_convention": "top mount Y0, all geometry hangs below",
+      "clear_span_unity_m": null,
+      "fbx_sha256": "12428bb30aff1ca606b03fad348915fb39441228f0d22bf7152c3596d15ed449"
+    },
+    {
+      "stem": "TerraceAwning",
+      "name": "Restaurant_TerraceAwning",
+      "mount": "wall",
+      "mount_height_m": 2.6,
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "size_unity_m": [
+        1.5099999904632568,
+        0.40000003576278687,
+        0.8893148303031921
+      ],
+      "bounds_blender": [
+        [
+          -0.7549999952316284,
+          0.0,
+          -0.40000003576278687
+        ],
+        [
+          0.7549999952316284,
+          0.8893148303031921,
+          0.0
+        ]
+      ],
+      "triangles": 920,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.075,
+            0.11,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            -0.64,
+            0.055,
+            -0.18
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.075,
+            0.11,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            0.64,
+            0.055,
+            -0.18
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "authored_details": "KayKit shelf_A_small pair of wall brackets; authored wood batten, navy/cream solid striped fabric with scalloped valance, brass support stays.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "mount_convention": "wall contact at top of batten, front -Z; all geometry Y<=0",
+      "clear_span_unity_m": null,
+      "fbx_sha256": "cf9e189900586daed0a00fa70c4835a7fde3e8bb0d2dd3966db155c50b1791d1"
+    },
+    {
+      "stem": "HangingBasket",
+      "name": "Restaurant_HangingBasket",
+      "mount": "ceiling",
+      "mount_height_m": 2.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.44200000166893005,
+        0.7451961636543274,
+        0.44200000166893005
+      ],
+      "bounds_blender": [
+        [
+          -0.22100000083446503,
+          -0.22100000083446503,
+          -0.7451961636543274
+        ],
+        [
+          0.22100000083446503,
+          0.22100000083446503,
+          0.0
+        ]
+      ],
+      "triangles": 6408,
+      "components": [
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.43,
+            0.43,
+            0.38
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            -0.56
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture",
+          "geometry_subset": "plant material faces only, wooden pot omitted"
+        }
+      ],
+      "authored_details": "Kenney pottedPlant leaf-only crown; authored honey wicker basket with woven ribs, three brass suspension chains and top eye.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "mount_convention": "top mount Y0, all geometry hangs below",
+      "clear_span_unity_m": null,
+      "fbx_sha256": "555cba2dbade74620ede0b257b4fb0945a85fc67cb47e385b42a50892f52d694"
+    }
+  ]
+}

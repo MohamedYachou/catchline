@@ -1,0 +1,545 @@
+{
+  "name": "OffalPile",
+  "revision": "r01",
+  "delivery_sha256": {
+    "OffalPile.blend": "3853d34805f0fcf9b67b76043e2d52c06bacbbd8bce636581f475d3a3195789f",
+    "OffalPile.fbx": "e9dcd96a3d98fea588fc9a11d225e73489e5d1a1e1fba17e3db4563bf58d1732"
+  },
+  "runtime_sha256": "e9dcd96a3d98fea588fc9a11d225e73489e5d1a1e1fba17e3db4563bf58d1732",
+  "checks": [
+    "current delivery SHA256 OffalPile.blend",
+    "current delivery SHA256 OffalPile.fbx",
+    "protected reference unchanged Art/Models/StationsV1/OffalPile.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry CoarseOffcut",
+    "finite vertices CoarseOffcut",
+    "nonempty geometry CoarseOffcut.001",
+    "finite vertices CoarseOffcut.001",
+    "nonempty geometry CoarseOffcut.002",
+    "finite vertices CoarseOffcut.002",
+    "nonempty geometry CoarseOffcut.003",
+    "finite vertices CoarseOffcut.003",
+    "nonempty geometry CoarseOffcut.004",
+    "finite vertices CoarseOffcut.004",
+    "nonempty geometry CoarseOffcut.005",
+    "finite vertices CoarseOffcut.005",
+    "nonempty geometry CoarseOffcut.006",
+    "finite vertices CoarseOffcut.006",
+    "source bounds manifest current",
+    "floor pivot at horizontal bounds centre and zero lowest contact",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry CoarseOffcut",
+    "finite vertices CoarseOffcut",
+    "nonempty geometry CoarseOffcut.001",
+    "finite vertices CoarseOffcut.001",
+    "nonempty geometry CoarseOffcut.002",
+    "finite vertices CoarseOffcut.002",
+    "nonempty geometry CoarseOffcut.003",
+    "finite vertices CoarseOffcut.003",
+    "nonempty geometry CoarseOffcut.004",
+    "finite vertices CoarseOffcut.004",
+    "nonempty geometry CoarseOffcut.005",
+    "finite vertices CoarseOffcut.005",
+    "nonempty geometry CoarseOffcut.006",
+    "finite vertices CoarseOffcut.006",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions CoarseOffcut",
+    "actual FBX part origin preserved CoarseOffcut",
+    "actual FBX triangle count CoarseOffcut",
+    "actual FBX face materials CoarseOffcut",
+    "actual FBX material slots CoarseOffcut",
+    "actual FBX every world vertex both directions CoarseOffcut.001",
+    "actual FBX part origin preserved CoarseOffcut.001",
+    "actual FBX triangle count CoarseOffcut.001",
+    "actual FBX face materials CoarseOffcut.001",
+    "actual FBX material slots CoarseOffcut.001",
+    "actual FBX every world vertex both directions CoarseOffcut.002",
+    "actual FBX part origin preserved CoarseOffcut.002",
+    "actual FBX triangle count CoarseOffcut.002",
+    "actual FBX face materials CoarseOffcut.002",
+    "actual FBX material slots CoarseOffcut.002",
+    "actual FBX every world vertex both directions CoarseOffcut.003",
+    "actual FBX part origin preserved CoarseOffcut.003",
+    "actual FBX triangle count CoarseOffcut.003",
+    "actual FBX face materials CoarseOffcut.003",
+    "actual FBX material slots CoarseOffcut.003",
+    "actual FBX every world vertex both directions CoarseOffcut.004",
+    "actual FBX part origin preserved CoarseOffcut.004",
+    "actual FBX triangle count CoarseOffcut.004",
+    "actual FBX face materials CoarseOffcut.004",
+    "actual FBX material slots CoarseOffcut.004",
+    "actual FBX every world vertex both directions CoarseOffcut.005",
+    "actual FBX part origin preserved CoarseOffcut.005",
+    "actual FBX triangle count CoarseOffcut.005",
+    "actual FBX face materials CoarseOffcut.005",
+    "actual FBX material slots CoarseOffcut.005",
+    "actual FBX every world vertex both directions CoarseOffcut.006",
+    "actual FBX part origin preserved CoarseOffcut.006",
+    "actual FBX triangle count CoarseOffcut.006",
+    "actual FBX face materials CoarseOffcut.006",
+    "actual FBX material slots CoarseOffcut.006",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 840,
+  "mesh_count": 7,
+  "source_parts": {
+    "CoarseOffcut": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.03350934758782387,
+          -0.024314038455486298,
+          0.0
+        ],
+        [
+          0.12649065256118774,
+          0.06568596512079239,
+          0.05000000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.04649065062403679,
+        0.020685963332653046,
+        0.02500000037252903
+      ]
+    },
+    "CoarseOffcut.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.13512690365314484,
+          0.022968381643295288,
+          0.029999999329447746
+        ],
+        [
+          0.02487308904528618,
+          0.11296838521957397,
+          0.07999999821186066
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.05512690916657448,
+        0.06796838343143463,
+        0.054999999701976776
+      ]
+    },
+    "CoarseOffcut.002": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.0756344422698021,
+          -0.1139688566327095,
+          0.0
+        ],
+        [
+          0.08436555415391922,
+          -0.023968853056430817,
+          0.05000000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.004365558736026287,
+        -0.06896885484457016,
+        0.02500000037252903
+      ]
+    },
+    "CoarseOffcut.003": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.053091783076524734,
+          0.01536935567855835,
+          0.029999999329447746
+        ],
+        [
+          0.10690821707248688,
+          0.10536935925483704,
+          0.07999999821186066
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.026908215135335922,
+        0.06036935746669769,
+        0.054999999701976776
+      ]
+    },
+    "CoarseOffcut.004": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.1524375081062317,
+          -0.036516912281513214,
+          0.0
+        ],
+        [
+          0.007562495768070221,
+          0.05348309129476547,
+          0.05000000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07243750244379044,
+        0.008483088575303555,
+        0.02500000037252903
+      ]
+    },
+    "CoarseOffcut.005": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.007562495768070221,
+          -0.07260560244321823,
+          0.029999999329447746
+        ],
+        [
+          0.1524375081062317,
+          0.017394401133060455,
+          0.07999999821186066
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07243750244379044,
+        -0.027605600655078888,
+        0.054999999701976776
+      ]
+    },
+    "CoarseOffcut.006": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.0965002179145813,
+          0.02396884560585022,
+          0.0
+        ],
+        [
+          0.06349977850914001,
+          0.1139688491821289,
+          0.05000000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.016500217840075493,
+        0.06896884739398956,
+        0.02500000037252903
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "CoarseOffcut": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.03350934758782387,
+          -0.024314034730196,
+          -3.725290298461914e-09
+        ],
+        [
+          0.12649065256118774,
+          0.06568597257137299,
+          0.04999999701976776
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.04649065062403679,
+        0.020685967057943344,
+        0.02499999664723873
+      ]
+    },
+    "CoarseOffcut.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.13512690365314484,
+          0.022968389093875885,
+          0.02999998815357685
+        ],
+        [
+          0.02487308904528618,
+          0.11296839267015457,
+          0.07999999076128006
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.05512690916657448,
+        0.06796839088201523,
+        0.05499998852610588
+      ]
+    },
+    "CoarseOffcut.002": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.0756344422698021,
+          -0.1139688491821289,
+          1.1175870895385742e-08
+        ],
+        [
+          0.08436555415391922,
+          -0.02396884560585022,
+          0.050000011920928955
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.004365558736026287,
+        -0.06896884739398956,
+        0.025000011548399925
+      ]
+    },
+    "CoarseOffcut.003": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.053091783076524734,
+          0.015369363129138947,
+          0.02999998815357685
+        ],
+        [
+          0.10690821707248688,
+          0.10536936670541763,
+          0.07999999076128006
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.026908215135335922,
+        0.06036936491727829,
+        0.05499998852610588
+      ]
+    },
+    "CoarseOffcut.004": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.1524375081062317,
+          -0.036516908556222916,
+          -1.862645149230957e-09
+        ],
+        [
+          0.007562495768070221,
+          0.05348309502005577,
+          0.04999999701976776
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07243750244379044,
+        0.008483092300593853,
+        0.02499999850988388
+      ]
+    },
+    "CoarseOffcut.005": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.007562495768070221,
+          -0.07260559499263763,
+          0.030000003054738045
+        ],
+        [
+          0.1524375081062317,
+          0.0173944104462862,
+          0.08000000566244125
+        ]
+      ],
+      "material_triangles": {
+        "M_Skin": 120
+      },
+      "material_colours": {
+        "M_Skin": [
+          0.48514994978904724,
+          0.18782077729701996,
+          0.07036009430885315,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07243750244379044,
+        -0.027605591341853142,
+        0.055000003427267075
+      ]
+    },
+    "CoarseOffcut.006": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.0965002179145813,
+          0.023968853056430817,
+          -1.1175870895385742e-08
+        ],
+        [
+          0.06349977850914001,
+          0.1139688566327095,
+          0.049999989569187164
+        ]
+      ],
+      "material_triangles": {
+        "M_FishSilver": 120
+      },
+      "material_colours": {
+        "M_FishSilver": [
+          0.4910208582878113,
+          0.5840784311294556,
+          0.5647115111351013,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.016500217840075493,
+        0.06896885484457016,
+        0.024999989196658134
+      ]
+    }
+  },
+  "max_bounds_error_m": 1.1175870895385742e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 2.6863450374185958e-08,
+  "max_part_pivot_error_m": 1.1175870895385742e-08,
+  "pivot_use": "floor/contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/OffalPile/iterations/r01/back.png": "bda39d5ecade1fa49454c34a98ce48fd9c3715911a5e73d66ad894e409003ea8",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/front.png": "cbb8a3883c05ce2ad681af8b4464e971f77a3f9044fff8ed2bf810b4c872f243",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/left.png": "1e8a553986b85b35db8712bff075eba83f0e21115b50c88efa8a83abd483043f",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/right.png": "2008552a241b8e51a0057bca54e7941d2e09fdda872d563b11f1ea65ee20421c",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/three-quarter.png": "b93d678abd7b306dff25de3cf1043ed396734db51a610edfab5321aff935ab0d",
+    "Art/Models/PropsV2/OffalPile/iterations/r01/top.png": "d7a9f6cb893f06f29197f060113f5278077f345838d66d0b440d9801105924ac"
+  },
+  "pass": true
+}

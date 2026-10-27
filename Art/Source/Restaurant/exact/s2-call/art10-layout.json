@@ -1,0 +1,71 @@
+{
+  "screens": [
+    {
+      "screen": "phone",
+      "canvas": [
+        844,
+        390
+      ],
+      "origin": "top-left",
+      "placements": [
+        {
+          "name": "v2-s2-call-bubble-2line",
+          "use": "long-call",
+          "rect": [
+            190,
+            50,
+            320,
+            62
+          ],
+          "z": 20
+        }
+      ],
+      "unchangedHostRect": [
+        511,
+        47,
+        38,
+        52
+      ],
+      "textRect": [
+        207,
+        63,
+        278,
+        36
+      ]
+    },
+    {
+      "screen": "desktop",
+      "canvas": [
+        1440,
+        900
+      ],
+      "origin": "top-left",
+      "placements": [
+        {
+          "name": "v2-s2-call-bubble-2line",
+          "use": "long-call",
+          "rect": [
+            444,
+            86,
+            430,
+            76
+          ],
+          "z": 20
+        }
+      ],
+      "unchangedHostRect": [
+        879,
+        80,
+        49,
+        67
+      ],
+      "textRect": [
+        465,
+        103,
+        370,
+        44
+      ]
+    }
+  ],
+  "notes": "Long-line state only. Original one-line bubble remains available. Phone panel extends to y112, desktop to y162. Keep supplied host and header; avoid spawning world marker over this reserved HUD region."
+}

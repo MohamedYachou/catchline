@@ -1,0 +1,34 @@
+﻿[
+    {
+        "Mode":  "Real",
+        "Binaries":  [
+                         {
+                             "Path":  "Catchline.exe",
+                             "SHA256":  "3070E580E019576B9AFCDEB4FEC18D03CEBC119F6AE84D597412905C749AD653"
+                         },
+                         {
+                             "Path":  "Catchline_Data/Managed/Assembly-CSharp.dll",
+                             "SHA256":  "6F226A94BF1395E9968F448AD3D7763E917BAE66ECE0B18969D1029735BAF548"
+                         }
+                     ],
+        "Shortcut":  "Catchline.lnk",
+        "Target":  "C:\\Users\\momoy\\Projects\\Catchline-play\\Real\\Catchline.exe",
+        "Arguments":  "-native-display"
+    },
+    {
+        "Mode":  "Test",
+        "Binaries":  [
+                         {
+                             "Path":  "Catchline.exe",
+                             "SHA256":  "3070E580E019576B9AFCDEB4FEC18D03CEBC119F6AE84D597412905C749AD653"
+                         },
+                         {
+                             "Path":  "Catchline_Data/Managed/Assembly-CSharp.dll",
+                             "SHA256":  "6F226A94BF1395E9968F448AD3D7763E917BAE66ECE0B18969D1029735BAF548"
+                         }
+                     ],
+        "Shortcut":  "Catchline - Test.lnk",
+        "Target":  "C:\\Users\\momoy\\Projects\\Catchline-play\\Test\\Catchline.exe",
+        "Arguments":  "-native-display"
+    }
+]

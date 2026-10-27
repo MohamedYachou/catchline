@@ -1,0 +1,42 @@
+{
+  "name": "Restaurant_CosyPendantLamp",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.28769683837890625,
+      -0.28769683837890625,
+      0.0
+    ],
+    [
+      0.2868584096431732,
+      0.28769683837890625,
+      0.9300000071525574
+    ]
+  ],
+  "triangles": 1012,
+  "export_meshes": [
+    "Restaurant_CosyPendantLamp"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "glow",
+    "ivory",
+    "navy"
+  ],
+  "mount": "ceiling",
+  "recommended_base_height_m": 1.65,
+  "upgrade": "S8 lighting",
+  "emission": "glow atlas cell, Surface.B; runtime point light recipe separate",
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "8d55d160066ef262393211b42bf770cd291613b25d0e33e4bf9169657c7edf64"
+}

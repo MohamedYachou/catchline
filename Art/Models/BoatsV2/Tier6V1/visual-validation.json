@@ -1,0 +1,100 @@
+{
+  "result": "PASS",
+  "images": [
+    {
+      "file": "renders/front-three-quarter.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "58657911e90a8c554d0592fd0b626d866d07826afdc914cdb992c505718d9250",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/side.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "4b6a298ee49853857e3476dc561f24df83b1e33d5f870d06b778837abdba3fea",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/back-three-quarter.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "b3528889de72c881302268a00e41f8cb71435452dd20e5cbfb981fdb5a6b4276",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/top.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "de6a729e1b6c8de819df9d21bcabbc80d3035a2eaf2fc99370dfc53cb228a580",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/low-waterline.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "a9aca71ba36df5ee5e371be31945411f06f5f36ea0375a38a9cff8bd946d9758",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/deck-55.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "401b485a5c1b4a2b92fa71833d53fac25ec4a3d8b0eaa69bbef8904fb7c1b00c",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/game-exact-45.png",
+      "size": [
+        1000,
+        750
+      ],
+      "sha256": "a053f027f3c893cbd3f23be84302d9dc87f29adc8b0526af3aaacfc46ca50a73",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/lineup-top.png",
+      "size": [
+        1600,
+        1000
+      ],
+      "sha256": "261bf5c36ee62b77b57a388bbeea98a0dce523c79e3367335f1dc69baa51e494",
+      "opened_and_reviewed": true
+    },
+    {
+      "file": "renders/lineup-three-quarter.png",
+      "size": [
+        1600,
+        1000
+      ],
+      "sha256": "66f8bdf9c88b6cda642df381d924904f3b713e91b61cef9f8a64048a9b358ba3",
+      "opened_and_reviewed": true
+    }
+  ],
+  "review_sheet": "renders/review-sheet.png",
+  "concept_opened": true,
+  "card_opened": true,
+  "card_comparison_opened": true,
+  "native_acceptance": false,
+  "roof_fix": {
+    "accepted_by": "Claude 2 lead, diary 2026-10-26 10:03",
+    "geometry_reverified_this_run": false,
+    "evidence": "roof-visibility.json",
+    "stations": 30,
+    "ray_samples": 5460,
+    "roof_hits": 0,
+    "report_note_completed": true
+  }
+}

@@ -1,0 +1,25 @@
+00:00.657  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\RestaurantKitchenKit2.blend"
+00:00.797  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\review.py:8: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('ReviewNight');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.09,.16,.27,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.45
+00:05.407  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Grill.png'
+00:11.032  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Steamer.png'
+00:16.438  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_DrinksFridge.png'
+00:21.782  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Chart.png'
+00:27.188  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Jukebox.png'
+00:33.657  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_BigFridge.png'
+00:38.672  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_ReliableStove.png'
+00:43.329  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_CosyPendantLamp.png'
+00:48.157  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Net.png'
+00:54.141  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\renders\Restaurant_Trophy.png'
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\review.py:20: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(0,.4,-.06));floor=bpy.context.object;floor.name='REVIEW_ONLY_Floor';floor.dimensions=(8,6,.12);mat=bpy.data.materials.new('REVIEW_ONLY_Floor');mat.use_nodes=True;mat.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.16,.20,.23,1);floor.data.materials.append(mat)
+01:08.375  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\lineup-V4-room-1440x900.png'
+01:13.250  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\lineup-V4-room-844x390.png'
+BlenderMCP addon registered
+Info: Saved as "KitchenKit2-V4-check.blend"
+UPGRADES REVIEW RENDERS PASS
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

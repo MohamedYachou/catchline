@@ -1,0 +1,123 @@
+{
+  "name": "MouthBeacon",
+  "group": "A",
+  "triangles": 416,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.9903846979141235,
+      -0.8290522694587708,
+      -0.800000011920929
+    ],
+    [
+      0.9257258772850037,
+      0.7832942605018616,
+      2.2200000286102295
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    1.9161105155944824,
+    1.6123465299606323,
+    3.0199999809265137
+  ],
+  "parts": [
+    {
+      "name": "GreenMouthLight",
+      "triangles": 416,
+      "vertices": 228,
+      "bounds_min_blender": [
+        -0.9903846979141235,
+        -0.8290522694587708,
+        -0.800000011920929
+      ],
+      "bounds_max_blender": [
+        0.9257258772850037,
+        0.7832942605018616,
+        2.2200000286102295
+      ],
+      "mesh_sha256": "c5062015548f585a54805ecc9e29356d1bf35d8b74b59cd76f20f7e0b3b6cb23",
+      "materials": [
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Mesh-only lantern, no exported Light. Rock base soleY=-.8; rootY0 harbour datum."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\MouthBeacon.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\MouthBeacon.fbx",
+  "sha256": {
+    "blend": "f4c4664a30950f17b684b61b2c986e04858cf8128c2b3806d02c70e324821e0c",
+    "fbx": "e4d7446a9b3abec7e8822d2fe8ceac7cacad5601e9c6e3fb3a2dbac61bd02cff"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\MouthBeacon\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\MouthBeacon\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\MouthBeacon\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\MouthBeacon\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\MouthBeacon\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 5.960464477539063e-08,
+    "source": {
+      "triangles": 416,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.9903846979141235,
+          -0.8290522694587708,
+          -0.800000011920929
+        ],
+        [
+          0.9257258772850037,
+          0.7832942605018616,
+          2.2200000286102295
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Steel"
+      ],
+      "parents": {
+        "MouthBeacon": null,
+        "GreenMouthLight": "MouthBeacon"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 416,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.9903846979141235,
+          -0.8290523290634155,
+          -0.8000000715255737
+        ],
+        [
+          0.9257258772850037,
+          0.7832942008972168,
+          2.2200000286102295
+        ]
+      ],
+      "materials": [
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Steel"
+      ],
+      "parents": {
+        "GreenMouthLight": "MouthBeacon",
+        "MouthBeacon": null
+      },
+      "finite": true
+    }
+  }
+}

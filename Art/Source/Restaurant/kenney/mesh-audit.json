@@ -1,0 +1,593 @@
+{
+  "status": "PASS",
+  "subset_equivalence": [
+    {
+      "name": "salmon-fillet",
+      "triangles": 52,
+      "source_triangle_positions_uv_identical": true
+    },
+    {
+      "name": "fries-loose",
+      "triangles": 480,
+      "source_triangle_positions_uv_identical": true
+    }
+  ],
+  "models": [
+    {
+      "name": "GrilledFish",
+      "path": "derived\\dish-GrilledFish.glb",
+      "bounds_min": [
+        -0.1550000011920929,
+        -0.1550000011920929,
+        0.0
+      ],
+      "bounds_max": [
+        0.1550000011920929,
+        0.1550000011920929,
+        0.07599999755620956
+      ],
+      "meshes": 3,
+      "triangles": 489,
+      "uv_layers": [
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "PanFish",
+      "path": "derived\\dish-PanFish.glb",
+      "bounds_min": [
+        -0.14499999582767487,
+        -0.14499999582767487,
+        0.0
+      ],
+      "bounds_max": [
+        0.14499999582767487,
+        0.14499999582767487,
+        0.06000000238418579
+      ],
+      "meshes": 4,
+      "triangles": 360,
+      "uv_layers": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "FishAndChips",
+      "path": "derived\\dish-FishAndChips.glb",
+      "bounds_min": [
+        -0.1599999964237213,
+        -0.1599999964237213,
+        0.0
+      ],
+      "bounds_max": [
+        0.1599999964237213,
+        0.1599999964237213,
+        0.07100000977516174
+      ],
+      "meshes": 4,
+      "triangles": 788,
+      "uv_layers": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 7.450580596923828e-09,
+      "missing_images": []
+    },
+    {
+      "name": "Soup",
+      "path": "derived\\dish-Soup.glb",
+      "bounds_min": [
+        -0.11999999731779099,
+        -0.11999999731779099,
+        0.0
+      ],
+      "bounds_max": [
+        0.19500000774860382,
+        0.11999999731779099,
+        0.10000000149011612
+      ],
+      "meshes": 2,
+      "triangles": 248,
+      "uv_layers": [
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Platter",
+      "path": "derived\\dish-Platter.glb",
+      "bounds_min": [
+        -0.1900000125169754,
+        -0.14499999582767487,
+        0.0
+      ],
+      "bounds_max": [
+        0.1900000125169754,
+        0.14499999582767487,
+        0.07800000160932541
+      ],
+      "meshes": 5,
+      "triangles": 597,
+      "uv_layers": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Crab",
+      "path": "derived\\dish-Crab.glb",
+      "bounds_min": [
+        -0.1599999964237213,
+        -0.1599999964237213,
+        0.0
+      ],
+      "bounds_max": [
+        0.1599999964237213,
+        0.1599999964237213,
+        0.09600000083446503
+      ],
+      "meshes": 3,
+      "triangles": 928,
+      "uv_layers": [
+        0,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Calamari",
+      "path": "derived\\dish-Calamari.glb",
+      "bounds_min": [
+        -0.15000000596046448,
+        -0.15000000596046448,
+        0.0
+      ],
+      "bounds_max": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.058000002056360245
+      ],
+      "meshes": 5,
+      "triangles": 1408,
+      "uv_layers": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Coffee",
+      "path": "derived\\dish-Coffee.glb",
+      "bounds_min": [
+        -0.08500000089406967,
+        -0.08500000089406967,
+        0.0
+      ],
+      "bounds_max": [
+        0.08500000089406967,
+        0.08500000089406967,
+        0.07599999755620956
+      ],
+      "meshes": 2,
+      "triangles": 224,
+      "uv_layers": [
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Tea",
+      "path": "derived\\dish-Tea.glb",
+      "bounds_min": [
+        -0.08500000089406967,
+        -0.08500000089406967,
+        0.0
+      ],
+      "bounds_max": [
+        0.08500000089406967,
+        0.08500000089406967,
+        0.10199999809265137
+      ],
+      "meshes": 2,
+      "triangles": 260,
+      "uv_layers": [
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Lemonade",
+      "path": "derived\\dish-Lemonade.glb",
+      "bounds_min": [
+        -0.044999998062849045,
+        -0.044999998062849045,
+        0.0
+      ],
+      "bounds_max": [
+        0.07449999451637268,
+        0.04500000178813934,
+        0.17000001668930054
+      ],
+      "meshes": 4,
+      "triangles": 240,
+      "uv_layers": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 1.4901161193847656e-08,
+      "missing_images": []
+    },
+    {
+      "name": "Beer",
+      "path": "derived\\dish-Beer.glb",
+      "bounds_min": [
+        -0.06499999761581421,
+        -0.054999999701976776,
+        6.585828506448796e-19
+      ],
+      "bounds_max": [
+        0.06499999761581421,
+        0.054999999701976776,
+        0.11999999731779099
+      ],
+      "meshes": 3,
+      "triangles": 288,
+      "uv_layers": [
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 6.585828506448796e-19,
+      "missing_images": []
+    },
+    {
+      "name": "Fries",
+      "path": "derived\\dish-Fries.glb",
+      "bounds_min": [
+        -0.12999999523162842,
+        -0.12999999523162842,
+        0.0
+      ],
+      "bounds_max": [
+        0.12999999523162842,
+        0.12999999523162842,
+        0.0690000057220459
+      ],
+      "meshes": 2,
+      "triangles": 620,
+      "uv_layers": [
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "Bread",
+      "path": "derived\\dish-Bread.glb",
+      "bounds_min": [
+        -0.12999999523162842,
+        -0.12999999523162842,
+        0.0
+      ],
+      "bounds_max": [
+        0.12999999523162842,
+        0.12999999523162842,
+        0.08900000154972076
+      ],
+      "meshes": 3,
+      "triangles": 378,
+      "uv_layers": [
+        1,
+        1,
+        1
+      ],
+      "max_bounds_error_m": 0.0,
+      "missing_images": []
+    },
+    {
+      "name": "pottedPlant",
+      "path": "derived\\decor-pottedPlant.glb",
+      "bounds_min": [
+        -0.17999999225139618,
+        -0.19999997317790985,
+        0.0
+      ],
+      "bounds_max": [
+        0.17999999225139618,
+        0.19999997317790985,
+        1.049999713897705
+      ],
+      "meshes": 2,
+      "triangles": 60,
+      "uv_layers": [
+        1,
+        1
+      ],
+      "max_bounds_error_m": 2.861022949662839e-07,
+      "missing_images": []
+    },
+    {
+      "name": "plantSmall3",
+      "path": "derived\\decor-plantSmall3.glb",
+      "bounds_min": [
+        -0.0650000125169754,
+        -0.060000013560056686,
+        0.0
+      ],
+      "bounds_max": [
+        0.0650000125169754,
+        0.060000013560056686,
+        0.20000000298023224
+      ],
+      "meshes": 1,
+      "triangles": 98,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 2.7120113377243626e-08,
+      "missing_images": []
+    },
+    {
+      "name": "lampWall",
+      "path": "derived\\decor-lampWall.glb",
+      "bounds_min": [
+        -0.1899999976158142,
+        -0.11000002920627594,
+        0.0
+      ],
+      "bounds_max": [
+        0.1899999976158142,
+        0.10999999940395355,
+        0.15999998152256012
+      ],
+      "meshes": 1,
+      "triangles": 42,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 2.8610229491077277e-08,
+      "missing_images": []
+    },
+    {
+      "name": "lampRoundFloor",
+      "path": "derived\\decor-lampRoundFloor.glb",
+      "bounds_min": [
+        -0.15000000596046448,
+        -0.17000000178813934,
+        0.0
+      ],
+      "bounds_max": [
+        0.15000000596046448,
+        0.17000000178813934,
+        1.649999976158142
+      ],
+      "meshes": 1,
+      "triangles": 76,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 2.3841857821338408e-08,
+      "missing_images": []
+    },
+    {
+      "name": "lampRoundTable",
+      "path": "derived\\decor-lampRoundTable.glb",
+      "bounds_min": [
+        -0.09000000357627869,
+        -0.09999999403953552,
+        0.0
+      ],
+      "bounds_max": [
+        0.09000000357627869,
+        0.09999999403953552,
+        0.3700000047683716
+      ],
+      "meshes": 1,
+      "triangles": 76,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 1.1920928966180355e-08,
+      "missing_images": []
+    },
+    {
+      "name": "bookcaseOpenLow",
+      "path": "derived\\decor-bookcaseOpenLow.glb",
+      "bounds_min": [
+        -0.574999988079071,
+        -0.20000000298023224,
+        0.0
+      ],
+      "bounds_max": [
+        0.574999988079071,
+        0.20000000298023224,
+        0.949999988079071
+      ],
+      "meshes": 1,
+      "triangles": 184,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 2.3841857821338408e-08,
+      "missing_images": []
+    },
+    {
+      "name": "bookcaseOpen",
+      "path": "derived\\decor-bookcaseOpen.glb",
+      "bounds_min": [
+        -0.42500001192092896,
+        -0.17499999701976776,
+        0.0
+      ],
+      "bounds_max": [
+        0.42500001192092896,
+        0.17499999701976776,
+        1.8000000715255737
+      ],
+      "meshes": 1,
+      "triangles": 320,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 7.152557368605983e-08,
+      "missing_images": []
+    },
+    {
+      "name": "bench",
+      "path": "derived\\decor-bench.glb",
+      "bounds_min": [
+        -0.699999988079071,
+        -0.23999999463558197,
+        0.0
+      ],
+      "bounds_max": [
+        0.699999988079071,
+        0.23999999463558197,
+        1.0500000715255737
+      ],
+      "meshes": 1,
+      "triangles": 170,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 7.152557368605983e-08,
+      "missing_images": []
+    },
+    {
+      "name": "benchCushion",
+      "path": "derived\\decor-benchCushion.glb",
+      "bounds_min": [
+        -0.699999988079071,
+        -0.23999999463558197,
+        0.0
+      ],
+      "bounds_max": [
+        0.699999988079071,
+        0.23999999463558197,
+        1.0500000715255737
+      ],
+      "meshes": 1,
+      "triangles": 196,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 7.152557368605983e-08,
+      "missing_images": []
+    },
+    {
+      "name": "rugRectangle",
+      "path": "derived\\decor-rugRectangle.glb",
+      "bounds_min": [
+        -0.8500000238418579,
+        -0.5,
+        0.0
+      ],
+      "bounds_max": [
+        0.8500000238418579,
+        0.5,
+        0.012000000104308128
+      ],
+      "meshes": 1,
+      "triangles": 28,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 4.768371586472142e-08,
+      "missing_images": []
+    },
+    {
+      "name": "rugDoormat",
+      "path": "derived\\decor-rugDoormat.glb",
+      "bounds_min": [
+        -0.3499999940395355,
+        -0.20000000298023224,
+        0.0
+      ],
+      "bounds_max": [
+        0.3499999940395355,
+        0.20000000298023224,
+        0.012000000104308128
+      ],
+      "meshes": 1,
+      "triangles": 204,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 1.1920928910669204e-08,
+      "missing_images": []
+    },
+    {
+      "name": "coatRackStanding",
+      "path": "derived\\decor-coatRackStanding.glb",
+      "bounds_min": [
+        -0.25,
+        -0.25,
+        6.595058205062431e-29
+      ],
+      "bounds_max": [
+        0.25,
+        0.25,
+        1.6500000953674316
+      ],
+      "meshes": 1,
+      "triangles": 190,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 9.536743172944284e-08,
+      "missing_images": []
+    },
+    {
+      "name": "pictureframe_medium",
+      "path": "derived\\decor-pictureframe_medium.glb",
+      "bounds_min": [
+        -0.32499998807907104,
+        -0.05000003054738045,
+        -4.323820945728585e-08
+      ],
+      "bounds_max": [
+        0.32499998807907104,
+        0.050000015646219254,
+        0.45000001788139343
+      ],
+      "meshes": 1,
+      "triangles": 60,
+      "uv_layers": [
+        1
+      ],
+      "max_bounds_error_m": 4.768371580921027e-08,
+      "missing_images": []
+    }
+  ]
+}

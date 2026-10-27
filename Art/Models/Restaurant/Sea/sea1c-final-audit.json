@@ -1,0 +1,171 @@
+{
+  "pass": true,
+  "source_scene_unchanged": true,
+  "prior_sea1b_artifacts_preserved": [
+    "sea1b-REPORT.md",
+    "sea1b-V4-check.blend",
+    "sea1b-blender-check.json",
+    "sea1b-check.py",
+    "sea1b-difference-x10-1024.png",
+    "sea1b-difference-x10-2048.png",
+    "sea1b-package.py",
+    "sea1b-seal.py",
+    "sea1b-seam-zoom-1024.png",
+    "sea1b-seam-zoom-2048.png",
+    "sea1b-texture-audit.json",
+    "sea1b-tiling-proof-1024-4x4.png",
+    "sea1b-tiling-proof-2048-4x4.png",
+    "sea1b-tiling-review-1024.jpg",
+    "sea1b-tiling-review-2048.jpg",
+    "sea1b-visual-review.json",
+    "sea1b-renders/sea1b-room-1440x900.png",
+    "sea1b-renders/sea1b-room-844x390.png"
+  ],
+  "decoded_images": [
+    {
+      "file": "sea1-night-water-1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1-night-water-2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-before-after.jpg",
+      "size": [
+        1440,
+        990
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-provenance/candidate-1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-provenance/prior-tile-review.jpg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-renders/sea1c-room-1440x900.png",
+      "size": [
+        1440,
+        900
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "sea1c-renders/sea1c-room-844x390.png",
+      "size": [
+        844,
+        390
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "sea1c-review.jpg",
+      "size": [
+        1440,
+        990
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-seam-zoom-1024.png",
+      "size": [
+        768,
+        768
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-seam-zoom-2048.png",
+      "size": [
+        768,
+        768
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-tiling-proof-1024-4x4.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-tiling-proof-2048-4x4.png",
+      "size": [
+        8192,
+        8192
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-tiling-review-1024.jpg",
+      "size": [
+        1280,
+        1280
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "sea1c-tiling-review-2048.jpg",
+      "size": [
+        1280,
+        1280
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "files": {
+    "sea1-night-water-1024.png": "79f6d55a39554e4c76a1012c6a00e14e6796f8e2210304d5048138ced0d0e5cc",
+    "sea1-night-water-2048.png": "20bc0a4f76b3e1b720d4d36e807de8953f8401973af11a5a99b920f685fdf6e4",
+    "sea1-package.py": "bee4b3a73f91fa88c32766d0f8c3037e4154fe4e0a35ee61eb6ff14b96a1c1a7",
+    "sea1c-REPORT.md": "c74b348032dba0afb26af82ce3457e0dbbf5cf5ed7404c6bb7f7ea705d1dca91",
+    "sea1c-V4-check.blend": "534fc58f91298067b019f8e95c95754c4845dc038e47f5d95db8af49f09712e0",
+    "sea1c-baseline.json": "33eda4e17a17e3bdd06abd3f418c7b682791e33842784b3f637cff5a0a530bbb",
+    "sea1c-before-after.jpg": "9182ba0276bf27dd800946469cfcf3c5ef64a3c5d8c706c466bc014600fec8b8",
+    "sea1c-blender-check.json": "176c367f7ab68b370368c29e277d7ca175bc490415f3f12ca104772f7b66fbb2",
+    "sea1c-check.py": "3f724600234816bb20d55a51e17859b99a5f0ec0986bd8755a7152c5298dec09",
+    "sea1c-independent-audit.json": "da0e0885eca51f2bcad7063137e22f4ab015ac5646215f65d3ed4539d4f01bab",
+    "sea1c-package.py": "68d06b10761ecb9d6e12e5a780be6d96af920b026d2420796b439f5e2b5ff300",
+    "sea1c-packed-audit.json": "69cf184581a6a8d0d1ff2f6e0329565e189dcdeda3e3bd45e6d47ce8890dcbeb",
+    "sea1c-packed-audit.py": "3c226efa8bd43fed3d8ed7c9261afa9d04ddff1303454049fc17159aacbfabe5",
+    "sea1c-proof.py": "12f1fa32cbabc36a50073d9ca752cb569232ca7e18c9e9cd4ab080fe19795d0c",
+    "sea1c-provenance/candidate-1.png": "ba73f07b72fa5756bd073d76d5c7ad6fd0743928ebcbb995930f8db366a975b5",
+    "sea1c-provenance/generation.json": "b57b6dadd2db3131cf903fb2385e979444e9683dd296b5c4775438975071d547",
+    "sea1c-provenance/prior-tile-review.jpg": "24f4b8e62c89f61a022d0fa06ec00e4b47e8d0199fcec88cfeef5eb2e5fcc11e",
+    "sea1c-provenance/prompt.txt": "e298b8bce4ea207eaa01c3669eb57b4446b016a427dfb562770dde97c7e0214c",
+    "sea1c-renders/sea1c-room-1440x900.png": "1e334fddfed828aa52dbc6b5a93e79c78b20f248a8e975ba5a51898bd1a64841",
+    "sea1c-renders/sea1c-room-844x390.png": "3b0f625eb33a6c00ca1a6b3aec94e250289b3beb09e106a16d3750b7cbb96939",
+    "sea1c-review.jpg": "4ca8dd80e8aad504fead5b19e535736bf9073469e08705cfcdf4fc36d702909b",
+    "sea1c-seal.py": "a3f4b698dbe21a55de54d7cc1481febb1c55c6d923b7e0f19446711deee92d5d",
+    "sea1c-seam-zoom-1024.png": "95deab698a1a7ab151ae3bda2ffa1718ec921a244c677d818ab989903c85c76f",
+    "sea1c-seam-zoom-2048.png": "a3823807682cdbb54eee2cb4233474b95b260ce3c6a2503d3fd7a2dbd8fb3c52",
+    "sea1c-texture-audit.json": "1498733e1faa96a8b5c26aead1a27427801f084365d90ede18e2d3cce3255b38",
+    "sea1c-tiling-proof-1024-4x4.png": "b9eeae13c606b9453372c8e3bdc1a966e22408666a3f89a6d5e1eb75d36586ef",
+    "sea1c-tiling-proof-2048-4x4.png": "dcb6703b19444ddb3886d591b50b8ae4e40ff0cd484c64ae7f248736ffbc6740",
+    "sea1c-tiling-review-1024.jpg": "c84f09764a4aa4a9f4cc1adc6ca2b8e5f7c48515553803f8325e7ba1fc6ea425",
+    "sea1c-tiling-review-2048.jpg": "19934c2e875d7bae7e7d31baf3a72a1b90ef8646cec945d0ba4b18396ce709ba",
+    "sea1c-visual-review.json": "8caefae2a1ca1acff7589603b3cf1a2c213a5e41163d94b75832dfee2aac7789"
+  },
+  "native_Unity_after_unverified": true
+}

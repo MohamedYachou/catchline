@@ -1,0 +1,52 @@
+{
+  "triangles": 974,
+  "vertices": 618,
+  "bounds_unity": [
+    [
+      -0.6000000238418579,
+      0.0,
+      -0.3199999928474426
+    ],
+    [
+      0.6000000238418579,
+      0.5070000290870667,
+      0.33000001311302185
+    ]
+  ],
+  "meshes": [
+    "PuffinGroupMesh"
+  ],
+  "materials": [
+    "M_CardinalYellow",
+    "M_GullWhite",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_Steel"
+  ],
+  "parents": {
+    "PuffinGroup": null,
+    "PuffinGroupMesh": "PuffinGroup"
+  },
+  "name": "PuffinGroup",
+  "contract": {
+    "pivot": "ledge base centre",
+    "birds": 3,
+    "ledge_width_m": 1.2,
+    "static": true,
+    "animation": "Individual animated Puffin is separate; group is a single static mesh for cheap perches."
+  },
+  "limit": 2000,
+  "sha256": {
+    "blend": "04a01545efa2b91a81c1e198ef484b690b0a81a14c5035b023210dbba8831d57",
+    "fbx": "e5a2cdd2ec82375f523539b0faeba223d3671ec33599796f804534a4218b2370"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_Rubber": "#28343B",
+    "M_SafetyOrange": "#E36A35",
+    "M_CardinalYellow": "#F2C14E",
+    "M_Steel": "#8FA6AC",
+    "M_WaterTeal": "#2E8C8A",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

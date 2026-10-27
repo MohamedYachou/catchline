@@ -1,0 +1,52 @@
+{
+  "triangles": 64,
+  "vertices": 50,
+  "bounds_unity": [
+    [
+      -0.44999998807907104,
+      -0.7300000190734863,
+      -0.7300000190734863
+    ],
+    [
+      12.0,
+      0.7300000190734863,
+      0.7300000190734863
+    ]
+  ],
+  "meshes": [
+    "LanternCross",
+    "LanternBeam"
+  ],
+  "materials": [
+    "M_LampGlow"
+  ],
+  "parents": {
+    "LighthouseGlow": null,
+    "LanternCross": "LighthouseGlow",
+    "LanternBeam": "LighthouseGlow"
+  },
+  "name": "LighthouseGlow",
+  "contract": {
+    "pivot": "lantern centre",
+    "beam_axis_blender": "+X",
+    "beam_length_m": 12,
+    "cross_span_m": 0.9,
+    "beam_end_radius_m": 0.73,
+    "vertex_alpha": "GlowAlpha",
+    "shader": "Unlit additive/two-sided/no depth write; vertex alpha falloff, no texture. Runtime rotates whole root; FBX cannot carry Blender node graph."
+  },
+  "limit": 160,
+  "sha256": {
+    "blend": "85fa5babb444e04dcdae50316b925e69c0bc94189a803ff783c64ea856ddbad5",
+    "fbx": "3d92eed658bb30a7364160f215c97c3331bd05bb8b83cee08213cf2eb844f5fe"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_Rubber": "#28343B",
+    "M_SafetyOrange": "#E36A35",
+    "M_CardinalYellow": "#F2C14E",
+    "M_Steel": "#8FA6AC",
+    "M_WaterTeal": "#2E8C8A",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

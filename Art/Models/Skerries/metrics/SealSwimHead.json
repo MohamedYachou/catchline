@@ -1,0 +1,236 @@
+{
+  "triangles": 510,
+  "meshes": 2,
+  "vertices": 312,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -0.550000011920929,
+      -0.7990000247955322,
+      -6.556510889765832e-09
+    ],
+    [
+      0.550000011920929,
+      0.8399999737739563,
+      0.35499998927116394
+    ]
+  ],
+  "parents": {
+    "SealSwimHead": null,
+    "SwimmingSeal": "SealSwimHead",
+    "VWake": "SealSwimHead"
+  },
+  "materials": [
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_ShallowWater",
+    "M_Steel"
+  ],
+  "name": "SealSwimHead",
+  "contract": {
+    "waterline": "Root Y=0; head/back clipped to surface. VWake flat at Y=.008. Forward Unity +Z.",
+    "source": "Delivered Seal mesh with submerged portion trimmed."
+  },
+  "limit": 900,
+  "sha256": {
+    "blend": "e039f3e757bc982c2219cb591e7bc677f125ff0499a7f933efd49bd95d894997",
+    "fbx": "549612551a784ad1527a0e82339b4f68366ffcf0e2be469239751dcef32b7121"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 510,
+      "meshes": 2,
+      "vertices": 312,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.550000011920929,
+          -0.7990000247955322,
+          -6.556510889765832e-09
+        ],
+        [
+          0.550000011920929,
+          0.8399999737739563,
+          0.35499998927116394
+        ]
+      ],
+      "parents": {
+        "SealSwimHead": null,
+        "SwimmingSeal": "SealSwimHead",
+        "VWake": "SealSwimHead"
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_ShallowWater",
+        "M_Steel"
+      ]
+    },
+    "imported": {
+      "triangles": 510,
+      "meshes": 2,
+      "vertices": 312,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.550000011920929,
+          -0.7990000247955322,
+          -4.6240096196470404e-08
+        ],
+        [
+          0.550000011920929,
+          0.8399999737739563,
+          0.3550000488758087
+        ]
+      ],
+      "parents": {
+        "SwimmingSeal": "SealSwimHead",
+        "VWake": "SealSwimHead",
+        "SealSwimHead": null
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_ShallowWater",
+        "M_Steel"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 2,
+      "max_vertex_error_metres": 6.332993507385254e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/SealSwimHead/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "f5297747054a75995adec315bf280419874e57a0b123b4f30f4166154eaf3b32",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "b9113ef724fb71c0abc020ad6d37f6a15059505f10caac9f76293881d8b7cb61",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "3d7748d16d514c64cc5a81b5b7a9f31d4e49adbb3d154805233f072dbc1fcfba",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "53c20f8abd34b3b494565a70c46958f8ac4f2b726afbbefacfd139be67d8118b",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "362372a325c1f9d66c73b2b64cf9462e62d8aa7c1ba5ac917868e66eda77561a",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "2fa1fe59d0b116a864f3a7be68060dec2a59bf53f6fa8c4c6ed50dbbf91616de",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "f0fec1cc7b94c16e0fc8b6670626fc1c4f6de960dc818ccafbb689c224142817",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 2.63704736381506,
+        "sha256": "4695699f7911227b6f2a6bb37ed559d157a500029e60453ba760d99d960ec6db",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealSwimHead/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 2.63704736381506,
+        "sha256": "3601dcc54c6c188b9fdb656c09466ec5d05f7439247976276f0a4486219f3268",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

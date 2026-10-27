@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "unique_sources_sha256_stable": 41,
+  "comparisons": 14,
+  "report_recheck_links_exist": 14,
+  "outputs": [
+    {
+      "path": "arrange-1440.jpg",
+      "size": [
+        4320,
+        926
+      ],
+      "sha256": "e204c14791585c87a9499b0a4c332c3e2eb155ccd7fb6e2a963ae8c78e0306fc"
+    },
+    {
+      "path": "arrange-844.jpg",
+      "size": [
+        2532,
+        416
+      ],
+      "sha256": "d43d1d9f1c84964bb80809272c25c5ffde7b313ed78d15fd6ad05f832f7fff2f"
+    },
+    {
+      "path": "arrange-buy-1440.jpg",
+      "size": [
+        4320,
+        926
+      ],
+      "sha256": "4c3d84215866a4754fd7a700e3107b449ad19cb836d96b41a89b9c5cd70c7979"
+    },
+    {
+      "path": "arrange-buy-844.jpg",
+      "size": [
+        2532,
+        416
+      ],
+      "sha256": "6345862c6aa3be0a32013db573a23165a51f22e8da95ea327b3ac1291f67ae2c"
+    },
+    {
+      "path": "arrange-kitchen-1440.jpg",
+      "size": [
+        4320,
+        926
+      ],
+      "sha256": "596b28a660a2403db396ff9da524769b1ad974a1cdebea9180f44e9ac442bd97"
+    },
+    {
+      "path": "arrange-kitchen-844.jpg",
+      "size": [
+        2532,
+        416
+      ],
+      "sha256": "1c35d6f3b7295905b93103ff96043c7d1c278fda7c8f99a1831d3afb6df83ddb"
+    },
+    {
+      "path": "closed-1440.jpg",
+      "size": [
+        5760,
+        926
+      ],
+      "sha256": "99d09d1365494a2a936ea0e4a91d24f5236520bf82b3dea656023c88c2fc4408"
+    },
+    {
+      "path": "closed-844.jpg",
+      "size": [
+        3376,
+        416
+      ],
+      "sha256": "83574adb9e4fdaa872c548f5715e7450667fb42858537e0bf9be7f69eda996e2"
+    },
+    {
+      "path": "market-1440.jpg",
+      "size": [
+        4320,
+        926
+      ],
+      "sha256": "e6338b8e79e2e4a5cebee5591e021183a64d5e5fee54bd756a41935a66453453"
+    },
+    {
+      "path": "market-844.jpg",
+      "size": [
+        2532,
+        416
+      ],
+      "sha256": "04fe3befdc3f1900f49af355954dcbea63fafdf0b82171054b0081971ee25f4c"
+    },
+    {
+      "path": "prep-1440.jpg",
+      "size": [
+        5760,
+        926
+      ],
+      "sha256": "0be3d44632888e9f3b57954cf23fe75e556f8fd39a6175f548a4c79ff91c658d"
+    },
+    {
+      "path": "prep-844.jpg",
+      "size": [
+        3376,
+        416
+      ],
+      "sha256": "6e6c1b4ac611f2a0f8582185a4871d4946fb533575e8b0f31bf51a868b636298"
+    },
+    {
+      "path": "service-1440.jpg",
+      "size": [
+        5760,
+        926
+      ],
+      "sha256": "b28f5f11754d8beaab05f67f07698ed9b70c042a184596316f509af69ee02c39"
+    },
+    {
+      "path": "service-844.jpg",
+      "size": [
+        3376,
+        416
+      ],
+      "sha256": "ccd1d4bcbe151357f5bfefde7042d3a2b37a585023afe0295e6ccf98772f788a"
+    }
+  ],
+  "revision_comparison": [
+    {
+      "state": "day-prep",
+      "device": "844",
+      "r101_r112_logical_pixels_identical": true
+    },
+    {
+      "state": "day-prep",
+      "device": "1440",
+      "r101_r112_logical_pixels_identical": true
+    },
+    {
+      "state": "day-service-orders",
+      "device": "844",
+      "r101_r112_logical_pixels_identical": false
+    },
+    {
+      "state": "day-service-orders",
+      "device": "1440",
+      "r101_r112_logical_pixels_identical": false
+    },
+    {
+      "state": "day-service-closed",
+      "device": "844",
+      "r101_r112_logical_pixels_identical": false
+    },
+    {
+      "state": "day-service-closed",
+      "device": "1440",
+      "r101_r112_logical_pixels_identical": false
+    }
+  ],
+  "limits": "Saved-image review only; no runtime tests; pause scrim excluded."
+}

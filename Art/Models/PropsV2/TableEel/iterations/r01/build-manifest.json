@@ -1,0 +1,69 @@
+{
+  "name": "TableEel",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/TableEel.blend",
+      "sha256": "a8f98454e6cc7edef8a7e92b3746fdc528924acd62c11400fe58a55989e1c6a5",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.30091774463653564,
+      -0.19200938940048218,
+      0.0
+    ],
+    [
+      0.30091774463653564,
+      0.19200938940048218,
+      0.10000000149011612
+    ]
+  ],
+  "triangles": 948,
+  "mesh_parts": {
+    "EelBody": 588,
+    "EelHead": 120,
+    "Eye": 120,
+    "Eye.001": 120
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "floor/contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "TableEel.blend": "a57f40f38b415a19840e05eb37357ab8ab96e3bee2aa601ad6a06ffc8cdf4378",
+    "TableEel.fbx": "a9c2e4bf3966b4176360f5bb01447e134862218371b1e6dd3be76d44f81553b0"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_TableEel.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/TableEel/iterations/r01/back.png",
+    "Art/Models/PropsV2/TableEel/iterations/r01/front.png",
+    "Art/Models/PropsV2/TableEel/iterations/r01/left.png",
+    "Art/Models/PropsV2/TableEel/iterations/r01/right.png",
+    "Art/Models/PropsV2/TableEel/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/TableEel/iterations/r01/top.png"
+  ]
+}

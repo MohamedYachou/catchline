@@ -1,0 +1,265 @@
+{
+  "task": "SOUND-2",
+  "result": "PASS",
+  "files_verified": 20,
+  "sheets_verified": 20,
+  "inventory_total_wavs": 86,
+  "protected_unchanged_files": [
+    "Art/Audio/Ambience/HarbourDay.wav",
+    "Art/Audio/Ambience/OpenSea.wav",
+    "Art/Audio/Ambience/Skerries.wav",
+    "Art/Audio/SFX/Bell_0.wav",
+    "Art/Audio/SFX/Bell_1.wav",
+    "Art/Audio/SFX/Bell_2.wav",
+    "Art/Audio/SFX/Bite_0.wav",
+    "Art/Audio/SFX/Bite_1.wav",
+    "Art/Audio/SFX/Bite_2.wav",
+    "Art/Audio/SFX/Cast_0.wav",
+    "Art/Audio/SFX/Cast_1.wav",
+    "Art/Audio/SFX/Cast_2.wav",
+    "Art/Audio/SFX/Click_0.wav",
+    "Art/Audio/SFX/Click_1.wav",
+    "Art/Audio/SFX/Click_2.wav",
+    "Art/Audio/SFX/Coins_0.wav",
+    "Art/Audio/SFX/Coins_1.wav",
+    "Art/Audio/SFX/Coins_2.wav",
+    "Art/Audio/SFX/CrabClack_0.wav",
+    "Art/Audio/SFX/CrabClack_1.wav",
+    "Art/Audio/SFX/CrabClack_2.wav",
+    "Art/Audio/SFX/Creak_0.wav",
+    "Art/Audio/SFX/Creak_1.wav",
+    "Art/Audio/SFX/Creak_2.wav",
+    "Art/Audio/SFX/Gull_0.wav",
+    "Art/Audio/SFX/Gull_1.wav",
+    "Art/Audio/SFX/Gull_2.wav",
+    "Art/Audio/SFX/Gut_0.wav",
+    "Art/Audio/SFX/Gut_1.wav",
+    "Art/Audio/SFX/Gut_2.wav",
+    "Art/Audio/SFX/Horn_0.wav",
+    "Art/Audio/SFX/Horn_1.wav",
+    "Art/Audio/SFX/Horn_2.wav",
+    "Art/Audio/SFX/Land_0.wav",
+    "Art/Audio/SFX/Land_1.wav",
+    "Art/Audio/SFX/Land_2.wav",
+    "Art/Audio/SFX/Moor_0.wav",
+    "Art/Audio/SFX/Moor_1.wav",
+    "Art/Audio/SFX/Moor_2.wav",
+    "Art/Audio/SFX/NetSlap_0.wav",
+    "Art/Audio/SFX/NetSlap_1.wav",
+    "Art/Audio/SFX/NetSlap_2.wav",
+    "Art/Audio/SFX/Purchase_0.wav",
+    "Art/Audio/SFX/Purchase_1.wav",
+    "Art/Audio/SFX/Purchase_2.wav",
+    "Art/Audio/SFX/Reel_0.wav",
+    "Art/Audio/SFX/Reel_1.wav",
+    "Art/Audio/SFX/Reel_2.wav",
+    "Art/Audio/SFX/Sale_0.wav",
+    "Art/Audio/SFX/Sale_1.wav",
+    "Art/Audio/SFX/Sale_2.wav",
+    "Art/Audio/SFX/SealBark_0.wav",
+    "Art/Audio/SFX/SealBark_1.wav",
+    "Art/Audio/SFX/SealBark_2.wav",
+    "Art/Audio/SFX/Select_0.wav",
+    "Art/Audio/SFX/Select_1.wav",
+    "Art/Audio/SFX/Select_2.wav",
+    "Art/Audio/SFX/Splash_0.wav",
+    "Art/Audio/SFX/Splash_1.wav",
+    "Art/Audio/SFX/Splash_2.wav",
+    "Art/Audio/SFX/Stow_0.wav",
+    "Art/Audio/SFX/Stow_1.wav",
+    "Art/Audio/SFX/Stow_2.wav",
+    "Art/Audio/SFX/Winch_0.wav",
+    "Art/Audio/SFX/Winch_1.wav",
+    "Art/Audio/SFX/Winch_2.wav",
+    "Art/Audio/delivery-receipt.json",
+    "Art/Audio/review/Bell.png",
+    "Art/Audio/review/Bite.png",
+    "Art/Audio/review/Cast.png",
+    "Art/Audio/review/Click.png",
+    "Art/Audio/review/Coins.png",
+    "Art/Audio/review/CrabClack.png",
+    "Art/Audio/review/Creak.png",
+    "Art/Audio/review/Gull.png",
+    "Art/Audio/review/Gut.png",
+    "Art/Audio/review/HarbourDay.png",
+    "Art/Audio/review/Horn.png",
+    "Art/Audio/review/Land.png",
+    "Art/Audio/review/Moor.png",
+    "Art/Audio/review/NetSlap.png",
+    "Art/Audio/review/OpenSea.png",
+    "Art/Audio/review/Purchase.png",
+    "Art/Audio/review/Reel.png",
+    "Art/Audio/review/Sale.png",
+    "Art/Audio/review/SealBark.png",
+    "Art/Audio/review/Select.png",
+    "Art/Audio/review/Skerries.png",
+    "Art/Audio/review/Splash.png",
+    "Art/Audio/review/Stow.png",
+    "Art/Audio/review/Winch.png",
+    "Art/Audio/synthesis.json",
+    "Art/Audio/verification.json",
+    "Art/Audio/visual-review.json",
+    "Art/Source/Audio/analyze.log",
+    "Art/Source/Audio/analyze.py",
+    "Art/Source/Audio/build.log",
+    "Art/Source/Audio/build.py",
+    "Art/Source/Audio/dsp.py",
+    "Art/Source/Audio/finalize.py",
+    "Art/Source/Audio/run.py",
+    "Art/Source/Audio/verify.log",
+    "Art/Source/Audio/verify.py"
+  ],
+  "sound1_metrics_preserved": true,
+  "sound1_report_prefix_preserved": true,
+  "aggregate_extension_present": true,
+  "known_tone": {
+    "mono_1khz_minus20dbfs_lufs": -23.00084930246886,
+    "stereo_1khz_minus20dbfs_lufs": -19.99054934582905,
+    "expected_mono": -23,
+    "expected_stereo": -20,
+    "tolerance_lu": 0.15
+  },
+  "low_horn_spectral_checks": {
+    "Foghorn_0": {
+      "dominant_bin_hz": 51.141357421875,
+      "power_fraction_below600hz": 0.9985959086686939
+    },
+    "Foghorn_1": {
+      "dominant_bin_hz": 51.141357421875,
+      "power_fraction_below600hz": 0.9987404613167802
+    },
+    "Foghorn_2": {
+      "dominant_bin_hz": 53.8330078125,
+      "power_fraction_below600hz": 0.9986397050277327
+    }
+  },
+  "recipe_event_contract": "one dusk bell at20.1s; two far gulls; five distant puffins; no crickets or foghorn in ambience recipe",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "decoded_files": [
+    {
+      "file": "SFX/Puffin_0.wav",
+      "sha256": "73943ca45159c46db20816f06479a7918d283758eb02ac3c12bd53c87c2f9fd0",
+      "decoded_frames": 29106,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Puffin_1.wav",
+      "sha256": "8958e893048f18b56e6c8831566e49c237f9f9a48eb1ddc30da3aa9f24a252d2",
+      "decoded_frames": 31752,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Puffin_2.wav",
+      "sha256": "5633d6b39009ac8f5f87f6940ee76787e62d135700fb6cbf7ba7f6098e5af68e",
+      "decoded_frames": 34398,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Foghorn_0.wav",
+      "sha256": "ad1a2832469a9011566010f2466504e2a0cd33714fa375c0dc6b7d18551e3dbd",
+      "decoded_frames": 127890,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Foghorn_1.wav",
+      "sha256": "1ed5342151866e6d01006b09cb327ef878c1ce3357eaa6fe464b578f66b465b7",
+      "decoded_frames": 132300,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Foghorn_2.wav",
+      "sha256": "c208cd830f3bab590054ca4a46bb34a0d5ee845e4a21d9d99b4b1997b1c67af3",
+      "decoded_frames": 136710,
+      "channels": 1
+    },
+    {
+      "file": "SFX/DogBark_0.wav",
+      "sha256": "15b85da67252a8a42ecfd69ff8053e72c19e675983190e59916d6c0ddd7ae2ac",
+      "decoded_frames": 11025,
+      "channels": 1
+    },
+    {
+      "file": "SFX/DogBark_1.wav",
+      "sha256": "88e54ea294b2ea396f7c6c12d606ef800a50f90cde0b9f12bf951c596e8b0788",
+      "decoded_frames": 11025,
+      "channels": 1
+    },
+    {
+      "file": "SFX/DogBark_2.wav",
+      "sha256": "8979723a205a4ffb9563269ee70292d14c448959150b19c118b21fb30edff89a",
+      "decoded_frames": 11025,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Meow_0.wav",
+      "sha256": "4b5442cc4c67d00a874f8a06afa1112433e5d68ad988c226bfeae02ea0fd6f40",
+      "decoded_frames": 17640,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Meow_1.wav",
+      "sha256": "b4a97a528df71116a9ee4cad06aed4d246d91d46ebc6008a507f783991906cdf",
+      "decoded_frames": 17640,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Meow_2.wav",
+      "sha256": "b1e2c6af5e9add082b4ddca77ee615f75631429d12f111de3e6e25ff0d048c2e",
+      "decoded_frames": 17640,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Stitch_0.wav",
+      "sha256": "0958e0c542cf18f79a826e0b2b1212a6d9eb27c69d80f39c3839c05af2d3947e",
+      "decoded_frames": 8820,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Stitch_1.wav",
+      "sha256": "a55bdfd3afaec702ca05e0fba298c39676c9231b15f93f170b7ea8d4774d3c26",
+      "decoded_frames": 8820,
+      "channels": 1
+    },
+    {
+      "file": "SFX/Stitch_2.wav",
+      "sha256": "02e58246b03f1bd53da0e35dc747009de2116d6d1ec18333b375cd8e8d15fafc",
+      "decoded_frames": 8820,
+      "channels": 1
+    },
+    {
+      "file": "SFX/PotDrop_0.wav",
+      "sha256": "b46c967a8e66f5906172ba139d92d3b903f549ed92caced9d315858c9a71b9e6",
+      "decoded_frames": 35280,
+      "channels": 1
+    },
+    {
+      "file": "SFX/PotDrop_1.wav",
+      "sha256": "45d54dcd5060c4fe9d197c09875a2252f08558aad520a2c2074831e83b471725",
+      "decoded_frames": 35280,
+      "channels": 1
+    },
+    {
+      "file": "SFX/PotDrop_2.wav",
+      "sha256": "972ea72c5027069bbe6ee60a28eca5dbc7936b319506b185e91c612e9eb93880",
+      "decoded_frames": 35280,
+      "channels": 1
+    },
+    {
+      "file": "Ambience/HarbourDusk.wav",
+      "sha256": "cf82c9d7674d17bed3bff5d4dd613f0af1b1b5294ba6a540bb78cfba440961ba",
+      "decoded_frames": 1323000,
+      "channels": 2
+    },
+    {
+      "file": "Ambience/LighthouseRock.wav",
+      "sha256": "45144e761a4d9a884d5aba0b272c4e99662920afb5facc2f84ce78612e50995b",
+      "decoded_frames": 1323000,
+      "channels": 2
+    }
+  ],
+  "limits": "Decoded file and synthesis-recipe evidence only. Ear/mix/native acceptance external."
+}

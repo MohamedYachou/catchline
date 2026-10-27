@@ -1,0 +1,62 @@
+{
+  "name": "Dining2_Tier3",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.48750001192092896,
+      -0.25600001215934753,
+      0.0
+    ],
+    [
+      0.48750001192092896,
+      0.25600001215934753,
+      0.9935983419418335
+    ]
+  ],
+  "triangles": 3702,
+  "export_meshes": [
+    "Dining2_Tier3"
+  ],
+  "atlas_cells": [
+    "brass",
+    "glow",
+    "navy",
+    "white",
+    "wood"
+  ],
+  "tier": 3,
+  "seats": 2,
+  "tabletop_z_m": 0.736,
+  "seat_sockets": [
+    {
+      "position_blender_m": [
+        -0.33,
+        0,
+        0
+      ],
+      "yaw_blender_deg": 90.0,
+      "seat_top_z_m": 0.435
+    },
+    {
+      "position_blender_m": [
+        0.33,
+        0,
+        0
+      ],
+      "yaw_blender_deg": -90.0,
+      "seat_top_z_m": 0.435
+    }
+  ],
+  "includes_matching_chairs": true,
+  "contact_correction_m": 0.0005983278388157487,
+  "fbx_sha256": "241d14fec4d696fc07cb9f8f8d240cec43a9fa697c73ad1558f938f8e3b86b29"
+}

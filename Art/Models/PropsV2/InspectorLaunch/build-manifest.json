@@ -1,0 +1,75 @@
+{
+  "name": "InspectorLaunch",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses named StationsV1 geometry; fresh export and evidence, no claim of new sculpt.",
+  "provenance": [
+    {
+      "file": "Art/Models/StationsV1/InspectorLaunch.blend",
+      "sha256": "ffca4c1ded2b7b87019adc0e4025c2a1fbea8fd63b27a36ccdcfd68f45f80e3f",
+      "purpose": "existing named A6 geometry derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.5799999833106995,
+      -1.4500000476837158,
+      -0.25
+    ],
+    [
+      0.5799999833106995,
+      1.5099999904632568,
+      1.2699999809265137
+    ]
+  ],
+  "triangles": 644,
+  "mesh_parts": {
+    "InspectorHull": 36,
+    "WorkingDeck": 108,
+    "IvoryRail": 44,
+    "IvoryRail.001": 44,
+    "SmallConsole": 108,
+    "Windshield": 108,
+    "Mast": 44,
+    "AmberBeacon": 44,
+    "Outboard": 108
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "waterline",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "InspectorLaunch.blend": "c295d153b085c2e9b711439208b1135337f8acc27f13dd4da029175f90d39242",
+    "InspectorLaunch.fbx": "ce003ca99fac8ff8cdf053943774c2992427a16edc4832dbf882abd451364d15"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_InspectorLaunch.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/back.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/front.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/left.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/right.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/top.png",
+    "Art/Models/PropsV2/InspectorLaunch/iterations/r01/waterline-context.png"
+  ]
+}

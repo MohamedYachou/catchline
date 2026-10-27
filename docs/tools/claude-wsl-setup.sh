@@ -27,12 +27,12 @@ for s in "$WIN"/skills/*/; do
   [ -e ~/.claude/skills/"$name" ] || ln -s "$s" ~/.claude/skills/"$name"
 done
 
-# 4. Status line: shows model and plan usage, and writes the usage into ClaudeCom.md.
+# 4. Status line: the team usage bars (reads the team guard's cache; ClaudeCom.md is retired).
 python3 - <<EOF
 import json, os
 p = os.path.expanduser("~/.claude/settings.json")
 s = json.load(open(p))
-s["statusLine"] = {"type": "command", "command": "python3 $PROJ/docs/tools/claudecom.py statusline"}
+s["statusLine"] = {"type": "command", "command": "/home/mo/.local/bin/team statusline", "refreshInterval": 15}
 json.dump(s, open(p, "w"), indent=2)
 EOF
 echo "Claude L set up: instructions, memory, skills, status line."

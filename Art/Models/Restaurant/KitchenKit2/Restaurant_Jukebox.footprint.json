@@ -1,0 +1,38 @@
+{
+  "name": "Restaurant_Jukebox",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.33000001311302185,
+      -0.257999986410141,
+      0.0
+    ],
+    [
+      0.33000001311302185,
+      0.20000000298023224,
+      1.0499999523162842
+    ]
+  ],
+  "triangles": 2668,
+  "export_meshes": [
+    "Restaurant_Jukebox"
+  ],
+  "atlas_cells": [
+    "brass",
+    "ivory",
+    "navy",
+    "teal",
+    "wooddark"
+  ],
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "26b01acb84f2e54133a4b18f10c0b15348ab68685e7ab1acb69e4eea1e903930"
+}

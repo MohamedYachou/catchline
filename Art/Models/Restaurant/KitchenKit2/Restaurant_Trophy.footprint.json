@@ -1,0 +1,39 @@
+{
+  "name": "Restaurant_Trophy",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.4399999976158142,
+      -0.1459999978542328,
+      0.0
+    ],
+    [
+      0.4399999976158142,
+      0.0,
+      0.3799999952316284
+    ]
+  ],
+  "triangles": 779,
+  "export_meshes": [
+    "Restaurant_Trophy"
+  ],
+  "atlas_cells": [
+    "dark",
+    "fish",
+    "navy",
+    "wooddark"
+  ],
+  "mount": "wall",
+  "recommended_base_height_m": 1.15,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "14be572577dc79f06609abecaf60ea2691ab9e0f369de4fdde8c1cd8f40a4fa0"
+}

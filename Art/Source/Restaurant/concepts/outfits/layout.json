@@ -1,0 +1,42 @@
+{
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "placements": [
+    {
+      "name": "v2-s5-mira-host",
+      "screen": 5,
+      "rect": [
+        580,
+        209,
+        148,
+        167
+      ],
+      "size": [
+        444,
+        501
+      ],
+      "scale": 3,
+      "replaces": "v2-mira-wave",
+      "layering": "same old portrait layer; existing Sleep button occludes lower torso; do not draw above button"
+    }
+  ],
+  "runtimeReadOnlyObservation": {
+    "file": "Assets/Scripts/Game/VoyageRestaurantUi.cs",
+    "parentClip": [
+      520,
+      0,
+      324,
+      390
+    ],
+    "currentAbsoluteRect": [
+      543,
+      198,
+      222,
+      278
+    ],
+    "note": "Lead owns native replacement/placement. Existing runtime override differs from mockup. New painting has waist framing; retain native crop and Sleep occlusion. Native AFTER not verified."
+  }
+}

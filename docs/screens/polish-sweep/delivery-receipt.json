@@ -1,0 +1,1552 @@
+{
+  "createdUtc": "2026-10-25T08:07:00.240552+00:00",
+  "reviewedPngCount": 204,
+  "scope": "Capture fixture and evidence only; production source/save/installed-player unchanged by this task.",
+  "files": [
+    {
+      "path": "Assets/Editor/PolishSweepCapture.cs",
+      "bytes": 21972,
+      "sha256": "19ec88fcb690b3c36e95fddbf96915c6bc06f6bbfa962f1e94220c7247412050"
+    },
+    {
+      "path": "Assets/Editor/PolishSweepCapture.cs.meta",
+      "bytes": 64,
+      "sha256": "e5efb6e6317e91561ccd7d3b0a320132ad705ffbd7b20160b56d07f29a785390"
+    },
+    {
+      "path": "docs/reports/POLISH-SWEEP-1.md",
+      "bytes": 27335,
+      "sha256": "2cc9bf66d1fd712071d8e783b023dbd5f0d24bc619c2f057077955916c11e19f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/audit.py",
+      "bytes": 3450,
+      "sha256": "7af26ab91d36b37b56ab539cd9573eb9eaba8dff6966311f381f9249cf09d4e5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/build.log",
+      "bytes": 583139,
+      "sha256": "40bb7307fc47cc105447d51e8e089cfc7621fc6a114caead7b0f276828c31b38"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-build.log",
+      "bytes": 584089,
+      "sha256": "e3df9be889a5b489cab3586fd65cb16ee969bcf2c6ae43cf0adaf18f46f1d2ac"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-native-runner.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-native-runner.log",
+      "bytes": 77,
+      "sha256": "cdebfbfad35cab0fa7d84c373be4a08d3b6546415977bd05fd04f9b0dee56d9b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-prepare-retry.log",
+      "bytes": 70274,
+      "sha256": "8f30aed035e2b9c77a6b28bdae90bcb36b700380fd119c21e7699ce70235d396"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-prepare.err",
+      "bytes": 424,
+      "sha256": "325ac4357069b000f1382015d733ec8f420c5a4eddeeed43351a82d763cd04cc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/current-prepare.log",
+      "bytes": 870,
+      "sha256": "61dfb3f64aca1b353f07a3c9972e082ef6238292c4f41520d3854b422214bef5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/effective-hit-summary.json",
+      "bytes": 1825,
+      "sha256": "cbbe0050e7da04d9954303ff18851df27b9c371dd740f0608be357fa8ebd3660"
+    },
+    {
+      "path": "docs/screens/polish-sweep/evidence-check.json",
+      "bytes": 658,
+      "sha256": "81d64c12ecd7f50eafafad7b5e47a802d002aa107caa4b40efcbe964d8e35acb"
+    },
+    {
+      "path": "docs/screens/polish-sweep/finalize.py",
+      "bytes": 3574,
+      "sha256": "e6f56c3b853e1fc4a2f59c5e0b8f9be7246bad121b41644bf0dcc74e9949abc9"
+    },
+    {
+      "path": "docs/screens/polish-sweep/native-runner.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/screens/polish-sweep/native-runner.log",
+      "bytes": 125,
+      "sha256": "c9a47911cadecd6626c4b5d08d65080e39e39a6424a4cd330c90bec3e3b9dcfd"
+    },
+    {
+      "path": "docs/screens/polish-sweep/phone-artwork-under44.csv",
+      "bytes": 22867,
+      "sha256": "93c730011840935cb3aa671df2857d10554c0e512c83a58a41ae365f7f12e672"
+    },
+    {
+      "path": "docs/screens/polish-sweep/prepare-runner.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/screens/polish-sweep/prepare-runner.log",
+      "bytes": 235,
+      "sha256": "694cf1dca95cdc6d8407c8f5af5458f69bf767a69e3e44a7361e14c19938009b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/review.py",
+      "bytes": 1253,
+      "sha256": "b54e7a16bc0320c958d6edd49eb17090273a63000fbd5a9ac932f83fb15fcc46"
+    },
+    {
+      "path": "docs/screens/polish-sweep/reviewed-index.md",
+      "bytes": 11426,
+      "sha256": "9392f088f371944d19b4f1313728995513ac979e9ad5a2268886f970a76a680f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/run-native.ps1",
+      "bytes": 2015,
+      "sha256": "defd6fa15d9c8bc6e529d958e18e39c5e5b2e87d1eef7e64e71a6fcf936ec67b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-first-harbour-1440.png",
+      "bytes": 1078811,
+      "sha256": "69e3cff82387431c3f0f53c09620d7e8723d4b7876341ccb7159e979b6601159"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-first-harbour-844.png",
+      "bytes": 358978,
+      "sha256": "097d16f76f7a805eed42c44424f99b0373a318de83bc9ad3fae2b2bae092017f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-end-1440.png",
+      "bytes": 1060295,
+      "sha256": "a2e1ded3969c52f2d3a506d0ab925337d49dcc25c18731b9d59bcf7bfa6876c6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-end-844.png",
+      "bytes": 349332,
+      "sha256": "b58b787952ba670e7cf2e0af5ef0b54d1fd354466457ff26ea69f1581c73da57"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-mid-1440.png",
+      "bytes": 1124972,
+      "sha256": "9150119aac03d547f9bb353f10ec4a2358cebd02b8f09962c0a00a99e68efcf2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-mid-844.png",
+      "bytes": 362119,
+      "sha256": "e2d6a0fd879189e4d68a55c466b71aa786fa5dac7119ef51f3bbf708c9d730db"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-start-1440.png",
+      "bytes": 939101,
+      "sha256": "75328a4f88a1e7ee1c6dee924f01efece97cdc3c61b6bcc79ea351fd3768affa"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-intro-start-844.png",
+      "bytes": 290580,
+      "sha256": "75cb1a0855eaa7047877801f356ced0ec260ec711ffc371c92a1d518a93f49f9"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-title-1440.png",
+      "bytes": 1425612,
+      "sha256": "c96b8a553fe900024b4e89d3b4935e087684b6ea81c2689aea3d20cc314d0674"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/1-title-844.png",
+      "bytes": 412069,
+      "sha256": "d96911e76a6b13d994c0aba62746e3b6576238fd883a0cb2e9c960682198159a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/capture-complete.txt",
+      "bytes": 579,
+      "sha256": "b82457a56cba12fa493ae085ae0644b2f491a9e428657029de9215ab1d2f8447"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/native-exit.json",
+      "bytes": 79,
+      "sha256": "b09df9c3158bffa6f0bc0c5573f568c67f874ba08efff7d462923b4589f02178"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/native-run.json",
+      "bytes": 51229,
+      "sha256": "9cb036b3e8466ffb4b270186b8e5bc1dc857a8555230c41d537b2946f7a9e7e4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/native.log",
+      "bytes": 2948,
+      "sha256": "4b9c22b6ea3e9b5be6b06c7b1d620ce7cfbd8d3039e5a76d537597328fd5a3ce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/progress.txt",
+      "bytes": 579,
+      "sha256": "b82457a56cba12fa493ae085ae0644b2f491a9e428657029de9215ab1d2f8447"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-1/touch-rects.csv",
+      "bytes": 2684,
+      "sha256": "9cb60d92bd71f2ff93f98ab1570a6bcc8ec48ac44e8b8e613f2fade27fe0dc28"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-chart-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-chart-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-crew-office-1440.png",
+      "bytes": 720275,
+      "sha256": "f8f543b9f2f84f6160129503b6d08ee12c8118050439d84292af73fb51108a00"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-crew-office-844.png",
+      "bytes": 265737,
+      "sha256": "5a5061d67f89e7382f551e8a796f4a2d7cea9c3d222bd51de4897c0ef92f95d1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-harbour-1440.png",
+      "bytes": 1096555,
+      "sha256": "9b0b262b69303f09f98a7033fe04f92779c67db61d0fa28201ab7c64e159e8b4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-harbour-844.png",
+      "bytes": 349019,
+      "sha256": "782e4e835e1361fbcd13224d4f173d98a6a272da964ad2e03afe4b8661642240"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-map1-1440.png",
+      "bytes": 1181627,
+      "sha256": "b05dedd3f19fb68fc218d598c1a4057ede20919c56f8cc5d80c26a10a982d7f5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-map1-844.png",
+      "bytes": 389859,
+      "sha256": "35e819069cbbdf6104df9ea91720e8ea04f24c5299c9a69bcda880feba8b10d1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-market-1440.png",
+      "bytes": 564801,
+      "sha256": "6449ad43da349c2869ff771d13f498f119b647e536a8261a590f7fff1d3b7563"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-market-844.png",
+      "bytes": 215966,
+      "sha256": "23fd6f5abcfb165bd3a2959e563c9222f932fff2a85e44d583567cbaf7da40b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-return-1440.png",
+      "bytes": 1402675,
+      "sha256": "a97befa8ff0071b56e6e4ea04cbe1a7f699e008120edd31efb0f8fd7fb7b8c3f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-return-844.png",
+      "bytes": 424719,
+      "sha256": "53a3415e3e6a716c076fd8785571f4db1480322de1e021d243855d23c35b5fe0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-rod-holder-1440.png",
+      "bytes": 699788,
+      "sha256": "10635d8e6e88f8cc55124d0ddd43c0b77cadfd6b2ad68197c38e00590a29b3d1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-rod-holder-844.png",
+      "bytes": 261044,
+      "sha256": "85f2c59bd8e85314a759f2b8815228294333016e49f04c9a48594564bf672922"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-title-1440.png",
+      "bytes": 1426735,
+      "sha256": "e3da03e1bc9bb9e2a06e00130ba8b8c023bc3934b2f675cb0a013d00fda1a4a0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/10-title-844.png",
+      "bytes": 412069,
+      "sha256": "d96911e76a6b13d994c0aba62746e3b6576238fd883a0cb2e9c960682198159a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/capture-complete.txt",
+      "bytes": 966,
+      "sha256": "87a5409808bd651f27429af6e58087e770405a50089b9cf3eba3b42bc9a7d987"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/effective-hit-samples.csv",
+      "bytes": 7885,
+      "sha256": "657e82ea30316443e9c0781022bcf13469b6e68a7e83e54284b3436b9f33f398"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/native-exit.json",
+      "bytes": 79,
+      "sha256": "6f8184653f2ddcb31d547558ff34828a8fea040472c683083be151ea6369837d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/native-run.json",
+      "bytes": 51657,
+      "sha256": "e55076c9848916c60e3422976f55dde553e95a1629123e1f6dfbb41064c67527"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/native.log",
+      "bytes": 3492,
+      "sha256": "9a7dca5897700231be51844bb7be4e2fda403b70f958cdc9ff60a5a835da86ac"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/progress.txt",
+      "bytes": 966,
+      "sha256": "87a5409808bd651f27429af6e58087e770405a50089b9cf3eba3b42bc9a7d987"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-10/touch-rects.csv",
+      "bytes": 9368,
+      "sha256": "4273a521e3277de66693951fd718b49a5892c9fba23ae3a517d6832daeaf5e75"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/11-crew-carrying-1440.png",
+      "bytes": 1068879,
+      "sha256": "2f4c8589bbbceea02076a888cd10119ee173738601f90f5324ce95fe19be50d9"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/11-crew-carrying-844.png",
+      "bytes": 355934,
+      "sha256": "9b50f66db3ca1c46d52e105e7dd1e4a299eb371d01bbc03bdb9741d72b098202"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/11-crew-walking-1440.png",
+      "bytes": 1069966,
+      "sha256": "186f8a1f274e3b20dfad39979cdb971f52d62fa4ab8126e3265f432d47028f10"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/11-crew-walking-844.png",
+      "bytes": 357275,
+      "sha256": "2ce45775c31cea61871e363a9c7549bec4e51f8e3f221343d96ed74959c32ca1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/capture-complete.txt",
+      "bytes": 248,
+      "sha256": "35bce550c08878ce3bfcc8ec226061d37cb688b645d14ab431942f0e797c9e67"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/crew-state.txt",
+      "bytes": 168,
+      "sha256": "8ba3b983beb1522504c41600297dfe76815492eb859bb4e52bf7d93165311b52"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/effective-hit-samples.csv",
+      "bytes": 2021,
+      "sha256": "a583deb9a75fbbdffc5cff020f7424f16279fa725a556dd6e73582dd78af1bb0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/native-exit.json",
+      "bytes": 79,
+      "sha256": "9529553ab3a8c599903e07637fd88d723b9cf55b6b6ea3e7014c395d4697f691"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/native-run.json",
+      "bytes": 51657,
+      "sha256": "e2074f1c200ddc5ef6d68d03ea670fd06dec5d62a97fc2050a30690784c79806"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/native.log",
+      "bytes": 2474,
+      "sha256": "e3f4c7ee1847c1b5c8e82561ea41b88e960b4b561d54197f750e566baa06604d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/progress.txt",
+      "bytes": 248,
+      "sha256": "35bce550c08878ce3bfcc8ec226061d37cb688b645d14ab431942f0e797c9e67"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-11/touch-rects.csv",
+      "bytes": 4147,
+      "sha256": "3af5863ac9b10c9b2de1ff67d43e532fdc9f42adc5903261d8872092f3996635"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Chandlery-1440.png",
+      "bytes": 699788,
+      "sha256": "10635d8e6e88f8cc55124d0ddd43c0b77cadfd6b2ad68197c38e00590a29b3d1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Chandlery-844.png",
+      "bytes": 258647,
+      "sha256": "5e5a47d86f48d72953b80e6e3e335c0964e94c1cbd5b854c30dc395292ae664d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-CrewOffice-1440.png",
+      "bytes": 704699,
+      "sha256": "feca37cf1c39bbb082dc658636f042d7d989585599c3ec83c8ba0915f9634563"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-CrewOffice-844.png",
+      "bytes": 250481,
+      "sha256": "f89ecba3a61dacc385a18994e2d79519143586766c3bf8dcd60ac0fa2b71a0bf"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-harbour-1440.png",
+      "bytes": 1099623,
+      "sha256": "37b40fb64238d6e967eedae84273a769756274c35806aa7de6f183b1c7b456a5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-harbour-844.png",
+      "bytes": 349759,
+      "sha256": "86ac9d0157783178873e8afb21ad7e9d0635c98822174b7839be9e81d256ef62"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-HarbourMaster-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-HarbourMaster-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Market-1440.png",
+      "bytes": 548319,
+      "sha256": "7f777da563b57895257c59e068bf1665165433385288a8b37543b707608f46e6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Market-844.png",
+      "bytes": 210902,
+      "sha256": "a8a1f225ce2a14775507901d3031205e2016e4712cb734b8fa87b98595acf3b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Supplies-1440.png",
+      "bytes": 608806,
+      "sha256": "d4f1b046278174bcd1859dcfb26282b1aacf11075a0952dc068425399930fc78"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h0-Supplies-844.png",
+      "bytes": 236138,
+      "sha256": "41eb1b6bb9a368c057a6021af2655d668adabbfbb141b38a15a768647ed9dacc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Chandlery-1440.png",
+      "bytes": 710688,
+      "sha256": "fffa11c2266b6874f0c7baed29cf94b02466e6b922f1db31320fbb41238d9085"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Chandlery-844.png",
+      "bytes": 263131,
+      "sha256": "d7e01f83ca5b0ac5a6731a077c04191b38c2113bc6f9cd349616a00fa661b16b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-CrewOffice-1440.png",
+      "bytes": 709805,
+      "sha256": "462c9df082ca28bcdf9ea6fdb0083bf94bcee73e8952d2e4e8e533b098e4e548"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-CrewOffice-844.png",
+      "bytes": 263549,
+      "sha256": "716188b7abd68a47924b07c92a6637e6fd5bd60a79aa0918ecb6108377372c97"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-harbour-1440.png",
+      "bytes": 1255649,
+      "sha256": "94308bec85b0e8721fe7276737c93f302c89159da1e11c22e9406d1aeb81aa5f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-harbour-844.png",
+      "bytes": 399809,
+      "sha256": "56afa6f64c136068908b8abef4cc9fd9a05a081472f45ecf19c795236b1b76ff"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-HarbourMaster-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-HarbourMaster-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Market-1440.png",
+      "bytes": 548319,
+      "sha256": "7f777da563b57895257c59e068bf1665165433385288a8b37543b707608f46e6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Market-844.png",
+      "bytes": 210902,
+      "sha256": "a8a1f225ce2a14775507901d3031205e2016e4712cb734b8fa87b98595acf3b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Supplies-1440.png",
+      "bytes": 608806,
+      "sha256": "d4f1b046278174bcd1859dcfb26282b1aacf11075a0952dc068425399930fc78"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h1-Supplies-844.png",
+      "bytes": 236138,
+      "sha256": "41eb1b6bb9a368c057a6021af2655d668adabbfbb141b38a15a768647ed9dacc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Chandlery-1440.png",
+      "bytes": 713911,
+      "sha256": "7ac5079272b4ba2367b8986e6d58565f9295529e4174878986f26099651765d8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Chandlery-844.png",
+      "bytes": 270844,
+      "sha256": "86a906667d63ca615fd0ce17c09d10aa7204befdab2baf643cb59cb51ffeecd1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-CrewOffice-1440.png",
+      "bytes": 664514,
+      "sha256": "c878b4095dc43ee85ac5d796e31d3baa9da8492bb157f534ac62d8646b455957"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-CrewOffice-844.png",
+      "bytes": 235967,
+      "sha256": "9a5d8a354ff3e0b2258aec904e3c5c7b466617b0db56fe36025227dbbfe6406e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-harbour-1440.png",
+      "bytes": 1098566,
+      "sha256": "f67b711f1285f0a7b77b65d80d909c5338ebdf55c1afafc83bcf64518306fcec"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-harbour-844.png",
+      "bytes": 377239,
+      "sha256": "b879b343e23d8fdb06f1e8ac06a28323196ab0ab2f1158734e8626d5d18d043a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-HarbourMaster-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-HarbourMaster-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Market-1440.png",
+      "bytes": 548319,
+      "sha256": "7f777da563b57895257c59e068bf1665165433385288a8b37543b707608f46e6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Market-844.png",
+      "bytes": 210902,
+      "sha256": "a8a1f225ce2a14775507901d3031205e2016e4712cb734b8fa87b98595acf3b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Supplies-1440.png",
+      "bytes": 619377,
+      "sha256": "f16f9d16897a5dd11806bf9734183b06ab7f3e5675d9207aeead1a4eb0aa4da8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h2-Supplies-844.png",
+      "bytes": 242484,
+      "sha256": "ee2165dbdc6054859ac5eaf56d5a6246a5c79c99ce16246c3df83cb47dca3e5b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Chandlery-1440.png",
+      "bytes": 748571,
+      "sha256": "1725c2f38e3021c0ad6099dfdf1fdc725e950466a7529fab1d2c876874232225"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Chandlery-844.png",
+      "bytes": 279779,
+      "sha256": "d545ec2f8edf37cba6da169bfba5b5f8b9c45091898a1fffb7ac9ac9c9837bf6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-CrewOffice-1440.png",
+      "bytes": 609595,
+      "sha256": "b90f48ebe876881d3621343b32a084e5be9094528ae8c8f0b1c076dd15b3ef7d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-CrewOffice-844.png",
+      "bytes": 232986,
+      "sha256": "05717acdf3936488d0be240717290228881065cca3c6bff47064b09ca06a6fef"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-harbour-1440.png",
+      "bytes": 1229395,
+      "sha256": "9a5473d4af5d415ce893c04ba1b67e36aea1cb300ae64fecdc4ff2b63ed4219f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-harbour-844.png",
+      "bytes": 412695,
+      "sha256": "112811cc936bb0b4a4cf3845fe8e2dd4892b1519cf33efff0dd39f0fbb654390"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-HarbourMaster-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-HarbourMaster-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Market-1440.png",
+      "bytes": 548319,
+      "sha256": "7f777da563b57895257c59e068bf1665165433385288a8b37543b707608f46e6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Market-844.png",
+      "bytes": 210902,
+      "sha256": "a8a1f225ce2a14775507901d3031205e2016e4712cb734b8fa87b98595acf3b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Supplies-1440.png",
+      "bytes": 619377,
+      "sha256": "f16f9d16897a5dd11806bf9734183b06ab7f3e5675d9207aeead1a4eb0aa4da8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h3-Supplies-844.png",
+      "bytes": 242484,
+      "sha256": "ee2165dbdc6054859ac5eaf56d5a6246a5c79c99ce16246c3df83cb47dca3e5b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Chandlery-1440.png",
+      "bytes": 732200,
+      "sha256": "d6a90e4907e10d260c3d56e57b161e0e6586401d0c412241a07c6f56de9f20f1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Chandlery-844.png",
+      "bytes": 276116,
+      "sha256": "1a78f1748b07d65bed5f8558cf5bd9d2227edf0e705aec8702cfb55108005830"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-CrewOffice-1440.png",
+      "bytes": 609720,
+      "sha256": "6424451d41a22590ec943232e8b0c34e5e73c4e7fa5e12306da0141b51090c77"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-CrewOffice-844.png",
+      "bytes": 233028,
+      "sha256": "cf9956b80192a8c5bbd3657909b7d6b9eaa1454a1b752bdb863485fb4b5a2437"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-harbour-1440.png",
+      "bytes": 1316456,
+      "sha256": "1963d1559d9d8040b2ba346020ab1cfeb16ce0e8091a0515ba6d0b2a08159d33"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-harbour-844.png",
+      "bytes": 420670,
+      "sha256": "d48f3b4fb6b6bc8fc357fea75f0cd89aa7127f381557918af366416ad626bd53"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-HarbourMaster-1440.png",
+      "bytes": 2321866,
+      "sha256": "38ca6f52a61ca316525bc99bc282268f9efa613bea5cef52f9ea4ff09b9de108"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-HarbourMaster-844.png",
+      "bytes": 661024,
+      "sha256": "dce5e6f36068a615f51024b1c8be3aa2f48f0b0137b99eff2caf0ef5eaeb7dce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Market-1440.png",
+      "bytes": 548319,
+      "sha256": "7f777da563b57895257c59e068bf1665165433385288a8b37543b707608f46e6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Market-844.png",
+      "bytes": 210902,
+      "sha256": "a8a1f225ce2a14775507901d3031205e2016e4712cb734b8fa87b98595acf3b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Supplies-1440.png",
+      "bytes": 619377,
+      "sha256": "f16f9d16897a5dd11806bf9734183b06ab7f3e5675d9207aeead1a4eb0aa4da8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-h4-Supplies-844.png",
+      "bytes": 242484,
+      "sha256": "ee2165dbdc6054859ac5eaf56d5a6246a5c79c99ce16246c3df83cb47dca3e5b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-traffic-basin-1440.png",
+      "bytes": 1140730,
+      "sha256": "75de5dd41502df92f94876092edeaaf444f6d4ed75aa66a1762c2a8c36a4df83"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/2-traffic-basin-844.png",
+      "bytes": 387048,
+      "sha256": "064360321a0305f9694b51eeffa83104223fb45006ab7c7d9ba7e22a80ed6498"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/capture-complete.txt",
+      "bytes": 3743,
+      "sha256": "b7824cd2c7a555627f22c343f356d50f70da8b2dd4668f403753d5a25df91c3c"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/native-exit.json",
+      "bytes": 79,
+      "sha256": "d89f49d6574372249a74340c03a5b2660697954a9a55113af9992f40d4f7d3ac"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/native-run.json",
+      "bytes": 51229,
+      "sha256": "f4bae5b2ea2c161c838595127b793a00dc29b0897945bfc1535559ff9cdc0416"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/native.log",
+      "bytes": 7412,
+      "sha256": "b2ffd1f7d2a4b7451a0594fd41a1430c7097646921c0b62b614bc0a7c7cb14fe"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/progress.txt",
+      "bytes": 3743,
+      "sha256": "b7824cd2c7a555627f22c343f356d50f70da8b2dd4668f403753d5a25df91c3c"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-2/touch-rects.csv",
+      "bytes": 53277,
+      "sha256": "d294ee0791be82869e4bb55b98b63fcf4eb758030efe70607fc9648626e4aa83"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-chart-leg-1440.png",
+      "bytes": 2732432,
+      "sha256": "0edf9dccf42ec5e73389d01bffef134b5dd5fafd9bf5d098c4bb927af8b15a28"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-chart-leg-844.png",
+      "bytes": 788762,
+      "sha256": "21d7d671e78f498db4703f2d4ae02f7fd862a2e667bfcbf24f7e30092d854e44"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-depart-lane-1440.png",
+      "bytes": 1404040,
+      "sha256": "7de150e7a21736f0e1d608c5175bde0c711e194e575746c30a5ebfe3dc496e3f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-depart-lane-844.png",
+      "bytes": 434224,
+      "sha256": "6690345ae482ae92618c76fb1b341976c159e4c9f28e42c0c9b1edcb545bfdcf"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map0-arrival-1440.png",
+      "bytes": 1199346,
+      "sha256": "1d6c8e76e83856de322d6a68971131a8fd8877bce94f831952bc07139e6bb5dc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map0-arrival-844.png",
+      "bytes": 383480,
+      "sha256": "f76923ca914b2535697f436c080e703f9a24df472617b4597824ef93a85c3054"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map1-arrival-1440.png",
+      "bytes": 1156319,
+      "sha256": "47cac416ce57783b9d05f8d917e1013c5ef88476541dc3794f6af22d7dda8ba2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map1-arrival-844.png",
+      "bytes": 379022,
+      "sha256": "5bb81dc1b3d7b35d11a94b5324768c7992dc24ebccf4200f56a74186b9b5418e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map2-arrival-1440.png",
+      "bytes": 1183756,
+      "sha256": "835e236a38cb1f1d18d619a53514be6203c3949fe3c81cd0081ff3408e08419b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map2-arrival-844.png",
+      "bytes": 379321,
+      "sha256": "69a07d768fda80ca3e079f6e8b4b8fc1366ad71860dc7c16bce9b355a02aa86f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map3-arrival-1440.png",
+      "bytes": 1218868,
+      "sha256": "3f44f06015f7d0656f6ea03be1b7f2e35353d6c0b2cb2c122b2df704a753db20"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map3-arrival-844.png",
+      "bytes": 391867,
+      "sha256": "592853bcabc99c5523b571fd7bdc3651bd3763b45ff941435a45631295ccb183"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map4-arrival-1440.png",
+      "bytes": 1215000,
+      "sha256": "bd2978db839e6a408ffdaf264196e60999d2b7e000774f96be7036ab106a2eb1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map4-arrival-844.png",
+      "bytes": 385107,
+      "sha256": "78be648630f72e807347d64f41aef9584aa6fbb296c4b56629d0f118d0fdc9f8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map5-arrival-1440.png",
+      "bytes": 1271321,
+      "sha256": "5e51645dc3e382d8504637a4ba25153aecb085c5cb89f15b6b8e920532f7d545"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map5-arrival-844.png",
+      "bytes": 404099,
+      "sha256": "d8927e6091a280bc2b848cf5519cbcda73935c2067bdb041d346287c9b0c290b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map6-arrival-1440.png",
+      "bytes": 1272112,
+      "sha256": "8bf9d21d8a946f569f92149e9a42108d99a049a315a450329f75e7ec5927ffc5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-map6-arrival-844.png",
+      "bytes": 395441,
+      "sha256": "1a9f77bcfeac703e0740d73211d279e0eff045b457053fd58fea384c4cebd6f4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-sea-entry-1440.png",
+      "bytes": 1206969,
+      "sha256": "3b9c8b39050c8b32e9ed3be199f44922876a1c77e743d5ed0b3b3b2aa79c1f8a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/3-sea-entry-844.png",
+      "bytes": 366321,
+      "sha256": "f4e9d71e494a179546c6b308060644353ccf248a16a77d69c54d7af19e7a03f3"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/capture-complete.txt",
+      "bytes": 1366,
+      "sha256": "93187dc23be74b0d5b1ed435bd5def9147c8652229d0f6c3ff32e9dbc595c62e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/native-exit.json",
+      "bytes": 79,
+      "sha256": "bc6ccd0088cfba657b4522611d65dbcbc209953892a17529d560febcb565815a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/native-run.json",
+      "bytes": 51229,
+      "sha256": "7e5f3e09e6cfeaf603499e824679ff070c58a0f6b18485172cda2069cf64cb52"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/native.log",
+      "bytes": 3985,
+      "sha256": "5e5fc0b13d2717da662a313ac93567dc81283502dd35545d2750f4e35a67163b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/progress.txt",
+      "bytes": 1366,
+      "sha256": "93187dc23be74b0d5b1ed435bd5def9147c8652229d0f6c3ff32e9dbc595c62e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-3/touch-rects.csv",
+      "bytes": 12789,
+      "sha256": "74f36e49df7809fca584d61cd9e5efc91471b7a63b33978af5388e6ff33c2211"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-cage-board-1440.png",
+      "bytes": 1219825,
+      "sha256": "65ab1219772c7945f952fc0028ff485bb03b677c34b5f65ae099a04dd78905d9"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-cage-board-844.png",
+      "bytes": 373885,
+      "sha256": "e42df17c14fbbc7854462b1b64e3a56855fe27824c21c988b8c3146d7f893556"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-cage-pull-1440.png",
+      "bytes": 1064794,
+      "sha256": "bb5e7a59d7682c3b680f1452187cfff74f298b198a44b539dc212697884b6d06"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-cage-pull-844.png",
+      "bytes": 324801,
+      "sha256": "ce3428c73e89583eb7249009014629d1517c589ebd7a3b9dd4fcd828ca894889"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-deck-crew-1440.png",
+      "bytes": 1028784,
+      "sha256": "3d2c88fc464f127323c7eefda87971e42a92e5586321c81cd77e489cde143fe4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-deck-crew-844.png",
+      "bytes": 343307,
+      "sha256": "0b03c627ea6b020ab3b5a6b220e521dc1b22d667a3fc16532d6727c1f542e64f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-board-1440.png",
+      "bytes": 1183944,
+      "sha256": "76535f3d1ce4933aa5e6fdf5b63e222000efbdc03a2ba604627ddbdee7b4e918"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-board-844.png",
+      "bytes": 395015,
+      "sha256": "01b08c7b51998b812db941a1ed84155bc3418179deab7fb26f21ecc9b17becb3"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-clean-1440.png",
+      "bytes": 1179132,
+      "sha256": "21502f85ab1e53c17181b77c25d93ae6e53d311933f1641aac4e183aaea3f0a9"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-clean-844.png",
+      "bytes": 396278,
+      "sha256": "0d3769ae801629e75357aaa3129d49972e883438101433e0b42a14533b1fa2bf"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-leave-1440.png",
+      "bytes": 992398,
+      "sha256": "79c74c53e28216673238566774e5d2d240a72283b81cb47d7032d7679f52b1c4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-leave-844.png",
+      "bytes": 338733,
+      "sha256": "19193a27f6b96b8d87aa3adde2e8f3368771507890941f63df0e850bf003b30b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-ragged-1440.png",
+      "bytes": 1177257,
+      "sha256": "f68cdb622b6e3bcec01849baa80aea43e1168af90a92ec54a4925fccb3c28afc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-gut-ragged-844.png",
+      "bytes": 390692,
+      "sha256": "818cdd5ee6125ebbfb094d146dbc6225afd5dd5a2deab7f5fdd4cdee19a56784"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-hold-full-1440.png",
+      "bytes": 1064706,
+      "sha256": "8394e9c116da68e219419d1abd28a65f97c4bd4c0c6a135a82cdcc0fdc5ba462"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-hold-full-844.png",
+      "bytes": 349822,
+      "sha256": "4a4796c3458f4ea5cf4e2d1a93b71b86b859fbd80c8d02a4d0fb36305fbbb54f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-net-haul-1440.png",
+      "bytes": 1334962,
+      "sha256": "cffb1e8d0e1f85c587c2b2a5f588a2ac4b1a1543dfd340374f3b4ffd2a0b431a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-net-haul-844.png",
+      "bytes": 393135,
+      "sha256": "98600680bfefb3ea4fcf3d6f4c426878b0fbcad777130b1ec03e853b10a50c67"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-net-setting-1440.png",
+      "bytes": 1073070,
+      "sha256": "d5e7e1d7b5ef8b5c951b880fef65ce77bfa08ed9f9ec05efd77c3ae26c062ace"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-net-setting-844.png",
+      "bytes": 320595,
+      "sha256": "9ae28a9a41d6c5732544ed8b1239ed5883de0aca59045e317e3ac9ffd91d6282"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-bite-1440.png",
+      "bytes": 1163941,
+      "sha256": "59d3f09c25f739088b942b5243191c536ac987bfb39b626651e629866602cd68"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-bite-844.png",
+      "bytes": 353547,
+      "sha256": "eccf9d95b023144423e7b513f46bb2c6ee515ad6966f2bf0b220c8168f845b5d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-cast-1440.png",
+      "bytes": 1206496,
+      "sha256": "7a78555e5b61aada58a195b0ea6fcfb458c4b8d978e428428d198ecb997d71a2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-cast-844.png",
+      "bytes": 351435,
+      "sha256": "98012e76f892e92550500a76659aa86edcaa3afa8b99812b75c658db9945aa3f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-catch-1440.png",
+      "bytes": 958698,
+      "sha256": "db1eab0783647eb28856f343f2a80d7fc7c8957f8341c9d9196a146320568329"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-catch-844.png",
+      "bytes": 319566,
+      "sha256": "c882dca92fd6d1bf1433f03c6907e91f525e8e3f2238edf936e90e69533dcd4a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-fight-1440.png",
+      "bytes": 1161235,
+      "sha256": "5ee2d64a0119649ccaaacfc47fc879452c2cd739ff1439ab0cc5979cb1d48382"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-rod-fight-844.png",
+      "bytes": 355043,
+      "sha256": "af4efba7086698c6f792b9b725846248853682b854539e6f210cef1b73cb426f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-sort-1440.png",
+      "bytes": 891630,
+      "sha256": "a19ff458a9888a062833c5a15bd057415dcd039ed0e6c6dd94b2fc7335d95fec"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-sort-844.png",
+      "bytes": 295663,
+      "sha256": "580c1bb40020dc5c1b2339ca1caac4ae1401c076ee546ab37a7700f5ad825c25"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-sort-home-1440.png",
+      "bytes": 961792,
+      "sha256": "026cf21e24296eb58cd6f574edeb6f16134b4e6fed00d37fd72906de5b5bcd84"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/4-sort-home-844.png",
+      "bytes": 307957,
+      "sha256": "beec78d36c9e8d9a3f43d11372707264e155cef3a22b1e122f3679ee707e8a77"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/capture-complete.txt",
+      "bytes": 1904,
+      "sha256": "50c78a0b14784ab7324def12b2d820c2b4c787f8c6dbfb53e494f48dd705dfd1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/native-exit.json",
+      "bytes": 79,
+      "sha256": "95f25054e5366d528f0482ed71701da51ad12b9dd0b1b756c336ce2c746d6099"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/native-run.json",
+      "bytes": 51229,
+      "sha256": "53ae6d2de3126c9f859d78f49f8bb53d2c544a8b7621671094a7129fa1d2e784"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/native.log",
+      "bytes": 5051,
+      "sha256": "8c1e77cd438518cc033a6893797651ebd552d63033f1ee4a2a40da4cacd7f453"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/progress.txt",
+      "bytes": 1904,
+      "sha256": "50c78a0b14784ab7324def12b2d820c2b4c787f8c6dbfb53e494f48dd705dfd1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-4/touch-rects.csv",
+      "bytes": 9765,
+      "sha256": "83551b2ccd4cadf82f7aa58b10f6dd79ad3b4ae838749e77a21a58ccbd3c5674"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-arrival-crates-1440.png",
+      "bytes": 1119449,
+      "sha256": "e8054711250b05425c570e1ede1a4805816592b82c8ec1ae2565f35df4696776"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-arrival-crates-844.png",
+      "bytes": 352717,
+      "sha256": "2e1eb50dd8671f541d6c82a72e3ab133b7adf99dcd990d898105982d65b9ce0c"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-market-after-1440.png",
+      "bytes": 567694,
+      "sha256": "7f8ead3ef5b1f300a8bb05f39aea61431a7e9825ae844c02c6a120402b13e43c"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-market-after-844.png",
+      "bytes": 220430,
+      "sha256": "e177fe82c0b3b641ddc5852527ed6c3019e693925da52ebe34a7af1497fd0397"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-market-before-1440.png",
+      "bytes": 565627,
+      "sha256": "dab715aaa6f90a8b4f42c7074ae4d5fe0aa1074bfaf9d27c661fa7cbb49eb58d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-market-before-844.png",
+      "bytes": 217809,
+      "sha256": "18e208ff22c4a417392218eb617a6320db803b8324116a8512cde38281a22c22"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-reloaded-1440.png",
+      "bytes": 568755,
+      "sha256": "acc5c7891e38c728812d24047a095f8d758216f12e944e8c24110b94a9e46573"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-reloaded-844.png",
+      "bytes": 220894,
+      "sha256": "f38107772e9e84576d81d7c4fbbebd06400d6d75d39cdfa72af0ee60f83df736"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-chart-1440.png",
+      "bytes": 2738635,
+      "sha256": "05bc475f5f4ec7f31ffe25c58cb361d04065d8b09b607cb5e91e0007ba7e58d3"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-chart-844.png",
+      "bytes": 790499,
+      "sha256": "988ac3a01981b4da6bab706c0ff60c7a1fa400f277f87e8ce31d872d62927895"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-lane-1440.png",
+      "bytes": 1329546,
+      "sha256": "5bddd3e0c7899d3c671766308da15a66a11089381260c9e2f61604eb3bdb831d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-lane-844.png",
+      "bytes": 402881,
+      "sha256": "2ad69354cfb02753c9c06c7805317058184e5f9ca9cb60a5adb035c79e7f82c0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-sea-1440.png",
+      "bytes": 1400471,
+      "sha256": "03d85772f9d23b090ac1f12c3b084115832eccf3f1bd9b2c39778e8117fb3c7a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/5-return-sea-844.png",
+      "bytes": 424143,
+      "sha256": "7a5b5e2e1d736525f4122b71f13b3f6d917f87c8bb965b724e83d4f9606ffc83"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/capture-complete.txt",
+      "bytes": 993,
+      "sha256": "c6325853f6d3ee2aeababa462bc88a247f41de410f5612d3b09257f05e3749c8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/native-exit.json",
+      "bytes": 79,
+      "sha256": "b3c912eb10a26c841f564f6427c1c743c679d8afc8a992c683c8a9682df4d900"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/native-run.json",
+      "bytes": 51229,
+      "sha256": "d6de2cbfbf4123c2c5c83e685e6ea872bbb71cac563218ec2082370645cda570"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/native.log",
+      "bytes": 3462,
+      "sha256": "6519220a7d5693b4f351d259bf1daa27b05436db42dd5cab30fa291a30a5e01c"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/preview-reload-check.txt",
+      "bytes": 105,
+      "sha256": "00b26d0cb15f880c1b2c7795e2aba5870b5f7576b207aaf93c683a655aa9ba62"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/preview-save.json",
+      "bytes": 10766,
+      "sha256": "864c307b2816fb2767660b710e366f6345ad6606ba14b338bf4a294da4d4153b"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/progress.txt",
+      "bytes": 993,
+      "sha256": "c6325853f6d3ee2aeababa462bc88a247f41de410f5612d3b09257f05e3749c8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-5/touch-rects.csv",
+      "bytes": 4882,
+      "sha256": "c3e6bf8af65e5cdd62736ee11397695cde2a7bcbe089114f823d70768db6349f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h0-boatyard-1440.png",
+      "bytes": 762044,
+      "sha256": "b8918564802ac5cf81a06dfa8e63ac4738ede12074e9245665b914b0863fce50"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h0-boatyard-844.png",
+      "bytes": 253551,
+      "sha256": "61c41c3f4ab2f20c4d73072b62cef91213ec7aa2bf620d2bc446aa18e002ca85"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h1-boatyard-1440.png",
+      "bytes": 797919,
+      "sha256": "9d03f4821d1e26029b167f1aba4215ef730bdeeac2ab778112f2433a88b1aa93"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h1-boatyard-844.png",
+      "bytes": 260982,
+      "sha256": "8be26e681dbd21c570cd9502c222740046f78849be6e83053e0869a44760c65e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h2-boatyard-1440.png",
+      "bytes": 850401,
+      "sha256": "01776c6e8f003bc8a2bb04b7d21833ff3f1e3dff46c75f36d289e6aba0bce1ea"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h2-boatyard-844.png",
+      "bytes": 269609,
+      "sha256": "5e5a2486934dd68953f5c92fd1a9b1f9d02e65951439dfde4071dac637d3735e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h3-boatyard-1440.png",
+      "bytes": 728463,
+      "sha256": "1783215d4d09ccb5e910511e1515b6fdd2301903b44bdc79c2bdef3c2e070592"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h3-boatyard-844.png",
+      "bytes": 283881,
+      "sha256": "9c79fc04428a94f48952ecaf8d2af2a2ded1c07d1c3f7de7a26e0d3bcda9057a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h4-boatyard-1440.png",
+      "bytes": 709153,
+      "sha256": "3ab437003e8fac9969e10ec2f752c312256cf1b6c26f4af476dc8d965dd9e647"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/6-h4-boatyard-844.png",
+      "bytes": 278626,
+      "sha256": "78b06482c76916be260ddcebad86aa60ff27df91520525918ac1eb6771f4732d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/capture-complete.txt",
+      "bytes": 595,
+      "sha256": "aa68a681f6f294c274460fdd49094ffddb23c3b6e1a69990c79b29b70b242f41"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/native-exit.json",
+      "bytes": 79,
+      "sha256": "119fbc10f38c04b27b5a8120c9845bbbfb842612fbd4b9ccdecdd2caea88eafb"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/native-run.json",
+      "bytes": 51230,
+      "sha256": "cf1de7fe1c5a4255981392164c390df31977430a95f615d2ffca170bd09184a5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/native.log",
+      "bytes": 2979,
+      "sha256": "4a7a6087255973a7d2ee85fcc0bf540711d7165678668d03202fd689c1eff0d6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/progress.txt",
+      "bytes": 595,
+      "sha256": "aa68a681f6f294c274460fdd49094ffddb23c3b6e1a69990c79b29b70b242f41"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-6/touch-rects.csv",
+      "bytes": 9598,
+      "sha256": "7b9f79175702c9ccb741e76469ee1bfe6211ed5d38c37cbd65faaf53d23ec321"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/capture-complete.txt",
+      "bytes": 103,
+      "sha256": "f1ceb652a5b6a876aff88d21413e71ff80d454ee52e5f120958cbd79fac43141"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/native-exit.json",
+      "bytes": 80,
+      "sha256": "3635792bdda80fde6b3ee8ac4547b196406151dc821abf75eabdda3d5f073f19"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/native-run.json",
+      "bytes": 51230,
+      "sha256": "f17bc1bbeb3000e10670ed8123ed64b2b5038b480621d5e76f78da6d56a7f816"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/native.log",
+      "bytes": 2235,
+      "sha256": "9efe87aaea8afc2dc9a451af79c1415922bfb300532c2338443fa6010a395437"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/progress.txt",
+      "bytes": 103,
+      "sha256": "f1ceb652a5b6a876aff88d21413e71ff80d454ee52e5f120958cbd79fac43141"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-7/touch-rects.csv",
+      "bytes": 39,
+      "sha256": "1f3b17bc0d6fa050b84ae5494a887f9c65143af3fe370667d97b0dc875ec21a8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/8-current-market-1440.png",
+      "bytes": 564801,
+      "sha256": "6449ad43da349c2869ff771d13f498f119b647e536a8261a590f7fff1d3b7563"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/8-current-market-844.png",
+      "bytes": 215966,
+      "sha256": "23fd6f5abcfb165bd3a2959e563c9222f932fff2a85e44d583567cbaf7da40b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/8-current-rod-holder-1440.png",
+      "bytes": 699788,
+      "sha256": "10635d8e6e88f8cc55124d0ddd43c0b77cadfd6b2ad68197c38e00590a29b3d1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/8-current-rod-holder-844.png",
+      "bytes": 261044,
+      "sha256": "85f2c59bd8e85314a759f2b8815228294333016e49f04c9a48594564bf672922"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/capture-complete.txt",
+      "bytes": 258,
+      "sha256": "22c27215a51dbc45ba0c0ce2d8f3f9aae8f7fde854e6479e8bf011f24ed88cdb"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/native-exit.json",
+      "bytes": 79,
+      "sha256": "411db7d56b3d9edc831fdb6e05eb99c9c5667962b10f3c28ae18f2f4bc98d865"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/native-run.json",
+      "bytes": 51230,
+      "sha256": "f5bd12b2e2bd2d09e4e8c3ee0a26463e769561427da8d6ac4f5605a8f257d9e0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/native.log",
+      "bytes": 2492,
+      "sha256": "7bd44dddbba819ad77408e49e4a2bf1e13ab25ee13a5f6f3427f0c16e308077a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/progress.txt",
+      "bytes": 258,
+      "sha256": "22c27215a51dbc45ba0c0ce2d8f3f9aae8f7fde854e6479e8bf011f24ed88cdb"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-8/touch-rects.csv",
+      "bytes": 2756,
+      "sha256": "1a930a2f0b111178f50f459f77e88e56e01eb1025619f9f9cc64372c40659c19"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-cage-board-1440.png",
+      "bytes": 1230137,
+      "sha256": "4a7b1815961d5eaed209929213bd929f4dd8e5b877b2a75faec19cfbc734a80d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-cage-board-844.png",
+      "bytes": 377821,
+      "sha256": "f3a2a574d79e7fc2b5efb22dfc9b1c4c0980e02a560ecd24d670f8b025bc00ea"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-cage-pull-1440.png",
+      "bytes": 1066876,
+      "sha256": "60cd82d7cec539a3465baa7062ca28599e32d71e9b21d8c573df078b36ffd7af"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-cage-pull-844.png",
+      "bytes": 324500,
+      "sha256": "b36e9765fd7b1bc9367a80004b0ba969bf0df8d73fde9558e14e1826b53dd7c2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-deck-crew-1440.png",
+      "bytes": 1040436,
+      "sha256": "b9ca30ca43f2760d1a4cb694592e8f5a00548d68e2218e6d0ee0484b8aea995d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-deck-crew-844.png",
+      "bytes": 344340,
+      "sha256": "5ef449240eaf8abd644d34d350c90009194cabb9f3ffe3f491c5a991dbeb54f2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-board-1440.png",
+      "bytes": 1177998,
+      "sha256": "4a1f54355d74797c6cee0660acc5a903b365fa7330092d0ded11e45a60ae0429"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-board-844.png",
+      "bytes": 393863,
+      "sha256": "ca165ce4067fe289cc04caaa8e9449cf44235782787622c03b576f3d8ecea172"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-clean-1440.png",
+      "bytes": 1181017,
+      "sha256": "45e50ce7741709ee009845f14403ac4068ba4dc0c56fae13291583b0d9a2aeb6"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-clean-844.png",
+      "bytes": 395901,
+      "sha256": "5bca05efb9f5c1826a22743d5de472fe464a687f947f4bb3029d6fb171ce68b7"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-leave-1440.png",
+      "bytes": 1002739,
+      "sha256": "2b5ca2f80c6e4475124dc56b8146a7ae5e8ab170d631815ecf78a04bd286cc5f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-leave-844.png",
+      "bytes": 343185,
+      "sha256": "8e981c00e5242dcf30381f64717f8ac145d44124319e776ee90d2929276717c0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-ragged-1440.png",
+      "bytes": 1175861,
+      "sha256": "9b46a1a7ebd235a3bb59aa5a1e0dae498ddb93ed18ccf7d71b1e980ff94d1b93"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-gut-ragged-844.png",
+      "bytes": 391453,
+      "sha256": "3d0e621611203f5a77829ade89638718b8194750f22c77a9ed9b6e97a8a45dbd"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-hold-full-1440.png",
+      "bytes": 1067094,
+      "sha256": "a5355906e84845a841537a7e9921b585e4ded5c47aed260bf98bd57ddfac9087"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-hold-full-844.png",
+      "bytes": 344720,
+      "sha256": "4a4e338db47c81a9ddfbbb59a0f17c2b89bb7095799442def4c920a224f6abf2"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-net-haul-1440.png",
+      "bytes": 1334481,
+      "sha256": "54ca309d0a2f2b5b3121758a2334bd3f71f27b93d954d3f435a11c17aea9bf31"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-net-haul-844.png",
+      "bytes": 392977,
+      "sha256": "a19542ea47faef411c2b2df8ed5c6db3b8f72d8502790a4c1f4ec7669b42c47a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-net-setting-1440.png",
+      "bytes": 1073167,
+      "sha256": "d002b76daedf23a2da5e1704cac4e7fdbf946b2cf2d27d18410a9e57db845991"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-net-setting-844.png",
+      "bytes": 320611,
+      "sha256": "5f5710d23b177d9697bd3b8789db2d2dcce8a9e787422d67203b5f18aadcc1f7"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-bite-1440.png",
+      "bytes": 1164008,
+      "sha256": "497348e55b779353533bd239c81777fb080322daccbc093814421ed6df2e7913"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-bite-844.png",
+      "bytes": 353451,
+      "sha256": "390994204c59fcefebdffa78c8a91b44cb092ab9ec8b0d24d9e036b28d0bae92"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-cast-1440.png",
+      "bytes": 1206500,
+      "sha256": "ece4d136466d92dd09376c5f265c65a2e72a5007fef8fd00cd1c7a1b99ce7b83"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-cast-844.png",
+      "bytes": 351527,
+      "sha256": "40dc0d95f223fc0a2b1f05523b6fbf02095487782818cd3383289de28b52032d"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-catch-1440.png",
+      "bytes": 958789,
+      "sha256": "4db95575989ed63810a3dc414a7b7dcb14744a0f147ba09bcbcaf594028bff0f"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-catch-844.png",
+      "bytes": 319563,
+      "sha256": "c1a73fffbe614d569cc19a5bad9afbf256c5b7d218628564946babb44655c03a"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-fight-1440.png",
+      "bytes": 1161387,
+      "sha256": "2c87e5b5d4c3d2f493e70ff604569528ee2beda65aef13c93f8d455d0b29eded"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-rod-fight-844.png",
+      "bytes": 355177,
+      "sha256": "f8d17b40c5ff0ae759e129388d1edf4afc776076ea295504f045792efdd2efc8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-sort-1440.png",
+      "bytes": 887472,
+      "sha256": "e6189361d743569bf936322852a778a5c96427f21ad0c40ab3371d855aa95782"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-sort-844.png",
+      "bytes": 293729,
+      "sha256": "d59d47eae3d2985d6758d45728e807bf38ee26f39b8764c13a8e45efddf00cc5"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-sort-home-1440.png",
+      "bytes": 956463,
+      "sha256": "7b170f71b5a0e35e437f982a5d10d159c98cc3cbcafb8721cdb549a08ae137dc"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/9-sort-home-844.png",
+      "bytes": 308045,
+      "sha256": "0969fddfcd4b2892e70f02b699955cceb1b3e5825ae741475e6892fd23c1cb87"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/capture-complete.txt",
+      "bytes": 1904,
+      "sha256": "3db83b516b498859f9f6f867c84825cb0751a9d302e21819f1e0360774d47bca"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/effective-hit-samples.csv",
+      "bytes": 6280,
+      "sha256": "b50b7a0b83a80b2324b1a61ab0e6a1874176b6ae544ee0c003b7cd744410cfbe"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/native-exit.json",
+      "bytes": 79,
+      "sha256": "9a888526c7375ab47fbba36bd3d2377cbbffea9d94dbc0b858a98e6b1cc1b4bf"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/native-run.json",
+      "bytes": 51656,
+      "sha256": "bb0183fc81829ad51f579022e915480000b2946acf8106c06aa61845d72c9d5e"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/native.log",
+      "bytes": 5057,
+      "sha256": "cf7b3e74c1768110e1bebbbb7e3efd2e764751b7e6c80369a2fbaaf49b0c08c4"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/progress.txt",
+      "bytes": 1904,
+      "sha256": "3db83b516b498859f9f6f867c84825cb0751a9d302e21819f1e0360774d47bca"
+    },
+    {
+      "path": "docs/screens/polish-sweep/section-9/touch-rects.csv",
+      "bytes": 9886,
+      "sha256": "b430e8c575f7e78ef5f9ee7060441997a5ba9cd3ab340b150efb04f0c29185bd"
+    },
+    {
+      "path": "docs/screens/polish-sweep/source-age-final.json",
+      "bytes": 10264,
+      "sha256": "ae535cf495c2dcd2efd97e806efeb87111441d84ff8b4372555a362a604a68b8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/source-age-original.json",
+      "bytes": 44952,
+      "sha256": "bd407af52afb6dafdb5099c899bf8024b4bb4ce1c3de0802d350120920796fff"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-build.log",
+      "bytes": 582596,
+      "sha256": "5b0edbbd4a6b4f1bb872d42e8e4f8ef32c99ba24cb08461e481f89a9034483e0"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-final-build.log",
+      "bytes": 577749,
+      "sha256": "30bd33e058510dad116c92479c10b6e219f9e65a64067ded58b2da99d368c5d8"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-known-fish-build.log",
+      "bytes": 577764,
+      "sha256": "1577def7dd4836c69a5fdf67438c55718245e37fd2982daa675efb6873392b29"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-native-runner.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-native-runner.log",
+      "bytes": 76,
+      "sha256": "f1d9a9d94cd75be4bfb67db027637d1504bcb61451415435713e9d8a4a931e34"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-prepare.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/screens/polish-sweep/supplement-prepare.log",
+      "bytes": 257,
+      "sha256": "2d40a9d3e995d3b6e5a29556b2c1cddf82c709d81ca00fe7ba2e0e3a459003ce"
+    },
+    {
+      "path": "docs/screens/polish-sweep/visual-review.json",
+      "bytes": 46005,
+      "sha256": "3116090298542e10cb4cc8a7d7a983e5a7cee11f770911c532f3451c283e24b1"
+    },
+    {
+      "path": "docs/screens/polish-sweep/write-report.py",
+      "bytes": 11413,
+      "sha256": "575774c5a8db5491a69551f29c5a84fc7f2185c7581af4d6c1189b889b698366"
+    }
+  ]
+}

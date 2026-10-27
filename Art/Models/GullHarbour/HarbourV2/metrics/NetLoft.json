@@ -1,0 +1,130 @@
+{
+  "name": "NetLoft",
+  "group": "B",
+  "triangles": 1052,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -1.6557906866073608,
+      -1.475000023841858,
+      0.0
+    ],
+    [
+      1.6557906866073608,
+      2.0999999046325684,
+      4.664999961853027
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.3115813732147217,
+    3.5749998092651367,
+    4.664999961853027
+  ],
+  "parts": [
+    {
+      "name": "TallLoftAndHangingNets",
+      "triangles": 1052,
+      "vertices": 616,
+      "bounds_min_blender": [
+        -1.6557906866073608,
+        -1.475000023841858,
+        0.0
+      ],
+      "bounds_max_blender": [
+        1.6557906866073608,
+        2.0999999046325684,
+        4.664999961853027
+      ],
+      "mesh_sha256": "306520db76585a3ae4235e1a7cba6a7c7ef83fea77ed27fc8a126d8072c5e824",
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_Rope",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\NetLoft.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\NetLoft.fbx",
+  "sha256": {
+    "blend": "1dd9755b821c6d10bad62fdfa8d61c6412eb7c6ad10f3691348d7574a8716c5c",
+    "fbx": "21daef1aa9e1a336328f0b5d3c669e9c218bfa7a7b89b658eadeb9e84c67a4c7"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NetLoft\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NetLoft\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NetLoft\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NetLoft\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\NetLoft\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.384185791015625e-07,
+    "source": {
+      "triangles": 1052,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.6557906866073608,
+          -1.475000023841858,
+          0.0
+        ],
+        [
+          1.6557906866073608,
+          2.0999999046325684,
+          4.664999961853027
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_Rope",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "NetLoft": null,
+        "TallLoftAndHangingNets": "NetLoft"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 1052,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.6557906866073608,
+          -1.4749997854232788,
+          -1.0418710161275158e-07
+        ],
+        [
+          1.6557906866073608,
+          2.1000001430511475,
+          4.664999961853027
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_Rope",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "TallLoftAndHangingNets": "NetLoft",
+        "NetLoft": null
+      },
+      "finite": true
+    }
+  }
+}

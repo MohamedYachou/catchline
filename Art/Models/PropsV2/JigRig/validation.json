@@ -1,0 +1,2462 @@
+{
+  "name": "JigRig",
+  "revision": "r01",
+  "delivery_sha256": {
+    "JigRig.blend": "431538d0cf0e69d51835f61e6d68a83685bdd284271a1c0d0829dae043d4fcd7",
+    "JigRig.fbx": "180b30d00b0c498fb4bbbc4f6141c6d42fc775425b533fbb480d2ea98a60243c"
+  },
+  "runtime_sha256": "180b30d00b0c498fb4bbbc4f6141c6d42fc775425b533fbb480d2ea98a60243c",
+  "checks": [
+    "current delivery SHA256 JigRig.blend",
+    "current delivery SHA256 JigRig.fbx",
+    "protected reference unchanged Art/Source/Art108/build_stations.py",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry RailClamp_Base",
+    "finite vertices RailClamp_Base",
+    "nonempty geometry RailClamp_Jaw",
+    "finite vertices RailClamp_Jaw",
+    "nonempty geometry RailClamp_Jaw.001",
+    "finite vertices RailClamp_Jaw.001",
+    "nonempty geometry ClampScrew",
+    "finite vertices ClampScrew",
+    "nonempty geometry ClampThumbGrip",
+    "finite vertices ClampThumbGrip",
+    "nonempty geometry RodSocket",
+    "finite vertices RodSocket",
+    "nonempty geometry JigRod_Lower",
+    "finite vertices JigRod_Lower",
+    "nonempty geometry JigRodTip",
+    "finite vertices JigRodTip",
+    "nonempty geometry RodGuide",
+    "finite vertices RodGuide",
+    "nonempty geometry RodGuide.001",
+    "finite vertices RodGuide.001",
+    "nonempty geometry RodGuide.002",
+    "finite vertices RodGuide.002",
+    "nonempty geometry JigLine",
+    "finite vertices JigLine",
+    "nonempty geometry JigLure",
+    "finite vertices JigLure",
+    "nonempty geometry LureBand",
+    "finite vertices LureBand",
+    "nonempty geometry JigHookCrown",
+    "finite vertices JigHookCrown",
+    "nonempty geometry JigHookCrown.001",
+    "finite vertices JigHookCrown.001",
+    "nonempty geometry JigHookCrown.002",
+    "finite vertices JigHookCrown.002",
+    "nonempty geometry JigHookCrown.003",
+    "finite vertices JigHookCrown.003",
+    "nonempty geometry JigHookCrown.004",
+    "finite vertices JigHookCrown.004",
+    "nonempty geometry JigHookCrown.005",
+    "finite vertices JigHookCrown.005",
+    "nonempty geometry JigReel",
+    "finite vertices JigReel",
+    "nonempty geometry ReelFlange",
+    "finite vertices ReelFlange",
+    "nonempty geometry ReelFlange.001",
+    "finite vertices ReelFlange.001",
+    "nonempty geometry ReelCrank",
+    "finite vertices ReelCrank",
+    "nonempty geometry ReelGrip",
+    "finite vertices ReelGrip",
+    "nonempty geometry LampArm",
+    "finite vertices LampArm",
+    "nonempty geometry LampFoot",
+    "finite vertices LampFoot",
+    "nonempty geometry LampWarmPane",
+    "finite vertices LampWarmPane",
+    "nonempty geometry LampGuard",
+    "finite vertices LampGuard",
+    "nonempty geometry LampGuard.001",
+    "finite vertices LampGuard.001",
+    "nonempty geometry LampGuard.002",
+    "finite vertices LampGuard.002",
+    "nonempty geometry LampGuard.003",
+    "finite vertices LampGuard.003",
+    "nonempty geometry LampShade",
+    "finite vertices LampShade",
+    "nonempty geometry LampCap",
+    "finite vertices LampCap",
+    "source bounds manifest current",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry ClampScrew",
+    "finite vertices ClampScrew",
+    "nonempty geometry ClampThumbGrip",
+    "finite vertices ClampThumbGrip",
+    "nonempty geometry JigHookCrown",
+    "finite vertices JigHookCrown",
+    "nonempty geometry JigHookCrown.001",
+    "finite vertices JigHookCrown.001",
+    "nonempty geometry JigHookCrown.002",
+    "finite vertices JigHookCrown.002",
+    "nonempty geometry JigHookCrown.003",
+    "finite vertices JigHookCrown.003",
+    "nonempty geometry JigHookCrown.004",
+    "finite vertices JigHookCrown.004",
+    "nonempty geometry JigHookCrown.005",
+    "finite vertices JigHookCrown.005",
+    "nonempty geometry JigLine",
+    "finite vertices JigLine",
+    "nonempty geometry JigLure",
+    "finite vertices JigLure",
+    "nonempty geometry JigReel",
+    "finite vertices JigReel",
+    "nonempty geometry JigRodTip",
+    "finite vertices JigRodTip",
+    "nonempty geometry JigRod_Lower",
+    "finite vertices JigRod_Lower",
+    "nonempty geometry LampArm",
+    "finite vertices LampArm",
+    "nonempty geometry LampCap",
+    "finite vertices LampCap",
+    "nonempty geometry LampFoot",
+    "finite vertices LampFoot",
+    "nonempty geometry LampGuard",
+    "finite vertices LampGuard",
+    "nonempty geometry LampGuard.001",
+    "finite vertices LampGuard.001",
+    "nonempty geometry LampGuard.002",
+    "finite vertices LampGuard.002",
+    "nonempty geometry LampGuard.003",
+    "finite vertices LampGuard.003",
+    "nonempty geometry LampShade",
+    "finite vertices LampShade",
+    "nonempty geometry LampWarmPane",
+    "finite vertices LampWarmPane",
+    "nonempty geometry LureBand",
+    "finite vertices LureBand",
+    "nonempty geometry RailClamp_Base",
+    "finite vertices RailClamp_Base",
+    "nonempty geometry RailClamp_Jaw",
+    "finite vertices RailClamp_Jaw",
+    "nonempty geometry RailClamp_Jaw.001",
+    "finite vertices RailClamp_Jaw.001",
+    "nonempty geometry ReelCrank",
+    "finite vertices ReelCrank",
+    "nonempty geometry ReelFlange",
+    "finite vertices ReelFlange",
+    "nonempty geometry ReelFlange.001",
+    "finite vertices ReelFlange.001",
+    "nonempty geometry ReelGrip",
+    "finite vertices ReelGrip",
+    "nonempty geometry RodGuide",
+    "finite vertices RodGuide",
+    "nonempty geometry RodGuide.001",
+    "finite vertices RodGuide.001",
+    "nonempty geometry RodGuide.002",
+    "finite vertices RodGuide.002",
+    "nonempty geometry RodSocket",
+    "finite vertices RodSocket",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions RailClamp_Base",
+    "actual FBX part origin preserved RailClamp_Base",
+    "actual FBX triangle count RailClamp_Base",
+    "actual FBX face materials RailClamp_Base",
+    "actual FBX material slots RailClamp_Base",
+    "actual FBX every world vertex both directions RailClamp_Jaw",
+    "actual FBX part origin preserved RailClamp_Jaw",
+    "actual FBX triangle count RailClamp_Jaw",
+    "actual FBX face materials RailClamp_Jaw",
+    "actual FBX material slots RailClamp_Jaw",
+    "actual FBX every world vertex both directions RailClamp_Jaw.001",
+    "actual FBX part origin preserved RailClamp_Jaw.001",
+    "actual FBX triangle count RailClamp_Jaw.001",
+    "actual FBX face materials RailClamp_Jaw.001",
+    "actual FBX material slots RailClamp_Jaw.001",
+    "actual FBX every world vertex both directions ClampScrew",
+    "actual FBX part origin preserved ClampScrew",
+    "actual FBX triangle count ClampScrew",
+    "actual FBX face materials ClampScrew",
+    "actual FBX material slots ClampScrew",
+    "actual FBX every world vertex both directions ClampThumbGrip",
+    "actual FBX part origin preserved ClampThumbGrip",
+    "actual FBX triangle count ClampThumbGrip",
+    "actual FBX face materials ClampThumbGrip",
+    "actual FBX material slots ClampThumbGrip",
+    "actual FBX every world vertex both directions RodSocket",
+    "actual FBX part origin preserved RodSocket",
+    "actual FBX triangle count RodSocket",
+    "actual FBX face materials RodSocket",
+    "actual FBX material slots RodSocket",
+    "actual FBX every world vertex both directions JigRod_Lower",
+    "actual FBX part origin preserved JigRod_Lower",
+    "actual FBX triangle count JigRod_Lower",
+    "actual FBX face materials JigRod_Lower",
+    "actual FBX material slots JigRod_Lower",
+    "actual FBX every world vertex both directions JigRodTip",
+    "actual FBX part origin preserved JigRodTip",
+    "actual FBX triangle count JigRodTip",
+    "actual FBX face materials JigRodTip",
+    "actual FBX material slots JigRodTip",
+    "actual FBX every world vertex both directions RodGuide",
+    "actual FBX part origin preserved RodGuide",
+    "actual FBX triangle count RodGuide",
+    "actual FBX face materials RodGuide",
+    "actual FBX material slots RodGuide",
+    "actual FBX every world vertex both directions RodGuide.001",
+    "actual FBX part origin preserved RodGuide.001",
+    "actual FBX triangle count RodGuide.001",
+    "actual FBX face materials RodGuide.001",
+    "actual FBX material slots RodGuide.001",
+    "actual FBX every world vertex both directions RodGuide.002",
+    "actual FBX part origin preserved RodGuide.002",
+    "actual FBX triangle count RodGuide.002",
+    "actual FBX face materials RodGuide.002",
+    "actual FBX material slots RodGuide.002",
+    "actual FBX every world vertex both directions JigLine",
+    "actual FBX part origin preserved JigLine",
+    "actual FBX triangle count JigLine",
+    "actual FBX face materials JigLine",
+    "actual FBX material slots JigLine",
+    "actual FBX every world vertex both directions JigLure",
+    "actual FBX part origin preserved JigLure",
+    "actual FBX triangle count JigLure",
+    "actual FBX face materials JigLure",
+    "actual FBX material slots JigLure",
+    "actual FBX every world vertex both directions LureBand",
+    "actual FBX part origin preserved LureBand",
+    "actual FBX triangle count LureBand",
+    "actual FBX face materials LureBand",
+    "actual FBX material slots LureBand",
+    "actual FBX every world vertex both directions JigHookCrown",
+    "actual FBX part origin preserved JigHookCrown",
+    "actual FBX triangle count JigHookCrown",
+    "actual FBX face materials JigHookCrown",
+    "actual FBX material slots JigHookCrown",
+    "actual FBX every world vertex both directions JigHookCrown.001",
+    "actual FBX part origin preserved JigHookCrown.001",
+    "actual FBX triangle count JigHookCrown.001",
+    "actual FBX face materials JigHookCrown.001",
+    "actual FBX material slots JigHookCrown.001",
+    "actual FBX every world vertex both directions JigHookCrown.002",
+    "actual FBX part origin preserved JigHookCrown.002",
+    "actual FBX triangle count JigHookCrown.002",
+    "actual FBX face materials JigHookCrown.002",
+    "actual FBX material slots JigHookCrown.002",
+    "actual FBX every world vertex both directions JigHookCrown.003",
+    "actual FBX part origin preserved JigHookCrown.003",
+    "actual FBX triangle count JigHookCrown.003",
+    "actual FBX face materials JigHookCrown.003",
+    "actual FBX material slots JigHookCrown.003",
+    "actual FBX every world vertex both directions JigHookCrown.004",
+    "actual FBX part origin preserved JigHookCrown.004",
+    "actual FBX triangle count JigHookCrown.004",
+    "actual FBX face materials JigHookCrown.004",
+    "actual FBX material slots JigHookCrown.004",
+    "actual FBX every world vertex both directions JigHookCrown.005",
+    "actual FBX part origin preserved JigHookCrown.005",
+    "actual FBX triangle count JigHookCrown.005",
+    "actual FBX face materials JigHookCrown.005",
+    "actual FBX material slots JigHookCrown.005",
+    "actual FBX every world vertex both directions JigReel",
+    "actual FBX part origin preserved JigReel",
+    "actual FBX triangle count JigReel",
+    "actual FBX face materials JigReel",
+    "actual FBX material slots JigReel",
+    "actual FBX every world vertex both directions ReelFlange",
+    "actual FBX part origin preserved ReelFlange",
+    "actual FBX triangle count ReelFlange",
+    "actual FBX face materials ReelFlange",
+    "actual FBX material slots ReelFlange",
+    "actual FBX every world vertex both directions ReelFlange.001",
+    "actual FBX part origin preserved ReelFlange.001",
+    "actual FBX triangle count ReelFlange.001",
+    "actual FBX face materials ReelFlange.001",
+    "actual FBX material slots ReelFlange.001",
+    "actual FBX every world vertex both directions ReelCrank",
+    "actual FBX part origin preserved ReelCrank",
+    "actual FBX triangle count ReelCrank",
+    "actual FBX face materials ReelCrank",
+    "actual FBX material slots ReelCrank",
+    "actual FBX every world vertex both directions ReelGrip",
+    "actual FBX part origin preserved ReelGrip",
+    "actual FBX triangle count ReelGrip",
+    "actual FBX face materials ReelGrip",
+    "actual FBX material slots ReelGrip",
+    "actual FBX every world vertex both directions LampArm",
+    "actual FBX part origin preserved LampArm",
+    "actual FBX triangle count LampArm",
+    "actual FBX face materials LampArm",
+    "actual FBX material slots LampArm",
+    "actual FBX every world vertex both directions LampFoot",
+    "actual FBX part origin preserved LampFoot",
+    "actual FBX triangle count LampFoot",
+    "actual FBX face materials LampFoot",
+    "actual FBX material slots LampFoot",
+    "actual FBX every world vertex both directions LampWarmPane",
+    "actual FBX part origin preserved LampWarmPane",
+    "actual FBX triangle count LampWarmPane",
+    "actual FBX face materials LampWarmPane",
+    "actual FBX material slots LampWarmPane",
+    "actual FBX every world vertex both directions LampGuard",
+    "actual FBX part origin preserved LampGuard",
+    "actual FBX triangle count LampGuard",
+    "actual FBX face materials LampGuard",
+    "actual FBX material slots LampGuard",
+    "actual FBX every world vertex both directions LampGuard.001",
+    "actual FBX part origin preserved LampGuard.001",
+    "actual FBX triangle count LampGuard.001",
+    "actual FBX face materials LampGuard.001",
+    "actual FBX material slots LampGuard.001",
+    "actual FBX every world vertex both directions LampGuard.002",
+    "actual FBX part origin preserved LampGuard.002",
+    "actual FBX triangle count LampGuard.002",
+    "actual FBX face materials LampGuard.002",
+    "actual FBX material slots LampGuard.002",
+    "actual FBX every world vertex both directions LampGuard.003",
+    "actual FBX part origin preserved LampGuard.003",
+    "actual FBX triangle count LampGuard.003",
+    "actual FBX face materials LampGuard.003",
+    "actual FBX material slots LampGuard.003",
+    "actual FBX every world vertex both directions LampShade",
+    "actual FBX part origin preserved LampShade",
+    "actual FBX triangle count LampShade",
+    "actual FBX face materials LampShade",
+    "actual FBX material slots LampShade",
+    "actual FBX every world vertex both directions LampCap",
+    "actual FBX part origin preserved LampCap",
+    "actual FBX triangle count LampCap",
+    "actual FBX face materials LampCap",
+    "actual FBX material slots LampCap",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 2116,
+  "mesh_count": 34,
+  "source_parts": {
+    "RailClamp_Base": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -0.0949999988079071,
+          0.0
+        ],
+        [
+          0.10000000149011612,
+          0.0949999988079071,
+          0.05000000074505806
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.02500000037252903
+      ]
+    },
+    "RailClamp_Jaw": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -0.0949999988079071,
+          0.02500000223517418
+        ],
+        [
+          -0.0560000017285347,
+          0.0949999988079071,
+          0.1469999998807907
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07800000160932541,
+        0.0,
+        0.0860000029206276
+      ]
+    },
+    "RailClamp_Jaw.001": {
+      "triangles": 108,
+      "bounds": [
+        [
+          0.0560000017285347,
+          -0.0949999988079071,
+          0.02500000223517418
+        ],
+        [
+          0.10000000149011612,
+          0.0949999988079071,
+          0.1469999998807907
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07800000160932541,
+        0.0,
+        0.0860000029206276
+      ]
+    },
+    "ClampScrew": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.012000010348856449,
+          -0.11800000071525574,
+          0.06799998879432678
+        ],
+        [
+          0.012000010348856449,
+          0.10999999940395355,
+          0.09200000762939453
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.0040000006556510925,
+        0.07999999821186066
+      ]
+    },
+    "ClampThumbGrip": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.04500000178813934,
+          -0.16099999845027924,
+          0.06799999624490738
+        ],
+        [
+          0.04500000178813934,
+          -0.1289999932050705,
+          0.09200000017881393
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 108
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.14499999582767487,
+        0.07999999821186066
+      ]
+    },
+    "RodSocket": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.03799999877810478,
+          -0.03799999877810478,
+          0.07500000298023224
+        ],
+        [
+          0.03799999877810478,
+          0.03799999877810478,
+          0.19500000774860382
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.13500000536441803
+      ]
+    },
+    "JigRod_Lower": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.023354046046733856,
+          -0.15621428191661835,
+          0.15428689122200012
+        ],
+        [
+          0.061542436480522156,
+          0.02289077267050743,
+          0.7640467286109924
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.02250000089406967,
+        -0.07000000029802322,
+        0.4599999785423279
+      ]
+    },
+    "JigRodTip": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.031215272843837738,
+          -0.4568951725959778,
+          0.7512059807777405
+        ],
+        [
+          0.10886161774396896,
+          -0.1292741447687149,
+          1.1556532382965088
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07250000536441803,
+        -0.29499998688697815,
+        0.9549999833106995
+      ]
+    },
+    "RodGuide": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.036100003868341446,
+          -0.22920000553131104,
+          0.8423358798027039
+        ],
+        [
+          0.07796370983123779,
+          -0.18720000982284546,
+          0.8492640852928162
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RodGuide.001": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.058100003749132156,
+          -0.3531999886035919,
+          0.9983359575271606
+        ],
+        [
+          0.0999637097120285,
+          -0.31119999289512634,
+          1.005264163017273
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RodGuide.002": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.07680000364780426,
+          -0.4585999846458435,
+          1.1309359073638916
+        ],
+        [
+          0.11866370588541031,
+          -0.41659998893737793,
+          1.137864112854004
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigLine": {
+      "triangles": 20,
+      "bounds": [
+        [
+          0.09610280394554138,
+          -0.4545000493526459,
+          0.06299996376037598
+        ],
+        [
+          0.10389719903469086,
+          -0.4454999268054962,
+          1.149999976158142
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 20
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10000000149011612,
+        -0.44999998807907104,
+        0.606499969959259
+      ]
+    },
+    "JigLure": {
+      "triangles": 168,
+      "bounds": [
+        [
+          0.07800000160932541,
+          -0.4779999852180481,
+          0.009999997913837433
+        ],
+        [
+          0.12200000137090683,
+          -0.421999990940094,
+          0.10000000149011612
+        ]
+      ],
+      "material_triangles": {
+        "M_SafetyOrange": 168
+      },
+      "material_colours": {
+        "M_SafetyOrange": [
+          0.7681511640548706,
+          0.1441284716129303,
+          0.03560131415724754,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10000000149011612,
+        -0.44999998807907104,
+        0.054999999701976776
+      ]
+    },
+    "LureBand": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.07500000298023224,
+          -0.4749999940395355,
+          0.048535898327827454
+        ],
+        [
+          0.12486370652914047,
+          -0.42499998211860657,
+          0.05546410381793976
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 152
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10624643415212631,
+          -0.4527999758720398,
+          0.010347053408622742
+        ],
+        [
+          0.13330020010471344,
+          -0.4477347433567047,
+          0.029004080221056938
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.001": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10149635374546051,
+          -0.4450230300426483,
+          0.010347053408622742
+        ],
+        [
+          0.11792487651109695,
+          -0.4207894504070282,
+          0.029004080221056938
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.002": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.08182743191719055,
+          -0.4451429843902588,
+          0.010347053408622742
+        ],
+        [
+          0.09842487424612045,
+          -0.42072856426239014,
+          0.029004080221056938
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.003": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.0666997879743576,
+          -0.4522652328014374,
+          0.010347053408622742
+        ],
+        [
+          0.09375356882810593,
+          -0.4472000002861023,
+          0.029004082083702087
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.004": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.08207512646913528,
+          -0.4792105555534363,
+          0.010347053408622742
+        ],
+        [
+          0.09850364923477173,
+          -0.4549769461154938,
+          0.029004082083702087
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.005": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10157512873411179,
+          -0.47927144169807434,
+          0.010347053408622742
+        ],
+        [
+          0.11817257106304169,
+          -0.4548569917678833,
+          0.029004082083702087
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigReel": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.01599999889731407,
+          -0.08500000089406967,
+          0.21300001442432404
+        ],
+        [
+          0.0949999988079071,
+          0.029000001028180122,
+          0.3270000219345093
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 60
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.05550000071525574,
+        -0.02800000086426735,
+        0.27000001072883606
+      ]
+    },
+    "ReelFlange": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.01199999451637268,
+          -0.09700000286102295,
+          0.20100000500679016
+        ],
+        [
+          0.020000003278255463,
+          0.04099999740719795,
+          0.33900001645088196
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 60
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.01599999889731407,
+        -0.02800000086426735,
+        0.27000001072883606
+      ]
+    },
+    "ReelFlange.001": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.09099999070167542,
+          -0.09700000286102295,
+          0.20100000500679016
+        ],
+        [
+          0.0990000069141388,
+          0.04099999740719795,
+          0.33900001645088196
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 60
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0949999988079071,
+        -0.02800000086426735,
+        0.27000001072883606
+      ]
+    },
+    "ReelCrank": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.09699999541044235,
+          -0.07650668919086456,
+          0.2633902132511139
+        ],
+        [
+          0.11299999803304672,
+          -0.02349330298602581,
+          0.3066098392009735
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10499999672174454,
+        -0.04999999701976776,
+        0.2850000262260437
+      ]
+    },
+    "ReelGrip": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10400000214576721,
+          -0.08399999886751175,
+          0.2880000174045563
+        ],
+        [
+          0.13699999451637268,
+          -0.059999994933605194,
+          0.31200000643730164
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.12049999833106995,
+        -0.07199999690055847,
+        0.30000001192092896
+      ]
+    },
+    "LampArm": {
+      "triangles": 32,
+      "bounds": [
+        [
+          -0.24281363189220428,
+          0.010000000707805157,
+          0.10042408853769302
+        ],
+        [
+          -0.07122208178043365,
+          0.03999999910593033,
+          0.40213561058044434
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 32
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "LampFoot": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.289000004529953,
+          -0.03400000184774399,
+          0.27399998903274536
+        ],
+        [
+          -0.17100000381469727,
+          0.08399999886751175,
+          0.29600000381469727
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500000037252903,
+        0.2849999964237213
+      ]
+    },
+    "LampWarmPane": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.28200000524520874,
+          -0.027000000700354576,
+          0.2919999957084656
+        ],
+        [
+          -0.17800000309944153,
+          0.07699999958276749,
+          0.38200002908706665
+        ]
+      ],
+      "material_triangles": {
+        "M_OilskinYellow": 44
+      },
+      "material_colours": {
+        "M_OilskinYellow": [
+          0.7912979125976562,
+          0.41788506507873535,
+          0.039546236395835876,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500000037252903,
+        0.3370000123977661
+      ]
+    },
+    "LampGuard": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.1811961531639099,
+          0.01900000125169754,
+          0.28600001335144043
+        ],
+        [
+          -0.17080384492874146,
+          0.03099999949336052,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.17599999904632568,
+        0.02500000037252903,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.001": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.23519615828990936,
+          0.07300000637769699,
+          0.28600001335144043
+        ],
+        [
+          -0.2248038500547409,
+          0.08500000089406967,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.07900000363588333,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.002": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.2891961634159088,
+          0.01900000125169754,
+          0.28600001335144043
+        ],
+        [
+          -0.27880385518074036,
+          0.03099999949336052,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2840000092983246,
+        0.02500000037252903,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.003": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.23519615828990936,
+          -0.03500000014901161,
+          0.28600001335144043
+        ],
+        [
+          -0.2248038500547409,
+          -0.023000001907348633,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        -0.029000001028180122,
+        0.3360000252723694
+      ]
+    },
+    "LampShade": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3160000145435333,
+          -0.06100000441074371,
+          0.3814999759197235
+        ],
+        [
+          -0.14399999380111694,
+          0.11100000143051147,
+          0.4165000021457672
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500000037252903,
+        0.39899998903274536
+      ]
+    },
+    "LampCap": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.26500001549720764,
+          -0.009999999776482582,
+          0.41600000858306885
+        ],
+        [
+          -0.19500000774860382,
+          0.06000000238418579,
+          0.43400001525878906
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500000037252903,
+        0.42500001192092896
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "ClampScrew": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.012000016868114471,
+          -0.11799999326467514,
+          0.0679999440908432
+        ],
+        [
+          0.012000016868114471,
+          0.11000002175569534,
+          0.09200005233287811
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.003999987617135048,
+        0.07999999821186066
+      ]
+    },
+    "ClampThumbGrip": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.04500000178813934,
+          -0.16099998354911804,
+          0.06800001859664917
+        ],
+        [
+          0.04500000178813934,
+          -0.1289999783039093,
+          0.09200002253055573
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 108
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        -0.14499998092651367,
+        0.08000002056360245
+      ]
+    },
+    "JigHookCrown": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10624643415212631,
+          -0.4527999758720398,
+          0.010347126983106136
+        ],
+        [
+          0.13330020010471344,
+          -0.4477347433567047,
+          0.029004152864217758
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.001": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10149635374546051,
+          -0.4450230300426483,
+          0.010347123257815838
+        ],
+        [
+          0.11792487651109695,
+          -0.4207894504070282,
+          0.029004152864217758
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.002": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.08182743191719055,
+          -0.4451429843902588,
+          0.010347123257815838
+        ],
+        [
+          0.09842487424612045,
+          -0.42072856426239014,
+          0.029004152864217758
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.003": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.0666997879743576,
+          -0.4522652328014374,
+          0.010347126983106136
+        ],
+        [
+          0.09375356882810593,
+          -0.4472000002861023,
+          0.029004154726862907
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.004": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.08207512646913528,
+          -0.4792105555534363,
+          0.01034712977707386
+        ],
+        [
+          0.09850364923477173,
+          -0.4549769461154938,
+          0.029004156589508057
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigHookCrown.005": {
+      "triangles": 26,
+      "bounds": [
+        [
+          0.10157512873411179,
+          -0.47927144169807434,
+          0.01034712977707386
+        ],
+        [
+          0.11817257106304169,
+          -0.4548569917678833,
+          0.029004156589508057
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 26
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "JigLine": {
+      "triangles": 20,
+      "bounds": [
+        [
+          0.09610280394554138,
+          -0.4545000493526459,
+          0.06300002336502075
+        ],
+        [
+          0.10389719903469086,
+          -0.4454997479915619,
+          1.1500000953674316
+        ]
+      ],
+      "material_triangles": {
+        "M_Rope": 20
+      },
+      "material_colours": {
+        "M_Rope": [
+          0.637596845626831,
+          0.42869049310684204,
+          0.18116424977779388,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10000000149011612,
+        -0.4499998986721039,
+        0.6065000295639038
+      ]
+    },
+    "JigLure": {
+      "triangles": 168,
+      "bounds": [
+        [
+          0.07800000160932541,
+          -0.4779999852180481,
+          0.010000072419643402
+        ],
+        [
+          0.12200000137090683,
+          -0.421999990940094,
+          0.10000007599592209
+        ]
+      ],
+      "material_triangles": {
+        "M_SafetyOrange": 168
+      },
+      "material_colours": {
+        "M_SafetyOrange": [
+          0.7681511640548706,
+          0.1441284716129303,
+          0.03560131415724754,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10000000149011612,
+        -0.44999998807907104,
+        0.055000074207782745
+      ]
+    },
+    "JigReel": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.01599999889731407,
+          -0.08499995619058609,
+          0.21300001442432404
+        ],
+        [
+          0.0949999988079071,
+          0.029000045731663704,
+          0.3270000219345093
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 60
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.05550000071525574,
+        -0.027999956160783768,
+        0.27000001072883606
+      ]
+    },
+    "JigRodTip": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.031215261667966843,
+          -0.45689499378204346,
+          0.7512059807777405
+        ],
+        [
+          0.10886163264513016,
+          -0.12927401065826416,
+          1.1556533575057983
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07250000536441803,
+        -0.2949998378753662,
+        0.9550000429153442
+      ]
+    },
+    "JigRod_Lower": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.023354051634669304,
+          -0.1562141627073288,
+          0.15428686141967773
+        ],
+        [
+          0.06154244393110275,
+          0.022890804335474968,
+          0.7640467882156372
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.02250000089406967,
+        -0.06999992579221725,
+        0.4599999785423279
+      ]
+    },
+    "LampArm": {
+      "triangles": 32,
+      "bounds": [
+        [
+          -0.24281363189220428,
+          0.010000018402934074,
+          0.10042408108711243
+        ],
+        [
+          -0.07122208178043365,
+          0.0400000624358654,
+          0.40213561058044434
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 32
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "LampCap": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.26500001549720764,
+          -0.00999993272125721,
+          0.41600000858306885
+        ],
+        [
+          -0.19500000774860382,
+          0.06000006943941116,
+          0.43400001525878906
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500006929039955,
+        0.42500001192092896
+      ]
+    },
+    "LampFoot": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.289000004529953,
+          -0.03399995341897011,
+          0.27399998903274536
+        ],
+        [
+          -0.17100000381469727,
+          0.08400005102157593,
+          0.29600000381469727
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.02500004693865776,
+        0.2849999964237213
+      ]
+    },
+    "LampGuard": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.1811961531639099,
+          0.019000045955181122,
+          0.28600001335144043
+        ],
+        [
+          -0.17080384492874146,
+          0.031000062823295593,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.17599999904632568,
+        0.025000054389238358,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.001": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.23519615828990936,
+          0.07300005108118057,
+          0.28600001335144043
+        ],
+        [
+          -0.2248038500547409,
+          0.08500006049871445,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.07900005578994751,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.002": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.2891961634159088,
+          0.019000045955181122,
+          0.28600001335144043
+        ],
+        [
+          -0.27880385518074036,
+          0.031000062823295593,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2840000092983246,
+        0.025000054389238358,
+        0.3360000252723694
+      ]
+    },
+    "LampGuard.003": {
+      "triangles": 20,
+      "bounds": [
+        [
+          -0.23519615828990936,
+          -0.03499995544552803,
+          0.28600001335144043
+        ],
+        [
+          -0.2248038500547409,
+          -0.02299993857741356,
+          0.38600003719329834
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 20
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        -0.028999947011470795,
+        0.3360000252723694
+      ]
+    },
+    "LampShade": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.3160000145435333,
+          -0.06099994108080864,
+          0.3814999759197235
+        ],
+        [
+          -0.14399999380111694,
+          0.11100006848573685,
+          0.4165000021457672
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.025000065565109253,
+        0.39899998903274536
+      ]
+    },
+    "LampWarmPane": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.28200000524520874,
+          -0.02699993923306465,
+          0.2919999957084656
+        ],
+        [
+          -0.17800000309944153,
+          0.07700005918741226,
+          0.38200002908706665
+        ]
+      ],
+      "material_triangles": {
+        "M_OilskinYellow": 44
+      },
+      "material_colours": {
+        "M_OilskinYellow": [
+          0.7912979125976562,
+          0.41788506507873535,
+          0.039546236395835876,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.23000000417232513,
+        0.025000054389238358,
+        0.3370000123977661
+      ]
+    },
+    "LureBand": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.07500000298023224,
+          -0.4749999940395355,
+          0.048535969108343124
+        ],
+        [
+          0.12486370652914047,
+          -0.42499998211860657,
+          0.055464182049036026
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 152
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RailClamp_Base": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -0.0949999988079071,
+          -1.352241607577298e-08
+        ],
+        [
+          0.10000000149011612,
+          0.0950000062584877,
+          0.050000015646219254
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        4.0730170347558214e-09,
+        0.02500000037252903
+      ]
+    },
+    "RailClamp_Jaw": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.10000000149011612,
+          -0.09499999135732651,
+          0.024999987334012985
+        ],
+        [
+          -0.0560000017285347,
+          0.0950000211596489,
+          0.1470000147819519
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.07800000160932541,
+        1.401117977195554e-08,
+        0.0860000029206276
+      ]
+    },
+    "RailClamp_Jaw.001": {
+      "triangles": 108,
+      "bounds": [
+        [
+          0.0560000017285347,
+          -0.09499999135732651,
+          0.024999987334012985
+        ],
+        [
+          0.10000000149011612,
+          0.0950000211596489,
+          0.1470000147819519
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.07800000160932541,
+        1.401117977195554e-08,
+        0.0860000029206276
+      ]
+    },
+    "ReelCrank": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.09699999541044235,
+          -0.07650664448738098,
+          0.2633902132511139
+        ],
+        [
+          0.11299999803304672,
+          -0.023493262007832527,
+          0.3066098392009735
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.10499999672174454,
+        -0.04999995231628418,
+        0.2850000262260437
+      ]
+    },
+    "ReelFlange": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.01199999451637268,
+          -0.09699995815753937,
+          0.20100000500679016
+        ],
+        [
+          0.020000003278255463,
+          0.041000042110681534,
+          0.33900001645088196
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 60
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.01599999889731407,
+        -0.027999956160783768,
+        0.27000001072883606
+      ]
+    },
+    "ReelFlange.001": {
+      "triangles": 60,
+      "bounds": [
+        [
+          0.09099999070167542,
+          -0.09699995815753937,
+          0.20100000500679016
+        ],
+        [
+          0.0990000069141388,
+          0.041000042110681534,
+          0.33900001645088196
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 60
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0949999988079071,
+        -0.027999956160783768,
+        0.27000001072883606
+      ]
+    },
+    "ReelGrip": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.10400000214576721,
+          -0.08399994671344757,
+          0.2880000174045563
+        ],
+        [
+          0.13699999451637268,
+          -0.059999942779541016,
+          0.31200000643730164
+        ]
+      ],
+      "material_triangles": {
+        "M_DeckWood": 44
+      },
+      "material_colours": {
+        "M_DeckWood": [
+          0.5583403706550598,
+          0.2581828534603119,
+          0.0802198201417923,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.12049999833106995,
+        -0.0719999447464943,
+        0.30000001192092896
+      ]
+    },
+    "RodGuide": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.036100003868341446,
+          -0.2291998714208603,
+          0.8423359394073486
+        ],
+        [
+          0.07796370983123779,
+          -0.18719987571239471,
+          0.8492641448974609
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RodGuide.001": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.058100003749132156,
+          -0.35319983959198,
+          0.9983360171318054
+        ],
+        [
+          0.0999637097120285,
+          -0.3111998438835144,
+          1.005264163017273
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RodGuide.002": {
+      "triangles": 152,
+      "bounds": [
+        [
+          0.07680000364780426,
+          -0.4585998058319092,
+          1.1309360265731812
+        ],
+        [
+          0.11866370588541031,
+          -0.4165998101234436,
+          1.1378642320632935
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 152
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "RodSocket": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.03799999877810478,
+          -0.03799998760223389,
+          0.07500000298023224
+        ],
+        [
+          0.03799999877810478,
+          0.03800003230571747,
+          0.19500000774860382
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.0,
+        2.199429260940633e-08,
+        0.13500000536441803
+      ]
+    }
+  },
+  "max_bounds_error_m": 1.7881393432617188e-07,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 2.1542358837725164e-07,
+  "max_part_pivot_error_m": 1.4901161193847656e-07,
+  "pivot_use": "rail clamp contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/JigRig/iterations/r01/back.png": "4234f890b58183e4633b5fb2cbec8a50a33a974a31ea9cd066f07fce505e3126",
+    "Art/Models/PropsV2/JigRig/iterations/r01/front.png": "df785e2c527cc5ac4c716865712d0519ea778b586898162eac6aea82b034bd3d",
+    "Art/Models/PropsV2/JigRig/iterations/r01/left.png": "21d917fe8a7a8724726bd5715ca43e247580d80a4b353d6b22bf133c547a2694",
+    "Art/Models/PropsV2/JigRig/iterations/r01/night-context.png": "150f97d081060bd92ff76fe2542f4c5b72aa8c914b186a81032dca5fd770c41d",
+    "Art/Models/PropsV2/JigRig/iterations/r01/right.png": "cba7d9f3d0ad4e47cf7d38d7bc4f420ce6313540b7c92131b5774be4b4ba4508",
+    "Art/Models/PropsV2/JigRig/iterations/r01/three-quarter.png": "1801b46f4ec7eba1fbcfcd7b07ca415abbb86ab0a6370f0f763d2e359f35667a",
+    "Art/Models/PropsV2/JigRig/iterations/r01/top.png": "8995d238af7066fb5e666a8f1f9dd41265b447dd7aa54a6730889a555e9df30a"
+  },
+  "pass": true
+}

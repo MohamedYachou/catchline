@@ -1,0 +1,87 @@
+{
+  "triangles": 728,
+  "vertices": 430,
+  "bounds_unity": [
+    [
+      -0.14499999582767487,
+      0.0,
+      -0.49303174018859863
+    ],
+    [
+      0.14499999582767487,
+      0.550000011920929,
+      0.40799999237060547
+    ]
+  ],
+  "meshes": [
+    "DogSkin"
+  ],
+  "materials": [
+    "M_GullWhite",
+    "M_HairChestnut",
+    "M_Rubber"
+  ],
+  "parents": {
+    "DogSkin": "DogRig",
+    "Dog": null,
+    "DogRig": "Dog"
+  },
+  "name": "Dog",
+  "limit": 1200,
+  "bones": [
+    "Root",
+    "Body",
+    "Neck",
+    "Head",
+    "TailA",
+    "TailB",
+    "Fore.L",
+    "ForePaw.L",
+    "Hind.L",
+    "HindPaw.L",
+    "Fore.R",
+    "ForePaw.R",
+    "Hind.R",
+    "HindPaw.R"
+  ],
+  "clips": {
+    "Trot": {
+      "frames": [
+        1,
+        19
+      ],
+      "seconds": 0.6,
+      "loop": true
+    },
+    "Sit": {
+      "frames": [
+        1,
+        91
+      ],
+      "seconds": 3.0,
+      "loop": true
+    },
+    "Sniff": {
+      "frames": [
+        1,
+        61
+      ],
+      "seconds": 2.0,
+      "loop": true
+    }
+  },
+  "sha256": {
+    "blend": "86275d9b0aaf2e3960e9c63ad44631f6dc9149d9fd8b7304961cb132d27338cc",
+    "fbx": "41b8d5a21e3fca8a12ab3a6d9ff5e1c4ffa01876058c109933aa77ba39fb90d9"
+  },
+  "palette": {
+    "M_Rubber": "#28343B",
+    "M_GullWhite": "#F1F0EA",
+    "M_HairChestnut": "#50392E",
+    "M_Ginger": "#C58B50",
+    "M_GingerShade": "#9C6036",
+    "M_WoodHighlight": "#DFB77A",
+    "M_NoseRose": "#B97566",
+    "M_Teal": "#168F9F"
+  }
+}

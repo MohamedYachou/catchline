@@ -1,0 +1,2602 @@
+{
+  "result": "PASS (technical checks only; listening and native mix pending)",
+  "method": "Independent PCM16 WAV decode, BS1770 K weighted gated loudness, short clips zero-padded to400ms; scipy4x truepeak estimate. Same measurement helper as SOUND1. Quantized endpoints, seam value/slope and live seam RMS checked.",
+  "files": [
+    {
+      "file": "SFX/Cast_0.wav",
+      "family": "Cast",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 5068,
+      "duration_seconds": 0.11492063492063492,
+      "sample_peak_dbfs": -3.7999169780692528,
+      "true_peak_4x_dbtp": -3.7858247096420095,
+      "integrated_lufs": -24.200266770312112,
+      "measurement_zero_padding_seconds": 0.2850793650793651,
+      "dc_offset_linear": [
+        1.2043243143251776e-08
+      ],
+      "rms_dbfs": [
+        -17.907930245420186
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "99a5e507c43b5fab00ef735ac3345ded0d6eba309e05958dbec1ab095be1dc8b",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002667703121126408
+    },
+    {
+      "file": "SFX/Cast_1.wav",
+      "family": "Cast",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 3924,
+      "duration_seconds": 0.08897959183673469,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -24.000276531702486,
+      "measurement_zero_padding_seconds": 0.3110204081632653,
+      "dc_offset_linear": [
+        -2.4109197805173293e-07
+      ],
+      "rms_dbfs": [
+        -16.576632030305973
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "7cf6bc9b4cd9246f7c2ac7b8c82be4dcac5915b77892a94e91e4ffd27ef553ba",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002765317024859826
+    },
+    {
+      "file": "SFX/Cast_2.wav",
+      "family": "Cast",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 5589,
+      "duration_seconds": 0.126734693877551,
+      "sample_peak_dbfs": -7.34373410645678,
+      "true_peak_4x_dbtp": -7.338206731425708,
+      "integrated_lufs": -23.800266162618733,
+      "measurement_zero_padding_seconds": 0.273265306122449,
+      "dc_offset_linear": [
+        -3.8222051686348186e-08
+      ],
+      "rms_dbfs": [
+        -17.85819034064196
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "cde81ec03a983303c9b38473529a68f5645f4db8e012c6d2506e80dfa7cc4e68",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002661626187325794
+    },
+    {
+      "file": "SFX/Splash_0.wav",
+      "family": "Splash",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 31752,
+      "duration_seconds": 0.72,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.627663102149987,
+      "integrated_lufs": -24.20026875034922,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.633909133676619e-08
+      ],
+      "rms_dbfs": [
+        -24.82369354454591
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "fa33bb37d78c382599d746e91b6834cdd1bc1932f01eeed4364b18e71e6ecfd7",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002687503492211363
+    },
+    {
+      "file": "SFX/Splash_1.wav",
+      "family": "Splash",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 31752,
+      "duration_seconds": 0.72,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.697736199729673,
+      "integrated_lufs": -24.0002669782766,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -3.267818267353238e-08
+      ],
+      "rms_dbfs": [
+        -23.87556947442663
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "985da2ced1087528d09ba9f551364f59784cc165ebe035983c4088b901c71639",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002669782765991613
+    },
+    {
+      "file": "SFX/Splash_2.wav",
+      "family": "Splash",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 31752,
+      "duration_seconds": 0.72,
+      "sample_peak_dbfs": -4.857779421963222,
+      "true_peak_4x_dbtp": -4.773531393751244,
+      "integrated_lufs": -23.8002702271402,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        2.8833690594293274e-08
+      ],
+      "rms_dbfs": [
+        -26.74842659172051
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "dddb572e4c7435bb0153ce8b4fe038723df5ebb72ac9dc88cd874d45185d8fb9",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00027022714019864225
+    },
+    {
+      "file": "SFX/Bite_0.wav",
+      "family": "Bite",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 9922,
+      "duration_seconds": 0.22498866213151927,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.7014551498566464,
+      "integrated_lufs": -24.200259664105584,
+      "measurement_zero_padding_seconds": 0.17501133786848072,
+      "dc_offset_linear": [
+        2.4605989215883895e-08
+      ],
+      "rms_dbfs": [
+        -21.562545065768933
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "d8ff031b5326de0723bc3bd66a311df9cee2610574a7fafa9e0cf5119e6507a7",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002596641055845339
+    },
+    {
+      "file": "SFX/Bite_1.wav",
+      "family": "Bite",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 9922,
+      "duration_seconds": 0.22498866213151927,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -24.000288401765676,
+      "measurement_zero_padding_seconds": 0.17501133786848072,
+      "dc_offset_linear": [
+        -8.612096225559364e-08
+      ],
+      "rms_dbfs": [
+        -22.666497195816213
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "e2ae19d7904b21aaf3995f5b34ca46357e8ca4cc23d0faaff48f943ceb869afe",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002884017656761273
+    },
+    {
+      "file": "SFX/Bite_2.wav",
+      "family": "Bite",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 9922,
+      "duration_seconds": 0.22498866213151927,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.783625092578416,
+      "integrated_lufs": -23.800242649431077,
+      "measurement_zero_padding_seconds": 0.17501133786848072,
+      "dc_offset_linear": [
+        4.306048112779682e-08
+      ],
+      "rms_dbfs": [
+        -22.736219121453757
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "005550d857e4da5cb451d8217c48cd0987bcc80e9b43521f558c8397993f13cb",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00024264943107610293
+    },
+    {
+      "file": "SFX/Reel_0.wav",
+      "family": "Reel",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -6.338606094371003,
+      "true_peak_4x_dbtp": -6.213438385011657,
+      "integrated_lufs": -24.20024796191502,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        8.897253097667638e-09
+      ],
+      "rms_dbfs": [
+        -27.36439076952276
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "e4b81464922b24d85bfce18c225211f5cd0b35ac7ecf7d07e4c316517ed6705e",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002479619150221879
+    },
+    {
+      "file": "SFX/Reel_1.wav",
+      "family": "Reel",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -6.138559240565695,
+      "true_peak_4x_dbtp": -6.013437028369736,
+      "integrated_lufs": -24.00028240126404,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        4.349768181081957e-08
+      ],
+      "rms_dbfs": [
+        -27.164420252371578
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "4c62f62d6eecf27daa3f2a81bce645f3b631efc320e8bcbeab0cc563698c2cf2",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.00028240126404099897
+    },
+    {
+      "file": "SFX/Reel_2.wav",
+      "family": "Reel",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -5.93881375521573,
+      "true_peak_4x_dbtp": -5.813507434769653,
+      "integrated_lufs": -23.800265160994623,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -9.885836775186265e-09
+      ],
+      "rms_dbfs": [
+        -26.964404621755996
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "d69bf4d1bff9b8e4ea5f28b172cb57356f7bce5a59555a18da15b126bb0ebb01",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00026516099462270404
+    },
+    {
+      "file": "SFX/Land_0.wav",
+      "family": "Land",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 22271,
+      "duration_seconds": 0.5050113378684807,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.6285610335273604,
+      "integrated_lufs": -24.200260299142673,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -3.699764758542499e-08
+      ],
+      "rms_dbfs": [
+        -24.48407320915743
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "d57b675ce26829facdfacceb72bfa2dda5e518be5923a30f4f35ab1db77c1ce7",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.00026029914267411414
+    },
+    {
+      "file": "SFX/Land_1.wav",
+      "family": "Land",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 22271,
+      "duration_seconds": 0.5050113378684807,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.7685327814758547,
+      "integrated_lufs": -24.00026816147008,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.7813682170760182e-08
+      ],
+      "rms_dbfs": [
+        -24.302566628432306
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "ae9df84049eea4b372e4c37e434e050115a323b7a5f6758e0161cfbd92f308a3",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002681614700783541
+    },
+    {
+      "file": "SFX/Land_2.wav",
+      "family": "Land",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 22271,
+      "duration_seconds": 0.5050113378684807,
+      "sample_peak_dbfs": -7.173171339115779,
+      "true_peak_4x_dbtp": -7.114176465377861,
+      "integrated_lufs": -23.80025227602214,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -3.288679785371111e-08
+      ],
+      "rms_dbfs": [
+        -26.43338849740926
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "bcdad3f92e1778a6fa2d7bd47a9135951d55af6637ccf847a1b7b458be9e1bef",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002522760221381759
+    },
+    {
+      "file": "SFX/Stow_0.wav",
+      "family": "Stow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 18963,
+      "duration_seconds": 0.43,
+      "sample_peak_dbfs": -7.720357216082872,
+      "true_peak_4x_dbtp": -7.714829841051802,
+      "integrated_lufs": -24.200258933490694,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -6.437289062911987e-08
+      ],
+      "rms_dbfs": [
+        -23.49488258382565
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "864e7eadd6cf2bbf74abd943199e6aa01f5b012d8d2d38f71f55344da41607a3",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002589334906950569
+    },
+    {
+      "file": "SFX/Stow_1.wav",
+      "family": "Stow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 18963,
+      "duration_seconds": 0.43,
+      "sample_peak_dbfs": -6.490604720942901,
+      "true_peak_4x_dbtp": -6.453245218556011,
+      "integrated_lufs": -24.00026284877489,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -8.690340234931182e-08
+      ],
+      "rms_dbfs": [
+        -24.61275294014792
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "ae232013ebc1a464d017823bdd2d3df6f8922bf5d6650f5943379175c18bdde5",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002628487748914665
+    },
+    {
+      "file": "SFX/Stow_2.wav",
+      "family": "Stow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 18963,
+      "duration_seconds": 0.43,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.783556468176657,
+      "integrated_lufs": -23.80025981909245,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -7.241950195775985e-08
+      ],
+      "rms_dbfs": [
+        -24.15798014937294
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "de81e653dfe6dee76e4950ef22270823e83bbc40454511d54d50b538d574a518",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00025981909244876533
+    },
+    {
+      "file": "SFX/Moor_0.wav",
+      "family": "Moor",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30429,
+      "duration_seconds": 0.69,
+      "sample_peak_dbfs": -3.7999169780692528,
+      "true_peak_4x_dbtp": -3.737425804553899,
+      "integrated_lufs": -24.200263589010166,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.306695247543462e-08
+      ],
+      "rms_dbfs": [
+        -23.211882519338708
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "17e0e045e0390f7248206b67f0a5f9afc807689dd0ecf39200f8b3eabe54f868",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002635890101672089
+    },
+    {
+      "file": "SFX/Moor_1.wav",
+      "family": "Moor",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30429,
+      "duration_seconds": 0.69,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.771442209384745,
+      "integrated_lufs": -24.00026791897201,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        8.023287817542475e-08
+      ],
+      "rms_dbfs": [
+        -24.06181613913297
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "dc5c035d077d765fc2f556e4e3c86bde97c46023299166f78e24fed6ddc1ed56",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.00026791897201050574
+    },
+    {
+      "file": "SFX/Moor_2.wav",
+      "family": "Moor",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30429,
+      "duration_seconds": 0.69,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.783624238851469,
+      "integrated_lufs": -23.800268271551992,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.0029109771928094e-08
+      ],
+      "rms_dbfs": [
+        -21.969939985786006
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "a8840b6fa045ef7c2efe240d3cb1d44153c3af4d7408ed6ae6cd718ce17a43e1",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002682715519917167
+    },
+    {
+      "file": "SFX/Sale_0.wav",
+      "family": "Sale",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 33957,
+      "duration_seconds": 0.77,
+      "sample_peak_dbfs": -3.9243783359889086,
+      "true_peak_4x_dbtp": -3.400440604596713,
+      "integrated_lufs": -24.324256042513394,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        7.189699472862738e-09
+      ],
+      "rms_dbfs": [
+        -28.329807956001485
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "11ec817487348f7e3e93214997bf339b99fcc86dae943cbd635bf621b1922296",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.1242560425133945
+    },
+    {
+      "file": "SFX/Sale_1.wav",
+      "family": "Sale",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 33957,
+      "duration_seconds": 0.77,
+      "sample_peak_dbfs": -3.9243783359889086,
+      "true_peak_4x_dbtp": -3.400264862301414,
+      "integrated_lufs": -24.12424710916018,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -8.08841190697058e-09
+      ],
+      "rms_dbfs": [
+        -27.980681469092232
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "b9ad6b2185100289ce1b0df99d49c4a8f6c0fb408fda47b64c0fffbe96f9e271",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.12424710916018
+    },
+    {
+      "file": "SFX/Sale_2.wav",
+      "family": "Sale",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 33957,
+      "duration_seconds": 0.77,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -23.800268771379127,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.8758797891450952e-08
+      ],
+      "rms_dbfs": [
+        -26.856317270877117
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "f40d4f5619c5d26e0c6dadd386d6149f4aba046fb3ee5f0ddbf15401a5357e68",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00026877137912606486
+    },
+    {
+      "file": "SFX/Select_0.wav",
+      "family": "Select",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -5.830776961748865,
+      "true_peak_4x_dbtp": -5.728845042393607,
+      "integrated_lufs": -32.200287213422925,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        1.7300214356575964e-07
+      ],
+      "rms_dbfs": [
+        -27.29001526318562
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "b65b7bd4b52a24c3196ef5438dd12516dd1cdaebc41119536a8695a50f42242b",
+      "target_lufs": -32.2,
+      "target_error_lu": -0.00028721342292215013
+    },
+    {
+      "file": "SFX/Select_1.wav",
+      "family": "Select",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -11.900270568179188,
+      "true_peak_4x_dbtp": -11.888123323942663,
+      "integrated_lufs": -32.000238220214165,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        -1.1072137188208617e-07
+      ],
+      "rms_dbfs": [
+        -25.866577913849675
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "710eeadf627d34a5b4ec62a8d9d990d023d3ebe2a1f75a2a4b2d726cdac9f25d",
+      "target_lufs": -32.0,
+      "target_error_lu": -0.00023822021416464167
+    },
+    {
+      "file": "SFX/Select_2.wav",
+      "family": "Select",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -10.871426358669043,
+      "true_peak_4x_dbtp": -10.84966248298894,
+      "integrated_lufs": -31.80028999879003,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        -6.089675453514739e-07
+      ],
+      "rms_dbfs": [
+        -25.39024077021365
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "69bed98588e838895f5dba8d6c99cec1dc48f3ac5c29cee08174f123c64c8160",
+      "target_lufs": -31.8,
+      "target_error_lu": -0.00028999879003066553
+    },
+    {
+      "file": "SFX/Purchase_0.wav",
+      "family": "Purchase",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 5292,
+      "duration_seconds": 0.12,
+      "sample_peak_dbfs": -6.204911420231465,
+      "true_peak_4x_dbtp": -5.721845945375076,
+      "integrated_lufs": -32.200181395119614,
+      "measurement_zero_padding_seconds": 0.28,
+      "dc_offset_linear": [
+        1.7300214356575964e-08
+      ],
+      "rms_dbfs": [
+        -30.189498456005637
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "625f45ea712fec8dc5c50763c3e0697c143c9a9f9961c1c9549c0c143a7b3b68",
+      "target_lufs": -32.2,
+      "target_error_lu": -0.00018139511961123844
+    },
+    {
+      "file": "SFX/Purchase_1.wav",
+      "family": "Purchase",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 5292,
+      "duration_seconds": 0.12,
+      "sample_peak_dbfs": -6.005239309251724,
+      "true_peak_4x_dbtp": -5.52220785205499,
+      "integrated_lufs": -32.00026606746989,
+      "measurement_zero_padding_seconds": 0.28,
+      "dc_offset_linear": [
+        1.7300214356575964e-08
+      ],
+      "rms_dbfs": [
+        -29.989585375814514
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "fcc359fc3e1c7ad355e962e979d639f6e3295418c27a387f16eef57786912577",
+      "target_lufs": -32.0,
+      "target_error_lu": -0.0002660674698873322
+    },
+    {
+      "file": "SFX/Purchase_2.wav",
+      "family": "Purchase",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 5292,
+      "duration_seconds": 0.12,
+      "sample_peak_dbfs": -11.875269189522317,
+      "true_peak_4x_dbtp": -11.229674153513699,
+      "integrated_lufs": -31.800248319816966,
+      "measurement_zero_padding_seconds": 0.28,
+      "dc_offset_linear": [
+        5.766738118858655e-08
+      ],
+      "rms_dbfs": [
+        -29.602052538527502
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "235510b4ee6a7ba52b6d071ab89e4a59d47ca4dd0ff22d931a68e405ca9665eb",
+      "target_lufs": -31.8,
+      "target_error_lu": -0.000248319816964937
+    },
+    {
+      "file": "SFX/Click_0.wav",
+      "family": "Click",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -6.430930648139421,
+      "true_peak_4x_dbtp": -6.328935797914666,
+      "integrated_lufs": -32.800255983953,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        -7.612094316893424e-08
+      ],
+      "rms_dbfs": [
+        -27.889992880868732
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "1570241f03e90346d98d4b32998a6c4c1b0fe204a84c468152b93cb7ed7f22a3",
+      "target_lufs": -32.800000000000004,
+      "target_error_lu": -0.0002559839529965302
+    },
+    {
+      "file": "SFX/Click_1.wav",
+      "family": "Click",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -12.500578323176072,
+      "true_peak_4x_dbtp": -12.488512498551955,
+      "integrated_lufs": -32.60024979716752,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        -2.1452265802154195e-07
+      ],
+      "rms_dbfs": [
+        -26.466604059540405
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "9060a3bee56c4f2b240db2a4a12de6f3f8a6103e86835543bfb31bce7a33dc0b",
+      "target_lufs": -32.6,
+      "target_error_lu": -0.00024979716751971637
+    },
+    {
+      "file": "SFX/Click_2.wav",
+      "family": "Click",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 4410,
+      "duration_seconds": 0.1,
+      "sample_peak_dbfs": -11.47082321188237,
+      "true_peak_4x_dbtp": -11.448942251467148,
+      "integrated_lufs": -32.40025906608372,
+      "measurement_zero_padding_seconds": 0.3,
+      "dc_offset_linear": [
+        1.7300214356575964e-07
+      ],
+      "rms_dbfs": [
+        -25.990207295652745
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "8559235dedcac723ef1404ab901df53bafba38d34780c74f469a9f466d109bdb",
+      "target_lufs": -32.4,
+      "target_error_lu": -0.00025906608372139317
+    },
+    {
+      "file": "SFX/Bell_0.wav",
+      "family": "Bell",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 48986,
+      "duration_seconds": 1.1107936507936509,
+      "sample_peak_dbfs": -4.771494276563393,
+      "true_peak_4x_dbtp": -4.765966901532322,
+      "integrated_lufs": -27.20026967546858,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        2.9280328499469237e-08
+      ],
+      "rms_dbfs": [
+        -28.764453542121608
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "883f06ff81e8fd378e5cd94416c2384cfc0948fcd68f87de8df7554dcaa4ed31",
+      "target_lufs": -27.2,
+      "target_error_lu": -0.0002696754685800329
+    },
+    {
+      "file": "SFX/Bell_1.wav",
+      "family": "Bell",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 19296,
+      "duration_seconds": 0.43755102040816324,
+      "sample_peak_dbfs": -7.624818840552687,
+      "true_peak_4x_dbtp": -7.582292135224439,
+      "integrated_lufs": -27.00030805525815,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -7.749592289205017e-08
+      ],
+      "rms_dbfs": [
+        -30.693879324428806
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "e6e68159828db5b6402861b3e86f720d74318496417b3e7ba29990232660ffd2",
+      "target_lufs": -27.0,
+      "target_error_lu": -0.0003080552581486984
+    },
+    {
+      "file": "SFX/Bell_2.wav",
+      "family": "Bell",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 55145,
+      "duration_seconds": 1.250453514739229,
+      "sample_peak_dbfs": -15.581068653661509,
+      "true_peak_4x_dbtp": -15.461316303965233,
+      "integrated_lufs": -26.80025520529962,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.7155588391966633e-08
+      ],
+      "rms_dbfs": [
+        -31.812196587305973
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "3371775253b05b11ebe5b60aab187732b78a8aa5d16e61e22012ecf1b0449086",
+      "target_lufs": -26.8,
+      "target_error_lu": -0.0002552052996200871
+    },
+    {
+      "file": "SFX/Creak_0.wav",
+      "family": "Creak",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -3.794991840874646,
+      "true_peak_4x_dbtp": -3.7447572405607787,
+      "integrated_lufs": -24.200274406247697,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.281308597156811e-08
+      ],
+      "rms_dbfs": [
+        -24.898896328705288
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "83e9ffb4828099a0fc6c814d52a8bb7e21c7ac75bc3c7842be4ebae265b258cd",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002744062476978115
+    },
+    {
+      "file": "SFX/Creak_1.wav",
+      "family": "Creak",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -3.7962228633835773,
+      "true_peak_4x_dbtp": -3.7460276224764293,
+      "integrated_lufs": -24.000270908731682,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.38777145473574e-09
+      ],
+      "rms_dbfs": [
+        -24.664820054441314
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "ca8857b00cfad41ef117e2e651ecc24141d6326aa598eda9eae2cac67a718915",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.00027090873168234
+    },
+    {
+      "file": "SFX/Creak_2.wav",
+      "family": "Creak",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -6.788331713913914,
+      "true_peak_4x_dbtp": -6.782804338882843,
+      "integrated_lufs": -23.800261405575807,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -4.152051445578231e-08
+      ],
+      "rms_dbfs": [
+        -20.977942617163734
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "f3ed4dd3a03b83eeec07b661af11de0f390cd8d972906eac8a50e2ab024f685a",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002614055758058953
+    },
+    {
+      "file": "SFX/Winch_0.wav",
+      "family": "Winch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 17199,
+      "duration_seconds": 0.39,
+      "sample_peak_dbfs": -4.998020716787859,
+      "true_peak_4x_dbtp": -4.924170457865299,
+      "integrated_lufs": -24.200257215588888,
+      "measurement_zero_padding_seconds": 0.01,
+      "dc_offset_linear": [
+        -6.210333358770858e-08
+      ],
+      "rms_dbfs": [
+        -26.451731457566655
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "fb4507b4c0a04448891d5bab139f6580b74d0801385586f09566c66068ab6493",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.00025721558888847085
+    },
+    {
+      "file": "SFX/Winch_1.wav",
+      "family": "Winch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 17199,
+      "duration_seconds": 0.39,
+      "sample_peak_dbfs": -6.570436760499016,
+      "true_peak_4x_dbtp": -6.496602127688741,
+      "integrated_lufs": -24.000275141147736,
+      "measurement_zero_padding_seconds": 0.01,
+      "dc_offset_linear": [
+        -8.339590510349439e-08
+      ],
+      "rms_dbfs": [
+        -26.410021686248506
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "8158bd1475d531fa7ca79f4084c98ff38ce97b0f98a2bba36f312ebe185c28c6",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002751411477355248
+    },
+    {
+      "file": "SFX/Winch_2.wav",
+      "family": "Winch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 17199,
+      "duration_seconds": 0.39,
+      "sample_peak_dbfs": -4.598302576793748,
+      "true_peak_4x_dbtp": -4.524370676824145,
+      "integrated_lufs": -23.80025240648933,
+      "measurement_zero_padding_seconds": 0.01,
+      "dc_offset_linear": [
+        -1.5969428636839352e-08
+      ],
+      "rms_dbfs": [
+        -26.051727282512473
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "850c99bd96af4b7305175e583c1f93bd7e4a96a1a34108ebdd188874e237c751",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002524064893307809
+    },
+    {
+      "file": "SFX/CrabClack_0.wav",
+      "family": "CrabClack",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 11466,
+      "duration_seconds": 0.26,
+      "sample_peak_dbfs": -5.365250887467288,
+      "true_peak_4x_dbtp": -5.344493240683484,
+      "integrated_lufs": -24.2002793206607,
+      "measurement_zero_padding_seconds": 0.14,
+      "dc_offset_linear": [
+        -1.5969428636839352e-08
+      ],
+      "rms_dbfs": [
+        -22.469012345798287
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "3b3206ba69b4da49c4d8fa1712bd4c060c06e2cf26c1f59d51a527b4cb28173f",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002793206607023535
+    },
+    {
+      "file": "SFX/CrabClack_1.wav",
+      "family": "CrabClack",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 11466,
+      "duration_seconds": 0.26,
+      "sample_peak_dbfs": -5.938288594863801,
+      "true_peak_4x_dbtp": -5.932761219832731,
+      "integrated_lufs": -24.000257231024822,
+      "measurement_zero_padding_seconds": 0.14,
+      "dc_offset_linear": [
+        -5.056985734999128e-08
+      ],
+      "rms_dbfs": [
+        -24.88046326895166
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "cb99c8632eaf7b88379e0155e74ef60a00907417d88793d9c3ee8145aa85d6b4",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.0002572310248218912
+    },
+    {
+      "file": "SFX/CrabClack_2.wav",
+      "family": "CrabClack",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 11466,
+      "duration_seconds": 0.26,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.7715519983773413,
+      "integrated_lufs": -23.800265536629585,
+      "measurement_zero_padding_seconds": 0.14,
+      "dc_offset_linear": [
+        5.056985734999128e-08
+      ],
+      "rms_dbfs": [
+        -21.680345381065884
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "3a80ec8bb8747bb5b136019878fd42b1bcaa873bbbdd2c3156ba3bcced79397c",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.0002655366295840622
+    },
+    {
+      "file": "SFX/NetSlap_0.wav",
+      "family": "NetSlap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 32854,
+      "duration_seconds": 0.7449886621315193,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.6289490213061493,
+      "integrated_lufs": -24.20027014649465,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        5.5733082349181226e-08
+      ],
+      "rms_dbfs": [
+        -24.567606655623898
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "c88e56c023226098506c3a4d3e5ce512a178bb5a962b9b37b6f847b972f5713f",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.0002701464946497367
+    },
+    {
+      "file": "SFX/NetSlap_1.wav",
+      "family": "NetSlap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 32854,
+      "duration_seconds": 0.7449886621315193,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.650210101533102,
+      "integrated_lufs": -24.000265706679254,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        1.579103999893468e-08
+      ],
+      "rms_dbfs": [
+        -23.165929055973447
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "200ff74e5e552fe91fa9d62a6d79dae76989c4fc2f56158ea1e58c608b5ae266",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.00026570667925440716
+    },
+    {
+      "file": "SFX/NetSlap_2.wav",
+      "family": "NetSlap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 32854,
+      "duration_seconds": 0.7449886621315193,
+      "sample_peak_dbfs": -4.747194218442267,
+      "true_peak_4x_dbtp": -4.684285165356672,
+      "integrated_lufs": -23.800272988828553,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.470833317480368e-06
+      ],
+      "rms_dbfs": [
+        -26.86986388959196
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "f78ff8fc7240257d006b648ab19b4340a24326cecc0bd2cad6213c2930a9fdd3",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00027298882855220086
+    },
+    {
+      "file": "SFX/Gut_0.wav",
+      "family": "Gut",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -5.2529086242802325,
+      "true_peak_4x_dbtp": -4.948715156064886,
+      "integrated_lufs": -24.20026963643895,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        2.6615714394732252e-08
+      ],
+      "rms_dbfs": [
+        -26.034664740883613
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "caec9c0a439cf85de7b3c035b4b16da157a349932a603870b65245a3809afaf1",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.00026963643895072664
+    },
+    {
+      "file": "SFX/Gut_1.wav",
+      "family": "Gut",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -5.059027678899008,
+      "true_peak_4x_dbtp": -4.754996503938409,
+      "integrated_lufs": -24.00026058053022,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.0227942939996513e-08
+      ],
+      "rms_dbfs": [
+        -25.83725222794257
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "b8f2bc7a5c435f5488dfae1051067381ce6dca3947ba0ec11d8edecb56572e39",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.00026058053022026684
+    },
+    {
+      "file": "SFX/Gut_2.wav",
+      "family": "Gut",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28665,
+      "duration_seconds": 0.65,
+      "sample_peak_dbfs": -4.367363945894634,
+      "true_peak_4x_dbtp": -4.322178262087414,
+      "integrated_lufs": -23.80027449310471,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -3.619737157683586e-08
+      ],
+      "rms_dbfs": [
+        -28.333868360862073
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "8d3fee1853873cd043d523e214d2df08bcc27cac8f6b4fe70c9f3d7c5756389b",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00027449310470828436
+    },
+    {
+      "file": "SFX/Coins_0.wav",
+      "family": "Coins",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -3.9256278346083495,
+      "true_peak_4x_dbtp": -3.400204693578442,
+      "integrated_lufs": -24.32552071308128,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        3.064609400307742e-08
+      ],
+      "rms_dbfs": [
+        -26.487051928765183
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "88d409ec3180917b0c902aee18c74cd2d787c3e92431e354657b6713d6d9e957",
+      "target_lufs": -24.2,
+      "target_error_lu": -0.1255207130812792
+    },
+    {
+      "file": "SFX/Coins_1.wav",
+      "family": "Coins",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -3.9256278346083495,
+      "true_peak_4x_dbtp": -3.400220273710328,
+      "integrated_lufs": -24.125581724410587,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -4.7452016520894073e-08
+      ],
+      "rms_dbfs": [
+        -26.311198223882514
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "4fb3963eb6809e8692dafad9f3f45561b38792395fd89342a3805e4cda2c6ae1",
+      "target_lufs": -24.0,
+      "target_error_lu": -0.12558172441058701
+    },
+    {
+      "file": "SFX/Coins_2.wav",
+      "family": "Coins",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30870,
+      "duration_seconds": 0.7,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -23.800253660336512,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.7794506195335277e-08
+      ],
+      "rms_dbfs": [
+        -26.982625668036718
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "c0ac2bbb2ae052aa6e8e92e6886be8b08606426ea48db7a8ca7ad9806308fdfa",
+      "target_lufs": -23.8,
+      "target_error_lu": -0.00025366033651152975
+    },
+    {
+      "file": "SFX/DogBark_0.wav",
+      "family": "DogBark",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 10122,
+      "duration_seconds": 0.22952380952380952,
+      "sample_peak_dbfs": -10.772831952433034,
+      "true_peak_4x_dbtp": -10.724945067770006,
+      "integrated_lufs": -27.200268535370594,
+      "measurement_zero_padding_seconds": 0.17047619047619048,
+      "dc_offset_linear": [
+        -1.3265890510768623e-07
+      ],
+      "rms_dbfs": [
+        -26.055665596896645
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "ca0cbd219ac92892a66a6069499bd116bd673dca99f71e2de3908e906d974378",
+      "target_lufs": -27.2,
+      "target_error_lu": -0.00026853537059423616
+    },
+    {
+      "file": "SFX/DogBark_1.wav",
+      "family": "DogBark",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 10122,
+      "duration_seconds": 0.22952380952380952,
+      "sample_peak_dbfs": -10.587903083800454,
+      "true_peak_4x_dbtp": -10.519879806354698,
+      "integrated_lufs": -27.000264690470804,
+      "measurement_zero_padding_seconds": 0.17047619047619048,
+      "dc_offset_linear": [
+        -9.346422859859711e-08
+      ],
+      "rms_dbfs": [
+        -25.85484267337015
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "a85ae0d9931defbf75efd9dd2b44e92eea737e33ce4c5ea022aec5030c4d42fd",
+      "target_lufs": -27.0,
+      "target_error_lu": -0.0002646904708036857
+    },
+    {
+      "file": "SFX/DogBark_2.wav",
+      "family": "DogBark",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 10122,
+      "duration_seconds": 0.22952380952380952,
+      "sample_peak_dbfs": -10.366515586010268,
+      "true_peak_4x_dbtp": -10.31846090900123,
+      "integrated_lufs": -26.800270575925904,
+      "measurement_zero_padding_seconds": 0.17047619047619048,
+      "dc_offset_linear": [
+        -4.220965162517289e-08
+      ],
+      "rms_dbfs": [
+        -25.653838708414103
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "4ee918d138ef1a12e410195b9819c5bf06655f064bd0d914c81f24b6ff4b7048",
+      "target_lufs": -26.8,
+      "target_error_lu": -0.00027057592590296053
+    },
+    {
+      "file": "SFX/Meow_0.wav",
+      "family": "Meow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 41038,
+      "duration_seconds": 0.9305668934240363,
+      "sample_peak_dbfs": -17.14877076605211,
+      "true_peak_4x_dbtp": -17.1272352517509,
+      "integrated_lufs": -27.200251973044605,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        1.1154629169915688e-08
+      ],
+      "rms_dbfs": [
+        -30.670442437338146
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "ce5eae82659d0542edc963265d8cf84759d3ce26fead63b563b8956dd5ac1f3c",
+      "target_lufs": -27.2,
+      "target_error_lu": -0.00025197304460533587
+    },
+    {
+      "file": "SFX/Meow_1.wav",
+      "family": "Meow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 41038,
+      "duration_seconds": 0.9305668934240363,
+      "sample_peak_dbfs": -16.96928433260115,
+      "true_peak_4x_dbtp": -16.929499111597373,
+      "integrated_lufs": -27.000244846258575,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        5.1311294181612165e-08
+      ],
+      "rms_dbfs": [
+        -30.46717982230342
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "38f8911107598ae61b2895dca09fc684a888f3ce25e513f92054f3a8eedf1795",
+      "target_lufs": -27.0,
+      "target_error_lu": -0.00024484625857468245
+    },
+    {
+      "file": "SFX/Meow_2.wav",
+      "family": "Meow",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 41038,
+      "duration_seconds": 0.9305668934240363,
+      "sample_peak_dbfs": -16.79343186571266,
+      "true_peak_4x_dbtp": -16.73522159267502,
+      "integrated_lufs": -26.800280200669295,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.2309258339831376e-08
+      ],
+      "rms_dbfs": [
+        -30.263180340308416
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "1409a5f80c1e872ab17066793fa8423326dce6f43649972ecc42f8f0a18f68a8",
+      "target_lufs": -26.8,
+      "target_error_lu": -0.00028020066929457244
+    },
+    {
+      "file": "SFX/Stitch_0.wav",
+      "family": "Stitch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 8820,
+      "duration_seconds": 0.2,
+      "sample_peak_dbfs": -7.581564229347892,
+      "true_peak_4x_dbtp": -7.564571633864379,
+      "integrated_lufs": -29.20024478050789,
+      "measurement_zero_padding_seconds": 0.2,
+      "dc_offset_linear": [
+        5.5360685941043087e-08
+      ],
+      "rms_dbfs": [
+        -23.01281664887273
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "bbffc0ad6306420ed6060120da1fa8c42b5715f5aebc03ea8d468db3f470613b",
+      "target_lufs": -29.2,
+      "target_error_lu": -0.00024478050789156214
+    },
+    {
+      "file": "SFX/Stitch_1.wav",
+      "family": "Stitch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 8820,
+      "duration_seconds": 0.2,
+      "sample_peak_dbfs": -6.640185098435374,
+      "true_peak_4x_dbtp": -6.624535665024293,
+      "integrated_lufs": -29.00027240453092,
+      "measurement_zero_padding_seconds": 0.2,
+      "dc_offset_linear": [
+        3.1486390128968253e-07
+      ],
+      "rms_dbfs": [
+        -16.968561462722953
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "67d59cec6a5decf4980711a4ab3654e74f3dc7a706619bea28296eaddede64f1",
+      "target_lufs": -29.0,
+      "target_error_lu": -0.0002724045309214773
+    },
+    {
+      "file": "SFX/Stitch_2.wav",
+      "family": "Stitch",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 8820,
+      "duration_seconds": 0.2,
+      "sample_peak_dbfs": -6.060452044662536,
+      "true_peak_4x_dbtp": -6.054924669631464,
+      "integrated_lufs": -28.80026895710411,
+      "measurement_zero_padding_seconds": 0.2,
+      "dc_offset_linear": [
+        3.460042871315193e-08
+      ],
+      "rms_dbfs": [
+        -17.77507547349627
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "bc16c8e0a92bb2cb5a67564abfa57b73d6347a6c274db2d11f90a74ef53ab7e5",
+      "target_lufs": -28.8,
+      "target_error_lu": -0.0002689571041081251
+    },
+    {
+      "file": "SFX/PotDrop_0.wav",
+      "family": "PotDrop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 38808,
+      "duration_seconds": 0.88,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.6295118332381247,
+      "integrated_lufs": -25.200257102122702,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -3.3027681953463203e-08
+      ],
+      "rms_dbfs": [
+        -26.875406760750856
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "07fd4962b87164bf112abf6f467e2f2266f074da30953d41b9ea951470425be4",
+      "target_lufs": -25.2,
+      "target_error_lu": -0.0002571021227026904
+    },
+    {
+      "file": "SFX/PotDrop_1.wav",
+      "family": "PotDrop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 38808,
+      "duration_seconds": 0.88,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.753409299380012,
+      "integrated_lufs": -25.0002625082952,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -9.043293868210163e-08
+      ],
+      "rms_dbfs": [
+        -26.435492718798287
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "2b8b00e9240f57fad1f680e82ca3c6d84af00a9ba99f3ab38ea64e6e0b374e61",
+      "target_lufs": -25.0,
+      "target_error_lu": -0.0002625082952008029
+    },
+    {
+      "file": "SFX/PotDrop_2.wav",
+      "family": "PotDrop",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 38808,
+      "duration_seconds": 0.88,
+      "sample_peak_dbfs": -7.293869901988178,
+      "true_peak_4x_dbtp": -7.200015093473764,
+      "integrated_lufs": -24.80023819844859,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.356761019393553e-06
+      ],
+      "rms_dbfs": [
+        -29.36203912289163
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "68e2a879e93eab84cfad3b4a4e5ec55c1d10a435441625ee55c90f221fff8bbc",
+      "target_lufs": -24.8,
+      "target_error_lu": -0.00023819844858863348
+    },
+    {
+      "file": "Ambience/HarbourDay.wav",
+      "family": "HarbourDay",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 2,
+      "frames": 1323000,
+      "duration_seconds": 30.0,
+      "sample_peak_dbfs": -14.383063898158529,
+      "true_peak_4x_dbtp": -14.358166434220648,
+      "integrated_lufs": -28.000319484406692,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        8.788508893140589e-09,
+        -7.727429079270597e-09
+      ],
+      "rms_dbfs": [
+        -30.808072436572175,
+        -31.68947893935446
+      ],
+      "first_last_pcm": [
+        [
+          468,
+          333
+        ],
+        [
+          468,
+          333
+        ]
+      ],
+      "loop_seam": {
+        "value_step_linear": [
+          0.0,
+          0.0
+        ],
+        "value_step_dbfs": [
+          -240.0,
+          -240.0
+        ],
+        "slope_step_linear": [
+          0.0,
+          0.0
+        ],
+        "interior_difference_p99": [
+          0.016632080078125,
+          0.01568603515625
+        ],
+        "join20ms_rms_dbfs": [
+          -33.312407023203654,
+          -36.38258921999372
+        ],
+        "join_to_whole_rms_ratio": [
+          0.749520077190709,
+          0.5825651300204086
+        ]
+      },
+      "sha256": "b4c740a98929347e66610ef688a0a1482d39291cf473da67d018e58e02ba761c",
+      "target_lufs": -28,
+      "target_error_lu": -0.00031948440669182787
+    },
+    {
+      "file": "Ambience/HarbourDusk.wav",
+      "family": "HarbourDusk",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 2,
+      "frames": 1323000,
+      "duration_seconds": 30.0,
+      "sample_peak_dbfs": -12.282012190881513,
+      "true_peak_4x_dbtp": -12.276484815850441,
+      "integrated_lufs": -30.000297392702052,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -7.84276384164777e-09,
+        -6.135809358465609e-09
+      ],
+      "rms_dbfs": [
+        -32.62667431424713,
+        -33.70926839454419
+      ],
+      "first_last_pcm": [
+        [
+          623,
+          284
+        ],
+        [
+          623,
+          284
+        ]
+      ],
+      "loop_seam": {
+        "value_step_linear": [
+          0.0,
+          0.0
+        ],
+        "value_step_dbfs": [
+          -240.0,
+          -240.0
+        ],
+        "slope_step_linear": [
+          0.0,
+          0.0
+        ],
+        "interior_difference_p99": [
+          0.010772705078125,
+          0.01275634765625
+        ],
+        "join20ms_rms_dbfs": [
+          -36.33422468675123,
+          -39.85148497192996
+        ],
+        "join_to_whole_rms_ratio": [
+          0.6525630533531259,
+          0.49304796555778346
+        ]
+      },
+      "sha256": "4b3e8dd92224004fc1edb668f64dc30e50909c675319be57df0f8198576ba4b5",
+      "target_lufs": -30,
+      "target_error_lu": -0.00029739270205197954
+    },
+    {
+      "file": "Ambience/OpenSea.wav",
+      "family": "OpenSea",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 2,
+      "frames": 1323000,
+      "duration_seconds": 30.0,
+      "sample_peak_dbfs": -14.520205007850773,
+      "true_peak_4x_dbtp": -14.499490154282554,
+      "integrated_lufs": -28.000387873194114,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.2456154336734694e-09,
+        1.3148162910997733e-09
+      ],
+      "rms_dbfs": [
+        -30.756125775917713,
+        -31.822047910339826
+      ],
+      "first_last_pcm": [
+        [
+          2172,
+          198
+        ],
+        [
+          2172,
+          198
+        ]
+      ],
+      "loop_seam": {
+        "value_step_linear": [
+          0.0,
+          0.0
+        ],
+        "value_step_dbfs": [
+          -240.0,
+          -240.0
+        ],
+        "slope_step_linear": [
+          0.0,
+          0.0
+        ],
+        "interior_difference_p99": [
+          0.015411376953125,
+          0.015869140625
+        ],
+        "join20ms_rms_dbfs": [
+          -27.472279106645033,
+          -29.37204722092264
+        ],
+        "join_to_whole_rms_ratio": [
+          1.4594604599152063,
+          1.3258672229974036
+        ]
+      },
+      "sha256": "ceb160713e4c5c03f450207bfc398ca141b165337626127efeb17d0f3041ece9",
+      "target_lufs": -28,
+      "target_error_lu": -0.00038787319411426324
+    },
+    {
+      "file": "Ambience/Skerries.wav",
+      "family": "Skerries",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 2,
+      "frames": 1323000,
+      "duration_seconds": 30.0,
+      "sample_peak_dbfs": -14.064104763186974,
+      "true_peak_4x_dbtp": -14.005627313092852,
+      "integrated_lufs": -28.000359687727162,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -1.1418141475340137e-08,
+        -8.534772415910809e-10
+      ],
+      "rms_dbfs": [
+        -30.651711923784816,
+        -31.96226693012473
+      ],
+      "first_last_pcm": [
+        [
+          787,
+          360
+        ],
+        [
+          787,
+          360
+        ]
+      ],
+      "loop_seam": {
+        "value_step_linear": [
+          0.0,
+          0.0
+        ],
+        "value_step_dbfs": [
+          -240.0,
+          -240.0
+        ],
+        "slope_step_linear": [
+          0.0,
+          0.0
+        ],
+        "interior_difference_p99": [
+          0.016571044921875,
+          0.016082763671875
+        ],
+        "join20ms_rms_dbfs": [
+          -31.279453727328033,
+          -33.23407627525151
+        ],
+        "join_to_whole_rms_ratio": [
+          0.930278341243111,
+          0.8637927065307953
+        ]
+      },
+      "sha256": "2ed957de29e52dd1bdd6f212d8a3705b2fd1249b4a4367174964122c0d573c6c",
+      "target_lufs": -28,
+      "target_error_lu": -0.0003596877271618837
+    },
+    {
+      "file": "Ambience/LighthouseRock.wav",
+      "family": "LighthouseRock",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 2,
+      "frames": 1323000,
+      "duration_seconds": 30.0,
+      "sample_peak_dbfs": -14.790967121360872,
+      "true_peak_4x_dbtp": -14.783909534878328,
+      "integrated_lufs": -28.000371358810725,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        9.918789564436885e-10,
+        -1.3632568912981859e-08
+      ],
+      "rms_dbfs": [
+        -31.049728705917474,
+        -31.684230911579427
+      ],
+      "first_last_pcm": [
+        [
+          -281,
+          -521
+        ],
+        [
+          -281,
+          -521
+        ]
+      ],
+      "loop_seam": {
+        "value_step_linear": [
+          0.0,
+          0.0
+        ],
+        "value_step_dbfs": [
+          -240.0,
+          -240.0
+        ],
+        "slope_step_linear": [
+          0.0,
+          0.0
+        ],
+        "interior_difference_p99": [
+          0.01605224609375,
+          0.016754150390625
+        ],
+        "join20ms_rms_dbfs": [
+          -30.30998676998133,
+          -31.957627155657917
+        ],
+        "join_to_whole_rms_ratio": [
+          1.0888977409133211,
+          0.9690143037922732
+        ]
+      },
+      "sha256": "25a0174d4b7773c6c83578f276d6bc6fe14c57f180f499360630d6fd164b558b",
+      "target_lufs": -28,
+      "target_error_lu": -0.0003713588107245869
+    }
+  ],
+  "sheets": [
+    {
+      "file": "review/Cast.png",
+      "sha256": "5a675c7d414aed3fa1fa5c0d724fd67b220449f0ce51039ba7eb94d61502febc",
+      "audio_files": [
+        "SFX/Cast_0.wav",
+        "SFX/Cast_1.wav",
+        "SFX/Cast_2.wav"
+      ]
+    },
+    {
+      "file": "review/Splash.png",
+      "sha256": "8062a613ba598bb7c6ff6663f990c563ff28dfb8e512a77a456ef2791c651771",
+      "audio_files": [
+        "SFX/Splash_0.wav",
+        "SFX/Splash_1.wav",
+        "SFX/Splash_2.wav"
+      ]
+    },
+    {
+      "file": "review/Bite.png",
+      "sha256": "4e0c870414a047d99b790bd15278968b804dd746d66e5960ed03307d2007dd10",
+      "audio_files": [
+        "SFX/Bite_0.wav",
+        "SFX/Bite_1.wav",
+        "SFX/Bite_2.wav"
+      ]
+    },
+    {
+      "file": "review/Reel.png",
+      "sha256": "3f67c1f0d9d34e0c6b4cff1cd5758fee1ca6ca9ba2d8511e077d1438dd9a0348",
+      "audio_files": [
+        "SFX/Reel_0.wav",
+        "SFX/Reel_1.wav",
+        "SFX/Reel_2.wav"
+      ]
+    },
+    {
+      "file": "review/Land.png",
+      "sha256": "6833782a2b654ac0f8466ac36924d81a2a54272bc1f5931aeaf96cd5bb33b426",
+      "audio_files": [
+        "SFX/Land_0.wav",
+        "SFX/Land_1.wav",
+        "SFX/Land_2.wav"
+      ]
+    },
+    {
+      "file": "review/Stow.png",
+      "sha256": "e94eb5bc7d524046d08bdb2a0c29bcc10acf57b04f5cdce2a7479d3922cf2f4b",
+      "audio_files": [
+        "SFX/Stow_0.wav",
+        "SFX/Stow_1.wav",
+        "SFX/Stow_2.wav"
+      ]
+    },
+    {
+      "file": "review/Moor.png",
+      "sha256": "df7d1148a076112a54d490a390c6e00d5abb9fc4154ea55f11fa87262fed9d11",
+      "audio_files": [
+        "SFX/Moor_0.wav",
+        "SFX/Moor_1.wav",
+        "SFX/Moor_2.wav"
+      ]
+    },
+    {
+      "file": "review/Sale.png",
+      "sha256": "c9e301268bfd424eb6306e71466528c726c20e0546bba5fbfe844601a5651c54",
+      "audio_files": [
+        "SFX/Sale_0.wav",
+        "SFX/Sale_1.wav",
+        "SFX/Sale_2.wav"
+      ]
+    },
+    {
+      "file": "review/Select.png",
+      "sha256": "af0f1539a0f4cb74a160c9d6c023f8ab046b14e70ba21f69dc76c4476bedb8f6",
+      "audio_files": [
+        "SFX/Select_0.wav",
+        "SFX/Select_1.wav",
+        "SFX/Select_2.wav"
+      ]
+    },
+    {
+      "file": "review/Purchase.png",
+      "sha256": "fa9f75b4d0ce6dbd468afaedf24270df1f3e0324e7e655a142103ae0214844ae",
+      "audio_files": [
+        "SFX/Purchase_0.wav",
+        "SFX/Purchase_1.wav",
+        "SFX/Purchase_2.wav"
+      ]
+    },
+    {
+      "file": "review/Click.png",
+      "sha256": "e7efcd5fe5c91976ec3c75472f90fb60dc2965594de3df3603714a299e8fea23",
+      "audio_files": [
+        "SFX/Click_0.wav",
+        "SFX/Click_1.wav",
+        "SFX/Click_2.wav"
+      ]
+    },
+    {
+      "file": "review/Bell.png",
+      "sha256": "ecd5cedc520710aade68b2147252046c73fe447265294449c2d48583a7bd87d3",
+      "audio_files": [
+        "SFX/Bell_0.wav",
+        "SFX/Bell_1.wav",
+        "SFX/Bell_2.wav"
+      ]
+    },
+    {
+      "file": "review/Creak.png",
+      "sha256": "dfe114b4da045a49ae698a715c62a9c3e135fde6464f915a0a942a497d428626",
+      "audio_files": [
+        "SFX/Creak_0.wav",
+        "SFX/Creak_1.wav",
+        "SFX/Creak_2.wav"
+      ]
+    },
+    {
+      "file": "review/Winch.png",
+      "sha256": "f454c3134215605503c40c35c957f22e300e280f006cc575308fec9fb1a13364",
+      "audio_files": [
+        "SFX/Winch_0.wav",
+        "SFX/Winch_1.wav",
+        "SFX/Winch_2.wav"
+      ]
+    },
+    {
+      "file": "review/CrabClack.png",
+      "sha256": "d0b9978ef5f3931c7bc5053afe530c62cc91c3799c2208be7e4fb532f83b5f60",
+      "audio_files": [
+        "SFX/CrabClack_0.wav",
+        "SFX/CrabClack_1.wav",
+        "SFX/CrabClack_2.wav"
+      ]
+    },
+    {
+      "file": "review/NetSlap.png",
+      "sha256": "083d8136244822066c827af90adc8e336f26c773dd4d5b89c505e72e367959eb",
+      "audio_files": [
+        "SFX/NetSlap_0.wav",
+        "SFX/NetSlap_1.wav",
+        "SFX/NetSlap_2.wav"
+      ]
+    },
+    {
+      "file": "review/Gut.png",
+      "sha256": "6db4e63ae29ca27597085673977f0c3d96b2b5940c94318b6df06b4f3c750aa6",
+      "audio_files": [
+        "SFX/Gut_0.wav",
+        "SFX/Gut_1.wav",
+        "SFX/Gut_2.wav"
+      ]
+    },
+    {
+      "file": "review/Coins.png",
+      "sha256": "c0f3f2fe18c8a4093d3bf20f52b3c1a94c199e2837e1d2645bda4ab1e7ed5923",
+      "audio_files": [
+        "SFX/Coins_0.wav",
+        "SFX/Coins_1.wav",
+        "SFX/Coins_2.wav"
+      ]
+    },
+    {
+      "file": "review/DogBark.png",
+      "sha256": "eea54235fbb4a77549bd1cca2863b6e0c2fbf5ada2587921ed8687061f8a0a77",
+      "audio_files": [
+        "SFX/DogBark_0.wav",
+        "SFX/DogBark_1.wav",
+        "SFX/DogBark_2.wav"
+      ]
+    },
+    {
+      "file": "review/Meow.png",
+      "sha256": "d22dd1faede212778cd57458376fdeb674152f2d638423359be98abe866f8ba6",
+      "audio_files": [
+        "SFX/Meow_0.wav",
+        "SFX/Meow_1.wav",
+        "SFX/Meow_2.wav"
+      ]
+    },
+    {
+      "file": "review/Stitch.png",
+      "sha256": "26f394ea4a47fbe98b019b7113178881791a93202fa8997b9f1baa204a7d213d",
+      "audio_files": [
+        "SFX/Stitch_0.wav",
+        "SFX/Stitch_1.wav",
+        "SFX/Stitch_2.wav"
+      ]
+    },
+    {
+      "file": "review/PotDrop.png",
+      "sha256": "aa1f9cbb80361d790152fbfb9b34dca8862a90506f8b89bbd37c7991aa851d27",
+      "audio_files": [
+        "SFX/PotDrop_0.wav",
+        "SFX/PotDrop_1.wav",
+        "SFX/PotDrop_2.wav"
+      ]
+    },
+    {
+      "file": "review/HarbourDay.png",
+      "sha256": "88d699bade08b698f7646b866c0227fef9947a42d496e942fe502f6524b4200d",
+      "audio_files": [
+        "Ambience/HarbourDay.wav"
+      ]
+    },
+    {
+      "file": "review/HarbourDusk.png",
+      "sha256": "240758301dc12d101784fb917943ad9616da6b66cdc7d89e1cdcb3bdffe10e09",
+      "audio_files": [
+        "Ambience/HarbourDusk.wav"
+      ]
+    },
+    {
+      "file": "review/OpenSea.png",
+      "sha256": "36812857f0d59b4c34a9bbcfc322632632c1bd8fd93f544550139517981c3375",
+      "audio_files": [
+        "Ambience/OpenSea.wav"
+      ]
+    },
+    {
+      "file": "review/Skerries.png",
+      "sha256": "078b7ef2f34367e34894a3cd385e81d6db2b66ed16b9480c78549582ea3fa335",
+      "audio_files": [
+        "Ambience/Skerries.wav"
+      ]
+    },
+    {
+      "file": "review/LighthouseRock.png",
+      "sha256": "d7b7375ecaf7e558a6faa4b96a5e926aad79f99d19d29d39931cfc8ceca136e1",
+      "audio_files": [
+        "Ambience/LighthouseRock.wav"
+      ]
+    }
+  ],
+  "winch_overlap": {
+    "8Hz": {
+      "gain065_sum_peak_dbfs": -7.563024436528708
+    },
+    "12Hz": {
+      "gain065_sum_peak_dbfs": -6.206644438919987
+    }
+  },
+  "missing_families": [
+    "Gull",
+    "SealBark",
+    "Puffin",
+    "Horn",
+    "Foghorn"
+  ]
+}

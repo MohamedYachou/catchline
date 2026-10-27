@@ -1,0 +1,37 @@
+{
+  "name": "PlantPot_Herbs",
+  "tiles_w": 1,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.3064672648906708,
+      -0.2972639203071594,
+      0.0
+    ],
+    [
+      0.3025553524494171,
+      0.305630624294281,
+      0.736494779586792
+    ]
+  ],
+  "triangles": 1644,
+  "export_meshes": [
+    "PlantPot_Herbs"
+  ],
+  "atlas_cells": [
+    "leaf",
+    "lettuce",
+    "terracotta",
+    "wooddark"
+  ],
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "6d174d771a284ec26bc4436fb50bbba88217ae1388a059f2da7f232061c2e8d3"
+}

@@ -1,0 +1,404 @@
+{
+  "name": "Skiff_VariantYellow",
+  "group": "C",
+  "triangles": 2494,
+  "limit": 1500,
+  "budget_status": "INHERITED EXCEPTION: exact released hull geometry",
+  "canonical_source": {
+    "path": "Assets\\Art\\Models\\Boats\\Skiff.fbx",
+    "sha256": "174076b3ca2d4eba0fa2c3d0d056a701fad04fc0f1a2c5150d48cdc4acb06d24"
+  },
+  "paint_changes": [
+    {
+      "mesh": "Console",
+      "slot": 2,
+      "from": "M_RailIvory",
+      "to": "M_OilskinYellow"
+    },
+    {
+      "mesh": "Hull",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_OilskinYellow"
+    },
+    {
+      "mesh": "Hull",
+      "slot": 11,
+      "from": "M_HullBlue",
+      "to": "M_OilskinYellow"
+    }
+  ],
+  "authoring_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 11,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "bounds_blender": [
+    [
+      -1.7937077283859253,
+      -3.5455000400543213,
+      -0.8000002503395081
+    ],
+    [
+      1.7937077283859253,
+      3.490000009536743,
+      0.682499885559082
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.5874154567718506,
+    7.0355000495910645,
+    1.4825000762939453
+  ],
+  "parts": [
+    {
+      "name": "Console",
+      "triangles": 230,
+      "vertices": 124,
+      "bounds_min_blender": [
+        0.6200000047683716,
+        1.5759999752044678,
+        -1.7440014232761314e-07
+      ],
+      "bounds_max_blender": [
+        1.3799999952316284,
+        2.309999942779541,
+        0.682499885559082
+      ],
+      "mesh_sha256": "1482936f964f311bc2f80ac93a54628821c723a10552398c49f01ed3a84d1c46",
+      "materials": [
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "FishHold",
+      "triangles": 172,
+      "vertices": 88,
+      "bounds_min_blender": [
+        -0.44999998807907104,
+        -1.5499999523162842,
+        -0.4299999475479126
+      ],
+      "bounds_max_blender": [
+        0.44999998807907104,
+        -0.44999998807907104,
+        0.02500011771917343
+      ],
+      "mesh_sha256": "1d56896824f8eb11e2c1490a28f3305e796980c856153dee40a0ba36bb31a67d",
+      "materials": [
+        "M_SeaTeal",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "HoldLid",
+      "triangles": 124,
+      "vertices": 72,
+      "bounds_min_blender": [
+        -0.4000000059604645,
+        -1.5,
+        0.025000037625432014
+      ],
+      "bounds_max_blender": [
+        0.4000000059604645,
+        -0.5,
+        0.09750010818243027
+      ],
+      "mesh_sha256": "c57d62f6047e8d6ab7fbdee7d060053f3e47536e088c97f57abaa11874ce89d7",
+      "materials": [
+        "M_DeckWood",
+        "M_Steel",
+        "M_WoodRecess"
+      ]
+    },
+    {
+      "name": "Hull",
+      "triangles": 104,
+      "vertices": 63,
+      "bounds_min_blender": [
+        -1.75,
+        -3.5,
+        -0.6500002145767212
+      ],
+      "bounds_max_blender": [
+        1.75,
+        3.0,
+        0.5300002098083496
+      ],
+      "mesh_sha256": "57218d9a71c789e80c55145f7216fb54d74f290f9dd64772fcdde9ae9b0a20a5",
+      "materials": [
+        "M_DeckWood",
+        "M_OilskinYellow",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "IvoryGunwale",
+      "triangles": 408,
+      "vertices": 224,
+      "bounds_min_blender": [
+        -1.7937077283859253,
+        -3.5455000400543213,
+        0.4009183645248413
+      ],
+      "bounds_max_blender": [
+        1.7937077283859253,
+        3.0440001487731934,
+        0.5999936461448669
+      ],
+      "mesh_sha256": "9c5988cf5ca428ebc4d094e5211d13a8d8953c658392abc7d753be62d655e35d",
+      "materials": [
+        "M_RailIvory",
+        "M_Rope"
+      ]
+    },
+    {
+      "name": "OutboardMotor",
+      "triangles": 172,
+      "vertices": 96,
+      "bounds_min_blender": [
+        -0.23000000417232513,
+        2.755493640899658,
+        -0.6200002431869507
+      ],
+      "bounds_max_blender": [
+        0.33062562346458435,
+        3.490000009536743,
+        0.5574998259544373
+      ],
+      "mesh_sha256": "472fb60685a2b93361d19b45638d609c555b1ae18b981ab4f8bf9aa61813e68b",
+      "materials": [
+        "M_HullNavy",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "PlankDeck",
+      "triangles": 768,
+      "vertices": 368,
+      "bounds_min_blender": [
+        -1.5,
+        -2.5,
+        -0.05000019073486328
+      ],
+      "bounds_max_blender": [
+        1.5,
+        2.5,
+        1.8874474960739462e-07
+      ],
+      "mesh_sha256": "106b0166140b8cf1854282007ee383a6af1c81a8d702383294f7bd3e33e35d7e",
+      "materials": [
+        "M_DeckWood",
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "name": "Propeller",
+      "triangles": 228,
+      "vertices": 121,
+      "bounds_min_blender": [
+        -0.20000000298023224,
+        3.2699999809265137,
+        -0.8000002503395081
+      ],
+      "bounds_max_blender": [
+        0.20000000298023224,
+        3.4700000286102295,
+        -0.4000002443790436
+      ],
+      "mesh_sha256": "93344fa89dde84849b9d57a0785bfd83daa11e8dd813fd312cf5ddd892d79398",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_1",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.7450000047683716,
+        1.684999942779541,
+        0.4499998688697815
+      ],
+      "bounds_max_blender": [
+        -1.6150000095367432,
+        1.815000057220459,
+        0.6099998950958252
+      ],
+      "mesh_sha256": "a2416549655c609f45d539d89307a7b9835cf9b95782cf76075302922ba342bb",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_2",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.7450000047683716,
+        -0.06499996036291122,
+        0.44999998807907104
+      ],
+      "bounds_max_blender": [
+        -1.6150000095367432,
+        0.06500004231929779,
+        0.6100000143051147
+      ],
+      "mesh_sha256": "ebdf6701b5e8530b6f2676a2ac0cf1e2d32871736833f327e8469ef95d768935",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_3",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.7450000047683716,
+        -1.815000057220459,
+        0.4500001072883606
+      ],
+      "bounds_max_blender": [
+        -1.6150000095367432,
+        -1.684999942779541,
+        0.6100001335144043
+      ],
+      "mesh_sha256": "a2416549655c609f45d539d89307a7b9835cf9b95782cf76075302922ba342bb",
+      "materials": [
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "original canonical hull axes preserved",
+  "notes": [
+    "Paint-only exact released boat; inherited production triangle count exceeds generic prop budget. No decimation or geometry edits."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\Skiff_VariantYellow.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\Skiff_VariantYellow.fbx",
+  "sha256": {
+    "blend": "a15c6e15f481b3ad400776ecd5034259c2f641922a17f4119af2cff96334f807",
+    "fbx": "d85b6461dff7f80a01fc907a3697383cce2c74094fa567a1ece68f56bbfb9afc"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Skiff_VariantYellow\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Skiff_VariantYellow\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Skiff_VariantYellow\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Skiff_VariantYellow\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Skiff_VariantYellow\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "geometry_round_trip": {
+    "result": "PASS",
+    "mesh_count": 11,
+    "max_vertex_error_metres": 6.854534149169922e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "canonical_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 11,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 6.556510925292969e-07,
+    "source": {
+      "triangles": 2494,
+      "meshes": 11,
+      "bounds": [
+        [
+          -1.7937077283859253,
+          -3.5455000400543213,
+          -0.8000002503395081
+        ],
+        [
+          1.7937077283859253,
+          3.490000009536743,
+          0.682499885559082
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "Skiff_VariantYellow": null,
+        "Console": "Catchline_Skiff",
+        "FishHold": "Catchline_Skiff",
+        "HoldLid": "Catchline_Skiff",
+        "Hull": "Catchline_Skiff",
+        "IvoryGunwale": "Catchline_Skiff",
+        "OutboardMotor": "Catchline_Skiff",
+        "PlankDeck": "Catchline_Skiff",
+        "Propeller": "Catchline_Skiff",
+        "RodSocket_1": "Catchline_Skiff",
+        "RodSocket_2": "Catchline_Skiff",
+        "RodSocket_3": "Catchline_Skiff",
+        "Catchline_Skiff": "Skiff_VariantYellow"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 2494,
+      "meshes": 11,
+      "bounds": [
+        [
+          -1.7937077283859253,
+          -3.5455000400543213,
+          -0.7999995946884155
+        ],
+        [
+          1.7937077283859253,
+          3.490000009536743,
+          0.6825003027915955
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_OilskinYellow",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight",
+        "M_WoodRecess"
+      ],
+      "parents": {
+        "Console": "Catchline_Skiff",
+        "FishHold": "Catchline_Skiff",
+        "HoldLid": "Catchline_Skiff",
+        "Hull": "Catchline_Skiff",
+        "IvoryGunwale": "Catchline_Skiff",
+        "OutboardMotor": "Catchline_Skiff",
+        "PlankDeck": "Catchline_Skiff",
+        "Propeller": "Catchline_Skiff",
+        "RodSocket_1": "Catchline_Skiff",
+        "RodSocket_2": "Catchline_Skiff",
+        "RodSocket_3": "Catchline_Skiff",
+        "Catchline_Skiff": "Skiff_VariantYellow",
+        "Skiff_VariantYellow": null
+      },
+      "finite": true
+    }
+  }
+}

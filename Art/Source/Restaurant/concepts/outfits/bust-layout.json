@@ -1,0 +1,118 @@
+{
+  "canvas": [
+    844,
+    390
+  ],
+  "origin": "top-left",
+  "placements": [
+    {
+      "name": "v2-s9-bust-mira-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-mira",
+      "incumbentFrame": [
+        35,
+        71,
+        61,
+        54
+      ],
+      "trimmedRect": [
+        45.333333333333336,
+        71.0,
+        40.0,
+        54.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    },
+    {
+      "name": "v2-s9-bust-dirk-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-dirk",
+      "incumbentFrame": [
+        41,
+        125,
+        55,
+        44
+      ],
+      "trimmedRect": [
+        50.0,
+        125.0,
+        37.0,
+        44.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    },
+    {
+      "name": "v2-s9-bust-ana-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-ana",
+      "incumbentFrame": [
+        37,
+        169,
+        57,
+        44
+      ],
+      "trimmedRect": [
+        41.0,
+        169.0,
+        49.0,
+        44.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    },
+    {
+      "name": "v2-s9-bust-sam-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-sam",
+      "incumbentFrame": [
+        35,
+        213,
+        58,
+        46
+      ],
+      "trimmedRect": [
+        43.0,
+        213.0,
+        42.0,
+        46.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    },
+    {
+      "name": "v2-s9-bust-ines-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-ines",
+      "incumbentFrame": [
+        36,
+        258,
+        59,
+        46
+      ],
+      "trimmedRect": [
+        45.0,
+        258.0,
+        41.0,
+        46.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    },
+    {
+      "name": "v2-s9-bust-olaf-rest",
+      "screen": 9,
+      "replaces": "v2-s9-bust-olaf",
+      "incumbentFrame": [
+        36,
+        304,
+        62,
+        44
+      ],
+      "trimmedRect": [
+        40.666666666666664,
+        304.0,
+        53.0,
+        44.0
+      ],
+      "note": "draw trimmed rect inside same old frame, or reconstruct canvas using manifest trimInCanvas; do not stretch tight export back across old width"
+    }
+  ],
+  "rail": "400 logical square incumbent canvas, trim offsets in manifest; actual rail slots scale that canvas to their own UI size."
+}

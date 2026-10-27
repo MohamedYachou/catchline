@@ -1,0 +1,113 @@
+{
+  "result": "PASS",
+  "name": "PuffinGroup",
+  "source": {
+    "triangles": 974,
+    "vertices": 618,
+    "bounds_unity": [
+      [
+        -0.6000000238418579,
+        0.0,
+        -0.3199999928474426
+      ],
+      [
+        0.6000000238418579,
+        0.5070000290870667,
+        0.33000001311302185
+      ]
+    ],
+    "meshes": [
+      "PuffinGroupMesh"
+    ],
+    "materials": [
+      "M_CardinalYellow",
+      "M_GullWhite",
+      "M_Rubber",
+      "M_SafetyOrange",
+      "M_Steel"
+    ],
+    "parents": {
+      "PuffinGroup": null,
+      "PuffinGroupMesh": "PuffinGroup"
+    }
+  },
+  "imported": {
+    "triangles": 974,
+    "vertices": 618,
+    "bounds_unity": [
+      [
+        -0.6000000238418579,
+        -2.2709768288109444e-08,
+        -0.3199999928474426
+      ],
+      [
+        0.6000000238418579,
+        0.5070000290870667,
+        0.33000001311302185
+      ]
+    ],
+    "meshes": [
+      "PuffinGroupMesh"
+    ],
+    "materials": [
+      "M_CardinalYellow",
+      "M_GullWhite",
+      "M_Rubber",
+      "M_SafetyOrange",
+      "M_Steel"
+    ],
+    "parents": {
+      "PuffinGroupMesh": "PuffinGroup",
+      "PuffinGroup": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 3.725290298461914e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    1.2000000476837158,
+    0.5070000290870667,
+    0.6500000059604645
+  ],
+  "materials": {
+    "M_CardinalYellow": [
+      0.8879231214523315,
+      0.533276379108429,
+      0.07618538290262222,
+      1.0
+    ],
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ],
+    "M_SafetyOrange": [
+      0.7681511640548706,
+      0.1441284716129303,
+      0.03560131415724754,
+      1.0
+    ],
+    "M_Steel": [
+      0.2746773064136505,
+      0.38132601976394653,
+      0.4125426113605499,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "04a01545efa2b91a81c1e198ef484b690b0a81a14c5035b023210dbba8831d57",
+    "fbx": "e5a2cdd2ec82375f523539b0faeba223d3671ec33599796f804534a4218b2370"
+  },
+  "vertex_alpha_roundtrip": false
+}

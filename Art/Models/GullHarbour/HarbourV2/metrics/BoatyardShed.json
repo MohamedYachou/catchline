@@ -1,0 +1,124 @@
+{
+  "name": "BoatyardShed",
+  "group": "B",
+  "triangles": 932,
+  "limit": 3000,
+  "bounds_blender": [
+    [
+      -4.642164707183838,
+      -2.6750006675720215,
+      0.0
+    ],
+    [
+      4.642164707183838,
+      2.6750006675720215,
+      4.845000267028809
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    9.284329414367676,
+    5.350001335144043,
+    4.845000267028809
+  ],
+  "parts": [
+    {
+      "name": "OpenSidedBoatShed",
+      "triangles": 932,
+      "vertices": 534,
+      "bounds_min_blender": [
+        -4.642164707183838,
+        -2.6750006675720215,
+        0.0
+      ],
+      "bounds_max_blender": [
+        4.642164707183838,
+        2.6750006675720215,
+        4.845000267028809
+      ],
+      "mesh_sha256": "2f6b9af1a56b29ef1620dc40e6c20375dd3ee87fd199d7e10a12c652c2ceac9b",
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\BoatyardShed.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\BoatyardShed.fbx",
+  "sha256": {
+    "blend": "d202def238fb752ac75496ced78d92974b0643340a55c92376ddb3be83dce8d5",
+    "fbx": "3872d09118d455aa8e2c8adb1471a9daf646ca99c0575cedbf0e6b261d651967"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatyardShed\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatyardShed\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatyardShed\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatyardShed\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\BoatyardShed\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 2.384185791015625e-07,
+    "source": {
+      "triangles": 932,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.642164707183838,
+          -2.6750006675720215,
+          0.0
+        ],
+        [
+          4.642164707183838,
+          2.6750006675720215,
+          4.845000267028809
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "BoatyardShed": null,
+        "OpenSidedBoatShed": "BoatyardShed"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 932,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.642164707183838,
+          -2.6750004291534424,
+          -1.9327465849983128e-07
+        ],
+        [
+          4.642164707183838,
+          2.6750009059906006,
+          4.845000267028809
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "OpenSidedBoatShed": "BoatyardShed",
+        "BoatyardShed": null
+      },
+      "finite": true
+    }
+  }
+}

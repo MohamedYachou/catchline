@@ -1,0 +1,241 @@
+{
+  "triangles": 1964,
+  "meshes": 4,
+  "vertices": 1104,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -2.2795746326446533,
+      -1.2092163562774658,
+      0.0
+    ],
+    [
+      2.200000047683716,
+      1.2407068014144897,
+      0.8650000095367432
+    ]
+  ],
+  "parents": {
+    "SealColony": null,
+    "GraniteSlab": "SealColony",
+    "BaskingSeal": "SealColony",
+    "LookoutSeal": "SealColony",
+    "YoungSeal": "SealColony"
+  },
+  "materials": [
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel"
+  ],
+  "name": "SealColony",
+  "contract": {
+    "static": true,
+    "seals": 3,
+    "rock_top_unity_Y": 0.3,
+    "root": "Place at base on colony anchor, not at seal feet. Rock slab included. Three poses derived from delivered Seal mesh."
+  },
+  "limit": 3500,
+  "sha256": {
+    "blend": "3ded8dc84d3219eb4c7ef2d37e92148800744263e0b692441b33f340696b6572",
+    "fbx": "05fdecf6a9b896dc3a3a5f11a9ba14f922e5b501dc9a3fd49bb1ed0e02131bd8"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 1964,
+      "meshes": 4,
+      "vertices": 1104,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -2.2795746326446533,
+          -1.2092163562774658,
+          0.0
+        ],
+        [
+          2.200000047683716,
+          1.2407068014144897,
+          0.8650000095367432
+        ]
+      ],
+      "parents": {
+        "SealColony": null,
+        "GraniteSlab": "SealColony",
+        "BaskingSeal": "SealColony",
+        "LookoutSeal": "SealColony",
+        "YoungSeal": "SealColony"
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    "imported": {
+      "triangles": 1964,
+      "meshes": 4,
+      "vertices": 1104,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -2.2795746326446533,
+          -1.2092163562774658,
+          -7.493660092450227e-08
+        ],
+        [
+          2.200000047683716,
+          1.2407068014144897,
+          0.8650000691413879
+        ]
+      ],
+      "parents": {
+        "BaskingSeal": "SealColony",
+        "GraniteSlab": "SealColony",
+        "LookoutSeal": "SealColony",
+        "YoungSeal": "SealColony",
+        "SealColony": null
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 4,
+      "max_vertex_error_metres": 1.3328003944934608e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/SealColony/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "a9aface5f5dba003820d2cb66700f0df0e52f864de05d33e6ada90f9739e630b",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "4ed71cadd5e0a0e929da8c635fb4f9be767001f8ce9c79c6f5e16f6bc3d073e1",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "4eba020e3bccb856d46984f21e3031ff10665ee22952feebc0842347449c7685",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "ce57406f233291642640f59dfbd96a8b012a4dff0843a1e6d4d3b8d42786d6e9",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "251a7f4c38210f23cce0c3b190733c3aad0688a69c2f69382f45695b29315e6f",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "125a39bb17f276b1871e465f48c7623418d7df0433d0e9d9a2f27c09d77973a3",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "24f0b2f60dab8a37f3b392222604ce472607cb16b4c906a9717805b31390f71e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 4.725148002519226,
+        "sha256": "5f70bc3338fe86277fe3035565825fb21eac57e78abe6f54ecf4f65a7af9a22b",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/SealColony/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 4.725148002519226,
+        "sha256": "d1057b3b7618c4e2c3dc9b2f492ea787a4c2b2b71eba1713ef967b55369bb102",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

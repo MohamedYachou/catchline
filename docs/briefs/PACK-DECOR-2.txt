@@ -1,0 +1,53 @@
+PACK-DECOR-2 — glowing warm light fixtures for the restaurant (Codex 2, WSL CLI)
+
+WHY
+Claude just rebuilt the restaurant's look: an evening grade with real shadows, a deep
+dusk sea and HDR bloom (commit 5352e7e; see docs/screens/restaurant-mood/r155/
+day-service-late-1440.png). The room now glows — but the light FIXTURES themselves do
+not emit. Lanterns, sconces and string lights are lit like ordinary props, so they read
+as cold metal in a warm room. This brief gives the restaurant a set of fixed-placement
+light fixtures whose lamp element is authored to GLOW, so Claude can make it emissive and
+the new bloom makes them read as real warm lamplight.
+
+OWN (source only, no Assets / no game code / no git — Claude imports and wires, as with PACK-DECOR-1):
+  Art/Models/Restaurant/Pack/lights/   (create it: one FBX + atlas png per piece, manifest/footprints, REPORT.md)
+Read first for the proven pattern and conventions you already used:
+  Art/Models/Restaurant/Pack/decor/REPORT.md   (your PACK-DECOR-1 delivery)
+  docs/briefs/PACK-DECOR-1.txt
+The accepted TableCandle (RESTAURANT-UPGRADES-1) is your reference for a glowing element:
+a small separate flame/bulb mesh on its own bright material. Do the same here.
+
+BUILD these stems (one Unity FBX each, drop-in like PACK-DECOR-1):
+  PendantLamp      hanging ceiling lamp, warm shade, glowing bulb under it        (ceiling/floor-anchored post ok)
+  WallSconce       wall lamp, metal arm + glowing globe                            (wall, front -Z)
+  HangingLantern   harbour lantern, glazed panes with a glowing core              (wall or hook)
+  StringLightsLong a longer warm bulb strand (8-10 bulbs), each bulb glowing       (wall, like your StringLights but bulbs glow)
+  TableLamp        small brass table lamp, cream shade, glowing bulb              (floor/table footprint)
+  Brazier          terrace coal/heat brazier, glowing embers                      (floor)
+
+CRITICAL — the glow element:
+  - The part that emits (bulb, globe, flame, embers, lit lantern panes) MUST be a SEPARATE
+    mesh with its OWN material, named with the suffix _Glow (e.g. PendantLamp_Glow). Give
+    that material a bright ivory-to-amber base colour (roughly #FFE6B0..#FFC266). Everything
+    else uses the normal warm-wood / navy / brass / cream pack atlas, same as PACK-DECOR-1.
+  - Keep the glow mesh simple and readable at the game camera (a sphere/panel/flame), facing
+    the room. Claude binds emission to the _Glow material so it blooms; you do NOT need to set
+    emission yourself, just isolate it as its own mesh+material and colour it bright.
+  - No baked lightmaps, no real lights, no render-floor / wall-swatch / camera geometry in the FBX.
+
+CONVENTIONS (identical to PACK-DECOR-1): Unity Y-up, 1 unit = 1 m. Floor pieces pivot at the
+floor-footprint centre; wall pieces pivot at the wall contact plane, front facing -Z, hung
+~1.4-1.8 m; footprint 1x1 m unless the piece is obviously smaller. Root transform identity,
+axis conversion baked, atlas png beside the FBX, warm-wood/navy/teal/cream + brass palette,
+no diner-orange. Exact same exporter call as your PACK-DECOR-1 FBXs.
+
+EVIDENCE: a contact render of all six at the game camera pitch 38 / yaw 2 on a 1 m grid
+(lights-contact.jpg, + an 844-wide phone overview), a one-line note per piece (size,
+wall/floor, which pack models it combines, and which mesh is the _Glow element), plus the
+same audits you produced for PACK-DECOR-1 (fbx-transform, geometry, mesh, preservation).
+REPORT.md in Art/Models/Restaurant/Pack/lights/.
+
+RULES: fresh session, no memory — your state is comms.md, your CHECKPOINT lines and the files
+on disk. Keep working until your budget runs out; never stop to ask (write QUESTION lines in
+comms.md). CHECKPOINT per 2 pieces. When the six are delivered and audited: DONE in comms.md,
+then IDLE. No Assets, no code, no git.

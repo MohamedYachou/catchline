@@ -1,0 +1,238 @@
+{
+  "result": "PASS",
+  "source": {
+    "triangles": 1156,
+    "items": {
+      "TornNet": {
+        "triangles": 432,
+        "bounds_blender": [
+          [
+            -0.6060000061988831,
+            -0.406000018119812,
+            -0.006000000052154064
+          ],
+          [
+            0.6060000061988831,
+            0.406000018119812,
+            0.006000000052154064
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_NetGreenGrey"
+        ]
+      },
+      "MendedPatch": {
+        "triangles": 80,
+        "bounds_blender": [
+          [
+            -0.155409574508667,
+            -0.1554095596075058,
+            -0.00277128117159009
+          ],
+          [
+            0.1542782038450241,
+            0.155409574508667,
+            0.00277128117159009
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      },
+      "NettingNeedle": {
+        "triangles": 254,
+        "bounds_blender": [
+          [
+            -0.20000000298023224,
+            -0.014891132712364197,
+            -0.006019049324095249
+          ],
+          [
+            0.0,
+            0.015039230696856976,
+            0.006019049324095249
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      },
+      "TwineBall": {
+        "triangles": 390,
+        "bounds_blender": [
+          [
+            -0.05079999938607216,
+            -0.05014030262827873,
+            -0.0005588455824181437
+          ],
+          [
+            0.08907922357320786,
+            0.05008810758590698,
+            0.10055884718894958
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      }
+    },
+    "parents": {
+      "RepairKit": null,
+      "TornNet": "RepairKit",
+      "MendedPatch": "RepairKit",
+      "NettingNeedle": "RepairKit",
+      "TwineBall": "RepairKit"
+    }
+  },
+  "imported": {
+    "triangles": 1156,
+    "items": {
+      "MendedPatch": {
+        "triangles": 80,
+        "bounds_blender": [
+          [
+            -0.155409574508667,
+            -0.1554095596075058,
+            -0.0027712928131222725
+          ],
+          [
+            0.1542782038450241,
+            0.155409574508667,
+            0.0027712928131222725
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      },
+      "NettingNeedle": {
+        "triangles": 254,
+        "bounds_blender": [
+          [
+            -0.20000000298023224,
+            -0.014891132712364197,
+            -0.006019050255417824
+          ],
+          [
+            0.0,
+            0.015039230696856976,
+            0.006019050255417824
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      },
+      "TornNet": {
+        "triangles": 432,
+        "bounds_blender": [
+          [
+            -0.6060000061988831,
+            -0.406000018119812,
+            -0.006000030320137739
+          ],
+          [
+            0.6060000061988831,
+            0.406000018119812,
+            0.006000030320137739
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_NetGreenGrey"
+        ]
+      },
+      "TwineBall": {
+        "triangles": 390,
+        "bounds_blender": [
+          [
+            -0.05079999938607216,
+            -0.050140298902988434,
+            -0.0005588456406258047
+          ],
+          [
+            0.08907922357320786,
+            0.05008811131119728,
+            0.10055884718894958
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Twine"
+        ]
+      }
+    },
+    "parents": {
+      "MendedPatch": "RepairKit",
+      "NettingNeedle": "RepairKit",
+      "TornNet": "RepairKit",
+      "TwineBall": "RepairKit",
+      "RepairKit": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 4,
+    "max_vertex_error_metres": 3.0652149263232786e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "sway_source": {},
+  "sway_imported": {},
+  "animation": {},
+  "material_rgba_linear": {
+    "M_NetGreenGrey": [
+      0.0802198201417923,
+      0.18116424977779388,
+      0.14995978772640228,
+      1.0
+    ],
+    "M_Twine": [
+      0.5840784311294556,
+      0.38132601976394653,
+      0.14702726900577545,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "d1261c14e1549ebe7645cfac7187e5264deebb75a413cf930f317121b51c0e4b",
+    "fbx": "370415d85b716cceedd46f9d8f3eb3b5c69451d461735f7487cdeb3b91b185a6"
+  }
+}

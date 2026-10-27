@@ -1,0 +1,57 @@
+{
+  "method": "Named material base-colour overrides, sRGB hex. Kenney Furniture GLB has no texture atlas. Convert sRGB to linear for shader factors. No geometry/UV edits.",
+  "materials": {
+    "wood": {
+      "hex": "#C58B50",
+      "reason": "Warm honey wood; matches KayKit counter surfaces"
+    },
+    "woodDark": {
+      "hex": "#8C5A36",
+      "reason": "Recessed timber"
+    },
+    "carpet": {
+      "hex": "#256572",
+      "reason": "Teal upholstery/rug instead of salmon red"
+    },
+    "carpetDarker": {
+      "hex": "#173F57",
+      "reason": "Navy border"
+    },
+    "carpetBlue": {
+      "hex": "#256572",
+      "reason": "Same teal family"
+    },
+    "carpetWhite": {
+      "hex": "#F4EFE3",
+      "reason": "Warm cream"
+    },
+    "plant": {
+      "hex": "#477A56",
+      "reason": "Natural muted leaf green instead of bright mint"
+    },
+    "metal": {
+      "hex": "#8FA6AC",
+      "reason": "Retained light steel family"
+    },
+    "metalDark": {
+      "hex": "#28343B",
+      "reason": "Dark steel"
+    },
+    "metalMedium": {
+      "hex": "#70878C",
+      "reason": "Mid steel"
+    },
+    "metalLight": {
+      "hex": "#BAC9C6",
+      "reason": "Pale steel"
+    },
+    "lamp": {
+      "hex": "#F3DEA1",
+      "reason": "Warm cream diffuser"
+    },
+    "glass": {
+      "hex": "#BAC9C6",
+      "reason": "Opaque pale glazing; no new transparency dependency"
+    }
+  }
+}

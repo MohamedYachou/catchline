@@ -1,0 +1,117 @@
+{
+  "name": "WharfLight",
+  "group": "A",
+  "triangles": 364,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.20999999344348907,
+      -0.20999999344348907,
+      0.0
+    ],
+    [
+      0.20999999344348907,
+      0.20999999344348907,
+      2.7100000381469727
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    0.41999998688697815,
+    0.41999998688697815,
+    2.7100000381469727
+  ],
+  "parts": [
+    {
+      "name": "WharfLantern",
+      "triangles": 364,
+      "vertices": 200,
+      "bounds_min_blender": [
+        -0.20999999344348907,
+        -0.20999999344348907,
+        0.0
+      ],
+      "bounds_max_blender": [
+        0.20999999344348907,
+        0.20999999344348907,
+        2.7100000381469727
+      ],
+      "mesh_sha256": "db6c86c3a9745b05a82c5f7121e3b825bc7643417ca12ee63f4e46e80368d185",
+      "materials": [
+        "M_BandIvory",
+        "M_HullNavy"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Mesh-only lantern, no exported Light. Ground-contact pivotY0; place on quay/wharf top."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\WharfLight.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\WharfLight.fbx",
+  "sha256": {
+    "blend": "e348fdcbb219617b1f60801c7eca47274ba449b269b4e34b5ba077820e47533f",
+    "fbx": "e70b66234c68b2792568b32a2a456ca9583082aee5c05b517335d79ebdde09b3"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\WharfLight\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\WharfLight\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\WharfLight\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\WharfLight\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\WharfLight\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 1.9371509552001953e-07,
+    "source": {
+      "triangles": 364,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.20999999344348907,
+          -0.20999999344348907,
+          0.0
+        ],
+        [
+          0.20999999344348907,
+          0.20999999344348907,
+          2.7100000381469727
+        ]
+      ],
+      "materials": [
+        "M_BandIvory",
+        "M_HullNavy"
+      ],
+      "parents": {
+        "WharfLight": null,
+        "WharfLantern": "WharfLight"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 364,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.20999999344348907,
+          -0.20999979972839355,
+          -1.1324686965963338e-08
+        ],
+        [
+          0.20999999344348907,
+          0.2100001871585846,
+          2.7100000381469727
+        ]
+      ],
+      "materials": [
+        "M_BandIvory",
+        "M_HullNavy"
+      ],
+      "parents": {
+        "WharfLantern": "WharfLight",
+        "WharfLight": null
+      },
+      "finite": true
+    }
+  }
+}

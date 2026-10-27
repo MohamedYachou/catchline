@@ -1,0 +1,980 @@
+[
+  {
+    "screen": "phone",
+    "canvas": [
+      844,
+      390
+    ],
+    "concept": "Art/Source/Restaurant/concepts/ui-v3-18-hud-harbour.png",
+    "sourceCanvas": [
+      1920,
+      1080
+    ],
+    "placements": [
+      {
+        "name": "v3-hud-harbour-status-board",
+        "rect": [
+          16,
+          11,
+          233,
+          90
+        ],
+        "use": "v3-hud-harbour-status-board",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-harbour-coin",
+        "rect": [
+          37,
+          40,
+          16,
+          13
+        ],
+        "use": "v3-hud-harbour-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-status-rope",
+        "rect": [
+          11,
+          8,
+          25,
+          32
+        ],
+        "use": "v3-hud-harbour-status-rope",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-refit-fill",
+        "rect": [
+          35,
+          73,
+          84,
+          8
+        ],
+        "use": "v3-hud-harbour-refit-fill",
+        "z": 16
+      },
+      {
+        "name": "v3-hud-harbour-refit-track",
+        "rect": [
+          34,
+          72,
+          202,
+          10
+        ],
+        "use": "v3-hud-harbour-refit-track",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-harbour-shop-panel",
+        "rect": [
+          429,
+          41,
+          404,
+          339
+        ],
+        "use": "v3-hud-harbour-shop-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-harbour-shop-rope",
+        "rect": [
+          744,
+          11,
+          80,
+          7
+        ],
+        "use": "v3-hud-harbour-shop-rope",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          436,
+          18,
+          75,
+          24
+        ],
+        "use": "tab-catch",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-catch-icon",
+        "rect": [
+          449,
+          24,
+          15,
+          10
+        ],
+        "use": "v3-hud-harbour-tab-catch-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          512,
+          18,
+          71,
+          24
+        ],
+        "use": "tab-map",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-map-icon",
+        "rect": [
+          528,
+          25,
+          14,
+          8
+        ],
+        "use": "v3-hud-harbour-tab-map-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          585,
+          18,
+          80,
+          24
+        ],
+        "use": "tab-contracts",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-contracts-icon",
+        "rect": [
+          598,
+          24,
+          11,
+          12
+        ],
+        "use": "v3-hud-harbour-tab-contracts-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          665,
+          18,
+          74,
+          24
+        ],
+        "use": "tab-crew",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-crew-icon",
+        "rect": [
+          681,
+          24,
+          13,
+          10
+        ],
+        "use": "v3-hud-harbour-tab-crew-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-selected",
+        "rect": [
+          740,
+          11,
+          91,
+          32
+        ],
+        "use": "v3-hud-harbour-tab-selected",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-shop-icon",
+        "rect": [
+          756,
+          22,
+          19,
+          14
+        ],
+        "use": "v3-hud-harbour-tab-shop-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          70,
+          381,
+          37
+        ],
+        "use": "row-bait",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-bait",
+        "rect": [
+          451,
+          71,
+          58,
+          33
+        ],
+        "use": "v3-hud-harbour-item-bait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          78,
+          104,
+          22
+        ],
+        "use": "buy-bait",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          83,
+          15,
+          12
+        ],
+        "use": "buy-bait-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          114,
+          381,
+          37
+        ],
+        "use": "row-food",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-food",
+        "rect": [
+          450,
+          112,
+          64,
+          38
+        ],
+        "use": "v3-hud-harbour-item-food",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          122,
+          104,
+          22
+        ],
+        "use": "buy-food",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          126,
+          15,
+          12
+        ],
+        "use": "buy-food-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          181,
+          381,
+          37
+        ],
+        "use": "row-rod",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-rod",
+        "rect": [
+          455,
+          181,
+          47,
+          34
+        ],
+        "use": "v3-hud-harbour-item-rod",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          189,
+          104,
+          22
+        ],
+        "use": "buy-rod",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          194,
+          15,
+          12
+        ],
+        "use": "buy-rod-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          221,
+          381,
+          37
+        ],
+        "use": "row-cooler",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-cooler",
+        "rect": [
+          456,
+          220,
+          51,
+          35
+        ],
+        "use": "v3-hud-harbour-item-cooler",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          229,
+          104,
+          22
+        ],
+        "use": "buy-cooler",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          233,
+          15,
+          12
+        ],
+        "use": "buy-cooler-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          260,
+          381,
+          37
+        ],
+        "use": "row-ice",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-ice",
+        "rect": [
+          454,
+          262,
+          51,
+          32
+        ],
+        "use": "v3-hud-harbour-item-ice",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          268,
+          104,
+          22
+        ],
+        "use": "buy-ice",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          273,
+          15,
+          12
+        ],
+        "use": "buy-ice-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          441,
+          300,
+          381,
+          37
+        ],
+        "use": "row-lunch",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-lunch",
+        "rect": [
+          458,
+          302,
+          51,
+          32
+        ],
+        "use": "v3-hud-harbour-item-lunch",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          709,
+          308,
+          104,
+          22
+        ],
+        "use": "buy-lunch",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          718,
+          312,
+          15,
+          12
+        ],
+        "use": "buy-lunch-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-sail-button",
+        "rect": [
+          440,
+          342,
+          382,
+          32
+        ],
+        "use": "v3-hud-harbour-sail-button",
+        "z": 4
+      },
+      {
+        "name": "v3-hud-harbour-sail-boat",
+        "rect": [
+          502,
+          346,
+          29,
+          23
+        ],
+        "use": "v3-hud-harbour-sail-boat",
+        "z": 20
+      }
+    ],
+    "coordinateSpace": "top-left device pixels",
+    "adaptation": "Measured source boxes mapped independently to requested frame axes; preserves concept composition. Device layouts are source proposals, not native captures."
+  },
+  {
+    "screen": "desktop",
+    "canvas": [
+      1440,
+      900
+    ],
+    "concept": "Art/Source/Restaurant/concepts/ui-v3-18-hud-harbour.png",
+    "sourceCanvas": [
+      1920,
+      1080
+    ],
+    "placements": [
+      {
+        "name": "v3-hud-harbour-status-board",
+        "rect": [
+          27,
+          26,
+          398,
+          207
+        ],
+        "use": "v3-hud-harbour-status-board",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-harbour-coin",
+        "rect": [
+          64,
+          93,
+          27,
+          29
+        ],
+        "use": "v3-hud-harbour-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-status-rope",
+        "rect": [
+          19,
+          18,
+          43,
+          74
+        ],
+        "use": "v3-hud-harbour-status-rope",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-refit-fill",
+        "rect": [
+          60,
+          168,
+          142,
+          19
+        ],
+        "use": "v3-hud-harbour-refit-fill",
+        "z": 16
+      },
+      {
+        "name": "v3-hud-harbour-refit-track",
+        "rect": [
+          58,
+          165,
+          344,
+          22
+        ],
+        "use": "v3-hud-harbour-refit-track",
+        "z": 15
+      },
+      {
+        "name": "v3-hud-harbour-shop-panel",
+        "rect": [
+          733,
+          94,
+          688,
+          783
+        ],
+        "use": "v3-hud-harbour-shop-panel",
+        "z": 1
+      },
+      {
+        "name": "v3-hud-harbour-shop-rope",
+        "rect": [
+          1269,
+          26,
+          136,
+          16
+        ],
+        "use": "v3-hud-harbour-shop-rope",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          743,
+          42,
+          128,
+          56
+        ],
+        "use": "tab-catch",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-catch-icon",
+        "rect": [
+          766,
+          56,
+          26,
+          24
+        ],
+        "use": "v3-hud-harbour-tab-catch-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          873,
+          42,
+          122,
+          56
+        ],
+        "use": "tab-map",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-map-icon",
+        "rect": [
+          900,
+          58,
+          24,
+          19
+        ],
+        "use": "v3-hud-harbour-tab-map-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          998,
+          42,
+          136,
+          56
+        ],
+        "use": "tab-contracts",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-contracts-icon",
+        "rect": [
+          1021,
+          55,
+          19,
+          27
+        ],
+        "use": "v3-hud-harbour-tab-contracts-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-idle",
+        "rect": [
+          1135,
+          42,
+          127,
+          56
+        ],
+        "use": "tab-crew",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-crew-icon",
+        "rect": [
+          1162,
+          56,
+          22,
+          24
+        ],
+        "use": "v3-hud-harbour-tab-crew-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-tab-selected",
+        "rect": [
+          1263,
+          25,
+          156,
+          73
+        ],
+        "use": "v3-hud-harbour-tab-selected",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-tab-shop-icon",
+        "rect": [
+          1290,
+          50,
+          32,
+          32
+        ],
+        "use": "v3-hud-harbour-tab-shop-icon",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          162,
+          650,
+          85
+        ],
+        "use": "row-bait",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-bait",
+        "rect": [
+          770,
+          163,
+          98,
+          77
+        ],
+        "use": "v3-hud-harbour-item-bait",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          181,
+          177,
+          51
+        ],
+        "use": "buy-bait",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          191,
+          25,
+          28
+        ],
+        "use": "buy-bait-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          262,
+          650,
+          85
+        ],
+        "use": "row-food",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-food",
+        "rect": [
+          767,
+          258,
+          110,
+          87
+        ],
+        "use": "v3-hud-harbour-item-food",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          281,
+          177,
+          51
+        ],
+        "use": "buy-food",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          291,
+          25,
+          28
+        ],
+        "use": "buy-food-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          418,
+          650,
+          85
+        ],
+        "use": "row-rod",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-rod",
+        "rect": [
+          777,
+          417,
+          80,
+          78
+        ],
+        "use": "v3-hud-harbour-item-rod",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          437,
+          177,
+          51
+        ],
+        "use": "buy-rod",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          447,
+          25,
+          28
+        ],
+        "use": "buy-rod-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          509,
+          650,
+          85
+        ],
+        "use": "row-cooler",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-cooler",
+        "rect": [
+          778,
+          507,
+          88,
+          80
+        ],
+        "use": "v3-hud-harbour-item-cooler",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          528,
+          177,
+          51
+        ],
+        "use": "buy-cooler",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          538,
+          25,
+          28
+        ],
+        "use": "buy-cooler-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          601,
+          650,
+          85
+        ],
+        "use": "row-ice",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-ice",
+        "rect": [
+          775,
+          604,
+          87,
+          73
+        ],
+        "use": "v3-hud-harbour-item-ice",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          619,
+          177,
+          51
+        ],
+        "use": "buy-ice",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          629,
+          25,
+          28
+        ],
+        "use": "buy-ice-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-shop-row",
+        "rect": [
+          752,
+          692,
+          650,
+          85
+        ],
+        "use": "row-lunch",
+        "z": 3
+      },
+      {
+        "name": "v3-hud-harbour-item-lunch",
+        "rect": [
+          782,
+          698,
+          87,
+          74
+        ],
+        "use": "v3-hud-harbour-item-lunch",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-buy-button",
+        "rect": [
+          1209,
+          711,
+          177,
+          51
+        ],
+        "use": "buy-lunch",
+        "z": 12
+      },
+      {
+        "name": "v3-hud-harbour-buy-coin",
+        "rect": [
+          1226,
+          721,
+          25,
+          28
+        ],
+        "use": "buy-lunch-coin",
+        "z": 20
+      },
+      {
+        "name": "v3-hud-harbour-sail-button",
+        "rect": [
+          752,
+          788,
+          652,
+          73
+        ],
+        "use": "v3-hud-harbour-sail-button",
+        "z": 4
+      },
+      {
+        "name": "v3-hud-harbour-sail-boat",
+        "rect": [
+          856,
+          798,
+          50,
+          53
+        ],
+        "use": "v3-hud-harbour-sail-boat",
+        "z": 20
+      }
+    ],
+    "coordinateSpace": "top-left device pixels",
+    "adaptation": "Measured source boxes mapped independently to requested frame axes; preserves concept composition. Device layouts are source proposals, not native captures."
+  }
+]

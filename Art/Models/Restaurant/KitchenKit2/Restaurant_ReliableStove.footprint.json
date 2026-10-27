@@ -1,0 +1,40 @@
+{
+  "name": "Restaurant_ReliableStove",
+  "tiles_w": 2,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.7900000214576721,
+      -0.45933663845062256,
+      0.0
+    ],
+    [
+      0.7900000214576721,
+      0.4000000059604645,
+      0.8799999952316284
+    ]
+  ],
+  "triangles": 5228,
+  "export_meshes": [
+    "Restaurant_ReliableStove"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "ivory",
+    "navy",
+    "steel"
+  ],
+  "upgrade": "S8 stove",
+  "worktop_z_m": 0.75,
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "dcd390ea25cff530a1d9ee40fcf6a1a15afcab5871b82324cb37f1029d1cb451"
+}

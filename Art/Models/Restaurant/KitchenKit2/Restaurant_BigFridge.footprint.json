@@ -1,0 +1,39 @@
+{
+  "name": "Restaurant_BigFridge",
+  "tiles_w": 2,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.7425000071525574,
+      -0.4725373387336731,
+      0.0
+    ],
+    [
+      0.7425000071525574,
+      0.38749998807907104,
+      1.6349999904632568
+    ]
+  ],
+  "triangles": 1344,
+  "export_meshes": [
+    "Restaurant_BigFridge"
+  ],
+  "atlas_cells": [
+    "brass",
+    "dark",
+    "ivory",
+    "navy",
+    "steel"
+  ],
+  "upgrade": "S8 fridge",
+  "contact_correction_m": -0.0,
+  "fbx_sha256": "8a8e43d80942d5a582cbc2d5ae1fff2fcc173041a832fdae4d663364e587fb4c"
+}

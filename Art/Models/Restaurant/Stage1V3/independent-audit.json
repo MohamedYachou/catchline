@@ -1,0 +1,41 @@
+{
+  "pass": true,
+  "source_only_native_unverified": true,
+  "opened_PNGs": 34,
+  "helpers_AST_valid": [
+    "Stage1V3/audit.py",
+    "Stage1V3/build.py",
+    "Stage1V3/correct-seating.py",
+    "Stage1V3/pack.py",
+    "Stage1V3/review.py",
+    "Stage1V3/run.py",
+    "Stage1V3/validate.py",
+    "Guests/build.py",
+    "Guests/run.py",
+    "Guests/validate.py"
+  ],
+  "room_triangles": 122772,
+  "guests": 6,
+  "original_dependency_hashes_pass": true,
+  "reports_local_links_pass": [
+    "Stage1V3/final-cameras.json",
+    "Stage1V3/renders/camera-comparison.png",
+    "Stage1V3/lighting.json",
+    "Stage1V3/build-metrics.json",
+    "Stage1V3/validation.json",
+    "Stage1V3/../Guests/validation.json",
+    "Stage1V3/../Guests/renders/guests-idle-sheet.png",
+    "Stage1V3/../Guests/renders/guests-eat-sheet.png",
+    "Stage1V3/renders/room-1440x900.png",
+    "Stage1V3/renders/room-844x390.png",
+    "Stage1V3/renders/compare-service-desktop.png",
+    "Stage1V3/renders/compare-service-phone.png",
+    "Stage1V3/renders/room-ortho-1440x900.png",
+    "Stage1V3/characters.json",
+    "Guests/../Stage1V3/REPORT.md",
+    "Guests/validation.json",
+    "Guests/build-metrics.json"
+  ],
+  "max_room_bounds_delta_m": 5.364418029785156e-07,
+  "remaining_limits": "REPORT.md E; native URP/nav/clip blend and lead visual acceptance unverified"
+}

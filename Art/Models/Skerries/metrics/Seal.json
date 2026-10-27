@@ -1,0 +1,705 @@
+{
+  "triangles": 636,
+  "meshes": 1,
+  "vertices": 358,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -0.4050000011920929,
+      -0.7990000247955322,
+      0.004000000189989805
+    ],
+    [
+      0.4050000011920929,
+      0.8299999833106995,
+      0.5649999976158142
+    ]
+  ],
+  "parents": {
+    "Seal": null,
+    "SealSkin": "SealRig",
+    "SealRig": "Seal"
+  },
+  "materials": [
+    "M_FishSilver",
+    "M_RailIvory",
+    "M_Rubber",
+    "M_Steel"
+  ],
+  "name": "Seal",
+  "contract": {
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Fore.L",
+      "Fore.R",
+      "Tail"
+    ],
+    "clips": {
+      "Bask": {
+        "frames": [
+          1,
+          121
+        ],
+        "seconds": 4.0,
+        "loop": true
+      },
+      "Look": {
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true
+      },
+      "Slide": {
+        "frames": [
+          1,
+          37
+        ],
+        "seconds": 1.2,
+        "loop": false
+      }
+    },
+    "slide_displacement_unity": [
+      0,
+      -0.48,
+      1.85
+    ],
+    "legacy": "Import as Legacy; clips may be named SealRig|Bask etc by FBX. Use each action frame range, loop Bask/Look only. Slide contains root-bone translation, apply no duplicate runtime forward motion."
+  },
+  "limit": 2000,
+  "sha256": {
+    "blend": "0974bfe49f3c231877ec58272c68c85dc31b62a58c29adf95a821ac591220cf5",
+    "fbx": "ca33aa82529d3123ec8da9ede174bfc6869d286f093670c523fd9fed6279ac9a"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 636,
+      "meshes": 1,
+      "vertices": 358,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.4050000011920929,
+          -0.7990000247955322,
+          0.004000000189989805
+        ],
+        [
+          0.4050000011920929,
+          0.8299999833106995,
+          0.5649999976158142
+        ]
+      ],
+      "parents": {
+        "Seal": null,
+        "SealSkin": "SealRig",
+        "SealRig": "Seal"
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    "imported": {
+      "triangles": 636,
+      "meshes": 1,
+      "vertices": 358,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.4050000011920929,
+          -0.7989999055862427,
+          0.004000021610409021
+        ],
+        [
+          0.4050000011920929,
+          0.8299999237060547,
+          0.565000057220459
+        ]
+      ],
+      "parents": {
+        "SealRig": "Seal",
+        "SealSkin": "SealRig",
+        "Seal": null
+      },
+      "materials": [
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 1,
+      "max_vertex_error_metres": 2.1490760104825313e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {
+      "Bask": {
+        "result": "PASS",
+        "source": {
+          "action": "Bask",
+          "frames": [
+            1,
+            121
+          ],
+          "seconds": 4.0,
+          "sampled_frames": [
+            1,
+            31,
+            61,
+            91,
+            121
+          ],
+          "end_vertex_displacement_max_m": 2.4503442943638613e-18,
+          "quarter_vertex_displacement_max_m": 0.018720154117440064
+        },
+        "imported": {
+          "action": "SealRig|SealRig|Bask",
+          "frames": [
+            1,
+            121
+          ],
+          "seconds": 4.0,
+          "sampled_frames": [
+            1,
+            31,
+            61,
+            91,
+            121
+          ],
+          "end_vertex_displacement_max_m": 2.450343928361791e-18,
+          "quarter_vertex_displacement_max_m": 0.018720107088341282
+        },
+        "deformed_surface_checks": {
+          "1": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.3320009151793784e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "31": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.5894481698051095e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "61": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.686343745812337e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "91": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 4.214684850012418e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "121": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.3320009151793784e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          }
+        }
+      },
+      "Look": {
+        "result": "PASS",
+        "source": {
+          "action": "Look",
+          "frames": [
+            1,
+            91
+          ],
+          "seconds": 3.0,
+          "sampled_frames": [
+            1,
+            23,
+            46,
+            68,
+            91
+          ],
+          "end_vertex_displacement_max_m": 6.356383453542101e-17,
+          "quarter_vertex_displacement_max_m": 0.25861842733900225
+        },
+        "imported": {
+          "action": "SealRig|SealRig|Look",
+          "frames": [
+            1,
+            91
+          ],
+          "seconds": 3.0,
+          "sampled_frames": [
+            1,
+            23,
+            46,
+            68,
+            91
+          ],
+          "end_vertex_displacement_max_m": 6.356382008766037e-17,
+          "quarter_vertex_displacement_max_m": 0.25861835897349744
+        },
+        "deformed_surface_checks": {
+          "1": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.3320009151793784e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "23": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.115019922006468e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "46": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 2.811545414260763e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "68": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.143403262129141e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "91": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.3320009151793784e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          }
+        }
+      },
+      "Slide": {
+        "result": "PASS",
+        "source": {
+          "action": "Slide",
+          "frames": [
+            1,
+            37
+          ],
+          "seconds": 1.2,
+          "sampled_frames": [
+            1,
+            10,
+            19,
+            28,
+            37
+          ],
+          "end_vertex_displacement_max_m": 1.9574656813330469,
+          "quarter_vertex_displacement_max_m": 0.3936408731828267
+        },
+        "imported": {
+          "action": "SealRig|SealRig|Slide",
+          "frames": [
+            1,
+            37
+          ],
+          "seconds": 1.2,
+          "sampled_frames": [
+            1,
+            10,
+            19,
+            28,
+            37
+          ],
+          "end_vertex_displacement_max_m": 1.957465605208282,
+          "quarter_vertex_displacement_max_m": 0.39364082586443605
+        },
+        "deformed_surface_checks": {
+          "1": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 3.3320009151793784e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "10": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 6.951036084501538e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "19": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 9.610960205463925e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "28": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 1.0662403155947686e-06,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          },
+          "37": {
+            "result": "PASS",
+            "mesh_count": 1,
+            "max_vertex_error_metres": 9.030890737449226e-07,
+            "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+          }
+        }
+      }
+    }
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/Seal/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "1e1fa8fcd85fccba52eecd5007a2f8e0cf18beeafcec2e698f5faa0ab6cc9e93",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "65db5af49d4944e7b57cc33a06283ee6dad48ba0bc3c5ffac5c7e5f910d3b481",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "11e4a5c199893322e79b6d22664f20798f3dd993b50f20bae576e0a4433c4cc8",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "de8f06f6e0a29e0d308f2d1dda7c78ddde621ce0f08aa9f105b7c87379c1c9e1",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "eebb4dc5044399185366f7b9cd028106a4c6912eb471adf056d73d468aa004c0",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "3b2019048645a652a4e7777b90fc36fce966faf813429cb959e5b84917dee5b3",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "0698b9ac09d1ad38cf0fab1703942b24b4100bdde48b2093a880193d39c102ed",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "sha256": "2c7f33abad43f45c280ea303b6e63ef37662df628c9082e3d983f494531f05e3",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "sha256": "ff434e28174718fa2353f76c6bfed545f9ec0086a3694ebdd5375c9f3c00957e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Bask-0.png",
+        "view": "action-Bask-0",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Bask",
+        "frame": 1,
+        "seconds": 0.0,
+        "sha256": "33fd2f2e87345c69ce17282426aa2c7e0b775ff561287506a9e46ff880f61eef",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Bask-1.png",
+        "view": "action-Bask-1",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Bask",
+        "frame": 31,
+        "seconds": 1.0,
+        "sha256": "e978b3caee98ef0a01393ad9cb194306e8848eac1415253b89379b8efaa17189",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Bask-2.png",
+        "view": "action-Bask-2",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Bask",
+        "frame": 61,
+        "seconds": 2.0,
+        "sha256": "0b9dfcab6af1cfd08abd95e9f5905270c71a68b7747e0a94ce54cc2449efc39e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Bask-3.png",
+        "view": "action-Bask-3",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Bask",
+        "frame": 91,
+        "seconds": 3.0,
+        "sha256": "6ca60fc2f529caf3874296c1ba82d0fd8e01748f3f8244258283dbba7bc7f064",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Bask-4.png",
+        "view": "action-Bask-4",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Bask",
+        "frame": 121,
+        "seconds": 4.0,
+        "sha256": "167e28464bdb50fe95a7ae741473194655357a6d31ec8ee9d0c83a8cfeec0871",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Look-0.png",
+        "view": "action-Look-0",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Look",
+        "frame": 1,
+        "seconds": 0.0,
+        "sha256": "33ac2342001dfd17f55e531cf39ab9ce20e155f93ac3a9d31de877aac91874c9",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Look-1.png",
+        "view": "action-Look-1",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Look",
+        "frame": 23,
+        "seconds": 0.7333333333333333,
+        "sha256": "92d1ef0cf2a071abdf62ffc1d51374c3aed47f4808cfe1c2fa4027ce28249f13",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Look-2.png",
+        "view": "action-Look-2",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Look",
+        "frame": 46,
+        "seconds": 1.5,
+        "sha256": "daebe53f59e483a1f330634bcdec25e48506b99cbbc46df33e2dd1cf4849bc29",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Look-3.png",
+        "view": "action-Look-3",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Look",
+        "frame": 68,
+        "seconds": 2.2333333333333334,
+        "sha256": "3bb3baa29c0e549f9f41f3cae82d30c0df143fd09c40f7b9319d548010f4a03e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Look-4.png",
+        "view": "action-Look-4",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Look",
+        "frame": 91,
+        "seconds": 3.0,
+        "sha256": "22874c740a0a1a9f6924af20f96562e92d352d14ae181d3b813de99cee69854a",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Slide-0.png",
+        "view": "action-Slide-0",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Slide",
+        "frame": 1,
+        "seconds": 0.0,
+        "sha256": "1d9b819377b085ee3b6b89c70bad8bd7e85b21bcb622329b509868d60c450204",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Slide-1.png",
+        "view": "action-Slide-1",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Slide",
+        "frame": 10,
+        "seconds": 0.3,
+        "sha256": "412002b39814be24fa50dc0c12b723f91c3dac2aeb850e61ceea03e870a14be1",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Slide-2.png",
+        "view": "action-Slide-2",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Slide",
+        "frame": 19,
+        "seconds": 0.6,
+        "sha256": "75d26f4849a775ec5f78fde8eadf4699441cf4b6df4fe0d4b4db36408a09bd6e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Slide-3.png",
+        "view": "action-Slide-3",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Slide",
+        "frame": 28,
+        "seconds": 0.9,
+        "sha256": "3a560158a79fa2b26b0f2a0e99b774f9f78d9906b03b48ffe1e34c66ae9b2943",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/action-Slide-4.png",
+        "view": "action-Slide-4",
+        "size": [
+          480,
+          360
+        ],
+        "action": "Slide",
+        "frame": 37,
+        "seconds": 1.2,
+        "sha256": "e6e66c0d601039089e4e96d7281157005eaa981e765ef024348b2c556dbde61d",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/Bask-contact-strip.png",
+        "view": "Bask-contact-strip",
+        "size": [
+          2400,
+          422
+        ],
+        "action": "Bask",
+        "sha256": "07bc47f1e49d0b4be2955de0b9c267283003c4fc7a2fdbd2d1f177dc5aa72652",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/Look-contact-strip.png",
+        "view": "Look-contact-strip",
+        "size": [
+          2400,
+          422
+        ],
+        "action": "Look",
+        "sha256": "f2235021b22a7b0788a083e853dd761d5f64e94620458a56b07ee452375b8e66",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/Seal/Slide-contact-strip.png",
+        "view": "Slide-contact-strip",
+        "size": [
+          2400,
+          422
+        ],
+        "action": "Slide",
+        "sha256": "f428a15c18a47a8412d81e3c7cbe563d904630316a1a7846452f385f0986c834",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

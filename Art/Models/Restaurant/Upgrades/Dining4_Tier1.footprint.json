@@ -1,0 +1,78 @@
+{
+  "name": "Dining4_Tier1",
+  "tiles_w": 2,
+  "tiles_d": 1,
+  "tile_size_m": 1,
+  "origin_blender_m": [
+    0,
+    0,
+    0
+  ],
+  "axis_conversion": "Blender X,Y,Z -> Unity X,Z,-Y",
+  "floor_contact_z_m": 0,
+  "bounds_blender_m": [
+    [
+      -0.5699999928474426,
+      -0.48554039001464844,
+      0.0
+    ],
+    [
+      0.5699999928474426,
+      0.48554039001464844,
+      0.7616855502128601
+    ]
+  ],
+  "triangles": 3908,
+  "export_meshes": [
+    "Dining4_Tier1"
+  ],
+  "atlas_cells": [
+    "wood",
+    "wooddark",
+    "woodlight"
+  ],
+  "tier": 1,
+  "seats": 4,
+  "tabletop_z_m": 0.72,
+  "seat_sockets": [
+    {
+      "position_blender_m": [
+        -0.36,
+        -0.33,
+        0
+      ],
+      "yaw_blender_deg": 180.0,
+      "seat_top_z_m": 0.435
+    },
+    {
+      "position_blender_m": [
+        -0.36,
+        0.33,
+        0
+      ],
+      "yaw_blender_deg": 0.0,
+      "seat_top_z_m": 0.435
+    },
+    {
+      "position_blender_m": [
+        0.36,
+        -0.33,
+        0
+      ],
+      "yaw_blender_deg": 180.0,
+      "seat_top_z_m": 0.435
+    },
+    {
+      "position_blender_m": [
+        0.36,
+        0.33,
+        0
+      ],
+      "yaw_blender_deg": 0.0,
+      "seat_top_z_m": 0.435
+    }
+  ],
+  "includes_matching_chairs": true,
+  "contact_correction_m": 0.000678337411954999,
+  "fbx_sha256": "6eef8f281fb0ce66edd20ca59f206cf886b265df9c55dbd369d666adee3a9fce"
+}

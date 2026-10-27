@@ -1,0 +1,29 @@
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+DISH IMPORT AUDIT PASS
+00:01.672  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\validate.py:28: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  sc.world=bpy.data.worlds.new('Night room');sc.world.use_nodes=True;sc.world.node_tree.nodes['Background'].inputs[0].default_value=(.12,.19,.27,1);sc.world.node_tree.nodes['Background'].inputs[1].default_value=.5
+00:04.766  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\renders\Dish_FishSoup.png'
+00:09.172  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\renders\Dish_FilletsLemon.png'
+00:13.485  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\renders\Dish_GrilledFish.png'
+00:17.657  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\renders\Dish_CoffeeBiscuits.png'
+00:21.594  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\renders\Dish_Lemonade.png'
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\validate.py:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(0,0,.68));table=bpy.context.object;table.name='REVIEW_ONLY_Table';table.dimensions=(1.85,.50,.04);mat=bpy.data.materials.new('REVIEW_ONLY_WarmWood');mat.use_nodes=True;mat.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.22,.095,.038,1);mat.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.55;table.data.materials.append(mat)
+00:31.266  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\table-lineup.png'
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+Info: Saved as "Dishes-V4-check.blend"
+DISH RENDER PASS
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

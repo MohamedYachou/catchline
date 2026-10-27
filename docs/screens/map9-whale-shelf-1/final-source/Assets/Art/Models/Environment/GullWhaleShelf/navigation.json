@@ -1,0 +1,896 @@
+{
+  "schema": 2,
+  "map": "GullWhaleShelf",
+  "runtimeModelId": "GullWhaleShelfSeaV2",
+  "runtimeFile": "Assets/Art/Models/Environment/GullWhaleShelf/GullWhaleShelfSeaV2.fbx",
+  "units": "metres",
+  "coordinateSpace": "World XZ, same horizontal frame as grounds.json; source Blender X,-Z,height; no recentering.",
+  "waterlineLocal": 0,
+  "worldPosition": [
+    0,
+    -0.32,
+    0
+  ],
+  "rotation": [
+    0,
+    0,
+    0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "boatDeckY": 0,
+  "sliceLevels": {
+    "islands": 0,
+    "shallows": -1
+  },
+  "islands": [
+    {
+      "id": "bird-seamount-0",
+      "vertices": [
+        {
+          "x": -38.16583,
+          "z": 2.88833
+        },
+        {
+          "x": -32.4025,
+          "z": -9.245
+        },
+        {
+          "x": -21.17917,
+          "z": -6.81833
+        },
+        {
+          "x": -11.77583,
+          "z": -0.75167
+        },
+        {
+          "x": -7.8325,
+          "z": 16.235
+        },
+        {
+          "x": -12.68583,
+          "z": 34.67767
+        },
+        {
+          "x": -24.51583,
+          "z": 39.28833
+        },
+        {
+          "x": -36.0425,
+          "z": 28.12567
+        }
+      ],
+      "sourceObject": "Terrain_bird-seamount",
+      "sliceY": 0
+    }
+  ],
+  "shallows": [
+    {
+      "id": "bird-seamount-0",
+      "vertices": [
+        {
+          "x": -39.54778,
+          "z": 1.95778
+        },
+        {
+          "x": -33.25667,
+          "z": -11.28667
+        },
+        {
+          "x": -21.00556,
+          "z": -8.63778
+        },
+        {
+          "x": -10.74111,
+          "z": -2.01556
+        },
+        {
+          "x": -6.43667,
+          "z": 16.52667
+        },
+        {
+          "x": -11.73444,
+          "z": 36.65822
+        },
+        {
+          "x": -24.64778,
+          "z": 41.69111
+        },
+        {
+          "x": -37.23,
+          "z": 29.50622
+        }
+      ],
+      "sourceObject": "Terrain_bird-seamount",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShoal-0",
+      "vertices": [
+        {
+          "x": -93.6071,
+          "z": -34.49096
+        },
+        {
+          "x": -93.25891,
+          "z": -35.27215
+        },
+        {
+          "x": -91.69798,
+          "z": -35.94938
+        },
+        {
+          "x": -89.86237,
+          "z": -36.23758
+        },
+        {
+          "x": -89.32445,
+          "z": -35.24166
+        },
+        {
+          "x": -90.12032,
+          "z": -33.95596
+        },
+        {
+          "x": -92.26436,
+          "z": -32.94132
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShoal",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShoal.001-0",
+      "vertices": [
+        {
+          "x": -84.92409,
+          "z": -40.57087
+        },
+        {
+          "x": -84.5759,
+          "z": -41.35206
+        },
+        {
+          "x": -83.01497,
+          "z": -42.02929
+        },
+        {
+          "x": -81.17935,
+          "z": -42.31749
+        },
+        {
+          "x": -80.64143,
+          "z": -41.32157
+        },
+        {
+          "x": -81.43731,
+          "z": -40.03587
+        },
+        {
+          "x": -83.58134,
+          "z": -39.02123
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShoal.001",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShelfEdge-0",
+      "vertices": [
+        {
+          "x": 1.3929,
+          "z": 70.50905
+        },
+        {
+          "x": 1.74109,
+          "z": 69.72784
+        },
+        {
+          "x": 3.30202,
+          "z": 69.05061
+        },
+        {
+          "x": 5.13764,
+          "z": 68.76242
+        },
+        {
+          "x": 5.67556,
+          "z": 69.75834
+        },
+        {
+          "x": 4.87968,
+          "z": 71.04404
+        },
+        {
+          "x": 2.73564,
+          "z": 72.05868
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShelfEdge",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShelfEdge.001-0",
+      "vertices": [
+        {
+          "x": 10.07591,
+          "z": 64.42914
+        },
+        {
+          "x": 10.4241,
+          "z": 63.64794
+        },
+        {
+          "x": 11.98503,
+          "z": 62.97071
+        },
+        {
+          "x": 13.82065,
+          "z": 62.68251
+        },
+        {
+          "x": 14.35857,
+          "z": 63.67843
+        },
+        {
+          "x": 13.56269,
+          "z": 64.96413
+        },
+        {
+          "x": 11.41865,
+          "z": 65.97877
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShelfEdge.001",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShelfEdge.002-0",
+      "vertices": [
+        {
+          "x": 103.3929,
+          "z": -41.49096
+        },
+        {
+          "x": 103.74109,
+          "z": -42.27215
+        },
+        {
+          "x": 105.30202,
+          "z": -42.94938
+        },
+        {
+          "x": 107.13763,
+          "z": -43.23758
+        },
+        {
+          "x": 107.67555,
+          "z": -42.24166
+        },
+        {
+          "x": 106.87968,
+          "z": -40.95596
+        },
+        {
+          "x": 104.73564,
+          "z": -39.94132
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShelfEdge.002",
+      "sliceY": -1
+    },
+    {
+      "id": "SubmergedShelfEdge.003-0",
+      "vertices": [
+        {
+          "x": 112.07591,
+          "z": -47.57087
+        },
+        {
+          "x": 112.4241,
+          "z": -48.35206
+        },
+        {
+          "x": 113.98503,
+          "z": -49.02929
+        },
+        {
+          "x": 115.82065,
+          "z": -49.31749
+        },
+        {
+          "x": 116.35857,
+          "z": -48.32157
+        },
+        {
+          "x": 115.56269,
+          "z": -47.03587
+        },
+        {
+          "x": 113.41866,
+          "z": -46.02123
+        }
+      ],
+      "sourceObject": "Terrain_SubmergedShelfEdge.003",
+      "sliceY": -1
+    }
+  ],
+  "border": [
+    {
+      "x": -180.0,
+      "z": -140.0
+    },
+    {
+      "x": 180.0,
+      "z": -140.0
+    },
+    {
+      "x": 180.0,
+      "z": 140.0
+    },
+    {
+      "x": -180.0,
+      "z": 140.0
+    }
+  ],
+  "grounds": [
+    {
+      "id": "herring-shoals",
+      "name": "Herring shoals",
+      "centre": {
+        "x": -85.0,
+        "z": -35.0
+      },
+      "radius": 14,
+      "nominalDepth": 3.0,
+      "poolId": "GullWhaleShelf/herring-shoals",
+      "position": [
+        -85,
+        0,
+        -35
+      ],
+      "heading": 0
+    },
+    {
+      "id": "shelf-edge",
+      "name": "Shelf edge",
+      "centre": {
+        "x": 10.0,
+        "z": 70.0
+      },
+      "radius": 14,
+      "nominalDepth": 12.0,
+      "poolId": "GullWhaleShelf/shelf-edge",
+      "position": [
+        10,
+        0,
+        70
+      ],
+      "heading": 0
+    },
+    {
+      "id": "whale-road",
+      "name": "Whale road",
+      "centre": {
+        "x": 112.0,
+        "z": -42.0
+      },
+      "radius": 16,
+      "nominalDepth": 8.0,
+      "poolId": "GullWhaleShelf/whale-road",
+      "position": [
+        112,
+        0,
+        -42
+      ],
+      "heading": 0
+    }
+  ],
+  "harbour": {
+    "x": -142.0,
+    "z": -105.0
+  },
+  "cameraBounds": {
+    "min": {
+      "x": -172.0,
+      "z": -132.0
+    },
+    "max": {
+      "x": 172.0,
+      "z": 132.0
+    }
+  },
+  "outerBuoys": [
+    {
+      "id": "outer-00",
+      "position": {
+        "x": -180.0,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-01",
+      "position": {
+        "x": -152.30769,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-02",
+      "position": {
+        "x": -124.61538,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-03",
+      "position": {
+        "x": -96.92308,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-04",
+      "position": {
+        "x": -69.23077,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-05",
+      "position": {
+        "x": -41.53846,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-06",
+      "position": {
+        "x": -13.84615,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-07",
+      "position": {
+        "x": 13.84615,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-08",
+      "position": {
+        "x": 41.53846,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-09",
+      "position": {
+        "x": 69.23077,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-10",
+      "position": {
+        "x": 96.92308,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-11",
+      "position": {
+        "x": 124.61538,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-12",
+      "position": {
+        "x": 152.30769,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-13",
+      "position": {
+        "x": 180.0,
+        "z": -140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-14",
+      "position": {
+        "x": 180.0,
+        "z": -112.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-15",
+      "position": {
+        "x": 180.0,
+        "z": -84.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-16",
+      "position": {
+        "x": 180.0,
+        "z": -56.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-17",
+      "position": {
+        "x": 180.0,
+        "z": -28.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-18",
+      "position": {
+        "x": 180.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-19",
+      "position": {
+        "x": 180.0,
+        "z": 28.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-20",
+      "position": {
+        "x": 180.0,
+        "z": 56.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-21",
+      "position": {
+        "x": 180.0,
+        "z": 84.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-22",
+      "position": {
+        "x": 180.0,
+        "z": 112.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-23",
+      "position": {
+        "x": 180.0,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-24",
+      "position": {
+        "x": 152.30769,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-25",
+      "position": {
+        "x": 124.61538,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-26",
+      "position": {
+        "x": 96.92308,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-27",
+      "position": {
+        "x": 69.23077,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-28",
+      "position": {
+        "x": 41.53846,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-29",
+      "position": {
+        "x": 13.84615,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-30",
+      "position": {
+        "x": -13.84615,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-31",
+      "position": {
+        "x": -41.53846,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-32",
+      "position": {
+        "x": -69.23077,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-33",
+      "position": {
+        "x": -96.92308,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-34",
+      "position": {
+        "x": -124.61538,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-35",
+      "position": {
+        "x": -152.30769,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-36",
+      "position": {
+        "x": -180.0,
+        "z": 140.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-37",
+      "position": {
+        "x": -180.0,
+        "z": 112.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-38",
+      "position": {
+        "x": -180.0,
+        "z": 84.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-39",
+      "position": {
+        "x": -180.0,
+        "z": 56.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-40",
+      "position": {
+        "x": -180.0,
+        "z": 28.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-41",
+      "position": {
+        "x": -180.0,
+        "z": 0.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-42",
+      "position": {
+        "x": -180.0,
+        "z": -28.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-43",
+      "position": {
+        "x": -180.0,
+        "z": -56.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-44",
+      "position": {
+        "x": -180.0,
+        "z": -84.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    },
+    {
+      "id": "outer-45",
+      "position": {
+        "x": -180.0,
+        "z": -112.0
+      },
+      "style": "red-white-spar",
+      "baseRadius": 0.6
+    }
+  ],
+  "fog": {
+    "inset": 30,
+    "edgeDensity": 1,
+    "waterContinuesBeyondBorder": true,
+    "horizonSilhouettes": []
+  },
+  "islandPurposes": {
+    "bird-seamount": "Low bird-whitened angular sea mount divides shoals from the shelf approach."
+  },
+  "artReviewAnchors": {
+    "herring-shoals": {
+      "x": -85.0,
+      "z": -35.0
+    },
+    "shelf-edge": {
+      "x": 10.0,
+      "z": 70.0
+    },
+    "whale-road": {
+      "x": 112.0,
+      "z": -42.0
+    }
+  },
+  "sealColonyAnchors": [],
+  "lifeAnchors": [
+    {
+      "id": "GannetDive_1",
+      "position": [
+        -89,
+        -0.32,
+        -41
+      ]
+    },
+    {
+      "id": "GannetDive_2",
+      "position": [
+        -79,
+        -0.32,
+        -38
+      ]
+    },
+    {
+      "id": "WhaleSpout_1",
+      "position": [
+        107,
+        -0.32,
+        -48
+      ]
+    },
+    {
+      "id": "WhaleSpout_2",
+      "position": [
+        118,
+        -0.32,
+        -44
+      ]
+    },
+    {
+      "id": "CardinalBuoy_1",
+      "position": [
+        9.015997514760699,
+        -0.32,
+        63.364358425212906
+      ]
+    },
+    {
+      "id": "WreckGulls_1",
+      "position": [
+        -23,
+        1.08,
+        15
+      ]
+    }
+  ]
+}

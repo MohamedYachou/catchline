@@ -1,0 +1,228 @@
+{
+  "triangles": 112,
+  "meshes": 1,
+  "vertices": 226,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -3.0,
+      -1.0,
+      0.0
+    ],
+    [
+      3.0,
+      1.0,
+      0.0
+    ]
+  ],
+  "parents": {
+    "ReefBreak_A": null,
+    "BrokenWater": "ReefBreak_A"
+  },
+  "materials": [
+    "M_RailIvory",
+    "M_ShallowWater"
+  ],
+  "name": "ReefBreak_A",
+  "contract": {
+    "variant": 0,
+    "footprint_metres": [
+      6,
+      2
+    ],
+    "placement": "Root Y=water+.012m. Exact plane at local Y0, normals up; keep above animated surface. UV U=X/6+.5,V=-UnityZ/2+.5. Scroll a shared foam material or pulse transform; no textures supplied. Opaque geometric foam silhouettes retain water gaps."
+  },
+  "limit": 300,
+  "sha256": {
+    "blend": "b875e6d269d9f13fa3bf44bb4f390427ced91754051ba670eed360c75cee3da9",
+    "fbx": "b90af322458d62627972f8b8c5554ecda015cf68c0ab2e55b017333adb1777c4"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 112,
+      "meshes": 1,
+      "vertices": 226,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -3.0,
+          -1.0,
+          0.0
+        ],
+        [
+          3.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "parents": {
+        "ReefBreak_A": null,
+        "BrokenWater": "ReefBreak_A"
+      },
+      "materials": [
+        "M_RailIvory",
+        "M_ShallowWater"
+      ]
+    },
+    "imported": {
+      "triangles": 112,
+      "meshes": 1,
+      "vertices": 226,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -3.0,
+          -1.0,
+          -7.549790126404332e-08
+        ],
+        [
+          3.0,
+          1.0,
+          7.549790126404332e-08
+        ]
+      ],
+      "parents": {
+        "BrokenWater": "ReefBreak_A",
+        "ReefBreak_A": null
+      },
+      "materials": [
+        "M_RailIvory",
+        "M_ShallowWater"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 1,
+      "max_vertex_error_metres": 7.549790126404332e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/ReefBreak_A/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "860ca23850683d01b26af62feb576bffd465bf11ecc72606cbd8fa657e3d9e81",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "1913fec946009983cf91a6b43920e1b60d3ea11c400df70cafb58543e489c09b",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "4241c07e176a02ec7b14d26ff84b420f717cd3e6346a14a32e75326c790564df",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "b377fc3b6a66b40af90e9e9d4a32fea1e90a61d15265594cda49529d5b897f7e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "90b55a99306d56dbea11b221649403ad55c361836ec645c2987689aa7e1afa90",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "1050c364bae36dba41fba8503ffc16973f8828d8559c9695326c34ba4e4090b5",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "151a3537a4fe84489828d184acbc4c1a96412c7266d5646d9ca8f9167b2c7df1",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 5.688194759708756,
+        "sha256": "f30f7eb1bea37219de2190ac07cd127f9a82297dd339ca6494fcc7b662d4f886",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/ReefBreak_A/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 5.688194759708756,
+        "sha256": "460048fefd0bf9187c4177a9e1e9c473ef535ba1edfb835e72f1fe5d5caa64c7",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

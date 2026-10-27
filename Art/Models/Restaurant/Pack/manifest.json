@@ -1,0 +1,2552 @@
+{
+  "units": "metres",
+  "coordinate_contract": "Blender Z-up, front -Y matches Stage1V2; assembly rotation180 baked; Y-up FBX identity local transform; Unity importer handedness checked by lead.",
+  "items": [
+    {
+      "name": "Restaurant_Stove",
+      "components": [
+        {
+          "model": "stove_multi",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/stove_multi.fbx",
+          "size_blender": [
+            0.92,
+            0.82,
+            0.8
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.46000003814697266,
+          -0.4099999964237213,
+          0.0
+        ],
+        [
+          0.46000003814697266,
+          0.4099999964237213,
+          0.800000011920929
+        ]
+      ],
+      "size_unity": [
+        0.9200000166893005,
+        0.800000011920929,
+        0.8199999928474426
+      ],
+      "triangles": 1084,
+      "reference": {
+        "name": "Stove",
+        "source": "Art/Models/Restaurant/Stage1V2/items/Stove.fbx",
+        "min": [
+          -0.4699999988079071,
+          -0.46849995851516724,
+          -6.842668653916917e-08
+        ],
+        "max": [
+          0.4699999988079071,
+          0.4200001060962677,
+          0.8100000619888306
+        ],
+        "size": [
+          0.9399999976158142,
+          0.8885000944137573,
+          0.8100001215934753
+        ],
+        "sha256": "3409fae784299d382fed1cf673b551e2748f3949f478c6475bd6d3b13ffea2c2",
+        "roots": [
+          {
+            "name": "Stove",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "9fbda4d1dd63d73da4817f941b9a0093346f244f7577e21e05bfa5538f63e1de",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_SoupKettle",
+      "components": [
+        {
+          "model": "stove_single",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/stove_single.fbx",
+          "size_blender": [
+            0.72,
+            0.63,
+            0.43
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pot_B_stew",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pot_B_stew.fbx",
+          "size_blender": [
+            0.52,
+            0.5,
+            0.31
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.43
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.36000001430511475,
+          -0.3149999976158142,
+          0.0
+        ],
+        [
+          0.36000001430511475,
+          0.3149999976158142,
+          0.7400000095367432
+        ]
+      ],
+      "size_unity": [
+        0.7199999690055847,
+        0.7400000095367432,
+        0.6299999952316284
+      ],
+      "triangles": 1292,
+      "reference": {
+        "name": "SoupKettle",
+        "source": "Art/Models/Restaurant/Stage1V2/items/SoupKettle.fbx",
+        "min": [
+          -0.3737764060497284,
+          -0.3400000035762787,
+          -5.2134613071075364e-08
+        ],
+        "max": [
+          0.3737764060497284,
+          0.3200000822544098,
+          0.7450000643730164
+        ],
+        "size": [
+          0.7475528120994568,
+          0.6600000858306885,
+          0.7450001239776611
+        ],
+        "sha256": "c240e9023532296988b80ecdfa5ecb656e2b552f94e73b33aabca4b7ea988686",
+        "roots": [
+          {
+            "name": "SoupKettle",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "fd738236096c9b494f38c68a7475dbd6d5e60f3fce22eaf5bb9b551f4177d426",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_PrepCounter",
+      "components": [
+        {
+          "model": "kitchentable_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/kitchentable_A.fbx",
+          "size_blender": [
+            0.94,
+            0.85,
+            0.79
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "cuttingboard",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/cuttingboard.fbx",
+          "size_blender": [
+            0.43,
+            0.27,
+            0.035
+          ],
+          "bottom_centre_blender": [
+            -0.16,
+            0.03,
+            0.79
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "knife",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/knife.fbx",
+          "size_blender": [
+            0.26,
+            0.04,
+            0.055
+          ],
+          "bottom_centre_blender": [
+            -0.16,
+            0.04,
+            0.83
+          ],
+          "rotation_z_deg": 30,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_A_medium",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_A_medium.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.2
+          ],
+          "bottom_centre_blender": [
+            0.3,
+            -0.24,
+            0.79
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4700000286102295,
+          -0.42500001192092896,
+          0.0
+        ],
+        [
+          0.4700000286102295,
+          0.42500001192092896,
+          0.9900000095367432
+        ]
+      ],
+      "size_unity": [
+        0.9399999976158142,
+        0.9900000095367432,
+        0.8499999642372131
+      ],
+      "triangles": 566,
+      "reference": {
+        "name": "PrepCounter",
+        "source": "Art/Models/Restaurant/Stage1V2/items/PrepCounter.fbx",
+        "min": [
+          -0.47749999165534973,
+          -0.46631479263305664,
+          -6.96485926710011e-08
+        ],
+        "max": [
+          0.47749999165534973,
+          0.4275001883506775,
+          1.0100001096725464
+        ],
+        "size": [
+          0.9549999833106995,
+          0.8938149809837341,
+          1.010000228881836
+        ],
+        "sha256": "5c471b03b329f88c94f234114fa98d3ae4a368c5acc2c5a1c76725cfec7057dc",
+        "roots": [
+          {
+            "name": "PrepCounter",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "29ee6e7241c789328be893630422204d07e0c699a383041abac9f14f51ce86a0",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_FridgeV2",
+      "components": [
+        {
+          "model": "fridge_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/fridge_A.fbx",
+          "size_blender": [
+            0.76,
+            0.85,
+            1.15
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.3800000548362732,
+          -0.42499998211860657,
+          0.0
+        ],
+        [
+          0.3800000548362732,
+          0.42500004172325134,
+          1.149999976158142
+        ]
+      ],
+      "size_unity": [
+        0.7600000500679016,
+        1.149999976158142,
+        0.8500000238418579
+      ],
+      "triangles": 614,
+      "reference": {
+        "name": "FridgeV2",
+        "source": "Art/Models/Restaurant/Stage1V2/items/FridgeV2.fbx",
+        "min": [
+          -0.38999998569488525,
+          -0.5109802484512329,
+          -6.353906201184145e-08
+        ],
+        "max": [
+          0.38999998569488525,
+          0.3900001645088196,
+          1.1600000858306885
+        ],
+        "size": [
+          0.7799999713897705,
+          0.9009804129600525,
+          1.160000205039978
+        ],
+        "sha256": "aa53e44ee9b07d02c36249cf808ce6ddbe2de9ca7c1269617fb104a0193edcec",
+        "roots": [
+          {
+            "name": "FridgeV2",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "123cee1aaf13a44678205a5b07f90928b74e1ba8e2b2e49de64e40a2c508683a",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_CoffeeBar",
+      "components": [
+        {
+          "model": "kitchencounter_straight_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/kitchencounter_straight_A.fbx",
+          "size_blender": [
+            0.88,
+            0.76,
+            0.78
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "kitchenCoffeeMachine",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/kitchenCoffeeMachine.glb",
+          "size_blender": [
+            0.43,
+            0.38,
+            0.48
+          ],
+          "bottom_centre_blender": [
+            -0.17,
+            -0.1,
+            0.78
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "cup-coffee",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/cup-coffee.glb",
+          "size_blender": [
+            0.15,
+            0.15,
+            0.15
+          ],
+          "bottom_centre_blender": [
+            0.28,
+            0.12,
+            0.78
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "menu",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/menu.fbx",
+          "size_blender": [
+            0.19,
+            0.1,
+            0.25
+          ],
+          "bottom_centre_blender": [
+            0.28,
+            -0.25,
+            0.78
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4400000274181366,
+          -0.3799999952316284,
+          0.0
+        ],
+        [
+          0.4400000274181366,
+          0.3800000250339508,
+          1.2599999904632568
+        ]
+      ],
+      "size_unity": [
+        0.8799999952316284,
+        1.2599999904632568,
+        0.7599999904632568
+      ],
+      "triangles": 550,
+      "reference": {
+        "name": "CoffeeBar",
+        "source": "Art/Models/Restaurant/Stage1V2/items/CoffeeBar.fbx",
+        "min": [
+          -0.47749999165534973,
+          -0.46631479263305664,
+          -6.96485926710011e-08
+        ],
+        "max": [
+          0.47749996185302734,
+          0.4275002181529999,
+          1.3340001106262207
+        ],
+        "size": [
+          0.9549999237060547,
+          0.8938150405883789,
+          1.3340002298355103
+        ],
+        "sha256": "dc86e0fe1494b6177c5117b4d9c97ef1afd79b67e1f3ad9ebfece752f1082172",
+        "roots": [
+          {
+            "name": "CoffeeBar",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "a0a0a97ea0ad51046efbf6400c23e0c1b554a65377a5137af2f0597525286674",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_ReceptionDesk",
+      "components": [
+        {
+          "model": "kitchencounter_straight_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/kitchencounter_straight_A.fbx",
+          "size_blender": [
+            0.92,
+            0.86,
+            0.78
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "menu",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/menu.fbx",
+          "size_blender": [
+            0.29,
+            0.18,
+            0.25
+          ],
+          "bottom_centre_blender": [
+            0.2,
+            0,
+            0.78
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.46000003814697266,
+          -0.4300000071525574,
+          0.0
+        ],
+        [
+          0.46000003814697266,
+          0.43000003695487976,
+          1.0299999713897705
+        ]
+      ],
+      "size_unity": [
+        0.9200000166893005,
+        1.0299999713897705,
+        0.8600000143051147
+      ],
+      "triangles": 276,
+      "reference": {
+        "name": "ReceptionDesk",
+        "source": "Art/Models/Restaurant/Stage1V2/items/ReceptionDesk.fbx",
+        "min": [
+          -0.4699999988079071,
+          -0.4699999988079071,
+          -7.657271794414555e-08
+        ],
+        "max": [
+          0.4699999988079071,
+          0.47000011801719666,
+          0.9090039134025574
+        ],
+        "size": [
+          0.9399999976158142,
+          0.9400001168251038,
+          0.9090039730072021
+        ],
+        "sha256": "324e46c508cb490f00c4e9e6e536801f51a1ec68d65a5e942ef2b958784f7627",
+        "roots": [
+          {
+            "name": "ReceptionDesk",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "247a8f37e4a885cca43ac2945d8b2c87a32c8629066962b10c6263ed9b1f95f4",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Oven",
+      "components": [
+        {
+          "model": "oven",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/oven.fbx",
+          "size_blender": [
+            0.82,
+            0.81,
+            1.2
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4100000262260437,
+          -0.4050000309944153,
+          0.0
+        ],
+        [
+          0.4100000262260437,
+          0.4050000011920929,
+          1.1999999284744263
+        ]
+      ],
+      "size_unity": [
+        0.8199999928474426,
+        1.1999999284744263,
+        0.8100000023841858
+      ],
+      "triangles": 542,
+      "reference": {
+        "name": "Oven",
+        "source": "Art/Models/Restaurant/Stage1V2/items/Oven.fbx",
+        "min": [
+          -0.41999998688697815,
+          -0.4683148264884949,
+          -6.190986567844448e-08
+        ],
+        "max": [
+          0.41999998688697815,
+          0.3800002336502075,
+          1.220000147819519
+        ],
+        "size": [
+          0.8399999737739563,
+          0.8483150601387024,
+          1.2200002670288086
+        ],
+        "sha256": "8da226d640f442d8af82269c861a1ff0702cf15072c4d2f4609a07861a34a3f8",
+        "roots": [
+          {
+            "name": "Oven",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "74a08247221fea70d949501853fcdbfca25115b57aced29b1a190902d3481497",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Grill",
+      "components": [
+        {
+          "model": "stove_multi",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/stove_multi.fbx",
+          "size_blender": [
+            0.81,
+            0.7,
+            0.78
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.40500009059906006,
+          -0.3499999940395355,
+          0.0
+        ],
+        [
+          0.40500006079673767,
+          0.3499999940395355,
+          0.8250000476837158
+        ]
+      ],
+      "size_unity": [
+        0.810000091791153,
+        0.8250000476837158,
+        0.699999988079071
+      ],
+      "triangles": 1280,
+      "reference": {
+        "name": "Grill",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Grill.fbx",
+        "min": [
+          -0.41499999165534973,
+          -0.3850000202655792,
+          -5.7429538458109164e-08
+        ],
+        "max": [
+          0.41499999165534973,
+          0.35250014066696167,
+          0.8700000643730164
+        ],
+        "size": [
+          0.8299999833106995,
+          0.7375001907348633,
+          0.8700001239776611
+        ],
+        "sha256": "54dd13e81ea6cd74481b704d29c6cab773277f86fdd5efae93c39090f6f2f550",
+        "roots": [
+          {
+            "name": "Restaurant_Grill",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "50237fe8361719a218e26be5e20f3ab2ec2efb9b35f6c7d0c533fe69c04dbba9",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Steamer",
+      "components": [
+        {
+          "model": "stove_single",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/stove_single.fbx",
+          "size_blender": [
+            0.66,
+            0.65,
+            0.45
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pot_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pot_A.fbx",
+          "size_blender": [
+            0.53,
+            0.5,
+            0.25
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.45
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pot_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pot_A.fbx",
+          "size_blender": [
+            0.53,
+            0.5,
+            0.25
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.67
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "lid_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/lid_A.fbx",
+          "size_blender": [
+            0.54,
+            0.51,
+            0.1
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.92
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.33000001311302185,
+          -0.32499998807907104,
+          0.0
+        ],
+        [
+          0.33000001311302185,
+          0.32499998807907104,
+          1.0199999809265137
+        ]
+      ],
+      "size_unity": [
+        0.6599999666213989,
+        1.0199999809265137,
+        0.6499999761581421
+      ],
+      "triangles": 1528,
+      "reference": {
+        "name": "Steamer",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Steamer.fbx",
+        "min": [
+          -0.3425000011920929,
+          -0.36000001430511475,
+          -5.417112802774682e-08
+        ],
+        "max": [
+          0.3425000011920929,
+          0.3325001895427704,
+          1.027500033378601
+        ],
+        "size": [
+          0.6850000023841858,
+          0.6925002336502075,
+          1.027500033378601
+        ],
+        "sha256": "eb05fb16b56af69388bc44a3b673c4cd424013b07eeec439be8b866ef11abf39",
+        "roots": [
+          {
+            "name": "Restaurant_Steamer",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "d844422d65590e38f4913cdd70edeaa38e85e02871e8f66fb3cd01ae531bf22c",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_PassCounter",
+      "components": [
+        {
+          "model": "kitchenBar",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/kitchenBar.glb",
+          "size_blender": [
+            1.87,
+            0.38,
+            1.05
+          ],
+          "bottom_centre_blender": [
+            0,
+            -0.1,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "chair_stool",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_stool.fbx",
+          "size_blender": [
+            0.31,
+            0.29,
+            0.7
+          ],
+          "bottom_centre_blender": [
+            -0.5,
+            0.24,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_stool",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_stool.fbx",
+          "size_blender": [
+            0.31,
+            0.29,
+            0.7
+          ],
+          "bottom_centre_blender": [
+            0.5,
+            0.24,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.9350000023841858,
+          -0.3850000500679016,
+          0.0
+        ],
+        [
+          0.9350000023841858,
+          0.2900001108646393,
+          1.0499999523162842
+        ]
+      ],
+      "size_unity": [
+        1.8700000047683716,
+        1.0499999523162842,
+        0.675000011920929
+      ],
+      "triangles": 620,
+      "reference": {
+        "name": "PassCounter",
+        "source": "Art/Models/Restaurant/Stage1V2/items/PassCounter.fbx",
+        "min": [
+          -0.949999988079071,
+          -0.3100000023841858,
+          -5.050541318496471e-08
+        ],
+        "max": [
+          0.949999988079071,
+          0.3100001811981201,
+          1.1125000715255737
+        ],
+        "size": [
+          1.899999976158142,
+          0.6200001835823059,
+          1.1125000715255737
+        ],
+        "sha256": "f641b4a1c48988fdd24e6fd4bd92ab95f7461724c3479a1d2b586a7de68d8a54",
+        "roots": [
+          {
+            "name": "PassCounter",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "ae016b62616b0331ce8091d8c7dedc8aefa26110cb26d7b9205f7684d7fd9d15",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_PlantPot1",
+      "components": [
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.38,
+            0.4,
+            0.72
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.1899999976158142,
+          -0.19999998807907104,
+          0.0
+        ],
+        [
+          0.1899999976158142,
+          0.19999998807907104,
+          0.7200000286102295
+        ]
+      ],
+      "size_unity": [
+        0.3799999952316284,
+        0.7200000286102295,
+        0.3999999761581421
+      ],
+      "triangles": 60,
+      "reference": {
+        "name": "PlantPot1",
+        "source": "Art/Models/Restaurant/Stage1V2/items/PlantPot1.fbx",
+        "min": [
+          -0.17864590883255005,
+          -0.22776392102241516,
+          -3.195467002115038e-08
+        ],
+        "max": [
+          0.2165759652853012,
+          0.196136474609375,
+          0.7211561799049377
+        ],
+        "size": [
+          0.39522188901901245,
+          0.42390039563179016,
+          0.7211562395095825
+        ],
+        "sha256": "a0937afdd51cae6f35f3bee438e9a2476f9e7912d9b6cf5ee56267ce8471a08b",
+        "roots": [
+          {
+            "name": "PlantPot1",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "a1b0f5b0910f195446524deaeb976fdaa0810e22b97c57c9580bbcf465d7909f",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_LampPost",
+      "components": [
+        {
+          "model": "lamp_standing",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/lamp_standing.fbx",
+          "size_blender": [
+            0.47,
+            0.32,
+            1.74
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.23500001430511475,
+          -0.1600000262260437,
+          0.0
+        ],
+        [
+          0.23500001430511475,
+          0.1600000262260437,
+          1.7400000095367432
+        ]
+      ],
+      "size_unity": [
+        0.4699999988079071,
+        1.7400000095367432,
+        0.320000022649765
+      ],
+      "triangles": 320,
+      "reference": {
+        "name": "LampPost",
+        "source": "Art/Models/Restaurant/Stage1V2/items/LampPost.fbx",
+        "min": [
+          -0.15999998152256012,
+          -0.1599999964237213,
+          -2.606730831189452e-08
+        ],
+        "max": [
+          0.3799999952316284,
+          0.160000279545784,
+          1.75
+        ],
+        "size": [
+          0.5399999618530273,
+          0.3200002908706665,
+          1.75
+        ],
+        "sha256": "c98f4157edce89e14de3f83a6ca88e9f029501d84d534fddf701b232dd7cccd5",
+        "roots": [
+          {
+            "name": "LampPost",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "dbe0bb2012df0e49161331d9ec71ba7ef3ec6e14448346f77b8d5a038e96a290",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Trophy",
+      "components": [
+        {
+          "model": "pictureframe_medium",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+          "size_blender": [
+            0.87,
+            0.11,
+            0.38
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        },
+        {
+          "model": "fish",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/fish.glb",
+          "size_blender": [
+            0.66,
+            0.12,
+            0.23
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.07,
+            0.08
+          ],
+          "rotation_z_deg": 90,
+          "pack": "kenney:food"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4349999725818634,
+          -0.12999998033046722,
+          0.0
+        ],
+        [
+          0.4349999725818634,
+          0.055000025779008865,
+          0.3799999952316284
+        ]
+      ],
+      "size_unity": [
+        0.8699999451637268,
+        0.3799999952316284,
+        0.1849999949336052
+      ],
+      "triangles": 293,
+      "reference": {
+        "name": "Trophy",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Trophy.fbx",
+        "min": [
+          -0.4399999976158142,
+          -0.1459999978542328,
+          0.0
+        ],
+        "max": [
+          0.4399999976158142,
+          6.190985857301712e-08,
+          0.3800000250339508
+        ],
+        "size": [
+          0.8799999952316284,
+          0.14600005745887756,
+          0.3800000250339508
+        ],
+        "sha256": "14be572577dc79f06609abecaf60ea2691ab9e0f369de4fdde8c1cd8f40a4fa0",
+        "roots": [
+          {
+            "name": "Restaurant_Trophy",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Kenney whole fish mounted over KayKit picture frame.",
+      "fbx_sha256": "887a461a9ec346e69cdd84f605ad2287d52c63d4e20cfeb06ff2ce133fdff25c",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Net",
+      "components": [
+        {
+          "model": "pictureframe_medium",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+          "size_blender": [
+            0.88,
+            0.08,
+            0.62
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4399999976158142,
+          -0.11300003528594971,
+          0.0
+        ],
+        [
+          0.4400000274181366,
+          0.04000003635883331,
+          0.6200000047683716
+        ]
+      ],
+      "size_unity": [
+        0.8800000250339508,
+        0.6200000047683716,
+        0.15300000458955765
+      ],
+      "triangles": 1108,
+      "reference": {
+        "name": "Net",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Net.fbx",
+        "min": [
+          -0.44554147124290466,
+          -0.05828697979450226,
+          -1.9602803824625425e-09
+        ],
+        "max": [
+          0.44554150104522705,
+          0.012032217346131802,
+          0.6260198354721069
+        ],
+        "size": [
+          0.8910830020904541,
+          0.07031919807195663,
+          0.6260198354721069
+        ],
+        "sha256": "936ffb1be597e2208a401338d16f0c0cbb21b84ac9bcf32df6b7711ad26de533",
+        "roots": [
+          {
+            "name": "Restaurant_Net",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "KayKit wall board plus declared coarse rope/cork geometry; no downloaded fishing net exists.",
+      "fbx_sha256": "ba565998ff0e799eddf7d12e3660da78c936a507b385a7a5ecb6d5556bacbd53",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Chart",
+      "components": [
+        {
+          "model": "pictureframe_medium",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+          "size_blender": [
+            0.88,
+            0.08,
+            0.68
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4399999678134918,
+          -0.09400000423192978,
+          0.0
+        ],
+        [
+          0.4399999976158142,
+          0.040000028908252716,
+          0.6800000071525574
+        ]
+      ],
+      "size_unity": [
+        0.879999965429306,
+        0.6800000071525574,
+        0.1340000107884407
+      ],
+      "triangles": 532,
+      "reference": {
+        "name": "Chart",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Chart.fbx",
+        "min": [
+          -0.4399999976158142,
+          -0.0804409608244896,
+          -5.294922278409331e-09
+        ],
+        "max": [
+          0.4399999976158142,
+          0.03250011056661606,
+          0.6800000071525574
+        ],
+        "size": [
+          0.8799999952316284,
+          0.11294107139110565,
+          0.6800000071525574
+        ],
+        "sha256": "27573ba19b84db08819952d34ec3de1577685459c050fc4f3feb7ad5c3396b5a",
+        "roots": [
+          {
+            "name": "Restaurant_Chart",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "KayKit frame plus coarse atlas-coloured coastline/waypoint insert, no baked text.",
+      "fbx_sha256": "d6638dff812ac00eb44a9130528f0379a04c13afd423f9c72e3489b27a44cbea",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Jukebox",
+      "components": [
+        {
+          "model": "cabinet_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/cabinet_small.fbx",
+          "size_blender": [
+            0.64,
+            0.43,
+            0.64
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        },
+        {
+          "model": "radio",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/radio.glb",
+          "size_blender": [
+            0.6,
+            0.39,
+            0.38
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.64
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.320000022649765,
+          -0.2150000035762787,
+          0.0
+        ],
+        [
+          0.320000022649765,
+          0.21500003337860107,
+          1.0199999809265137
+        ]
+      ],
+      "size_unity": [
+        0.6399999856948853,
+        1.0199999809265137,
+        0.4300000071525574
+      ],
+      "triangles": 754,
+      "reference": {
+        "name": "Jukebox",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_Jukebox.fbx",
+        "min": [
+          -0.33000001311302185,
+          -0.257999986410141,
+          -3.258413627804657e-08
+        ],
+        "max": [
+          0.33000001311302185,
+          0.20000016689300537,
+          1.0499999523162842
+        ],
+        "size": [
+          0.6600000262260437,
+          0.45800015330314636,
+          1.0499999523162842
+        ],
+        "sha256": "26b01acb84f2e54133a4b18f10c0b15348ab68685e7ab1acb69e4eea1e903930",
+        "roots": [
+          {
+            "name": "Restaurant_Jukebox",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Kenney radio on KayKit cabinet: compact music cabinet proxy; packs contain no dedicated jukebox.",
+      "fbx_sha256": "0efb88c74c9b070d030529ba9d650f015229280294d76094e701d01962bcc8d0",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_DrinksFridge",
+      "components": [
+        {
+          "model": "fridge_B",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/fridge_B.fbx",
+          "size_blender": [
+            0.73,
+            0.72,
+            1.18
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.36500000953674316,
+          -0.35999998450279236,
+          0.0
+        ],
+        [
+          0.36500000953674316,
+          0.36000004410743713,
+          1.1799999475479126
+        ]
+      ],
+      "size_unity": [
+        0.7299999594688416,
+        1.1799999475479126,
+        0.7200000286102295
+      ],
+      "triangles": 426,
+      "reference": {
+        "name": "DrinksFridge",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_DrinksFridge.fbx",
+        "min": [
+          -0.3725000023841858,
+          -0.41350001096725464,
+          -5.2541921036208805e-08
+        ],
+        "max": [
+          0.3725000023841858,
+          0.32250019907951355,
+          1.192500114440918
+        ],
+        "size": [
+          0.7450000047683716,
+          0.7360001802444458,
+          1.192500114440918
+        ],
+        "sha256": "3fc192ae8bc9396cb71394927c2794f1621a9cd15ce0aa5793ea21a633c3ab34",
+        "roots": [
+          {
+            "name": "Restaurant_DrinksFridge",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "1e85d7210a248e72aed066d267fd17f2d934a15dd00d7444fd502102497d48b1",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_TableCandle",
+      "components": [
+        {
+          "model": "cup-saucer",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/cup-saucer.glb",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.014
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:food"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.06000000238418579,
+          -0.06000000238418579,
+          0.0
+        ],
+        [
+          0.06000000238418579,
+          0.06000000238418579,
+          0.16099999845027924
+        ]
+      ],
+      "size_unity": [
+        0.12000000476837158,
+        0.16099999845027924,
+        0.12000000476837158
+      ],
+      "triangles": 264,
+      "reference": {
+        "name": "TableCandle",
+        "source": "Art/Models/Restaurant/Stage1V2/items/TableLantern.fbx",
+        "min": [
+          -0.0624765120446682,
+          -0.0624765120446682,
+          -1.017871653630209e-08
+        ],
+        "max": [
+          0.0624765120446682,
+          0.06247653812170029,
+          0.16187500953674316
+        ],
+        "size": [
+          0.1249530240893364,
+          0.12495304644107819,
+          0.16187502443790436
+        ],
+        "sha256": "48104cae41264ea4975a55cb8023d390cdab685532927f944d2ca9a88843c2fb",
+        "roots": [
+          {
+            "name": "TableLantern",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "b7218bac0ba30b2bb451df8be4c0db8d5d25cf490a1ab61beccbd7717020d57a",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_BigFridge",
+      "components": [
+        {
+          "model": "fridge_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/fridge_A.fbx",
+          "size_blender": [
+            1.46,
+            0.84,
+            1.62
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.7299999594688416,
+          -0.41999995708465576,
+          0.0
+        ],
+        [
+          0.7300000190734863,
+          0.4200000464916229,
+          1.6200000047683716
+        ]
+      ],
+      "size_unity": [
+        1.459999918937683,
+        1.6200000047683716,
+        0.8399999737739563
+      ],
+      "triangles": 614,
+      "reference": {
+        "name": "BigFridge",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_BigFridge.fbx",
+        "min": [
+          -0.7425000071525574,
+          -0.4725373387336731,
+          -6.313176470484905e-08
+        ],
+        "max": [
+          0.7425000071525574,
+          0.38750025629997253,
+          1.6350001096725464
+        ],
+        "size": [
+          1.4850000143051147,
+          0.8600375652313232,
+          1.635000228881836
+        ],
+        "sha256": "8a8e43d80942d5a582cbc2d5ae1fff2fcc173041a832fdae4d663364e587fb4c",
+        "roots": [
+          {
+            "name": "Restaurant_BigFridge",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "1.46m width preserves incumbent 1.485m width: upgrade spans two tiles despite general 1x1 default.",
+      "fbx_sha256": "d9268fc3cc1a6f9bd0b7a5eb5bb795767ed289943c5a6350437634888c5b2e1a",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_ReliableStove",
+      "components": [
+        {
+          "model": "stove_multi",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/stove_multi.fbx",
+          "size_blender": [
+            1.56,
+            0.82,
+            0.87
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pan_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pan_A.fbx",
+          "size_blender": [
+            0.36,
+            0.35,
+            0.13
+          ],
+          "bottom_centre_blender": [
+            -0.35,
+            0,
+            0.87
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.7800000309944153,
+          -0.4099999964237213,
+          0.0
+        ],
+        [
+          0.7800000905990601,
+          0.4100000262260437,
+          1.0
+        ]
+      ],
+      "size_unity": [
+        1.5600000619888306,
+        1.0,
+        0.8199999928474426
+      ],
+      "triangles": 1394,
+      "reference": {
+        "name": "ReliableStove",
+        "source": "Art/Models/Restaurant/KitchenKit2/Restaurant_ReliableStove.fbx",
+        "min": [
+          -0.7900000214576721,
+          -0.45933663845062256,
+          -6.516827255609314e-08
+        ],
+        "max": [
+          0.7900000214576721,
+          0.4000001549720764,
+          0.8800000548362732
+        ],
+        "size": [
+          1.5800000429153442,
+          0.859336793422699,
+          0.880000114440918
+        ],
+        "sha256": "dcd390ea25cff530a1d9ee40fcf6a1a15afcab5871b82324cb37f1029d1cb451",
+        "roots": [
+          {
+            "name": "Restaurant_ReliableStove",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "1.56m width preserves incumbent 1.58m width: upgrade spans two tiles despite general 1x1 default.",
+      "fbx_sha256": "d52fd8f328932f35fc1744d924a6f1956f91e64fec8d3eb1f717445fd12a09fb",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_SinkDishRack",
+      "components": [
+        {
+          "model": "kitchentable_sink_large",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/kitchentable_sink_large.fbx",
+          "size_blender": [
+            1.84,
+            0.82,
+            0.83
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "dishrack_plates",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/dishrack_plates.fbx",
+          "size_blender": [
+            0.65,
+            0.41,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            0.48,
+            -0.02,
+            0.57
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "papertowel",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/papertowel.fbx",
+          "size_blender": [
+            0.13,
+            0.13,
+            0.19
+          ],
+          "bottom_centre_blender": [
+            -0.73,
+            -0.28,
+            0.57
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.9200000762939453,
+          -0.4100000858306885,
+          0.0
+        ],
+        [
+          0.9200000762939453,
+          0.4100000858306885,
+          0.8299999833106995
+        ]
+      ],
+      "size_unity": [
+        1.840000033378601,
+        0.8299999833106995,
+        0.8199999928474426
+      ],
+      "triangles": 1954,
+      "reference": {
+        "name": "SinkDishRack",
+        "source": "Art/Models/Restaurant/Stage1V2/items/SinkDishRack.fbx",
+        "min": [
+          -0.9300000071525574,
+          -0.46631479263305664,
+          -6.7612084819757e-08
+        ],
+        "max": [
+          0.9299999475479126,
+          0.41500020027160645,
+          1.0119340419769287
+        ],
+        "size": [
+          1.8599998950958252,
+          0.8813149929046631,
+          1.0119341611862183
+        ],
+        "sha256": "6d195e4f3d02f9e42bd3c8c98dde4ca44b409648036ece8b85004730eab9897c",
+        "roots": [
+          {
+            "name": "SinkDishRack",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "7d81bfb74baa5a17ced0a5be516b5a1f9cbb8a951f387b56296b873e41c4be7a",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_Fryer",
+      "components": [
+        {
+          "model": "kitchencounter_straight_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/kitchencounter_straight_A.fbx",
+          "size_blender": [
+            0.9,
+            0.8,
+            0.78
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pan_B",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pan_B.fbx",
+          "size_blender": [
+            0.61,
+            0.6,
+            0.1
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0.78
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "dishrack",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/dishrack.fbx",
+          "size_blender": [
+            0.5,
+            0.42,
+            0.11
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.02,
+            0.8
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.4500000476837158,
+          -0.4237430989742279,
+          0.0
+        ],
+        [
+          0.4500000476837158,
+          0.40000003576278687,
+          0.9337062835693359
+        ]
+      ],
+      "size_unity": [
+        0.9000000357627869,
+        0.9337062835693359,
+        0.8237431049346924
+      ],
+      "triangles": 746,
+      "reference": {
+        "name": "Fryer",
+        "source": "Art/Models/Restaurant/Stage1V2/items/Fryer.fbx",
+        "min": [
+          -0.4649999737739563,
+          -0.4663148820400238,
+          -6.761209903061172e-08
+        ],
+        "max": [
+          0.4650000333786011,
+          0.41500023007392883,
+          0.9350001811981201
+        ],
+        "size": [
+          0.9300000071525574,
+          0.8813151121139526,
+          0.9350002408027649
+        ],
+        "sha256": "b84c90546f2cf22c377310ca2e83e86a452f06d09860578099f75132d86c1165",
+        "roots": [
+          {
+            "name": "Fryer",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Pack sink and wire rack assembled as a fryer; rack is a visual basket proxy, not a bespoke fryer model.",
+      "fbx_sha256": "92f302e2070f1039c67a8e7191f3e005350d4e7733e0c7d8f40863f099fb6983",
+      "assembly_rotation_baked_z_deg": 180
+    },
+    {
+      "name": "Restaurant_TableFor2",
+      "assembly_rotation_baked_z_deg": 180,
+      "components": [
+        {
+          "model": "table_round_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/table_round_A.fbx",
+          "size_blender": [
+            0.54,
+            0.54,
+            0.69
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0,
+            -0.33,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.27000001072883606,
+          -0.47999998927116394,
+          0.0
+        ],
+        [
+          0.27000001072883606,
+          0.47999998927116394,
+          0.7599999904632568
+        ]
+      ],
+      "size_unity": [
+        0.5400000214576721,
+        0.7599999904632568,
+        0.9599999785423279
+      ],
+      "triangles": 1168,
+      "reference": {
+        "name": "TableFor2",
+        "source": "Art/Models/Restaurant/Stage1V2/items/TableFor2.fbx",
+        "min": [
+          -0.48500001430511475,
+          -0.2800000011920929,
+          -4.561779576306435e-08
+        ],
+        "max": [
+          0.48500001430511475,
+          0.2800001800060272,
+          0.9150000214576721
+        ],
+        "size": [
+          0.9700000286102295,
+          0.5600001811981201,
+          0.9150000810623169
+        ],
+        "sha256": "97d1c651942834baa2fe177d23952d55f678ad47b4ffbc2fafecd3422e8d143b",
+        "roots": [
+          {
+            "name": "TableFor2",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Chair centres use runtime Seat front/back +/-0.33, rather than old mesh side chairs. Runtime guest Seat z=+/-0.38.",
+      "fbx_sha256": "6e343b373016e0de6334290b7a1965b1671e047f71e8810df83533021fbefcb3"
+    },
+    {
+      "name": "Restaurant_TableFor4",
+      "assembly_rotation_baked_z_deg": 180,
+      "components": [
+        {
+          "model": "table_medium_long",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/table_medium_long.fbx",
+          "size_blender": [
+            1.1,
+            0.48,
+            0.68
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            -0.36,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            -0.36,
+            -0.33,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0.36,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0.36,
+            -0.33,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.550000011920929,
+          -0.48000001907348633,
+          0.0
+        ],
+        [
+          0.550000011920929,
+          0.48000001907348633,
+          0.7599999904632568
+        ]
+      ],
+      "size_unity": [
+        1.100000023841858,
+        0.7599999904632568,
+        0.9600000381469727
+      ],
+      "triangles": 1880,
+      "reference": {
+        "name": "TableFor4",
+        "source": "Art/Models/Restaurant/Stage1V2/items/TableFor4.fbx",
+        "min": [
+          -0.5600000023841858,
+          -0.49000000953674316,
+          -7.983115324350365e-08
+        ],
+        "max": [
+          0.5600000619888306,
+          0.49000024795532227,
+          0.7850001454353333
+        ],
+        "size": [
+          1.1200001239776611,
+          0.9800002574920654,
+          0.785000205039978
+        ],
+        "sha256": "35c5293af5ace5719dfb57fe76ba57ca3c08cd8c1fe5029b6d248d06a6be434f",
+        "roots": [
+          {
+            "name": "TableFor4",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "fbx_sha256": "da69708a60b5ea42d1d6c6fe33920baadae8f8267f2765179cb7533c420c00b3"
+    },
+    {
+      "name": "Restaurant_Booth",
+      "assembly_rotation_baked_z_deg": 180,
+      "components": [
+        {
+          "model": "table_medium_long",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/table_medium_long.fbx",
+          "size_blender": [
+            1.66,
+            0.42,
+            0.68
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "furniture"
+        },
+        {
+          "model": "benchCushionLow",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/benchCushionLow.glb",
+          "size_blender": [
+            0.58,
+            0.29,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            -0.61,
+            -0.32,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            -0.61,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        },
+        {
+          "model": "benchCushionLow",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/benchCushionLow.glb",
+          "size_blender": [
+            0.58,
+            0.29,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0,
+            -0.32,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        },
+        {
+          "model": "benchCushionLow",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/benchCushionLow.glb",
+          "size_blender": [
+            0.58,
+            0.29,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0.61,
+            -0.32,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0.61,
+            0.33,
+            0
+          ],
+          "rotation_z_deg": 360,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.9000000357627869,
+          -0.4800000488758087,
+          0.0
+        ],
+        [
+          0.9000000357627869,
+          0.46500009298324585,
+          0.7599999904632568
+        ]
+      ],
+      "size_unity": [
+        1.8000000715255737,
+        0.7599999904632568,
+        0.9450001418590546
+      ],
+      "triangles": 1866,
+      "reference": {
+        "name": "Booth",
+        "source": "Art/Models/Restaurant/Stage1V2/items/Booth.fbx",
+        "min": [
+          -0.9599999785423279,
+          -0.4300000071525574,
+          -7.657271794414555e-08
+        ],
+        "max": [
+          0.9599999785423279,
+          0.47000011801719666,
+          0.9350000619888306
+        ],
+        "size": [
+          1.9199999570846558,
+          0.9000000953674316,
+          0.9350001215934753
+        ],
+        "sha256": "b91838c997359f6d4bee7d18758156a7363488fb4d8495a0140387e0a89c0414",
+        "roots": [
+          {
+            "name": "Booth",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Six visible seats, three per side; rear bench modules plus front chairs. Runtime seat formula can overlap the third pair; lead owns any seating logic correction.",
+      "fbx_sha256": "21edf12e1afde3a40f749fc4f0d95b5639952b31159239d4c27f2e70d038b564"
+    },
+    {
+      "name": "Restaurant_TerraceTable",
+      "assembly_rotation_baked_z_deg": 180,
+      "components": [
+        {
+          "model": "table_round_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/table_round_A.fbx",
+          "size_blender": [
+            0.54,
+            0.54,
+            0.69
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            -0.33,
+            0,
+            0
+          ],
+          "rotation_z_deg": 90,
+          "pack": "restaurant"
+        },
+        {
+          "model": "chair_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/chair_A.fbx",
+          "size_blender": [
+            0.3,
+            0.3,
+            0.76
+          ],
+          "bottom_centre_blender": [
+            0.33,
+            0,
+            0
+          ],
+          "rotation_z_deg": 270,
+          "pack": "restaurant"
+        }
+      ],
+      "bounds_blender": [
+        [
+          -0.49000000953674316,
+          -0.49000000953674316,
+          0.0
+        ],
+        [
+          0.49000000953674316,
+          0.49000000953674316,
+          1.8600000143051147
+        ]
+      ],
+      "size_unity": [
+        0.9800000190734863,
+        1.8600000143051147,
+        0.9800000190734863
+      ],
+      "triangles": 1204,
+      "reference": {
+        "name": "TerraceTable",
+        "source": "Art/Models/Restaurant/Stage1V2/items/TerraceTable.fbx",
+        "min": [
+          -0.4999999701976776,
+          -0.2800000309944153,
+          -4.561779576306435e-08
+        ],
+        "max": [
+          0.5000001192092896,
+          0.28000015020370483,
+          0.7850001454353333
+        ],
+        "size": [
+          1.0000001192092896,
+          0.5600001811981201,
+          0.785000205039978
+        ],
+        "sha256": "dd1a8e384700738e0bcdfe376ae8b1c08c801d73b455c8c253241ced9e852a85",
+        "roots": [
+          {
+            "name": "TerraceTable",
+            "rotation": [
+              -1.6292068494294654e-07,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "notes": "Parasol added per current brief, so height 1.86m exceeds old table-only 0.785m. Seats at original side positions x=+/-0.33.",
+      "fbx_sha256": "fcd830240b57099d7b7f6c4c896b423c3d1ecd05d09a28f007f0b2d233a127b4"
+    }
+  ]
+}

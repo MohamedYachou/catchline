@@ -48,12 +48,12 @@ namespace Catchline.EditorTools
             var model = ArtLibrary.Get()?.M("Skiff");
             Check(model != null && ArtLibrary.Find(game.Boat.gameObject, "HoldLid") != null, "skiff asset and lid integrated");
             var library = ArtLibrary.Get();
-            Check(library.CrewClips.Length == 11, "eleven crew clips imported");
-            Check(ArtLibrary.Find(game.Captain.Root.gameObject, "Outfit_Captain").gameObject.activeSelf, "captain outfit visible");
-            Check(!ArtLibrary.Find(game.Captain.Root.gameObject, "Outfit_Deckhand").gameObject.activeSelf, "other outfits hidden");
-            var rig = ArtLibrary.Find(game.Captain.Root.gameObject, "CrewRig");
-            var leg = ArtLibrary.Find(rig.gameObject, "LeftUpLeg");
-            var walk = library.CrewClips.Single(c => c.name.Split('|').Last() == "Walk");
+            // Crew are the Quaternius human puppets animated by the Universal Animation Library (the captain
+            // borrows Mira's puppet). The library ships far more than the old eleven blob clips.
+            Check(library.CrewClips.Length >= 11, "crew animation library imported");
+            var rig = ArtLibrary.Find(game.Captain.Root.gameObject, "mira") ?? ArtLibrary.Find(game.Captain.Root.gameObject, "CrewRig");
+            var leg = ArtLibrary.Find(rig.gameObject, "thigh_l") ?? ArtLibrary.Find(rig.gameObject, "LeftUpLeg");
+            var walk = library.CrewClips.Single(c => c.name.Split('|').Last() == "Walk_Loop");
             walk.SampleAnimation(rig.gameObject, .1f);
             var before = leg.localRotation;
             walk.SampleAnimation(rig.gameObject, .6f);

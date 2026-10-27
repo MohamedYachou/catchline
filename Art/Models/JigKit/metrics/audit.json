@@ -1,0 +1,457 @@
+{
+  "result": "PASS",
+  "source": {
+    "triangles": 856,
+    "items": {
+      "JigPirk": {
+        "triangles": 244,
+        "bounds_blender": [
+          [
+            -0.010999999940395355,
+            -0.010778555646538734,
+            -0.14000000059604645
+          ],
+          [
+            0.012446003966033459,
+            0.010778555646538734,
+            -0.00028641216340474784
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FishSilver",
+          "M_JigBlue",
+          "M_Rubber"
+        ]
+      },
+      "JigFeathers": {
+        "triangles": 196,
+        "bounds_blender": [
+          [
+            -0.032999999821186066,
+            -0.006062177941203117,
+            -0.19999998807907104
+          ],
+          [
+            0.03594757616519928,
+            0.006062177941203117,
+            -0.0003599175252020359
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FeatherOrange",
+          "M_FeatherYellow",
+          "M_FishSilver",
+          "M_RailIvory",
+          "M_Rubber"
+        ]
+      },
+      "JigLine": {
+        "triangles": 12,
+        "bounds_blender": [
+          [
+            -0.0020000000949949026,
+            -0.0020000000949949026,
+            -1.0
+          ],
+          [
+            0.0020000000949949026,
+            0.0020000000949949026,
+            0.0
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_RailIvory"
+        ]
+      },
+      "KelpRibbon": {
+        "triangles": 60,
+        "bounds_blender": [
+          [
+            -0.20864316821098328,
+            -0.04461321607232094,
+            0.0
+          ],
+          [
+            0.17336219549179077,
+            0.0488082654774189,
+            2.5
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Kelp"
+        ]
+      },
+      "SeabedRocks": {
+        "triangles": 244,
+        "bounds_blender": [
+          [
+            -1.5,
+            -1.0,
+            0.0
+          ],
+          [
+            1.5,
+            1.0,
+            0.8105520009994507
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Sand",
+          "M_Steel"
+        ]
+      },
+      "MoteCloud": {
+        "triangles": 100,
+        "bounds_blender": [
+          [
+            -0.8152980804443359,
+            -0.9685714840888977,
+            -0.979944109916687
+          ],
+          [
+            0.9875524044036865,
+            0.9230572581291199,
+            0.9635689854621887
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FishSilver"
+        ]
+      }
+    },
+    "parents": {
+      "JigKit": null,
+      "JigPirk": "JigKit",
+      "JigFeathers": "JigKit",
+      "JigLine": "JigKit",
+      "KelpStrand": "JigKit",
+      "KelpRibbon": "KelpStrand",
+      "SeabedRocks": "JigKit",
+      "MoteCloud": "JigKit"
+    }
+  },
+  "imported": {
+    "triangles": 856,
+    "items": {
+      "JigFeathers": {
+        "triangles": 196,
+        "bounds_blender": [
+          [
+            -0.032999999821186066,
+            -0.006062207277864218,
+            -0.19999998807907104
+          ],
+          [
+            0.03594757616519928,
+            0.006062167230993509,
+            -0.000359917466994375
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FeatherOrange",
+          "M_FeatherYellow",
+          "M_FishSilver",
+          "M_RailIvory",
+          "M_Rubber"
+        ]
+      },
+      "JigLine": {
+        "triangles": 12,
+        "bounds_blender": [
+          [
+            -0.0020000000949949026,
+            -0.0020001630764454603,
+            -1.0
+          ],
+          [
+            0.0020000000949949026,
+            0.0020000000949949026,
+            3.2584138165425713e-10
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_RailIvory"
+        ]
+      },
+      "JigPirk": {
+        "triangles": 244,
+        "bounds_blender": [
+          [
+            -0.010999999940395355,
+            -0.01077857706695795,
+            -0.14000000059604645
+          ],
+          [
+            0.012446003966033459,
+            0.010778534226119518,
+            -0.0002864120760932565
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FishSilver",
+          "M_JigBlue",
+          "M_Rubber"
+        ]
+      },
+      "KelpRibbon": {
+        "triangles": 60,
+        "bounds_blender": [
+          [
+            -0.20864316821098328,
+            -0.044613052159547806,
+            -2.2808896993353756e-09
+          ],
+          [
+            0.17336219549179077,
+            0.048808321356773376,
+            2.5
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Kelp"
+        ]
+      },
+      "MoteCloud": {
+        "triangles": 100,
+        "bounds_blender": [
+          [
+            -0.8152980804443359,
+            -0.9685714840888977,
+            -0.9799441695213318
+          ],
+          [
+            0.9875524044036865,
+            0.9230572581291199,
+            0.9635691046714783
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_FishSilver"
+        ]
+      },
+      "SeabedRocks": {
+        "triangles": 244,
+        "bounds_blender": [
+          [
+            -1.5,
+            -1.0,
+            -1.5151623244946677e-07
+          ],
+          [
+            1.5,
+            1.0,
+            0.8105520009994507
+          ]
+        ],
+        "pivot_blender": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "materials": [
+          "M_Sand",
+          "M_Steel"
+        ]
+      }
+    },
+    "parents": {
+      "JigFeathers": "JigKit",
+      "JigLine": "JigKit",
+      "JigPirk": "JigKit",
+      "KelpStrand": "JigKit",
+      "KelpRibbon": "KelpStrand",
+      "MoteCloud": "JigKit",
+      "SeabedRocks": "JigKit",
+      "JigKit": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 6,
+    "max_vertex_error_metres": 4.069879651069641e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "sway_source": {
+    "name": "Sway",
+    "frames": [
+      1,
+      121
+    ],
+    "seconds": 4,
+    "loop": true,
+    "motion_m": 0.3128969246301341,
+    "closure_m": 4.557852279125556e-19,
+    "samples": [
+      1,
+      31,
+      61,
+      91,
+      121
+    ]
+  },
+  "sway_imported": {
+    "name": "KelpStrand|KelpStrand|Sway",
+    "frames": [
+      1,
+      121
+    ],
+    "seconds": 4,
+    "loop": true,
+    "motion_m": 0.31289706183755,
+    "closure_m": 4.1893280571254073e-19,
+    "samples": [
+      1,
+      31,
+      61,
+      91,
+      121
+    ]
+  },
+  "animation": {
+    "1": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 4.773752948494803e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "31": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 4.993695483790361e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "61": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 2.3949300498316006e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "91": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 2.736504143285856e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "121": {
+      "result": "PASS",
+      "mesh_count": 6,
+      "max_vertex_error_metres": 4.773752948494803e-07,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    }
+  },
+  "material_rgba_linear": {
+    "M_FeatherOrange": [
+      0.7681511640548706,
+      0.1441284716129303,
+      0.03560131415724754,
+      1.0
+    ],
+    "M_FeatherYellow": [
+      0.8879231214523315,
+      0.533276379108429,
+      0.07618538290262222,
+      1.0
+    ],
+    "M_FishSilver": [
+      0.4910208582878113,
+      0.5840784311294556,
+      0.5647115111351013,
+      1.0
+    ],
+    "M_JigBlue": [
+      0.04666508734226227,
+      0.21223075687885284,
+      0.4793201684951782,
+      1.0
+    ],
+    "M_Kelp": [
+      0.1119324266910553,
+      0.1946178376674652,
+      0.0423114113509655,
+      1.0
+    ],
+    "M_RailIvory": [
+      0.8962693810462952,
+      0.8713670969009399,
+      0.715693473815918,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ],
+    "M_Sand": [
+      0.68668532371521,
+      0.5711248517036438,
+      0.32314321398735046,
+      1.0
+    ],
+    "M_Steel": [
+      0.2746773064136505,
+      0.38132601976394653,
+      0.4125426113605499,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "f21a52c6144415cf1411c03e09a19dbece4d8c318e0af8849e2b529ad1e6e6e3",
+    "fbx": "6f1b8ac627f63963ed9a68066b70eed78cdf119b4337c45e65ffd5a0b937bbc0"
+  }
+}

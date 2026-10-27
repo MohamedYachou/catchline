@@ -1,0 +1,77 @@
+{
+  "triangles": 310,
+  "vertices": 198,
+  "bounds_unity": [
+    [
+      -0.08299999684095383,
+      0.0,
+      -0.10000000149011612
+    ],
+    [
+      0.08299999684095383,
+      0.30000001192092896,
+      0.15199999511241913
+    ]
+  ],
+  "meshes": [
+    "PuffinSkin"
+  ],
+  "materials": [
+    "M_CardinalYellow",
+    "M_GullWhite",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_Steel"
+  ],
+  "parents": {
+    "Puffin": null,
+    "PuffinSkin": "PuffinRig",
+    "PuffinRig": "Puffin"
+  },
+  "name": "Puffin",
+  "contract": {
+    "pivot": "feet contact centre",
+    "height_m": 0.3,
+    "rig": "PuffinRig",
+    "bones": [
+      "Root",
+      "Body",
+      "Head",
+      "Wing.L",
+      "Wing.R"
+    ],
+    "clips": {
+      "Idle": {
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true
+      },
+      "Flap": {
+        "frames": [
+          1,
+          13
+        ],
+        "seconds": 0.4,
+        "loop": true
+      }
+    },
+    "root_motion": false
+  },
+  "limit": 600,
+  "sha256": {
+    "blend": "28e4c41ded3692eff162290ce84fdc86088631e7bbe068e161de05411055dae1",
+    "fbx": "7c4eb22c38badafbc46522c91564e6138c3b2be2360756bb386ab913a1b7478c"
+  },
+  "palette": {
+    "M_GullWhite": "#F1F0EA",
+    "M_Rubber": "#28343B",
+    "M_SafetyOrange": "#E36A35",
+    "M_CardinalYellow": "#F2C14E",
+    "M_Steel": "#8FA6AC",
+    "M_WaterTeal": "#2E8C8A",
+    "M_LampGlow": "#FFE7A3"
+  }
+}

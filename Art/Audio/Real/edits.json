@@ -1,0 +1,2157 @@
+{
+  "task": "SOUND-3",
+  "method": "Only scanned recordings: trims, bandpass EQ, fades, transient gain control, normalization and layering. No synthesis, saturation, pitch shift or generated noise. Exact layers and source hashes below.",
+  "files": [
+    {
+      "file": "SFX/Cast_0.wav",
+      "sha256": "99a5e507c43b5fab00ef735ac3345ded0d6eba309e05958dbec1ab095be1dc8b",
+      "target_lufs": -24.2,
+      "description": "Recorded stick/hanger swish, rod casting foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-swishes-sound-pack/extracted/swishes/swish-1.wav",
+          "source_sha256": "9a15c881345c1ce1c39cc31f52f081c8c4dc81fa41111e0079400f39d3ba0e45",
+          "receipt": "sources/swishes-sound-pack--swishes.zip.scan.json",
+          "start_seconds": 0.011111111111111112,
+          "end_seconds": 0.12603174603174602,
+          "highpass_hz": 45,
+          "lowpass_hz": 9000,
+          "edge_fade_ms": 9,
+          "used_frames": 5068,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Splash_0.wav",
+      "sha256": "fa33bb37d78c382599d746e91b6834cdd1bc1932f01eeed4364b18e71e6ecfd7",
+      "target_lufs": -24.2,
+      "description": "Actual water impact recording.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash1_0.wav",
+          "source_sha256": "e45d466f7e63e5d566f8a822a7a1a3f7d5131319d17ca0436dcc615b251e9277",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash1_0.wav.scan.json",
+          "start_seconds": 0.7305442176870748,
+          "end_seconds": 1.4505442176870749,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bite_0.wav",
+      "sha256": "d8ff031b5326de0723bc3bd66a311df9cee2610574a7fafa9e0cf5119e6507a7",
+      "target_lufs": -24.2,
+      "description": "Wood touch and bucket-water contact, float-bite foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_01.ogg",
+          "source_sha256": "e7f7b1243ecd6ff3487eee1540de56f38fac606fe6218bdd49a91efc29ae1b9a",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.025555555555555557,
+          "end_seconds": 0.18555555555555556,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 7056,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.7
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash1_0.wav",
+          "source_sha256": "e45d466f7e63e5d566f8a822a7a1a3f7d5131319d17ca0436dcc615b251e9277",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash1_0.wav.scan.json",
+          "start_seconds": 0.7305442176870748,
+          "end_seconds": 0.9305442176870748,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 0.35
+        }
+      ]
+    },
+    {
+      "file": "SFX/Reel_0.wav",
+      "sha256": "e4b81464922b24d85bfce18c225211f5cd0b35ac7ecf7d07e4c316517ed6705e",
+      "target_lufs": -24.2,
+      "description": "Real bicycle-spoke rattle used as reel ratchet foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.4581179138321995,
+          "end_seconds": 1.1581179138321995,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Land_0.wav",
+      "sha256": "d57b675ce26829facdfacceb72bfa2dda5e518be5923a30f4f35ab1db77c1ce7",
+      "target_lufs": -24.2,
+      "description": "Recorded wood and water: fish landing foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_01.ogg",
+          "source_sha256": "e7f7b1243ecd6ff3487eee1540de56f38fac606fe6218bdd49a91efc29ae1b9a",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.025555555555555557,
+          "end_seconds": 0.34555555555555556,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash1_0.wav",
+          "source_sha256": "e45d466f7e63e5d566f8a822a7a1a3f7d5131319d17ca0436dcc615b251e9277",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash1_0.wav.scan.json",
+          "start_seconds": 0.7305442176870748,
+          "end_seconds": 1.2005442176870749,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 20727,
+          "at_seconds": 0.035,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stow_0.wav",
+      "sha256": "864e7eadd6cf2bbf74abd943199e6aa01f5b012d8d2d38f71f55344da41607a3",
+      "target_lufs": -24.2,
+      "description": "Recorded wood contact with cloth movement, crate stow foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_01.ogg",
+          "source_sha256": "e7f7b1243ecd6ff3487eee1540de56f38fac606fe6218bdd49a91efc29ae1b9a",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.025555555555555557,
+          "end_seconds": 0.34555555555555556,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_01.wav",
+          "source_sha256": "7a2ca69337c8c0524dde4f34aeefbcdc63a8c7528f62fd3e3a6ed98f4c1ff75e",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.5236054421768708,
+          "end_seconds": 0.9236054421768708,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0.03,
+          "relative_rms_gain": 0.4
+        }
+      ]
+    },
+    {
+      "file": "SFX/Moor_0.wav",
+      "sha256": "17e0e045e0390f7248206b67f0a5f9afc807689dd0ecf39200f8b3eabe54f868",
+      "target_lufs": -24.2,
+      "description": "Recorded wood contact and tree creak, mooring foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_01.ogg",
+          "source_sha256": "e7f7b1243ecd6ff3487eee1540de56f38fac606fe6218bdd49a91efc29ae1b9a",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.025555555555555557,
+          "end_seconds": 0.34555555555555556,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.75
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 3.116349206349206,
+          "end_seconds": 3.766349206349206,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.5
+        }
+      ]
+    },
+    {
+      "file": "SFX/Sale_0.wav",
+      "sha256": "11ec817487348f7e3e93214997bf339b99fcc86dae943cbd635bf621b1922296",
+      "target_lufs": -24.2,
+      "description": "Recorded paper and real coin handling.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/paper_01.ogg",
+          "source_sha256": "b2b2b55e44761c7a45283bce0196f41f72207180fb08c970d7dcf93b705d280c",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.020975056689342405,
+          "end_seconds": 0.42097505668934243,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.35
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 14.157256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0.07,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Select_0.wav",
+      "sha256": "b65b7bd4b52a24c3196ef5438dd12516dd1cdaebc41119536a8695a50f42242b",
+      "target_lufs": -32.2,
+      "description": "Damped recorded physical switch contact.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_01.ogg",
+          "source_sha256": "a24004ad0adbc08571324456963533c496bd27cf4808b40cb90833dc06b95792",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.013197278911564626,
+          "end_seconds": 0.11319727891156463,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Purchase_0.wav",
+      "sha256": "625f45ea712fec8dc5c50763c3e0697c143c9a9f9961c1c9549c0c143a7b3b68",
+      "target_lufs": -32.2,
+      "description": "Quiet real coin touch; no tonal reward.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 13.577256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 5292,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Click_0.wav",
+      "sha256": "1570241f03e90346d98d4b32998a6c4c1b0fe204a84c468152b93cb7ed7f22a3",
+      "target_lufs": -32.800000000000004,
+      "description": "Short recorded switch touch.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_01.ogg",
+          "source_sha256": "a24004ad0adbc08571324456963533c496bd27cf4808b40cb90833dc06b95792",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.013197278911564626,
+          "end_seconds": 0.11319727891156463,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bell_0.wav",
+      "sha256": "883f06ff81e8fd378e5cd94416c2384cfc0948fcd68f87de8df7554dcaa4ed31",
+      "target_lufs": -27.2,
+      "description": "Recorded household bell; buoy-bell foley, not an actual buoy.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/bell_01.ogg",
+          "source_sha256": "b29cf8f3885eb2a266a16455227288dd3e004ea0414d2823b1a8677915f862d1",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0,
+          "end_seconds": 1.1107936507936509,
+          "highpass_hz": 45,
+          "lowpass_hz": 8500,
+          "edge_fade_ms": 9,
+          "used_frames": 48986,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Creak_0.wav",
+      "sha256": "83e9ffb4828099a0fc6c814d52a8bb7e21c7ac75bc3c7842be4ebae265b258cd",
+      "target_lufs": -24.2,
+      "description": "Recorded tree/wood creak.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 3.116349206349206,
+          "end_seconds": 3.766349206349206,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Winch_0.wav",
+      "sha256": "fb4507b4c0a04448891d5bab139f6580b74d0801385586f09566c66068ab6493",
+      "target_lufs": -24.2,
+      "description": "Recorded bicycle-spoke ratchet; short hauler foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.7681179138321995,
+          "end_seconds": 1.1581179138321995,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 17199,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/CrabClack_0.wav",
+      "sha256": "3b3206ba69b4da49c4d8fa1712bd4c060c06e2cf26c1f59d51a527b4cb28173f",
+      "target_lufs": -24.2,
+      "description": "Small recorded metal contact used as shell/claw foley; not a crab vocalization.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/metal_01.ogg",
+          "source_sha256": "f638423b1c67c9aeb0db9410b968ca1a89de728f3117f1bdd35a4fc7be4130ed",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04784580498866213,
+          "end_seconds": 0.30784580498866215,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 11466,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/NetSlap_0.wav",
+      "sha256": "c88e56c023226098506c3a4d3e5ce512a178bb5a962b9b37b6f847b972f5713f",
+      "target_lufs": -24.2,
+      "description": "Recorded cloth and bucket water, wet net impact foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_01.wav",
+          "source_sha256": "7a2ca69337c8c0524dde4f34aeefbcdc63a8c7528f62fd3e3a6ed98f4c1ff75e",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.5236054421768708,
+          "end_seconds": 0.9236054421768708,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.45
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash1_0.wav",
+          "source_sha256": "e45d466f7e63e5d566f8a822a7a1a3f7d5131319d17ca0436dcc615b251e9277",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash1_0.wav.scan.json",
+          "start_seconds": 0.7305442176870748,
+          "end_seconds": 1.4505442176870749,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Gut_0.wav",
+      "sha256": "caec9c0a439cf85de7b3c035b4b16da157a349932a603870b65245a3809afaf1",
+      "target_lufs": -24.2,
+      "description": "Actual knife cutting pumpkin, wet cutting foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-cut-peel-a-pumpkin/cut_pumpkin_01.ogg",
+          "source_sha256": "551b9354e000df33ede6e6e52787e7edbeecab31b37644ff1d79e17dbc10fa87",
+          "receipt": "sources/cut-peel-a-pumpkin--cut_pumpkin_01.ogg.scan.json",
+          "start_seconds": 1.5098639455782312,
+          "end_seconds": 2.1598639455782314,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Coins_0.wav",
+      "sha256": "88d409ec3180917b0c902aee18c74cd2d787c3e92431e354657b6713d6d9e957",
+      "target_lufs": -24.2,
+      "description": "Actual coins recorded by syncopika.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 14.157256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/DogBark_0.wav",
+      "sha256": "ca0cbd219ac92892a66a6069499bd116bd673dca99f71e2de3908e906d974378",
+      "target_lufs": -27.2,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Bark.ogg",
+          "source_sha256": "63b3bf366bc9be26f8f29be2460ae60f8efe898347a00c570552a2ffd5467f59",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0,
+          "end_seconds": 0.22952380952380952,
+          "highpass_hz": 45,
+          "lowpass_hz": 7500,
+          "edge_fade_ms": 9,
+          "used_frames": 10122,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Meow_0.wav",
+      "sha256": "ce5eae82659d0542edc963265d8cf84759d3ce26fead63b563b8956dd5ac1f3c",
+      "target_lufs": -27.2,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Meow.ogg",
+          "source_sha256": "f9adc65bb9b0697b6302c1a8e5728602583f812aaed7750113e61df059903158",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0033333333333333335,
+          "end_seconds": 0.9339002267573696,
+          "highpass_hz": 45,
+          "lowpass_hz": 7500,
+          "edge_fade_ms": 9,
+          "used_frames": 41038,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stitch_0.wav",
+      "sha256": "bbffc0ad6306420ed6060120da1fa8c42b5715f5aebc03ea8d468db3f470613b",
+      "target_lufs": -29.2,
+      "description": "Recorded cloth pull, net-mending foley; not a literal needle recording.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_01.wav",
+          "source_sha256": "7a2ca69337c8c0524dde4f34aeefbcdc63a8c7528f62fd3e3a6ed98f4c1ff75e",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.5236054421768708,
+          "end_seconds": 0.7236054421768707,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/PotDrop_0.wav",
+      "sha256": "07fd4962b87164bf112abf6f467e2f2266f074da30953d41b9ea951470425be4",
+      "target_lufs": -25.2,
+      "description": "Recorded pot contact, cloth and water: pot-over-rail foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/pot_01.ogg",
+          "source_sha256": "5ceca8a2a860e8c8c0e96f74714b4b4f66a562e76353fdbf62bc94868e797778",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1209297052154195,
+          "end_seconds": 0.3709297052154195,
+          "highpass_hz": 45,
+          "lowpass_hz": 3500,
+          "edge_fade_ms": 9,
+          "used_frames": 11025,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_01.wav",
+          "source_sha256": "7a2ca69337c8c0524dde4f34aeefbcdc63a8c7528f62fd3e3a6ed98f4c1ff75e",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.5236054421768708,
+          "end_seconds": 0.7236054421768707,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.22
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash1_0.wav",
+          "source_sha256": "e45d466f7e63e5d566f8a822a7a1a3f7d5131319d17ca0436dcc615b251e9277",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash1_0.wav.scan.json",
+          "start_seconds": 0.7305442176870748,
+          "end_seconds": 1.4505442176870749,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.16,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Cast_1.wav",
+      "sha256": "7cf6bc9b4cd9246f7c2ac7b8c82be4dcac5915b77892a94e91e4ffd27ef553ba",
+      "target_lufs": -24.0,
+      "description": "Recorded stick/hanger swish, rod casting foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-swishes-sound-pack/extracted/swishes/swish-2.wav",
+          "source_sha256": "1ce7752cce3d43f16fc222ad7f7ffb69d9a5fc01e64b93d205765fc37b8e9b0d",
+          "receipt": "sources/swishes-sound-pack--swishes.zip.scan.json",
+          "start_seconds": 0.0068480725623582765,
+          "end_seconds": 0.09582766439909297,
+          "highpass_hz": 45,
+          "lowpass_hz": 9000,
+          "edge_fade_ms": 9,
+          "used_frames": 3924,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Splash_1.wav",
+      "sha256": "985da2ced1087528d09ba9f551364f59784cc165ebe035983c4088b901c71639",
+      "target_lufs": -24.0,
+      "description": "Actual water impact recording.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash2_0.wav",
+          "source_sha256": "ad9472b711666de2d43c3b102d155a5d1118b1fcd0ecd29cb63177256ab63f31",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash2_0.wav.scan.json",
+          "start_seconds": 0.7917687074829932,
+          "end_seconds": 1.511768707482993,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bite_1.wav",
+      "sha256": "e2ae19d7904b21aaf3995f5b34ca46357e8ca4cc23d0faaff48f943ceb869afe",
+      "target_lufs": -24.0,
+      "description": "Wood touch and bucket-water contact, float-bite foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_02.ogg",
+          "source_sha256": "a6f6edf91a63c5af9059f70df0ac4e3fcee2c57342dc41dd3a166810365392fd",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04834467120181406,
+          "end_seconds": 0.20834467120181405,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 7056,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.7
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash2_0.wav",
+          "source_sha256": "ad9472b711666de2d43c3b102d155a5d1118b1fcd0ecd29cb63177256ab63f31",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash2_0.wav.scan.json",
+          "start_seconds": 0.7917687074829932,
+          "end_seconds": 0.9917687074829933,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 0.35
+        }
+      ]
+    },
+    {
+      "file": "SFX/Reel_1.wav",
+      "sha256": "4c62f62d6eecf27daa3f2a81bce645f3b631efc320e8bcbeab0cc563698c2cf2",
+      "target_lufs": -24.0,
+      "description": "Real bicycle-spoke rattle used as reel ratchet foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.4581179138321995,
+          "end_seconds": 1.1581179138321995,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Land_1.wav",
+      "sha256": "ae9df84049eea4b372e4c37e434e050115a323b7a5f6758e0161cfbd92f308a3",
+      "target_lufs": -24.0,
+      "description": "Recorded wood and water: fish landing foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_02.ogg",
+          "source_sha256": "a6f6edf91a63c5af9059f70df0ac4e3fcee2c57342dc41dd3a166810365392fd",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04834467120181406,
+          "end_seconds": 0.3683446712018141,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash2_0.wav",
+          "source_sha256": "ad9472b711666de2d43c3b102d155a5d1118b1fcd0ecd29cb63177256ab63f31",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash2_0.wav.scan.json",
+          "start_seconds": 0.7917687074829932,
+          "end_seconds": 1.261768707482993,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 20727,
+          "at_seconds": 0.035,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stow_1.wav",
+      "sha256": "ae232013ebc1a464d017823bdd2d3df6f8922bf5d6650f5943379175c18bdde5",
+      "target_lufs": -24.0,
+      "description": "Recorded wood contact with cloth movement, crate stow foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_02.ogg",
+          "source_sha256": "a6f6edf91a63c5af9059f70df0ac4e3fcee2c57342dc41dd3a166810365392fd",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04834467120181406,
+          "end_seconds": 0.3683446712018141,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_02.wav",
+          "source_sha256": "dd738a581248f52e8c1a81ad41b7291c7b7ada740073c4791827760fe0b11768",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.41766439909297054,
+          "end_seconds": 0.8176643990929706,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0.03,
+          "relative_rms_gain": 0.4
+        }
+      ]
+    },
+    {
+      "file": "SFX/Moor_1.wav",
+      "sha256": "dc5c035d077d765fc2f556e4e3c86bde97c46023299166f78e24fed6ddc1ed56",
+      "target_lufs": -24.0,
+      "description": "Recorded wood contact and tree creak, mooring foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_02.ogg",
+          "source_sha256": "a6f6edf91a63c5af9059f70df0ac4e3fcee2c57342dc41dd3a166810365392fd",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04834467120181406,
+          "end_seconds": 0.3683446712018141,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.75
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 3.116349206349206,
+          "end_seconds": 3.766349206349206,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.5
+        }
+      ]
+    },
+    {
+      "file": "SFX/Sale_1.wav",
+      "sha256": "b9ad6b2185100289ce1b0df99d49c4a8f6c0fb408fda47b64c0fffbe96f9e271",
+      "target_lufs": -24.0,
+      "description": "Recorded paper and real coin handling.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/paper_02.ogg",
+          "source_sha256": "4d0c68b367bd3fbdf9817e764908e5524b2cad6536eb0911fc74f6ab4f60c50a",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.14777777777777779,
+          "end_seconds": 0.5477777777777778,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.35
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 14.157256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0.07,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Select_1.wav",
+      "sha256": "710eeadf627d34a5b4ec62a8d9d990d023d3ebe2a1f75a2a4b2d726cdac9f25d",
+      "target_lufs": -32.0,
+      "description": "Damped recorded physical switch contact.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_02.ogg",
+          "source_sha256": "769dca6ccbea5c33cef602cdaa6ab0350b0dc2b093f02eae36f33e2552036f67",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1827437641723356,
+          "end_seconds": 0.2827437641723356,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Purchase_1.wav",
+      "sha256": "fcc359fc3e1c7ad355e962e979d639f6e3295418c27a387f16eef57786912577",
+      "target_lufs": -32.0,
+      "description": "Quiet real coin touch; no tonal reward.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 13.577256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 5292,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Click_1.wav",
+      "sha256": "9060a3bee56c4f2b240db2a4a12de6f3f8a6103e86835543bfb31bce7a33dc0b",
+      "target_lufs": -32.6,
+      "description": "Short recorded switch touch.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_02.ogg",
+          "source_sha256": "769dca6ccbea5c33cef602cdaa6ab0350b0dc2b093f02eae36f33e2552036f67",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1827437641723356,
+          "end_seconds": 0.2827437641723356,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bell_1.wav",
+      "sha256": "e6e68159828db5b6402861b3e86f720d74318496417b3e7ba29990232660ffd2",
+      "target_lufs": -27.0,
+      "description": "Recorded household bell; buoy-bell foley, not an actual buoy.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/bell_02.ogg",
+          "source_sha256": "ea47ae29d3fe87c82414881084cf5dfa4a0a43c6def7437fcafbc21ffbf3ec72",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.005238095238095238,
+          "end_seconds": 0.4427891156462585,
+          "highpass_hz": 45,
+          "lowpass_hz": 8500,
+          "edge_fade_ms": 9,
+          "used_frames": 19296,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Creak_1.wav",
+      "sha256": "ca8857b00cfad41ef117e2e651ecc24141d6326aa598eda9eae2cac67a718915",
+      "target_lufs": -24.0,
+      "description": "Recorded tree/wood creak.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 3.116349206349206,
+          "end_seconds": 3.766349206349206,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Winch_1.wav",
+      "sha256": "8158bd1475d531fa7ca79f4084c98ff38ce97b0f98a2bba36f312ebe185c28c6",
+      "target_lufs": -24.0,
+      "description": "Recorded bicycle-spoke ratchet; short hauler foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.6858503401360544,
+          "end_seconds": 1.0758503401360544,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 17199,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/CrabClack_1.wav",
+      "sha256": "cb99c8632eaf7b88379e0155e74ef60a00907417d88793d9c3ee8145aa85d6b4",
+      "target_lufs": -24.0,
+      "description": "Small recorded metal contact used as shell/claw foley; not a crab vocalization.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/metal_02.ogg",
+          "source_sha256": "545c2d698e72e1a3f0f22407fc0567a1f1041d9dbeff528bef0947284b45fdf2",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.010657596371882086,
+          "end_seconds": 0.2706575963718821,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 11466,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/NetSlap_1.wav",
+      "sha256": "200ff74e5e552fe91fa9d62a6d79dae76989c4fc2f56158ea1e58c608b5ae266",
+      "target_lufs": -24.0,
+      "description": "Recorded cloth and bucket water, wet net impact foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_02.wav",
+          "source_sha256": "dd738a581248f52e8c1a81ad41b7291c7b7ada740073c4791827760fe0b11768",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.41766439909297054,
+          "end_seconds": 0.8176643990929706,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.45
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash2_0.wav",
+          "source_sha256": "ad9472b711666de2d43c3b102d155a5d1118b1fcd0ecd29cb63177256ab63f31",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash2_0.wav.scan.json",
+          "start_seconds": 0.7917687074829932,
+          "end_seconds": 1.511768707482993,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Gut_1.wav",
+      "sha256": "b8f2bc7a5c435f5488dfae1051067381ce6dca3947ba0ec11d8edecb56572e39",
+      "target_lufs": -24.0,
+      "description": "Actual knife cutting pumpkin, wet cutting foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-cut-peel-a-pumpkin/cut_pumpkin_02.ogg",
+          "source_sha256": "0cb822c141fe3271724b25a3decb6f5c11a8c38f5ef2a6d68d491c8ad84cd27e",
+          "receipt": "sources/cut-peel-a-pumpkin--cut_pumpkin_02.ogg.scan.json",
+          "start_seconds": 1.5098639455782312,
+          "end_seconds": 2.1598639455782314,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Coins_1.wav",
+      "sha256": "4fb3963eb6809e8692dafad9f3f45561b38792395fd89342a3805e4cda2c6ae1",
+      "target_lufs": -24.0,
+      "description": "Actual coins recorded by syncopika.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 13.457256235827664,
+          "end_seconds": 14.157256235827663,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/DogBark_1.wav",
+      "sha256": "a85ae0d9931defbf75efd9dd2b44e92eea737e33ce4c5ea022aec5030c4d42fd",
+      "target_lufs": -27.0,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Bark.ogg",
+          "source_sha256": "63b3bf366bc9be26f8f29be2460ae60f8efe898347a00c570552a2ffd5467f59",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0,
+          "end_seconds": 0.22952380952380952,
+          "highpass_hz": 45,
+          "lowpass_hz": 7150,
+          "edge_fade_ms": 9,
+          "used_frames": 10122,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Meow_1.wav",
+      "sha256": "38f8911107598ae61b2895dca09fc684a888f3ce25e513f92054f3a8eedf1795",
+      "target_lufs": -27.0,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Meow.ogg",
+          "source_sha256": "f9adc65bb9b0697b6302c1a8e5728602583f812aaed7750113e61df059903158",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0033333333333333335,
+          "end_seconds": 0.9339002267573696,
+          "highpass_hz": 45,
+          "lowpass_hz": 7150,
+          "edge_fade_ms": 9,
+          "used_frames": 41038,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stitch_1.wav",
+      "sha256": "67d59cec6a5decf4980711a4ab3654e74f3dc7a706619bea28296eaddede64f1",
+      "target_lufs": -29.0,
+      "description": "Recorded cloth pull, net-mending foley; not a literal needle recording.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_02.wav",
+          "source_sha256": "dd738a581248f52e8c1a81ad41b7291c7b7ada740073c4791827760fe0b11768",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.41766439909297054,
+          "end_seconds": 0.6176643990929706,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/PotDrop_1.wav",
+      "sha256": "2b8b00e9240f57fad1f680e82ca3c6d84af00a9ba99f3ab38ea64e6e0b374e61",
+      "target_lufs": -25.0,
+      "description": "Recorded pot contact, cloth and water: pot-over-rail foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/pot_02.ogg",
+          "source_sha256": "d91aaf0c5f98e8c5380a8c28085d1f77ecdfba0a7307879abd72faaebefa3e94",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.33140589569161,
+          "end_seconds": 0.5814058956916099,
+          "highpass_hz": 45,
+          "lowpass_hz": 3500,
+          "edge_fade_ms": 9,
+          "used_frames": 11025,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_02.wav",
+          "source_sha256": "dd738a581248f52e8c1a81ad41b7291c7b7ada740073c4791827760fe0b11768",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 0.41766439909297054,
+          "end_seconds": 0.6176643990929706,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.22
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-water-splash-and-sand-footsteps/splash2_0.wav",
+          "source_sha256": "ad9472b711666de2d43c3b102d155a5d1118b1fcd0ecd29cb63177256ab63f31",
+          "receipt": "sources/water-splash-and-sand-footsteps--splash2_0.wav.scan.json",
+          "start_seconds": 0.7917687074829932,
+          "end_seconds": 1.511768707482993,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.16,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Cast_2.wav",
+      "sha256": "cde81ec03a983303c9b38473529a68f5645f4db8e012c6d2506e80dfa7cc4e68",
+      "target_lufs": -23.8,
+      "description": "Recorded stick/hanger swish, rod casting foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-swishes-sound-pack/extracted/swishes/swish-3.wav",
+          "source_sha256": "55b100e2c67fa43dad8510e31e85bbd51a68d5ce84a6e0259e21e19030083e24",
+          "receipt": "sources/swishes-sound-pack--swishes.zip.scan.json",
+          "start_seconds": 0.019115646258503403,
+          "end_seconds": 0.1458503401360544,
+          "highpass_hz": 45,
+          "lowpass_hz": 9000,
+          "edge_fade_ms": 9,
+          "used_frames": 5589,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Splash_2.wav",
+      "sha256": "dddb572e4c7435bb0153ce8b4fe038723df5ebb72ac9dc88cd874d45185d8fb9",
+      "target_lufs": -23.8,
+      "description": "Actual water impact recording.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/splash_01.ogg",
+          "source_sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0017687074829931973,
+          "end_seconds": 0.7217687074829932,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bite_2.wav",
+      "sha256": "005550d857e4da5cb451d8217c48cd0987bcc80e9b43521f558c8397993f13cb",
+      "target_lufs": -23.8,
+      "description": "Wood touch and bucket-water contact, float-bite foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_03.ogg",
+          "source_sha256": "864c68b8622eaf900f2b9932d2998cc9840dc95b61a148e37550ddb382c92777",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04056689342403628,
+          "end_seconds": 0.20056689342403627,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 7056,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.7
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/splash_01.ogg",
+          "source_sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0017687074829931973,
+          "end_seconds": 0.20176870748299322,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 0.35
+        }
+      ]
+    },
+    {
+      "file": "SFX/Reel_2.wav",
+      "sha256": "d69bf4d1bff9b8e4ea5f28b172cb57356f7bce5a59555a18da15b126bb0ebb01",
+      "target_lufs": -23.8,
+      "description": "Real bicycle-spoke rattle used as reel ratchet foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.4581179138321995,
+          "end_seconds": 1.1581179138321995,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Land_2.wav",
+      "sha256": "bcdad3f92e1778a6fa2d7bd47a9135951d55af6637ccf847a1b7b458be9e1bef",
+      "target_lufs": -23.8,
+      "description": "Recorded wood and water: fish landing foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_03.ogg",
+          "source_sha256": "864c68b8622eaf900f2b9932d2998cc9840dc95b61a148e37550ddb382c92777",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04056689342403628,
+          "end_seconds": 0.3605668934240363,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/splash_01.ogg",
+          "source_sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0017687074829931973,
+          "end_seconds": 0.47176870748299315,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 20727,
+          "at_seconds": 0.035,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stow_2.wav",
+      "sha256": "de81e653dfe6dee76e4950ef22270823e83bbc40454511d54d50b538d574a518",
+      "target_lufs": -23.8,
+      "description": "Recorded wood contact with cloth movement, crate stow foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_03.ogg",
+          "source_sha256": "864c68b8622eaf900f2b9932d2998cc9840dc95b61a148e37550ddb382c92777",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04056689342403628,
+          "end_seconds": 0.3605668934240363,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_03.wav",
+          "source_sha256": "0852458e2e59541e3d759436c7a6cf8931f50ce6218d7cdecf2527422fc4d7bc",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 1.2909297052154196,
+          "end_seconds": 1.6909297052154195,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0.03,
+          "relative_rms_gain": 0.4
+        }
+      ]
+    },
+    {
+      "file": "SFX/Moor_2.wav",
+      "sha256": "a8840b6fa045ef7c2efe240d3cb1d44153c3af4d7408ed6ae6cd718ce17a43e1",
+      "target_lufs": -23.8,
+      "description": "Recorded wood contact and tree creak, mooring foley.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/wooden_03.ogg",
+          "source_sha256": "864c68b8622eaf900f2b9932d2998cc9840dc95b61a148e37550ddb382c92777",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.04056689342403628,
+          "end_seconds": 0.3605668934240363,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 14112,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.75
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 4.566780045351474,
+          "end_seconds": 5.2167800453514745,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.5
+        }
+      ]
+    },
+    {
+      "file": "SFX/Sale_2.wav",
+      "sha256": "f40d4f5619c5d26e0c6dadd386d6149f4aba046fb3ee5f0ddbf15401a5357e68",
+      "target_lufs": -23.8,
+      "description": "Recorded paper and real coin handling.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/paper_03.ogg",
+          "source_sha256": "90147dde68b9e2082404f439165bbcb6f7c2364e88e9373d1cd1f7446a37f7b2",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.14959183673469387,
+          "end_seconds": 0.5495918367346939,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.35
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 18.487755102040815,
+          "end_seconds": 19.187755102040814,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0.07,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Select_2.wav",
+      "sha256": "69bed98588e838895f5dba8d6c99cec1dc48f3ac5c29cee08174f123c64c8160",
+      "target_lufs": -31.8,
+      "description": "Damped recorded physical switch contact.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_01.ogg",
+          "source_sha256": "a24004ad0adbc08571324456963533c496bd27cf4808b40cb90833dc06b95792",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1314512471655329,
+          "end_seconds": 0.2314512471655329,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Purchase_2.wav",
+      "sha256": "235510b4ee6a7ba52b6d071ab89e4a59d47ca4dd0ff22d931a68e405ca9665eb",
+      "target_lufs": -31.8,
+      "description": "Quiet real coin touch; no tonal reward.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 18.487755102040815,
+          "end_seconds": 18.607755102040816,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 5292,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Click_2.wav",
+      "sha256": "8559235dedcac723ef1404ab901df53bafba38d34780c74f469a9f466d109bdb",
+      "target_lufs": -32.4,
+      "description": "Short recorded switch touch.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/switch_01.ogg",
+          "source_sha256": "a24004ad0adbc08571324456963533c496bd27cf4808b40cb90833dc06b95792",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1314512471655329,
+          "end_seconds": 0.2314512471655329,
+          "highpass_hz": 45,
+          "lowpass_hz": 4500,
+          "edge_fade_ms": 9,
+          "used_frames": 4410,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Bell_2.wav",
+      "sha256": "3371775253b05b11ebe5b60aab187732b78a8aa5d16e61e22012ecf1b0449086",
+      "target_lufs": -26.8,
+      "description": "Recorded household bell; buoy-bell foley, not an actual buoy.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/bell_03.ogg",
+          "source_sha256": "9440896c5ffbc85d045b88953057d12019ddbf052f3694615216d83161a9e2d9",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.03428571428571429,
+          "end_seconds": 1.2847392290249433,
+          "highpass_hz": 45,
+          "lowpass_hz": 8500,
+          "edge_fade_ms": 9,
+          "used_frames": 55145,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Creak_2.wav",
+      "sha256": "f3ed4dd3a03b83eeec07b661af11de0f390cd8d972906eac8a50e2ab024f685a",
+      "target_lufs": -23.8,
+      "description": "Recorded tree/wood creak.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-tree-creaking/tree_creak.flac",
+          "source_sha256": "9bab7c7f68850136c43fb91216c7c1760ac2bda22b2a31659905c559a464d422",
+          "receipt": "sources/tree-creaking--tree_creak.flac.scan.json",
+          "start_seconds": 4.566780045351474,
+          "end_seconds": 5.2167800453514745,
+          "highpass_hz": 45,
+          "lowpass_hz": 4200,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Winch_2.wav",
+      "sha256": "850c99bd96af4b7305175e583c1f93bd7e4a96a1a34108ebdd188874e237c751",
+      "target_lufs": -23.8,
+      "description": "Recorded bicycle-spoke ratchet; short hauler foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-bicycle-sounds/extracted/bicycle_spokes-1.wav",
+          "source_sha256": "556848fe9cb9e150abf0a241b2d0ee82706a200e1d1afe0d5d91112e6d66af2b",
+          "receipt": "sources/bicycle-sounds--bicycle_sounds.zip.scan.json",
+          "start_seconds": 0.7681179138321995,
+          "end_seconds": 1.1581179138321995,
+          "highpass_hz": 45,
+          "lowpass_hz": 5000,
+          "edge_fade_ms": 9,
+          "used_frames": 17199,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/CrabClack_2.wav",
+      "sha256": "3a80ec8bb8747bb5b136019878fd42b1bcaa873bbbdd2c3156ba3bcced79397c",
+      "target_lufs": -23.8,
+      "description": "Small recorded metal contact used as shell/claw foley; not a crab vocalization.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/metal_03.ogg",
+          "source_sha256": "35ec56e5136e7091f36470c3e502e714819c9ff843baff0910b095571459f274",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0,
+          "end_seconds": 0.26,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 11466,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/NetSlap_2.wav",
+      "sha256": "f78ff8fc7240257d006b648ab19b4340a24326cecc0bd2cad6213c2930a9fdd3",
+      "target_lufs": -23.8,
+      "description": "Recorded cloth and bucket water, wet net impact foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_03.wav",
+          "source_sha256": "0852458e2e59541e3d759436c7a6cf8931f50ce6218d7cdecf2527422fc4d7bc",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 1.2909297052154196,
+          "end_seconds": 1.6909297052154195,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 17640,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.45
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/splash_01.ogg",
+          "source_sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0017687074829931973,
+          "end_seconds": 0.7217687074829932,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.025,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Gut_2.wav",
+      "sha256": "8d3fee1853873cd043d523e214d2df08bcc27cac8f6b4fe70c9f3d7c5756389b",
+      "target_lufs": -23.8,
+      "description": "Actual knife cutting pumpkin, wet cutting foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-cut-peel-a-pumpkin/cut_pumpkin_03.ogg",
+          "source_sha256": "6319ed3ad499e39dc06639aa1a3d5987542d91774b4031163ce4d53b3edd5be8",
+          "receipt": "sources/cut-peel-a-pumpkin--cut_pumpkin_03.ogg.scan.json",
+          "start_seconds": 0.8360544217687075,
+          "end_seconds": 1.4860544217687075,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 28665,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Coins_2.wav",
+      "sha256": "c0ac2bbb2ae052aa6e8e92e6886be8b08606426ea48db7a8ca7ad9806308fdfa",
+      "target_lufs": -23.8,
+      "description": "Actual coins recorded by syncopika.",
+      "transient_gain_control_passes": 12,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-coin-sounds/coinsounds011015.wav",
+          "source_sha256": "58ea9a7191bf7ff370bf9bb06940802b378bd32d5800adaff4ad6173d13430af",
+          "receipt": "sources/coin-sounds--coinsounds011015.wav.scan.json",
+          "start_seconds": 18.487755102040815,
+          "end_seconds": 19.187755102040814,
+          "highpass_hz": 45,
+          "lowpass_hz": 7200,
+          "edge_fade_ms": 9,
+          "used_frames": 30870,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/DogBark_2.wav",
+      "sha256": "4ee918d138ef1a12e410195b9819c5bf06655f064bd0d914c81f24b6ff4b7048",
+      "target_lufs": -26.8,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Bark.ogg",
+          "source_sha256": "63b3bf366bc9be26f8f29be2460ae60f8efe898347a00c570552a2ffd5467f59",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0,
+          "end_seconds": 0.22952380952380952,
+          "highpass_hz": 45,
+          "lowpass_hz": 6800,
+          "edge_fade_ms": 9,
+          "used_frames": 10122,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Meow_2.wav",
+      "sha256": "1409a5f80c1e872ab17066793fa8423326dce6f43649972ecc42f8f0a18f68a8",
+      "target_lufs": -26.8,
+      "description": "Real juvenile animal call; three subtle EQ/gain edits of ONE source take, not three distinct calls.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-baby-animals-sounds-pack/extracted/Meow.ogg",
+          "source_sha256": "f9adc65bb9b0697b6302c1a8e5728602583f812aaed7750113e61df059903158",
+          "receipt": "sources/baby-animals-sounds-pack--baby-animals_0.zip.scan.json",
+          "start_seconds": 0.0033333333333333335,
+          "end_seconds": 0.9339002267573696,
+          "highpass_hz": 45,
+          "lowpass_hz": 6800,
+          "edge_fade_ms": 9,
+          "used_frames": 41038,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/Stitch_2.wav",
+      "sha256": "bc16c8e0a92bb2cb5a67564abfa57b73d6347a6c274db2d11f90a74ef53ab7e5",
+      "target_lufs": -28.8,
+      "description": "Recorded cloth pull, net-mending foley; not a literal needle recording.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_03.wav",
+          "source_sha256": "0852458e2e59541e3d759436c7a6cf8931f50ce6218d7cdecf2527422fc4d7bc",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 1.2909297052154196,
+          "end_seconds": 1.4909297052154196,
+          "highpass_hz": 45,
+          "lowpass_hz": 6000,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "SFX/PotDrop_2.wav",
+      "sha256": "68e2a879e93eab84cfad3b4a4e5ec55c1d10a435441625ee55c90f221fff8bbc",
+      "target_lufs": -24.8,
+      "description": "Recorded pot contact, cloth and water: pot-over-rail foley.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/pot_01.ogg",
+          "source_sha256": "5ceca8a2a860e8c8c0e96f74714b4b4f66a562e76353fdbf62bc94868e797778",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.1209297052154195,
+          "end_seconds": 0.3709297052154195,
+          "highpass_hz": 45,
+          "lowpass_hz": 3500,
+          "edge_fade_ms": 9,
+          "used_frames": 11025,
+          "at_seconds": 0,
+          "relative_rms_gain": 0.65
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-202-more-sound-effects/extracted/Cloth/Cloth_03.wav",
+          "source_sha256": "0852458e2e59541e3d759436c7a6cf8931f50ce6218d7cdecf2527422fc4d7bc",
+          "receipt": "sources/202-more-sound-effects--MoreSounds.zip.scan.json",
+          "start_seconds": 1.2909297052154196,
+          "end_seconds": 1.4909297052154196,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 8820,
+          "at_seconds": 0.04,
+          "relative_rms_gain": 0.22
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-100-cc0-sfx/extracted/splash_01.ogg",
+          "source_sha256": "8d48e8da680fbdfd3c885aa2f69d8e83ad16717bae43d178861d7af08d142849",
+          "receipt": "sources/100-cc0-sfx--100-CC0-SFX_0.zip.scan.json",
+          "start_seconds": 0.0017687074829931973,
+          "end_seconds": 0.7217687074829932,
+          "highpass_hz": 45,
+          "lowpass_hz": 6500,
+          "edge_fade_ms": 9,
+          "used_frames": 31752,
+          "at_seconds": 0.16,
+          "relative_rms_gain": 1
+        }
+      ]
+    },
+    {
+      "file": "Ambience/HarbourDay.wav",
+      "sha256": "b4c740a98929347e66610ef688a0a1482d39291cf473da67d018e58e02ba761c",
+      "target_lufs": -28,
+      "description": "Real stereo river-wave bed. No added animal calls/horn/wind; location ambience candidate, not an authentic field recording at the named game location.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-sea-and-river-wave-sounds/VistulaShort_0.mp3",
+          "source_sha256": "8c24607e41edd6f018ec3582a07e5a8dbc57347276339cb68440951a0fb4cfb1",
+          "start_seconds": 12,
+          "end_seconds": 42.1,
+          "role": "continuous stereo water bed (Vistula river, not location-authentic sea)"
+        }
+      ]
+    },
+    {
+      "file": "Ambience/HarbourDusk.wav",
+      "sha256": "4b3e8dd92224004fc1edb668f64dc30e50909c675319be57df0f8198576ba4b5",
+      "target_lufs": -30,
+      "description": "Real stereo river-wave bed. No added animal calls/horn/wind; location ambience candidate, not an authentic field recording at the named game location.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-sea-and-river-wave-sounds/VistulaShort_0.mp3",
+          "source_sha256": "8c24607e41edd6f018ec3582a07e5a8dbc57347276339cb68440951a0fb4cfb1",
+          "start_seconds": 69,
+          "end_seconds": 99.1,
+          "role": "continuous stereo water bed (Vistula river, not location-authentic sea)"
+        }
+      ]
+    },
+    {
+      "file": "Ambience/OpenSea.wav",
+      "sha256": "ceb160713e4c5c03f450207bfc398ca141b165337626127efeb17d0f3041ece9",
+      "target_lufs": -28,
+      "description": "Real stereo river-wave bed with recorded Alki beach surf. No added animal calls/horn/wind; location ambience candidate, not an authentic field recording at the named game location.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-sea-and-river-wave-sounds/VistulaShort_0.mp3",
+          "source_sha256": "8c24607e41edd6f018ec3582a07e5a8dbc57347276339cb68440951a0fb4cfb1",
+          "start_seconds": 126,
+          "end_seconds": 156.1,
+          "role": "continuous stereo water bed (Vistula river, not location-authentic sea)"
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 2.7,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 6.1,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 9.5,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 13.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 16.6,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 20.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 23.4,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 26.9,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 29.2,
+          "gain": 0.55,
+          "fade_ms": 180
+        }
+      ]
+    },
+    {
+      "file": "Ambience/Skerries.wav",
+      "sha256": "2ed957de29e52dd1bdd6f212d8a3705b2fd1249b4a4367174964122c0d573c6c",
+      "target_lufs": -28,
+      "description": "Real stereo river-wave bed with recorded Alki beach surf. No added animal calls/horn/wind; location ambience candidate, not an authentic field recording at the named game location.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-sea-and-river-wave-sounds/VistulaShort_0.mp3",
+          "source_sha256": "8c24607e41edd6f018ec3582a07e5a8dbc57347276339cb68440951a0fb4cfb1",
+          "start_seconds": 183,
+          "end_seconds": 213.1,
+          "role": "continuous stereo water bed (Vistula river, not location-authentic sea)"
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 2.7,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 6.1,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 9.5,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 13.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 16.6,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 20.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 23.4,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 26.9,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 29.2,
+          "gain": 0.55,
+          "fade_ms": 180
+        }
+      ]
+    },
+    {
+      "file": "Ambience/LighthouseRock.wav",
+      "sha256": "25a0174d4b7773c6c83578f276d6bc6fe14c57f180f499360630d6fd164b558b",
+      "target_lufs": -28,
+      "description": "Real stereo river-wave bed with recorded Alki beach surf. No added animal calls/horn/wind; location ambience candidate, not an authentic field recording at the named game location.",
+      "transient_gain_control_passes": 0,
+      "layers": [
+        {
+          "source": "Art/Audio/Downloads/oga-sea-and-river-wave-sounds/VistulaShort_0.mp3",
+          "source_sha256": "8c24607e41edd6f018ec3582a07e5a8dbc57347276339cb68440951a0fb4cfb1",
+          "start_seconds": 240,
+          "end_seconds": 270.1,
+          "role": "continuous stereo water bed (Vistula river, not location-authentic sea)"
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 2.7,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 6.1,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 9.5,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 13.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 16.6,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054",
+          "start_seconds": 0,
+          "end_seconds": 2.25,
+          "at_seconds": 20.0,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_04_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "3c490e736365fdd617ce8405470d8878fc6146d9a8dba448d622addb01cfff3b",
+          "start_seconds": 0,
+          "end_seconds": 3.5109977324263038,
+          "at_seconds": 23.4,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c",
+          "start_seconds": 0,
+          "end_seconds": 4.0,
+          "at_seconds": 26.9,
+          "gain": 0.55,
+          "fade_ms": 180
+        },
+        {
+          "source": "Art/Audio/Downloads/oga-beach-ocean-waves/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+          "source_sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096",
+          "start_seconds": 0,
+          "end_seconds": 2.5,
+          "at_seconds": 29.2,
+          "gain": 0.55,
+          "fade_ms": 180
+        }
+      ]
+    }
+  ],
+  "missing_families": [
+    "Gull",
+    "SealBark",
+    "Puffin",
+    "Horn",
+    "Foghorn"
+  ],
+  "processing": {
+    "one_shots": {
+      "highpass_hz": 45,
+      "lowpass_hz": "per source layer",
+      "initial_edge_fades_ms": 9,
+      "layer_and_final_edge_fades_ms": 9,
+      "dc_correction": "edge-weighted, preserving zero endpoints",
+      "transient_envelope_ms": 5,
+      "transient_gain_smoothing_ms": 1,
+      "transient_ceiling_dbfs": -3.8,
+      "transient_iterations_max": 12,
+      "final_peak_cap_dbtp": -3.4
+    },
+    "ambience": {
+      "highpass_hz": 35,
+      "lowpass_hz": 8000,
+      "HarbourDusk_lowpass_hz": 4000,
+      "crossfade_ms": 100,
+      "endpoint_smoothstep_ms": 2,
+      "live_endpoints": true,
+      "underlying_river_gain": {
+        "HarbourDay": 1,
+        "HarbourDusk": 1,
+        "OpenSea": 0.4,
+        "Skerries": 0.4,
+        "LighthouseRock": 0.4
+      }
+    },
+    "mastering": "gain normalization with existing dsp.master; PCM16 rounded after scaling32767"
+  }
+}

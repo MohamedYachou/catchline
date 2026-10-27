@@ -1,0 +1,123 @@
+{
+  "name": "ChannelMarkerGreen",
+  "group": "D",
+  "triangles": 420,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -0.2532869875431061,
+      -0.24251940846443176,
+      -0.6200000047683716
+    ],
+    [
+      0.2549999952316284,
+      0.24251940846443176,
+      2.0329904556274414
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    0.5082869529724121,
+    0.4850388169288635,
+    2.6529903411865234
+  ],
+  "parts": [
+    {
+      "name": "GreenConeSpar",
+      "triangles": 420,
+      "vertices": 222,
+      "bounds_min_blender": [
+        -0.2532869875431061,
+        -0.24251940846443176,
+        -0.6200000047683716
+      ],
+      "bounds_max_blender": [
+        0.2549999952316284,
+        0.24251940846443176,
+        2.0329904556274414
+      ],
+      "mesh_sha256": "f23765d2eb0ae4f2e9fa280ad32cd6da0ee1261d257fbb3527c3bd9205a9b73f",
+      "materials": [
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Root Y0 at water datum: float submerged toY-.62, upper body1.96m. Green cone/red can topmarks differ by silhouette."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\ChannelMarkerGreen.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\ChannelMarkerGreen.fbx",
+  "sha256": {
+    "blend": "fd14b562c70915d88fb3a34732ddf0344d60a442c37d48cf5b64efa4da794ebd",
+    "fbx": "bed654e539ea8cf55b9d0311e90f5abfd1d29fcae3a9628f7b94a002f02851b0"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerGreen\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerGreen\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerGreen\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerGreen\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\ChannelMarkerGreen\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 0.0,
+    "source": {
+      "triangles": 420,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.2532869875431061,
+          -0.24251940846443176,
+          -0.6200000047683716
+        ],
+        [
+          0.2549999952316284,
+          0.24251940846443176,
+          2.0329904556274414
+        ]
+      ],
+      "materials": [
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "ChannelMarkerGreen": null,
+        "GreenConeSpar": "ChannelMarkerGreen"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 420,
+      "meshes": 1,
+      "bounds": [
+        [
+          -0.2532869875431061,
+          -0.24251940846443176,
+          -0.6200000047683716
+        ],
+        [
+          0.2549999952316284,
+          0.24251940846443176,
+          2.0329904556274414
+        ]
+      ],
+      "materials": [
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ],
+      "parents": {
+        "GreenConeSpar": "ChannelMarkerGreen",
+        "ChannelMarkerGreen": null
+      },
+      "finite": true
+    }
+  }
+}

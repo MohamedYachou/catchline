@@ -1,0 +1,24 @@
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Dishes\build.py:11: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Restaurant_Atlas_Dishes');mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes.get('Principled BSDF');im=nt.nodes.new('ShaderNodeTexImage');im.image=bpy.data.images.load(str(T/'Restaurant_BaseColor.png'));im.image.pack();nt.links.new(im.outputs['Color'],bs.inputs['Base Color']);surf=nt.nodes.new('ShaderNodeTexImage');surf.image=bpy.data.images.load(str(T/'Restaurant_Surface.png'));surf.image.colorspace_settings.name='Non-Color';surf.image.pack();sep=nt.nodes.new('ShaderNodeSeparateColor');nt.links.new(surf.outputs['Color'],sep.inputs[0]);nt.links.new(sep.outputs['Red'],bs.inputs['Roughness']);nt.links.new(sep.outputs['Green'],bs.inputs['Metallic'])
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Dishes\\Dish_FishSoup.fbx'
+export finished in 0.0073 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Dishes\\Dish_FilletsLemon.fbx'
+export finished in 0.0062 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Dishes\\Dish_GrilledFish.fbx'
+export finished in 0.0061 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Dishes\\Dish_CoffeeBiscuits.fbx'
+export finished in 0.0072 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\Dishes\\Dish_Lemonade.fbx'
+export finished in 0.0054 sec.
+Info: Saved as "RestaurantDishes.blend"
+DISH BUILD PASS
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,375 @@
+{
+  "triangles": 772,
+  "bounds": [
+    [
+      -0.10599999874830246,
+      -0.15000000596046448,
+      0.0
+    ],
+    [
+      0.13500000536441803,
+      0.15000000596046448,
+      0.3970000147819519
+    ]
+  ],
+  "dimensions_blender": [
+    0.2410000041127205,
+    0.30000001192092896,
+    0.3970000147819519
+  ],
+  "parents": {
+    "PotHauler": null,
+    "HaulerMount": "PotHauler",
+    "Sheave": "PotHauler"
+  },
+  "materials": [
+    "M_Brass",
+    "M_HullNavy",
+    "M_Rubber",
+    "M_SafetyOrange",
+    "M_SeaTeal",
+    "M_Steel"
+  ],
+  "objects": {
+    "PotHauler": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 0
+    },
+    "HaulerMount": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 328
+    },
+    "Sheave": {
+      "location": [
+        0.0,
+        0.0,
+        0.24699999392032623
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 444
+    }
+  },
+  "name": "PotHauler",
+  "contract": {
+    "Sheave": {
+      "pivot": [
+        0,
+        0,
+        0.247
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "diameter_metres": 0.3
+    },
+    "rail_saddle": {
+      "rail_diameter_metres": 0.05,
+      "channel_centre_source": [
+        0,
+        0,
+        0.065
+      ],
+      "clear_width_metres": 0.05672,
+      "clear_height_metres": 0.064
+    }
+  },
+  "axes": "Blender (X,Y,Z) maps to Unity (X,Z,-Y); board operator/gauge edge source +Y / Unity -Z",
+  "sha256": {
+    "blend": "d41ee61bf3d30520c3f374d669bca52c684f0fe24df8942237bc3e73bcb86d6d",
+    "fbx": "2cb1681ec3191a7fa146cd334ee42e81000652a3fc4291e163781e7fc78a0791"
+  },
+  "status": "individual source/actualFBX/visual PASS; assembled/native acceptance separate",
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 2,
+      "max_vertex_error_metres": 2.997266790316644e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "source": {
+      "triangles": 772,
+      "bounds": [
+        [
+          -0.10599999874830246,
+          -0.15000000596046448,
+          0.0
+        ],
+        [
+          0.13500000536441803,
+          0.15000000596046448,
+          0.3970000147819519
+        ]
+      ],
+      "dimensions_blender": [
+        0.2410000041127205,
+        0.30000001192092896,
+        0.3970000147819519
+      ],
+      "parents": {
+        "PotHauler": null,
+        "HaulerMount": "PotHauler",
+        "Sheave": "PotHauler"
+      },
+      "materials": [
+        "M_Brass",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "objects": {
+        "PotHauler": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        },
+        "HaulerMount": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 328
+        },
+        "Sheave": {
+          "location": [
+            0.0,
+            0.0,
+            0.24699999392032623
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 444
+        }
+      }
+    },
+    "imported": {
+      "triangles": 772,
+      "bounds": [
+        [
+          -0.10599999874830246,
+          -0.14999999105930328,
+          -4.907363404527132e-09
+        ],
+        [
+          0.13500000536441803,
+          0.15000002086162567,
+          0.3970000147819519
+        ]
+      ],
+      "dimensions_blender": [
+        0.2410000041127205,
+        0.30000001192092896,
+        0.3970000196893153
+      ],
+      "parents": {
+        "HaulerMount": "PotHauler",
+        "Sheave": "PotHauler",
+        "PotHauler": null
+      },
+      "materials": [
+        "M_Brass",
+        "M_HullNavy",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel"
+      ],
+      "objects": {
+        "HaulerMount": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 328
+        },
+        "Sheave": {
+          "location": [
+            0.0,
+            0.24699999392032623,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 444
+        },
+        "PotHauler": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.570796251296997,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        }
+      }
+    },
+    "controls": {
+      "Sheave": {
+        "pivot_error_metres": 1.8647981284131686e-08,
+        "local_x_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "control_test": "PASS"
+      }
+    }
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/PotHauler/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "76e46eab2008eaeccbac6f31dede9a6a6ef003a050869c867751b9deb3639c3f",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotHauler/front.png",
+        "view": "front",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "f93dcb6cca1b5ebd414fe0678ad8e4b96ab7aa13f95612d9de1abd62d9b8714e",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotHauler/right.png",
+        "view": "right",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "e79038757492983dd2c5503894adf3a0090a8e8da35f616568219ac0eb1e79d0",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotHauler/back.png",
+        "view": "back",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "bb27d716c850a560f76a6fbcc0c368c50afa13fedbff7ec2a281a9143778e684",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/PotHauler/top.png",
+        "view": "top",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "dd2c1fceeef4f770d40331d6425765468a173c76e5ed22c72f45a14a377e14a5",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "result": "PASS",
+  "name": "Puffin",
+  "source": {
+    "triangles": 310,
+    "vertices": 198,
+    "bounds_unity": [
+      [
+        -0.08299999684095383,
+        0.0,
+        -0.10000000149011612
+      ],
+      [
+        0.08299999684095383,
+        0.30000001192092896,
+        0.15199999511241913
+      ]
+    ],
+    "meshes": [
+      "PuffinSkin"
+    ],
+    "materials": [
+      "M_CardinalYellow",
+      "M_GullWhite",
+      "M_Rubber",
+      "M_SafetyOrange",
+      "M_Steel"
+    ],
+    "parents": {
+      "Puffin": null,
+      "PuffinSkin": "PuffinRig",
+      "PuffinRig": "Puffin"
+    }
+  },
+  "imported": {
+    "triangles": 310,
+    "vertices": 198,
+    "bounds_unity": [
+      [
+        -0.08299999684095383,
+        -3.747175902901745e-09,
+        -0.10000000894069672
+      ],
+      [
+        0.08299999684095383,
+        0.30000001192092896,
+        0.15199995040893555
+      ]
+    ],
+    "meshes": [
+      "PuffinSkin"
+    ],
+    "materials": [
+      "M_CardinalYellow",
+      "M_GullWhite",
+      "M_Rubber",
+      "M_SafetyOrange",
+      "M_Steel"
+    ],
+    "parents": {
+      "PuffinRig": "Puffin",
+      "PuffinSkin": "PuffinRig",
+      "Puffin": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 5.372690026206328e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {
+    "Idle": {
+      "source": {
+        "action_name": "Idle",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.03974082269117865,
+        "end_vs_start_m": 1.5389385081797274e-19,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "PuffinRig|PuffinRig|Idle",
+        "frames": [
+          1,
+          91
+        ],
+        "seconds": 3.0,
+        "loop": true,
+        "samples": [
+          1,
+          23,
+          46,
+          68,
+          91
+        ],
+        "max_vertex_motion_m": 0.0397408270852239,
+        "end_vs_start_m": 1.5389385081797274e-19,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "23": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.487695275974147e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "46": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "68": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.487695275974147e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "91": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    },
+    "Flap": {
+      "source": {
+        "action_name": "Flap",
+        "frames": [
+          1,
+          13
+        ],
+        "seconds": 0.4,
+        "loop": true,
+        "samples": [
+          1,
+          4,
+          7,
+          10,
+          13
+        ],
+        "max_vertex_motion_m": 0.07938861346859137,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "imported": {
+        "action_name": "PuffinRig|PuffinRig|Flap",
+        "frames": [
+          1,
+          13
+        ],
+        "seconds": 0.4,
+        "loop": true,
+        "samples": [
+          1,
+          4,
+          7,
+          10,
+          13
+        ],
+        "max_vertex_motion_m": 0.07938861126899478,
+        "end_vs_start_m": 0.0,
+        "root_stationary_all_frames": true
+      },
+      "samples": {
+        "1": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "4": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "7": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "10": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        },
+        "13": {
+          "result": "PASS",
+          "mesh_count": 1,
+          "max_vertex_error_metres": 5.372690026206328e-08,
+          "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+        }
+      }
+    }
+  },
+  "dimensions_unity_xyz_m": [
+    0.16599999368190765,
+    0.30000001192092896,
+    0.25199999660253525
+  ],
+  "materials": {
+    "M_CardinalYellow": [
+      0.8879231214523315,
+      0.533276379108429,
+      0.07618538290262222,
+      1.0
+    ],
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_Rubber": [
+      0.021219009533524513,
+      0.03433980792760849,
+      0.04373503103852272,
+      1.0
+    ],
+    "M_SafetyOrange": [
+      0.7681511640548706,
+      0.1441284716129303,
+      0.03560131415724754,
+      1.0
+    ],
+    "M_Steel": [
+      0.2746773064136505,
+      0.38132601976394653,
+      0.4125426113605499,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "28e4c41ded3692eff162290ce84fdc86088631e7bbe068e161de05411055dae1",
+    "fbx": "7c4eb22c38badafbc46522c91564e6138c3b2be2360756bb386ab913a1b7478c"
+  },
+  "vertex_alpha_roundtrip": false
+}

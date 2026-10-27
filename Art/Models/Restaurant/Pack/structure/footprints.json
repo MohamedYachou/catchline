@@ -1,0 +1,77 @@
+{
+  "tile_m": 1,
+  "size_order": "Unity W(X), H(Y), D(Z)",
+  "items": [
+    {
+      "stem": "Pergola",
+      "name": "Restaurant_Pergola",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "mount_convention": "floor footprint centre, feet Y0",
+      "footprint_tiles": [
+        3,
+        1
+      ],
+      "size_unity_m": [
+        3.0,
+        2.549999952316284,
+        1.0
+      ],
+      "clear_span_unity_m": [
+        2.59,
+        0.67
+      ]
+    },
+    {
+      "stem": "CeilingBeam",
+      "name": "Restaurant_CeilingBeam",
+      "mount": "ceiling",
+      "mount_height_m": 2.6,
+      "mount_convention": "top mount Y0, all geometry hangs below",
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "size_unity_m": [
+        2.0,
+        0.25,
+        0.20384001731872559
+      ],
+      "clear_span_unity_m": null
+    },
+    {
+      "stem": "TerraceAwning",
+      "name": "Restaurant_TerraceAwning",
+      "mount": "wall",
+      "mount_height_m": 2.6,
+      "mount_convention": "wall contact at top of batten, front -Z; all geometry Y<=0",
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "size_unity_m": [
+        1.5099999904632568,
+        0.40000003576278687,
+        0.8893148303031921
+      ],
+      "clear_span_unity_m": null
+    },
+    {
+      "stem": "HangingBasket",
+      "name": "Restaurant_HangingBasket",
+      "mount": "ceiling",
+      "mount_height_m": 2.6,
+      "mount_convention": "top mount Y0, all geometry hangs below",
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.44200000166893005,
+        0.7451961636543274,
+        0.44200000166893005
+      ],
+      "clear_span_unity_m": null
+    }
+  ]
+}

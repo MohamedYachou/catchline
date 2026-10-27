@@ -1,0 +1,900 @@
+{
+  "name": "LanternOilCan",
+  "revision": "r03",
+  "delivery_sha256": {
+    "LanternOilCan.blend": "52c604f96a0e0e8ef4e0820e94f6f0ad6d2cbedf483726527d0c92c004ec3cbf",
+    "LanternOilCan.fbx": "7ff723d2fa523af8fba3c188963aaedd831929e0f03db9a8a4a5cc99558802dd"
+  },
+  "runtime_sha256": "7ff723d2fa523af8fba3c188963aaedd831929e0f03db9a8a4a5cc99558802dd",
+  "checks": [
+    "current delivery SHA256 LanternOilCan.blend",
+    "current delivery SHA256 LanternOilCan.fbx",
+    "protected reference unchanged Art/Source/Art108/build_stations.py",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry CanBody",
+    "finite vertices CanBody",
+    "nonempty geometry CanBase",
+    "finite vertices CanBase",
+    "nonempty geometry CanShoulder",
+    "finite vertices CanShoulder",
+    "nonempty geometry TealPanel",
+    "finite vertices TealPanel",
+    "nonempty geometry PanelStripe",
+    "finite vertices PanelStripe",
+    "nonempty geometry FillNeck",
+    "finite vertices FillNeck",
+    "nonempty geometry FillCap",
+    "finite vertices FillCap",
+    "nonempty geometry CarryHandle",
+    "finite vertices CarryHandle",
+    "nonempty geometry SpoutLower",
+    "finite vertices SpoutLower",
+    "nonempty geometry SpoutUpper",
+    "finite vertices SpoutUpper",
+    "nonempty geometry SpoutLip",
+    "finite vertices SpoutLip",
+    "nonempty geometry SpoutBore",
+    "finite vertices SpoutBore",
+    "source bounds manifest current",
+    "floor pivot at horizontal bounds centre and zero lowest contact",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry CanBase",
+    "finite vertices CanBase",
+    "nonempty geometry CanBody",
+    "finite vertices CanBody",
+    "nonempty geometry CanShoulder",
+    "finite vertices CanShoulder",
+    "nonempty geometry CarryHandle",
+    "finite vertices CarryHandle",
+    "nonempty geometry FillCap",
+    "finite vertices FillCap",
+    "nonempty geometry FillNeck",
+    "finite vertices FillNeck",
+    "nonempty geometry PanelStripe",
+    "finite vertices PanelStripe",
+    "nonempty geometry SpoutBore",
+    "finite vertices SpoutBore",
+    "nonempty geometry SpoutLip",
+    "finite vertices SpoutLip",
+    "nonempty geometry SpoutLower",
+    "finite vertices SpoutLower",
+    "nonempty geometry SpoutUpper",
+    "finite vertices SpoutUpper",
+    "nonempty geometry TealPanel",
+    "finite vertices TealPanel",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions CanBody",
+    "actual FBX part origin preserved CanBody",
+    "actual FBX triangle count CanBody",
+    "actual FBX face materials CanBody",
+    "actual FBX material slots CanBody",
+    "actual FBX every world vertex both directions CanBase",
+    "actual FBX part origin preserved CanBase",
+    "actual FBX triangle count CanBase",
+    "actual FBX face materials CanBase",
+    "actual FBX material slots CanBase",
+    "actual FBX every world vertex both directions CanShoulder",
+    "actual FBX part origin preserved CanShoulder",
+    "actual FBX triangle count CanShoulder",
+    "actual FBX face materials CanShoulder",
+    "actual FBX material slots CanShoulder",
+    "actual FBX every world vertex both directions TealPanel",
+    "actual FBX part origin preserved TealPanel",
+    "actual FBX triangle count TealPanel",
+    "actual FBX face materials TealPanel",
+    "actual FBX material slots TealPanel",
+    "actual FBX every world vertex both directions PanelStripe",
+    "actual FBX part origin preserved PanelStripe",
+    "actual FBX triangle count PanelStripe",
+    "actual FBX face materials PanelStripe",
+    "actual FBX material slots PanelStripe",
+    "actual FBX every world vertex both directions FillNeck",
+    "actual FBX part origin preserved FillNeck",
+    "actual FBX triangle count FillNeck",
+    "actual FBX face materials FillNeck",
+    "actual FBX material slots FillNeck",
+    "actual FBX every world vertex both directions FillCap",
+    "actual FBX part origin preserved FillCap",
+    "actual FBX triangle count FillCap",
+    "actual FBX face materials FillCap",
+    "actual FBX material slots FillCap",
+    "actual FBX every world vertex both directions CarryHandle",
+    "actual FBX part origin preserved CarryHandle",
+    "actual FBX triangle count CarryHandle",
+    "actual FBX face materials CarryHandle",
+    "actual FBX material slots CarryHandle",
+    "actual FBX every world vertex both directions SpoutLower",
+    "actual FBX part origin preserved SpoutLower",
+    "actual FBX triangle count SpoutLower",
+    "actual FBX face materials SpoutLower",
+    "actual FBX material slots SpoutLower",
+    "actual FBX every world vertex both directions SpoutUpper",
+    "actual FBX part origin preserved SpoutUpper",
+    "actual FBX triangle count SpoutUpper",
+    "actual FBX face materials SpoutUpper",
+    "actual FBX material slots SpoutUpper",
+    "actual FBX every world vertex both directions SpoutLip",
+    "actual FBX part origin preserved SpoutLip",
+    "actual FBX triangle count SpoutLip",
+    "actual FBX face materials SpoutLip",
+    "actual FBX material slots SpoutLip",
+    "actual FBX every world vertex both directions SpoutBore",
+    "actual FBX part origin preserved SpoutBore",
+    "actual FBX triangle count SpoutBore",
+    "actual FBX face materials SpoutBore",
+    "actual FBX material slots SpoutBore",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 914,
+  "mesh_count": 12,
+  "source_parts": {
+    "CanBody": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.17508359253406525,
+          -0.07300000637769699,
+          0.006999999284744263
+        ],
+        [
+          0.05491641163825989,
+          0.07699999958276749,
+          0.2849999964237213
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        0.1459999978542328
+      ]
+    },
+    "CanBase": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.178083598613739,
+          -0.07600000500679016,
+          0.0
+        ],
+        [
+          0.05791641026735306,
+          0.07999999821186066,
+          0.03999999910593033
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        0.019999999552965164
+      ]
+    },
+    "CanShoulder": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.16608358919620514,
+          -0.0690000057220459,
+          0.24799999594688416
+        ],
+        [
+          0.04591640830039978,
+          0.0729999989271164,
+          0.28599998354911804
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        0.2669999897480011
+      ]
+    },
+    "TealPanel": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.11958359181880951,
+          -0.07699999958276749,
+          0.09650000184774399
+        ],
+        [
+          -0.0005835890769958496,
+          -0.07000000029802322,
+          0.19949999451637268
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 108
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        -0.07349999994039536,
+        0.14800000190734863
+      ]
+    },
+    "PanelStripe": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.09708359092473984,
+          -0.07999999821186066,
+          0.1420000046491623
+        ],
+        [
+          -0.02308358997106552,
+          -0.07600000500679016,
+          0.15399999916553497
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        -0.07800000160932541,
+        0.14800000190734863
+      ]
+    },
+    "FillNeck": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.15408359467983246,
+          -0.025000005960464478,
+          0.2770000100135803
+        ],
+        [
+          -0.09008358418941498,
+          0.038999997079372406,
+          0.30900001525878906
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12208358943462372,
+        0.006999996490776539,
+        0.2930000126361847
+      ]
+    },
+    "FillCap": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.16108359396457672,
+          -0.03200000524520874,
+          0.30250000953674316
+        ],
+        [
+          -0.08308358490467072,
+          0.04599999636411667,
+          0.32749998569488525
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12208358943462372,
+        0.006999996490776539,
+        0.3149999976158142
+      ]
+    },
+    "CarryHandle": {
+      "triangles": 92,
+      "bounds": [
+        [
+          -0.16499093174934387,
+          -0.0050000036135315895,
+          0.27984410524368286
+        ],
+        [
+          0.012860611081123352,
+          0.018999997526407242,
+          0.4048735499382019
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 92
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        0.0
+      ]
+    },
+    "SpoutLower": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.011435572057962418,
+          -0.018000010401010513,
+          0.2286694198846817
+        ],
+        [
+          0.09527704119682312,
+          0.021999988704919815,
+          0.3284979462623596
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.05541641265153885,
+        0.001999996602535248,
+        0.2800000011920929
+      ]
+    },
+    "SpoutUpper": {
+      "triangles": 34,
+      "bounds": [
+        [
+          0.07206325232982635,
+          -0.013000003062188625,
+          0.3096458315849304
+        ],
+        [
+          0.1731518656015396,
+          0.016999995335936546,
+          0.41390278935432434
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 34
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.12441641837358475,
+        0.001999996602535248,
+        0.3634999990463257
+      ]
+    },
+    "SpoutLip": {
+      "triangles": 72,
+      "bounds": [
+        [
+          0.15634813904762268,
+          -0.011000003665685654,
+          0.39748165011405945
+        ],
+        [
+          0.178083598613739,
+          0.01499999687075615,
+          0.4188677668571472
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 72
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        0.0
+      ]
+    },
+    "SpoutBore": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.15573018789291382,
+          -0.005400003399699926,
+          0.39682716131210327
+        ],
+        [
+          0.16712898015975952,
+          0.00939999707043171,
+          0.40776675939559937
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 44
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.16142958402633667,
+        0.001999996602535248,
+        0.4022969603538513
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "CanBase": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.178083598613739,
+          -0.07600000500679016,
+          -1.0752764900701095e-08
+        ],
+        [
+          0.05791641026735306,
+          0.08000000566244125,
+          0.040000010281801224
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 108
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999999862164259,
+        0.019999999552965164
+      ]
+    },
+    "CanBody": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.17508359253406525,
+          -0.0729999989271164,
+          0.0069999913685023785
+        ],
+        [
+          0.05491641163825989,
+          0.07700004428625107,
+          0.2849999964237213
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.0020000203512609005,
+        0.1459999978542328
+      ]
+    },
+    "CanShoulder": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.16608358919620514,
+          -0.06899996101856232,
+          0.24799998104572296
+        ],
+        [
+          0.04591640830039978,
+          0.07300004363059998,
+          0.28599998354911804
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.002000040141865611,
+        0.2669999897480011
+      ]
+    },
+    "CarryHandle": {
+      "triangles": 92,
+      "bounds": [
+        [
+          -0.16499093174934387,
+          -0.004999957978725433,
+          0.27984410524368286
+        ],
+        [
+          0.012860611081123352,
+          0.019000060856342316,
+          0.4048735499382019
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 92
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        -3.258408265427448e-10
+      ]
+    },
+    "FillCap": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.16108359396457672,
+          -0.03199995681643486,
+          0.3024999797344208
+        ],
+        [
+          -0.08308358490467072,
+          0.046000052243471146,
+          0.32750001549720764
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 44
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12208358943462372,
+        0.007000047713518143,
+        0.3149999976158142
+      ]
+    },
+    "FillNeck": {
+      "triangles": 44,
+      "bounds": [
+        [
+          -0.15408359467983246,
+          -0.024999959394335747,
+          0.2770000100135803
+        ],
+        [
+          -0.09008358418941498,
+          0.039000049233436584,
+          0.30900001525878906
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.12208358943462372,
+        0.0070000444538891315,
+        0.2930000126361847
+      ]
+    },
+    "PanelStripe": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.09708359092473984,
+          -0.07999998331069946,
+          0.1420000195503235
+        ],
+        [
+          -0.02308358997106552,
+          -0.07599997520446777,
+          0.15400001406669617
+        ]
+      ],
+      "material_triangles": {
+        "M_RailIvory": 108
+      },
+      "material_colours": {
+        "M_RailIvory": [
+          0.8962693810462952,
+          0.8713670969009399,
+          0.715693473815918,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        -0.07799997925758362,
+        0.14800001680850983
+      ]
+    },
+    "SpoutBore": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.15573018789291382,
+          -0.005399937741458416,
+          0.39682716131210327
+        ],
+        [
+          0.16712898015975952,
+          0.009400062263011932,
+          0.40776675939559937
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 44
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.16142958402633667,
+        0.002000062260776758,
+        0.4022969603538513
+      ]
+    },
+    "SpoutLip": {
+      "triangles": 72,
+      "bounds": [
+        [
+          0.15634813904762268,
+          -0.010999937541782856,
+          0.39748165011405945
+        ],
+        [
+          0.178083598613739,
+          0.015000063925981522,
+          0.4188677668571472
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 72
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        0.001999996602535248,
+        -3.258408265427448e-10
+      ]
+    },
+    "SpoutLower": {
+      "triangles": 44,
+      "bounds": [
+        [
+          0.01143556647002697,
+          -0.017999980598688126,
+          0.2286694198846817
+        ],
+        [
+          0.09527704864740372,
+          0.022000018507242203,
+          0.3284979462623596
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 44
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.05541641265153885,
+        0.002000042237341404,
+        0.2800000011920929
+      ]
+    },
+    "SpoutUpper": {
+      "triangles": 34,
+      "bounds": [
+        [
+          0.07206325232982635,
+          -0.012999950908124447,
+          0.3096458315849304
+        ],
+        [
+          0.1731518656015396,
+          0.017000047490000725,
+          0.41390278935432434
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 34
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.12441641837358475,
+        0.002000055741518736,
+        0.3634999990463257
+      ]
+    },
+    "TealPanel": {
+      "triangles": 108,
+      "bounds": [
+        [
+          -0.11958359181880951,
+          -0.07699998468160629,
+          0.09650001674890518
+        ],
+        [
+          -0.0005835890769958496,
+          -0.06999997049570084,
+          0.19950002431869507
+        ]
+      ],
+      "material_triangles": {
+        "M_SeaTeal": 108
+      },
+      "material_colours": {
+        "M_SeaTeal": [
+          0.00802319310605526,
+          0.2746773064136505,
+          0.34670406579971313,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.06008359044790268,
+        -0.07349997758865356,
+        0.14800001680850983
+      ]
+    }
+  },
+  "max_bounds_error_m": 6.705522537231445e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 7.210536109012275e-08,
+  "max_part_pivot_error_m": 6.565824151039124e-08,
+  "pivot_use": "floor/contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/back.png": "95dd7eec97ba3438608187f0458ecac8ab14a5aee5c6ee957ad2fce41202a3d0",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/front.png": "86e311a0e341ecde873fdd040800c331a76632e41355e41feb4c46ba1965b62e",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/left.png": "0a429870ca7321580b7b830b0af3fac7841bbb6672d8f30436101ed9642153ba",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/right.png": "87d9caa23cb41a6f9ad732d5853fe0190a9b6f553230927ff5ddc5b8a7538342",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/three-quarter.png": "6c9df4955c8701b67215892a3d62a46b09005a2bea80ba3f4cc94aa1dbbf32cd",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/top.png": "5445bc62e3f4f3915a9e52e71cf30eded572d937fdd8384ec032bba1413f1fa3"
+  },
+  "pass": true
+}

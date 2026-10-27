@@ -1,0 +1,868 @@
+{
+  "pass": true,
+  "stages": [
+    {
+      "name": "Cafe",
+      "file": "RestaurantExterior_Cafe.fbx",
+      "FBX_sha256": "2439b79068d576a8d7833d979a885c04044f74bf4b0815f5d399efd1d88f7e36",
+      "pass": true,
+      "triangles": 17972,
+      "meshes": [
+        {
+          "name": "BlueAwning",
+          "triangles": 800,
+          "min_m": [
+            -3.7100000381469727,
+            2.4600002765655518,
+            -5.922166792515782e-07
+          ],
+          "max_m": [
+            3.7100000381469727,
+            3.700000286102295,
+            2.2249996662139893
+          ],
+          "bounds_max_error_m": 5.922166792515782e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00034339951981365857,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "BlueTiledRoofs",
+          "triangles": 1760,
+          "min_m": [
+            -4.284999847412109,
+            -2.729999542236328,
+            3.314999580383301
+          ],
+          "max_m": [
+            4.284999847412109,
+            2.785001039505005,
+            5.405000686645508
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00016371804635362253,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "DoorsWindowsChimneys",
+          "triangles": 8580,
+          "min_m": [
+            -4.105000019073486,
+            -1.8749998807907104,
+            -4.952788685841369e-07
+          ],
+          "max_m": [
+            4.065000057220459,
+            3.0450000762939453,
+            5.720000267028809
+          ],
+          "bounds_max_error_m": 4.952788685841369e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 3.3391079796274425e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "ExteriorWalls",
+          "triangles": 176,
+          "min_m": [
+            -4.014999866485596,
+            -2.515000104904175,
+            -4.068129726420011e-07
+          ],
+          "max_m": [
+            4.014999866485596,
+            2.515000104904175,
+            3.750000476837158
+          ],
+          "bounds_max_error_m": 4.76837158203125e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0014734688885358338,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "FlowerBoxesEntrancePlants",
+          "triangles": 2848,
+          "min_m": [
+            -4.03000020980835,
+            2.5900003910064697,
+            0.019999347627162933
+          ],
+          "max_m": [
+            4.03000020980835,
+            4.070000171661377,
+            2.749999523162842
+          ],
+          "bounds_max_error_m": 6.51925802230835e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 9.90391255744072e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "LanternsStringLights",
+          "triangles": 232,
+          "min_m": [
+            -3.669999837875366,
+            2.6750001907348633,
+            1.677499532699585
+          ],
+          "max_m": [
+            3.669999837875366,
+            2.9250001907348633,
+            2.039999485015869
+          ],
+          "bounds_max_error_m": 4.76837158203125e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.001128124971687794,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "RestaurantSignBoard",
+          "triangles": 88,
+          "min_m": [
+            -3.424999952316284,
+            3.6100003719329834,
+            1.8849992752075195
+          ],
+          "max_m": [
+            3.424999952316284,
+            3.8025004863739014,
+            2.3674991130828857
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.002887998115539858,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "RestaurantSignLetters",
+          "triangles": 1036,
+          "min_m": [
+            -0.43734002113342285,
+            3.7739999294281006,
+            1.9995779991149902
+          ],
+          "max_m": [
+            0.43012604117393494,
+            3.7960002422332764,
+            2.2715816497802734
+          ],
+          "bounds_max_error_m": 0.0,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00026519692301008035,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceDeckPiles",
+          "triangles": 948,
+          "min_m": [
+            -4.179999828338623,
+            2.5,
+            -1.0000007152557373
+          ],
+          "max_m": [
+            4.179999828338623,
+            4.150000095367432,
+            0.03199958801269531
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00030051971816646983,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceRails",
+          "triangles": 336,
+          "min_m": [
+            -4.034999847412109,
+            2.7149999141693115,
+            -6.687894256174332e-07
+          ],
+          "max_m": [
+            4.034999847412109,
+            4.105000019073486,
+            0.7599995732307434
+          ],
+          "bounds_max_error_m": 6.687894256174332e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0007999984741218213,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceTablesChairs",
+          "triangles": 1168,
+          "min_m": [
+            -3.822499990463257,
+            3.130000114440918,
+            -5.970474035166262e-07
+          ],
+          "max_m": [
+            3.822499990463257,
+            3.8499999046325684,
+            0.859999418258667
+          ],
+          "bounds_max_error_m": 5.970474035166262e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.000235754763311391,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        }
+      ],
+      "unit_m": 1,
+      "only_production_meshes": true,
+      "floor_contact_z_m": 0,
+      "below_floor_piles_m": 1
+    },
+    {
+      "name": "Bistro",
+      "file": "RestaurantExterior_Bistro.fbx",
+      "FBX_sha256": "f2f88085e91d252731120381bec44cb5303cdd9c94fba4d2c5beb9434e3cfcbd",
+      "pass": true,
+      "triangles": 24924,
+      "meshes": [
+        {
+          "name": "BlueAwning",
+          "triangles": 992,
+          "min_m": [
+            -4.710000038146973,
+            2.4600002765655518,
+            -5.922166792515782e-07
+          ],
+          "max_m": [
+            4.710000038146973,
+            3.700000286102295,
+            2.2249996662139893
+          ],
+          "bounds_max_error_m": 5.922166792515782e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0002820300042642998,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "BlueTiledRoofs",
+          "triangles": 1760,
+          "min_m": [
+            -5.284999847412109,
+            -2.729999542236328,
+            3.314999580383301
+          ],
+          "max_m": [
+            5.284999847412109,
+            2.785001039505005,
+            5.405000686645508
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00016371804635362253,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "DoorsWindowsChimneys",
+          "triangles": 8976,
+          "min_m": [
+            -5.105000019073486,
+            -1.8749998807907104,
+            -4.952788685841369e-07
+          ],
+          "max_m": [
+            5.065000057220459,
+            3.0450000762939453,
+            5.720000267028809
+          ],
+          "bounds_max_error_m": 4.952788685841369e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 3.199965286349027e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "ExteriorWalls",
+          "triangles": 176,
+          "min_m": [
+            -5.015000343322754,
+            -2.515000104904175,
+            -4.068129726420011e-07
+          ],
+          "max_m": [
+            5.014999866485596,
+            2.515000104904175,
+            3.750000476837158
+          ],
+          "bounds_max_error_m": 4.76837158203125e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0014734688885358338,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "FlowerBoxesEntrancePlants",
+          "triangles": 4056,
+          "min_m": [
+            -5.274209499359131,
+            2.5900003910064697,
+            0.01999920979142189
+          ],
+          "max_m": [
+            5.278749465942383,
+            4.920000076293945,
+            3.2199995517730713
+          ],
+          "bounds_max_error_m": 7.897615432739258e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 7.050750106607495e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "LanternsStringLights",
+          "triangles": 1064,
+          "min_m": [
+            -4.884999752044678,
+            2.6750001907348633,
+            -7.958674927976972e-07
+          ],
+          "max_m": [
+            4.884999752044678,
+            4.895000457763672,
+            2.349999189376831
+          ],
+          "bounds_max_error_m": 7.958674927976972e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00026519692301008035,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "RestaurantSignBoard",
+          "triangles": 88,
+          "min_m": [
+            -3.424999952316284,
+            3.6100003719329834,
+            1.8849992752075195
+          ],
+          "max_m": [
+            3.424999952316284,
+            3.8025004863739014,
+            2.3674991130828857
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.002887998115539858,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "RestaurantSignLetters",
+          "triangles": 3432,
+          "min_m": [
+            -0.6132858991622925,
+            3.7739999294281006,
+            1.9995743036270142
+          ],
+          "max_m": [
+            0.6018800139427185,
+            3.7960002422332764,
+            2.271585464477539
+          ],
+          "bounds_max_error_m": 0.0,
+          "uv_channels": 2,
+          "UV1_min_area": 8.296444201683073e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceDeckPiles",
+          "triangles": 1080,
+          "min_m": [
+            -5.179999828338623,
+            2.5,
+            -1.0000008344650269
+          ],
+          "max_m": [
+            5.179999828338623,
+            5.0,
+            0.03199958801269531
+          ],
+          "bounds_max_error_m": 8.344650268554688e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00026519692301008035,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceRails",
+          "triangles": 336,
+          "min_m": [
+            -5.034999847412109,
+            2.7149999141693115,
+            -8.072719879237411e-07
+          ],
+          "max_m": [
+            5.034999847412109,
+            4.954999923706055,
+            0.7599995732307434
+          ],
+          "bounds_max_error_m": 8.072719879237411e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0007999984741218213,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceTablesChairs",
+          "triangles": 2964,
+          "min_m": [
+            -4.822500228881836,
+            3.6399998664855957,
+            -6.801369636377785e-07
+          ],
+          "max_m": [
+            4.822500228881836,
+            4.360000133514404,
+            1.079999327659607
+          ],
+          "bounds_max_error_m": 6.801369636377785e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 9.547056283309985e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        }
+      ],
+      "unit_m": 1,
+      "only_production_meshes": true,
+      "floor_contact_z_m": 0,
+      "below_floor_piles_m": 1
+    },
+    {
+      "name": "Restaurant",
+      "file": "RestaurantExterior_Restaurant.fbx",
+      "FBX_sha256": "4bf70246342e62ccaa1e723eb2da45e19f65139bea4a54561406777a8a6f4567",
+      "pass": true,
+      "triangles": 31820,
+      "meshes": [
+        {
+          "name": "BlueAwning",
+          "triangles": 1184,
+          "min_m": [
+            -5.710000038146973,
+            2.4600002765655518,
+            -5.922166792515782e-07
+          ],
+          "max_m": [
+            5.710000038146973,
+            3.700000286102295,
+            2.2249996662139893
+          ],
+          "bounds_max_error_m": 5.922166792515782e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.000235754763311391,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "BlueTiledRoofs",
+          "triangles": 2640,
+          "min_m": [
+            -6.284999847412109,
+            -2.729999542236328,
+            3.314999580383301
+          ],
+          "max_m": [
+            6.284999847412109,
+            2.785001039505005,
+            5.405000686645508
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00010680432898091397,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "DoorsWindowsChimneys",
+          "triangles": 12408,
+          "min_m": [
+            -6.105000019073486,
+            -1.8749998807907104,
+            -4.952788685841369e-07
+          ],
+          "max_m": [
+            6.065000057220459,
+            3.0450000762939453,
+            5.720000267028809
+          ],
+          "bounds_max_error_m": 4.952788685841369e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 2.3022799711114317e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "ExteriorWalls",
+          "triangles": 264,
+          "min_m": [
+            -6.015000343322754,
+            -2.515000104904175,
+            -4.068129726420011e-07
+          ],
+          "max_m": [
+            6.014999866485596,
+            2.515000104904175,
+            3.750000476837158
+          ],
+          "bounds_max_error_m": 4.76837158203125e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0009993073064151758,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "FlowerBoxesEntrancePlants",
+          "triangles": 4968,
+          "min_m": [
+            -6.274209499359131,
+            2.5900003910064697,
+            0.019999127835035324
+          ],
+          "max_m": [
+            6.278749465942383,
+            5.420000076293945,
+            3.2199995517730713
+          ],
+          "bounds_max_error_m": 8.717179298400879e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 5.7290155853095825e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "LanternsStringLights",
+          "triangles": 1208,
+          "min_m": [
+            -5.884999752044678,
+            2.6750001907348633,
+            -8.773278636908799e-07
+          ],
+          "max_m": [
+            5.884999752044678,
+            5.395000457763672,
+            2.349998950958252
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.000235754763311391,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "RestaurantSignBoard",
+          "triangles": 88,
+          "min_m": [
+            -3.424999952316284,
+            3.6100003719329834,
+            1.8849992752075195
+          ],
+          "max_m": [
+            3.424999952316284,
+            3.8025004863739014,
+            2.3674991130828857
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.002887998115539858,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "RestaurantSignLetters",
+          "triangles": 3560,
+          "min_m": [
+            -1.1739699840545654,
+            3.7739999294281006,
+            1.9995765686035156
+          ],
+          "max_m": [
+            1.1511701345443726,
+            3.7960002422332764,
+            2.2715816497802734
+          ],
+          "bounds_max_error_m": 0.0,
+          "uv_channels": 2,
+          "UV1_min_area": 8.022191821233093e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceDeckPiles",
+          "triangles": 1212,
+          "min_m": [
+            -6.179999828338623,
+            2.5,
+            -1.0000008344650269
+          ],
+          "max_m": [
+            6.179999828338623,
+            5.5,
+            0.03199958801269531
+          ],
+          "bounds_max_error_m": 8.344650268554688e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.000235754763311391,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceRails",
+          "triangles": 336,
+          "min_m": [
+            -6.034999847412109,
+            2.7149999141693115,
+            -8.887323019735049e-07
+          ],
+          "max_m": [
+            6.034999847412109,
+            5.454999923706055,
+            0.7599995732307434
+          ],
+          "bounds_max_error_m": 8.887323019735049e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0007999984741218213,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceTablesChairs",
+          "triangles": 3952,
+          "min_m": [
+            -5.822500228881836,
+            3.940000057220459,
+            -7.290132089110557e-07
+          ],
+          "max_m": [
+            5.822500228881836,
+            4.660000324249268,
+            1.0799992084503174
+          ],
+          "bounds_max_error_m": 7.290132089110557e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 7.27633364778768e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        }
+      ],
+      "unit_m": 1,
+      "only_production_meshes": true,
+      "floor_contact_z_m": 0,
+      "below_floor_piles_m": 1
+    },
+    {
+      "name": "SeafoodHouse",
+      "file": "RestaurantExterior_SeafoodHouse.fbx",
+      "FBX_sha256": "b7381ca8c50810a92e23863eac408b2fcc3daba15c5214522065564fa51c729c",
+      "pass": true,
+      "triangles": 35713,
+      "meshes": [
+        {
+          "name": "BlueAwning",
+          "triangles": 1376,
+          "min_m": [
+            -6.710000038146973,
+            2.4600002765655518,
+            -5.922166792515782e-07
+          ],
+          "max_m": [
+            6.710000038146973,
+            3.700000286102295,
+            2.2249996662139893
+          ],
+          "bounds_max_error_m": 5.922166792515782e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00019999961853045534,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "BlueTiledRoofs",
+          "triangles": 2640,
+          "min_m": [
+            -7.284999847412109,
+            -2.729999542236328,
+            3.314999580383301
+          ],
+          "max_m": [
+            7.284999847412109,
+            2.785001039505005,
+            5.405000686645508
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00010680432898091397,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "DoorsWindowsChimneys",
+          "triangles": 12408,
+          "min_m": [
+            -7.105000019073486,
+            -1.8749998807907104,
+            -4.952788685841369e-07
+          ],
+          "max_m": [
+            7.065000057220459,
+            3.0450000762939453,
+            5.720000267028809
+          ],
+          "bounds_max_error_m": 4.952788685841369e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 2.3022799711114317e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "ExteriorWalls",
+          "triangles": 264,
+          "min_m": [
+            -7.015000343322754,
+            -2.515000104904175,
+            -4.068129726420011e-07
+          ],
+          "max_m": [
+            7.014999866485596,
+            2.515000104904175,
+            3.750000476837158
+          ],
+          "bounds_max_error_m": 4.76837158203125e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0009993073064151758,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "FlowerBoxesEntrancePlants",
+          "triangles": 4968,
+          "min_m": [
+            -7.274209499359131,
+            2.5900003910064697,
+            0.019999045878648758
+          ],
+          "max_m": [
+            7.278749465942383,
+            5.920000076293945,
+            3.2199995517730713
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 5.7290155853095825e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "LanternsStringLights",
+          "triangles": 1352,
+          "min_m": [
+            -6.884999752044678,
+            2.6750001907348633,
+            -9.587881777406437e-07
+          ],
+          "max_m": [
+            6.884999752044678,
+            5.895000457763672,
+            2.349998950958252
+          ],
+          "bounds_max_error_m": 9.587881777406437e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00021095679828597724,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        },
+        {
+          "name": "RestaurantSignBoard",
+          "triangles": 88,
+          "min_m": [
+            -3.424999952316284,
+            3.6100003719329834,
+            1.8849992752075195
+          ],
+          "max_m": [
+            3.424999952316284,
+            3.8025004863739014,
+            2.3674991130828857
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.002887998115539858,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "RestaurantSignLetters",
+          "triangles": 5740,
+          "min_m": [
+            -1.5093201398849487,
+            3.7739999294281006,
+            1.9995743036270142
+          ],
+          "max_m": [
+            1.5051525831222534,
+            3.7960002422332764,
+            2.271585464477539
+          ],
+          "bounds_max_error_m": 0.0,
+          "uv_channels": 2,
+          "UV1_min_area": 4.9999904632613834e-05,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "SeafoodFishCrest",
+          "triangles": 301,
+          "min_m": [
+            -1.0,
+            2.6200006008148193,
+            3.84999942779541
+          ],
+          "max_m": [
+            1.2699999809265137,
+            2.9432878494262695,
+            4.569999694824219
+          ],
+          "bounds_max_error_m": 7.152557373046875e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.000891357163441242,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceDeckPiles",
+          "triangles": 1300,
+          "min_m": [
+            -7.179999828338623,
+            2.5,
+            -1.0000009536743164
+          ],
+          "max_m": [
+            7.179999828338623,
+            6.0,
+            0.03199958801269531
+          ],
+          "bounds_max_error_m": 9.5367431640625e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.00021095679828597724,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceRails",
+          "triangles": 336,
+          "min_m": [
+            -7.034999847412109,
+            2.7149999141693115,
+            -9.701926728666876e-07
+          ],
+          "max_m": [
+            7.034999847412109,
+            5.954999923706055,
+            0.7599995732307434
+          ],
+          "bounds_max_error_m": 9.701926728666876e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 0.0007999984741218213,
+          "material": "Restaurant_Exterior_Atlas"
+        },
+        {
+          "name": "TerraceTablesChairs",
+          "triangles": 4940,
+          "min_m": [
+            -6.822500228881836,
+            4.239999771118164,
+            -7.77889397340914e-07
+          ],
+          "max_m": [
+            6.822500228881836,
+            4.960000038146973,
+            1.0799992084503174
+          ],
+          "bounds_max_error_m": 7.77889397340914e-07,
+          "uv_channels": 2,
+          "UV1_min_area": 5.7290155853095825e-05,
+          "material": "Restaurant_Exterior_Atlas_Night"
+        }
+      ],
+      "unit_m": 1,
+      "only_production_meshes": true,
+      "floor_contact_z_m": 0,
+      "below_floor_piles_m": 1
+    }
+  ],
+  "native_import_unverified": true
+}

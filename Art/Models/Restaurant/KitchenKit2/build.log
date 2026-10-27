@@ -1,0 +1,39 @@
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\KitchenKit2\build.py:11: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Restaurant_Atlas_Upgrades');mat.use_nodes=True;n=mat.node_tree.nodes;l=mat.node_tree.links;bs=n.get('Principled BSDF');im=n.new('ShaderNodeTexImage');im.image=bpy.data.images.load(str(T/'Restaurant_BaseColor.png'));im.image.pack();l.new(im.outputs['Color'],bs.inputs['Base Color']);sf=n.new('ShaderNodeTexImage');sf.image=bpy.data.images.load(str(T/'Restaurant_Surface.png'));sf.image.colorspace_settings.name='Non-Color';sf.image.pack();sep=n.new('ShaderNodeSeparateColor');l.new(sf.outputs['Color'],sep.inputs[0]);l.new(sep.outputs['Red'],bs.inputs['Roughness']);l.new(sep.outputs['Green'],bs.inputs['Metallic']);l.new(im.outputs['Color'],bs.inputs['Emission Color']);mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=2.5;l.new(sep.outputs['Blue'],mul.inputs[0]);l.new(mul.outputs[0],bs.inputs['Emission Strength'])
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Grill.fbx'
+export finished in 0.0212 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Steamer.fbx'
+export finished in 0.0129 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_DrinksFridge.fbx'
+export finished in 0.0131 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Chart.fbx'
+export finished in 0.0112 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Jukebox.fbx'
+export finished in 0.0119 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_BigFridge.fbx'
+export finished in 0.0105 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_ReliableStove.fbx'
+export finished in 0.0205 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_CosyPendantLamp.fbx'
+export finished in 0.0109 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Net.fbx'
+export finished in 0.0115 sec.
+
+FBX export starting... 'C:\\Users\\momoy\\Projects\\Catchline\\Art\\Models\\Restaurant\\KitchenKit2\\Restaurant_Trophy.fbx'
+export finished in 0.0104 sec.
+Info: Saved as "RestaurantKitchenKit2.blend"
+UPGRADES BUILD PASS 10
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

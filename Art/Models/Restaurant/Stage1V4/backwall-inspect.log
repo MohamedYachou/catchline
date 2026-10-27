@@ -1,0 +1,31 @@
+00:01.016  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\Stage1V4.blend"
+BlenderMCP addon registered
+INSPECT Restaurant_Atlas_URP_V4
+Principled BSDF BSDF_PRINCIPLED [('Base Color', (0.800000011920929, 0.800000011920929, 0.800000011920929, 1.0)), ('Metallic', 0.0), ('Roughness', 0.5), ('IOR', 1.5), ('Alpha', 1.0), ('Thin Wall', False), ('Normal', (0.0, 0.0, 0.0)), ('Weight', 0.0), ('Diffuse Roughness', 0.0), ('Subsurface Weight', 0.0), ('Subsurface Radius', (1.0, 0.20000000298023224, 0.10000000149011612)), ('Subsurface Scale', 0.004999999888241291), ('Subsurface IOR', 1.399999976158142), ('Subsurface Anisotropy', 0.0), ('Specular IOR Level', 0.5), ('Specular Tint', (1.0, 1.0, 1.0, 1.0)), ('Anisotropic', 0.0), ('Anisotropic Rotation', 0.0), ('Tangent', (0.0, 0.0, 0.0)), ('Transmission Weight', 0.0), ('Coat Weight', 0.0), ('Coat Roughness', 0.029999999329447746), ('Coat IOR', 1.5), ('Coat Tint', (1.0, 1.0, 1.0, 1.0)), ('Coat Normal', (0.0, 0.0, 0.0)), ('Sheen Weight', 0.0), ('Sheen Roughness', 0.5), ('Sheen Tint', (1.0, 1.0, 1.0, 1.0)), ('Emission Color', (1.0, 1.0, 1.0, 1.0)), ('Emission Strength', 0.0), ('Thin Film Thickness', 0.0), ('Thin Film IOR', 1.3300000429153442)] 
+Material Output OUTPUT_MATERIAL [('Displacement', (0.0, 0.0, 0.0)), ('Thickness', 0.0)] 
+BaseColor_sRGB TEX_IMAGE [('Vector', (0.0, 0.0, 0.0))] C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\textures\Restaurant_BaseColor.png
+Surface_LINEAR_RoughMetalEmit TEX_IMAGE [('Vector', (0.0, 0.0, 0.0))] C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\textures\Restaurant_Surface.png
+UV Map UVMAP [] 
+Separate Color SEPARATE_COLOR [('Color', (0.800000011920929, 0.800000011920929, 0.800000011920929, 1.0))] 
+Color Attribute VERTEX_COLOR [] 
+Mix (Legacy) MIX_RGB [('Factor', 1.0), ('Color1', (0.5, 0.5, 0.5, 1.0)), ('Color2', (0.5, 0.5, 0.5, 1.0))] 
+Math MATH [('Value', 0.5), ('Value', 2.799999952316284), ('Value', 0.5)] 
+LINK Principled BSDF BSDF -> Material Output Surface
+LINK UV Map UV -> BaseColor_sRGB Vector
+LINK UV Map UV -> Surface_LINEAR_RoughMetalEmit Vector
+LINK Surface_LINEAR_RoughMetalEmit Color -> Separate Color Color
+LINK Separate Color Red -> Principled BSDF Roughness
+LINK Separate Color Green -> Principled BSDF Metallic
+LINK BaseColor_sRGB Color -> Mix (Legacy) Color1
+LINK Color Attribute Color -> Mix (Legacy) Color2
+LINK Mix (Legacy) Color -> Principled BSDF Base Color
+LINK BaseColor_sRGB Color -> Principled BSDF Emission Color
+LINK Separate Color Blue -> Math Value
+LINK Math Value -> Principled BSDF Emission Strength
+UV RearMasonry_0_0 [('UVMap', True), ('LightmapUV', False)] [('UV Map', 'UV0')] [('LocalAO', 'CORNER')] [('Color Attribute', 'LocalAO')]
+UV RearCoping [('UVMap', True), ('LightmapUV', False)] [('UV Map', 'UV0')] [('LocalAO', 'CORNER')] [('Color Attribute', 'LocalAO')]
+UV HighKitchenShelf [('UVMap', True), ('LightmapUV', False)] [('UV Map', 'UV0')] [('LocalAO', 'CORNER')] [('Color Attribute', 'LocalAO')]
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,120 @@
+{
+  "name": "Slipway",
+  "group": "A",
+  "triangles": 456,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -4.0,
+      -3.4969110629390343e-07,
+      -1.1200000047683716
+    ],
+    [
+      4.000000476837158,
+      7.000000476837158,
+      0.4992116391658783
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    8.0,
+    7.000000953674316,
+    1.6192116737365723
+  ],
+  "parts": [
+    {
+      "name": "RampConcreteAndRails",
+      "triangles": 456,
+      "vertices": 272,
+      "bounds_min_blender": [
+        -4.0,
+        -3.4969110629390343e-07,
+        -1.1200000047683716
+      ],
+      "bounds_max_blender": [
+        4.000000476837158,
+        7.000000476837158,
+        0.4992116391658783
+      ],
+      "mesh_sha256": "d6e98da6e400913e848118a574730bc1fc69e7a7ba6b27438c9521182f4d28ad",
+      "materials": [
+        "M_FishSilver",
+        "M_Rope",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Absolute quay/water datum: root Y=0; 8m wide ramp, rail-pair centres X +/-2.2m for updated rowboat slots. Ramp top at local Y=.35 at Z=0, toe Y=-.9 at Z=-7. Rails are on ramp, submerged toe intentional."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\Slipway.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\Slipway.fbx",
+  "sha256": {
+    "blend": "b5d4322594ce9ea4cb6f48427b01e19a282d25f4c8ef2b879581540d6cb032bb",
+    "fbx": "d14e371f524d9c792b545e05c1edb2582acec508f65ebc271eed0ca8605e8014"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Slipway\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Slipway\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Slipway\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Slipway\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Slipway\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 4.76837158203125e-07,
+    "source": {
+      "triangles": 456,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.0,
+          -3.4969110629390343e-07,
+          -1.1200000047683716
+        ],
+        [
+          4.000000476837158,
+          7.000000476837158,
+          0.4992116391658783
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_Rope",
+        "M_Steel"
+      ],
+      "parents": {
+        "Slipway": null,
+        "RampConcreteAndRails": "Slipway"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 456,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.0,
+          -3.3987637948484917e-07,
+          -1.1200004816055298
+        ],
+        [
+          4.000000476837158,
+          7.000000476837158,
+          0.4992116391658783
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_Rope",
+        "M_Steel"
+      ],
+      "parents": {
+        "RampConcreteAndRails": "Slipway",
+        "Slipway": null
+      },
+      "finite": true
+    }
+  }
+}

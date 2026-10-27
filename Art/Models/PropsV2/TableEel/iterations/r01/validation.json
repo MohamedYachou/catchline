@@ -1,0 +1,332 @@
+{
+  "name": "TableEel",
+  "revision": "r01",
+  "delivery_sha256": {
+    "TableEel.blend": "a57f40f38b415a19840e05eb37357ab8ab96e3bee2aa601ad6a06ffc8cdf4378",
+    "TableEel.fbx": "a9c2e4bf3966b4176360f5bb01447e134862218371b1e6dd3be76d44f81553b0"
+  },
+  "runtime_sha256": "a9c2e4bf3966b4176360f5bb01447e134862218371b1e6dd3be76d44f81553b0",
+  "checks": [
+    "current delivery SHA256 TableEel.blend",
+    "current delivery SHA256 TableEel.fbx",
+    "protected reference unchanged Art/Models/StationsV1/TableEel.blend",
+    "runtime bytes equal reviewed delivery",
+    "saved source excludes review lights/cameras/surfaces",
+    "one named export root",
+    "identity root pivot",
+    "source metres",
+    "nonempty geometry EelBody",
+    "finite vertices EelBody",
+    "nonempty geometry EelHead",
+    "finite vertices EelHead",
+    "nonempty geometry Eye",
+    "finite vertices Eye",
+    "nonempty geometry Eye.001",
+    "finite vertices Eye.001",
+    "source bounds manifest current",
+    "floor pivot at horizontal bounds centre and zero lowest contact",
+    "source triangle manifest current",
+    "source parts manifest current",
+    "bounded small-prop geometry budget",
+    "nonempty geometry EelBody",
+    "finite vertices EelBody",
+    "nonempty geometry EelHead",
+    "finite vertices EelHead",
+    "nonempty geometry Eye",
+    "finite vertices Eye",
+    "nonempty geometry Eye.001",
+    "finite vertices Eye.001",
+    "actual FBX preserves every named mesh",
+    "actual FBX every world vertex both directions EelBody",
+    "actual FBX part origin preserved EelBody",
+    "actual FBX triangle count EelBody",
+    "actual FBX face materials EelBody",
+    "actual FBX material slots EelBody",
+    "actual FBX every world vertex both directions EelHead",
+    "actual FBX part origin preserved EelHead",
+    "actual FBX triangle count EelHead",
+    "actual FBX face materials EelHead",
+    "actual FBX material slots EelHead",
+    "actual FBX every world vertex both directions Eye",
+    "actual FBX part origin preserved Eye",
+    "actual FBX triangle count Eye",
+    "actual FBX face materials Eye",
+    "actual FBX material slots Eye",
+    "actual FBX every world vertex both directions Eye.001",
+    "actual FBX part origin preserved Eye.001",
+    "actual FBX triangle count Eye.001",
+    "actual FBX face materials Eye.001",
+    "actual FBX material slots Eye.001",
+    "actual FBX world bounds within 0.1mm; metres/axes preserved",
+    "actual FBX base colours preserved"
+  ],
+  "native_acceptance": "Not tested; art only, no Unity/code writes.",
+  "triangles": 948,
+  "mesh_count": 4,
+  "source_parts": {
+    "EelBody": {
+      "triangles": 588,
+      "bounds": [
+        [
+          -0.2510230541229248,
+          -0.19200938940048218,
+          0.0010100491344928741
+        ],
+        [
+          0.30091774463653564,
+          0.19200938940048218,
+          0.07928597927093506
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 588
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.09908223152160645,
+        -0.015955477952957153,
+        -0.004999998956918716
+      ]
+    },
+    "EelHead": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.30091774463653564,
+          -0.02095547690987587,
+          0.0
+        ],
+        [
+          -0.14091776311397552,
+          0.08904452621936798,
+          0.10000000149011612
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.22091776132583618,
+        0.034044522792100906,
+        0.05000000074505806
+      ]
+    },
+    "Eye": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2689177691936493,
+          -0.011955478228628635,
+          0.06599999964237213
+        ],
+        [
+          -0.2529177963733673,
+          0.0040445225313305855,
+          0.0820000022649765
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2609177827835083,
+        -0.003955477848649025,
+        0.07400000095367432
+      ]
+    },
+    "Eye.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2689177691936493,
+          0.0640445202589035,
+          0.06599999964237213
+        ],
+        [
+          -0.2529177963733673,
+          0.08004452288150787,
+          0.0820000022649765
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2609177827835083,
+        0.07204452157020569,
+        0.07400000095367432
+      ]
+    }
+  },
+  "actual_fbx_parts": {
+    "EelBody": {
+      "triangles": 588,
+      "bounds": [
+        [
+          -0.2510230541229248,
+          -0.19200937449932098,
+          0.001010043895803392
+        ],
+        [
+          0.30091774463653564,
+          0.19200940430164337,
+          0.07928599417209625
+        ]
+      ],
+      "material_triangles": {
+        "M_HullNavy": 588
+      },
+      "material_colours": {
+        "M_HullNavy": [
+          0.008568125776946545,
+          0.04970656707882881,
+          0.09530746936798096,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        0.09908223152160645,
+        -0.015955477952957153,
+        -0.004999996162950993
+      ]
+    },
+    "EelHead": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.30091774463653564,
+          -0.020955469459295273,
+          -3.725290298461914e-09
+        ],
+        [
+          -0.14091776311397552,
+          0.08904452621936798,
+          0.09999999403953552
+        ]
+      ],
+      "material_triangles": {
+        "M_Steel": 120
+      },
+      "material_colours": {
+        "M_Steel": [
+          0.2746773064136505,
+          0.38132601976394653,
+          0.4125426113605499,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.22091776132583618,
+        0.0340445302426815,
+        0.04999999701976776
+      ]
+    },
+    "Eye": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2689177691936493,
+          -0.011955466121435165,
+          0.06599999964237213
+        ],
+        [
+          -0.2529177963733673,
+          0.0040445346385240555,
+          0.0820000022649765
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2609177827835083,
+        -0.003955465741455555,
+        0.07400000095367432
+      ]
+    },
+    "Eye.001": {
+      "triangles": 120,
+      "bounds": [
+        [
+          -0.2689177691936493,
+          0.0640445351600647,
+          0.06599998474121094
+        ],
+        [
+          -0.2529177963733673,
+          0.08004453778266907,
+          0.08199998736381531
+        ]
+      ],
+      "material_triangles": {
+        "M_Rubber": 120
+      },
+      "material_colours": {
+        "M_Rubber": [
+          0.021219009533524513,
+          0.03433980792760849,
+          0.04373503103852272,
+          1.0
+        ]
+      },
+      "world_origin_m": [
+        -0.2609177827835083,
+        0.07204453647136688,
+        0.07399998605251312
+      ]
+    }
+  },
+  "max_bounds_error_m": 1.4901161193847656e-08,
+  "max_material_colour_error": 0,
+  "max_vertex_error_m": 3.332000937312528e-08,
+  "max_part_pivot_error_m": 1.4901161193847656e-08,
+  "pivot_use": "floor/contact",
+  "render_sha256": {
+    "Art/Models/PropsV2/TableEel/iterations/r01/back.png": "d4088a567e96b99f4ff19f9960ef2207f7c1b82a729d2e14581811bea50f43ee",
+    "Art/Models/PropsV2/TableEel/iterations/r01/front.png": "a9d3c10d4cebb56f7f099b2485633c04f6843ccd3488784bae789a901e8741f5",
+    "Art/Models/PropsV2/TableEel/iterations/r01/left.png": "1b5a288c954fdf81e5a022f370719672ae5374cc9573de10bd2d066a2436e702",
+    "Art/Models/PropsV2/TableEel/iterations/r01/right.png": "52a084dfaf75efa7848b2ca973b2b1512b013809227b22f0e7be83ea24b26535",
+    "Art/Models/PropsV2/TableEel/iterations/r01/three-quarter.png": "0991a803ac24f26b5899efd96bd0ea963e95ad8f0681847f2c917c9af870ed26",
+    "Art/Models/PropsV2/TableEel/iterations/r01/top.png": "01bb615fb2edff2dc974c0e2b56ab33aa8deada727b8211d0831558b7a0e64cb"
+  },
+  "pass": true
+}

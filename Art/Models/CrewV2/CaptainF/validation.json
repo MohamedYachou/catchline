@@ -1,0 +1,169 @@
+{
+  "hair_coverage": {
+    "name": "CaptainF",
+    "revision": "r02",
+    "rays": 396,
+    "scalp_samples": 293,
+    "skin_first_hits": 0,
+    "scope": "11 heights .705-.905m, every10degrees all360; anatomical exposed face/hairline exclusions listed; ears/nose/neck separated from scalp by connected mesh"
+  },
+  "saved_source": {
+    "rig_and_all_action_signatures_exact": true,
+    "bones": 20,
+    "actions": 11,
+    "triangles": 19059,
+    "mesh_triangles": {
+      "CaptainF_Face": 2200,
+      "CaptainF_Expression": 1600,
+      "CaptainF_Hair": 6100,
+      "CaptainF_Hat": 3800,
+      "CaptainF_FemaleBody": 2999,
+      "CaptainF_OutfitDetails": 2360
+    },
+    "max_weights_per_vertex": 2,
+    "all_weights_normalized": true,
+    "bare_scalp_height_m": 0.9500344395637512,
+    "bind_bounds_m": [
+      [
+        -0.4675086438655853,
+        -0.2230953574180603,
+        0.00017508506425656378
+      ],
+      [
+        0.46795400977134705,
+        0.28745192289352417,
+        1.0438406467437744
+      ]
+    ],
+    "texture_sizes": {
+      "CaptainF_Face.png": [
+        512,
+        512
+      ],
+      "CaptainF_Hair.png": [
+        256,
+        256
+      ]
+    },
+    "face_uv_and_relative_texture_resolve": true,
+    "pose_samples_matching_original": 44
+  },
+  "actual_fbx_roundtrip": {
+    "bones_and_hierarchy": true,
+    "metre_scale": true,
+    "source_bind_bounds_match": true,
+    "normalized_weights": true,
+    "mesh_triangles": {
+      "CaptainF_Hair": 6100,
+      "CaptainF_Face": 2200,
+      "CaptainF_Expression": 1600,
+      "CaptainF_FemaleBody": 2999,
+      "CaptainF_Hat": 3800,
+      "CaptainF_OutfitDetails": 2360
+    },
+    "face_uv_and_texture_resolve": true,
+    "all_original_actions": [
+      {
+        "action": "Bait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Carry",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cast",
+        "frames": [
+          1.0,
+          33.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Cheer",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Idle",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Reel",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Row",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Stow",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Strike",
+        "frames": [
+          1.0,
+          19.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Wait",
+        "frames": [
+          1.0,
+          49.0
+        ],
+        "channels": 209
+      },
+      {
+        "action": "Walk",
+        "frames": [
+          1.0,
+          25.0
+        ],
+        "channels": 209
+      }
+    ],
+    "sampled_poses": 44,
+    "max_bone_position_error_m": 1.0457388198091238e-07,
+    "max_mesh_bounds_error_m": 2.384185791015625e-07
+  },
+  "original_crewrig_sha256": "14f4e85a280e255a655b0205921fa97254a4260c01bb5c4a4b6a0fb80ce7a456",
+  "all_passed": true,
+  "name": "CaptainF",
+  "revision": "r02",
+  "delivery_sha256": {
+    "CaptainF.blend": "077120029ebb16c4dc5783cd7f0ec796f610a8bbcc2d3be8fc6eb34485a7afd0",
+    "CaptainF.fbx": "80a1abff3ad0228696fae5df827996858ba53cec4a4eb95fd20d09fcfb690c96",
+    "CaptainF_Face.png": "0a1298b11e29dd5904d2f9d8ff07d1d29e40a56ba59683222705fbc0dcf1fbb3",
+    "CaptainF_Hair.png": "0e23a9120249debb00055f2ed35eb2911ba5b890f6fa238ec41949c7f4e90889"
+  }
+}

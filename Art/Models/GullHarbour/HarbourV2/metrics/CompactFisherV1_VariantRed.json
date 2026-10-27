@@ -1,0 +1,839 @@
+{
+  "name": "CompactFisherV1_VariantRed",
+  "group": "C",
+  "triangles": 10164,
+  "limit": 1500,
+  "budget_status": "INHERITED EXCEPTION: exact released hull geometry",
+  "canonical_source": {
+    "path": "Assets\\Art\\Models\\Boats\\CompactFisherV1.fbx",
+    "sha256": "dbe3474208ef7c3c83cfd4792d8dee3db9d5c361536fe4a4179c44945d756822"
+  },
+  "paint_changes": [
+    {
+      "mesh": "Hull",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "Hull",
+      "slot": 11,
+      "from": "M_HullBlue",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "HullPaintBand",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "HullPaintBand",
+      "slot": 11,
+      "from": "M_HullBlue",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "HelmConsole",
+      "slot": 2,
+      "from": "M_RailIvory",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "HelmRoof",
+      "slot": 0,
+      "from": "M_HullNavy",
+      "to": "M_Crimson"
+    },
+    {
+      "mesh": "HelmRoof",
+      "slot": 2,
+      "from": "M_RailIvory",
+      "to": "M_Crimson"
+    }
+  ],
+  "authoring_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 29,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "bounds_blender": [
+    [
+      -1.8255213499069214,
+      -2.8448002338409424,
+      -0.6774940490722656
+    ],
+    [
+      1.8255213499069214,
+      3.009999990463257,
+      1.9200003147125244
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    3.6510426998138428,
+    5.854800224304199,
+    2.59749436378479
+  ],
+  "parts": [
+    {
+      "name": "Hull",
+      "triangles": 242,
+      "vertices": 145,
+      "bounds_min_blender": [
+        -1.399999976158142,
+        -2.799999952316284,
+        -0.570000410079956
+      ],
+      "bounds_max_blender": [
+        1.399999976158142,
+        2.5999999046325684,
+        0.5350005030632019
+      ],
+      "mesh_sha256": "a5765a5809408060df4f6c413e0e130c248fccd56b81ee321c35778b607b08b2",
+      "materials": [
+        "M_Crimson",
+        "M_RailIvory",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "GunwaleHardware",
+      "triangles": 1008,
+      "vertices": 544,
+      "bounds_min_blender": [
+        -1.4447964429855347,
+        -2.8448002338409424,
+        0.3205006420612335
+      ],
+      "bounds_max_blender": [
+        1.4447964429855347,
+        2.6436004638671875,
+        0.8520004749298096
+      ],
+      "mesh_sha256": "2971a8b9bf2b012f3320693e0abb757bef3aa883f7812343781b286186057923",
+      "materials": [
+        "M_RailIvory",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "PlankDeck",
+      "triangles": 688,
+      "vertices": 370,
+      "bounds_min_blender": [
+        -1.218999981880188,
+        -2.5,
+        -0.035000380128622055
+      ],
+      "bounds_max_blender": [
+        1.219499945640564,
+        2.3399999141693115,
+        4.0730171235736634e-07
+      ],
+      "mesh_sha256": "e1bf884f436263f703239a27e9828204139502f3fb1b8d5e0502256b88f4fa41",
+      "materials": [
+        "M_DeckWood",
+        "M_WoodHighlight"
+      ]
+    },
+    {
+      "name": "HullPaintBand",
+      "triangles": 30,
+      "vertices": 30,
+      "bounds_min_blender": [
+        -1.3818000555038452,
+        -2.788800001144409,
+        0.16999958455562592
+      ],
+      "bounds_max_blender": [
+        1.3818000555038452,
+        2.589600086212158,
+        0.365000456571579
+      ],
+      "mesh_sha256": "7eeae82b497b1cb8da3743459216519bf81b8a14e035427fb00334c305338322",
+      "materials": [
+        "M_Crimson"
+      ]
+    },
+    {
+      "name": "HelmConsole",
+      "triangles": 412,
+      "vertices": 226,
+      "bounds_min_blender": [
+        -0.5,
+        -1.774999976158142,
+        1.8507790855437634e-07
+      ],
+      "bounds_max_blender": [
+        0.25999999046325684,
+        -1.1359999179840088,
+        0.7650003433227539
+      ],
+      "mesh_sha256": "9bd23dcdb4d4c324f90bd7ba82e21cc5f77f969067695d70b1cdb835c1e17919",
+      "materials": [
+        "M_Crimson",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "CanopyFrame",
+      "triangles": 380,
+      "vertices": 216,
+      "bounds_min_blender": [
+        -0.8349999785423279,
+        -1.8599998950958252,
+        5.702223759840308e-08
+      ],
+      "bounds_max_blender": [
+        0.8349999785423279,
+        -0.3499997556209564,
+        1.390000343322754
+      ],
+      "mesh_sha256": "b1b6c87ac0c62b1aa091d47cdf12d33e55b0b9cee072abe9c01afa85ea95dfb7",
+      "materials": [
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "HelmRoof",
+      "triangles": 188,
+      "vertices": 104,
+      "bounds_min_blender": [
+        -0.8999999761581421,
+        -1.9699997901916504,
+        1.3700000047683716
+      ],
+      "bounds_max_blender": [
+        0.8999999761581421,
+        -0.28999972343444824,
+        1.9200003147125244
+      ],
+      "mesh_sha256": "1aa99657ae0cf292fff931d1bd3a77219fd0a22bfb1e6ab0b397f54217ee5a04",
+      "materials": [
+        "M_Crimson",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "BowLocker",
+      "triangles": 88,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -0.6200000047683716,
+        -2.4100000858306885,
+        3.274705875355721e-07
+      ],
+      "bounds_max_blender": [
+        0.6200000047683716,
+        -2.009999990463257,
+        0.35000038146972656
+      ],
+      "mesh_sha256": "09df8dae0077bac94e60c00b37143cb617f2fa71c48c531eb051e23c5f0981c8",
+      "materials": [
+        "M_DeckWood",
+        "M_RailIvory"
+      ]
+    },
+    {
+      "name": "HoldLid",
+      "triangles": 132,
+      "vertices": 72,
+      "bounds_min_blender": [
+        -0.9900000095367432,
+        0.3499999940395355,
+        -1.8807854473834595e-07
+      ],
+      "bounds_max_blender": [
+        -0.3099999725818634,
+        1.149999976158142,
+        0.050499945878982544
+      ],
+      "mesh_sha256": "cb246fbe68d854f31181731381f8d6f212a2939352bbacd9dfe80fe8436d7ada",
+      "materials": [
+        "M_DeckWood",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "FishHold",
+      "triangles": 132,
+      "vertices": 72,
+      "bounds_min_blender": [
+        -0.9700000286102295,
+        0.3699999451637268,
+        -0.387000173330307
+      ],
+      "bounds_max_blender": [
+        -0.33000001311302185,
+        1.1299999952316284,
+        -0.012000060640275478
+      ],
+      "mesh_sha256": "6b1f3e8f41c0c43987cbdde292d30288a73445fa8c3483dfc10b81123d97750b",
+      "materials": [
+        "M_SeaTeal",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "HoldRimHinges",
+      "triangles": 208,
+      "vertices": 112,
+      "bounds_min_blender": [
+        -0.9850000143051147,
+        0.3174999952316284,
+        -0.010000186040997505
+      ],
+      "bounds_max_blender": [
+        -0.3149999678134918,
+        1.1449999809265137,
+        0.0549999475479126
+      ],
+      "mesh_sha256": "dea358ee173384095bc301c824bafb559cf156a51c0e9e5a87e1699287d4d194",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "HelmFittings",
+      "triangles": 224,
+      "vertices": 128,
+      "bounds_min_blender": [
+        -0.5049999952316284,
+        -1.8349997997283936,
+        0.48000016808509827
+      ],
+      "bounds_max_blender": [
+        0.5340248942375183,
+        -1.1609998941421509,
+        1.0880502462387085
+      ],
+      "mesh_sha256": "2ef584632704e67dffff83568cfab253bafe2913fa80b394f2346ef2b0010369",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "CanopyFittings",
+      "triangles": 312,
+      "vertices": 176,
+      "bounds_min_blender": [
+        -0.8920000195503235,
+        -1.899999737739563,
+        1.1616379022598267
+      ],
+      "bounds_max_blender": [
+        0.8920000195503235,
+        -0.35999977588653564,
+        1.4950003623962402
+      ],
+      "mesh_sha256": "b8c9a795d8f2043ee8dab7e90ad9fa8cef48e0890982f26482f53c8186471e7f",
+      "materials": [
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "OutboardMotor",
+      "triangles": 368,
+      "vertices": 202,
+      "bounds_min_blender": [
+        -0.9301885962486267,
+        2.3760159015655518,
+        -0.5850005149841309
+      ],
+      "bounds_max_blender": [
+        -0.3099999725818634,
+        2.994999885559082,
+        0.5149996280670166
+      ],
+      "mesh_sha256": "ae2f366f952b42f4910ca4b349847862012acc8096e27068976c68a59142d94d",
+      "materials": [
+        "M_HullNavy",
+        "M_RailIvory",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "Propeller",
+      "triangles": 120,
+      "vertices": 68,
+      "bounds_min_blender": [
+        -0.6108253598213196,
+        2.819999933242798,
+        -0.6774940490722656
+      ],
+      "bounds_max_blender": [
+        -0.38999998569488525,
+        3.009999990463257,
+        -0.4225068986415863
+      ],
+      "mesh_sha256": "23e544d014e6b5b7771601b8b75ead72d4b042b96f715d5029a95c533ee34491",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_1",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.3359999656677246,
+        -0.15599992871284485,
+        0.4700000286102295
+      ],
+      "bounds_max_blender": [
+        -1.2239999771118164,
+        -0.04399990290403366,
+        0.6100000739097595
+      ],
+      "mesh_sha256": "5511174fe6ef1a1f5fbb8bee794a101842526e583367daa0c15d01235a1a213c",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodVisual_1",
+      "triangles": 156,
+      "vertices": 84,
+      "bounds_min_blender": [
+        -1.8255213499069214,
+        -0.4264836311340332,
+        0.4623652398586273
+      ],
+      "bounds_max_blender": [
+        -1.1800000667572021,
+        -0.06499972939491272,
+        1.6742678880691528
+      ],
+      "mesh_sha256": "cccdc11c83ecbfef53c60a751ebdf7a65fbe856f8a2b9e64bb610e84bf02773c",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_2",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        1.2239999771118164,
+        -0.15599992871284485,
+        0.4700000286102295
+      ],
+      "bounds_max_blender": [
+        1.3359999656677246,
+        -0.04399990290403366,
+        0.6100000739097595
+      ],
+      "mesh_sha256": "5511174fe6ef1a1f5fbb8bee794a101842526e583367daa0c15d01235a1a213c",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodVisual_2",
+      "triangles": 156,
+      "vertices": 84,
+      "bounds_min_blender": [
+        1.1800000667572021,
+        -0.4264836311340332,
+        0.4623652398586273
+      ],
+      "bounds_max_blender": [
+        1.8255213499069214,
+        -0.06499972939491272,
+        1.6742678880691528
+      ],
+      "mesh_sha256": "bd661ed117bec81c1badb203451652b9ae706310a924dce9980f093966099b1d",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodSocket_3",
+      "triangles": 96,
+      "vertices": 48,
+      "bounds_min_blender": [
+        -1.2860000133514404,
+        1.5940001010894775,
+        0.4699997305870056
+      ],
+      "bounds_max_blender": [
+        -1.1740000247955322,
+        1.7060000896453857,
+        0.6099997758865356
+      ],
+      "mesh_sha256": "6cb287e15e5f8af2dcd4423a6cc9f0233f68f687f559082d70b79a7c2ce64f99",
+      "materials": [
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "RodVisual_3",
+      "triangles": 156,
+      "vertices": 84,
+      "bounds_min_blender": [
+        -1.7755212783813477,
+        1.3235164880752563,
+        0.46236494183540344
+      ],
+      "bounds_max_blender": [
+        -1.1299999952316284,
+        1.6850003004074097,
+        1.6742676496505737
+      ],
+      "mesh_sha256": "d0af3877250f6e157c789bd0330182beed55abd62c984942ef542f5493ad2804",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "SafetyFenders",
+      "triangles": 692,
+      "vertices": 372,
+      "bounds_min_blender": [
+        -1.5049999952316284,
+        -1.0213292837142944,
+        -0.1200001910328865
+      ],
+      "bounds_max_blender": [
+        1.5049999952316284,
+        1.171329379081726,
+        0.49329686164855957
+      ],
+      "mesh_sha256": "03e5b1e75d69c1806483a6369ff78f917827a3ad8fae435ecce7626d9288d110",
+      "materials": [
+        "M_RailIvory",
+        "M_Rope",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "DeckDetails",
+      "triangles": 832,
+      "vertices": 426,
+      "bounds_min_blender": [
+        -1.1299999952316284,
+        -1.9800000190734863,
+        0.018205398693680763
+      ],
+      "bounds_max_blender": [
+        0.8738892078399658,
+        2.2940001487731934,
+        0.4525003433227539
+      ],
+      "mesh_sha256": "922af672c3f772271661b2647da43ce3b10cfca431db77855ebb1809ea5ee16c",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_SafetyOrange"
+      ]
+    },
+    {
+      "name": "SternNet_Stowed",
+      "triangles": 1936,
+      "vertices": 1014,
+      "bounds_min_blender": [
+        0.2941000461578369,
+        2.6772968769073486,
+        -0.24855998158454895
+      ],
+      "bounds_max_blender": [
+        1.0458998680114746,
+        2.953843832015991,
+        0.6585590839385986
+      ],
+      "mesh_sha256": "123b50c03a84457839939bfeb6a6fd2b79addd737b792aa1c458b9394c65c88a",
+      "materials": [
+        "M_Rope",
+        "M_SafetyOrange",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "SternNetRoller",
+      "triangles": 144,
+      "vertices": 80,
+      "bounds_min_blender": [
+        0.24000000953674316,
+        2.180000066757202,
+        -4.178528740794718e-07
+      ],
+      "bounds_max_blender": [
+        1.1100000143051147,
+        2.6538078784942627,
+        0.6737635135650635
+      ],
+      "mesh_sha256": "498658fb8db510b7446d0953953985b2767b15f04daa25ef744d636760e56e8b",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "NetDrum",
+      "triangles": 844,
+      "vertices": 432,
+      "bounds_min_blender": [
+        0.24000000953674316,
+        2.538440465927124,
+        0.5584400296211243
+      ],
+      "bounds_max_blender": [
+        1.1100000143051147,
+        2.76155948638916,
+        0.7812674641609192
+      ],
+      "mesh_sha256": "4dd98b7c654e7c262c4b0368e2e8f53f0f550f22f66a34c057a8f08cf8e930a9",
+      "materials": [
+        "M_HullNavy",
+        "M_Rope",
+        "M_SeaTeal"
+      ]
+    },
+    {
+      "name": "NetCrank",
+      "triangles": 72,
+      "vertices": 42,
+      "bounds_min_blender": [
+        1.090000033378601,
+        2.639000177383423,
+        0.6699995398521423
+      ],
+      "bounds_max_blender": [
+        1.149999976158142,
+        2.865000009536743,
+        0.8499995470046997
+      ],
+      "mesh_sha256": "b4729a4ce7c1be51641bdd9c2f65477ca2efee9647b092c8808f001828847082",
+      "materials": [
+        "M_Rubber",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "NetMountFittings",
+      "triangles": 184,
+      "vertices": 100,
+      "bounds_min_blender": [
+        0.24500000476837158,
+        2.2149999141693115,
+        0.03999960795044899
+      ],
+      "bounds_max_blender": [
+        1.1050000190734863,
+        2.424999952316284,
+        0.1789996325969696
+      ],
+      "mesh_sha256": "142e0e12437cee9abb962d0c8a0420ddb3b68b2a68daa95efa0ed340e2df614f",
+      "materials": [
+        "M_HullNavy",
+        "M_Steel"
+      ]
+    },
+    {
+      "name": "EngineFittings",
+      "triangles": 172,
+      "vertices": 94,
+      "bounds_min_blender": [
+        -0.9684000015258789,
+        2.3888001441955566,
+        -0.005000428296625614
+      ],
+      "bounds_max_blender": [
+        -0.28999996185302734,
+        2.6110000610351562,
+        0.24499961733818054
+      ],
+      "mesh_sha256": "9996e8b1ec34cfd4b769292bb818a1fcc807645b97394565a49115cf1c0951e8",
+      "materials": [
+        "M_HullNavy",
+        "M_Rubber",
+        "M_Steel"
+      ]
+    }
+  ],
+  "front_unity": "original canonical hull axes preserved",
+  "notes": [
+    "Paint-only exact released boat; inherited production triangle count exceeds generic prop budget. No decimation or geometry edits."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\CompactFisherV1_VariantRed.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\CompactFisherV1_VariantRed.fbx",
+  "sha256": {
+    "blend": "6653464e9697b0fad66ccc16fd5220a3fc528e9fcc5e7a09646a8f79ddedf9b2",
+    "fbx": "4aa46d8b2795c7893f6962c3060bc9be572b6d55b8a9b90e73cf54a676bcd0e0"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\CompactFisherV1_VariantRed\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\CompactFisherV1_VariantRed\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\CompactFisherV1_VariantRed\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\CompactFisherV1_VariantRed\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\CompactFisherV1_VariantRed\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "geometry_round_trip": {
+    "result": "PASS",
+    "mesh_count": 29,
+    "max_vertex_error_metres": 5.331201577973843e-07,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "canonical_geometry_identity": {
+    "result": "PASS",
+    "mesh_count": 29,
+    "max_vertex_error_metres": 0,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 4.76837158203125e-07,
+    "source": {
+      "triangles": 10164,
+      "meshes": 29,
+      "bounds": [
+        [
+          -1.8255213499069214,
+          -2.8448002338409424,
+          -0.6774940490722656
+        ],
+        [
+          1.8255213499069214,
+          3.009999990463257,
+          1.9200001955032349
+        ]
+      ],
+      "materials": [
+        "M_Crimson",
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "CompactFisherV1_VariantRed": null,
+        "Hull": "Catchline_CompactFisherV1",
+        "GunwaleHardware": "Catchline_CompactFisherV1",
+        "PlankDeck": "Catchline_CompactFisherV1",
+        "HullPaintBand": "Catchline_CompactFisherV1",
+        "HelmConsole": "Catchline_CompactFisherV1",
+        "CanopyFrame": "Catchline_CompactFisherV1",
+        "HelmRoof": "Catchline_CompactFisherV1",
+        "BowLocker": "Catchline_CompactFisherV1",
+        "HoldLid": "Catchline_CompactFisherV1",
+        "FishHold": "Catchline_CompactFisherV1",
+        "HoldRimHinges": "Catchline_CompactFisherV1",
+        "HelmFittings": "Catchline_CompactFisherV1",
+        "CanopyFittings": "Catchline_CompactFisherV1",
+        "OutboardMotor": "Catchline_CompactFisherV1",
+        "Propeller": "Catchline_CompactFisherV1",
+        "RodSocket_1": "Catchline_CompactFisherV1",
+        "RodVisual_1": "Catchline_CompactFisherV1",
+        "RodSocket_2": "Catchline_CompactFisherV1",
+        "RodVisual_2": "Catchline_CompactFisherV1",
+        "RodSocket_3": "Catchline_CompactFisherV1",
+        "RodVisual_3": "Catchline_CompactFisherV1",
+        "SafetyFenders": "Catchline_CompactFisherV1",
+        "DeckDetails": "Catchline_CompactFisherV1",
+        "SternNet_Stowed": "Catchline_CompactFisherV1",
+        "SternNetRoller": "Catchline_CompactFisherV1",
+        "NetDrum": "Catchline_CompactFisherV1",
+        "NetCrank": "Catchline_CompactFisherV1",
+        "NetMountFittings": "Catchline_CompactFisherV1",
+        "EngineFittings": "Catchline_CompactFisherV1",
+        "Catchline_CompactFisherV1": "CompactFisherV1_VariantRed"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 10164,
+      "meshes": 29,
+      "bounds": [
+        [
+          -1.8255213499069214,
+          -2.8447999954223633,
+          -0.6774945259094238
+        ],
+        [
+          1.8255213499069214,
+          3.0099997520446777,
+          1.9200005531311035
+        ]
+      ],
+      "materials": [
+        "M_Crimson",
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_KelpGreen",
+        "M_RailIvory",
+        "M_Rope",
+        "M_Rubber",
+        "M_SafetyOrange",
+        "M_SeaTeal",
+        "M_Steel",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "BowLocker": "Catchline_CompactFisherV1",
+        "CanopyFittings": "Catchline_CompactFisherV1",
+        "CanopyFrame": "Catchline_CompactFisherV1",
+        "DeckDetails": "Catchline_CompactFisherV1",
+        "EngineFittings": "Catchline_CompactFisherV1",
+        "FishHold": "Catchline_CompactFisherV1",
+        "GunwaleHardware": "Catchline_CompactFisherV1",
+        "HelmConsole": "Catchline_CompactFisherV1",
+        "HelmFittings": "Catchline_CompactFisherV1",
+        "HelmRoof": "Catchline_CompactFisherV1",
+        "HoldLid": "Catchline_CompactFisherV1",
+        "HoldRimHinges": "Catchline_CompactFisherV1",
+        "Hull": "Catchline_CompactFisherV1",
+        "HullPaintBand": "Catchline_CompactFisherV1",
+        "NetCrank": "Catchline_CompactFisherV1",
+        "NetDrum": "Catchline_CompactFisherV1",
+        "NetMountFittings": "Catchline_CompactFisherV1",
+        "OutboardMotor": "Catchline_CompactFisherV1",
+        "PlankDeck": "Catchline_CompactFisherV1",
+        "Propeller": "Catchline_CompactFisherV1",
+        "RodSocket_1": "Catchline_CompactFisherV1",
+        "RodSocket_2": "Catchline_CompactFisherV1",
+        "RodSocket_3": "Catchline_CompactFisherV1",
+        "RodVisual_1": "Catchline_CompactFisherV1",
+        "RodVisual_2": "Catchline_CompactFisherV1",
+        "RodVisual_3": "Catchline_CompactFisherV1",
+        "SafetyFenders": "Catchline_CompactFisherV1",
+        "SternNetRoller": "Catchline_CompactFisherV1",
+        "SternNet_Stowed": "Catchline_CompactFisherV1",
+        "Catchline_CompactFisherV1": "CompactFisherV1_VariantRed",
+        "CompactFisherV1_VariantRed": null
+      },
+      "finite": true
+    }
+  }
+}

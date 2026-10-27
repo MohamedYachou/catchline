@@ -1,0 +1,323 @@
+{
+  "task": "CAGE-ART-1",
+  "owner": "Codex 2 (WSL CLI)",
+  "date": "2026-10-25",
+  "status": "artist delivery complete; Codex1 import and Claude runtime/native acceptance separate",
+  "models": [
+    {
+      "name": "CrabCage",
+      "triangles": 1352,
+      "sha256": {
+        "blend": "9bf586568bcf4c0edc7a0e06659b4cf1a81054cdcef4c02efb08a8f71546733b",
+        "fbx": "e84113c5ce9c68ac269fc2f6e783926bdde53728621e59fb474132edfd19c25e"
+      },
+      "metrics": "metrics/CrabCage.json",
+      "source_actual_fbx": "PASS",
+      "visual_review": "PASS"
+    },
+    {
+      "name": "PotHauler",
+      "triangles": 772,
+      "sha256": {
+        "blend": "d41ee61bf3d30520c3f374d669bca52c684f0fe24df8942237bc3e73bcb86d6d",
+        "fbx": "2cb1681ec3191a7fa146cd334ee42e81000652a3fc4291e163781e7fc78a0791"
+      },
+      "metrics": "metrics/PotHauler.json",
+      "source_actual_fbx": "PASS",
+      "visual_review": "PASS"
+    },
+    {
+      "name": "SortingBoard",
+      "triangles": 608,
+      "sha256": {
+        "blend": "0108f90b7f1cc090c28a4ea9634948ffdbd2d76b4b69cd697400ae731289d252",
+        "fbx": "5352dcaed9fa9d3ca5f6c3e2242042b2975462feafd0e974520bf8c205131573"
+      },
+      "metrics": "metrics/SortingBoard.json",
+      "source_actual_fbx": "PASS",
+      "visual_review": "PASS"
+    },
+    {
+      "name": "CrabBerried",
+      "triangles": 888,
+      "sha256": {
+        "blend": "7acdc132cd5c4ec973998895963a49fed59ba95ff0d6e6eb67ca442a747193aa",
+        "fbx": "bf2b86a7ea47f2039ea3f13ca5ca2730dfe5f5397564abf1c468c468fb87881c"
+      },
+      "metrics": "metrics/CrabBerried.json",
+      "source_actual_fbx": "PASS",
+      "visual_review": "PASS"
+    }
+  ],
+  "canonical_crab": {
+    "path": "Art/Models/Props/Crab.blend",
+    "sha256": "9801a4df7c696a3209ecb56eba03d012fda11da42e8124fe827ed84114cbc1da",
+    "object": "CrabBody",
+    "geometry_sha256": "7e5aae7a8c33b7708d600470ab316759a5a5a87e6713bdd200784358f3ee1bbd"
+  },
+  "images": [
+    {
+      "file": "renders/CrabCage/three-quarter.png",
+      "view": "three-quarter",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "185e86fb8dddea07c3ae9ed1f38eba577bce9d210767535375f0f3be85dbf9ac",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabCage/front.png",
+      "view": "front",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "826126fb559b993e05616c5aef5e6657a3a77fe1d39973873f2c11b882220c9a",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabCage/right.png",
+      "view": "right",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "21a6c6f0c7d25ef4ce444cdc4f209d9abcbb75184a9c14105a55aad9c49c8b34",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabCage/back.png",
+      "view": "back",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "ba1d98d37a8b860a5464ecebe43acbb97f81b8c02fd8d0b4b7c8489b02494530",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabCage/top.png",
+      "view": "top",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "12ef4cfd13413b6d6d19e3109946811c6feca12ca9320575b63d129a9c432b22",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabCage/lid-open.png",
+      "view": "negative90degree local-X hinge open",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "3e68a303b26babf29716366e63c5401c6cb14c8b7f85743456356a5356c5243b",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/PotHauler/three-quarter.png",
+      "view": "three-quarter",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "76e46eab2008eaeccbac6f31dede9a6a6ef003a050869c867751b9deb3639c3f",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/PotHauler/front.png",
+      "view": "front",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "f93dcb6cca1b5ebd414fe0678ad8e4b96ab7aa13f95612d9de1abd62d9b8714e",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/PotHauler/right.png",
+      "view": "right",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "e79038757492983dd2c5503894adf3a0090a8e8da35f616568219ac0eb1e79d0",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/PotHauler/back.png",
+      "view": "back",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "bb27d716c850a560f76a6fbcc0c368c50afa13fedbff7ec2a281a9143778e684",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/PotHauler/top.png",
+      "view": "top",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "dd2c1fceeef4f770d40331d6425765468a173c76e5ed22c72f45a14a377e14a5",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/SortingBoard/three-quarter.png",
+      "view": "three-quarter",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "8e6249d1bfc825fb44074defb9142fff533d0a17ea7c21ac3772e8ccb495dd5d",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/SortingBoard/front.png",
+      "view": "front",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "d1631c3ebed6bfaac1046451d3c555b8b143911a68c2ffc155db855b848f44dc",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/SortingBoard/right.png",
+      "view": "right",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "873e42ae304fc67f8d8b4fb3d3056e25085b43ac001f1192fc10a6d8987a2c36",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/SortingBoard/back.png",
+      "view": "back",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "48dbda05182aa2c4625913cd990e0bbd616157a480e49ae8a2a86440fa7550e9",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/SortingBoard/top.png",
+      "view": "top",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "1e95a81c6302538b1895fa403d9948b98a54dd306d02322e5fa301058cf1c01c",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabBerried/three-quarter.png",
+      "view": "three-quarter",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "cc68b067fe9f69fb37d15ae5bbc1d30e37d53f3827f01906b9675c632b612edd",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabBerried/front.png",
+      "view": "front",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "2852f2af5ca8788698d264db3863d87dbf3d7d4b0c9d7b01168ea2a25d1b7855",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabBerried/right.png",
+      "view": "right",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "1568041b934c713d027507798cb71d0a0d891a9367fb8a526c319bfea7e4df8c",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabBerried/back.png",
+      "view": "back",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "1300a43d5f92bd03640e5004b81cb5463f9d09ca11d51445fed7b45d07dfe296",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/CrabBerried/top.png",
+      "view": "top",
+      "size": [
+        1000,
+        800
+      ],
+      "sha256": "4d6e7f32226e5c349ec39af60622bc2c948a38956a6434d7b18cb3153156a058",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/recognition/berried-390.png",
+      "view": "berried / same fixed390px rear operator-camera view",
+      "size": [
+        390,
+        390
+      ],
+      "sha256": "ab5bde5021d6ee75be13a4d77c24e33ffd52e73ab9c03204840ecbf620662ac2",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/recognition/plain-390.png",
+      "view": "plain / same fixed390px rear operator-camera view",
+      "size": [
+        390,
+        390
+      ],
+      "sha256": "08e0c4d3b9af82fa76e16843c2b394a9b39e700f4ab3b770185d39508df5683d",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/assembly/cage-view-1440.png",
+      "view": "isolated 30degree rail camera; half-submerged cage, berried crab on board",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "b023625b3b33f4828331932cd462bd7dc1781d2304115f531f6b81bc08db4956",
+      "review": "individually opened final image; artist review accepted"
+    },
+    {
+      "file": "renders/assembly/cage-view-844.png",
+      "view": "isolated 30degree rail camera; half-submerged cage, berried crab on board",
+      "size": [
+        844,
+        390
+      ],
+      "sha256": "9bf2804c6844f359dc62709094cfdfb91da76ba04a233cd339f8faebc75f4104",
+      "review": "individually opened final image; artist review accepted"
+    }
+  ],
+  "assembly_blend_sha256": "5c8777fcbbf864ed2ab723d31d2da8cfaea2212a927bd4fd3dfc6259ae298f2e",
+  "report_sha256": "d8a4ee1b4dca6cf70786e3533168ddb90b8cbae8679eaab48fac35dddb805117",
+  "sources": {
+    "Art/Source/CageKit/assembly.py": "29b8c41c363534f551fb1ad5a29dccc71d741306efc5bdaffaf25be4329626d0",
+    "Art/Source/CageKit/audit.py": "4eb6c7f8e68963d53efdf432ce03fb5b379f9c7e02a18f891f049a303f51529b",
+    "Art/Source/CageKit/build.py": "48ea0bb57eb20c9748067f9d84efb10c797e49940ad241cdef65a098416ec3a2",
+    "Art/Source/CageKit/finalize.py": "253e9375540e3305afe838d2da4633d58bba0cd80c550a0918a51c0e96d36b39",
+    "Art/Source/CageKit/receipts.py": "ac1ddb50a0686b74dcccd36e48d6d7cca67fdf2e45f0e29275498f42b4b29b88",
+    "Art/Source/CageKit/render.py": "5ca0b83cb994685afcf3b61ab68895bab0f517020e7954cd302acb363e3be807"
+  },
+  "native_verified": false,
+  "commit": "none",
+  "subagents": []
+}

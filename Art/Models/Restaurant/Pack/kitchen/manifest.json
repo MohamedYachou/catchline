@@ -1,0 +1,568 @@
+{
+  "units": "m",
+  "coordinate_contract": "Blender [x,y,z] -> FBX [x,z,-y]; wall front -Z; axis conversion baked, root identity",
+  "items": [
+    {
+      "stem": "ExtractorHood",
+      "name": "Restaurant_ExtractorHood",
+      "mount": "wall",
+      "mount_height_m": 1.95,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        1.0,
+        0.6469999849796295,
+        0.5120000243186951
+      ],
+      "bounds_blender": [
+        [
+          -0.5,
+          0.0,
+          -0.32349997758865356
+        ],
+        [
+          0.5,
+          0.5120000243186951,
+          0.32350000739097595
+        ]
+      ],
+      "triangles": 716,
+      "components": [
+        {
+          "model": "extractorhood",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/extractorhood.fbx",
+          "size_blender": [
+            1.0,
+            0.49,
+            0.63
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.245,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "authored_details": "KayKit extractorhood, steel atlas finish, navy filter grille, brass controls; separate ExtractorHood_Glow task-light strip.",
+      "glow_mesh": "ExtractorHood_Glow",
+      "glow_material": "ExtractorHood_Glow",
+      "glow_hex": "#FFE0A0",
+      "fbx_sha256": "92093651199f8d4090ba2215e8741c1548c159d554e773883991e5faadd03cff"
+    },
+    {
+      "stem": "PotRail",
+      "name": "Restaurant_PotRail",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        1.0,
+        0.46000003814697266,
+        0.15500003099441528
+      ],
+      "bounds_blender": [
+        [
+          -0.5,
+          0.0,
+          -0.23000001907348633
+        ],
+        [
+          0.5,
+          0.15500003099441528,
+          0.23000001907348633
+        ]
+      ],
+      "triangles": 1834,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.07,
+            0.075,
+            0.11
+          ],
+          "bottom_centre_blender": [
+            -0.455,
+            0.0375,
+            0.12
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.07,
+            0.075,
+            0.11
+          ],
+          "bottom_centre_blender": [
+            0.455,
+            0.0375,
+            0.12
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "pan_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pan_A.fbx",
+          "size_blender": [
+            0.205,
+            0.36,
+            0.055
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pan_B",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pan_B.fbx",
+          "size_blender": [
+            0.23,
+            0.4,
+            0.055
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pan_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pan_A.fbx",
+          "size_blender": [
+            0.18,
+            0.33,
+            0.055
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "pot_A",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/pot_A.fbx",
+          "size_blender": [
+            0.225,
+            0.255,
+            0.055
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        }
+      ],
+      "authored_details": "Two KayKit shelf_A_small brackets, steel rail/hooks, three hanging KayKit pan_A/pan_B and one pot_A; pans turned vertically.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "glow_hex": null,
+      "fbx_sha256": "9940e8ec8b36ba34c5cc588e7e0d4f3ad4ce2849dff53bb816d1ea7c55c054f8"
+    },
+    {
+      "stem": "UtensilRail",
+      "name": "Restaurant_UtensilRail",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.8399999141693115,
+        0.4406827390193939,
+        0.17647624015808105
+      ],
+      "bounds_blender": [
+        [
+          -0.41999995708465576,
+          0.0,
+          -0.22034136950969696
+        ],
+        [
+          0.41999995708465576,
+          0.17647624015808105,
+          0.22034136950969696
+        ]
+      ],
+      "triangles": 3100,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.07,
+            0.075,
+            0.11
+          ],
+          "bottom_centre_blender": [
+            -0.375,
+            0.0375,
+            0.12
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.07,
+            0.075,
+            0.11
+          ],
+          "bottom_centre_blender": [
+            0.375,
+            0.0375,
+            0.12
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "authored_details": "Two KayKit shelf_A_small brackets and steel rail, authored ladle, slotted turner, whisk and wood spoon.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "glow_hex": null,
+      "fbx_sha256": "58715f3bbfb57bb38961cd1af5a03e0c9e65137a491b91379ad2dcb9a5deafbb"
+    },
+    {
+      "stem": "SpiceShelf",
+      "name": "Restaurant_SpiceShelf",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.8999999761581421,
+        0.36900001764297485,
+        0.2199999988079071
+      ],
+      "bounds_blender": [
+        [
+          -0.44999998807907104,
+          0.0,
+          -0.18450000882148743
+        ],
+        [
+          0.44999998807907104,
+          0.2199999988079071,
+          0.18450000882148743
+        ]
+      ],
+      "triangles": 2156,
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.9,
+            0.22,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.11,
+            -0.09
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "jar_A_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_A_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.145
+          ],
+          "bottom_centre_blender": [
+            -0.35,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_B_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_B_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            -0.20999999999999996,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_C_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_C_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.16
+          ],
+          "bottom_centre_blender": [
+            -0.06999999999999995,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_A_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_A_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.145
+          ],
+          "bottom_centre_blender": [
+            0.07000000000000006,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_C_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_C_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.18
+          ],
+          "bottom_centre_blender": [
+            0.21000000000000008,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_B_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_B_small.fbx",
+          "size_blender": [
+            0.105,
+            0.105,
+            0.16
+          ],
+          "bottom_centre_blender": [
+            0.3500000000000001,
+            0.12,
+            0.091
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        }
+      ],
+      "authored_details": "KayKit shelf_A_small plus six varied jar_A_small/jar_B_small/jar_C_small with cream labels and navy/brass/teal lids.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "glow_hex": null,
+      "fbx_sha256": "58f8ae44dc7d06f8465f31e0cc710767910b730cb3a2b233685eb5e6a6b55abd"
+    },
+    {
+      "stem": "KnifeStrip",
+      "name": "Restaurant_KnifeStrip",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.699999988079071,
+        0.3400000333786011,
+        0.08900000154972076
+      ],
+      "bounds_blender": [
+        [
+          -0.3499999940395355,
+          0.0,
+          -0.17000001668930054
+        ],
+        [
+          0.3499999940395355,
+          0.08900000154972076,
+          0.17000001668930054
+        ]
+      ],
+      "triangles": 498,
+      "components": [
+        {
+          "model": "cuttingboard",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/cuttingboard.fbx",
+          "size_blender": [
+            0.7,
+            0.24,
+            0.035
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "knife",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/knife.fbx",
+          "size_blender": [
+            0.073,
+            0.028,
+            0.32
+          ],
+          "bottom_centre_blender": [
+            -0.245,
+            0.075,
+            -0.2
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "knife",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/knife.fbx",
+          "size_blender": [
+            0.059,
+            0.028,
+            0.27
+          ],
+          "bottom_centre_blender": [
+            -0.08499999999999999,
+            0.075,
+            -0.2
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "knife",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/knife.fbx",
+          "size_blender": [
+            0.085,
+            0.028,
+            0.34
+          ],
+          "bottom_centre_blender": [
+            0.07500000000000001,
+            0.075,
+            -0.2
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        },
+        {
+          "model": "knife",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/knife.fbx",
+          "size_blender": [
+            0.05,
+            0.028,
+            0.235
+          ],
+          "bottom_centre_blender": [
+            0.235,
+            0.075,
+            -0.2
+          ],
+          "rotation_z_deg": 180,
+          "pack": "restaurant"
+        }
+      ],
+      "authored_details": "KayKit cuttingboard as wall magnet backboard plus four KayKit knife variants, steel blades and navy handles.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "glow_hex": null,
+      "fbx_sha256": "4aca4cfe042149e3111ea14aafde5c200a12509df1cf6dca1d8b220e6661591d"
+    },
+    {
+      "stem": "ChoppingBlock",
+      "name": "Restaurant_ChoppingBlock",
+      "mount": "counter",
+      "mount_height_m": 0.8,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "size_unity_m": [
+        0.47999998927116394,
+        0.12950000166893005,
+        0.3400000035762787
+      ],
+      "bounds_blender": [
+        [
+          -0.23999999463558197,
+          -0.17000000178813934,
+          0.0
+        ],
+        [
+          0.23999999463558197,
+          0.17000000178813934,
+          0.12950000166893005
+        ]
+      ],
+      "triangles": 1402,
+      "components": [
+        {
+          "model": "cuttingboard",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/cuttingboard.fbx",
+          "size_blender": [
+            0.48,
+            0.34,
+            0.105
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        }
+      ],
+      "authored_details": "KayKit cuttingboard thickened into an end-grain butcher block; wood inlays, scored top and four small rubber feet.",
+      "glow_mesh": null,
+      "glow_material": null,
+      "glow_hex": null,
+      "fbx_sha256": "2a6282b636c2910ba9d754cd2a39b158d78af7ef054050f92d34063321e7a1b4"
+    }
+  ]
+}

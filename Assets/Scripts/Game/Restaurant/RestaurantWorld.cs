@@ -89,7 +89,25 @@ namespace Catchline.Game.Restaurant
             if(prefab==null)throw new InvalidOperationException("Restaurant asset missing: "+name+". Rebuild ArtLibrary after importing the Restaurant folder.");
             if(FacingYaw.TryGetValue(name,out var yaw))rotation*=Quaternion.Euler(0,yaw,0);
             // A model exported with its axis turn on the root keeps that turn under the layout's own (else it lies on its side).
-            return ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation*prefab.transform.localRotation).transform;
+            var spawned=ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation*prefab.transform.localRotation).transform;
+            Emissive(spawned);
+            return spawned;
+        }
+        // Light fixtures carry their lit element on a separate *_Glow material; make it emit so the grade's bloom
+        // reads it as warm lamplight (the atlas-shader room pieces glow via their B channel instead).
+        void Emissive(Transform t)
+        {
+            foreach(var r in t.GetComponentsInChildren<Renderer>(true)){
+                var mats=r.sharedMaterials;bool changed=false;
+                for(int i=0;i<mats.Length;i++){
+                    if(mats[i]==null||!mats[i].name.Contains("Glow"))continue;
+                    var m=new Material(mats[i]);m.EnableKeyword("_EMISSION");
+                    m.globalIlluminationFlags=MaterialGlobalIlluminationFlags.RealtimeEmissive;
+                    if(m.HasProperty("_EmissionColor"))m.SetColor("_EmissionColor",new Color(1f,.72f,.42f)*2.6f);
+                    guestMaterials.Add(m);mats[i]=m;changed=true;
+                }
+                if(changed)r.sharedMaterials=mats;
+            }
         }
         // Tile x runs kitchen-to-door; the camera looks down -z, so world +x is screen left. The V4 room (kitchen left,
         // jetty right, like the mockups) is laid out that way, so tile x maps to -x.
@@ -126,7 +144,10 @@ namespace Catchline.Game.Restaurant
                     var t=Spawn(model,pos,Quaternion.Euler(0,item.Rotated?-90:0,0));items.Add(item.Uid,t);
                     if(RestaurantData.Get(item.Id).Seats>0){var top=TableBounds(t);Spawn(Model("TableCandle")!=null?"TableCandle":"TableLantern",new Vector3(top.center.x,top.max.y,top.center.z),Quaternion.identity);
                         // Cosy lighting: a pendant over every table (base height from its footprint), lit warm below.
-                        if(layout.HasUpgrade("CosyLighting")&&Model("CosyPendantLamp")!=null){Spawn("CosyPendantLamp",new Vector3(top.center.x,1.65f,top.center.z),Quaternion.identity);cosyLamps.Add(new Vector3(top.center.x,1.6f,top.center.z));}}
+                        // Mo 10-27: a warm glowing pendant hangs over every table so the room reads as lit; the old
+                        // cosy-lamp upgrade path remains only until the new PendantLamp is imported.
+                        string pendant=Model("PendantLamp")!=null?"PendantLamp":(layout.HasUpgrade("CosyLighting")&&Model("CosyPendantLamp")!=null?"CosyPendantLamp":null);
+                        if(pendant!=null){Spawn(pendant,new Vector3(top.center.x,pendant=="PendantLamp"?2.3f:1.65f,top.center.z),Quaternion.identity);cosyLamps.Add(new Vector3(top.center.x,1.6f,top.center.z));}}
                 }
                 // V4's own small dressing (plants, crates, lanterns) must not stand in a chair the layout put there.
                 if(room!=null){
@@ -145,7 +166,7 @@ namespace Catchline.Game.Restaurant
                     foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>())if(!r.transform.IsChildOf(room)){foreach(var m in r.sharedMaterials)if(m!=null&&m.shader.name=="Catchline/RestaurantAtlas"){kit=m;break;}if(kit!=null)break;}
                     if(kit!=null)foreach(var r in room.GetComponentsInChildren<Renderer>(true)){var mats=r.sharedMaterials;for(int n=0;n<mats.Length;n++)mats[n]=kit;r.sharedMaterials=mats;}
                 }
-                foreach(var clip in ArtLibrary.Get().CrewClips??Array.Empty<AnimationClip>())if(clip!=null){var n=clip.name.Split('|').Last();clips[n]=clip;}
+                CrewAnim.Fill(clips,ArtLibrary.Get().CrewClips);
                 if(sim!=null)foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
                 ServiceCamera=new GameObject("Restaurant camera").AddComponent<Camera>();
                 ServiceCamera.transform.SetParent(RoomRoot,false);
@@ -213,7 +234,7 @@ namespace Catchline.Game.Restaurant
             var bl=postProfile.Add<URP.Bloom>();bl.threshold.Override(.75f);bl.intensity.Override(1.15f);bl.scatter.Override(.72f);bl.tint.Override(new Color(1f,.86f,.66f));bl.highQualityFiltering.Override(true);
             var vg=postProfile.Add<URP.Vignette>();vg.intensity.Override(.34f);vg.smoothness.Override(.78f);vg.color.Override(new Color(.03f,.025f,.045f));
             var fg=postProfile.Add<URP.FilmGrain>();fg.type.Override(URP.FilmGrainLookup.Thin1);fg.intensity.Override(.16f);fg.response.Override(.8f);
-            var dof=postProfile.Add<URP.DepthOfField>();dof.mode.Override(URP.DepthOfFieldMode.Gaussian);dof.gaussianStart.Override(30f);dof.gaussianEnd.Override(58f);dof.gaussianMaxRadius.Override(.8f);dof.highQualitySampling.Override(true);
+            // (Depth of field removed: Mo 10-27 - it hazed the whole room, which sits farther from the camera than the sea estimate assumed.)
 
             var volGo=new GameObject("Evening grade");volGo.transform.SetParent(RoomRoot,false);
             var vol=volGo.AddComponent<Volume>();vol.isGlobal=true;vol.priority=100;vol.sharedProfile=postProfile;
@@ -362,9 +383,12 @@ namespace Catchline.Game.Restaurant
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
             var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena","Marta","Nils","Pia","Greta","Henrik","Zola","Vera","Anton"}; // GUESTS-3 bring their own colours
             int gi=(guests.Count+guestStart)%civilians.Length; // each night starts further along the roster
-            // Mo 10-27: Mira hosts in her boat model for now (the restaurant host rig read too big and wide).
-            bool boatMira=!guest&&id=="mira"&&lib?.M("CrewRig")!=null;
-            var prefab=boatMira?lib.M("CrewRig"):lib?.M(guest?"Restaurant_Guest_"+civilians[gi]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
+            // Staff wear their own Quaternius human puppet (file named after the crew id, e.g. mira.fbx); the
+            // generic captain borrows Mira's. Guests, and any crew without a delivered puppet, fall back as before.
+            string staffKey=id=="captain"?"mira":id;
+            var staffPuppet=!guest?lib?.M(staffKey):null;
+            var prefab=guest?lib?.M("Restaurant_Guest_"+civilians[gi]):staffPuppet??lib?.M("CrewRig_Restaurant")??lib?.M("CrewRig");
+            bool boatMira=!guest&&staffPuppet==null; // old blob rig in use -> keep the legacy outfit/hat toggles
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
             foreach(var a in rig.GetComponentsInChildren<Animation>())a.enabled=false;

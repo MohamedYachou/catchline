@@ -1,0 +1,100 @@
+{
+  "name": "JigRig",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference.",
+  "provenance": [
+    {
+      "file": "Art/Source/Art108/build_stations.py",
+      "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+      "purpose": "read-only chunky primitive/palette reference"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.3160000145435333,
+      -0.47927144169807434,
+      0.0
+    ],
+    [
+      0.13699999451637268,
+      0.11100000143051147,
+      1.1556532382965088
+    ]
+  ],
+  "triangles": 2116,
+  "mesh_parts": {
+    "RailClamp_Base": 108,
+    "RailClamp_Jaw": 108,
+    "RailClamp_Jaw.001": 108,
+    "ClampScrew": 44,
+    "ClampThumbGrip": 108,
+    "RodSocket": 44,
+    "JigRod_Lower": 44,
+    "JigRodTip": 44,
+    "RodGuide": 152,
+    "RodGuide.001": 152,
+    "RodGuide.002": 152,
+    "JigLine": 20,
+    "JigLure": 168,
+    "LureBand": 152,
+    "JigHookCrown": 26,
+    "JigHookCrown.001": 26,
+    "JigHookCrown.002": 26,
+    "JigHookCrown.003": 26,
+    "JigHookCrown.004": 26,
+    "JigHookCrown.005": 26,
+    "JigReel": 60,
+    "ReelFlange": 60,
+    "ReelFlange.001": 60,
+    "ReelCrank": 44,
+    "ReelGrip": 44,
+    "LampArm": 32,
+    "LampFoot": 44,
+    "LampWarmPane": 44,
+    "LampGuard": 20,
+    "LampGuard.001": 20,
+    "LampGuard.002": 20,
+    "LampGuard.003": 20,
+    "LampShade": 44,
+    "LampCap": 44
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "rail clamp contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "JigRig.blend": "431538d0cf0e69d51835f61e6d68a83685bdd284271a1c0d0829dae043d4fcd7",
+    "JigRig.fbx": "180b30d00b0c498fb4bbbc4f6141c6d42fc775425b533fbb480d2ea98a60243c"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_JigRig.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/JigRig/iterations/r01/back.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/front.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/left.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/night-context.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/right.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/JigRig/iterations/r01/top.png"
+  ]
+}

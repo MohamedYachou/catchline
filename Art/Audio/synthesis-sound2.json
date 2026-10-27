@@ -1,0 +1,377 @@
+{
+  "task": "SOUND-2",
+  "sample_rate": 44100,
+  "method": "Original numpy/scipy offline synthesis only, using unchanged SOUND1 primitives; no downloads, recordings, external samples or TTS.",
+  "files": [
+    {
+      "file": "SFX/Puffin_0.wav",
+      "frames": 29106,
+      "sha256": "73943ca45159c46db20816f06479a7918d283758eb02ac3c12bd53c87c2f9fd0"
+    },
+    {
+      "file": "SFX/Puffin_1.wav",
+      "frames": 31752,
+      "sha256": "8958e893048f18b56e6c8831566e49c237f9f9a48eb1ddc30da3aa9f24a252d2"
+    },
+    {
+      "file": "SFX/Puffin_2.wav",
+      "frames": 34398,
+      "sha256": "5633d6b39009ac8f5f87f6940ee76787e62d135700fb6cbf7ba7f6098e5af68e"
+    },
+    {
+      "file": "SFX/Foghorn_0.wav",
+      "frames": 127890,
+      "sha256": "ad1a2832469a9011566010f2466504e2a0cd33714fa375c0dc6b7d18551e3dbd"
+    },
+    {
+      "file": "SFX/Foghorn_1.wav",
+      "frames": 132300,
+      "sha256": "1ed5342151866e6d01006b09cb327ef878c1ce3357eaa6fe464b578f66b465b7"
+    },
+    {
+      "file": "SFX/Foghorn_2.wav",
+      "frames": 136710,
+      "sha256": "c208cd830f3bab590054ca4a46bb34a0d5ee845e4a21d9d99b4b1997b1c67af3"
+    },
+    {
+      "file": "SFX/DogBark_0.wav",
+      "frames": 11025,
+      "sha256": "15b85da67252a8a42ecfd69ff8053e72c19e675983190e59916d6c0ddd7ae2ac"
+    },
+    {
+      "file": "SFX/DogBark_1.wav",
+      "frames": 11025,
+      "sha256": "88e54ea294b2ea396f7c6c12d606ef800a50f90cde0b9f12bf951c596e8b0788"
+    },
+    {
+      "file": "SFX/DogBark_2.wav",
+      "frames": 11025,
+      "sha256": "8979723a205a4ffb9563269ee70292d14c448959150b19c118b21fb30edff89a"
+    },
+    {
+      "file": "SFX/Meow_0.wav",
+      "frames": 17640,
+      "sha256": "4b5442cc4c67d00a874f8a06afa1112433e5d68ad988c226bfeae02ea0fd6f40"
+    },
+    {
+      "file": "SFX/Meow_1.wav",
+      "frames": 17640,
+      "sha256": "b4a97a528df71116a9ee4cad06aed4d246d91d46ebc6008a507f783991906cdf"
+    },
+    {
+      "file": "SFX/Meow_2.wav",
+      "frames": 17640,
+      "sha256": "b1e2c6af5e9add082b4ddca77ee615f75631429d12f111de3e6e25ff0d048c2e"
+    },
+    {
+      "file": "SFX/Stitch_0.wav",
+      "frames": 8820,
+      "sha256": "0958e0c542cf18f79a826e0b2b1212a6d9eb27c69d80f39c3839c05af2d3947e"
+    },
+    {
+      "file": "SFX/Stitch_1.wav",
+      "frames": 8820,
+      "sha256": "a55bdfd3afaec702ca05e0fba298c39676c9231b15f93f170b7ea8d4774d3c26"
+    },
+    {
+      "file": "SFX/Stitch_2.wav",
+      "frames": 8820,
+      "sha256": "02e58246b03f1bd53da0e35dc747009de2116d6d1ec18333b375cd8e8d15fafc"
+    },
+    {
+      "file": "SFX/PotDrop_0.wav",
+      "frames": 35280,
+      "sha256": "b46c967a8e66f5906172ba139d92d3b903f549ed92caced9d315858c9a71b9e6"
+    },
+    {
+      "file": "SFX/PotDrop_1.wav",
+      "frames": 35280,
+      "sha256": "45d54dcd5060c4fe9d197c09875a2252f08558aad520a2c2074831e83b471725"
+    },
+    {
+      "file": "SFX/PotDrop_2.wav",
+      "frames": 35280,
+      "sha256": "972ea72c5027069bbe6ee60a28eca5dbc7936b319506b185e91c612e9eb93880"
+    },
+    {
+      "file": "Ambience/HarbourDusk.wav",
+      "frames": 1323000,
+      "sha256": "cf82c9d7674d17bed3bff5d4dd613f0af1b1b5294ba6a540bb78cfba440961ba"
+    },
+    {
+      "file": "Ambience/LighthouseRock.wav",
+      "frames": 1323000,
+      "sha256": "45144e761a4d9a884d5aba0b272c4e99662920afb5facc2f84ce78612e50995b"
+    }
+  ],
+  "ambience_events": {
+    "HarbourDusk": [
+      {
+        "kind": "piling-lap",
+        "start_seconds": 0.11087051784585111,
+        "duration_seconds": 0.9843083900226758,
+        "raw_gain": 0.52,
+        "pan": -0.7212443450449157,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 2.0113276750216764,
+        "duration_seconds": 0.7845804988662132,
+        "raw_gain": 0.52,
+        "pan": -0.7582105560642879,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 3.708985354232963,
+        "duration_seconds": 0.8724943310657597,
+        "raw_gain": 0.52,
+        "pan": 0.5122880519019906,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 5.7850449239955815,
+        "duration_seconds": 0.9838548752834467,
+        "raw_gain": 0.52,
+        "pan": -0.7950881179643773,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 7.609102472501101,
+        "duration_seconds": 0.8243764172335601,
+        "raw_gain": 0.52,
+        "pan": 0.32491089444918564,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 9.20646563674837,
+        "duration_seconds": 0.7717460317460317,
+        "raw_gain": 0.52,
+        "pan": -0.15054644584341426,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 10.811088179329218,
+        "duration_seconds": 0.928140589569161,
+        "raw_gain": 0.52,
+        "pan": 0.45321353886034066,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 12.893789216560661,
+        "duration_seconds": 1.061609977324263,
+        "raw_gain": 0.52,
+        "pan": -0.6943792276004358,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 14.760590506512756,
+        "duration_seconds": 0.7990249433106575,
+        "raw_gain": 0.52,
+        "pan": 0.5451032371240305,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 16.362719299072563,
+        "duration_seconds": 0.9575056689342404,
+        "raw_gain": 0.52,
+        "pan": 0.5334300110150918,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 18.25245052296317,
+        "duration_seconds": 0.7617460317460317,
+        "raw_gain": 0.52,
+        "pan": 0.0591756631190149,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 20.240822935210602,
+        "duration_seconds": 0.9434467120181406,
+        "raw_gain": 0.52,
+        "pan": -0.4886408986909121,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 21.55578934021569,
+        "duration_seconds": 1.0981632653061224,
+        "raw_gain": 0.52,
+        "pan": -0.27900976627302987,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 23.40657156544709,
+        "duration_seconds": 0.7953968253968254,
+        "raw_gain": 0.52,
+        "pan": 0.5487730573161282,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 25.53290423415628,
+        "duration_seconds": 0.7587301587301587,
+        "raw_gain": 0.52,
+        "pan": 0.2355075392535011,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 27.08592846427848,
+        "duration_seconds": 0.7633106575963718,
+        "raw_gain": 0.52,
+        "pan": -0.05990768844993399,
+        "wraps": false
+      },
+      {
+        "kind": "piling-lap",
+        "start_seconds": 28.92868014633528,
+        "duration_seconds": 0.7508163265306123,
+        "raw_gain": 0.52,
+        "pan": -0.1809553351919435,
+        "wraps": false
+      },
+      {
+        "kind": "far-gull",
+        "start_seconds": 6.1,
+        "duration_seconds": 1.25,
+        "raw_gain": 0.018,
+        "pan": -0.21095021653519558,
+        "wraps": false
+      },
+      {
+        "kind": "far-gull",
+        "start_seconds": 26.3,
+        "duration_seconds": 1.25,
+        "raw_gain": 0.018,
+        "pan": 0.5183072269347533,
+        "wraps": false
+      },
+      {
+        "kind": "rope",
+        "start_seconds": 3.4,
+        "duration_seconds": 0.8,
+        "raw_gain": 0.14,
+        "pan": -0.6212486147518341,
+        "wraps": false
+      },
+      {
+        "kind": "rope",
+        "start_seconds": 14.5,
+        "duration_seconds": 0.8,
+        "raw_gain": 0.14,
+        "pan": -0.6420011521930664,
+        "wraps": false
+      },
+      {
+        "kind": "one-far-church-bell-stroke",
+        "start_seconds": 20.1,
+        "duration_seconds": 6.1,
+        "raw_gain": 0.032,
+        "pan": 0.35,
+        "wraps": false
+      }
+    ],
+    "LighthouseRock": [
+      {
+        "kind": "rock-surf",
+        "start_seconds": 1.2,
+        "duration_seconds": 1.1745804988662132,
+        "raw_gain": 0.52,
+        "pan": 0.7359187256165497,
+        "wraps": false
+      },
+      {
+        "kind": "rock-surf",
+        "start_seconds": 6.9,
+        "duration_seconds": 1.0152834467120182,
+        "raw_gain": 0.52,
+        "pan": -0.20968294381974173,
+        "wraps": false
+      },
+      {
+        "kind": "rock-surf",
+        "start_seconds": 13.1,
+        "duration_seconds": 1.140408163265306,
+        "raw_gain": 0.52,
+        "pan": 0.32628585338639404,
+        "wraps": false
+      },
+      {
+        "kind": "rock-surf",
+        "start_seconds": 19.4,
+        "duration_seconds": 1.139297052154195,
+        "raw_gain": 0.52,
+        "pan": 0.625421574009151,
+        "wraps": false
+      },
+      {
+        "kind": "rock-surf",
+        "start_seconds": 25.2,
+        "duration_seconds": 1.0907256235827665,
+        "raw_gain": 0.52,
+        "pan": 0.31916647822723043,
+        "wraps": false
+      },
+      {
+        "kind": "rock-surf",
+        "start_seconds": 29.55,
+        "duration_seconds": 1.4363492063492063,
+        "raw_gain": 0.52,
+        "pan": 0.057132535104613136,
+        "wraps": true
+      },
+      {
+        "kind": "far-puffin",
+        "start_seconds": 4.8,
+        "duration_seconds": 0.72,
+        "raw_gain": 0.025,
+        "pan": -0.546234830891828,
+        "wraps": false
+      },
+      {
+        "kind": "far-puffin",
+        "start_seconds": 8.2,
+        "duration_seconds": 0.64,
+        "raw_gain": 0.016,
+        "pan": 0.6802793204478839,
+        "wraps": false
+      },
+      {
+        "kind": "far-puffin",
+        "start_seconds": 16.5,
+        "duration_seconds": 0.8,
+        "raw_gain": 0.023,
+        "pan": 0.41377616644598514,
+        "wraps": false
+      },
+      {
+        "kind": "far-puffin",
+        "start_seconds": 22.4,
+        "duration_seconds": 0.66,
+        "raw_gain": 0.02,
+        "pan": -0.06961662879444164,
+        "wraps": false
+      },
+      {
+        "kind": "far-puffin",
+        "start_seconds": 27.3,
+        "duration_seconds": 0.74,
+        "raw_gain": 0.018,
+        "pan": 0.6087618610640795,
+        "wraps": false
+      }
+    ]
+  }
+}

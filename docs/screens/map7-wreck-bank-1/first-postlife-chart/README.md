@@ -1,0 +1,1 @@
+Superseded first post-life capture and approach checks at chart point(.9,.1), with hidden chart title. Claude subsequently moved the pin to(.72,.56); current final evidence belongs in the parent folder. Historical receipt paths refer to their original locations at generation time and are not a current readback manifest.

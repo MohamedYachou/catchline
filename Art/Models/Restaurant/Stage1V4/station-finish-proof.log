@@ -1,0 +1,76 @@
+00:00.938  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\Stage1V4.blend"
+00:01.422  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-proof.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mats=[m for m in bpy.data.materials if m.use_nodes and 'Atlas' in m.name and 'V4' in m.name]
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-proof.py:44: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('REVIEW_StationSea');m.use_nodes=True;n=m.node_tree.nodes;l=m.node_tree.links;bs=n['Principled BSDF'];bs.inputs['Roughness'].default_value=.8;bs.inputs['Emission Strength'].default_value=.55
+00:30.125  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-room-1440x900.png'
+00:36.969  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-room-844x390.png'
+00:56.563  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-kitchen-detail.png'
+00:56.563  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\Stage1V4.blend"
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-proof.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mats=[m for m in bpy.data.materials if m.use_nodes and 'Atlas' in m.name and 'V4' in m.name]
+01:24.125  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-room-1440x900.png'
+01:31.625  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-room-844x390.png'
+01:53.954  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-kitchen-detail.png'
+01:54.157  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\Stage1V4.blend"
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-proof.py:59: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('StationStudio');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.18,.23,.32,1);world.node_tree.nodes['Background'].inputs[1].default_value=.45;sc.world=world
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-proof.py:60: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=200);floor=bpy.context.object;floor.name='REVIEW_Floor';m=bpy.data.materials.new('REVIEW_Slate');m.diffuse_color=(.055,.073,.102,1);m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=m.diffuse_color;m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.9;floor.data.materials.append(m);floor.location.z=-.006
+02:00.657  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-Stove.png'
+02:07.750  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-Oven.png'
+02:14.891  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-FridgeV2.png'
+02:22.938  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-Fryer.png'
+02:30.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-PrepCounter.png'
+02:38.547  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-SoupKettle.png'
+02:46.250  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-SinkDishRack.png'
+02:53.891  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\before-CoffeeBar.png'
+02:53.891  blend            | Read blend: "C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\Stage1V4.blend"
+03:01.469  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-Stove.png'
+03:10.032  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-Oven.png'
+03:17.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-FridgeV2.png'
+03:26.047  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-Fryer.png'
+03:33.266  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-PrepCounter.png'
+03:40.250  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-SoupKettle.png'
+03:47.782  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-SinkDishRack.png'
+03:54.782  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Stage1V4\station-finish-renders\after-CoffeeBar.png'
+BlenderMCP addon registered
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+Info: Saved as "station-finish-Check.blend"
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+STATION FINISH PROOF PASS
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -1,0 +1,359 @@
+{
+  "task": "HARBOUR-LIFE-2",
+  "owner": "Codex 2 (WSL CLI)",
+  "checks": {
+    "result": "PASS",
+    "triangles": {
+      "Dog": 728,
+      "Cat": 604
+    },
+    "reviewed_pngs": 38,
+    "resolved_report_links": 52,
+    "unchanged_dependencies": 11,
+    "native_acceptance": "External: Unity Legacy import/material conversion, scene scale/placement, HUD/refit presentation and animation playback were not run."
+  },
+  "dependencies_sha256": {
+    "Art/STYLE.md": {
+      "bytes": 28726,
+      "sha256": "a9a70f24a1ac27a2e923a1851c37d57d71e8927712cf3006a6b34e12abc7e4fb"
+    },
+    "PRODUCT.md": {
+      "bytes": 3137,
+      "sha256": "dc89641008211180c477d973f6a0e9b9840a604922cc663a62bfc1d9ee4f671b"
+    },
+    "DESIGN.md": {
+      "bytes": 14485,
+      "sha256": "8aeac2ae4b377ea5d4d247ca638f26b21b0be4b7d2c444dd8bf0df52be7b88cb"
+    },
+    "Art/Models/LighthouseLife/Puffin.blend": {
+      "bytes": 110342,
+      "sha256": "28e4c41ded3692eff162290ce84fdc86088631e7bbe068e161de05411055dae1"
+    },
+    "Art/Source/build_crab_coast_props.py": {
+      "bytes": 25803,
+      "sha256": "9e2777768d83eb475d772d848cc126fc200dcd8151ea3ec1308655163cf0f697"
+    },
+    "Art/Source/UIv2/generated/items.png": {
+      "bytes": 2007182,
+      "sha256": "96f2299c6757ec6a192239a9c18f7c0c0ed9d696000b5ef9e60afddb3ed874ae"
+    },
+    "Art/Source/cut_ui_v2.py": {
+      "bytes": 8536,
+      "sha256": "890981f8a29de1ae9250d18aa7aec674b8c0912f7725bb8c3807e1e5af30c1b0"
+    },
+    "Assets/Art/UI/v2-item-skiff.png": {
+      "bytes": 148691,
+      "sha256": "139866d94a106b2a3053ab4a69850ef2b52ef440d35eebfee1b60289b7fab5bc"
+    },
+    "Assets/Art/UI/v2-item-compact-fisher.png": {
+      "bytes": 154063,
+      "sha256": "b63f76a9eb67041a1c0f0c7b3ff22e1d4bb532fbf2bb2f12423c95606f6fdd6c"
+    },
+    "Assets/Art/Models/Boats/PrepFisherV1.fbx": {
+      "bytes": 578556,
+      "sha256": "5e7ca921e2e661a57ce71d442b2aebb710184a721023b75cee3182c76485b099"
+    },
+    "Assets/Art/Models/Boats/Tier5DeepLines103.fbx": {
+      "bytes": 787708,
+      "sha256": "e25e0e3d49f3caaeb2bbcb4dcc68e09b83cc671f79e7298b9a3cfbf2b69c23ae"
+    }
+  },
+  "files": {
+    "Art/Models/HarbourLife/Cat.blend": {
+      "bytes": 213878,
+      "sha256": "02914d67f8e4d31ca7af176c3e6c217c16fbec258e695a9134592a43d8835648"
+    },
+    "Art/Models/HarbourLife/Cat.fbx": {
+      "bytes": 346220,
+      "sha256": "7238c6602205911af6e390bd0b36caac8c8308c1f15258a57d6fe103e9b56be4"
+    },
+    "Art/Models/HarbourLife/Dog.blend": {
+      "bytes": 261829,
+      "sha256": "86275d9b0aaf2e3960e9c63ad44631f6dc9149d9fd8b7304961cb132d27338cc"
+    },
+    "Art/Models/HarbourLife/Dog.fbx": {
+      "bytes": 451964,
+      "sha256": "41b8d5a21e3fca8a12ab3a6d9ff5e1c4ffa01876058c109933aa77ba39fb90d9"
+    },
+    "Art/Models/HarbourLife/REPORT.md": {
+      "bytes": 7508,
+      "sha256": "4d7e6504bbe9a2c382983bcd1cb5ba67d4ba3e7ae20fcf2860a149ac29a32f67"
+    },
+    "Art/Models/HarbourLife/metrics/Cat-audit.json": {
+      "bytes": 7997,
+      "sha256": "66f33065dbffa4a2116628d8273812a577765008314f9f27cdcd0a3475f0706e"
+    },
+    "Art/Models/HarbourLife/metrics/Cat-build.json": {
+      "bytes": 1426,
+      "sha256": "91485a136618c713dbb144470be0d4ecdae5a2dfbc3e6c11718a2be5ffe13bed"
+    },
+    "Art/Models/HarbourLife/metrics/Dog-audit.json": {
+      "bytes": 10471,
+      "sha256": "b4c625dddc9dd75cbd9d6c6f1d5ac80c72194fe05b7b1ab43740f2b9a20c5b4e"
+    },
+    "Art/Models/HarbourLife/metrics/Dog-build.json": {
+      "bytes": 1549,
+      "sha256": "0efd2036b9ddca59760705ad91b510ecd10209f7a20cf97b4a200b963e483235"
+    },
+    "Art/Models/HarbourLife/metrics/dependencies.json": {
+      "bytes": 1581,
+      "sha256": "9162afa3205a44aabafdefd0f509d4dcd6c1514f57957200c8fa274aa736471b"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Look-0.png": {
+      "bytes": 337562,
+      "sha256": "bbdf2ed54ac2149d7aba94557939e1b28092de256bf5eee7aac7697949438dd2"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Look-1.png": {
+      "bytes": 338884,
+      "sha256": "76bcf394e90f3766774e18b18bb7aec1dd37d508a67eb387740fa04c128e1b01"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Look-2.png": {
+      "bytes": 337492,
+      "sha256": "1671c605375ab9f418dd34363dbb0f38a12c2faa380e35ec9184c354115eff15"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Look-3.png": {
+      "bytes": 335180,
+      "sha256": "03f51f6f56a98895b075b1e1627e111d96c18fe4651600db45196e687389f85b"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Look-4.png": {
+      "bytes": 337557,
+      "sha256": "a4297aee0163f76bea0419dcc031f8ff4910c4dcc3a1444793476642f2821dfc"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Sleep-0.png": {
+      "bytes": 351829,
+      "sha256": "1c5abe264bdba0d6bcbe39081096d1524f8090a5c0231c762ae8fc19a0c7eae6"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Sleep-1.png": {
+      "bytes": 351697,
+      "sha256": "34049fec305729d236bf4dbb019ee9c09d0460f597f098d7e742095680230378"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Sleep-2.png": {
+      "bytes": 351872,
+      "sha256": "25171360d071fab090e7b107f92c314fba4c57805213dfd7f91650924aac8882"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Sleep-3.png": {
+      "bytes": 351621,
+      "sha256": "6ccaefddc360cd5d1950c744832bbf09075d2e5e2c9fbaeeb53b8b08de219a13"
+    },
+    "Art/Models/HarbourLife/renders/Cat/action-Sleep-4.png": {
+      "bytes": 351843,
+      "sha256": "2172ad2c4fcab6edf6b22f9afbf69862d30c4d14efc490eddbabb7922f4c0bef"
+    },
+    "Art/Models/HarbourLife/renders/Cat/back.png": {
+      "bytes": 453108,
+      "sha256": "41b6daf76222f9e1e9b04b589a4165d66df175b75c8d810d008d726a973a9bb9"
+    },
+    "Art/Models/HarbourLife/renders/Cat/front.png": {
+      "bytes": 455283,
+      "sha256": "f8f072f4bc9cd8f1394e8b8f4af6c93a24cfdf48bd55a548d42d2cc4ee596a15"
+    },
+    "Art/Models/HarbourLife/renders/Cat/left.png": {
+      "bytes": 452626,
+      "sha256": "06595ba7b1e9c507a1ddb02b31489bd47d55664960516629ea8979fc284ae2d1"
+    },
+    "Art/Models/HarbourLife/renders/Cat/right.png": {
+      "bytes": 447898,
+      "sha256": "54b1c686f70e88e0bb08d2009aac692218cdbd5de05a370c458135152da607dd"
+    },
+    "Art/Models/HarbourLife/renders/Cat/three-quarter.png": {
+      "bytes": 468542,
+      "sha256": "0d680dc413f3d7bbaa0fcb1397178403ab523fa6ebe04cb75f5a0169a8afe4bc"
+    },
+    "Art/Models/HarbourLife/renders/Cat.json": {
+      "bytes": 7171,
+      "sha256": "af2d39bde355ecddbcbe7d632bcaee7ae886ea5a01e30e3c9734cedd8dd7c00a"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sit-0.png": {
+      "bytes": 337452,
+      "sha256": "1d52581da95414a6eca57ebf63370a613b9df145537ab39573c4f0759ecae57c"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sit-1.png": {
+      "bytes": 337698,
+      "sha256": "2ec4eaa8e65d788a8ade38057eec8af32c445a44ae0aa9a6c6ec209f0f000e3c"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sit-2.png": {
+      "bytes": 337371,
+      "sha256": "a57da63670efcc7052aa2e047b60d7421476e11f8836587d08b209eb3f2454e1"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sit-3.png": {
+      "bytes": 337504,
+      "sha256": "bc96a7854d55b5f93e43dd83eb026a63a726f88c2b58f35c777629f66110af38"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sit-4.png": {
+      "bytes": 337558,
+      "sha256": "9ae0ef1044a80d97ea6de03b96bdecd7e99a1bd40db3a60a5148e0d23e62db64"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sniff-0.png": {
+      "bytes": 330004,
+      "sha256": "6ddf6bf18db980a787456ca1c2d9904204151a2a9c41d84c9377aa25f7affa39"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sniff-1.png": {
+      "bytes": 329347,
+      "sha256": "d62d257f3507cdcc14398fd7d0427e64876adb69f55c4267fb28a4b9fb0fc0b6"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sniff-2.png": {
+      "bytes": 329823,
+      "sha256": "fed1f43fc65508b0c3d6b5415ebf167700ee933a936ac19d963475a40d87b6c5"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sniff-3.png": {
+      "bytes": 330362,
+      "sha256": "5704844f3641dd55dd9869ce2e065f169c4218d3439f5004d7777d901c374a91"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Sniff-4.png": {
+      "bytes": 329853,
+      "sha256": "ec3388069646dc15726bca3a97228a544d9432e294bacd143d534ff118a60dfb"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Trot-0.png": {
+      "bytes": 331522,
+      "sha256": "382e6af3ee6982932d1ceabe2ef29966ef2e7274d2ce4d82d8d36d71c736b3c7"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Trot-1.png": {
+      "bytes": 329778,
+      "sha256": "2471f6a1acdecc2c2e684b9ac626e45d87272c135700b1d9979002848441cd57"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Trot-2.png": {
+      "bytes": 330695,
+      "sha256": "de2c0cc7d91c4f22778ca2eec91137216f83ad9e0417d19ef115af7ae9dbbd28"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Trot-3.png": {
+      "bytes": 330884,
+      "sha256": "6bb38f221e226fc22c3a16b700d14533f5dfd887ed9e61499964f77ee976a837"
+    },
+    "Art/Models/HarbourLife/renders/Dog/action-Trot-4.png": {
+      "bytes": 331430,
+      "sha256": "26e6fa138d302ebc43cd88076748511fae075f84f95686930a50965ac15624ea"
+    },
+    "Art/Models/HarbourLife/renders/Dog/back.png": {
+      "bytes": 436196,
+      "sha256": "5baaabbf9162aae0811616f59197ee70170e3252b7d51d9e90b19938380877c2"
+    },
+    "Art/Models/HarbourLife/renders/Dog/front.png": {
+      "bytes": 436145,
+      "sha256": "d66e62058234f935fb1e2f60a6ccd1a0f1321b67a7823003abc2b999bd675e7e"
+    },
+    "Art/Models/HarbourLife/renders/Dog/left.png": {
+      "bytes": 438809,
+      "sha256": "ba7d424930abe5c82af716ec45589938d8fa8c1392894c63a65cce4078b1c93f"
+    },
+    "Art/Models/HarbourLife/renders/Dog/right.png": {
+      "bytes": 437111,
+      "sha256": "2ee05ee34e6c269bf178babd683a3818db80a3d7d0d252ff82ba1848c5b7b21f"
+    },
+    "Art/Models/HarbourLife/renders/Dog/three-quarter.png": {
+      "bytes": 461491,
+      "sha256": "7a5b1cf76b986e214bf4e2d32a9e50a711a4e9348eea1a6c6d717771b9693cc5"
+    },
+    "Art/Models/HarbourLife/renders/Dog.json": {
+      "bytes": 9724,
+      "sha256": "8ea53cf9cd975cf7c4fdbd3f78455133b11f3f65c88edf026c356c7cb97329d8"
+    },
+    "Art/Models/HarbourLife/visual-review.json": {
+      "bytes": 21834,
+      "sha256": "fb1a5dbcea3b3ddb0436458e949a33b803fe5c8ce70c0e2b9eae6cfe760ff41f"
+    },
+    "Art/Source/HarbourLife/Cat-audit.log": {
+      "bytes": 296,
+      "sha256": "f55e758cc2c8b355f2ee88b4259b2eab868c32d57d8f932b5d8f5f8a029191b1"
+    },
+    "Art/Source/HarbourLife/Cat-build.log": {
+      "bytes": 367,
+      "sha256": "c290a938fd610659dc550132623258b73be543fd0c3d5cbb4c2a352c4e2fff3d"
+    },
+    "Art/Source/HarbourLife/Cat-render.log": {
+      "bytes": 2235,
+      "sha256": "28045a66b834132244bc70605a2dcf917b9d2d06c19e250e5072da1f02242f7d"
+    },
+    "Art/Source/HarbourLife/Dog-audit.log": {
+      "bytes": 296,
+      "sha256": "4bea60b26199dea6e3edc846f7b60d776ae80cfcc0b8ff78224e941517bd959b"
+    },
+    "Art/Source/HarbourLife/Dog-build.log": {
+      "bytes": 367,
+      "sha256": "59ec89a72962f328a60795e35b9cd0eebe3f594d45f1b1ef6893bf6b7d9157c8"
+    },
+    "Art/Source/HarbourLife/Dog-render.log": {
+      "bytes": 2860,
+      "sha256": "3e739c137b9f702734ebf636c5f22e3e0e403b13e91a176191f6d1c07e2ca484"
+    },
+    "Art/Source/HarbourLife/audit.py": {
+      "bytes": 5216,
+      "sha256": "84776c2a819e06ee7d29958ca9b3701f227501bb6572b44507e15462bcc4eb4a"
+    },
+    "Art/Source/HarbourLife/boats.py": {
+      "bytes": 3338,
+      "sha256": "ee735b019ce7b5c0824adb8e1ca760272f7a6d23131593dfb9c7ce7c0c540f36"
+    },
+    "Art/Source/HarbourLife/build.py": {
+      "bytes": 15424,
+      "sha256": "ce43863af5401a882fddb689a63f50d2157802547e3d59a345b60e514b03cc98"
+    },
+    "Art/Source/HarbourLife/document.py": {
+      "bytes": 8421,
+      "sha256": "d29a64f41ba0b38e0e76ce0aeb33ef21e7af45487247b40f66eeb08ea185dbcb"
+    },
+    "Art/Source/HarbourLife/finalize.py": {
+      "bytes": 5919,
+      "sha256": "a0dc938d083fcad16ccaa17844399051605dcfa378e5073557e8eeba97e2967f"
+    },
+    "Art/Source/HarbourLife/hull3-boats.log": {
+      "bytes": 8026,
+      "sha256": "d867d01406b00ede841a56867d714be5dc04a4b57c8b94ca37e9d4003c208517"
+    },
+    "Art/Source/HarbourLife/hull4-boats.log": {
+      "bytes": 5986,
+      "sha256": "edc08e43eb863f84885e2adf28f47edbf13d5654d6d827683353007ac173e69b"
+    },
+    "Art/Source/HarbourLife/post.py": {
+      "bytes": 2150,
+      "sha256": "f5b25d4523c75926eaab28795509740d5a81958e79120e22f5c607f8229fa867"
+    },
+    "Art/Source/HarbourLife/render.py": {
+      "bytes": 3119,
+      "sha256": "7f74402fa8c1c647cdf049b579b1820d4f110f3e173155e3a078e678204fe6a4"
+    },
+    "Art/Source/HarbourLife/run.py": {
+      "bytes": 813,
+      "sha256": "6de87c326965c67f6c10d478597840670778d7e4a16eb665cdc631cd0f410cc7"
+    },
+    "Art/Source/HarbourLife/ui/comparison.png": {
+      "bytes": 440589,
+      "sha256": "8882abeafcc6a312f8bbb45f63294135628311a6cfbb6420a68d2854f420ad1b"
+    },
+    "Art/Source/HarbourLife/ui/hull3-raw.png": {
+      "bytes": 585254,
+      "sha256": "93cb159cf708b13feb06ba08e7c14a0e51c3325cc10960088d53a27f9bf9d93b"
+    },
+    "Art/Source/HarbourLife/ui/hull3-render.json": {
+      "bytes": 3351,
+      "sha256": "48931fcb7ac0b60ac885a19f46f174a9c9dbf92c43e4eb04c3d7b683088b3d69"
+    },
+    "Art/Source/HarbourLife/ui/hull3-review.blend": {
+      "bytes": 299630,
+      "sha256": "7ef7781bbabce97744bc9476a1ec6c62041d454b8245a5ae35f0dbe3ab169875"
+    },
+    "Art/Source/HarbourLife/ui/hull4-raw.png": {
+      "bytes": 563828,
+      "sha256": "e4c16fc6c575c8996d2bc1872f206be169cbc9f0b1cce26f35e4e13c2a8dbeb8"
+    },
+    "Art/Source/HarbourLife/ui/hull4-render.json": {
+      "bytes": 4215,
+      "sha256": "0084221b79160cef6e7d73f87438e1315d7420140ecb906bb51781ea41fd750b"
+    },
+    "Art/Source/HarbourLife/ui/hull4-review.blend": {
+      "bytes": 363383,
+      "sha256": "ec295da7b6b513f7f6faa450047b7bec5cd873642beacf230ac8b55e00b3bea3"
+    },
+    "Art/Source/HarbourLife/ui/post.json": {
+      "bytes": 1406,
+      "sha256": "7ed0267d39f0d05de786dccb4e8fd0bd79565c73f9a16da403287e1204a075ec"
+    },
+    "Art/Source/HarbourLife/ui/v2-item-hull3.png": {
+      "bytes": 82799,
+      "sha256": "5254aee290f32fa736cf550f212b50c5cdd5b58d74110a66fa3587ab055ebfb7"
+    },
+    "Art/Source/HarbourLife/ui/v2-item-hull4.png": {
+      "bytes": 82944,
+      "sha256": "2b01984b59b1dcc7a8542dab88bfc28700d95ce7813c3ac652afbbc76629442d"
+    }
+  }
+}

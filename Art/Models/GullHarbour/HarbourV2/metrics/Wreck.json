@@ -1,0 +1,126 @@
+{
+  "name": "Wreck",
+  "group": "D",
+  "triangles": 428,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -4.0,
+      -1.4800001382827759,
+      -0.9200000166893005
+    ],
+    [
+      4.0,
+      1.4799998998641968,
+      0.5099999904632568
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    8.0,
+    2.9600000381469727,
+    1.4300000667572021
+  ],
+  "parts": [
+    {
+      "name": "BrokenEightMetreHull",
+      "triangles": 428,
+      "vertices": 254,
+      "bounds_min_blender": [
+        -4.0,
+        -1.4800001382827759,
+        -0.9200000166893005
+      ],
+      "bounds_max_blender": [
+        4.0,
+        1.4799998998641968,
+        0.5099999904632568
+      ],
+      "mesh_sha256": "ffac4ec06ecb67ba7bcc4817aa0aafbdf8c25535c25f6d8ead30f295ee5e68dc",
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_Rope",
+        "M_WoodHighlight"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "Half-sunk eight-metre hull, rootY0 water datum, keelY-.92; open broken ribs and aft plank fragment. No sunken preview water is exported."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\Wreck.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\Wreck.fbx",
+  "sha256": {
+    "blend": "e6d23598e4f9fc2e2dc457acafa71ad505c23f44553afa5a23b1a66715c49fb6",
+    "fbx": "e30b1d1d91ac22dfc59b265f17970eb04126b0af8dcf0270f7a53fb8481f254e"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Wreck\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Wreck\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Wreck\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Wreck\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Wreck\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 5.960464477539063e-08,
+    "source": {
+      "triangles": 428,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.0,
+          -1.4800001382827759,
+          -0.9200000166893005
+        ],
+        [
+          4.0,
+          1.4799998998641968,
+          0.5099999904632568
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_Rope",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "Wreck": null,
+        "BrokenEightMetreHull": "Wreck"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 428,
+      "meshes": 1,
+      "bounds": [
+        [
+          -4.0,
+          -1.4800001382827759,
+          -0.9200000166893005
+        ],
+        [
+          4.0,
+          1.4799998998641968,
+          0.5100000500679016
+        ]
+      ],
+      "materials": [
+        "M_DeckWood",
+        "M_HullBlue",
+        "M_HullNavy",
+        "M_Rope",
+        "M_WoodHighlight"
+      ],
+      "parents": {
+        "BrokenEightMetreHull": "Wreck",
+        "Wreck": null
+      },
+      "finite": true
+    }
+  }
+}

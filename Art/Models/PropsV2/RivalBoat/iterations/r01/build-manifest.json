@@ -1,0 +1,76 @@
+{
+  "name": "RivalBoat",
+  "revision": "r01",
+  "kind": "mesh",
+  "origin": "Reuses the existing red rowboat model; no invented rival hull.",
+  "provenance": [
+    {
+      "file": "Assets/Art/Models/Harbour/Rowboat_VariantRed.fbx",
+      "sha256": "dee4e5c5b397eec9caeb2040256d0d8f9af2be25de410578eeeae0bbfb007f1c",
+      "purpose": "existing named rival-boat derivative"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -2.259999990463257,
+      -2.142500162124634,
+      -0.450000137090683
+    ],
+    [
+      2.259999990463257,
+      2.142500162124634,
+      0.5700001120567322
+    ]
+  ],
+  "triangles": 1790,
+  "mesh_parts": {
+    "CentreThwart": 44,
+    "Hull": 176,
+    "IvoryGunwale": 672,
+    "Oar_Port": 88,
+    "Oar_Starboard": 88,
+    "Oarlock_Port": 96,
+    "Oarlock_Starboard": 96,
+    "PlankDeck": 338,
+    "RodSocket_Port_Bow": 96,
+    "RodSocket_Port_Stern": 96
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "inherited rowboat deck centre; suggested waterline Z=-0.32m",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "RivalBoat.blend": "bf717445f3eaf4d74dcae9c13af5143800bf8404ba69f4930f89ede022f16740",
+    "RivalBoat.fbx": "685e1d870790c4af707a6d955acef6f79c98bcb5693b0b1ffe748956d07473b7"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_RivalBoat.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/back.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/front.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/left.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/right.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/three-quarter.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/top.png",
+    "Art/Models/PropsV2/RivalBoat/iterations/r01/waterline-context.png"
+  ]
+}

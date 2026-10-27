@@ -1,0 +1,177 @@
+{
+  "triangles": 856,
+  "items": {
+    "JigPirk": {
+      "triangles": 244,
+      "bounds_blender": [
+        [
+          -0.010999999940395355,
+          -0.010778555646538734,
+          -0.14000000059604645
+        ],
+        [
+          0.012446003966033459,
+          0.010778555646538734,
+          -0.00028641216340474784
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_JigBlue",
+        "M_Rubber"
+      ]
+    },
+    "JigFeathers": {
+      "triangles": 196,
+      "bounds_blender": [
+        [
+          -0.032999999821186066,
+          -0.006062177941203117,
+          -0.19999998807907104
+        ],
+        [
+          0.03594757616519928,
+          0.006062177941203117,
+          -0.0003599175252020359
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_FeatherOrange",
+        "M_FeatherYellow",
+        "M_FishSilver",
+        "M_RailIvory",
+        "M_Rubber"
+      ]
+    },
+    "JigLine": {
+      "triangles": 12,
+      "bounds_blender": [
+        [
+          -0.0020000000949949026,
+          -0.0020000000949949026,
+          -1.0
+        ],
+        [
+          0.0020000000949949026,
+          0.0020000000949949026,
+          0.0
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_RailIvory"
+      ]
+    },
+    "KelpRibbon": {
+      "triangles": 60,
+      "bounds_blender": [
+        [
+          -0.20864316821098328,
+          -0.04461321607232094,
+          0.0
+        ],
+        [
+          0.17336219549179077,
+          0.0488082654774189,
+          2.5
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_Kelp"
+      ]
+    },
+    "SeabedRocks": {
+      "triangles": 244,
+      "bounds_blender": [
+        [
+          -1.5,
+          -1.0,
+          0.0
+        ],
+        [
+          1.5,
+          1.0,
+          0.8105520009994507
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_Sand",
+        "M_Steel"
+      ]
+    },
+    "MoteCloud": {
+      "triangles": 100,
+      "bounds_blender": [
+        [
+          -0.8152980804443359,
+          -0.9685714840888977,
+          -0.979944109916687
+        ],
+        [
+          0.9875524044036865,
+          0.9230572581291199,
+          0.9635689854621887
+        ]
+      ],
+      "pivot_blender": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "materials": [
+        "M_FishSilver"
+      ]
+    }
+  },
+  "parents": {
+    "JigKit": null,
+    "JigPirk": "JigKit",
+    "JigFeathers": "JigKit",
+    "JigLine": "JigKit",
+    "KelpStrand": "JigKit",
+    "KelpRibbon": "KelpStrand",
+    "SeabedRocks": "JigKit",
+    "MoteCloud": "JigKit"
+  },
+  "palette": {
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_NetGreenGrey": "#50766C",
+    "M_RailIvory": "#F3F0DC",
+    "M_JigBlue": "#3D7FB8",
+    "M_FeatherOrange": "#E36A35",
+    "M_FeatherYellow": "#F2C14E",
+    "M_Kelp": "#5E7A3A",
+    "M_Twine": "#C9A66B",
+    "M_Sand": "#D8C79A",
+    "M_Steel": "#8FA6AC"
+  },
+  "sha256": {
+    "blend": "f21a52c6144415cf1411c03e09a19dbece4d8c318e0af8849e2b529ad1e6e6e3",
+    "fbx": "6f1b8ac627f63963ed9a68066b70eed78cdf119b4337c45e65ffd5a0b937bbc0"
+  }
+}

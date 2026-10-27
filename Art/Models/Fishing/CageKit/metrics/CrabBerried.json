@@ -1,0 +1,343 @@
+{
+  "triangles": 888,
+  "bounds": [
+    [
+      -0.14000000059604645,
+      -0.12382983416318893,
+      0.0
+    ],
+    [
+      0.14000000059604645,
+      0.12382983416318893,
+      0.08610086888074875
+    ]
+  ],
+  "dimensions_blender": [
+    0.2800000011920929,
+    0.24765966832637787,
+    0.08610086888074875
+  ],
+  "parents": {
+    "CrabBerried": null,
+    "CrabBody": "CrabBerried",
+    "EggMass": "CrabBerried"
+  },
+  "materials": [
+    "M_BandIvory",
+    "M_EggOrange",
+    "M_Rubber",
+    "M_SafetyOrange"
+  ],
+  "objects": {
+    "CrabBerried": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 0
+    },
+    "CrabBody": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 672
+    },
+    "EggMass": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tris": 216
+    }
+  },
+  "name": "CrabBerried",
+  "contract": {
+    "canonical": {
+      "path": "Art/Models/Props/Crab.blend",
+      "sha256": "9801a4df7c696a3209ecb56eba03d012fda11da42e8124fe827ed84114cbc1da",
+      "object": "CrabBody",
+      "geometry_sha256": "7e5aae7a8c33b7708d600470ab316759a5a5a87e6713bdd200784358f3ee1bbd"
+    },
+    "eggs": "Bright orange clutch under rear tail flap; existing shell/legs/claws untouched"
+  },
+  "axes": "Blender (X,Y,Z) maps to Unity (X,Z,-Y); board operator/gauge edge source +Y / Unity -Z",
+  "sha256": {
+    "blend": "7acdc132cd5c4ec973998895963a49fed59ba95ff0d6e6eb67ca442a747193aa",
+    "fbx": "bf2b86a7ea47f2039ea3f13ca5ca2730dfe5f5397564abf1c468c468fb87881c"
+  },
+  "status": "individual source/actualFBX/visual PASS; assembled/native acceptance separate",
+  "round_trip": {
+    "result": "PASS",
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 2,
+      "max_vertex_error_metres": 1.1175870895385742e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "source": {
+      "triangles": 888,
+      "bounds": [
+        [
+          -0.14000000059604645,
+          -0.12382983416318893,
+          0.0
+        ],
+        [
+          0.14000000059604645,
+          0.12382983416318893,
+          0.08610086888074875
+        ]
+      ],
+      "dimensions_blender": [
+        0.2800000011920929,
+        0.24765966832637787,
+        0.08610086888074875
+      ],
+      "parents": {
+        "CrabBerried": null,
+        "CrabBody": "CrabBerried",
+        "EggMass": "CrabBerried"
+      },
+      "materials": [
+        "M_BandIvory",
+        "M_EggOrange",
+        "M_Rubber",
+        "M_SafetyOrange"
+      ],
+      "objects": {
+        "CrabBerried": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        },
+        "CrabBody": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 672
+        },
+        "EggMass": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 216
+        }
+      }
+    },
+    "imported": {
+      "triangles": 888,
+      "bounds": [
+        [
+          -0.14000000059604645,
+          -0.12382983416318893,
+          -6.092941706725696e-09
+        ],
+        [
+          0.14000000059604645,
+          0.12382983416318893,
+          0.08610086888074875
+        ]
+      ],
+      "dimensions_blender": [
+        0.2800000011920929,
+        0.24765966832637787,
+        0.08610087497369046
+      ],
+      "parents": {
+        "CrabBody": "CrabBerried",
+        "EggMass": "CrabBerried",
+        "CrabBerried": null
+      },
+      "materials": [
+        "M_BandIvory",
+        "M_EggOrange",
+        "M_Rubber",
+        "M_SafetyOrange"
+      ],
+      "objects": {
+        "CrabBody": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 672
+        },
+        "EggMass": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 216
+        },
+        "CrabBerried": {
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation": [
+            1.570796251296997,
+            -0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "tris": 0
+        }
+      }
+    },
+    "controls": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/CrabBerried/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "cc68b067fe9f69fb37d15ae5bbc1d30e37d53f3827f01906b9675c632b612edd",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBerried/front.png",
+        "view": "front",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "2852f2af5ca8788698d264db3863d87dbf3d7d4b0c9d7b01168ea2a25d1b7855",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBerried/right.png",
+        "view": "right",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "1568041b934c713d027507798cb71d0a0d891a9367fb8a526c319bfea7e4df8c",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBerried/back.png",
+        "view": "back",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "1300a43d5f92bd03640e5004b81cb5463f9d09ca11d51445fed7b45d07dfe296",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBerried/top.png",
+        "view": "top",
+        "size": [
+          1000,
+          800
+        ],
+        "sha256": "4d6e7f32226e5c349ec39af60622bc2c948a38956a6434d7b18cb3153156a058",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

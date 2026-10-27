@@ -1,0 +1,18 @@
+00:00.891  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\steam.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('SteamIvory_'+str(j));mat.use_nodes=True;n=mat.node_tree.nodes;n.clear();l=mat.node_tree.links;out=n.new('ShaderNodeOutputMaterial');mix=n.new('ShaderNodeMixShader');tr=n.new('ShaderNodeBsdfTransparent');em=n.new('ShaderNodeEmission');em.inputs[0].default_value=(.91,.96,1,1);em.inputs[1].default_value=1;l.new(tr.outputs[0],mix.inputs[1]);l.new(em.outputs[0],mix.inputs[2]);l.new(mix.outputs[0],out.inputs[0])
+00:01.875  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-00.png'
+00:02.609  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-01.png'
+00:04.375  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-02.png'
+00:06.313  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-03.png'
+00:08.594  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-04.png'
+00:11.063  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-05.png'
+00:13.203  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-06.png'
+00:15.344  render           | Saved: 'C:\Users\momoy\Projects\Catchline\Art\Models\Restaurant\Upgrades\Steam\steam-07.png'
+BlenderMCP addon registered
+BlenderMCP addon unregistered
+Info: Saved as "Steam.blend"
+STEAM RENDERS PASS
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

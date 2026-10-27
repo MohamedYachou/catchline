@@ -1,0 +1,120 @@
+{
+  "name": "Dolphin",
+  "group": "D",
+  "triangles": 330,
+  "limit": 1500,
+  "bounds_blender": [
+    [
+      -1.100000023841858,
+      -0.5074999928474426,
+      -0.25
+    ],
+    [
+      1.100000023841858,
+      0.5074999928474426,
+      0.6399999856948853
+    ]
+  ],
+  "dimensions_width_depth_height": [
+    2.200000047683716,
+    1.0149999856948853,
+    0.8899999856948853
+  ],
+  "parts": [
+    {
+      "name": "LeapingDolphinSingleMesh",
+      "triangles": 330,
+      "vertices": 178,
+      "bounds_min_blender": [
+        -1.100000023841858,
+        -0.5074999928474426,
+        -0.25
+      ],
+      "bounds_max_blender": [
+        1.100000023841858,
+        0.5074999928474426,
+        0.6399999856948853
+      ],
+      "mesh_sha256": "5279ab0f6deafa69f8673c652bbca40f44fc08ac7fc76f8f31ab5532873dd819",
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_Rubber"
+      ]
+    }
+  ],
+  "front_unity": "-Z",
+  "notes": [
+    "One single mesh object,2.2m nose-to-fluke X envelope, smooth arched leaping silhouette. Root on arc centre; runtime supplies leap and waterline."
+  ],
+  "blend": "Art\\Models\\GullHarbour\\HarbourV2\\Dolphin.blend",
+  "fbx": "Art\\Models\\GullHarbour\\HarbourV2\\Dolphin.fbx",
+  "sha256": {
+    "blend": "b20f5e7c0e6081d2ae5dbabaca7ac05dc4d5f5c4d312f4f53a46e590b9d29c9c",
+    "fbx": "32542ae60b62427e2033041bfbc92005c433cf01ca82ecfeca5778f22009ab70"
+  },
+  "renders": [
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Dolphin\\front-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Dolphin\\back-right.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Dolphin\\back-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Dolphin\\front-left.png",
+    "Art\\Models\\GullHarbour\\HarbourV2\\renders\\Dolphin\\top.png"
+  ],
+  "status": "source/FBX PASS; visual review recorded separately; assembly/native pending",
+  "round_trip": {
+    "result": "PASS",
+    "bounds_max_error_metres": 0.0,
+    "source": {
+      "triangles": 330,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.100000023841858,
+          -0.5074999928474426,
+          -0.25
+        ],
+        [
+          1.100000023841858,
+          0.5074999928474426,
+          0.6399999856948853
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_Rubber"
+      ],
+      "parents": {
+        "Dolphin": null,
+        "LeapingDolphinSingleMesh": "Dolphin"
+      },
+      "finite": true
+    },
+    "imported": {
+      "triangles": 330,
+      "meshes": 1,
+      "bounds": [
+        [
+          -1.100000023841858,
+          -0.5074999928474426,
+          -0.25
+        ],
+        [
+          1.100000023841858,
+          0.5074999928474426,
+          0.6399999856948853
+        ]
+      ],
+      "materials": [
+        "M_FishSilver",
+        "M_HullBlue",
+        "M_Rubber"
+      ],
+      "parents": {
+        "LeapingDolphinSingleMesh": "Dolphin",
+        "Dolphin": null
+      },
+      "finite": true
+    }
+  }
+}

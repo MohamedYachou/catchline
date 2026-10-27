@@ -1,0 +1,640 @@
+{
+  "lights": [
+    {
+      "name": "DuskDirectional",
+      "type": "SUN",
+      "position_blender_m": [
+        -4,
+        -6,
+        9
+      ],
+      "position_unity_m": [
+        -4,
+        9,
+        6
+      ],
+      "blender_power": 0.12,
+      "srgb": [
+        0.42,
+        0.57,
+        1
+      ],
+      "hex": "#6B91FF",
+      "radius_m": 0.15,
+      "area_size_m": 1,
+      "URP_range_m": 0,
+      "URP_intensity_lumens_or_lux": 0.12,
+      "URP_mode": "Realtime directional"
+    },
+    {
+      "name": "WallLantern0",
+      "type": "POINT",
+      "position_blender_m": [
+        -3.35,
+        1.99,
+        1.49
+      ],
+      "position_unity_m": [
+        -3.35,
+        1.49,
+        -1.99
+      ],
+      "blender_power": 65,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 260,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WallLantern1",
+      "type": "POINT",
+      "position_blender_m": [
+        -0.7,
+        1.99,
+        1.49
+      ],
+      "position_unity_m": [
+        -0.7,
+        1.49,
+        -1.99
+      ],
+      "blender_power": 65,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 260,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WallLantern2",
+      "type": "POINT",
+      "position_blender_m": [
+        1.02,
+        1.99,
+        1.49
+      ],
+      "position_unity_m": [
+        1.02,
+        1.49,
+        -1.99
+      ],
+      "blender_power": 65,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 260,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WallLantern3",
+      "type": "POINT",
+      "position_blender_m": [
+        3.42,
+        1.99,
+        1.49
+      ],
+      "position_unity_m": [
+        3.42,
+        1.49,
+        -1.99
+      ],
+      "blender_power": 65,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 260,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "TableCandle0",
+      "type": "POINT",
+      "position_blender_m": [
+        0.65,
+        -1.35,
+        0.98
+      ],
+      "position_unity_m": [
+        0.65,
+        0.98,
+        1.35
+      ],
+      "blender_power": 7,
+      "srgb": [
+        1,
+        0.68,
+        0.32
+      ],
+      "hex": "#FFAD52",
+      "radius_m": 0.1,
+      "area_size_m": 1,
+      "URP_range_m": 2.2,
+      "URP_intensity_lumens_or_lux": 30,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "TableCandle1",
+      "type": "POINT",
+      "position_blender_m": [
+        2.25,
+        -1.35,
+        0.98
+      ],
+      "position_unity_m": [
+        2.25,
+        0.98,
+        1.35
+      ],
+      "blender_power": 7,
+      "srgb": [
+        1,
+        0.68,
+        0.32
+      ],
+      "hex": "#FFAD52",
+      "radius_m": 0.1,
+      "area_size_m": 1,
+      "URP_range_m": 2.2,
+      "URP_intensity_lumens_or_lux": 30,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "TableCandle2",
+      "type": "POINT",
+      "position_blender_m": [
+        1.35,
+        0.48,
+        0.98
+      ],
+      "position_unity_m": [
+        1.35,
+        0.98,
+        -0.48
+      ],
+      "blender_power": 7,
+      "srgb": [
+        1,
+        0.68,
+        0.32
+      ],
+      "hex": "#FFAD52",
+      "radius_m": 0.1,
+      "area_size_m": 1,
+      "URP_range_m": 2.2,
+      "URP_intensity_lumens_or_lux": 30,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "TableCandle3",
+      "type": "POINT",
+      "position_blender_m": [
+        2.15,
+        1.74,
+        0.98
+      ],
+      "position_unity_m": [
+        2.15,
+        0.98,
+        -1.74
+      ],
+      "blender_power": 7,
+      "srgb": [
+        1,
+        0.68,
+        0.32
+      ],
+      "hex": "#FFAD52",
+      "radius_m": 0.1,
+      "area_size_m": 1,
+      "URP_range_m": 2.2,
+      "URP_intensity_lumens_or_lux": 30,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "TableCandle4",
+      "type": "POINT",
+      "position_blender_m": [
+        -2.85,
+        -3.48,
+        0.9
+      ],
+      "position_unity_m": [
+        -2.85,
+        0.9,
+        3.48
+      ],
+      "blender_power": 7,
+      "srgb": [
+        1,
+        0.68,
+        0.32
+      ],
+      "hex": "#FFAD52",
+      "radius_m": 0.1,
+      "area_size_m": 1,
+      "URP_range_m": 2.2,
+      "URP_intensity_lumens_or_lux": 30,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern0",
+      "type": "POINT",
+      "position_blender_m": [
+        -3.78,
+        2.27,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        -3.78,
+        1.1400000000000001,
+        -2.27
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern1",
+      "type": "POINT",
+      "position_blender_m": [
+        0.15,
+        2.3,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        0.15,
+        1.1400000000000001,
+        -2.3
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern2",
+      "type": "POINT",
+      "position_blender_m": [
+        3.7,
+        2.27,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        3.7,
+        1.1400000000000001,
+        -2.27
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern3",
+      "type": "POINT",
+      "position_blender_m": [
+        3.82,
+        -1.1,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        3.82,
+        1.1400000000000001,
+        1.1
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern4",
+      "type": "POINT",
+      "position_blender_m": [
+        -3.83,
+        -2.4,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        -3.83,
+        1.1400000000000001,
+        2.4
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "OriginalLantern5",
+      "type": "POINT",
+      "position_blender_m": [
+        2.15,
+        -2.4,
+        1.1400000000000001
+      ],
+      "position_unity_m": [
+        2.15,
+        1.1400000000000001,
+        2.4
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.14,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WindowWash0",
+      "type": "POINT",
+      "position_blender_m": [
+        -2.65,
+        -2.95,
+        0.6
+      ],
+      "position_unity_m": [
+        -2.65,
+        0.6,
+        2.95
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.65,
+        0.24
+      ],
+      "hex": "#FFA63D",
+      "radius_m": 0.3,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WindowWash1",
+      "type": "POINT",
+      "position_blender_m": [
+        -0.6,
+        -2.95,
+        0.6
+      ],
+      "position_unity_m": [
+        -0.6,
+        0.6,
+        2.95
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.65,
+        0.24
+      ],
+      "hex": "#FFA63D",
+      "radius_m": 0.3,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "WindowWash2",
+      "type": "POINT",
+      "position_blender_m": [
+        1.45,
+        -2.95,
+        0.6
+      ],
+      "position_unity_m": [
+        1.45,
+        0.6,
+        2.95
+      ],
+      "blender_power": 28,
+      "srgb": [
+        1,
+        0.65,
+        0.24
+      ],
+      "hex": "#FFA63D",
+      "radius_m": 0.3,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 110,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    },
+    {
+      "name": "KitchenWarmBounce",
+      "type": "AREA",
+      "position_blender_m": [
+        -2.4,
+        0.4,
+        3.3
+      ],
+      "position_unity_m": [
+        -2.4,
+        3.3,
+        -0.4
+      ],
+      "blender_power": 155,
+      "srgb": [
+        1,
+        0.77,
+        0.5
+      ],
+      "hex": "#FFC480",
+      "radius_m": 0.15,
+      "area_size_m": 3,
+      "URP_range_m": 5,
+      "URP_intensity_lumens_or_lux": 750,
+      "URP_mode": "Baked area indirect"
+    },
+    {
+      "name": "DiningWarmBounce",
+      "type": "AREA",
+      "position_blender_m": [
+        1.4,
+        0.0,
+        3.7
+      ],
+      "position_unity_m": [
+        1.4,
+        3.7,
+        -0.0
+      ],
+      "blender_power": 110,
+      "srgb": [
+        1,
+        0.77,
+        0.53
+      ],
+      "hex": "#FFC487",
+      "radius_m": 0.15,
+      "area_size_m": 3,
+      "URP_range_m": 5,
+      "URP_intensity_lumens_or_lux": 500,
+      "URP_mode": "Baked area indirect"
+    },
+    {
+      "name": "TerraceWarmBounce",
+      "type": "AREA",
+      "position_blender_m": [
+        -2.9,
+        -3.5,
+        2.4
+      ],
+      "position_unity_m": [
+        -2.9,
+        2.4,
+        3.5
+      ],
+      "blender_power": 45,
+      "srgb": [
+        1,
+        0.73,
+        0.4
+      ],
+      "hex": "#FFBA66",
+      "radius_m": 0.15,
+      "area_size_m": 2,
+      "URP_range_m": 5,
+      "URP_intensity_lumens_or_lux": 500,
+      "URP_mode": "Baked area indirect"
+    },
+    {
+      "name": "JettyLampPool",
+      "type": "POINT",
+      "position_blender_m": [
+        1.35,
+        -3.12,
+        1.34
+      ],
+      "position_unity_m": [
+        1.35,
+        1.34,
+        3.12
+      ],
+      "blender_power": 65,
+      "srgb": [
+        1,
+        0.64,
+        0.25
+      ],
+      "hex": "#FFA340",
+      "radius_m": 0.18,
+      "area_size_m": 1,
+      "URP_range_m": 3.5,
+      "URP_intensity_lumens_or_lux": 260,
+      "URP_mode": "Mixed realtime direct + baked indirect"
+    }
+  ],
+  "world_linear_rgb": [
+    0.09,
+    0.19,
+    0.38
+  ],
+  "world_strength": 0.12,
+  "view_transform": "AgX Medium High Contrast",
+  "exposure_ev": 0.4,
+  "bloom": {
+    "type": "FOG_GLOW",
+    "threshold": 1.8,
+    "size": 0.35,
+    "strength": 0.07
+  },
+  "URP_units_not_equivalent_to_watts": true,
+  "URP": {
+    "colour_space": "Linear",
+    "HDR": true,
+    "ambient_srgb": "#5579A6",
+    "ambient_intensity": 0.12,
+    "tone_mapping": "ACES",
+    "post_exposure_ev": 0.4,
+    "white_balance_temperature": 6,
+    "saturation": -4,
+    "contrast": 12,
+    "bloom_threshold": 1.8,
+    "bloom_intensity": 0.12,
+    "bloom_scatter": 0.55,
+    "emission_lantern_srgb": "#FFB943",
+    "emission_lantern_HDR_multiplier": 5,
+    "emission_existing_atlas": "Keep V2 texture/vertex-AO shader; windows use V2 authored material emission recipe",
+    "SSAO_intensity": 0.35,
+    "SSAO_radius_m": 0.16,
+    "DOF": false,
+    "vignette": 0,
+    "grain": 0,
+    "lightmaps": "Bake additive wall UV1 with referenced V2 UV1; 20 texels/m starting density, pad4px. Light probes at staff/diner/queue head and torso heights; reflection probe box room+quay. Areas are bake-only."
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "triangles": 216,
+  "meshes": 1,
+  "vertices": 118,
+  "finite": true,
+  "bounds_blender": [
+    [
+      -0.722070038318634,
+      -0.841719388961792,
+      0.0
+    ],
+    [
+      0.7558668255805969,
+      0.8114427924156189,
+      1.3200000524520874
+    ]
+  ],
+  "parents": {
+    "CrabBuoySet": null,
+    "BuoyFlagAndLines": "CrabBuoySet"
+  },
+  "materials": [
+    "M_HullNavy",
+    "M_LegalRed",
+    "M_RailIvory",
+    "M_Rope"
+  ],
+  "name": "CrabBuoySet",
+  "contract": {
+    "waterline": "Buoy body base Y0; floating lines at Y.009. Place root .015m above mean water.",
+    "flag_top_metres": 1.32,
+    "palette": "M_LegalRed #CF4232 + M_RailIvory horizontal bands; small solid double-sided flag."
+  },
+  "limit": 900,
+  "sha256": {
+    "blend": "73440205bbc68a36d62a27e352177087fc4a99daeb478ad1f8c7407145b32269",
+    "fbx": "b1ee73bf0cc6fa0ec4e6d0030b8889e01dde5baec75cd47f30a17e12d170ee1d"
+  },
+  "palette": {
+    "M_Steel": "#8FA6AC",
+    "M_FishSilver": "#BAC9C6",
+    "M_Rubber": "#28343B",
+    "M_RailIvory": "#F3F0DC",
+    "M_HullNavy": "#173F57",
+    "M_SeaTeal": "#168F9F",
+    "M_ShallowWater": "#64C7C4",
+    "M_Rope": "#D1AF76",
+    "M_SafetyOrange": "#E36A35",
+    "M_LegalRed": "#CF4232",
+    "M_KelpGreen": "#477A56"
+  },
+  "status": "Source, actual FBX and isolated visual PASS; Unity/native integration separate",
+  "round_trip": {
+    "result": "PASS",
+    "source": {
+      "triangles": 216,
+      "meshes": 1,
+      "vertices": 118,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.722070038318634,
+          -0.841719388961792,
+          0.0
+        ],
+        [
+          0.7558668255805969,
+          0.8114427924156189,
+          1.3200000524520874
+        ]
+      ],
+      "parents": {
+        "CrabBuoySet": null,
+        "BuoyFlagAndLines": "CrabBuoySet"
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_LegalRed",
+        "M_RailIvory",
+        "M_Rope"
+      ]
+    },
+    "imported": {
+      "triangles": 216,
+      "meshes": 1,
+      "vertices": 118,
+      "finite": true,
+      "bounds_blender": [
+        [
+          -0.722070038318634,
+          -0.841719388961792,
+          -6.07199766022859e-08
+        ],
+        [
+          0.7558668255805969,
+          0.8114427924156189,
+          1.3200000524520874
+        ]
+      ],
+      "parents": {
+        "BuoyFlagAndLines": "CrabBuoySet",
+        "CrabBuoySet": null
+      },
+      "materials": [
+        "M_HullNavy",
+        "M_LegalRed",
+        "M_RailIvory",
+        "M_Rope"
+      ]
+    },
+    "geometry": {
+      "result": "PASS",
+      "mesh_count": 1,
+      "max_vertex_error_metres": 9.965723535287907e-08,
+      "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+    },
+    "animation": {}
+  },
+  "visual_review": {
+    "owner": "Codex 2 (WSL CLI)",
+    "date": "2026-10-25",
+    "images": [
+      {
+        "file": "renders/CrabBuoySet/three-quarter.png",
+        "view": "three-quarter",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "4874a591bae91d17d427f42a032ce054d50833deaca9f48c19dc03467217a36c",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/front.png",
+        "view": "front",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "62799f4995433cf03ec664b7abe9f7b01fc011eafec611528426d21be963ecd5",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/right.png",
+        "view": "right",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "302f1fe128219c2b3ed3b74c32c2beadf45166cb76561d1f30f57c8263c9c037",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/back.png",
+        "view": "back",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "9efd28c5364ad8d8f85f8f54d87a34c945263bffc16a5686adb8c5e5f5e9bb99",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/top.png",
+        "view": "top",
+        "size": [
+          720,
+          600
+        ],
+        "sha256": "d3b843db15bf3eeabc402a2dc751bcd802cb7d59eaa9982f515022b3507d9612",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/deck-1440.png",
+        "view": "deck-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "1f1bb9c99423127470b11bec8d32cd09a9694adb6dd952f510bf693ed3706cbb",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/deck-844.png",
+        "view": "deck-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "orthographic",
+        "down_degrees": 45,
+        "horizontal_span_m": 10,
+        "sha256": "bd5adbf5ee614c1265ce497b47d3aea7745998ca3405b42c4c694f2742125fd8",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/rod-1440.png",
+        "view": "rod-1440",
+        "size": [
+          1440,
+          900
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 1.9813904007741667,
+        "sha256": "fcace507fc5f36c70c52aa013e687e712aff37f6e0ec1347b42e1a331bfa20d9",
+        "review": "individually opened; isolated artist review accepted"
+      },
+      {
+        "file": "renders/CrabBuoySet/rod-844.png",
+        "view": "rod-844",
+        "size": [
+          844,
+          390
+        ],
+        "projection": "perspective",
+        "eye_height_m": 1.7,
+        "down_degrees": 30,
+        "vertical_fov_degrees": 52,
+        "horizontal_distance_m": 1.9813904007741667,
+        "sha256": "63eff47e128e0ff96d90d7e36d276d77a37289f84e658614c5862f535197709f",
+        "review": "individually opened; isolated artist review accepted"
+      }
+    ]
+  }
+}

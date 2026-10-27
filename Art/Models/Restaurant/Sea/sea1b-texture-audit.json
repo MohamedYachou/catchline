@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "source_sha256": "bde2c02deea146482b49dae8a97b1b2cd35d2be1e0dc9e20e970bf681ae9a05b",
+  "method": "Lanczos accepted candidate4; symmetric opposing-edge mean correction in 1/32-width bands with cubic smoothstep falloff; rounding plus explicit identical opposing boundary; no creative repaint",
+  "textures": [
+    {
+      "file": "sea1-night-water-1024.png",
+      "sha256": "adebde8abdf5d988392246108fbe7c06b8c5b06806bb2cc7b1b8bfc1fecea538",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "repair_band_pixels": 32,
+      "exact_opposing_edge_equality": {
+        "x": true,
+        "y": true
+      },
+      "max_opposing_edge_RGB_delta": 0,
+      "interior_unchanged": true,
+      "mean_absolute_change_RGB": 0.1467123031616211,
+      "max_absolute_change_RGB": 73.0,
+      "native_4x4_proof_size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "sea1-night-water-2048.png",
+      "sha256": "cb7d83da139454d693d5a1e4942f9c64d140b095ba04c4e7306f1bec338073a0",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "repair_band_pixels": 64,
+      "exact_opposing_edge_equality": {
+        "x": true,
+        "y": true
+      },
+      "max_opposing_edge_RGB_delta": 0,
+      "interior_unchanged": true,
+      "mean_absolute_change_RGB": 0.1538834571838379,
+      "max_absolute_change_RGB": 91.0,
+      "native_4x4_proof_size": [
+        8192,
+        8192
+      ]
+    }
+  ],
+  "native_Unity_unverified": true
+}

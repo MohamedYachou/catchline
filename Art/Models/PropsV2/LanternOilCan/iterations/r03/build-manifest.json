@@ -1,0 +1,77 @@
+{
+  "name": "LanternOilCan",
+  "revision": "r03",
+  "kind": "mesh",
+  "origin": "New geometry in StationsV1 palette; earlier kit used as read-only reference. Horizontal bounds centred and lowest contact set to zero for floor placement.",
+  "provenance": [
+    {
+      "file": "Art/Source/Art108/build_stations.py",
+      "sha256": "6703d4f4fdd89ab5b6e72dc010e40e565405640dd182cd7dede719c4e88eeb57",
+      "purpose": "read-only chunky primitive/palette reference"
+    }
+  ],
+  "bounds_source_m": [
+    [
+      -0.178083598613739,
+      -0.07999999821186066,
+      0.0
+    ],
+    [
+      0.178083598613739,
+      0.07999999821186066,
+      0.4188677668571472
+    ]
+  ],
+  "triangles": 914,
+  "mesh_parts": {
+    "CanBody": 108,
+    "CanBase": 108,
+    "CanShoulder": 108,
+    "TealPanel": 108,
+    "PanelStripe": 108,
+    "FillNeck": 44,
+    "FillCap": 44,
+    "CarryHandle": 92,
+    "SpoutLower": 44,
+    "SpoutUpper": 34,
+    "SpoutLip": 72,
+    "SpoutBore": 44
+  },
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "pivot_use": "floor/contact",
+  "source_axes": "+X right / -Y front / +Z up",
+  "fbx_axes": "-Z forward / Y up",
+  "units": "metres",
+  "palette": {
+    "M_DeckWood": "C58B50",
+    "M_WoodHighlight": "DFB77A",
+    "M_WoodRecess": "8C5A36",
+    "M_HullNavy": "173F57",
+    "M_RailIvory": "F3F0DC",
+    "M_SeaTeal": "168F9F",
+    "M_Steel": "8FA6AC",
+    "M_Rubber": "28343B",
+    "M_Rope": "D1AF76",
+    "M_SafetyOrange": "E36A35",
+    "M_FishSilver": "BAC9C6",
+    "M_OilskinYellow": "E6AD38",
+    "M_Skin": "B9784B"
+  },
+  "delivery_sha256": {
+    "LanternOilCan.blend": "52c604f96a0e0e8ef4e0820e94f6f0ad6d2cbedf483726527d0c92c004ec3cbf",
+    "LanternOilCan.fbx": "7ff723d2fa523af8fba3c188963aaedd831929e0f03db9a8a4a5cc99558802dd"
+  },
+  "runtime_file": "Assets/Art/Models/PropsV2/PropsV2_LanternOilCan.fbx",
+  "render_files": [
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/back.png",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/front.png",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/left.png",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/right.png",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/three-quarter.png",
+    "Art/Models/PropsV2/LanternOilCan/iterations/r03/top.png"
+  ]
+}

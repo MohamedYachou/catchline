@@ -1,0 +1,89 @@
+{
+  "result": "PASS",
+  "name": "TideRace",
+  "source": {
+    "triangles": 168,
+    "vertices": 204,
+    "bounds_unity": [
+      [
+        -3.0,
+        0.004000000189989805,
+        -1.0
+      ],
+      [
+        3.0,
+        0.2232469767332077,
+        1.0
+      ]
+    ],
+    "meshes": [
+      "TideRaceMesh"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_WaterTeal"
+    ],
+    "parents": {
+      "TideRace": null,
+      "TideRaceMesh": "TideRace"
+    }
+  },
+  "imported": {
+    "triangles": 168,
+    "vertices": 204,
+    "bounds_unity": [
+      [
+        -3.0,
+        0.003999924752861261,
+        -1.0
+      ],
+      [
+        3.0,
+        0.22324691712856293,
+        1.0
+      ]
+    ],
+    "meshes": [
+      "TideRaceMesh"
+    ],
+    "materials": [
+      "M_GullWhite",
+      "M_WaterTeal"
+    ],
+    "parents": {
+      "TideRaceMesh": "TideRace",
+      "TideRace": null
+    }
+  },
+  "surface": {
+    "result": "PASS",
+    "mesh_count": 1,
+    "max_vertex_error_metres": 7.543712854385376e-08,
+    "method": "world vertices, vertex/face/triangle counts and every ordered polygon cycle/multiplicity;20micrometre match tolerance,1micrometre canonical seam correspondence"
+  },
+  "animation": {},
+  "dimensions_unity_xyz_m": [
+    6.0,
+    0.2192469765432179,
+    2.0
+  ],
+  "materials": {
+    "M_GullWhite": [
+      0.8796223998069763,
+      0.8713670969009399,
+      0.8227857351303101,
+      1.0
+    ],
+    "M_WaterTeal": [
+      0.027320891618728638,
+      0.2622506618499756,
+      0.2541520893573761,
+      1.0
+    ]
+  },
+  "sha256": {
+    "blend": "fd42ee175b5201bd96d629c04aac9f170c3240b14689eca0a69cec0e74861f82",
+    "fbx": "e675b83c987405fe0d620ce053c6d02bc19b3e28b02303eb97befc91eec25335"
+  },
+  "vertex_alpha_roundtrip": false
+}

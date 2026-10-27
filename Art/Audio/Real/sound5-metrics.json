@@ -1,0 +1,529 @@
+{
+  "task": "SOUND-5",
+  "result": "PASS technical; NOT HEARD; Mo owns listening",
+  "method": "Independent PCM16 decode, 44.1kHz mono, requested durations, DC<.0007, peak/4x estimated true peak<=-3dB, zero endpoints/adjacent<=3PCM; BS1770 K-weighted gated400ms loudness with zero padding for sub400ms cues; target within1LU, family spread<2LU. True peak estimate is not certified.",
+  "protected_unchanged_files": 745,
+  "comparisons": [
+    {
+      "softer": "GoalReady",
+      "reference": "RefitFanfare",
+      "minimum_loudness_difference_lu": 4.600033508407623,
+      "pass_requirement_lu": 3
+    },
+    {
+      "softer": "CoinLand",
+      "reference": "CoinBuy",
+      "minimum_loudness_difference_lu": 11.600009048887983,
+      "pass_requirement_lu": 8
+    }
+  ],
+  "files": [
+    {
+      "file": "SFX/FishLeap_0.wav",
+      "family": "FishLeap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 25578,
+      "duration_seconds": 0.58,
+      "sample_peak_dbfs": -8.359687609711244,
+      "true_peak_4x_dbtp": -8.332238815342292,
+      "integrated_lufs": -25.200290469673195,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        1.1215311375987176e-07
+      ],
+      "rms_dbfs": [
+        -28.821763463778435
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "6785fa3e2c3c04d1a0391b32fbf8be4cd721777355985c5266be0552f888ce9a",
+      "target_lufs": -25.2
+    },
+    {
+      "file": "SFX/FishLeap_1.wav",
+      "family": "FishLeap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 28004,
+      "duration_seconds": 0.6350113378684807,
+      "sample_peak_dbfs": -5.18282371675568,
+      "true_peak_4x_dbtp": -4.973026416846712,
+      "integrated_lufs": -25.000241649348613,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        5.219939980672404e-07
+      ],
+      "rms_dbfs": [
+        -27.661515871928724
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "571543086e24c9296c555b71d7746772277d3e731bca13f14af6be8af0ff325a",
+      "target_lufs": -25.0
+    },
+    {
+      "file": "SFX/FishLeap_2.wav",
+      "family": "FishLeap",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 30429,
+      "duration_seconds": 0.69,
+      "sample_peak_dbfs": -3.8003275322554213,
+      "true_peak_4x_dbtp": -3.79480015722435,
+      "integrated_lufs": -24.800242921146662,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.9084418338591476e-08
+      ],
+      "rms_dbfs": [
+        -26.58905868133006
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "4a8ea087f4f4b1a5bbae88ea1edfdc40130396790ac6ce020cb9e2121b4e79af",
+      "target_lufs": -24.8
+    },
+    {
+      "file": "SFX/NewSpecies_0.wav",
+      "family": "NewSpecies",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 62181,
+      "duration_seconds": 1.41,
+      "sample_peak_dbfs": -16.42742945757917,
+      "true_peak_4x_dbtp": -16.421902082548097,
+      "integrated_lufs": -29.00027242161624,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        4.907862228815876e-09
+      ],
+      "rms_dbfs": [
+        -31.12338930133095
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "56cb01514055c90f96ec1011929ce14d5343fd1fcfb041c2074f5af0571d1d39",
+      "target_lufs": -29.0
+    },
+    {
+      "file": "SFX/NewSpecies_1.wav",
+      "family": "NewSpecies",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 65268,
+      "duration_seconds": 1.48,
+      "sample_peak_dbfs": -15.503324305556776,
+      "true_peak_4x_dbtp": -15.336025783536027,
+      "integrated_lufs": -28.900251672675765,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.546027053839554e-09
+      ],
+      "rms_dbfs": [
+        -30.852308195905568
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "0a05f266c3092205f46f7341d21cbd0e671df3c13521e6857656d491a6ad17d0",
+      "target_lufs": -28.9
+    },
+    {
+      "file": "SFX/NewSpecies_2.wav",
+      "family": "NewSpecies",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 68355,
+      "duration_seconds": 1.55,
+      "sample_peak_dbfs": -14.248054489371786,
+      "true_peak_4x_dbtp": -14.14009994804055,
+      "integrated_lufs": -28.8002548910161,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -2.098348580023407e-08
+      ],
+      "rms_dbfs": [
+        -30.944772499929005
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "0ac315ad3388669d5902dd7f02c16282e9fb5e8955480e757e1c4f0f342683c2",
+      "target_lufs": -28.8
+    },
+    {
+      "file": "SFX/StampThud_0.wav",
+      "family": "StampThud",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 8114,
+      "duration_seconds": 0.1839909297052154,
+      "sample_peak_dbfs": -8.196070446169633,
+      "true_peak_4x_dbtp": -8.141421127796525,
+      "integrated_lufs": -32.000248356917936,
+      "measurement_zero_padding_seconds": 0.21600907029478458,
+      "dc_offset_linear": [
+        -6.393872666070988e-08
+      ],
+      "rms_dbfs": [
+        -29.157924193327194
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "2d2040df29fb6af5682d144fc2d3880528670239b157ef20fe90288e66a1af1d",
+      "target_lufs": -32.0
+    },
+    {
+      "file": "SFX/StampThud_1.wav",
+      "family": "StampThud",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 9040,
+      "duration_seconds": 0.20498866213151928,
+      "sample_peak_dbfs": -8.154626488789102,
+      "true_peak_4x_dbtp": -8.100358850168819,
+      "integrated_lufs": -31.90022589805392,
+      "measurement_zero_padding_seconds": 0.19501133786848074,
+      "dc_offset_linear": [
+        -2.3630868017146017e-07
+      ],
+      "rms_dbfs": [
+        -29.584348833844185
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "fb0b32619ba17ac620dcfbe12ca19ae4d27cd31a81fbb474bfc23935dc118e95",
+      "target_lufs": -31.9
+    },
+    {
+      "file": "SFX/StampThud_2.wav",
+      "family": "StampThud",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 9791,
+      "duration_seconds": 0.22201814058956917,
+      "sample_peak_dbfs": -7.8962041308830315,
+      "true_peak_4x_dbtp": -7.88683737996884,
+      "integrated_lufs": -31.800239835330448,
+      "measurement_zero_padding_seconds": 0.17798185941043085,
+      "dc_offset_linear": [
+        -6.233802088652844e-09
+      ],
+      "rms_dbfs": [
+        -29.705301336818405
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "534cd32b98a19d3f65cff399ba7f8a9299add75cecaa2dffcfba2025e4241ad8",
+      "target_lufs": -31.8
+    },
+    {
+      "file": "SFX/CoinLand_0.wav",
+      "family": "CoinLand",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 6394,
+      "duration_seconds": 0.14498866213151929,
+      "sample_peak_dbfs": -13.937883113238305,
+      "true_peak_4x_dbtp": -13.768683580951947,
+      "integrated_lufs": -36.000298528849775,
+      "measurement_zero_padding_seconds": 0.25501133786848074,
+      "dc_offset_linear": [
+        -1.1932115313184236e-07
+      ],
+      "rms_dbfs": [
+        -34.75896714007319
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "d8e3b5d0da0bf047a5e8e0260d26feb6f059f5b61e2885bc60558964ed5596f8",
+      "target_lufs": -36.0
+    },
+    {
+      "file": "SFX/CoinLand_1.wav",
+      "family": "CoinLand",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 7056,
+      "duration_seconds": 0.16,
+      "sample_peak_dbfs": -8.521495482872364,
+      "true_peak_4x_dbtp": -8.500917576464229,
+      "integrated_lufs": -35.900319282783386,
+      "measurement_zero_padding_seconds": 0.24,
+      "dc_offset_linear": [
+        -4.325053589143991e-08
+      ],
+      "rms_dbfs": [
+        -34.64031984212126
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "1c466fd6c8913bb3974cb222e388ff66e78b888a788748de33f1e518f4274146",
+      "target_lufs": -35.9
+    },
+    {
+      "file": "SFX/CoinLand_2.wav",
+      "family": "CoinLand",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 7718,
+      "duration_seconds": 0.17501133786848072,
+      "sample_peak_dbfs": -9.337055531162235,
+      "true_peak_4x_dbtp": -9.331528156131164,
+      "integrated_lufs": -35.80027649151136,
+      "measurement_zero_padding_seconds": 0.22498866213151927,
+      "dc_offset_linear": [
+        5.931117800919927e-08
+      ],
+      "rms_dbfs": [
+        -35.47805964788094
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "59c91f71d52832e07bb4b70e2acbe566cb93111f2405ed606904d59d12bfd53c",
+      "target_lufs": -35.8
+    },
+    {
+      "file": "SFX/GoalReady_0.wav",
+      "family": "GoalReady",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 36603,
+      "duration_seconds": 0.83,
+      "sample_peak_dbfs": -20.326258808446703,
+      "true_peak_4x_dbtp": -20.23681225077203,
+      "integrated_lufs": -32.00026860084517,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        -4.919097094158949e-08
+      ],
+      "rms_dbfs": [
+        -33.06390712503203
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "2ad65889f77ab4daf580ae78a03a7bae9f9b10ab27fced5b785df770ad83d8e4",
+      "target_lufs": -32.0
+    },
+    {
+      "file": "SFX/GoalReady_1.wav",
+      "family": "GoalReady",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 39028,
+      "duration_seconds": 0.8849886621315193,
+      "sample_peak_dbfs": -20.178898051096915,
+      "true_peak_4x_dbtp": -20.089144306623453,
+      "integrated_lufs": -31.900270204498543,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        1.7202693418827508e-08
+      ],
+      "rms_dbfs": [
+        -33.144027960834975
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "f11b8576a15c0a5975de033bd2c2f40d2ad42afea5db291e9b6028896b7b20ae",
+      "target_lufs": -31.9
+    },
+    {
+      "file": "SFX/GoalReady_2.wav",
+      "family": "GoalReady",
+      "sample_rate_hz": 44100,
+      "bit_depth": 16,
+      "channels": 1,
+      "frames": 41013,
+      "duration_seconds": 0.93,
+      "sample_peak_dbfs": -19.585408056449854,
+      "true_peak_4x_dbtp": -19.495475295984658,
+      "integrated_lufs": -31.80030181349246,
+      "measurement_zero_padding_seconds": 0.0,
+      "dc_offset_linear": [
+        6.101580977373028e-08
+      ],
+      "rms_dbfs": [
+        -32.730680638967684
+      ],
+      "first_last_pcm": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "loop_seam": null,
+      "sha256": "e76f2fdc0c5edbcce4c7ade98bd66f6857da66bb14dca09e082564d98b1cfcbf",
+      "target_lufs": -31.8
+    }
+  ],
+  "sheets": [
+    {
+      "file": "Art/Audio/review/SOUND5-FishLeap.png",
+      "sha256": "09694c7ead9a88c2ecb20664699578bf3dd1c52bdd7efa546672e5976c712dbe"
+    },
+    {
+      "file": "Art/Audio/review/SOUND5-NewSpecies.png",
+      "sha256": "1c7ca0961302c01c09d9421a22ecdf3853dbe50587b9c54066bc0d9315f5274f"
+    },
+    {
+      "file": "Art/Audio/review/SOUND5-StampThud.png",
+      "sha256": "cbfc15629ab7c809887aac403d823689b058fc6377c6d9df6c20d47b14383383"
+    },
+    {
+      "file": "Art/Audio/review/SOUND5-CoinLand.png",
+      "sha256": "a6a62dc5b3a7a8e673a8294bb451904b8a2a3630ebf3c16353809a4eb6c59ecb"
+    },
+    {
+      "file": "Art/Audio/review/SOUND5-GoalReady.png",
+      "sha256": "be74ce120714d4a11371585729ebd129cc3e59d92247a28d9e20ad073b2e4fae"
+    }
+  ],
+  "repeat_preview": {
+    "file": "review/SOUND5-CoinLand-14-hit-preview.wav",
+    "family": "SOUND5-CoinLand-14-hit-preview",
+    "sample_rate_hz": 44100,
+    "bit_depth": 16,
+    "channels": 1,
+    "frames": 53582,
+    "duration_seconds": 1.2150113378684808,
+    "sample_peak_dbfs": -8.576819807735404,
+    "true_peak_4x_dbtp": -8.555966038617004,
+    "integrated_lufs": -28.980315224060536,
+    "measurement_zero_padding_seconds": 0.0,
+    "dc_offset_linear": [
+      -6.549814274149902e-08
+    ],
+    "rms_dbfs": [
+      -32.277379327174636
+    ],
+    "first_last_pcm": [
+      [
+        0
+      ],
+      [
+        0
+      ]
+    ],
+    "loop_seam": null,
+    "sha256": "5a07ae6cd7e0025c3ebd175905bf689055c1d1a23e012dc3cd9b6b458f654336",
+    "purpose": "Diagnostic14 landings at80ms spacing, rotating variants, unity gain, no normalization; not a claim about runtime timing or listening."
+  },
+  "visual_inspection": {
+    "opened_all_five_sheets": true,
+    "observations": "Water has broadband transients; bell plots show three/two staged pitched onsets and fading tails; stamp has one dominant short impact; coin excerpts have one main attack with brief contact/bounce detail. All waveform endpoints decay to zero. Plots do not establish timbre or auditory quality.",
+    "audition": "NOT HEARD; Mo owns listening."
+  }
+}

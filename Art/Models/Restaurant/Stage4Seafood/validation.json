@@ -1,0 +1,3854 @@
+{
+  "pass": true,
+  "triangles": 77293,
+  "self_imposed_budget": 220000,
+  "mesh_count": 167,
+  "FBX_sha256": "d66d4dfb60273ef1f835e988837a64ad751ef941d0669cd22391b492ad3f3223",
+  "historical_dependency_hashes_are_provenance_only": true,
+  "meshes": [
+    {
+      "name": "Barrel",
+      "triangles": 708,
+      "bounds_min_m": [
+        -4.688999652862549,
+        -2.049999952316284,
+        -0.03999999910593033
+      ],
+      "bounds_max_m": [
+        -4.171000003814697,
+        -1.5299999713897705,
+        0.5600000619888306
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.2587374609296376e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "CoffeeBar",
+      "triangles": 3608,
+      "bounds_min_m": [
+        8.833684921264648,
+        1.3825000524520874,
+        0.039999984204769135
+      ],
+      "bounds_max_m": [
+        9.727499961853027,
+        2.3375000953674316,
+        1.3739999532699585
+      ],
+      "bounds_max_delta_m": 1.4901161193847656e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.4128095077458056e-08,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "Crate",
+      "triangles": 748,
+      "bounds_min_m": [
+        -4.649999618530273,
+        1.196000099182129,
+        -0.04000003635883331
+      ],
+      "bounds_max_m": [
+        -4.170000076293945,
+        1.6760001182556152,
+        0.3875000476837158
+      ],
+      "bounds_max_delta_m": 3.725290298461914e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "Crate_B",
+      "triangles": 748,
+      "bounds_min_m": [
+        -4.669999599456787,
+        1.2100000381469727,
+        0.38999995589256287
+      ],
+      "bounds_max_m": [
+        -4.190000057220459,
+        1.690000057220459,
+        0.8175000548362732
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.0025334226448912e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "FridgeV2",
+      "triangles": 556,
+      "bounds_min_m": [
+        -1.8700000047683716,
+        1.1770198345184326,
+        0.03999994695186615
+      ],
+      "bounds_max_m": [
+        -1.090000033378601,
+        2.078000068664551,
+        1.2000000476837158
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.1081667256339642e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "Fryer",
+      "triangles": 3420,
+      "bounds_min_m": [
+        -3.8950002193450928,
+        -0.8149999976158142,
+        0.03999998793005943
+      ],
+      "bounds_max_m": [
+        -3.0136852264404297,
+        0.11500006914138794,
+        0.9750000834465027
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.0361149211112206e-08,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "GridEntranceFrame",
+      "triangles": 48,
+      "bounds_min_m": [
+        9.930000305175781,
+        1.4400004148483276,
+        -4.166696214724652e-07
+      ],
+      "bounds_max_m": [
+        10.229999542236328,
+        2.560000419616699,
+        2.2599997520446777
+      ],
+      "bounds_max_delta_m": 4.76837158203125e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.005893875554143335,
+      "material": "Restaurant_Atlas_Bistro",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "GridFloor",
+      "triangles": 1032,
+      "bounds_min_m": [
+        -4.0,
+        -2.5,
+        -0.22000040113925934
+      ],
+      "bounds_max_m": [
+        13.0,
+        2.5,
+        0.04000040516257286
+      ],
+      "bounds_max_delta_m": 4.0605664253234863e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00026519692301008035,
+      "material": "Restaurant_Atlas_Bistro",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "GridQuayPiles",
+      "triangles": 216,
+      "bounds_min_m": [
+        -4.199999809265137,
+        -3.2199997901916504,
+        -1.0500004291534424
+      ],
+      "bounds_max_m": [
+        13.09000015258789,
+        2.5899999141693115,
+        0.040000513195991516
+      ],
+      "bounds_max_delta_m": 5.140900611877441e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0012835537113620177,
+      "material": "Restaurant_Atlas_Bistro",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "GridSideWall",
+      "triangles": 24,
+      "bounds_min_m": [
+        9.975000381469727,
+        -2.5,
+        -2.443810274144198e-07
+      ],
+      "bounds_max_m": [
+        10.225000381469727,
+        1.5000001192092896,
+        1.0200003385543823
+      ],
+      "bounds_max_delta_m": 3.5762786865234375e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.011551996992111402,
+      "material": "Restaurant_Atlas_Bistro",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "GridTerraceStringLights",
+      "triangles": 832,
+      "bounds_min_m": [
+        12.859999656677246,
+        -2.4260001182556152,
+        -3.9524559269921156e-07
+      ],
+      "bounds_max_m": [
+        12.9399995803833,
+        2.4260005950927734,
+        2.250000476837158
+      ],
+      "bounds_max_delta_m": 4.76837158203125e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00034339951981365857,
+      "material": "Restaurant_Atlas_Bistro",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "HighKitchenShelf",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.4600000381469727,
+        2.0219998359680176,
+        1.4399999380111694
+      ],
+      "bounds_max_m": [
+        -0.6599999666213989,
+        2.361999988555908,
+        1.5200001001358032
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 1.4694192529418615e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "KettleStand",
+      "triangles": 1176,
+      "bounds_min_m": [
+        -3.9075000286102295,
+        0.4324999451637268,
+        0.039999984204769135
+      ],
+      "bounds_max_m": [
+        -3.0136852264404297,
+        1.3874999284744263,
+        0.70250004529953
+      ],
+      "bounds_max_delta_m": 1.4901161193847656e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 3.2262965987683856e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LampPost",
+      "triangles": 1120,
+      "bounds_min_m": [
+        -4.609999656677246,
+        -3.2149999141693115,
+        -0.030000023543834686
+      ],
+      "bounds_max_m": [
+        -4.069999694824219,
+        -2.8949997425079346,
+        1.7200000286102295
+      ],
+      "bounds_max_delta_m": 2.421438694000244e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.761659356753654e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.440000057220459,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        -3.4159998893737793,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.001",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.2840001583099365,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        -3.259999990463257,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.002",
+      "triangles": 28,
+      "bounds_min_m": [
+        1.387600064277649,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        1.4115999937057495,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.003",
+      "triangles": 28,
+      "bounds_min_m": [
+        1.6684000492095947,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        1.6923999786376953,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.004",
+      "triangles": 28,
+      "bounds_min_m": [
+        4.483599662780762,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        4.507599830627441,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.005",
+      "triangles": 28,
+      "bounds_min_m": [
+        4.764400005340576,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        4.788400173187256,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.006",
+      "triangles": 28,
+      "bounds_min_m": [
+        8.803600311279297,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        8.827600479125977,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRail.007",
+      "triangles": 28,
+      "bounds_min_m": [
+        9.084399223327637,
+        1.9279998540878296,
+        1.350000023841858
+      ],
+      "bounds_max_m": [
+        9.108399391174316,
+        1.9519997835159302,
+        1.5800000429153442
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005541291325548148,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRoof0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.4549999237060547,
+        1.9559999704360962,
+        1.5600000619888306
+      ],
+      "bounds_max_m": [
+        -3.244999885559082,
+        2.175999879837036,
+        1.6200000047683716
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0004048161420966423,
+      "material": "OldBrass_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRoof1",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.434999942779541,
+        1.9559999704360962,
+        1.5600000619888306
+      ],
+      "bounds_max_m": [
+        1.6449999809265137,
+        2.175999879837036,
+        1.6200000047683716
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0004048161420966423,
+      "material": "OldBrass_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRoof2",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.530999660491943,
+        1.9559999704360962,
+        1.5600000619888306
+      ],
+      "bounds_max_m": [
+        4.740999698638916,
+        2.175999879837036,
+        1.6200000047683716
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0004048161420966423,
+      "material": "OldBrass_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "LanternRoof3",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.851000785827637,
+        1.9559999704360962,
+        1.5600000619888306
+      ],
+      "bounds_max_m": [
+        9.060999870300293,
+        2.175999879837036,
+        1.6200000047683716
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0004048161420966423,
+      "material": "OldBrass_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "Oven",
+      "triangles": 1344,
+      "bounds_min_m": [
+        -2.9000000953674316,
+        1.2196853160858154,
+        0.03999994322657585
+      ],
+      "bounds_max_m": [
+        -2.059999942779541,
+        2.068000078201294,
+        1.2600001096725464
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.465510184317509e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "PlantPot1_B",
+      "triangles": 476,
+      "bounds_min_m": [
+        -4.59864616394043,
+        -0.6577638983726501,
+        -0.030000019818544388
+      ],
+      "bounds_max_m": [
+        -4.203423976898193,
+        -0.23386356234550476,
+        0.6911560893058777
+      ],
+      "bounds_max_delta_m": 8.940696716308594e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 5.2453884687331254e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "PrepCounter",
+      "triangles": 1596,
+      "bounds_min_m": [
+        -2.9574999809265137,
+        -0.5163147449493408,
+        0.03999994322657585
+      ],
+      "bounds_max_m": [
+        -2.002500057220459,
+        0.37750011682510376,
+        1.0499999523162842
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.0475305362310792e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearCoping",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.0999999046325684,
+        2.3949999809265137,
+        1.7599998712539673
+      ],
+      "bounds_max_m": [
+        10.180000305175781,
+        2.800999879837036,
+        1.8799998760223389
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 1.712375593598825e-06,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -4.054999828338623,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -3.565000057220459,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_1",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.5500001907348633,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -3.059999942779541,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_10",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.591000080108643,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        5.4730000495910645,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_11",
+      "triangles": 108,
+      "bounds_min_m": [
+        5.5,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        6.381999969482422,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_12",
+      "triangles": 108,
+      "bounds_min_m": [
+        6.409000396728516,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        7.290999889373779,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_13",
+      "triangles": 108,
+      "bounds_min_m": [
+        7.318000316619873,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        8.199999809265137,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_14",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.22700023651123,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        9.109000205993652,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_15",
+      "triangles": 108,
+      "bounds_min_m": [
+        9.136000633239746,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        10.018000602722168,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_2",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.0450000762939453,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -2.554999828338623,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_3",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.5399999618530273,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -2.0500001907348633,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_4",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.0349998474121094,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -1.5449999570846558,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_5",
+      "triangles": 108,
+      "bounds_min_m": [
+        -1.5299999713897705,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        -1.0399999618530273,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_6",
+      "triangles": 108,
+      "bounds_min_m": [
+        0.9750000238418579,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        1.8370001316070557,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_7",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.8640000820159912,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        2.746000051498413,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_8",
+      "triangles": 108,
+      "bounds_min_m": [
+        2.7730000019073486,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        3.6550002098083496,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_0_9",
+      "triangles": 108,
+      "bounds_min_m": [
+        3.682000160217285,
+        2.4579999446868896,
+        1.0099997520446777
+      ],
+      "bounds_max_m": [
+        4.564000129699707,
+        2.737999677658081,
+        1.2499998807907104
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.934999942779541,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -3.445000171661377,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_1",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.429999828338623,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -2.940000057220459,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_10",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.807000160217285,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        5.689000129699707,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_11",
+      "triangles": 108,
+      "bounds_min_m": [
+        5.716000080108643,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        6.5980000495910645,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_12",
+      "triangles": 108,
+      "bounds_min_m": [
+        6.625,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        7.506999969482422,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_13",
+      "triangles": 108,
+      "bounds_min_m": [
+        7.534000396728516,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        8.415999412536621,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_14",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.443000793457031,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        9.324999809265137,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_15",
+      "triangles": 108,
+      "bounds_min_m": [
+        9.35200023651123,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        10.234000205993652,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_2",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.9250001907348633,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -2.434999942779541,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_3",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.4200000762939453,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -1.9299999475479126,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_4",
+      "triangles": 108,
+      "bounds_min_m": [
+        -1.9149999618530273,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -1.4249999523162842,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_5",
+      "triangles": 108,
+      "bounds_min_m": [
+        -1.409999966621399,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        -0.8559999465942383,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_6",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.1709998846054077,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        2.052999973297119,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_7",
+      "triangles": 108,
+      "bounds_min_m": [
+        2.0799999237060547,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        2.9619998931884766,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_8",
+      "triangles": 108,
+      "bounds_min_m": [
+        2.988999843597412,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        3.870999813079834,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_1_9",
+      "triangles": 108,
+      "bounds_min_m": [
+        3.8980002403259277,
+        2.4579999446868896,
+        1.2699997425079346
+      ],
+      "bounds_max_m": [
+        4.779999732971191,
+        2.737999677658081,
+        1.5099998712539673
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -4.054999828338623,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -3.565000057220459,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_1",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.5500001907348633,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -3.059999942779541,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_10",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.591000080108643,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        5.4730000495910645,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_11",
+      "triangles": 108,
+      "bounds_min_m": [
+        5.5,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        6.381999969482422,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_12",
+      "triangles": 108,
+      "bounds_min_m": [
+        6.409000396728516,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        7.290999889373779,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_13",
+      "triangles": 108,
+      "bounds_min_m": [
+        7.318000316619873,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        8.199999809265137,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_14",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.22700023651123,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        9.109000205993652,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_15",
+      "triangles": 108,
+      "bounds_min_m": [
+        9.136000633239746,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        10.018000602722168,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_2",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.0450000762939453,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -2.554999828338623,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_3",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.5399999618530273,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -2.0500001907348633,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_4",
+      "triangles": 108,
+      "bounds_min_m": [
+        -2.0349998474121094,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -1.5449999570846558,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_5",
+      "triangles": 108,
+      "bounds_min_m": [
+        -1.5299999713897705,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        -1.0399999618530273,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_6",
+      "triangles": 108,
+      "bounds_min_m": [
+        0.9750000238418579,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        1.8370001316070557,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_7",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.8640000820159912,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        2.746000051498413,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_8",
+      "triangles": 108,
+      "bounds_min_m": [
+        2.7730000019073486,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        3.6550002098083496,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RearMasonry_2_9",
+      "triangles": 108,
+      "bounds_min_m": [
+        3.682000160217285,
+        2.4579999446868896,
+        1.5299997329711914
+      ],
+      "bounds_max_m": [
+        4.564000129699707,
+        2.737999677658081,
+        1.7699998617172241
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00019614760702779677,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ReceptionDesk",
+      "triangles": 2792,
+      "bounds_min_m": [
+        8.869999885559082,
+        -2.249999761581421,
+        0.03999992832541466
+      ],
+      "bounds_max_m": [
+        9.8100004196167,
+        -1.309999942779541,
+        0.9490038156509399
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 4.761241534367855e-08,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RestaurantArchedWindows",
+      "triangles": 1332,
+      "bounds_min_m": [
+        1.5149999856948853,
+        2.4000003337860107,
+        1.4099994897842407
+      ],
+      "bounds_max_m": [
+        9.385000228881836,
+        2.580000400543213,
+        2.6399993896484375
+      ],
+      "bounds_max_delta_m": 5.960464477539062e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00021095679828597724,
+      "material": "Restaurant_Atlas_Restaurant3",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RestaurantBackBar",
+      "triangles": 404,
+      "bounds_min_m": [
+        8.579999923706055,
+        2.2200000286102295,
+        1.5049993991851807
+      ],
+      "bounds_max_m": [
+        9.760000228881836,
+        2.5825002193450928,
+        2.189999580383301
+      ],
+      "bounds_max_delta_m": 5.960464477539062e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0006548743425316417,
+      "material": "Restaurant_Atlas_Restaurant3",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RestaurantBrassSconces",
+      "triangles": 396,
+      "bounds_min_m": [
+        3.179999828338623,
+        2.200000286102295,
+        1.699999451637268
+      ],
+      "bounds_max_m": [
+        7.720000267028809,
+        2.4200000762939453,
+        2.049999475479126
+      ],
+      "bounds_max_delta_m": 5.960464477539062e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0007219995288849645,
+      "material": "Restaurant_Atlas_Restaurant3",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RestaurantDiningWall",
+      "triangles": 836,
+      "bounds_min_m": [
+        0.8600001335144043,
+        2.4050004482269287,
+        0.08499942719936371
+      ],
+      "bounds_max_m": [
+        10.100000381469727,
+        2.8600006103515625,
+        2.859999418258667
+      ],
+      "bounds_max_delta_m": 5.811452865600586e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00034339951981365857,
+      "material": "Restaurant_Atlas_Restaurant3",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RestaurantWallPanels",
+      "triangles": 792,
+      "bounds_min_m": [
+        1.2649999856948853,
+        2.512500047683716,
+        0.6599993705749512
+      ],
+      "bounds_max_m": [
+        9.795000076293945,
+        2.5475001335144043,
+        1.0999994277954102
+      ],
+      "bounds_max_delta_m": 5.960464477539062e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00034339951981365857,
+      "material": "Restaurant_Atlas_Restaurant3",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "RoomShell",
+      "triangles": 176,
+      "bounds_min_m": [
+        -4.275000095367432,
+        -2.6399998664855957,
+        -4.499869419305469e-07
+      ],
+      "bounds_max_m": [
+        10.149999618530273,
+        2.810000419616699,
+        1.0325005054473877
+      ],
+      "bounds_max_delta_m": 4.76837158203125e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 4.7468590658183984e-05,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodBarCounter",
+      "triangles": 400,
+      "bounds_min_m": [
+        8.368661880493164,
+        -1.7499998807907104,
+        0.03999968618154526
+      ],
+      "bounds_max_m": [
+        9.389999389648438,
+        1.9500001668930054,
+        0.9600002765655518
+      ],
+      "bounds_max_delta_m": 3.0547380447387695e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0007219995288849645,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodBigFridge",
+      "triangles": 1344,
+      "bounds_min_m": [
+        -0.3425000011920929,
+        -2.3225371837615967,
+        0.03999994322657585
+      ],
+      "bounds_max_m": [
+        1.1425000429153442,
+        -1.462499737739563,
+        1.6750000715255737
+      ],
+      "bounds_max_delta_m": 3.5762786865234375e-07,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00021095679828597724,
+      "material": "Restaurant_Atlas_Upgrades.002",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodDisplayTank",
+      "triangles": 522,
+      "bounds_min_m": [
+        6.164999961853027,
+        1.4900001287460327,
+        0.03999965265393257
+      ],
+      "bounds_max_m": [
+        7.675000190734863,
+        2.2899999618530273,
+        1.2929997444152832
+      ],
+      "bounds_max_delta_m": 3.688037395477295e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0005459346008667154,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodGrill",
+      "triangles": 1956,
+      "bounds_min_m": [
+        -0.8949999809265137,
+        1.6349999904632568,
+        0.03999994695186615
+      ],
+      "bounds_max_m": [
+        -0.06499999761581421,
+        2.37250018119812,
+        0.9099999666213989
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00014261674348858833,
+      "material": "Restaurant_Atlas_Upgrades.002",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodIceCounter",
+      "triangles": 2495,
+      "bounds_min_m": [
+        -1.2400000095367432,
+        0.0500001423060894,
+        0.03999987617135048
+      ],
+      "bounds_max_m": [
+        0.7999999523162842,
+        0.9300001263618469,
+        1.0700000524520874
+      ],
+      "bounds_max_delta_m": 1.7881393432617188e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00011551938102805082,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SeafoodSteamer",
+      "triangles": 3052,
+      "bounds_min_m": [
+        -1.8624999523162842,
+        1.6600000858306885,
+        0.03999995067715645
+      ],
+      "bounds_max_m": [
+        -1.1775000095367432,
+        2.3525002002716064,
+        1.0674999952316284
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 9.209119884445727e-05,
+      "material": "Restaurant_Atlas_Upgrades.002",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup0",
+      "triangles": 564,
+      "bounds_min_m": [
+        -3.188000202178955,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -3.051440715789795,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup1",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.9580001831054688,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.8214406967163086,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup2",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.7280001640319824,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.5914406776428223,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup3",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.498000144958496,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.361440658569336,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup4",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.2680001258850098,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.1314406394958496,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup5",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.0380001068115234,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.9014405012130737,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup6",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.8079999685287476,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.6714404821395874,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "ShelfCup7",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.5779999494552612,
+        2.059999942779541,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.441440463066101,
+        2.1560001373291016,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SinkDishRack",
+      "triangles": 2860,
+      "bounds_min_m": [
+        -3.8950002193450928,
+        -2.4600000381469727,
+        0.039999984204769135
+      ],
+      "bounds_max_m": [
+        -3.0136852264404297,
+        -0.5999999642372131,
+        1.0519338846206665
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 8.993740685525609e-08,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "SoupKettle",
+      "triangles": 1304,
+      "bounds_min_m": [
+        -3.799999952316284,
+        0.5362235307693481,
+        0.6899999976158142
+      ],
+      "bounds_max_m": [
+        -3.140000104904175,
+        1.2837764024734497,
+        1.4350000619888306
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.6448326078943865e-06,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_DiningRunner",
+      "triangles": 228,
+      "bounds_min_m": [
+        4.400000095367432,
+        -1.8575000762939453,
+        0.03999970853328705
+      ],
+      "bounds_max_m": [
+        6.700000286102295,
+        1.8575000762939453,
+        0.05350028723478317
+      ],
+      "bounds_max_delta_m": 2.942979335784912e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.001128124971687794,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_EdgeHerb0",
+      "triangles": 476,
+      "bounds_min_m": [
+        10.491910934448242,
+        -3.029560089111328,
+        0.039999984204769135
+      ],
+      "bounds_max_m": [
+        10.808088302612305,
+        -2.6904397010803223,
+        0.6169249415397644
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 5.2453884687331254e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_EdgeHerb1",
+      "triangles": 476,
+      "bounds_min_m": [
+        12.282031059265137,
+        2.669842004776001,
+        0.03999999165534973
+      ],
+      "bounds_max_m": [
+        12.617969512939453,
+        3.0301573276519775,
+        0.6529827117919922
+      ],
+      "bounds_max_delta_m": 2.384185791015625e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 5.2453884687331254e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_EdgeHerb2",
+      "triangles": 476,
+      "bounds_min_m": [
+        5.390716552734375,
+        2.2564148902893066,
+        1.0499999523162842
+      ],
+      "bounds_max_m": [
+        5.509283065795898,
+        2.383584976196289,
+        1.26634681224823
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 5.2453884687331254e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_JettyCrate0",
+      "triangles": 748,
+      "bounds_min_m": [
+        -3.62280011177063,
+        -3.072800397872925,
+        0.03999997302889824
+      ],
+      "bounds_max_m": [
+        -3.2771999835968018,
+        -2.7272002696990967,
+        0.34780004620552063
+      ],
+      "bounds_max_delta_m": 2.9802322387695312e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_JettyCrate1",
+      "triangles": 748,
+      "bounds_min_m": [
+        -3.12280011177063,
+        -3.0828001499176025,
+        0.03999997302889824
+      ],
+      "bounds_max_m": [
+        -2.7771999835968018,
+        -2.7372000217437744,
+        0.34780004620552063
+      ],
+      "bounds_max_delta_m": 2.9802322387695312e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_JettyCrate2",
+      "triangles": 748,
+      "bounds_min_m": [
+        -3.62280011177063,
+        -3.072800397872925,
+        0.3999999761581421
+      ],
+      "bounds_max_m": [
+        -3.2771999835968018,
+        -2.7272002696990967,
+        0.707800030708313
+      ],
+      "bounds_max_delta_m": 2.9802322387695312e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_JettyFestoon",
+      "triangles": 1696,
+      "bounds_min_m": [
+        -4.275000095367432,
+        -3.1429996490478516,
+        0.020000502467155457
+      ],
+      "bounds_max_m": [
+        9.875,
+        -3.0769996643066406,
+        1.9100004434585571
+      ],
+      "bounds_max_delta_m": 5.029141902923584e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00016371804635362253,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_TerraceFestoon",
+      "triangles": 976,
+      "bounds_min_m": [
+        10.225000381469727,
+        2.767000198364258,
+        0.019999539479613304
+      ],
+      "bounds_max_m": [
+        12.924999237060547,
+        2.8330001831054688,
+        2.2799994945526123
+      ],
+      "bounds_max_delta_m": 4.76837158203125e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0002820300042642998,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_TerraceLantern0",
+      "triangles": 116,
+      "bounds_min_m": [
+        12.335000038146973,
+        -2.805000066757202,
+        0.040000420063734055
+      ],
+      "bounds_max_m": [
+        12.5649995803833,
+        -2.575000047683716,
+        0.42000043392181396
+      ],
+      "bounds_max_delta_m": 4.470348358154297e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0023867764252276658,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_TerraceLantern1",
+      "triangles": 116,
+      "bounds_min_m": [
+        12.335000038146973,
+        2.575000047683716,
+        0.039999544620513916
+      ],
+      "bounds_max_m": [
+        12.5649995803833,
+        2.805000066757202,
+        0.4199995696544647
+      ],
+      "bounds_max_delta_m": 4.544854164123535e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0023867764252276658,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_TerraceRunner",
+      "triangles": 228,
+      "bounds_min_m": [
+        10.97499942779541,
+        -1.8575000762939453,
+        0.03999970853328705
+      ],
+      "bounds_max_m": [
+        11.925000190734863,
+        1.8575000762939453,
+        0.05350028723478317
+      ],
+      "bounds_max_delta_m": 2.942979335784912e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.001128124971687794,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "StageLook2_WallMenu",
+      "triangles": 120,
+      "bounds_min_m": [
+        3.325000047683716,
+        2.31350040435791,
+        0.754999577999115
+      ],
+      "bounds_max_m": [
+        3.9750001430511475,
+        2.4325003623962402,
+        1.5249996185302734
+      ],
+      "bounds_max_delta_m": 4.172325134277344e-07,
+      "UV_layers": [
+        "UV0",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0023867764252276658,
+      "material": "Restaurant_Atlas_Seafood4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "Stove",
+      "triangles": 4280,
+      "bounds_min_m": [
+        -3.9100000858306885,
+        1.2195000648498535,
+        0.03999994322657585
+      ],
+      "bounds_max_m": [
+        -2.9700000286102295,
+        2.1080000400543213,
+        0.8499999642372131
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.5322450330756965e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanBowl0",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.9099998474121094,
+        2.010999917984009,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        -3.6700000762939453,
+        2.050999879837036,
+        1.440000057220459
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.006298715059076088,
+      "material": "V4_BurnishedCopper",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanBowl1",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.5799999237060547,
+        2.010999917984009,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        -3.3400001525878906,
+        2.050999879837036,
+        1.440000057220459
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.006298715059076088,
+      "material": "V4_BurnishedCopper",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanBowl2",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.25,
+        2.010999917984009,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        -3.010000228881836,
+        2.050999879837036,
+        1.440000057220459
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.006298715059076088,
+      "material": "V4_BurnishedCopper",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanHandle0",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.808000087738037,
+        2.0199999809265137,
+        1.4399999380111694
+      ],
+      "bounds_max_m": [
+        -3.7719998359680176,
+        2.056000232696533,
+        1.6399999856948853
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016382438471729266,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanHandle1",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.4780001640319824,
+        2.0199999809265137,
+        1.4399999380111694
+      ],
+      "bounds_max_m": [
+        -3.441999912261963,
+        2.056000232696533,
+        1.6399999856948853
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016382438471729266,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanHandle2",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.1480002403259277,
+        2.0199999809265137,
+        1.4399999380111694
+      ],
+      "bounds_max_m": [
+        -3.111999988555908,
+        2.056000232696533,
+        1.6399999856948853
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016382438471729266,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanInside0",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.884999990463257,
+        1.978000283241272,
+        1.225000023841858
+      ],
+      "bounds_max_m": [
+        -3.694999933242798,
+        1.9930003881454468,
+        1.415000081062317
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0030081742999357175,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanInside1",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.555000066757202,
+        1.978000283241272,
+        1.225000023841858
+      ],
+      "bounds_max_m": [
+        -3.365000009536743,
+        1.9930003881454468,
+        1.415000081062317
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0030081742999357175,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanInside2",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.2250001430511475,
+        1.978000283241272,
+        1.225000023841858
+      ],
+      "bounds_max_m": [
+        -3.0350000858306885,
+        1.9930003881454468,
+        1.415000081062317
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0030081742999357175,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_PanRack",
+      "triangles": 28,
+      "bounds_min_m": [
+        -3.9300003051757812,
+        2.0160000324249268,
+        1.6679999828338623
+      ],
+      "bounds_max_m": [
+        -3.0,
+        2.06000018119812,
+        1.7120001316070557
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00011462502573309635,
+      "material": "V4_PaintedNavy",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo0",
+      "triangles": 748,
+      "bounds_min_m": [
+        -4.719395637512207,
+        -1.7693958282470703,
+        -0.03000003658235073
+      ],
+      "bounds_max_m": [
+        -4.180603981018066,
+        -1.2306041717529297,
+        0.39750003814697266
+      ],
+      "bounds_max_delta_m": 3.725290298461914e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo1",
+      "triangles": 748,
+      "bounds_min_m": [
+        -4.685997486114502,
+        -1.765997290611267,
+        0.429999977350235
+      ],
+      "bounds_max_m": [
+        -4.154002666473389,
+        -1.234002709388733,
+        0.8575000166893005
+      ],
+      "bounds_max_delta_m": 2.9802322387695312e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo2",
+      "triangles": 708,
+      "bounds_min_m": [
+        -4.7089996337890625,
+        -1.1599998474121094,
+        -0.029999999329447746
+      ],
+      "bounds_max_m": [
+        -4.190999984741211,
+        -0.6399999856948853,
+        0.5700001120567322
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.2587374609296376e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo3",
+      "triangles": 708,
+      "bounds_min_m": [
+        10.406999588012695,
+        0.8959999680519104,
+        -0.029999999329447746
+      ],
+      "bounds_max_m": [
+        10.924999237060547,
+        1.4159998893737793,
+        0.5700001120567322
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.2587374609296376e-07,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo4",
+      "triangles": 748,
+      "bounds_min_m": [
+        10.383840560913086,
+        -0.008159244433045387,
+        -0.030000008642673492
+      ],
+      "bounds_max_m": [
+        10.948158264160156,
+        0.5561593770980835,
+        0.39750000834465027
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_QuayCargo5",
+      "triangles": 748,
+      "bounds_min_m": [
+        -4.639999866485596,
+        1.3640000820159912,
+        -0.03000003658235073
+      ],
+      "bounds_max_m": [
+        -4.160000324249268,
+        1.8440001010894775,
+        0.39750003814697266
+      ],
+      "bounds_max_delta_m": 3.725290298461914e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.010443801696681e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_RearMortar",
+      "triangles": 12,
+      "bounds_min_m": [
+        -2.0900001525878906,
+        2.6610000133514404,
+        0.9899998307228088
+      ],
+      "bounds_max_m": [
+        10.16200065612793,
+        2.7310001850128174,
+        1.8099998235702515
+      ],
+      "bounds_max_delta_m": 1.7881393432617188e-07,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0003028034229312325,
+      "material": "V4_Mortar",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_RopeCoil0",
+      "triangles": 160,
+      "bounds_min_m": [
+        -4.613999843597412,
+        -1.0640000104904175,
+        0.8966851830482483
+      ],
+      "bounds_max_m": [
+        -4.285999774932861,
+        -0.7359999418258667,
+        0.9233148694038391
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0007794459822814126,
+      "material": "V4_Rope",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_RopeCoil1",
+      "triangles": 160,
+      "bounds_min_m": [
+        -4.595999717712402,
+        -1.0460000038146973,
+        0.9216851592063904
+      ],
+      "bounds_max_m": [
+        -4.303999900817871,
+        -0.7539999485015869,
+        0.9483148455619812
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0008519912590958523,
+      "material": "V4_Rope",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_RopeCoil2",
+      "triangles": 160,
+      "bounds_min_m": [
+        -4.577999591827393,
+        -1.027999997138977,
+        0.9466851949691772
+      ],
+      "bounds_max_m": [
+        -4.322000026702881,
+        -0.7719999551773071,
+        0.9733147621154785
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0009458245962394862,
+      "material": "V4_Rope",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_0",
+      "triangles": 564,
+      "bounds_min_m": [
+        -3.248000144958496,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -3.111440658569336,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_1",
+      "triangles": 564,
+      "bounds_min_m": [
+        -3.008000135421753,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.8714404106140137,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_2",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.7680001258850098,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.6314406394958496,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_3",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.5280001163482666,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.3914403915405273,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_4",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.2880001068115234,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.1514406204223633,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_5",
+      "triangles": 564,
+      "bounds_min_m": [
+        -2.0480000972747803,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.9114404916763306,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_6",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.8079999685287476,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.6714404821395874,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_7",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.5679999589920044,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.4314404726028442,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_8",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.3279999494552612,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.191440463066101,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfCup_9",
+      "triangles": 564,
+      "bounds_min_m": [
+        -1.087999939918518,
+        1.78000009059906,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -0.9514404535293579,
+        1.8760000467300415,
+        1.6239999532699585
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 1.7074163501717976e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfPot_0",
+      "triangles": 440,
+      "bounds_min_m": [
+        -3.2259998321533203,
+        2.072000026702881,
+        1.5399999618530273
+      ],
+      "bounds_max_m": [
+        -3.0139999389648438,
+        2.2839999198913574,
+        1.6349999904632568
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.5480709950898017e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfPot_1",
+      "triangles": 440,
+      "bounds_min_m": [
+        -2.5460000038146973,
+        2.072000026702881,
+        1.5399999618530273
+      ],
+      "bounds_max_m": [
+        -2.3340001106262207,
+        2.2839999198913574,
+        1.6349999904632568
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.5480709950898017e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfPot_2",
+      "triangles": 440,
+      "bounds_min_m": [
+        -1.8659999370574951,
+        2.072000026702881,
+        1.5399999618530273
+      ],
+      "bounds_max_m": [
+        -1.6540000438690186,
+        2.2839999198913574,
+        1.6349999904632568
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 2.5480709950898017e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_0_0",
+      "triangles": 336,
+      "bounds_min_m": [
+        -3.1100001335144043,
+        2.051999807357788,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.8299999237060547,
+        2.3320000171661377,
+        1.5709999799728394
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_0_1",
+      "triangles": 336,
+      "bounds_min_m": [
+        -3.1100001335144043,
+        2.051999807357788,
+        1.5479999780654907
+      ],
+      "bounds_max_m": [
+        -2.8299999237060547,
+        2.3320000171661377,
+        1.5889999866485596
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_0_2",
+      "triangles": 336,
+      "bounds_min_m": [
+        -3.1100001335144043,
+        2.051999807357788,
+        1.565999984741211
+      ],
+      "bounds_max_m": [
+        -2.8299999237060547,
+        2.3320000171661377,
+        1.6069999933242798
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_1_0",
+      "triangles": 336,
+      "bounds_min_m": [
+        -2.430000066757202,
+        2.051999807357788,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -2.1499998569488525,
+        2.3320000171661377,
+        1.5709999799728394
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_1_1",
+      "triangles": 336,
+      "bounds_min_m": [
+        -2.430000066757202,
+        2.051999807357788,
+        1.5479999780654907
+      ],
+      "bounds_max_m": [
+        -2.1499998569488525,
+        2.3320000171661377,
+        1.5889999866485596
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_1_2",
+      "triangles": 336,
+      "bounds_min_m": [
+        -2.430000066757202,
+        2.051999807357788,
+        1.565999984741211
+      ],
+      "bounds_max_m": [
+        -2.1499998569488525,
+        2.3320000171661377,
+        1.6069999933242798
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_2_0",
+      "triangles": 336,
+      "bounds_min_m": [
+        -1.75,
+        2.051999807357788,
+        1.5299999713897705
+      ],
+      "bounds_max_m": [
+        -1.4700000286102295,
+        2.3320000171661377,
+        1.5709999799728394
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_2_1",
+      "triangles": 336,
+      "bounds_min_m": [
+        -1.75,
+        2.051999807357788,
+        1.5479999780654907
+      ],
+      "bounds_max_m": [
+        -1.4700000286102295,
+        2.3320000171661377,
+        1.5889999866485596
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_ShelfStack_2_2",
+      "triangles": 336,
+      "bounds_min_m": [
+        -1.75,
+        2.051999807357788,
+        1.565999984741211
+      ],
+      "bounds_max_m": [
+        -1.4700000286102295,
+        2.3320000171661377,
+        1.6069999933242798
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 0.000250847391777137,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_WallPlant_0",
+      "triangles": 476,
+      "bounds_min_m": [
+        -3.963703155517578,
+        -1.1637932062149048,
+        0.03999997302889824
+      ],
+      "bounds_max_m": [
+        -3.5203909873962402,
+        -0.694937527179718,
+        0.8265412449836731
+      ],
+      "bounds_max_delta_m": 5.960464477539063e-08,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 4.644509632534266e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "V4_WallPlant_1",
+      "triangles": 476,
+      "bounds_min_m": [
+        -3.938645839691162,
+        0.25623607635498047,
+        0.03999997675418854
+      ],
+      "bounds_max_m": [
+        -3.543424129486084,
+        0.6801364421844482,
+        0.7611561417579651
+      ],
+      "bounds_max_delta_m": 1.1920928955078125e-07,
+      "UV_layers": [
+        "UV0",
+        "UV1"
+      ],
+      "UV1_min_triangle_area": 5.2453884687331254e-05,
+      "material": "Restaurant_Atlas_URP_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallBracket0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.4099998474121094,
+        2.2109997272491455,
+        1.465000033378601
+      ],
+      "bounds_max_m": [
+        -3.2899999618530273,
+        2.3409998416900635,
+        1.715000033378601
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00017579725794192314,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallBracket1",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.4800000190734863,
+        2.2109997272491455,
+        1.465000033378601
+      ],
+      "bounds_max_m": [
+        1.5999999046325684,
+        2.3409998416900635,
+        1.715000033378601
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00017579725794192314,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallBracket2",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.575999736785889,
+        2.2109997272491455,
+        1.465000033378601
+      ],
+      "bounds_max_m": [
+        4.695999622344971,
+        2.3409998416900635,
+        1.715000033378601
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00017579725794192314,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallBracket3",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.895999908447266,
+        2.2109997272491455,
+        1.465000033378601
+      ],
+      "bounds_max_m": [
+        9.016000747680664,
+        2.3409998416900635,
+        1.715000033378601
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.00017579725794192314,
+      "material": "DeepNavyEnamel_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallGlow0",
+      "triangles": 108,
+      "bounds_min_m": [
+        -3.4099998474121094,
+        2.000999927520752,
+        1.3700000047683716
+      ],
+      "bounds_max_m": [
+        -3.2899999618530273,
+        2.13100004196167,
+        1.5700000524520874
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016887857202192436,
+      "material": "LanternEmission_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallGlow1",
+      "triangles": 108,
+      "bounds_min_m": [
+        1.4800000190734863,
+        2.000999927520752,
+        1.3700000047683716
+      ],
+      "bounds_max_m": [
+        1.5999999046325684,
+        2.13100004196167,
+        1.5700000524520874
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016887857202192436,
+      "material": "LanternEmission_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallGlow2",
+      "triangles": 108,
+      "bounds_min_m": [
+        4.575999736785889,
+        2.000999927520752,
+        1.3700000047683716
+      ],
+      "bounds_max_m": [
+        4.695999622344971,
+        2.13100004196167,
+        1.5700000524520874
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016887857202192436,
+      "material": "LanternEmission_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    },
+    {
+      "name": "WallGlow3",
+      "triangles": 108,
+      "bounds_min_m": [
+        8.895999908447266,
+        2.000999927520752,
+        1.3700000047683716
+      ],
+      "bounds_max_m": [
+        9.016000747680664,
+        2.13100004196167,
+        1.5700000524520874
+      ],
+      "bounds_max_delta_m": 0.0,
+      "UV_layers": [
+        "UVMap",
+        "LightmapUV"
+      ],
+      "UV1_min_triangle_area": 0.0016887857202192436,
+      "material": "LanternEmission_V4",
+      "material_indices_valid": true,
+      "linked_V2_source": ""
+    }
+  ],
+  "presentation_objects_excluded": true,
+  "unit_scale_m": 1.0,
+  "native_unity_import_unverified": true
+}
