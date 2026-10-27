@@ -251,14 +251,15 @@ namespace Catchline.Game
             if (!Environment.GetCommandLineArgs().Contains("-no-priorities")) foreach (var s in staff) s.Order = PriorityOf(s.Id, s.Job); // A/B checks
             // The captain walks around helping wherever the queue is longest (design section 6).
             staff.Add(SimStaff.Captain(Kitchen.Door));
-            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = true };
+            night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0 }; // nothing breaks on the tutorial night
             // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
             restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
             restaurantWorld.DriveSimulation = false;
             try { restaurantWorld.Begin(night); }
             catch (Exception e) { Debug.LogError("[Catchline] restaurant room failed: " + e.Message); }
             popularityBefore = restaurantPopularity;
-            staffLoad.Clear();
+            staffLoad.Clear(); miraSaid.Clear(); miraLines.Clear();
+            nightStock = (night.Stock.Where(s => s.Form != PreparedForm.Stock).Sum(s => s.Count), night.Stock.Where(s => s.Form == PreparedForm.Stock).Sum(s => s.Count));
             RestaurantService.Rail = RestaurantRailMode.Scroll;
             RestaurantService.QuestionTitle = null;
             RestaurantService.Paused = false; RestaurantService.Speed = 1;
@@ -294,7 +295,28 @@ namespace Catchline.Game
                 return new RestaurantStaff_View(s, load);
             }).Select(x => x.View).ToList();
             if (restaurantWorld != null && restaurantWorld.Sim == night) restaurantWorld.Refresh(dt * (v.Paused ? 0 : Mathf.Max(1, v.Speed)));
+            MiraCalls(fish, soup, broken);
             if (night.Finished) ShowClosing();
+        }
+
+        // Mira's calls during service (design section 9): each moment once a night, in her words.
+        readonly HashSet<string> miraSaid = new();
+        (int fish, int soup) nightStock; // portions at the doors opening
+        readonly Queue<string> miraLines = new(); // one toast at a time, so quick moments at ×2 don't overwrite each other
+        void MiraCalls(int fish, int soup, List<RestaurantItem> broken)
+        {
+            if (RestaurantPreview == RestaurantScreen.FirstNight) return;
+            void Say(string key, string line)
+            {
+                if (miraSaid.Add(key)) { miraLines.Enqueue("Mira: " + line); Debug.Log($"[Catchline] MIRA {night.Hour:0.0}h {line}"); }
+            }
+            if (night.Groups.Any(g => g.TableUid != 0)) Say("seated", "First table seated. Here we go!");
+            if (night.Groups.Count(g => g.Phase == GroupPhase.Queue) >= 3) Say("queue", "The queue's growing, Captain!");
+            if (fish == 0 && nightStock.fish > 0 && !night.DoorClosed) Say("no-fish", "We're out of fish!");
+            if (soup == 0 && nightStock.soup > 0 && !night.DoorClosed) Say("no-soup", "Soup's all gone!");
+            foreach (var b in broken) Say("broken-" + b.Uid, $"The {RestaurantData.Get(b.Id).Name.ToLower()} broke! Sending help.");
+            if (night.DoorClosed) Say("door", "Doors closed. Last plates!");
+            if (miraLines.Count > 0 && SimTime >= toastUntil - 1.2f) { Toast(miraLines.Dequeue()); audio?.Play(VoyageAudio.Cue.CoachPop, .25f); }
         }
 
         // A small adapter so the HUD's staff card (VoyageGame.RestaurantStaff) reads from the rules' staff member.
@@ -336,10 +358,11 @@ namespace Catchline.Game
             // When the queue lost a lot of guests, one of them has the last word.
             var walked = night.Groups.FirstOrDefault(g => !g.Paid && g.Phase == GroupPhase.Gone);
             if (walked != null && r.Left * 3 >= r.Guests) { walked.Stars = 1; walked.Why = "queue"; if (speak.Count >= 3) speak[^1] = walked; else speak.Add(walked); }
+            var quoted = new HashSet<string>();
             v.Reviews = speak.Select((g, i) => new RestaurantReview
             {
                 Portrait = GuestFaces[(g.Id + i) % GuestFaces.Length], Stars = Mathf.Clamp(g.Stars, 1, 5),
-                Quote = ReviewQuote(g, i),
+                Quote = Enumerable.Range(i, 3).Select(k => ReviewQuote(g, k)).FirstOrDefault(quoted.Add) ?? ReviewQuote(g, i),
             }).ToList();
             Debug.Log("[Catchline] REVIEWS " + string.Join(" | ", speak.Select(g => $"{g.Stars}* {g.Why}")) + " :: " + string.Join(" | ", v.Reviews.Select(x => x.Quote)));
             v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "Better tomorrow!";

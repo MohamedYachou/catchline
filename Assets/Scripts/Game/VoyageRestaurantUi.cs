@@ -667,6 +667,8 @@ namespace Catchline.Game
                 }
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
+            // Toasts (Mira's calls in service, why an item can't go there) ride just under the screens' top bars.
+            if (toast != null && SimTime < toastUntil) coastalUi.Toast("toast", toast, null, ih * .14f);
             return true;
         }
 
