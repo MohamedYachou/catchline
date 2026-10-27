@@ -33,3 +33,17 @@ you want changed.
   the line goes red, 3–4 runs). Until it exists, gold and red fish stay off. *Default: no gold/red fish yet.*
 - **Chart 3.** Every further ground goes on a third chart (Kelp forest is the last on the Outer coast). Which coast,
   how many grounds, and which boat opens it (the tier 6 boat?). *Default: no map 12 until you decide.*
+
+## Restaurant, night of 10-26 → 10-27 (Claude 2)
+- **Mira's look.** Four busts: rc-bust-mira-a/b/c/d in Assets/Art/UI. D (navy host jacket, scarf) is in the game for
+  now, on the rail, S5 and S9. *Default: D.*
+- **Terrace side.** Your plan (RESTAURANT.md) puts the 3×5 terrace on the quay side of the room. Codex 2 built the
+  Bistro/Restaurant/Seafood rooms with the terrace in front, over the water (it looks like ui-8), which doesn't fit the
+  game's grid. Codex 2 is refitting them to your plan. Say if you'd rather have the front terrace; then the grid changes
+  instead. *Default: your plan, terrace on the side.*
+- **Crew priorities (S9).** Tap a task, then tap another in the same row to swap them. This works the same on phone and
+  desktop; the mockup said "drag". *Default: tap-to-swap.*
+- **Mira's house on the quay.** It stands at the east end (x 13–27 at its widest) and the crane moved west. The Seafood
+  house's terrace will come close to the moored boats there. *Default: check when stage 4 is reachable.*
+- **First night.** Mira's 4-panel coaching card shows once before the first service, which waits until it's tapped.
+  *Default: keep.*

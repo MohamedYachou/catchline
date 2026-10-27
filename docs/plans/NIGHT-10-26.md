@@ -13,7 +13,7 @@ Claude:
 - [x] A1 S5 closing rebuilt on the rx pieces (screen-5 manifest), sbs-checked at 2532x1170.
 - [x] A2 S2 phone service HUD on phone:* pieces (r25). Desktop 1440 HUD still old (A5).
 - [x] A3 S1 arrange on arrange:* pieces (r33). Room behind arrange: with C4.
-- A4 S6 dashboard / week screen (mockup needed → Codex cuts).
+- [x] A4 S6 dashboard with the live week (bars, popularity trend), S7 market, S8 upgrades, S9 crew priorities, S11 stage-up (stages 2-4), S12 sleep, S13 first night, S14 harbour entry (r41-r66).
 - A5 Desktop 1440/2880 checks of every screen.
 Codex 1: rest of the S5 pieces, then S6 pieces, every piece trimmed and uniquely named.
 Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
@@ -27,8 +27,8 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 ## C. Gameplay
 - [x] C1 New-save fishing bot: stows on deck-graph hulls; new-* day chain passes.
 - C2 Service sim: orders, cooking times per station, tips, reviews feed S5.
-- C3 Market step, sleep step, money flow; balance pass.
-- C4 Restaurant upgrades (tables, decor) using arrange mode.
+- [x] C3 Market step, sleep step, money flow; S9 priorities in the sim (A/B: same served/left).
+- C4 Restaurant upgrades (tables, decor) using arrange mode. [x] S8 upgrades bought + visible (KitchenKit2), stage rooms load per stage (Bistro interim; Codex 2 refits 2-4 to the grid), exteriors on the quay.
 
 ## D. Crew restaurant clothes (Codex 2 3D, Codex 1 2D busts)
 - D1 Outfit sheet per job: host (Mira, best), cook, server, dishwasher; women dresses/tops, men suits.
