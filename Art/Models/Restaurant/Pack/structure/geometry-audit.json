@@ -1,0 +1,104 @@
+{
+  "pass_all": true,
+  "items": [
+    {
+      "name": "Restaurant_Pergola",
+      "bounds": [
+        [
+          -1.5,
+          0.0,
+          -0.5
+        ],
+        [
+          1.5,
+          2.549999952316284,
+          0.5
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "depth_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_CeilingBeam",
+      "bounds": [
+        [
+          -1.0,
+          -0.25,
+          -0.10192000865936279
+        ],
+        [
+          1.0,
+          0.0,
+          0.10192000865936279
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "ceiling_contact": true,
+        "hanging_below": true,
+        "depth_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_TerraceAwning",
+      "bounds": [
+        [
+          -0.7549999952316284,
+          -0.40000003576278687,
+          -0.8893148303031921
+        ],
+        [
+          0.7549999952316284,
+          0.0,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "top_mount": true
+      }
+    },
+    {
+      "name": "Restaurant_HangingBasket",
+      "bounds": [
+        [
+          -0.22100000083446503,
+          -0.7451961636543274,
+          -0.22100000083446503
+        ],
+        [
+          0.22100000083446503,
+          0.0,
+          0.22100000083446503
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "ceiling_contact": true,
+        "hanging_below": true,
+        "depth_centred": true
+      }
+    }
+  ]
+}

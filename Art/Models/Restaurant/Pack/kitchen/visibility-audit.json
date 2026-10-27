@@ -1,0 +1,69 @@
+{
+  "pass_all": true,
+  "camera_pitch": 38,
+  "camera_yaw": 2,
+  "source_only": true,
+  "items": [
+    {
+      "stem": "ExtractorHood",
+      "visible_polygon_samples": {
+        "ExtractorHood_Glow": 31,
+        "Restaurant_ExtractorHood": 334
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    },
+    {
+      "stem": "PotRail",
+      "visible_polygon_samples": {
+        "Restaurant_PotRail": 1002
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    },
+    {
+      "stem": "UtensilRail",
+      "visible_polygon_samples": {
+        "Restaurant_UtensilRail": 1442
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    },
+    {
+      "stem": "SpiceShelf",
+      "visible_polygon_samples": {
+        "Restaurant_SpiceShelf": 1168
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    },
+    {
+      "stem": "KnifeStrip",
+      "visible_polygon_samples": {
+        "Restaurant_KnifeStrip": 314
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    },
+    {
+      "stem": "ChoppingBlock",
+      "visible_polygon_samples": {
+        "Restaurant_ChoppingBlock": 830
+      },
+      "checks": {
+        "body_visible": true,
+        "hood_task_light_visible": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+CREW-QUATERNIUS — real human crew from the free Quaternius pack (shared spec, Codex 1 + Codex 2)
+
+GOAL
+Replace the hand-built blob crew (CrewRig / CrewRig_Restaurant) with the free CC0 Quaternius
+"Universal Base Characters" humans, styled per crew member to MATCH the existing 2D portraits.
+Mo 10-27: "no freestyling, use what exists for free, start with what we have." You (Codex) do the
+3D/texture setup and portrait-matching. Claude imports, sets Humanoid avatars, retargets the
+animation library and wires them into the game. PHASE 1 only (bodies + hair + colours). Outfits are
+a later phase — do NOT invent clothing meshes.
+
+SOURCE FILES (already extracted, in this checkout):
+  Art/Downloads/quaternius/base/Universal Base Characters[Standard]/Base Characters/Unity/
+      Superhero_Female_FullBody.fbx , Superhero_Male_FullBody.fbx   (the 2 bodies, one bodysuit mesh)
+  Art/Downloads/quaternius/base/Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/
+      Hair_Buns, Hair_Buzzed, Hair_BuzzedFemale, Hair_Long, Hair_SimpleParted, Hair_Beard,
+      Eyebrows_Female, Eyebrows_Regular   (use the "Rigged to Head Bone" variants so hair follows the head)
+  Textures live beside each under .../Textures/ . Everything is CC0.
+PORTRAIT REFERENCE (the look each puppet must match — eyedrop skin/hair/eye colour from these):
+  Assets/Art/UI/Portraits/art108-<name>.png   (also -56 / -96 crops)
+
+WHAT TO DELIVER — per crew member, into  Art/Models/Crew/Quaternius/ :
+  1) <name>.fbx  — the correct-gender Superhero base body, in BIND POSE (no baked animation),
+     with the chosen Hair mesh AND the matching Eyebrows mesh parented under the head bone.
+     Keep the ORIGINAL skeleton, bone names and scale untouched (Claude retargets the Universal
+     Animation Library onto it as Humanoid — if you rename/rescale bones, retargeting breaks).
+     Split the body materials into named slots so Claude can tint them independently in Unity:
+        Skin  (face + hands + any bare skin)
+        Suit  (the bodysuit = placeholder outfit, one flat slot)
+        Hair  (the hair mesh)      Eyes  (the eye mesh)      Brows (eyebrows)
+  2) Append one row per crew to  Art/Models/Crew/Quaternius/crew-manifest.json  :
+        { "name","gender":"F|M","hair":"<Hair_ mesh used>","skinHex","hairHex","eyeHex",
+          "suitHex":"<role colour, see below>","note":"<how it matches the portrait + any substitution>" }
+  3) A contact render of all your crew at the game camera (pitch 38 / yaw 2) on a 1 m grid
+     (crew-contact-<1|2>.jpg + an 844-wide phone overview), one line per puppet, and REPORT.md.
+
+STYLING RULES
+- Gender & look follow the PORTRAIT, not the name guess below. If a portrait clearly reads a
+  different gender than assigned, build it that way and note it.
+- Hair: pick the closest of the 6 available to the portrait. There is NO curly hair in the free tier;
+  for curly/wavy portraits use Hair_Buns or Hair_Long and say so in the note.
+- suitHex = a flat role colour so the crew read as uniformed until real outfits land:
+     Navigator = brass/gold  #C8912E   Fisher = teal  #2F6E6A   Deckhand = navy  #1E3A5F
+     Engineer = rust/orange  #B5542A
+- Match skin tone and hair colour to the portrait as closely as the textures allow.
+
+SPECIFIC (Mo named these two):
+  Mira  (F, Navigator) — fair/white skin, brown hair; wanted curly → use Hair_Buns (note the substitution).
+  Ines  (F, Engineer)  — light-blonde hair, long → Hair_Long, blonde hairHex.
+
+DO NOT: model or import any clothing/dress/suit meshes; rename or rescale the skeleton; touch Assets/
+scripts or git; batchmode the main Unity project. Phase 2 (two outfits per crew: boat work clothes +
+restaurant dress/suit) is blocked on Mo's call on where those meshes come from — note it and stop there.
+
+COMMS: fresh session, no memory. START/CHECKPOINT (per 3 crew)/DONE in comms.md; QUESTION lines,
+never stop to ask. When your roster is delivered + rendered + manifest written: DONE, then IDLE.

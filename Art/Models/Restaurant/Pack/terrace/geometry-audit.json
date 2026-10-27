@@ -1,0 +1,144 @@
+{
+  "pass_all": true,
+  "items": [
+    {
+      "name": "Restaurant_StandaloneParasol",
+      "raw_fbx_bounds": [
+        [
+          -0.4973910450935364,
+          0.0,
+          -0.4973910450935364
+        ],
+        [
+          0.4973910450935364,
+          2.01200008392334,
+          0.4973910450935364
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "footprint_centred_z": true
+      }
+    },
+    {
+      "name": "Restaurant_DeckChair",
+      "raw_fbx_bounds": [
+        [
+          -0.2985000014305115,
+          0.0,
+          -0.4095473885536194
+        ],
+        [
+          0.2985000014305115,
+          0.9086189270019531,
+          0.4095473885536194
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "footprint_centred_z": true
+      }
+    },
+    {
+      "name": "Restaurant_HarbourBench",
+      "raw_fbx_bounds": [
+        [
+          -0.6999999284744263,
+          0.0,
+          -0.25
+        ],
+        [
+          0.6999999284744263,
+          0.8200000524520874,
+          0.25
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "footprint_centred_z": true
+      }
+    },
+    {
+      "name": "Restaurant_RailingRopeSwag",
+      "raw_fbx_bounds": [
+        [
+          -0.49300000071525574,
+          -0.14550000429153442,
+          -0.13100001215934753
+        ],
+        [
+          0.49300000071525574,
+          0.14550000429153442,
+          0.0
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_PotLadder",
+      "raw_fbx_bounds": [
+        [
+          -0.31200000643730164,
+          0.0,
+          -0.30131322145462036
+        ],
+        [
+          0.31200000643730164,
+          1.1737306118011475,
+          0.30131322145462036
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "footprint_centred_z": true
+      }
+    },
+    {
+      "name": "Restaurant_QuayBollard",
+      "raw_fbx_bounds": [
+        [
+          -0.24135705828666687,
+          0.0,
+          -0.25296634435653687
+        ],
+        [
+          0.24135705828666687,
+          0.4599999785423279,
+          0.25296634435653687
+        ]
+      ],
+      "checks": {
+        "single_geometry": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "footprint_centred_z": true
+      }
+    }
+  ]
+}

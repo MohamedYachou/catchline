@@ -1,0 +1,791 @@
+{
+  "units": "m",
+  "wall_pivot": "back contact, height centre; mount origin at1.6m",
+  "coordinate_contract": "Blender [x,y,z] -> FBX [x,z,-y]; front +Y -> -Z; Unity handedness remains importer-owned",
+  "items": [
+    {
+      "name": "Restaurant_PlantPot2",
+      "stem": "PlantPot2",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "unspecified floor prop",
+      "bounds_blender": [
+        [
+          -0.2574999928474426,
+          -0.23499999940395355,
+          0.0
+        ],
+        [
+          0.2574999928474426,
+          0.23499999940395355,
+          1.149999976158142
+        ]
+      ],
+      "size_unity_m": [
+        0.5149999856948853,
+        1.149999976158142,
+        0.4699999988079071
+      ],
+      "components": [
+        {
+          "model": "pottedPlant",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/pottedPlant.glb",
+          "size_blender": [
+            0.47,
+            0.47,
+            1.15
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "plantSmall3",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/plantSmall3.glb",
+          "size_blender": [
+            0.28,
+            0.27,
+            0.35
+          ],
+          "bottom_centre_blender": [
+            0.14,
+            0.02,
+            0.46
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "triangles": 158,
+      "fbx_sha256": "0300b740f7016b2443f7b02cf27839e2e06b5ec29406e2ed4b117f6392faf40c"
+    },
+    {
+      "name": "Restaurant_WallShelf",
+      "stem": "WallShelf",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.4300000071525574,
+          0.0,
+          -0.17000000178813934
+        ],
+        [
+          0.4300000071525574,
+          0.23000000417232513,
+          0.17000000178813934
+        ]
+      ],
+      "size_unity_m": [
+        0.8600000143051147,
+        0.3400000035762787,
+        0.23000000417232513
+      ],
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.86,
+            0.23,
+            0.22
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.115,
+            -0.11
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "jar_A_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_A_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.15
+          ],
+          "bottom_centre_blender": [
+            -0.26,
+            0.12,
+            0.03
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_B_medium",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_B_medium.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.2
+          ],
+          "bottom_centre_blender": [
+            -0.010000000000000009,
+            0.12,
+            0.03
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        },
+        {
+          "model": "jar_C_small",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/jar_C_small.fbx",
+          "size_blender": [
+            0.12,
+            0.12,
+            0.17
+          ],
+          "bottom_centre_blender": [
+            0.24,
+            0.12,
+            0.03
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        }
+      ],
+      "triangles": 784,
+      "fbx_sha256": "c9243290de6590d23a9f2e4cae28d8f956e67215433760468861d0d1b0d0c797"
+    },
+    {
+      "name": "Restaurant_FramedPicture",
+      "stem": "FramedPicture",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.3499999940395355,
+          0.0,
+          -0.24000000953674316
+        ],
+        [
+          0.3499999940395355,
+          0.10400000959634781,
+          0.24000000953674316
+        ]
+      ],
+      "size_unity_m": [
+        0.699999988079071,
+        0.48000001907348633,
+        0.10400000959634781
+      ],
+      "components": [
+        {
+          "model": "pictureframe_medium",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_medium.fbx",
+          "size_blender": [
+            0.7,
+            0.07,
+            0.48
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.035,
+            -0.24
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "triangles": 336,
+      "fbx_sha256": "acd053b9cd5a11e584a5173df5682b17821400908cf4a7cf05b5aaa6561cf28d"
+    },
+    {
+      "name": "Restaurant_MenuBoard",
+      "stem": "MenuBoard",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.24500000476837158,
+          -0.16449999809265137,
+          0.0
+        ],
+        [
+          0.24500000476837158,
+          0.16449999809265137,
+          0.85999995470047
+        ]
+      ],
+      "size_unity_m": [
+        0.49000000953674316,
+        0.85999995470047,
+        0.32899999618530273
+      ],
+      "components": [
+        {
+          "model": "menu",
+          "source": "Art/Downloads/kaykit/restaurant/addons/kaykit_restaurant_bits/Assets/fbx(unity)/menu.fbx",
+          "size_blender": [
+            0.49,
+            0.3,
+            0.86
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "restaurant"
+        }
+      ],
+      "triangles": 772,
+      "fbx_sha256": "6b18fcdf49fc179cb5e6ce2ec91244b8253980941d9d14acdcba89066c3d015b"
+    },
+    {
+      "name": "Restaurant_WallClock",
+      "stem": "WallClock",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.20000000298023224,
+          0.0,
+          -0.20000000298023224
+        ],
+        [
+          0.20000000298023224,
+          0.09700000286102295,
+          0.20000000298023224
+        ]
+      ],
+      "size_unity_m": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.09700000286102295
+      ],
+      "components": [
+        {
+          "model": "pictureframe_small_A",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/pictureframe_small_A.fbx",
+          "size_blender": [
+            0.4,
+            0.065,
+            0.4
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.0325,
+            -0.2
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "triangles": 532,
+      "fbx_sha256": "14e21d4778a42d0e449c517af699007772f07cae29ce52a22029dfe5f7ca8c53"
+    },
+    {
+      "name": "Restaurant_Rug",
+      "stem": "Rug",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        2,
+        1
+      ],
+      "front_fbx": "unspecified floor prop",
+      "bounds_blender": [
+        [
+          -1.0,
+          -0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.5,
+          0.0139999995008111
+        ]
+      ],
+      "size_unity_m": [
+        2.0,
+        0.0139999995008111,
+        1.0
+      ],
+      "components": [
+        {
+          "model": "rug_rectangle_stripes_A",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/rug_rectangle_stripes_A.fbx",
+          "size_blender": [
+            2,
+            1,
+            0.014
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "triangles": 68,
+      "fbx_sha256": "4b0d7a0d158a9b80bbee2624b7e37391930f88b947a89bc757393087bff9d7cf"
+    },
+    {
+      "name": "Restaurant_Bunting",
+      "stem": "Bunting",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.4622214138507843,
+          0.0,
+          -0.15000000596046448
+        ],
+        [
+          0.4622214138507843,
+          0.02499999850988388,
+          0.15000000596046448
+        ]
+      ],
+      "size_unity_m": [
+        0.9244428277015686,
+        0.30000001192092896,
+        0.02499999850988388
+      ],
+      "components": [
+        {
+          "model": "book_single",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/book_single.fbx",
+          "size_blender": [
+            0.055,
+            0.025,
+            0.07
+          ],
+          "bottom_centre_blender": [
+            -0.43,
+            0.035,
+            0.02
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "triangles": 348,
+      "fbx_sha256": "203d218169a66c68636ef4107bc73ee29610c16ca517c679574fb593c91d5597"
+    },
+    {
+      "name": "Restaurant_StringLights",
+      "stem": "StringLights",
+      "mount": "wall",
+      "mount_height_m": 1.6,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.4675000011920929,
+          0.0,
+          -0.1419999897480011
+        ],
+        [
+          0.4675000011920929,
+          0.0820000022649765,
+          0.1419999897480011
+        ]
+      ],
+      "size_unity_m": [
+        0.9350000023841858,
+        0.2839999794960022,
+        0.0820000022649765
+      ],
+      "components": [
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.055,
+            0.05,
+            0.09
+          ],
+          "bottom_centre_blender": [
+            -0.44,
+            0.025,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "shelf_A_small",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/shelf_A_small.fbx",
+          "size_blender": [
+            0.055,
+            0.05,
+            0.09
+          ],
+          "bottom_centre_blender": [
+            0.44,
+            0.025,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        }
+      ],
+      "triangles": 1424,
+      "fbx_sha256": "493764d6e0ea3bbfec93b58d56732cfc60ea935d9660c48a7072e5461cbedfe9"
+    },
+    {
+      "name": "Restaurant_WineRack",
+      "stem": "WineRack",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "-Z",
+      "bounds_blender": [
+        [
+          -0.3100000023841858,
+          -0.25999999046325684,
+          0.0
+        ],
+        [
+          0.3100000023841858,
+          0.25999999046325684,
+          0.5600000023841858
+        ]
+      ],
+      "size_unity_m": [
+        0.6200000047683716,
+        0.5600000023841858,
+        0.5199999809265137
+      ],
+      "components": [
+        {
+          "model": "bookcaseOpenLow",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bookcaseOpenLow.glb",
+          "size_blender": [
+            0.62,
+            0.3,
+            0.56
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 180,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        },
+        {
+          "model": "bottle-oil",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/bottle-oil.glb",
+          "size_blender": [
+            0.085,
+            0.085,
+            0.24
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        }
+      ],
+      "triangles": 848,
+      "fbx_sha256": "7e7eabcfd0801dd17e407484436d9d8c17573d86e0673c24cc326771cfa08e6f"
+    },
+    {
+      "name": "Restaurant_CoatStand",
+      "stem": "CoatStand",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "unspecified floor prop",
+      "bounds_blender": [
+        [
+          -0.23000000417232513,
+          -0.23000000417232513,
+          0.0
+        ],
+        [
+          0.23000000417232513,
+          0.23000000417232513,
+          1.6500000953674316
+        ]
+      ],
+      "size_unity_m": [
+        0.46000000834465027,
+        1.6500000953674316,
+        0.46000000834465027
+      ],
+      "components": [
+        {
+          "model": "coatRackStanding",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/coatRackStanding.glb",
+          "size_blender": [
+            0.46,
+            0.46,
+            1.65
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "triangles": 190,
+      "fbx_sha256": "05d628c8ef94751f10a0824b96f93c010b896be6655f4f566aa38f0047d976db"
+    },
+    {
+      "name": "Restaurant_Bookshelf",
+      "stem": "Bookshelf",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "+Z",
+      "bounds_blender": [
+        [
+          -0.429999977350235,
+          -0.1550000011920929,
+          0.0
+        ],
+        [
+          0.429999977350235,
+          0.1550000011920929,
+          1.0299999713897705
+        ]
+      ],
+      "size_unity_m": [
+        0.85999995470047,
+        1.0299999713897705,
+        0.3100000023841858
+      ],
+      "components": [
+        {
+          "model": "bookcaseOpenLow",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/bookcaseOpenLow.glb",
+          "size_blender": [
+            0.86,
+            0.31,
+            0.78
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture"
+        },
+        {
+          "model": "book_set",
+          "source": "Art/Downloads/kaykit/furniture/addons/kaykit_furniture_bits/Assets/fbx(unity)/book_set.fbx",
+          "size_blender": [
+            0.54,
+            0.2,
+            0.22
+          ],
+          "bottom_centre_blender": [
+            0,
+            0.02,
+            0.45
+          ],
+          "rotation_z_deg": 0,
+          "pack": "furniture"
+        },
+        {
+          "model": "plantSmall1",
+          "source": "Art/Downloads/kenney/furniture/Models/GLTF format/plantSmall1.glb",
+          "size_blender": [
+            0.19,
+            0.18,
+            0.25
+          ],
+          "bottom_centre_blender": [
+            0.24,
+            0,
+            0.78
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:furniture"
+        }
+      ],
+      "triangles": 482,
+      "fbx_sha256": "cf14e8dbcee90002694d0541e7787d85ef1643a5a3b3b3758e502252278d95f5"
+    },
+    {
+      "name": "Restaurant_Barrel",
+      "stem": "Barrel",
+      "mount": "floor",
+      "mount_height_m": 0,
+      "footprint_tiles": [
+        1,
+        1
+      ],
+      "front_fbx": "unspecified floor prop",
+      "bounds_blender": [
+        [
+          -0.2549999952316284,
+          -0.2549999952316284,
+          0.0
+        ],
+        [
+          0.2549999952316284,
+          0.2549999952316284,
+          0.6800000071525574
+        ]
+      ],
+      "size_unity_m": [
+        0.5099999904632568,
+        0.6800000071525574,
+        0.5099999904632568
+      ],
+      "components": [
+        {
+          "model": "barrel",
+          "source": "Art/Downloads/kenney/food/Models/GLB format/barrel.glb",
+          "size_blender": [
+            0.51,
+            0.51,
+            0.68
+          ],
+          "bottom_centre_blender": [
+            0,
+            0,
+            0
+          ],
+          "rotation_z_deg": 0,
+          "pack": "kenney:food"
+        }
+      ],
+      "triangles": 308,
+      "fbx_sha256": "9f9b6a982fe8574d2329080918af55db5c81fb1a320359e4399213b1a67b129b"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "dirk",
+  "passAll": true,
+  "checks": {
+    "bone_names_exact": true,
+    "bone_parents_exact": true,
+    "bone_rest_matrices": true,
+    "armature_transform": true,
+    "one_original_armature": true,
+    "five_named_materials": true,
+    "no_animations": true,
+    "bind_pose": true,
+    "no_clothing_meshes": true,
+    "body_vertices_unchanged": true,
+    "body_uv_unchanged": true,
+    "body_skin_weights_unchanged": true,
+    "nonempty_meshes": true,
+    "head_parented": true,
+    "two_decoded_textures": true,
+    "head_rotation_follow": true
+  },
+  "boneCount": 65,
+  "matrixTolerance": 0.0001,
+  "maxBodyVertexError": 1.6391277313232422e-07,
+  "maxBodyUvError": 0.0,
+  "maxRestMatrixError": 1.3172626495361328e-05,
+  "maxBindMatrixError": 1.855181653809268e-05,
+  "headFollowMatrixError": 1.7881393432617188e-07,
+  "bodyHeight": 1.819586387835443,
+  "triangles": 15707,
+  "materials": [
+    "Brows",
+    "Eyes",
+    "Hair",
+    "Skin",
+    "Suit"
+  ],
+  "attachments": [
+    {
+      "name": "Hair_SimpleParted",
+      "parentBone": "Head",
+      "vertices": 695
+    },
+    {
+      "name": "Eyebrows_Regular",
+      "parentBone": "Head",
+      "vertices": 558
+    },
+    {
+      "name": "Hair_Beard_Moustache",
+      "parentBone": "Head",
+      "vertices": 65
+    }
+  ],
+  "textures": [
+    {
+      "name": "dirk-eyes.png",
+      "size": [
+        256,
+        256
+      ],
+      "path": "/tmp/catchline-c-recovery/Users/momoy/Projects/Catchline/Art/Models/Crew/Quaternius/_codex2/dirk-eyes.png"
+    },
+    {
+      "name": "dirk-skin.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "path": "/tmp/catchline-c-recovery/Users/momoy/Projects/Catchline/Art/Models/Crew/Quaternius/_codex2/dirk-skin.png"
+    }
+  ],
+  "sha256": "03d7e6c944f1a12779584f2b006c6fb366997f86344b74d791ee95e0dd5601a5"
+}

@@ -1,0 +1,150 @@
+{
+  "pass_all": true,
+  "checks": {
+    "exact_six": true,
+    "bottom_center": true,
+    "carried_equals_served": true,
+    "plate_widths": true,
+    "glass_height": true
+  },
+  "items": {
+    "Restaurant_Dish_GrilledFish": {
+      "size_unity": [
+        0.2199999988079071,
+        0.053935498853380004,
+        0.2200000062584877
+      ],
+      "bottom": -8.30476931668045e-09,
+      "centre_xy": [
+        0.0,
+        3.725290298461914e-09
+      ],
+      "geometry_sha256": "1583a675daab92eb12ca2db8ab085e78aaa7de36db39e8488a6d4b4986ad06a9"
+    },
+    "Restaurant_Dish_FilletsLemon": {
+      "size_unity": [
+        0.2199999988079071,
+        0.0510000148016756,
+        0.2200000062584877
+      ],
+      "bottom": -8.30476931668045e-09,
+      "centre_xy": [
+        0.0,
+        3.725290298461914e-09
+      ],
+      "geometry_sha256": "408809eda7bde82d66e3c46ae799cd8ab1de883db42acda8f8d7e4700481749a"
+    },
+    "Restaurant_Dish_CoffeeBiscuits": {
+      "size_unity": [
+        0.15000000596046448,
+        0.08500000655641271,
+        0.15000001341104507
+      ],
+      "bottom": -5.662343038892459e-09,
+      "centre_xy": [
+        0.0,
+        3.725290298461914e-09
+      ],
+      "geometry_sha256": "4f3b7ff6ef69c26d260c7f38f9bb37bbf2469480db6a113f523688bc53d8b742"
+    },
+    "Restaurant_Dish_Lemonade": {
+      "size_unity": [
+        0.07800000160932541,
+        0.150000008489644,
+        0.06700000539422035
+      ],
+      "bottom": -2.5291795324733357e-09,
+      "centre_xy": [
+        0.0,
+        5.587935447692871e-09
+      ],
+      "geometry_sha256": "cfa85eab9e9ae3e3caf985d154dfb46ea428fb805191fd8c7590884608e8708f"
+    },
+    "Restaurant_GrilledFishPlate": {
+      "size_unity": [
+        0.2199999988079071,
+        0.053935498853380004,
+        0.2200000062584877
+      ],
+      "bottom": -8.30476931668045e-09,
+      "centre_xy": [
+        0.0,
+        3.725290298461914e-09
+      ],
+      "geometry_sha256": "1583a675daab92eb12ca2db8ab085e78aaa7de36db39e8488a6d4b4986ad06a9"
+    },
+    "Restaurant_Dish_FishSoup": {
+      "size_unity": [
+        0.2199999988079071,
+        0.077000022788698,
+        0.2200000062584877
+      ],
+      "bottom": -8.30476931668045e-09,
+      "centre_xy": [
+        0.0,
+        3.725290298461914e-09
+      ],
+      "geometry_sha256": "ca25befa62f47f5f195ccb61bff7590f38bfc8799a217796e46acccc97aa8923"
+    }
+  },
+  "incumbents": {
+    "GrilledFishPlate": {
+      "size_unity": [
+        0.2800000011920929,
+        0.06431189225135903,
+        0.2800000160932541
+      ],
+      "bottom": -2.2808896105175336e-08,
+      "centre_xy": [
+        0.0,
+        7.450580596923828e-09
+      ],
+      "geometry_sha256": "354590b93b68d6411e1ab7cd484bf548fe977f8d24d329086965c44a0ff15950"
+    },
+    "SoupBowl": {
+      "size_unity": [
+        0.21199999749660492,
+        0.09500003097866028,
+        0.2120000123977661
+      ],
+      "bottom": -1.7269591978674725e-08,
+      "centre_xy": [
+        0.0,
+        7.450580596923828e-09
+      ],
+      "geometry_sha256": "46f2beb4788c9356fd94ec523880e033bf8751d7720f4ad1aee0d693789b74a6"
+    },
+    "CoffeeCup": {
+      "size_unity": [
+        0.13655950874090195,
+        0.09400001205212316,
+        0.09600001573562622
+      ],
+      "bottom": -7.820193381746776e-09,
+      "centre_xy": [
+        0.02027975395321846,
+        7.450580596923828e-09
+      ],
+      "geometry_sha256": "1c8a38560aefbe7dfecb5535021776ebc3023de7b2654309fb1bf7b0369012ed"
+    },
+    "Glass": {
+      "size_unity": [
+        0.07999999821186066,
+        0.11800001468266341,
+        0.08000001683831215
+      ],
+      "bottom": -6.51682707797363e-09,
+      "centre_xy": [
+        0.0,
+        9.313225746154785e-09
+      ],
+      "geometry_sha256": "03f2468215f3b1075c52edec683aa8158db0341b6291e652354ec6c171435e3f"
+    }
+  },
+  "proof_table": {
+    "diameter_m": 0.54,
+    "height_m": 0.69,
+    "dish_bottom_m": 0.692,
+    "clearance_m": 0.002
+  }
+}

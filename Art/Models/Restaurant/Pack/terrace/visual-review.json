@@ -1,0 +1,125 @@
+{
+  "status": "PASS source visual review",
+  "sealed_utc": "2026-10-27T13:44:58.311067+00:00",
+  "proofs": {
+    "renders/DeckChair.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "e837a6f7fe965f51d599f8426aaceba91f2402f78055d7fcde9a5377a573200e"
+    },
+    "renders/grid.png": {
+      "size": [
+        2880,
+        1800
+      ],
+      "sha256": "9ed025ce5ad336842ac00c82b774430b3305ca7294f50a6b13c7e089338cfee7"
+    },
+    "renders/HarbourBench.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "b71afc3dc86aebe9380093f3f6a8fbbf48f08004c6f527f6567120de5a546ced"
+    },
+    "renders/PotLadder.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "d14a27d2fbd7cb91e1b77c1c1ee8001a4bb4b913cd78379bf141d8b7e137868e"
+    },
+    "renders/QuayBollard.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "0cf84c3175d1b64c36b70258795f1521d77d7108185a39a382093b4b966b33b1"
+    },
+    "renders/RailingRopeSwag.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "dd316098459c466bfab44d787d1e7b90c2ffecc2bac0bfc7af5f62b8460248ec"
+    },
+    "renders/StandaloneParasol.png": {
+      "size": [
+        640,
+        540
+      ],
+      "sha256": "23cd98348f7aa8ab97a6723df8e2266582c248585afa92969121b9f81db6dcf2"
+    },
+    "terrace-contact-844.jpg": {
+      "size": [
+        844,
+        574
+      ],
+      "sha256": "c9fddb9b8b6f8d9ae948b7690a38d4e367b1e05b3bee6dea63a33268113be325"
+    },
+    "terrace-contact.jpg": {
+      "size": [
+        2880,
+        1960
+      ],
+      "sha256": "6a2e078daa1817eb25ea99372592f63bf0350e0ebc30f15056c6a08c12e6888b"
+    },
+    "terrace-detail-contact.jpg": {
+      "size": [
+        1920,
+        1360
+      ],
+      "sha256": "50f96ae536bfb97bbefa66bbdcfc38536230f14ad4613734f4611113e3456da1"
+    }
+  },
+  "reviewed": [
+    "All six final individual fresh-FBX proofs and detail contact opened.",
+    "Final grid/contact and 844-wide overview opened after last PotLadder leaf correction.",
+    "Bench front aligned; three ladder planters readable with no visible shelf intersections.",
+    "Six silhouettes distinct, warm wood/navy/teal/cream palette; no visible grid framing clipping."
+  ],
+  "camera": {
+    "pitch": 38,
+    "yaw": 2
+  },
+  "grid_pixel_bounds": {
+    "StandaloneParasol": [
+      440.3647756576538,
+      803.7157773971558,
+      704.9374008178711,
+      1374.2971658706665
+    ],
+    "DeckChair": [
+      1340.3198432922363,
+      1060.525220632553,
+      1501.091365814209,
+      1377.5326073169708
+    ],
+    "HarbourBench": [
+      2086.626262664795,
+      1119.739544391632,
+      2450.8939361572266,
+      1372.7405458688736
+    ],
+    "RailingRopeSwag": [
+      483.37011337280273,
+      367.5529718399048,
+      737.9342365264893,
+      452.69272327423096
+    ],
+    "PotLadder": [
+      1376.4107036590576,
+      343.52413415908813,
+      1542.1781730651855,
+      680.1517724990845
+    ],
+    "QuayBollard": [
+      2243.053379058838,
+      514.4204378128052,
+      2371.64457321167,
+      690.3448104858398
+    ]
+  },
+  "limits": "Standalone Blender source proofs; native Unity import, materials, placement and player acceptance remain Claude-owned and unverified."
+}

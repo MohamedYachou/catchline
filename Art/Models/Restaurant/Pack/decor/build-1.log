@@ -1,0 +1,75 @@
+Traceback (most recent call last):
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2013, in execute
+    return self.import_gltf2(context)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2045, in import_gltf2
+    return self.unit_import(self.filepath, import_settings)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2050, in unit_import
+    from .blender.imp.blender_gltf import BlenderGlTF
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/blender_gltf.py", line 8, in <module>
+    from .scene import BlenderScene
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/scene.py", line 7, in <module>
+    from .node import BlenderNode
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/node.py", line 10, in <module>
+    from .mesh import BlenderMesh
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/mesh.py", line 7, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+00:01.592  bpy.rna          | ERROR Python script error in IMPORT_SCENE_OT_gltf.execute
+Traceback (most recent call last):
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Restaurant/Pack/decor/build.py", line 169, in <module>
+    a,b=map(int,sys.argv[-1].split(':'));build(a,b)
+                                         ~~~~~^^^^^
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Restaurant/Pack/decor/build.py", line 159, in build
+    o,rec=assembly(n);bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o
+          ~~~~~~~~^^^
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Restaurant/Pack/decor/build.py", line 72, in assembly
+    part('pottedPlant',(.47,.47,1.15),pack='kenney:furniture')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Restaurant/Pack/decor/build.py", line 44, in part
+    obs=base.component(model,size,pos,pack,rot)
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Models/Restaurant/Pack/build.py", line 17, in component
+    obs=load(p);meshes=[]
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Source/Restaurant/kenney/inspect_pack.py", line 16, in load
+    else:bpy.ops.import_scene.gltf(filepath=str(path))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/blender/scripts/modules/bpy/ops.py", line 109, in __call__
+    ret = _op_call(self.idname_py(), kw)
+RuntimeError: Error: Python: Traceback (most recent call last):
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2013, in execute
+    return self.import_gltf2(context)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2045, in import_gltf2
+    return self.unit_import(self.filepath, import_settings)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2050, in unit_import
+    from .blender.imp.blender_gltf import BlenderGlTF
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/blender_gltf.py", line 8, in <module>
+    from .scene import BlenderScene
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/scene.py", line 7, in <module>
+    from .node import BlenderNode
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/node.py", line 10, in <module>
+    from .mesh import BlenderMesh
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/mesh.py", line 7, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Location: /usr/lib/blender/scripts/modules/bpy/ops.py:109
+
+Error: Python: Traceback (most recent call last):
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2013, in execute
+    return self.import_gltf2(context)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2045, in import_gltf2
+    return self.unit_import(self.filepath, import_settings)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/__init__.py", line 2050, in unit_import
+    from .blender.imp.blender_gltf import BlenderGlTF
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/blender_gltf.py", line 8, in <module>
+    from .scene import BlenderScene
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/scene.py", line 7, in <module>
+    from .node import BlenderNode
+  File "/usr/lib/blender/scripts/addons_core/io_scene_gltf2/blender/imp/node.py", line 10, in <module>
+    from .mesh im... truncatedBlender 5.0.1
+
+Blender quit

@@ -1,0 +1,154 @@
+{
+  "pass_all": true,
+  "items": [
+    {
+      "name": "Restaurant_ExtractorHood",
+      "bounds": [
+        [
+          -0.5,
+          -0.32349997758865356,
+          -0.5120000243186951
+        ],
+        [
+          0.5,
+          0.32350000739097595,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_PotRail",
+      "bounds": [
+        [
+          -0.5,
+          -0.23000001907348633,
+          -0.15500003099441528
+        ],
+        [
+          0.5,
+          0.23000001907348633,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_UtensilRail",
+      "bounds": [
+        [
+          -0.41999995708465576,
+          -0.22034136950969696,
+          -0.17647624015808105
+        ],
+        [
+          0.41999995708465576,
+          0.22034136950969696,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_SpiceShelf",
+      "bounds": [
+        [
+          -0.44999998807907104,
+          -0.18450000882148743,
+          -0.2199999988079071
+        ],
+        [
+          0.44999998807907104,
+          0.18450000882148743,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_KnifeStrip",
+      "bounds": [
+        [
+          -0.3499999940395355,
+          -0.17000001668930054,
+          -0.08900000154972076
+        ],
+        [
+          0.3499999940395355,
+          0.17000001668930054,
+          0.0
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "back_contact": true,
+        "front_negative_z": true,
+        "height_centred": true
+      }
+    },
+    {
+      "name": "Restaurant_ChoppingBlock",
+      "bounds": [
+        [
+          -0.23999999463558197,
+          0.0,
+          -0.17000000178813934
+        ],
+        [
+          0.23999999463558197,
+          0.12950000166893005,
+          0.17000000178813934
+        ]
+      ],
+      "checks": {
+        "exact_geometry_count": true,
+        "nonempty": true,
+        "finite": true,
+        "metre_dimensions": true,
+        "centred_x": true,
+        "floor_y_zero": true,
+        "depth_centred": true
+      }
+    }
+  ]
+}

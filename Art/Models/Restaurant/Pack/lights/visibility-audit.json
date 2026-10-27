@@ -1,0 +1,68 @@
+{
+  "pass_all": true,
+  "camera_pitch": 38,
+  "camera_yaw": 2,
+  "source_only": true,
+  "items": [
+    {
+      "stem": "PendantLamp",
+      "glow_components": 1,
+      "visible_components": 1,
+      "visible_hit_samples": 36,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    },
+    {
+      "stem": "WallSconce",
+      "glow_components": 1,
+      "visible_components": 1,
+      "visible_hit_samples": 72,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    },
+    {
+      "stem": "HangingLantern",
+      "glow_components": 4,
+      "visible_components": 1,
+      "visible_hit_samples": 19,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    },
+    {
+      "stem": "StringLightsLong",
+      "glow_components": 10,
+      "visible_components": 10,
+      "visible_hit_samples": 540,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    },
+    {
+      "stem": "TableLamp",
+      "glow_components": 1,
+      "visible_components": 1,
+      "visible_hit_samples": 38,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    },
+    {
+      "stem": "Brazier",
+      "glow_components": 9,
+      "visible_components": 9,
+      "visible_hit_samples": 450,
+      "checks": {
+        "glow_visible": true,
+        "all10bulbs_visible": true
+      }
+    }
+  ]
+}
