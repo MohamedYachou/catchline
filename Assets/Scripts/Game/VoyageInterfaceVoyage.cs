@@ -60,7 +60,7 @@ namespace Catchline.Game
         {
             float top = Edge + (compactInterface ? 56 : 72) + 12, tileH = compactInterface ? 52 : 74, gap = compactInterface ? 6 : 8;
             var r = new Rect(Edge, top, HudLeftWidth, Skin.HeaderBand + 12 + tileH * 4 + gap * 3 + 14);
-            var slab = coastalUi.Slab("voyage/ground", r, GameData.Spots[ActiveSpot].Name); Block(r);
+            var slab = coastalUi.TitledSlabV3("voyage/ground", r); Block(r);
             coastalUi.Icon("voyage/ground/boat", new Rect(12, 9, 30, 30), "v2-icon-anchor", slab, Skin.Cream, "icon-home-anchor");
             coastalUi.Text("voyage/ground/title", new Rect(48, 4, r.width - 60, Skin.HeaderBand), GameData.Spots[ActiveSpot].Name.ToUpperInvariant(), Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, slab);
             float x = 10, w = r.width - 20, y = Skin.HeaderBand + 12;

@@ -47,6 +47,13 @@ namespace Catchline.Game
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
             else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); InterfaceTripChart(); }
+            if (CurrentMode == Mode.Fishing && !ManagementOpen || CurrentMode == Mode.Harbour && !panelOpen && !departureReady)
+                InterfaceV3(InterfaceHudOverlays);
+            else InterfaceHudOverlays();
+            coastalUi.End();
+        }
+        void InterfaceHudOverlays()
+        {
             InterfaceSeaGrounds();
             InterfaceCardOverlays();
             if (!departureReady && toast != null && SimTime < toastUntil)
@@ -58,7 +65,6 @@ namespace Catchline.Game
             if (!ManagementOpen) { InterfaceTier5Operations(); InterfacePotLine(); ManagementEntry(); }
             InterfaceCoinFx();
             InterfaceTutorial();
-            coastalUi.End();
         }
         void Block(Rect rect) => hudRects.Add(rect);
         void IButton(string id, Rect r, string label, Action action, bool primary = true, bool enabled = true)
@@ -76,7 +82,8 @@ namespace Catchline.Game
             var p = new Rect(iw - Edge - h, Edge, h, h);
             coastalUi.IconButton("pause", p, "v2-icon-menu", null, () => paused = true, null, "icon-menu"); Block(p);
         }
-        void InterfaceFishing()
+        void InterfaceFishing() => InterfaceV3(InterfaceFishingV3);
+        void InterfaceFishingV3()
         {
             InterfaceVoyageHud();
             // On a phone a row of identical "Fish" bubbles hides the deck: only the first idle rod keeps its word.
@@ -139,6 +146,10 @@ namespace Catchline.Game
             // Captain casts are presented by the full-screen rod view. No sprite strike slab.
         }
         void InterfaceTravel()
+        {
+            InterfaceV3(InterfaceTravelV3);
+        }
+        void InterfaceTravelV3()
         {
             InterfaceCoins();
             float h = compactInterface ? 84 : 100, w = Mathf.Min(480, iw - Edge * 2 - (compactInterface ? 240 : 300) * 2);

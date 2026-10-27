@@ -94,8 +94,10 @@ namespace Catchline.Game
             float x = open ? Edge : Edge + HarbourLeftWidth + 16;
             var bar = new Rect(x, ih - Edge - TabBarHeight, iw - x - Edge, TabBarHeight);
             Block(bar);
-            coastalUi.TabBar("shop/tabs", bar, tabs.Select(ShortTab).ToArray(), TabIcons, open ? Array.IndexOf(tabs, hudTab) : -1,
-                i => OpenShop(tabs[i]), tabs.Select(t => "shop/tab/" + t).ToArray());
+            var labels = tabs.Select(ShortTab).ToArray();
+            var ids = tabs.Select(t => "shop/tab/" + t).ToArray();
+            if (open) coastalUi.TabBar("shop/tabs", bar, labels, TabIcons, Array.IndexOf(tabs, hudTab), i => OpenShop(tabs[i]), ids);
+            else coastalUi.TabBarV3("shop/tabs", bar, labels, TabIcons, -1, i => OpenShop(tabs[i]), ids);
         }
 
         void ItemGrid(Rect area)
@@ -308,12 +310,13 @@ namespace Catchline.Game
         void InterfaceChart() => InterfaceNauticalChart();
 
         float HarbourLeftWidth => compactInterface ? 250 : 320;
-        void HarbourHub()
+        void HarbourHub() => InterfaceV3(HarbourHubV3);
+        void HarbourHubV3()
         {
             // World stays visible: harbour slab and Set sail on the left, coins top right, tabs along the bottom.
             float w = HarbourLeftWidth;
             var r = new Rect(Edge, Edge, w, compactInterface ? 128 : 168);
-            var slab = coastalUi.Slab("port/title", r, ""); Block(r);
+            var slab = coastalUi.TitledSlabV3("port/title", r); Block(r);
             coastalUi.Icon("port/title/icon", new Rect(12, 9, 30, 30), "v2-icon-anchor", slab, Skin.Cream);
             coastalUi.Text("port/name", new Rect(48, 4, w - 60, Skin.HeaderBand), GameData.HarbourName.ToUpperInvariant(), Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, slab);
             coastalUi.Text("port/voyage", new Rect(16, Skin.HeaderBand + 10, w - 32, 26), $"Voyage {State.Voyage} · {State.HullDef.Name}", Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleLeft, slab);

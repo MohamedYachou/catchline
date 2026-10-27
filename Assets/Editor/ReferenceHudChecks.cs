@@ -37,44 +37,47 @@ namespace Catchline.EditorTools
         }
         public static void Run()
         {
-            foreach (var asset in new[] { "panel-status", "panel-goal", "panel-crew", "panel-row", "panel-toolbar", "bar-track", "bar-fill", "icon-Sun", "icon-Coin" })
-                Check(Resources.Load<Texture2D>("FishReference/" + asset) != null, "required original reference artwork " + asset);
-            Check(Resources.Load<Font>("FishReference/ReferenceRegular") != null && Resources.Load<Font>("FishReference/ReferenceBold") != null, "shared live text fonts imported");
+            ArtImport.BuildLibrary();
             var game = Fixture();
             game.State.Coins = 2845; game.Tick(0); game.PrepareInterface(1672, 941, 1);
-            Check(Text(game, "reference/status/coins").text == "2,845", "wallet uses real state at reference value");
+            Check(Text(game, "voyage/status/coins").text == "2,845", "wallet uses real state at reference value");
             game.State.Coins += 29; game.Tick(0);
-            Check(Text(game, "reference/status/coins").text == "2,874", "wallet updates after a state change");
+            Check(Text(game, "voyage/status/coins").text == "2,874", "wallet updates after a state change");
             game.State.Coins = int.MaxValue; game.Tick(0);
-            Check(Text(game, "reference/status/coins").text.Length <= 7, "huge balance remains bounded");
+            Check(Text(game, "voyage/status/coins").text.Length <= 7, "huge balance remains bounded");
             game.State.Active.Clear();
             game.State.Active.Add(new Contract { Species = Species.Herring, Count = 3, Delivered = 0, VoyagesLeft = 2, Reward = 10 });
             game.Cooler.Add(new CaughtFish { Species = Species.Herring, Kg = .2f, StowedAt = game.SimTime }); game.Tick(0);
-            Check(Text(game, "reference/goal/count").text == "0/3", "unsold fish cannot falsely complete delivered goal");
+            Check(Text(game, "voyage/goal/value").text.Contains("0/3"), "unsold fish cannot falsely complete delivered goal");
             game.State.Active[0].Delivered = 2; game.Tick(0);
-            Check(Text(game, "reference/goal/count").text == "2/3", "actual delivered progress updates");
+            Check(Text(game, "voyage/goal/value").text.Contains("2/3"), "actual delivered progress updates");
             game.State.Active.Clear(); game.State.BestVoyageKg = 0; game.Tick(0);
-            Check(Text(game, "reference/goal/count").text == $"0/{GameData.SkiffKgGoal:0} kg", "no-contract record requirement preserved");
+            Check(Text(game, "voyage/goal/value").text == $"Goal: bring home a full {GameData.SkiffKgGoal:0} kg haul", "no-contract haul requirement preserved");
             game.State.BestVoyageKg = GameData.SkiffKgGoal; game.State.Coins = GameData.SkiffCost; game.Tick(0);
-            Check(Text(game, "reference/goal/objective").text == "Skiff refit ready", "existing ready state is exposed without executing refit");
+            Check(Text(game, "voyage/goal/value").text == "Goal: skiff refit ready", "existing ready state is exposed without executing refit");
             Check(game.State.Hull == 0, "HUD does not buy or mutate hull");
             foreach (var size in new[] { new Vector2Int(1672, 941), new Vector2Int(1440, 900), new Vector2Int(844, 390) })
             {
                 game.PrepareInterface(size.x, size.y, 1); Canvas.ForceUpdateCanvases();
-                Inside(game, "reference/status/coins", "reference/status");
-                Inside(game, "reference/goal/count", "reference/goal");
-                Inside(game, "reference/crew/count", "reference/crew/toolbar");
-                Inside(game, "reference/crew/0/row", "reference/crew/panel");
-                Check(game.GetComponentsInChildren<Text>().Where(t => t.name.StartsWith("reference/")).All(t => t.font != null), "all live labels use a real imported font");
+                Inside(game, "voyage/status/coins", "voyage/status");
+                Inside(game, "voyage/goal/value", "voyage/goal");
+                Inside(game, "voyage/crew/title", "voyage/crew");
+                Inside(game, "voyage/crew/0", "voyage/crew");
+                var labels = game.GetComponentsInChildren<Text>().Where(t => t.name.StartsWith("voyage/")).ToArray();
+                Check(labels.Length > 0 && labels.All(t => t.font != null), "all live labels use a real imported font");
+                Check(game.GetComponentsInChildren<Image>().Where(i => i.name == "voyage/status" || i.name == "voyage/goal").All(i => i.sprite != null), "live status and goal use supplied kit art");
             }
             game.PrepareInterface(844, 390, 1.15f);
-            Check(Text(game, "reference/goal/title").gameObject.activeInHierarchy, "larger type uses live scalable heading");
+            int largerType = Text(game, "voyage/goal/value").fontSize;
+            Check(largerType > 0, "larger type uses live scalable goal");
             game.PrepareInterface(844, 390, 1);
-            Check(!game.GetComponentsInChildren<Text>().Any(t => t.name == "reference/goal/title"), "switching back hides stale scalable heading");
-            Check(Rect(game, "reference/goal/title/raster").gameObject.activeInHierarchy, "source caption restored after type toggle");
+            Check(Text(game, "voyage/goal/value").fontSize < largerType, "switching back restores normal live type size");
+            Check(!game.GetComponentsInChildren<Text>().Any(t => t.name.StartsWith("reference/")), "retired reference HUD remains inactive");
             var canvas = game.GetComponentInChildren<CoastalCanvas>().GetComponent<Canvas>();
-            Check(Rect(game, "pause").rect.width * canvas.scaleFactor >= 43.9f && Rect(game, "pause").rect.height * canvas.scaleFactor >= 43.9f,
-                "phone pause target remains44physical pixels without stretching icon");
+            // v2 Pressable expands the raycast child instead of stretching the artwork.
+            var pauseHit = game.GetComponentsInChildren<RectTransform>().SingleOrDefault(t => t.name == "pause/hit") ?? Rect(game, "pause");
+            Check(pauseHit.GetComponent<Image>().raycastTarget && pauseHit.rect.width * canvas.scaleFactor >= 43.9f && pauseHit.rect.height * canvas.scaleFactor >= 43.9f,
+                "phone pause hit target remains44physical pixels without stretching icon");
             Check(game.InvokeInterface("pause"), "source hamburger invokes existing pause action");
             Check((bool)typeof(VoyageGame).GetField("paused", Hidden).GetValue(game), "pause control actually pauses game");
             UnityEngine.Object.DestroyImmediate(game.gameObject);

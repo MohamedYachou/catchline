@@ -1,0 +1,27 @@
+UI-V3-KIT-1 — Codex 2 — the new features, then the whole game, in the restaurant UI look Mo loves (Claude 2 lead, 2026-10-27)
+GOAL (Mo 10-27): "make the entire game in that ui elements like the restaurant render I liked so much". The target
+look is the restaurant mockups and their v3 kit: Assets/Art/UI/rx-*.png, v3-*.png, Fredoka Bold/SemiBold
+(Assets/Resources/Fonts), cream paper, navy ink, coral primary, brass pins. See docs/screens/restaurant-ui/ and
+Art/Source/Restaurant/ for the mockups. Mira's radio (commit 09997e4c, docs/plans/RESTAURANT.md section 14) still
+draws with the old v2 Slab/Primary/Secondary: captures docs/screens/ui-v2/new-radio-{out,out2,home}-{1440,844}.png.
+ORDER (finish, capture and log one before the next):
+1. Mira's radio in v3 (Assets/Scripts/Game/VoyageMiraRadio.cs, InterfaceRadio only; the call logic stays): a call card
+   (paper panel, Mira bust with her mood, the caller's face chip and name, a radio icon that rings, 2-3 answer buttons:
+   coral primary, cream secondary, a greyed disabled state), Mira's reply bubble, and the notebook ticket (rx-ticket)
+   with lines that WRAP (today "The Janssens x2, 19:30," is cut off), a pen tick on new lines, and v3 prep rows with
+   bars plus the "Lend a knife" button. Make the art you need as clean PNGs with .meta files next to the existing rx-*.
+   Also: the hotel contract pays at least 60 coins (Round5 floor in HotelContract).
+2. The sailing HUD in v3: the journey slab, the Faster button, the coin pill and the menu button (VoyageInterface.cs
+   InterfaceTravel/InterfaceCoins), the same at sea and in the harbour lane.
+3. The fishing HUD and the harbour hub, piece by piece, to the same kit (VoyageHud*.cs, VoyageInterface*.cs). Keep every
+   hit area and behaviour; only the look changes. Write the order you did them in comms.
+ART RULES: the v3 kit is the style source (no new style). Phone first (844x390) and desktop (1440x900). Text never
+clipped.
+OWNERSHIP: VoyageMiraRadio.cs (drawing only), VoyageInterface*.cs, VoyageHud*.cs, Skin*.cs/CoastalCanvas*.cs (new kit
+helpers only, never breaking v2 callers), Assets/Art/UI new files, Art/Source/UIv3/**. Never: crew models, CrewUi/**,
+Restaurant sim/world, VoyageRestaurantDay.cs. No git; never batchmode the main project.
+DONE = EVIDENCE per item: native captures through docs/tools/uiv2-capture.ps1 (steps new-harbour,new-plan,new-radio-out,
+new-radio-out2,new-radio-home cover item 1; add steps if needed), at both sizes, opened and looked at, before/after
+pairs in docs/screens/ui-v3/. RestaurantChecks.Run PASS (docs/tools/run-lead-check.ps1).
+You may run out of weekly usage: commit nothing, but write a CHECKPOINT line after every verified piece so the next run
+continues exactly there.

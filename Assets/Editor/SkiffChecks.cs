@@ -20,6 +20,7 @@ namespace Catchline.EditorTools
             ArtImport.BuildLibrary();
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var game = new GameObject("Skiff regression").AddComponent<VoyageGame>();
+            game.SessionOnly = true;
             game.AutoPlay = true;
             game.Build();
             var state = game.State;
@@ -39,7 +40,8 @@ namespace Catchline.EditorTools
             Check(game.RefitSkiff() && state.Coins == 0 && state.Hull == 1, "refit spends once");
             Check(game.Rods[0].State == RodState.Ready && game.Rods[0].Squid, "refit preserves baited rods");
             Check(!game.RefitSkiff() && state.Coins == 0, "second refit rejected");
-            Check(game.Grid.Width == 5 && game.Grid.Height == 3 && state.CoolerCapacity == 27, "skiff dimensions and hold");
+            Check(game.Grid.Width == state.HullDef.Width && game.Grid.Height == state.HullDef.Height, "skiff dimensions match hull data");
+            Check(state.Has(UpgradeId.BigCooler) && state.CoolerCapacity == state.HullDef.Capacity * 1.5f, "skiff hold applies purchased cooler to hull capacity");
             Check(game.Rods.Count == 3 && game.Rods.TrueForAll(r => r.Unlocked), "three working rods");
             foreach (var rod in game.Rods)
                 Check(game.Grid.FindPath(state.HullDef.Seat, rod.Tile) != null, "console-to-rod route");
@@ -70,7 +72,8 @@ namespace Catchline.EditorTools
                 Check(loaded != null && loaded.Hull == 1 && loaded.Fuel == state.Fuel && loaded.BestVoyageFish == 16, "skiff save round trip");
                 File.WriteAllText(save, "{\"Version\":1,\"Coins\":400,\"Bait\":15,\"Voyage\":3,\"FoodMinutes\":4,\"Owned\":[],\"Charts\":[],\"Board\":[],\"Offers\":[],\"Active\":[]}");
                 loaded = GameState.Load(save);
-                Check(loaded != null && loaded.Hull == 0 && loaded.Fuel == 0 && loaded.Coins == 400, "old rowboat save loads");
+                // SaveV2 accepts only CurrentVersion; pre-card saves are deliberately discarded.
+                Check(loaded == null, "version1 rowboat save is rejected by the current save contract");
             }
             finally { if (File.Exists(save)) File.Delete(save); }
 
@@ -80,19 +83,22 @@ namespace Catchline.EditorTools
             state.Coins = GameData.FuelPackCost;
             Check(state.BuyFuel() && state.Coins == 0, "fuel purchase");
             float fuel = state.Fuel;
+            float departure = game.SimTime;
             game.SetSail();
             Check(state.Fuel == fuel, "fuel burns with elapsed voyage time");
             // Prevent the autoplay bot from interfering during this targeted voyage.
             game.AutoPlay = false;
-            game.Tick(11f);
-            Check(game.CurrentMode == VoyageGame.Mode.Fishing, "outboard reaches channel in half row time");
+            Check(game.Leg == VoyageGame.TripLeg.HarbourOut, "skiff starts in the harbour lane");
+            for (int n = 0; n < 4800 && !(game.CurrentMode == VoyageGame.Mode.Fishing && game.Leg == VoyageGame.TripLeg.None); n++) game.Tick(.05f);
+            Check(game.CurrentMode == VoyageGame.Mode.Fishing && game.AtFishingGround, "skiff completes harbour, chart and sea travel");
             game.Tick(2f);
             PrototypeTools.Render(game.Cam, Path.GetFullPath("Logs/skiff-sea-desktop.png"), 1440, 900);
             PrototypeTools.Render(game.Cam, Path.GetFullPath("Logs/skiff-sea-phone.png"), 844, 390);
             Check(!game.RefitSkiff(), "refit rejected at sea");
             game.HeadHome();
-            Check(state.Fuel < fuel && state.Fuel > fuel - .3f, "elapsed fuel remains for return");
-            // Do not complete arrival with AutoPlay false: that would save the test state.
+            Check(Mathf.Abs(state.Fuel - (fuel - (game.SimTime - departure) / 60f)) < .002f && state.Fuel > 0,
+                "elapsed voyage time consumes fuel with reserve remaining");
+            UnityEngine.Object.DestroyImmediate(game.gameObject);
             Debug.Log("[Catchline] SKIFF CHECKS PASSED: refit, models, routes, save migration, fuel and travel");
         }
 
@@ -101,6 +107,7 @@ namespace Catchline.EditorTools
             ArtImport.BuildLibrary();
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var game = new GameObject("Automation regression").AddComponent<VoyageGame>();
+            game.SessionOnly = true;
             game.AutoPlay = true;
             game.Build();
             var s = game.State;

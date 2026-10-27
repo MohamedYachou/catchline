@@ -44,6 +44,7 @@ namespace Catchline.Game
 
         bool StageUiV2(string screen)
         {
+            if (screen.StartsWith("kit3-radio-")) return StageV3RadioEvidence(screen);
             if (screen.StartsWith("harbour-h") || screen is "depart-lane" or "chart-leg" or "sea-entry" or
                 "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
                 screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))

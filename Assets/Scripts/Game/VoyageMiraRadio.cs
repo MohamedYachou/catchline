@@ -110,7 +110,7 @@ namespace Catchline.Game
             var species = RadioPool[0].species; var def = GameData.Get(species);
             float kg = (def.MinKg + def.MaxKg) * .5f;
             int n = Mathf.Clamp(Mathf.RoundToInt(State.CoolerCapacity * .2f / Mathf.Max(.1f, kg)), 3, 10);
-            int value = State.ValueOf(new CaughtFish { Species = species, Kg = kg, StowedAt = SimTime }, SimTime), reward = Round5(n * value * 1.6f);
+            int value = State.ValueOf(new CaughtFish { Species = species, Kg = kg, StowedAt = SimTime }, SimTime), reward = Mathf.Max(60, Round5(n * value * 1.6f));
             string fish = FishName(species);
             void Take(int pay) { if (State.TakeContract(new Contract { Species = species, Count = n, VoyagesLeft = 2, Reward = pay })) Note($"Hotel: {n} {fish} (+{pay})"); }
             var c = Call(Hotel, $"The Harbour Hotel needs {n} {fish} by tonight. {reward} coins when we dock, on top of the market price.", "excited");
@@ -262,20 +262,45 @@ namespace Catchline.Game
         void InterfaceRadio()
         {
             if (!RadioDay) return;
+            string kit = coastalUi.Kit; var display = coastalUi.DisplayOverride; var body = coastalUi.BodyOverride;
+            coastalUi.Kit = "v3-";
+            coastalUi.DisplayOverride = restaurantDisplay ??= Resources.Load<Font>("Fonts/Fredoka-Bold");
+            coastalUi.BodyOverride = restaurantBody ??= Resources.Load<Font>("Fonts/Fredoka-SemiBold");
+            try { InterfaceRadioV3(); }
+            finally { coastalUi.Kit = kit; coastalUi.DisplayOverride = display; coastalUi.BodyOverride = body; }
+        }
+
+        void InterfaceRadioV3()
+        {
             bool home = RestaurantPhase == DayPhase.Home;
-            float nw = compactInterface ? 168 : 228, nh = nw * 672f / 495f;
+            float nw = compactInterface ? 184 : 244, nh = nw * 672f / 495f;
             var note = new Rect(iw - Edge - nw, Edge + (compactInterface ? 56 : 80), nw, nh); Block(note);
             coastalUi.Icon("radio/note", note, "rx-ticket");
             coastalUi.Text("radio/note/title", new Rect(note.x + nw * .14f, note.y + nh * .07f, nw * .72f, nh * .16f), home ? "Prep for tonight" : "Tonight", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter);
             float row = compactInterface ? 20 : 26, y = note.y + nh * .32f, x = note.x + nw * .13f, w = nw * .74f;
             if (!home)
             {
-                int max = Mathf.FloorToInt(nh * .58f / row), from = Mathf.Max(0, radioNotes.Count - max);
-                for (int i = from; i < radioNotes.Count; i++, y += row)
+                // Reserve the full wrapped height before animating the pen, so later rows never jump or clip.
+                float used = 0, available = note.yMax - nh * .08f - y;
+                int from = radioNotes.Count;
+                while (from > 0)
+                {
+                    float needed = Mathf.Max(row, coastalUi.WrappedHeight(radioNotes[from - 1].text, w - 12, Skin.Type.Small)) + 6;
+                    if (used + needed > available) break;
+                    used += needed; from--;
+                }
+                for (int i = from; i < radioNotes.Count; i++)
                 {
                     var (text, at) = radioNotes[i];
-                    int shown = Mathf.Clamp(Mathf.FloorToInt((SimTime - at) * 45f), 0, text.Length); // Mira's pen writes it in
-                    coastalUi.Text($"radio/note/{i - from}", new Rect(x, y, w, row), text.Substring(0, shown), Skin.Type.Caption, Skin.Ink);
+                    float height = Mathf.Max(row, coastalUi.WrappedHeight(text, w - 12, Skin.Type.Small));
+                    int shown = Mathf.Clamp(Mathf.FloorToInt((SimTime - at) * 45f), 0, text.Length);
+                    coastalUi.Text($"radio/note/{i - from}", new Rect(x, y, w - 12, height), text.Substring(0, shown), Skin.Type.Small, Skin.Ink, TextAnchor.UpperLeft);
+                    if (SimTime - at < 3.5f)
+                    {
+                        coastalUi.Icon($"radio/note/{i - from}/tick", new Rect(x + w - 12, y + 2, 14, 14), "v2-icon-tick", null, Skin.Good);
+                        coastalUi.Pose($"radio/note/{i - from}/tick", 0, .8f + .2f * Ease.OutBack((SimTime - at) / .3f));
+                    }
+                    y += height + 6;
                 }
             }
             else if (RestaurantPrep.Rows.Count > 0)
@@ -283,20 +308,20 @@ namespace Catchline.Game
                 foreach (var (r, i) in RestaurantPrep.Rows.Select((r, i) => (r, i)).Take(4))
                 {
                     int done = Mathf.FloorToInt(r.Portions * PrepU);
-                    coastalUi.Text($"radio/prep/{i}", new Rect(x, y, w, row), $"{r.Name}  {done}/{r.Portions}", Skin.Type.Caption, Skin.Ink);
-                    coastalUi.ProgressBar($"radio/prep/{i}/bar", new Rect(x, y + row - 5, w, 6), (float)done / Mathf.Max(1, r.Portions), Skin.Bar.Teal);
-                    y += row + 8;
+                    coastalUi.Text($"radio/prep/{i}", new Rect(x, y, w, row), $"{r.Name}  {done}/{r.Portions}", Skin.Type.Small, Skin.Ink);
+                    coastalUi.ProgressBar($"radio/prep/{i}/bar", new Rect(x, y + row + 2, w, 6), (float)done / Mathf.Max(1, r.Portions), Skin.Bar.Teal);
+                    y += row + 12;
                 }
                 coastalUi.Text("radio/prep/crew", new Rect(x, note.yMax - nh * .14f, w, row), PrepHolds ? $"{PrepWorkers} {Plural(PrepWorkers, "crew")} on the knives" : "All prepped!", Skin.Type.Caption, Skin.Teal);
                 if (PrepHolds)
                 {
                     var help = new Rect(note.x, note.yMax + 8, nw, compactInterface ? 40 : 48);
-                    coastalUi.Primary("radio/prep/help", help, "Lend a knife", PrepHelp, "v2-icon-fish"); Block(help);
+                    coastalUi.Primary("radio/prep/help", help, "Lend a knife", PrepHelp, "rx-s9-job-cook"); Block(help);
                     float pop = SimTime - prepPop; if (pop < .25f) coastalUi.Pose("radio/prep/help", 0, 1 + .08f * Ease.Pulse(pop / .25f));
                 }
             }
 
-            float area = iw - nw - Edge * 3, W = Mathf.Min(compactInterface ? 560 : 640, area), H = compactInterface ? 156 : 176, cx = Edge + (area - W) / 2;
+            float area = iw - nw - Edge * 3, W = Mathf.Min(compactInterface ? 560 : 640, area), H = compactInterface ? 180 : 196, cx = Edge + (area - W) / 2;
             var call = RadioOpen;
             if (call != null)
             {
@@ -310,7 +335,7 @@ namespace Catchline.Game
                 bool caller = call.Face != null;
                 if (caller) coastalUi.Icon("radio/card/face", new Rect(tx, 8, 30, 30), call.Face, slab);
                 coastalUi.Text("radio/card/who", new Rect(caller ? tx + 36 : tx, 8, tw - 36, 30), call.Caller ?? "Mira", Skin.Type.Small, Skin.Teal, TextAnchor.MiddleLeft, slab);
-                float bh = compactInterface ? 38 : 46;
+                float bh = compactInterface ? 44 : 48;
                 coastalUi.Text("radio/card/line", new Rect(tx, 40, tw, H - 40 - bh - 16), call.Line, compactInterface ? Skin.Type.Small : Skin.Type.Body, Skin.Ink, TextAnchor.UpperLeft, slab);
                 int n = call.Options.Count; float bw = (tw - (n - 1) * 8) / n;
                 for (int i = 0; i < n; i++)
@@ -322,9 +347,9 @@ namespace Catchline.Game
             }
             else if (radioReply != null && SimTime < radioReplyUntil)
             {
-                float t = SimTime - (radioReplyUntil - 3.4f), rh = compactInterface ? 56 : 64;
+                float t = SimTime - (radioReplyUntil - 3.4f), rh = compactInterface ? 80 : 88;
                 var strip = new Rect(cx + W * .08f, ih - Edge - rh, W * .84f, rh);
-                var slab = coastalUi.Slab("radio/reply", strip, null, false);
+                var slab = coastalUi.Piece("radio/reply", strip, "rx-bubble-mira", null, new Vector4(48, 36, 114, 36), 3);
                 coastalUi.Pose("radio/reply", 0, .9f + .1f * Ease.OutBack(t / .3f));
                 float s = rh - 10;
                 coastalUi.Icon("radio/reply/mira", new Rect(8, 5, s * 114f / 153f, s), MiraFace(radioReplyMood), slab, null, "rx-coach-mira");

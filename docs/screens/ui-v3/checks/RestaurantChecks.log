@@ -1,0 +1,1180 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.25f1 (e1dba0a9aba4) revision 14801824'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 32406 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy" at "2026-10-27T22:25:04.7584859Z"
+Process architecture: x64
+Date: 2026-10-27T22:25:04Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 19912, path: "C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              3a6eb00558464f8d9a2c6795333a0e95
+  Correlation Id:          a990dc50f1dabfb8018e3e836f386ebc
+  External correlation Id: 6126903183701892005
+  Machine Id:              PK7Rb4K9KMp5yTvN+koEFJh1zkA=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-momoy" (connect: 0.00s, validation: 0.00s, handshake: 0.12s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-momoy-notifications" at "2026-10-27T22:25:04.8859364Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072384676615-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.15s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\Users\momoy\Projects\Catchline-lead-sim
+-logFile
+C:\Users\momoy\Projects\Catchline-lead-sim\Logs\check-Run.log
+-executeMethod
+Catchline.EditorTools.RestaurantChecks.Run
+Successfully changed project path to: C:\Users\momoy\Projects\Catchline-lead-sim
+C:/Users/momoy/Projects/Catchline-lead-sim
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [200304]  Target information:
+
+Player connection [200304]  * "[IP] 172.23.64.1 [Port] 55505 [Flags] 2 [Guid] 3857348965 [EditorId] 3857348965 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [200304]  * "[IP] 192.168.192.1 [Port] 55505 [Flags] 2 [Guid] 3857348965 [EditorId] 3857348965 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [200304]  * "[IP] 192.168.211.1 [Port] 55505 [Flags] 2 [Guid] 3857348965 [EditorId] 3857348965 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [200304]  * "[IP] 100.75.237.15 [Port] 55505 [Flags] 2 [Guid] 3857348965 [EditorId] 3857348965 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [200304]  * "[IP] 192.168.0.5 [Port] 55505 [Flags] 2 [Guid] 3857348965 [EditorId] 3857348965 [Version] 1048832 [Id] WindowsEditor(7,Laptop-Mo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [200304] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [200304] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-170728" after 0.3 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.25f1 (e1dba0a9aba4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/momoy/Projects/Catchline-lead-sim/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4080 Laptop GPU (ID=0x27e0)
+    Vendor:          NVIDIA
+    VRAM:            11995 MB
+    App VRAM Budget: 11227 MB
+    Driver:          32.0.16.1656
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56728
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.25f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.999588 seconds.
+- Loaded All Assemblies, in 14.100 seconds
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.913 seconds
+Domain Reload Profiling: 17010ms
+	BeginReloadAssembly (11678ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (1064ms)
+	LoadAllAssembliesAndSetupDomain (1303ms)
+		LoadAssemblies (11669ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1282ms)
+			TypeCache.Refresh (1280ms)
+				TypeCache.ScanAssembly (1266ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (2914ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2868ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (261ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (189ms)
+			ProcessInitializeOnLoadMethodAttributes (2325ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 59 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.14 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ai.navigation@134dd6a3b97b)
+    com.unity.collab-proxy@2.13.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collab-proxy@4628d2ba6ea4)
+    com.unity.ide.rider@3.0.40 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.rider@e4950c6d131b)
+    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.inputsystem@1.20.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.inputsystem@7a4e1a2a8194)
+    com.unity.timeline@1.8.13 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.timeline@3a22918286f5)
+    com.unity.visualscripting@1.9.12 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.visualscripting@4edfcc09512f)
+    com.unity.pipeline@0.9.1-exp.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.pipeline@363b8bb9e91d)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.searcher@4.9.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.searcher@a463122f2c00)
+    com.unity.burst@1.8.30 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.burst@2f3d916873ea)
+    com.unity.mathematics@1.3.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.collections@2.6.8 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal@a0dd9d2bd983)
+    com.unity.test-framework@1.6.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.test-framework@bd7f943e9647)
+    com.unity.ugui@2.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ugui@f3ea87521141)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.core@3f80e92e91c2)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.shadergraph@2fa139ee8b62)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\momoy\Projects\Catchline-lead-sim\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.09 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/momoy/Projects/Catchline-lead-sim
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 9s285ms
+[743/944    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[936/944    3s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Game\VoyageGame.cs(60,21): warning CS0108: 'VoyageGame.audio' hides inherited member 'Component.audio'. Use the new keyword if hiding was intended.
+[937/944    1s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 139 defines and 328 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[938/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[939/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[940/944    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[941/944    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 137 defines and 353 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running Unity.Pipeline.CodeGen.MethodReloadInPlaceILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[942/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[943/944    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (9.19 seconds), 9 items updated, 944 evaluated
+Assets\Scripts\Game\VoyageGame.cs(60,21): warning CS0108: 'VoyageGame.audio' hides inherited member 'Component.audio'. Use the new keyword if hiding was intended.
+AssetDatabase: script compilation time: 10.055919s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 13.117 seconds
+Start importing Assets/Resources/Restaurant using Guid(e93e191c0692d2a4ea3f120baa8541eb) (DefaultImporter) -> (artifact id: '239e3fac533bf245ecfcc4f23462e1d6') in 0.0567669 seconds
+Start importing Assets/Art/Shaders/PtsWater using Guid(4073606810c9b7d4a9929b40c3d043af) (DefaultImporter) -> (artifact id: '0ce5d20884e116dbe5b3400963d74520') in 0.0032543 seconds
+Start importing Assets/Art/Models/StationsV1 using Guid(215b65250876eb84c9ecfed3c2c50e5c) (DefaultImporter) -> (artifact id: 'e5eecbfe800b4cd357123e45ee343dcc') in 0.0115882 seconds
+Start importing Assets/Art/Water/PTS using Guid(8237fffc38352aa408ef0922786a8f8e) (DefaultImporter) -> (artifact id: '8b5799e0c5ba2a83e10a6ed19accb4c0') in 0.0036155 seconds
+Start importing Assets/Resources/Audio/Voice using Guid(63db7686d7ae231429bbe22aefb1aed4) (DefaultImporter) -> (artifact id: '7b7d968b6d03a4515325758125904c36') in 0.0030079 seconds
+Start importing Assets/Art/UI/v2 using Guid(48afd673c7cd8774eac068666384e905) (DefaultImporter) -> (artifact id: '04ad459f7518943997c3baab6fbe1d8f') in 0.0031049 seconds
+Start importing Assets/Art/UI/Cards using Guid(b928c62856eb37f45b85b77269d33575) (DefaultImporter) -> (artifact id: '5cbcbeb06a4ccf898fc3e4930eb3f62c') in 0.0031205 seconds
+Start importing Assets/Art/UI/Portraits using Guid(8cd48cd96c6d89647a25fc694b18a42c) (DefaultImporter) -> (artifact id: '163d801af95005d55536c88bd13623cc') in 0.0123371 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar using Guid(1091b2da1cf07b74f8d9308e1696db86) (DefaultImporter) -> (artifact id: '3929ef265649e763bbfda7e6c8e00ed0') in 0.0137841 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel using Guid(d14998c3d537b1340887f06a7667fd2c) (DefaultImporter) -> (artifact id: '1d40c364a18dad0b5df4e91cc5345d1d') in 0.0033084 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint using Guid(92a9567bf69abc641b9b6eff22cff650) (DefaultImporter) -> (artifact id: '855be1fb83bfbf16c2c7813e06e4bd2c') in 0.0029945 seconds
+Start importing Assets/Art/Models/Boats/JigBoatV1 using Guid(436439640d0dbb644b5f5aa97f9467e4) (DefaultImporter) -> (artifact id: '791be9299685f2558ae64d7f16493e5d') in 0.0029621 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank using Guid(04cc59e69cac8aa4c89fcb7fcaa3a017) (DefaultImporter) -> (artifact id: 'bfa40bd20896bf98af40f44c6af17981') in 0.0029934 seconds
+Start importing Assets/Resources/Audio/Voice/Mira using Guid(2429c87fbe1b2944985ca85c134066b5) (DefaultImporter) -> (artifact id: '6de87c209ef975e6c1ebe21139d63691') in 0.0032408 seconds
+Start importing Assets/Art/Models/Crew/Quaternius using Guid(e55fcb27a1f4fee48920725a8ece8502) (DefaultImporter) -> (artifact id: '804455b9b181c7f9da1c1e102f20abe4') in 0.0115631 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth using Guid(d6581939295835240911d8de0d72eed6) (DefaultImporter) -> (artifact id: '5f17455193c937f254af3e2f72669c68') in 0.0030426 seconds
+Start importing Assets/Art/Models/Restaurant/Pack using Guid(47a70c8a5d33a0245b2bc457ef48ebbe) (DefaultImporter) -> (artifact id: 'cd55b740541be58881089a01c9b08698') in 0.0030148 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights using Guid(a1ef72daf9600ec468f052d98817f908) (DefaultImporter) -> (artifact id: '59227e98ffa4ff505e1b4f27d769f243') in 0.0029366 seconds
+Refreshing native plugins compatible for Editor in 30.10 ms, found 4 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.60 ms, found 4 plugins.
+Start HTTP server: port:7800
+Pipeline: Descriptor written to C:\Users\momoy\Projects\Catchline-lead-sim\Library\Pipeline\.unity-pipeline-port
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  5.704 seconds
+Domain Reload Profiling: 18813ms
+	BeginReloadAssembly (337ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (29ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (147ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (12656ms)
+		LoadAssemblies (12362ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (409ms)
+			TypeCache.Refresh (314ms)
+				TypeCache.ScanAssembly (295ms)
+			BuildScriptInfoCaches (77ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (5705ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (4688ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (45ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (190ms)
+			ProcessInitializeOnLoadAttributes (3975ms)
+			ProcessInitializeOnLoadMethodAttributes (462ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (27ms)
+Start importing Assets/Art/UI/rc-bust-captain.png using Guid(00f666ac0dda41d68c4c625e5e8ef820) (TextureImporter) -> (artifact id: 'e2ae3484e87f65198a18f1f0124ef4c3') in 0.0673342 seconds
+Start importing Assets/Art/UI/v2/art108-event-current-shift.png using Guid(1089fddf7ce6e1049a97cb75b9db07ae) (TextureImporter) -> (artifact id: '3b5cfeab9511cb925571fc5435472525') in 0.0081813 seconds
+Start importing Assets/Art/UI/fish-crab.png using Guid(2021620d005443fd8071e7e4a2404e91) (TextureImporter) -> (artifact id: '59fce8fb799b52a097dee8cb548985a6') in 0.0183349 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi-56.png using Guid(40fbd7fa947599c41a300fa2416a4223) (TextureImporter) -> (artifact id: '9bffa3dd7815bbb6a6fe831134b5ab27') in 0.0185866 seconds
+Start importing Assets/Art/UI/v2/art108-night-dogfish.png using Guid(50a0164ac2f1a4b46a234dd65e4874a3) (TextureImporter) -> (artifact id: '842cb437eb1709789afc34d8370c0ac0') in 0.0079496 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf-96.png using Guid(50f2cd8727f68564288b956177e699b8) (TextureImporter) -> (artifact id: 'ddf70053c45adf4c633cde434e8e04df') in 0.0152545 seconds
+Start importing Assets/Art/UI/v2/art108-item-worms.png using Guid(503843944f2f952469ff5e66ebec374f) (TextureImporter) -> (artifact id: '4804a09dae90cd843793bbf4df56cee8') in 0.0189282 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-green.png using Guid(50a8592d295c6d345bbfb37fc833d73c) (TextureImporter) -> (artifact id: '622f38acba36503e9eee6d33d71394f7') in 0.0296755 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove.png using Guid(90db319d37b3b004591ea3c2ce19b7c6) (TextureImporter) -> (artifact id: 'bddbc8a9a98dfa6797ff3167c399335a') in 0.0144153 seconds
+Start importing Assets/Art/UI/rc-bust-noor.png using Guid(b09928e45bbc4aa99c74d30f676bf7e7) (TextureImporter) -> (artifact id: '29d94f64c1241b1fff53f5bca3405a18') in 0.0264575 seconds
+Start importing Assets/Art/UI/rc-bust-kofi.png using Guid(d0c008d5565343c299364d137dec8ec8) (TextureImporter) -> (artifact id: 'b9e1e8f8d42bf51bb5c097c1abd27490') in 0.0259135 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-green.png using Guid(d032397d26d2a6f43bdf9dc6f7b140d7) (TextureImporter) -> (artifact id: 'ba4aa63a7c3981a0a17b6069ae2efafd') in 0.0339054 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim-96.png using Guid(d0298c3b02f3d5045aa97baa96e7f10c) (TextureImporter) -> (artifact id: '350a32187355feb62f66634eeaec4125') in 0.0172318 seconds
+Start importing Assets/Art/UI/fish-unknown.png using Guid(e09cc893ecbaf802d222885befa07614) (TextureImporter) -> (artifact id: 'c6e05ce53ccf9383b013c72577caff8c') in 0.0199205 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-market.png using Guid(f0a7ff90f56301a47ae502f21e9f8da4) (TextureImporter) -> (artifact id: '1bc87ab75d3eacde932257592148f6e7') in 0.0194121 seconds
+Start importing Assets/Art/UI/rc-bust-mira-c.png using Guid(01a21d01cd2b480286118959b87a6982) (TextureImporter) -> (artifact id: '10c8f5755cc2fbaba1c7e38ac70808b1') in 0.0359511 seconds
+Start importing Assets/Art/UI/v2/art108-stage-table.png using Guid(11b9d8d045aeef94abff33ce30f22150) (TextureImporter) -> (artifact id: '5320c46a7c28563292c42df5a705642c') in 0.0339112 seconds
+Start importing Assets/Art/UI/v2/art108-item-fibreglass-rods.png using Guid(115fae75494aa8843967128c45ed3213) (TextureImporter) -> (artifact id: 'c0afe82c952754f707ce198bc1277240') in 0.009745 seconds
+Start importing Assets/Art/UI/Portraits/art108-tess.png using Guid(7107f808e1760384b953391b2b3cf93a) (TextureImporter) -> (artifact id: '67b3f7a09c2ca236dd2af70ae4b3019a') in 0.0289304 seconds
+Start importing Assets/Art/UI/v2/art108-event-drifting-float.png using Guid(a19a3e9b815ee8a4b87cd83c2215ee63) (TextureImporter) -> (artifact id: 'b77955220ad71d57278a0de4d2679686') in 0.0180359 seconds
+Start importing Assets/Art/UI/Tutorial/tut-ring.png using Guid(a12c8a5418fa4f138b7c4aba31387019) (TextureImporter) -> (artifact id: 'cb301ef3c90d517fb26d5730cd469c06') in 0.0098928 seconds
+Start importing Assets/Art/UI/v2/art108-event-fog.png using Guid(b150eb72e35e5514181ca985e4ccb1db) (TextureImporter) -> (artifact id: 'e9db4d8a6fd8ac585732fa61ca57676f') in 0.0073826 seconds
+Start importing Assets/Art/UI/v2/art108-event-man-overboard.png using Guid(b1077631f03ee5043a006047d3bf6d7f) (TextureImporter) -> (artifact id: '2a51cb009ba1ffe0b9f25bb36568cb72') in 0.007711 seconds
+Start importing Assets/Art/UI/v2/art108-event-shark-takes-hook.png using Guid(c1381aaf256a15f4fa4410f3f2971a1b) (TextureImporter) -> (artifact id: '656ce8d228c59fe4ae1440d3e9ba4a05') in 0.0101014 seconds
+Start importing Assets/Art/UI/v2/art108-stage-sorting.png using Guid(32863207312c0664eaf080997abaec33) (TextureImporter) -> (artifact id: '5ac530ad0f77524f020dde3c073b8c64') in 0.0214994 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-white.png using Guid(42b1488137e02ad49806dc0b76d0aa79) (TextureImporter) -> (artifact id: '4504d135d0b53a9bca1ded82c9911bed') in 0.0382573 seconds
+Start importing Assets/Art/UI/Portraits/art108-ines.png using Guid(a2580e841e28baf4386321d2b6ed5008) (TextureImporter) -> (artifact id: '302d308976490210e7af12badc1f6f9a') in 0.0262652 seconds
+Start importing Assets/Art/UI/rc-bust-olaf.png using Guid(a22a53fd683a4805bae2e378c98cd385) (TextureImporter) -> (artifact id: '33549d9b8a07dcf5ef8d5f1c1dd80bbc') in 0.0224052 seconds
+Start importing Assets/Art/UI/rc-bust-pim.png using Guid(b25217dfcd1041559c66939bf6dd2b1d) (TextureImporter) -> (artifact id: '384b41c7986233acbdc4754e55598f58') in 0.0357147 seconds
+Start importing Assets/Art/UI/v2/art108-item-ice-box.png using Guid(d2e2dea50f21dd9429d87374fda9f7f7) (TextureImporter) -> (artifact id: '13b6a64a31493cf0dce73d1e0df94425') in 0.0080267 seconds
+Start importing Assets/Art/UI/v2/art108-event-spilled-basket.png using Guid(031f5f38aa12af3479c4571c65796b81) (TextureImporter) -> (artifact id: '4c6e7eaa7ec08245981b99a39caecda0') in 0.0186936 seconds
+Start importing Assets/Art/UI/v2/art108-chest-gold-open.png using Guid(038f75263f5a3cc40ba117703fd593a1) (TextureImporter) -> (artifact id: '4568dfacebcab16189d4b0452bef41e8') in 0.0211566 seconds
+Start importing Assets/Art/UI/fish-seabass.png using Guid(23f8df28f494ac24ec22241363da717d) (TextureImporter) -> (artifact id: '0dd7e4a0303b030f41bde6c14a74c0bb') in 0.0111426 seconds
+Start importing Assets/Art/UI/v2/art108-event-seal.png using Guid(3390a59214e764c4492370980652488e) (TextureImporter) -> (artifact id: '474a0d1f431951211e64406ceb9a6038') in 0.0068462 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor.png using Guid(33e4a804ec9f70b4abb7f4eb709031f8) (TextureImporter) -> (artifact id: 'e411a5c156dba44626a05d344596ca94') in 0.0140377 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-cannery.png using Guid(53a12186b89bc0a459a8a73839c7851c) (TextureImporter) -> (artifact id: 'da317ea57970ab36497aa0b329bbba9a') in 0.0220796 seconds
+Start importing Assets/Art/UI/v2/art108-event-rival-anchors.png using Guid(630d632c8e5c84a4ba431eed0901b259) (TextureImporter) -> (artifact id: '83ca26ac653bdb8d6dfbd2b2e36c9c0e') in 0.0069812 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-point.png using Guid(93950d8f8d684204a86be71b2a884748) (TextureImporter) -> (artifact id: 'cb916d0c72db0cd8686a885a10ee6c28') in 0.0556114 seconds
+Start importing Assets/Art/UI/v2/art108-item-third-deep-line.png using Guid(930e1df490172af4d9ae0f849479c971) (TextureImporter) -> (artifact id: '3dc93987b7d7fe2898b229cdfb588206') in 0.0192532 seconds
+Start importing Assets/Art/UI/v2/art108-chest-iron-open.png using Guid(c31b72627ec2f37489b9608f7065037d) (TextureImporter) -> (artifact id: 'f2ea79f6f503a1416f4126ee9f0ece98') in 0.0166423 seconds
+Start importing Assets/Art/UI/v2/art108-item-squid-bait.png using Guid(d3ab6fbdd2b92f349ae6defbb84405b8) (TextureImporter) -> (artifact id: '324c6aca3fdbced5da3ce33487fad931') in 0.0075251 seconds
+Start importing Assets/Art/UI/v2/art108-squall-overlay.png using Guid(e303e1dedf71b294c965ac4c6364f174) (TextureImporter) -> (artifact id: '0c2b271fec2ab5d66a46ac8b06fb4a4b') in 0.0269249 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-map.png using Guid(f3ac235318ac46f593ce942b81f4e4c3) (TextureImporter) -> (artifact id: 'ec9c976ebfbe05d5eeed8d07a7347612') in 0.0437544 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats-56.png using Guid(041610eb403efa642b6b6d59952c7801) (TextureImporter) -> (artifact id: '1295c0307f8beadfb1e3e5463c0e89ea') in 0.0071411 seconds
+Start importing Assets/Art/UI/v2/art108-stage-fishing.png using Guid(44a0a530c0f9b0148983df2c7289a791) (TextureImporter) -> (artifact id: '3958ab905a54e1b3dc14679a44c20c9b') in 0.0171841 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-gold.png using Guid(44e9e7ab213e8544ca71789d1a9de84e) (TextureImporter) -> (artifact id: '3a01b9f257ceec46c5b371581c52ebdf') in 0.0343958 seconds
+Start importing Assets/Art/UI/rc-bust-rosa.png using Guid(740c1bf2ced246899efa908725121873) (TextureImporter) -> (artifact id: '10c3330ca83d2193c01f3b7bef761d6b') in 0.0291623 seconds
+Start importing Assets/Art/UI/v2/art108-event-protected-species.png using Guid(94eb6fcdaa41f4041b82f3a72ec0a4e5) (TextureImporter) -> (artifact id: '6381ea1d5bd1906121fa2294c7a3df78') in 0.0173601 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana-96.png using Guid(944c27f2972b658488c391dcf0103df9) (TextureImporter) -> (artifact id: '87e38c4eb6d7dd5c3e08874573b91e98') in 0.0071911 seconds
+Start importing Assets/Art/UI/v2/art108-event-eel-wraps.png using Guid(c4966e2c03fe3ef4ea4fff91f1415dba) (TextureImporter) -> (artifact id: 'ebb4311ff3fadd5be79942cc3a206cb6') in 0.0066495 seconds
+Start importing Assets/Art/UI/Tutorial/tut-arrow.png using Guid(e4dc5690595a4971b5edad4361685e63) (TextureImporter) -> (artifact id: 'a887c611a41eb9a260c140658e681937') in 0.0096505 seconds
+Start importing Assets/Art/UI/rc-bust-dirk.png using Guid(4512b82075d845eab4ec189f4b335529) (TextureImporter) -> (artifact id: 'cdb7d9127581c13531ea17f7f2804f68') in 0.0263888 seconds
+Start importing Assets/Art/UI/v2/art108-event-cargo-shift.png using Guid(45593a9b85a1a904d82dad07570b7e80) (TextureImporter) -> (artifact id: '4f1bda7666d28ea245fde9d0a5f8bf51') in 0.018801 seconds
+Start importing Assets/Art/UI/v2/art108-event-seasick.png using Guid(55a1c609a2958114c999c1d001a31674) (TextureImporter) -> (artifact id: '06c1f9a6c834d3481e6d7fec162b49c7') in 0.0133822 seconds
+Start importing Assets/Art/UI/v2/art108-event-hatch-jam.png using Guid(55151e1de34d5d94b8d0a458e73862c8) (TextureImporter) -> (artifact id: '674f75fc1263086893d845122790f62f') in 0.0169798 seconds
+Start importing Assets/Art/UI/v2/art108-texture-plank.png using Guid(7575d57ca22cf96438ce3aefd86c472f) (TextureImporter) -> (artifact id: '7ae5e9dc819006d82e448cd91138667a') in 0.0488943 seconds
+Start importing Assets/Art/UI/v2/art108-event-big-one.png using Guid(85fc0773f3be1ca499a28cfefbe3527c) (TextureImporter) -> (artifact id: 'e883573e2dee203202fcb90befbd98c0') in 0.0089784 seconds
+Start importing Assets/Art/UI/v2/art108-texture-rope-h.png using Guid(c52988a24142d414da19f697529166eb) (TextureImporter) -> (artifact id: '3f7a4f2c90cb1f22ea6cc49ed860b064') in 0.0242842 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana-56.png using Guid(e54346e1fcc55eb4fb19afe6db0b93cd) (TextureImporter) -> (artifact id: 'df0ea08f61003e8ef17e4e5bcaa86746') in 0.0179429 seconds
+Start importing Assets/Art/UI/v2/art108-item-lantern-oil.png using Guid(3606797e9e413254f82da0582a80994e) (TextureImporter) -> (artifact id: '129ab1d33bfeaa05fcd42a5dc4d549c9') in 0.0084428 seconds
+Start importing Assets/Art/UI/v2/art108-night-squid.png using Guid(36a8654bd80c6e041b8245e6389e8e4e) (TextureImporter) -> (artifact id: '2807cc203bdc1e552d5fe7c955b4c463') in 0.0080207 seconds
+Start importing Assets/Art/UI/v2/art108-event-flying-fish.png using Guid(46626d486785e72479c80abef350f89f) (TextureImporter) -> (artifact id: 'dc28ee9c0184dd31d6c566496f15b734') in 0.016805 seconds
+Start importing Assets/Art/UI/v2/art108-event-fuel-leak.png using Guid(56b328851ddf57e4e8375d3c205e9184) (TextureImporter) -> (artifact id: '90b7a2b19752710715ca6912667d3c53') in 0.0070179 seconds
+Start importing Assets/Art/UI/v2/art108-event-cannery-closed.png using Guid(66eca1bc6deb6114db6f9b257d78244e) (TextureImporter) -> (artifact id: 'd72ef1f0e186cccfec882859e7f49b94') in 0.0071019 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats-96.png using Guid(86b342dfb2ca3934d9ced3e5b7dba85b) (TextureImporter) -> (artifact id: 'e1a4594b26001f4de7f187a0da51a17b') in 0.0081135 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-mythic-shine.png using Guid(967dc5729189c9e48bbc558bfb88dfc2) (TextureImporter) -> (artifact id: '02f097ca56535ccb0c1b0b9456984fd6') in 0.0402219 seconds
+Start importing Assets/Art/UI/v2/art108-event-dolphins.png using Guid(966e99acfda27cf49b66afac4a791e5a) (TextureImporter) -> (artifact id: '7247cc7c6d0e99b0304e0be9e2e72826') in 0.0206135 seconds
+Start importing Assets/Art/UI/v2/art108-chest-gold-closed.png using Guid(a6aeaee84c8224445a9712e084bef209) (TextureImporter) -> (artifact id: '6f1e19fc230c332f4e100c31391bca76') in 0.0184559 seconds
+Start importing Assets/Art/UI/rc-bust-tove.png using Guid(b608a76335df4ce7bc19a1eb5085e9f5) (TextureImporter) -> (artifact id: '0a6412cf50e735372b06c0eecbb97e2b') in 0.03376 seconds
+Start importing Assets/Art/UI/Portraits/art108-rosa.png using Guid(c6a3ef19e5905ce4cbd9693e5a85339a) (TextureImporter) -> (artifact id: '51e1976bf0fd834102a7ee9105b01aeb') in 0.0361712 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi.png using Guid(e6b4cf3a85ebab04c81e5ea354a8b8cc) (TextureImporter) -> (artifact id: '4496a76d859104556cb6b0e11e7d55b5') in 0.0277616 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf.png using Guid(f6c1fe9b331352344a4e7827482c951e) (TextureImporter) -> (artifact id: '660275222ebd87dba4d1c7974e8d383f') in 0.0232438 seconds
+Start importing Assets/Art/UI/v2/art108-item-heavy-net-system.png using Guid(f6398ac38cff1b6449c503ca69bb35ce) (TextureImporter) -> (artifact id: '80cf1a46b903943331848dbc0f60b0d2') in 0.0194278 seconds
+Start importing Assets/Art/UI/v2/art108-event-wont-work-adjacent.png using Guid(27b044025d4f94942b506d2f34203657) (TextureImporter) -> (artifact id: '7de601c45f435c083ee03efd1f622a6d') in 0.006574 seconds
+Start importing Assets/Art/UI/v2/art108-event-jellyfish-bloom.png using Guid(479477808a1d9f849acdcc5c6e90c2d0) (TextureImporter) -> (artifact id: 'ed1f2c5e352981de81db57d9bb15fb11') in 0.0152095 seconds
+Start importing Assets/Art/UI/rc-bust-ines.png using Guid(4717c131c78c482abec943743689f1d1) (TextureImporter) -> (artifact id: 'dddb8d717d67b957a4a5543341241a72') in 0.0420811 seconds
+Start importing Assets/Art/UI/Portraits/art108-ana.png using Guid(67d45f9a31ad20040b092cfde1ce1efe) (TextureImporter) -> (artifact id: '8571a95a51b3fe047ccb74ef2a1cfd6c') in 0.0241759 seconds
+Start importing Assets/Art/UI/v2/art108-event-breaker-trip.png using Guid(87e32aab7d70729439db2b408d9b1a6a) (TextureImporter) -> (artifact id: '8c679b0f6fdf03deaa88955e1d4339ed') in 0.0185596 seconds
+Start importing Assets/Art/UI/v2/art108-event-undersize-run.png using Guid(c70f0a9cbec08d748805d850770f0c81) (TextureImporter) -> (artifact id: 'd26392730d8f1e826ecd7cb65ac923f8') in 0.0071319 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-think.png using Guid(f7a5cdd29881455c82479f758a3d6a10) (TextureImporter) -> (artifact id: '4cb7d62a0084bdd1de4425491bc14279') in 0.0428624 seconds
+Start importing Assets/Art/UI/v2/art108-event-dull-blade.png using Guid(183d5002b10fc94448131ef2fa55f3c4) (TextureImporter) -> (artifact id: 'ae0270c504a93eabc4a3f2cc5f7709bf') in 0.0065288 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-market.png using Guid(383820baf0752e34195617b0e5a56c2b) (TextureImporter) -> (artifact id: '37b39293dd8dd672c5a4a84e06a0fc33') in 0.0092863 seconds
+Start importing Assets/Art/UI/v2/art108-event-snag.png using Guid(78e62e5b74d684446b12ff48df5f3e97) (TextureImporter) -> (artifact id: 'ccdd282a6b8094fd5578d8429b9c4c39') in 0.0138767 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk.png using Guid(8811ee21b8d7d2e4d812d2898214bcc8) (TextureImporter) -> (artifact id: 'c31541b56035df6287bc006f2118b2fe') in 0.0202552 seconds
+Start importing Assets/Art/UI/v2/art108-event-price-spike.png using Guid(b80a4f975db951542a7881c675194e74) (TextureImporter) -> (artifact id: '4977063527694b8f5d846c0cfb726675') in 0.0151283 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-gold.png using Guid(f86ddf19c96ad9f4b9f5b7d5c576056d) (TextureImporter) -> (artifact id: 'e4bb440b2908d04736bf27e5097db146') in 0.0362873 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-purple.png using Guid(0999ee3f465befa4fa7b90ba2fda30e1) (TextureImporter) -> (artifact id: '274065c91db51ac1dd3e01238b36b1f5') in 0.034651 seconds
+Start importing Assets/Art/UI/v2/art108-item-big-cooler.png using Guid(19a6d5c630428304aa2ecc0540a8d908) (TextureImporter) -> (artifact id: '68623c09b3166b9163176d2368d73eaf') in 0.0081491 seconds
+Start importing Assets/Art/UI/Portraits/art108-kofi-96.png using Guid(29f734009e9d00e4bb2f594ac9900283) (TextureImporter) -> (artifact id: '775655858bdc787f64e3b41d75308631') in 0.0067654 seconds
+Start importing Assets/Art/UI/v2/art108-event-weather-warning.png using Guid(49429d6333a38b6479b8a4acba7280e2) (TextureImporter) -> (artifact id: '35eb2e026ba84ed9dd764476cc00b47e') in 0.0153971 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam.png using Guid(49a68372680d8ba4a8d8572eddbae360) (TextureImporter) -> (artifact id: 'd685f301d109728ce4f70bff0af204b3') in 0.0223041 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam-56.png using Guid(49eb6daf7dd89874ba447d2b643fa350) (TextureImporter) -> (artifact id: '9d58cc558b2b9b6979ac0fd7d3b708ee') in 0.0159977 seconds
+Start importing Assets/Art/UI/v2/art108-event-hook-in-hand.png using Guid(498ebd505f798f3408476a043eb3dca4) (TextureImporter) -> (artifact id: 'e730cabca22b8bfb2c4f12dcfaa0ea11') in 0.0165943 seconds
+Start importing Assets/Art/UI/v2/art108-event-birds-working.png using Guid(498fa31fe14fb174faa39cf7835049c0) (TextureImporter) -> (artifact id: '33962fac1e17ccd8c6f251d1ebba9392') in 0.0147274 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-blue.png using Guid(498f2588c71b84f40ae821ac4b41947c) (TextureImporter) -> (artifact id: 'f538b9ee9b7d65ff06d047663c55d560') in 0.0398592 seconds
+Start importing Assets/Art/UI/v2/art108-texture-nail.png using Guid(69716b7822592174994557da34078fff) (TextureImporter) -> (artifact id: 'b842d6ab33c4399542da3809905b19d7') in 0.0191004 seconds
+Start importing Assets/Art/UI/fish-conger.png using Guid(797b161e7e74ba395adb74ae4b6383ba) (TextureImporter) -> (artifact id: '9fd1f6713290b839f2ab04ecbcf5966b') in 0.0202563 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim.png using Guid(a981a2a32446e014aae341e1580ca02b) (TextureImporter) -> (artifact id: '5bcdc18472e0edff1ac7f11777b80130') in 0.0199023 seconds
+Start importing Assets/Art/UI/fish-redmullet.png using Guid(a99de1eb7f824755a0f36ee583b2676a) (TextureImporter) -> (artifact id: 'd85b1ab650794fd72a7251d55a6a9a0c') in 0.0112684 seconds
+Start importing Assets/Art/UI/v2/art108-texture-rope-v.png using Guid(b9778f4473dd0484da50816143c0ae6a) (TextureImporter) -> (artifact id: '9a04ecff6d417c5db25d8c2a6f68b172') in 0.0179291 seconds
+Start importing Assets/Art/UI/v2/art108-event-roe-found.png using Guid(c96dc16f1c05a0346abda2d25ce31803) (TextureImporter) -> (artifact id: '74b42ee4548cb070db3d95bea0f9082d') in 0.0133472 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-mythic.png using Guid(f94b24e39a15b46409c9532c2e6e18eb) (TextureImporter) -> (artifact id: '849fe6c68a7e41de43ebc11f7dd3a9e7') in 0.0529459 seconds
+Start importing Assets/Art/UI/fish-cod.png using Guid(1aec05662978fa6084bb2c47e0e0c319) (TextureImporter) -> (artifact id: '256276e864be3710770f7b7565f6341d') in 0.01284 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira-96.png using Guid(2ac4a58f5ad86d742968b72cc98461d6) (TextureImporter) -> (artifact id: '726cba2f8a947eddfd5a2842899db3c3') in 0.0176919 seconds
+Start importing Assets/Art/UI/fish-pollock.png using Guid(2a8571147f93af38ea62064953a5f47b) (TextureImporter) -> (artifact id: '20819865ece3bc7bef353fae40019c6a') in 0.020321 seconds
+Start importing Assets/Art/UI/v2/art108-item-fuel.png using Guid(3a27be99e3284b848a9e0326ee6e6f7a) (TextureImporter) -> (artifact id: '972c0fd5e67da664b5b09c7a340d5253') in 0.0192453 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor-96.png using Guid(3ae9f8b77aefbd340bc6fff155143c5d) (TextureImporter) -> (artifact id: 'd11186e01c967ef7cfc430d01eea20bb') in 0.0082977 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-wave.png using Guid(4ab0c7294e9749029a7d34a9956f77a3) (TextureImporter) -> (artifact id: '48611a0a594928a84fa0cb28af8c7a20') in 0.0537122 seconds
+Start importing Assets/Art/UI/v2/art108-event-gull-raid.png using Guid(5a018384633eb7d46927f4a0fff1f523) (TextureImporter) -> (artifact id: 'ada98600b62d23c15192ef9ecabd5791') in 0.0161261 seconds
+Start importing Assets/Art/UI/fish-mackerel.png using Guid(5a8bb6849fc5a3e189a971846e619e3a) (TextureImporter) -> (artifact id: 'e19c49e69695448d27e902fec4acac65') in 0.0114075 seconds
+Start importing Assets/Art/UI/v2/art108-chest-wooden-open.png using Guid(aa85f0b27f62f2b4e969d1825b0e7fa5) (TextureImporter) -> (artifact id: '3b55e9c22291302a6cdc9d6f4612047a') in 0.0165947 seconds
+Start importing Assets/Art/UI/v2/art108-item-spare-rig.png using Guid(ba37468babbef2445a9bbac3a6c33d80) (TextureImporter) -> (artifact id: '3f24e0c0b090a10e31f6006b012b48e5') in 0.0081782 seconds
+Start importing Assets/Art/UI/v2/art108-item-lantern.png using Guid(cad12b501bb8d144696ded21b179bbee) (TextureImporter) -> (artifact id: '99f3da124915303a6c3a54beb4d00620') in 0.0165193 seconds
+Start importing Assets/Art/UI/rc-bust-mats.png using Guid(dae2cc4a5336417ba24d381b0370b070) (TextureImporter) -> (artifact id: '7a0562f35d6367de6c2d346302204af1') in 0.0336412 seconds
+Start importing Assets/Art/UI/v2/art108-stage-hold.png using Guid(da49089d1e43d7947acfa5dad047ea4c) (TextureImporter) -> (artifact id: 'ffcb7e9ab974e0a3006d30d1fd70d57a') in 0.0182751 seconds
+Start importing Assets/Art/UI/Tutorial/tut-pointer.png using Guid(fa79274d4f5b469ab377994c9b9287f4) (TextureImporter) -> (artifact id: '6ce4c0e4f1b381b84f2157fd08922142') in 0.0093409 seconds
+Start importing Assets/Art/UI/Tutorial/tut-bubble.png using Guid(fab948fecae7474387743e1979bfb9cd) (TextureImporter) -> (artifact id: 'acb1fb2577267ddccd39f6d7a3999f5a') in 0.0099432 seconds
+Start importing Assets/Art/UI/v2/art108-stage-hauling.png using Guid(fa2d67946591658458bcc667b5e5de9e) (TextureImporter) -> (artifact id: '99b717441a36aa942e6e727f05398ed0') in 0.0162509 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk-96.png using Guid(faee7ed56a82b6e4d95fe12a4a14c4c1) (TextureImporter) -> (artifact id: '802e9825c99dd977e28bf1c15845cf81') in 0.0370872 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove-96.png using Guid(0b72d3810d8572645a06aca51bc9a028) (TextureImporter) -> (artifact id: 'd765f1b79c409311c9a051d5996752f0') in 0.0100433 seconds
+Start importing Assets/Art/UI/fish-herring.png using Guid(1bb0c94bfea329c84121bd179de53399) (TextureImporter) -> (artifact id: 'cbf8c4cc37f751afcf08fb4a49b79c95') in 0.0132637 seconds
+Start importing Assets/Art/UI/v2/art108-event-crab-pinch.png using Guid(2b6bfac7383d6e44782b4b81808b9841) (TextureImporter) -> (artifact id: 'ae3025a41f8f896285f95be71a4edf75') in 0.0080338 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-collector.png using Guid(8bc13151efb71f64bbbd8654ef0c63d2) (TextureImporter) -> (artifact id: '672ec61d1cc2d7dd69e5f1ff3a72f33f') in 0.0137452 seconds
+Start importing Assets/Art/UI/v2/art108-item-carbon-rods.png using Guid(9b5b6ae6070787a4e90eef3695a823bc) (TextureImporter) -> (artifact id: 'b7608650ab9840ee5986e466706cfedc') in 0.0086152 seconds
+Start importing Assets/Art/UI/v2/art108-event-squall.png using Guid(abd9ce49f26386c4a996409a1302ad95) (TextureImporter) -> (artifact id: '37b9b1329572d4ba78bee5a0615a1c28') in 0.0063107 seconds
+Start importing Assets/Art/UI/fish-whiting.png using Guid(db801188777e420c84896d240237099e) (TextureImporter) -> (artifact id: 'd6ceb93b526f4fdbb713505ff7be728f') in 0.0182828 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-purple.png using Guid(dbc8930e96fa6a540bd9341ef52531cf) (TextureImporter) -> (artifact id: '61e175a62990afd88cef1e4317a67090') in 0.0319404 seconds
+Start importing Assets/Art/Water/PTS/normalNoise.png using Guid(db5b9f8ed07a42719585509f17e6a094) (TextureImporter) -> (artifact id: '2e34e3930225d1db755910f79c15012e') in 0.0183083 seconds
+Start importing Assets/Art/UI/rc-bust-sam.png using Guid(eba68e468f554339b8d55764bda7ccb8) (TextureImporter) -> (artifact id: 'c42180aa4a7f4de09b3896217ac87800') in 0.021644 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-blue.png using Guid(ebaa4668c827e8645b63ac010287150f) (TextureImporter) -> (artifact id: '4aa41504e12954f5c15a044dc48bc05a') in 0.0214827 seconds
+Start importing Assets/Art/UI/Portraits/art108-noor-56.png using Guid(0ca996e80ce845342823dad6d618cb28) (TextureImporter) -> (artifact id: '3b382554087951f69540c1d467e4e5fe') in 0.0063382 seconds
+Start importing Assets/Art/UI/v2/art108-event-oversized-fish.png using Guid(1c654cc1f853a754698ad640bad476eb) (TextureImporter) -> (artifact id: '8d39b74fb15677ed43a7c70b7813ed37') in 0.0148628 seconds
+Start importing Assets/Art/UI/v2-item-hull-jig.png using Guid(3c80bc928c4f4e309d5c255a33c23986) (TextureImporter) -> (artifact id: '97625971a39349a6cf5aa6e7127067da') in 0.0140005 seconds
+Start importing Assets/Art/Models/StationsV1/DeckLightPool.png using Guid(3c7689f675b705845a72828132f58b76) (TextureImporter) -> (artifact id: 'db524ac8e5c1fdda4f313999e1dcd18a') in 0.0185407 seconds
+Start importing Assets/Art/UI/v2/art108-item-rod-holder.png using Guid(3ccb7c696c5c91d41bab5a4709135b95) (TextureImporter) -> (artifact id: '4b212240ce0ef26580118186d8b3a4bf') in 0.0166125 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise-56.png using Guid(4cf9e070f84129b4989a99aba29f10c1) (TextureImporter) -> (artifact id: 'fc09b0491e27d34a6cc2f7ed8156d5e3') in 0.0158482 seconds
+Start importing Assets/Art/UI/fish-turbot.png using Guid(5ce0c4836e604a9d8bfceccfd932397c) (TextureImporter) -> (artifact id: '211edeca58cebed39395d4caf7a6a3c3') in 0.0109644 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-cannery.png using Guid(6cd6285890190054aacf7e76dbe22334) (TextureImporter) -> (artifact id: '7531ed9f252903ff8740578ca7551625') in 0.0074573 seconds
+Start importing Assets/Art/UI/fish-plaice.png using Guid(7c2f4b133526f84b7d6312a92dcd8629) (TextureImporter) -> (artifact id: 'e0699fa1a565ccd2a4a84184569ab09f') in 0.0116603 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira-56.png using Guid(9c306647287c30449aaa75c00a6a6888) (TextureImporter) -> (artifact id: '112320244a2082e9eba58c7d12b1c308') in 0.016535 seconds
+Start importing Assets/Art/UI/Crew/fx-porthole-glint.png using Guid(cc027d19ccb146a4a9e651f014812d2e) (TextureImporter) -> (artifact id: '168de1493f063827d802a1f363f83711') in 0.009094 seconds
+Start importing Assets/Art/UI/Portraits/art108-dirk-56.png using Guid(dcbc359b9b459424cbe15c23cddf3bf4) (TextureImporter) -> (artifact id: 'f1e150b26eabc6da00a1b9b3226ef68b') in 0.0070138 seconds
+Start importing Assets/Art/UI/v2/art108-event-tide-turn.png using Guid(fc22b3647cb3426478554dc6b255f534) (TextureImporter) -> (artifact id: '3dd9112ab590afe747bcb90e31eb1b62') in 0.0167322 seconds
+Start importing Assets/Art/UI/v2/art108-event-rush-order.png using Guid(0d70b50e3b2cfed4185d0e3b5ef2e7d4) (TextureImporter) -> (artifact id: 'eda0a196f98bd69491c6703cc2036a67') in 0.0170756 seconds
+Start importing Assets/Art/UI/v2/art108-item-squid-bulk.png using Guid(0d89caaac7bb3904d9448b1854b399b2) (TextureImporter) -> (artifact id: '7a69fb5541322cc721d9a46695e80680') in 0.0171839 seconds
+Start importing Assets/Art/UI/v2/art108-event-inspector-boat.png using Guid(1d55b0c3722c20046bd1fcf0899aa981) (TextureImporter) -> (artifact id: '862fbb4da8e45bdf7ad5d3835f92b71a') in 0.0173001 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-restaurant.png using Guid(7d5c6ec7fb4b58647ba0a69914aa782a) (TextureImporter) -> (artifact id: '7b81527095d01ecc072cb639c52f6d5f') in 0.011077 seconds
+Start importing Assets/Art/UI/Portraits/art108-mira.png using Guid(8defe5ffbf129184faf276cd161d2d06) (TextureImporter) -> (artifact id: 'bc8d9f2f9273e5993c9479b33697265d') in 0.0227641 seconds
+Start importing Assets/Art/UI/Portraits/art108-mats.png using Guid(dd82cf8787481034da5abba1a08dc4d8) (TextureImporter) -> (artifact id: '10bad9ebf0808bfe60a7aeae53e411bc') in 0.0236197 seconds
+Start importing Assets/Art/UI/Portraits/art108-sam-96.png using Guid(dd4658ad0b9679e48b4c73ac780136b7) (TextureImporter) -> (artifact id: '29544ead5232ce46c0d79ab1bf439ff8') in 0.010305 seconds
+Start importing Assets/Art/UI/Portraits/art108-tove-56.png using Guid(ddfaa3bd4eeed4b4497a3ed919d6f8dd) (TextureImporter) -> (artifact id: 'e4fdad70b8d16bae67528a37061ca803') in 0.0191258 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-white.png using Guid(ed09bb93215486e4d808f36574656086) (TextureImporter) -> (artifact id: 'ae079d81613918f6b6a1f4be27629049') in 0.0371709 seconds
+Start importing Assets/Art/UI/rc-bust-lise.png using Guid(1eb4ec73050b4a08b1155b2ae53df616) (TextureImporter) -> (artifact id: '1df268a3d574f5ea833d36ac83075b5d') in 0.0448395 seconds
+Start importing Assets/Art/UI/Cards/v2-card-back-mythic.png using Guid(2e118f348ccc9214abe7f5f851b5bb95) (TextureImporter) -> (artifact id: 'f6cd20898efbd9cd6afe407cfbb4f36c') in 0.0225974 seconds
+Start importing Assets/Art/UI/v2/art108-event-offal-pile.png using Guid(2efd9b7685fc04243ac356ac1f6c5bb7) (TextureImporter) -> (artifact id: '235bb49dbc4a969f68ce34290487c633') in 0.0186859 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-collector.png using Guid(3e6418c997e92e643be3a27f85993da5) (TextureImporter) -> (artifact id: 'e1be29f5774f85a69999af932d42e054') in 0.0155753 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise.png using Guid(3ee43c1617b78c642a946e94eb81d328) (TextureImporter) -> (artifact id: '0c63b0904c70b442c078af16fb8a3b5e') in 0.0206854 seconds
+Start importing Assets/Art/UI/rc-bust-ana.png using Guid(3ed7cca952ae4aaa83730c2a2732769f) (TextureImporter) -> (artifact id: 'e2fcb820a660c1f3e62e72941c9f0dce') in 0.0323952 seconds
+Start importing Assets/Art/UI/Portraits/art108-lise-96.png using Guid(4ee509934fde4784c8c2914e34861061) (TextureImporter) -> (artifact id: '590f9dedc167eea8b4d5dc768621a718') in 0.0221029 seconds
+Start importing Assets/Art/UI/v2/art108-product-chum.png using Guid(4e5e90a2cb133c24b8214e0fac961be8) (TextureImporter) -> (artifact id: '5860a8779bf8512624fb04e76f6f6388') in 0.0250838 seconds
+Start importing Assets/Art/UI/Portraits/art108-olaf-56.png using Guid(5eece914551bdaf4a8c9dc96fca02acb) (TextureImporter) -> (artifact id: 'cf60633a0ef09a996f51ab1eed7583d8') in 0.0310446 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-shop-bait-shop.png using Guid(7e97b2ef277aad54e899832d92d69c36) (TextureImporter) -> (artifact id: 'b5419f9e425e7217452e79d5579b4aca') in 0.010806 seconds
+Start importing Assets/Art/UI/v2/art108-event-crossed-lines.png using Guid(7ed8e4fb8f9bbdc4f8cd14e04a0f6ae0) (TextureImporter) -> (artifact id: 'f7c15a0ea76c7fa02d5327f44b735e6d') in 0.008458 seconds
+Start importing Assets/Art/UI/rc-bust-mira-a.png using Guid(8e7f20f2a89249bfb5d3f90577d8d2f1) (TextureImporter) -> (artifact id: '4e5c44613954b589cd64a86f02c56b90') in 0.038138 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-explain.png using Guid(9ea7a77d0b1a49f484b62eff47fdbaa1) (TextureImporter) -> (artifact id: '5de13d93a33f2cd8c6b718d6f70d50e7') in 0.0514672 seconds
+Start importing Assets/Art/UI/v2/art108-product-fish-oil.png using Guid(9e29df30fca01e54ba434d2fcd4210bc) (TextureImporter) -> (artifact id: '0e94d87e929ba7c75bb32edbb66e6cee') in 0.0099179 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-restaurant.png using Guid(be212f92c1ac3824a9a0bacb2d7e93be) (TextureImporter) -> (artifact id: '015b65ea97c51de235d0fe5475dea346') in 0.0218465 seconds
+Start importing Assets/Art/UI/v2/art108-item-worms-bulk.png using Guid(be4233de43289dc42a3c559a096646d0) (TextureImporter) -> (artifact id: '67a8b1f2b8e4dc10e35598e8dc3495d7') in 0.0184848 seconds
+Start importing Assets/Art/UI/Tutorial/mira-pose-cheer.png using Guid(ce4d6c20be00459288cbfb966acc6634) (TextureImporter) -> (artifact id: 'e7ac8a335f31ec35a57dea54e47787bc') in 0.055642 seconds
+Start importing Assets/Art/UI/Cards/art108-frame-locked.png using Guid(de5a6254217b8c84fb69f57641b807af) (TextureImporter) -> (artifact id: '1306284a4c76cade640cd49fbd3680bb') in 0.0320618 seconds
+Start importing Assets/Art/UI/v2/art108-chest-iron-closed.png using Guid(1f2d8007430aa54459c68b7e66765670) (TextureImporter) -> (artifact id: 'e512f882715f529feba7ba0cabdb635a') in 0.0237811 seconds
+Start importing Assets/Art/UI/v2/art108-event-light-out.png using Guid(1f9d3e5bb89f1f2468a949ae23ac94ed) (TextureImporter) -> (artifact id: 'adebe2c372a2bf6ee94702a0cd6f2ab3') in 0.0169167 seconds
+Start importing Assets/Art/UI/v2/art108-chest-wooden-closed.png using Guid(1f2e0bd0301cc8e43a5100ac0da393df) (TextureImporter) -> (artifact id: '04f8ef8174546b116c8e1e8273a99b0f') in 0.0098342 seconds
+Start importing Assets/Art/UI/rc-bust-mira-b.png using Guid(3f094e8a17414af59c8a9a44fc145b3a) (TextureImporter) -> (artifact id: '2d4d4579cdb4d45a20f15eca0b6f5e1e') in 0.0397143 seconds
+Start importing Assets/Art/UI/Portraits/art108-pim-56.png using Guid(4ffec0ece0df7114682e098aba9c4801) (TextureImporter) -> (artifact id: 'e6deedc596b0a7d7bbcd8895b8bfaa66') in 0.0204464 seconds
+Start importing Assets/Art/UI/v2/art108-event-school-passes.png using Guid(8f739b02253d0a6499f3d5a40802a0a4) (TextureImporter) -> (artifact id: 'c9e6e82ac792dfa0fdea833a43e848de') in 0.0168717 seconds
+Start importing Assets/Art/UI/v2/art108-item-extra-fuel-tank.png using Guid(9f7823463b1c6e649bf71ef64a36bb0c) (TextureImporter) -> (artifact id: 'f3946b8949e881031a8480cc546d4e80') in 0.0192244 seconds
+Start importing Assets/Art/UI/rc-bust-tess.png using Guid(aff5f25a9517443d8df8251a06acf45f) (TextureImporter) -> (artifact id: '586deccad322c83f3b7df46d9dc3d0e1') in 0.0267692 seconds
+Start importing Assets/Art/UI/v2/art108-buyer-face-bait-shop.png using Guid(af9b6421b6caf1043bb6080eddcb6f63) (TextureImporter) -> (artifact id: '9f98707d0ea1b79840487bc9912a2902') in 0.0208288 seconds
+Start importing Assets/Art/UI/rc-bust-mira-d.png using Guid(ff25b40d25884baf81ed79c62aa2e6aa) (TextureImporter) -> (artifact id: '90ff6478a9a8316763ef5c9c7550a82e') in 0.0261442 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterInput.hlsl using Guid(a3c78a26997ef594ebdae2abc5cf3168) (ShaderIncludeImporter) -> (artifact id: 'b6cb12e8060ea09bca43352fc2ebe4a0') in 0.0158199 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterLighting.hlsl using Guid(88ec49afd795fec4d8c56591e4741e32) (ShaderIncludeImporter) -> (artifact id: '69c558ab9af9d285aee09c9658a19888') in 0.0240327 seconds
+Start importing Assets/Art/Shaders/PtsWater/GerstnerWaves.hlsl using Guid(1a4803ffc02f4044988ac04a749f23fd) (ShaderIncludeImporter) -> (artifact id: '89fb32aa13416cb4330905e28424e997') in 0.0135856 seconds
+Start importing Assets/Art/Shaders/PtsWater/CommonUtilities.hlsl using Guid(fc7c17743eff65049ae459689d2c7135) (ShaderIncludeImporter) -> (artifact id: 'eb9c8c672ec198ad24f532d6bd73bde4') in 0.0167464 seconds
+Start importing Assets/Art/Shaders/PtsWater/WaterCommon.hlsl using Guid(3dd2a7cea8f1ed24a8ff91f73281a0c6) (ShaderIncludeImporter) -> (artifact id: '22bbb72eee4e6024c2535f7894d29629') in 0.0217706 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/GullKelpBankSeaV2.fbx using Guid(30782192385242644a4ef397d17205f8) (FBXImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+ -> (artifact id: 'c17d8f82d450843928c1b100a3474bde') in 0.7070212 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_LanternOilCan.fbx using Guid(60150f74a67779a40ac4cd298d26a140) (FBXImporter) -> (artifact id: 'b4332c915115f14b74c7e5b2df2837d2') in 0.0383966 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/UAL1_Standard.fbx using Guid(70d6ac8125333984687f6d59924aef9f) (FBXImporter)Keyframe reduction: Ratio: 2.631578%;
+Keyframe reduction: Ratio: 8.022850%;
+Keyframe reduction: Ratio: 6.264894%;
+Keyframe reduction: Ratio: 18.882368%;
+Keyframe reduction: Ratio: 16.943407%;
+Keyframe reduction: Ratio: 11.566647%;
+Keyframe reduction: Ratio: 10.149265%;
+Keyframe reduction: Ratio: 32.736454%;
+Keyframe reduction: Ratio: 25.432901%;
+Keyframe reduction: Ratio: 9.815259%;
+Keyframe reduction: Ratio: 17.472479%;
+Keyframe reduction: Ratio: 16.666676%;
+Keyframe reduction: Ratio: 12.435834%;
+Keyframe reduction: Ratio: 21.769419%;
+Keyframe reduction: Ratio: 16.135717%;
+Keyframe reduction: Ratio: 16.520475%;
+Keyframe reduction: Ratio: 20.879528%;
+Keyframe reduction: Ratio: 20.396271%;
+Keyframe reduction: Ratio: 33.333340%;
+Keyframe reduction: Ratio: 33.333340%;
+Keyframe reduction: Ratio: 33.333347%;
+Keyframe reduction: Ratio: 18.023373%;
+Keyframe reduction: Ratio: 20.974451%;
+Keyframe reduction: Ratio: 22.575758%;
+Keyframe reduction: Ratio: 21.489080%;
+Keyframe reduction: Ratio: 22.745981%;
+Keyframe reduction: Ratio: 17.202892%;
+Keyframe reduction: Ratio: 20.000002%;
+Keyframe reduction: Ratio: 14.785354%;
+Keyframe reduction: Ratio: 17.376894%;
+Keyframe reduction: Ratio: 9.823728%;
+Keyframe reduction: Ratio: 13.142665%;
+Keyframe reduction: Ratio: 23.559118%;
+Keyframe reduction: Ratio: 27.777779%;
+Keyframe reduction: Ratio: 13.620581%;
+Keyframe reduction: Ratio: 24.242424%;
+Keyframe reduction: Ratio: 24.819628%;
+Keyframe reduction: Ratio: 12.490761%;
+Keyframe reduction: Ratio: 8.125810%;
+Keyframe reduction: Ratio: 19.385340%;
+Keyframe reduction: Ratio: 13.170924%;
+Keyframe reduction: Ratio: 13.008132%;
+Keyframe reduction: Ratio: 14.695741%;
+ -> (artifact id: '38ef6586f4c73936bf7cd65ebb4ca488') in 2.2975903 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_OffalPile.fbx using Guid(80b32e9f210fc824889d7c350275989c) (FBXImporter) -> (artifact id: 'd8857ef6d27a252adc9b737328633e19') in 0.031688 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Zola.fbx using Guid(a0bf6e77fa7f80d4fb1d96d171d9a4f7) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474571%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '4f55dff5a1a7f4b0a8115eef51f39685') in 0.352925 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/noor.fbx using Guid(c0762fc85dc9edf448db5d08b27815d0) (FBXImporter) -> (artifact id: '38448e143a7b65f445614e53424622a0') in 0.0935408 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_1.fbx using Guid(01691683f967d6046988437c272bc9bd) (FBXImporter) -> (artifact id: 'e57b6b8ba086de8e99c780541c3acb2f') in 0.0460198 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/mats.fbx using Guid(212cd68f0aa6adc468effb8b3fe1d508) (FBXImporter) -> (artifact id: 'dd2a75604143dfa098175f89cdab9785') in 0.0931067 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_ProcessingTableTwoPlace.fbx using Guid(314e071de44d7ca4889cefa2469d3aef) (FBXImporter) -> (artifact id: 'be59b9af0e6fa28b7bd55add20ec71fa') in 0.0548557 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/mira.fbx using Guid(6181a6c747a67b94691ef7ad7f299313) (FBXImporter) -> (artifact id: 'ce21bf013b43ef111351288f30a8d22d') in 0.099699 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelGroundsV1.fbx using Guid(2244ee95002239b4e8304036cef1f76f) (FBXImporter) -> (artifact id: '1771fcc69eee04244bf5883905c51752') in 0.0577408 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortBoardRail.fbx using Guid(423872d9297b28c478c5b3df6a996513) (FBXImporter) -> (artifact id: 'bcbaea4f4abcf84777aa67af02f3db4e') in 0.0452883 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/tove.fbx using Guid(72e211b225c9d744090c1ccf704c4349) (FBXImporter) -> (artifact id: '82347bc1ce0134c7d214fcda853bdc97') in 0.1062953 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/GullSandbarGroundsV1.fbx using Guid(72cf5724d4128eb4ba720e92777e7a26) (FBXImporter) -> (artifact id: 'd54f7297026d726ce7b09a0e81814d28') in 0.082383 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_1.fbx using Guid(8283ee187699ba444a64c51f7c52bd83) (FBXImporter) -> (artifact id: '817e0cd87e650cc9f9d7511484eb11de') in 0.0590833 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_LineHauler.fbx using Guid(92ea404d3d61a8a4b973918989cd1b18) (FBXImporter) -> (artifact id: 'ced4a7eb4126525609e76c1d8773d257') in 0.0362847 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/tess.fbx using Guid(b2092ef73b3fcdf4f8b3d16608f44729) (FBXImporter) -> (artifact id: 'fffec67e449f5b7d93d3cfd861f01686') in 0.1028341 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_3.fbx using Guid(f377f495d3acdb14d8c3998a82f6b12f) (FBXImporter) -> (artifact id: '3094a31974a104851566d63c83f27931') in 0.0633654 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorHelmBracket.fbx using Guid(24b334773c8823f48abf47f9c10e4d62) (FBXImporter) -> (artifact id: 'd4e3b8ce2708181acd844cea1068c093') in 0.04117 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_2.fbx using Guid(34cff1418be04c24990de1e4de1ff328) (FBXImporter) -> (artifact id: '8b52e21a2887f2511872792bf4e15329') in 0.0702375 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/ines.fbx using Guid(54482aa75be0ffe4baa28e2b44b02efd) (FBXImporter) -> (artifact id: '2f2cfbd004512fa3f6700ee03086fbe6') in 0.1110287 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_HatchRing.fbx using Guid(64bcf1376e18f3a4283fa3af28ef1b86) (FBXImporter) -> (artifact id: '10a0a0b30128690106bb9d8abe56928a') in 0.049321 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/GullKelpBankGroundsV1.fbx using Guid(9420ec78e28cdf24e81514c5cf30fd82) (FBXImporter) -> (artifact id: 'c732d65673b914d1f0bea2c29114192f') in 0.0898389 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortTableLarge.fbx using Guid(940bc1b35aadda1469f3637d660053e0) (FBXImporter) -> (artifact id: 'd7d6819fbad4e7e9df13ce2334ec1b99') in 0.0583736 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorPost.fbx using Guid(b409d7e4a46006f4aac68ff90b9b98c9) (FBXImporter) -> (artifact id: 'ebe34051bc31dedb6520d0618c9a0703') in 0.0507596 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_HangingLantern.fbx using Guid(158d461aa0a2a3449a788399685c8c37) (FBXImporter) -> (artifact id: 'd714505db1ce43672cd8125361c0368e') in 0.0413799 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_WallSconce.fbx using Guid(35dbbe218b70cd4479b77456b786b0c1) (FBXImporter) -> (artifact id: 'f2e8f0ba2e7a0ab14f9ad4b312d8f357') in 0.0519467 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_StringLightsLong.fbx using Guid(a5213f359669cc04cba153582fe44c74) (FBXImporter) -> (artifact id: '591f51e12cbbae42b98b725362fae9ff') in 0.0527427 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_3.fbx using Guid(b5d3c28c2616ef9498e9aeb9f3728260) (FBXImporter) -> (artifact id: '3a853017a42b9b5cea622df76bbc1aec') in 0.066514 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/GullDeepChannelSeaV2.fbx using Guid(f585d26f52742a04fbc7d88014a11e82) (FBXImporter) -> (artifact id: '7c45b5ac08ea8328408101c031c05f43') in 0.1488688 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Pia.fbx using Guid(066aaa2cb2376464898f23ee8e1e7889) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474572%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215420%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '5a791f639d53c56ede6d2260f08a1d41') in 0.3332028 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_DolphinFin.fbx using Guid(567f2ce1956f1ae4da1e98bfe4644ea0) (FBXImporter) -> (artifact id: '145cc002ff718384fae6d8b816024687') in 0.0402424 seconds
+Start importing Assets/Art/Models/Restaurant/Clothes/CrewRig_Restaurant.fbx using Guid(a66cda9e160543dfb7e3e3e09facb361) (FBXImporter) -> (artifact id: '882254ca48fbcfa627129d460fc7a617') in 0.22119 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Vera.fbx using Guid(b6f03bc468c6a544d82d32931b62baf8) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474572%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '10df5685c104dd037401587c418c624f') in 0.3198872 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_Lantern.fbx using Guid(e6e6bef13ba07f44c9c5b812a57c730c) (FBXImporter) -> (artifact id: '95d5e2e712b5cd46558c80e50d1df345') in 0.0415748 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_Brazier.fbx using Guid(f60da8a91d9d3e646b8cce8c7ebb1bef) (FBXImporter) -> (artifact id: '97a0bdb4a7be03d0704e217718676bbc') in 0.0329343 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_JigRig.fbx using Guid(07cdbc4bd0f720c4fb4a308df4da2b59) (FBXImporter) -> (artifact id: 'ddd16f704424b5ef1df10f7b4a61a5db') in 0.0418521 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/olaf.fbx using Guid(27468be475cb3f8499570649605e05ec) (FBXImporter) -> (artifact id: '4dc92a0e06d156225ffaa7b6de20932c') in 0.0853896 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_DeckLightMast.fbx using Guid(3724b9299ed789f4cafbec943dd594ad) (FBXImporter) -> (artifact id: 'e72c74a1f7d85c7c5fd5b5fa7200d5c5') in 0.0311137 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/ana.fbx using Guid(57992a6cad10f394fb787c541a56afde) (FBXImporter) -> (artifact id: '8f608779387aaecb224c35fa019adcc8') in 0.0946662 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_GullSwoop.fbx using Guid(a753b9eed680954438efb9b5c040fbd8) (FBXImporter) -> (artifact id: '32eca70bbf57700ab485a767c18f6f91') in 0.0413628 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointGroundsV1.fbx using Guid(a8728a638f2119d4aab5606ade7ea1d2) (FBXImporter) -> (artifact id: 'f3e7d2242338d4925625c0482012e694') in 0.0577878 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_GeneratorBox.fbx using Guid(e8e6a94a04566cf489e076165fa95af0) (FBXImporter) -> (artifact id: 'b88fd04f628872304437a3fbc0ec26cd') in 0.0452342 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthGroundsV1.fbx using Guid(4960f7fea8547954e885fad0bfdc8de6) (FBXImporter) -> (artifact id: '2e1c3687be41e20cf18035a1ba6f1d11') in 0.0963522 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_TableEel.fbx using Guid(e94d753bb3da6ad439868067f7e42c54) (FBXImporter) -> (artifact id: '8eed77c1ad890179e9d8bdfd4003babf') in 0.0315307 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/kofi.fbx using Guid(4a14c5c8a58fed74e975c204d052085f) (FBXImporter) -> (artifact id: '3918ab3992f7c45ad38e9c4a647d8099') in 0.12886 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BaitBin.fbx using Guid(da24417ecd30d1742b4f66c3801948c3) (FBXImporter) -> (artifact id: '83aa15aaf61d2ef822278661130b1823') in 0.0321199 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_JellyfishClump.fbx using Guid(3bf0878b298e5be4ca5a9c5e3c923dcc) (FBXImporter) -> (artifact id: '889188c4235c4d382cc7f561f09bb27f') in 0.0347141 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Greta.fbx using Guid(3b28fa586ad742e4da667bec969a9b69) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474571%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602212%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '1242134445754228e4ff77b6c0b94918') in 0.3686605 seconds
+Start importing Assets/Art/Models/Crew/NavigatorV1.fbx using Guid(cb4a4954c1a23a642b883813ac944f96) (FBXImporter) -> (artifact id: '1089b89c4791ed42cea5692637160311') in 0.0842729 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_CuttingBoard.fbx using Guid(eb002d78bc9fdb24586f86f33175b416) (FBXImporter) -> (artifact id: '882481d7c18d14b939c118d34851757b') in 0.0332628 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/sam.fbx using Guid(fb7d1a75730746744892ce704c634e7d) (FBXImporter) -> (artifact id: 'bb75bd4ea54c66b195c2753a16527967') in 0.0912513 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Henrik.fbx using Guid(0cd3d68513a38fa45a08312e7c0a516a) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474572%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118239%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482994%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '3542653efd20e83dc83c261744c73649') in 0.3525597 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_2.fbx using Guid(1c66d3be54fb67145bbe209852a20063) (FBXImporter) -> (artifact id: '77a56e45d3ed0587b47f3f70bf9d47c1') in 0.0579043 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Marta.fbx using Guid(ac106703f7d9f34489c223c791f291bb) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474571%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482994%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215420%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: 'ec6d3ac7029eb37dd90619d8f903ef21') in 0.3469771 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/GullSandbarSeaV2.fbx using Guid(bc659829005265a4e95538904b18b2a8) (FBXImporter) -> (artifact id: '4df5e1b40477bf97457fe1c77fc2e442') in 0.1513931 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/dirk.fbx using Guid(cc3214a144645144bb434c7f15739252) (FBXImporter) -> (artifact id: '6cfd0a3151d6916872d74b301b8e0da7') in 0.1003353 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Nils.fbx using Guid(dc7a6d8d0077d14499fd8cff094be87d) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474572%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602212%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: '1dcda401552ba82f823d187e9e8daa3f') in 0.3684786 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketLarge_0.fbx using Guid(fc69a7ce921636b41baa1b1859f9716a) (FBXImporter) -> (artifact id: '41ad2d50329a4fb49aa0b38bd24a1b78') in 0.0481007 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/pim.fbx using Guid(2dc582170bc0e4c48aeb48dd9c6b545d) (FBXImporter) -> (artifact id: 'af6ce2f14bce6e87ffb5e062525c63f2') in 0.1111287 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/GullRockyPointSeaV2.fbx using Guid(2dffe4c9ccf38344e8ab49dc6a53ee5e) (FBXImporter) -> (artifact id: '8e5ede6e64885893c8e31fe1bb7e300e') in 0.1778862 seconds
+Start importing Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Anton.fbx using Guid(6de0b955f4a5e8b4dbdacab0c90f69e3) (FBXImporter)Keyframe reduction: Ratio: 13.777778%;
+Keyframe reduction: Ratio: 9.523809%;
+Keyframe reduction: Ratio: 5.474571%;
+Keyframe reduction: Ratio: 5.409783%;
+Keyframe reduction: Ratio: 11.936508%;
+Keyframe reduction: Ratio: 12.602213%;
+Keyframe reduction: Ratio: 6.413995%;
+Keyframe reduction: Ratio: 5.118238%;
+Keyframe reduction: Ratio: 10.222222%;
+Keyframe reduction: Ratio: 5.798510%;
+Keyframe reduction: Ratio: 7.482993%;
+Keyframe reduction: Ratio: 16.374269%;
+Keyframe reduction: Ratio: 5.571753%;
+Keyframe reduction: Ratio: 14.857142%;
+Keyframe reduction: Ratio: 7.321023%;
+Keyframe reduction: Ratio: 6.245121%;
+Keyframe reduction: Ratio: 5.280208%;
+Keyframe reduction: Ratio: 4.859087%;
+Keyframe reduction: Ratio: 7.418206%;
+Keyframe reduction: Ratio: 5.701329%;
+Keyframe reduction: Ratio: 5.215419%;
+Keyframe reduction: Ratio: 5.442177%;
+ -> (artifact id: 'a53e28ade18cb287c05f5408cadc522e') in 0.3848694 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SortTableSmall.fbx using Guid(7df792856d3ef934292fa633ee0260da) (FBXImporter) -> (artifact id: 'a26c6c419a9524676e879a7e8bf6652f') in 0.0586346 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_FlyingFishEvent.fbx using Guid(7d492109e0964a04aa9bf3ed39a4283c) (FBXImporter) -> (artifact id: '94ecc9f594b371575895ad338b933785') in 0.0496275 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SealHead.fbx using Guid(dd03137b9c4e63342a666539376277e9) (FBXImporter) -> (artifact id: '0d7842c5516337ffb924a07d02e566b7') in 0.0418375 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/rosa.fbx using Guid(4e428b37e59e0d848832f9877051e7d5) (FBXImporter) -> (artifact id: 'ea5543fd1ecd70729463174485ab3603') in 0.1000895 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_NavigatorSeat.fbx using Guid(de879054d03c5cd49a51edb0868f59ba) (FBXImporter) -> (artifact id: 'ec7d9dc66c8486335caf48166302579d') in 0.0480422 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_PendantLamp.fbx using Guid(ee5cdad63cf9d41428e693783e8d22d9) (FBXImporter) -> (artifact id: '993e6eabf57957f8c4a0c0b2db8591df') in 0.0420473 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_SpareRig.fbx using Guid(0f314737dae72e7478654dbd0390c25e) (FBXImporter) -> (artifact id: '0b6970416914c1964a7d5275e6844837') in 0.038056 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_InspectorLaunch.fbx using Guid(3f31fcbcda8d96e40a9614c4f4d7b8d1) (FBXImporter) -> (artifact id: 'e5ee3ec2bb155b4b0c739b3b9a313c34') in 0.0531738 seconds
+Start importing Assets/Art/Models/Restaurant/Pack/lights/Restaurant_TableLamp.fbx using Guid(4fc5e782d4dc85d4ea09e207328233dc) (FBXImporter) -> (artifact id: '39adcda3846007c49794ca7893102ed5') in 0.0367765 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/GullHarbourMouthSeaV2.fbx using Guid(6f25fcd3bc4c1414d9173729b882c1b9) (FBXImporter) -> (artifact id: '51133ca700e584dbd6afa1745b2d907c') in 0.2018079 seconds
+Start importing Assets/Art/Models/Crew/Quaternius/lise.fbx using Guid(6f29785bcab479140a6a592d5cda597f) (FBXImporter) -> (artifact id: 'e67110b99a9c5dbae91bcf118b16e8fd') in 0.1207972 seconds
+Start importing Assets/Art/Models/StationsV1/Art108_BasketSmall_0.fbx using Guid(bfea1104667405c4fae120621b7b2515) (FBXImporter) -> (artifact id: 'f88d8f3a76dd5d3c74c3028a1e411d29') in 0.0589101 seconds
+Start importing Assets/Art/Models/Boats/CompactFisherV1.stations.json using Guid(10a3a7dc658f59e46a9d79d786347b45) (TextScriptImporter) -> (artifact id: '6bb3c59fc32023a2528a82dffffee843') in 0.0259243 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/navigation.json using Guid(135fb9994a43b8a4faef347ceae9f8bd) (TextScriptImporter) -> (artifact id: 'e60d17449285794a67059b2d44a50773') in 0.0222587 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/grounds.json using Guid(73ff95bce4d621a49b4ffd1b2acb7acd) (TextScriptImporter) -> (artifact id: '199302d161c326860382ab5801559ed8') in 0.0217564 seconds
+Start importing Assets/Art/Shaders/PtsWater/LICENSE.md using Guid(b478e6623e10e634ea2b4b265edb250d) (TextScriptImporter) -> (artifact id: '5de9b1f6a8320624a0d8a01133cb078c') in 0.0065815 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/grounds.json using Guid(858369331c3cc66438b6fdedbcdbfb65) (TextScriptImporter) -> (artifact id: '84289d683a5f8037166e72a25d9f7868') in 0.0170813 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/navigation.json using Guid(16402eef3f0b3894b9b3d9f50344647e) (TextScriptImporter) -> (artifact id: '76c7535e355d3de982b0e3925cc7dffc') in 0.0244654 seconds
+Start importing Assets/Resources/Fonts/Fredoka-OFL.txt using Guid(66191bb7a4bc1b842b5cc53f72866440) (TextScriptImporter) -> (artifact id: 'a82fa9569652b5a0d970f1e64d073855') in 0.0147095 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/grounds.json using Guid(768efa538f82396489b66bca8c198870) (TextScriptImporter) -> (artifact id: '5dafc8622dd97ff02ae952dc962c1aaf') in 0.0187928 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/lighting-presets.json using Guid(d7781fa8ae70408438403e10779c2641) (TextScriptImporter) -> (artifact id: 'f3410f6a3e85b33583ff0a69d75384fc') in 0.0226484 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/lighting-presets.json using Guid(183a99c8f45cae148beee8593c6378e6) (TextScriptImporter) -> (artifact id: '278ee31ec23e6c2c6ab5c6062ee9b586') in 0.0175271 seconds
+Start importing Assets/Art/Shaders/PtsWater/README.md using Guid(3832adfa6c83ddf4ea2f4be59e4b6dce) (TextScriptImporter) -> (artifact id: '1115bc7ccdd91c631184289311b2017a') in 0.0067513 seconds
+Start importing Assets/Art/Water/PTS/README.md using Guid(4878e023b6995594d8071ac99da879b0) (TextScriptImporter) -> (artifact id: '3f9ef7dd5d053e8f9ce4a52ef9b26a0f') in 0.0060218 seconds
+Start importing Assets/Art/Models/Boats/Skiff.stations.json using Guid(a8a3afef87b13fe44aa44d0a32e9a84e) (TextScriptImporter) -> (artifact id: '0e0cf454da1c8f4c8658f9ee444ebc95') in 0.0064378 seconds
+Start importing Assets/Art/Models/Boats/Rowboat.stations.json using Guid(79486518a3728ca4fbdeae5a99240ef0) (TextScriptImporter) -> (artifact id: '2a165ea9b59464ee2f9b1211abfd177a') in 0.0145463 seconds
+Start importing Assets/Art/Models/Environment/GullKelpBank/lighting-presets.json using Guid(3a961bc7be45bbd4a84b7b6bf9c6c64f) (TextScriptImporter) -> (artifact id: '5f3b459ca694b273b53ef0ee81a0a8c9') in 0.0065488 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/grounds.json using Guid(6a7557a1560306341bf6b926247dec30) (TextScriptImporter) -> (artifact id: '9113c0eb7c60e2aac6c5224fe9e19589') in 0.0231814 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/lighting-presets.json using Guid(9be86a01a207f684e9a062caa471b75c) (TextScriptImporter) -> (artifact id: '56887c637a230affac3550ad76705569') in 0.0158026 seconds
+Start importing Assets/Art/Models/Environment/GullRockyPoint/navigation.json using Guid(2d3903ac36e49e746bef23a58e0ed2af) (TextScriptImporter) -> (artifact id: 'a2fd3ddd18083ebe399dac9b20ef8607') in 0.0140175 seconds
+Start importing Assets/Art/Models/Environment/GullHarbourMouth/navigation.json using Guid(3d5a4bb4426d9a34d876b043d0fef1ac) (TextScriptImporter) -> (artifact id: '6c5c3a5c99a8f38d4c573f1d97a8510a') in 0.0218996 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/navigation.json using Guid(fd29aabb1f2c750459037e9fdb8364c3) (TextScriptImporter) -> (artifact id: '4dea1f8e812167e4d358a2e53ef61ecf') in 0.0221084 seconds
+Start importing Assets/Art/Models/Boats/Tier5DeepLines103.stations.json using Guid(2f4a2b8c939ce3b47afcd662bcf336bf) (TextScriptImporter) -> (artifact id: '56a6ee8db457124e67423aa6f47b9c79') in 0.0228239 seconds
+Start importing Assets/Art/Models/Environment/GullDeepChannel/grounds.json using Guid(4ffc6a9a88649024b9b384453e2caf40) (TextScriptImporter) -> (artifact id: '9d21831caa26f432997a833fc9789f17') in 0.0161461 seconds
+Start importing Assets/Art/Shaders/PtsWater/source-sha256.json using Guid(6f9e2b6f92b80174e966897af4466387) (TextScriptImporter) -> (artifact id: '63877445e182e5ae7a84bea0356ca0ea') in 0.0151818 seconds
+Start importing Assets/Art/Models/Environment/GullSandbar/lighting-presets.json using Guid(7f2acfa4fe7ffa64082a2b4aca1dce62) (TextScriptImporter) -> (artifact id: 'f4e894e3c31bac1e076a8303dd18d54f') in 0.0162749 seconds
+Start importing Assets/Art/Models/Boats/PrepFisherV1.stations.json using Guid(9f6c8f2e18dbfc443ae22b4de0a48964) (TextScriptImporter) -> (artifact id: 'e1448efc2a103805278e4f3922cbcaa2') in 0.0130759 seconds
+Start importing Assets/Art/UI/v2/art108-manifest.json using Guid(cf042c5524cfb1e46a8a919704a032a9) (TextScriptImporter) -> (artifact id: '361c3f88fd558f72414889bac2b4409b') in 0.0118052 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/51478f9e.wav using Guid(61997d7adb94cae4291c1aac0e7a0975) (AudioImporter) -> (artifact id: '21461f72cda56f8e51f0de9418e2d280') in 0.1748578 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/c36260c9.wav using Guid(24f34938da4528b469706f31a37ae335) (AudioImporter) -> (artifact id: 'eaa6e39c9346b52a01f1a8d425192291') in 0.1182376 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/a73d9f74.wav using Guid(16e2fa6c6db9dd441b64d78b1473e34f) (AudioImporter) -> (artifact id: 'f8fdf91fcddbed1ca405689f685cbf6d') in 0.1072121 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/89880b8d.wav using Guid(76d0f8b64606d6d4e9b333f79ebcc589) (AudioImporter) -> (artifact id: '255f28d52714028cdbb80f6239da2f97') in 0.0900569 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/2ab6bcf0.wav using Guid(28ec0f447d8242c4c8ad1e9fd9d34dde) (AudioImporter) -> (artifact id: '9203c164d552a60f2514036ae4292bef') in 0.0952019 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/8a7b78e8.wav using Guid(c87c083bec738f9499a0c213a82e110e) (AudioImporter) -> (artifact id: 'b9730a9955ae140e6ad7f8e3b5aa93eb') in 0.1260516 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/bd1d1b2f.wav using Guid(9970809cda1e7e144aee90ecf87ed09e) (AudioImporter) -> (artifact id: 'bb11854213a595ce5a916b94ff55e864') in 0.090705 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/41acd49f.wav using Guid(abd4f56a064c78a4bb530180d6151f47) (AudioImporter) -> (artifact id: 'f90f3efa6f5c20d14c5f038c84fe3843') in 0.1145924 seconds
+Start importing Assets/Resources/Audio/Voice/Mira/4af518eb.wav using Guid(7c57f9396dedd044a872043c53925824) (AudioImporter) -> (artifact id: '7b2ee59f7b4a1e597c2cbbe06adc071b') in 0.1069774 seconds
+Refreshing native plugins compatible for Editor in 3.54 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=daf416cc60682fa40a2b6db6a911f5df): Total: 52.259 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=313 (actual=312, local cache=1, cache server=0)
+		Asset DB Process Time: managed=390 ms, native=27105 ms
+		Asset DB Callback time: managed=315 ms, native=1197 ms
+		Scripting: domain reloads=1, domain reload time=13117 ms, compile time=10058 ms, other=74 ms
+		Project Asset Count: scripts=1480, non-scripts=4343
+		Asset File Changes: new=0, changed=335, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 114.460ms
+	ApplyChangesToAssetFolders: 0.879ms
+	Scan: 1077.297ms
+	OnSourceAssetsModified: 1.718ms
+	CategorizeAssetsWithTransientArtifact: 3583.296ms
+	ProcessAssetsWithTransientArtifactChanges: 94.145ms
+	CategorizeAssets: 142.440ms
+	ImportOutOfDateAssets: 21870.488ms (-4314.560ms without children)
+		ImportManagerImport: 16123.236ms (23.367ms without children)
+			ImportInProcess: 16097.507ms
+			UpdateCategorizedAssets: 2.362ms
+		CompileScripts: 10057.919ms
+		ReloadNativeAssets: 0.034ms
+		UnloadImportedAssets: 0.886ms
+		ReloadImportedAssets: 1.302ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.887ms
+		InitializingProgressBar: 0.009ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.775ms
+	PostProcessAllAssets: 1392.200ms
+	Hotreload: 7.483ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.002ms
+	UnloadStreamsBegin: 2.497ms
+	PersistCurrentRevisions: 0.275ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 6.522ms
+	Untracked: 23971.752ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 1.789ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Catchline
+Unloading 93 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7252 unused Assets / (7.5 MB). Loaded Objects now: 8032.
+Memory consumption went from 294.8 MB to 287.4 MB.
+Total: 11.962000 ms (FindLiveObjects: 0.608400 ms CreateObjectMapping: 0.603400 ms MarkObjects: 7.364400 ms  DeleteObjects: 3.384300 ms)
+
+[Catchline] Restaurant layout passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] Restaurant portions passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] Restaurant 1000 forecasts passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] SimChecks first seeded night
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:158)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 158)
+
+[Catchline] SimChecks first night closed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:158)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 158)
+
+[Catchline] SimChecks specialist capacity
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:169)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 169)
+
+[Catchline] specialist seed 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 5
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 6
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 8
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] specialist seed 9
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:170)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 170)
+
+[Catchline] SimChecks soup and commands
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:SimChecks () (at Assets/Editor/RestaurantChecks.cs:178)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 178)
+
+[Catchline] Simulation baseline passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] Edge baseline passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] Restaurant service passed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:221)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 221)
+
+[Catchline] RESTAURANT CHECKS PASSED: 47183
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:224)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 224)
+
+[Catchline] Snapshot written to C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-play-1/checks.json
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Catchline.EditorTools.RestaurantChecks:Run () (at Assets/Editor/RestaurantChecks.cs:224)
+
+(Filename: Assets/Editor/RestaurantChecks.cs Line: 224)
+
+[Licensing::Client] Successfully resolved entitlement details
+Batchmode quit successfully invoked - shutting down!
+Pipeline Server stopped
+Killing ADB server in 2.1193027 seconds.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-momoy-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-momoy channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0
