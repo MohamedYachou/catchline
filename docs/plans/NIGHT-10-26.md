@@ -14,7 +14,7 @@ Claude:
 - [x] A2 S2 phone service HUD on phone:* pieces (r25). Desktop 1440 HUD still old (A5).
 - [x] A3 S1 arrange on arrange:* pieces (r33). Room behind arrange: with C4.
 - [x] A4 S6 dashboard with the live week (bars, popularity trend), S7 market, S8 upgrades, S9 crew priorities, S11 stage-up (stages 2-4), S12 sleep, S13 first night, S14 harbour entry (r41-r66).
-- A5 Desktop 1440/2880 checks of every screen.
+- [x] A5 Desktop 1440 + phone 844 checks of every screen (r67-r68).
 Codex 1: rest of the S5 pieces, then S6 pieces, every piece trimmed and uniquely named.
 Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 

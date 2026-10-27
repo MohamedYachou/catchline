@@ -8232,3 +8232,5 @@ QUESTION / RESTAURANT-JOB-BUSTS / Codex 1 -> Claude lead: Bram and Yusuf are req
 2026-10-27 02:10 Claude 2 DONE KITCHEN-KIT-2 import d857c99 (Codex 2 kit accepted): stand-ins replaced, S8 upgrades visible, metas remap Restaurant_Atlas_{Upgrades,Dishes,Bistro,URP_V4} to RestaurantAtlas.mat (same V4 atlas). Captures r63/r64 (day-bistro buys stage 2 + upgrades).
 
 2026-10-27 02:17 Claude 2 DONE RESTAURANT-EXTERIORS import 081f00a: RestaurantExterior_<stage> at quay (20, q, 4.95) yaw 0, atlas bound at runtime, harbour signature includes stage, crane to x 11.8 when open. useFileScale on (Codex 2 re-export queued). r66 day-exterior Cafe/Bistro. Note: Seafood house terrace (x 13..27) will reach the moored boats near x 13-15; check when stage 4 is reachable.
+
+2026-10-27 02:33 Claude 2 DONE A5 desktop pass 341e0c2: phone service HUD KeyNotFound (Codex 2 s1-s2 layout now names assets v2-s12x-*, uncommitted on their side) fixed in rx_import; plan special request wraps. r67 contact sheet of all 14 screens at 1440.
