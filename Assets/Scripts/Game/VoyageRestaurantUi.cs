@@ -569,12 +569,14 @@ namespace Catchline.Game
                 else if (wait != null && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order))
                 {
                     // The order bubble with the dish inset (measured slot 15,5 38x27 in the 66x43 bubble), patience ring beside it.
-                    var b = new Rect(at.x - 33 * s, at.y - 56 * s, 66 * s, 43 * s);
+                    // Drawn at .72 of the cut: the mockup's compact bubble is about 44x38 over the table (RESTAURANT-REVIEW-2).
+                    float so = s * .72f;
+                    var b = new Rect(at.x - 33 * so, at.y - 56 * so, 66 * so, 43 * so);
                     P(id + "/order", "v2-s15-order-bubble", b);
                     if (g.Phase == GroupPhase.Kitchen)
-                        ArrangeArt(Rx(id + "/dish", "15", "", null, new Rect(b.x + 15 * s, b.y + 5 * s, 38 * s, 27 * s), Look(wait.Dish).art));
-                    else P(id + "/dish", "v2-s15-task-take-order", new Rect(b.x + 21 * s, b.y + 6 * s, 23 * s, 24 * s));
-                    var ring = new Rect(b.xMax - 4 * s, b.y + 16 * s, 26 * s, 26 * s);
+                        ArrangeArt(Rx(id + "/dish", "15", "", null, new Rect(b.x + 15 * so, b.y + 5 * so, 38 * so, 27 * so), Look(wait.Dish).art));
+                    else P(id + "/dish", "v2-s15-task-take-order", new Rect(b.x + 21 * so, b.y + 6 * so, 23 * so, 24 * so));
+                    var ring = new Rect(b.xMax - 4 * so, b.y + 16 * so, 26 * so, 26 * so);
                     P(id + "/ring", "v2-s15-patience-track", ring);
                     var fill = Rx(id + "/fill", "15", "v2-s15-patience-fill", null, ring, "rx-s15-patience-fill").GetComponent<UnityEngine.UI.Image>();
                     if (fill != null)
