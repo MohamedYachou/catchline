@@ -26,7 +26,7 @@ Codex 2 (from 23:14): S1/S2 text-style rects, then the remaining S1/S2 pieces.
 
 ## C. Gameplay
 - [x] C1 New-save fishing bot: stows on deck-graph hulls; new-* day chain passes.
-- C2 Service sim: orders, cooking times per station, tips, reviews feed S5.
+- [x] C2 Service sim: orders, cooking times per station, tips, reviews feed S5 (b485d57); first night 4 guests (ab89df7); Mira calls (9e6be00).
 - [x] C3 Market step, sleep step, money flow; S9 priorities in the sim (A/B: same served/left).
 - [x] C4 Restaurant upgrades (tables, decor) using arrange mode: arrange by day over the 3D room (dc5cff5, r70). Also S8 upgrades bought + visible (KitchenKit2), stage rooms load per stage (Bistro interim; Codex 2 refits 2-4 to the grid), exteriors on the quay.
 
