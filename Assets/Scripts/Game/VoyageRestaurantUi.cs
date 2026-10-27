@@ -102,7 +102,7 @@ namespace Catchline.Game
             public int Served = 22, Left = 2, Dishes = 420, Drinks = 96, Tips = 48, CatPortions = 3, CatValue = 18;
             public int Stars = 3, PopularityFrom = 42, PopularityTo = 46; public float Popularity = .82f, PopularityBefore = .74f;
             public string CrewOfTheNight = "Jo", CrewPortrait = "deckhand";
-            public string MiraLine = "Same time tomorrow?";
+            public string MiraLine = "Same time tomorrow?", Title = "A good night on the quay";
             public List<RestaurantReview> Reviews = new()
             {
                 new() { Portrait = "fisher", Stars = 5, Quote = "Fish worth the wait." },
@@ -1361,7 +1361,7 @@ namespace Catchline.Game
             Rx("rclose/bg", 5, "v2-bg-closing", f);
             Rx("rclose/board", 5, "v2-closing-board", f);
             Rx("rclose/head", 5, "v2-closing-header", f);
-            RxText("rclose/title", 5, "closing-title", "A good night on the quay", f);
+            RxText("rclose/title", 5, "closing-title", v.Title, f);
             Rx("rclose/moon", 5, "v2-icon-moon", f);
 
             // Column 1: the till.

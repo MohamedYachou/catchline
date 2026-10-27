@@ -329,13 +329,20 @@ namespace Catchline.Game
             v.PopularityBefore = Mathf.Clamp01(popularityBefore / 50f); v.Popularity = Mathf.Clamp01(restaurantPopularity / 50f);
             var best = r.Walking.OrderByDescending(w => w.Metres).FirstOrDefault(w => w.Id != "mira");
             v.CrewOfTheNight = best != null ? Cap(best.Id) : "Mira"; v.CrewPortrait = best?.Id ?? "mira";
-            string[] good = { "Fish worth the wait.", "Cosy, even in the rain.", "We'll be back!" }, mid = { "More coffee, please!", "A bit slow tonight.", "Nice view, cold plate." };
-            v.Reviews = night.Groups.Where(g => g.Paid).Take(3).Select((g, i) => new RestaurantReview
+            // Three tables speak: the best, the worst and one between, each about what really happened at it.
+            var paid = night.Groups.Where(g => g.Paid).OrderByDescending(g => g.Stars).ThenBy(g => g.Id).ToList();
+            var speak = paid.Count <= 3 ? paid : new List<ServiceGroup> { paid[0], paid[paid.Count / 2], paid[^1] };
+            // When the queue lost a lot of guests, one of them has the last word.
+            var walked = night.Groups.FirstOrDefault(g => !g.Paid && g.Phase == GroupPhase.Gone);
+            if (walked != null && r.Left * 3 >= r.Guests) { walked.Stars = 1; walked.Why = "queue"; if (speak.Count >= 3) speak[^1] = walked; else speak.Add(walked); }
+            v.Reviews = speak.Select((g, i) => new RestaurantReview
             {
                 Portrait = GuestFaces[(g.Id + i) % GuestFaces.Length], Stars = Mathf.Clamp(g.Stars, 1, 5),
-                Quote = g.Stars >= 4 ? good[i % good.Length] : mid[i % mid.Length],
+                Quote = ReviewQuote(g, i),
             }).ToList();
-            v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "We'll do better tomorrow.";
+            Debug.Log("[Catchline] REVIEWS " + string.Join(" | ", speak.Select(g => $"{g.Stars}* {g.Why}")) + " :: " + string.Join(" | ", v.Reviews.Select(x => x.Quote)));
+            v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "Better tomorrow!";
+            v.Title = r.Served >= r.Guests * .8f ? "A good night on the quay" : r.Served * 2 >= r.Guests ? "A busy night on the quay" : "A rough night on the quay";
             RecordNight(r);
             var sleep = RestaurantSleepCard;
             sleep.Net = r.NetCoins; sleep.Popularity = restaurantPopularity - popularityBefore;
@@ -419,6 +426,26 @@ namespace Catchline.Game
             RestaurantPreview = RestaurantScreen.StageUp;
             audio?.Play(VoyageAudio.Cue.Purchase, .7f);
             return true;
+        }
+
+        // A short line from a table about its night (the closing card's review strip fits about 24 characters).
+        string ReviewQuote(ServiceGroup g, int i)
+        {
+            var dish = g.Tickets.Where(t => t.Dish != Dish.Coffee).Select(t => t.Dish).FirstOrDefault();
+            string name = DishLook.TryGetValue(dish, out var look) ? look.name.ToLower() : "fish";
+            string Pick(params string[] lines) => lines[(g.Id + i) % lines.Length];
+            return g.Why switch
+            {
+                "gave-up" => Pick("We waited, then left.", "Never got our food."),
+                "queue" => Pick("Queue was too long.", "No table for us."),
+                "missing" => Pick("Half our order came.", "Still hungry, sadly."),
+                "cold" => Pick($"Cold {name}. Shame.", "Lovely view, cold plate."),
+                "swap" => Pick("Not what we ordered.", "Nice, but not our pick."),
+                "slow" => Pick("A bit slow tonight.", "Worth it, but slow."),
+                "special" => Pick("That special! Wow.", "Ask for the special!"),
+                "captain" => Pick("The captain's catch!", "Fresh off the boat!"),
+                _ => Pick($"Best {name} in town!", "Fish worth the trip.", "We'll be back!"),
+            };
         }
 
         // ---- S1 arrange by day: the player's own room in 3D behind the drawer, empty of crew and guests ----

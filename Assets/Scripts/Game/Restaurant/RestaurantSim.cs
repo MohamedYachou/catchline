@@ -18,6 +18,8 @@ namespace Catchline.Game.Restaurant
         public List<ServiceTicket> Tickets=new List<ServiceTicket>();
         public GroupPhase Phase; public float Arrival, SeatedAt, LastPatienceBoost, EatUntil;
         public bool Reserved, DrinksDelivered, CoffeeDelivered, Paid; public int Stars;
+        // What the table will say about the night (closing reviews): gave-up, missing, cold, swap, slow, special, captain, great.
+        public string Why;
         public int Count=>Guests.Count;
     }
     // The work a staff member tries, in their priority order (S9 crew priorities); the first that finds work wins.
@@ -320,6 +322,8 @@ namespace Catchline.Game.Restaurant
             float quality=g.Tickets.Count==0?0:g.Tickets.Average(t=>t.CookQuality);
             g.Stars=impatient||!full?1:substituted||waited>RestaurantTuning.TablePatience*.85f?3:5;
             if(g.Tickets.Any(t=>t.Cold))g.Stars=Math.Max(1,g.Stars-1);
+            g.Why=impatient?"gave-up":!full?"missing":g.Tickets.Any(t=>t.Cold)?"cold":substituted?"swap":waited>RestaurantTuning.TablePatience*.85f?"slow"
+                :g.Tickets.Any(t=>t.SpecialServed)?"special":g.Tickets.Any(t=>t.CaptainCut)?"captain":"great";
             int dishCoins=0;
             foreach(var t in g.Tickets.Where(t=>t.Phase==TicketPhase.Delivered)){
                 if(t.Dish==Dish.Coffee){Result.StapleCosts+=RestaurantTuning.StapleCost;continue;}
