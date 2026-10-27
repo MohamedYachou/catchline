@@ -474,6 +474,10 @@ namespace Catchline.Game
                     foreach (var (id, _, _, _) in RestaurantUpgrades) BuyRestaurantUpgrade(id); // and the three S8 upgrades, shown in the room
                     Debug.Log($"[Catchline] DAY bistro bought {bought}, stage {Kitchen.State.Stage}");
                     return bought;
+                case "day-exterior": case "day-exterior2": // Mira's house on the quay at its current stage
+                    RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; restaurantForced = true; panelOpen = false;
+                    harbourLook = (new Vector3(19f, 0, 2.5f), 8.5f); snapCamera = true; SyncHarbourScenery();
+                    return true;
                 case "day-harbour": // the harbour hub with Mira's entry (S14)
                     RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; restaurantForced = true; panelOpen = false;
                     return true;

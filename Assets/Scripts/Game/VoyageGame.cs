@@ -412,7 +412,7 @@ namespace Catchline.Game
                 }
             }
 
-            if (kind < 0) { harbourSignature = State.Hull; BuildHarbour(root, lib, R); }
+            if (kind < 0) { harbourSignature = HarbourSignatureNow; BuildHarbour(root, lib, R); }
             else BuildSea(kind, root, lib, R, Rock);
             return root;
         }

@@ -51,7 +51,9 @@ namespace Catchline.Game
         }
 
         // Camera focus and size that keep the berth and the buildings serving it in frame.
-        (Vector3 focus, float size) HarbourFraming() => BerthFor(State.Hull) switch
+        // Check captures can look somewhere else on the quay (day-exterior: Mira's house).
+        internal (Vector3 focus, float size)? harbourLook;
+        (Vector3 focus, float size) HarbourFraming() => harbourLook ?? BerthFor(State.Hull) switch
         {
             Berth.Slipway => (new Vector3(-21.5f, 0, 2.5f), 6.2f),
             Berth.Pontoon => (new Vector3(-14f, 0, 0.5f), 7.2f),
@@ -208,7 +210,8 @@ namespace Catchline.Game
             if (hull >= 2)
             {
                 Building("NetLoft", new Vector3(9.0f, q, 6.6f), new Vector3(3f, 4.2f, 2.6f), Palette.Hex("B98F5E"));
-                var crane = Place(M("QuayCrane"), new Vector3(16.5f, q, 4.2f), 180f);
+                // West of Mira's house (x 13..27 at its widest), clear of it.
+                var crane = Place(M("QuayCrane"), new Vector3(RestaurantOpen ? 11.8f : 16.5f, q, 4.2f), 180f);
                 if (crane != null) { var jib = ArtLibrary.Find(crane, "Jib"); if (jib != null) jib.localRotation *= Quaternion.Euler(0, 25f, 0); }
                 else
                 {
@@ -221,6 +224,21 @@ namespace Catchline.Game
                 hallH = House(true, "ShopFront_FishMarket", hall); Sign("FISH MARKET", new Vector3(hall.x, q, 5.05f), 1.55f);
                 officeH = House(false, "ShopFront_HarbourMaster", office); Sign("HARBOUR MASTER", new Vector3(office.x, q, 5.05f), 1.55f);
                 Building("IceHouse", new Vector3(5.0f, q, 6.4f), new Vector3(3.2f, 2.8f, 2.8f), Palette.Hex("DCE7EA"));
+            }
+
+            // Mira's restaurant at the quay's east end from the Skiff on, one house per stage (Codex 2's exteriors), its
+            // facade to the water and the terrace over it. The atlas binds at runtime as in the night room.
+            if (RestaurantOpen)
+            {
+                string[] house = { "Cafe", "Bistro", "Restaurant", "SeafoodHouse" };
+                var made = Place(M("RestaurantExterior_" + house[Mathf.Clamp(Kitchen.State.Stage, 1, 4) - 1]), new Vector3(20f, q, 4.95f));
+                if (made != null)
+                {
+                    var atlas = Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor"); var surface = Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
+                    foreach (var r in made.GetComponentsInChildren<Renderer>(true))
+                        foreach (var m in r.sharedMaterials)
+                            if (m != null && m.shader.name == "Catchline/RestaurantAtlas" && m.GetTexture("_BaseMap") == null) { m.SetTexture("_BaseMap", atlas); m.SetTexture("_SurfaceMap", surface); }
+                }
             }
 
             Host(HudTab.Market, hull >= 4 ? hall : stall, hull >= 4 ? hallH : stallH);
@@ -284,7 +302,8 @@ namespace Catchline.Game
             }
         }
 
-        int HarbourSignatureNow => State.Hull;
+        // The restaurant's stage changes its house on the quay, so it rebuilds the scenery too.
+        int HarbourSignatureNow => State.Hull * 10 + (RestaurantOpen ? Kitchen.State.Stage : 0);
         void SyncHarbourScenery()
         {
             if (CurrentMode != Mode.Harbour || harbourSignature == HarbourSignatureNow) return;
