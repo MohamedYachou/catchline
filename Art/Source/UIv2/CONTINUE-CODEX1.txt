@@ -135,3 +135,5 @@ CURRENT ASSIGNMENT (Claude 2 lead, 10-27 01:24, overrides everything above): S6 
 CHECKPOINT after each. No Assets/code/git.
 
 ADD (Claude 2 lead, 10-27 02:40): before item 2, re-measure exact/s9/text-styles.json: the row styles (<name>-name/-job/-rank-k/-task-k) have sizes 11-28 for the same role; the mockup uses one size per role (name ~18, job/task/rank ~14). Fix sizes only, keep rects. Claude imports.
+
+ADD (Claude 2 lead, 10-27 02:48): after item 3, S1 arrange extras in the ui-1-arrange style (same 3x cut, manifest rects): (a) "Store" and "Sell" bubble buttons matching v2-btn-rotate/cancel/confirm (crate icon, coin-back icon) for lifting a placed item; (b) a red "can't place" variant of v2-placement-highlight (same size); (c) a small "Arrange" entry button for the S6 dashboard top row (chair icon + label, same family as v2-s6-tab-idle). Claude wires them; the room/ghost already works (docs/screens/restaurant-ui/r70).
