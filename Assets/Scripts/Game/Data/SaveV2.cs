@@ -34,6 +34,8 @@ namespace Catchline.Game
         public List<string> CrewChests = new List<string>(); // "id:n": crew chests bought from each crew offer
         public int FreeBlueprints;
         public int RestaurantPopularity = 1;                 // the restaurant's popularity stars (RESTAURANT.md)
+        public int RestaurantDay, RestaurantWeather;          // nights served so far; tomorrow's Weather
+        public List<string> RestaurantNights = new List<string>(); // last 14 nights, GameState.RestaurantNights format
         public int RenownClaimed;
         public List<int> PendingChests = new List<int>();    // ChestKind values
         public string LastCrateDay = "";

@@ -12,7 +12,7 @@ namespace Catchline.Game
     // feeds them from the restaurant rules (Restaurant/*.cs) and moves the day along.
     public partial class VoyageGame
     {
-        public enum DayPhase { Off, Plan, Out, Prep, Service, Closing }
+        public enum DayPhase { Off, Plan, Out, Prep, Market, Service, Closing }
         public DayPhase RestaurantPhase { get; private set; }
         // The new loop is on for every save; captures and old checks can switch it off.
         public bool RestaurantLoop = true;
@@ -64,11 +64,11 @@ namespace Catchline.Game
                 .Select(g => (g.Key, g.Sum(e => e.weight))).ToArray();
             try
             {
-                dayForecast = new RestaurantForecast(State.Voyage * 7919 + SelectedSpot, restaurantPopularity, DateTime.Now.DayOfWeek, Weather.Fair, pool, Kitchen);
+                dayForecast = new RestaurantForecast(State.Voyage * 7919 + SelectedSpot, restaurantPopularity, RestaurantWeekday(State.RestaurantDay), (Weather)State.RestaurantWeather, pool, Kitchen);
             }
             catch (ArgumentException) { return false; } // this ground's fish cannot be cooked yet: sail as before
             var v = RestaurantPlan;
-            v.Day = DateTime.Now.DayOfWeek.ToString(); v.Hours = "18:00 – 23:00";
+            v.Day = RestaurantWeekday(State.RestaurantDay).ToString(); v.Hours = "18:00 – 23:00";
             v.GuestsLow = dayForecast.GuestRange.Min; v.GuestsHigh = dayForecast.GuestRange.Max;
             v.Dishes = dayForecast.DishRanges.GroupBy(k => k.Key.Item2)
                 .Select(g => (dish: g.Key, lo: g.Sum(x => x.Value.Min), hi: g.Sum(x => x.Value.Max)))
@@ -159,8 +159,41 @@ namespace Catchline.Game
             }
             State.UnsoldCatch.Clear();
             State.UnsoldCatch.AddRange(sell);
-            if (sell.Count > 0) SellHaul(); else { State.TripDeployment.Clear(); State.EndVoyage(new SaleReport()); }
-            StartNight(stock);
+            if (sell.Count == 0) { State.TripDeployment.Clear(); State.EndVoyage(new SaleReport()); StartNight(stock); return; }
+            // S7: the morning market card decides what the buyer gets; Keep turns a fish into extra soup for tonight.
+            marketStock = stock;
+            var m = RestaurantMarket;
+            m.Rows = sell.GroupBy(f => f.Species).Select(g => new RestaurantMarketRow
+            {
+                Species = g.Key, Name = GameData.Get(g.Key).Name, Art = FishArt(g.Key), Kg = g.Sum(f => f.Kg),
+                Value = g.Sum(f => State.ValueOf(f, SimTime)),
+            }).OrderByDescending(r => r.Value).ToList();
+            m.Wallet = State.Coins; m.Room = Mathf.Max(0, dayPrep.Capacity - stock.Sum(x => x.Count));
+            string[] moods = { "keen", "steady", "picky" };
+            m.Mood = moods[State.RestaurantDay % moods.Length];
+            m.Demand = m.Mood == "keen" ? "Good demand today." : m.Mood == "steady" ? "Fair prices today." : "Only the best fish today.";
+            RestaurantPhase = DayPhase.Market;
+            RestaurantPreview = RestaurantScreen.Market;
+        }
+        List<PortionStock> marketStock;
+
+        // Kept rows become soup portions while the fridge has room; the rest sells at the market, then the doors open.
+        void RestaurantMarketOpen()
+        {
+            var m = RestaurantMarket; int room = m.Room;
+            var sold = new List<CaughtFish>();
+            foreach (var f in State.UnsoldCatch)
+            {
+                var row = m.Rows.FirstOrDefault(r => r.Species == f.Species);
+                int bowls = RestaurantPortions.Yield(f.Species, f.Kg, PreparedForm.Stock);
+                if (row != null && row.Keep && Kitchen.CanCook(Dish.Soup) && bowls > 0 && bowls <= room)
+                { RestaurantPortions.Add(marketStock, f.Species, PreparedForm.Stock, bowls); room -= bowls; }
+                else sold.Add(f);
+            }
+            State.UnsoldCatch.Clear();
+            State.UnsoldCatch.AddRange(sold);
+            if (sold.Count > 0) SellHaul(); else { State.TripDeployment.Clear(); State.EndVoyage(new SaleReport()); }
+            StartNight(marketStock);
         }
 
         // ---- 3. The night -----------------------------------------------------------------------------------------
@@ -265,8 +298,33 @@ namespace Catchline.Game
                 Quote = g.Stars >= 4 ? good[i % good.Length] : mid[i % mid.Length],
             }).ToList();
             v.MiraLine = r.Served >= r.Guests * .8f ? "Same time tomorrow?" : "We'll do better tomorrow.";
+            RecordNight(r);
+            var sleep = RestaurantSleepCard;
+            sleep.Net = r.NetCoins; sleep.Popularity = restaurantPopularity - popularityBefore;
+            // Tomorrow: fair most days, some sun (terrace walk-ins), some rain (fewer guests, no terrace).
+            double roll = new System.Random(State.RestaurantDay * 31 + 7).NextDouble();
+            var weather = roll < .25 ? Weather.Sun : roll < .45 ? Weather.Rain : Weather.Fair;
+            sleep.TomorrowWeather = (int)weather;
+            sleep.Tomorrow = $"{RestaurantWeekday(State.RestaurantDay + 1)} · {WeatherWords(weather)}";
+            var nextDay = RestaurantWeekday(State.RestaurantDay + 1);
+            sleep.Booking = weather == Weather.Rain ? "A quiet night indoors" : nextDay is DayOfWeek.Friday or DayOfWeek.Saturday ? "Expect a full house"
+                : weather == Weather.Sun && Kitchen.Stage.TerraceWidth > 0 ? "Expect a lively terrace" : nextDay == DayOfWeek.Monday ? "A slow Monday" : "A steady night ahead";
             RestaurantPhase = DayPhase.Closing;
             RestaurantPreview = RestaurantScreen.Closing;
+        }
+
+        // The restaurant keeps its own calendar: night 0 is a Monday. Tomorrow's weather is rolled at bedtime and shown
+        // on the sleep card, so the plan card and the forecast agree with it.
+        static DayOfWeek RestaurantWeekday(int day) => (DayOfWeek)((day + 1) % 7);
+        static string WeatherWords(Weather w) => w == Weather.Sun ? "Sunshine" : w == Weather.Rain ? "Rain" : "Clear skies";
+
+        // One line per night for the dashboard: "day|net|dishes|drinks|tips|popularity|served|left|Dish=n;...".
+        void RecordNight(NightResult r)
+        {
+            var sold = night.Groups.SelectMany(g => g.Tickets).Where(t => t.Phase == TicketPhase.Delivered)
+                .GroupBy(t => t.Dish).Select(g => $"{g.Key}={g.Count()}");
+            State.RestaurantNights.Add(string.Join("|", State.RestaurantDay, r.NetCoins, r.DishCoins, r.DrinkCoins, r.Tips, restaurantPopularity, r.Served, r.Left, string.Join(";", sold)));
+            while (State.RestaurantNights.Count > 14) State.RestaurantNights.RemoveAt(0);
         }
         static string Cap(string id) => string.IsNullOrEmpty(id) ? id : char.ToUpperInvariant(id[0]) + id.Substring(1);
 
@@ -274,6 +332,7 @@ namespace Catchline.Game
         void RestaurantSleep()
         {
             if (night != null) State.Coins += Mathf.Max(0, night.Result.NetCoins);
+            if (night != null) { State.RestaurantDay++; State.RestaurantWeather = RestaurantSleepCard.TomorrowWeather; }
             if (restaurantWorld != null) restaurantWorld.End();
             night = null; dayForecast = null; dayPrep = null;
             RestaurantPhase = DayPhase.Off;
@@ -300,8 +359,12 @@ namespace Catchline.Game
                         for (int i = 0; i < 2; i++) State.UnsoldCatch.Add(new CaughtFish { Species = s, Kg = GameData.Get(s).MinKg + (float)rng.NextDouble() * (GameData.Get(s).MaxKg - GameData.Get(s).MinKg) * .5f });
                     RestaurantArrived(true);
                     return RestaurantPhase == DayPhase.Prep;
+                case "day-market":
+                    if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared();
+                    return RestaurantPhase == DayPhase.Market;
                 case "day-service":
                     if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared();
+                    if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen();
                     if (night == null) return false;
                     while (night.Hour < 19.6f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
@@ -316,6 +379,10 @@ namespace Catchline.Game
                     while (!night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Closing;
+                case "day-sleep":
+                    if (RestaurantPhase != DayPhase.Closing) return false;
+                    RestaurantPreview = RestaurantScreen.Sleep;
+                    return true;
                 // A fresh save played through its first day: the real departure, trip, catch (the bot fishes), arrival,
                 // prep, a live night, closing and sleep. Each step logs what it found for the check log.
                 case "new-harbour":
@@ -342,6 +409,7 @@ namespace Catchline.Game
                     return RestaurantPhase == DayPhase.Prep;
                 case "new-service":
                     RestaurantPrepared();
+                    if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen();
                     for (int n = 0; n < 4000 && night != null && night.Hour < 20f; n++) RestaurantTick(.25f);
                     Debug.Log($"[Catchline] NEWGAME service {night?.Hour:0.00}h, served {night?.Result.Served}, coins {RestaurantService.Coins}");
                     return RestaurantPhase == DayPhase.Service;

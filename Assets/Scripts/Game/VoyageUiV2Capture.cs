@@ -52,7 +52,7 @@ namespace Catchline.Game
             if (screen.StartsWith("restaurant-"))
             {
                 // Restaurant mockup screens with sample numbers (VoyageRestaurantUi.cs).
-                RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-arrange" => RestaurantScreen.Arrange, _ when screen.StartsWith("restaurant-service") => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
+                RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-arrange" => RestaurantScreen.Arrange, "restaurant-sleep" => RestaurantScreen.Sleep, "restaurant-dashboard" => RestaurantScreen.Dashboard, "restaurant-market" => RestaurantScreen.Market, "restaurant-upgrades" => RestaurantScreen.Upgrades, "restaurant-crew" => RestaurantScreen.Crew, "restaurant-stageup" => RestaurantScreen.StageUp, _ when screen.StartsWith("restaurant-service") => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
                 RestaurantService.Rail = screen switch { "restaurant-service-jobs" => RestaurantRailMode.Jobs, "restaurant-service-scroll" => RestaurantRailMode.Scroll, "restaurant-service-chips" => RestaurantRailMode.Chips, "restaurant-service-mockup" => RestaurantRailMode.Mockup, _ => RestaurantRailMode.Scroll };
                 toastUntil = 0;
                 return true;

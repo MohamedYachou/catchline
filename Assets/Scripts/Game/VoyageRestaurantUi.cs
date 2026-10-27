@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Catchline.Game
@@ -8,7 +9,7 @@ namespace Catchline.Game
     // numbers before the restaurant logic is wired in; art not delivered yet falls back to the nearest kit icon.
     public partial class VoyageGame
     {
-        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange }
+        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange, Sleep, Dashboard, Market, Upgrades, Crew, StageUp }
         public RestaurantScreen RestaurantPreview;
 
         public sealed class RestaurantDish { public string Name, Art, Fallback; public int Low, High; }
@@ -53,6 +54,28 @@ namespace Catchline.Game
             public bool CaptainsCut = true;
             public int RestaurantPortions { get { int n = 0; foreach (var r in Rows) n += r.Portions; return n; } }
         }
+
+        // S12: the card between closing and the next morning.
+        public sealed class RestaurantSleepView
+        {
+            public int Net = 564, Popularity = 4, TomorrowWeather;
+            public string Tomorrow = "Saturday · Clear skies", Booking = "Expect a lively terrace";
+        }
+        public RestaurantSleepView RestaurantSleepCard = new();
+
+        // S7: the morning market after prep.
+        public sealed class RestaurantMarketRow { public Species Species; public string Name, Art; public float Kg; public int Value; public bool Keep; }
+        public sealed class RestaurantMarketView
+        {
+            public List<RestaurantMarketRow> Rows = new()
+            {
+                new() { Species = Species.Mackerel, Name = "Mackerel", Art = "fish-mackerel", Kg = 2.4f, Value = 28 },
+                new() { Species = Species.Pollock, Name = "Pollock", Art = "fish-pollock", Kg = 3f, Value = 54 },
+                new() { Species = Species.Plaice, Name = "Plaice", Art = "fish-plaice", Kg = 1f, Value = 16 },
+            };
+            public int Wallet = 2840, Room = 4; public string Mood = "keen", Demand = "Good demand today.";
+        }
+        public RestaurantMarketView RestaurantMarket = new();
 
         public sealed class RestaurantClosingView
         {
@@ -558,6 +581,8 @@ namespace Catchline.Game
                     case RestaurantScreen.Closing: InterfaceRestaurantClosing(RestaurantClosing); break;
                     case RestaurantScreen.Service: InterfaceRestaurantService(RestaurantService); break;
                     case RestaurantScreen.Arrange: InterfaceRestaurantArrange(RestaurantArrange); break;
+                    case RestaurantScreen.Sleep: InterfaceRestaurantSleep(RestaurantSleepCard); break;
+                    case RestaurantScreen.Market: InterfaceRestaurantMarket(RestaurantMarket); break;
                 }
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
@@ -634,6 +659,108 @@ namespace Catchline.Game
         {
             var s = RestaurantExact.Texts[$"{screen}:{style}"];
             coastalUi.StyledText(id, at ?? s.Rect, text, s.Size, fill ?? s.Fill, s.StrokeColour, s.Stroke, s.ShadowY, s.Shadow, s.Bold, align, parent, frameScale);
+        }
+
+        // S6+ screens: every measured piece in paint order, then every measured text with the mockup's words unless the
+        // screen supplies its own (text returns null to keep the mockup's, "" to hide). skip drops pieces by key; under
+        // draws the screen's own stateful pieces after the art and before the words.
+        void RxScreen(string id, int screen, Transform f, System.Func<string, string> text = null, System.Func<string, bool> skip = null, System.Action under = null)
+        {
+            foreach (var key in RestaurantExact.Layout[screen])
+            {
+                if (skip != null && skip(key)) continue;
+                string name = key.Split('#')[0];
+                Rx($"{id}/{key}", screen, key, f, null, "rx-" + name.Substring(3));
+            }
+            under?.Invoke();
+            string prefix = screen + ":";
+            foreach (var kv in RestaurantExact.Texts)
+            {
+                if (!kv.Key.StartsWith(prefix)) continue;
+                string style = kv.Key.Substring(prefix.Length), words = text?.Invoke(style) ?? kv.Value.Text;
+                if (string.IsNullOrEmpty(words)) continue;
+                RxText($"{id}/t/{style}", screen, style, words, f, null, kv.Value.Align);
+            }
+        }
+
+        // S12: rest well (ui-12-sleep.png), between the closing card and the morning.
+        void InterfaceRestaurantSleep(RestaurantSleepView v)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rsleep/planks", false);
+            var f = RestaurantFrame("rsleep/frame");
+            RxScreen("rsleep", 12, f, style => style switch
+            {
+                "net-value" => (v.Net >= 0 ? "+" : "") + v.Net.ToString("N0"),
+                "popularity" => $"Popularity  {(v.Popularity >= 0 ? "+" : "")}{v.Popularity}",
+                "tomorrow" => v.Tomorrow,
+                "booking" => v.Booking,
+                _ => null,
+            }, key => key.StartsWith("v2-s12-forecast") && v.TomorrowWeather == 2); // no painted rain icon yet (Codex 1 queue)
+            var go = RestaurantExact.Pieces["12:v2-s12-primary#primary"].rect;
+            coastalUi.HitArea("rsleep/go", go, () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, f);
+        }
+
+        // S7: the morning market (ui-7-market.png). Three measured rows; the buyer takes whatever is not kept.
+        void InterfaceRestaurantMarket(RestaurantMarketView v)
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rmarket/planks", false);
+            var f = RestaurantFrame("rmarket/frame");
+            string[] rowUse = { "primary", "pollock", "plaice" }, rowText = { "mackerel", "pollock", "plaice" };
+            int n = Mathf.Min(3, v.Rows.Count);
+            var selling = v.Rows.Where(r => !r.Keep).ToList();
+            RxScreen("rmarket", 7, f, style =>
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (!style.StartsWith(rowText[i] + "-")) continue;
+                    if (i >= n) return "";
+                    var r = v.Rows[i];
+                    return style.Substring(rowText[i].Length + 1) switch
+                    {
+                        "name" => r.Name, "weight" => $"{r.Kg:0.0} kg", "price" => $"{Mathf.RoundToInt(r.Value / Mathf.Max(.1f, r.Kg))} / kg",
+                        "value" => $"{r.Value} coins", _ => null,
+                    };
+                }
+                return style switch
+                {
+                    "wallet-value" => v.Wallet.ToString("N0"),
+                    "buyer-mood" => $"Buyer mood: {v.Mood}", "buyer-demand" => v.Demand,
+                    "selling-weight" => $"{selling.Sum(r => r.Kg):0.0} kg", "total-value" => $"{selling.Sum(r => r.Value)} coins",
+                    "open-button" => selling.Count > 0 ? "Sell & open" : "Open",
+                    _ => null,
+                };
+            }, key =>
+            {
+                if (key.StartsWith("v2-s7-fish-") && !key.StartsWith("v2-s7-fish-row") && !key.StartsWith("v2-s7-fish-panel")) return true; // painted per species below
+                if (key.StartsWith("v2-s7-button-sell") || key.StartsWith("v2-s7-button-keep")) return true; // drawn with their state below
+                if (key.StartsWith("v2-s7-mood-") && v.Mood != "keen") return true;
+                for (int i = n; i < 3; i++)
+                    if (key == "v2-s7-fish-row#" + rowUse[i] || key.StartsWith($"v2-s7-divider#{rowText[i]}-")) return true;
+                return false;
+            }, () =>
+            {
+                string[] fishPieces = { "v2-s7-fish-mackerel#primary", "v2-s7-fish-pollock#primary", "v2-s7-fish-plaice#primary" };
+                for (int i = 0; i < n; i++)
+                {
+                    var r = v.Rows[i]; int k = i;
+                    coastalUi.Icon($"rmarket/fish/{i}", RestaurantExact.Pieces["7:" + fishPieces[i]].rect, FishPicture(r.Art), f, null, r.Art);
+                    var sell = Rx($"rmarket/sell/{i}", 7, "v2-s7-button-sell#" + rowUse[i], f, null, "rx-s7-button-sell");
+                    var keep = Rx($"rmarket/keep/{i}", 7, "v2-s7-button-keep#" + rowUse[i], f, null, "rx-s7-button-keep");
+                    // The choice not taken fades back, so each row reads as one decision.
+                    Fade(sell, r.Keep ? .45f : 1); Fade(keep, r.Keep ? 1 : .45f);
+                    coastalUi.HitArea($"rmarket/sell/{i}/hit", RestaurantExact.Pieces["7:v2-s7-button-sell#" + rowUse[i]].rect, () => v.Rows[k].Keep = false, f);
+                    coastalUi.HitArea($"rmarket/keep/{i}/hit", RestaurantExact.Pieces["7:v2-s7-button-keep#" + rowUse[i]].rect, () => v.Rows[k].Keep = true, f);
+                }
+            });
+            coastalUi.HitArea("rmarket/open", RestaurantExact.Pieces["7:v2-s7-button-open#primary"].rect, () => { if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen(); else RestaurantPreview = RestaurantScreen.None; }, f);
+            coastalUi.HitArea("rmarket/back", RestaurantExact.Pieces["7:v2-s7-button-back#primary"].rect, () => { if (RestaurantPhase != DayPhase.Market) RestaurantPreview = RestaurantScreen.None; }, f); // the portions are cut by now
+        }
+
+        static void Fade(RectTransform piece, float alpha)
+        {
+            foreach (var g in piece.GetComponentsInChildren<UnityEngine.UI.Graphic>()) { var c = g.color; c.a = alpha; g.color = c; }
         }
 
         static string FishPicture(string art) => art != null && art.StartsWith("fish-") ? "rx-fishart-" + art.Substring(5) : art;
@@ -874,7 +1001,7 @@ namespace Catchline.Game
             Rx("rclose/sleep", 5, "v2-btn-primary#Sleep button; nine-slice", f, null, "rx-btn-primary");
             Rx("rclose/sleep/icon", 5, "v2-icon-bed", f);
             RxText("rclose/sleep/label", 5, "sleep", "Sleep", f, new Rect(607, 331, 100, 31), TextAnchor.MiddleLeft);
-            coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => { if (RestaurantPhase == DayPhase.Closing) RestaurantSleep(); else RestaurantPreview = RestaurantScreen.None; }, f);
+            coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => RestaurantPreview = RestaurantScreen.Sleep, f);
         }
 
         // A speech-bubble line broken at the space nearest its middle, as the mockup sets it.
