@@ -1505,7 +1505,9 @@ namespace Catchline.Game
                     }
                     var bust = RestaurantExact.Pieces[$"9:v2-s9-bust-{CrewRowName[r]}"].rect;
                     // The sheet's own head crops where S9 painted that crew member, the rail bust otherwise.
-                    if (HasUi("rx-s9-bust-" + id)) Rx($"rcrew/bust/{r}", 9, $"v2-s9-bust-{id}", f, new Rect(bust.x, bust.y, bust.width, bust.height));
+                    // Restaurant clothes first (Codex 1 OUTFITS-2D-1: tight cuts, aspect-fit in the old frame), then the sheet's heads.
+                    if (HasUi($"rx-s9-bust-{id}-rest")) ArrangeArt(Rx($"rcrew/bust/{r}", 9, $"v2-s9-bust-{id}", f, bust, $"rx-s9-bust-{id}-rest"));
+                    else if (HasUi("rx-s9-bust-" + id)) Rx($"rcrew/bust/{r}", 9, $"v2-s9-bust-{id}", f, new Rect(bust.x, bust.y, bust.width, bust.height));
                     else coastalUi.Icon($"rcrew/bust/{r}", bust, ServiceBust(id), f, null, $"v2-portrait-{id}-deck");
                     for (int t = 0; t < 3; t++)
                     {
@@ -1866,7 +1868,9 @@ namespace Catchline.Game
 
             // As in the mockup: big, cut at the waist by the frame's bottom edge.
             var miraClip = coastalUi.Clip("rclose/mira/clip", new Rect(520, 0, 324, 390), f);
-            Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(23, 198 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 222, 278));
+            // Mira waves goodnight as the host (Codex 1's v2-s5-mira-host at the mockup's 580,209 148x167), else the captain cut.
+            if (HasUi("rx-s5-mira-host")) ArrangeArt(Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(60, 209 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 148, 167), "rx-s5-mira-host"));
+            else Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(23, 198 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 222, 278));
             Rx("rclose/rays", 5, "v2-accent-rays", f);
             Rx("rclose/say", 5, "v2-bubble-mira", f);
             RxText("rclose/say/text", 5, "mira-bubble", TwoLines(v.MiraLine), f, new Rect(494, 264, 96, 38));
