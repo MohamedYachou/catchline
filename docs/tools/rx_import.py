@@ -38,6 +38,10 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
         # Codex 2's S1/S2 sheet places every use as asset#use in layout.json's placements.
         for p in json.load(open(lay)).get('placements',[]):
             pieces.setdefault((p['screen'],(p.get('asset') or p['name'])+'#'+p.get('use','')),(p['rect'],None,None))
+            # Codex 2's refreshed sheet names the cut asset separately; the code keys stay on the placement's own name.
+            if p.get('name') and p.get('asset') and p['name']!=p['asset']: pieces.setdefault((p['screen'],p['name']+'#'+p.get('use','')),(p['rect'],None,None))
+            # ...and its v2-s12x- assets are the S1/S2 twins of S3-S5 pieces the code names without the prefix.
+            if (p.get('asset') or '').startswith('v2-s12x-'): pieces.setdefault((p['screen'],'v2-'+p['asset'][8:]+'#'+p.get('use','')),(p['rect'],None,None))
             if part[1:].isdigit() and int(part[1:])>=6: layouts.setdefault(p['screen'],[]).append((p.get('z',0),(p.get('asset') or p['name'])+'#'+p.get('use','')))
     sl=X+part+'/slices.json'
     if os.path.exists(sl) and isinstance(json.load(open(sl)),list):

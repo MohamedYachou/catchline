@@ -1185,7 +1185,7 @@ namespace Catchline.Game
             Rx("rplan/special", 3, "v2-ticket", f);
             Rx("rplan/special/icon", 3, "v2-icon-special", f);
             RxText("rplan/special/head", 3, "special-heading", "Special request", f, null, TextAnchor.MiddleLeft);
-            RxText("rplan/special/body", 3, "special-copy", v.SpecialTitle, f);
+            RxText("rplan/special/body", 3, "special-copy", TwoLines(v.SpecialTitle), f); // two lines, as in the mockup
             if (v.SpecialReward != null && v.SpecialAccepted == null)
             {
                 Rx("rplan/special/yes", 3, "v2-btn-accept", f);
