@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13','s14'):
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
         if part=='s1-s2' and b in s35: nm='rx-s12-'+nm[3:]
@@ -46,6 +46,8 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
             for key in list(pieces):
                 if key[1].split('#')[0]==v['name'] and str(key[0])==part[1:]:
                     r,s_,b=pieces[key]; pieces[key]=(r,v.get('size') or s_,v.get('borders') or b)
+    elif os.path.exists(sl) and 'sprites' in json.load(open(sl)):
+        pass  # S14 slices are fixed in code (HarbourRestaurantEntry)
     elif os.path.exists(sl):
         for k,v in json.load(open(sl)).items():
             for key in list(pieces):
@@ -80,7 +82,7 @@ L+=['        };','','        public sealed class Style { public Rect Rect; publi
 for t in texts:
     if 'id' not in t or 'rect' not in t: continue  # Codex 2's S1/S2 sheet has no rects yet
     t.setdefault('stroke_width', t.get('strokeWidth',0))
-    sh=t.get('shadow',[0,0,'#00000000'])
+    sh=t.get('shadow') or [0]+list(t.get('shadow_offset',[0,0]))[1:]+[t.get('shadow_colour','#00000000')]
     L.append(f'            ["{t["screen"]}:{t["id"]}"] = new Style {{ Rect = new Rect({t["rect"][0]}, {t["rect"][1]}, {t["rect"][2]}, {t["rect"][3]}), Size = {t["size"]}f, '
              f'Fill = {col(t["fill"])}, StrokeColour = {col(t.get("stroke","#000000"))}, Stroke = {t.get("stroke_width",0)}f, ShadowY = {sh[1]}f, Shadow = {col(sh[2])}, Bold = {"true" if t.get("weight",700)>=700 else "false"}'
              + (f', Text = {json.dumps(t["text"])}' if isinstance(t.get('text'),str) else '')

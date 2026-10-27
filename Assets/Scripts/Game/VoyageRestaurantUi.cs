@@ -84,6 +84,7 @@ namespace Catchline.Game
         {
             public int Week = 2, Income = 2840, Dishes = 2160, Drinks = 480, Tips = 200, Popularity = 3, PopularityChange = 1;
             public int[] DayIncome = { 260, 380, 460, 330, 450, 640, 410 };
+            public int[] DayPopularity = { 18, 19, 21, 21, 23, 26, 27 }; // after each night, -1 = closed
             public string IncomeChange = "+18% last week";
             public List<(Dish dish, int sold)> Menu = new() { (Dish.GrilledFish, 48), (Dish.Soup, 32), (Dish.Coffee, 40) };
             public RestaurantStageCard Stage = new();
@@ -815,7 +816,7 @@ namespace Catchline.Game
                 };
             }, key =>
                 key.StartsWith("v2-s6-bar-") || key.StartsWith("v2-s6-star-full#rating") || key.StartsWith("v2-s6-star-full#primary") || key.StartsWith("v2-s6-star-empty")
-                || key.StartsWith("v2-s6-trend") // a painted fixed curve; the real week waits for the chart pieces (Codex 1 queue)
+                || key.StartsWith("v2-s6-trend") // the painted curve is a fixed shape; the real week is drawn below
                 || key.StartsWith("v2-s6-dish-") || key == "v2-s6-progress-fill#primary" || key == "v2-s6-chevron-left#next-week"
                 || v.Menu.Count < 3 && key == "v2-s6-menu-row#coffee" || v.Menu.Count < 2 && key == "v2-s6-menu-row#soup" || v.Menu.Count < 1 && key == "v2-s6-menu-row#primary",
             () =>
@@ -825,11 +826,13 @@ namespace Catchline.Game
                 int best = Mathf.Max(1, v.DayIncome.Max());
                 for (int d = 0; d < 7; d++)
                 {
-                    if (v.DayIncome[d] <= 0) continue;
+                    // A closed night is a faint empty bar, never a small positive one.
+                    if (v.DayIncome[d] <= 0) { Fade(Rx($"rdash/bar/{d}", 6, "v2-s6-bar-empty", f, new Rect(barX[d], 246 - 36, 24, 36), "rx-s6-bar-empty"), .28f); continue; }
                     float h = Mathf.Max(6, 55f * v.DayIncome[d] / best);
                     bool gold = v.DayIncome[d] == best;
                     Rx($"rdash/bar/{d}", 6, gold ? "v2-s6-bar-gold#primary" : "v2-s6-bar-teal#primary", f, new Rect(barX[d], 246 - h, gold ? 26 : 24, h), gold ? "rx-s6-bar-gold" : "rx-s6-bar-teal");
                 }
+                DashboardTrend(v.DayPopularity, f);
                 // The mockup's right chevron is the left one mirrored.
                 var next = RestaurantExact.Pieces["6:v2-s6-chevron-left#next-week"].rect;
                 var chevron = Rx("rdash/next-week", 6, "v2-s6-chevron-left#next-week", f, new Rect(next.xMax, next.y, next.width, next.height), "rx-s6-chevron-left");
@@ -939,6 +942,70 @@ namespace Catchline.Game
                 RestaurantPreview = RestaurantPhase == DayPhase.Service ? RestaurantScreen.Service : RestaurantScreen.None;
                 RestaurantService.Paused = false;
             }, f);
+        }
+
+        // S14: Mira's on the harbour HUD (ui-14-harbour-entry.png), under the savings goal; it opens the restaurant's
+        // week. The pieces are cut at 3x a 1920x1080 HUD, so the group is laid out in that space and scaled to the column.
+        void HarbourRestaurantEntry(float y, float w)
+        {
+            if (!RestaurantOpen || !HasUi("rx-s14-button")) return;
+            float k = w / 440f;
+            var g = coastalUi.Sliced("port/mira", new Rect(Edge, y, 440, 146), "");
+            g.localScale = new Vector3(k, k, 1);
+            Block(new Rect(Edge, y, w, 146 * k));
+            Rect At(string piece) { var p = RestaurantExact.Pieces[$"14:{piece}#restaurant-entry"].rect; return new Rect(p.x - 36, p.y - 276, p.width, p.height); }
+            coastalUi.Piece("port/mira/button", At("v2-s14-button"), "rx-s14-button", g, new Vector4(140, 100, 140, 100), 3);
+            coastalUi.Piece("port/mira/icon", At("v2-s14-restaurant-icon"), "rx-s14-restaurant-icon", g, Vector4.zero, 3);
+            bool tonight = RestaurantPhase == DayPhase.Off;
+            if (tonight) coastalUi.Piece("port/mira/badge", At("v2-s14-badge"), "rx-s14-badge", g, new Vector4(65, 45, 65, 45), 3);
+            coastalUi.DisplayOverride = restaurantDisplay ??= Resources.Load<Font>("Fonts/Fredoka-Bold");
+            coastalUi.BodyOverride = restaurantBody ??= Resources.Load<Font>("Fonts/Fredoka-SemiBold");
+            try
+            {
+                foreach (var (style, words) in new[] { ("restaurant-name", "Mira's"), ("service-tonight", tonight ? "Service tonight" : "") })
+                {
+                    if (words == "") continue;
+                    var s = RestaurantExact.Texts["harbour:" + style];
+                    coastalUi.StyledText("port/mira/" + style, new Rect(s.Rect.x - 36, s.Rect.y - 276, s.Rect.width, s.Rect.height), words, s.Size, s.Fill, s.StrokeColour, s.Stroke,
+                        s.ShadowY, s.Shadow, s.Bold, TextAnchor.MiddleCenter, g, k);
+                }
+            }
+            finally { coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
+            coastalUi.HitArea("port/mira/hit", new Rect(0, 0, 440, 146), () => { OpenRestaurantDashboard(); audio?.Play(VoyageAudio.Cue.Select, .45f); }, g);
+        }
+
+        // S6's popularity line over the week from Codex's live-chart pieces: the soft fill under the polyline, the
+        // stretched segments, a jewel on each night. Closed nights are skipped.
+        void DashboardTrend(int[] pop, Transform f)
+        {
+            var area = RestaurantExact.Pieces["6:v2-s6-trend#primary"].rect;
+            var nights = Enumerable.Range(0, 7).Where(d => pop[d] >= 0).ToList();
+            if (nights.Count == 0) return;
+            float lo = nights.Min(d => pop[d]), hi = Mathf.Max(lo + 4, nights.Max(d => pop[d]));
+            Vector2 P(int d) => new(area.x + 6 + d * (area.width - 12) / 6f, area.yMax - 8 - (pop[d] - lo) / (hi - lo) * (area.height - 16));
+            float Y(float x)
+            {
+                for (int i = 1; i < nights.Count; i++)
+                {
+                    Vector2 a = P(nights[i - 1]), b = P(nights[i]);
+                    if (x <= b.x) return Mathf.Lerp(a.y, b.y, Mathf.InverseLerp(a.x, b.x, x));
+                }
+                return P(nights[^1]).y;
+            }
+            const float column = 4;
+            for (float x = P(nights[0]).x; x < P(nights[^1]).x; x += column)
+            {
+                float top = Y(x + column / 2);
+                Rx($"rdash/trend/fill/{x:0}", 6, "v2-s6-trend-fill", f, new Rect(x, top, column + .5f, area.yMax - top), "rx-s6-trend-fill");
+            }
+            for (int i = 1; i < nights.Count; i++)
+            {
+                Vector2 a = P(nights[i - 1]), b = P(nights[i]), d = b - a;
+                var seg = Rx($"rdash/trend/seg/{i}", 6, "v2-s6-trend-segment", f, new Rect(a.x, a.y, d.magnitude, 6), "rx-s6-trend-segment");
+                seg.pivot = new Vector2(0, .5f); seg.anchoredPosition = new Vector2(a.x, -a.y);
+                seg.localRotation = Quaternion.Euler(0, 0, -Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg);
+            }
+            foreach (int d in nights) { var p = P(d); Rx($"rdash/trend/dot/{d}", 6, "v2-s6-trend-dot", f, new Rect(p.x - 6, p.y - 6, 12, 12), "rx-s6-trend-dot"); }
         }
 
         void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; }

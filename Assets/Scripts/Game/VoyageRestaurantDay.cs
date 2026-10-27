@@ -352,6 +352,8 @@ namespace Catchline.Game
             v.IncomeChange = before > 0 ? $"{(v.Income >= before ? "+" : "")}{Mathf.RoundToInt((v.Income - before) * 100f / before)}% last week" : now.Count > 0 ? $"{now.Count} night{(now.Count == 1 ? "" : "s")} this week" : "First week";
             v.Dishes = now.Sum(p => int.Parse(p[2])); v.Drinks = now.Sum(p => int.Parse(p[3])); v.Tips = now.Sum(p => int.Parse(p[4]));
             v.Popularity = restaurantPopularity;
+            v.DayPopularity = Enumerable.Repeat(-1, 7).ToArray();
+            foreach (var p in now) v.DayPopularity[int.Parse(p[0]) % 7] = int.Parse(p[5]);
             int startPop = now.Count > 0 ? int.Parse(now[0][5]) : restaurantPopularity;
             v.PopularityChange = restaurantPopularity - startPop + (now.Count > 0 ? 0 : 0);
             v.Menu = now.SelectMany(p => p[8].Split(';')).Where(x => x.Contains("=")).Select(x => x.Split('='))
@@ -436,6 +438,9 @@ namespace Catchline.Game
         {
             switch (step)
             {
+                case "day-harbour": // the harbour hub with Mira's entry (S14)
+                    RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; restaurantForced = true; panelOpen = false;
+                    return true;
                 case "day-plan":
                     RestaurantPhase = DayPhase.Off; SelectedSpot = 0; restaurantForced = true;
                     return RestaurantPlanBeforeSail();
