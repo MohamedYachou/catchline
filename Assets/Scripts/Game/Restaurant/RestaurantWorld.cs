@@ -139,12 +139,13 @@ namespace Catchline.Game.Restaurant
                 // V3's camera study: 38 degree pitch, -2 degree yaw from the quay, 58mm equivalent.
                 ServiceCamera.transform.localPosition=new Vector3(-.598f,13.359f,17.088f);
                 ServiceCamera.transform.localRotation=Quaternion.Euler(38,178,0);
-                var stageLights=roomName==StageRooms[0]?null:StageRecipe(roomName);
+                // Stage 1 reads Codex 2's room-look recipe unmirrored (its lights were placed in the V4 room's own axes, verified r31).
+                var stageLights=roomName==StageRooms[0]?RecipeLights(roomName,false):StageRecipe(roomName);
                 ServiceCamera.orthographic=false;ServiceCamera.fieldOfView=21.9542f;
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
                 // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
                 AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);
-                foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),.45f,false,2.6f);
+                foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),.6f,false,2.8f); // room-look3: warmer pools on the tables
                 if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
@@ -159,7 +160,7 @@ namespace Catchline.Game.Restaurant
         static readonly string[] StageRooms={"Stage1V4","Stage2Bistro","Stage3Restaurant","Stage4Seafood"};
         string roomName;
         float frameHalfWidth=7;
-        [Serializable] class RecipeLight{public string type;public float[] position_unity_m;public float blender_power;}
+        [Serializable] class RecipeLight{public string name,type;public float[] position_unity_m;public float blender_power;}
         [Serializable] class Recipe{public RecipeLight[] lights;}
         [Serializable] class RecipeCamera{public string file;public float[] position_unity_m;}
         [Serializable] class RecipeCameras{public RecipeCamera[] c;}
@@ -171,10 +172,15 @@ namespace Catchline.Game.Restaurant
             var cam=cams==null?null:JsonUtility.FromJson<RecipeCameras>("{\"c\":"+cams.text+"}").c.FirstOrDefault(c=>c.file.Contains("1440"));
             if(cam!=null){var p=cam.position_unity_m;ServiceCamera.transform.localPosition=new Vector3(-p[0],p[1],p[2]);
                 frameHalfWidth=7*ServiceCamera.transform.localPosition.magnitude/new Vector3(-.598f,13.359f,17.088f).magnitude;}
+            return RecipeLights(room,true);
+        }
+        List<(Vector3 pos,float watts)> RecipeLights(string room,bool mirrorX)
+        {
             var lights=Resources.Load<TextAsset>("Restaurant/"+room+"-lighting");
             if(lights==null)return null;
-            return JsonUtility.FromJson<Recipe>(lights.text).lights.Where(l=>l.type=="POINT"&&l.position_unity_m?.Length==3)
-                .Select(l=>(new Vector3(-l.position_unity_m[0],l.position_unity_m[1],l.position_unity_m[2]),l.blender_power)).ToList();
+            // Look3_TablePool* sit over V4's own tables; the layout places tables itself and lights each one (cosyLamps).
+            return JsonUtility.FromJson<Recipe>(lights.text).lights.Where(l=>l.type=="POINT"&&l.position_unity_m?.Length==3&&!l.name.StartsWith("Look3_TablePool"))
+                .Select(l=>(new Vector3(mirrorX?-l.position_unity_m[0]:l.position_unity_m[0],l.position_unity_m[1],l.position_unity_m[2]),l.blender_power)).ToList();
         }
         // V4 pieces that the layout places itself (stations, tables and what is set on them).
         static readonly string[] LayoutPieces={"PrepCounter","Stove","SoupKettle","KettleStand","FridgeV2","Oven","Fryer","SinkDishRack","CoffeeBar","ReceptionDesk",

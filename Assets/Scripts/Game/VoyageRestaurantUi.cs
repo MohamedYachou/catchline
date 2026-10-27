@@ -1600,9 +1600,9 @@ namespace Catchline.Game
             coastalUi.Planks("rplan/planks", false);
             var f = RestaurantFrame("rplan/frame");
             Rx("rplan/bg", 3, "v2-bg-plan", f);
-            // As in the mockup: big, cut at mid-thigh by the frame's bottom edge.
+            // As in the mockup: a torso crop, face around (150,140) and the hat ~170 wide, cut at the waist by the frame's edge.
             var miraClip = coastalUi.Clip("rplan/mira/clip", new Rect(0, 0, 300, 390), f);
-            Rx("rplan/mira", 3, "v2-mira-plan", miraClip, new Rect(-78, 10 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 434, 543));
+            Rx("rplan/mira", 3, "v2-mira-plan", miraClip, new Rect(-121, 14 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 564, 705));
 
             Rx("rplan/back", 3, "v2-btn-back", f);
             Rx("rplan/back/icon", 3, "v2-icon-back", f);
