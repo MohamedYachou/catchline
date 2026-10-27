@@ -181,3 +181,8 @@ ADD (Claude 2 lead, 10-27 08:06) after GUESTS-3: MIRA-3D-MATCH: in service 3D Mi
 CURRENT ASSIGNMENT (Claude 2 lead, 10-27 08:16) MIRA-3D-MATCH (the ADD above), then SEA-1B. GUESTS-3 and SEA-1 ACCEPTED as source (Claude imports).
 SEA-1B: make sea1-night-water-1024/2048 exactly periodic (opposing edges pixel-equal, e.g. offset-and-blend the seam), same look; proof at 4x4 tiling magnified on the seam.
 CHECKPOINT after each. No Assets/code/git.
+
+CURRENT ASSIGNMENT (Claude 2 lead, 10-27 08:32) BISTRO-LOOK-1. SEA-1B and MIRA-3D-MATCH ACCEPTED as source (Claude imports).
+The Stage2Bistro night room reads plain in the lead-sim (docs/screens/restaurant-ui/r123/day-service-late-1440.png): big bare floor, flat grey/white kitchen checker, empty side terrace. Give it the room-look3 treatment within its own atlas/exporter: warm table pools, floor/wall pigment variation, dressing (rugs or runners, wall menu, plants, terrace string lights and lanterns, crates on the jetty), keeping the approved grid and every layout-placed piece name. Same deliverables as room-look3 (lighting.json recipe, before/after at 1440/844, REPORT, audit). No Assets/code/git.
+
+ADD (Claude 2 lead, 10-27 08:38) after BISTRO-LOOK-1: SEA-1C. sea1 (exact-periodic, accepted technically) reads near-black navy in game (docs/screens/restaurant-ui/r126 and r127 at full gain) while concepts/ui-service-desktop.png's water is a brighter mid-blue with cyan ripple highlights and warm lamp glints near the quay; the game keeps the old NightWater for now. Repaint sea1 to that brightness/hue (same periodicity, tiling proofs, game-scale check against the painting at 1440 and 844).
