@@ -992,6 +992,16 @@ namespace Catchline.Game
                 case "day-dash-stored": // after day-arrange-store: the dashboard's Arrange tab counts the piece waiting in the store
                     CloseRestaurantArrange(); OpenRestaurantDashboard();
                     return Kitchen.State.Items.Any(i => i.Stored);
+                case "day-arrange-rotate": // every guests-drawer piece picked and turned: each ghost must stand upright
+                    {
+                        SetArrangeCategory(RestaurantArrange, 1); RestaurantArrange.Scroll = 0;
+                        int pick = RestaurantArrange.Items.FindIndex(i => i.Id == ItemId.Table4 && i.Lock == null);
+                        foreach (var it in RestaurantArrange.Items)
+                            if (restaurantWorld != null && it.Lock == null) Debug.Log($"[Catchline] ARRANGE model {it.Id}: {restaurantWorld.PrefabTurn(it.Id)}");
+                        if (pick < 0) return false;
+                        PickArrangeItem(RestaurantArrange, pick); RestaurantArrange.Rotated = true; RefitArrange(RestaurantArrange);
+                        return true;
+                    }
                 case "day-arrange-kitchen": // the kitchen drawer scrolled one card along
                     SetArrangeCategory(RestaurantArrange, 0); RestaurantArrange.Scroll = 157;
                     return RestaurantArrange.Items.Count > 3;

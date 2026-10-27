@@ -1,0 +1,1724 @@
+{
+  "restaurant": {
+    "source": "Art\\Downloads\\kaykit\\restaurant\\addons\\kaykit_restaurant_bits\\Assets\\textures\\restaurantbits_texture.png",
+    "output": "restaurantbits_texture-catchline.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "coordinates": "image origin top-left; R1C1 upper-left; each cell128x256",
+    "method": "source-ramp mean RGB value, affine target endpoints; original pixel positions/alpha unchanged",
+    "cells": [
+      {
+        "id": "R1C1",
+        "rect": [
+          0,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#263236",
+          "#000000"
+        ],
+        "after_bright_shadow": [
+          "#263236",
+          "#000000"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "stove_multi",
+          "stove_multi_countertop",
+          "stove_multi_decorated",
+          "wall_decorated",
+          "stove_single",
+          "stove_single_countertop"
+        ]
+      },
+      {
+        "id": "R1C2",
+        "rect": [
+          128,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#4D4D4D",
+          "#1A1A1A"
+        ],
+        "after_bright_shadow": [
+          "#4D4D4D",
+          "#1A1A1A"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "wall_decorated",
+          "food_ingredient_burger_trash",
+          "food_ingredient_ham_trash",
+          "stove_multi",
+          "stove_multi_decorated",
+          "stove_single",
+          "extractorhood",
+          "oven",
+          "kitchencounter_straight_decorated",
+          "kitchentable_A_large_decorated",
+          "knife",
+          "floor_kitchen"
+        ]
+      },
+      {
+        "id": "R1C3",
+        "rect": [
+          256,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#596064",
+          "#3C4246"
+        ],
+        "after_bright_shadow": [
+          "#596064",
+          "#3C4246"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "pot_B",
+          "wall_decorated",
+          "pan_B",
+          "stove_multi_decorated",
+          "pot_B_stew",
+          "lid_B",
+          "oven",
+          "oven_door",
+          "extractorhood"
+        ]
+      },
+      {
+        "id": "R1C4",
+        "rect": [
+          384,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "after_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "wall_decorated",
+          "kitchentable_sink_large",
+          "kitchentable_sink_large_decorated",
+          "stove_multi_decorated",
+          "kitchentable_sink",
+          "stove_multi",
+          "kitchencounter_sink",
+          "kitchencounter_sink_backsplash",
+          "stove_multi_countertop",
+          "stove_single",
+          "pot_A",
+          "pan_A"
+        ]
+      },
+      {
+        "id": "R1C5",
+        "rect": [
+          512,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "kitchentable_sink_large_decorated",
+          "kitchencounter_straight_A_decorated",
+          "table_round_A_decorated",
+          "dishrack_plates",
+          "wall_decorated",
+          "kitchencounter_straight_decorated",
+          "bowl",
+          "bowl_dirty",
+          "bowl_small",
+          "food_stew",
+          "shelf_papertowel_decorated",
+          "food_burger"
+        ]
+      },
+      {
+        "id": "R1C6",
+        "rect": [
+          640,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#F47D36",
+          "#7C2E22"
+        ],
+        "after_bright_shadow": [
+          "#F47D36",
+          "#7C2E22"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "pot_large",
+          "lid_large",
+          "food_ingredient_vegetableburger_cooked",
+          "food_vegetableburger",
+          "food_stew",
+          "pot_A_stew",
+          "pot_B_stew",
+          "stew_bowl",
+          "stew_pot",
+          "stove_multi_decorated"
+        ]
+      },
+      {
+        "id": "R1C7",
+        "rect": [
+          768,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "after_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "chair_B",
+          "table_round_A_decorated",
+          "table_round_B",
+          "food_burger",
+          "food_ingredient_burger_cooked",
+          "shelf_papertowel_decorated",
+          "crate_lid",
+          "food_ingredient_ham_cooked",
+          "food_dinner",
+          "crate",
+          "crate_buns",
+          "crate_carrots"
+        ]
+      },
+      {
+        "id": "R1C8",
+        "rect": [
+          896,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#837265",
+          "#534741"
+        ],
+        "after_bright_shadow": [
+          "#837265",
+          "#534741"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "jar_D_large",
+          "jar_D_medium",
+          "jar_D_small",
+          "kitchentable_A_large_decorated"
+        ]
+      },
+      {
+        "id": "R2C1",
+        "rect": [
+          0,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#8AD5EC",
+          "#3B6BB4"
+        ],
+        "after_bright_shadow": [
+          "#8AD5EC",
+          "#3B6BB4"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "kitchencounter_straight_decorated",
+          "wall_decorated",
+          "jar_A_large",
+          "jar_A_medium",
+          "jar_A_small",
+          "kitchentable_A_large_decorated",
+          "shelf_papertowel_decorated"
+        ]
+      },
+      {
+        "id": "R2C2",
+        "rect": [
+          128,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#F15A24",
+          "#81003F"
+        ],
+        "after_bright_shadow": [
+          "#2A6685",
+          "#102F43"
+        ],
+        "reason": "Catchline navy paint; cool deep values with readable lit bevels.",
+        "models": [
+          "stove_multi",
+          "stove_multi_decorated",
+          "wall_decorated",
+          "oven",
+          "stove_multi_countertop",
+          "stove_single",
+          "stove_single_countertop"
+        ]
+      },
+      {
+        "id": "R2C3",
+        "rect": [
+          256,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#42E8B1",
+          "#006061"
+        ],
+        "after_bright_shadow": [
+          "#64C7C4",
+          "#126773"
+        ],
+        "reason": "Restaurant teal paint/upholstery; calmer than mint or bright blue.",
+        "models": [
+          "fridge_A",
+          "fridge_A_decorated",
+          "fridge_B",
+          "fridge_B_door",
+          "fridge_A_decorated_door_bottom",
+          "fridge_A_decorated_door_top",
+          "fridge_A_door_bottom",
+          "fridge_A_door_top",
+          "wall_orderwindow",
+          "wall_orderwindow_decorated",
+          "wall_window_closed",
+          "wall_window_open"
+        ]
+      },
+      {
+        "id": "R2C4",
+        "rect": [
+          384,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FCE2B7",
+          "#BE5A35"
+        ],
+        "after_bright_shadow": [
+          "#FCE2B7",
+          "#BE5A35"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_buns",
+          "table_round_A_decorated",
+          "food_burger",
+          "food_vegetableburger",
+          "food_ingredient_bun",
+          "food_ingredient_vegetableburger_uncooked",
+          "food_ingredient_bun_bottom",
+          "food_ingredient_bun_top"
+        ]
+      },
+      {
+        "id": "R2C5",
+        "rect": [
+          512,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#D09C6A"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#D09C6A"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_buns",
+          "table_round_A_decorated",
+          "crate_steak",
+          "food_burger",
+          "food_ingredient_onion_chopped",
+          "food_vegetableburger",
+          "kitchentable_A_large_decorated",
+          "food_ingredient_onion_rings",
+          "crate_ham",
+          "food_ingredient_steak",
+          "fridge_A_decorated",
+          "food_dinner"
+        ]
+      },
+      {
+        "id": "R2C6",
+        "rect": [
+          640,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#EACA9D",
+          "#CA925D"
+        ],
+        "after_bright_shadow": [
+          "#EACA9D",
+          "#CA925D"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_onions",
+          "food_ingredient_onion",
+          "kitchentable_A_large_decorated",
+          "food_ingredient_onion_chopped",
+          "shelf_papertowel_decorated",
+          "jar_C_small",
+          "jar_C_medium",
+          "jar_C_large",
+          "wall_decorated",
+          "cuttingboard",
+          "kitchencounter_straight_decorated",
+          "shelf_papertowel"
+        ]
+      },
+      {
+        "id": "R2C7",
+        "rect": [
+          768,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FED767",
+          "#A35824"
+        ],
+        "after_bright_shadow": [
+          "#FED767",
+          "#A35824"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_potatoes",
+          "food_ingredient_potato_chopped",
+          "food_ingredient_potato",
+          "jar_D_small",
+          "jar_D_medium",
+          "kitchentable_A_large_decorated",
+          "food_stew",
+          "pot_A_stew",
+          "pot_B_stew",
+          "stew_bowl",
+          "stew_pot",
+          "stove_multi_decorated"
+        ]
+      },
+      {
+        "id": "R2C8",
+        "rect": [
+          896,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#A8A29D",
+          "#6D605C"
+        ],
+        "after_bright_shadow": [
+          "#A8A29D",
+          "#6D605C"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "kitchentable_sink_large_decorated",
+          "food_ingredient_ham_trash",
+          "plate_dirty",
+          "table_round_A_decorated",
+          "bowl_dirty"
+        ]
+      },
+      {
+        "id": "R3C1",
+        "rect": [
+          0,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#DFE44E",
+          "#787C00"
+        ],
+        "after_bright_shadow": [
+          "#DFE44E",
+          "#787C00"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_lettuce",
+          "food_ingredient_lettuce",
+          "food_ingredient_lettuce_chopped",
+          "fridge_A_decorated",
+          "table_round_A_decorated",
+          "food_burger",
+          "food_ingredient_lettuce_slice",
+          "food_vegetableburger"
+        ]
+      },
+      {
+        "id": "R3C2",
+        "rect": [
+          128,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#00AF5D",
+          "#00584A"
+        ],
+        "after_bright_shadow": [
+          "#00AF5D",
+          "#00584A"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_tomatoes",
+          "crate_carrots",
+          "fridge_A_decorated",
+          "food_ingredient_tomato",
+          "food_dinner",
+          "food_ingredient_carrot",
+          "food_ingredient_carrot_chopped",
+          "kitchentable_A_large_decorated",
+          "wall_decorated",
+          "food_ingredient_vegetableburger_cooked",
+          "food_ingredient_vegetableburger_uncooked",
+          "food_stew"
+        ]
+      },
+      {
+        "id": "R3C3",
+        "rect": [
+          256,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FED767",
+          "#F47D36"
+        ],
+        "after_bright_shadow": [
+          "#FED767",
+          "#F47D36"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_cheese",
+          "food_ingredient_cheese",
+          "fridge_A_decorated",
+          "food_ingredient_cheese_chopped",
+          "table_round_A_decorated",
+          "mustard",
+          "table_round_A_small_decorated",
+          "wall_orderwindow_decorated",
+          "food_burger",
+          "food_ingredient_cheese_slice"
+        ]
+      },
+      {
+        "id": "R3C4",
+        "rect": [
+          384,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFF69D",
+          "#FFBF24"
+        ],
+        "after_bright_shadow": [
+          "#FFF69D",
+          "#FFBF24"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R3C5",
+        "rect": [
+          512,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FBB03B",
+          "#EA3D14"
+        ],
+        "after_bright_shadow": [
+          "#FBB03B",
+          "#EA3D14"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_carrots",
+          "food_dinner",
+          "food_ingredient_carrot_pieces",
+          "food_ingredient_carrot_chopped",
+          "kitchentable_A_large_decorated",
+          "wall_decorated",
+          "food_ingredient_carrot",
+          "fridge_A_decorated",
+          "food_stew",
+          "pot_A_stew",
+          "pot_B_stew",
+          "stew_bowl"
+        ]
+      },
+      {
+        "id": "R3C6",
+        "rect": [
+          640,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FBACA3",
+          "#EE3642"
+        ],
+        "after_bright_shadow": [
+          "#FBACA3",
+          "#EE3642"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_steak",
+          "crate_ham",
+          "food_ingredient_steak_pieces",
+          "stove_multi_decorated",
+          "food_ingredient_burger_uncooked",
+          "food_ingredient_ham",
+          "food_ingredient_steak",
+          "fridge_A_decorated",
+          "food_dinner"
+        ]
+      },
+      {
+        "id": "R3C7",
+        "rect": [
+          768,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#F26B6D",
+          "#A31C37"
+        ],
+        "after_bright_shadow": [
+          "#F26B6D",
+          "#A31C37"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R3C8",
+        "rect": [
+          896,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#F15A24",
+          "#9F015D"
+        ],
+        "after_bright_shadow": [
+          "#F15A24",
+          "#9F015D"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "crate_tomatoes",
+          "table_round_A_decorated",
+          "food_ingredient_tomato_slices",
+          "food_ingredient_tomato",
+          "fridge_A_decorated",
+          "food_burger",
+          "food_ingredient_tomato_slice",
+          "food_vegetableburger",
+          "ketchup",
+          "table_round_A_small_decorated",
+          "wall_orderwindow_decorated"
+        ]
+      },
+      {
+        "id": "R4C1",
+        "rect": [
+          0,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#A3E0F1",
+          "#47A1C5"
+        ],
+        "after_bright_shadow": [
+          "#A3E0F1",
+          "#47A1C5"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C2",
+        "rect": [
+          128,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#A3E0F1",
+          "#3D8BAB"
+        ],
+        "after_bright_shadow": [
+          "#A3E0F1",
+          "#3D8BAB"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "door_A",
+          "door_B",
+          "wall_window_closed"
+        ]
+      },
+      {
+        "id": "R4C3",
+        "rect": [
+          256,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#1E1E1C"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#1E1E1C"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C4",
+        "rect": [
+          384,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#1E1E1C"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#1E1E1C"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C5",
+        "rect": [
+          512,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#F47D36",
+          "#7C2E22"
+        ],
+        "after_bright_shadow": [
+          "#F47D36",
+          "#7C2E22"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C6",
+        "rect": [
+          640,
+          768,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "wall_decorated",
+          "kitchencabinet_corner",
+          "kitchencabinet_corner_half",
+          "kitchencabinet",
+          "kitchencabinet_half",
+          "kitchencounter_sink",
+          "kitchencounter_sink_backsplash",
+          "kitchencounter_straight_A",
+          "kitchencounter_straight_A_backsplash",
+          "kitchencounter_straight_A_decorated",
+          "kitchencounter_straight_B",
+          "kitchencounter_straight_B_backsplash"
+        ]
+      },
+      {
+        "id": "R4C7",
+        "rect": [
+          768,
+          768,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#F47D36",
+          "#7C2E22"
+        ],
+        "after_bright_shadow": [
+          "#DFB77A",
+          "#8C5A36"
+        ],
+        "reason": "Honey timber; replace diner orange without changing food.",
+        "models": [
+          "chair_A",
+          "table_round_A",
+          "table_round_A_decorated",
+          "table_round_A_small",
+          "table_round_A_small_decorated",
+          "wall_decorated",
+          "chair_stool",
+          "kitchencounter_sink_backsplash",
+          "kitchencounter_straight_A_backsplash",
+          "kitchencounter_straight_B_backsplash",
+          "kitchencounter_sink",
+          "kitchencounter_straight_A"
+        ]
+      },
+      {
+        "id": "R4C8",
+        "rect": [
+          896,
+          768,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "wall_decorated",
+          "kitchencabinet_corner",
+          "kitchencabinet_corner_half",
+          "kitchencabinet",
+          "kitchencabinet_half",
+          "kitchencounter_innercorner",
+          "kitchencounter_innercorner_backsplash",
+          "kitchencounter_sink",
+          "kitchencounter_sink_backsplash",
+          "kitchencounter_straight_A_backsplash",
+          "kitchencounter_straight_B_backsplash",
+          "kitchencounter_outercorner"
+        ]
+      }
+    ]
+  },
+  "furniture": {
+    "source": "Art\\Downloads\\kaykit\\furniture\\addons\\kaykit_furniture_bits\\Assets\\texture\\furniturebits_texture.png",
+    "output": "furniturebits_texture-catchline.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "coordinates": "image origin top-left; R1C1 upper-left; each cell128x256",
+    "method": "source-ramp mean RGB value, affine target endpoints; original pixel positions/alpha unchanged",
+    "cells": [
+      {
+        "id": "R1C1",
+        "rect": [
+          0,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "after_bright_shadow": [
+          "#DFB77A",
+          "#8C5A36"
+        ],
+        "reason": "Honey timber; replace diner orange without changing food.",
+        "models": [
+          "bed_double_B",
+          "bed_single_B",
+          "chair_A",
+          "chair_A_wood",
+          "bed_double_A",
+          "bed_single_A",
+          "chair_B",
+          "chair_B_wood",
+          "table_low",
+          "table_medium",
+          "table_medium_long",
+          "table_small"
+        ]
+      },
+      {
+        "id": "R1C2",
+        "rect": [
+          128,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "after_bright_shadow": [
+          "#DFB77A",
+          "#8C5A36"
+        ],
+        "reason": "Honey timber; replace diner orange without changing food.",
+        "models": [
+          "chair_B_wood",
+          "table_low",
+          "chair_A_wood",
+          "chair_stool_wood",
+          "table_medium",
+          "table_medium_long",
+          "table_small",
+          "cabinet_medium",
+          "cabinet_medium_decorated",
+          "cabinet_small",
+          "cabinet_small_decorated"
+        ]
+      },
+      {
+        "id": "R1C3",
+        "rect": [
+          256,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "after_bright_shadow": [
+          "#DFB77A",
+          "#8C5A36"
+        ],
+        "reason": "Honey timber; replace diner orange without changing food.",
+        "models": [
+          "cabinet_medium",
+          "cabinet_medium_decorated",
+          "cabinet_small",
+          "cabinet_small_decorated"
+        ]
+      },
+      {
+        "id": "R1C4",
+        "rect": [
+          384,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#C8855F",
+          "#9B5A45"
+        ],
+        "after_bright_shadow": [
+          "#E8C891",
+          "#9C6B42"
+        ],
+        "reason": "Lighter timber shelves/frames; retain original recessed panel pattern.",
+        "models": [
+          "shelf_B_large_decorated",
+          "shelf_A_big",
+          "shelf_A_small",
+          "shelf_B_large",
+          "shelf_B_small",
+          "shelf_B_small_decorated",
+          "cabinet_medium_decorated",
+          "cabinet_small_decorated",
+          "pictureframe_standing_A",
+          "pictureframe_standing_B",
+          "pictureframe_large_A",
+          "pictureframe_large_B"
+        ]
+      },
+      {
+        "id": "R1C5",
+        "rect": [
+          512,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#C8855F",
+          "#9B5A45"
+        ],
+        "after_bright_shadow": [
+          "#E8C891",
+          "#9C6B42"
+        ],
+        "reason": "Lighter timber shelves/frames; retain original recessed panel pattern.",
+        "models": [
+          "cabinet_medium",
+          "cabinet_medium_decorated",
+          "cabinet_small",
+          "cabinet_small_decorated"
+        ]
+      },
+      {
+        "id": "R1C6",
+        "rect": [
+          640,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#EACA9D",
+          "#CA925D"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "cabinet_medium",
+          "cabinet_medium_decorated",
+          "cabinet_small",
+          "cabinet_small_decorated"
+        ]
+      },
+      {
+        "id": "R1C7",
+        "rect": [
+          768,
+          0,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "after_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "lamp_standing"
+        ]
+      },
+      {
+        "id": "R1C8",
+        "rect": [
+          896,
+          0,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "shelf_B_large_decorated",
+          "book_set",
+          "cabinet_medium_decorated",
+          "cabinet_small_decorated",
+          "book_single",
+          "shelf_B_small_decorated",
+          "pictureframe_large_A",
+          "pictureframe_large_B",
+          "pictureframe_medium",
+          "pictureframe_small_A",
+          "pictureframe_small_B",
+          "pictureframe_small_C"
+        ]
+      },
+      {
+        "id": "R2C1",
+        "rect": [
+          0,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FED767",
+          "#F47D36"
+        ],
+        "after_bright_shadow": [
+          "#2A6685",
+          "#102F43"
+        ],
+        "reason": "Catchline navy paint; cool deep values with readable lit bevels.",
+        "models": [
+          "couch_pillows",
+          "armchair_pillows",
+          "rug_oval_A",
+          "pillow_A",
+          "rug_rectangle_stripes_A",
+          "book_single",
+          "cabinet_medium_decorated",
+          "cabinet_small_decorated",
+          "shelf_B_small_decorated",
+          "book_set",
+          "shelf_B_large_decorated",
+          "rug_rectangle_A"
+        ]
+      },
+      {
+        "id": "R2C2",
+        "rect": [
+          128,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FED767",
+          "#F47D36"
+        ],
+        "after_bright_shadow": [
+          "#2A6685",
+          "#102F43"
+        ],
+        "reason": "Catchline navy paint; cool deep values with readable lit bevels.",
+        "models": []
+      },
+      {
+        "id": "R2C3",
+        "rect": [
+          256,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#8AD5EC",
+          "#3B6BB4"
+        ],
+        "after_bright_shadow": [
+          "#64C7C4",
+          "#126773"
+        ],
+        "reason": "Restaurant teal paint/upholstery; calmer than mint or bright blue.",
+        "models": [
+          "couch",
+          "armchair",
+          "chair_B",
+          "rug_oval_B",
+          "lamp_table",
+          "chair_C",
+          "couch_pillows",
+          "bed_double_A",
+          "bed_double_B",
+          "bed_single_A",
+          "bed_single_B",
+          "chair_A"
+        ]
+      },
+      {
+        "id": "R2C4",
+        "rect": [
+          384,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#8AD5EC",
+          "#3B6BB4"
+        ],
+        "after_bright_shadow": [
+          "#64C7C4",
+          "#126773"
+        ],
+        "reason": "Restaurant teal paint/upholstery; calmer than mint or bright blue.",
+        "models": []
+      },
+      {
+        "id": "R2C5",
+        "rect": [
+          512,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "bed_double_A",
+          "bed_double_B",
+          "bed_single_A",
+          "bed_single_B"
+        ]
+      },
+      {
+        "id": "R2C6",
+        "rect": [
+          640,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "bed_double_A",
+          "bed_double_B",
+          "bed_single_A",
+          "bed_single_B"
+        ]
+      },
+      {
+        "id": "R2C7",
+        "rect": [
+          768,
+          256,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": []
+      },
+      {
+        "id": "R2C8",
+        "rect": [
+          896,
+          256,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#F47D36",
+          "#7D2E22"
+        ],
+        "after_bright_shadow": [
+          "#F47D36",
+          "#7D2E22"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "cabinet_medium_decorated",
+          "cactus_medium_A",
+          "cactus_medium_B",
+          "cactus_small_A",
+          "cactus_small_B",
+          "shelf_B_small_decorated",
+          "book_set",
+          "shelf_B_large_decorated"
+        ]
+      },
+      {
+        "id": "R3C1",
+        "rect": [
+          0,
+          512,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "lamp_standing",
+          "lamp_table"
+        ]
+      },
+      {
+        "id": "R3C2",
+        "rect": [
+          128,
+          512,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#F2F2F2",
+          "#C7B299"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": [
+          "lamp_standing",
+          "lamp_table"
+        ]
+      },
+      {
+        "id": "R3C3",
+        "rect": [
+          256,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#263236",
+          "#000000"
+        ],
+        "after_bright_shadow": [
+          "#263236",
+          "#000000"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R3C4",
+        "rect": [
+          384,
+          512,
+          128,
+          256
+        ],
+        "changed": true,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#AAB8BE"
+        ],
+        "after_bright_shadow": [
+          "#F4EFE3",
+          "#B8B09C"
+        ],
+        "reason": "Warm cream paint/linen; cooler white steel remains separate.",
+        "models": []
+      },
+      {
+        "id": "R3C5",
+        "rect": [
+          512,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#EACA9D",
+          "#CA925D"
+        ],
+        "after_bright_shadow": [
+          "#EACA9D",
+          "#CA925D"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R3C6",
+        "rect": [
+          640,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "after_bright_shadow": [
+          "#B27052",
+          "#7D3D2C"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "cabinet_medium_decorated",
+          "cactus_medium_A",
+          "cactus_medium_B",
+          "cactus_small_A",
+          "cactus_small_B",
+          "shelf_B_small_decorated"
+        ]
+      },
+      {
+        "id": "R3C7",
+        "rect": [
+          768,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#C8DA52",
+          "#228993"
+        ],
+        "after_bright_shadow": [
+          "#C8DA52",
+          "#228993"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "cabinet_medium_decorated",
+          "cactus_medium_B",
+          "cactus_small_B",
+          "shelf_B_small_decorated",
+          "cactus_medium_A"
+        ]
+      },
+      {
+        "id": "R3C8",
+        "rect": [
+          896,
+          512,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#A5CE39",
+          "#018756"
+        ],
+        "after_bright_shadow": [
+          "#A5CE39",
+          "#018756"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": [
+          "cactus_medium_A",
+          "cabinet_medium_decorated",
+          "cactus_medium_B",
+          "cactus_small_A"
+        ]
+      },
+      {
+        "id": "R4C1",
+        "rect": [
+          0,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "after_bright_shadow": [
+          "#AAB8BE",
+          "#596064"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C2",
+        "rect": [
+          128,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C3",
+        "rect": [
+          256,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "after_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C4",
+        "rect": [
+          384,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "after_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C5",
+        "rect": [
+          512,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C6",
+        "rect": [
+          640,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "after_bright_shadow": [
+          "#FFFFFF",
+          "#242021"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C7",
+        "rect": [
+          768,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "after_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      },
+      {
+        "id": "R4C8",
+        "rect": [
+          896,
+          768,
+          128,
+          256
+        ],
+        "changed": false,
+        "before_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "after_bright_shadow": [
+          "#231F20",
+          "#FEFEFE"
+        ],
+        "reason": "Preserved byte-for-byte: steel, food, glass, neutral or natural secondary material.",
+        "models": []
+      }
+    ]
+  }
+}

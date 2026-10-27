@@ -90,6 +90,15 @@ namespace Catchline.Game
             return Vector2.Distance(p, a + d * Mathf.Clamp01(Vector2.Dot(p - a, d) / Mathf.Max(.000001f, d.sqrMagnitude)));
         }
 
+        // A deckhand's two deck duties, the same when the boat is set up and when the Crew page changes them (Mo 10-27:
+        // nets-first hands loaded with Sort/Sort never hauled). Hauling the catch is everyone's fallback; haulers sort second.
+        static (Deck.Duty primary, Deck.Duty secondary) DeckDuties(DeckhandWork? work) => work switch
+        {
+            DeckhandWork.Prep => (Deck.Duty.Table, Deck.Duty.Haul),
+            DeckhandWork.Nets => (Deck.Duty.Sort, Deck.Duty.Haul),
+            _ => (Deck.Duty.Haul, Deck.Duty.Sort),
+        };
+
         public bool SetDeckhandWork(CrewMember crew, DeckhandWork preference)
         {
             if (crew == null || crew.Role != CrewRole.Deckhand || !State.Crew.Contains(crew)) return false;
@@ -101,7 +110,7 @@ namespace Catchline.Game
             var person = People.FirstOrDefault(p => p.Contract == crew);
             if (Scheduler != null && person != null && workers.TryGetValue(person, out var worker))
             {
-                worker.SetDuties(preference == DeckhandWork.Prep ? Deck.Duty.Table : preference == DeckhandWork.Nets ? Deck.Duty.Sort : Deck.Duty.Haul, Deck.Duty.Haul);
+                var (primary, secondary) = DeckDuties(preference); worker.SetDuties(primary, secondary);
                 SaveGame(); return true;
             }
             person?.Stop();

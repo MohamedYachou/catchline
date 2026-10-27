@@ -11,7 +11,9 @@ namespace Catchline.Game
         int managementTab = 1; // Income then Operations, as supplied by Mo.
         int dashboardDetail = -1;
         bool flowReturning;
-        float flowWindow = 60;
+        // Rates are per minute, averaged over the last five (Mo 10-27: nets land in bursts every few minutes, so a
+        // one-minute window read 0 net hauling / 0 processing most of the time).
+        float flowWindow = 300;
         string flowCrewSignature;
         float flowNextReport, flowNextSignature;
         readonly float[] stageDemand = new float[4],stageCapacity = new float[4],stageOutput = new float[4];

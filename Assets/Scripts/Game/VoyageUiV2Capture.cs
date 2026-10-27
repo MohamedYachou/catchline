@@ -112,6 +112,12 @@ namespace Catchline.Game
                     PrepareInterface(1440, 900);
                     return CurrentMode == Mode.SailingHome && !GetComponentsInChildren<Transform>(false)
                         .Any(t => t.name is "deck/keep" or "deck/throw");
+                case "crew-office":
+                    // The Crew Office card grid at the Prep fisher tier (most cards joined), rarity backdrops at a fixed clock.
+                    StartTestTier(4); captureFreeze = true; EnterHarbour(false);
+                    for (int n = 0; n < 40; n++) Tick(.05f);
+                    OpenShop(HudTab.CrewOffice); crewTab = 0; cardUiClock = 2.5f; toastUntil = 0;
+                    return panelOpen;
                 case "sort":
                     // Rowboat with a fish on the sort table under a fresh catch card and a two-line toast.
                     StartTestTier(0); captureFreeze = true; Showcase(0, 0); SetupDeckGraph();

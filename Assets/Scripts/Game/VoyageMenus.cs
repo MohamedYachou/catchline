@@ -92,7 +92,7 @@ namespace Catchline.Game
                 for (int i = 0; i < TestTiers.Length; i++)
                 {
                     int tier = i;
-                    var r = i == TestTiers.Length - 1 ? new Rect(bx, y, bw, sh) : new Rect(bx + (i % 2) * (half + gap), y, half, sh);
+                    var r = i == TestTiers.Length - 1 && TestTiers.Length % 2 == 1 ? new Rect(bx, y, bw, sh) : new Rect(bx + (i % 2) * (half + gap), y, half, sh);
                     coastalUi.Secondary("title/tier/" + i, r, TestTiers[i], () => { StartTestTier(tier); MenuSound(); });
                     if (i % 2 == 1 || i == TestTiers.Length - 1) y += sh + gap;
                 }
@@ -123,11 +123,18 @@ namespace Catchline.Game
                     }, "Keep progress", () => confirmReset = false, () => confirmReset = false, null, 560, 320);
         }
 
-        static readonly string[] TestTiers = { "1 · Rowboat", "2 · Skiff", "3 · Compact", "4 · Prep", "5 · Buoy fisher" };
+        static readonly string[] TestTiers = { "1 · Rowboat", "2 · Skiff", "3 · Compact", "4 · Prep", "5 · Buoy fisher", "Restaurant night" };
         // Test build only: a fresh save-free game on the chosen hull, crewed and stocked for that tier.
         void StartTestTier(int tier)
         {
             if (!SessionOnly) return;
+            if (tier == 5)
+            {
+                // Mo 10-27: straight into an evening at Mira's: the Skiff, a landed catch, then prep, market and service.
+                StartTestTier(1);
+                if (StageRestaurantDay("day-plan") && StageRestaurantDay("day-prep")) Toast("Test · restaurant night · nothing is saved.");
+                return;
+            }
             bool started = tier == 2 ? StartNetBoatTrial() : tier == 3 ? StartPrepBoatTrial() : tier == 4 ? StartTier5Trial() : true;
             if (tier < 2)
             {

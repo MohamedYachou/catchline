@@ -26,7 +26,7 @@ namespace Catchline.Game
         {
             if (dt <= 0) return;
             Clock += dt; CarryBusySeconds += dt * carriersBusy;
-            while (entries.Count > 0 && entries.Peek().At <= Clock - 180) entries.Dequeue();
+            while (entries.Count > 0 && entries.Peek().At <= Clock - 300) entries.Dequeue();
         }
         public void Record(Kind kind, float kg, float value = 0, bool carried = false)
         {

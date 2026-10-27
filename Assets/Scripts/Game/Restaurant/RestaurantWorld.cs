@@ -76,7 +76,8 @@ namespace Catchline.Game.Restaurant
         {
             var prefab=Model(name);
             if(prefab==null)throw new InvalidOperationException("Restaurant asset missing: "+name+". Rebuild ArtLibrary after importing the Restaurant folder.");
-            return ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation).transform;
+            // A model exported with its axis turn on the root keeps that turn under the layout's own (else it lies on its side).
+            return ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation*prefab.transform.localRotation).transform;
         }
         // Tile x runs kitchen-to-door; the camera looks down -z, so world +x is screen left. The V4 room (kitchen left,
         // jetty right, like the mockups) is laid out that way, so tile x maps to -x.
@@ -302,12 +303,14 @@ namespace Catchline.Game.Restaurant
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
             var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena","Marta","Nils","Pia","Greta","Henrik","Zola","Vera","Anton"}; // GUESTS-3 bring their own colours
             int gi=(guests.Count+guestStart)%civilians.Length; // each night starts further along the roster
-            var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[gi]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
+            // Mo 10-27: Mira hosts in her boat model for now (the restaurant host rig read too big and wide).
+            bool boatMira=!guest&&id=="mira"&&lib?.M("CrewRig")!=null;
+            var prefab=boatMira?lib.M("CrewRig"):lib?.M(guest?"Restaurant_Guest_"+civilians[gi]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
             foreach(var a in rig.GetComponentsInChildren<Animation>())a.enabled=false;
             foreach(var a in rig.GetComponentsInChildren<Animator>())a.enabled=false;
-            var (outfit,hat)=guest?(null,null):Wardrobe(id);
+            var (outfit,hat)=guest?(null,null):boatMira?("Outfit_Deckhand","Hat_Beanie"):Wardrobe(id);
             foreach(var t in rig.GetComponentsInChildren<Transform>(true)){
                 if(!guest&&t.name.StartsWith("Outfit_"))t.gameObject.SetActive(t.name==outfit); // guests keep their own clothes
                 if(t.name.StartsWith("Hat_"))t.gameObject.SetActive(!guest&&t.name==hat);
@@ -369,10 +372,15 @@ namespace Catchline.Game.Restaurant
         {
             if(Sim==null)return;if(!captureFraming&&(width!=Screen.width||height!=Screen.height))FrameCamera();animationTime+=dt;
             foreach(var s in Sim.Staff){
-                var a=actors[s.Id];var goal=TileToWorld(s.Position);a.Root.position=goal;
-                Vector3 dir=goal-a.Last;if(dir.sqrMagnitude>.000001f)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*12));
+                // The body follows the rules' tile position smoothly (Mo 10-27: the captain skipped and glitched when the
+                // rules snapped a walker back to its tile on a new task); a far jump (door, new night) still lands at once.
+                var a=actors[s.Id];var goal=TileToWorld(s.Position);var from=a.Root.position;
+                float gap=Vector3.Distance(from,goal);
+                a.Root.position=gap>2.5f||a.Last==Vector3.zero?goal:Vector3.MoveTowards(from,goal,Mathf.Max(GameData.WalkSpeed*1.4f,gap*6)*Mathf.Max(.0001f,dt));
+                Vector3 dir=a.Root.position-from;dir.y=0;bool moving=dir.sqrMagnitude>.0000004f;
+                if(moving)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*10));
                 bool carry=s.Action.StartsWith("Serve")||s.Action=="Clear table";
-                a.Prop.gameObject.SetActive(carry);Animate(a,Pose(s,carry));a.Last=goal;
+                a.Prop.gameObject.SetActive(carry);Animate(a,moving&&gap>.05f?carry?"CarryPlate":"Walk":Pose(s,carry));a.Last=a.Root.position;
             }
             foreach(var g in Sim.Groups)for(int i=0;i<g.Guests.Count;i++){
                 var order=g.Guests[i];bool active=g.Phase!=GroupPhase.NotArrived&&g.Phase!=GroupPhase.Gone;
@@ -423,6 +431,7 @@ namespace Catchline.Game.Restaurant
         }
         // Arrange mode: the item being placed stands on its tiles over a lit footprint, green when it fits and red when not.
         Transform ghost,ghostSpot;ItemId ghostId;bool ghostRotated;
+        public string PrefabTurn(ItemId id)=>Models.TryGetValue(id,out var m)&&Model(ModelFor(id,m)) is { } p?ModelFor(id,m)+" "+p.transform.localEulerAngles:"none";
         public void Ghost(ItemId? id,Vector2Int tile,bool rotated,bool fits)
         {
             if(RoomRoot==null)return;

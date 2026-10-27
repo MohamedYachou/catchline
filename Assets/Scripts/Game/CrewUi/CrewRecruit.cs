@@ -37,7 +37,7 @@ namespace Catchline.Game
             bool open = def.TierGranted <= State.CardTier && def.Role != CardRole.Navigator;
             coastalUi.Box(id + "/window", new Rect(w * .1f, h * .075f, w * .8f, h * .43f), "", Palette.Hex("1C3A5A"), g, false);
             coastalUi.Icon(id + "/frame", new Rect(0, 0, w, h), "art108-frame-locked", g);
-            coastalUi.Icon(id + "/portrait", new Rect(w * .1f, h * .075f, w * .8f, h * .43f), "art108-" + def.Id, g, open ? new Color(.55f, .62f, .68f, 1) : new Color(.16f, .24f, .32f, 1));
+            coastalUi.Icon(id + "/portrait", PortraitSquare(new Rect(w * .1f, h * .075f, w * .8f, h * .43f)), "art108-" + def.Id, g, open ? new Color(.55f, .62f, .68f, 1) : new Color(.16f, .24f, .32f, 1));
             coastalUi.Text(id + "/name", new Rect(w * .08f, h * .512f, w * .84f, h * .086f), def.Name.ToUpperInvariant(), Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter, g);
             float[] rowY = { .613f, .726f, .839f }; float rh = h * .092f, ix = w * .125f, isz = Mathf.Min(w * .1f, rh * .8f);
             int bought = State.CrewChestsBoughtFor(def.Id);

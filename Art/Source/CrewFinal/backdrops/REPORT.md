@@ -1,0 +1,13 @@
+# Crew card rarity backdrops
+
+Source delivery for CREW-CARD-BACKDROPS-1, Codex 1 (Windows app).
+
+Six separate built-in ImageGen paintings, exported to `v2-card-back-{white,green,blue,purple,gold,mythic}.png`. Each is 756×540 RGBA, 2× the 378×270 portrait aperture, with antialiased rounded corners r44. No people, text or frame are baked into the backgrounds. All exact generation prompts and original output paths are in `generation.json`; original paintings are retained in `provenance/`.
+
+White: quiet pearl morning. Green: sage/emerald harbour. Blue: azure afternoon. Purple: violet dusk. Gold: sunset with warm lanterns. Mythic: midnight, aurora and stars. Architecture and lights sit toward the sides; the lower centre stays open water behind the bust. Richer colour and lighting distinguish the rarities without adding foreground clutter.
+
+`contact-actual-size-2880x1800.jpg` is a 2880×1800 proof with six 400 px wide cards. Top row is the flat navy baseline; middle row uses the new paintings with exactly the same crew/frame composition. Bottom shows the unobstructed art. Existing crew identities in this sheet are illustrative pairings, not a rarity reassignment. `contact-mira-all-six.jpg` uses the same accepted Mira bust in every backdrop to compare silhouette readability. Both proofs were opened and inspected; all six faces, hats and shoulders remain readable. These are deterministic source composites, not game captures. Proof labels below the portrait are illustrative and do not validate live text layout.
+
+The supplied art aperture is [51,57,378,270] in the 480×640 frame. Current runtime uses a slightly larger proportional backing rectangle [48,48,384,275.2]; keep the backdrop behind the frame and preserve that covering behaviour when wiring to avoid a seam. `PortraitSquare` centres the square bust and aligns its bottom with the backing. No runtime edits are included. These scenic paintings are not sliceable: stretch uniformly to the portrait window. They replace the flat colour visually; review the interim animated rays/glow with the new art before choosing their final opacity. Native import, texture settings and player acceptance remain Claude/Mo's work.
+
+Packaging uses Lanczos aspect-fit from the original 1484×1060 paintings and a supersampled rounded alpha mask; no repainting or hue manipulation is performed by the packaging script. Re-run with `uv run --with pillow python Art/Source/CrewFinal/backdrops/package.py` from the project root. `manifest.json` records dimensions, aperture and hashes; `audit.json` records six export checks and preservation of all 50 baseline frame/portrait references. Additional independent checks are in `independent-audit.json`. No Assets, game code or Git changes; no commit; no subagents.

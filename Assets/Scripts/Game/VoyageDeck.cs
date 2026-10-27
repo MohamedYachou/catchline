@@ -128,7 +128,7 @@ namespace Catchline.Game
                     Name = p.Name, Captain = p == Captain, Role = p == Captain ? CrewRole.Deckhand : p.Contract.Role, Card = CardFor(p.Contract), Actor = new PersonActor(p, DeckGraph.Grid, CardFor(p.Contract)),
                     HandCount = CardFor(p.Contract)?.Id == "sam" && Abilities?.Has("sam", 0) == true ? 4 : 3,
                     Available = () => p.Idle || p.Loitering,
-                    Primary = p.Contract?.WorkPreference == DeckhandWork.Prep ? Duty.Table : p.Contract?.WorkPreference == DeckhandWork.Nets ? Duty.Sort : Duty.Haul, Secondary = Duty.Sort,
+                    Primary = DeckDuties(p.Contract?.WorkPreference).primary, Secondary = DeckDuties(p.Contract?.WorkPreference).secondary,
                 };
                 workers[p] = w; Scheduler.Workers.Add(w);
             }

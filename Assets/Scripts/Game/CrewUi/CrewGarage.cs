@@ -155,6 +155,29 @@ namespace Catchline.Game
             }
         }
 
+        // The bust as a square centred in its wide window (preserveAspect alone hugs the left, the elements' pivot side).
+        static Rect PortraitSquare(Rect window)
+        {
+            float side = Mathf.Min(window.width, window.height);
+            return new Rect(window.center.x - side / 2, window.yMax - side, side, side);
+        }
+
+        // Behind the bust: Codex 1's painted harbour for the card's rarity (calm morning for white up to an aurora night for
+        // mythic); without it, a glow of the rarity colour and soft light rays turning slowly, kept inside the window.
+        void PortraitBackdrop(string id, Rect window, CardRarity rarity, float phase, Transform parent)
+        {
+            // The painting is the window's own size (2x, same 1.4 aspect), so it needs no mask.
+            string painted = "v2-card-back-" + rarity.ToString().ToLowerInvariant();
+            if (ArtLibrary.Get()?.UiTex(painted) != null) { coastalUi.Icon(id + "/back/art", window, painted, parent); return; }
+            var clip = coastalUi.Group(id + "/back", window, parent); coastalUi.Clip(id + "/back");
+            var c = Color.Lerp(RarityColour(rarity), Color.white, .25f);
+            float side = window.width * 1.25f, cx = window.width / 2, cy = window.height * .42f;
+            coastalUi.Icon(id + "/back/rays", new Rect(cx - side / 2, cy - side / 2, side, side), "rx-s11-celebrate-rays", clip, new Color(c.r, c.g, c.b, .22f));
+            coastalUi.Pose(id + "/back/rays", Now * 6f + phase * .1f);
+            float glow = window.width * .95f;
+            coastalUi.Icon(id + "/back/glow", new Rect(cx - glow / 2, cy - glow / 2, glow, glow), "fx-glow", clip, new Color(c.r, c.g, c.b, .5f));
+        }
+
         // One card face: rarity frame, portrait, name plate and three rows (level, role, blueprints).
         void CardFace(string id, Rect r, CardState c, Transform parent, CardRarity rarity, bool big)
         {
@@ -168,9 +191,11 @@ namespace Catchline.Game
                 coastalUi.Icon(id + "/glow", new Rect(-w * .18f, -h * .14f, w * 1.36f, h * 1.28f), "fx-glow", g, glow);
             }
             // Solid sea behind the portrait window so nothing underneath shows through the frame.
-            coastalUi.Box(id + "/window", new Rect(w * .1f, h * .075f, w * .8f, h * .43f), "", Palette.Hex("1C3A5A"), g, false);
+            var window = new Rect(w * .1f, h * .075f, w * .8f, h * .43f);
+            coastalUi.Box(id + "/window", window, "", Palette.Hex("1C3A5A"), g, false);
+            if (avail) PortraitBackdrop(id, window, rarity, r.x + r.y, g);
             coastalUi.Icon(id + "/frame", new Rect(0, 0, w, h), avail ? FrameArt(rarity) : "art108-frame-locked", g);
-            coastalUi.Icon(id + "/portrait", new Rect(w * .1f, h * .075f, w * .8f, h * .43f), "art108-" + def.Id, g, avail ? Color.white : new Color(.5f, .56f, .6f, 1));
+            coastalUi.Icon(id + "/portrait", PortraitSquare(window), "art108-" + def.Id, g, avail ? Color.white : new Color(.5f, .56f, .6f, 1));
             if (avail && rarity == CardRarity.Mythic)
             {
                 // Shine sweep across Mythic cards: a pass every four seconds.
