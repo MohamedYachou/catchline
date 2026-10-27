@@ -1,6 +1,6 @@
 # Fable: current 3D art handoff
 
-Repository: MohamedYachou/catchline. Start from branch `proto/deck-sim`.
+Repository: MohamedYachou/catchline. Start from branch `fable/current-crew-3d`.
 
 Read `AGENTS.md`, `CURRENT.md`, `Art/STYLE.md`, then this handoff.
 
@@ -14,14 +14,13 @@ Read `AGENTS.md`, `CURRENT.md`, `Art/STYLE.md`, then this handoff.
 - Contact sheets: `crew-contact-1.jpg`, `crew-contact-2.jpg`, their grid and 844px variants.
 - `REPORT.md` records skeleton, materials, substitutions, checks and limitations.
 - Runtime models: `Assets/Art/Models/Crew/Quaternius/`.
-- Animation wiring: `Assets/Scripts/Game/CrewAnim.cs`, `DeckActors.cs`, and `Restaurant/RestaurantWorld.cs`; import settings: `Assets/Editor/ArtImport.cs`.
 
 Phase 1 bodies/hair are delivered; clothing is still the placeholder bodysuit.
 Preserve the supplied 65-bone skeleton and skin weights. Read the manifest and portraits before changing appearances. Native runtime acceptance of the latest wiring is still pending.
 
-## Other current 3D
+## Restaurant pack source references
 
-Restaurant sources and accepted CC0-based pieces: `Art/Models/Restaurant/`, especially `Pack/`; runtime imports: `Assets/Art/Models/`. Project and source notes remain alongside the assets. Raw third-party download archives under `Art/Downloads/` and `Art/Audio/Downloads/` are excluded.
+Current accepted CC0-based restaurant pack sources are included under `Art/Models/Restaurant/Pack/`. This branch is a focused art handoff based on the previously published project, not a snapshot of the newest complete game runtime. Current crew source and runtime-copy FBXs are included; the newest runtime wiring remains on the local game branch. Raw third-party download archives under `Art/Downloads/` and `Art/Audio/Downloads/` are excluded.
 
 ## Download actual binary assets
 
