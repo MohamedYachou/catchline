@@ -81,9 +81,11 @@ namespace Catchline.Game.Restaurant
         // Tile x runs kitchen-to-door; the camera looks down -z, so world +x is screen left. The V4 room (kitchen left,
         // jetty right, like the mockups) is laid out that way, so tile x maps to -x.
         public Vector3 TileToWorld(Vector2 tile,float y=.04f)=>RoomRoot.TransformPoint(new Vector3(3.5f-tile.x,y,2-tile.y));
+        static int guestStart=-7;
         public void Begin(RestaurantSim sim)
         {
             if(sim==null)throw new ArgumentNullException(nameof(sim));
+            guestStart=(guestStart+7)%20; // night 1 opens with Ada, later nights bring the others (GUESTS-3 among them)
             Show(sim.Layout,sim);
         }
         // Arrange mode: the same dressed room and camera, empty of crew and guests.
@@ -297,8 +299,9 @@ namespace Catchline.Game.Restaurant
         Actor MakeActor(string id,bool guest)
         {
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
-            var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena"};
-            var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[guests.Count%civilians.Length]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
+            var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena","Marta","Nils","Pia","Greta","Henrik","Zola","Vera","Anton"}; // GUESTS-3 bring their own colours
+            int gi=(guests.Count+guestStart)%civilians.Length; // each night starts further along the roster
+            var prefab=lib?.M(guest?"Restaurant_Guest_"+civilians[gi]:"CrewRig_Restaurant")??(guest?null:lib?.M("CrewRig"));
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
             foreach(var a in rig.GetComponentsInChildren<Animation>())a.enabled=false;
@@ -318,7 +321,7 @@ namespace Catchline.Game.Restaurant
                 }
             }
             // Gus..Lena have their own material names, so only the first six need their palette back.
-            if(guest&&prefab.name.StartsWith("Restaurant_Guest_")&&guests.Count%civilians.Length<GuestPalette.GetLength(0))TintGuest(rig,guests.Count%civilians.Length);
+            if(guest&&prefab.name.StartsWith("Restaurant_Guest_")&&gi<GuestPalette.GetLength(0))TintGuest(rig,gi);
             var prop=Spawn("GrilledFishPlate",new Vector3(0,.65f,.27f),Quaternion.identity,holder);prop.gameObject.SetActive(false);
             SetLayer(holder.gameObject);
             return new Actor{Root=holder,Rig=rig,Prop=prop,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
