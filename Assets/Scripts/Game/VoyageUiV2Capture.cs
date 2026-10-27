@@ -54,6 +54,7 @@ namespace Catchline.Game
                 // Restaurant mockup screens with sample numbers (VoyageRestaurantUi.cs).
                 RestaurantPreview = screen switch { "restaurant-plan" => RestaurantScreen.Plan, "restaurant-prep" => RestaurantScreen.Prep, "restaurant-arrange" => RestaurantScreen.Arrange, "restaurant-sleep" or "restaurant-sleep-rain" or "restaurant-sleep-fair" => RestaurantScreen.Sleep, "restaurant-dashboard" => RestaurantScreen.Dashboard, "restaurant-market" => RestaurantScreen.Market, "restaurant-upgrades" => RestaurantScreen.Upgrades, "restaurant-crew" or "restaurant-crew-lift" or "restaurant-crew-tip" => RestaurantScreen.Crew, "restaurant-stageup" or "restaurant-stageup3" or "restaurant-stageup4" => RestaurantScreen.StageUp, "restaurant-firstnight" => RestaurantScreen.FirstNight, "restaurant-week" => RestaurantScreen.Week, _ when screen.StartsWith("restaurant-service") => RestaurantScreen.Service, _ => RestaurantScreen.Closing };
                 RestaurantService.Rail = screen switch { "restaurant-service-jobs" => RestaurantRailMode.Jobs, "restaurant-service-scroll" => RestaurantRailMode.Scroll, "restaurant-service-chips" => RestaurantRailMode.Chips, "restaurant-service-mockup" => RestaurantRailMode.Mockup, _ => RestaurantRailMode.Scroll };
+                if (screen == "restaurant-dashboard") upgradesSeen = -1; // the sample shows the New flag on Upgrades
                 if (screen.StartsWith("restaurant-crew"))
                 {
                     OpenRestaurantCrew();

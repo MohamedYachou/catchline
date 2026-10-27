@@ -252,6 +252,7 @@ namespace Catchline.Game
 
         void StartNight(List<PortionStock> stock)
         {
+            toastUntil = 0; // the market's sale line belongs to the morning, not over the room (RESTAURANT-REVIEW-2)
             var staff = new List<SimStaff>
             {
                 new SimStaff { Id = "mira", Job = Job.Reception, NativeJob = Job.Reception, Rarity = CardRarity.Gold, Tile = Kitchen.Door, Position = Kitchen.Door },

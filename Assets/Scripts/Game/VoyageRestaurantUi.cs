@@ -890,7 +890,7 @@ namespace Catchline.Game
                     T($"rarr/item/{i}/statet", "poor-price", it.Price.ToString(), ST("poor-price", 670));
                     T($"rarr/item/{i}/name", "poor-item", it.Name, ST("poor-item", 670), TextAnchor.MiddleCenter);
                     var pr = ST("poor-reason", 670);
-                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", new Rect(pr.x, pr.y - 3, pr.width, pr.height), TextAnchor.MiddleCenter);
+                    T($"rarr/item/{i}/free", "poor-reason", "Not enough coins", new Rect(pr.x, pr.y - 7, pr.width, pr.height), TextAnchor.MiddleCenter);
                 }
                 else
                 {
@@ -1226,7 +1226,12 @@ namespace Catchline.Game
                     Rx("rdash/arrange", 6, "v2-s6-btn-arrange", f, null, "rx-s6-btn-arrange");
                     Rx("rdash/arrange/chair", 6, "v2-s6-arrange-chair", f, null, "rx-s6-arrange-chair");
                     RxText("rdash/arrange/label", "6", "arrange-entry", "Arrange", f);
+                    // Codex 1's count badge on the Arrange tab corner: bought pieces waiting in the store (hidden at zero).
+                    int stored = Kitchen.State.Items.Count(i => i.Stored);
+                    if (stored > 0 && HasUi("rx-hud-count-badge")) HudBadge("rdash/stored", "dashboard-count", "v2-hud-count-badge", stored > 99 ? "99" : stored.ToString(), stored > 9 ? 30 : 22, f);
                 }
+                // and the New flag on Upgrades while an upgrade the player can buy now hasn't been looked at yet.
+                if (UpgradesNew() && HasUi("rx-hud-new-flag")) HudBadge("rdash/upgrades-new", "upgrades-new", "v2-hud-new-flag", "New", 45, f);
                 // The mockup's right chevron is the left one mirrored.
                 var next = RestaurantExact.Pieces["6:v2-s6-chevron-left#next-week"].rect;
                 var chevron = Rx("rdash/next-week", 6, "v2-s6-chevron-left#next-week", f, new Rect(next.xMax, next.y, next.width, next.height), "rx-s6-chevron-left");
@@ -1560,7 +1565,22 @@ namespace Catchline.Game
             crewLifted = crewLifted is { } same && same.row == row && same.task == task ? null : (row, task);
         }
 
-        void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; }
+        void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; upgradesSeen = BuyableUpgrades(); }
+
+        // The New flag shows when more upgrades are buyable than when the player last opened the upgrades.
+        int upgradesSeen;
+        int BuyableUpgrades() => RestaurantUpgrades.Count(u => !HasRestaurantUpgrade(u.id) && Kitchen.State.Stage >= u.stage && State.Coins >= u.cost);
+        bool UpgradesNew() => BuyableUpgrades() > upgradesSeen;
+
+        // A HUD badge (blank cut + live cream word) at its measured place, growing to the right from its left edge.
+        void HudBadge(string id, string use, string piece, string word, float width, Transform f)
+        {
+            var at = RestaurantExact.Pieces[$"phone:{piece}#{use}"].rect;
+            var border = piece == "v2-hud-count-badge" ? new Vector4(27, 27, 27, 27) : new Vector4(24, 21, 42, 21); // export px, Codex 1's slices
+            coastalUi.Piece(id, new Rect(at.x, at.y, width, at.height), "rx-" + piece.Substring(3), f, border, 3);
+            var s = RestaurantExact.Texts["phone:" + use].Rect;
+            RxText(id + "/word", "phone", use, word, f, piece == "v2-hud-count-badge" ? new Rect(at.x, s.y, width, s.height) : new Rect(s.x, s.y, width - (at.width - s.width), s.height));
+        }
         public void OpenRestaurantDashboard() { FillDashboard(); RestaurantPreview = RestaurantScreen.Dashboard; }
         bool HasRestaurantUpgrade(string id) => Kitchen.HasUpgrade(id);
 
