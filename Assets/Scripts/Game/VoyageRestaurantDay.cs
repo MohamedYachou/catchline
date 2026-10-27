@@ -563,8 +563,12 @@ namespace Catchline.Game
             CancelArrange(v);
             v.Category = c; v.Scroll = 0;
             var areas = c == 0 ? new[] { Area.Kitchen } : c == 1 ? new[] { Area.Guests } : c == 2 ? new[] { Area.Bar } : new[] { Area.Decor, Area.Wall };
-            v.Items = RestaurantData.Items.Where(d => areas.Contains(d.Area) && d.Id != ItemId.Reception && d.Stage <= Kitchen.State.Stage)
-                .Select(d => new RestaurantShopItem { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = d.Price })
+            // Stored items come first and cost nothing to put back; then the shop.
+            v.Items = Kitchen.State.Items.Where(i => i.Stored && areas.Contains(RestaurantData.Get(i.Id).Area)).Select(i => RestaurantData.Get(i.Id))
+                .Zip(Kitchen.State.Items.Where(i => i.Stored && areas.Contains(RestaurantData.Get(i.Id).Area)), (d, i) => new RestaurantShopItem
+                    { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = 0, StoredUid = i.Uid })
+                .Concat(RestaurantData.Items.Where(d => areas.Contains(d.Area) && d.Id != ItemId.Reception && d.Stage <= Kitchen.State.Stage)
+                .Select(d => new RestaurantShopItem { Id = d.Id, Name = ArrangeName(d), Art = "v2-item-rest-" + ArrangeArtKey(d.Id), Footprint = $"{d.Width}×{d.Height}", Price = d.Price }))
                 .ToList();
         }
 
@@ -574,6 +578,7 @@ namespace Catchline.Game
             CancelArrange(v);
             var id = v.Items[i].Id; var st = Kitchen.Stage;
             v.Selected = i; v.PlaceId = id; v.Rotated = false;
+            v.LiftUid = v.Items[i].StoredUid; v.FromStore = v.LiftUid != 0; // a stored item is put back with Move
             var mid = RestaurantData.Get(id).Area == Area.Kitchen ? new Vector2(st.KitchenWidth / 2f, 2) : new Vector2((st.KitchenWidth + st.Width) / 2f, 2);
             Vector2Int best = Vector2Int.RoundToInt(mid); float near = float.MaxValue;
             for (int y = 0; y < st.Depth; y++)
@@ -621,8 +626,24 @@ namespace Catchline.Game
         void CancelArrange(RestaurantArrangeView v)
         {
             if (v.LiftUid != 0) restaurantWorld?.Hide(v.LiftUid, false);
-            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
+            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null; v.FromStore = false;
             restaurantWorld?.Ghost(null, default, false, false);
+        }
+
+        // Store keeps the lifted item for later (it waits in the drawer); Sell gives part of its price back.
+        void StoreOrSellArrange(RestaurantArrangeView v, bool sell)
+        {
+            if (v.LiftUid == 0) return;
+            var st = Kitchen.State; st.Coins = State.Coins;
+            var before = (JsonUtility.ToJson(new ItemsOnly { Items = st.Items }), st.NextUid, State.Coins);
+            var r = sell ? Kitchen.Sell(v.LiftUid) : Kitchen.Store(v.LiftUid);
+            if (!r.Ok) { Toast(r.Message); return; }
+            v.Undo.Add(before); State.Coins = st.Coins;
+            StoreRestaurant(); SaveGame();
+            audio?.Play(sell ? VoyageAudio.Cue.Purchase : VoyageAudio.Cue.Select, .5f);
+            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
+            restaurantWorld.Show(Kitchen);
+            SetArrangeCategory(v, v.Category);
         }
 
         // ✓ pays for a new item or puts a lifted one down, through the layout's own rules; Undo steps back one.
@@ -638,8 +659,9 @@ namespace Catchline.Game
             v.Undo.Add(before); State.Coins = st.Coins;
             StoreRestaurant(); SaveGame();
             audio?.Play(moving ? VoyageAudio.Cue.Select : VoyageAudio.Cue.Purchase, .6f);
-            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
+            v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null; v.FromStore = false;
             restaurantWorld.Show(Kitchen);
+            SetArrangeCategory(v, v.Category);
         }
         [Serializable] class ItemsOnly { public List<RestaurantItem> Items; }
 
@@ -772,6 +794,20 @@ namespace Catchline.Game
                     ArrangeTapTile(RestaurantArrange, new Vector2Int(1, 2));
                     Debug.Log($"[Catchline] ARRANGE bad: {RestaurantArrange.Reason}");
                     return !RestaurantArrange.Fits;
+                case "day-arrange-lift": // lift the bought table: store / sell show beside rotate
+                    {
+                        var t = Kitchen.Active.Last(i => i.Id == ItemId.Table2);
+                        ArrangeTapTile(RestaurantArrange, new Vector2Int(t.X, t.Y));
+                        return RestaurantArrange.LiftUid == t.Uid;
+                    }
+                case "day-arrange-store":
+                    {
+                        int had = Kitchen.Active.Count();
+                        StoreOrSellArrange(RestaurantArrange, false);
+                        SetArrangeCategory(RestaurantArrange, 1);
+                        Debug.Log($"[Catchline] ARRANGE stored: active {had}->{Kitchen.Active.Count()}, drawer first {RestaurantArrange.Items[0].Name} free {RestaurantArrange.Items[0].Price == 0}");
+                        return Kitchen.Active.Count() == had - 1 && RestaurantArrange.Items[0].StoredUid != 0;
+                    }
                 case "day-arrange-kitchen": // the kitchen drawer scrolled one card along
                     SetArrangeCategory(RestaurantArrange, 0); RestaurantArrange.Scroll = 157;
                     return RestaurantArrange.Items.Count > 3;

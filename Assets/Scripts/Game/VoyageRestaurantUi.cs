@@ -385,6 +385,8 @@ namespace Catchline.Game
         // At night the crew wear their restaurant clothes (Codex 1's CLOTHES-1 busts); anyone without one keeps the sea portrait.
         static string ServiceBust(string portrait)
         {
+            // Codex 1's restaurant job busts (outfit per job, Mira as host) first, then the earlier crew busts.
+            if (ArtLibrary.Get()?.UiTex("v2-rbust-" + portrait) != null) return "v2-rbust-" + portrait;
             string id = portrait == "mira" ? "mira-d" : portrait;
             if (ArtLibrary.Get()?.UiTex("rc-bust-" + id) != null) return "rc-bust-" + id;
             return portrait == "captain" ? "v2-portrait-captain" : $"v2-bust-{portrait}";
@@ -492,7 +494,7 @@ namespace Catchline.Game
         }
 
 
-        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; public ItemId Id; }
+        public sealed class RestaurantShopItem { public string Name, Art, Fallback, Footprint; public int Price; public ItemId Id; public int StoredUid; }
         public sealed class RestaurantArrangeView
         {
             public int Coins = 2450, Category = 1, Selected;
@@ -507,7 +509,7 @@ namespace Catchline.Game
             // The item being placed: its label and where its action bubble sits (screen fractions until the room is live).
             public string Placing = "Table for 2 · 1×1"; public Vector2 PlacingAt = new(.69f, .44f);
             // Live over the room: the item on the floor (new from the drawer, or lifted with its uid), whether it fits there.
-            public ItemId? PlaceId; public Vector2Int Tile; public bool Rotated, Fits; public int LiftUid; public string Reason;
+            public ItemId? PlaceId; public Vector2Int Tile; public bool Rotated, Fits, FromStore; public int LiftUid; public string Reason;
             public float Scroll; public readonly List<(string items, int nextUid, int coins)> Undo = new();
         }
         public RestaurantArrangeView RestaurantArrange = new();
@@ -568,6 +570,21 @@ namespace Catchline.Game
                 coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { v.Rotated = !v.Rotated; RefitArrange(v); }, f);
                 A("rarr/cancel", "v2-btn-cancel#arrange-btn-cancel-01", M("v2-btn-cancel#arrange-btn-cancel-01"));
                 coastalUi.HitArea("rarr/cancel/hit", M("v2-btn-cancel#arrange-btn-cancel-01"), () => { if (live) CancelArrange(v); else v.Placing = null; }, f);
+                // A lifted item can also go to storage or be sold back (Codex 1's S1 extras, left of rotate).
+                if (live && v.LiftUid != 0 && !v.FromStore && HasUi("rx-s1x-btn-store"))
+                {
+                    Rect E(string key) { var r = RestaurantExact.Pieces["arrange-extras:" + key].rect; return new Rect(r.x + d.x, r.y + d.y, r.width, r.height); }
+                    string[] what = { "store", "sell" };
+                    for (int n = 0; n < 2; n++)
+                    {
+                        int k = n; var at = E($"v2-s1x-btn-{what[n]}#lifted-item-demo");
+                        Rx($"rarr/{what[n]}", "arrange-extras", $"v2-s1x-btn-{what[n]}#lifted-item-demo", f, at, $"rx-s1x-btn-{what[n]}");
+                        coastalUi.HitArea($"rarr/{what[n]}/hit", at, () => StoreOrSellArrange(v, k == 1), f);
+                        var lr = RestaurantExact.Texts["arrange-extras:" + what[n]].Rect;
+                        RxText($"rarr/{what[n]}/t", "arrange-extras", what[n], n == 0 ? "Store" : "Sell", f, new Rect(lr.x + d.x, lr.y + d.y, lr.width, lr.height));
+                    }
+                }
+                else { coastalUi.Sliced("rarr/store", Rect.zero, null, f); coastalUi.Sliced("rarr/sell", Rect.zero, null, f); }
                 A("rarr/confirm", "v2-btn-confirm#arrange-btn-confirm-01", M("v2-btn-confirm#arrange-btn-confirm-01"));
                 coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => { if (live) ConfirmArrange(v); else v.Placing = null; }, f);
                 // A red reason is longer than the item's name: the tag pill stretches between its round ends to fit it.
@@ -870,6 +887,7 @@ namespace Catchline.Game
             var f = RestaurantFrame("rdash/frame");
             string[] menuKey = { "fish", "soup", "coffee" };
             var st = v.Stage;
+            bool byDay = RestaurantPhase != DayPhase.Service && HasUi("rx-s6-btn-arrange");
             RxScreen("rdash", 6, f, style =>
             {
                 for (int i = 0; i < 3; i++)
@@ -887,12 +905,14 @@ namespace Catchline.Game
                     "upgrade-subtitle" => st.Name == null ? "Every stage is open" : st.Pitch,
                     "upgrade-stars" => st.Name == null ? "" : $"{st.Stars} stars",
                     "upgrade-progress" => st.Name == null ? "" : $"{Num(st.Have)} / {Num(st.Cost)}",
+                    "tab-service" => byDay ? "" : null,
                     _ => null,
                 };
             }, key =>
                 key.StartsWith("v2-s6-bar-") || key.StartsWith("v2-s6-star-full#rating") || key.StartsWith("v2-s6-star-full#primary") || key.StartsWith("v2-s6-star-empty")
                 || key.StartsWith("v2-s6-trend") // the painted curve is a fixed shape; the real week is drawn below
                 || key.StartsWith("v2-s6-dish-") || key == "v2-s6-progress-fill#primary" || key == "v2-s6-chevron-left#next-week"
+                || byDay && key == "v2-s6-tab-idle#primary" // by day the live-service slot is Codex 1's Arrange entry
                 || v.Menu.Count < 3 && key == "v2-s6-menu-row#coffee" || v.Menu.Count < 2 && key == "v2-s6-menu-row#soup" || v.Menu.Count < 1 && key == "v2-s6-menu-row#primary",
             () =>
             {
@@ -908,6 +928,12 @@ namespace Catchline.Game
                     Rx($"rdash/bar/{d}", 6, gold ? "v2-s6-bar-gold#primary" : "v2-s6-bar-teal#primary", f, new Rect(barX[d], 246 - h, gold ? 26 : 24, h), gold ? "rx-s6-bar-gold" : "rx-s6-bar-teal");
                 }
                 DashboardTrend(v.DayPopularity, f);
+                if (byDay)
+                {
+                    Rx("rdash/arrange", 6, "v2-s6-btn-arrange", f, null, "rx-s6-btn-arrange");
+                    Rx("rdash/arrange/chair", 6, "v2-s6-arrange-chair", f, null, "rx-s6-arrange-chair");
+                    RxText("rdash/arrange/label", "6", "arrange-entry", "Arrange", f);
+                }
                 // The mockup's right chevron is the left one mirrored.
                 var next = RestaurantExact.Pieces["6:v2-s6-chevron-left#next-week"].rect;
                 var chevron = Rx("rdash/next-week", 6, "v2-s6-chevron-left#next-week", f, new Rect(next.xMax, next.y, next.width, next.height), "rx-s6-chevron-left");

@@ -432,7 +432,11 @@ namespace Catchline.Game.Restaurant
             ghostSpot.gameObject.SetActive(true);
             ghostSpot.localPosition=new Vector3(3.5f-(tile.x+w*.5f-.5f),.06f,2-(tile.y+h*.5f-.5f));
             ghostSpot.localScale=new Vector3(w*1.1f,h*1.1f*tx.width/tx.height,1);
-            ghostSpot.GetComponent<SpriteRenderer>().color=fits?Color.white:new Color(1,.4f,.35f);
+            // Codex 1's red footprint when it exists (same size as the green one), the green one tinted otherwise.
+            var bad=ArtLibrary.Get()?.UiTex("rx-s1x-placement-invalid");var sr=ghostSpot.GetComponent<SpriteRenderer>();
+            var want=!fits&&bad!=null?bad:ArtLibrary.Get()?.UiTex("rx-placement-highlight");
+            if(want!=null&&sr.sprite.texture!=want)sr.sprite=Sprite.Create(want,new Rect(0,0,want.width,want.height),new Vector2(.5f,.5f),want.width);
+            sr.color=fits||bad!=null?Color.white:new Color(1,.4f,.35f);
         }
         // Service: the table the captain was told to work first is lit on the floor (null clears it).
         Transform mark;
