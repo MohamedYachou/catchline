@@ -5,9 +5,9 @@ Provisional tuning; no production wiring. Fixed 0.25 s ticks; random breakdowns 
 | Scenario | Seed | Guests | Served | Left | Dishes | Drinks | Tips | Staple cost | Net | Stars | Cats | Seconds | Metres |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | Stage 1 / Skiff | 100 | 28 | 8 | 20 | 106 | 28 | 10 | 9 | 135 | 1.93 | 7 | 600.00 | mira 12.0; captain 237.0 |
-| Stage 2 / Compact fisher | 101 | 32 | 16 | 16 | 204 | 137 | 14 | 36 | 319 | 2.13 | 20 | 600.00 | mira 70.0; cook0 88.0; waiter0 108.0; waiter1 58.0; barista 166.0 |
+| Stage 2 / Compact fisher | 101 | 32 | 16 | 16 | 204 | 137 | 19 | 36 | 324 | 2.50 | 20 | 600.00 | mira 70.0; cook0 88.0; waiter0 108.0; waiter1 58.0; barista 166.0 |
 | Stage 3 / Prep fisher | 102 | 34 | 20 | 14 | 277 | 131 | 22 | 40 | 390 | 2.65 | 18 | 600.00 | mira 130.0; cook0 120.0; cook1 28.0; waiter0 196.0; waiter1 65.0; waiter2 39.0; barista 234.0 |
-| Stage 4 / Buoy fisher | 103 | 46 | 24 | 22 | 305 | 148 | 24 | 38 | 439 | 2.35 | 27 | 600.00 | mira 142.0; cook0 150.0; cook1 16.0; cook2 0.0; waiter0 261.0; waiter1 118.0; waiter2 14.0; barista 321.0; engineer 0.0 |
+| Stage 4 / Buoy fisher | 103 | 46 | 24 | 22 | 311 | 148 | 26 | 40 | 445 | 2.43 | 27 | 600.00 | mira 156.0; cook0 150.0; cook1 16.0; cook2 0.0; waiter0 253.0; waiter1 87.0; waiter2 24.0; barista 334.0; engineer 0.0 |
 | Under-prepped (stage3) | 102 | 34 | 6 | 28 | 96 | 131 | 4 | 58 | 173 | 1.24 | 0 | 600.00 | mira 146.0; cook0 60.0; cook1 14.0; waiter0 104.0; waiter1 40.0; waiter2 10.0; barista 236.0 |
 | Over-prepped (stage3) | 102 | 34 | 27 | 7 | 359 | 131 | 36 | 33 | 493 | 3.59 | 33 | 600.00 | mira 130.0; cook0 132.0; cook1 28.0; waiter0 222.0; waiter1 71.0; waiter2 39.0; barista 234.0 |
 

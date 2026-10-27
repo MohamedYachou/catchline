@@ -262,6 +262,46 @@ namespace Catchline.EditorTools
             File.WriteAllText(Out+"/build.txt",result.summary.result+" bytes="+result.summary.totalSize+" errors="+result.summary.totalErrors);
             Debug.Log("[Catchline] Snapshot written to Builds/RestaurantPlay/Catchline.exe");
         }
+        public static void FeelBuild()
+        {
+            var path=Application.dataPath.Replace('\\','/');if(!path.Contains("Catchline-lead-sim/")&&!path.Contains("Catchline-sim/"))throw new Exception("Scratch only");
+            const string folder="C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-feel-1";Directory.CreateDirectory(folder);ArtImport.BuildLibrary();Time.timeScale=1;
+            var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+            var game=new GameObject("Restaurant feel SessionOnly native HUD").AddComponent<VoyageGame>();game.SessionOnly=true;
+            new GameObject("Restaurant feel acceptance runner").AddComponent<RestaurantPlayCapture>();
+            const string fixture="Assets/RestaurantFeelAcceptance.unity";EditorSceneManager.SaveScene(scene,fixture);
+            var result=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{fixture},locationPathName="Builds/RestaurantFeel/Catchline.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
+            Check(result.summary.result==UnityEditor.Build.Reporting.BuildResult.Succeeded,"restaurant feel native build");
+            File.WriteAllText(folder+"/build.txt",result.summary.result+" bytes="+result.summary.totalSize+" errors="+result.summary.totalErrors);
+            Debug.Log("[Catchline] RESTAURANT FEEL BUILD PASS Builds/RestaurantFeel/Catchline.exe");
+        }
+        // Same small room, stock, forecast and seed for each crew. This is evidence for the lead, not tuning.
+        public static void FeelBalance()
+        {
+            const string folder="C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-feel-1";Directory.CreateDirectory(folder);
+            var text=new StringBuilder("# Restaurant feel: balance, no tuning\n\n20 seeds (0–19), fixed .25s ticks, Friday/fair/popularity1. Starting kit, 9 pollock fillets + 6 herring stock; no extra fixtures/upgrades. Breakdowns disabled, events enabled. Crew use default CardState rarity/level and fixed native jobs; captain is the helper. Missing drinks fridge is part of the current starter room, so drinks cannot be fabricated.\n\nGave-up = guests in tables with Why=gave-up. Left at door = Gone with no assigned table. Served/guests and stars are the sim's own final totals (stars guest weighted). Idle% = fraction of 600 seconds with no accepted task, sampled before every tick; walking/preparing/waiting on a task counts busy. Dash = member absent.\n\n| Crew | Seed | Served / guests | Gave-up | Left at door | Cold dishes | Mean stars | Net coins | Mira idle% | Captain idle% | Cook idle% | Waiter idle% | Barista idle% |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n");
+            string[] names={"Mira + captain","+ cook (Dirk)","+ cook + waiter (Ana)","+ cook + waiter + barista (Ines)"};
+            for(int crew=0;crew<4;crew++){
+                int served=0,guests=0,gaveup=0,door=0,cold=0,coins=0;float stars=0;var idleSum=new float[5];
+                for(int seed=0;seed<20;seed++){
+                    var l=Kit();var f=Forecast(l,seed);f.Lock();var staff=new List<RestaurantStaff>{RestaurantStaff.FromCard(new CardState("mira"),Job.Reception,l.Door),RestaurantStaff.Captain(l.Door)};
+                    if(crew>=1)staff.Add(RestaurantStaff.FromCard(new CardState("dirk"),Job.Cook,l.PassKitchen));
+                    if(crew>=2)staff.Add(RestaurantStaff.FromCard(new CardState("ana"),Job.Waiter,l.Door));
+                    if(crew>=3)staff.Add(RestaurantStaff.FromCard(new CardState("ines"),Job.Barista,l.Door));
+                    var sim=new RestaurantSim(seed,l,f,Stock(9,6),staff){Breakdowns=false};var idle=new float[5];
+                    while(!sim.Finished&&sim.Seconds<650){for(int i=0;i<staff.Count;i++)if(!staff[i].Busy)idle[i]+=.25f;sim.Tick(.25f);}
+                    Check(sim.Finished&&sim.Result.Guests==sim.Result.Served+sim.Result.Left,"feel balance bounded/conserved crew="+crew+" seed="+seed);
+                    var r=sim.Result;int give=sim.Groups.Where(g=>g.Why=="gave-up").Sum(g=>g.Count),atDoor=sim.Groups.Where(g=>g.Phase==GroupPhase.Gone&&g.TableUid==0).Sum(g=>g.Count);
+                    text.Append(FormattableString.Invariant($"| {names[crew]} | {seed} | {r.Served} / {r.Guests} | {give} | {atDoor} | {r.ColdDishes} | {r.Stars:F3} | {r.NetCoins} |"));
+                    for(int i=0;i<5;i++){float percent=idle[i]*100/sim.Seconds;idleSum[i]+=percent;text.Append(i<staff.Count?FormattableString.Invariant($" {percent:F2} |"):" — |");}text.Append('\n');
+                    served+=r.Served;guests+=r.Guests;gaveup+=give;door+=atDoor;cold+=r.ColdDishes;coins+=r.NetCoins;stars+=r.Stars*r.Guests;
+                }
+                text.Append(FormattableString.Invariant($"| **{names[crew]} aggregate** | **20 seeds** | **{served} / {guests}** | {gaveup} | {door} | {cold} | {stars/Math.Max(1,guests):F3} | {coins} |"));
+                for(int i=0;i<5;i++)text.Append(i<crew+2?FormattableString.Invariant($" {idleSum[i]/20:F2} |"):" — |");text.Append('\n');
+            }
+            text.Append("\nAggregate counts/coins are totals; aggregate idle% is the mean across seeds. No balance constants or sim rules changed.\n");
+            File.WriteAllText(folder+"/balance.md",text.ToString());Debug.Log("[Catchline] RESTAURANT FEEL BALANCE PASS: 80 nights; "+folder+"/balance.md");
+        }
         [Serializable] sealed class ReportsFile {public List<NightResult> Nights=new List<NightResult>();}
         public static void Reports()
         {

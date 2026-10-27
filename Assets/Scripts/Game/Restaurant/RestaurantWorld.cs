@@ -45,6 +45,7 @@ namespace Catchline.Game.Restaurant
         readonly Dictionary<int,Transform> items=new();
         readonly Dictionary<string,Actor> actors=new();
         readonly Dictionary<int,Actor> guests=new();
+        readonly Dictionary<int,GuestWalk> guestWalks=new();
         readonly List<Camera> previousCameras=new();
         readonly Dictionary<string,AnimationClip> clips=new();
         readonly List<Material> guestMaterials=new();
@@ -58,7 +59,86 @@ namespace Catchline.Game.Restaurant
         float savedAmbientIntensity,savedReflectionIntensity;
         sealed class Actor
         {
-            public Transform Root,Rig,Prop,Dish; public Vector3 Last; public float Phase; public string DishName;
+            public Transform Root,Rig,Prop,Dish; public Vector3 Last,Velocity; public float Phase; public string DishName,PropName;
+            public bool Placed,Arrived,Leaving,Departed; public float Fade=1; public Material[] FadeMaterials; public int RouteKey,Waypoint; public List<Vector3> Route;
+            public Actor Ahead; public StaffTask CarryTask; public ServiceTicket CarryTicket;
+        }
+        sealed class GuestWalk
+        {
+            public readonly List<Vector3> Trail=new(); public bool Following;
+            public readonly Dictionary<int,List<Vector3>> Routes=new();
+        }
+        Vector2 WorldTile(Vector3 p){var local=RoomRoot.InverseTransformPoint(p);return new Vector2(3.5f-local.x,2-local.z);}
+        Vector2Int NearestFloor(Vector3 p)
+        {
+            var tile=WorldTile(p);Vector2Int best=Layout.Door;float distance=float.MaxValue;
+            for(int y=0;y<Layout.Stage.Depth;y++)for(int x=Layout.Stage.KitchenWidth+1;x<Layout.Stage.TotalWidth;x++){
+                var at=new Vector2Int(x,y);if(!Layout.Walkable(at))continue;float d=((Vector2)at-tile).sqrMagnitude;
+                if(d<distance){distance=d;best=at;}}
+            return best;
+        }
+        // A route belongs to the group's presentation, never to the service clock. Only the last step enters a chair.
+        List<Vector3> GuestRoute(Vector3 from,Vector3 to,Transform table=null)
+        {
+            var start=NearestFloor(from);var end=NearestFloor(to);
+            if(table!=null){
+                var centre=TableBounds(table).center;var side=to-centre;side.y=0;float best=float.MaxValue;
+                for(int y=0;y<Layout.Stage.Depth;y++)for(int x=Layout.Stage.KitchenWidth+1;x<Layout.Stage.TotalWidth;x++){
+                    var tile=new Vector2Int(x,y);if(!Layout.Walkable(tile))continue;var p=TileToWorld(tile);var radial=p-centre;radial.y=0;
+                    if(Vector3.Dot(radial,side)<=0||Layout.Path(start,tile)==null)continue;
+                    float distance=(p-to).sqrMagnitude;if(distance<best){best=distance;end=tile;}}
+            }
+            var path=Layout.Path(start,end);var route=new List<Vector3>();
+            if(path==null)return route;route.Add(TileToWorld(start));foreach(var tile in path)route.Add(TileToWorld(tile));route.Add(to);return route;
+        }
+        bool WalkGuest(Actor a,List<Vector3> route,float dt)
+        {
+            float budget=Mathf.Max(0,dt)*GameData.WalkSpeed;var from=a.Root.position;
+            while(a.Waypoint<route.Count){
+                var goal=route[a.Waypoint];float gap=Vector3.Distance(a.Root.position,goal);
+                if(gap<=.001f){a.Waypoint++;continue;}if(budget<=0)break;
+                float step=Mathf.Min(gap,budget);var next=Vector3.MoveTowards(a.Root.position,goal,step);
+                // The door is a single file: a follower waits for the person ahead to clear the shared waypoint.
+                if(a.Ahead!=null&&!a.Ahead.Departed&&(next-a.Ahead.Root.position).sqrMagnitude<.48f*.48f&&(next-a.Ahead.Root.position).sqrMagnitude<(a.Root.position-a.Ahead.Root.position).sqrMagnitude)break;
+                a.Root.position=next;budget-=step;
+                if(step<gap)break;
+            }
+            var dir=a.Root.position-from;dir.y=0;bool moving=dir.sqrMagnitude>.0000001f;
+            if(moving)a.Root.rotation=Quaternion.LookRotation(dir);return moving;
+        }
+        void Leave(Actor a,float dt)
+        {
+            if(!a.Leaving){
+                a.Leaving=true;a.Route=GuestRoute(a.Root.position,TileToWorld(Layout.Door));a.Waypoint=0;
+                a.Route.Add(TileToWorld(Layout.Door)+RoomRoot.forward*1.7f);
+                PlaceDish(a,null,null,0);
+            }
+            bool moving=WalkGuest(a,a.Route,dt);Animate(a,moving?"Walk":"Idle");
+            // At the outer threshold, dissolve only this visitor's instances; the shared guest palette stays intact.
+            if(a.Waypoint>=a.Route.Count-1){
+                if(a.FadeMaterials==null){var mats=new List<Material>();foreach(var r in a.Rig.GetComponentsInChildren<Renderer>()){
+                    var copies=r.sharedMaterials.Select(m=>m==null?null:new Material(m)).ToArray();
+                    foreach(var m in copies)if(m!=null){m.SetFloat("_Surface",1);m.SetFloat("_SrcBlend",(float)BlendMode.SrcAlpha);m.SetFloat("_DstBlend",(float)BlendMode.OneMinusSrcAlpha);m.SetFloat("_ZWrite",0);
+                        m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");m.renderQueue=(int)RenderQueue.Transparent;guestMaterials.Add(m);mats.Add(m);}r.sharedMaterials=copies;}a.FadeMaterials=mats.ToArray();}
+                a.Fade=Mathf.Max(0,a.Fade-dt*2);foreach(var m in a.FadeMaterials){foreach(string property in new[]{"_BaseColor","_Color"})if(m.HasProperty(property)){var c=m.GetColor(property);c.a=a.Fade;m.SetColor(property,c);}}
+            }
+            if(a.Fade<=0&&a.Waypoint==a.Route.Count){a.Departed=true;a.Root.gameObject.SetActive(false);}
+        }
+        // Sample the host's actual footsteps, so a trailing file takes the same corners instead of cutting a table.
+        void Escort(ServiceGroup g,GuestWalk walk)
+        {
+            var host=Sim.Staff.FirstOrDefault(s=>s.Action=="Seat group"&&s.Task.Current!=null&&s.Task.Legs.Count==0);
+            if(host==null||!actors.TryGetValue(host.Id,out var actor))return;
+            var table=Layout.Active.First(i=>i.Uid==g.TableUid);var access=Layout.Access(table,Layout.Door);
+            if(!access.HasValue||host.Target!=access.Value)return;
+            if(!walk.Following){walk.Following=true;walk.Trail.Add(TileToWorld(Layout.Door));}
+            var p=actor.Root.position;if(Vector3.Distance(walk.Trail[walk.Trail.Count-1],p)>.08f)walk.Trail.Add(p);
+        }
+        static List<Vector3> Trailing(List<Vector3> trail,float behind)
+        {
+            var route=new List<Vector3>(trail);while(route.Count>1&&behind>0){int last=route.Count-1;float length=Vector3.Distance(route[last],route[last-1]);
+                if(length<=behind){behind-=length;route.RemoveAt(last);}else{route[last]=Vector3.MoveTowards(route[last],route[last-1],behind);break;}}
+            return route;
         }
         static readonly Dictionary<ItemId,string> Models=new(){
             [ItemId.Stove]="Stove",[ItemId.SoupKettle]="SoupKettle",[ItemId.PrepCounter]="PrepCounter",
@@ -410,9 +490,32 @@ namespace Catchline.Game.Restaurant
             }
             // Gus..Lena have their own material names, so only the first six need their palette back.
             if(guest&&prefab.name.StartsWith("Restaurant_Guest_")&&gi<GuestPalette.GetLength(0))TintGuest(rig,gi);
-            var prop=Spawn("GrilledFishPlate",new Vector3(0,.65f,.27f),Quaternion.identity,holder);prop.gameObject.SetActive(false);
             SetLayer(holder.gameObject);
-            return new Actor{Root=holder,Rig=rig,Prop=prop,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
+            return new Actor{Root=holder,Rig=rig,Last=holder.position,Phase=actors.Count*.27f+guests.Count*.17f};
+        }
+        // The last leg starts after pickup/preparation; walking to the pass or the dirty table is empty handed.
+        string CarryModel(RestaurantStaff s,Actor a)
+        {
+            if(a.CarryTask!=s.Task){
+                a.CarryTask=s.Task;a.CarryTicket=null;
+                if(s.Action=="Serve fish"&&s.Task!=null&&(s.Task.Current!=null||s.Task.Legs.Count>0)){
+                    var target=s.Task.Legs.Count>0?s.Task.Legs.Last().Target:s.Task.Current.Target;
+                    // Resolve once, before either runner delivers; recomputing Access from a moving tile can pick another side.
+                    var group=Sim.Groups.FirstOrDefault(g=>g.TableUid!=0&&Layout.Cells(Layout.Active.First(i=>i.Uid==g.TableUid)).Any(c=>Mathf.Abs(c.x-target.x)+Mathf.Abs(c.y-target.y)==1)&&g.Tickets.Any(t=>t.Phase==TicketPhase.Serving&&!actors.Values.Any(other=>other!=a&&other.CarryTask!=null&&other.CarryTicket==t)));
+                    if(group!=null)a.CarryTicket=group.Tickets.First(t=>t.Phase==TicketPhase.Serving&&!actors.Values.Any(other=>other!=a&&other.CarryTask!=null&&other.CarryTicket==t));
+                }
+            }
+            if(s.Task?.Current==null||s.Task.Legs.Count!=0)return null;
+            if(s.Action=="Clear table")return "PlateDirty";
+            if(s.Action=="Serve coffee")return "CoffeeCup";
+            if(s.Action=="Serve drinks")return "Dish_Lemonade";
+            if(s.Action!="Serve fish")return null;
+            return a.CarryTicket==null?null:DishModel(a.CarryTicket.Dish);
+        }
+        void Carry(Actor a,string model)
+        {
+            if(a.PropName!=model){if(a.Prop!=null)Destroy(a.Prop.gameObject);a.Prop=null;a.PropName=model;
+                if(model!=null){a.Prop=Spawn(model,new Vector3(0,.65f,.27f),Quaternion.identity,a.Root);SetLayer(a.Prop.gameObject);}}
         }
         void FrameCamera()=>FrameCamera(Screen.width,Screen.height);
         // Captures render at their own size, not the window's; they frame for that size first.
@@ -448,44 +551,77 @@ namespace Catchline.Game.Restaurant
         }
         void Update()
         {
-            if(Sim==null)return;
-            if(DriveSimulation)Sim.Tick(Time.unscaledDeltaTime*Speed);
+            if(Sim==null||!DriveSimulation)return;
+            Sim.Tick(Time.unscaledDeltaTime*Speed);
             Refresh(Time.unscaledDeltaTime*Speed);
+        }
+        Vector3 StaffGoal(RestaurantStaff staff)
+        {
+            var p=TileToWorld(staff.DrawPosition(Sim.Alpha));var push=Vector3.zero;
+            foreach(var other in Sim.Staff){if(other==staff)continue;var delta=p-TileToWorld(other.DrawPosition(Sim.Alpha));float gap=delta.magnitude;
+                if(gap>=.5f)continue;
+                if(gap<.001f){var travel=TileToWorld(staff.Target)-p;travel.y=0;
+                    delta=travel.sqrMagnitude>.01f?Vector3.Cross(Vector3.up,travel.normalized):RoomRoot.right;
+                    // The same axis for both people, independent of their opposing travel directions.
+                    if(Vector3.Dot(delta,RoomRoot.right)<-.001f||Mathf.Abs(Vector3.Dot(delta,RoomRoot.right))<=.001f&&Vector3.Dot(delta,RoomRoot.forward)<0)delta=-delta;
+                    delta*=string.CompareOrdinal(staff.Id,other.Id)<0?1:-1;
+                }else delta/=gap;
+                push+=delta*(.5f-gap)*.5f;
+            }
+            push=Vector3.ClampMagnitude(push,.24f);var target=p+push;var tile=WorldTile(target);
+            return Layout.Walkable(Vector2Int.RoundToInt(tile))?target:p;
         }
         public void Refresh(float dt)
         {
             if(Sim==null)return;if(!captureFraming&&(width!=Screen.width||height!=Screen.height))FrameCamera();animationTime+=dt;
             foreach(var s in Sim.Staff){
-                // The body follows the rules' tile position smoothly (Mo 10-27: the captain skipped and glitched when the
-                // rules snapped a walker back to its tile on a new task); a far jump (door, new night) still lands at once.
-                var a=actors[s.Id];var goal=TileToWorld(s.Position);var from=a.Root.position;
-                float gap=Vector3.Distance(from,goal);
-                a.Root.position=gap>2.5f||a.Last==Vector3.zero?goal:Vector3.MoveTowards(from,goal,Mathf.Max(GameData.WalkSpeed*1.4f,gap*6)*Mathf.Max(.0001f,dt));
-                Vector3 dir=a.Root.position-from;dir.y=0;bool moving=dir.sqrMagnitude>.0000004f;
-                if(moving)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*10));
-                bool carry=s.Action.StartsWith("Serve")||s.Action=="Clear table";
-                a.Prop.gameObject.SetActive(carry);Animate(a,moving&&gap>.05f?carry?"CarryPlate":"Walk":Pose(s,carry));a.Last=a.Root.position;
+                // A short chase rounds a tile corner without changing the rules' route or work clock.
+                var a=actors[s.Id];var goal=StaffGoal(s);var from=a.Root.position;
+                if(!a.Placed){a.Root.position=goal;a.Placed=true;a.Velocity=Vector3.zero;}
+                else if(dt>0)a.Root.position=Vector3.SmoothDamp(from,goal,ref a.Velocity,.085f,Mathf.Max(GameData.WalkSpeed,s.WalkSpeed)*1.5f,dt);
+                Vector3 dir=a.Root.position-from;dir.y=0;bool moving=dir.sqrMagnitude>.0000001f;
+                if(moving)a.Root.rotation=Quaternion.Slerp(a.Root.rotation,Quaternion.LookRotation(dir),1-Mathf.Exp(-dt*18));
+                string prop=CarryModel(s,a);bool carry=prop!=null;
+                Carry(a,prop);Animate(a,moving?carry?"CarryPlate":"Walk":Pose(s,carry));a.Last=a.Root.position;
             }
-            foreach(var g in Sim.Groups)for(int i=0;i<g.Guests.Count;i++){
-                var order=g.Guests[i];bool active=g.Phase!=GroupPhase.NotArrived&&g.Phase!=GroupPhase.Gone;
-                if(!guests.TryGetValue(order.Id,out var a)){if(!active)continue;a=MakeActor(order.Id.ToString(),true);guests[order.Id]=a;}
-                a.Root.gameObject.SetActive(active);if(!active)continue;
-                bool seated=g.TableUid!=0&&g.Phase!=GroupPhase.Seating&&g.Phase!=GroupPhase.Queue;
-                Vector3 p=TileToWorld(new Vector2(Sim.Layout.Door.x,Sim.Layout.Door.y))+new Vector3(-(i%2)*.5f,0,.9f+(g.Id%4)*.45f);
-                Transform table=null;if(seated&&items.TryGetValue(g.TableUid,out table)){var tb=TableBounds(table);p=new Vector3(tb.center.x,table.position.y,tb.center.z)+Seat(i);}
-                if(a.Last==Vector3.zero||a.Root.position==RoomRoot.position)a.Root.position=p;
-                a.Root.position=Vector3.MoveTowards(a.Root.position,p,Mathf.Max(.01f,dt)*GameData.WalkSpeed);
-                a.Root.localRotation=Quaternion.Euler(0,seated?(i%2==0?180:0):180,0); // 0 faces the camera; the queue and front seats face into the room
-                // Existing boat work loop is a placeholder for eating; knees are folded on the same skeleton.
-                Animate(a,seated?g.Phase==GroupPhase.Eating?"Eat":"Sit":"Walk");
-                var ticket=g.Tickets.FirstOrDefault(t=>t.Order.Id==order.Id);
-                PlaceDish(a,seated&&ticket!=null&&ticket.Phase==TicketPhase.Delivered&&g.Phase==GroupPhase.Eating?ticket.Dish:null,seated?table:null,i);
-                
-                a.Last=a.Root.position;
+            var queueGroups=Sim.Groups.Where(g=>g.Phase==GroupPhase.Queue||g.Phase==GroupPhase.Seating&&(!guestWalks.TryGetValue(g.Id,out var w)||!w.Following)).OrderBy(g=>g.Arrival).ThenBy(g=>g.Id).ToList();
+            foreach(var g in Sim.Groups){
+                if(!guestWalks.TryGetValue(g.Id,out var walk)){walk=new GuestWalk();guestWalks[g.Id]=walk;}
+                if(g.Phase==GroupPhase.Seating)Escort(g,walk);
+                for(int i=0;i<g.Guests.Count;i++){
+                    var order=g.Guests[i];bool active=g.Phase!=GroupPhase.NotArrived&&g.Phase!=GroupPhase.Gone;
+                    if(!guests.TryGetValue(order.Id,out var a)){if(!active)continue;a=MakeActor(order.Id.ToString(),true);guests[order.Id]=a;}
+                    a.Ahead=i>0&&guests.TryGetValue(g.Guests[i-1].Id,out var ahead)?ahead:null;
+                    if(g.Phase==GroupPhase.Gone){if(!a.Departed)Leave(a,dt);continue;}
+                    a.Root.gameObject.SetActive(active);if(!active)continue;
+                    int row=Mathf.Max(0,queueGroups.IndexOf(g));
+                    Vector3 queue=TileToWorld(Layout.Door)+RoomRoot.right*((i-(g.Count-1)*.5f)*.65f)+RoomRoot.forward*(.9f+row*.85f);
+                    if(!a.Placed){a.Root.position=queue;a.Placed=true;}
+                    bool seated=g.TableUid!=0&&g.Phase!=GroupPhase.Seating&&g.Phase!=GroupPhase.Queue;
+                    Transform table=null;bool moving=false;
+                    if(seated&&items.TryGetValue(g.TableUid,out table)){
+                        var tb=TableBounds(table);var seat=new Vector3(tb.center.x,table.position.y,tb.center.z)+Seat(i);
+                        if(a.RouteKey!=g.TableUid){
+                            a.Route=GuestRoute(a.Root.position,seat,table);a.Waypoint=0;a.RouteKey=g.TableUid;walk.Routes[order.Id]=a.Route;}
+                        moving=WalkGuest(a,a.Route,dt);a.Arrived=a.Route.Count>0&&a.Waypoint==a.Route.Count;
+                        if(a.Arrived)a.Root.localRotation=Quaternion.Euler(0,i%2==0?180:0,0);
+                    }else if(g.Phase==GroupPhase.Seating&&walk.Following){
+                        var trail=Trailing(walk.Trail,.65f*(i+1));
+                        if(a.RouteKey!=-1){a.Route=GuestRoute(a.Root.position,TileToWorld(Layout.Door));a.Waypoint=0;a.RouteKey=-1;}
+                        var route=new List<Vector3>(a.Route);route.AddRange(trail.Skip(1));moving=WalkGuest(a,route,dt);
+                    }else{
+                        var from=a.Root.position;a.Root.position=Vector3.MoveTowards(from,queue,Mathf.Max(0,dt)*GameData.WalkSpeed);
+                        var dir=a.Root.position-from;moving=dir.sqrMagnitude>.0000001f;if(moving)a.Root.rotation=Quaternion.LookRotation(dir);
+                    }
+                    Animate(a,moving?"Walk":seated&&a.Arrived?g.Phase==GroupPhase.Eating?"Eat":"Sit":"Idle");
+                    var ticket=g.Tickets.FirstOrDefault(t=>t.Order.Id==order.Id);
+                    PlaceDish(a,seated&&a.Arrived&&ticket!=null&&ticket.Phase==TicketPhase.Delivered&&g.Phase!=GroupPhase.Payment&&g.Phase!=GroupPhase.Clearing?ticket.Dish:null,seated?table:null,i);
+                    a.Last=a.Root.position;
+                }
             }
             Snapshot.Hour=Sim.Hour;Snapshot.CoinsTonight=Sim.Result.NetCoins;Snapshot.Popularity=Mathf.Max(0,Popularity+Sim.Result.PopularityGain);Snapshot.Finished=Sim.Finished;
             Snapshot.Staff.Clear();foreach(var s in Sim.Staff)Snapshot.Staff.Add(new StaffSnapshot{Id=s.Id,PortraitKey=s.Id,Job=s.Job,Task=s.Action,Busy=s.BusyProgress});
-            Snapshot.Orders.Clear();foreach(var g in Sim.Groups.Where(g=>g.TableUid!=0&&g.Phase!=GroupPhase.Gone))foreach(var t in g.Tickets)Snapshot.Orders.Add(new OrderSnapshot{TableId=g.TableUid,GroupId=g.Id,Dish=t.Dish,Phase=g.Phase,Patience=Mathf.Clamp01(1-(Sim.Seconds-g.SeatedAt)/(RestaurantTuning.TablePatience+g.LastPatienceBoost))});
+            Snapshot.Orders.Clear();foreach(var g in Sim.Groups.Where(g=>g.TableUid!=0&&g.Phase!=GroupPhase.Gone))foreach(var t in g.Tickets)Snapshot.Orders.Add(new OrderSnapshot{TableId=g.TableUid,GroupId=g.Id,Dish=t.Dish,Phase=g.Phase,Patience=Sim.Patience(g)});
             Snapshot.Stock.Clear();foreach(var stock in Sim.Stock)foreach(var dish in RestaurantData.Dishes.Where(d=>!d.Staple&&d.Form==stock.Form&&Sim.Layout.CanCook(d.Id)))Snapshot.Stock.Add(new StockSnapshot{Dish=dish.Id,Species=stock.Species,Portions=stock.Count});
             Snapshot.BrokenAppliances.Clear();Snapshot.BrokenAppliances.AddRange(Sim.Broken.OrderBy(x=>x));
             var choice=Sim.Groups.SelectMany(g=>g.Tickets).FirstOrDefault(t=>t.Phase==TicketPhase.Choice);
@@ -591,7 +727,7 @@ namespace Catchline.Game.Restaurant
             if(ambientSaved){RenderSettings.ambientMode=savedAmbientMode;RenderSettings.ambientSkyColor=savedAmbientSky;RenderSettings.ambientEquatorColor=savedAmbientEquator;RenderSettings.ambientGroundColor=savedAmbientGround;RenderSettings.ambientLight=savedAmbientLight;RenderSettings.ambientIntensity=savedAmbientIntensity;RenderSettings.reflectionIntensity=savedReflectionIntensity;RenderSettings.defaultReflectionMode=savedReflectionMode;ambientSaved=false;}
             if(postProfile!=null){if(Application.isPlaying)Destroy(postProfile);else DestroyImmediate(postProfile);postProfile=null;}
             reflectionProbe=null;
-            items.Clear();actors.Clear();guests.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;Layout=null;
+            items.Clear();actors.Clear();guests.Clear();guestWalks.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;Layout=null;
             Snapshot.Staff.Clear();Snapshot.Orders.Clear();Snapshot.Stock.Clear();Snapshot.BrokenAppliances.Clear();Snapshot.Question=null;
         }
         void OnDestroy()=>End();

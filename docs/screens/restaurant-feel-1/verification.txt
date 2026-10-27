@@ -1,0 +1,35 @@
+RESTAURANT-FEEL-1 / Codex 2 (WSL CLI) / 2026-10-27
+Final integration source hashes: source-hashes.json; main, Catchline-sim and Catchline-lead-sim matched.
+Final canonical Regression Unity exit 0; RestaurantChecks.Regression calls Run first.
+Command: powershell.exe -NoProfile -File docs/tools/check.ps1 -Name restaurant-feel-integration -Method Catchline.EditorTools.RestaurantChecks.Regression
+Full log: /mnt/c/Users/momoy/Projects/Catchline-sim/Logs/check-restaurant-feel-integration.log
+
+[Catchline] RESTAURANT CHECKS PASSED: 47183
+[Catchline] CREW ABILITY INTEGRATION REGRESSION PASSED
+[Catchline] MAP NAV CHECKS PASSED: 11/5 available maps, 792 directed hull routes; missing maps await art. Native captures/feel not tested.
+[Catchline] JIG REGRESSION PASS. Snapshot written to Logs/jig-regression.txt
+[Catchline] GULL COAST FOCUSED PASS. Snapshot written to Logs/gull-coast-focused.txt
+[Catchline] RESTAURANT FULL REGRESSION PASSED. Snapshot written to C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-play-1/regression-passed.txt
+Exiting without the bug reporter. Application will terminate with return code 0
+
+Scratch FeelBalance Unity exit 0; log: /mnt/c/Users/momoy/Projects/Catchline-lead-sim/Logs/check-FeelBalance.log
+[Catchline] RESTAURANT FEEL BALANCE PASS: 80 nights; C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-feel-1/balance.md
+Exiting without the bug reporter. Application will terminate with return code 0
+
+Scratch FeelBuild Unity exit 0; log: /mnt/c/Users/momoy/Projects/Catchline-lead-sim/Logs/check-FeelBuild.log
+[Catchline] RESTAURANT FEEL BUILD PASS Builds/RestaurantFeel/Catchline.exe
+Exiting without the bug reporter. Application will terminate with return code 0
+
+Native 1440x900: process exit 0; docs/screens/restaurant-feel-1/native-1440x900.log
+[Catchline] Launch mode: TEST / no save reads or writes; save=C:/Users/momoy/AppData/LocalLow/DefaultCompany/Catchline\catchline-save.json
+[Catchline] RESTAURANT FEEL NATIVE PASS 1440x900 strips=3
+1440x900/seating: 80 frames at .1s presentation intervals, with matching transform/ticket metadata.
+1440x900/serving: 60 frames at .1s presentation intervals, with matching transform/ticket metadata.
+1440x900/leaving: 80 frames at .1s presentation intervals, with matching transform/ticket metadata.
+
+Native 844x390: process exit 0; docs/screens/restaurant-feel-1/native-844x390.log
+[Catchline] Launch mode: TEST / no save reads or writes; save=C:/Users/momoy/AppData/LocalLow/DefaultCompany/Catchline\catchline-save.json
+[Catchline] RESTAURANT FEEL NATIVE PASS 844x390 strips=3
+844x390/seating: 80 frames at .1s presentation intervals, with matching transform/ticket metadata.
+844x390/serving: 60 frames at .1s presentation intervals, with matching transform/ticket metadata.
+844x390/leaving: 80 frames at .1s presentation intervals, with matching transform/ticket metadata.

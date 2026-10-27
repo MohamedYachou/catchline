@@ -14,6 +14,7 @@ namespace Catchline.Game.Restaurant
         string output; int shot; readonly float[] moments={60,240,540};
         IEnumerator Start()
         {
+            if(Environment.GetCommandLineArgs().Contains("-restaurant-feel-proof")){yield return Feel();yield break;}
             proof=Environment.GetCommandLineArgs().Contains("-restaurant-proof");
             output="C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-play-1/"+Screen.width+"x"+Screen.height;
             Directory.CreateDirectory(output);Application.runInBackground=true;Time.timeScale=1;
@@ -47,6 +48,56 @@ namespace Catchline.Game.Restaurant
             yield return null;yield return Screenshot("2300-result");
             Debug.Log("[Catchline] RESTAURANT NATIVE FULL NIGHT PASS "+Screen.width+"x"+Screen.height+" served="+r.Served+" net="+r.NetCoins);
             if(proof){yield return new WaitForSecondsRealtime(1);Application.Quit();}
+        }
+        // Fixed presentation steps and a real framebuffer, in a SessionOnly scratch player. No player save is opened.
+        sealed class Strip {public string Name;public int Group,Frame;public float Start;public int Count;}
+        IEnumerator Feel()
+        {
+            output="C:/Users/momoy/Projects/Catchline/docs/screens/restaurant-feel-1/"+Screen.width+"x"+Screen.height;
+            Directory.CreateDirectory(output);Application.runInBackground=true;QualitySettings.vSyncCount=0;Application.targetFrameRate=120;Time.timeScale=1;
+            yield return null;yield return null;game=FindFirstObjectByType<VoyageGame>();
+            if(game==null||!game.SessionOnly)throw new InvalidOperationException("Restaurant feel proof requires SessionOnly");
+            game.SendMessage("EndIntro",SendMessageOptions.DontRequireReceiver);
+            typeof(VoyageGame).GetField("showTitle",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance)?.SetValue(game,false);
+            var layout=new RestaurantLayout(RestaurantLayout.StartingKit());
+            var forecast=new RestaurantForecast(91,1,DayOfWeek.Friday,Weather.Fair,new[]{(Species.Pollock,60f),(Species.Cod,30f),(Species.Mackerel,10f)},layout);forecast.Lock();
+            sim=new RestaurantSim(91,layout,forecast,new[]{new PortionStock{Species=Species.Pollock,Form=PreparedForm.Fillet,Count=9},new PortionStock{Species=Species.Herring,Form=PreparedForm.Stock,Count=6}},
+                new[]{RestaurantStaff.FromCard(new CardState("mira"),Job.Reception,layout.Door),RestaurantStaff.Captain(layout.Door),RestaurantStaff.FromCard(new CardState("dirk"),Job.Cook,layout.PassKitchen),RestaurantStaff.FromCard(new CardState("ana"),Job.Waiter,layout.Door),RestaurantStaff.FromCard(new CardState("ines"),Job.Barista,layout.Door)}){Breakdowns=false};
+            world=game.gameObject.AddComponent<RestaurantWorld>();world.DriveSimulation=false;world.Begin(sim);
+            game.RestaurantPreview=VoyageGame.RestaurantScreen.Service;game.RestaurantService.QuestionTitle=null;
+            var strips=new List<Strip>();var previous=sim.Groups.ToDictionary(g=>g.Id,g=>g.Phase);var summary=new List<string>{"Seed91; unmodified starter layout/stock, Mira+captain+Dirk+Ana+Ines; no breakdowns; SessionOnly; actual native HUD.","Five .02s presentation steps per captured .1s; enabled World uses the external driver, like RestaurantDay."};
+            bool seated=false,left=false,served=false;float elapsed=0;
+            while(elapsed<610){
+                for(int step=0;step<5;step++){sim.Tick(.02f);world.Refresh(.02f);elapsed+=.02f;}
+                Bind();
+                if(!seated){var host=sim.Staff.FirstOrDefault(s=>s.Action=="Seat group"&&s.Task.Current!=null&&s.Task.Legs.Count==0);
+                    if(host!=null){var g=sim.Groups.FirstOrDefault(g=>g.Phase==GroupPhase.Seating&&g.Count>=2);if(g!=null){strips.Add(new Strip{Name="seating",Group=g.Id,Start=elapsed,Count=80});seated=true;}}}
+                if(!left){var g=sim.Groups.FirstOrDefault(g=>g.Phase==GroupPhase.Gone&&g.TableUid!=0&&previous[g.Id]!=GroupPhase.Gone&&g.Count>=2);
+                    if(g!=null){strips.Add(new Strip{Name="leaving",Group=g.Id,Start=elapsed,Count=80});left=true;}}
+                if(!served){var waiter=sim.Staff.First(s=>s.Id=="ana");if(waiter.Action=="Serve fish"&&waiter.Task.Current!=null&&waiter.Task.Legs.Count==0){
+                    var g=sim.Groups.First(x=>x.Tickets.Any(t=>t.Phase==TicketPhase.Serving));strips.Add(new Strip{Name="serving",Group=g.Id,Start=elapsed,Count=60});served=true;}}
+                foreach(var strip in strips.Where(x=>x.Frame<x.Count)){
+                    string folder=output+"/"+strip.Name;Directory.CreateDirectory(folder);
+                    yield return new WaitForEndOfFrame();var texture=ScreenCapture.CaptureScreenshotAsTexture();
+                    if(texture==null||texture.width!=Screen.width||texture.height!=Screen.height)throw new InvalidOperationException("No native framebuffer");
+                    string name=folder+"/"+strip.Frame.ToString("D3");File.WriteAllBytes(name+".png",texture.EncodeToPNG());Destroy(texture);
+                    var rows=new List<string>{FormattableString.Invariant($"elapsed={elapsed:F3} strip={elapsed-strip.Start:F3} sim={sim.Seconds:F2} group={strip.Group}")};
+                    rows.AddRange(sim.Groups.Where(g=>g.Phase!=GroupPhase.NotArrived).Select(g=>"group="+g.Id+" phase="+g.Phase+" guests="+string.Join(",",g.Guests.Select(o=>o.Id))+" table="+g.TableUid+" delivered="+g.Tickets.Count(t=>t.Phase==TicketPhase.Delivered)));
+                    rows.AddRange(sim.Groups.SelectMany(g=>g.Tickets.Select(t=>"ticket="+t.Order.Id+" group="+g.Id+" dish="+t.Dish+" phase="+t.Phase)));
+                    rows.AddRange(sim.Staff.Select(s=>"staff="+s.Id+" task="+s.Action+" remainingLegs="+(s.Task?.Legs.Count??-1)));
+                    foreach(Transform t in world.RoomRoot)if(t.name.StartsWith("Guest ")||t.name.StartsWith("Staff ")){
+                        var p=t.position;var f=t.forward;var vp=world.ServiceCamera.WorldToScreenPoint(p);rows.Add(FormattableString.Invariant($"actor={t.name} active={t.gameObject.activeSelf} xyz={p.x:F4},{p.y:F4},{p.z:F4} forward={f.x:F4},{f.z:F4} screen={vp.x:F2},{Screen.height-vp.y:F2} children={string.Join(",",t.Cast<Transform>().Select(x=>x.name))}"));
+                        if(t.name.StartsWith("Staff ")){var rig=t.GetChild(0);var rs=rig.GetComponentsInChildren<Renderer>();var b=rs.Length>0?rs[0].bounds:new Bounds();foreach(var r in rs)b.Encapsulate(r.bounds);rows.Add(FormattableString.Invariant($"rig={t.name} scale={rig.localScale} bounds={b.size} renderers={rs.Length}"));}}
+                    File.WriteAllLines(name+".txt",rows);strip.Frame++;
+                }
+                foreach(var g in sim.Groups)previous[g.Id]=g.Phase;
+                if(seated&&left&&served&&strips.All(x=>x.Frame==x.Count))break;
+                yield return null;
+            }
+            foreach(var strip in strips)summary.Add(strip.Name+" group="+strip.Group+" frames="+strip.Frame+" interval=.1s start="+strip.Start);
+            bool pass=seated&&left&&served&&strips.All(x=>x.Frame==x.Count);File.WriteAllLines(output+"/capture.txt",summary);
+            Debug.Log("[Catchline] RESTAURANT FEEL NATIVE "+(pass?"PASS":"FAIL")+" "+Screen.width+"x"+Screen.height+" strips="+strips.Count);
+            Application.Quit(pass?0:1);
         }
         void Bind()
         {
