@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
+using URP = UnityEngine.Rendering.Universal;
 
 namespace Catchline.Game.Restaurant
 {
@@ -48,6 +50,12 @@ namespace Catchline.Game.Restaurant
         readonly List<Material> guestMaterials=new();
         int width,height;
         float animationTime;
+        VolumeProfile postProfile;
+        ReflectionProbe reflectionProbe;
+        bool ambientSaved;
+        AmbientMode savedAmbientMode;DefaultReflectionMode savedReflectionMode;
+        Color savedAmbientSky,savedAmbientEquator,savedAmbientGround,savedAmbientLight;
+        float savedAmbientIntensity,savedReflectionIntensity;
         sealed class Actor
         {
             public Transform Root,Rig,Prop,Dish; public Vector3 Last; public float Phase; public string DishName;
@@ -141,7 +149,7 @@ namespace Catchline.Game.Restaurant
                 if(sim!=null)foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
                 ServiceCamera=new GameObject("Restaurant camera").AddComponent<Camera>();
                 ServiceCamera.transform.SetParent(RoomRoot,false);
-                ServiceCamera.clearFlags=CameraClearFlags.SolidColor;ServiceCamera.backgroundColor=new Color(.09f,.3f,.56f); // the mockup's evening sea
+                ServiceCamera.clearFlags=CameraClearFlags.SolidColor;ServiceCamera.backgroundColor=new Color(.05f,.12f,.22f); // a deeper dusk sea so the warm room glows against it
                 ServiceCamera.nearClipPlane=.1f;ServiceCamera.farClipPlane=70;ServiceCamera.cullingMask=1<<Layer;ServiceCamera.depth=30;
                 // V3's camera study: 38 degree pitch, -2 degree yaw from the quay, 58mm equivalent.
                 ServiceCamera.transform.localPosition=new Vector3(-.598f,13.359f,17.088f);
@@ -152,22 +160,63 @@ namespace Catchline.Game.Restaurant
                 // Match the sea/harbour cameras: SMAA and post so the room is not softer than the rest of the game.
                 var camData=ServiceCamera.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
                 camData.renderPostProcessing=true;
+                // The grade Volume and the room sit on the restaurant layer; the camera must read volumes there, not just Default.
+                camData.volumeLayerMask=(1<<Layer)|1;camData.requiresDepthTexture=true;
                 camData.antialiasing=UnityEngine.Rendering.Universal.AntialiasingMode.SubpixelMorphologicalAntiAliasing;
                 camData.antialiasingQuality=UnityEngine.Rendering.Universal.AntialiasingQuality.High;
                 ServiceCamera.allowMSAA=true;
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
                 // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
-                AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);
-                foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),.6f,false,2.8f); // room-look3: warmer pools on the tables
-                if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
-                else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/110f,.12f,.7f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
+                AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.42f,true);
+                foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),1.5f,false,3f); // room-look3: warm pools on the tables, bright enough for the grade's bloom
+                if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/75f,.16f,1.15f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
+                else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/75f,.16f,1.15f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
                 var atlas=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor");var surface=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
                 foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>(true))foreach(var m in r.sharedMaterials)
                     if(m!=null&&m.shader.name=="Catchline/RestaurantAtlas"&&m.GetTexture("_BaseMap")==null){m.SetTexture("_BaseMap",atlas);m.SetTexture("_SurfaceMap",surface);}
                 AddSea();
-                SetLayer(RoomRoot.gameObject);FrameCamera();Refresh(0);
+                BuildMood();
+                SetLayer(RoomRoot.gameObject);
+                if(reflectionProbe!=null)reflectionProbe.RenderProbe();
+                FrameCamera();Refresh(0);
             }catch{End();throw;}
+        }
+        // Mo 10-27: the room read flat and bland. An evening grade (filmic contrast, warm highlights over cool dusk shadows,
+        // bloom on the lanterns, soft vignette and fine grain), shaped ambient and a reflection probe give it depth and life.
+        void BuildMood()
+        {
+            // Shaped ambient the atlas shader samples (SampleSH), instead of the flat project default. Global, so saved and put back in End().
+            savedAmbientMode=RenderSettings.ambientMode;savedAmbientSky=RenderSettings.ambientSkyColor;savedAmbientEquator=RenderSettings.ambientEquatorColor;
+            savedAmbientGround=RenderSettings.ambientGroundColor;savedAmbientLight=RenderSettings.ambientLight;savedAmbientIntensity=RenderSettings.ambientIntensity;
+            savedReflectionIntensity=RenderSettings.reflectionIntensity;savedReflectionMode=RenderSettings.defaultReflectionMode;ambientSaved=true;
+            RenderSettings.ambientMode=AmbientMode.Trilight;
+            RenderSettings.ambientSkyColor=new Color(.13f,.17f,.26f);     // dim dusk over the sea
+            RenderSettings.ambientEquatorColor=new Color(.17f,.14f,.12f); // low warm bounce off the room
+            RenderSettings.ambientGroundColor=new Color(.04f,.035f,.03f); // dark boards
+            RenderSettings.ambientIntensity=1f;RenderSettings.reflectionIntensity=1f;
+
+            // A realtime probe in the room centre so plates, glass, metal and polished wood catch the lanterns and the dusk.
+            var probeGo=new GameObject("Room reflections");probeGo.transform.SetParent(RoomRoot,false);probeGo.transform.localPosition=new Vector3(0,1.6f,0);
+            reflectionProbe=probeGo.AddComponent<ReflectionProbe>();
+            reflectionProbe.mode=ReflectionProbeMode.Realtime;reflectionProbe.refreshMode=ReflectionProbeRefreshMode.ViaScripting;
+            reflectionProbe.timeSlicingMode=ReflectionProbeTimeSlicingMode.NoTimeSlicing;reflectionProbe.cullingMask=1<<Layer;
+            reflectionProbe.clearFlags=ReflectionProbeClearFlags.SolidColor;reflectionProbe.backgroundColor=new Color(.05f,.12f,.22f);
+            reflectionProbe.size=new Vector3(26,10,20);reflectionProbe.boxProjection=false;reflectionProbe.resolution=128;reflectionProbe.hdr=true;reflectionProbe.intensity=1f;
+
+            // The evening grade.
+            postProfile=ScriptableObject.CreateInstance<VolumeProfile>();
+            var tm=postProfile.Add<URP.Tonemapping>();tm.mode.Override(URP.TonemappingMode.Neutral);
+            var ca=postProfile.Add<URP.ColorAdjustments>();ca.postExposure.Override(.12f);ca.contrast.Override(14f);ca.colorFilter.Override(new Color(1f,.965f,.9f));ca.saturation.Override(12f);
+            var wb=postProfile.Add<URP.WhiteBalance>();wb.temperature.Override(10f);wb.tint.Override(2f);
+            var sp=postProfile.Add<URP.SplitToning>();sp.shadows.Override(new Color(.26f,.38f,.56f));sp.highlights.Override(new Color(1f,.74f,.42f));sp.balance.Override(-8f);
+            var bl=postProfile.Add<URP.Bloom>();bl.threshold.Override(.75f);bl.intensity.Override(1.15f);bl.scatter.Override(.72f);bl.tint.Override(new Color(1f,.86f,.66f));bl.highQualityFiltering.Override(true);
+            var vg=postProfile.Add<URP.Vignette>();vg.intensity.Override(.34f);vg.smoothness.Override(.78f);vg.color.Override(new Color(.03f,.025f,.045f));
+            var fg=postProfile.Add<URP.FilmGrain>();fg.type.Override(URP.FilmGrainLookup.Thin1);fg.intensity.Override(.16f);fg.response.Override(.8f);
+            var dof=postProfile.Add<URP.DepthOfField>();dof.mode.Override(URP.DepthOfFieldMode.Gaussian);dof.gaussianStart.Override(30f);dof.gaussianEnd.Override(58f);dof.gaussianMaxRadius.Override(.8f);dof.highQualitySampling.Override(true);
+
+            var volGo=new GameObject("Evening grade");volGo.transform.SetParent(RoomRoot,false);
+            var vol=volGo.AddComponent<Volume>();vol.isGlobal=true;vol.priority=100;vol.sharedProfile=postProfile;
         }
         readonly List<Vector3> cosyLamps=new();
         static readonly string[] StageRooms={"Stage1V4","Stage2Bistro","Stage3Restaurant","Stage4Seafood"};
@@ -224,7 +273,7 @@ namespace Catchline.Game.Restaurant
         {
             var go=new GameObject(sun?"Blue dusk":"Warm practical");go.transform.SetParent(RoomRoot,false);go.transform.localPosition=position;
             var l=go.AddComponent<Light>();l.type=sun?LightType.Directional:LightType.Point;l.color=color;l.intensity=intensity;l.range=range;l.cullingMask=1<<Layer;
-            if(sun)go.transform.localRotation=Quaternion.Euler(42,-25,0);
+            if(sun){go.transform.localRotation=Quaternion.Euler(42,-25,0);l.shadows=LightShadows.Soft;l.shadowStrength=.68f;}
         }
         // Codex 2's guest palettes (Guests/build-metrics.json: skin, hair, shirt, trousers). Spawning maps the guests' crew-named
         // materials onto the shared crew palette, which dressed every guest in deckhand teal; each guest gets its own colours back.
@@ -266,7 +315,7 @@ namespace Catchline.Game.Restaurant
                 q.GetComponent<MeshRenderer>().sharedMaterial=m;
             }
             // sea1c is brighter than the old tile: lower gain keeps the room dominant (R3-02).
-            Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.46f,0));
+            Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.32f,0));
             Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,.8f,.25f));
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
@@ -514,6 +563,9 @@ namespace Catchline.Game.Restaurant
             foreach(var c in previousCameras)if(c!=null)c.enabled=true;previousCameras.Clear();
             if(RoomRoot!=null){if(Application.isPlaying)Destroy(RoomRoot.gameObject);else DestroyImmediate(RoomRoot.gameObject);}
             foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();guestTints.Clear();
+            if(ambientSaved){RenderSettings.ambientMode=savedAmbientMode;RenderSettings.ambientSkyColor=savedAmbientSky;RenderSettings.ambientEquatorColor=savedAmbientEquator;RenderSettings.ambientGroundColor=savedAmbientGround;RenderSettings.ambientLight=savedAmbientLight;RenderSettings.ambientIntensity=savedAmbientIntensity;RenderSettings.reflectionIntensity=savedReflectionIntensity;RenderSettings.defaultReflectionMode=savedReflectionMode;ambientSaved=false;}
+            if(postProfile!=null){if(Application.isPlaying)Destroy(postProfile);else DestroyImmediate(postProfile);postProfile=null;}
+            reflectionProbe=null;
             items.Clear();actors.Clear();guests.Clear();clips.Clear();RoomRoot=null;ServiceCamera=null;Sim=null;Layout=null;
             Snapshot.Staff.Clear();Snapshot.Orders.Clear();Snapshot.Stock.Clear();Snapshot.BrokenAppliances.Clear();Snapshot.Question=null;
         }
