@@ -10,7 +10,7 @@ namespace Catchline.Game
     // numbers before the restaurant logic is wired in; art not delivered yet falls back to the nearest kit icon.
     public partial class VoyageGame
     {
-        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange, Sleep, Dashboard, Market, Upgrades, Crew, StageUp }
+        public enum RestaurantScreen { None, Plan, Prep, Closing, Service, Arrange, Sleep, Dashboard, Market, Upgrades, Crew, StageUp, FirstNight }
         public RestaurantScreen RestaurantPreview;
 
         public sealed class RestaurantDish { public string Name, Art, Fallback; public int Low, High; }
@@ -604,6 +604,7 @@ namespace Catchline.Game
                     case RestaurantScreen.Dashboard: InterfaceRestaurantDashboard(RestaurantDashboard); break;
                     case RestaurantScreen.Upgrades: InterfaceRestaurantUpgrades(RestaurantShopStage); break;
                     case RestaurantScreen.StageUp: InterfaceRestaurantStageUp(RestaurantStageUp); break;
+                    case RestaurantScreen.FirstNight: InterfaceRestaurantFirstNight(); break;
                 }
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
@@ -685,22 +686,25 @@ namespace Catchline.Game
         // S6+ screens: every measured piece in paint order, then every measured text with the mockup's words unless the
         // screen supplies its own (text returns null to keep the mockup's, "" to hide). skip drops pieces by key; under
         // draws the screen's own stateful pieces after the art and before the words.
-        void RxScreen(string id, int screen, Transform f, System.Func<string, string> text = null, System.Func<string, bool> skip = null, System.Action under = null)
+        // sprite renames a piece's sprite (a variant sheet over the same layout); texts reads the words from another
+        // sheet's measured styles (S11's later stages).
+        void RxScreen(string id, int screen, Transform f, System.Func<string, string> text = null, System.Func<string, bool> skip = null, System.Action under = null,
+            System.Func<string, string> sprite = null, string texts = null)
         {
             foreach (var key in RestaurantExact.Layout[screen])
             {
                 if (skip != null && skip(key)) continue;
-                string name = key.Split('#')[0];
-                Rx($"{id}/{key}", screen, key, f, null, "rx-" + name.Substring(3));
+                string name = "rx-" + key.Split('#')[0].Substring(3);
+                Rx($"{id}/{key}", screen, key, f, null, sprite?.Invoke(name) ?? name);
             }
             under?.Invoke();
-            string prefix = screen + ":";
+            string textScreen = texts ?? screen.ToString(), prefix = textScreen + ":";
             foreach (var kv in RestaurantExact.Texts)
             {
                 if (!kv.Key.StartsWith(prefix)) continue;
                 string style = kv.Key.Substring(prefix.Length), words = text?.Invoke(style) ?? kv.Value.Text;
                 if (string.IsNullOrEmpty(words)) continue;
-                RxText($"{id}/t/{style}", screen, style, words, f, null, kv.Value.Align);
+                RxText($"{id}/t/{style}", textScreen, style, words, f, null, kv.Value.Align);
             }
         }
 
@@ -902,21 +906,39 @@ namespace Catchline.Game
             }
         }
 
-        // S11: a new stage (ui-11-stage-up.png); the stage 3-4 pictures replace the Bistro's once imported.
+        // S11: a new stage (ui-11-stage-up.png); stages 3 and 4 paint their own sheet over the Bistro's layout.
         void InterfaceRestaurantStageUp(RestaurantStageUpView v)
         {
             Block(new Rect(0, 0, iw, ih));
             coastalUi.Planks("rstage/planks", false);
             var f = RestaurantFrame("rstage/frame");
+            string variant = v.Stage >= 3 && HasUi($"rx-s11-stage{v.Stage}-background") ? $"stage{v.Stage}" : null;
             RxScreen("rstage", 11, f, style => style switch
             {
                 "title" => $"Welcome to the {StageWord(v.To)}!",
                 "stage" => $"{StageWord(v.From)}  >  {StageWord(v.To)}",
                 "reward" => v.Reward,
                 "unlock-0" => v.Unlocks[0], "unlock-1" => v.Unlocks[1], "unlock-2" => v.Unlocks[2],
+                "building-sign" => StageWord(v.To),
                 _ => null,
-            });
+            }, null, null, variant == null ? null : name => HasUi(name.Replace("rx-s11-", $"rx-s11-{variant}-")) ? name.Replace("rx-s11-", $"rx-s11-{variant}-") : name,
+            variant == null ? null : "11-" + variant);
             coastalUi.HitArea("rstage/go", RestaurantExact.Pieces["11:v2-s11-primary#primary"].rect, () => RestaurantPreview = RestaurantScreen.Dashboard, f);
+        }
+
+        // S13: Mira walks the player through the first service (ui-13-first-night.png) before the doors open; the night
+        // waits, paused, until it is read.
+        void InterfaceRestaurantFirstNight()
+        {
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rfirst/planks", false);
+            var f = RestaurantFrame("rfirst/frame");
+            RxScreen("rfirst", 13, f);
+            coastalUi.HitArea("rfirst/go", new Rect(0, 0, 844, 390), () =>
+            {
+                RestaurantPreview = RestaurantPhase == DayPhase.Service ? RestaurantScreen.Service : RestaurantScreen.None;
+                RestaurantService.Paused = false;
+            }, f);
         }
 
         void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; }
@@ -1133,7 +1155,8 @@ namespace Catchline.Game
             {
                 var r = v.Reviews[i]; float y = RestaurantExact.Pieces[$"5:{cards[i]}"].rect.y;
                 Rx($"rclose/review/{i}", 5, cards[i], f, null, "rx-review-card");
-                Rx($"rclose/review/{i}/face", 5, $"v2-review-portrait-0{i + 1}", f, null, $"rx-review-portrait-0{ReviewFace(r.Portrait, i)}");
+                Rx($"rclose/review/{i}/face", 5, $"v2-review-portrait-0{i + 1}", f, null,
+                    r.Portrait.StartsWith("guest-") && HasUi("v2-" + r.Portrait) ? "v2-" + r.Portrait : $"rx-review-portrait-0{ReviewFace(r.Portrait, i)}");
                 for (int s = 0; s < 5; s++)
                     Rx($"rclose/review/{i}/star/{s}", 5, "v2-star-full", f, new Rect(396 + s * 19.5f, y + 9, 18, 18), s < r.Stars ? "rx-star-full" : "rx-star-empty");
                 RxText($"rclose/review/{i}/quote", 5, "review-quote", $"“{r.Quote}”", f, new Rect(397, y + 28, 146, 30), TextAnchor.MiddleLeft);

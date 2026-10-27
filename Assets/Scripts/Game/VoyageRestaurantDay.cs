@@ -56,7 +56,7 @@ namespace Catchline.Game
         };
         // Guests write the reviews. Stand-in faces (deck portraits of people not on the night's staff) until the guest
         // portraits of RESTAURANT-MIRA-FISH-ART-1 D2 arrive.
-        static readonly string[] GuestFaces = { "ana-deck", "bram-deck", "lise-deck", "olaf-deck", "tess-deck", "yusuf-deck" };
+        static readonly string[] GuestFaces = { "guest-ada", "guest-ben", "guest-cora", "guest-dan", "guest-edda", "guest-finn", "guest-gus", "guest-hazel", "guest-ivo", "guest-jonas", "guest-kai", "guest-lena" };
         static string FishArt(Species s) => "fish-" + s.ToString().ToLowerInvariant();
         static string FishName(Species s) => GameData.Get(s).Name.ToLowerInvariant();
 
@@ -233,6 +233,8 @@ namespace Catchline.Game
             RestaurantService.Paused = false; RestaurantService.Speed = 1;
             RestaurantPhase = DayPhase.Service;
             RestaurantPreview = RestaurantScreen.Service;
+            // The very first night opens on Mira's coaching card, the service paused behind it.
+            if (State.RestaurantNights.Count == 0 && HasUi("rx-s13-background")) { RestaurantPreview = RestaurantScreen.FirstNight; RestaurantService.Paused = true; }
             Toast("Mira opens the doors. Service starts at 18:00.");
         }
 
@@ -452,6 +454,7 @@ namespace Catchline.Game
                     if (RestaurantPhase == DayPhase.Prep) RestaurantPrepared();
                     if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen();
                     if (night == null) return false;
+                    if (RestaurantPreview == RestaurantScreen.FirstNight) { RestaurantPreview = RestaurantScreen.Service; RestaurantService.Paused = false; } // seen in restaurant-firstnight
                     while (night.Hour < 19.6f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;

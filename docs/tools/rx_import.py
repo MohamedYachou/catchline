@@ -17,7 +17,7 @@ pieces={}; texts=[]; n=0; layouts={}
 S12=('arrange','phone','desktop')
 # Both Codex agents cut some pieces under the same name; S3-S5 keep the plain rx- name, S1-S2 duplicates get rx-s12-.
 s35=set(os.path.basename(f) for f in glob.glob(X+'s3-s5/v2-*.png'))
-for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'):
+for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12','s13'):
     for f in glob.glob(X+part+'/v2-*.png'):
         b=os.path.basename(f); nm=asset_name(b[:-4])
         if part=='s1-s2' and b in s35: nm='rx-s12-'+nm[3:]
@@ -25,6 +25,7 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
     man=X+part+'/manifest.json'
     if os.path.exists(man):
         for p in json.load(open(man)):
+            if 'rect' not in p: continue  # S13 manifest lists files only; layout.json carries rects
             pieces[(p['screen'],p['name'])]=(p['rect'],p['size'],p.get('borders'))
     lay=X+part+'/layout.json'
     if os.path.exists(lay):
@@ -50,6 +51,15 @@ for part in ('s3-s5','s1-s2','s1-s2-extra','s6','s7','s8','s9','s10','s11','s12'
             for key in list(pieces):
                 # only this sheet's own screens: both sheets cut pieces under some of the same names
                 if key[1].split('#')[0]==k and (key[0] in S12)==part.startswith('s1-s2'): r,s,b=pieces[key]; pieces[key]=(r,v['sourceSize'],v['borderLTRB'])
+# S11 later stages share the Bistro's layout; their wider text rects come in as screen "11-stage3"/"11-stage4".
+for st in ('stage3','stage4'):
+    f=X+'s11/later-stages/'+st+'/text-styles.json'
+    if os.path.exists(f):
+        t=json.load(open(f)); t=t if isinstance(t,list) else t.get('styles',[])
+        for x in t: x=dict(x); x['screen']='11-'+st; texts.append(x)
+# Codex 1's guest review faces (clothes/guests) keep their v2-guest- names.
+for f in glob.glob(R+'Art/Source/Restaurant/clothes/guests/v2-guest-*.png'):
+    copy(f,os.path.basename(f)[:-4]); n+=1
 def col(h):
     h=h.lstrip('#'); a=int(h[6:8],16)/255 if len(h)==8 else 1
     return f'C({int(h[0:2],16)/255:.3f}f, {int(h[2:4],16)/255:.3f}f, {int(h[4:6],16)/255:.3f}f, {a:.3f}f)'
