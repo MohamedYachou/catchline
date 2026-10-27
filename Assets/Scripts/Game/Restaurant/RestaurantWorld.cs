@@ -254,8 +254,9 @@ namespace Catchline.Game.Restaurant
                 q.transform.SetParent(RoomRoot,false);q.transform.localPosition=at;q.transform.localRotation=Quaternion.Euler(90,0,0);q.transform.localScale=new Vector3(size.x,size.y,1);
                 q.GetComponent<MeshRenderer>().sharedMaterial=m;
             }
-            Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.58f,0));
-            Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,1.3f,.25f));
+            // sea1c is brighter than the old tile: lower gain keeps the room dominant (R3-02).
+            Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.46f,0));
+            Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,.8f,.25f));
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
         // Mo 10-26: classic restaurant clothes per job; women in dresses/tops, men in suits, Mira the best-dressed host.

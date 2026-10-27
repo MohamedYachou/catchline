@@ -552,7 +552,8 @@ namespace Catchline.Game
                 {
                     // Steam rises off plates for the first half minute after they land (Codex 1's 4-frame puff, looping).
                     if (night.Seconds - g.Tickets.Max(t => t.DeliveredAt) < 30)
-                        Strip(id + "/steam", "v2-s15-steam-strip", new Vector2(at.x, at.y + 10 * s), StripTime(id + "/steam"), null, s * .75f, true); // off the plate at the table's front
+                        if (Strip(id + "/steam", "v2-s15-steam-strip", new Vector2(at.x + 10 * s, at.y + 6 * s), StripTime(id + "/steam"), null, s * .5f, true))
+                            Fade(coastalUi.ElementRect(id + "/steam"), .6f); // light heat off the plate, not a marker (R3-04)
                     float served = g.Tickets.Max(t => t.DeliveredAt) - g.SeatedAt;
                     mood = g.Tickets.Any(t => t.Cold) ? "v2-s15-mood-annoyed" : served < RestaurantTuning.TablePatience * .5f ? "v2-s15-mood-happy" : null;
                 }
@@ -571,7 +572,7 @@ namespace Catchline.Game
                     // The order bubble with the dish inset (measured slot 15,5 38x27 in the 66x43 bubble), patience ring beside it.
                     // Drawn at .72 of the cut: the mockup's compact bubble is about 44x38 over the table (RESTAURANT-REVIEW-2).
                     float so = s * .72f;
-                    var b = new Rect(at.x - 33 * so, at.y - 56 * so, 66 * so, 43 * so);
+                    var b = new Rect(at.x - 33 * so, at.y - 78 * so, 66 * so, 43 * so); // in clear air above the party's heads (R3-03)
                     P(id + "/order", "v2-s15-order-bubble", b);
                     if (g.Phase == GroupPhase.Kitchen)
                         ArrangeArt(Rx(id + "/dish", "15", "", null, new Rect(b.x + 15 * so, b.y + 5 * so, 38 * so, 27 * so), Look(wait.Dish).art));
@@ -1607,7 +1608,7 @@ namespace Catchline.Game
             Rx("rplan/bg", 3, "v2-bg-plan", f);
             // As in the mockup: a torso crop, face around (150,140) and the hat ~170 wide, cut at the waist by the frame's edge.
             var miraClip = coastalUi.Clip("rplan/mira/clip", new Rect(0, 0, 300, 390), f);
-            Rx("rplan/mira", 3, "v2-mira-plan", miraClip, new Rect(-121, 14 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 564, 705));
+            Rx("rplan/mira", 3, "v2-mira-plan", miraClip, new Rect(-138, 14 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 564, 705));
 
             Rx("rplan/back", 3, "v2-btn-back", f);
             Rx("rplan/back/icon", 3, "v2-icon-back", f);
@@ -1666,6 +1667,7 @@ namespace Catchline.Game
             Rx("rplan/go/icon", 3, "v2-icon-tick", f);
             RxText("rplan/go/label", 3, "got-it", "Got it", f);
             coastalUi.HitArea("rplan/go/hit", new Rect(668, 297, 165, 70), () => { if (RestaurantPhase == DayPhase.Plan) RestaurantPlanAccepted(); else RestaurantPreview = RestaurantScreen.None; }, f);
+            miraClip.SetAsLastSibling(); // her welcoming hand reaches over the paper's left edge, as in the mockup (R3-06)
         }
 
         // S3 with a booking (exact/s3/reservation): the reservation card replaces the special-request ticket.
@@ -1872,8 +1874,9 @@ namespace Catchline.Game
             if (HasUi("rx-s5-mira-host")) ArrangeArt(Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(60, 209 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 148, 167), "rx-s5-mira-host"));
             else Rx("rclose/mira", 5, "v2-mira-wave", miraClip, new Rect(23, 198 + Mathf.Sin(SimTime * 1.6f) * 1.5f, 222, 278));
             Rx("rclose/rays", 5, "v2-accent-rays", f);
-            Rx("rclose/say", 5, "v2-bubble-mira", f);
-            RxText("rclose/say/text", 5, "mira-bubble", TwoLines(v.MiraLine), f, new Rect(494, 264, 96, 38));
+            // 12 px right of the measured spot so it clears the end of "Crew of the night" (R3-07).
+            Rx("rclose/say", 5, "v2-bubble-mira", f, new Rect(498, 259, 108, 52));
+            RxText("rclose/say/text", 5, "mira-bubble", TwoLines(v.MiraLine), f, new Rect(506, 264, 96, 38));
             Rx("rclose/sleep", 5, "v2-btn-primary#Sleep button; nine-slice", f, null, "rx-btn-primary");
             Rx("rclose/sleep/icon", 5, "v2-icon-bed", f);
             RxText("rclose/sleep/label", 5, "sleep", "Sleep", f, new Rect(607, 331, 100, 31), TextAnchor.MiddleLeft);
