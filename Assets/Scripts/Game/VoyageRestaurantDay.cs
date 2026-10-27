@@ -930,6 +930,16 @@ namespace Catchline.Game
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
                     return RestaurantPhase == DayPhase.Service;
+                case "day-service-steam": // stops a few seconds after a plate lands, so its steam rises in the capture
+                    {
+                        if (night == null) return false;
+                        coachOff = true; coachLine = null; RestaurantService.Paused = false;
+                        float start = night.Seconds;
+                        bool Fresh() => night.Groups.Any(g => g.Phase == GroupPhase.Eating && g.Tickets.Count > 0 && night.Seconds - g.Tickets.Max(t => t.DeliveredAt) < 6);
+                        while (!Fresh() && !night.Finished && night.Seconds - start < 900) night.Tick(.5f);
+                        RestaurantTick(0f);
+                        return Fresh();
+                    }
                 case "day-closing":
                     if (night == null) return false;
                     while (!night.Finished) night.Tick(.5f);

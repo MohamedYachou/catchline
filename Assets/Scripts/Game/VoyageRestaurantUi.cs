@@ -552,7 +552,7 @@ namespace Catchline.Game
                 {
                     // Steam rises off plates for the first half minute after they land (Codex 1's 4-frame puff, looping).
                     if (night.Seconds - g.Tickets.Max(t => t.DeliveredAt) < 30)
-                        Strip(id + "/steam", "v2-s15-steam-strip", new Vector2(at.x, at.y - 6 * s), StripTime(id + "/steam"), null, s * .55f, true);
+                        Strip(id + "/steam", "v2-s15-steam-strip", new Vector2(at.x, at.y + 10 * s), StripTime(id + "/steam"), null, s * .75f, true); // off the plate at the table's front
                     float served = g.Tickets.Max(t => t.DeliveredAt) - g.SeatedAt;
                     mood = g.Tickets.Any(t => t.Cold) ? "v2-s15-mood-annoyed" : served < RestaurantTuning.TablePatience * .5f ? "v2-s15-mood-happy" : null;
                 }
