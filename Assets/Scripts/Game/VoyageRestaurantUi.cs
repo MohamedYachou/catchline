@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Catchline.Game.Restaurant;
+using SimStaff = Catchline.Game.Restaurant.RestaurantStaff;
 using UnityEngine;
 
 namespace Catchline.Game
@@ -606,6 +607,7 @@ namespace Catchline.Game
                     case RestaurantScreen.Upgrades: InterfaceRestaurantUpgrades(RestaurantShopStage); break;
                     case RestaurantScreen.StageUp: InterfaceRestaurantStageUp(RestaurantStageUp); break;
                     case RestaurantScreen.FirstNight: InterfaceRestaurantFirstNight(); break;
+                    case RestaurantScreen.Crew: InterfaceRestaurantCrew(); break;
                 }
             }
             finally { coastalUi.Kit = null; coastalUi.DisplayOverride = coastalUi.BodyOverride = null; }
@@ -854,6 +856,7 @@ namespace Catchline.Game
             coastalUi.HitArea("rdash/back", RestaurantExact.Pieces["6:v2-s6-button-back#primary"].rect, close, f);
             coastalUi.HitArea("rdash/close", RestaurantExact.Pieces["6:v2-s6-button-close#primary"].rect, close, f);
             coastalUi.HitArea("rdash/upgrades", RestaurantExact.Pieces["6:v2-s6-button-upgrades#primary"].rect, OpenRestaurantUpgrades, f);
+            coastalUi.HitArea("rdash/tab-crew", RestaurantExact.Pieces["6:v2-s6-tab-idle#crew-priorities"].rect, OpenRestaurantCrew, f);
             coastalUi.HitArea("rdash/tab-service", RestaurantExact.Pieces["6:v2-s6-tab-idle#primary"].rect, () => { if (RestaurantPhase == DayPhase.Service) RestaurantPreview = RestaurantScreen.Service; }, f);
         }
 
@@ -1006,6 +1009,122 @@ namespace Catchline.Game
                 seg.localRotation = Quaternion.Euler(0, 0, -Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg);
             }
             foreach (int d in nights) { var p = P(d); Rx($"rdash/trend/dot/{d}", 6, "v2-s6-trend-dot", f, new Rect(p.x - 6, p.y - 6, 12, 12), "rx-s6-trend-dot"); }
+        }
+
+        // S9: crew priorities (ui-9-crew-priorities.png). Jobs are fixed per card; the three tasks reorder. Tap a task to
+        // lift it, tap another in the same row to swap them; Save writes the order the next night uses.
+        List<(string id, Job job, Work[] order)> crewOrders;
+        (int row, int task)? crewLifted;
+        float crewTooltipUntil; int crewTooltipRow;
+        static readonly string[] CrewRowName = { "mira", "dirk", "ana", "sam", "ines", "olaf" };
+
+        void OpenRestaurantCrew()
+        {
+            crewOrders = TonightsCrew().Take(6).Select(c => (c.id, c.job, (Work[])PriorityOf(c.id, c.job).Clone())).ToList();
+            crewLifted = null;
+            RestaurantPreview = RestaurantScreen.Crew;
+        }
+
+        static string ChipKey(int row, int task) => row == 0 && task == 0 ? "primary" : $"row-{row}-task-{task}";
+        static int CrewRowOf(string key)
+        {
+            var m = System.Text.RegularExpressions.Regex.Match(key, @"row-(\d)");
+            if (m.Success) return int.Parse(m.Groups[1].Value);
+            if (key.StartsWith("v2-s9-row#")) return key.EndsWith("#primary") ? 1 : int.Parse(key.Substring(10)) + 1;
+            if (key.StartsWith("v2-s9-bust-")) return System.Array.IndexOf(CrewRowName, key.Substring(11).Split('#')[0]);
+            return key.EndsWith("#primary") ? 0 : -1;
+        }
+
+        void InterfaceRestaurantCrew()
+        {
+            if (crewOrders == null) OpenRestaurantCrew();
+            Block(new Rect(0, 0, iw, ih));
+            coastalUi.Planks("rcrew/planks", false);
+            var f = RestaurantFrame("rcrew/frame");
+            int n = crewOrders.Count;
+            bool RowPiece(string key) => key.StartsWith("v2-s9-row") || key.StartsWith("v2-s9-task-chip") || key.StartsWith("v2-s9-number-badge")
+                || key.StartsWith("v2-s9-grab-handle") || key.StartsWith("v2-s9-job-") || key.StartsWith("v2-s9-bust-");
+            // The rows' words are drawn with the rows below: the sheet's measured sizes for them vary 11-28 for the same
+            // role, so they use the mockup's steady sizes instead (Codex 1 queue to re-measure).
+            RxScreen("rcrew", 9, f, style => System.Array.Exists(CrewRowName, p => style.StartsWith(p + "-")) ? "" : style == "instructions" ? "Jobs belong to each card. Tap two tasks to swap them." : null, key => RowPiece(key) && (CrewRowOf(key) >= n || key.StartsWith("v2-s9-bust-")), () =>
+            {
+                for (int r = 0; r < n; r++)
+                {
+                    string p = CrewRowName[r];
+                    var (id, job, order) = crewOrders[r];
+                    CrewText($"rcrew/name/{r}", p + "-name", Cap(id), 18, f);
+                    CrewText($"rcrew/job/{r}/label", p + "-job", job switch { Job.Reception => "Host", _ => job.ToString() }, 14, f);
+                    for (int t = 0; t < 3; t++)
+                    {
+                        if (crewLifted is { } up && up.row == r && up.task == t) continue; // it floats above, see below
+                        CrewText($"rcrew/rank/{r}/{t}", $"{p}-rank-{t + 1}", (t + 1).ToString(), 14, f, TextAnchor.MiddleCenter, "mira-rank-1");
+                        CrewText($"rcrew/task/{r}/{t}", $"{p}-task-{t + 1}", SimStaff.Label(order[t]), 14, f);
+                    }
+                    var bust = RestaurantExact.Pieces[$"9:v2-s9-bust-{CrewRowName[r]}"].rect;
+                    // The sheet's own head crops where S9 painted that crew member, the rail bust otherwise.
+                    if (HasUi("rx-s9-bust-" + id)) Rx($"rcrew/bust/{r}", 9, $"v2-s9-bust-{id}", f, new Rect(bust.x, bust.y, bust.width, bust.height));
+                    else coastalUi.Icon($"rcrew/bust/{r}", bust, ServiceBust(id), f, null, $"v2-portrait-{id}-deck");
+                    for (int t = 0; t < 3; t++)
+                    {
+                        int row = r, task = t;
+                        var chip = RestaurantExact.Pieces[$"9:v2-s9-task-chip#{ChipKey(r, t)}"].rect;
+                        if (crewLifted is { } l && l.row == r && l.task != t) Rx($"rcrew/target/{r}/{t}", 9, "v2-s9-slot-target", f, chip);
+                        coastalUi.HitArea($"rcrew/chip/{r}/{t}", chip, () => TapCrewChip(row, task), f);
+                    }
+                    int jobRow = r;
+                    coastalUi.HitArea($"rcrew/job/{r}", RestaurantExact.Pieces[$"9:v2-s9-job-field#{(r == 0 ? "primary" : "row-" + r)}"].rect, () => { crewTooltipUntil = Time.unscaledTime + 3; crewTooltipRow = jobRow; }, f);
+                }
+            });
+            if (crewLifted is { } lift)
+            {
+                // The lifted task floats over its slot with its number, label and handle, as in the drag state.
+                var chip = RestaurantExact.Pieces[$"9:v2-s9-task-chip#{ChipKey(lift.row, lift.task)}"].rect;
+                var drag = RestaurantExact.Pieces["9:v2-s9-chip-drag"].rect; var home = RestaurantExact.Pieces["9:v2-s9-task-chip"].rect;
+                var at = new Rect(chip.x + drag.x - home.x, chip.y + drag.y - home.y, drag.width, drag.height);
+                Rx("rcrew/lifted", 9, "v2-s9-chip-drag", f, at);
+                var badge = RestaurantExact.Pieces["9:v2-s9-number-badge#primary"].rect;
+                Rx("rcrew/lifted/badge", 9, "v2-s9-number-badge", f, new Rect(at.x + 10, at.y + (at.height - badge.height) / 2 - 2, badge.width, badge.height));
+                var rank = RestaurantExact.Texts["9:mira-rank-1"]; var label = RestaurantExact.Texts["9:mira-task-1"];
+                CrewText("rcrew/lifted/rank", "mira-rank-1", (lift.task + 1).ToString(), 14, f, TextAnchor.MiddleCenter, null, new Rect(at.x + 10, at.y + (at.height - badge.height) / 2 - 2, badge.width, badge.height));
+                CrewText("rcrew/lifted/label", "mira-task-1", SimStaff.Label(crewOrders[lift.row].order[lift.task]), 14, f, TextAnchor.MiddleLeft, null, new Rect(at.x + 40, at.y + 4, label.Rect.width, at.height - 12));
+                coastalUi.HitArea("rcrew/lifted/hit", at, () => crewLifted = null, f);
+            }
+            if (Time.unscaledTime < crewTooltipUntil)
+            {
+                // The measured bubble sits above the third row's job and points down at it; it follows the tapped row.
+                float dy = RestaurantExact.Pieces[$"9:v2-s9-job-field#{(crewTooltipRow == 0 ? "primary" : "row-" + crewTooltipRow)}"].rect.y - RestaurantExact.Pieces["9:v2-s9-job-field#row-2"].rect.y;
+                var tip = RestaurantExact.Pieces["9:v2-s9-tooltip"].rect; tip.y += dy;
+                Rx("rcrew/tip", 9, "v2-s9-tooltip", f, tip);
+                CrewText("rcrew/tip/main", "mira-name", "Jobs belong to each card.", 15, f, TextAnchor.MiddleLeft, null, new Rect(199, 108 + dy, 232, 22));
+                CrewText("rcrew/tip/hint", "mira-job", "Tap two tasks to swap them.", 14, f, TextAnchor.MiddleLeft, null, new Rect(199, 133 + dy, 232, 20));
+            }
+            coastalUi.HitArea("rcrew/back", RestaurantExact.Pieces["9:v2-s9-button-back#primary"].rect, () => { crewOrders = null; OpenRestaurantDashboard(); }, f);
+            coastalUi.HitArea("rcrew/save", RestaurantExact.Pieces["9:v2-s9-button-save#primary"].rect, () =>
+            {
+                foreach (var c in crewOrders) SavePriority(c.id, c.order);
+                SaveGame(); Toast("Priorities saved for tonight.");
+                crewOrders = null; OpenRestaurantDashboard();
+            }, f);
+        }
+
+        // A row's word at its measured place in S9's own colours (colour from look, or the style itself) at a steady size.
+        void CrewText(string id, string style, string words, float size, Transform f, TextAnchor align = TextAnchor.MiddleLeft, string look = null, Rect? at = null)
+        {
+            var s = RestaurantExact.Texts["9:" + style]; var c = RestaurantExact.Texts["9:" + (look ?? style)];
+            coastalUi.StyledText(id, at ?? s.Rect, words, size, c.Fill, c.StrokeColour, c.Stroke, c.ShadowY, c.Shadow, true, align, f, frameScale);
+        }
+
+        void TapCrewChip(int row, int task)
+        {
+            if (crewLifted is { } l && l.row == row && l.task != task)
+            {
+                var o = crewOrders[row].order;
+                (o[l.task], o[task]) = (o[task], o[l.task]);
+                crewLifted = null;
+                audio?.Play(VoyageAudio.Cue.Select, .4f);
+                return;
+            }
+            crewLifted = crewLifted is { } same && same.row == row && same.task == task ? null : (row, task);
         }
 
         void OpenRestaurantUpgrades() { FillStageCard(RestaurantShopStage); RestaurantPreview = RestaurantScreen.Upgrades; }

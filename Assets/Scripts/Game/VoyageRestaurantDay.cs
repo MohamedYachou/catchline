@@ -202,6 +202,35 @@ namespace Catchline.Game
             StartNight(marketStock);
         }
 
+        // S9: each crew member's work order, as saved on the priorities screen or their job's default.
+        Work[] PriorityOf(string id, Job job)
+        {
+            var saved = State.RestaurantPriorities.FirstOrDefault(p => p.StartsWith(id + "="));
+            if (saved != null)
+                try { var w = saved.Substring(id.Length + 1).Split(',').Select(x => (Work)Enum.Parse(typeof(Work), x)).ToArray(); if (w.Length == 3) return w; }
+                catch (ArgumentException) { }
+            return SimStaff.DefaultOrder(job);
+        }
+
+        void SavePriority(string id, Work[] order)
+        {
+            State.RestaurantPriorities.RemoveAll(p => p.StartsWith(id + "="));
+            State.RestaurantPriorities.Add(id + "=" + string.Join(",", order));
+        }
+
+        // Tonight's crew as the night will field them: Mira at reception, then the deployed cards in their fixed jobs.
+        List<(string id, Job job)> TonightsCrew()
+        {
+            var crew = new List<(string, Job)> { ("mira", Job.Reception) };
+            foreach (var id in State.TripDeployment.Count > 0 ? State.TripDeployment : State.Deployment)
+            {
+                var card = State.Roster.FirstOrDefault(c => c.Id == id);
+                if (card == null || card.Def == null || card.Id == "mira") continue;
+                crew.Add((card.Id, SimStaff.FromCard(card, Job.Cook, Kitchen.Door).Job));
+            }
+            return crew;
+        }
+
         // ---- 3. The night -----------------------------------------------------------------------------------------
 
         void StartNight(List<PortionStock> stock)
@@ -218,6 +247,7 @@ namespace Catchline.Game
                 if (s.Job == Job.Cook) { s.Tile = Kitchen.PassKitchen; s.Position = s.Tile; }
                 staff.Add(s);
             }
+            if (!Environment.GetCommandLineArgs().Contains("-no-priorities")) foreach (var s in staff) s.Order = PriorityOf(s.Id, s.Job); // A/B checks
             // The captain walks around helping wherever the queue is longest (design section 6).
             staff.Add(SimStaff.Captain(Kitchen.Door));
             night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = true };
@@ -506,6 +536,8 @@ namespace Catchline.Game
                 case "new-service":
                     RestaurantPrepared();
                     if (RestaurantPhase == DayPhase.Market) RestaurantMarketOpen();
+                    Debug.Log($"[Catchline] NEWGAME first night card {RestaurantPreview == RestaurantScreen.FirstNight}, paused {RestaurantService.Paused}");
+                    if (RestaurantPreview == RestaurantScreen.FirstNight) { RestaurantPreview = RestaurantScreen.Service; RestaurantService.Paused = false; } // the player taps the card
                     for (int n = 0; n < 4000 && night != null && night.Hour < 20f; n++) RestaurantTick(.25f);
                     Debug.Log($"[Catchline] NEWGAME service {night?.Hour:0.00}h, served {night?.Result.Served}, coins {RestaurantService.Coins}");
                     return RestaurantPhase == DayPhase.Service;

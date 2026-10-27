@@ -36,6 +36,7 @@ namespace Catchline.Game
         public int RestaurantPopularity = 1;                 // the restaurant's popularity stars (RESTAURANT.md)
         public int RestaurantDay, RestaurantWeather;          // nights served so far; tomorrow's Weather
         public List<string> RestaurantNights = new List<string>(); // last 14 nights, GameState.RestaurantNights format
+        public List<string> RestaurantPriorities = new List<string>(); // "crewId=Work,Work,Work" (S9)
         public string RestaurantLayout = "";                 // RestaurantState JSON: stage, items, bought upgrades
         public int RenownClaimed;
         public List<int> PendingChests = new List<int>();    // ChestKind values

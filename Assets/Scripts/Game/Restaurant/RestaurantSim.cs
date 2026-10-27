@@ -20,9 +20,22 @@ namespace Catchline.Game.Restaurant
         public bool Reserved, DrinksDelivered, CoffeeDelivered, Paid; public int Stars;
         public int Count=>Guests.Count;
     }
+    // The work a staff member tries, in their priority order (S9 crew priorities); the first that finds work wins.
+    public enum Work { Seat, Till, TakeOrder, Cook, Serve, Clear, Drinks, Repair }
     public sealed class RestaurantStaff
     {
         public string Id; public Job NativeJob, Job; public CardRarity Rarity; public int Level=1, Stars;
+        public Work[] Order;
+        // Each job's own work first (the order the night ran before priorities existed), then two ways to help out.
+        public static Work[] DefaultOrder(Job job)=>job switch{
+            Job.Reception=>new[]{Work.Till,Work.TakeOrder,Work.Seat},
+            Job.Cook=>new[]{Work.Cook,Work.Serve,Work.Clear},
+            Job.Waiter=>new[]{Work.Serve,Work.Clear,Work.Drinks},
+            Job.Barista=>new[]{Work.Drinks,Work.Serve,Work.Clear},
+            Job.Handyman=>new[]{Work.Repair,Work.Clear,Work.Serve},
+            _=>null};
+        public static string Label(Work w)=>w switch{Work.Seat=>"Seat guests",Work.Till=>"Till",Work.TakeOrder=>"Take orders",Work.Cook=>"Cook orders",
+            Work.Serve=>"Serve",Work.Clear=>"Clear tables",Work.Drinks=>"Drinks",_=>"Repairs"};
         public Vector2Int Tile; public Vector2 Position; public float Metres;
         internal StaffTask Task;
         public bool Busy=>Task!=null;
@@ -219,7 +232,7 @@ namespace Catchline.Game.Restaurant
                 stations.Add(appliance.Uid);t.Phase=TicketPhase.Cooking;return true;
             }return false;
         }
-        bool Wait(RestaurantStaff s,bool host=false)
+        bool Wait(RestaurantStaff s,bool host=false,bool serve=true,bool clear=true)
         {
             foreach(var g in Priority()){
                 if(g.Reserved)continue;var table=g.TableUid==0?null:Table(g);if(table==null||Broken.Contains(table.Uid))continue;
@@ -230,12 +243,12 @@ namespace Catchline.Game.Restaurant
                         if(!g.DrinksDelivered&&g.Guests.Any(x=>x.Drink))g.Phase=GroupPhase.Drinks;else MakeTickets(g);});if(g.Reserved)return true;
                 }
                 if(host)continue;
-                if(g.Phase==GroupPhase.Kitchen){var ticket=g.Tickets.FirstOrDefault(t=>t.Phase==TicketPhase.Ready);if(ticket==null)continue;
+                if(g.Phase==GroupPhase.Kitchen&&serve){var ticket=g.Tickets.FirstOrDefault(t=>t.Phase==TicketPhase.Ready);if(ticket==null)continue;
                     if(Start(s,"Serve fish",new[]{Leg(Layout.PassGuests),Leg(a.Value,RestaurantTuning.ServeSeconds)},()=>{
                         if(g.Phase==GroupPhase.Kitchen){ticket.Phase=TicketPhase.Delivered;ticket.DeliveredAt=Seconds;ticket.Cold=Seconds-ticket.ReadyAt>RestaurantTuning.ColdSeconds;if(ticket.Cold)Result.ColdDishes++;}else {waste++;ticket.Phase=TicketPhase.Abandoned;}
                     })){ticket.Phase=TicketPhase.Serving;return true;}
                 }
-                if(g.Phase==GroupPhase.Clearing){
+                if(g.Phase==GroupPhase.Clearing&&clear){
                     g.Reserved=Start(s,"Clear table",new[]{Leg(a.Value,RestaurantTuning.ClearSeconds),Leg(Layout.PassGuests)},()=>{g.Reserved=false;g.Phase=GroupPhase.Gone;});if(g.Reserved)return true;
                 }
             }return false;
@@ -264,20 +277,27 @@ namespace Catchline.Game.Restaurant
                     stations.Add(-uid);return true;}
             }return false;
         }
-        bool Host(RestaurantStaff s)
+        bool Host(RestaurantStaff s)=>Till(s)||Wait(s,true)||Seat(s);
+        bool Till(RestaurantStaff s)
         {
             foreach(var g in Priority().Where(x=>x.Phase==GroupPhase.Payment&&!x.Reserved)){
                 var till=Station(ItemId.Reception);if(till==null)break;var a=At(till,s.Tile);if(!a.HasValue)continue;
                 g.Reserved=Start(s,"Take payment",new[]{Leg(a.Value,RestaurantTuning.PaymentSeconds,till.Uid)},()=>{g.Reserved=false;if(g.Phase!=GroupPhase.Payment)return;Pay(g,false);g.Phase=GroupPhase.Clearing;});
                 if(g.Reserved)return true;
             }
-            if(Wait(s,true))return true;
+            return false;
+        }
+        bool Seat(RestaurantStaff s)
+        {
             foreach(var g in Priority().Where(x=>x.Phase==GroupPhase.Queue&&!x.Reserved)){
                 var table=Layout.Active.Where(i=>RestaurantData.Get(i.Id).Seats>0&&TableFree(i,g.Count)).OrderBy(i=>RestaurantData.Get(i.Id).Seats).ThenBy(i=>i.Uid).FirstOrDefault();
                 if(table!=null&&StartSeat(s,g,table))return true;
             }
             return false;
         }
+        bool Do(RestaurantStaff s,Work w)=>w switch{
+            Work.Seat=>Seat(s),Work.Till=>Till(s),Work.TakeOrder=>Wait(s,true),Work.Cook=>Cook(s),
+            Work.Serve=>Wait(s,false,true,false),Work.Clear=>Wait(s,false,false,true),Work.Drinks=>Drinks(s,s.Job==Job.Barista),_=>Repair(s)};
         bool Help(RestaurantStaff s)
         {
             // Count actionable queues, breaking ties in favour of hot plates. Fall through when a station is busy.
@@ -341,6 +361,7 @@ namespace Catchline.Game.Restaurant
                     if(s.Task.Current!=null){s.Task.Path=new Queue<Vector2Int>(Path(s.Tile,s.Task.Current.Target));s.Task.Segment=0;}
                 }
                 if(s.Busy)Advance(s);if(s.Busy)continue;
+                if(s.Order!=null){foreach(var w in s.Order)if(Do(s,w))break;continue;}
                 switch(s.Job){
                     case Job.Reception:
                         Host(s);break;
