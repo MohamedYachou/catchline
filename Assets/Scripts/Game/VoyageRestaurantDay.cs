@@ -648,13 +648,29 @@ namespace Catchline.Game
             var id = v.Items[i].Id; var st = Kitchen.Stage;
             v.Selected = i; v.PlaceId = id; v.Rotated = false;
             v.LiftUid = v.Items[i].StoredUid; v.FromStore = v.LiftUid != 0; // a stored item is put back with Move
-            var mid = RestaurantData.Get(id).Area == Area.Kitchen ? new Vector2(st.KitchenWidth / 2f, 2) : new Vector2((st.KitchenWidth + st.Width) / 2f, 2);
-            Vector2Int best = Vector2Int.RoundToInt(mid); float near = float.MaxValue;
-            for (int y = 0; y < st.Depth; y++)
-                for (int x = 0; x < st.TotalWidth; x++)
-                    if ((new Vector2(x, y) - mid).sqrMagnitude < near && Kitchen.CheckPlacement(id, x, y).Ok) { near = (new Vector2(x, y) - mid).sqrMagnitude; best = new Vector2Int(x, y); }
-            v.Tile = best;
+            // Mo 10-27: no free placement. A picked piece goes straight to the first free fixed spot of its kind.
+            var spot = FixedSpot(id);
+            if (spot == null) { Toast($"No free spot for the {RestaurantData.Get(id).Name.ToLower()} in this room yet."); CancelArrange(v); return; }
+            v.Tile = spot.Value;
             RefitArrange(v);
+            ConfirmArrange(v);
+        }
+
+        // The fixed spots, best first: tables on a two-tile grid with aisles between, filled from the back; kitchen
+        // stations along the kitchen's back wall; the bar on the kitchen line; wall pieces and decor along the back wall.
+        Vector2Int? FixedSpot(ItemId id)
+        {
+            var st = Kitchen.Stage; var area = RestaurantData.Get(id).Area; int kw = st.KitchenWidth;
+            var tiles = from y in Enumerable.Range(0, st.Depth) from x in Enumerable.Range(0, st.TotalWidth) select new Vector2Int(x, y);
+            int Rank(Vector2Int t) => area switch
+            {
+                Area.Guests => ((t.x - kw - 1) % 2 == 0 && t.y % 2 == 1 ? 0 : 1000) + (st.Depth - t.y) * 50 + t.x,
+                Area.Kitchen => (st.Depth - 1 - t.y) * 50 + t.x,
+                _ => (st.Depth - 1 - t.y) * 50 + Math.Abs(t.x - kw),
+            };
+            foreach (var t in tiles.OrderBy(Rank))
+                if (Kitchen.CheckPlacement(id, t.x, t.y).Ok) return t;
+            return null;
         }
 
         void RefitArrange(RestaurantArrangeView v)
@@ -679,17 +695,13 @@ namespace Catchline.Game
 
         void ArrangeTapTile(RestaurantArrangeView v, Vector2Int tile)
         {
-            if (v.PlaceId != null)
-            {
-                var d = RestaurantData.Get(v.PlaceId.Value);
-                v.Tile = new Vector2Int(tile.x - ((v.Rotated ? d.Height : d.Width) - 1) / 2, tile.y);
-                RefitArrange(v); return;
-            }
+            // Fixed spots (Mo 10-27): a tap picks a placed piece where it stands, for Store or Sell; any other tap puts it down.
+            if (v.PlaceId != null) { CancelArrange(v); return; }
             var hit = Kitchen.Active.FirstOrDefault(i => Kitchen.Cells(i).Contains(tile));
             if (hit == null) return;
+            var d = RestaurantData.Get(hit.Id);
             v.LiftUid = hit.Uid; v.PlaceId = hit.Id; v.Tile = new Vector2Int(hit.X, hit.Y); v.Rotated = hit.Rotated; v.Selected = -1;
-            restaurantWorld.Hide(hit.Uid, true);
-            RefitArrange(v);
+            v.Fits = true; v.Reason = null; v.Placing = $"{ArrangeName(d)} · {d.Width}×{d.Height}";
         }
 
         void CancelArrange(RestaurantArrangeView v)
@@ -711,7 +723,7 @@ namespace Catchline.Game
             StoreRestaurant(); SaveGame();
             audio?.Play(sell ? VoyageAudio.Cue.Purchase : VoyageAudio.Cue.Select, .5f);
             v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null;
-            restaurantWorld.Show(Kitchen);
+            restaurantWorld?.Show(Kitchen);
             SetArrangeCategory(v, v.Category);
         }
 
@@ -729,7 +741,7 @@ namespace Catchline.Game
             StoreRestaurant(); SaveGame();
             audio?.Play(moving ? VoyageAudio.Cue.Select : VoyageAudio.Cue.Purchase, .6f);
             v.PlaceId = null; v.LiftUid = 0; v.Selected = -1; v.Placing = null; v.FromStore = false;
-            restaurantWorld.Show(Kitchen);
+            restaurantWorld?.Show(Kitchen);
             SetArrangeCategory(v, v.Category);
         }
         [Serializable] class ItemsOnly { public List<RestaurantItem> Items; }
@@ -742,7 +754,7 @@ namespace Catchline.Game
             var (items, nextUid, coins) = v.Undo[^1]; v.Undo.RemoveAt(v.Undo.Count - 1);
             Kitchen.State.Items = JsonUtility.FromJson<ItemsOnly>(items).Items; Kitchen.State.NextUid = nextUid; State.Coins = coins;
             StoreRestaurant(); SaveGame();
-            restaurantWorld.Show(Kitchen);
+            restaurantWorld?.Show(Kitchen);
         }
 
         string upgradeBought; float upgradeBoughtAt;

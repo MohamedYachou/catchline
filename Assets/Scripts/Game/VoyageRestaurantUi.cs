@@ -796,8 +796,11 @@ namespace Catchline.Game
                 var d = new Vector2((v.PlacingAt.x - .69f) * 844, (v.PlacingAt.y - .44f) * 390);
                 Rect M(string key) { var r = RestaurantExact.Pieces["arrange:" + key].rect; return new Rect(r.x + d.x, r.y + d.y, r.width, r.height); }
                 if (!live) A("rarr/spot", "v2-placement-highlight#arrange-placement-highlight-01", M("v2-placement-highlight#arrange-placement-highlight-01"));
-                A("rarr/rotate", "v2-btn-rotate#arrange-btn-rotate-01", M("v2-btn-rotate#arrange-btn-rotate-01"));
-                coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { v.Rotated = !v.Rotated; RefitArrange(v); }, f);
+                if (!live) // fixed spots in the game (Mo 10-27): nothing turns or moves, so only the mockup shows rotate and confirm
+                {
+                    A("rarr/rotate", "v2-btn-rotate#arrange-btn-rotate-01", M("v2-btn-rotate#arrange-btn-rotate-01"));
+                    coastalUi.HitArea("rarr/rotate/hit", M("v2-btn-rotate#arrange-btn-rotate-01"), () => { v.Rotated = !v.Rotated; RefitArrange(v); }, f);
+                }
                 A("rarr/cancel", "v2-btn-cancel#arrange-btn-cancel-01", M("v2-btn-cancel#arrange-btn-cancel-01"));
                 coastalUi.HitArea("rarr/cancel/hit", M("v2-btn-cancel#arrange-btn-cancel-01"), () => { if (live) CancelArrange(v); else v.Placing = null; }, f);
                 // A lifted item can also go to storage or be sold back (Codex 1's S1 extras, left of rotate).
@@ -815,8 +818,11 @@ namespace Catchline.Game
                     }
                 }
                 else { coastalUi.Sliced("rarr/store", Rect.zero, null, f); coastalUi.Sliced("rarr/sell", Rect.zero, null, f); }
-                A("rarr/confirm", "v2-btn-confirm#arrange-btn-confirm-01", M("v2-btn-confirm#arrange-btn-confirm-01"));
-                coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => { if (live) ConfirmArrange(v); else v.Placing = null; }, f);
+                if (!live)
+                {
+                    A("rarr/confirm", "v2-btn-confirm#arrange-btn-confirm-01", M("v2-btn-confirm#arrange-btn-confirm-01"));
+                    coastalUi.HitArea("rarr/confirm/hit", M("v2-btn-confirm#arrange-btn-confirm-01"), () => v.Placing = null, f);
+                }
                 // A red reason is longer than the item's name: the tag pill stretches between its round ends to fit it.
                 var tagAt = M("v2-name-tag#arrange-name-tag-01");
                 string tagText = live && !v.Fits ? v.Reason : v.Placing;

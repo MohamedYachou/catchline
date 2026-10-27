@@ -72,10 +72,14 @@ namespace Catchline.Game.Restaurant
             return Model(model)!=null||!StandIn.TryGetValue(model,out var old)?model:old;
         }
         GameObject Model(string name)=>ArtLibrary.Get()?.M("Restaurant_"+name);
+        // Some kit pieces are authored with their doors/front on the wrong axis, so they face the back wall when
+        // placed along it. A per-model yaw turns the front back toward the room (the crew), applied in the piece's frame.
+        static readonly Dictionary<string,float> FacingYaw=new(){["FridgeV2"]=180,["BigFridge"]=180,["DrinksFridge"]=180};
         Transform Spawn(string name,Vector3 p,Quaternion rotation,Transform parent=null)
         {
             var prefab=Model(name);
             if(prefab==null)throw new InvalidOperationException("Restaurant asset missing: "+name+". Rebuild ArtLibrary after importing the Restaurant folder.");
+            if(FacingYaw.TryGetValue(name,out var yaw))rotation*=Quaternion.Euler(0,yaw,0);
             // A model exported with its axis turn on the root keeps that turn under the layout's own (else it lies on its side).
             return ArtLibrary.Spawn(prefab,parent??RoomRoot,p,rotation*prefab.transform.localRotation).transform;
         }
@@ -145,6 +149,12 @@ namespace Catchline.Game.Restaurant
                 // Stage 1 reads Codex 2's room-look recipe unmirrored (its lights were placed in the V4 room's own axes, verified r31).
                 var stageLights=roomName==StageRooms[0]?RecipeLights(roomName,false):StageRecipe(roomName);
                 ServiceCamera.orthographic=false;ServiceCamera.fieldOfView=21.9542f;
+                // Match the sea/harbour cameras: SMAA and post so the room is not softer than the rest of the game.
+                var camData=ServiceCamera.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
+                camData.renderPostProcessing=true;
+                camData.antialiasing=UnityEngine.Rendering.Universal.AntialiasingMode.SubpixelMorphologicalAntiAliasing;
+                camData.antialiasingQuality=UnityEngine.Rendering.Universal.AntialiasingQuality.High;
+                ServiceCamera.allowMSAA=true;
                 foreach(var c in Camera.allCameras)if(c!=ServiceCamera&&c.enabled){previousCameras.Add(c);c.enabled=false;}
                 // Codex 2's V4 night recipe (Stage1V4/lighting.json): blue dusk over warm lanterns, window wash and the jetty lamp.
                 AddLight(new Vector3(-4,9,6),new Color(.39f,.6f,1),.55f,true);

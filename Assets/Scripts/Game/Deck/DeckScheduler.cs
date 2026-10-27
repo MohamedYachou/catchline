@@ -165,15 +165,12 @@ namespace Catchline.Game.Deck
 
         Job PickHaul(Worker w)
         {
-            // Loose fish block a deck tile and come first.
-            foreach (var lf in Loose.Where(l => l.Claim == null && SweepAllows(w, l.Fish)).OrderBy(l => Deck.Distance(w.Actor.Tile, l.Tile)))
+            // Loose fish block a deck tile and come first; carry a full load from one tile, not one fish per trip.
+            foreach (var lead in Loose.Where(l => l.Claim == null && SweepAllows(w, l.Fish)).OrderBy(l => Deck.Distance(w.Actor.Tile, l.Tile)))
             {
-                if (FishRules.NeedsTwo(lf.Fish) && !w.PowerLifter && w.HandKg < lf.Fish.Kg) continue; // two-carrier fish wait for a strong lifter or a pair (M2 ability)
-                var drop = Decide(lf.Fish) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
-                if (drop == null || drop.Hold && HoldRemainingKg() < lf.Fish.Kg) continue;
-                var job = new Job { Kind = JobKind.Haul, Worker = w, Target = drop, Label = "Hauling" };
-                lf.Claim = job; job.Fish.Add(lf.Fish);
-                return job;
+                if (FishRules.NeedsTwo(lead.Fish) && !w.PowerLifter && w.HandKg < lead.Fish.Kg) continue; // two-carrier fish wait for a strong lifter or a pair (M2 ability)
+                var job = BuildLooseHaul(w, lead);
+                if (job != null) return job;
             }
             var sources = Deck.Baskets.Where(b => b.UnclaimedCount > 0 && b.Kind is not (BasketKind.SortIn or BasketKind.TableIn))
                 .OrderByDescending(b => b.Fill).ThenBy(b => Dist(w, b.Owner));
@@ -183,6 +180,43 @@ namespace Catchline.Game.Deck
                 if (job != null) return job;
             }
             return null;
+        }
+
+        // Where a loose fish goes: to a sort table that can take it (so it is counted and keep/throw is decided there),
+        // else overboard when undersize or into the hold. Oversize fish skip the sort table by design (B2).
+        Drop LooseDrop(CaughtFish f)
+        {
+            if (FishRules.FitsBasket(f))
+            {
+                var sort = Deck.OfKind(StationKind.SortTable).Where(t => t.In != null && t.In.Free > 0)
+                    .OrderBy(t => t.Position.sqrMagnitude).FirstOrDefault();
+                if (sort != null) return Drop.To(sort.In);
+            }
+            return Decide(f) == SortOutcome.Throw ? new Drop { Overboard = true, Station = null } : HoldDrop();
+        }
+
+        // One load of loose fish from a single deck tile, all bound for the same place, up to the hand limits.
+        Job BuildLooseHaul(Worker w, LooseFish lead)
+        {
+            var drop = LooseDrop(lead.Fish);
+            if (drop == null || drop.Hold && HoldRemainingKg() < lead.Fish.Kg) return null;
+            if (drop.Basket != null && drop.Basket.Free < 1) return null;
+            var job = new Job { Kind = JobKind.Haul, Worker = w, Target = drop, Label = "Hauling" };
+            lead.Claim = job; job.Fish.Add(lead.Fish);
+            float kg = lead.Fish.Kg;
+            if (!FishRules.NeedsTwo(lead.Fish))
+                foreach (var lf in Loose.Where(l => l.Claim == null && l.Tile == lead.Tile && SweepAllows(w, l.Fish)).ToList())
+                {
+                    if (job.Fish.Count >= w.HandCount) break;
+                    if (FishRules.NeedsTwo(lf.Fish) || kg + lf.Fish.Kg > w.HandKg) continue;
+                    var d = LooseDrop(lf.Fish);
+                    if (d == null || d.Hold != drop.Hold || d.Overboard != drop.Overboard || d.Basket != drop.Basket) continue;
+                    if (drop.Basket != null && drop.Basket.Free < job.Fish.Count + 1) break;
+                    if (drop.Hold && HoldRemainingKg() < kg + lf.Fish.Kg) break;
+                    lf.Claim = job; job.Fish.Add(lf.Fish); kg += lf.Fish.Kg;
+                }
+            if (drop.Basket != null) { drop.Basket.Reserve(job.Fish.Count); job.reserved = job.Fish.Count; }
+            return job;
         }
 
         // One load from a basket: up to the hand limits, all bound for the same place.
