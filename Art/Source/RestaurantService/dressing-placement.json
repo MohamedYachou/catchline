@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "units": "metres",
+  "coordinate_space": "RoomRoot-local Unity Y up; +X screen-left; camera toward -Z",
+  "rotation": "yaw_degrees around local +Y; local front +Z",
+  "camera": {
+    "source": "RestaurantWorld.cs live Stage1 camera",
+    "position": [
+      -0.598,
+      13.359,
+      17.088
+    ],
+    "euler_degrees": [
+      38,
+      178,
+      0
+    ],
+    "vertical_fov_degrees": 21.9542
+  },
+  "wall": [
+    {
+      "name": "Restaurant_Wall_LifeRing",
+      "file": "Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_LifeRing.fbx",
+      "position": [
+        -0.36,
+        1.57,
+        -2.465
+      ],
+      "yaw_degrees": 0,
+      "scale": 1,
+      "pivot": "back centre wall contact; local +Z front",
+      "note": "Back-wall small cork ring above bottle shelf; clear of utensils and existing fish board."
+    },
+    {
+      "name": "Restaurant_Wall_ShipWheel",
+      "file": "Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_ShipWheel.fbx",
+      "position": [
+        -3.94,
+        0.61,
+        -1.05
+      ],
+      "yaw_degrees": 90,
+      "scale": 1,
+      "pivot": "back centre wall contact; local +Z front",
+      "note": "Inner right cutaway wall, below coping and forward of rear planter; no dining tile occupied."
+    },
+    {
+      "name": "Restaurant_Wall_FishPrint",
+      "file": "Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_FishPrint.fbx",
+      "position": [
+        -3.8,
+        1.43,
+        -2.465
+      ],
+      "yaw_degrees": 0,
+      "scale": 1,
+      "pivot": "back centre wall contact; local +Z front",
+      "note": "Small framed fish at far-right back-wall pier, clear of menu and lantern."
+    },
+    {
+      "name": "Restaurant_Wall_NetFloats",
+      "file": "Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_NetFloats.fbx",
+      "position": [
+        -3.94,
+        0.6,
+        -0.12
+      ],
+      "yaw_degrees": 90,
+      "scale": 1,
+      "pivot": "back centre wall contact; local +Z front",
+      "note": "Draped net below right coping between rear and middle planters; stays at wall edge."
+    },
+    {
+      "name": "Restaurant_Wall_BottleShelf",
+      "file": "Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_BottleShelf.fbx",
+      "position": [
+        -3.94,
+        0.81,
+        1.46
+      ],
+      "yaw_degrees": 90,
+      "scale": 1,
+      "pivot": "back centre wall contact; local +Z front",
+      "note": "Right-wall shelf between middle and door planters, behind fixed perimeter; no station/door overlap."
+    }
+  ],
+  "rain": [
+    {
+      "name": "Restaurant_Puddle_S",
+      "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_Puddle_S.fbx",
+      "position": [
+        2.7,
+        0.0255,
+        3.94
+      ],
+      "yaw_degrees": -14,
+      "scale": 1,
+      "pivot": "bottom centre",
+      "note": "Small wet patch at terrace front edge; paving upper bevel Y0.025, water pivot Y0.0255. Outside configurable room and clear of door."
+    },
+    {
+      "name": "Restaurant_Puddle_L",
+      "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_Puddle_L.fbx",
+      "position": [
+        -2.55,
+        0.001,
+        3.65
+      ],
+      "yaw_degrees": 8,
+      "scale": 1,
+      "pivot": "bottom centre",
+      "note": "Large wet patch on exterior deck beyond entrance mat. Fixed outdoor RestaurantPier planks measured Y0.000; clear of entrance threshold and terrace step."
+    },
+    {
+      "name": "Restaurant_UmbrellaStand",
+      "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_UmbrellaStand.fbx",
+      "position": [
+        -3.85,
+        0.001,
+        2.9
+      ],
+      "yaw_degrees": -16,
+      "scale": 1,
+      "pivot": "bottom centre",
+      "note": "Brass stand on S1 deck Y0.000 outside door-side wall edge. Three furled umbrellas; keep outside doorway and configurable dining floor."
+    }
+  ],
+  "festival": [
+    {
+      "name": "Restaurant_PaperLanterns",
+      "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_PaperLanterns.fbx",
+      "position": [
+        -3,
+        2.5,
+        -2.465
+      ],
+      "yaw_degrees": 0,
+      "scale": 1,
+      "pivot": "left string attachment; extends local +X exactly6m",
+      "note": "Six-metre string along fixed rear ceiling/wall edge, two end hooks at RoomRoot X-3/+3. Paper stays above rear coping; no supports on configurable dining floor. Ceiling is cut away in source room."
+    }
+  ],
+  "critic": [
+    {
+      "name": "Restaurant_ReservedSign",
+      "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_ReservedSign.fbx",
+      "position": [
+        -1.35,
+        0.814,
+        -0.71
+      ],
+      "yaw_degrees": 0,
+      "scale": 1,
+      "pivot": "bottom centre",
+      "note": "Demo only: card on rear four-seat table cloth Y0.812, 2mm clearance. Runtime attach to selected critic table at a clear table edge; never instantiate at a fixed dining-floor location.",
+      "attach_to": "selected_critic_table",
+      "surface_clearance_m": 0.002,
+      "table_clear_edge_offset_xz_m": [
+        0,
+        -0.23
+      ],
+      "demo_table": "EXPORT_DiningTwo_Cloth_Four",
+      "demo_position_only": true
+    }
+  ],
+  "notes": [
+    "Dressing never occupies configurable dining floor. Wall origins are back/contact centre. Rain positions are fixed outdoor perimeter. Critic card attaches to actual selected table, not a fixed floor position."
+  ]
+}

@@ -94,11 +94,14 @@ namespace Catchline.Game
         {
             // PTS optical model, calibrated to each existing boat-sized location.
             material.SetVector("_AbsorptionColor", new Vector4(.06f, .66f, .84f, 1));
+            // Mo 10-28 ("nowhere near the renders"): the reference renders' open water is a clear bright turquoise, about
+            // sRGB (15,160,185); ours read a greyer (46,125,153). Scattering carries the colour, so every biome keeps its
+            // character but loses the grey: red nearly gone, green and blue lifted about half again.
             // Wreck bank (6): paler sandy green over the shallows, clearer to a deeper bed.
             // Lighthouse rock (7): deep clear ocean blue.
-            material.SetVector("_ScatteringColor", kind == 7 ? new Vector4(.02f, .25f, .47f, 1) : kind == 6 ? new Vector4(.035f, .37f, .36f, 1) : kind == 4 ? new Vector4(.018f, .26f, .43f, 1)
-                : kind == 1 ? new Vector4(.025f, .32f, .43f, 1)
-                : kind == 2 ? new Vector4(.025f, .34f, .48f, 1) : new Vector4(.025f, .31f, .43f, 1));
+            material.SetVector("_ScatteringColor", kind == 7 ? new Vector4(.004f, .39f, .72f, 1) : kind == 6 ? new Vector4(.007f, .58f, .55f, 1) : kind == 4 ? new Vector4(.004f, .41f, .66f, 1)
+                : kind == 1 ? new Vector4(.005f, .51f, .66f, 1)
+                : kind == 2 ? new Vector4(.005f, .54f, .73f, 1) : new Vector4(.004f, .49f, .66f, 1));
             material.SetFloat("_MaxDepth", kind == 7 ? 2.5f : kind == 6 ? 4f : kind == 2 ? 3.5f : kind == 4 ? 1.3f : 3f);
             material.SetFloat("_BoatAttack_Water_MicroWaveIntensity", .22f);
             const int count = 5;

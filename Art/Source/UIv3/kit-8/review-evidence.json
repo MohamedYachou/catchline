@@ -1,0 +1,97 @@
+{
+  "badges": {
+    "hud_crop_logical": [
+      360,
+      8,
+      68,
+      60
+    ],
+    "hud_crop_repeated_per_badge": true,
+    "badge_display": [
+      28,
+      40
+    ],
+    "stamp_display": [
+      14,
+      20
+    ],
+    "stamp_anchor_normalized": [
+      1,
+      1
+    ],
+    "stamp_rect_normalized": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "board": {
+    "position": [
+      16,
+      392,
+      200,
+      170
+    ],
+    "native_crop": [
+      0,
+      80,
+      720,
+      600
+    ],
+    "states": [
+      "met",
+      "in_progress",
+      "failed"
+    ],
+    "sliced_expansion": [
+      260,
+      210
+    ],
+    "text_sizes": {
+      "title": 16,
+      "goal": 11,
+      "state": 10,
+      "progress": 11
+    }
+  },
+  "tally": {
+    "desktop": {
+      "width": 560,
+      "capture_crop": [
+        395,
+        225,
+        650,
+        450
+      ],
+      "card_origin_in_crop": [
+        28,
+        62
+      ]
+    },
+    "phone": {
+      "width": 420,
+      "capture_crop": [
+        475,
+        275,
+        490,
+        350
+      ],
+      "card_origin_in_crop": [
+        22,
+        47
+      ],
+      "scale": 0.75
+    },
+    "rosette": [
+      475,
+      -28,
+      120,
+      120
+    ],
+    "primary_button": "Assets/Art/UI/v3-btn-primary.png",
+    "reward_per_met": 30,
+    "all_three_coins": 90,
+    "all_three_popularity": 1
+  }
+}

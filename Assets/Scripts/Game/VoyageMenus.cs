@@ -125,18 +125,12 @@ namespace Catchline.Game
                     }, "Keep progress", () => confirmReset = false, () => confirmReset = false, null, 560, 320);
         }
 
-        static readonly string[] TestTiers = { "1 · Rowboat", "2 · Skiff", "3 · Compact", "4 · Prep", "5 · Buoy fisher", "Restaurant night" };
+        static readonly string[] TestTiers = { "1 · Rowboat", "2 · Skiff", "3 · Compact", "4 · Prep", "5 · Buoy fisher", "Restaurant day" };
         // Test build only: a fresh save-free game on the chosen hull, crewed and stocked for that tier.
         void StartTestTier(int tier)
         {
             if (!SessionOnly) return;
-            if (tier == 5)
-            {
-                // Mo 10-27: straight into an evening at Mira's: the Skiff, a landed catch, then prep, market and service.
-                StartTestTier(1);
-                if (StageRestaurantDay("day-plan") && StageRestaurantDay("day-prep")) Toast("Test · restaurant night · nothing is saved.");
-                return;
-            }
+            if (tier == 5) { StartTestDay(); return; } // Mo 10-28: the whole restaurant day, sea to service (VoyageTestDay.cs)
             bool started = tier == 2 ? StartNetBoatTrial() : tier == 3 ? StartPrepBoatTrial() : tier == 4 ? StartTier5Trial() : true;
             if (tier < 2)
             {

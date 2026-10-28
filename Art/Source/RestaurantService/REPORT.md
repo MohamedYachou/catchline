@@ -116,3 +116,95 @@ blender -b -t 2 --python-exit-code 1 --python Art/Source/RestaurantService/audit
 ```
 
 Recipe keys: `Pan`, `Grill`, `FryerBasket`, `OvenTray`, `SteamPot`, `SoupLadle`, `BreadBoard`, `Burnt`, `TipCoins_S`, `TipCoins_L`, `CatchBoard`, `Ferry`. Pass a recipe key to build one item. Regeneration resets its review status to pending; open both new frames before recording review. Runtime catalogue registration, cooking/tip/event states and native acceptance belong to Claude. No .cs, Resources/Restaurant, RestaurantPier or Crew files were changed.
+
+
+# SERVICE-PROPS-3
+
+Codex 2 (WSL CLI), 2026-10-28. Accepted by Claude/Mo and wired by Claude (comms.md 16:00). This section closes the interrupted D4/E reporting only; accepted models and existing renders are unchanged.
+
+| Item | Tris | Delivered file | Existing evidence |
+|---|---:|---|---|
+| Restaurant_TipCoins_S | 1004 | [Restaurant_TipCoins_S.fbx](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_TipCoins_S.fbx) | [Restaurant_TipCoins_S-service](renders/props3-Restaurant_TipCoins_S-service.png) · [Restaurant_TipCoins_S-close](renders/props3-Restaurant_TipCoins_S-close.png) |
+| Restaurant_TipCoins_L | 2124 | [Restaurant_TipCoins_L.fbx](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_TipCoins_L.fbx) | [Restaurant_TipCoins_L-service](renders/props3-Restaurant_TipCoins_L-service.png) · [Restaurant_TipCoins_L-close](renders/props3-Restaurant_TipCoins_L-close.png) |
+| Restaurant_Guest_Critic | 2408 | [Restaurant_Guest_Critic.fbx](../../../Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Critic.fbx) | [Restaurant_Guest_Critic-walk-service](renders/props3-Restaurant_Guest_Critic-walk-service.png) · [Restaurant_Guest_Critic-sit-service](renders/props3-Restaurant_Guest_Critic-sit-service.png) · [Restaurant_Guest_Critic-eat-service](renders/props3-Restaurant_Guest_Critic-eat-service.png) · [Restaurant_Guest_Critic-front-close](renders/props3-Restaurant_Guest_Critic-front-close.png) · [Restaurant_Guest_Critic-side-close](renders/props3-Restaurant_Guest_Critic-side-close.png) · [Restaurant_Guest_Critic-back-close](renders/props3-Restaurant_Guest_Critic-back-close.png) |
+| Restaurant_Dish_IceCream | 1344 | [Restaurant_Dish_IceCream.fbx](../../../Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_IceCream.fbx) | [Restaurant_Dish_IceCream-service](renders/props3-Restaurant_Dish_IceCream-service.png) · [Restaurant_Dish_IceCream-close](renders/props3-Restaurant_Dish_IceCream-close.png) |
+| Restaurant_Dish_Pudding | 780 | [Restaurant_Dish_Pudding.fbx](../../../Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Pudding.fbx) | [Restaurant_Dish_Pudding-service](renders/props3-Restaurant_Dish_Pudding-service.png) · [Restaurant_Dish_Pudding-close](renders/props3-Restaurant_Dish_Pudding-close.png) |
+| Restaurant_WarmingLamp | 1064 | [Restaurant_WarmingLamp.fbx](../../../Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_WarmingLamp.fbx) | [Restaurant_WarmingLamp-service](renders/props3-Restaurant_WarmingLamp-service.png) · [Restaurant_WarmingLamp-close](renders/props3-Restaurant_WarmingLamp-close.png) |
+| Restaurant_ServiceBell | 768 | [Restaurant_ServiceBell.fbx](../../../Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_ServiceBell.fbx) | [Restaurant_ServiceBell-service](renders/props3-Restaurant_ServiceBell-service.png) · [Restaurant_ServiceBell-close](renders/props3-Restaurant_ServiceBell-close.png) |
+| Restaurant_Bunting | 1400 | [Restaurant_Bunting.fbx](../../../Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_Bunting.fbx) | [Restaurant_Bunting-service](renders/props3-Restaurant_Bunting-service.png) · [Restaurant_Bunting-close](renders/props3-Restaurant_Bunting-close.png) |
+| Restaurant_PlateRack | 1264 | [Restaurant_PlateRack.fbx](../../../Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_PlateRack.fbx) | [Restaurant_PlateRack-service](renders/props3-Restaurant_PlateRack-service.png) · [Restaurant_PlateRack-close](renders/props3-Restaurant_PlateRack-close.png) |
+
+Sources: [build_props3.py](build_props3.py), [build_critic3.py](build_critic3.py), per-item `blends/props3-*.blend`, [props3-manifest.json](props3-manifest.json). Independent static FBX readback: [props3-audit.json](props3-audit.json) PASS eight non-rig props, canonical atlas, complete UV/colour corner layers, Y-up metres and no degenerate triangles; 524 dependencies preserved at that audit. [props3-critic-audit.json](props3-critic-audit.json) PASS critic 2408 tris, exact Ada 20-bone skeleton, thirteen clips, zero sampled matrix error. [props3-visual-review.json](props3-visual-review.json) records prior personally opened evidence for completed items; rack final pair existed when usage interrupted, and acceptance came from Claude/Mo. No new PROPS-3 render or runtime verification performed in this closure.
+
+Separate lamp `Bulb`; opaque pack glass convention for sundae. Existing evidence is warm Stage1V4 room service/detail Blender renders, not native gameplay acceptance. Critic seated source proof used evidence-only height adjustment; unchanged Ada clips were delivered. Runtime wiring/acceptance belongs to Claude and is recorded in the canonical diary. No git/commit.
+
+# SERVICE-PROPS-4
+
+Codex 2 (WSL CLI), 2026-10-28. Ten additive harbour-cafe/event props, 9,002 triangles combined; each below 2,000 triangles. All use the existing **Catchline/RestaurantAtlas** material. No accepted SERVICE-PROPS-3 model or render was changed. Its missing report and PlateRack completion line were closed first.
+
+| Item | Tris | FBX | Source | Inspected evidence |
+|---|---:|---|---|---|
+| Restaurant_Wall_ShipWheel | 1096 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_ShipWheel.fbx) | [blend](blends/props4-Restaurant_Wall_ShipWheel.blend) | [service](renders/props4-Restaurant_Wall_ShipWheel-service.png) · [close](renders/props4-Restaurant_Wall_ShipWheel-close.png) |
+| Restaurant_Wall_FishPrint | 374 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_FishPrint.fbx) | [blend](blends/props4-Restaurant_Wall_FishPrint.blend) | [service](renders/props4-Restaurant_Wall_FishPrint-service.png) · [close](renders/props4-Restaurant_Wall_FishPrint-close.png) |
+| Restaurant_Wall_NetFloats | 1692 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_NetFloats.fbx) | [blend](blends/props4-Restaurant_Wall_NetFloats.blend) | [service](renders/props4-Restaurant_Wall_NetFloats-service.png) · [close](renders/props4-Restaurant_Wall_NetFloats-close.png) |
+| Restaurant_Wall_BottleShelf | 1136 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_BottleShelf.fbx) | [blend](blends/props4-Restaurant_Wall_BottleShelf.blend) | [service](renders/props4-Restaurant_Wall_BottleShelf-service.png) · [close](renders/props4-Restaurant_Wall_BottleShelf-close.png) |
+| Restaurant_Puddle_S | 132 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_Puddle_S.fbx) | [blend](blends/props4-Restaurant_Puddle_S.blend) | [service](renders/props4-Restaurant_Puddle_S-service.png) · [close](renders/props4-Restaurant_Puddle_S-close.png) |
+| Restaurant_Puddle_L | 132 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_Puddle_L.fbx) | [blend](blends/props4-Restaurant_Puddle_L.blend) | [service](renders/props4-Restaurant_Puddle_L-service.png) · [close](renders/props4-Restaurant_Puddle_L-close.png) |
+| Restaurant_UmbrellaStand | 1624 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_UmbrellaStand.fbx) | [blend](blends/props4-Restaurant_UmbrellaStand.blend) | [service](renders/props4-Restaurant_UmbrellaStand-service.png) · [close](renders/props4-Restaurant_UmbrellaStand-close.png) |
+| Restaurant_PaperLanterns | 1852 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_PaperLanterns.fbx) | [blend](blends/props4-Restaurant_PaperLanterns.blend) | [service](renders/props4-Restaurant_PaperLanterns-service.png) · [close](renders/props4-Restaurant_PaperLanterns-close.png) |
+| Restaurant_ReservedSign | 88 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/service/Restaurant_ReservedSign.fbx) | [blend](blends/props4-Restaurant_ReservedSign.blend) | [service](renders/props4-Restaurant_ReservedSign-service.png) · [close](renders/props4-Restaurant_ReservedSign-close.png) |
+| Restaurant_Wall_LifeRing | 876 | [FBX](../../../Assets/Art/Models/Restaurant/Pack/dressing/Restaurant_Wall_LifeRing.fbx) | [blend](blends/props4-Restaurant_Wall_LifeRing.blend) | [service](renders/props4-Restaurant_Wall_LifeRing-service.png) · [close](renders/props4-Restaurant_Wall_LifeRing-close.png) |
+
+## Placement and attachment contracts
+
+[dressing-placement.json](dressing-placement.json) is the handoff: **RoomRoot-local, Unity Y up, metres**, yaw around +Y, scale 1. Local +X is screen-left in this room. Every wall mesh faces local +Z and uses its back/contact centre as pivot. Other props use a bottom-centred pivot, except the left-end lantern string. No wall/rain/festival dressing occupies the configurable dining floor.
+
+| Group / item | RoomRoot position (X, Y, Z) m | Yaw |
+|---|---|---:|
+| wall / Wall_LifeRing | [-0.36, 1.57, -2.465] | 0° |
+| wall / Wall_ShipWheel | [-3.94, 0.61, -1.05] | 90° |
+| wall / Wall_FishPrint | [-3.8, 1.43, -2.465] | 0° |
+| wall / Wall_NetFloats | [-3.94, 0.6, -0.12] | 90° |
+| wall / Wall_BottleShelf | [-3.94, 0.81, 1.46] | 90° |
+| rain / Puddle_S | [2.7, 0.0255, 3.94] | -14° |
+| rain / Puddle_L | [-2.55, 0.001, 3.65] | 8° |
+| rain / UmbrellaStand | [-3.85, 0.001, 2.9] | -16° |
+| festival / PaperLanterns | [-3, 2.5, -2.465] | 0° |
+| critic / ReservedSign | [-1.35, 0.814, -0.71] | 0° |
+
+The existing back wall already carries a fish board, menu and practical lamps; the right wall is a low cutaway with coping at about Y1.02. The five pieces fit the actual remaining wall gaps. The wheel and net remain below the right coping. The shelf is raised above the planter leaves so all five bottles read. The net has four sea-green glass floats; the framed fish and bottle labels have no words. These differences from the bare-wall brief were recorded as QUESTION entries and resolved against the files.
+
+Rain: Puddle_S is wholly on terrace paving (upper bevel Y0.025, pivot Y0.0255). Puddle_L and UmbrellaStand sit on the actual RestaurantPier deck (Y0, pivots Y0.001), rather than the lower RoomShell understructure. The puddles are solid shallow glossy sea-blue lenses with broken glints, approximately 3 mm thick. The stand contains three furled umbrellas in coral, teal and cream, clear of the door and mat.
+
+Festival: **Restaurant_PaperLanterns extends exactly 6 m along local +X from its left attachment**. At the suggested root (-3, 2.5, -2.465), the other end is (+3, 2.5, -2.465); papers stay above the rear coping. Each of the six `Lantern_01` … `Lantern_06` frame meshes has a paper mesh child whose raw FBX name is exactly **Glow**. Blender shows unique Glow / Glow.001 … IDs; the FBX exporter deliberately emits six exact Glow names. Papers use the existing emitting yellow atlas cell, not a new material. Export disables experimental space baking for this hierarchy; independent readback verifies bounds and parent relationships.
+
+Critic: ReservedSign is a brass folded card with two cream inset faces and a navy beret symbol on its front, no words. **Attach it to the selected critic table**, with 2 mm clearance above that table’s actual top. Its absolute JSON position is evidence/demo only: clear rear cloth edge of EXPORT_DiningTwo_Cloth_Four, between settings and behind the candle. The suggested table offset is (0, -0.23) in local X/Z; choose a clear edge on other table models and do not use the demo room coordinates as a fixed floor spawn.
+
+## Evidence and verification
+
+All twenty final PNGs were opened and inspected individually. Each service image imports the delivered FBX and places it at the JSON coordinates in the actual Stage1V4 room and Stage1 RestaurantPier context; prior completed props accumulate in later views. Warm practicals, blue dusk fill and the measured live service camera (38° pitch, yaw178°, vertical FOV21.9542°) establish night readability. Close views inspect geometry, surface contact, colours and symbols. The lantern close shows one paper in detail; its service view shows all six. LifeRing evidence was refreshed with the completed scene and reopened, without changing its model.
+
+The evidence scene hides only the obsolete baked CoffeeBar and CoffeeCup, matching their removal by RestaurantWorld.LayoutPieces. It does not edit room files. Static room evidence does not contain IMGUI/table pins or live moving guests and does not claim native gameplay acceptance; dressing is kept at walls/fixed exterior edges, and the critic card remains table-bound. Native event activation and final runtime acceptance belong to Claude.
+
+- [props4-manifest.json](props4-manifest.json): triangles, dimensions, FBX hashes, sources and evidence paths.
+- [props4-visual-review.json](props4-visual-review.json): findings and current hashes of the twenty opened images.
+- [props4-audit.json](props4-audit.json): independent FBX readback for all ten; triangle budgets, Y-up/metres, pivots, dimensions, canonical material references, complete normal/UV/colour corner layers, zero degenerate triangles, six exact Glow children.
+- [props4-source-audit.json](props4-source-audit.json): ten production blends; only delivery meshes, identity authoring transforms and two packed atlas images each.
+- [props4-artifact-check.json](props4-artifact-check.json): current source/export/render hashes, unique importer GUIDs, placements and report links.
+- [props4-preservation.json](props4-preservation.json) and [props4-external-dependency-changes.json](props4-external-dependency-changes.json): 335 of 336 baseline dependencies unchanged; one concurrent out-of-scope CrewRig_Restaurant.fbx.meta update is recorded with exact before/current hashes and left untouched. All accepted service FBXs and room/atlas dependencies remain unchanged.
+- [props4-source-and-evidence.sha256](props4-source-and-evidence.sha256): final delivery inventory.
+
+Sources: [build_props4.py](build_props4.py), [audit_props4.py](audit_props4.py), [audit_props4_sources.py](audit_props4_sources.py), [check_props4_artifacts.py](check_props4_artifacts.py), [props4_inspect.py](props4_inspect.py), [props4_review.py](props4_review.py). Builder reuses accepted service pack geometry/material helpers without editing them.
+
+Reproduce one item with Blender 5.x from the checkout root (no Unity):
+
+```sh
+blender -b -t 6 --python-exit-code 1 --python Art/Source/RestaurantService/build_props4.py -- PaperLanterns
+blender -b -t 3 --python-exit-code 1 --python Art/Source/RestaurantService/audit_props4.py
+blender -b -t 3 --python-exit-code 1 --python Art/Source/RestaurantService/audit_props4_sources.py
+python3 Art/Source/RestaurantService/check_props4_artifacts.py
+```
+
+Recipe keys: Wall_LifeRing, Wall_ShipWheel, Wall_FishPrint, Wall_NetFloats, Wall_BottleShelf, Puddle_S, Puddle_L, UmbrellaStand, PaperLanterns, ReservedSign. Regeneration resets review to pending; open both new frames before recording review. `--render-only` refreshes evidence without touching the FBX/source; refreshed images require a new visual hash record.
+
+No C#, Resources, UIv3, Crew/guest source or accepted prop writes. No git commands, commit, Unity execution or subagents. Static art delivery is complete; runtime wiring and native acceptance remain outside this assignment.
