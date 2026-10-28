@@ -1,0 +1,19 @@
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('RestaurantAtlas');m.use_nodes=True;n=m.node_tree.nodes;n.clear();l=m.node_tree.links
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:375: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes:
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:388: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Cool harbour fill');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.25,.36,.43,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.38
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:364: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(*color,1);bs.inputs['Roughness'].default_value=rough;return m
+00:24.955  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Beer-service.png'
+00:48.244  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Beer-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Beer.fbx'
+export finished in 0.0278 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Beer.blend"
+ITEM_RENDERED Restaurant_Dish_Beer 600 [0.09399999678134918, 0.1469999998807907, 0.09399999678134918]
+Blender 5.0.1
+
+Blender quit

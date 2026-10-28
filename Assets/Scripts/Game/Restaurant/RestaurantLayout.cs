@@ -151,6 +151,20 @@ namespace Catchline.Game.Restaurant
             State.Stage=nextStage;var r=Validate();if(!r.Ok){State.Stage=oldStage;State.Items=snapshots;return r;}
             State.Coins-=next.Price;return r;
         }
+        // Service v2 (Mo 10-28, "we must serve a lot more customers"): the cafe seats ten from the first night. New saves
+        // and old ones both get the two extra tables, free, wherever they still fit and the room stays valid.
+        public static RestaurantState WithServiceTables(RestaurantState s)
+        {
+            if(s.Stage>1)return s;
+            foreach(var (id,x,y) in new[]{(ItemId.Table4,5,4),(ItemId.Table2,7,2)}){
+                var l=new RestaurantLayout(s);
+                if(l.Active.Count(i=>RestaurantData.Get(i.Id).Seats>0&&i.Id!=ItemId.BarCounter)>=4)break;
+                if(!l.CheckPlacement(id,x,y).Ok)continue;
+                s.Items.Add(new RestaurantItem{Uid=s.NextUid++,Id=id,X=x,Y=y});
+                if(!new RestaurantLayout(s).Validate().Ok)s.Items.RemoveAt(s.Items.Count-1);
+            }
+            return s;
+        }
         public static RestaurantState StartingKit()
         {
             var s=new RestaurantState();

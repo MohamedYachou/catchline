@@ -1,0 +1,75 @@
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('RestaurantAtlas');m.use_nodes=True;n=m.node_tree.nodes;n.clear();l=m.node_tree.links
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:365: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes:
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:378: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Cool harbour fill');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.25,.36,.43,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.38
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:354: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(*color,1);bs.inputs['Roughness'].default_value=rough;return m
+00:21.637  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_FishAndChips-service.png'
+00:46.021  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_FishAndChips-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_FishAndChips.fbx'
+export finished in 0.0231 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_FishAndChips.blend"
+ITEM_RENDERED Restaurant_Dish_FishAndChips 836 [0.25999999046325684, 0.07100000232458115, 0.25999999046325684]
+01:09.044  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Platter-service.png'
+01:30.611  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Platter-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Platter.fbx'
+export finished in 0.0166 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Platter.blend"
+ITEM_RENDERED Restaurant_Dish_Platter 550 [0.48249998688697815, 0.08829999715089798, 0.28999999165534973]
+01:53.511  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Crab-service.png'
+02:17.776  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Crab-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Crab.fbx'
+export finished in 0.0158 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Crab.blend"
+ITEM_RENDERED Restaurant_Dish_Crab 1000 [0.25999999046325684, 0.08449999988079071, 0.25999999046325684]
+02:45.120  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Calamari-service.png'
+03:12.225  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Calamari-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Calamari.fbx'
+export finished in 0.0278 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Calamari.blend"
+ITEM_RENDERED Restaurant_Dish_Calamari 924 [0.25999999046325684, 0.07000000029802322, 0.25999999046325684]
+03:34.513  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Fries-service.png'
+03:53.119  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Fries-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Fries.fbx'
+export finished in 0.0206 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Fries.blend"
+ITEM_RENDERED Restaurant_Dish_Fries 1404 [0.21359999477863312, 0.08900000154972076, 0.20899999141693115]
+04:16.109  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Bread-service.png'
+04:44.649  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Bread-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Bread.fbx'
+export finished in 0.0231 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Bread.blend"
+ITEM_RENDERED Restaurant_Dish_Bread 1260 [0.24239999055862427, 0.11050000041723251, 0.19200001657009125]
+05:08.404  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Beer-service.png'
+05:31.322  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Beer-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Beer.fbx'
+export finished in 0.0598 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Beer.blend"
+ITEM_RENDERED Restaurant_Dish_Beer 616 [0.09399999678134918, 0.1469999998807907, 0.09399999678134918]
+05:49.524  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Tea-service.png'
+06:13.601  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Tea-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Tea.fbx'
+export finished in 0.0130 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Tea.blend"
+ITEM_RENDERED Restaurant_Dish_Tea 912 [0.28999999165534973, 0.12999999523162842, 0.1899999976158142]
+Blender 5.0.1
+
+Blender quit

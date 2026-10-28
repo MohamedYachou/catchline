@@ -1,0 +1,24 @@
+FBX version: 7400
+AUDIT_PASS Restaurant_Dish_FishAndChips 836
+Traceback (most recent call last):
+  File "/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/audit_exports.py", line 32, in <module>
+    (O/'export-audit.json').write_text(json.dumps(dict(status='PASS',items=out,untouched_dependency_count=len(base),preservation='PASS',limits='Blender FBX roundtrip and metadata/source validation only. No Unity import/runtime acceptance.'),indent=2)+'\n')
+                                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type bytes is not JSON serializable
+when serializing dict item 'DefaultCamera'
+when serializing dict item 'fbx_global_settings'
+when serializing list item 0
+when serializing dict item 'items'
+Blender 5.0.1
+
+Blender quit

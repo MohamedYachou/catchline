@@ -4,12 +4,12 @@ Provisional tuning; no production wiring. Fixed 0.25 s ticks; random breakdowns 
 
 | Scenario | Seed | Guests | Served | Left | Dishes | Drinks | Tips | Staple cost | Net | Stars | Cats | Seconds | Metres |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| Stage 1 / Skiff | 100 | 28 | 8 | 20 | 106 | 28 | 10 | 9 | 135 | 1.93 | 7 | 600.00 | mira 12.0; captain 237.0 |
-| Stage 2 / Compact fisher | 101 | 32 | 16 | 16 | 204 | 137 | 19 | 36 | 324 | 2.50 | 20 | 600.00 | mira 70.0; cook0 88.0; waiter0 108.0; waiter1 58.0; barista 166.0 |
-| Stage 3 / Prep fisher | 102 | 34 | 20 | 14 | 277 | 131 | 22 | 40 | 390 | 2.65 | 18 | 600.00 | mira 130.0; cook0 120.0; cook1 28.0; waiter0 196.0; waiter1 65.0; waiter2 39.0; barista 234.0 |
-| Stage 4 / Buoy fisher | 103 | 46 | 24 | 22 | 311 | 148 | 26 | 40 | 445 | 2.43 | 27 | 600.00 | mira 156.0; cook0 150.0; cook1 16.0; cook2 0.0; waiter0 253.0; waiter1 87.0; waiter2 24.0; barista 334.0; engineer 0.0 |
-| Under-prepped (stage3) | 102 | 34 | 6 | 28 | 96 | 131 | 4 | 58 | 173 | 1.24 | 0 | 600.00 | mira 146.0; cook0 60.0; cook1 14.0; waiter0 104.0; waiter1 40.0; waiter2 10.0; barista 236.0 |
-| Over-prepped (stage3) | 102 | 34 | 27 | 7 | 359 | 131 | 36 | 33 | 493 | 3.59 | 33 | 600.00 | mira 130.0; cook0 132.0; cook1 28.0; waiter0 222.0; waiter1 71.0; waiter2 39.0; barista 234.0 |
+| Stage 1 / Skiff | 100 | 28 | 17 | 11 | 126 | 68 | 15 | 30 | 179 | 3.36 | 7 | 240.00 | mira 12.0; captain 517.0 |
+| Stage 2 / Compact fisher | 101 | 50 | 36 | 14 | 234 | 174 | 31 | 73 | 366 | 3.88 | 5 | 240.00 | mira 192.0; cook0 58.0; waiter0 232.0; waiter1 117.0; barista 286.0 |
+| Stage 3 / Prep fisher | 102 | 54 | 40 | 14 | 336 | 165 | 31 | 77 | 455 | 3.44 | 0 | 240.00 | mira 266.0; cook0 66.0; cook1 35.0; waiter0 286.0; waiter1 192.0; waiter2 51.0; barista 434.0 |
+| Stage 4 / Buoy fisher | 103 | 61 | 44 | 17 | 424 | 177 | 41 | 73 | 569 | 3.46 | 1 | 240.00 | mira 326.0; cook0 85.0; cook1 31.0; cook2 14.0; waiter0 313.0; waiter1 168.0; waiter2 136.0; barista 467.0; engineer 0.0 |
+| Under-prepped (stage3) | 102 | 56 | 42 | 14 | 189 | 184 | 15 | 96 | 292 | 3.29 | 1 | 240.00 | mira 286.0; cook0 36.0; cook1 2.0; waiter0 340.0; waiter1 202.0; waiter2 93.0; barista 410.0 |
+| Over-prepped (stage3) | 102 | 50 | 46 | 4 | 546 | 161 | 59 | 51 | 715 | 4.52 | 24 | 240.00 | mira 266.0; cook0 132.0; cook1 29.0; waiter0 338.0; waiter1 185.0; waiter2 93.0; barista 422.0 |
 
 PLAY-1 rules: 600 seconds, 18-22 arrivals and 23 closing; stage1 Mira + one captain helper. Fixed card roles; cold after 30s, payment at till, repairable breakdowns and 1-5 stars. Plates/sink/trash are simplified to clearing, not finite supply lines. Other report stages use specialists at their native jobs. No player-save/UI integration claimed.
 

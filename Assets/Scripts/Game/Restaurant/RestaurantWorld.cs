@@ -216,6 +216,15 @@ namespace Catchline.Game.Restaurant
                     room=ArtLibrary.Spawn(dressed,RoomRoot,Vector3.zero,Quaternion.identity).transform;
                     foreach(var t in room.GetComponentsInChildren<Transform>(true))if(t!=room&&LayoutPlaced(t.name))t.gameObject.SetActive(false);
                 }else Spawn("RoomShell",Vector3.zero,Quaternion.identity);
+                // Codex 1's pier (RESTAURANT-PIER-1; Mo 10-28: "at the edge of a pier, not in the middle of the water"): the
+                // stage's deck, the quay with its houses and lamps, moored boats and clutter. One Pier_S* deck shows at a time.
+                var pierModel=Resources.Load<GameObject>("Restaurant/RestaurantPier");
+                pier=null;
+                if(pierModel!=null){
+                    pier=ArtLibrary.Spawn(pierModel,RoomRoot,Vector3.zero,Quaternion.identity).transform;
+                    string deck="Pier_S"+(Array.IndexOf(StageRooms,roomName)+1);
+                    foreach(var t in pier.GetComponentsInChildren<Transform>(true))if(t.name.StartsWith("Pier_S"))t.gameObject.SetActive(t.name==deck);
+                }
                 foreach(var item in layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
                     model=ModelFor(item.Id,model);
@@ -244,7 +253,7 @@ namespace Catchline.Game.Restaurant
                 if(room!=null){
                     Material kit=null;
                     foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>())if(!r.transform.IsChildOf(room)){foreach(var m in r.sharedMaterials)if(m!=null&&m.shader.name=="Catchline/RestaurantAtlas"){kit=m;break;}if(kit!=null)break;}
-                    if(kit!=null)foreach(var r in room.GetComponentsInChildren<Renderer>(true)){var mats=r.sharedMaterials;for(int n=0;n<mats.Length;n++)mats[n]=kit;r.sharedMaterials=mats;}
+                    if(kit!=null)foreach(var r in room.GetComponentsInChildren<Renderer>(true).Concat(pier!=null?pier.GetComponentsInChildren<Renderer>(true):Array.Empty<Renderer>())){var mats=r.sharedMaterials;for(int n=0;n<mats.Length;n++)mats[n]=kit;r.sharedMaterials=mats;}
                 }
                 CrewAnim.Fill(clips,ArtLibrary.Get().CrewClips);
                 if(sim!=null)foreach(var staff in sim.Staff)actors[staff.Id]=MakeActor(staff.Id,false);
@@ -272,6 +281,8 @@ namespace Catchline.Game.Restaurant
                 foreach(var lamp in cosyLamps)AddLight(lamp,new Color(1,.78f,.48f),1.5f,false,3f); // room-look3: warm pools on the tables, bright enough for the grade's bloom
                 if(stageLights!=null)foreach(var (pos,watts) in stageLights)AddLight(pos,new Color(1,.8f,.5f),Mathf.Clamp(watts/75f,.16f,1.15f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
                 else foreach(var (x,y,z,watts) in NightLights)AddLight(new Vector3(x,y,z),new Color(1,.8f,.5f),Mathf.Clamp(watts/75f,.16f,1.15f),false,Mathf.Lerp(1.6f,5f,Mathf.InverseLerp(8,75,watts)));
+                // The quay's lamp posts (Codex 1's recipe is already in the room's mirrored axes): warm pools along the quay behind the room.
+                if(pier!=null)foreach(var (pos,watts) in RecipeLights("RestaurantPier",false)??new())AddLight(pos,new Color(1,.7f,.4f),.9f,false,4f);
                 // The player build drops the material's atlas reference; bind the painted atlas from Resources.
                 var atlas=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_BaseColor");var surface=Resources.Load<Texture2D>("RestaurantAtlas/Restaurant_Surface");
                 foreach(var r in RoomRoot.GetComponentsInChildren<Renderer>(true))foreach(var m in r.sharedMaterials)
@@ -322,6 +333,7 @@ namespace Catchline.Game.Restaurant
         readonly List<Vector3> cosyLamps=new();
         static readonly string[] StageRooms={"Stage1V4","Stage2Bistro","Stage3Restaurant","Stage4Seafood"};
         string roomName;
+        Transform pier;
         float frameHalfWidth=7;
         [Serializable] class RecipeLight{public string name,type;public float[] position_unity_m;public float blender_power;}
         [Serializable] class Recipe{public RecipeLight[] lights;}
@@ -417,7 +429,8 @@ namespace Catchline.Game.Restaurant
             }
             // sea1c is brighter than the old tile: lower gain keeps the room dominant (R3-02).
             Quad("Night sea",new Vector3(0,-.57f,0),new Vector2(90,90),Make("NightWater",false,8,.32f,0));
-            Quad("Lantern streaks",new Vector3(-.6f,-.558f,4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,.8f,.25f));
+            // With the pier, the streaks lie on open water just past the deck's front edge (Unity Z 5.05), not under the planks.
+            Quad("Lantern streaks",new Vector3(-.6f,-.558f,pier!=null?6.9f:4.5f),new Vector2(11.2f,3.3f),Make("LanternStreaks",true,0,.8f,.25f));
         }
         static void SetLayer(GameObject go){foreach(var t in go.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layer;}
         // Mo 10-26: classic restaurant clothes per job; women in dresses/tops, men in suits, Mira the best-dressed host.
@@ -436,7 +449,14 @@ namespace Catchline.Game.Restaurant
             }
         }
         // Codex 2's table dishes (Dishes/Restaurant_Dish_*.fbx, pivot at the table contact).
-        static string DishModel(Dish d)=>d switch{
+        // Codex 2's SERVICE-PROPS-1 plates (Dish_FishAndChips, _Platter, ...) where imported, else the nearest older plate.
+        string DishModel(Dish d)
+        {
+            string own=d switch{Dish.FishAndChips=>"Dish_FishAndChips",Dish.Platter=>"Dish_Platter",Dish.Crab=>"Dish_Crab",Dish.Calamari=>"Dish_Calamari",
+                Dish.Fries=>"Dish_Fries",Dish.Bread=>"Dish_Bread",Dish.Beer=>"Dish_Beer",Dish.Tea=>"Dish_Tea",_=>null};
+            return own!=null&&Model(own)!=null?own:OldDishModel(d);
+        }
+        static string OldDishModel(Dish d)=>d switch{
             Dish.Soup=>"Dish_FishSoup",Dish.Coffee or Dish.Tea or Dish.Bread=>"Dish_CoffeeBiscuits",Dish.Lemonade or Dish.Beer=>"Dish_Lemonade",
             Dish.PanFish or Dish.Platter or Dish.FishAndChips or Dish.Fries=>"Dish_FilletsLemon",_=>"Dish_GrilledFish"};
         // Kit pivots sit off the mesh once rotated, so seats and plates go by the table's rendered bounds.
@@ -584,6 +604,7 @@ namespace Catchline.Game.Restaurant
                 string prop=CarryModel(s,a);bool carry=prop!=null;
                 Carry(a,prop);Animate(a,moving?carry?"CarryPlate":"Walk":Pose(s,carry));a.Last=a.Root.position;
             }
+            PassAndStations();
             var queueGroups=Sim.Groups.Where(g=>g.Phase==GroupPhase.Queue||g.Phase==GroupPhase.Seating&&(!guestWalks.TryGetValue(g.Id,out var w)||!w.Following)).OrderBy(g=>g.Arrival).ThenBy(g=>g.Id).ToList();
             foreach(var g in Sim.Groups){
                 if(!guestWalks.TryGetValue(g.Id,out var walk)){walk=new GuestWalk();guestWalks[g.Id]=walk;}
@@ -705,6 +726,39 @@ namespace Catchline.Game.Restaurant
             var p=RoomRoot.InverseTransformPoint(ray.GetPoint(t));tile=new Vector2Int(Mathf.RoundToInt(3.5f-p.x),Mathf.RoundToInt(2-p.z));return true;
         }
         // Service markers (S15) anchor to the top of a placed item and above a staff member's head (viewport, z>0 in front).
+        // Service v2: plates waiting on the pass (tap their table to carry them) and dishes cooking on their stations,
+        // growing in as they cook. One prop per slot, swapped only when its dish changes.
+        readonly Dictionary<string,(string model,Transform t,Vector3 size)> props=new();
+        void PassAndStations()
+        {
+            var want=new Dictionary<string,(string model,Vector3 at,float scale)>();
+            int k=Layout.Stage.KitchenWidth;var pass=TileToWorld(new Vector2(k,2),.98f);
+            var ready=Sim.Groups.Where(g=>g.Phase==GroupPhase.Kitchen).SelectMany(g=>g.Tickets).Where(t=>t.Phase==TicketPhase.Ready).OrderBy(t=>t.ReadyAt).Take(6).ToList();
+            for(int i=0;i<ready.Count;i++)want["pass"+i]=(DishModel(ready[i].Dish),pass+RoomRoot.forward*((i%3-1)*.3f)+RoomRoot.right*((i/3)*.28f),1);
+            foreach(var (uid,dish,done) in Sim.OnStations){
+                if(!items.TryGetValue(uid,out var st)||st==null)continue;var b=TableBounds(st);
+                want["cook"+uid]=(DishModel(dish),new Vector3(b.center.x,b.max.y,b.center.z),Mathf.Lerp(.55f,1f,done));
+            }
+            // Service v2 gulls (Codex 2's two poses): one swoops onto a table, stands among the plates, flaps off when shooed or fed.
+            float now=Sim.Seconds+Sim.Alpha*RestaurantTuning.TickSeconds;
+            if(Sim.GullTable!=0&&items.TryGetValue(Sim.GullTable,out var gt)&&gt!=null){
+                var b=TableBounds(gt);var top=new Vector3(b.center.x+.2f,b.max.y,b.center.z-.12f);float since=Mathf.Clamp01((now-Sim.GullLandedAt)/.5f);
+                want["gull"]=since<1?("Gull_Flap",top+(Vector3.up*1.6f+RoomRoot.right*1.4f)*(1-since),1):("Gull_Stand",top,1);
+            }
+            float gone=now-Sim.GullLeftAt;
+            if(Sim.GullLeftAt>=0&&gone<1.4f&&items.TryGetValue(Sim.GullLeftTable,out var lt)&&lt!=null){
+                var b=TableBounds(lt);want["gullaway"]=("Gull_Flap",new Vector3(b.center.x+.2f,b.max.y,b.center.z-.12f)+Vector3.up*gone*2.4f-RoomRoot.right*gone*2.8f,1);
+            }
+            foreach(var key in props.Keys.Where(x=>!want.ContainsKey(x)).ToList()){if(props[key].t!=null)Destroy(props[key].t.gameObject);props.Remove(key);}
+            foreach(var (key,w) in want){
+                if(w.model==null||Model(w.model)==null)continue;
+                if(!props.TryGetValue(key,out var p)||p.t==null||p.model!=w.model){
+                    if(p.t!=null)Destroy(p.t.gameObject);
+                    var t=Spawn(w.model,Vector3.zero,Quaternion.identity,RoomRoot);SetLayer(t.gameObject);p=(w.model,t,t.localScale);props[key]=p;
+                }
+                p.t.position=w.at;p.t.localScale=p.size*w.scale;
+            }
+        }
         public bool ItemTop(int uid,out Vector3 vp)
         {
             vp=default;if(ServiceCamera==null||!items.TryGetValue(uid,out var t)||t==null||!t.gameObject.activeInHierarchy)return false;
@@ -720,7 +774,7 @@ namespace Catchline.Game.Restaurant
         public Vector3 ViewportOf(Vector2 tile,float y=.04f)=>ServiceCamera==null?Vector3.zero:ServiceCamera.WorldToViewportPoint(TileToWorld(tile,y));
         public void End()
         {
-            ghost=ghostSpot=mark=null;
+            ghost=ghostSpot=mark=null;props.Clear();
             foreach(var c in previousCameras)if(c!=null)c.enabled=true;previousCameras.Clear();
             if(RoomRoot!=null){if(Application.isPlaying)Destroy(RoomRoot.gameObject);else DestroyImmediate(RoomRoot.gameObject);}
             foreach(var m in guestMaterials)if(m!=null){if(Application.isPlaying)Destroy(m);else DestroyImmediate(m);}guestMaterials.Clear();guestTints.Clear();

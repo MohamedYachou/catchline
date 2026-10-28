@@ -1,0 +1,17 @@
+00:01.413  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_cooking.py:334: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Harbour blue dusk');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.10,.16,.28,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.32
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_cooking.py:211: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('REVIEW_NightWater');m.use_nodes=True;n=m.node_tree.nodes;l=m.node_tree.links;bs=n['Principled BSDF']
+00:50.422  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Ferry-service.png'
+01:44.409  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Ferry-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/service/Restaurant_Ferry.fbx'
+export finished in 0.0351 sec.
+Info: Saved as "Restaurant_Ferry.blend"
+FBX version: 7400
+FBX version: 7400
+ITEM_RENDERED Restaurant_Ferry 3236 [9.003600120544434, 3.787500023841858, 2.7731151580810547] [-10.5, -0.57, -2.65]
+Blender 5.0.1
+
+Blender quit

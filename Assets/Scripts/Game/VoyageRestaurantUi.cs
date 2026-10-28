@@ -236,14 +236,7 @@ namespace Catchline.Game
             D("rsvc/speed/pi", "v2-icon-pause#desktop-icon-pause-01");
             coastalUi.HitArea("rsvc/speed/p/hit", new Rect(1229, 15, 59, 51), () => v.Paused = !v.Paused, f);
             var speedStyle = RestaurantExact.Texts["desktop:speed-1"];
-            Rect[] speedAt = { new(1292, 15, 62, 51), new(1358, 15, 59, 51) };
-            for (int i = 1; i <= 2; i++)
-            {
-                int s = i; bool on = !v.Paused && v.Speed == i; var r = speedAt[i - 1];
-                if (on) D($"rsvc/speed/{i}", "v2-speed-selected#desktop-speed-selected-01", r);
-                coastalUi.StyledText($"rsvc/speed/{i}/t", r, $"{i}×", speedStyle.Size, on ? cream : speedStyle.Fill, speedStyle.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
-                coastalUi.HitArea($"rsvc/speed/{i}/hit", r, () => { v.Paused = false; v.Speed = s; }, f);
-            }
+            coastalUi.StyledText("rsvc/speed/clock", new Rect(1292, 15, 125, 51), ServiceClock(), speedStyle.Size, speedStyle.Fill, speedStyle.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
 
             // Left: tonight's stock and the repair chip.
             // The slab ends under the last row unless the repair chip needs its place.
@@ -345,14 +338,7 @@ namespace Catchline.Game
             RxText("rsph/stars/n", "phone", "wallet-2", v.Popularity.ToString(), f, new Rect(654, 13, 34, 20), TextAnchor.MiddleLeft);
             P("rsph/speed", "v2-speed-pill#phone-speed-pill-01");
             var speedStyle = RestaurantExact.Texts["phone:speed-1"];
-            Rect[] speedAt = { new(701, 6, 44, 33), new(745, 6, 44, 33) };
-            for (int i = 1; i <= 2; i++)
-            {
-                int k = i; bool on = !v.Paused && v.Speed == i; var r = speedAt[i - 1];
-                P($"rsph/speed/{i}", on ? "v2-speed-selected#phone-speed-selected-01" : "v2-speed-idle#phone-speed-idle-01", r);
-                coastalUi.StyledText($"rsph/speed/{i}/t", r, $"{i}×", speedStyle.Size, on ? new Color(1, .973f, .92f) : speedStyle.Fill, speedStyle.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
-                coastalUi.HitArea($"rsph/speed/{i}/hit", r, () => { v.Paused = false; v.Speed = k; }, f);
-            }
+            coastalUi.StyledText("rsph/speed/clock", new Rect(701, 6, 88, 33), ServiceClock(), speedStyle.Size, speedStyle.Fill, speedStyle.StrokeColour, 0, 0, Color.clear, true, TextAnchor.MiddleCenter, f, frameScale);
             P("rsph/pause", v.Paused ? "v2-speed-selected#phone-speed-selected-01" : "v2-speed-idle#phone-speed-idle-02", new Rect(797, 6, 36, 34));
             P("rsph/pause/icon", "v2-icon-pause#phone-icon-pause-01");
             coastalUi.HitArea("rsph/pause/hit", new Rect(797, 6, 36, 34), () => v.Paused = !v.Paused, f);
@@ -409,6 +395,16 @@ namespace Catchline.Game
             // A phone-sheet piece by its measured "asset#use" key; the sprite is the asset's own unless named.
             RectTransform P(string id, string key, Rect? at = null, string sprite = null) =>
                 Rx(id, "phone", key, f, at ?? RestaurantExact.Pieces["phone:" + key].rect, sprite ?? "rx-" + key.Split('#')[0].Substring(3));
+        }
+
+        // Service v2 (Mo 10-28): no 1x/2x, the night is already fast. The cells show the time until the door closes, then
+        // how many tables are still in.
+        string ServiceClock()
+        {
+            if (night == null) return "3:00";
+            if (!night.DoorClosed) { int s = Mathf.CeilToInt(Mathf.Max(0, RestaurantTuning.DoorCloseSeconds - night.Seconds)); return $"{s / 60}:{s % 60:00}"; }
+            int left = night.Groups.Count(g => g.Phase != GroupPhase.Gone && g.Phase != GroupPhase.NotArrived && g.Phase != GroupPhase.Queue);
+            return left > 0 ? $"{left} left" : "Done";
         }
 
         // At night the crew wear their restaurant clothes (Codex 1's CLOTHES-1 busts); anyone without one keeps the sea portrait.
@@ -497,7 +493,7 @@ namespace Catchline.Game
             Button("resume", "v2-s2-pause-primary", "Resume", () => v.Paused = false);
             Button("speed-tips", "v2-s2-pause-secondary", "Speed tips", () =>
             {
-                coachLine = "At ×2 the evening flies and the crew keeps up. Slow down when a station breaks or the queue grows.";
+                coachLine = "Tap up to three jobs ahead and the captain runs them in order. Take plates to two tables in one trip for a combo tip, and load a stove before you seat the next group.";
                 coachPaused = false; miraMood[coachLine] = "happy";
             });
             Button("back-harbour", "v2-s2-pause-secondary", "Upgrades", () => { v.Paused = false; OpenRestaurantUpgrades(); });
@@ -567,7 +563,9 @@ namespace Catchline.Game
                 }
                 if (choice != null) P(id + "/ask", "v2-s15-question-bubble", new Rect(at.x - 18 * s, at.y - 50 * s, 36 * s, 37 * s));
                 else if (g.Phase == GroupPhase.Payment) P(id + "/tip", "v2-s15-tip-pop", new Rect(at.x - 15 * s, at.y - 34 * s, 30 * s, 20 * s));
-                else if (wait != null && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order))
+                else if (g.Phase == GroupPhase.Clearing)
+                    P(id + "/clear", "v2-s15-task-wipe", new Rect(at.x - 14 * s, at.y - (40 + 4 * Mathf.Abs(Mathf.Sin(Time.unscaledTime * 5))) * s, 28 * s, 22 * s)); // service v2: tap to clear
+                else if (wait != null && (g.Phase == GroupPhase.Kitchen || g.Phase == GroupPhase.Order) || g.Phase == GroupPhase.Drinks || g.Phase == GroupPhase.Coffee)
                 {
                     // The order bubble with the dish inset (measured slot 15,5 38x27 in the 66x43 bubble), patience ring beside it.
                     // Drawn at .72 of the cut: the mockup's compact bubble is about 44x38 over the table (RESTAURANT-REVIEW-2).
@@ -576,7 +574,10 @@ namespace Catchline.Game
                     P(id + "/order", "v2-s15-order-bubble", b);
                     if (g.Phase == GroupPhase.Kitchen)
                         ArrangeArt(Rx(id + "/dish", "15", "", null, new Rect(b.x + 15 * so, b.y + 5 * so, 38 * so, 27 * so), Look(wait.Dish).art));
-                    else P(id + "/dish", "v2-s15-task-take-order", new Rect(b.x + 21 * so, b.y + 6 * so, 23 * so, 24 * so));
+                    else P(id + "/dish", g.Phase == GroupPhase.Order ? "v2-s15-task-take-order" : "v2-s15-task-pour", new Rect(b.x + 21 * so, b.y + 6 * so, 23 * so, 24 * so));
+                    // Service v2: a plate waits at the pass for this table; the carry badge bounces until someone takes it.
+                    if (g.Phase == GroupPhase.Kitchen && g.Tickets.Any(t => t.Phase == TicketPhase.Ready))
+                        P(id + "/ready", "v2-s15-task-carry-plate", new Rect(b.x - 20 * so, b.y - (6 + 5 * Mathf.Abs(Mathf.Sin(Time.unscaledTime * 6))) * so, 30 * so, 24 * so));
                     var ring = new Rect(b.xMax - 4 * so, b.y + 16 * so, 26 * so, 26 * so);
                     P(id + "/ring", "v2-s15-patience-track", ring);
                     var fill = Rx(id + "/fill", "15", "v2-s15-patience-fill", null, ring, "rx-s15-patience-fill").GetComponent<UnityEngine.UI.Image>();
@@ -587,6 +588,46 @@ namespace Catchline.Game
                         fill.color = patience > .5f ? Color.white : patience > .25f ? new Color(1, .78f, .35f) : new Color(1, .42f, .35f);
                     }
                 }
+                // Service v2 upsell: the table waves for another round (the drink in a pulsing bubble, its ring running out); a tap sells it.
+                if (g.Phase == GroupPhase.Eating && night.Seconds < g.UpsellUntil)
+                {
+                    float so = s * .72f * (1 + .07f * Mathf.Sin(Time.unscaledTime * 9));
+                    var b = new Rect(at.x - 33 * so, at.y - 78 * so, 66 * so, 43 * so);
+                    P(id + "/up", "v2-s15-order-bubble", b);
+                    ArrangeArt(Rx(id + "/up/dish", "15", "", null, new Rect(b.x + 15 * so, b.y + 5 * so, 38 * so, 27 * so), Look(g.Upsell).art));
+                    var ring = new Rect(b.xMax - 4 * so, b.y + 16 * so, 26 * so, 26 * so);
+                    P(id + "/up/ring", "v2-s15-patience-track", ring);
+                    var fill = Rx(id + "/up/fill", "15", "v2-s15-patience-fill", null, ring, "rx-s15-patience-fill").GetComponent<UnityEngine.UI.Image>();
+                    if (fill != null)
+                    {
+                        fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360;
+                        fill.fillOrigin = 2; fill.fillClockwise = true; fill.fillAmount = (g.UpsellUntil - night.Seconds) / RestaurantTuning.UpsellSeconds;
+                        fill.color = new Color(1, .78f, .35f);
+                    }
+                }
+                // Sold: "+coins" rises off the table for a second.
+                float sold = night.Seconds - g.UpsellSoldAt;
+                if (g.UpsellSoldAt >= 0 && sold < 1.2f)
+                {
+                    var r = new Rect(at.x - 40 * s, at.y - (64 + 30 * sold) * s, 80 * s, 26 * s);
+                    coastalUi.StyledText(id + "/sold", r, $"+{g.UpsellCoins}", 22 * s, new Color(1f, .86f, .42f), new Color(.09f, .2f, .3f), 2.5f * s, 0, Color.clear, true, TextAnchor.MiddleCenter, null, 1);
+                    Fade(coastalUi.ElementRect(id + "/sold"), Mathf.Clamp01(1.6f - sold * 1.3f));
+                }
+            }
+            // Service v2: a gull on a table. "Shoo!" over it, its ring running out before it steals from the plate.
+            if (night.GullTable != 0 && restaurantWorld.ItemTop(night.GullTable, out var gv))
+            {
+                var at = G(gv); float left = 1 - (night.Seconds - night.GullLandedAt) / RestaurantTuning.GullSeconds;
+                var ring = new Rect(at.x + 20 * s, at.y - 46 * s, 26 * s, 26 * s);
+                P("rmark/gull/ring", "v2-s15-patience-track", ring);
+                var fill = Rx("rmark/gull/fill", "15", "v2-s15-patience-fill", null, ring, "rx-s15-patience-fill").GetComponent<UnityEngine.UI.Image>();
+                if (fill != null)
+                {
+                    fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Radial360;
+                    fill.fillOrigin = 2; fill.fillClockwise = true; fill.fillAmount = Mathf.Clamp01(left); fill.color = new Color(1, .42f, .35f);
+                }
+                float pop = 1 + .08f * Mathf.Sin(Time.unscaledTime * 10);
+                coastalUi.StyledText("rmark/gull/t", new Rect(at.x - 50 * s, at.y - (52 + 6 * pop) * s, 72 * s, 26 * s), "Shoo!", 20 * s * pop, new Color(1f, .95f, .85f), new Color(.62f, .16f, .12f), 2.5f * s, 0, Color.clear, true, TextAnchor.MiddleCenter, null, 1);
             }
             // Tonight's events sit on their tables: birthday, regular, tour group, and the table the captain works first.
             foreach (var g in night.Groups)
@@ -599,6 +640,14 @@ namespace Catchline.Game
             { var at = G(cv); P("rmark/captain", "v2-s15-event-captain", new Rect(at.x + 24 * s, at.y - 30 * s, 30 * s, 33 * s)); }
             foreach (var uid in night.Broken)
                 if (restaurantWorld.ItemTop(uid, out var vp)) { var at = G(vp); P($"rmark/broken{uid}", "v2-s15-broken-warning", new Rect(at.x - 14 * s, at.y - 26 * s, 28 * s, 21 * s)); }
+            // Service v2: the captain's queued taps, numbered in the order he will do them.
+            for (int n = 0; n < night.CaptainOrders.Count; n++)
+            {
+                if (!restaurantWorld.ItemTop(night.CaptainOrders[n], out var qv)) continue;
+                var at = G(qv); var r = new Rect(at.x + 16 * s, at.y - 62 * s, 22 * s, 22 * s);
+                coastalUi.Sliced($"rmark/queue{n}", r, "v2-pill-cream", null, new Color(1f, .62f, .32f));
+                coastalUi.Text($"rmark/queue{n}/t", r, (n + 1).ToString(), Skin.Type.Caption, Skin.Ink, TextAnchor.MiddleCenter);
+            }
             foreach (var st in night.Staff)
             {
                 string icon = TaskIcon(st.Action);

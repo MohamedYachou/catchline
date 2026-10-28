@@ -57,3 +57,16 @@ for something to happen, we need to do magnitudes better."
   (RESTAURANT-PIER-1).
 - B: sink and plates, gulls, upsell bubbles, perfect-grill timing.
 - C: night cards, ferry rush, critic, catch of the day.
+
+## Status (10-28, playable)
+
+- Done (A): 240 s night, door shuts at 180 s; walk-ins every ~6 s (gentler on the first night); four tables, ten seats
+  on the starter cafe; cook "load and leave" with dishes visible on the stations and plates at the pass; the captain
+  as the player's hands (tap queue of three, numbered badges); 2-plate combo tips. Codex 1's pier, quay and harbour
+  around the room. The 1x/2x buttons became the night clock.
+- Done (B): upsell bubbles (tap a waving table to sell a round on the spot); gulls (tap to shoo, ignored they steal
+  and the table loses a star).
+- Headless proof, ServiceV2Checks (starter cafe, Mira + captain): a quick tapper serves 30 of 44 guests for ~480
+  coins with 10 upsells; with no taps nobody is served.
+- Next: SERVICE-PROPS-2 (Codex 2: food cooking on each station, tip coins, catch board, ferry) and SERVICE-UI-KIT-4
+  (Codex 1: v3 service icons) to wire in; then perfect-grill timing, tip coins collected on clearing, night cards.

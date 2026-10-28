@@ -155,7 +155,7 @@ namespace Catchline.EditorTools
         static void SimChecks()
         {
             var l=Kit();var a=Sim(l,11,1,1,1,9,6);var b=Sim(Kit(),11,1,1,1,9,6);
-            Debug.Log("[Catchline] SimChecks first seeded night");var ar=a.RunToClose();Debug.Log("[Catchline] SimChecks first night closed");while(!b.Finished&&b.Seconds<650)b.Tick(.5f);
+            Debug.Log("[Catchline] SimChecks first seeded night");var ar=a.RunToClose();Debug.Log("[Catchline] SimChecks first night closed");while(!b.Finished&&b.Seconds<RestaurantTuning.NightSeconds+50)b.Tick(.5f);
             Check(b.Finished,"baseline bounded close");
             Check(JsonUtility.ToJson(ar)==JsonUtility.ToJson(b.Result),"determinism across 1s and .5s calls");
             Check(a.Groups.All(g=>g.Phase==GroupPhase.Gone)&&ar.Guests==ar.Served+ar.Left,"stage1 Mira + two crew all guests gone");
@@ -163,7 +163,7 @@ namespace Catchline.EditorTools
             Check(a.Staff.Any(s=>s.Metres>0),"staff really walk");
             Check(RestaurantStaff.FromCard(new CardState("mira"),Job.Reception,l.Door).NativeJob==Job.Reception,"Mira card remains the host at native speed");
             var native=new RestaurantStaff{Job=Job.Cook,NativeJob=Job.Cook};float own=native.Rate;native.Job=Job.Waiter;
-            Check(Math.Abs(native.Rate/own-.7f)<.0001f&&Math.Abs(native.WalkSpeed/(GameData.WalkSpeed*own)-.7f)<.0001f,"off-role work AND walk 70 percent");
+            Check(Math.Abs(native.Rate/own-.7f)<.0001f&&Math.Abs(native.WalkSpeed/(GameData.WalkSpeed*RestaurantTuning.WalkBoost*own)-.7f)<.0001f,"off-role work AND walk 70 percent");
             native.Rarity=CardRarity.Gold;native.Level=10;Check(native.Rate>.7f,"rarity and level use shared speed math");
             // Same five specialists, only job assignment differs; aggregate ten seeds, so no cherry-picked night.
             Debug.Log("[Catchline] SimChecks specialist capacity");int four=0,two=0;
@@ -180,8 +180,9 @@ namespace Catchline.EditorTools
             var plenty=new RestaurantSim(1,Kit(),all,Stock(0,15),Team(Kit(),1,1)){Breakdowns=false};plenty.CloseDoor();var cr=plenty.RunToClose();
             Check(cr.Cats==15&&cr.Served==0&&cr.Left==cr.Guests,"closed door leaves all stock to cats");
             var manager=Sim(Kit(),3,1,1,1,9,6);int stove=manager.Layout.Active.First(i=>i.Id==ItemId.Stove).Uid;
-            Check(manager.Break(stove)&&manager.CaptainHoldFix(stove,5)&&manager.Broken.Contains(stove),"captain partial hold");
-            Check(manager.CaptainHoldFix(stove,5)&&!manager.Broken.Contains(stove),"captain completed repair");
+            float half=RestaurantTuning.RepairSeconds*.5f;
+            Check(manager.Break(stove)&&manager.CaptainHoldFix(stove,half)&&manager.Broken.Contains(stove),"captain partial hold");
+            Check(manager.CaptainHoldFix(stove,half)&&!manager.Broken.Contains(stove),"captain completed repair");
             Check(manager.Pin(manager.Layout.Active.First(i=>i.Id==ItemId.Table2).Uid)&&!manager.Pin(stove),"pin tables only");
             Check(!manager.SetJob("cook0",Job.Waiter)&&manager.SetJob("cook0",Job.Cook)&&!manager.SetJob("missing",Job.Cook),"fixed card roles reject reassignment");
             var repair=Sim(Kit(),4,1,1,1,9,6);repair.Staff.Add(new RestaurantStaff{Id="fixer",NativeJob=Job.Handyman,Job=Job.Handyman,Tile=repair.Layout.PassKitchen});repair.Break(stove);
@@ -197,19 +198,19 @@ namespace Catchline.EditorTools
         {
             var a=Fresh();var b=Fresh();var actions=new HashSet<string>();
             Check(a.Staff.Count==2&&a.Staff.Count(s=>s.Id=="captain")==1,"fresh save has one captain and Mira only");
-            Check(a.Groups.All(g=>g.Arrival<480)&&a.Groups.Count>=12&&a.Groups.Count<=26,"roughly four groups per game hour before 22:00");
-            while(!a.Finished&&a.Seconds<650){a.Tick(.25f);actions.Add(a.Staff.Single(s=>s.Id=="captain").Action);}
+            Check(a.Groups.All(g=>g.Arrival<RestaurantTuning.DoorCloseSeconds)&&a.Groups.Count>=3&&a.Groups.Count<=16,"the bookings all arrive before the door closes (service v2: walk-ins fill the rest)");
+            while(!a.Finished&&a.Seconds<RestaurantTuning.NightSeconds+50){a.Tick(.25f);actions.Add(a.Staff.Single(s=>s.Id=="captain").Action);}
             b.RunToClose();Check(JsonUtility.ToJson(a.Result)==JsonUtility.ToJson(b.Result),"helper determinism across quarter and one second frames");
             Check(actions.Any(x=>x.StartsWith("Cook"))&&actions.Contains("Serve fish")&&actions.Contains("Clear table"),"one captain actually cooks serves and clears");
-            Check(a.Result.Served>0&&a.Seconds==600&&a.Hour==23&&a.DoorClosed,"600 second night closes at 23 with actual meals");
+            Check(a.Result.Served>0&&a.Seconds==RestaurantTuning.NightSeconds&&a.Hour==23&&a.DoorClosed,"the night closes at 23 with actual meals");
             Check(a.Result.Stars>=1&&a.Result.Stars<=5,"stars remain in one to five scale");
             foreach(string id in new[]{"ines","mats"})Check(RestaurantStaff.FromCard(new CardState(id),Job.Cook,Kit().Door).Job==Job.Barista,id+" fixed coffee role");
             var repair=Fresh();int stove=repair.Layout.Active.First(i=>i.Id==ItemId.Stove).Uid;bool broke=false;
-            while(!repair.Finished&&repair.Seconds<650){repair.Tick(.25f);if(!broke&&repair.Staff.Last().Action.StartsWith("Cook")){repair.Break(stove);broke=true;}}
+            while(!repair.Finished&&repair.Seconds<RestaurantTuning.NightSeconds+50){repair.Tick(.25f);if(!broke&&repair.Staff.Last().Action.StartsWith("Cook")){repair.Break(stove);broke=true;}}
             Check(broke&&!repair.Broken.Contains(stove)&&repair.Result.Served>0,"helper interrupts its own blocked cook to repair and resume service");
             var bad=Fresh();bad.CloseDoor();bad.RunToClose();Check(bad.Result.PopularityGain<0,"lost guests reduce popularity");
             // Controlled till fixtures isolate cold price/stars from seeded queue timing.
-            RestaurantSim Payment(bool cold){var sim=Fresh();var g=sim.Groups[0];sim.Groups.Clear();sim.Groups.Add(g);g.Arrival=0;g.TableUid=sim.Layout.Active.First(i=>i.Id==ItemId.Table2).Uid;g.Phase=GroupPhase.Payment;
+            RestaurantSim Payment(bool cold){var sim=Fresh();sim.WalkInPace=0;var g=sim.Groups[0];sim.Groups.Clear();sim.Groups.Add(g);g.Arrival=0;g.TableUid=sim.Layout.Active.First(i=>i.Id==ItemId.Table2).Uid;g.Phase=GroupPhase.Payment;
                 g.Tickets.Clear();foreach(var o in g.Guests)g.Tickets.Add(new ServiceTicket{Order=o,Dish=Dish.PanFish,Species=Species.Pollock,Phase=TicketPhase.Delivered,Cold=cold});return sim;}
             var hot=Payment(false);var cold=Payment(true);hot.RunToClose();cold.RunToClose();
             Check(cold.Result.DishCoins<hot.Result.DishCoins&&cold.Result.Stars<hot.Result.Stars,"cold plates reduce pay and stars");
@@ -289,7 +290,7 @@ namespace Catchline.EditorTools
                     if(crew>=2)staff.Add(RestaurantStaff.FromCard(new CardState("ana"),Job.Waiter,l.Door));
                     if(crew>=3)staff.Add(RestaurantStaff.FromCard(new CardState("ines"),Job.Barista,l.Door));
                     var sim=new RestaurantSim(seed,l,f,Stock(9,6),staff){Breakdowns=false};var idle=new float[5];
-                    while(!sim.Finished&&sim.Seconds<650){for(int i=0;i<staff.Count;i++)if(!staff[i].Busy)idle[i]+=.25f;sim.Tick(.25f);}
+                    while(!sim.Finished&&sim.Seconds<RestaurantTuning.NightSeconds+50){for(int i=0;i<staff.Count;i++)if(!staff[i].Busy)idle[i]+=.25f;sim.Tick(.25f);}
                     Check(sim.Finished&&sim.Result.Guests==sim.Result.Served+sim.Result.Left,"feel balance bounded/conserved crew="+crew+" seed="+seed);
                     var r=sim.Result;int give=sim.Groups.Where(g=>g.Why=="gave-up").Sum(g=>g.Count),atDoor=sim.Groups.Where(g=>g.Phase==GroupPhase.Gone&&g.TableUid==0).Sum(g=>g.Count);
                     text.Append(FormattableString.Invariant($"| {names[crew]} | {seed} | {r.Served} / {r.Guests} | {give} | {atDoor} | {r.ColdDishes} | {r.Stars:F3} | {r.NetCoins} |"));
@@ -323,7 +324,8 @@ namespace Catchline.EditorTools
                 string metres=string.Join("; ",r.Walking.Select(w=>w.Id+" "+w.Metres.ToString("F1")));
                 text.Append($"| {name} | {seed} | {r.Guests} | {r.Served} | {r.Left} | {r.DishCoins} | {r.DrinkCoins} | {r.Tips} | {r.StapleCosts} | {r.NetCoins} | {r.Stars:F2} | {r.Cats} | {r.Seconds:F2} | {metres} |\n");
                 Check(r.Guests==r.Served+r.Left,"report "+name+" guest conservation");
-                Check(portions==r.Served+r.Cats,"report "+name+" prepared portions either served or reach cats");
+                int plates=sim.Groups.SelectMany(g=>g.Tickets).Count(t=>t.Phase==TicketPhase.Delivered&&!RestaurantData.Get(t.Dish).Staple&&t.Dish!=Dish.Coffee); // a platter feeds a table on one portion
+                Check(portions==plates+r.Cats,"report "+name+$" prepared portions either served or reach cats (portions {portions}, taken {sim.PortionsTaken}, bowls {sim.SoupBowls}, left in stock {sim.Stock.Sum(x=>x.Count)}, plates {plates}, served {r.Served}, staples {r.Staples}, cats {r.Cats}, walk-ins {r.WalkIns}, subs {r.Substitutions})");
             }
             text.Append("\nPLAY-1 rules: 600 seconds, 18-22 arrivals and 23 closing; stage1 Mira + one captain helper. Fixed card roles; cold after 30s, payment at till, repairable breakdowns and 1-5 stars. Plates/sink/trash are simplified to clearing, not finite supply lines. Other report stages use specialists at their native jobs. No player-save/UI integration claimed.\n\n");
             text.Append("Integration API: standalone RestaurantState + RestaurantLayout; forecast takes ground weighted (Species, weight) pairs, exposes copied guests and ranges, supports MiraChange/SpecialRequest/Lock. RestaurantPortions.Suggest produces fridge stock and untouched market fish. RestaurantSim.Tick accepts elapsed seconds, fixed steps internally; SetJob, Pin, Seat, CloseDoor, ChooseSubstitute, Break, CaptainHoldFix are manager commands. Busy staff finish their accepted task before taking the new role. RunToClose is the headless runner. Result includes gross/net split and each staff distance.\n\n");

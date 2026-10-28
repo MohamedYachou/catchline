@@ -1,13 +1,45 @@
-CODEX 2 (WSL) — CREW-QUATERNIUS, MALE crew. Read docs/briefs/CREW-QUATERNIUS.txt in full first.
+SERVICE-PROPS-3 — Codex 2 — gold tips, the food critic, desserts and the night-card gadgets
+(SERVICE-PROPS-2 was reviewed: the eight cooking props, catch board and ferry are accepted. Tip coins are
+rejected, see item 1.)
 
-Your roster (build these 6, matching Assets/Art/UI/Portraits/art108-<name>.png, on Superhero_Male):
-  sam (Deckhand, navy)   dirk (Fisher, teal)   kofi (Fisher, teal)
-  mats (Deckhand, navy)  olaf (Engineer, rust) pim (Fisher, teal)
-If a portrait reads female, build female + note it. Match skin tone to each portrait (e.g. Kofi reads
-darker-skinned — follow the art). Beards: use Hair_Beard where the portrait has one.
+GOAL (Mo, 10-28): "keep polishing, improving, adding more, it needs to be production ready, especially visually
+and gameplay wise." The service night now has walk-ins, upsells, gulls and a tap-driven captain. Next come
+night cards between nights (pick 1 of 3: a gadget, a night event or a dish) and harbour moments (the ferry
+rush, a food critic). These props make those visible in the room.
 
-Deliver per the brief into Art/Models/Crew/Quaternius/ : <name>.fbx (bind pose, hair+brows parented,
-materials split Skin/Suit/Hair/Eyes/Brows, skeleton UNtouched), rows in crew-manifest.json, a
-crew-contact-2.jpg contact render (game cam pitch 38 / yaw 2, 1 m grid) + 844 overview, REPORT.md.
-Phase 1 only — no clothing meshes, no Assets/scripts/git, no Unity batchmode.
-CHECKPOINT every 3 crew in comms.md, DONE then IDLE.
+CONTEXT (read these, nothing else up front):
+- docs/wip/SERVICE-V2-PITCH.md (items 5-8).
+- Your own SERVICE-PROPS-1/2 work for style, scale, atlas and the service-camera render setup:
+  Art/Source/RestaurantService/ (REPORT.md and scripts).
+- Guest models to match for item 2: Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Ada.fbx (and its
+  source; find it from the FBX metadata or Art/Source/Townsfolk / Art/Source/Restaurant).
+
+OWNERSHIP: write Assets/Art/Models/Restaurant/Pack/service/, Pack/dishes/, Pack/gadgets/ (new),
+Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Critic.fbx(.meta), their .meta files, and
+Art/Source/RestaurantService/ (add a SERVICE-PROPS-3 section to REPORT.md). Do NOT edit .cs files,
+Assets/Resources/, Art/Source/UIv3, Art/Source/Crew or other guests. No git. Never batchmode Unity.
+
+ITEMS, in priority order (finish and log one before the next):
+1. FIX Restaurant_TipCoins_S and _L: the coins render pale peach and too small to see from the service camera.
+   Make them saturated gold (bright face around #F2C14E, darker rim #A8741E, a highlight), about 1.5x bigger
+   (S about 0.18 m across, L about 0.3 m), with a taller stack so the pile has a silhouette. Re-render on a table.
+2. Restaurant_Guest_Critic: a food critic guest on the SAME skeleton, bone names and import settings as
+   Restaurant_Guest_Ada, so every existing guest clip (Walk, Idle, Sit, Eat) plays on it unchanged. Long dark
+   coat, beret, round glasses, a notebook in the left hand as a separate child mesh "Critic_Notebook".
+   Evidence: renders in Walk, Sit and Eat poses from the service camera, plus front/side/back close-ups.
+3. Desserts for the upsell, plated like your dishes: Restaurant_Dish_IceCream (a sundae glass) and
+   Restaurant_Dish_Pudding (sticky toffee pudding with cream), each under 1.5k tris.
+4. Night-card gadgets in Pack/gadgets/: Restaurant_WarmingLamp (a heat lamp on a stand that sits on the pass
+   counter, glowing red-orange bulb as its own child mesh "Bulb"), Restaurant_ServiceBell (a brass bell for
+   the reception desk), Restaurant_Bunting (a festival string of triangle flags, about 8 m long, pivot at one
+   end, for the harbour festival night), Restaurant_PlateRack (a small 3-plate carry rack the captain holds).
+
+CONSTRAINTS: chunky low-poly like the pack; props under 3k tris, the critic under 6k. Pivot at the bottom
+centre (bunting: the left end), Y up, 1 unit = 1 m. Same atlas material Catchline/RestaurantAtlas. Colours
+must read at night under warm light.
+
+DONE = EVIDENCE: per item, a render from the service camera angle in the room plus a close-up, saved to
+Art/Source/RestaurantService/renders/. Open and look at every render before calling an item done.
+
+REPORTING: one comms.md line per finished item (codex2, SERVICE-PROPS-3 item, done, tris). If the brief and
+the files disagree, write a QUESTION line in comms.md, follow the files, and carry on.

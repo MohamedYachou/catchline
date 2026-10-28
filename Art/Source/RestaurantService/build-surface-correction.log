@@ -1,0 +1,27 @@
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('RestaurantAtlas');m.use_nodes=True;n=m.node_tree.nodes;n.clear();l=m.node_tree.links
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:383: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes:
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:396: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Cool harbour fill');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.25,.36,.43,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.38
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:372: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(*color,1);bs.inputs['Roughness'].default_value=rough;return m
+00:32.140  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Crab-service.png'
+01:13.830  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Crab-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Crab.fbx'
+export finished in 0.0674 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Crab.blend"
+ITEM_RENDERED Restaurant_Dish_Crab 804 [0.25999999046325684, 0.08449999988079071, 0.25999999046325684]
+01:51.481  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Calamari-service.png'
+02:21.388  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Dish_Calamari-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Calamari.fbx'
+export finished in 0.0365 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Dish_Calamari.blend"
+ITEM_RENDERED Restaurant_Dish_Calamari 852 [0.25999999046325684, 0.07000000029802322, 0.25999999046325684]
+Blender 5.0.1
+
+Blender quit

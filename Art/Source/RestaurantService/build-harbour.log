@@ -1,0 +1,35 @@
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('RestaurantAtlas');m.use_nodes=True;n=m.node_tree.nodes;n.clear();l=m.node_tree.links
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:383: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes:
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:396: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Cool harbour fill');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.25,.36,.43,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.38
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_service.py:372: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(*color,1);bs.inputs['Roughness'].default_value=rough;return m
+00:23.945  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Gull_Stand-service.png'
+00:47.032  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Gull_Stand-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/service/Restaurant_Gull_Stand.fbx'
+export finished in 0.0367 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Gull_Stand.blend"
+ITEM_RENDERED Restaurant_Gull_Stand 676 [0.18290984630584717, 0.3530000189784914, 0.3840000033378601]
+01:10.708  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Gull_Flap-service.png'
+01:36.015  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Gull_Flap-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/service/Restaurant_Gull_Flap.fbx'
+export finished in 0.0222 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Gull_Flap.blend"
+ITEM_RENDERED Restaurant_Gull_Flap 500 [0.8100000023841858, 0.3530000189784914, 0.3840000033378601]
+02:01.511  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Spill-service.png'
+02:27.212  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_Spill-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/service/Restaurant_Spill.fbx'
+export finished in 0.0276 sec.
+FBX version: 7400
+Info: Saved as "Restaurant_Spill.blend"
+ITEM_RENDERED Restaurant_Spill 200 [0.5704266130924225, 0.0139999995008111, 0.39063045382499695]
+Blender 5.0.1
+
+Blender quit

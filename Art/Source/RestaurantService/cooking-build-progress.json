@@ -1,0 +1,54 @@
+{
+  "state": "DONE; A-G VERIFIED; twelve assets and twenty-four opened final frames; all reservations released",
+  "item": {
+    "name": "Restaurant_Ferry",
+    "tris": 3236,
+    "size_xyz_blender_m": [
+      9.003600120544434,
+      2.7731151580810547,
+      3.7874999046325684
+    ],
+    "size_xyz_unity_m": [
+      9.003600120544434,
+      3.787500023841858,
+      2.7731151580810547
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      -0.6200000047683716
+    ],
+    "vertices": 1818,
+    "waterline_local_unity_y_m": 0,
+    "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_Ferry.fbx",
+    "triangle_limit_exclusive": 4000,
+    "material": "RestaurantAtlas",
+    "sha256": "999202397728f69d9d8df96540ffc747863c71b85c34cbf391dfa996e783505d",
+    "render_review": "PASS \u2014 both final frames individually opened by Codex 2",
+    "station": "RestaurantPier quay / AddSea",
+    "station_top_y_m": -0.57,
+    "station_local_unity_pivot_m": [
+      -10.5,
+      -0.57,
+      -2.65
+    ],
+    "draught_m": 0.62,
+    "heading_unity": [
+      -1,
+      0,
+      0
+    ],
+    "placement_note": "Room/pier-local Unity (-10.5,-0.57,-2.65), identity rotation, scale1; local forward -X, waterlineY0, actual AddSea surfaceY-0.57.",
+    "window_emission": "Existing yellow atlas cell(3,2), Surface.B=1, canonical shader emission factor2.8; no new material/texture.",
+    "renders": [
+      "Art/Source/RestaurantService/renders/Restaurant_Ferry-service.png",
+      "Art/Source/RestaurantService/renders/Restaurant_Ferry-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_note": "Both final frames opened; 9.004m navy/cream passenger ferry moored beside actual quay, raised wheelhouse, glowing window rows, safety rails, four life rings, open boarding deck and benches read clearly.3236tris below4000. Local waterlineY0 with0.620m draught; room sea/pivotY-0.570. Canonical atlas emission only."
+  },
+  "last_verified": "G \u2014 final twelve-FBX/source/artifact audit PASS; 104 dependencies and 142 earlier inventory entries preserved",
+  "remaining_steps": [],
+  "held_paths": []
+}

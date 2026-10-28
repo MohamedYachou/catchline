@@ -1,0 +1,17 @@
+00:01.044  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_cooking.py:258: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Harbour blue dusk');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.10,.16,.28,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.32
+/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/build_cooking.py:211: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('REVIEW_NightWater');m.use_nodes=True;n=m.node_tree.nodes;l=m.node_tree.links;bs=n['Principled BSDF']
+00:58.645  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_CatchBoard-service.png'
+01:49.109  render           | Saved: '/mnt/c/Users/momoy/Projects/Catchline/Art/Source/RestaurantService/renders/Restaurant_CatchBoard-close.png'
+
+FBX export starting... '/mnt/c/Users/momoy/Projects/Catchline/Assets/Art/Models/Restaurant/Pack/service/Restaurant_CatchBoard.fbx'
+export finished in 0.0325 sec.
+Info: Saved as "Restaurant_CatchBoard.blend"
+FBX version: 7400
+FBX version: 7400
+ITEM_RENDERED Restaurant_CatchBoard 451 [0.5920000076293945, 0.8999999761581421, 0.4099999964237213] [5.6, 0, -3.65]
+Blender 5.0.1
+
+Blender quit

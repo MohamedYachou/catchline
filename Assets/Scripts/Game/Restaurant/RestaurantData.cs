@@ -19,20 +19,34 @@ namespace Catchline.Game.Restaurant
     // deliberately provisional; reports expose them, and the live game's prices are untouched.
     public static class RestaurantTuning
     {
-        public const float TickSeconds = .25f, NightSeconds = 600, DoorCloseSeconds = 480;
+        // Service v2 (Mo 10-28, "no point in waiting 2 minutes for something to happen"): a night is about three
+        // minutes of play. Everything a guest does takes seconds; walk-ins stream in all night on top of the bookings.
+        public const float TickSeconds = .25f, NightSeconds = 240, DoorCloseSeconds = 180;
         public const float OffRole = .7f, Monday = .8f, BusyDay = 1.3f, Rain = .85f;
         public const float FilletKg = .4f, WholeMaxKg = .8f, StockBowlsPerKg = 4, PlatterMinKg = 4, SquidKg = .3f;
         public const float OffcutFraction = .2f, MarketMultiplier = .5f, DishMultiplier = 3, SellBack = .5f;
         public const float WalkInMax = .1f, MiraGrowthMax = .2f, DrinkChance = .8f, CoffeeChance = .3f, SpecialChance = .06f;
-        public const float ForecastUncertainty = .12f, DoorPatience = 90, TablePatience = 180, DrinkPatience = 14;
-        public const float SeatSeconds = 1.2f, OrderSeconds = 2, ServeSeconds = 2, ClearSeconds = 2, PlateSeconds = 1.5f;
-        public const float EatSeconds = 95, DrinkSeconds = 2, CoffeeSeconds = 3, SubstituteDelay = 4, RepairSeconds = 10;
-        public const float ColdSeconds = 30, ColdPrice = .8f, PaymentSeconds = 2, CoffeeWait = 40;
-        public const float BreakdownPerSecond = .0015f, TipRate = .12f, SpecialMultiplier = 2, AmbiencePatience = 2;
-        public const int FridgePortions = 15, KettleBatch = 8, BaseGuests = 18, GuestsPerPopularity = 2;
+        public const float ForecastUncertainty = .12f, DoorPatience = 25, TablePatience = 45, DrinkPatience = 8;
+        public const float SeatSeconds = .6f, OrderSeconds = 1, ServeSeconds = .6f, ClearSeconds = .8f, PlateSeconds = .6f;
+        public const float EatSeconds = 12, DrinkSeconds = 1, CoffeeSeconds = 1.5f, SubstituteDelay = 2, RepairSeconds = 5;
+        public const float ColdSeconds = 14, ColdPrice = .8f, PaymentSeconds = .8f, CoffeeWait = 8;
+        public const float BreakdownPerSecond = .003f, TipRate = .12f, SpecialMultiplier = 2, AmbiencePatience = .5f;
+        public const int FridgePortions = 15, KettleBatch = 8, BaseGuests = 8, GuestsPerPopularity = 1; // bookings; walk-ins fill the rest of the room (service v2)
+        // Staff walk faster in the small room than on deck; the captain (the player's hands) beats any hire.
+        public const float WalkBoost = 1.8f, CaptainBoost = 1.5f, LoadSeconds = .4f;
+        // Walk-ins: a group every WalkInEvery seconds on average (faster as the night's stars climb), never while
+        // WalkInQueue groups already wait at the door. ComboTip is paid per plate when one trip serves two tables.
+        public const float WalkInEvery = 6f, WalkInFishChance = .45f; public const int WalkInQueue = 3, CarryPlates = 2, ComboTip = 3;
+        // Upsell bubbles: a few seconds into their meal a table may wave for another round; a tap within UpsellSeconds sells
+        // it on the spot (per guest, at the staple price), no trip needed. Something to do while the kitchen works.
+        public const float UpsellChance = .6f, UpsellAfter = 3f, UpsellSeconds = 5f;
+        // Gulls: one lands on a table that is eating about every GullEvery seconds; tap it away within GullSeconds or it
+        // steals from the plate (that table loses a star).
+        public const float GullEvery = 20f, GullSeconds = 5f;
         public static readonly int[] ItemPrices = { 80,140,100,160,220,360,260,120,180,100,100,220,80,160,300,120,0,80,50,60,40,60,250 };
         public static readonly int[] StagePrices = { 0,0,1200,3500,8000 }, StagePopularity = { 0,0,3,5,8 };
-        public static float CookSeconds(Dish d) => d == Dish.Soup ? 8 : d == Dish.Platter ? 15 : d == Dish.Crab ? 10 : 7;
+        // Loaded and left: the station cooks by itself for this long while the cook does something else.
+        public static float CookSeconds(Dish d) => d == Dish.Soup ? 4 : d == Dish.Platter ? 9 : d == Dish.Crab ? 6 : d == Dish.Bread ? 1.5f : d == Dish.Fries ? 3 : 4;
         public static int StaplePrice(Dish d) => d == Dish.Beer ? 5 : d == Dish.Coffee || d == Dish.Tea ? 4 : 3;
         public const int StapleCost = 1;
         public const float PopularityPerGuest = .01f, PopularityPerSpecial = .05f, PopularityPerRegular = .5f, BirthdayChance = .35f, RegularChance = .4f, TourChance = .3f;

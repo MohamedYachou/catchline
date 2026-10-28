@@ -1,13 +1,38 @@
-CODEX 1 (Windows) — CREW-QUATERNIUS, FEMALE crew. Read docs/briefs/CREW-QUATERNIUS.txt in full first.
+NIGHT-CARDS-ART-1 — Codex 1 — the cards the player picks between restaurant nights
+(SERVICE-UI-KIT-4 was reviewed and accepted: all 19 icons read on cream and night. Claude is wiring them in.)
 
-Your roster (build these 8, matching Assets/Art/UI/Portraits/art108-<name>.png, on Superhero_Female):
-  mira (Navigator, brass)   noor (Deckhand, navy)   rosa (Fisher, teal)   tess (Fisher, teal)
-  ana (Deckhand, navy)      lise (Fisher, teal)     ines (Engineer, rust)  tove (Deckhand, navy)
-If a portrait reads male, build male + note it. Mira: brown hair, curly wanted -> Hair_Buns (note it).
-Ines: light-blonde Hair_Long.
+GOAL (Mo, 10-28): "keep polishing, improving, adding more, it needs to be production ready, especially visually
+and gameplay wise." After each restaurant night the player picks 1 of 3 night cards (our take on PlateUp's
+cards): a gadget that helps, a night event that makes the next night harder and richer, or a dish. They need
+card art in the v3 look, as polished as Mira's day cards.
 
-Deliver per the brief into Art/Models/Crew/Quaternius/ : <name>.fbx (bind pose, hair+brows parented,
-materials split Skin/Suit/Hair/Eyes/Brows, skeleton UNtouched), rows in crew-manifest.json, a
-crew-contact-1.jpg contact render (game cam pitch 38 / yaw 2, 1 m grid) + 844 overview, REPORT.md.
-Phase 1 only — no clothing meshes, no Assets/scripts/git, no Unity batchmode.
-Your week usage is tight: work efficiently, CHECKPOINT every 3 crew in comms.md, DONE then IDLE.
+CONTEXT (read these, nothing else up front):
+- The v3 pipeline, your own kit-4 and the day cards it sits beside: Art/Source/UIv3/build_kit4.py,
+  Art/Source/UIv3/kit-2/README.md (day cards: 240x320 viewBox, header/body safe rects), and
+  docs/screens/ui-v3/art-kit-2.png, docs/screens/ui-v3/art-kit-4.png.
+- docs/wip/SERVICE-V2-PITCH.md item 8.
+
+OWNERSHIP: write Art/Source/UIv3/build_kit5.py, Art/Source/UIv3/kit-5/, Assets/Art/UI/v3-ncard-*.png and
+their .meta files, docs/screens/ui-v3/art-kit-5.png. Do NOT edit .cs files, other kits' files,
+Assets/Resources/, Art/Source/Crew, or anything Codex 2 owns (Assets/Art/Models/Restaurant/,
+Art/Source/RestaurantService). No git. Never batchmode the main Unity project.
+
+ITEMS, in priority order (finish and log one before the next):
+1. Three card frames, 240x320 viewBox like the day cards, with a big illustration window, a title band and a
+   body area for live text (no baked words), and a kind ribbon: v3-ncard-gadget (teal), v3-ncard-night
+   (coral), v3-ncard-dish (brass). Plus v3-ncard-glow, a soft selection glow that sits behind a card.
+2. Twelve illustrations, 256x256 viewBox, one strong silhouette each, made to sit in the window:
+   gadgets: v3-ncard-warming-lamp, -plate-rack, -service-bell, -gull-net, -quick-shoes, -second-pan;
+   nights: v3-ncard-ferry, -critic (beret, glasses, notebook), -festival (bunting and lanterns), -rain;
+   dishes: v3-ncard-catch (a fish on a chalkboard), -ice-cream.
+3. README.md in kit-5: sizes, safe rects for title/body text and the illustration window, slice borders.
+
+CONSTRAINTS: no baked words or numerals. Same palette and DEFS as kit-2/kit-4. The card must read at 150 px
+wide on a phone; illustrations must read at 64 px.
+
+DONE = EVIDENCE: a contact sheet of the three frames, each with a sample illustration composited in and dummy
+title/body text over its safe rects, on cream and on the dark night background; plus all twelve
+illustrations at 64 px. Save to Art/Source/UIv3/kit-5/review/ and open every image before calling an item done.
+
+REPORTING: one comms.md line per finished item (codex1, NIGHT-CARDS-ART-1 item, done, files). If the brief and
+the files disagree, write a QUESTION line in comms.md, follow the files, and carry on.

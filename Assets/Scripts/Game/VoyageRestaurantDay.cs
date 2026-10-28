@@ -33,8 +33,8 @@ namespace Catchline.Game
         RestaurantLayout Kitchen => restaurantLayout ??= new RestaurantLayout(restaurantState ??= LoadRestaurant());
         RestaurantState LoadRestaurant()
         {
-            if (!string.IsNullOrEmpty(State.RestaurantLayout)) try { return RestaurantState.FromJson(State.RestaurantLayout); } catch (Exception e) { Debug.LogWarning("[Catchline] restaurant layout unreadable, starting kit: " + e.Message); }
-            return RestaurantLayout.StartingKit();
+            if (!string.IsNullOrEmpty(State.RestaurantLayout)) try { return RestaurantLayout.WithServiceTables(RestaurantState.FromJson(State.RestaurantLayout)); } catch (Exception e) { Debug.LogWarning("[Catchline] restaurant layout unreadable, starting kit: " + e.Message); }
+            return RestaurantLayout.WithServiceTables(RestaurantLayout.StartingKit());
         }
         void StoreRestaurant() { if (restaurantState != null) State.RestaurantLayout = JsonUtility.ToJson(restaurantState); }
 
@@ -285,6 +285,8 @@ namespace Catchline.Game
             // The captain walks around helping wherever the queue is longest (design section 6).
             staff.Add(SimStaff.Captain(Kitchen.Door));
             night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0, Events = State.RestaurantNights.Count > 0 }; // the tutorial night stays plain
+            // Service v2 (Mo 10-28): the captain is the player's hands and walk-ins come all night (gentler on the first).
+            night.CaptainHandsOn = true; night.CaptainAuto = AutoPlay || Environment.GetCommandLineArgs().Contains("-capture-uiv2"); night.WalkInPace = State.RestaurantNights.Count == 0 ? .6f : 1f; night.GullPace = State.RestaurantNights.Count == 0 ? .6f : 1f; comboShown = -1;
             // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
             RadioNight(night); // what the captain agreed on the radio: Lotte's lemons, Bram's repair or the risk
             restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
@@ -313,6 +315,10 @@ namespace Catchline.Game
             if (RestaurantPhase != DayPhase.Service || night == null) return;
             var v = RestaurantService;
             if (!v.Paused) { night.Tick(dt * Mathf.Max(1, v.Speed)); CaptainWork(dt * Mathf.Max(1, v.Speed)); RadioNightTick(); }
+            // The first gull and the first round a table waves for explain themselves once a night.
+            if (night.GullTable != 0 && miraSaid.Add("gull")) Toast("A gull! Tap its table to shoo it before it steals a plate.");
+            if (night.Groups.Any(g => g.Phase == GroupPhase.Eating && night.Seconds < g.UpsellUntil) && miraSaid.Add("upsell")) Toast("A table wants another round: tap it to sell, quick!");
+            if (night.LastComboAt > comboShown) { comboShown = night.LastComboAt; Toast($"Combo! {night.LastCombo} plates in one trip · +{night.LastComboTip} tips"); audio?.Play(VoyageAudio.Cue.CoachPop, .35f); }
             v.Hour = night.Hour; v.Open = 18; v.Close = 23;
             v.Coins = State.Coins + night.Result.Coins;
             v.Popularity = restaurantPopularity;
@@ -337,7 +343,7 @@ namespace Catchline.Game
 
         // The manager helps where it hurts (design section 6): tap a broken station and the captain goes to fix it;
         // tap a table and he works that table first (tap it again to let him help everywhere).
-        int captainFix, captainTable;
+        int captainFix, captainTable; float comboShown = -1;
         void ServiceTap()
         {
             var p = UnityEngine.InputSystem.Pointer.current;
@@ -355,6 +361,16 @@ namespace Catchline.Game
             {
                 captainFix = hit.Uid; night.SendToFix(hit.Uid); Toast($"Captain: on my way to the {d.Name.ToLower()}.");
                 audio?.Play(VoyageAudio.Cue.Select, .4f); return true;
+            }
+            // Service v2: a table waving for another round sells it on the tap, before anything the captain would do there.
+            if (night.ShooGull(hit.Uid)) { audio?.Play(VoyageAudio.Cue.Gull, .5f); return true; }
+            if (night.TakeUpsell(hit.Uid)) { audio?.Play(VoyageAudio.Cue.Sale, .45f); return true; }
+            if (night.CaptainHandsOn)
+            {
+                // Service v2: the tap is the captain's next job (a table: whatever it needs; a station: cook on it).
+                if (!night.Command(hit.Uid)) return false;
+                restaurantWorld.Mark(hit); audio?.Play(VoyageAudio.Cue.Select, .4f);
+                return true;
             }
             if (d.Seats == 0 || !night.Pin(hit.Uid)) return false;
             captainTable = captainTable == hit.Uid ? 0 : hit.Uid;
@@ -418,7 +434,7 @@ namespace Catchline.Game
             if (night.DoorClosed) Say("door", "Doors closed. Last plates!");
             // The first night's coaching (Codex 1's coach card): the service waits while Mira explains the two controls.
             void Coach(string key, string line) { if (!coachOff && miraSaid.Add("coach-" + key)) coachLines.Enqueue(line); }
-            if (night.Groups.Any(g => g.TableUid != 0 && g.Phase != GroupPhase.Seating)) Coach("pin", "Tap a table and I'll send the crew there first. Tap a broken station and you fix it yourself.");
+            if (night.Groups.Any(g => g.TableUid != 0 && g.Phase != GroupPhase.Seating)) Coach("pin", "You're the captain's hands! Tap a table and he does what it needs: seat, cook, serve or clear. Tap a stove to cook on it. Two tables with plates waiting in one trip pays a combo.");
             if (night.Hour >= 21 && !night.DoorClosed) Coach("door", "When the queue thins out, close the door up top. We finish the last plates, then count the till.");
             if (coachLine == null && coachLines.Count > 0 && HasUi("rx-coach-panel"))
             {
@@ -587,6 +603,7 @@ namespace Catchline.Game
                 "queue" => Pick("Queue was too long.", "No table for us."),
                 "missing" => Pick("Half our order came.", "Still hungry, sadly."),
                 "cold" => Pick($"Cold {name}. Shame.", "Lovely view, cold plate."),
+                "gull" => Pick($"A gull took my {name}!", "Cheeky gulls out here."),
                 "swap" => Pick("Not what we ordered.", "Nice, but not our pick."),
                 "slow" => Pick("A bit slow tonight.", "Worth it, but slow."),
                 "special" => Pick("That special! Wow.", "Ask for the special!"),
@@ -964,6 +981,10 @@ namespace Catchline.Game
                     coachOff = true; coachLine = null; RestaurantService.Paused = false;
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
+                    // DEBUG service v2 layout (temporary)
+                    foreach (var it in night.Layout.Active) Debug.Log($"[Catchline] DBG item {it.Uid} {it.Id} at {it.X},{it.Y} rot {it.Rotated} top {(restaurantWorld.ItemTop(it.Uid, out var dv) ? dv.ToString("F3") : "none")}");
+                    foreach (var g in night.Groups.Where(g => g.TableUid != 0 && g.Phase != GroupPhase.Gone)) Debug.Log($"[Catchline] DBG group {g.Id} x{g.Count} table {g.TableUid} {g.Phase} upsell {g.UpsellUntil:0.0}");
+                    foreach (var st in night.Staff) Debug.Log($"[Catchline] DBG staff {st.Id} tile {st.Tile} pos {st.Position} {st.Action}");
                     return RestaurantPhase == DayPhase.Service;
                 case "day-service-steam": // stops a few seconds after a plate lands, so its steam rises in the capture
                     {
@@ -1090,6 +1111,7 @@ namespace Catchline.Game
                     Debug.Log($"[Catchline] NEWGAME plan {RestaurantPlan.GuestsLow}-{RestaurantPlan.GuestsHigh} guests, dishes {string.Join("/", RestaurantPlan.Dishes.Select(d => d.Name))}");
                     return RestaurantPhase == DayPhase.Plan && RestaurantPreview == RestaurantScreen.Plan;
                 case "new-fishing":
+                    if (RestaurantPhase != DayPhase.Plan && !StageRestaurantDayStep("new-plan")) return false; // asked for on its own
                     RestaurantPlanAccepted();
                     for (int n = 0; n < 40000 && !(CurrentMode == Mode.Fishing && AtFishingGround); n++) Tick(.05f);
                     AutoPlay = true;
