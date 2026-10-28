@@ -39,13 +39,15 @@ namespace Catchline.Game
 #endif
         }
 
-        // ---- menus (UI v2) ----------------------------------------------------------------------
+        // ---- menus (restaurant v3) ----------------------------------------------------------------------
 
         static readonly float[] VolumeSteps = { 0, .35f, .7f, 1 };
         static readonly string[] VolumeNames = { "Off", "Low", "Medium", "High" };
 
         // Title, pause, settings and protected confirmations replace the HUD so nothing underneath can be pressed.
-        void InterfaceMenus()
+        void InterfaceMenus() => InterfaceV3(InterfaceMenusV3);
+
+        void InterfaceMenusV3()
         {
             var keyboard = UnityEngine.InputSystem.Keyboard.current;
             if (showTitle && keyboard != null && keyboard.escapeKey.wasPressedThisFrame && titleBackFrame != Time.frameCount)
@@ -73,7 +75,7 @@ namespace Catchline.Game
             bool chooser = SessionOnly && CurrentMode == Mode.Harbour;
             float h = Skin.HeaderBand + 12 + 44 + 8 + (chooser ? (hadSave ? bh + gap : 0) + (sh + gap) * 3 : bh + gap + (hadSave ? sh + gap : 0)) + sh + Skin.SlabPad;
             var card = new Rect(x, Mathf.Min(logoY + logoH + (phone ? 4 : 16), ih - h - 8), w, h);
-            coastalUi.Slab("title/card", card, "Gull Harbour", true);
+            coastalUi.SlabV3("title/card", card, "Gull Harbour", true);
             float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 12;
             string welcome = chooser ? "Test build · pick a tier. Nothing is saved."
                 : SessionOnly || AutoPlay ? "Test session · progress is not saved."
@@ -112,7 +114,7 @@ namespace Catchline.Game
             coastalUi.Secondary("title/settings", new Rect(bx, y, half, sh), "Settings", () => { confirmReset = false; showSettings = true; MenuSound(); });
             coastalUi.Secondary("title/quit", new Rect(bx + half + gap, y, half, sh), CurrentMode != Mode.Harbour ? "Quit trip" : "Quit", Quit);
             if (confirmReset)
-                coastalUi.Modal("title/reset", "Start over?", "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.",
+                coastalUi.ModalV3("title/reset", "Start over?", "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.",
                     "Erase & start over", () =>
                     {
                         // Separate, explicit action: opening this confirmation never deletes data.
@@ -153,7 +155,7 @@ namespace Catchline.Game
             float bh = phone ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight, sh = phone ? 48 : 52, gap = 8, noteH = phone ? 44 : 56;
             float w = Mathf.Min(440, iw - 32), h = Skin.HeaderBand + 16 + bh + gap + (sh + gap) * 3 + noteH + Skin.SlabPad;
             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
-            coastalUi.Slab("pause/card", card, "Paused", true);
+            coastalUi.SlabV3("pause/card", card, "Paused", true);
             float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 16;
             coastalUi.Primary("pause/resume", new Rect(bx, y, bw, bh), "Resume", () => { paused = false; MenuSound(); });
             y += bh + gap;
@@ -183,13 +185,13 @@ namespace Catchline.Game
             if (Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad > ih - 16) { row = 40; label = 20; gap = 4; }
             float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad;
             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
-            coastalUi.Slab("settings/card", card, "Settings", true);
+            coastalUi.SlabV3("settings/card", card, "Settings", true);
             float x = card.x + Skin.SlabPad + 4, cw = w - Skin.SlabPad * 2 - 8, y = card.y + Skin.HeaderBand + 12;
             void Row(string id, string title, string[] options, int active, System.Action<int> select)
             {
                 coastalUi.Text($"settings/{id}/label", new Rect(x, y, cw, label), title, Skin.Type.Body, Skin.Ink);
                 y += label;
-                coastalUi.PageSwitch($"settings/{id}", new Rect(x, y, cw, row), options, active, i => { select(i); MenuSound(); });
+                coastalUi.PageSwitchV3($"settings/{id}", new Rect(x, y, cw, row), options, active, i => { select(i); MenuSound(); });
                 y += row + gap;
             }
             Row("text", "Text size", UiScaleNames, UiScaleIndex, i => UiScaleIndex = i);
@@ -216,7 +218,7 @@ namespace Catchline.Game
             string body = (overflow > 0 ? $"{overflow} fish cannot fit in the hold and will go back to sea. " : "") +
                 (IsNetFisher && !AllNetsStowed ? SecondNet != NetState.Stowed ? "Your second net is deployed; leaving forfeits its catch. " : Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
                 "The trip is paused while you choose.";
-            coastalUi.Modal("headhome", "Leave fish behind?", body, overflow > 0 ? $"Leave {overflow} fish" : "Head home", ConfirmHeadHome,
+            coastalUi.ModalV3("headhome", "Leave fish behind?", body, overflow > 0 ? $"Leave {overflow} fish" : "Head home", ConfirmHeadHome,
                 "Keep fishing", CancelHeadHome, CancelHeadHome, null, 600, 340);
         }
 

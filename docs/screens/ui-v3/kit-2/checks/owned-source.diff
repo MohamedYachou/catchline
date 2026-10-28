@@ -1,0 +1,660 @@
+--- KIT1/CoastalCanvasV3.cs
++++ KIT2/CoastalCanvasV3.cs
+@@ -5,12 +5,100 @@
+ {
+     public sealed partial class CoastalCanvas
+     {
++        // Explicit source-pixel borders keep pins and dash caps intact when new kit art stretches.
++        public void KitSliceV3(string id, Rect r, string art, Vector4 border, Transform parent = null)
++        {
++            string key = art + ":kit-border:" + border;
++            if (!sprites.TryGetValue(key, out var sprite))
++            {
++                var texture = ArtLibrary.Get()?.UiTex(art);
++                if (texture != null) sprite = UnityEngine.Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * .5f, 100, 0, SpriteMeshType.FullRect, border);
++                sprites[key] = sprite;
++            }
++            var e = Get(id, r, parent);
++            if (e.Image == null) e.Image = e.Rect.gameObject.AddComponent<UnityEngine.UI.Image>();
++            e.Image.sprite = sprite; e.Image.type = UnityEngine.UI.Image.Type.Sliced;
++            e.Image.pixelsPerUnitMultiplier = 2;
++            e.Image.preserveAspect = false; e.Image.color = Color.white; e.Image.raycastTarget = false;
++        }
++
+         // Compose the kit's paper and navy header without falling back to the old titled panel.
+         public RectTransform TitledSlabV3(string id, Rect r, Transform parent = null)
+         {
+             var slab = Slab(id, r, null, false, parent);
+             Sliced(id + "/band", new Rect(3, 3, r.width - 6, Skin.HeaderBand + 6), "v2-slab-header", slab);
+             return slab;
++        }
++
++        void TitledSurfaceV3(string id)
++        {
++            var e = elements[id];
++            e.Image.sprite = V2("v2-slab");
++            e.Image.type = UnityEngine.UI.Image.Type.Sliced;
++            e.Image.pixelsPerUnitMultiplier = 2;
++            var band = Sliced(id + "/band", new Rect(3, 3, e.Rect.rect.width - 6, Skin.HeaderBand + 6), "v2-slab-header", e.Rect);
++            band.SetAsFirstSibling();
++        }
++
++        public RectTransform SlabV3(string id, Rect r, string title = null, bool nails = false, Transform parent = null)
++        {
++            var slab = Slab(id, r, title, nails, parent);
++            if (title != null) TitledSurfaceV3(id);
++            return slab;
++        }
++
++        public RectTransform CardV3(string id, Rect r, Skin.Card kind = Skin.Card.Soft, Transform parent = null, string headerTitle = null)
++        {
++            var card = Card(id, r, kind, parent, headerTitle);
++            if (headerTitle != null) TitledSurfaceV3(id);
++            return card;
++        }
++
++        public void StageCardV3(string id, Rect r, string title, string icon, string illustration, string number, string unit,
++            Skin.Status status, int queue, Action details, string lockReason = null, string detailsId = null)
++        {
++            StageCard(id, r, title, icon, illustration, number, unit, status, queue, details, lockReason, detailsId);
++            TitledSurfaceV3(id);
++        }
++
++        public RectTransform ModalV3(string id, string title, string body, string primaryLabel, Action primary, string secondaryLabel, Action secondary,
++            Action dismiss = null, string primaryIcon = null, float width = 560, float height = 300)
++        {
++            var slab = Modal(id, title, body, primaryLabel, primary, secondaryLabel, secondary, dismiss, primaryIcon, width, height);
++            TitledSurfaceV3(id);
++            return slab;
++        }
++
++        public void PageSwitchV3(string id, Rect r, string[] labels, int active, Action<int> select, string[] ids = null, Transform parent = null, bool[] enabled = null)
++        {
++            var capsule = Sliced(id, r, "v2-inset", parent, null, true);
++            float w = (r.width - 8) / labels.Length;
++            for (int i = 0; i < labels.Length; i++)
++            {
++                int index = i; bool on = i == active;
++                string pid = ids != null ? ids[i] : $"{id}/{i}";
++                bool live = enabled == null || enabled[i];
++                var e = Pressable(pid, new Rect(4 + i * w, 4, w, r.height - 8), capsule,
++                    on ? "v2-btn-primary" : null, on ? "v2-btn-primary-pressed" : null, () => select(index), live);
++                if (!on) e.Image.color = Color.clear;
++                Text($"{pid}/label", new Rect(8, 0, w - 16, r.height - 8), labels[i], Skin.Type.Heading,
++                    on ? Skin.Cream : live ? Skin.Ink : Skin.InkSoft, TextAnchor.MiddleCenter, e.Rect);
++            }
++        }
++
++        public void DutySlotV3(string id, Rect r, string header, string icon, string name, Action cycle, string hint = "Tap to cycle", Transform parent = null)
++        {
++            if (!Phone) { DutySlot(id, r, header, icon, name, cycle, hint, parent); TitledSurfaceV3(id); return; }
++            var slab = CardV3(id, r, Skin.Card.Ink, parent, "");
++            Text(id + "/title", new Rect(Skin.CardPad + 4, 4, r.width - 32, Skin.HeaderBand), header.ToUpperInvariant(), Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, slab);
++            float y = Skin.HeaderBand + 6, h = r.height - y - (hint != null ? 28 : 10), bw = r.width - 24;
++            var e = Pressable(id + "/body", new Rect(12, y, bw, h), slab, "v2-card", "v2-btn-card-pressed", cycle, cycle != null);
++            float s = Mathf.Min(32, h - 8), cw = cycle != null ? 40 : 0;
++            Icon(id + "/body/icon", new Rect(8, (h - s) / 2, s * 1.2f, s), icon, e.Rect);
++            Text(id + "/body/name", new Rect(s * 1.2f + 16, 0, bw - s * 1.2f - 24 - cw, h), name, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, e.Rect);
++            Sliced(id + "/body/cycle", cycle != null ? new Rect(bw - 36, (h - 32) / 2, 32, 32) : Rect.zero, cycle != null ? "v2-btn-card" : null, e.Rect);
++            Icon(id + "/body/cycle/icon", cycle != null ? new Rect(bw - 32, (h - 24) / 2, 24, 24) : Rect.zero, "v2-icon-cycle", e.Rect);
++            if (hint != null) Text(id + "/hint", new Rect(12, r.height - 26, r.width - 24, 22), hint, Skin.Type.Small, Skin.Teal, TextAnchor.MiddleCenter, slab);
+         }
+ 
+         public void TabBarV3(string id, Rect r, string[] labels, string[] icons, int active, Action<int> select, string[] ids = null)
+--- KIT1/VoyageManagement.cs
++++ KIT2/VoyageManagement.cs
+@@ -108,32 +108,8 @@
+             coastalUi.DashboardShape("management/"+id+"/track",DR(source.x,source.y,source.width,source.height),Palette.Hex("DDE7EF"));
+             coastalUi.DashboardShape("management/"+id+"/fill",DR(source.x,source.y,source.width,source.height),color,fill);
+         }
+-        void InterfaceManagement()
+-        {
+-            ReportManagement();Block(new Rect(0,0,iw,ih));
+-            dashScale=Mathf.Min(iw/1672,ih/941);dashX=(iw-1672*dashScale)/2;dashY=(ih-941*dashScale)/2;
+-            dashArt=managementTab==0?"DASH1":"DASH2";
+-            // Use Mo's original pixels unchanged. Native fields replace every example value/chart.
+-            coastalUi.DashboardRegion("management/backdrop",new Rect(0,0,iw,ih),dashArt,new Rect(0,0,72,941));
+-            coastalUi.DashboardRegion("management/reference",DR(0,0,1672,941),dashArt,new Rect(0,0,1672,941));
+-            DPatch("tabs",950,39,500,76,1550,85,40,8);
+-            string[] tabs={"Income","Operations","Crew"};
+-            for(int i=0;i<3;i++) { int tab=i; float x=950+i*165;
+-                coastalUi.DashboardShape("management/tab/plate/"+i,DR(x,42,158,69),managementTab==i?DashTeal:Palette.Cream);
+-                DText("tab/label/"+i,x,42,158,69,tabs[i],27,managementTab==i?Color.white:DashInk,true,TextAnchor.MiddleCenter);
+-                DButton("tab/"+tabs[i].ToLowerInvariant(),new Rect(x,42,158,107),()=>{managementTab=tab;dashboardDetail=-1;});
+-            }
+-            DPatch("boat/subtitle",253,73,680,27,900,73,20,27);
+-            DText("boat/subtitle",253,72,680,29,State.HullDef.Name+(managementTab==0?" · Expected catch value by method":managementTab==1?" · Live throughput and bottlenecks":" · Set up roles and bait"),22,DashBody);
+-            DPatch("clock",1480,41,138,53,1550,85,40,8);
+-            DText("voyage",1489,39,131,27,$"Voyage {State.Voyage}",19,DashBody);
+-            DText("clock",1489,66,130,30,$"{(int)Flow.Clock/60:00}:{(int)Flow.Clock%60:00}",23,DashBody,true);
+-            coastalUi.DashboardShape("management/back/plate",DR(87,39,43,43),new Color(1,1,1,.94f));
+-            DText("back/text",87,36,43,46,"‹",39,DashBody,true,TextAnchor.MiddleCenter);
+-            DButton("close",new Rect(87,39,43,43),CloseManagement);
+-            if(managementTab==0)DashboardIncome();else if(managementTab==1)DashboardOperations();else DashboardCrew();
+-            if(dashboardDetail>=0)DashboardDetails();
+-        }
++        // Keep legacy callers on the same live operations/crew presentation.
++        void InterfaceManagement() => InterfaceManagementPages();
+         void DFill(string id,Rect rect,Color color)=>coastalUi.Box(id+"/rect",rect,"",color,blocks:false);
+         int selectedManagementCrew;
+         void DashboardCrew()
+--- KIT1/VoyageManagementPages.cs
++++ KIT2/VoyageManagementPages.cs
+@@ -26,7 +26,9 @@
+         float PageRailWidth => compactInterface ? 84 : 300;
+         Rect PageBody => new(Edge, Edge, iw - Edge * 2 - PageRailWidth - 12, ih - Edge * 2);
+ 
+-        void InterfaceManagementPages()
++        void InterfaceManagementPages() => InterfaceV3(InterfaceManagementPagesV3);
++
++        void InterfaceManagementPagesV3()
+         {
+             ReportManagement(); Block(new Rect(0, 0, iw, ih));
+             if (managementTab != 2) managementTab = 1; // the income dashboard is retired in UI v2
+@@ -36,7 +38,7 @@
+             coastalUi.PageHeader("management/header", new Rect(body.x, body.y, body.width, headH), managementTab == 1 ? "Operations" : "Crew",
+                 $"{GameData.Spots[ActiveSpot].Name}\nDay {State.Voyage}", CloseManagement, "v2-icon-sun", "management/close", (compactInterface ? 240 : 300) + 24);
+             float sw = compactInterface ? 240 : 300;
+-            coastalUi.PageSwitch("management/tab", new Rect(body.xMax - sw - 12, body.y + (headH - (compactInterface ? 44 : 56)) / 2, sw, compactInterface ? 44 : 56),
++            coastalUi.PageSwitchV3("management/tab", new Rect(body.xMax - sw - 12, body.y + (headH - (compactInterface ? 44 : 56)) / 2, sw, compactInterface ? 44 : 56),
+                 new[] { "Operations", "Crew" }, managementTab == 1 ? 0 : 1, i => { managementTab = i == 0 ? 1 : 2; dashboardDetail = -1; audio?.Play(VoyageAudio.Cue.Select, .35f); },
+                 new[] { "management/tab/operations", "management/tab/crew" });
+             var content = new Rect(body.x, body.y + headH + 12, body.width, body.height - headH - 12);
+@@ -58,7 +60,7 @@
+                 int i = stages[k], stage = i;
+                 var r = new Rect(area.x + k * (cw + arrow + 4), area.y, cw, cardsH);
+                 bool fitted = true;
+-                coastalUi.StageCard($"management/stage-card/{i}", r, StageTitles[i], StageIcons[i], StageArt[i],
++                coastalUi.StageCardV3($"management/stage-card/{i}", r, StageTitles[i], StageIcons[i], StageArt[i],
+                     fitted ? Rate(stageOutput[i]) : "—", "fish/min", StageStatus(stageStatus[i]), StageQueue(i), () => dashboardDetail = 3 + stage,
+                     fitted ? null : "No processing station", $"management/stage/{i}");
+                 if (k < n - 1) coastalUi.Icon($"management/flow/{k}", new Rect(r.xMax + (arrow - arrow * .9f) / 2 + 2, r.y + cardsH * .36f, arrow * .9f, arrow * 1.15f), "v2-arrow-flow");
+@@ -111,7 +113,7 @@
+             bool fisher = c.Role == CrewRole.Fisherman;
+             // Large portrait card, name and role.
+             float big = compactInterface ? Mathf.Min(150, ph - 32) : Mathf.Min(260, ph * .62f);
+-            coastalUi.Card("management/crew/portrait", new Rect(16, 16, big, big), Skin.Card.Soft, panel);
++            coastalUi.CardV3("management/crew/portrait", new Rect(16, 16, big, big), Skin.Card.Soft, panel);
+             string key = c.Role == CrewRole.Engineer ? "engineer" : fisher ? c.Name : c.Name + "-deck";
+             coastalUi.Icon("management/crew/portrait/art", new Rect(24, 22, big - 16, big - 14), "v2-portrait-" + key.ToLowerInvariant(), panel, null, CoastalCanvas.PortraitFallback(key));
+             float x = big + 36, wRight = pw - x - 16;
+@@ -137,7 +139,7 @@
+             // Desktop stacks gear over bait; the phone panel is too short, so the two sit side by side.
+             bool side = compactInterface;
+             float half = side ? r.height : (r.height - 12) / 2, sw = side ? (r.width - 12) / 2 : r.width, gw = (sw - 36) / 4;
+-            var gear = coastalUi.Card("management/crew/gear", new Rect(r.x, r.y, sw, half), Skin.Card.Ink, panel, "");
++            var gear = coastalUi.CardV3("management/crew/gear", new Rect(r.x, r.y, sw, half), Skin.Card.Ink, panel, "");
+             coastalUi.Text("management/crew/gear/title", new Rect(Skin.CardPad + 4, 4, sw - 32, Skin.HeaderBand), "GEAR", Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, gear);
+             for (int i = 0; i < 4; i++)
+             {
+@@ -146,7 +148,7 @@
+                 ChoiceCard("management/crew/task/" + task, new Rect(12 + i * (gw + 4), Skin.HeaderBand + 10, gw, half - Skin.HeaderBand - 18), icons[i], names[i], on,
+                     fitted ? null : "Not fitted", () => ToggleFisherTask(c, task), gear);
+             }
+-            var bait = coastalUi.Card("management/crew/bait", side ? new Rect(r.x + sw + 12, r.y, sw, half) : new Rect(r.x, r.y + half + 12, r.width, half), Skin.Card.Ink, panel, "");
++            var bait = coastalUi.CardV3("management/crew/bait", side ? new Rect(r.x + sw + 12, r.y, sw, half) : new Rect(r.x, r.y + half + 12, r.width, half), Skin.Card.Ink, panel, "");
+             coastalUi.Text("management/crew/bait/title", new Rect(Skin.CardPad + 4, 4, sw - 32, Skin.HeaderBand), "ALLOWED BAIT", Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, bait);
+             var baits = new[] { BaitPermission.Scraps, BaitPermission.Worms, BaitPermission.Squid, BaitPermission.Chum };
+             string[] baitIcons = { "v2-icon-bait-scraps", "v2-icon-worms", "v2-icon-squid", "v2-icon-chum" };
+@@ -166,10 +168,10 @@
+             string Icon(DeckhandWork d) => d == DeckhandWork.Fish ? "v2-icon-haul" : d == DeckhandWork.Nets ? "v2-icon-net" : "v2-icon-table";
+             int index = Mathf.Max(0, Array.IndexOf(duties, c.WorkPreference));
+             float half = (r.width - 16) / 2, h = Mathf.Min(compactInterface ? 120 : 190, r.height - (IsPrepFisher ? (compactInterface ? 60 : 76) : 0));
+-            coastalUi.DutySlot("management/crew/duty", new Rect(r.x, r.y, half, h), "Primary", Icon(c.WorkPreference), Name(c.WorkPreference),
++            coastalUi.DutySlotV3("management/crew/duty", new Rect(r.x, r.y, half, h), "Primary", Icon(c.WorkPreference), Name(c.WorkPreference),
+                 () => { var next = duties[(index + 1) % duties.Length]; SetDeckhandWork(c, next); audio?.Play(VoyageAudio.Cue.Select, .35f); }, "Tap to cycle", panel);
+             var follow = c.WorkPreference == DeckhandWork.Fish ? DeckhandWork.Prep : DeckhandWork.Fish;
+-            coastalUi.DutySlot("management/crew/secondary", new Rect(r.x + half + 16, r.y, half, h), "Secondary", c.WorkPreference == DeckhandWork.Fish ? "v2-icon-hold" : "v2-icon-haul",
++            coastalUi.DutySlotV3("management/crew/secondary", new Rect(r.x + half + 16, r.y, half, h), "Secondary", c.WorkPreference == DeckhandWork.Fish ? "v2-icon-hold" : "v2-icon-haul",
+                 c.WorkPreference == DeckhandWork.Fish ? "Carry to hold" : Name(follow), null, "When the primary is free", panel);
+             if (IsPrepFisher)
+                 coastalUi.Secondary("management/crew/table-orders", new Rect(r.x, r.y + h + 12, r.width, compactInterface ? 48 : 60), $"Table orders · chum {State.Chum}",
+@@ -179,9 +181,10 @@
+         void ChoiceCard(string id, Rect r, string icon, string label, bool on, string lockReason, Action toggle, Transform parent)
+         {
+             coastalUi.Toggle(id, r, on, toggle, parent);
+-            float s = Mathf.Min(r.width * .55f, r.height - 40);
++            float labelH = compactInterface ? 44 : 28;
++            float s = Mathf.Min(r.width * .55f, r.height - labelH - 12);
+             coastalUi.Icon(id + "/art", new Rect((r.width - s) / 2, 8, s, s), icon, coastalUi.ElementRect(id), lockReason != null ? new Color(1, 1, 1, .6f) : (Color?)null);
+-            coastalUi.Text(id + "/label", new Rect(4, r.height - 34, r.width - 8, 28), label, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coastalUi.ElementRect(id));
++            coastalUi.Text(id + "/label", new Rect(4, r.height - labelH - 6, r.width - 8, labelH), label, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coastalUi.ElementRect(id));
+             if (lockReason != null) coastalUi.LockChip(id + "/lock", new Rect(6, s - 16, r.width - 12, 28), lockReason, coastalUi.ElementRect(id));
+         }
+ 
+@@ -240,7 +243,7 @@
+             string body = $"{Recommendation.Replace('\n', ' ')}\n\nWorking at {Rate(stageOutput[stage])} fish/min · status {Skin.Word(StageStatus(stageStatus[stage])).ToLowerInvariant()}.\n" +
+                 $"On deck or carried: {WaitingDeckKg:0.#} kg. Waiting to process: {ProcessingInput.Count}. Ready to carry: {ProcessingOutput.Count}.\nMain hold: {HoldKg:0} / {State.CoolerCapacity:0} kg.";
+             bool canHelp = ProcessingOutput.Count > 0;
+-            var slab = coastalUi.Modal("management/detail", StageTitles[stage], body,
++            var slab = coastalUi.ModalV3("management/detail", StageTitles[stage], body,
+                 canHelp ? "Help carry" : IsPrepFisher ? "Table orders" : "Crew duties",
+                 canHelp ? () => { CloseManagement(); HelpCarryProcessed(); } : IsPrepFisher ? () => { CloseManagement(); PrepOrdersOpen = true; } : () => { dashboardDetail = -1; managementTab = 2; },
+                 "Close", () => dashboardDetail = -1, () => dashboardDetail = -1, canHelp ? "v2-icon-haul" : IsPrepFisher ? "v2-icon-table" : "v2-icon-crew", 640, 380);
+--- KIT1/VoyageInterfaceCrew.cs
++++ KIT2/VoyageInterfaceCrew.cs
+@@ -18,76 +18,9 @@
+         }
+         static float ReferenceRowTop(int i) => i switch { 0 => 130, 1 => 215, 2 => 301, 3 => 387, 4 => 475, _ => 562 + (i - 5) * 86 };
+         float ReferenceCrewBottom => (ReferenceRowTop(Mathf.Max(1, People.Count()) - 1) + 91) * ih / FishReferenceStyle.Height;
+-        void InterfaceReferenceCrew()
+-        {
+-            var people = People.ToList();
+-            var toolbar = ReferenceRightRect(1407, 25, 248, 49);
+-            coastalUi.ReferencePanel("reference/crew/toolbar", toolbar, FishReferenceStyle.PanelKind.Toolbar);
+-            Block(toolbar);
+-            coastalUi.ReferenceIcon("reference/crew/badge", ReferenceRightRect(1418, 31, 40, 38), FishReferenceStyle.Icon.Badge);
+-            coastalUi.ReferenceIcon("reference/crew/group", ReferenceRightRect(1470, 39, 28, 26), FishReferenceStyle.Icon.Crew);
+-            coastalUi.ReferenceLabel("reference/crew/title", ReferenceRightRect(1501, 38, 58, 28), "Crew", 18, true);
+-            // Reference includes captain in its total. Gameplay CrewCap excludes captain.
+-            coastalUi.ReferenceLabel("reference/crew/count", ReferenceRightRect(1560, 38, 43, 27),
+-                $"{people.Count}/{State.HullDef.CrewCap + 1}", 18, true, TextAnchor.MiddleCenter);
+-            coastalUi.ReferenceIcon("reference/crew/menu/icon", ReferenceRightRect(1620, 39, 22, 24), FishReferenceStyle.Icon.Menu);
+-            var menu = ReferenceRightRect(1609, 25, 46, 49);
+-
+-            var panel = ReferenceRightRect(1365, 85, 290, ReferenceRowTop(Mathf.Max(1, people.Count) - 1) + 91 - 85);
+-            coastalUi.ReferencePanel("reference/crew/panel", panel, FishReferenceStyle.PanelKind.Crew); Block(panel);
+-            coastalUi.ReferenceIcon("reference/crew/dot", ReferenceRightRect(1377, 100, 11, 12), FishReferenceStyle.Icon.Bullet);
+-            coastalUi.ReferenceLabel("reference/crew/heading", ReferenceRightRect(1395, 96, 245, 23), "Crew Roles", 20, true);
+-            for (int i = 0; i < people.Count; i++)
+-            {
+-                var person = people[i];
+-                float y = ReferenceRowTop(i);
+-                bool captain = person == Captain;
+-                bool fisher = !captain && person.Contract.Role == CrewRole.Fisherman;
+-                string role = RoleTitle(person, Captain);
+-                string portrait = captain ? "captain" : fisher ? "fisherman" : "deckhand";
+-                var row = ReferenceRightRect(1377, y, 268, i == 0 ? 77 : 78);
+-                coastalUi.ReferencePanel($"reference/crew/{i}/row", row, FishReferenceStyle.PanelKind.Row);
+-                coastalUi.ReferencePortrait($"reference/crew/{i}/portrait", ReferenceRightRect(1387, y + 8, 57, 60), portrait);
+-                coastalUi.ReferenceLabel($"reference/crew/{i}/role", ReferenceRightRect(1454, y + (role == "Deckhand" ? 8 : 7), 145, 23), role, 16, true);
+-                string grade = captain ? "You" : person.Name;
+-                coastalUi.ReferenceLabel($"reference/crew/{i}/grade", ReferenceRightRect(1599, y + 6, 37, 23), grade, 13, false, TextAnchor.MiddleRight);
+-                coastalUi.ReferenceIcon($"reference/crew/{i}/icon", ReferenceRightRect(captain ? 1608 : 1606, y + (captain ? 26 : fisher ? 26 : 25), captain ? 28 : fisher ? 30 : 31, captain ? 27 : fisher ? 27 : 29),
+-                    captain ? FishReferenceStyle.Icon.Wheel : fisher ? FishReferenceStyle.Icon.Fish : FishReferenceStyle.Icon.Net);
+-
+-                // These are existing resources, NOT invented experience/stamina statistics.
+-                // Caption explicitly names the quantity represented by the reference-style bar.
+-                float remaining = captain ? State.Hull > 0 ? State.FuelFraction : 1f
+-                    : person.Contract.VoyagesLeft / (float)Mathf.Max(1, GameData.ContractVoyages(person.Contract.Grade));
+-                var rod = Rods.FirstOrDefault(r => r.Fisher == person);
+-                string activity = captain && Manning != null ? AwaitingCast ? "Ready to cast" : Manning.StateText : rod?.StateText ?? person.State;
+-                string detail = captain ? State.Hull > 0 ? $"Fuel {State.FuelFraction:P0} · {activity}" : activity : $"{Trips(person)} · {activity}";
+-                coastalUi.ReferenceLabel($"reference/crew/{i}/detail", ReferenceRightRect(1455, y + 35, 142, 18), detail, 12);
+-                coastalUi.ReferenceBar($"reference/crew/{i}/progress", ReferenceRightRect(1455, y + 55, 143, 14), remaining);
+-                coastalUi.ReferenceLabel($"reference/crew/{i}/percent", ReferenceRightRect(1605, y + 54, 32, 20),
+-                    $"{Mathf.FloorToInt(Mathf.Clamp01(remaining) * 100)}%", 13, false, TextAnchor.MiddleCenter);
+-            }
+-            // Hit area is last so the neighbouring noninteractive header cannot swallow touch.
+-            Block(coastalUi.ReferenceButton("pause", menu, () => paused = true));
+-        }
+-        void InterfaceReferenceSupplies()
+-        {
+-            // Retain vital existing haul/bait/fuel information below the requested goal panel.
+-            var r = ReferenceRect(20, 252, 260, 152);
+-            coastalUi.ReferencePanel("instruments", r, FishReferenceStyle.PanelKind.Goal); Block(r);
+-            coastalUi.ReferenceLabel("instruments/place", ReferenceRect(32, 260, 236, 26), GameData.Spots[ActiveSpot].Name, 17, true);
+-            var secured = State.QuoteSale(Cooler, SimTime);
+-            coastalUi.ReferenceLabel("hold/amount", ReferenceRect(32, 292, 235, 22), $"Hold {HoldKg:0.00}/{State.CoolerCapacity:0.#} kg", 15, true);
+-            coastalUi.ReferenceLabel("hold/value", ReferenceRect(150, 292, 117, 22), $"~{secured.Coins + secured.ContractCoins} coins", 14, false, TextAnchor.MiddleRight);
+-            coastalUi.ReferenceBar("hold/bar", ReferenceRect(32, 321, 235, 10), HoldKg / Mathf.Max(.01f, State.CoolerCapacity));
+-            coastalUi.ReferenceLabel("fuel/text", ReferenceRect(32, 339, 236, 22), State.Hull > 0 ? $"Fuel · {State.FuelFraction:P0} · return at 10%" : "Oars ready · no fuel needed", 14);
+-            coastalUi.ReferenceLabel("bait/text", ReferenceRect(32, 367, 236, 22), State.Chum > 0 ? $"Chum {State.Chum} · premium hooks" : State.WillUseSquid ? $"Bait · {State.Squid} squid" : State.Bait > 0 ? $"Bait · {State.Bait} worms" : "Bait · unlimited scraps", 14);
+-            var pending = UnstowedHaul();
+-            var haul = ReferenceRect(20, 416, 260, pending.Count > 0 ? 100 : 72);
+-            coastalUi.ReferencePanel("hold/freshness", haul, FishReferenceStyle.PanelKind.Goal); Block(haul);
+-            coastalUi.ReferenceLabel("hold/freshness/title", ReferenceRect(32, 423, 236, 24), pending.Count > 0 ? $"{pending.Count} fish to stow" : "Haul secured", 16, true);
+-            coastalUi.ReferenceLabel("hold/freshness/time", ReferenceRect(32, 451, 236, 30), FreshnessStatus(CurrentHaul(), SimTime), 13);
+-            if (pending.Count > 0)
+-                coastalUi.ReferenceLabel("hold/pending", ReferenceRect(32, 482, 236, 24), "On deck / carried · needs space", 12);
+-        }
++        // Compatibility entries use the finished responsive HUD components and their live data.
++        // The fixed reference-coordinate drawings are retired; the shared geometry helpers remain.
++        void InterfaceReferenceCrew() => InterfaceV3(InterfaceVoyageCrewRail);
++        void InterfaceReferenceSupplies() => InterfaceV3(InterfaceVoyageGround);
+     }
+ }
+--- KIT1/VoyageInterfaceGoals.cs
++++ KIT2/VoyageInterfaceGoals.cs
+@@ -4,74 +4,8 @@
+ {
+     public partial class VoyageGame
+     {
+-        // Rectangles are measured in the 1672 x 941 reference, then mapped by
+-        // the shared left-anchored transform. Style and typography stay shared.
+-        void InterfaceReferenceGoals()
+-        {
+-            var status = ReferenceRect(20, 25, 320, 65);
+-            coastalUi.ReferencePanel("reference/status", status, FishReferenceStyle.PanelKind.Status);
+-            Block(status);
+-            coastalUi.ReferenceIcon("reference/status/sun", ReferenceRect(31, 36, 44, 44), FishReferenceStyle.Icon.Sun);
+-            coastalUi.ReferenceLabel("reference/status/day", ReferenceRect(91, 35, 80, 23), $"Day {State.Voyage}", 18);
+-
+-            // This is elapsed voyage time, not an invented time of day. SetSail
+-            // resets voyageStart; simulation pause also pauses this display.
+-            int seconds = Mathf.FloorToInt(Mathf.Max(0, SimTime - voyageStart));
+-            // Keep extended sessions inside the same clock slot: minutes below
+-            // 100 minutes, hours/minutes below 100 hours, then days/hours.
+-            string elapsed = seconds < 6000 ? $"{seconds / 60:00}:{seconds % 60:00}"
+-                : seconds < 360000 ? $"{seconds / 3600}h{seconds % 3600 / 60:00}"
+-                : $"{seconds / 86400}d{seconds % 86400 / 3600:00}";
+-            coastalUi.ReferenceLabel("reference/status/time", ReferenceRect(91, 58, 80, 24), elapsed, 20, true);
+-            coastalUi.ReferenceIcon("reference/status/coin", ReferenceRect(194, 37, 38, 41), FishReferenceStyle.Icon.Coin);
+-            coastalUi.ReferenceLabel("reference/status/coins", ReferenceRect(238, 40, 95, 38), ReferenceCoinBalance(), 30, true);
+-
+-            string objective;
+-            string count;
+-            float progress;
+-            if (State.Active.Count > 0)
+-            {
+-                // Contracts advance when fish are sold. Fish still in the hold
+-                // are not delivered and cannot claim this goal as complete.
+-                var contract = State.Active[0];
+-                int target = Mathf.Max(1, contract.Count);
+-                objective = $"Sell {contract.Title}";
+-                count = $"{contract.Delivered}/{contract.Count}";
+-                progress = contract.Delivered / (float)target;
+-            }
+-            else if (State.Hull == 0 && !State.SkiffHaulDone)
+-            {
+-                // BestVoyageKg is the largest haul actually brought home, not
+-                // catches lying on deck or a projected record before returning.
+-                objective = $"Bring home a full {GameData.SkiffKgGoal:0} kg haul";
+-                count = $"{State.BestVoyageKg:0.#}/{GameData.SkiffKgGoal:0} kg";
+-                progress = State.BestVoyageKg / GameData.SkiffKgGoal;
+-            }
+-            else if (State.Hull == 0)
+-            {
+-                progress = State.Coins / (float)Mathf.Max(1, GameData.SkiffCost);
+-                objective = State.CanRefit ? "Skiff refit ready" : $"Save {GameData.SkiffCost:N0} coins";
+-                // A percentage fits the reference counter without squeezing a
+-                // four-digit coin fraction into the fish-sized counter slot.
+-                count = $"{Mathf.FloorToInt(Mathf.Clamp01(progress) * 100)}%";
+-            }
+-            else
+-            {
+-                progress = HoldKg / Mathf.Max(.01f, State.CoolerCapacity);
+-                objective = $"Hold {HoldKg:0.0}/{State.CoolerCapacity:0.#} kg";
+-                count = $"{Mathf.Clamp01(progress) * 100:0}%";
+-            }
+-
+-            var goal = ReferenceRect(20, 130, 220, 104);
+-            coastalUi.ReferencePanel("reference/goal", goal, FishReferenceStyle.PanelKind.Goal);
+-            Block(goal);
+-            coastalUi.ReferenceIcon("reference/goal/target", ReferenceRect(31, 137, 24, 25), FishReferenceStyle.Icon.Target);
+-            coastalUi.ReferenceLabel("reference/goal/title", ReferenceRect(64, 138, 166, 23), "Current Goal", 16, true);
+-            coastalUi.ReferenceIcon("reference/goal/crate", ReferenceRect(30, 178, 39, 43), FishReferenceStyle.Icon.Crate);
+-            coastalUi.ReferenceLabel("reference/goal/objective", ReferenceRect(75, 172, 155, 20), objective, 13);
+-            coastalUi.ReferenceBar("reference/goal/progress", ReferenceRect(75, 200, 114, 13), Mathf.Clamp01(progress));
+-            coastalUi.ReferenceLabel("reference/goal/count", ReferenceRect(197, 198, 34, 20), count, 13, true, TextAnchor.MiddleCenter);
+-        }
++        // Goal/hold/bait presentation is shared with the live ground card; status uses its live slab.
++        void InterfaceReferenceGoals() => InterfaceV3(InterfaceVoyageStatus);
+ 
+         string ReferenceCoinBalance()
+         {
+--- KIT1/VoyageMenus.cs
++++ KIT2/VoyageMenus.cs
+@@ -39,13 +39,15 @@
+ #endif
+         }
+ 
+-        // ---- menus (UI v2) ----------------------------------------------------------------------
++        // ---- menus (restaurant v3) ----------------------------------------------------------------------
+ 
+         static readonly float[] VolumeSteps = { 0, .35f, .7f, 1 };
+         static readonly string[] VolumeNames = { "Off", "Low", "Medium", "High" };
+ 
+         // Title, pause, settings and protected confirmations replace the HUD so nothing underneath can be pressed.
+-        void InterfaceMenus()
++        void InterfaceMenus() => InterfaceV3(InterfaceMenusV3);
++
++        void InterfaceMenusV3()
+         {
+             var keyboard = UnityEngine.InputSystem.Keyboard.current;
+             if (showTitle && keyboard != null && keyboard.escapeKey.wasPressedThisFrame && titleBackFrame != Time.frameCount)
+@@ -73,7 +75,7 @@
+             bool chooser = SessionOnly && CurrentMode == Mode.Harbour;
+             float h = Skin.HeaderBand + 12 + 44 + 8 + (chooser ? (hadSave ? bh + gap : 0) + (sh + gap) * 3 : bh + gap + (hadSave ? sh + gap : 0)) + sh + Skin.SlabPad;
+             var card = new Rect(x, Mathf.Min(logoY + logoH + (phone ? 4 : 16), ih - h - 8), w, h);
+-            coastalUi.Slab("title/card", card, "Gull Harbour", true);
++            coastalUi.SlabV3("title/card", card, "Gull Harbour", true);
+             float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 12;
+             string welcome = chooser ? "Test build · pick a tier. Nothing is saved."
+                 : SessionOnly || AutoPlay ? "Test session · progress is not saved."
+@@ -112,7 +114,7 @@
+             coastalUi.Secondary("title/settings", new Rect(bx, y, half, sh), "Settings", () => { confirmReset = false; showSettings = true; MenuSound(); });
+             coastalUi.Secondary("title/quit", new Rect(bx + half + gap, y, half, sh), CurrentMode != Mode.Harbour ? "Quit trip" : "Quit", Quit);
+             if (confirmReset)
+-                coastalUi.Modal("title/reset", "Start over?", "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.",
++                coastalUi.ModalV3("title/reset", "Start over?", "Your coins, crew and catch will be erased. This cannot be undone. Settings stay unchanged.",
+                     "Erase & start over", () =>
+                     {
+                         // Separate, explicit action: opening this confirmation never deletes data.
+@@ -153,7 +155,7 @@
+             float bh = phone ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight, sh = phone ? 48 : 52, gap = 8, noteH = phone ? 44 : 56;
+             float w = Mathf.Min(440, iw - 32), h = Skin.HeaderBand + 16 + bh + gap + (sh + gap) * 3 + noteH + Skin.SlabPad;
+             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
+-            coastalUi.Slab("pause/card", card, "Paused", true);
++            coastalUi.SlabV3("pause/card", card, "Paused", true);
+             float bx = card.x + Skin.SlabPad, bw = w - Skin.SlabPad * 2, y = card.y + Skin.HeaderBand + 16;
+             coastalUi.Primary("pause/resume", new Rect(bx, y, bw, bh), "Resume", () => { paused = false; MenuSound(); });
+             y += bh + gap;
+@@ -183,13 +185,13 @@
+             if (Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad > ih - 16) { row = 40; label = 20; gap = 4; }
+             float w = Mathf.Min(500, iw - 32), h = Skin.HeaderBand + 12 + (label + row + gap) * rows + sh + Skin.SlabPad;
+             var card = new Rect((iw - w) / 2, (ih - h) / 2, w, h);
+-            coastalUi.Slab("settings/card", card, "Settings", true);
++            coastalUi.SlabV3("settings/card", card, "Settings", true);
+             float x = card.x + Skin.SlabPad + 4, cw = w - Skin.SlabPad * 2 - 8, y = card.y + Skin.HeaderBand + 12;
+             void Row(string id, string title, string[] options, int active, System.Action<int> select)
+             {
+                 coastalUi.Text($"settings/{id}/label", new Rect(x, y, cw, label), title, Skin.Type.Body, Skin.Ink);
+                 y += label;
+-                coastalUi.PageSwitch($"settings/{id}", new Rect(x, y, cw, row), options, active, i => { select(i); MenuSound(); });
++                coastalUi.PageSwitchV3($"settings/{id}", new Rect(x, y, cw, row), options, active, i => { select(i); MenuSound(); });
+                 y += row + gap;
+             }
+             Row("text", "Text size", UiScaleNames, UiScaleIndex, i => UiScaleIndex = i);
+@@ -216,7 +218,7 @@
+             string body = (overflow > 0 ? $"{overflow} fish cannot fit in the hold and will go back to sea. " : "") +
+                 (IsNetFisher && !AllNetsStowed ? SecondNet != NetState.Stowed ? "Your second net is deployed; leaving forfeits its catch. " : Net == NetState.Ready ? $"Your net still has {NetCatch} fish to haul. Leaving forfeits them. " : "Your net is still deployed; leaving ends this soak. " : "") +
+                 "The trip is paused while you choose.";
+-            coastalUi.Modal("headhome", "Leave fish behind?", body, overflow > 0 ? $"Leave {overflow} fish" : "Head home", ConfirmHeadHome,
++            coastalUi.ModalV3("headhome", "Leave fish behind?", body, overflow > 0 ? $"Leave {overflow} fish" : "Head home", ConfirmHeadHome,
+                 "Keep fishing", CancelHeadHome, CancelHeadHome, null, 600, 340);
+         }
+ 
+--- KIT1/VoyageInterfaceShop.cs
++++ KIT2/VoyageInterfaceShop.cs
+@@ -6,9 +6,8 @@
+ 
+ namespace Catchline.Game
+ {
+-    // Harbour hub and shop pages in the UI v2 system (docs/screens/ui-concept/chandlery.webp):
+-    // planks and rope, a header slab with the coin pill, a grid of item cards, the selected item in
+-    // a slab with the one primary Buy, and the five-tab bar at the bottom.
++    // Harbour hub and open shops share the restaurant v3 paper, navy headers and Fredoka.
++    // Keep the item grid, selection slab and five-tab controls on their established layout.
+     public partial class VoyageGame
+     {
+         sealed class ShopItem
+@@ -67,6 +66,11 @@
+         void InterfaceHarbour()
+         {
+             if (panelOpen && hudTab == HudTab.HarbourMaster) { InterfaceNauticalChart(); return; }
++            InterfaceV3(InterfaceHarbourV3);
++        }
++
++        void InterfaceHarbourV3()
++        {
+             if (!panelOpen) { HarbourHub(); return; }
+             coastalUi.Planks("shop/planks"); Block(new Rect(0, 0, iw, ih));
+             float headH = compactInterface ? 56 : 80;
+@@ -96,7 +100,7 @@
+             Block(bar);
+             var labels = tabs.Select(ShortTab).ToArray();
+             var ids = tabs.Select(t => "shop/tab/" + t).ToArray();
+-            if (open) coastalUi.TabBar("shop/tabs", bar, labels, TabIcons, Array.IndexOf(tabs, hudTab), i => OpenShop(tabs[i]), ids);
++            if (open) coastalUi.TabBarV3("shop/tabs", bar, labels, TabIcons, Array.IndexOf(tabs, hudTab), i => OpenShop(tabs[i]), ids);
+             else coastalUi.TabBarV3("shop/tabs", bar, labels, TabIcons, -1, i => OpenShop(tabs[i]), ids);
+         }
+ 
+@@ -128,17 +132,17 @@
+             string id = item.Id;
+             if (selected) coastalUi.Sliced(id + "/glow", new Rect(r.x - 4, r.y - 4, r.width + 8, r.height + 8), "v2-card-selected", parent);
+             else coastalUi.Sliced(id + "/glow", Rect.zero, null, parent);
+-            var card = coastalUi.Card(id, r, Skin.Card.Ink, parent, compactInterface ? null : item.Name);
++            var card = coastalUi.CardV3(id, r, Skin.Card.Ink, parent, compactInterface ? null : item.Name);
+             coastalUi.HitArea(id + "/select", new Rect(0, 0, r.width, r.height), () => { shopSelection[hudTab] = id; audio?.Play(VoyageAudio.Cue.Select, .3f); }, card);
+             coastalUi.Icon(id + "/tick", selected ? new Rect(r.width - 30, -10, 40, 40) : Rect.zero, "v2-badge-tick", card);
+             bool locked = !item.Enabled && !item.Owned && item.Reason != null;
+             float top = compactInterface ? 6 : Skin.HeaderBand + 8, priceH = compactInterface ? 34 : 48;
+-            float artH = r.height - top - priceH - (compactInterface ? 34 : 70) - (locked && !compactInterface ? 34 : 0);
++            float artH = r.height - top - priceH - (compactInterface ? 52 : 70) - (locked && !compactInterface ? 34 : 0);
+             coastalUi.Icon(id + "/art", new Rect(12, top, r.width - 24, artH), item.Art, card, locked ? new Color(1, 1, 1, .6f) : (Color?)null, item.Fallback);
+             float y = top + artH + 4;
+-            coastalUi.Text(id + "/effect", new Rect(10, y, r.width - 20, compactInterface ? 26 : 30), compactInterface ? item.Name : Effect(item.Description),
++            coastalUi.Text(id + "/effect", new Rect(10, y, r.width - 20, compactInterface ? 44 : 30), compactInterface ? item.Name : Effect(item.Description),
+                 compactInterface ? Skin.Type.Small : Skin.Type.Body, Skin.Ink, TextAnchor.MiddleCenter, card);
+-            y += compactInterface ? 26 : 32;
++            y += compactInterface ? 44 : 32;
+             if (locked && !compactInterface) { coastalUi.LockChip(id + "/lock", new Rect(10, y, r.width - 20, 30), Effect(item.Reason), card); y += 34; }
+             else coastalUi.Sliced(id + "/lock", Rect.zero, null, card);
+             var pr = new Rect(10, r.height - priceH - 10, r.width - 20, priceH);
+@@ -151,7 +155,7 @@
+ 
+         void SelectionSlab(ShopItem item, Rect r)
+         {
+-            var slab = coastalUi.Slab("shop/selection", r, null, true);
++            var slab = coastalUi.SlabV3("shop/selection", r, null, true);
+             float artW = compactInterface ? 80 : 150;
+             coastalUi.Icon("shop/selection/art", new Rect(14, 8, artW, r.height - 16), item.Art, slab, null, item.Fallback);
+             coastalUi.Sliced("shop/selection/rule", new Rect(artW + 24, 14, 2, r.height - 28), "v2-rule", slab);
+@@ -186,12 +190,12 @@
+         Rect SuppliesOptions(Rect area)
+         {
+             float h = compactInterface ? 56 : 68;
+-            var slab = coastalUi.Slab("supplies/options", new Rect(area.x, area.y, area.width, h), null, false);
++            var slab = coastalUi.SlabV3("supplies/options", new Rect(area.x, area.y, area.width, h), null, false);
+             float x = 16;
+             if (IsNetFisher)
+             {
+                 coastalUi.Text("supplies/net-loadout", new Rect(x, 0, 120, h), "Net", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, slab);
+-                coastalUi.PageSwitch("supplies/loadout", new Rect(x + 60, (h - 48) / 2, compactInterface ? 300 : 380, 48),
++                coastalUi.PageSwitchV3("supplies/loadout", new Rect(x + 60, (h - 48) / 2, compactInterface ? 300 : 380, 48),
+                     new[] { $"Shallow · {GameData.ShallowNetSoakSeconds:0}s", $"Deep · {State.DeepNetUses.Count} left" }, State.SelectedNet == NetKind.Deep ? 1 : 0,
+                     i => SelectNetLoadout(i == 0 ? NetKind.Shallow : NetKind.Deep), new[] { "supplies/loadout/shallow", "supplies/loadout/deep" }, slab, new[] { true, State.DeepNetUses.Count > 0 });
+                 x += (compactInterface ? 300 : 380) + 84;
+@@ -206,7 +210,7 @@
+         {
+             State.UnseenSale = false;
+             float topH = compactInterface ? 76 : 120, gap = 12;
+-            var top = coastalUi.Slab("market/summary", new Rect(area.x, area.y, area.width, topH), null, true);
++            var top = coastalUi.SlabV3("market/summary", new Rect(area.x, area.y, area.width, topH), null, true);
+             float bw = compactInterface ? 220 : 340, bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 8;
+             coastalUi.Icon("market/crate", new Rect(16, 8, topH * 1.3f, topH - 16), "v2-icon-market", top);
+             float x = topH * 1.3f + 30, w = area.width - x - bw - 40;
+@@ -230,7 +234,7 @@
+             {
+                 var f = GameData.Fish[i]; bool found = State.LogCount[(int)f.Species] > 0;
+                 var r = new Rect(6 + i % cols * (cw + gap), 8 + i / cols * (ch + gap), cw, ch);
+-                var card = coastalUi.Card("log/" + i, r, Skin.Card.Soft, content);
++                var card = coastalUi.CardV3("log/" + i, r, Skin.Card.Soft, content);
+                 coastalUi.Icon("log/" + i + "/fish", new Rect(10, 8, r.width - 20, ch * .42f), FishPortrait(f.Species), card, found ? (Color?)null : new Color(.11f, .2f, .3f, .7f), found ? FishPortrait(f.Species) : "fish-unknown");
+                 coastalUi.Text("log/" + i + "/name", new Rect(8, ch * .46f, r.width - 16, 28), found ? f.Name : "Undiscovered", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
+                 // A phone card has room for one line under the name: the market needs the price there, not the record.
+--- KIT1/VoyageInterfaceV3Capture.cs
++++ KIT2/VoyageInterfaceV3Capture.cs
+@@ -4,6 +4,70 @@
+ {
+     public partial class VoyageGame
+     {
++        bool captureV3Art;
++
++        // This sheet exists only in the save-isolated native capture path, never in the player flow.
++        void DrawV3ArtEvidence()
++        {
++            if (!SessionOnly) return;
++            coastalUi.Begin(interfaceWidth, interfaceHeight, 1, new Rect(0, 0, interfaceWidth, interfaceHeight), interfaceDensity);
++            InterfaceV3(() =>
++            {
++                coastalUi.Box("kit3/art/sea", new Rect(0, 0, iw, ih), "", Palette.Hex("467584"));
++                coastalUi.Text("kit3/art/title", new Rect(24, 10, iw - 48, 44), "Day at sea · kit 2", Skin.Type.Display, Skin.Cream);
++                float h = Mathf.Min(compactInterface ? 230 : 300, ih - 170), w = h * .75f, gap = 12, right = 24 + (w + gap) * 3;
++                coastalUi.Box("kit3/art/paper", new Rect(16, 60, right - 24, h + 18), "v3-slab");
++                string[] keys = { "easy", "medium", "hard" }, labels = { "Easy", "Medium", "Hard" };
++                for (int i = 0; i < 3; i++)
++                {
++                    float x = 24 + i * (w + gap), y = 68;
++                    coastalUi.Art("kit3/art/card/" + i, new Rect(x, y, w, h), "v3-daycard-" + keys[i]);
++                    coastalUi.Text("kit3/art/card-label/" + i, new Rect(x + w * .1f, y + h * .206f, w * .8f, h * .107f), labels[i], Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter);
++                    coastalUi.Text("kit3/art/card-copy/" + i, new Rect(x + w * .125f, y + h * .67f, w * .75f, h * .2f), (i + 1) + (i == 0 ? " stop" : " stops"), Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter);
++                }
++                float rw = iw - right - 24;
++                coastalUi.KitSliceV3("kit3/art/banner", new Rect(right, 65, rw, 115), "v3-arrival-banner", new Vector4(132, 56, 132, 84));
++                coastalUi.Text("kit3/art/arrival", new Rect(right + 70, 90, rw - 140, 54), "Back in port", Skin.Type.Display, Skin.Ink, TextAnchor.MiddleCenter);
++                coastalUi.KitSliceV3("kit3/art/dash", new Rect(right + 45, 210, rw - 90, 24), "v3-route-dash", new Vector4(56, 16, 56, 16));
++                coastalUi.Art("kit3/art/pin", new Rect(right + 10, 179, 76, 80), "v3-route-pin");
++                coastalUi.Text("kit3/art/number", new Rect(right + 31, 191, 34, 32), "2", Skin.Type.Number, Skin.Ink, TextAnchor.MiddleCenter);
++                coastalUi.Art("kit3/art/done", new Rect(iw - 106, 179, 76, 80), "v3-stop-done");
++                coastalUi.Art("kit3/art/fuel", new Rect(right + (rw - 220) / 2, 253, 220, 83), "v3-fuel-chip");
++                coastalUi.Text("kit3/art/fuel-value", new Rect(right + (rw - 220) / 2 + 74, 269, 129, 48), "70%", Skin.Type.Number, Skin.Ink, TextAnchor.MiddleCenter);
++                string[] prep = { "knife", "ice", "crate", "pan" };
++                float s = Mathf.Min(100, ih - h - 92), start = (iw - (s + 24) * 4 + 24) / 2;
++                for (int i = 0; i < prep.Length; i++) coastalUi.Art("kit3/art/prep/" + i, new Rect(start + i * (s + 24), ih - s - 14, s, s), "v3-prep-" + prep[i]);
++            });
++            coastalUi.End();
++        }
++
++        bool StageV3KitEvidence(string screen)
++        {
++            if (!SessionOnly) return false;
++            if (screen is "kit3-pause" or "kit3-settings-pause")
++            {
++                if (!StageUiV2("voyage")) return false;
++                paused = true; showTitle = false; showSettings = screen == "kit3-settings-pause";
++                return true;
++            }
++            if (screen == "kit3-reset")
++            {
++                if (!StageUiV2("title")) return false;
++                showSettings = paused = false;
++                confirmReset = true;
++                return true;
++            }
++            if (screen is "kit3-shop-grid" or "kit3-supplies" or "kit3-refit" or "kit3-shop-poor")
++            {
++                if (!StageHarbourEvidence(screen is "kit3-refit" or "kit3-shop-poor" ? "harbour-h0" : "harbour-h4")) return false;
++                if (screen == "kit3-shop-poor") State.Coins = 0;
++                OpenShop(screen == "kit3-supplies" ? HudTab.Supplies : HudTab.Chandlery);
++                if (screen == "kit3-refit") shopSelection[HudTab.Chandlery] = "refit";
++                return panelOpen;
++            }
++            return false;
++        }
++
+         // Native TEST fixtures use the real call builders and answer action, without save I/O.
+         bool StageV3RadioEvidence(string screen)
+         {
+--- KIT1/VoyageUiV2Capture.cs
++++ KIT2/VoyageUiV2Capture.cs
+@@ -44,7 +44,10 @@
+ 
+         bool StageUiV2(string screen)
+         {
++            captureV3Art = screen == "kit3-art";
++            if (captureV3Art) return StageHarbourEvidence("harbour-h0");
+             if (screen.StartsWith("kit3-radio-")) return StageV3RadioEvidence(screen);
++            if (screen.StartsWith("kit3-")) return StageV3KitEvidence(screen);
+             if (screen.StartsWith("harbour-h") || screen is "depart-lane" or "chart-leg" or "sea-entry" or
+                 "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
+                 screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))
+@@ -270,6 +273,7 @@
+         IEnumerator CompositeFrame(string directory, string name, Vector2Int size)
+         {
+             yield return new WaitForEndOfFrame();
++            if (captureV3Art) DrawV3ArtEvidence();
+             var scene = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
+             var ui = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
+             // The restaurant night draws through its own camera (RestaurantWorld) while it runs.

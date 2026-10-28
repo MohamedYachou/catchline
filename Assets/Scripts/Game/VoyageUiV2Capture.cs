@@ -44,7 +44,10 @@ namespace Catchline.Game
 
         bool StageUiV2(string screen)
         {
+            captureV3Art = screen == "kit3-art";
+            if (captureV3Art) return StageHarbourEvidence("harbour-h0");
             if (screen.StartsWith("kit3-radio-")) return StageV3RadioEvidence(screen);
+            if (screen.StartsWith("kit3-")) return StageV3KitEvidence(screen);
             if (screen.StartsWith("harbour-h") || screen is "depart-lane" or "chart-leg" or "sea-entry" or
                 "return-sea" or "return-chart" or "return-lane" or "arrival-crates" ||
                 screen.StartsWith("intro-") || screen.StartsWith("cage-") || screen.StartsWith("net-"))
@@ -270,6 +273,7 @@ namespace Catchline.Game
         IEnumerator CompositeFrame(string directory, string name, Vector2Int size)
         {
             yield return new WaitForEndOfFrame();
+            if (captureV3Art) DrawV3ArtEvidence();
             var scene = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
             var ui = RenderTexture.GetTemporary(size.x, size.y, 24, RenderTextureFormat.ARGB32);
             // The restaurant night draws through its own camera (RestaurantWorld) while it runs.

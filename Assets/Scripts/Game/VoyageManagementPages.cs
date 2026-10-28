@@ -26,7 +26,9 @@ namespace Catchline.Game
         float PageRailWidth => compactInterface ? 84 : 300;
         Rect PageBody => new(Edge, Edge, iw - Edge * 2 - PageRailWidth - 12, ih - Edge * 2);
 
-        void InterfaceManagementPages()
+        void InterfaceManagementPages() => InterfaceV3(InterfaceManagementPagesV3);
+
+        void InterfaceManagementPagesV3()
         {
             ReportManagement(); Block(new Rect(0, 0, iw, ih));
             if (managementTab != 2) managementTab = 1; // the income dashboard is retired in UI v2
@@ -36,7 +38,7 @@ namespace Catchline.Game
             coastalUi.PageHeader("management/header", new Rect(body.x, body.y, body.width, headH), managementTab == 1 ? "Operations" : "Crew",
                 $"{GameData.Spots[ActiveSpot].Name}\nDay {State.Voyage}", CloseManagement, "v2-icon-sun", "management/close", (compactInterface ? 240 : 300) + 24);
             float sw = compactInterface ? 240 : 300;
-            coastalUi.PageSwitch("management/tab", new Rect(body.xMax - sw - 12, body.y + (headH - (compactInterface ? 44 : 56)) / 2, sw, compactInterface ? 44 : 56),
+            coastalUi.PageSwitchV3("management/tab", new Rect(body.xMax - sw - 12, body.y + (headH - (compactInterface ? 44 : 56)) / 2, sw, compactInterface ? 44 : 56),
                 new[] { "Operations", "Crew" }, managementTab == 1 ? 0 : 1, i => { managementTab = i == 0 ? 1 : 2; dashboardDetail = -1; audio?.Play(VoyageAudio.Cue.Select, .35f); },
                 new[] { "management/tab/operations", "management/tab/crew" });
             var content = new Rect(body.x, body.y + headH + 12, body.width, body.height - headH - 12);
@@ -58,7 +60,7 @@ namespace Catchline.Game
                 int i = stages[k], stage = i;
                 var r = new Rect(area.x + k * (cw + arrow + 4), area.y, cw, cardsH);
                 bool fitted = true;
-                coastalUi.StageCard($"management/stage-card/{i}", r, StageTitles[i], StageIcons[i], StageArt[i],
+                coastalUi.StageCardV3($"management/stage-card/{i}", r, StageTitles[i], StageIcons[i], StageArt[i],
                     fitted ? Rate(stageOutput[i]) : "—", "fish/min", StageStatus(stageStatus[i]), StageQueue(i), () => dashboardDetail = 3 + stage,
                     fitted ? null : "No processing station", $"management/stage/{i}");
                 if (k < n - 1) coastalUi.Icon($"management/flow/{k}", new Rect(r.xMax + (arrow - arrow * .9f) / 2 + 2, r.y + cardsH * .36f, arrow * .9f, arrow * 1.15f), "v2-arrow-flow");
@@ -111,7 +113,7 @@ namespace Catchline.Game
             bool fisher = c.Role == CrewRole.Fisherman;
             // Large portrait card, name and role.
             float big = compactInterface ? Mathf.Min(150, ph - 32) : Mathf.Min(260, ph * .62f);
-            coastalUi.Card("management/crew/portrait", new Rect(16, 16, big, big), Skin.Card.Soft, panel);
+            coastalUi.CardV3("management/crew/portrait", new Rect(16, 16, big, big), Skin.Card.Soft, panel);
             string key = c.Role == CrewRole.Engineer ? "engineer" : fisher ? c.Name : c.Name + "-deck";
             coastalUi.Icon("management/crew/portrait/art", new Rect(24, 22, big - 16, big - 14), "v2-portrait-" + key.ToLowerInvariant(), panel, null, CoastalCanvas.PortraitFallback(key));
             float x = big + 36, wRight = pw - x - 16;
@@ -137,7 +139,7 @@ namespace Catchline.Game
             // Desktop stacks gear over bait; the phone panel is too short, so the two sit side by side.
             bool side = compactInterface;
             float half = side ? r.height : (r.height - 12) / 2, sw = side ? (r.width - 12) / 2 : r.width, gw = (sw - 36) / 4;
-            var gear = coastalUi.Card("management/crew/gear", new Rect(r.x, r.y, sw, half), Skin.Card.Ink, panel, "");
+            var gear = coastalUi.CardV3("management/crew/gear", new Rect(r.x, r.y, sw, half), Skin.Card.Ink, panel, "");
             coastalUi.Text("management/crew/gear/title", new Rect(Skin.CardPad + 4, 4, sw - 32, Skin.HeaderBand), "GEAR", Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, gear);
             for (int i = 0; i < 4; i++)
             {
@@ -146,7 +148,7 @@ namespace Catchline.Game
                 ChoiceCard("management/crew/task/" + task, new Rect(12 + i * (gw + 4), Skin.HeaderBand + 10, gw, half - Skin.HeaderBand - 18), icons[i], names[i], on,
                     fitted ? null : "Not fitted", () => ToggleFisherTask(c, task), gear);
             }
-            var bait = coastalUi.Card("management/crew/bait", side ? new Rect(r.x + sw + 12, r.y, sw, half) : new Rect(r.x, r.y + half + 12, r.width, half), Skin.Card.Ink, panel, "");
+            var bait = coastalUi.CardV3("management/crew/bait", side ? new Rect(r.x + sw + 12, r.y, sw, half) : new Rect(r.x, r.y + half + 12, r.width, half), Skin.Card.Ink, panel, "");
             coastalUi.Text("management/crew/bait/title", new Rect(Skin.CardPad + 4, 4, sw - 32, Skin.HeaderBand), "ALLOWED BAIT", Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleLeft, bait);
             var baits = new[] { BaitPermission.Scraps, BaitPermission.Worms, BaitPermission.Squid, BaitPermission.Chum };
             string[] baitIcons = { "v2-icon-bait-scraps", "v2-icon-worms", "v2-icon-squid", "v2-icon-chum" };
@@ -166,10 +168,10 @@ namespace Catchline.Game
             string Icon(DeckhandWork d) => d == DeckhandWork.Fish ? "v2-icon-haul" : d == DeckhandWork.Nets ? "v2-icon-net" : "v2-icon-table";
             int index = Mathf.Max(0, Array.IndexOf(duties, c.WorkPreference));
             float half = (r.width - 16) / 2, h = Mathf.Min(compactInterface ? 120 : 190, r.height - (IsPrepFisher ? (compactInterface ? 60 : 76) : 0));
-            coastalUi.DutySlot("management/crew/duty", new Rect(r.x, r.y, half, h), "Primary", Icon(c.WorkPreference), Name(c.WorkPreference),
+            coastalUi.DutySlotV3("management/crew/duty", new Rect(r.x, r.y, half, h), "Primary", Icon(c.WorkPreference), Name(c.WorkPreference),
                 () => { var next = duties[(index + 1) % duties.Length]; SetDeckhandWork(c, next); audio?.Play(VoyageAudio.Cue.Select, .35f); }, "Tap to cycle", panel);
             var follow = c.WorkPreference == DeckhandWork.Fish ? DeckhandWork.Prep : DeckhandWork.Fish;
-            coastalUi.DutySlot("management/crew/secondary", new Rect(r.x + half + 16, r.y, half, h), "Secondary", c.WorkPreference == DeckhandWork.Fish ? "v2-icon-hold" : "v2-icon-haul",
+            coastalUi.DutySlotV3("management/crew/secondary", new Rect(r.x + half + 16, r.y, half, h), "Secondary", c.WorkPreference == DeckhandWork.Fish ? "v2-icon-hold" : "v2-icon-haul",
                 c.WorkPreference == DeckhandWork.Fish ? "Carry to hold" : Name(follow), null, "When the primary is free", panel);
             if (IsPrepFisher)
                 coastalUi.Secondary("management/crew/table-orders", new Rect(r.x, r.y + h + 12, r.width, compactInterface ? 48 : 60), $"Table orders · chum {State.Chum}",
@@ -179,9 +181,10 @@ namespace Catchline.Game
         void ChoiceCard(string id, Rect r, string icon, string label, bool on, string lockReason, Action toggle, Transform parent)
         {
             coastalUi.Toggle(id, r, on, toggle, parent);
-            float s = Mathf.Min(r.width * .55f, r.height - 40);
+            float labelH = compactInterface ? 44 : 28;
+            float s = Mathf.Min(r.width * .55f, r.height - labelH - 12);
             coastalUi.Icon(id + "/art", new Rect((r.width - s) / 2, 8, s, s), icon, coastalUi.ElementRect(id), lockReason != null ? new Color(1, 1, 1, .6f) : (Color?)null);
-            coastalUi.Text(id + "/label", new Rect(4, r.height - 34, r.width - 8, 28), label, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coastalUi.ElementRect(id));
+            coastalUi.Text(id + "/label", new Rect(4, r.height - labelH - 6, r.width - 8, labelH), label, Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, coastalUi.ElementRect(id));
             if (lockReason != null) coastalUi.LockChip(id + "/lock", new Rect(6, s - 16, r.width - 12, 28), lockReason, coastalUi.ElementRect(id));
         }
 
@@ -240,7 +243,7 @@ namespace Catchline.Game
             string body = $"{Recommendation.Replace('\n', ' ')}\n\nWorking at {Rate(stageOutput[stage])} fish/min · status {Skin.Word(StageStatus(stageStatus[stage])).ToLowerInvariant()}.\n" +
                 $"On deck or carried: {WaitingDeckKg:0.#} kg. Waiting to process: {ProcessingInput.Count}. Ready to carry: {ProcessingOutput.Count}.\nMain hold: {HoldKg:0} / {State.CoolerCapacity:0} kg.";
             bool canHelp = ProcessingOutput.Count > 0;
-            var slab = coastalUi.Modal("management/detail", StageTitles[stage], body,
+            var slab = coastalUi.ModalV3("management/detail", StageTitles[stage], body,
                 canHelp ? "Help carry" : IsPrepFisher ? "Table orders" : "Crew duties",
                 canHelp ? () => { CloseManagement(); HelpCarryProcessed(); } : IsPrepFisher ? () => { CloseManagement(); PrepOrdersOpen = true; } : () => { dashboardDetail = -1; managementTab = 2; },
                 "Close", () => dashboardDetail = -1, () => dashboardDetail = -1, canHelp ? "v2-icon-haul" : IsPrepFisher ? "v2-icon-table" : "v2-icon-crew", 640, 380);

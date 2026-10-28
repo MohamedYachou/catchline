@@ -1,0 +1,27 @@
+UI-V3-KIT-2 — Codex 2 — the rest of the game in the v3 restaurant look, plus art for Claude's day cards (Claude 2 lead, 2026-10-28)
+GOAL (Mo 10-27): "make the entire game in that ui". UI-V3-KIT-1 is accepted and committed (837bede5): InterfaceV3(),
+TitledSlabV3, TabBarV3, WrappedHeight, radio/sailing/fishing/harbour in v3. Continue the same way on the screens that
+still draw v2, and make the art Claude needs tonight. Style source: the v3 kit, rx-*/v3-* in Assets/Art/UI, Fredoka.
+ORDER (finish, capture and log one before the next):
+1. ART FIRST (Claude wires these tonight, so they come first). Clean PNGs + .meta next to the existing v3-* files, in
+   the kit style, readable at 844x390:
+   a. v3-daycard-easy / -medium / -hard: a paper day card (portrait, ~3:4) with a brass pin, a header band in
+      teal / coral / navy, 1 / 2 / 3 route stop dots, and a fish silhouette growing in size. No baked text.
+   b. v3-route-pin (a map pin, numbered by text drawn on top), v3-route-dash (a 9-sliceable dashed route segment),
+      v3-fuel-chip (a small jerrycan chip with room for "70%"), v3-stop-done (a pin with a tick).
+   c. v3-arrival-banner: a wide paper ribbon with brass pins for "Back in port" (no baked text), 9-sliceable.
+   d. v3-prep-knife, v3-prep-ice, v3-prep-crate, v3-prep-pan: square kit icons for the prep work on the sail home.
+   Contact sheet of all of them on cream and on sea blue: docs/screens/ui-v3/art-kit-2.png, opened and looked at.
+2. Ops / management pages in v3 (VoyageManagement.cs, VoyageManagementPages.cs, VoyageManagementForecast.cs:
+   DRAWING ONLY, no rule changes), wrapped in InterfaceV3.
+3. Crew panel, goals and the pause/settings menus in v3 (VoyageInterfaceCrew.cs, VoyageInterfaceGoals.cs, VoyageMenus.cs).
+4. The open shop pages (item grid, supplies, refit, the open tab bar) in v3 (VoyageInterfaceShop.cs).
+ART RULES: the v3 kit is the style source. Phone first (844x390) and desktop (1440x900). Text never clipped.
+OWNERSHIP: Assets/Art/UI new v3-* files, Art/Source/UIv3/**, the drawing code in the files named in 2-4,
+CoastalCanvasV3.cs/VoyageInterfaceV3*.cs, VoyageUiV2Capture.cs capture steps (add new-*/day-* steps as needed).
+NEVER (Claude is building in them tonight): VoyageMiraRadio.cs, VoyageRestaurantDay.cs, VoyageChart.cs,
+VoyageTripChart.cs, VoyageIllustratedChart.cs, VoyageTrip.cs, VoyageSea.cs, VoyageGame.cs, VoyageInterface.cs,
+GameState*.cs, Deck/**. Never crew models/CrewUi/**, Restaurant sim/world. No git; never batchmode the main project.
+DONE = EVIDENCE per item: native captures via docs/tools/uiv2-capture.ps1 at both sizes, opened and looked at,
+before/after pairs in docs/screens/ui-v3/kit-2/. ReferenceHudChecks and RestaurantChecks.Run PASS (run-lead-check.ps1).
+REPORTING: one comms.md line per finished item; CHECKPOINT after every verified piece so the next run continues there.

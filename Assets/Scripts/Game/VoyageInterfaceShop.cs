@@ -6,9 +6,8 @@ using UnityEngine;
 
 namespace Catchline.Game
 {
-    // Harbour hub and shop pages in the UI v2 system (docs/screens/ui-concept/chandlery.webp):
-    // planks and rope, a header slab with the coin pill, a grid of item cards, the selected item in
-    // a slab with the one primary Buy, and the five-tab bar at the bottom.
+    // Harbour hub and open shops share the restaurant v3 paper, navy headers and Fredoka.
+    // Keep the item grid, selection slab and five-tab controls on their established layout.
     public partial class VoyageGame
     {
         sealed class ShopItem
@@ -67,6 +66,11 @@ namespace Catchline.Game
         void InterfaceHarbour()
         {
             if (panelOpen && hudTab == HudTab.HarbourMaster) { InterfaceNauticalChart(); return; }
+            InterfaceV3(InterfaceHarbourV3);
+        }
+
+        void InterfaceHarbourV3()
+        {
             if (!panelOpen) { HarbourHub(); return; }
             coastalUi.Planks("shop/planks"); Block(new Rect(0, 0, iw, ih));
             float headH = compactInterface ? 56 : 80;
@@ -96,7 +100,7 @@ namespace Catchline.Game
             Block(bar);
             var labels = tabs.Select(ShortTab).ToArray();
             var ids = tabs.Select(t => "shop/tab/" + t).ToArray();
-            if (open) coastalUi.TabBar("shop/tabs", bar, labels, TabIcons, Array.IndexOf(tabs, hudTab), i => OpenShop(tabs[i]), ids);
+            if (open) coastalUi.TabBarV3("shop/tabs", bar, labels, TabIcons, Array.IndexOf(tabs, hudTab), i => OpenShop(tabs[i]), ids);
             else coastalUi.TabBarV3("shop/tabs", bar, labels, TabIcons, -1, i => OpenShop(tabs[i]), ids);
         }
 
@@ -128,17 +132,17 @@ namespace Catchline.Game
             string id = item.Id;
             if (selected) coastalUi.Sliced(id + "/glow", new Rect(r.x - 4, r.y - 4, r.width + 8, r.height + 8), "v2-card-selected", parent);
             else coastalUi.Sliced(id + "/glow", Rect.zero, null, parent);
-            var card = coastalUi.Card(id, r, Skin.Card.Ink, parent, compactInterface ? null : item.Name);
+            var card = coastalUi.CardV3(id, r, Skin.Card.Ink, parent, compactInterface ? null : item.Name);
             coastalUi.HitArea(id + "/select", new Rect(0, 0, r.width, r.height), () => { shopSelection[hudTab] = id; audio?.Play(VoyageAudio.Cue.Select, .3f); }, card);
             coastalUi.Icon(id + "/tick", selected ? new Rect(r.width - 30, -10, 40, 40) : Rect.zero, "v2-badge-tick", card);
             bool locked = !item.Enabled && !item.Owned && item.Reason != null;
             float top = compactInterface ? 6 : Skin.HeaderBand + 8, priceH = compactInterface ? 34 : 48;
-            float artH = r.height - top - priceH - (compactInterface ? 34 : 70) - (locked && !compactInterface ? 34 : 0);
+            float artH = r.height - top - priceH - (compactInterface ? 52 : 70) - (locked && !compactInterface ? 34 : 0);
             coastalUi.Icon(id + "/art", new Rect(12, top, r.width - 24, artH), item.Art, card, locked ? new Color(1, 1, 1, .6f) : (Color?)null, item.Fallback);
             float y = top + artH + 4;
-            coastalUi.Text(id + "/effect", new Rect(10, y, r.width - 20, compactInterface ? 26 : 30), compactInterface ? item.Name : Effect(item.Description),
+            coastalUi.Text(id + "/effect", new Rect(10, y, r.width - 20, compactInterface ? 44 : 30), compactInterface ? item.Name : Effect(item.Description),
                 compactInterface ? Skin.Type.Small : Skin.Type.Body, Skin.Ink, TextAnchor.MiddleCenter, card);
-            y += compactInterface ? 26 : 32;
+            y += compactInterface ? 44 : 32;
             if (locked && !compactInterface) { coastalUi.LockChip(id + "/lock", new Rect(10, y, r.width - 20, 30), Effect(item.Reason), card); y += 34; }
             else coastalUi.Sliced(id + "/lock", Rect.zero, null, card);
             var pr = new Rect(10, r.height - priceH - 10, r.width - 20, priceH);
@@ -151,7 +155,7 @@ namespace Catchline.Game
 
         void SelectionSlab(ShopItem item, Rect r)
         {
-            var slab = coastalUi.Slab("shop/selection", r, null, true);
+            var slab = coastalUi.SlabV3("shop/selection", r, null, true);
             float artW = compactInterface ? 80 : 150;
             coastalUi.Icon("shop/selection/art", new Rect(14, 8, artW, r.height - 16), item.Art, slab, null, item.Fallback);
             coastalUi.Sliced("shop/selection/rule", new Rect(artW + 24, 14, 2, r.height - 28), "v2-rule", slab);
@@ -186,12 +190,12 @@ namespace Catchline.Game
         Rect SuppliesOptions(Rect area)
         {
             float h = compactInterface ? 56 : 68;
-            var slab = coastalUi.Slab("supplies/options", new Rect(area.x, area.y, area.width, h), null, false);
+            var slab = coastalUi.SlabV3("supplies/options", new Rect(area.x, area.y, area.width, h), null, false);
             float x = 16;
             if (IsNetFisher)
             {
                 coastalUi.Text("supplies/net-loadout", new Rect(x, 0, 120, h), "Net", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, slab);
-                coastalUi.PageSwitch("supplies/loadout", new Rect(x + 60, (h - 48) / 2, compactInterface ? 300 : 380, 48),
+                coastalUi.PageSwitchV3("supplies/loadout", new Rect(x + 60, (h - 48) / 2, compactInterface ? 300 : 380, 48),
                     new[] { $"Shallow · {GameData.ShallowNetSoakSeconds:0}s", $"Deep · {State.DeepNetUses.Count} left" }, State.SelectedNet == NetKind.Deep ? 1 : 0,
                     i => SelectNetLoadout(i == 0 ? NetKind.Shallow : NetKind.Deep), new[] { "supplies/loadout/shallow", "supplies/loadout/deep" }, slab, new[] { true, State.DeepNetUses.Count > 0 });
                 x += (compactInterface ? 300 : 380) + 84;
@@ -206,7 +210,7 @@ namespace Catchline.Game
         {
             State.UnseenSale = false;
             float topH = compactInterface ? 76 : 120, gap = 12;
-            var top = coastalUi.Slab("market/summary", new Rect(area.x, area.y, area.width, topH), null, true);
+            var top = coastalUi.SlabV3("market/summary", new Rect(area.x, area.y, area.width, topH), null, true);
             float bw = compactInterface ? 220 : 340, bh = compactInterface ? Skin.PrimaryHeightPhone : Skin.PrimaryHeight + 8;
             coastalUi.Icon("market/crate", new Rect(16, 8, topH * 1.3f, topH - 16), "v2-icon-market", top);
             float x = topH * 1.3f + 30, w = area.width - x - bw - 40;
@@ -230,7 +234,7 @@ namespace Catchline.Game
             {
                 var f = GameData.Fish[i]; bool found = State.LogCount[(int)f.Species] > 0;
                 var r = new Rect(6 + i % cols * (cw + gap), 8 + i / cols * (ch + gap), cw, ch);
-                var card = coastalUi.Card("log/" + i, r, Skin.Card.Soft, content);
+                var card = coastalUi.CardV3("log/" + i, r, Skin.Card.Soft, content);
                 coastalUi.Icon("log/" + i + "/fish", new Rect(10, 8, r.width - 20, ch * .42f), FishPortrait(f.Species), card, found ? (Color?)null : new Color(.11f, .2f, .3f, .7f), found ? FishPortrait(f.Species) : "fish-unknown");
                 coastalUi.Text("log/" + i + "/name", new Rect(8, ch * .46f, r.width - 16, 28), found ? f.Name : "Undiscovered", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
                 // A phone card has room for one line under the name: the market needs the price there, not the record.

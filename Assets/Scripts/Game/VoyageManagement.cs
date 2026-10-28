@@ -108,32 +108,8 @@ namespace Catchline.Game
             coastalUi.DashboardShape("management/"+id+"/track",DR(source.x,source.y,source.width,source.height),Palette.Hex("DDE7EF"));
             coastalUi.DashboardShape("management/"+id+"/fill",DR(source.x,source.y,source.width,source.height),color,fill);
         }
-        void InterfaceManagement()
-        {
-            ReportManagement();Block(new Rect(0,0,iw,ih));
-            dashScale=Mathf.Min(iw/1672,ih/941);dashX=(iw-1672*dashScale)/2;dashY=(ih-941*dashScale)/2;
-            dashArt=managementTab==0?"DASH1":"DASH2";
-            // Use Mo's original pixels unchanged. Native fields replace every example value/chart.
-            coastalUi.DashboardRegion("management/backdrop",new Rect(0,0,iw,ih),dashArt,new Rect(0,0,72,941));
-            coastalUi.DashboardRegion("management/reference",DR(0,0,1672,941),dashArt,new Rect(0,0,1672,941));
-            DPatch("tabs",950,39,500,76,1550,85,40,8);
-            string[] tabs={"Income","Operations","Crew"};
-            for(int i=0;i<3;i++) { int tab=i; float x=950+i*165;
-                coastalUi.DashboardShape("management/tab/plate/"+i,DR(x,42,158,69),managementTab==i?DashTeal:Palette.Cream);
-                DText("tab/label/"+i,x,42,158,69,tabs[i],27,managementTab==i?Color.white:DashInk,true,TextAnchor.MiddleCenter);
-                DButton("tab/"+tabs[i].ToLowerInvariant(),new Rect(x,42,158,107),()=>{managementTab=tab;dashboardDetail=-1;});
-            }
-            DPatch("boat/subtitle",253,73,680,27,900,73,20,27);
-            DText("boat/subtitle",253,72,680,29,State.HullDef.Name+(managementTab==0?" · Expected catch value by method":managementTab==1?" · Live throughput and bottlenecks":" · Set up roles and bait"),22,DashBody);
-            DPatch("clock",1480,41,138,53,1550,85,40,8);
-            DText("voyage",1489,39,131,27,$"Voyage {State.Voyage}",19,DashBody);
-            DText("clock",1489,66,130,30,$"{(int)Flow.Clock/60:00}:{(int)Flow.Clock%60:00}",23,DashBody,true);
-            coastalUi.DashboardShape("management/back/plate",DR(87,39,43,43),new Color(1,1,1,.94f));
-            DText("back/text",87,36,43,46,"‹",39,DashBody,true,TextAnchor.MiddleCenter);
-            DButton("close",new Rect(87,39,43,43),CloseManagement);
-            if(managementTab==0)DashboardIncome();else if(managementTab==1)DashboardOperations();else DashboardCrew();
-            if(dashboardDetail>=0)DashboardDetails();
-        }
+        // Keep legacy callers on the same live operations/crew presentation.
+        void InterfaceManagement() => InterfaceManagementPages();
         void DFill(string id,Rect rect,Color color)=>coastalUi.Box(id+"/rect",rect,"",color,blocks:false);
         int selectedManagementCrew;
         void DashboardCrew()
