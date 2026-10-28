@@ -85,9 +85,13 @@ namespace Catchline.Game
                 var c = new DayCard { Kind = kind, Title = title, Art = art, ExtraGuests = extra, Fuel = RouteFuel(best), Saved = worst - RouteFuel(best) };
                 c.Stops.AddRange(best);
                 c.Possible = c.Fuel <= DayTank + .001f;
+                // "Harbour mouth · Quay shallows" on every stop reads long; one sea is named once: "Harbour mouth: Quay shallows › Mouth flats".
+                var names = c.Stops.Select(s => s.Name).ToList();
+                string sea = names[0].Contains(" · ") ? names[0][..names[0].IndexOf(" · ")] : null;
+                string route = sea != null && names.All(n => n.StartsWith(sea + " · "))
+                    ? sea + ": " + string.Join(" › ", names.Select(n => n[(sea.Length + 3)..])) : string.Join(" › ", names);
                 c.Line = !c.Possible ? $"Too far on one tank: {c.Fuel:0.#} fuel. A bigger tank would do it."
-                    : c.Saved >= .5f ? $"{string.Join(", then ", c.Stops.Select(s => s.Name))}. That order saves {c.Saved:0.#} fuel."
-                    : string.Join(", then ", c.Stops.Select(s => s.Name)) + ".";
+                    : c.Saved >= .5f ? $"{route}. Saves {c.Saved:0.#} fuel." : route;
                 return c;
             }
             DayCards.Add(Make("easy", "Easy", "v3-daycard-easy", 0, new List<DayStop> { first }));
@@ -245,20 +249,24 @@ namespace Catchline.Game
                 var c = DayCards[i]; int index = i; bool on = i == dayCardIndex;
                 var r = new Rect(x0 + i * (w + gap), y - (on ? 6 : 0), w, h);
                 var card = coastalUi.Sliced($"day/card/{i}", r, c.Art, null, c.Possible ? (Color?)null : new Color(1, 1, 1, .6f));
-                float band = r.height * .17f;
-                coastalUi.Text($"day/card/{i}/kind", new Rect(0, r.height * .07f, w, band), c.Title, Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter, card);
-                float ty = r.height * .44f, line = compactInterface ? 20 : 26;
-                coastalUi.Text($"day/card/{i}/stops", new Rect(14, ty, w - 28, line), c.Stops.Count == 1 ? "1 stop" : $"{c.Stops.Count} stops", Skin.Type.Body, Skin.Ink, TextAnchor.MiddleCenter, card);
-                string guests = c.Kind == "hard" ? "Busy night, +60% guests" : c.Kind == "medium" ? "Fuller room, +30% guests" : "A normal night";
-                coastalUi.Text($"day/card/{i}/guests", new Rect(14, ty + line, w - 28, line), guests, Skin.Type.Small, Skin.InkSoft, TextAnchor.MiddleCenter, card);
+                // The card art (kit 2) has fixed places: the coloured band at 21-31% for the title, the stop dots at 42%,
+                // the fish (bigger on harder days) at 50-66%, and the ruled body below it for the details.
+                float hh = r.height;
+                coastalUi.Text($"day/card/{i}/kind", new Rect(w * .1f, hh * .206f, w * .8f, hh * .106f), c.Title, Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter, card);
+                string guests = c.Kind == "hard" ? "+60% guests" : c.Kind == "medium" ? "+30% guests" : "normal night";
+                coastalUi.Text($"day/card/{i}/stops", new Rect(10, hh * .325f, w - 20, hh * .07f), (c.Stops.Count == 1 ? "1 stop" : $"{c.Stops.Count} stops") + " · " + guests,
+                    Skin.Type.Small, Skin.Ink, TextAnchor.MiddleCenter, card);
+                var go = new Rect(12, hh - (compactInterface ? 46 : 58), w - 24, compactInterface ? 38 : 48);
+                float by = hh * .675f;
                 if (UsesFuel)
                 {
-                    var chip = new Rect((w - 128) / 2, ty + line * 2 + 4, 128, compactInterface ? 30 : 36);
+                    float ch = compactInterface ? 28 : 36;
+                    var chip = new Rect((w - ch * 3.4f) / 2, by, ch * 3.4f, ch);
                     coastalUi.Sliced($"day/card/{i}/fuel", chip, "v3-fuel-chip", card);
                     coastalUi.Text($"day/card/{i}/fuel/t", new Rect(chip.x + chip.height, chip.y, chip.width - chip.height - 8, chip.height), $"{c.Fuel:0.#} fuel", Skin.Type.Small, Skin.Ink, TextAnchor.MiddleCenter, card);
+                    by = chip.yMax + 4;
                 }
-                coastalUi.Text($"day/card/{i}/line", new Rect(14, ty + line * 3 + 10, w - 28, r.height - (ty + line * 3 + 10) - (compactInterface ? 52 : 66)), c.Line, Skin.Type.Caption, c.Possible ? Skin.Ink : Skin.BadInk, TextAnchor.UpperCenter, card);
-                var go = new Rect(12, r.height - (compactInterface ? 46 : 58), w - 24, compactInterface ? 38 : 48);
+                coastalUi.Text($"day/card/{i}/line", new Rect(12, by, w - 24, Mathf.Max(0, go.y - by - 4)), c.Line, Skin.Type.Caption, c.Possible ? Skin.Ink : Skin.BadInk, TextAnchor.UpperCenter, card);
                 if (c.Possible) coastalUi.Primary($"day/card/{i}/go", go, "Let's do it", () => { dayCardIndex = index; ChooseDay(c); audio?.Play(VoyageAudio.Cue.Select, .5f); }, "v2-icon-tick", true, card);
                 else coastalUi.Secondary($"day/card/{i}/go", go, "Can't reach", null, "v2-icon-lock", false, card);
                 if (on) coastalUi.Pose($"day/card/{i}", 0, 1 + .015f * Mathf.Sin(SimTime * 2f));

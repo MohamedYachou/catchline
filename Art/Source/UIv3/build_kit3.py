@@ -70,3 +70,25 @@ asset('slab-titled', 256, 256, lambda w, h: shape(P, P, w - 2 * P, h - 2 * P - 3
       + f'<path d="M{P + 1} {P + 16} Q{P + 1} {P + 1} {P + 16} {P + 1} L{w - P - 16} {P + 1} Q{w - P - 1} {P + 1} {w - P - 1} {P + 16} L{w - P - 1} {h * .36} L{P + 1} {h * .36} Z" fill="url(#navy)"/>')
 asset('rule', 16, 16, lambda w, h: f'<rect x="0" y="{h / 2 - 1}" width="{w}" height="2" fill="#c9ab7a"/>')
 asset('nail', 32, 32, lambda w, h: f'<circle cx="{w / 2}" cy="{h / 2 + .8}" r="{w / 2 - 2}" fill="#2a2a22" opacity=".2"/><circle cx="{w / 2}" cy="{h / 2}" r="{w / 2 - 2}" fill="url(#brass)" stroke="#9d763d" stroke-width=".8"/><ellipse cx="{w / 2 - 1.5}" cy="{h / 2 - 2}" rx="{w * .14}" ry="{w * .07}" fill="#fff0bd"/>')
+
+
+# Full-screen backdrop (Skin.Planks): the v2 blue boards become calm deep water with soft wave lines. Seamless: the
+# wave period divides the width and the rows divide the height. The rope edges become a navy band with a brass line.
+def sea(w, h):
+    s = f'<rect width="{w}" height="{h}" fill="#1c4769"/>'
+    rows, period = 6, w / 4
+    for k in range(rows):
+        y = (k + .5) * h / rows
+        d = f'M0 {y:.2f}' + ''.join(f' q{period / 4:.2f} -5 {period / 2:.2f} 0 t{period / 2:.2f} 0' for _ in range(4))
+        shift = (period / 2) * (k % 2)
+        s += f'<path d="{d}" transform="translate({-shift:.2f} 0)" fill="none" stroke="#2c5f88" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>'
+        s += f'<path d="{d}" transform="translate({w - shift:.2f} 0)" fill="none" stroke="#2c5f88" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>'
+    return s
+asset('plank-tile', 1024, 519, sea)
+asset('rope-h', 163, 64, lambda w, h: f'<rect width="{w}" height="{h}" fill="#14334f"/><rect y="{h * .7}" width="{w}" height="1.5" fill="#d6ad65"/>')
+# Tutorial coach mark (SkinSlices: ring 96, bubble 48 on all sides at 2x): a coral enamel ring with a soft glow, and
+# Mira's speech card in kit paper.
+asset('tut-ring', 256, 256, lambda w, h: f'<rect x="7" y="7" width="{w - 14}" height="{h - 14}" rx="30" fill="none" stroke="#ff9a5c" stroke-width="12" opacity=".28"/>'
+      + f'<rect x="7" y="7" width="{w - 14}" height="{h - 14}" rx="30" fill="none" stroke="url(#coral)" stroke-width="5"/>'
+      + f'<rect x="9.5" y="9.5" width="{w - 19}" height="{h - 19}" rx="27.5" fill="none" stroke="#fff3e2" stroke-width="1.2" opacity=".85"/>')
+asset('tut-bubble', 256, 160, lambda w, h: shape(P, P, w - 2 * P, h - 2 * P - 3, 18, 'paper'))

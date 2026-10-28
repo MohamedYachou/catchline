@@ -10,6 +10,8 @@ namespace Catchline.Game
         {
             ["tut-ring"] = new Vector4(96, 96, 96, 96),
             ["tut-bubble"] = new Vector4(48, 48, 48, 48),
+            ["v3-tut-ring"] = new Vector4(96, 96, 96, 96),
+            ["v3-tut-bubble"] = new Vector4(48, 48, 48, 48),
             ["v2-bar-bad"] = new Vector4(16, 16, 16, 16),
             ["v2-bar-good"] = new Vector4(16, 16, 16, 16),
             ["v2-bar-teal"] = new Vector4(16, 16, 16, 16),

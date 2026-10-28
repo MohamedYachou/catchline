@@ -97,6 +97,8 @@ namespace Catchline.Game
         }
 
         static bool HasUi(string name) => ArtLibrary.Get()?.UiTex(name) != null;
+        // The coach mark follows the screen's kit: v3 art where it exists, the original otherwise.
+        string TutArt(string name) => coastalUi.Kit == "v3-" && HasUi("v3-" + name) ? "v3-" + name : name;
 
         // Drawn last, over the screen it explains.
         void InterfaceTutorial()
@@ -121,7 +123,7 @@ namespace Catchline.Game
             {
                 float pulse = 1 + .05f * Mathf.Sin(now * 4.2f);
                 var ring = new Rect(target.x - 16, target.y - 16, target.width + 32, target.height + 32);
-                if (HasUi("tut-ring")) { coastalUi.Sliced("tut/ring", ring, "tut-ring", null, Color.white); coastalUi.Pose("tut/ring", 0, pulse); }
+                if (HasUi(TutArt("tut-ring"))) { coastalUi.Sliced("tut/ring", ring, TutArt("tut-ring"), null, Color.white); coastalUi.Pose("tut/ring", 0, pulse); }
                 float s = compactInterface ? 52 : 64, bob = 6 + 6 * Mathf.Sin(now * 5.5f);
                 // The glove points up-left from below-right of the button. Near the bottom it turns to point down;
                 // near the right edge it is mirrored to sit on the button's left.
@@ -149,12 +151,12 @@ namespace Catchline.Game
                 ? new[] { new Vector2(right, (ih - height) * .5f + (compactInterface ? 10 : 40)), new Vector2(right, yHigh), new Vector2(left, yHigh) }
                 : new[] { new Vector2(right, yLow), new Vector2(left, yLow), new Vector2(right, yHigh), new Vector2(left, yHigh) };
             var keepClear = hasTarget ? new Rect(target.x - 24, target.y - 24, target.width + 48, target.height + 48) : Rect.zero;
-            // A showing toast (the sale's payout, say) is avoided too, when a spot clear of both exists.
-            bool toastUp = coastalUi.TryFind("toast", out var toastRect);
+            // A showing toast (the sale's payout, say) and the catch card are avoided too, when a spot clear of them exists.
+            bool toastUp = coastalUi.TryFind("toast", out var toastRect), catchUp = coastalUi.TryFind("catch", out var catchRect);
             bool Clear(Vector2 c, bool andToast)
             {
                 var r = new Rect(c.x, c.y, width, height);
-                return (!hasTarget || !r.Overlaps(keepClear)) && (!andToast || !toastUp || !r.Overlaps(toastRect));
+                return (!hasTarget || !r.Overlaps(keepClear)) && (!andToast || ((!toastUp || !r.Overlaps(toastRect)) && (!catchUp || !r.Overlaps(catchRect))));
             }
             var spot = spots[0];
             bool found = false;
@@ -167,7 +169,7 @@ namespace Catchline.Game
             coastalUi.Icon("tut/mira", new Rect(0, height - mh + Mathf.Sin(now * 1.8f) * 2.5f, mw, mh), "mira-pose-" + pose, root, null, "art108-mira");
 
             var bubbleRect = new Rect(mw - 8, (height - bh) * .45f, bw, bh);
-            var bubble = HasUi("tut-bubble") ? coastalUi.Sliced("tut/bubble", bubbleRect, "tut-bubble", root, Color.white, true)
+            var bubble = HasUi(TutArt("tut-bubble")) ? coastalUi.Sliced("tut/bubble", bubbleRect, TutArt("tut-bubble"), root, Color.white, true)
                                              : coastalUi.Card("tut/bubble", bubbleRect, Skin.Card.Soft, root);
             coastalUi.Pose("tut/bubble", 0, Mathf.Lerp(.92f, 1, Ease.OutBack(Mathf.Clamp01((age - .08f) / .3f))));
             float pad = compactInterface ? 14 : 18, buttonH = compactInterface ? 34 : 40;
