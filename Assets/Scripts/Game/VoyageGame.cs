@@ -94,6 +94,7 @@ namespace Catchline.Game
         {
             if (built) return;
             built = true;
+            if (TestDayRequested) SessionOnly = true; // Catchline/Test the restaurant day: a throwaway save
             var loaded = AutoPlay || SessionOnly ? null : GameState.Load();
             hadSave = loaded != null;
             showTitle = !AutoPlay;

@@ -18,6 +18,7 @@ namespace Catchline.Game
             if (Time.timeScale != 1f) { Debug.LogWarning($"[Catchline] Time scale was {Time.timeScale}; reset to 1"); Time.timeScale = 1f; }
             Debug.Log($"[Catchline] Launch mode: {(SessionOnly ? "TEST / no save reads or writes" : "REAL / persistent progress")}; save={GameState.SavePath}");
             StartUiV2Capture(args);
+            if (SessionOnly && TestDayRequested) StartTestDay();
             if (Array.IndexOf(args, "-native-display") >= 0)
             {
                 int width = Display.main.systemWidth, height = Display.main.systemHeight;
