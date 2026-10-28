@@ -636,6 +636,7 @@ namespace Catchline.Game
             Manning = null;
             AwaitingCast = false;
             foreach (var r in Rods) r.ResetForTrip();
+            RouteHomeLeg();
             RadioHeadHome(); // restaurant day: lock the list, the crew start the prep on deck
             BeginTransition(Mode.SailingHome, -1);
             flowReturning = false;
@@ -722,7 +723,8 @@ namespace Catchline.Game
             {
                 case Mode.Harbour:
                     SyncHarbourScenery();
-                    if (AutoPlay && SimTime >= botHarbourAt) BotHarbour();
+                    TickArrival();
+                    if (AutoPlay && SimTime >= botHarbourAt && !ArrivalActive) BotHarbour();
                     break;
 
                 case Mode.SailingOut:
@@ -777,7 +779,7 @@ namespace Catchline.Game
 
         void BurnFuel(float dt)
         {
-            if (State.Tier == 0) return;
+            if (State.Tier == 0 || RouteDay) return; // route days: Mira pays fuel per leg, the engine is off at anchor
             State.Fuel = Mathf.Max(0, State.Fuel - dt * (Abilities?.Fuel ?? 1) / 60f);
             if (CurrentMode == Mode.Fishing && State.FuelFraction <= .1f)
             {

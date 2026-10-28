@@ -64,6 +64,8 @@ namespace Catchline.Game.Restaurant
             double roll=random.NextDouble()*pool.Sum(p=>(double)p.weight);
             foreach(var p in pool){roll-=p.weight;if(roll<=0)return p.species;}return pool[pool.Length-1].species;
         }
+        // A harder day card brings a fuller room (design 14.1).
+        public void Extra(int count){if(count>0)AddGuests(count);}
         void AddGuests(int count,bool families=false,int size=0)
         {
             int seats=Math.Max(1,kitchen.Active.Max(i=>RestaurantData.Get(i.Id).Seats));

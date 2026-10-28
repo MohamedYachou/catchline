@@ -179,7 +179,14 @@ namespace Catchline.Game
             // Head home is the call to action once there is a haul to sell; with nothing aboard yet it stays quiet so the
             // first thing a new captain is pushed toward is fishing, not leaving.
             System.Action goHome = () => { RequestHeadHome(); audio?.Play(VoyageAudio.Cue.Select, .45f); };
-            if (Cooler.Count + OnDeck.Count > 0 || HoldFull) coastalUi.Primary("home", home, "Head home", goHome, "v2-icon-home");
+            var next = NextDayStop;
+            if (next != null)
+            {
+                // A route day: the next stop is the call to action until the last ground.
+                var nr = new Rect(home.x, home.y - home.height - 10, home.width, home.height);
+                coastalUi.Primary("route/next", nr, "Next: " + next.Name, () => NextStop(), "v2-icon-anchor", NextStopBlocker() == null); Block(nr);
+            }
+            if (next == null && (Cooler.Count + OnDeck.Count > 0 || HoldFull)) coastalUi.Primary("home", home, "Head home", goHome, "v2-icon-home");
             else coastalUi.Secondary("home", home, "Head home", goHome, "v2-icon-home");
             Block(home);
         }

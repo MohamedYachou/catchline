@@ -28,7 +28,7 @@ namespace Catchline.Game
         bool BeginSeaRoute(Mode mode, bool fresh = true)
         {
             if (Navigation == null || Sailor == null) return false;
-            destinationGround = mode == Mode.SailingOut ? Navigation.Grounds.FirstOrDefault() : null;
+            destinationGround = mode == Mode.SailingOut ? Navigation.Grounds.FirstOrDefault(g => g.Id == routeGround) ?? Navigation.Grounds.FirstOrDefault() : null;
             var target = destinationGround != null ? destinationGround.Centre : Navigation.Harbour;
             if (!SailLane(target)) { Toast("No clear sailing route, skipper."); return false; }
             if (mode == Mode.SailingOut && fresh)
@@ -103,10 +103,11 @@ namespace Catchline.Game
         {
             Sailor.Tick(dt * AbilityTravel * RadioPace); modeTimer += dt * AbilityTravel * RadioPace;
             UpdateSeaTravel(); TickDeckGraph(); TickDeckFish(dt);
+            if (TickHop()) return; // leaving this sea for the day's next stop
             // Home: the chart rises over the last stretch to the map edge, then the harbour lane takes over.
             if (CurrentMode == Mode.SailingHome && (Sailor.Arrived || Vector2.Distance(Sailor.Position, Navigation.Harbour) < 9f)) { BeginChart(true); return; }
             if (!Sailor.Arrived) return;
-            if (RadioHolds && Leg == TripLeg.SeaOut) { travelWake = 0; return; } // Mira's still on the radio: wait at the ground
+            if (RadioHolds && (Leg == TripLeg.SeaOut || seaRelocating && RouteDay)) { travelWake = 0; return; } // Mira's still on the radio: wait at the ground
             Captain.Rowing = false; SetRowing(false); travelWake = 0;
             if (Leg == TripLeg.SeaOut) Leg = TripLeg.None;
             SetWaterBiome(ActiveSpot);

@@ -72,14 +72,19 @@ namespace Catchline.Game
         bool RestaurantPlanBeforeSail()
         {
             if (!RestaurantOpen || RestaurantPhase != DayPhase.Off) return false;
-            var pool = Grounds.ForMap(SelectedSpot).SelectMany(g => g.Day).GroupBy(e => e.species)
-                .Select(g => (g.Key, g.Sum(e => e.weight))).ToArray();
+            return OpenDayCards(); // Mira's day cards first (design 14.1); a chosen card opens this plan
+        }
+
+        bool RestaurantPlanForRoute()
+        {
+            var pool = RoutePool(DayRoute);
             try
             {
                 dayForecast = new RestaurantForecast(State.Voyage * 7919 + SelectedSpot, restaurantPopularity, RestaurantWeekday(State.RestaurantDay), (Weather)State.RestaurantWeather, pool, Kitchen,
                     State.RestaurantNights.Count == 0 ? FirstNightGuests : 0);
+                dayForecast.Extra(Mathf.RoundToInt(dayForecast.BaseCount * dayExtraGuests));
             }
-            catch (ArgumentException) { return false; } // this ground's fish cannot be cooked yet: sail as before
+            catch (ArgumentException) { ClearRoute(); RestaurantPhase = DayPhase.Off; return false; } // this ground's fish cannot be cooked yet: sail as before
             var v = RestaurantPlan;
             v.Day = RestaurantWeekday(State.RestaurantDay).ToString(); v.Hours = "18:00 – 23:00";
             v.GuestsLow = dayForecast.GuestRange.Min; v.GuestsHigh = dayForecast.GuestRange.Max;
@@ -117,8 +122,10 @@ namespace Catchline.Game
             if (specialGuest >= 0 && RestaurantPlan.SpecialAccepted != null) dayForecast.SpecialRequest(specialGuest, RestaurantPlan.SpecialAccepted == true);
             RestaurantPreview = RestaurantScreen.None;
             RestaurantPhase = DayPhase.Out;
+            string fuel = RouteDepart();
             SetSail();
             RadioBeginDay(); // Mira's calls on the way out (design 14.3)
+            RouteFirstLeg(fuel);
         }
 
         // ---- 2. Home: prepare, then the market ---------------------------------------------------------------------
@@ -127,11 +134,12 @@ namespace Catchline.Game
         void RestaurantArrived(bool arrived)
         {
             if (!arrived || (RestaurantPhase != DayPhase.Out && RestaurantPhase != DayPhase.Home) || dayForecast == null) return;
+            ClearRoute();
             bool prepped = RestaurantPhase == DayPhase.Home; // the crew prepped on the way home: straight on to the market
             dayForecast.Lock();
             if (State.UnsoldCatch.Count == 0) { StartNight(new List<PortionStock>()); return; }
             SuggestPrep();
-            if (prepped) { panelOpen = false; RestaurantPhase = DayPhase.Prep; RestaurantPrepared(); return; }
+            if (prepped) { panelOpen = false; BeginArrival(() => { RestaurantPhase = DayPhase.Prep; RestaurantPrepared(); }); return; } // design 14.5: the arrival scene first
             RestaurantPhase = DayPhase.Prep;
             RestaurantPreview = RestaurantScreen.Prep;
             panelOpen = false;
@@ -868,6 +876,11 @@ namespace Catchline.Game
                 case "day-harbour": // the harbour hub with Mira's entry (S14)
                     RestaurantPhase = DayPhase.Off; RestaurantPreview = RestaurantScreen.None; restaurantForced = true; panelOpen = false;
                     return true;
+                case "day-cards": // Mira's day cards (design 14.1), shown even on a first save
+                    RestaurantPhase = DayPhase.Off; SelectedSpot = 0; restaurantForced = true; RestaurantPreview = RestaurantScreen.None;
+                    BuildDayCards(); DayCardsOpen = true; RestaurantPhase = DayPhase.Plan; dayCardIndex = Mathf.Min(1, DayCards.Count - 1);
+                    Debug.Log($"[Catchline] DAY cards {string.Join(" | ", DayCards.Select(c => $"{c.Kind} {c.Stops.Count} stops {c.Fuel:0.#} fuel saved {c.Saved:0.#} possible {c.Possible}: {string.Join(">", c.Stops.Select(s => s.Name))}"))}");
+                    return DayCards.Count > 0;
                 case "day-plan":
                     RestaurantPhase = DayPhase.Off; SelectedSpot = 0; restaurantForced = true;
                     return RestaurantPlanBeforeSail();

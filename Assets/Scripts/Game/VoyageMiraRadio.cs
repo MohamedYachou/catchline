@@ -77,6 +77,25 @@ namespace Catchline.Game
             var tip = MiraTip(); if (tip != null) radioQueue.Add(tip);
         }
 
+        // Between the day's stops (design 14.2): the notebook gets the next ground, Mira gives her word on it, and the
+        // phone may ring again. The boat waits at that ground for any open call, as on the way out.
+        void RadioNextLeg(DayStop to)
+        {
+            if (!RadioDay || to == null) return;
+            Note($"Next: {to.Name}");
+            var g = Grounds.ForMap(to.Spot).FirstOrDefault(x => x.Id == to.Ground);
+            if (g != null && g.Day.Length > 0)
+            {
+                var big = g.Day.Where(e => e.weight >= 3f).DefaultIfEmpty(g.Day[0]).OrderByDescending(e => GameData.Get(e.species).MaxKg).First();
+                var tip = Mira($"At {to.Name} the {FishName(big.species)} run big. Worth a rod or two.");
+                tip.Options.Add(Opt("Good to know", null, "I'll keep a crate free for them."));
+                radioQueue.Add(tip);
+            }
+            var r = new System.Random(State.Voyage * 977 + DayStopAt * 13 + State.RestaurantDay);
+            if (State.RestaurantNights.Count > 0 && r.NextDouble() < .6) radioQueue.Add(Booking(r));
+            radioWait = Mathf.Min(radioWait, 2f);
+        }
+
         (Species species, float weight)[] RadioPool => Grounds.ForMap(ActiveSpot).SelectMany(g => g.Day).GroupBy(e => e.species).Select(g => (g.Key, g.Sum(e => e.weight))).OrderByDescending(p => p.Item2).ToArray();
 
         RadioCall Booking(System.Random r)

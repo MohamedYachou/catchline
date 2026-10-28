@@ -23,9 +23,9 @@ namespace Catchline.Game
         RectTransform journeySlab;
 
         // The route curve of IllustratedRoutesGraphic, in chart pixels for a chart drawn size.x by size.y.
-        public static Vector2 ChartRoutePoint(int spot, float u, Vector2 size)
+        public static Vector2 ChartRoutePoint(int spot, float u, Vector2 size, int from = -1)
         {
-            var start = Vector2.Scale(ChartHarbour + new Vector2(0, -.035f), size);
+            var start = from < 0 ? Vector2.Scale(ChartHarbour + new Vector2(0, -.035f), size) : Vector2.Scale(NauticalChartPoint(from), size) + new Vector2(0, 27);
             var end = Vector2.Scale(NauticalChartPoint(spot), size); end.y += 27;
             var delta = end - start;
             var c1 = start + new Vector2(delta.x * .25f, delta.y * .43f);
@@ -53,8 +53,9 @@ namespace Catchline.Game
             group.alpha = ChartAlpha;
             // Zoom about the start pin while fading in and about the end pin while fading out.
             bool leaving = chartAt < ChartFade;
-            var harbourPin = Vector2.Scale(ChartHarbour, new Vector2(iw, ih));
-            var spotPin = Vector2.Scale(NauticalChartPoint(ActiveSpot), new Vector2(iw, ih));
+            int target = ChartTarget, from = ChartFrom; // a hop between the day's stops starts at the last pin
+            var harbourPin = Vector2.Scale(from < 0 ? ChartHarbour : NauticalChartPoint(from), new Vector2(iw, ih));
+            var spotPin = Vector2.Scale(NauticalChartPoint(target), new Vector2(iw, ih));
             var focus = leaving ? (chartHome ? spotPin : harbourPin) : (chartHome ? harbourPin : spotPin);
             var chart = new Rect(focus.x - focus.x * ChartZoom, focus.y - focus.y * ChartZoom, iw * ChartZoom, ih * ChartZoom);
             var art = coastalUi.ResourceArt("trip/chart/art", chart, "Charts/gull-coast", true, host);
@@ -62,20 +63,20 @@ namespace Catchline.Game
             var graphic = ChartGraphic<TripRouteGraphic>(route);
             graphic.raycastTarget = false;
             float u = chartHome ? 1 - ChartRoute : ChartRoute;
-            graphic.Configure(SpotGlyph(ActiveSpot), u, chartHome);
+            graphic.Configure(target, u, chartHome, from); // the route ends at the pin (SpotGlyph is the icon, not the place)
 
             var size = new Vector2(chart.width, chart.height);
             var names = ChartLandmarks[Mathf.Clamp(ActiveSpot, 0, ChartLandmarks.Length - 1)];
             for (int i = 0; i < names.Length; i++)
             {
-                var p = chart.position + ChartRoutePoint(ActiveSpot, ChartLandmarkAt[i], size);
+                var p = chart.position + ChartRoutePoint(target, ChartLandmarkAt[i], size, from);
                 bool near = Mathf.Abs(u - ChartLandmarkAt[i]) < .12f;
                 float w = compactInterface ? 132 : 160, h = compactInterface ? 34 : 40;
                 var card = coastalUi.Card("trip/chart/mark/" + i, new Rect(p.x + 14, p.y - h - 6, w, h), near ? Skin.Card.Selected : Skin.Card.Soft, host);
                 card.localScale = Vector3.one * (near ? 1.06f : .92f);
                 coastalUi.Text("trip/chart/mark/" + i + "/name", new Rect(10, 0, w - 20, h), names[i], Skin.Type.Small, near ? Skin.Ink : Skin.InkSoft, TextAnchor.MiddleLeft, card);
             }
-            var boat = chart.position + ChartRoutePoint(ActiveSpot, u, size);
+            var boat = chart.position + ChartRoutePoint(target, u, size, from);
             var token = coastalUi.Box("trip/chart/boat", new Rect(boat.x - 24, boat.y - 58, 48, 62), "", Color.clear, host, false);
             var pin = ChartGraphic<ChartPinGraphic>(token);
             pin.raycastTarget = false; pin.Configure(6, true, true);
@@ -87,28 +88,28 @@ namespace Catchline.Game
     // One route on the chart: dotted ahead of the boat, a solid wake behind it.
     public sealed class TripRouteGraphic : CoastGraphic
     {
-        int spot; float u; bool home;
-        public void Configure(int s, float progress, bool homeward)
+        int spot, from = -1; float u; bool home;
+        public void Configure(int s, float progress, bool homeward, int start = -1)
         {
-            if (spot == s && Mathf.Abs(u - progress) < .001f && home == homeward) return;
-            spot = s; u = progress; home = homeward; SetVerticesDirty();
+            if (spot == s && from == start && Mathf.Abs(u - progress) < .001f && home == homeward) return;
+            spot = s; from = start; u = progress; home = homeward; SetVerticesDirty();
         }
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear(); mesh = vh;
             var size = rectTransform.rect.size;
-            float length = (VoyageGame.ChartRoutePoint(spot, 1, size) - VoyageGame.ChartRoutePoint(spot, 0, size)).magnitude;
+            float length = (VoyageGame.ChartRoutePoint(spot, 1, size, from) - VoyageGame.ChartRoutePoint(spot, 0, size, from)).magnitude;
             int steps = Mathf.Max(16, Mathf.CeilToInt(length / 11));
             var wake = new Color(1, 1, .96f, .95f);
             for (int n = 0; n < steps; n++)
             {
                 float a = n / (float)steps, b = (n + 1f) / steps;
                 bool travelled = home ? a >= u : b <= u;
-                if (travelled) Line(VoyageGame.ChartRoutePoint(spot, a, size), VoyageGame.ChartRoutePoint(spot, b, size), 5f, wake);
-                else Line(VoyageGame.ChartRoutePoint(spot, a, size), VoyageGame.ChartRoutePoint(spot, a + .55f / steps, size), 2.6f, new Color(1, 1, .96f, .8f));
+                if (travelled) Line(VoyageGame.ChartRoutePoint(spot, a, size, from), VoyageGame.ChartRoutePoint(spot, b, size, from), 5f, wake);
+                else Line(VoyageGame.ChartRoutePoint(spot, a, size, from), VoyageGame.ChartRoutePoint(spot, a + .55f / steps, size, from), 2.6f, new Color(1, 1, .96f, .8f));
             }
             for (int i = 0; i < 2; i++)
-                Circle(VoyageGame.ChartRoutePoint(spot, i == 0 ? .36f : .7f, size), 6f, FishReferenceStyle.Ink);
+                Circle(VoyageGame.ChartRoutePoint(spot, i == 0 ? .36f : .7f, size, from), 6f, FishReferenceStyle.Ink);
         }
     }
 }

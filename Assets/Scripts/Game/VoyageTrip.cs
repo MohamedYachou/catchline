@@ -10,7 +10,7 @@ namespace Catchline.Game
     // world is swapped while the chart covers it. Home is the same in reverse, ending with crates to the market.
     public partial class VoyageGame
     {
-        public enum TripLeg { None, HarbourOut, ChartOut, SeaOut, SeaHome, ChartHome, HarbourIn }
+        public enum TripLeg { None, HarbourOut, ChartOut, SeaOut, SeaHome, ChartHome, HarbourIn, SeaHop } // SeaHop: leaving one sea for the day's next stop
         public TripLeg Leg { get; private set; }
         public bool TripFast;
         float TripRate => (TripFast ? 3f : 1f) * AbilityTravel * RadioPace; // RadioPace: home lasts as long as the prep (design 14.4)
@@ -169,14 +169,14 @@ namespace Catchline.Game
             if (!chartSwapped && chartAt >= ChartFade)
             {
                 chartSwapped = true;
-                if (chartHome) SwapToHarbour(); else SwapToSea();
+                if (chartHome) SwapToHarbour(); else if (chartHop) SwapHop(); else SwapToSea();
             }
             if (chartAt >= sailEnd && (Leg == TripLeg.ChartOut || Leg == TripLeg.ChartHome))
             {
                 Leg = chartHome ? TripLeg.HarbourIn : TripLeg.SeaOut;
                 audio?.Play(VoyageAudio.Cue.Moor, .4f);
             }
-            if (chartAt >= end) { chartActive = false; ChartAlpha = 0; ChartZoom = 1; }
+            if (chartAt >= end) { chartActive = false; ChartAlpha = 0; ChartZoom = 1; hopFrom = -1; }
         }
 
         // Extra camera height while the chart covers the world: reads as lifting up to the map and diving back.
@@ -252,7 +252,8 @@ namespace Catchline.Game
                     if (laneAt >= laneChartS) BeginChart(false);
                     break;
                 case TripLeg.ChartOut:
-                    if (!chartSwapped) TickHarbourLane(dt);
+                    if (!chartSwapped && chartHop) { if (Sailor != null && !Sailor.Arrived) { Sailor.Tick(dt); UpdateSeaTravel(); } }
+                    else if (!chartSwapped) TickHarbourLane(dt);
                     break;
                 case TripLeg.ChartHome:
                     if (!chartSwapped && Sailor != null && !Sailor.Arrived) { Sailor.Tick(dt); UpdateSeaTravel(); }
