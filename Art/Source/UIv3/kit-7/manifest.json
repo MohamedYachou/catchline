@@ -1,0 +1,233 @@
+{
+  "ncard-back": {
+    "png": "Assets/Art/UI/v3-ncard-back.png",
+    "svg": "Art/Source/UIv3/kit-7/ncard-back.svg",
+    "viewBox": [
+      0,
+      0,
+      240,
+      320
+    ],
+    "size": [
+      480,
+      640
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "flip_pivot": [
+        120,
+        160
+      ]
+    },
+    "note": "Exact kit5 outer geometry, neutral navy compass back.",
+    "stage": 1,
+    "sha256": "29ecb270f70c4c75ab807450f8067a7ec47d7739e23c00329438c901a7b7da24",
+    "guid": "99ba3a2b2e0f405189409c822956b488"
+  },
+  "ncard-shine": {
+    "png": "Assets/Art/UI/v3-ncard-shine.png",
+    "svg": "Art/Source/UIv3/kit-7/ncard-shine.svg",
+    "viewBox": [
+      0,
+      0,
+      240,
+      320
+    ],
+    "size": [
+      480,
+      640
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "face_clip": [
+        12,
+        8,
+        216,
+        304
+      ]
+    },
+    "note": "Soft alpha sweep. Clip translated layer to face silhouette; no input.",
+    "stage": 1,
+    "sha256": "fd9b0408ee9bdd33b5fac866d5e770fe4eef586f6694105a64157661600f18c3",
+    "guid": "a8e14f5169f143b18f257f8b7bf0981d"
+  },
+  "event-banner": {
+    "png": "Assets/Art/UI/v3-event-banner.png",
+    "svg": "Art/Source/UIv3/kit-7/event-banner.svg",
+    "viewBox": [
+      0,
+      0,
+      640,
+      200
+    ],
+    "size": [
+      1280,
+      400
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "window_circle": [
+        114,
+        100,
+        69
+      ],
+      "illustration": [
+        52,
+        38,
+        124,
+        124
+      ],
+      "title": [
+        227,
+        55,
+        354,
+        40
+      ],
+      "line": [
+        227,
+        104,
+        354,
+        30
+      ]
+    },
+    "note": "Fixed aspect coral ribbon; separate whole kit5 illustration and live navy title/one line.",
+    "stage": 2,
+    "sha256": "638ec6a331c4d0bbee4ab9c176a3bef53414f8499416d51dee1f7d5f0e1198be",
+    "guid": "9bf100afe24a460284ef34084d82c48d"
+  },
+  "tl-ferry": {
+    "png": "Assets/Art/UI/v3-tl-ferry.png",
+    "svg": "Art/Source/UIv3/kit-7/tl-ferry.svg",
+    "viewBox": [
+      0,
+      0,
+      48,
+      56
+    ],
+    "size": [
+      96,
+      112
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "tip": [
+        24,
+        53
+      ],
+      "body_centre": [
+        24,
+        23
+      ],
+      "glyph": [
+        8,
+        7,
+        32,
+        32
+      ]
+    },
+    "note": "Ferry hull, coral cabin and teal windows/water; align tip to due-time curve.",
+    "stage": 3,
+    "sha256": "e0fb4dafeb0d8e9f584fa241564e1d49afc3d8e790f1e476358714a6fc798311",
+    "guid": "a217c11e478e47bf9870fe166737066a"
+  },
+  "tl-critic": {
+    "png": "Assets/Art/UI/v3-tl-critic.png",
+    "svg": "Art/Source/UIv3/kit-7/tl-critic.svg",
+    "viewBox": [
+      0,
+      0,
+      48,
+      56
+    ],
+    "size": [
+      96,
+      112
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "tip": [
+        24,
+        53
+      ],
+      "body_centre": [
+        24,
+        23
+      ],
+      "glyph": [
+        8,
+        7,
+        32,
+        32
+      ]
+    },
+    "note": "Beret and spectacles, simplified for22-26px width; align tip to due-time curve.",
+    "stage": 3,
+    "sha256": "9e257726b771627c83ef29b5535368b972b424fb01bd008d7ec21d543c2524c0",
+    "guid": "5d62d73bdc4b42a7b50d65843732b9aa"
+  },
+  "tl-glow": {
+    "png": "Assets/Art/UI/v3-tl-glow.png",
+    "svg": "Art/Source/UIv3/kit-7/tl-glow.svg",
+    "viewBox": [
+      0,
+      0,
+      80,
+      88
+    ],
+    "size": [
+      160,
+      176
+    ],
+    "slice_pixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "safe_rects_svg_units": {
+      "pin_rect": [
+        16,
+        16,
+        48,
+        56
+      ],
+      "body_centre": [
+        40,
+        39
+      ],
+      "tip": [
+        40,
+        69
+      ]
+    },
+    "note": "Normal alpha soft gold halo.16 logical units of alignment padding around pin rect; no input.",
+    "stage": 3,
+    "sha256": "5d6a860ce4385b454b875a20ccf23117325fd3cb9022d5b9eca9d88b2fc89ec5",
+    "guid": "7dec4dea754f4bce9f54ba956291ef1d"
+  }
+}

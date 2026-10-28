@@ -76,11 +76,11 @@ namespace Catchline.Game.Restaurant
     }
     [Serializable] public sealed class NightResult
     {
-        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes, HappyRegulars, WalkIns, Combos, Staples, Upsells, GullsShooed, GullSteals, Perfects, Burnt; // Staples: bread and fries plates served (pantry, not tonight's fish)
+        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes, HappyRegulars, WalkIns, Combos, Staples, Upsells, GullsShooed, GullSteals, Perfects, Burnt, GoalCoins, GoalsMet; // Staples: bread and fries plates served (pantry, not tonight's fish)
         public float PopularityGain;
         public float Stars, Seconds;
         public List<StaffDistance> Walking=new List<StaffDistance>();
-        public int Coins=>DishCoins+DrinkCoins+Tips;
+        public int Coins=>DishCoins+DrinkCoins+Tips+GoalCoins;
         public int NetCoins=>Coins-StapleCosts;
         public string LayoutTip;
     }
@@ -130,6 +130,7 @@ namespace Catchline.Game.Restaurant
         public float ColdBonus=1, DoorBonus=1, CookBonus=1, TipBonus=1; public int CarryBonus; public bool IceCream;
         // The food critic (Critic's table card): one guest arriving CriticAt seconds in; CriticStars once they paid.
         public float CriticAt=-1; public int CriticStars;
+        public List<NightGoal> Goals=new List<NightGoal>(); // tonight's three (NightGoals.For), paid at Finish
         public float WalkInPace=1; public bool CaptainHandsOn, CaptainAuto; // CaptainAuto: no taps queued, he helps where it hurts (bots, captures)
         // Gulls (GullPace scales how often; 0, the default, keeps them away): the table one stands on, and the last one to leave.
         public float GullPace; public int GullTable, GullLeftTable; public float GullLandedAt=-1, GullLeftAt=-1; public bool GullLeftFed; float nextGull=-1;
@@ -679,6 +680,8 @@ namespace Catchline.Game.Restaurant
             Result.PopularityGain=Result.Guests==0?0:word+Result.SpecialServed*RestaurantTuning.PopularityPerSpecial+Result.HappyRegulars*RestaurantTuning.PopularityPerRegular;
             // The critic's write-up: five stars and the whole harbour hears; a poor meal (or a walk-out) costs as much.
             if(Groups.Any(g=>g.Critic))Result.PopularityGain+=CriticStars>=5?3:CriticStars==4?1.5f:CriticStars==3?0:-2;
+            foreach(var goal in Goals)if(goal.Met(this)){Result.GoalCoins+=goal.Bonus;Result.GoalsMet++;}
+            if(Goals.Count>0&&Result.GoalsMet==Goals.Count)Result.PopularityGain+=NightGoals.AllPopularity;
             Result.Walking=Staff.Select(s=>new StaffDistance{Id=s.Id,Metres=s.Metres}).ToList();
             float waiters=Staff.Where(s=>s.Job==Job.Waiter).Sum(s=>s.Metres);
             Result.LayoutTip=waiters>0?"Our waiters walked "+Math.Round(waiters)+" m tonight. Tables nearer the pass would help.":"Try assigning a waiter tomorrow.";

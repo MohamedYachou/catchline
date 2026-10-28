@@ -83,6 +83,43 @@ namespace Catchline.Game.Restaurant
         public static NightCardDef Get(string id) => Array.Find(All, c => c.Id == id);
     }
 
+    // Tonight's three goals (Mo 10-28, production-ready gameplay): from the second night Mira sets one big goal, one skill
+    // goal and one care goal from what the night brings. Each one met pays its bonus at closing and all three lift
+    // popularity a point. A keep goal holds until it breaks. Targets sit a little above the tapping bot's night.
+    public sealed class NightGoal
+    {
+        public string Id, Text; public int Target, Bonus = NightGoals.Bonus; public bool Keep;
+        public Func<RestaurantSim, int> Count;
+        public bool Met(RestaurantSim sim) => Keep ? Count(sim) < Target : Count(sim) >= Target;
+        public bool Broken(RestaurantSim sim) => Keep && Count(sim) >= Target;
+    }
+    public static class NightGoals
+    {
+        public const int Bonus = 30, AllPopularity = 1;
+        static NightGoal G(string id, string text, int target, Func<RestaurantSim, int> count, bool keep = false) =>
+            new NightGoal { Id = id, Text = text, Target = target, Count = count, Keep = keep };
+        public static List<NightGoal> For(RestaurantSim sim, int seed, int nightsBefore, string tonight)
+        {
+            var goals = new List<NightGoal>();
+            if (nightsBefore < 1) return goals;
+            var rng = new Random(seed);
+            T Pick<T>(IList<T> from) => from[rng.Next(from.Count)];
+            int n = Math.Min(12, nightsBefore), serve = 18 + n, coins = (300 + 25 * n) / 50 * 50;
+            goals.Add(Pick(new[] {
+                G("serve", $"Serve {serve} guests", serve, s => s.Result.Served),
+                G("coins", $"Take {coins} coins", coins, s => s.Result.DishCoins + s.Result.DrinkCoins + s.Result.Tips) }));
+            var skill = new List<NightGoal> {
+                G("perfect", "Serve 4 perfect plates", 4, s => s.Result.Perfects),
+                G("combo", "Land 2 combos", 2, s => s.Result.Combos),
+                G("upsell", "Sell 6 extra rounds", 6, s => s.Result.Upsells) };
+            if (sim.GullPace > 0) skill.Add(G("gulls", "Shoo 5 gulls", 5, s => s.Result.GullsShooed));
+            goals.Add(Pick(skill));
+            goals.Add(tonight == "critic" ? G("critic", "Win 4 stars from the critic", 4, s => s.CriticStars)
+                : G("walkout", "Lose fewer than 8 guests", 8, s => s.Result.Left, true));
+            return goals;
+        }
+    }
+
     public sealed class ItemDef
     {
         public ItemId Id; public string Name; public Area Area; public int Width, Height = 1, Price, Stage = 1, Seats;

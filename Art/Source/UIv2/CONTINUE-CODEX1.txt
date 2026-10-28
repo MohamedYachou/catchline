@@ -1,44 +1,49 @@
-SERVICE-UI-KIT-7 — Codex 1 — the card reveal, the night-event banner, and what's coming on the timeline
-(SERVICE-UI-KIT-6 was reviewed and accepted: chips, new-burst, critic pin and clipping, rain tile and splash strip
-all read at their sizes. Claude has wired the chips on the staff rail, the critic pin over the critic's table and on
-the closing card's review, and the rain over the room on rainy nights.)
+SERVICE-UI-KIT-8 — Codex 1 — tonight's three goals: badges, the HUD goal board and the end-of-night tally
+(SERVICE-UI-KIT-7 was reviewed and accepted: the card back and shine, the event ribbon and both timeline pins. Claude
+has wired them: the cards land face down and flip one by one with the sweep, the ribbon drops in under Mira's call
+strip when a night event opens, and the ferry/critic pins ride the evening curve with the halo, stepping ahead of the
+NOW flag instead of hiding under it.)
 
 GOAL (Mo, 10-28): "keep polishing, improving, adding more, it needs to be production ready, especially visually
-and gameplay wise." Three moments still lack art: picking night cards should feel like a deal (cards land face
-down and flip), a night event should be announced when the doors open, and the player should see the ferry rush
-and the critic coming on the evening timeline so they can plan for them.
+and gameplay wise." New gameplay: from the second night Mira sets three goals for the evening (one big: serve N
+guests or take N coins; one skill: perfect plates, combos, extra rounds or shooing gulls; one care: lose fewer than
+8 guests, or on a critic night win 4 stars from the critic). Each met pays 30 coins at closing, all three a popularity
+point. The player sees them live on the service HUD and gets a tally before the closing card. Today they run on
+borrowed kit-4 service pins; they need their own art.
 
 CONTEXT (read these, nothing else up front):
-- Your kits 5 and 6: Art/Source/UIv3/build_kit5.py, build_kit6.py, kit-5/README.md, kit-6/README.md,
-  docs/screens/ui-v3/art-kit-5.png, art-kit-6.png.
-- The live screens: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\uiv2-native\day-nightcards-1440.png and
-  day-service-late-1440.png (the service timeline is the curve with the 21:00 flag in the top bar).
+- Your kits 4-7: Art/Source/UIv3/build_kit6.py, build_kit7.py, kit-6/README.md, kit-7/README.md,
+  docs/screens/ui-v3/art-kit-6.png, art-kit-7.png (palette, DEFS, export and importer contract).
+- The live screens: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\uiv2-native\day-service-late-1440.png and -844,
+  day-closing-1440.png. If a file is missing, use docs/screens/ui-v2/ and say so in your evidence notes.
 
-OWNERSHIP: write Art/Source/UIv3/build_kit7.py, Art/Source/UIv3/kit-7/, Assets/Art/UI/v3-ncard-back*.png,
-v3-event-*.png, v3-tl-*.png and their .meta files, docs/screens/ui-v3/art-kit-7.png. Do NOT edit .cs files, other
-kits' files, Assets/Resources/, Art/Source/Crew, or anything Codex 2 owns (Assets/Art/Models/Restaurant/,
-Art/Source/RestaurantService). No git. Never batchmode the main Unity project.
+OWNERSHIP: write Art/Source/UIv3/build_kit8.py, Art/Source/UIv3/kit-8/, Assets/Art/UI/v3-goal-*.png and their .meta
+files, docs/screens/ui-v3/art-kit-8.png. Do NOT edit .cs files, other kits' files, Assets/Resources/, Art/Source/Crew,
+or anything Codex 2 owns (Assets/Art/Models/Restaurant/, Art/Source/RestaurantService). No git. Never batchmode Unity.
 
 ITEMS, in priority order (finish and log one before the next):
-1. v3-ncard-back: the back of a night card, same 240x320 viewBox and outline as the kit-5 frames (navy, a brass
-   compass-rose or Mira's anchor emblem, a subtle wave pattern), so Claude can flip it to the face with a
-   horizontal scale. Plus v3-ncard-shine: a soft diagonal light sweep (transparent, same size) Claude slides across a
-   card face once as it lands.
-2. v3-event-banner: the night-start banner Mira raises when a night event plays (ferry, critic, festival, rain).
-   A wide coral ribbon card about 640x200 with a round window on the left for a kit-5 illustration (Claude draws it
-   there) and a live text area on the right for a title and one line. No words. README with the window and text
-   safe rects.
-3. Timeline markers for the service top bar: v3-tl-ferry and v3-tl-critic, small round pins (about 48x56 viewBox,
-   tip at the bottom) that sit on the evening curve at the time the event is due, readable at 22-26 px on the navy
-   top bar; plus v3-tl-glow, a soft gold halo for the last 10 seconds before it arrives.
+1. Goal badges, round ivory discs with a brass rim like the kit-7 pins but with no tail (64x64 viewBox):
+   v3-goal-serve (a seated pair/plate), v3-goal-coins, v3-goal-perfect (a gleaming plate), v3-goal-combo (stacked
+   plates with motion), v3-goal-upsell (a dessert cup and a drink), v3-goal-gulls (a gull being shooed),
+   v3-goal-walkout (the door with a heart, "keep them"), v3-goal-critic (beret and spectacles). Readable at 28 px on
+   the navy HUD and at 40 px on cream. Plus two overlay stamps for the badge's lower right, 32x32: v3-goal-tick
+   (teal disc, cream check) and v3-goal-broken (coral disc, cream cross).
+2. The HUD goal board for the desktop service screen: v3-goal-board, a navy slab with a cream inner field and a
+   header band for a live title (9-slice, ~200x170 logical at its smallest; it sits under the stock slab at the left,
+   x 16, y 392), and v3-goal-row / v3-goal-row-done: the cream pill each goal sits in (9-slice, ~180x40; done is a soft
+   gold wash with a brass edge). Live layers: badge left, text, progress "2/4" right.
+3. The end-of-night tally: v3-goal-tally, a card ~560x360 (header ribbon slot for a live title, three row slots, a coin
+   line, room at the bottom for the existing kit primary button), and v3-goal-allthree, a gold rosette (~120x120) that
+   pops at the card's top-right corner when all three goals are met. No words or numerals anywhere.
 
-CONSTRAINTS: no baked words or numerals. Same palette and DEFS as kits 2/4/5/6. Export 2x like kit 5.
+CONSTRAINTS: no baked words or numerals. Same palette and DEFS as kits 2/4-7. Export 2x like kit 5. README with the
+9-slice borders and every live-text/badge safe rect in logical units.
 
-DONE = EVIDENCE: a contact sheet with (1) back, face and three mid-flip frames (scaleX 1, .5, .1 of back, then .5, 1
-of a face) at 150 px, and the shine over a face; (2) the banner at phone (420 px) and desktop (640 px) widths with a
-kit-5 illustration and sample text in the safe rects, over a crop of day-service-late-1440.png; (3) both timeline
-pins at 24 px over a crop of the real top bar, one with the glow. Save to Art/Source/UIv3/kit-7/review/ and open
-every image before calling an item done.
+DONE = EVIDENCE: a contact sheet with (1) all eight badges at 28 px over the real navy HUD bar crop and at 40 px on
+cream, with tick and broken stamps on two of them; (2) the board with three rows (one done, one in progress, one
+broken) composited at its real place over a crop of day-service-late-1440.png, sample live text in the safe rects;
+(3) the tally card over a crop of day-closing-1440.png with three rows and the rosette, at desktop (560 px) and phone
+(420 px) widths. Save to Art/Source/UIv3/kit-8/review/ and open every image before calling an item done.
 
-REPORTING: one comms.md line per finished item (codex1, SERVICE-UI-KIT-7 item, done, files). If the brief and the
+REPORTING: one comms.md line per finished item (codex1, SERVICE-UI-KIT-8 item, done, files). If the brief and the
 files disagree, write a QUESTION line in comms.md, follow the files, and carry on.

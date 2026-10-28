@@ -61,8 +61,12 @@ namespace Catchline.EditorTools
 
         public static void Run()
         {
-            var idle = Night(false); idle.RunToClose(400);
-            var tapper = Night(false);
+            // Tonight's goals as the second night sets them (the first has none); the idle twin gets three it can't miss.
+            var idle = Night(false); idle.Goals = NightGoals.For(idle, 7, 1, null); idle.RunToClose(400);
+            var idleAll = Night(false);
+            idleAll.Goals = Enumerable.Range(0, 3).Select(i => new NightGoal { Id = "free" + i, Text = "free", Target = 0, Count = _ => 0 }).ToList();
+            idleAll.RunToClose(400);
+            var tapper = Night(false); tapper.Goals = NightGoals.For(tapper, 7, 1, null);
             var busy = new Dictionary<string, float>();
             while (!tapper.Finished && tapper.Seconds < 400)
             {
@@ -85,7 +89,7 @@ namespace Catchline.EditorTools
             // Late in a run (the walk-in ramp at its +60%): the same player with the kept gadgets, and without them.
             RestaurantSim Late(bool gadgets)
             {
-                var late = Night(false); late.WalkInPace = VoyageGame.WalkInRamp(11);
+                var late = Night(false); late.WalkInPace = VoyageGame.WalkInRamp(11); late.Goals = NightGoals.For(late, 11, 11, null);
                 if (gadgets) { late.ColdBonus = 2; late.CarryBonus = 1; late.DoorBonus = 1.4f; late.GullPace *= .5f; late.CookBonus = .75f; late.Staff.First(s => s.Id == "captain").Boost *= 1.2f; }
                 while (!late.Finished && late.Seconds < 400) { Tap(late); late.Tick(.25f); }
                 return late;
@@ -118,6 +122,20 @@ namespace Catchline.EditorTools
             Check(NightCards.All.Length == 12 && NightCards.All.All(c => !string.IsNullOrEmpty(c.Effect) && c.Effect.Length <= 52), "twelve night cards, each effect fits the card's body");
             Check(lateKit.Result.Guests >= t.Guests + 4 && lateKit.Result.Served >= lateKit.Result.Guests * .55f, $"late in a run the harbour is busier and a kept kit keeps up ({lateKit.Result.Served} of {lateKit.Result.Guests} vs {t.Guests} early)");
             Check(lateBare.Result.Coins < lateKit.Result.Coins, $"the kept gadgets pay in the late rush ({lateBare.Result.Coins} vs {lateKit.Result.Coins} coins)");
+            // Tonight's goals: none on the first night; then one big, one skill and one care goal, paid at closing.
+            Check(NightGoals.For(Night(false), 7, 0, null).Count == 0, "the first night has no goals");
+            for (int seed = 0; seed < 40; seed++)
+            {
+                var g = NightGoals.For(tapper, seed, 1 + seed % 12, seed % 4 == 0 ? "critic" : null);
+                Check(g.Count == 3 && g.Select(x => x.Id).Distinct().Count() == 3 && (g[0].Id == "serve" || g[0].Id == "coins")
+                    && g[2].Id == (seed % 4 == 0 ? "critic" : "walkout") && g.All(x => x.Text.Length <= 28), $"three distinct goals that fit their row ({string.Join(", ", g.Select(x => x.Text))})");
+            }
+            foreach (var (name, sim) in new[] { ("tapper", tapper), ("late+gadgets", lateKit), ("late bare", lateBare) })
+                Debug.Log($"[Catchline] SERVICE V2 goals {name}: " + string.Join(" | ", sim.Goals.Select(x => $"{x.Text} {(x.Met(sim) ? "met" : "missed")} ({x.Count(sim)})")) + $" -> +{sim.Result.GoalCoins}");
+            Check(t.GoalsMet >= 1 && t.GoalCoins == t.GoalsMet * NightGoals.Bonus && t.GoalsMet == tapper.Goals.Count(x => x.Met(tapper)), $"a good night meets goals and each pays its bonus ({t.GoalsMet} met, +{t.GoalCoins})");
+            Check(idle.Result.GoalsMet == 0 && idle.Result.GoalCoins == 0, "a hungry room meets no goals");
+            Check(idleAll.Result.GoalsMet == 3 && Mathf.Approximately(idleAll.Result.PopularityGain, idle.Result.PopularityGain + NightGoals.AllPopularity)
+                && idleAll.Result.Coins == idle.Result.Coins + 3 * NightGoals.Bonus, $"all three goals pay their coins and a popularity point ({idleAll.Result.PopularityGain:0.0} vs {idle.Result.PopularityGain:0.0})");
             Debug.Log("[Catchline] SERVICE V2 CHECKS PASSED");
         }
     }

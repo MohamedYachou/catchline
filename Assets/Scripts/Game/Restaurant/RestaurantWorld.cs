@@ -764,8 +764,9 @@ namespace Catchline.Game.Restaurant
             var desk=Layout.Active.FirstOrDefault(i=>i.Id==ItemId.Reception);
             if(Cards.Contains("service-bell")&&desk!=null&&items.TryGetValue(desk.Uid,out var dt)&&dt!=null){var b=TableBounds(dt);want["bell"]=("ServiceBell",new Vector3(b.center.x+.18f,b.max.y,b.center.z),1);}
             if(NightCard=="festival"){
-                want["bunting-back"]=("Bunting",RoomRoot.TransformPoint(new Vector3(-4f,2.45f,-2.75f)),1);
-                want["bunting-front"]=("Bunting",RoomRoot.TransformPoint(new Vector3(-4f,2.1f,4.2f)),1);
+                // The string runs toward screen-right from its pivot, so it hangs from the left (local +x) end.
+                want["bunting-back"]=("Bunting",RoomRoot.TransformPoint(new Vector3(4f,2.15f,-2.7f)),1);
+                want["bunting-front"]=("Bunting",RoomRoot.TransformPoint(new Vector3(4f,2.1f,4.2f)),1);
             }
             // Coins a paid table left (Codex 2's tip piles, the big one for a generous table) wait there until it is cleared.
             foreach(var g in Sim.Groups.Where(g=>g.Phase==GroupPhase.Clearing&&g.TipCoins>0&&g.ClearedAt<0)){

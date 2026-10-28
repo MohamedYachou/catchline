@@ -122,7 +122,8 @@ namespace Catchline.Game
                 new() { Portrait = "deckhand", Stars = 4, Quote = "Cosy, even in the rain." },
                 new() { Portrait = "captain", Stars = 4, Quote = "More coffee, please!" },
             };
-            public int Total => Dishes + Drinks + Tips;
+            public int GoalCoins; public bool GoalTally; public List<RestaurantGoalRow> Goals = new();
+            public int Total => Dishes + Drinks + Tips + GoalCoins;
         }
 
         public RestaurantPlanView RestaurantPlan = new();
@@ -131,6 +132,7 @@ namespace Catchline.Game
 
 
         public sealed class RestaurantStock { public string Name, Art, Fallback; public int Count, Max; public bool Alert; }
+        public sealed class RestaurantGoalRow { public string Id, Text, Progress; public bool Met; public int Bonus; }
         public sealed class RestaurantStaff { public string Portrait, Job, Icon, Fallback; public float Busy; }
         // How the staff rail shows a crew bigger than the mockup's five (Mo 10-26: compare these before choosing).
         public enum RestaurantRailMode { Mockup, Jobs, Scroll, Chips }
@@ -214,7 +216,7 @@ namespace Catchline.Game
             D("rsvc/strip", "v2-timeline-track#desktop-timeline-track-01", null, null, tl);
             D("rsvc/strip/curve", "v2-timeline-curve-desktop#desktop-timeline-curve-desktop-01", null, null, tl);
             float t = Mathf.InverseLerp(v.Open, v.Close, v.Hour), nowX = 566 + 256 * t;
-            TimelineEvents("rsvc/strip/ev", tl, h => 566 + 256 * Mathf.InverseLerp(v.Open, v.Close, h), 2, 26);
+            TimelineEvents("rsvc/strip/ev", tl, h => 566 + 256 * Mathf.InverseLerp(v.Open, v.Close, h), 4, 24, nowX, 28);
             D("rsvc/strip/dot", "v2-timeline-dot#desktop-timeline-dot-01", new Rect(nowX - 7.5f, 30, 15, 15), null, tl);
             D("rsvc/strip/flag", "v2-timeline-flag#desktop-timeline-flag-01", new Rect(nowX - 28, 3, 56, 31), null, tl);
             int hh = Mathf.FloorToInt(v.Hour), mm = Mathf.FloorToInt((v.Hour - hh) * 60);
@@ -294,21 +296,61 @@ namespace Catchline.Game
             }
             if (crew.Count > 5) coastalUi.HitArea("rsvc/staff/more", new Rect(34, 758, 1374, 112), () => v.RailFirst = first + 5 >= crew.Count ? 0 : first + 5, f);
             else HouseCards("rsvc/house", f, crew.Count == 0 ? 44 : card[crew.Count - 1].xMax + 28, 777, 72, 1390);
+            ServiceGoals(false, f, 16, string.IsNullOrEmpty(v.Alert) ? 346 : 400); // under the stock slab (and the repair chip)
+            ServiceEventBanner("rsvc/event", f, 720, 150, 640, frameScale); // under Mira's call strip
         }
 
         // Coming tonight on the evening curve: the ferry and the critic pinned at the time they are due, a gold halo for the
-        // last ten seconds (Codex 1's kit 7 pins; the kit 5/6 art until they land). Drawn under the NOW flag.
-        void TimelineEvents(string id, Transform into, System.Func<float, float> xAt, float y, float size)
+        // last ten seconds (Codex 1's kit 7 pins, 48x56 with the halo 80x88 at -16,-16; the kit 5/6 art until they land).
+        // A pin the NOW flag catches up with rides just ahead of it, so it never hides under the clock.
+        void TimelineEvents(string id, Transform into, System.Func<float, float> xAt, float y, float size, float nowX, float flagHalf)
         {
             if (night == null) return;
+            float s = size / 48, after = nowX + flagHalf + 2;
             void Pin(string key, float at, string sprite, string fallback)
             {
-                var r = new Rect(xAt(18 + Mathf.Min(1, at / RestaurantTuning.NightSeconds) * 5) - size / 2, y, size, size * 56 / 48f);
-                if (at - night.Seconds < 10 && HasUi("v3-tl-glow")) coastalUi.Icon($"{id}/{key}/glow", new Rect(r.x - size * .4f, r.y - size * .4f, size * 1.8f, r.height + size * .8f), "v3-tl-glow", into);
+                float x = Mathf.Max(xAt(18 + Mathf.Min(1, at / RestaurantTuning.NightSeconds) * 5) - size / 2, after);
+                var r = new Rect(x, y, size, 56 * s); after = r.xMax + 2;
+                if (at - night.Seconds < 10 && HasUi("v3-tl-glow"))
+                    coastalUi.Icon($"{id}/{key}/glow", new Rect(r.x - 16 * s, r.y - 16 * s, 80 * s, 88 * s), "v3-tl-glow", into,
+                        new Color(1, 1, 1, captureFreeze ? 1 : .75f + .25f * Mathf.Sin(Time.unscaledTime * 6)));
                 coastalUi.Icon($"{id}/{key}", r, HasUi(sprite) ? sprite : fallback, into);
             }
-            if (night.FerryAt >= 0 && night.FerryArrivedAt < 0) Pin("ferry", night.FerryAt, "v3-tl-ferry", "v3-ncard-ferry");
-            if (night.CriticAt >= 0 && !night.Groups.Any(g => g.Critic)) Pin("critic", night.CriticAt, "v3-tl-critic", "v3-svc-critic");
+            bool ferry = night.FerryAt >= 0 && night.FerryArrivedAt < 0, critic = night.CriticAt >= 0 && !night.Groups.Any(g => g.Critic);
+            // Earlier first, so a later pin steps aside for it.
+            if (ferry && (!critic || night.FerryAt <= night.CriticAt)) { Pin("ferry", night.FerryAt, "v3-tl-ferry", "v3-ncard-ferry"); ferry = false; }
+            if (critic) Pin("critic", night.CriticAt, "v3-tl-critic", "v3-svc-critic");
+            if (ferry) Pin("ferry", night.FerryAt, "v3-tl-ferry", "v3-ncard-ferry");
+        }
+
+        // When the doors open on a night-card night, Mira's coral ribbon (kit 7's v3-event-banner) drops in under the top
+        // bar with the card's illustration in its window, holds for four seconds and lifts away; a tap sends it off early.
+        float eventBannerAt = -1;
+        void ServiceEventBanner(string id, Transform f, float cx, float y, float width, float upscale)
+        {
+            if (nightTonight == null || night == null || coachLine != null || transitionCard != null || !HasUi("v3-event-banner")) return;
+            if (captureFreeze ? night.Seconds > 20 : eventBannerAt < 0 && night.Seconds > 60) return;
+            if (eventBannerAt < 0) { eventBannerAt = Time.unscaledTime; audio?.Play(nightTonight == "ferry" ? VoyageAudio.Cue.Horn : VoyageAudio.Cue.RewardChime, .5f); }
+            float t = captureFreeze ? 1.5f : Time.unscaledTime - eventBannerAt;
+            if (t > 4.2f) return;
+            var (title, line) = nightTonight switch
+            {
+                "ferry" => ("Ferry night", "Six groups off the boat. Tips +20%."),
+                "critic" => ("A critic is coming", "Seat them first, aim for 5 stars."),
+                "festival" => ("Harbour festival", "More guests, more gulls. Tips +20%."),
+                "rain" => ("Rainy night", "Fewer guests, no gulls. Tips +30%."),
+                _ => (NightCards.Get(nightTonight)?.Name ?? "", ""),
+            };
+            float s = width / 640, enter = Ease.OutBack(Mathf.Clamp01(t / .4f)), leave = Ease.InCubic(Mathf.Clamp01((t - 3.8f) / .4f));
+            float a = Mathf.Clamp01(t / .2f) * (1 - leave);
+            var ribbon = coastalUi.Group(id, new Rect(cx - width / 2, y - 36 * (1 - enter) - 30 * leave, width, 200 * s), f);
+            coastalUi.Icon(id + "/art", new Rect(0, 0, width, 200 * s), "v3-event-banner", ribbon, new Color(1, 1, 1, a));
+            coastalUi.Icon(id + "/pic", new Rect(52 * s, 38 * s, 124 * s, 124 * s), "v3-ncard-" + nightTonight, ribbon, new Color(1, 1, 1, a));
+            var ink = Skin.Ink; ink.a = a;
+            coastalUi.StyledText(id + "/title", new Rect(227 * s, 55 * s, 354 * s, 40 * s), title, 30 * s, ink, Color.clear, 0, 0, Color.clear, true, TextAnchor.MiddleLeft, ribbon, upscale);
+            coastalUi.StyledText(id + "/line", new Rect(227 * s, 104 * s, 354 * s, 30 * s), line, 19 * s, ink, Color.clear, 0, 0, Color.clear, false, TextAnchor.MiddleLeft, ribbon, upscale);
+            coastalUi.Pose(id, 0, .92f + .08f * enter);
+            coastalUi.HitArea(id + "/hit", new Rect(0, 0, width, 200 * s), () => eventBannerAt = Mathf.Min(eventBannerAt, Time.unscaledTime - 3.8f), ribbon);
         }
 
         // Rainy nights: Codex 1's tileable streaks (kit 6) fall at a slant over the room, under the pins and the HUD.
@@ -371,8 +413,8 @@ namespace Catchline.Game
                 var img = e.GetComponent<UnityEngine.UI.Image>();
                 if (img != null && img.sprite != null) img.color = gr.center.x < nowX ? new Color(1, 1, 1, .45f) : Color.white;
             }
-            TimelineEvents("rsph/strip/ev", f, h => X(186 + 308 * Mathf.InverseLerp(v.Open, v.Close, h)), 2, 20);
             var flag = RestaurantExact.Pieces["phone:v2-timeline-flag#phone-timeline-flag-01"].rect;
+            TimelineEvents("rsph/strip/ev", f, h => X(186 + 308 * Mathf.InverseLerp(v.Open, v.Close, h)), 2, 20, nowX, flag.width / 2);
             P("rsph/strip/now", "v2-timeline-flag#phone-timeline-flag-01", new Rect(nowX - flag.width / 2, flag.y, flag.width, flag.height));
             RxText("rsph/strip/now/t", "phone", "now", "NOW", f, new Rect(nowX - flag.width / 2, 5, flag.width, 12));
             if (door) ServiceDoorAndCall("phone", "rsph", f);
@@ -441,6 +483,8 @@ namespace Catchline.Game
             }
             if (crew.Count > 4) coastalUi.HitArea("rsph/staff/more", new Rect(15, 323, 655, 55), () => v.RailFirst = first + 4 >= crew.Count ? 0 : first + 4, f);
             else HouseCards("rsph/house", f, crew.Count == 0 ? 15 : cardX[crew.Count - 1] + cardW[crew.Count - 1] + 12, 326, 48, 668);
+            ServiceGoals(true, f, 12, 252); // under the stock cards
+            ServiceEventBanner("rsph/event", f, 422, 100, 400, frameScale); // under Mira's call strip
 
             // A phone-sheet piece by its measured "asset#use" key; the sprite is the asset's own unless named.
             RectTransform P(string id, string key, Rect? at = null, string sprite = null) =>
@@ -1297,17 +1341,39 @@ namespace Catchline.Game
             float y = pad + head + gap, room = ih - y - pad - button - gap * .5f;
             float h = Mathf.Min(room, compactInterface ? 280 : 440), w = Mathf.Min(h * .75f, (iw - pad * 2 - gap * (n - 1)) / n);
             h = w / .75f; float k = w / 240f, x0 = (iw - (w * n + gap * (n - 1))) / 2; y += (room - h) * .5f;
+            // The deal (Codex 1's kit 7): the cards land face down one after another, then flip about their centre (the
+            // back while scaleX shrinks, the face as it grows), and a light sweeps each face once. Keep it comes with the face.
+            bool back = HasUi("v3-ncard-back");
+            float age = !back ? 9 : captureFreeze ? nightCardsFrozenAge : Time.unscaledTime - nightCardsDealt;
             for (int i = 0; i < n; i++)
             {
-                var c = NightCardOffer[i]; int index = i; bool on = i == nightCardIndex;
-                var r = new Rect(x0 + i * (w + gap), y - (on ? 6 : 0), w, h);
+                var c = NightCardOffer[i]; int index = i;
+                float land = Mathf.Clamp01((age - i * .09f) / .32f), flip = Mathf.Clamp01((age - .55f - i * .14f) / .28f);
+                float sweep = (age - .88f - i * .14f) / .42f;
+                bool face = flip >= .5f, dealt = flip >= 1, on = dealt && i == nightCardIndex;
+                if (face && nightCardsFlipped <= i) { nightCardsFlipped = i + 1; if (!captureFreeze) audio?.Play(VoyageAudio.Cue.CardFlip, .5f); }
+                var r = new Rect(x0 + i * (w + gap), y - (on ? 6 : 0) - 70 * (1 - Ease.OutBack(land)), w, h);
                 coastalUi.Icon($"ncard/glow/{i}", new Rect(r.x - 24 * k, r.y - 24 * k, 288 * k, 368 * k), "v3-ncard-glow", null, on ? Color.white : Color.clear);
+                if (!face)
+                {
+                    coastalUi.Icon($"ncard/card/{i}", r, "v3-ncard-back", null, new Color(1, 1, 1, Mathf.Clamp01(land * 3)));
+                    coastalUi.Pose($"ncard/card/{i}", 0, 1, Mathf.Max(.02f, 1 - flip * 2));
+                    continue;
+                }
                 var card = coastalUi.Sliced($"ncard/card/{i}", r, c.Kind switch { NightCardKind.Gadget => "v3-ncard-gadget", NightCardKind.Night => "v3-ncard-night", _ => "v3-ncard-dish" });
+                coastalUi.Icon($"ncard/card/{i}/art", new Rect(69 * k, 107 * k, 102 * k, 102 * k), "v3-ncard-" + c.Id, card);
+                // The sweep runs over the art and under the words, clipped to the face's inner rect.
+                if (sweep > 0 && sweep < 1 && HasUi("v3-ncard-shine"))
+                {
+                    var clip = coastalUi.Group($"ncard/card/{i}/shine", new Rect(12 * k, 8 * k, 216 * k, 304 * k), card);
+                    coastalUi.Clip($"ncard/card/{i}/shine");
+                    coastalUi.Icon($"ncard/card/{i}/shine/light", new Rect((-12 + Mathf.Lerp(-240, 240, sweep)) * k, -8 * k, 240 * k, 320 * k), "v3-ncard-shine", clip);
+                }
                 string kind = c.Kind switch { NightCardKind.Gadget => "Gadget", NightCardKind.Night => "Tomorrow", _ => "New dish" };
                 coastalUi.Text($"ncard/card/{i}/kind", new Rect(80 * k, 34 * k, 93 * k, 20 * k), kind, Skin.Type.Caption, Skin.Cream, TextAnchor.MiddleCenter, card, true);
                 coastalUi.Text($"ncard/card/{i}/title", new Rect(25 * k, 66 * k, 190 * k, 34 * k), c.Name, Skin.Type.Heading, Skin.Cream, TextAnchor.MiddleCenter, card);
-                coastalUi.Icon($"ncard/card/{i}/art", new Rect(69 * k, 107 * k, 102 * k, 102 * k), "v3-ncard-" + c.Id, card);
                 coastalUi.Text($"ncard/card/{i}/body", new Rect(30 * k, 213 * k, 180 * k, 73 * k), c.Effect, compactInterface ? Skin.Type.Small : Skin.Type.Body, Skin.Ink, TextAnchor.MiddleCenter, card);
+                if (!dealt) { coastalUi.Pose($"ncard/card/{i}", 0, 1, Mathf.Max(.02f, flip * 2 - 1)); continue; }
                 coastalUi.HitArea($"ncard/card/{i}/hit", new Rect(0, 0, w, h), () => { nightCardIndex = index; audio?.Play(VoyageAudio.Cue.Select, .4f); }, card);
                 coastalUi.Pose($"ncard/card/{i}", 0, on ? 1 + .015f * Mathf.Sin(SimTime * 2f) : 1);
                 var keep = new Rect(r.x + 10 * k, y + h + gap * .5f, w - 20 * k, button);
@@ -2045,7 +2111,7 @@ namespace Catchline.Game
             }
             Line("rclose/dishes", "v2-metric-row", "v2-dish-closing-fish", "Dishes", v.Dishes);
             Line("rclose/drinks", "v2-metric-row#drinks row", "v2-dish-lemonade", "Drinks", v.Drinks);
-            Line("rclose/tips", "v2-metric-row#tips row", "v2-icon-coins", "Tips", v.Tips);
+            Line("rclose/tips", "v2-metric-row#tips row", "v2-icon-coins", v.GoalCoins > 0 ? "Tips & goals" : "Tips", v.Tips + v.GoalCoins);
             Rx("rclose/total", 5, "v2-tonight-row", f);
             Rx("rclose/total/icon", 5, "v2-icon-coin-service", f);
             RxText("rclose/total/label", 5, "metric-label", "Tonight", f, new Rect(219, 231, 90, 17), TextAnchor.MiddleLeft);
@@ -2103,7 +2169,101 @@ namespace Catchline.Game
             Rx("rclose/sleep/icon", 5, "v2-icon-bed", f);
             RxText("rclose/sleep/label", 5, "sleep", "Sleep", f, new Rect(607, 331, 100, 31), TextAnchor.MiddleLeft);
             coastalUi.HitArea("rclose/sleep/hit", new Rect(531, 317, 190, 57), () => OpenNightCards(), f);
+            if (v.GoalTally) GoalTally(v, f);
         }
+
+        // Tonight's goals, tallied over the closing card before the till: each row stamps met or missed in turn, the
+        // bonus counts up, and all three earn the rosette and a popularity point. Collect shows the card underneath.
+        float goalTallyAt = -1;
+        void GoalTally(RestaurantClosingView v, Transform f)
+        {
+            if (goalTallyAt < 0) goalTallyAt = Time.unscaledTime;
+            float t = captureFreeze ? 9 : Time.unscaledTime - goalTallyAt;
+            coastalUi.HitArea("rclose/goals/block", new Rect(-4000, -4000, 9000, 9000), () => { }, f);
+            coastalUi.Sliced("rclose/goals/dim", new Rect(-4000, -4000, 9000, 9000), "", f, new Color(.03f, .08f, .16f, .55f * Mathf.Clamp01(t / .25f)));
+            bool art = HasUi("v3-goal-tally");
+            var r = new Rect(422 - 210, 52 + 20 * (1 - Ease.OutBack(Mathf.Clamp01(t / .35f))), 420, 290);
+            var card = art ? coastalUi.Sliced("rclose/goals", r, "v3-goal-tally", f, Color.white) : coastalUi.Slab("rclose/goals", r, null, true, f);
+            int met = v.Goals.Count(g => g.Met);
+            coastalUi.Text("rclose/goals/title", new Rect(20, 10, 380, 36), met == v.Goals.Count ? "All three goals!" : "Tonight's goals", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleCenter, card);
+            for (int i = 0; i < v.Goals.Count && i < 3; i++)
+            {
+                var g = v.Goals[i]; float y = 56 + i * 56, stamp = Mathf.Clamp01((t - .45f - i * .4f) / .2f);
+                var row = coastalUi.Sliced($"rclose/goals/{i}", new Rect(20, y, 380, 48), HasUi("v3-goal-row") ? (g.Met && stamp > 0 ? "v3-goal-row-done" : "v3-goal-row") : "v2-card", card,
+                    HasUi("v3-goal-row") ? Color.white : g.Met && stamp > 0 ? Palette.Hex("FFF1C9") : Skin.Paper);
+                GoalBadge($"rclose/goals/{i}/badge", new Rect(6, 4, 40, 40), g.Id, row);
+                coastalUi.Text($"rclose/goals/{i}/text", new Rect(54, 2, 200, 44), g.Text, Skin.Type.Body, Skin.Ink, TextAnchor.MiddleLeft, row);
+                coastalUi.Text($"rclose/goals/{i}/n", new Rect(250, 2, 70, 44), g.Progress, Skin.Type.Body, Skin.InkSoft, TextAnchor.MiddleRight, row);
+                if (stamp > 0)
+                {
+                    string mark = g.Met ? (HasUi("v3-goal-tick") ? "v3-goal-tick" : "v2-badge-tick") : HasUi("v3-goal-broken") ? "v3-goal-broken" : "v2-icon-cross";
+                    coastalUi.Icon($"rclose/goals/{i}/stamp", new Rect(332, 4, 40, 40), mark, row);
+                    coastalUi.Pose($"rclose/goals/{i}/stamp", 0, 1 + .6f * (1 - stamp));
+                    if (goalTallyStamped <= i) { goalTallyStamped = i + 1; if (!captureFreeze) audio?.Play(g.Met ? VoyageAudio.Cue.StampThud : VoyageAudio.Cue.Click, .5f); }
+                }
+            }
+            float done = .45f + v.Goals.Count * .4f;
+            int shown = Mathf.RoundToInt(v.GoalCoins * Mathf.Clamp01((t - done + .3f) / .5f));
+            coastalUi.Icon("rclose/goals/coin", new Rect(118, 230, 28, 28), "v2-icon-coin-service", card);
+            coastalUi.Text("rclose/goals/coins", new Rect(150, 226, 200, 36), met == v.Goals.Count ? $"+{shown}  ·  +{NightGoals.AllPopularity} popularity" : $"+{shown} coins", Skin.Type.Heading, Skin.Ink, TextAnchor.MiddleLeft, card);
+            if (met == v.Goals.Count && t > done && HasUi("v3-goal-allthree"))
+            {
+                coastalUi.Icon("rclose/goals/rosette", new Rect(352, -34, 96, 96), "v3-goal-allthree", card);
+                coastalUi.Pose("rclose/goals/rosette", -8, Ease.OutBack(Mathf.Clamp01((t - done) / .35f)));
+            }
+            if (t > done) coastalUi.Primary("rclose/goals/collect", new Rect(422 - 100, r.yMax - 22, 200, 48), "Collect", () => { v.GoalTally = false; goalTallyAt = -1; goalTallyStamped = 0; audio?.Play(VoyageAudio.Cue.CoinLand, .6f); }, "v2-icon-tick", true, f);
+        }
+        int goalTallyStamped;
+
+        // A goal's badge: Codex 1's kit 8 disc once it lands, the kit 4 service pin until then.
+        void GoalBadge(string id, Rect r, string goal, Transform parent)
+        {
+            string fallback = goal switch { "serve" => "v3-svc-seat", "coins" => "v3-svc-coins", "perfect" => "v3-svc-perfect", "combo" => "v3-svc-combo",
+                "upsell" => "v3-svc-upsell-drink", "gulls" => "v3-svc-gull", "critic" => "v3-svc-critic", _ => "v3-svc-queue" };
+            coastalUi.Icon(id, r, HasUi("v3-goal-" + goal) ? "v3-goal-" + goal : fallback, parent);
+        }
+
+        // Tonight's goals on the service HUD: a board under the stock slab on a desktop, three badges with progress rings
+        // under the stock cards on a phone (a tap says which is which). A met goal wears the tick, a lost one the cross.
+        void ServiceGoals(bool phone, Transform f, float x, float y)
+        {
+            if (night == null || night.Goals.Count == 0) return;
+            float Progress(NightGoal g) => g.Keep ? 1 - Mathf.Clamp01((float)g.Count(night) / g.Target) : Mathf.Clamp01((float)g.Count(night) / g.Target);
+            string Mark(NightGoal g) => g.Keep ? (g.Broken(night) ? "broken" : null) : g.Met(night) ? "tick" : null;
+            void Stamp(string id, Rect r, string mark, Transform into)
+            {
+                if (mark == null) return;
+                coastalUi.Icon(id, r, HasUi("v3-goal-" + mark) ? "v3-goal-" + mark : mark == "tick" ? "v2-badge-tick" : "v2-icon-cross", into);
+            }
+            if (phone)
+            {
+                for (int i = 0; i < night.Goals.Count; i++)
+                {
+                    var g = night.Goals[i]; var r = new Rect(x + i * 50, y, 42, 42); string mark = Mark(g);
+                    RestaurantRing($"rsph/goals/{i}/ring", r, mark == "broken" ? 0 : Progress(g), f);
+                    GoalBadge($"rsph/goals/{i}", new Rect(r.x + 5, r.y + 5, 32, 32), g.Id, f);
+                    Stamp($"rsph/goals/{i}/mark", new Rect(r.xMax - 16, r.yMax - 16, 18, 18), mark, f);
+                    var goal = g; coastalUi.HitArea($"rsph/goals/{i}/hit", r, () => Toast($"{goal.Text} · {GoalProgress(goal)}"), f);
+                }
+                return;
+            }
+            bool art = HasUi("v3-goal-board");
+            var board = art ? coastalUi.Sliced("rsvc/goals", new Rect(x, y, 194, 178), "v3-goal-board", f, Color.white)
+                : Rx("rsvc/goals", "desktop", "v2-stock-slab#desktop-stock-slab-01", f, new Rect(x, y, 194, 178), "rx-stock-slab");
+            RxText("rsvc/goals/title", "desktop", "stock-title", "Tonight's goals", f, new Rect(x + 17, y + 12, 160, 25));
+            for (int i = 0; i < night.Goals.Count; i++)
+            {
+                var g = night.Goals[i]; string mark = Mark(g);
+                var row = new Rect(x + 10, y + 44 + i * 43, 174, 40);
+                var pill = coastalUi.Sliced($"rsvc/goals/{i}", row, HasUi("v3-goal-row") ? (mark == "tick" ? "v3-goal-row-done" : "v3-goal-row") : "v2-card", f,
+                    HasUi("v3-goal-row") ? Color.white : mark == "tick" ? Palette.Hex("FFF1C9") : Skin.Paper);
+                GoalBadge($"rsvc/goals/{i}/badge", new Rect(4, 4, 32, 32), g.Id, pill);
+                Stamp($"rsvc/goals/{i}/mark", new Rect(24, 22, 16, 16), mark, pill);
+                coastalUi.Text($"rsvc/goals/{i}/text", new Rect(40, 0, 96, 40), g.Text, Skin.Type.Small, Skin.Ink, TextAnchor.MiddleLeft, pill);
+                coastalUi.Text($"rsvc/goals/{i}/n", new Rect(132, 0, 38, 40), GoalProgress(g), Skin.Type.Small, mark == "broken" ? Skin.BadInk : Skin.Ink, TextAnchor.MiddleRight, pill);
+            }
+        }
+        string GoalProgress(NightGoal g) => g.Keep ? (g.Broken(night) ? "lost" : $"{g.Count(night)}/{g.Target - 1}") : $"{Mathf.Min(g.Count(night), g.Target)}/{g.Target}";
 
         // S16 (Codex 1's ui-16-week): seven nights' takings as bars on the measured baseline, the best night gold, the
         // week's best dish and crew member, popularity across the week and the total.
