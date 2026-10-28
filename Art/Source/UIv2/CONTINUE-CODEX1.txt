@@ -1,49 +1,46 @@
-SERVICE-UI-KIT-8 — Codex 1 — tonight's three goals: badges, the HUD goal board and the end-of-night tally
-(SERVICE-UI-KIT-7 was reviewed and accepted: the card back and shine, the event ribbon and both timeline pins. Claude
-has wired them: the cards land face down and flip one by one with the sweep, the ribbon drops in under Mira's call
-strip when a night event opens, and the ferry/critic pins ride the evening curve with the halo, stepping ahead of the
-NOW flag instead of hiding under it.)
+HIFI-1 — Codex 1 — the rowboat and the skiff rebuilt at the fidelity of Mo's reference renders, not low poly
+(SERVICE-UI-KIT-8 was delivered and is with Claude for wiring. You now run at xhigh reasoning.)
 
-GOAL (Mo, 10-28): "keep polishing, improving, adding more, it needs to be production ready, especially visually
-and gameplay wise." New gameplay: from the second night Mira sets three goals for the evening (one big: serve N
-guests or take N coins; one skill: perfect plates, combos, extra rounds or shooing gulls; one care: lose fewer than
-8 guests, or on a critic night win 4 stars from the critic). Each met pays 30 coins at closing, all three a popularity
-point. The player sees them live on the service HUD and gets a tally before the closing card. Today they run on
-borrowed kit-4 service pins; they need their own art.
+GOAL (Mo, 10-28): "the game is still nowhere near visually as the renders. Aside from the crew, which I will provide at
+very high quality, the visuals still aren't there. I can't put very high quality crew in super low poly surroundings.
+I need Codex at xhigh doing a way better job, not low poly in mind." The rowboat is the first thing every player sees
+and the boat Mo is testing on; it must look like it belongs in the reference renders.
 
 CONTEXT (read these, nothing else up front):
-- Your kits 4-7: Art/Source/UIv3/build_kit6.py, build_kit7.py, kit-6/README.md, kit-7/README.md,
-  docs/screens/ui-v3/art-kit-6.png, art-kit-7.png (palette, DEFS, export and importer contract).
-- The live screens: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\uiv2-native\day-service-late-1440.png and -844,
-  day-closing-1440.png. If a file is missing, use docs/screens/ui-v2/ and say so in your evidence notes.
+- Art/HIFI.md: the new fidelity contract (bar, budgets, texture/material/manifest contract, files, evidence). It
+  overrides the low-poly guidance in Art/STYLE.md; STYLE.md still holds for palette, axes and pivots.
+- The references: Art/Concepts/References/day03-small-boat.png and day28-tuna-boat.png. Zoom in on the deck planks,
+  rails, painted hull, fenders, lifebuoys, rope and fittings. That is the quality level.
+- The current models: Art/Models/BoatsV2/Rowboat/ (Rowboat.blend, REPORT.md) and Art/Models/BoatsV2/Skiff/; runtime
+  copies Assets/Art/Models/Boats/Rowboat.fbx and Skiff.fbx with Rowboat.stations.json and Skiff.stations.json.
+- How the game sees it today: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\sea-scene-1\GullDeepChannel-ground-1-1440.png.
+- Gameplay camera at sea: orthographic, size 3.2 (half-height in metres, so 6.4 m tall at 900 px), rotation Euler
+  (45, 35, 0) in Unity; the rowboat is spawned at yaw -90 (bow towards world -X); the sun is Euler (55, 195, 0).
+  The skiff uses the same angle at size 4.8.
 
-OWNERSHIP: write Art/Source/UIv3/build_kit8.py, Art/Source/UIv3/kit-8/, Assets/Art/UI/v3-goal-*.png and their .meta
-files, docs/screens/ui-v3/art-kit-8.png. Do NOT edit .cs files, other kits' files, Assets/Resources/, Art/Source/Crew,
-or anything Codex 2 owns (Assets/Art/Models/Restaurant/, Art/Source/RestaurantService). No git. Never batchmode Unity.
+OWNERSHIP: write Art/Models/Hifi/Rowboat/, Art/Models/Hifi/Skiff/, Assets/Art/Models/Hifi/Rowboat/ and
+Assets/Art/Models/Hifi/Skiff/ (with .meta files). Read anything. Do NOT edit or delete any existing model, .cs file,
+Assets/Resources/, Art/Source/Crew, Art/Models/Crew*, or Codex 2's restaurant paths (Art/Models/Hifi/Restaurant*,
+Assets/Art/Models/Hifi/Restaurant*, Art/Models/Restaurant/, Assets/Art/Models/Restaurant/). No git. Never run Unity.
+
+CONTRACT TO KEEP (the code depends on it): pivot, axes, outer bounds within 3 cm and the deck plane of the current FBX;
+every named node with its name, parent and pivot transform, above all Oar_Port and Oar_Starboard, which the code swings
+about their pivots. Station models mount on the gunwale and deck at the positions in <Hull>.stations.json: render the
+new hull with small markers at those positions to prove they still sit on wood, not in the air or inside the hull.
 
 ITEMS, in priority order (finish and log one before the next):
-1. Goal badges, round ivory discs with a brass rim like the kit-7 pins but with no tail (64x64 viewBox):
-   v3-goal-serve (a seated pair/plate), v3-goal-coins, v3-goal-perfect (a gleaming plate), v3-goal-combo (stacked
-   plates with motion), v3-goal-upsell (a dessert cup and a drink), v3-goal-gulls (a gull being shooed),
-   v3-goal-walkout (the door with a heart, "keep them"), v3-goal-critic (beret and spectacles). Readable at 28 px on
-   the navy HUD and at 40 px on cream. Plus two overlay stamps for the badge's lower right, 32x32: v3-goal-tick
-   (teal disc, cream check) and v3-goal-broken (coral disc, cream cross).
-2. The HUD goal board for the desktop service screen: v3-goal-board, a navy slab with a cream inner field and a
-   header band for a live title (9-slice, ~200x170 logical at its smallest; it sits under the stock slab at the left,
-   x 16, y 392), and v3-goal-row / v3-goal-row-done: the cream pill each goal sits in (9-slice, ~180x40; done is a soft
-   gold wash with a brass edge). Live layers: badge left, text, progress "2/4" right.
-3. The end-of-night tally: v3-goal-tally, a card ~560x360 (header ribbon slot for a live title, three row slots, a coin
-   line, room at the bottom for the existing kit primary button), and v3-goal-allthree, a gold rosette (~120x120) that
-   pops at the card's top-right corner when all three goals are met. No words or numerals anywhere.
+1. Rowboat: clinker or carvel planked hull with real plank laps, painted navy outside with worn edges, warm timber
+   inside with ribs, thwarts, floorboards, ivory gunwale capping, brass or galvanised oarlocks, bow ring and painter
+   rope, keel strip, a proper pair of oars with leathers and worn blades, and the loose items the current model carries
+   (cooler, bucket, tackle box, rope coil, anchor) at the same places, all at HIFI quality.
+2. Skiff: the same treatment for the skiff with its outboard, tiller, cleats, fenders and rails.
+3. If both pass with time left: Assets/Art/Models/Hifi/Rowboat/Rowboat_VariantGreen.fbx and _VariantRed.fbx (moored
+   harbour boats) as repaints of the HIFI rowboat, sharing its meshes, with only BaseColor sets changed.
 
-CONSTRAINTS: no baked words or numerals. Same palette and DEFS as kits 2/4-7. Export 2x like kit 5. README with the
-9-slice borders and every live-text/badge safe rect in logical units.
+DONE = EVIDENCE: exactly as Art/HIFI.md "Done = evidence", for each item. The game-camera render sits beside a crop of
+day03-small-boat.png at the same plank scale. Open every image before writing a done line. If the result would look
+cheaper than the reference in the same frame, it is not done: keep working.
 
-DONE = EVIDENCE: a contact sheet with (1) all eight badges at 28 px over the real navy HUD bar crop and at 40 px on
-cream, with tick and broken stamps on two of them; (2) the board with three rows (one done, one in progress, one
-broken) composited at its real place over a crop of day-service-late-1440.png, sample live text in the safe rects;
-(3) the tally card over a crop of day-closing-1440.png with three rows and the rosette, at desktop (560 px) and phone
-(420 px) widths. Save to Art/Source/UIv3/kit-8/review/ and open every image before calling an item done.
-
-REPORTING: one comms.md line per finished item (codex1, SERVICE-UI-KIT-8 item, done, files). If the brief and the
-files disagree, write a QUESTION line in comms.md, follow the files, and carry on.
+REPORTING: one comms.md line per finished item (codex1, HIFI-1 item, done, tris, texture sets, evidence path);
+CHECKPOINT lines at safe boundaries. If the brief and the files disagree, write a QUESTION line in comms.md, follow the
+files, and carry on.

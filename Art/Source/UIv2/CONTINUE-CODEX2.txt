@@ -1,51 +1,47 @@
-SERVICE-PROPS-4 — Codex 2 — a lived-in dining room, rain and festival dressing, the critic's reserved sign
-(SERVICE-PROPS-3 was reviewed and accepted: gold tips, the critic on Ada's skeleton, the sundae and pudding, warming
-lamp, service bell, bunting and plate rack. Claude has wired them: the critic walks in as the critic guest, the lamp
-stands at the pass, the bell on the reception desk, bunting on festival nights, the rack in the captain's hands.)
+HIFI-2 — Codex 2 — Mira's starter restaurant rebuilt at the fidelity of Mo's reference renders, not low poly
+(SERVICE-PROPS-4 was delivered and is with Claude for wiring. You now run at xhigh reasoning.)
 
-FIRST (small): your last run ran out of usage during SERVICE-PROPS-3 D4/E. If REPORT.md has no SERVICE-PROPS-3
-section yet, write it (items, tris, files, evidence) and log "codex2, SERVICE-PROPS-3 Restaurant_PlateRack, done" if
-it is missing. Do not re-render or change the accepted PROPS-3 models. Then start the items below.
-
-GOAL (Mo, 10-28): "keep polishing, improving, adding more, it needs to be production ready, especially visually
-and gameplay wise." The starter cafe's dining room reads bare (four tables on open planks, plain walls), and the new
-night events (rain, harbour festival, the food critic) need the room to change with them.
+GOAL (Mo, 10-28): "the game is still nowhere near visually as the renders. Aside from the crew, which I will provide at
+very high quality, the visuals still aren't there. I can't put very high quality crew in super low poly surroundings.
+I need Codex at xhigh doing a way better job, not low poly in mind." The evening service fills the whole screen with
+the room, so the room and its furniture are where the low-poly look shows most.
 
 CONTEXT (read these, nothing else up front):
-- Your SERVICE-PROPS-1/2/3 work for style, scale, atlas and the service-camera render setup:
-  Art/Source/RestaurantService/ (REPORT.md and scripts).
-- docs/wip/SERVICE-V2-PITCH.md (Status section).
-- The live service screen: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\uiv2-native\day-service-late-1440.png.
-- Room coordinates: a room tile (x, y) sits at RoomRoot-local (3.5 - x, 0.04, 2 - y); the camera looks toward -z;
-  local +x is screen-left. The dining room's floor is player-arranged (tables move), so dressing goes on WALLS or at
-  fixed edges only, never on the dining floor.
+- Art/HIFI.md: the new fidelity contract (bar, budgets, texture/material/manifest contract, files, evidence). It
+  overrides the low-poly guidance in Art/STYLE.md and retires the flat-swatch Catchline/RestaurantAtlas look for HIFI
+  assets; STYLE.md still holds for palette, axes and pivots.
+- The references: Art/Concepts/References/day03-small-boat.png and day28-tuna-boat.png. Zoom in on the deck planks,
+  painted surfaces, crates, fittings and rope. That is the quality level for a room too.
+- How the game looks today: C:\Users\momoy\Projects\Catchline-ui2-sim\Logs\uiv2-native\day-service-1440.png and
+  day-service-late-1440.png (blocky stone walls, flat plank floor, flat kitchen tiles, plain furniture).
+- The current room: Art/Models/Restaurant/Stage1V4/ (build.py, the REPORTs, final-cameras.json) and the runtime copy
+  Assets/Resources/Restaurant/Stage1V4.fbx with Stage1V4-lighting.json. The furniture: Art/Models/Restaurant/Pack/ and
+  Assets/Art/Models/Restaurant/Pack/. How the code places it all (read only): Assets/Scripts/Game/Restaurant/
+  RestaurantWorld.cs (Show, the Models table, LayoutPlaced, ServiceCamera).
 
-OWNERSHIP: write Assets/Art/Models/Restaurant/Pack/dressing/ (new), Pack/service/ for the new service props, their
-.meta files, and Art/Source/RestaurantService/ (add a SERVICE-PROPS-4 section to REPORT.md). Do NOT edit .cs files,
-Assets/Resources/, Art/Source/UIv3, Art/Source/Crew or the guest/crew models. No git. Never batchmode Unity.
+OWNERSHIP: write Art/Models/Hifi/Restaurant/ and Assets/Art/Models/Hifi/Restaurant/ (with .meta files). Read anything.
+Do NOT edit or delete any existing model, .cs file, Assets/Resources/, Art/Source/Crew, Art/Models/Crew*, or Codex 1's
+paths (Art/Models/Hifi/Rowboat, Skiff and their Assets copies). No git. Never run Unity.
+
+CONTRACT TO KEEP (the code depends on it): the room keeps Stage1V4's footprint, pivot, axes, floor height, wall and door
+positions, every named node (the code hides layout-placed nodes by name), and every glow/emissive node and lighting
+anchor that Stage1V4-lighting.json names. Each furniture piece keeps its Pack model's pivot, footprint, seat and
+tabletop heights, and its child names. List them all in the audit with old/new transforms.
 
 ITEMS, in priority order (finish and log one before the next):
-1. Wall dressing for the starter cafe dining room, a harbour-cafe set mounted on the back wall and the right wall:
-   Restaurant_Wall_LifeRing, Restaurant_Wall_ShipWheel, Restaurant_Wall_FishPrint (a framed painted fish, no words),
-   Restaurant_Wall_NetFloats (a draped net with glass floats), Restaurant_Wall_BottleShelf. Pivot at the back
-   centre of each piece (the wall contact point), facing local +z. Deliver
-   Art/Source/RestaurantService/dressing-placement.json: for each piece its RoomRoot-local position and yaw, chosen
-   so the set reads from the service camera and never covers a pin's table, a station or the door.
-2. Rain dressing: Restaurant_Puddle_S and _L (flat glossy puddles, dark sea-blue, a little sheen, for the terrace
-   and deck outside the door; transparent edges are fine with the atlas cutout, or solid low discs), and
-   Restaurant_UmbrellaStand (a brass stand by the door with three furled umbrellas in coral/teal/cream).
-   Add their suggested positions to the same placement JSON under "rain".
-3. Festival and critic: Restaurant_PaperLanterns (a 6 m string of six round paper lanterns, pivot at the left end,
-   extending local +X, each lantern's glowing paper as a child mesh named "Glow"), and Restaurant_ReservedSign (a
-   small brass-and-cream folded table card with a beret symbol, no words, for the critic's table). Suggested
-   lantern positions under "festival" in the placement JSON.
+1. The stage-1 room shell as Assets/Art/Models/Hifi/Restaurant/Stage1V4/Stage1V4.fbx: dressed stone walls with real
+   blocks, mortar and weathering, timber frames and lintels, windows with frames and glazing bars, the door, the dining
+   floor as individual worn planks, the kitchen floor as real tiles with grout and wear, the back-wall shelving, hood and
+   fittings, all at HIFI quality.
+2. The dining furniture as Assets/Art/Models/Hifi/Restaurant/Pack/Restaurant_<Name>.fbx: TableFor2, TableFor4, Booth,
+   TerraceTable, ReceptionDesk (chairs included where the Pack model has them).
+3. The kitchen: Stove, SoupKettle, PrepCounter, FridgeV2, CoffeeBar, SinkDishRack, PassCounter.
 
-CONSTRAINTS: chunky low-poly like the pack; each prop under 2k tris. Same atlas material Catchline/RestaurantAtlas.
-Y up, 1 unit = 1 m. Colours must read at night under warm light.
+DONE = EVIDENCE: exactly as Art/HIFI.md "Done = evidence", for each item, with the game-camera render taken from the real
+service camera (final-cameras.json and RestaurantWorld.cs) in the night recipe of Stage1V4-lighting.json, plus one plain
+daylight render. For items 2 and 3 also render the pieces placed in the new room. Open every image before writing a done
+line. If the result would look cheaper than the reference in the same frame, it is not done: keep working.
 
-DONE = EVIDENCE: per item, a render from the service camera angle in the room with the pieces at their placement
-JSON positions, plus a close-up, saved to Art/Source/RestaurantService/renders/ (prefix props4-). Open and look at
-every render before calling an item done.
-
-REPORTING: one comms.md line per finished item (codex2, SERVICE-PROPS-4 item, done, tris). If the brief and the
-files disagree, write a QUESTION line in comms.md, follow the files, and carry on.
+REPORTING: one comms.md line per finished item (codex2, HIFI-2 item, done, tris, texture sets, evidence path);
+CHECKPOINT lines at safe boundaries. If the brief and the files disagree, write a QUESTION line in comms.md, follow the
+files, and carry on.
