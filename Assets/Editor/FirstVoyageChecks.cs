@@ -111,7 +111,8 @@ namespace Catchline.EditorTools
             Run();
             SkiffChecks.Run();
             SkiffChecks.Automation();
-            UrgentCrewChecks.Run();
+            // UrgentCrewChecks (CREW026) tests the retired contract-hire Crew Office; crew are cards now (deck berths,
+            // Deployment), so it stays runnable on its own but is no longer part of the regression.
             SalePayoutChecks.Run();
             FisherFeedbackChecks.Run();
             CoastalPolishChecks.Run();

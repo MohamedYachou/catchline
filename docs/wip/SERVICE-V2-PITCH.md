@@ -68,5 +68,19 @@ for something to happen, we need to do magnitudes better."
   and the table loses a star).
 - Headless proof, ServiceV2Checks (starter cafe, Mira + captain): a quick tapper serves 30 of 44 guests for ~480
   coins with 10 upsells; with no taps nobody is served.
-- Next: SERVICE-PROPS-2 (Codex 2: food cooking on each station, tip coins, catch board, ferry) and SERVICE-UI-KIT-4
-  (Codex 1: v3 service icons) to wire in; then perfect-grill timing, tip coins collected on clearing, night cards.
+- Done (C, 10-28 afternoon): the cooking moment (a done dish glows gold for 2.5 s: tap it for a perfect plate and +4
+  tips, leave it 7 s and it burns); Codex 2's cooking props on every station, gold tip piles until the table is
+  cleared, the catch board, the evening ferry (from night 2, about 70% of nights: four groups off the boat, patient
+  and tipping 25% more); bookings seated before walk-ins; Codex 1's v3 service icons for every pin and ring.
+- Done (D): night cards. After the closing card the player keeps one of three (a gadget, a night event, a dish), Codex
+  1's kit 5 card art. Gadgets and dishes stay for good: warming lamp, plate rack, service bell, gull net, quick shoes,
+  second pan, catch of the day, ice cream (a dessert round). Night events play the next night only: ferry night (six
+  groups, tips +20%), critic's table (one guest whose stars move popularity by -2..+3, and who speaks first on the
+  closing card), harbour festival (more walk-ins, deeper queue, more gulls, tips +20%, bunting), rainy night (fewer
+  walk-ins, no gulls, tips +30%). Kept cards show on the staff rail (tap for what one does) and in the room (lamp at
+  the pass, bell on the desk, the rack in the captain's hands, the critic in Codex 2's beret and coat).
+- Done (E): each night a little busier (+6% walk-ins a night up to +60%, and a busier harbour queues deeper), so the
+  cards meet a growing rush.
+- Headless proof, ServiceV2Checks: tapper 29 of 37 served, 522 coins, 8 perfect; forgetful player burns 6 and earns
+  38% less; all cards 663 coins; late in a run with the gadgets 31 of 43 served, 625 coins vs 480 without.
+- Next: Codex 1's SERVICE-UI-KIT-6 (kept-card chips, critic pin and review clipping, rain overlay) to wire in.

@@ -26,6 +26,8 @@ namespace Catchline.Game.Restaurant
         // Service v2 upsell: the round the table waves for (offered once), open until UpsellUntil; UpsellSold pops "+coins".
         public bool UpsellOffered; public Dish Upsell; public float UpsellUntil=-1, UpsellSoldAt=-1; public int UpsellCoins;
         public bool GullStole; // a gull got to the plate before anyone shooed it
+        public int TipCoins; public float ClearedAt=-1; // coins the table left (shown until cleared) and when it was cleared
+        public bool Ferry, Critic; // came off the evening ferry; the food critic's table
         public int Count=>Guests.Count;
     }
     // The work a staff member tries, in their priority order (S9 crew priorities); the first that finds work wins.
@@ -74,7 +76,7 @@ namespace Catchline.Game.Restaurant
     }
     [Serializable] public sealed class NightResult
     {
-        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes, HappyRegulars, WalkIns, Combos, Staples, Upsells, GullsShooed, GullSteals; // Staples: bread and fries plates served (pantry, not tonight's fish)
+        public int Guests, Served, Left, DishCoins, DrinkCoins, Tips, StapleCosts, Cats, Substitutions, SpecialServed, ColdDishes, HappyRegulars, WalkIns, Combos, Staples, Upsells, GullsShooed, GullSteals, Perfects, Burnt; // Staples: bread and fries plates served (pantry, not tonight's fish)
         public float PopularityGain;
         public float Stars, Seconds;
         public List<StaffDistance> Walking=new List<StaffDistance>();
@@ -122,6 +124,12 @@ namespace Catchline.Game.Restaurant
         public bool Events=true; bool eventsRolled; readonly int eventSeed;
         // Service v2: walk-ins all night (WalkInPace scales their rate; 0 turns them off), and the captain as the player's
         // hands: with CaptainHandsOn he does only what the player taps, in order (up to three taps ahead).
+        // The evening ferry (FerryAt seconds into the night; -1 for none): when it moored and how many it brought.
+        public float FerryAt=-1, FerryArrivedAt=-1; public int FerryGuests, FerryExtra;
+        // Night cards (set before the first tick): gadgets and tonight's event.
+        public float ColdBonus=1, DoorBonus=1, CookBonus=1, TipBonus=1; public int CarryBonus; public bool IceCream;
+        // The food critic (Critic's table card): one guest arriving CriticAt seconds in; CriticStars once they paid.
+        public float CriticAt=-1; public int CriticStars;
         public float WalkInPace=1; public bool CaptainHandsOn, CaptainAuto; // CaptainAuto: no taps queued, he helps where it hurts (bots, captures)
         // Gulls (GullPace scales how often; 0, the default, keeps them away): the table one stands on, and the last one to leave.
         public float GullPace; public int GullTable, GullLeftTable; public float GullLandedAt=-1, GullLeftAt=-1; public bool GullLeftFed; float nextGull=-1;
@@ -130,7 +138,11 @@ namespace Catchline.Game.Restaurant
         public IReadOnlyList<int> CaptainOrders=>captainOrders;
         // The last trip that served two or more tables at once: plates and the tip it paid (the UI pops it).
         public int LastCombo, LastComboTip; public float LastComboAt=-1;
-        sealed class Cooking{public int Uid;public ServiceTicket Ticket;public ServiceGroup Group;public PortionStock Taken;public float ReadyAt;}
+        sealed class Cooking{public int Uid;public ServiceTicket Ticket;public ServiceGroup Group;public PortionStock Taken;public float ReadyAt,DoneAt=-1;}
+        // The last perfect plate and the last burnt dish, by station (the room and the UI pop them).
+        public int LastPerfectUid, LastBurntUid; public float LastPerfectAt=-1, LastBurntAt=-1;
+        // Hands-on plating: only the captain in the kitchen and the player tapping (no cook, no auto captain).
+        bool ManualPlating(Dish d)=>CaptainHandsOn&&!CaptainAuto&&d!=Dish.Soup&&!RestaurantData.Get(d).Staple&&!Staff.Any(s=>s.Job==Job.Cook);
         readonly List<Cooking> cooking=new List<Cooking>();
         public int PortionsTaken, SoupBowls; // bookkeeping for the checks: portions out of the fridge, bowls served from a batch
         void RollEvents()
@@ -222,6 +234,7 @@ namespace Catchline.Game.Restaurant
             var menu=new List<Dish>();
             if(Layout.Active.Any(i=>i.Id==ItemId.DrinksFridge)){menu.Add(Dish.Beer);menu.Add(Dish.Lemonade);}
             if(Layout.Active.Any(i=>i.Id==ItemId.CoffeeMachine)){menu.Add(Dish.Coffee);menu.Add(Dish.Tea);}
+            if(IceCream){menu.Add(Dish.IceCream);menu.Add(Dish.IceCream);} // the dessert card: ice cream is the favourite round
             if(menu.Count==0)menu.Add(Dish.Bread);
             g.Upsell=menu[upsellRandom.Next(menu.Count)];g.UpsellUntil=Seconds+RestaurantTuning.UpsellSeconds;
         }
@@ -263,6 +276,8 @@ namespace Catchline.Game.Restaurant
         RestaurantItem Station(ItemId id)=>Layout.Active.FirstOrDefault(i=>i.Id==id&&!Broken.Contains(i.Uid)&&!stations.Contains(i.Uid));
         RestaurantItem Table(ServiceGroup g)=>Layout.Active.First(i=>i.Uid==g.TableUid);
         IEnumerable<ServiceGroup> Priority()=>Groups.OrderBy(g=>g.TableUid==pin?0:1).ThenBy(g=>g.Arrival).ThenBy(g=>g.Id);
+        // Who is seated next from the door: tonight's bookings before walk-ins, each in arrival order.
+        IEnumerable<ServiceGroup> DoorOrder()=>Priority().Where(x=>x.Phase==GroupPhase.Queue&&!x.Reserved).OrderBy(x=>x.Id>=1000000?1:0);
         StaffLeg Leg(Vector2Int target,float seconds=0,int appliance=0,Action done=null)=>new StaffLeg{Target=target,Seconds=seconds,Appliance=appliance,Done=done};
         bool Start(RestaurantStaff s,string label,IEnumerable<StaffLeg> legs,Action complete)
         {
@@ -336,7 +351,7 @@ namespace Catchline.Game.Restaurant
                 int count=t.Dish==Dish.Soup?RestaurantTuning.KettleBatch:1;
                 var taken=Take(t.Species,t.Dish,count,t.Order.Accepted);if(taken==null)continue;
                 var legs=new List<StaffLeg>();if(!staple)legs.Add(Leg(f.Value));
-                legs.Add(Leg(a.Value,RestaurantTuning.LoadSeconds,appliance.Uid,()=>cooking.Add(new Cooking{Uid=appliance.Uid,Ticket=t,Group=g,Taken=taken,ReadyAt=Seconds+RestaurantTuning.CookSeconds(t.Dish)})));
+                legs.Add(Leg(a.Value,RestaurantTuning.LoadSeconds,appliance.Uid,()=>cooking.Add(new Cooking{Uid=appliance.Uid,Ticket=t,Group=g,Taken=taken,ReadyAt=Seconds+RestaurantTuning.CookSeconds(t.Dish)*CookBonus})));
                 float quality=s.Mult;
                 bool started=Start(s,"Cook "+t.Dish,legs,()=>t.CookQuality=quality);
                 if(!started){if(!staple){RestaurantPortions.Add(Stock,taken.Species,taken.Form,taken.Count,taken.CaptainCut,taken.Special);PortionsTaken-=taken.Count;}continue;}
@@ -348,16 +363,35 @@ namespace Catchline.Game.Restaurant
         void TickCooking()
         {
             foreach(var c in cooking.ToArray()){
-                if(Broken.Contains(c.Uid)){c.ReadyAt+=RestaurantTuning.TickSeconds;continue;}
+                if(Broken.Contains(c.Uid)){c.ReadyAt+=RestaurantTuning.TickSeconds;if(c.DoneAt>=0)c.DoneAt+=RestaurantTuning.TickSeconds;continue;}
                 if(Seconds<c.ReadyAt)continue;
-                cooking.Remove(c);stations.Remove(c.Uid);var t=c.Ticket;
-                if(t.Dish==Dish.Soup)soupReady+=c.Taken.Count-1;
-                if(c.Group.Phase==GroupPhase.Kitchen&&t.Phase==TicketPhase.Cooking){t.Phase=TicketPhase.Ready;t.ReadyAt=Seconds;t.CaptainCut=c.Taken.CaptainCut;t.SpecialServed=c.Taken.Special&&t.Order.Special&&t.Order.Accepted;if(t.CookQuality<=0)t.CookQuality=1;}
-                else {if(!RestaurantData.Get(t.Dish).Staple)waste++;t.Phase=TicketPhase.Abandoned;}
+                var t=c.Ticket;
+                if(c.Group.Phase!=GroupPhase.Kitchen||t.Phase!=TicketPhase.Cooking){
+                    cooking.Remove(c);stations.Remove(c.Uid);if(t.Dish==Dish.Soup)soupReady+=c.Taken.Count-1;
+                    if(!RestaurantData.Get(t.Dish).Staple)waste++;t.Phase=TicketPhase.Abandoned;continue;}
+                if(c.DoneAt<0){c.DoneAt=Seconds;if(!ManualPlating(t.Dish))Plate(c,false);}
+                else if(Seconds-c.DoneAt>=RestaurantTuning.BurnSeconds){
+                    // Burnt: the portion is lost and the dish goes back on the list to be cooked again.
+                    cooking.Remove(c);stations.Remove(c.Uid);waste++;Result.Burnt++;t.Phase=TicketPhase.Waiting;LastBurntUid=c.Uid;LastBurntAt=Seconds;
+                }
             }
         }
-        // Cooking dishes for the room to draw on their stations: (station uid, dish, 0..1 done).
-        public IEnumerable<(int uid,Dish dish,float done)> OnStations=>cooking.Select(c=>(c.Uid,c.Ticket.Dish,Mathf.Clamp01(1-(c.ReadyAt-Seconds)/RestaurantTuning.CookSeconds(c.Ticket.Dish))));
+        void Plate(Cooking c,bool perfect)
+        {
+            cooking.Remove(c);stations.Remove(c.Uid);var t=c.Ticket;
+            if(t.Dish==Dish.Soup)soupReady+=c.Taken.Count-1;
+            t.Phase=TicketPhase.Ready;t.ReadyAt=Seconds;t.CaptainCut=c.Taken.CaptainCut;t.SpecialServed=c.Taken.Special&&t.Order.Special&&t.Order.Accepted;if(t.CookQuality<=0)t.CookQuality=1;
+            if(perfect){Result.Perfects++;Result.Tips+=RestaurantTuning.PerfectTip;LastPerfectUid=c.Uid;LastPerfectAt=Seconds;}
+        }
+        // The player taps a station whose dish is done: plated on the spot, perfect inside the window. False when nothing is done there.
+        public bool PlateNow(int stationUid)
+        {
+            var c=cooking.FirstOrDefault(x=>x.Uid==stationUid&&x.DoneAt>=0);
+            if(c==null||Finished)return false;
+            Plate(c,Seconds-c.DoneAt<=RestaurantTuning.PerfectSeconds);return true;
+        }
+        // Cooking dishes for the room to draw on their stations: (station uid, dish, 0..1 cooked, seconds since done or -1).
+        public IEnumerable<(int uid,Dish dish,float done,float since)> OnStations=>cooking.Select(c=>(c.Uid,c.Ticket.Dish,Mathf.Clamp01(1-(c.ReadyAt-Seconds)/(RestaurantTuning.CookSeconds(c.Ticket.Dish)*CookBonus)),c.DoneAt<0?-1:Seconds-c.DoneAt));
         bool Wait(RestaurantStaff s,bool host=false,bool serve=true,bool clear=true,ServiceGroup only=null)
         {
             foreach(var g in Priority().Where(g=>only==null||g==only)){
@@ -371,11 +405,11 @@ namespace Catchline.Game.Restaurant
                 if(host)continue;
                 if(g.Phase==GroupPhase.Kitchen&&serve){var ticket=g.Tickets.FirstOrDefault(t=>t.Phase==TicketPhase.Ready);if(ticket==null)continue;
                     if(Start(s,"Serve fish",new[]{Leg(Layout.PassGuests),Leg(a.Value,RestaurantTuning.ServeSeconds)},()=>{
-                        if(g.Phase==GroupPhase.Kitchen){ticket.Phase=TicketPhase.Delivered;ticket.DeliveredAt=Seconds;ticket.Cold=Seconds-ticket.ReadyAt>RestaurantTuning.ColdSeconds;if(ticket.Cold)Result.ColdDishes++;}else {if(!RestaurantData.Get(ticket.Dish).Staple)waste++;ticket.Phase=TicketPhase.Abandoned;}
+                        if(g.Phase==GroupPhase.Kitchen){ticket.Phase=TicketPhase.Delivered;ticket.DeliveredAt=Seconds;ticket.Cold=Seconds-ticket.ReadyAt>RestaurantTuning.ColdSeconds*ColdBonus;if(ticket.Cold)Result.ColdDishes++;}else {if(!RestaurantData.Get(ticket.Dish).Staple)waste++;ticket.Phase=TicketPhase.Abandoned;}
                     })){ticket.Phase=TicketPhase.Serving;return true;}
                 }
                 if(g.Phase==GroupPhase.Clearing&&clear){
-                    g.Reserved=Start(s,"Clear table",new[]{Leg(a.Value,RestaurantTuning.ClearSeconds),Leg(Layout.PassGuests)},()=>{g.Reserved=false;g.Phase=GroupPhase.Gone;});if(g.Reserved)return true;
+                    g.Reserved=Start(s,"Clear table",new[]{Leg(a.Value,RestaurantTuning.ClearSeconds,0,()=>g.ClearedAt=Seconds),Leg(Layout.PassGuests)},()=>{g.Reserved=false;g.Phase=GroupPhase.Gone;});if(g.Reserved)return true;
                 }
             }return false;
         }
@@ -415,7 +449,7 @@ namespace Catchline.Game.Restaurant
         }
         bool Seat(RestaurantStaff s)
         {
-            foreach(var g in Priority().Where(x=>x.Phase==GroupPhase.Queue&&!x.Reserved)){
+            foreach(var g in DoorOrder()){
                 var table=Layout.Active.Where(i=>RestaurantData.Get(i.Id).Seats>0&&TableFree(i,g.Count)).OrderBy(i=>RestaurantData.Get(i.Id).Seats).ThenBy(i=>i.Uid).FirstOrDefault();
                 if(table!=null&&StartSeat(s,g,table))return true;
             }
@@ -449,13 +483,13 @@ namespace Catchline.Game.Restaurant
             if(def.Seats>0&&item.Id!=ItemId.BarCounter)return CaptainTable(s,item);
             if(item.Id==ItemId.Reception)return Till(s)||Seat(s);
             if(def.Area==Area.Bar)return Drinks(s,false);
-            if(def.Area==Area.Kitchen)return Cook(s,null,item.Id);
+            if(def.Area==Area.Kitchen)return PlateNow(uid)||Cook(s,null,item.Id); // a queued tap on a done dish plates it
             return false;
         }
         bool CaptainTable(RestaurantStaff s,RestaurantItem table)
         {
             var g=Groups.FirstOrDefault(x=>x.TableUid==table.Uid&&x.Phase!=GroupPhase.Gone&&x.Phase!=GroupPhase.NotArrived&&x.Phase!=GroupPhase.Queue);
-            if(g==null){var q=Priority().FirstOrDefault(x=>x.Phase==GroupPhase.Queue&&!x.Reserved&&TableFree(table,x.Count));return q!=null&&StartSeat(s,q,table);}
+            if(g==null){var q=DoorOrder().FirstOrDefault(x=>TableFree(table,x.Count));return q!=null&&StartSeat(s,q,table);}
             if(g.Reserved)return false;
             switch(g.Phase){
                 case GroupPhase.Order:return Wait(s,true,false,false,g);
@@ -470,7 +504,7 @@ namespace Catchline.Game.Restaurant
         // have plates waiting (those taps are used up). Two or more tables in one trip is a combo and tips per plate.
         bool CaptainServe(RestaurantStaff s,ServiceGroup first)
         {
-            var load=new List<(ServiceGroup g,List<ServiceTicket> plates)>();int room=RestaurantTuning.CarryPlates;
+            var load=new List<(ServiceGroup g,List<ServiceTicket> plates)>();int room=RestaurantTuning.CarryPlates+CarryBonus;
             void Add(ServiceGroup g){if(room<=0||g.Reserved||g.Phase!=GroupPhase.Kitchen)return;var p=g.Tickets.Where(t=>t.Phase==TicketPhase.Ready).Take(room).ToList();if(p.Count==0)return;load.Add((g,p));room-=p.Count;}
             Add(first);
             foreach(int uid in captainOrders.ToArray()){
@@ -483,7 +517,7 @@ namespace Catchline.Game.Restaurant
                 var a=At(Table(g),at);if(!a.HasValue)return false;at=a.Value;
                 legs.Add(Leg(a.Value,RestaurantTuning.ServeSeconds*plates.Count,0,()=>{
                     foreach(var ticket in plates){
-                        if(g.Phase==GroupPhase.Kitchen&&ticket.Phase==TicketPhase.Serving){ticket.Phase=TicketPhase.Delivered;ticket.DeliveredAt=Seconds;ticket.Cold=Seconds-ticket.ReadyAt>RestaurantTuning.ColdSeconds;if(ticket.Cold)Result.ColdDishes++;}
+                        if(g.Phase==GroupPhase.Kitchen&&ticket.Phase==TicketPhase.Serving){ticket.Phase=TicketPhase.Delivered;ticket.DeliveredAt=Seconds;ticket.Cold=Seconds-ticket.ReadyAt>RestaurantTuning.ColdSeconds*ColdBonus;if(ticket.Cold)Result.ColdDishes++;}
                         else if(ticket.Phase==TicketPhase.Serving){if(!RestaurantData.Get(ticket.Dish).Staple)waste++;ticket.Phase=TicketPhase.Abandoned;}
                     }}));
             }
@@ -497,14 +531,33 @@ namespace Catchline.Game.Restaurant
         // soup, drinks), so the kitchen always has something to cook.
         void WalkIns()
         {
+            if(FerryAt>=0&&FerryArrivedAt<0&&Seconds>=FerryAt&&!DoorClosed){
+                FerryArrivedAt=Seconds;
+                for(int k=0;k<RestaurantTuning.FerryGroups+FerryExtra;k++){var fg=SpawnWalkIn(walkRandom.NextDouble()<.5?2:3);if(fg==null)break;fg.Ferry=true;fg.Arrival=Seconds+k*1.5f;FerryGuests+=fg.Count;}
+            }
+            if(CriticAt>=0&&Seconds>=CriticAt&&!Groups.Any(x=>x.Critic)&&!DoorClosed){var c=SpawnWalkIn(1);if(c!=null){c.Critic=true;(c.Guests[0].Dish,c.Guests[0].Species)=CriticDish();}}
             if(WalkInPace<=0||DoorClosed)return;
             float momentum=Groups.Count(g=>g.Paid)==0?.5f:(Groups.Where(g=>g.Paid).Average(g=>(float)g.Stars)-1)/4;
             float Next()=>Seconds+RestaurantTuning.WalkInEvery/WalkInPace/(.75f+.5f*momentum)*(.6f+(float)walkRandom.NextDouble()*.8f);
             if(nextWalkIn<0){nextWalkIn=Next();return;}
             if(Seconds<nextWalkIn)return;nextWalkIn=Next();
-            if(Groups.Count(g=>g.Phase==GroupPhase.Queue)>=RestaurantTuning.WalkInQueue)return; // a full doorway: they stroll on
-            int seats=Layout.Active.Where(i=>i.Id!=ItemId.BarCounter).Select(i=>RestaurantData.Get(i.Id).Seats).DefaultIfEmpty(0).Max();if(seats<=0)return;
-            int n=Math.Min(seats,walkRandom.NextDouble()<.5?2:walkRandom.Next(1,4));
+            // A full doorway: they stroll on. A busier harbour (the run's ramp, a festival) queues deeper.
+            if(Groups.Count(g=>g.Phase==GroupPhase.Queue)>=RestaurantTuning.WalkInQueue+Math.Max(0,(int)((WalkInPace-1)*4)))return;
+            SpawnWalkIn(walkRandom.NextDouble()<.5?2:walkRandom.Next(1,4));
+        }
+        // The critic orders the best fish dish the kitchen can cook from tonight's stock, else the house bread.
+        (Dish,Species) CriticDish()
+        {
+            foreach(var p in Stock.Where(x=>x.Count>0&&x.Form!=PreparedForm.Stock).OrderByDescending(x=>GameData.Get(x.Species).PricePerKg)){
+                var d=p.Form==PreparedForm.Whole?Dish.GrilledFish:p.Form==PreparedForm.Crab?Dish.Crab:p.Form==PreparedForm.Squid?Dish.Calamari:p.Form==PreparedForm.Platter?Dish.Platter:Layout.CanCook(Dish.PanFish)?Dish.PanFish:Dish.FishAndChips;
+                if(Layout.CanCook(d))return (d,p.Species);
+            }
+            return (Dish.Bread,Species.Herring);
+        }
+        ServiceGroup SpawnWalkIn(int size)
+        {
+            int seats=Layout.Active.Where(i=>i.Id!=ItemId.BarCounter).Select(i=>RestaurantData.Get(i.Id).Seats).DefaultIfEmpty(0).Max();if(seats<=0)return null;
+            int n=Math.Min(seats,size);
             var menu=new List<Dish>{Dish.Bread};if(Layout.CanCook(Dish.Fries))menu.Add(Dish.Fries);if(Layout.CanCook(Dish.Soup)&&(soupReady>0||Stock.Any(x=>x.Form==PreparedForm.Stock&&x.Count>0)))menu.Add(Dish.Soup);
             // Fish to spare: more portions on hand than the booked guests still to come could eat.
             int booked=Groups.Where(g=>g.Id<1000000&&(g.Phase==GroupPhase.NotArrived||g.Phase==GroupPhase.Queue||g.Phase==GroupPhase.Seating||g.Phase==GroupPhase.Order)).Sum(g=>g.Count);
@@ -521,7 +574,7 @@ namespace Catchline.Game.Restaurant
                 g.Guests.Add(new GuestOrder{Id=walkInIds++,Group=g.Id,Species=species,Dish=dish,
                     Drink=drinks.Count>0&&walkRandom.NextDouble()<RestaurantTuning.DrinkChance,DrinkDish=drinks.Count==0?Dish.Coffee:drinks[walkRandom.Next(drinks.Count)]});
             }
-            Groups.Add(g);Result.Guests+=n;Result.WalkIns+=n;
+            Groups.Add(g);Result.Guests+=n;Result.WalkIns+=n;return g;
         }
         void Pay(ServiceGroup g,bool impatient)
         {
@@ -545,7 +598,8 @@ namespace Catchline.Game.Restaurant
                 dishCoins+=(int)Math.Round(price);
             }
             Result.DishCoins+=dishCoins;
-            if(!impatient)Result.Tips+=(int)Math.Round(dishCoins*RestaurantTuning.TipRate*((g.Stars-1)*.25f+Layout.Ambience*.02f+g.Tickets.Count(t=>t.CaptainCut)*.02f)*(g.Birthday&&g.Stars>=4?2:1));
+            if(!impatient){g.TipCoins=(int)Math.Round(dishCoins*RestaurantTuning.TipRate*((g.Stars-1)*.25f+Layout.Ambience*.02f+g.Tickets.Count(t=>t.CaptainCut)*.02f)*(g.Birthday&&g.Stars>=4?2:1)*(g.Ferry?RestaurantTuning.FerryTip:1)*TipBonus);Result.Tips+=g.TipCoins;}
+            if(g.Critic)CriticStars=g.Stars;
             if(g.Regular&&g.Stars>=4)Result.HappyRegulars++;
             if(g.Stars>=4&&g.Birthday)g.Why="birthday";else if(g.Stars>=4&&g.Regular)g.Why="regular";
             int served=full?g.Count:Math.Min(g.Count,delivered);Result.Served+=served;Result.Left+=g.Count-served;
@@ -560,7 +614,7 @@ namespace Catchline.Game.Restaurant
             WalkIns();TickCooking();Gulls();
             foreach(var g in Groups){
                 if(g.Phase==GroupPhase.NotArrived&&Seconds>=g.Arrival){if(DoorClosed){Result.Left+=g.Count;Result.Stars+=g.Count;g.Phase=GroupPhase.Gone;}else g.Phase=GroupPhase.Queue;}
-                if(g.Phase==GroupPhase.Queue&&Seconds-g.Arrival>RestaurantTuning.DoorPatience+g.LastPatienceBoost+Layout.Ambience*RestaurantTuning.AmbiencePatience){
+                if(g.Phase==GroupPhase.Queue&&Seconds-g.Arrival>RestaurantTuning.DoorPatience*DoorBonus*(g.Ferry||g.Critic?RestaurantTuning.FerryPatience:g.Id>=1000000?1:RestaurantTuning.BookingPatience)+g.LastPatienceBoost+Layout.Ambience*RestaurantTuning.AmbiencePatience){
                     // A walk-in tired of the doorway strolls on and never counted as tonight's guest; a booking that leaves does.
                     if(g.Id>=1000000){Result.Guests-=g.Count;Result.WalkIns-=g.Count;}else {Result.Left+=g.Count;Result.Stars+=g.Count;}
                     g.Phase=GroupPhase.Gone;g.Reserved=false;}
@@ -592,7 +646,8 @@ namespace Catchline.Game.Restaurant
                 if(s.Order!=null){foreach(var w in s.Order)if(Do(s,w))break;continue;}
                 switch(s.Job){
                     case Job.Reception:
-                        Host(s);break;
+                        // Hands-on nights: with nobody behind the bar, Mira pours when the door and the till are quiet.
+                        if(!Host(s)&&CaptainHandsOn&&!Staff.Any(x=>x.Job==Job.Barista||x.Job==Job.Waiter))Drinks(s,false);break;
                     case Job.Cook:Cook(s);break;
                     case Job.Waiter:if(!Wait(s)&&!Staff.Any(x=>x.Job==Job.Barista))Drinks(s,false);break;
                     case Job.Barista:Drinks(s,true);break;
@@ -618,7 +673,12 @@ namespace Catchline.Game.Restaurant
             foreach(var t in Groups.SelectMany(g=>g.Tickets).Where(t=>t.Phase==TicketPhase.Serving||t.Phase==TicketPhase.Ready)){if(!RestaurantData.Get(t.Dish).Staple)waste++;t.Phase=TicketPhase.Abandoned;} // plates still in hand
             Finished=true;Result.Cats=RestaurantPortions.FeedCats(Stock)+soupReady+waste;soupReady=0;waste=0;
             Result.Seconds=Seconds;Result.Stars=Result.Guests==0?0:Result.Stars/Result.Guests;
-            Result.PopularityGain=Result.Guests==0?0:(Result.Stars-3)*.5f+Result.SpecialServed*RestaurantTuning.PopularityPerSpecial+Result.HappyRegulars*RestaurantTuning.PopularityPerRegular;
+            // A good night is felt on the quay: +1 from 3.4 stars, +2 from 4.3, -1 under 2.4 (the old (stars-3)/2 rounded a
+            // 4-star night to nothing, so popularity never grew), plus specials and happy regulars.
+            float word=Result.Stars>=4.3f?2:Result.Stars>=3.4f?1:Result.Stars<2.4f?-1:0;
+            Result.PopularityGain=Result.Guests==0?0:word+Result.SpecialServed*RestaurantTuning.PopularityPerSpecial+Result.HappyRegulars*RestaurantTuning.PopularityPerRegular;
+            // The critic's write-up: five stars and the whole harbour hears; a poor meal (or a walk-out) costs as much.
+            if(Groups.Any(g=>g.Critic))Result.PopularityGain+=CriticStars>=5?3:CriticStars==4?1.5f:CriticStars==3?0:-2;
             Result.Walking=Staff.Select(s=>new StaffDistance{Id=s.Id,Metres=s.Metres}).ToList();
             float waiters=Staff.Where(s=>s.Job==Job.Waiter).Sum(s=>s.Metres);
             Result.LayoutTip=waiters>0?"Our waiters walked "+Math.Round(waiters)+" m tonight. Tables nearer the pass would help.":"Try assigning a waiter tomorrow.";

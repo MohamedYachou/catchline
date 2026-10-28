@@ -44,13 +44,11 @@ namespace Catchline.EditorTools
                 try
                 {
                     state.Save(path);
+                    // The hiring board and its hires are legacy fixtures and session-only since the crew became cards (a
+                    // save keeps the card Deployment instead): a save made with them aboard must still load cleanly, and the
+                    // contract countdown below runs on the hires in memory.
                     var loaded = GameState.Load(path);
-                    Check(loaded.CrewCount == 3 && loaded.Crew.All(c => c.VoyagesLeft == GameData.ContractVoyages(c.Grade)), "contract timers survive save reload");
-                    Check(Offers(loaded, CrewRole.Deckhand) >= 3 && Offers(loaded, CrewRole.Fisherman) >= 3, "both offers survive save reload");
-                    state = loaded;
-                    loaded.Board.Clear(); loaded.Save(path); loaded = GameState.Load(path);
-                    Check(Offers(loaded, CrewRole.Deckhand) >= 3 && Offers(loaded, CrewRole.Fisherman) >= 3, "older empty board saves restore all role choices");
-                    state = loaded;
+                    Check(loaded != null && loaded.Hull == state.Hull, "a save with legacy hires aboard still loads");
                 }
                 finally { if (File.Exists(path)) File.Delete(path); }
             }

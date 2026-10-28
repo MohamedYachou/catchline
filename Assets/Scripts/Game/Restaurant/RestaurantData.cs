@@ -10,7 +10,7 @@ namespace Catchline.Game.Restaurant
         Trophy, Net, Lamp, Plant, Chart, Jukebox }
     public enum Area { Kitchen, Guests, Bar, Decor, Wall }
     public enum PreparedForm { Whole, Fillet, Stock, Platter, Crab, Squid }
-    public enum Dish { GrilledFish, PanFish, FishAndChips, Soup, Platter, Crab, Calamari, Coffee, Tea, Lemonade, Beer, Fries, Bread }
+    public enum Dish { GrilledFish, PanFish, FishAndChips, Soup, Platter, Crab, Calamari, Coffee, Tea, Lemonade, Beer, Fries, Bread, IceCream }
     public enum Job { Reception, Cook, Waiter, Barista, Handyman, Helper }
     public enum Weather { Fair, Sun, Rain }
     public enum PrepMargin { Tight, TenPercent, TwentyPercent }
@@ -36,6 +36,10 @@ namespace Catchline.Game.Restaurant
         public const float WalkBoost = 1.8f, CaptainBoost = 1.5f, LoadSeconds = .4f;
         // Walk-ins: a group every WalkInEvery seconds on average (faster as the night's stars climb), never while
         // WalkInQueue groups already wait at the door. ComboTip is paid per plate when one trip serves two tables.
+        // A booked table waits BookingPatience times longer at the door than a walk-in, and Mira seats bookings first.
+        public const float BookingPatience = 1.6f;
+        // Harbour moment: the evening ferry moors and FerryGroups groups of passengers come up together; they tip FerryTip times more.
+        public const int FerryGroups = 4; public const float FerryTip = 1.25f, FerryStay = 45f, FerryPatience = 2f; // nowhere else to eat: they wait
         public const float WalkInEvery = 6f, WalkInFishChance = .45f; public const int WalkInQueue = 3, CarryPlates = 2, ComboTip = 3;
         // Upsell bubbles: a few seconds into their meal a table may wave for another round; a tap within UpsellSeconds sells
         // it on the spot (per guest, at the staple price), no trip needed. Something to do while the kitchen works.
@@ -43,13 +47,40 @@ namespace Catchline.Game.Restaurant
         // Gulls: one lands on a table that is eating about every GullEvery seconds; tap it away within GullSeconds or it
         // steals from the plate (that table loses a star).
         public const float GullEvery = 20f, GullSeconds = 5f;
+        // Hands-on plating: with nobody cooking but the captain, a fish dish waits on its station when done. A tap within
+        // PerfectSeconds plates it perfect (PerfectTip); left BurnSeconds it burns (the portion is lost, the dish recooks).
+        public const float PerfectSeconds = 2.5f, BurnSeconds = 7f; public const int PerfectTip = 4;
         public static readonly int[] ItemPrices = { 80,140,100,160,220,360,260,120,180,100,100,220,80,160,300,120,0,80,50,60,40,60,250 };
         public static readonly int[] StagePrices = { 0,0,1200,3500,8000 }, StagePopularity = { 0,0,3,5,8 };
         // Loaded and left: the station cooks by itself for this long while the cook does something else.
         public static float CookSeconds(Dish d) => d == Dish.Soup ? 4 : d == Dish.Platter ? 9 : d == Dish.Crab ? 6 : d == Dish.Bread ? 1.5f : d == Dish.Fries ? 3 : 4;
-        public static int StaplePrice(Dish d) => d == Dish.Beer ? 5 : d == Dish.Coffee || d == Dish.Tea ? 4 : 3;
+        public static int StaplePrice(Dish d) => d == Dish.IceCream ? 6 : d == Dish.Beer ? 5 : d == Dish.Coffee || d == Dish.Tea ? 4 : 3;
         public const int StapleCost = 1;
         public const float PopularityPerGuest = .01f, PopularityPerSpecial = .05f, PopularityPerRegular = .5f, BirthdayChance = .35f, RegularChance = .4f, TourChance = .3f;
+    }
+
+    // Night cards (Mo 10-28, our take on PlateUp's): after each night the player keeps one of three. Gadgets and dishes stay
+    // for good; a night card shapes only the next night. Effects are read in VoyageRestaurantDay.ApplyNightCards.
+    public enum NightCardKind { Gadget, Night, Dish }
+    public sealed class NightCardDef { public string Id, Name, Effect; public NightCardKind Kind; }
+    public static class NightCards
+    {
+        static NightCardDef C(string id, string name, NightCardKind kind, string effect) => new NightCardDef { Id = id, Name = name, Kind = kind, Effect = effect };
+        public static readonly NightCardDef[] All = {
+            C("warming-lamp", "Warming lamp", NightCardKind.Gadget, "Plates at the pass stay hot twice as long."),
+            C("plate-rack", "Plate rack", NightCardKind.Gadget, "The captain carries three plates a trip."),
+            C("service-bell", "Service bell", NightCardKind.Gadget, "Guests wait at the door 40% longer."),
+            C("gull-net", "Gull net", NightCardKind.Gadget, "Half as many gulls land on your tables."),
+            C("quick-shoes", "Quick shoes", NightCardKind.Gadget, "The captain works and walks 20% faster."),
+            C("second-pan", "Second pan", NightCardKind.Gadget, "Fish cooks 25% faster."),
+            C("ferry", "Ferry night", NightCardKind.Night, "The ferry brings six groups. Tips +20%."),
+            C("critic", "Critic's table", NightCardKind.Night, "A critic dines. Five stars and the harbour hears."),
+            C("festival", "Harbour festival", NightCardKind.Night, "More walk-ins and tips +20%, but more gulls too."),
+            C("rain", "Rainy night", NightCardKind.Night, "Fewer walk-ins, no gulls, tips +30%."),
+            C("catch", "Catch of the day", NightCardKind.Dish, "Every fish plate pays 2 coins more."),
+            C("ice-cream", "Ice cream", NightCardKind.Dish, "Tables wave for ice cream too: 6 coins a bowl."),
+        };
+        public static NightCardDef Get(string id) => Array.Find(All, c => c.Id == id);
     }
 
     public sealed class ItemDef
@@ -99,7 +130,7 @@ namespace Catchline.Game.Restaurant
             D(Dish.Calamari,PreparedForm.Squid,ItemId.Fryer), D(Dish.Coffee,PreparedForm.Stock,ItemId.CoffeeMachine,true),
             D(Dish.Tea,PreparedForm.Stock,ItemId.CoffeeMachine,true), D(Dish.Lemonade,PreparedForm.Stock,ItemId.DrinksFridge,true),
             D(Dish.Beer,PreparedForm.Stock,ItemId.DrinksFridge,true), D(Dish.Fries,PreparedForm.Stock,ItemId.Fryer,true),
-            D(Dish.Bread,PreparedForm.Stock,ItemId.PrepCounter,true) };
+            D(Dish.Bread,PreparedForm.Stock,ItemId.PrepCounter,true), D(Dish.IceCream,PreparedForm.Stock,ItemId.PrepCounter,true) };
         static DishDef D(Dish d, PreparedForm f, ItemId a, bool staple=false) => new DishDef { Id=d,Form=f,Appliance=a,Staple=staple };
         public static ItemDef Get(ItemId id) => Items[(int)id];
         public static DishDef Get(Dish d) => Dishes[(int)d];

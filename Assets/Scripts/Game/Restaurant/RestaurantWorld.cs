@@ -39,6 +39,8 @@ namespace Catchline.Game.Restaurant
         public RestaurantLayout Layout {get;private set;}
         public RestaurantSnapshot Snapshot {get;}=new();
         public Camera ServiceCamera {get;private set;}
+        // Night cards the house has kept (gadget/dish ids) and tonight's night card: they show in the room.
+        public readonly HashSet<string> Cards=new();public string NightCard;
         public int Speed {get;private set;}=1;
         public Transform RoomRoot {get;private set;}
         const int Layer=28;
@@ -224,6 +226,9 @@ namespace Catchline.Game.Restaurant
                     pier=ArtLibrary.Spawn(pierModel,RoomRoot,Vector3.zero,Quaternion.identity).transform;
                     string deck="Pier_S"+(Array.IndexOf(StageRooms,roomName)+1);
                     foreach(var t in pier.GetComponentsInChildren<Transform>(true))if(t.name.StartsWith("Pier_S"))t.gameObject.SetActive(t.name==deck);
+                    // Codex 2's catch-of-the-day board out front beside the entrance, where the queue reads it (its first spot on
+                    // the quay approach sat under the stock panel).
+                    if(Model("CatchBoard")!=null)Spawn("CatchBoard",new Vector3(-4.75f,0,3.1f),Quaternion.identity);
                 }
                 foreach(var item in layout.Active){
                     if(!Models.TryGetValue(item.Id,out var model))continue;
@@ -453,7 +458,7 @@ namespace Catchline.Game.Restaurant
         string DishModel(Dish d)
         {
             string own=d switch{Dish.FishAndChips=>"Dish_FishAndChips",Dish.Platter=>"Dish_Platter",Dish.Crab=>"Dish_Crab",Dish.Calamari=>"Dish_Calamari",
-                Dish.Fries=>"Dish_Fries",Dish.Bread=>"Dish_Bread",Dish.Beer=>"Dish_Beer",Dish.Tea=>"Dish_Tea",_=>null};
+                Dish.Fries=>"Dish_Fries",Dish.Bread=>"Dish_Bread",Dish.Beer=>"Dish_Beer",Dish.Tea=>"Dish_Tea",Dish.IceCream=>"Dish_IceCream",_=>null};
             return own!=null&&Model(own)!=null?own:OldDishModel(d);
         }
         static string OldDishModel(Dish d)=>d switch{
@@ -478,7 +483,7 @@ namespace Catchline.Game.Restaurant
             var b=TableBounds(table);
             var s=Seat(seat);a.Dish.position=new Vector3(b.center.x+s.x,b.max.y,b.center.z+s.z*.4f);
         }
-        Actor MakeActor(string id,bool guest)
+        Actor MakeActor(string id,bool guest,bool critic=false)
         {
             var holder=new GameObject((guest?"Guest ":"Staff ")+id).transform;holder.SetParent(RoomRoot,false);
             var lib=ArtLibrary.Get();string[] civilians={"Ada","Ben","Cora","Dan","Edda","Finn","Gus","Hazel","Ivo","Jonas","Kai","Lena","Marta","Nils","Pia","Greta","Henrik","Zola","Vera","Anton"}; // GUESTS-3 bring their own colours
@@ -487,7 +492,7 @@ namespace Catchline.Game.Restaurant
             // generic captain borrows Mira's. Guests, and any crew without a delivered puppet, fall back as before.
             string staffKey=id=="captain"?"mira":id;
             var staffPuppet=!guest?lib?.M(staffKey):null;
-            var prefab=guest?lib?.M("Restaurant_Guest_"+civilians[gi]):staffPuppet??lib?.M("CrewRig_Restaurant")??lib?.M("CrewRig");
+            var prefab=guest?(critic?lib?.M("Restaurant_Guest_Critic"):null)??lib?.M("Restaurant_Guest_"+civilians[gi]):staffPuppet??lib?.M("CrewRig_Restaurant")??lib?.M("CrewRig");
             bool boatMira=!guest&&staffPuppet==null; // old blob rig in use -> keep the legacy outfit/hat toggles
             if(prefab==null)throw new InvalidOperationException("Boat CrewRig is missing from ArtLibrary");
             var rig=ArtLibrary.Spawn(prefab,holder,Vector3.zero,Quaternion.identity).transform;
@@ -530,6 +535,7 @@ namespace Catchline.Game.Restaurant
             if(s.Action=="Serve coffee")return "CoffeeCup";
             if(s.Action=="Serve drinks")return "Dish_Lemonade";
             if(s.Action!="Serve fish")return null;
+            if(s.Id=="captain"&&Cards.Contains("plate-rack")&&Model("PlateRack")!=null)return "PlateRack"; // the plate rack card: three plates a trip
             return a.CarryTicket==null?null:DishModel(a.CarryTicket.Dish);
         }
         void Carry(Actor a,string model)
@@ -546,7 +552,7 @@ namespace Catchline.Game.Restaurant
             bool phone=width/(float)Math.Max(1,height)>1.9f;
             float top=phone?46f/390:78f/900,bottom=phone?72f/390:140f/900;
             // Full screen like the mockup (the sea runs under the HUD); a lens shift keeps the room between the bars.
-            ServiceCamera.rect=new Rect(0,0,1,1);ServiceCamera.usePhysicalProperties=true;
+            ServiceCamera.rect=new Rect(0,0,1,1);ServiceCamera.usePhysicalProperties=true;if(captureFraming)ServiceCamera.aspect=width/(float)Math.Max(1,height);
             ServiceCamera.gateFit=Camera.GateFitMode.Vertical;ServiceCamera.lensShift=new Vector2(0,(top-bottom)*.5f);
             // Preserve vertical framing when HUD reduces the viewport; widen for the full 8x5 shell.
             float aspect=width*(1-top-bottom)/Math.Max(1,height); // overridden below by actual viewport aspect
@@ -611,7 +617,7 @@ namespace Catchline.Game.Restaurant
                 if(g.Phase==GroupPhase.Seating)Escort(g,walk);
                 for(int i=0;i<g.Guests.Count;i++){
                     var order=g.Guests[i];bool active=g.Phase!=GroupPhase.NotArrived&&g.Phase!=GroupPhase.Gone;
-                    if(!guests.TryGetValue(order.Id,out var a)){if(!active)continue;a=MakeActor(order.Id.ToString(),true);guests[order.Id]=a;}
+                    if(!guests.TryGetValue(order.Id,out var a)){if(!active)continue;a=MakeActor(order.Id.ToString(),true,g.Critic);guests[order.Id]=a;}
                     a.Ahead=i>0&&guests.TryGetValue(g.Guests[i-1].Id,out var ahead)?ahead:null;
                     if(g.Phase==GroupPhase.Gone){if(!a.Departed)Leave(a,dt);continue;}
                     a.Root.gameObject.SetActive(active);if(!active)continue;
@@ -636,7 +642,9 @@ namespace Catchline.Game.Restaurant
                     }
                     Animate(a,moving?"Walk":seated&&a.Arrived?g.Phase==GroupPhase.Eating?"Eat":"Sit":"Idle");
                     var ticket=g.Tickets.FirstOrDefault(t=>t.Order.Id==order.Id);
-                    PlaceDish(a,seated&&a.Arrived&&ticket!=null&&ticket.Phase==TicketPhase.Delivered&&g.Phase!=GroupPhase.Payment&&g.Phase!=GroupPhase.Clearing?ticket.Dish:null,seated?table:null,i);
+                    // A round bought on the tap (Service v2 upsell) replaces the plates: the drinks or the dessert course.
+                    Dish? course=g.UpsellCoins>0&&g.Phase==GroupPhase.Eating?g.Upsell:ticket?.Dish;
+                    PlaceDish(a,seated&&a.Arrived&&ticket!=null&&ticket.Phase==TicketPhase.Delivered&&g.Phase!=GroupPhase.Payment&&g.Phase!=GroupPhase.Clearing?course:null,seated?table:null,i);
                     a.Last=a.Root.position;
                 }
             }
@@ -729,15 +737,45 @@ namespace Catchline.Game.Restaurant
         // Service v2: plates waiting on the pass (tap their table to carry them) and dishes cooking on their stations,
         // growing in as they cook. One prop per slot, swapped only when its dish changes.
         readonly Dictionary<string,(string model,Transform t,Vector3 size)> props=new();
+        // Codex 2's SERVICE-PROPS-2 cooking props and their measured seat on each Pack station (station-local, metres).
+        static readonly Dictionary<ItemId,(string model,Vector3 at)> CookProps=new(){
+            [ItemId.Stove]=("Cook_Pan",new Vector3(.14625f,.8f,.138f)),[ItemId.Grill]=("Cook_Grill",new Vector3(-.005984f,.825f,-.015481f)),
+            [ItemId.Fryer]=("Cook_FryerBasket",new Vector3(0,.91f,.093f)),[ItemId.Oven]=("Cook_OvenTray",new Vector3(0,1.2f,0)),
+            [ItemId.Steamer]=("Cook_SteamPot",new Vector3(0,.92f,-.002086f)),[ItemId.SoupKettle]=("Cook_SoupLadle",new Vector3(-.05413f,.660388f,0)),
+            [ItemId.PrepCounter]=("Cook_BreadBoard",new Vector3(-.14225f,.825f,.032365f))};
+        // A point in the station's own upright frame: its yaw on the layout, ignoring any import turn on the FBX root.
+        static Vector3 OnStation(Transform station,Vector3 local)=>station.position+Quaternion.Euler(0,station.eulerAngles.y,0)*local;
         void PassAndStations()
         {
-            var want=new Dictionary<string,(string model,Vector3 at,float scale)>();
+            var want=new Dictionary<string,(string model,Vector3 at,float scale)>();var yaw=new Dictionary<string,float>();
             int k=Layout.Stage.KitchenWidth;var pass=TileToWorld(new Vector2(k,2),.98f);
             var ready=Sim.Groups.Where(g=>g.Phase==GroupPhase.Kitchen).SelectMany(g=>g.Tickets).Where(t=>t.Phase==TicketPhase.Ready).OrderBy(t=>t.ReadyAt).Take(6).ToList();
             for(int i=0;i<ready.Count;i++)want["pass"+i]=(DishModel(ready[i].Dish),pass+RoomRoot.forward*((i%3-1)*.3f)+RoomRoot.right*((i/3)*.28f),1);
-            foreach(var (uid,dish,done) in Sim.OnStations){
-                if(!items.TryGetValue(uid,out var st)||st==null)continue;var b=TableBounds(st);
+            foreach(var (uid,dish,done,since) in Sim.OnStations){
+                if(!items.TryGetValue(uid,out var st)||st==null)continue;
+                var item=Layout.Active.FirstOrDefault(i=>i.Uid==uid);
+                if(item!=null&&CookProps.TryGetValue(item.Id,out var cp)&&Model(cp.model)!=null){want["cook"+uid]=(cp.model,OnStation(st,cp.at),1);yaw["cook"+uid]=st.eulerAngles.y;continue;}
+                var b=TableBounds(st);
                 want["cook"+uid]=(DishModel(dish),new Vector3(b.center.x,b.max.y,b.center.z),Mathf.Lerp(.55f,1f,done));
+            }
+            // Kept gadgets stand in the room: the heat lamp at the far end of the pass, the brass bell on the reception desk;
+            // on festival nights bunting runs along the back wall and over the pier's front.
+            if(Cards.Contains("warming-lamp"))want["lamp"]=("WarmingLamp",pass-RoomRoot.forward*.75f,1);
+            var desk=Layout.Active.FirstOrDefault(i=>i.Id==ItemId.Reception);
+            if(Cards.Contains("service-bell")&&desk!=null&&items.TryGetValue(desk.Uid,out var dt)&&dt!=null){var b=TableBounds(dt);want["bell"]=("ServiceBell",new Vector3(b.center.x+.18f,b.max.y,b.center.z),1);}
+            if(NightCard=="festival"){
+                want["bunting-back"]=("Bunting",RoomRoot.TransformPoint(new Vector3(-4f,2.45f,-2.75f)),1);
+                want["bunting-front"]=("Bunting",RoomRoot.TransformPoint(new Vector3(-4f,2.1f,4.2f)),1);
+            }
+            // Coins a paid table left (Codex 2's tip piles, the big one for a generous table) wait there until it is cleared.
+            foreach(var g in Sim.Groups.Where(g=>g.Phase==GroupPhase.Clearing&&g.TipCoins>0&&g.ClearedAt<0)){
+                if(!items.TryGetValue(g.TableUid,out var tt)||tt==null)continue;var b=TableBounds(tt);
+                want["tip"+g.Id]=(g.TipCoins>=8?"TipCoins_L":"TipCoins_S",new Vector3(b.center.x+.12f,b.max.y,b.center.z),1);
+            }
+            // A burnt dish smokes on its station for a moment before the pan is scraped.
+            if(Sim.LastBurntAt>=0&&Sim.Seconds-Sim.LastBurntAt<1.6f&&items.TryGetValue(Sim.LastBurntUid,out var bt)&&bt!=null&&Model("Cook_Burnt")!=null){
+                var item=Layout.Active.FirstOrDefault(i=>i.Uid==Sim.LastBurntUid);
+                yaw["burnt"]=bt.eulerAngles.y;want["burnt"]=("Cook_Burnt",OnStation(bt,item!=null&&CookProps.TryGetValue(item.Id,out var cp)?cp.at:new Vector3(0,TableBounds(bt).max.y-bt.position.y,0)),1);
             }
             // Service v2 gulls (Codex 2's two poses): one swoops onto a table, stands among the plates, flaps off when shooed or fed.
             float now=Sim.Seconds+Sim.Alpha*RestaurantTuning.TickSeconds;
@@ -749,6 +787,15 @@ namespace Catchline.Game.Restaurant
             if(Sim.GullLeftAt>=0&&gone<1.4f&&items.TryGetValue(Sim.GullLeftTable,out var lt)&&lt!=null){
                 var b=TableBounds(lt);want["gullaway"]=("Gull_Flap",new Vector3(b.center.x+.2f,b.max.y,b.center.z-.12f)+Vector3.up*gone*2.4f-RoomRoot.right*gone*2.8f,1);
             }
+            // The evening ferry (Codex 2's model) sails in bow first along the pier's right side, moors while its passengers
+            // come up, then backs out to sea.
+            if(Sim.FerryAt>=0&&Model("Ferry")!=null){
+                float t=now-Sim.FerryAt,sail=8f,stay=RestaurantTuning.FerryStay;
+                if(t>-sail&&t<stay+sail){
+                    float away=t<0?Mathf.SmoothStep(0,1,-t/sail):t>stay?Mathf.SmoothStep(0,1,(t-stay)/sail):0;
+                    want["ferry"]=("Ferry",RoomRoot.TransformPoint(new Vector3(-6.95f,-.57f+Mathf.Sin(now*1.3f)*.03f,Mathf.Lerp(.8f,19f,away))),1);yaw["ferry"]=-90;
+                }
+            }
             foreach(var key in props.Keys.Where(x=>!want.ContainsKey(x)).ToList()){if(props[key].t!=null)Destroy(props[key].t.gameObject);props.Remove(key);}
             foreach(var (key,w) in want){
                 if(w.model==null||Model(w.model)==null)continue;
@@ -757,6 +804,7 @@ namespace Catchline.Game.Restaurant
                     var t=Spawn(w.model,Vector3.zero,Quaternion.identity,RoomRoot);SetLayer(t.gameObject);p=(w.model,t,t.localScale);props[key]=p;
                 }
                 p.t.position=w.at;p.t.localScale=p.size*w.scale;
+                if(yaw.TryGetValue(key,out var y))p.t.rotation=Quaternion.Euler(0,y,0)*Model(w.model).transform.localRotation;
             }
         }
         public bool ItemTop(int uid,out Vector3 vp)

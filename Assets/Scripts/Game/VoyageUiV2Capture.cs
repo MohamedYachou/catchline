@@ -258,6 +258,8 @@ namespace Catchline.Game
                 foreach (var (size, density) in UiV2DeviceSizes)
                 {
                     // Rendered off screen at full device resolution (bigger than most monitors), named by layout width.
+                    // The service camera frames for the device first, so world markers lay out against the frame that renders.
+                    if (restaurantWorld != null && restaurantWorld.ServiceCamera != null) { restaurantWorld.captureFraming = true; restaurantWorld.FrameCamera(size.x, size.y); }
                     PrepareInterface(size.x, size.y, 0, density); Visual(0);
                     for (int n = 0; n < 8; n++) yield return null;
                     string name = $"{screen}-{size.x / density}";

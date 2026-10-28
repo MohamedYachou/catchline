@@ -19,15 +19,15 @@ if (!$SkipBuild) {
     unity command editor.playmode stop | Out-Null
     $errors = unity recompile --project-path $scratch | Select-String -NotMatch '^severity'
     if ($errors) { throw "Compile errors: $errors" }
-    unity status --until-ready --project-path $scratch | Out-Null
+    unity status --until-ready --timeout 60 --project-path $scratch | Out-Null
     # The player stub keeps its template timestamp, so the build writes an explicit marker.
     $marker = "$scratch\Logs\uiv2-build.txt"
     Remove-Item -LiteralPath $marker -ErrorAction SilentlyContinue
-    Start-Sleep 5; unity status --until-ready --project-path $scratch | Out-Null
+    Start-Sleep 5; unity status --until-ready --timeout 60 --project-path $scratch | Out-Null
     unity command editor invoke_menu --path 'Catchline/UI v2 Build Preview' --timeout 1800 | Out-Null
     for ($i = 0; $i -lt 360 -and !(Test-Path $marker); $i++) { Start-Sleep 5 }
     if (!(Test-Path $marker) -or (Get-Content $marker -Raw).Trim() -ne 'Succeeded') { throw 'UIV2 player build did not succeed' }
-    unity status --until-ready --project-path $scratch | Out-Null
+    unity status --until-ready --timeout 60 --project-path $scratch | Out-Null
 }
 Remove-Item -LiteralPath $frames -Recurse -Force -ErrorAction SilentlyContinue
 $log = "$scratch\Logs\uiv2-native.log"

@@ -1,0 +1,409 @@
+[
+  {
+    "name": "Restaurant_TipCoins_S",
+    "tris": 1004,
+    "size_xyz_blender_m": [
+      0.18000000715255737,
+      0.12600000202655792,
+      0.05755000188946724
+    ],
+    "size_xyz_unity_m": [
+      0.18000000715255737,
+      0.05755000188946724,
+      0.12600000202655792
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "vertices": 568,
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_TipCoins_S.fbx",
+    "sha256": "b442c578e6723a5d1a9a4d210021347400b4427d495932cb75aae61db925cb25",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_TipCoins_S.blend",
+    "station": "Stage1V4 EXPORT_DiningTwo_Cloth_Four upper cloth",
+    "station_top_y_m": 0.812,
+    "station_local_unity_pivot_m": [
+      -1.35,
+      0.812,
+      -0.28
+    ],
+    "placement_note": "Room-local Unity (-1.35,0.812,-0.28), identity rotation, scale1; ray-measured cloth surface.",
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_TipCoins_S-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_TipCoins_S-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; non-emissive coin gold",
+    "review_note": "Clean GPU-denoised final service and close frames individually reopened; saturated gold faces, dark rims, light raised stamps and taller stack pass. Width0.180m,height0.05755m,1004tris. FBX unchanged from independent readback; refreshed final frame hashes."
+  },
+  {
+    "name": "Restaurant_TipCoins_L",
+    "tris": 2124,
+    "size_xyz_blender_m": [
+      0.30000001192092896,
+      0.2214999943971634,
+      0.08554999530315399
+    ],
+    "size_xyz_unity_m": [
+      0.30000001192092896,
+      0.08554999530315399,
+      0.2214999943971634
+    ],
+    "origin_offset_authored": [
+      0.0,
+      -0.0182499960064888,
+      0.0
+    ],
+    "vertices": 1198,
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/service/Restaurant_TipCoins_L.fbx",
+    "sha256": "dd5cbf12a98b5115b39a854c338e883b80f9b287c9dcbb2e9f4fcd4ff793335a",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_TipCoins_L.blend",
+    "station": "Stage1V4 EXPORT_DiningTwo_Cloth_Four upper cloth",
+    "station_top_y_m": 0.812,
+    "station_local_unity_pivot_m": [
+      -1.35,
+      0.812,
+      -0.28
+    ],
+    "placement_note": "Room-local Unity (-1.35,0.812,-0.28), identity rotation, scale1; ray-measured cloth surface.",
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_TipCoins_L-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_TipCoins_L-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; non-emissive coin gold",
+    "review_note": "Both clean GPU-denoised final frames opened; six- and four-coin stacks plus three loose gold coins read clearly under warm night practicals. Width0.300m,height0.08555m,2124tris; bottom-centred and on actual clothY0.812. No atlas/material dependency changes."
+  },
+  {
+    "name": "Restaurant_Guest_Critic",
+    "tris": 2408,
+    "triangle_limit_exclusive": 6000,
+    "rig": "CrewRig",
+    "children": [
+      "Critic_Notebook"
+    ],
+    "file": "Assets/Art/Models/Restaurant/Guests/Restaurant_Guest_Critic.fbx",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_Guest_Critic.blend",
+    "sha256": "16ad7fc949305544b66e307eca0502bd2760f721ea450f5ca414c2bfc7f36761",
+    "material": "RestaurantAtlas",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-walk-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-sit-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-eat-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-front-close.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-side-close.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Guest_Critic-back-close.png"
+    ],
+    "origin_offset_authored": [
+      0,
+      0,
+      0
+    ],
+    "size_xyz_unity_m": [
+      0.94,
+      1.02,
+      0.35
+    ],
+    "actions": [
+      "Bait",
+      "Carry",
+      "Cast",
+      "Cheer",
+      "Eat",
+      "Idle",
+      "Reel",
+      "Row",
+      "Sit",
+      "Stow",
+      "Strike",
+      "Wait",
+      "Walk"
+    ],
+    "notebook_attachment": "LeftHand 100%, separate skinned child of CrewRig",
+    "import_settings": "Exact Ada ModelImporter except new GUID and explicit canonical material external remap",
+    "station": "Stage1V4 dining room",
+    "station_top_y_m": 0.04,
+    "service_camera_pitch_deg": 38,
+    "pose_frames": {
+      "Walk": 7,
+      "Sit": 13,
+      "Eat": 25,
+      "Idle": 1
+    },
+    "pose_review_note": "Exported bones/actions unchanged. Walk root floor0.04; Sit/Eat evidence root0.24m aligns Ada seated hips with V4 chair. Runtime seating offset needs native verification.",
+    "review_note": "All six final frames opened: Walk in aisle, Sit/Eat with unchanged Ada clips and evidence-only chair root0.24m, front/side/back close views. Dark long coat, beret, open round glasses and separate LeftHand notebook read clearly; 2408tris. Rig/import audit confirms exact20bones/13clips and zero sampled matrix error. Runtime seat height requires integration verification."
+  },
+  {
+    "name": "Restaurant_Dish_IceCream",
+    "tris": 1344,
+    "size_xyz_blender_m": [
+      0.20999999344348907,
+      0.20999999344348907,
+      0.300730437040329
+    ],
+    "size_xyz_unity_m": [
+      0.20999999344348907,
+      0.300730437040329,
+      0.20999999344348907
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "vertices": 752,
+    "triangle_limit_exclusive": 1500,
+    "file": "Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_IceCream.fbx",
+    "sha256": "00fec9fae3634d60eb27d64d94355699915da76c0b616d541a008a50e6f202f5",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_Dish_IceCream.blend",
+    "station": "Stage1V4 DiningFour upper cloth",
+    "station_top_y_m": 0.812,
+    "station_local_unity_pivot_m": [
+      -1.35,
+      0.812,
+      -0.28
+    ],
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Dish_IceCream-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Dish_IceCream-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; non-emissive coin gold",
+    "review_note": "Both final warm-night room frames opened; fluted footed sundae, three distinct scoops, whipped cream, cherry, wafer and spoon read clearly on cream/teal saucer.1344tris;0.210m wide/0.301m tall; cloth support0.812. Opaque atlas glass convention; no extra material."
+  },
+  {
+    "name": "Restaurant_Dish_Pudding",
+    "tris": 780,
+    "size_xyz_blender_m": [
+      0.25999999046325684,
+      0.25999999046325684,
+      0.10750000178813934
+    ],
+    "size_xyz_unity_m": [
+      0.25999999046325684,
+      0.10750000178813934,
+      0.25999999046325684
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "vertices": 436,
+    "triangle_limit_exclusive": 1500,
+    "file": "Assets/Art/Models/Restaurant/Pack/dishes/Restaurant_Dish_Pudding.fbx",
+    "sha256": "53a9f95fad5cb5f8da8205517e7ee13f608134a99d7acb660318722dee8e7cfa",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_Dish_Pudding.blend",
+    "station": "Stage1V4 DiningFour upper cloth",
+    "station_top_y_m": 0.812,
+    "station_local_unity_pivot_m": [
+      -1.35,
+      0.812,
+      -0.28
+    ],
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Dish_Pudding-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Dish_Pudding-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; non-emissive coin gold",
+    "review_note": "Both final frames opened; dark sticky date sponge, continuous golden toffee skirt/pool, cream quenelle, mint and spoon read clearly on matching0.260m cream/teal plate.780tris,0.108m tall; actual cloth contact0.812."
+  },
+  {
+    "name": "Restaurant_WarmingLamp",
+    "tris": 1064,
+    "size_xyz_blender_m": [
+      0.2954999804496765,
+      0.23000000417232513,
+      0.6108450889587402
+    ],
+    "size_xyz_unity_m": [
+      0.2954999953508377,
+      0.6108450889587402,
+      0.23000000417232513
+    ],
+    "origin_offset_authored": [
+      0.002750001847743988,
+      0.0,
+      0.0
+    ],
+    "vertices": 524,
+    "children": [
+      "Bulb"
+    ],
+    "bulb_emission": "Canonical yellow-cell Surface.B times2.8; red-orange vertex tint; no new material",
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_WarmingLamp.fbx",
+    "sha256": "86c61a969990ca719e7e17a7b4cfb6fc11604053177c8736d364440635a3e48e",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_WarmingLamp.blend",
+    "station": "PassCounter",
+    "station_top_y_m": 1.05,
+    "station_local_unity_pivot_m": [
+      0,
+      1.05,
+      0
+    ],
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_WarmingLamp-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_WarmingLamp-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 30,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; canonical atlas response",
+    "review_note": "Final38deg service and30deg full detail opened: teal swivel shade, brass stand/base and red-orange canonical-emission Bulb clearly visible;1064tris,0.594m tall. Base rests on ray-measured PassCounter top1.05m. Bulb stays separate child."
+  },
+  {
+    "name": "Restaurant_ServiceBell",
+    "tris": 768,
+    "size_xyz_blender_m": [
+      0.18400000035762787,
+      0.18400000035762787,
+      0.13950000703334808
+    ],
+    "size_xyz_unity_m": [
+      0.18400000035762787,
+      0.13950000703334808,
+      0.18400000035762787
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "vertices": 409,
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_ServiceBell.fbx",
+    "sha256": "02b992bb510e68eff7fb1a96b6ce544a42aa7bd3387c5da47d4d2b5a06dda9d1",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_ServiceBell.blend",
+    "station": "ReceptionDesk main writing surface",
+    "station_top_y_m": 0.78,
+    "station_local_unity_pivot_m": [
+      -0.15,
+      0.78,
+      0.1
+    ],
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_ServiceBell-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_ServiceBell-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; canonical atlas response",
+    "review_note": "Both final desk views opened: faceted brass dome, rolled lip, cream push button and teal foot read clearly on actual ReceptionDesk main surfaceY0.78.768tris;0.184m across/0.1395m tall."
+  },
+  {
+    "name": "Restaurant_Bunting",
+    "tris": 1400,
+    "size_xyz_blender_m": [
+      8.0,
+      0.05400000140070915,
+      0.8008250594139099
+    ],
+    "size_xyz_unity_m": [
+      8.0,
+      0.8008250501006842,
+      0.05400000140070915
+    ],
+    "origin_offset_authored": [
+      4.0,
+      0.0,
+      -0.7738250494003296
+    ],
+    "vertices": 745,
+    "pivot": "left attachment end",
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_Bunting.fbx",
+    "sha256": "530a8b2a5f35a9d96594800255a0e7168e4af2b08ddce382484317762f597cdb",
+    "render_review": "PASS \u2014 every final frame individually opened by Codex 2",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_Bunting.blend",
+    "station": "RestaurantPier quay festival overhead",
+    "station_local_unity_pivot_m": [
+      4,
+      2.65,
+      -3.65
+    ],
+    "placement_note": "Left attachment at local origin; string extends8m along Unity-X; right anchor(-8,0,0). Authored sag0.34m; lowest pennant~0.77m below attachment.",
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Bunting-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_Bunting-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; canonical atlas response",
+    "review_note": "Both final room/harbour service and flag detail views opened:18 coral/gold/teal/cream triangle flags, sewn bindings, sagging cream rope, brass end eyes.1400tris;exact8.000m span; left attachment origin preserved, extends local Unity-X."
+  },
+  {
+    "name": "Restaurant_PlateRack",
+    "tris": 1264,
+    "size_xyz_blender_m": [
+      0.2800000011920929,
+      0.25,
+      0.32100000977516174
+    ],
+    "size_xyz_unity_m": [
+      0.2800000011920929,
+      0.32100000977516174,
+      0.25
+    ],
+    "origin_offset_authored": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "vertices": 732,
+    "triangle_limit_exclusive": 3000,
+    "file": "Assets/Art/Models/Restaurant/Pack/gadgets/Restaurant_PlateRack.fbx",
+    "sha256": "d4493b84e25b6885a7208d533c9447616cbcb310e700efc06a13f4db1a764ac4",
+    "render_review": "PENDING \u2014 clean GPU pair must be opened",
+    "material": "RestaurantAtlas",
+    "source": "Art/Source/RestaurantService/blends/props3-Restaurant_PlateRack.blend",
+    "captain_review": {
+      "file": "Assets\\Art\\Models\\Crew\\Quaternius\\mira.fbx",
+      "sha256": "0f3b85a9c78c0e18c77f3c1f1b869af8409f95cf6e567c457514ac53ce99f8b8",
+      "source_height_m": 1.7875581420958042,
+      "uniform_scale": 0.637741493914944,
+      "game_height_m": 1.14,
+      "pose": "Evidence-only forearm IK to rack upper grip; not an exported/native clip"
+    },
+    "station": "Stage1V4 aisle; read-only current captain Mira carry-scale proof",
+    "rack_local_unity_pivot_m": [
+      0,
+      0.43,
+      0.28
+    ],
+    "grip_local_unity_m": [
+      0,
+      0.307,
+      -0.075
+    ],
+    "carry_pose_note": "Evidence-only two-arm IK on untouched Mira import, normalized to CrewAnim.GameHeight1.14. Runtime currently carries props at root(0,.65,.27); attach rack by grip above with hand placement; no runtime/animation edits.",
+    "renders": [
+      "Art/Source/RestaurantService/renders/props3-Restaurant_PlateRack-service.png",
+      "Art/Source/RestaurantService/renders/props3-Restaurant_PlateRack-close.png"
+    ],
+    "service_camera_pitch_deg": 38,
+    "close_camera_pitch_deg": 55,
+    "review_lighting": "Stage1V4 practicals unchanged; review room fill300W; exposure-1.5EV; canonical atlas response"
+  }
+]

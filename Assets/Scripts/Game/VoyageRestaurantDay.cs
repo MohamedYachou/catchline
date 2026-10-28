@@ -286,11 +286,16 @@ namespace Catchline.Game
             staff.Add(SimStaff.Captain(Kitchen.Door));
             night = new RestaurantSim(State.Voyage * 104729, Kitchen, dayForecast, stock, staff) { Breakdowns = State.RestaurantNights.Count > 0, Events = State.RestaurantNights.Count > 0 }; // the tutorial night stays plain
             // Service v2 (Mo 10-28): the captain is the player's hands and walk-ins come all night (gentler on the first).
-            night.CaptainHandsOn = true; night.CaptainAuto = AutoPlay || Environment.GetCommandLineArgs().Contains("-capture-uiv2"); night.WalkInPace = State.RestaurantNights.Count == 0 ? .6f : 1f; night.GullPace = State.RestaurantNights.Count == 0 ? .6f : 1f; comboShown = -1;
+            night.CaptainHandsOn = true; night.CaptainAuto = AutoPlay || Environment.GetCommandLineArgs().Contains("-capture-uiv2"); night.WalkInPace = WalkInRamp(State.RestaurantNights.Count); night.GullPace = State.RestaurantNights.Count == 0 ? .6f : 1f;
+            // From the second night the evening ferry calls on most nights, somewhere in the middle of service.
+            var harbour = new System.Random(State.Voyage * 7919 + State.RestaurantNights.Count);
+            night.FerryAt = State.RestaurantNights.Count >= 1 && harbour.NextDouble() < .7 ? 70 + (float)harbour.NextDouble() * 50 : -1; ferryShown = false; comboShown = -1;
             // The room in 3D behind the service HUD; the day loop ticks the rules, the world only draws them.
             RadioNight(night); // what the captain agreed on the radio: Lotte's lemons, Bram's repair or the risk
+            ApplyNightCards(night); // the gadgets and dishes kept so far, and tonight's night card
             restaurantWorld ??= gameObject.AddComponent<RestaurantWorld>();
             restaurantWorld.DriveSimulation = false;
+            restaurantWorld.Cards.Clear(); restaurantWorld.Cards.UnionWith(State.RestaurantCards); restaurantWorld.NightCard = nightTonight;
             try { restaurantWorld.Begin(night); }
             catch (Exception e) { Debug.LogError("[Catchline] restaurant room failed: " + e.Message); }
             popularityBefore = restaurantPopularity;
@@ -305,8 +310,21 @@ namespace Catchline.Game
             // The very first night opens on Mira's coaching card, the service paused behind it.
             if (State.RestaurantNights.Count == 0 && HasUi("rx-s13-background")) { RestaurantPreview = RestaurantScreen.FirstNight; RestaurantService.Paused = true; }
             miraSaid.Add("open"); miraLines.Enqueue("Doors open! Service starts at 18:00.");
+            string tonight = nightTonight switch
+            {
+                "ferry" => "Ferry night! Six groups due off the evening boat.",
+                "critic" => "A food critic booked tonight. Make it five stars!",
+                "festival" => "Harbour festival! The whole quay is out tonight.",
+                "rain" => "Rain on the quay. Fewer guests, but cosy ones tip well.",
+                _ => null,
+            };
+            if (tonight != null) { miraSaid.Add("tonight"); miraLines.Enqueue(tonight); }
             if (HasUi("rx-transition-evening-phone")) Transition("evening");
         }
+
+        // Each night a little busier than the last (the cards make the house stronger, so the harbour keeps up):
+        // the gentle first night, then +6% walk-ins a night up to +60%.
+        public static float WalkInRamp(int nightsBefore) => nightsBefore == 0 ? .6f : 1f + Mathf.Min(.6f, (nightsBefore - 1) * .06f);
 
         // Per frame while the night runs: tick the rules, then refresh the service screen's numbers.
         void RestaurantTick(float dt)
@@ -315,10 +333,15 @@ namespace Catchline.Game
             if (RestaurantPhase != DayPhase.Service || night == null) return;
             var v = RestaurantService;
             if (!v.Paused) { night.Tick(dt * Mathf.Max(1, v.Speed)); CaptainWork(dt * Mathf.Max(1, v.Speed)); RadioNightTick(); }
+            // The ferry's horn a few seconds before it moors, then Mira's heads-up as the passengers come up.
+            if (night.FerryAt >= 0 && !ferryShown && night.Seconds >= night.FerryAt - 5) { ferryShown = true; audio?.Play(VoyageAudio.Cue.Horn, .6f); }
+            if (night.FerryArrivedAt >= 0 && miraSaid.Add("ferry")) Toast($"The ferry's in! {night.FerryGuests} hungry passengers coming up the pier.");
             // The first gull and the first round a table waves for explain themselves once a night.
             if (night.GullTable != 0 && miraSaid.Add("gull")) Toast("A gull! Tap its table to shoo it before it steals a plate.");
+            if (night.OnStations.Any(c => c.since >= 0) && miraSaid.Add("perfect")) Toast("Fish is done! Tap the stove while it glows for a perfect plate, before it burns.");
+            if (night.LastBurntAt >= 0 && miraSaid.Add("burnt")) Toast("Burnt! That portion's gone. Tap a done dish quicker next time.");
             if (night.Groups.Any(g => g.Phase == GroupPhase.Eating && night.Seconds < g.UpsellUntil) && miraSaid.Add("upsell")) Toast("A table wants another round: tap it to sell, quick!");
-            if (night.LastComboAt > comboShown) { comboShown = night.LastComboAt; Toast($"Combo! {night.LastCombo} plates in one trip · +{night.LastComboTip} tips"); audio?.Play(VoyageAudio.Cue.CoachPop, .35f); }
+            if (night.LastComboAt > comboShown) { comboShown = night.LastComboAt; if (miraSaid.Add("combo")) Toast($"Combo! {night.LastCombo} plates in one trip · +{night.LastComboTip} tips"); audio?.Play(VoyageAudio.Cue.CoachPop, .35f); }
             v.Hour = night.Hour; v.Open = 18; v.Close = 23;
             v.Coins = State.Coins + night.Result.Coins;
             v.Popularity = restaurantPopularity;
@@ -343,7 +366,7 @@ namespace Catchline.Game
 
         // The manager helps where it hurts (design section 6): tap a broken station and the captain goes to fix it;
         // tap a table and he works that table first (tap it again to let him help everywhere).
-        int captainFix, captainTable; float comboShown = -1;
+        int captainFix, captainTable; float comboShown = -1; bool ferryShown;
         void ServiceTap()
         {
             var p = UnityEngine.InputSystem.Pointer.current;
@@ -364,6 +387,7 @@ namespace Catchline.Game
             }
             // Service v2: a table waving for another round sells it on the tap, before anything the captain would do there.
             if (night.ShooGull(hit.Uid)) { audio?.Play(VoyageAudio.Cue.Gull, .5f); return true; }
+            if (night.PlateNow(hit.Uid)) { audio?.Play(night.LastPerfectUid == hit.Uid && night.LastPerfectAt == night.Seconds ? VoyageAudio.Cue.Bell : VoyageAudio.Cue.Select, .45f); return true; }
             if (night.TakeUpsell(hit.Uid)) { audio?.Play(VoyageAudio.Cue.Sale, .45f); return true; }
             if (night.CaptainHandsOn)
             {
@@ -427,6 +451,7 @@ namespace Catchline.Game
             if (night.Groups.Any(g => g.Birthday && g.TableUid != 0)) Say("birthday", "A birthday at our table! Make it special.");
             if (night.Groups.Any(g => g.Count >= 6 && g.TableUid != 0)) Say("tour", "A tour group of six! All hands!");
             if (night.Groups.Any(g => g.Regular && g.TableUid != 0)) Say("regular", "Our regular is here. The usual!");
+            if (night.Groups.Any(g => g.Critic)) Say("critic", "The critic is at the door! Seat them first.");
             if (night.Groups.Count(g => g.Phase == GroupPhase.Queue) >= 3) Say("queue", "The queue's growing, Captain!");
             if (fish == 0 && nightStock.fish > 0 && !night.DoorClosed) Say("no-fish", "We're out of fish!");
             if (soup == 0 && nightStock.soup > 0 && !night.DoorClosed) Say("no-soup", "Soup's all gone!");
@@ -490,11 +515,14 @@ namespace Catchline.Game
             // When the queue lost a lot of guests, one of them has the last word.
             var walked = night.Groups.FirstOrDefault(g => !g.Paid && g.Phase == GroupPhase.Gone);
             if (walked != null && r.Left * 3 >= r.Guests) { walked.Stars = 1; walked.Why = "queue"; if (speak.Count >= 3) speak[^1] = walked; else speak.Add(walked); }
+            // A critic who dined always has their say, first.
+            var critic = night.Groups.FirstOrDefault(g => g.Critic && g.Paid);
+            if (critic != null && !speak.Contains(critic)) { if (speak.Count >= 3) speak.RemoveAt(1); speak.Insert(0, critic); }
             var quoted = new HashSet<string>();
             var faces = new HashSet<string>(); // three different people speak
             v.Reviews = speak.Select((g, i) => new RestaurantReview
             {
-                Portrait = Enumerable.Range(0, GuestFaces.Length).Select(k => GuestFaces[(g.Id * 7 + i + k) % GuestFaces.Length]).First(faces.Add), Stars = Mathf.Clamp(g.Stars, 1, 5),
+                Portrait = g.Critic ? "critic" : Enumerable.Range(0, GuestFaces.Length).Select(k => GuestFaces[(g.Id * 7 + i + k) % GuestFaces.Length]).First(faces.Add), Stars = Mathf.Clamp(g.Stars, 1, 5),
                 Quote = Enumerable.Range(i, 3).Select(k => ReviewQuote(g, k)).FirstOrDefault(quoted.Add) ?? ReviewQuote(g, i),
             }).ToList();
             Debug.Log($"[Catchline] EVENTS birthday {night.Groups.Count(g => g.Birthday)} regular {night.Groups.Count(g => g.Regular)} happy regulars {r.HappyRegulars} tips {r.Tips} served {r.Served}/{r.Guests} pop +{r.PopularityGain:0.00}");
@@ -597,6 +625,9 @@ namespace Catchline.Game
             var dish = g.Tickets.Where(t => t.Dish != Dish.Coffee).Select(t => t.Dish).FirstOrDefault();
             string name = DishLook.TryGetValue(dish, out var look) ? look.name.ToLower() : "fish";
             string Pick(params string[] lines) => lines[(g.Id + i) % lines.Length];
+            // The critic's write-up, by the stars they gave (the closing card always lets them speak).
+            if (g.Critic) return g.Stars >= 5 ? Pick("Critic: a must-visit!", "Critic: five stars!") : g.Stars >= 4 ? Pick("Critic: very good fish.", "Critic: worth the walk.")
+                : g.Stars >= 3 ? Pick("Critic: fine, not more.", "Critic: decent enough.") : Pick("Critic: avoid, sadly.", "Critic: a poor night.");
             return g.Why switch
             {
                 "gave-up" => Pick("We waited, then left.", "Never got our food."),
@@ -842,6 +873,73 @@ namespace Catchline.Game
         }
         static string Cap(string id) => string.IsNullOrEmpty(id) ? id : char.ToUpperInvariant(id[0]) + id.Substring(1);
 
+        // ---- Night cards (Service v2, Mo 10-28): after the closing card the player keeps one of three -------------------
+        // Gadgets and dishes stay for good; a night card (ferry, critic, festival, rain) plays the next night only.
+        public readonly List<NightCardDef> NightCardOffer = new();
+        int nightCardIndex = 1; string nightTonight;
+
+        void ApplyNightCards(RestaurantSim sim)
+        {
+            var kept = State.RestaurantCards;
+            if (kept.Contains("warming-lamp")) sim.ColdBonus = 2;
+            if (kept.Contains("plate-rack")) sim.CarryBonus = 1;
+            if (kept.Contains("service-bell")) sim.DoorBonus = 1.4f;
+            if (kept.Contains("gull-net")) sim.GullPace *= .5f;
+            if (kept.Contains("quick-shoes")) foreach (var s in sim.Staff.Where(s => s.Id == "captain")) s.Boost *= 1.2f;
+            if (kept.Contains("second-pan")) sim.CookBonus = .75f;
+            if (kept.Contains("catch")) sim.PriceBonus += 2;
+            if (kept.Contains("ice-cream")) sim.IceCream = true;
+            nightTonight = kept.FirstOrDefault(c => c.StartsWith("next="))?.Substring(5);
+            kept.RemoveAll(c => c.StartsWith("next=")); // spent on the night it plays
+            switch (nightTonight)
+            {
+                case "ferry": sim.FerryAt = 90; sim.FerryExtra = 2; sim.TipBonus *= 1.2f; break;
+                case "critic": sim.CriticAt = 80; break;
+                case "festival": sim.WalkInPace *= 1.5f; sim.GullPace *= 2; sim.TipBonus *= 1.2f; break;
+                case "rain": sim.WalkInPace *= .6f; sim.GullPace = 0; sim.TipBonus *= 1.3f; break;
+            }
+            if (State.RestaurantCards.Count > 0 || nightTonight != null) Debug.Log($"[Catchline] NIGHTCARDS kept {string.Join(",", kept)} tonight {nightTonight ?? "-"}");
+        }
+
+        // One gadget and one dish not kept yet, and a night event other than tonight's; nights fill the hand once
+        // every gadget or dish is kept. Seeded by the day, so leaving and coming back offers the same three.
+        bool OfferNightCards()
+        {
+            NightCardOffer.Clear();
+            var rng = new System.Random(State.RestaurantDay * 613 + State.Voyage * 31);
+            NightCardDef Pick(NightCardKind kind)
+            {
+                var pool = NightCards.All.Where(c => c.Kind == kind && c.Id != nightTonight && !State.RestaurantCards.Contains(c.Id) && !NightCardOffer.Contains(c)).ToList();
+                return pool.Count == 0 ? null : pool[rng.Next(pool.Count)];
+            }
+            foreach (var kind in new[] { NightCardKind.Gadget, NightCardKind.Night, NightCardKind.Dish }) if (Pick(kind) is { } c) NightCardOffer.Add(c);
+            while (NightCardOffer.Count < 3 && Pick(NightCardKind.Night) is { } extra) NightCardOffer.Add(extra);
+            nightCardIndex = Mathf.Min(1, NightCardOffer.Count - 1);
+            Debug.Log($"[Catchline] NIGHTCARDS offer {string.Join(",", NightCardOffer.Select(c => c.Id))}");
+            return NightCardOffer.Count > 0;
+        }
+
+        void OpenNightCards() => RestaurantPreview = OfferNightCards() ? RestaurantScreen.NightCards : WeekDone() ? RestaurantScreen.Week : RestaurantScreen.Sleep;
+
+        void KeepNightCard(NightCardDef c)
+        {
+            var kept = State.RestaurantCards;
+            if (c.Kind == NightCardKind.Night) { kept.RemoveAll(x => x.StartsWith("next=")); kept.Add("next=" + c.Id); }
+            else if (!kept.Contains(c.Id)) kept.Add(c.Id);
+            // The sleep card's forecast says what tomorrow brings.
+            var sleep = RestaurantSleepCard;
+            if (c.Id == "rain") { sleep.TomorrowWeather = (int)Weather.Rain; sleep.Tomorrow = $"{RestaurantWeekday(State.RestaurantDay + 1)} · {WeatherWords(Weather.Rain)}"; }
+            sleep.Booking = c.Id switch
+            {
+                "ferry" => "The evening ferry calls", "critic" => "A food critic has booked", "festival" => "The harbour festival!", "rain" => "A cosy rainy night",
+                _ => sleep.Booking,
+            };
+            Debug.Log($"[Catchline] NIGHTCARDS kept {c.Id} -> {string.Join(",", kept)}");
+            NightCardOffer.Clear();
+            audio?.Play(VoyageAudio.Cue.Purchase, .6f);
+            RestaurantPreview = WeekDone() ? RestaurantScreen.Week : RestaurantScreen.Sleep;
+        }
+
         // Sleep on the closing card: bank the night, feed the cats, start a new morning in the harbour.
         void RestaurantSleep()
         {
@@ -866,6 +964,8 @@ namespace Catchline.Game
             // The hand-off cards and Mira's queued calls run on real time, which captures freeze: settle them per step.
             if (step != "day-evening" && step != "day-morning") transitionCard = null;
             if (night != null && step.StartsWith("day-service")) { while (miraLines.Count > 0) miraCall = miraLines.Dequeue(); miraCallUntil = SimTime + 3.6f; }
+            // The rules jump ahead in captures but the room only draws: walk everyone to where the rules put them first.
+            if (ok && night != null && step.StartsWith("day-service") && restaurantWorld != null && restaurantWorld.Sim == night) for (int i = 0; i < 80; i++) restaurantWorld.Refresh(.25f);
             return ok;
         }
 
@@ -981,10 +1081,6 @@ namespace Catchline.Game
                     coachOff = true; coachLine = null; RestaurantService.Paused = false;
                     while (night.Hour < 21f && !night.Finished) night.Tick(.5f);
                     RestaurantTick(0f);
-                    // DEBUG service v2 layout (temporary)
-                    foreach (var it in night.Layout.Active) Debug.Log($"[Catchline] DBG item {it.Uid} {it.Id} at {it.X},{it.Y} rot {it.Rotated} top {(restaurantWorld.ItemTop(it.Uid, out var dv) ? dv.ToString("F3") : "none")}");
-                    foreach (var g in night.Groups.Where(g => g.TableUid != 0 && g.Phase != GroupPhase.Gone)) Debug.Log($"[Catchline] DBG group {g.Id} x{g.Count} table {g.TableUid} {g.Phase} upsell {g.UpsellUntil:0.0}");
-                    foreach (var st in night.Staff) Debug.Log($"[Catchline] DBG staff {st.Id} tile {st.Tile} pos {st.Position} {st.Action}");
                     return RestaurantPhase == DayPhase.Service;
                 case "day-service-steam": // stops a few seconds after a plate lands, so its steam rises in the capture
                     {
@@ -1069,6 +1165,15 @@ namespace Catchline.Game
                         Debug.Log($"[Catchline] ARRANGE bought: items {had}->{Kitchen.Active.Count()}, coins {coins}->{State.Coins}");
                         return Kitchen.Active.Count() == had + 1;
                     }
+                case "day-house": // capture only, before day-plan: the house has kept every gadget and both dishes, festival next
+                    State.RestaurantCards.Clear();
+                    State.RestaurantCards.AddRange(NightCards.All.Where(c => c.Kind != NightCardKind.Night).Select(c => c.Id));
+                    State.RestaurantCards.Add("next=festival");
+                    return true;
+                case "day-nightcards": // after the closing card: keep one of three (gadget, night event, dish)
+                    if (RestaurantPhase != DayPhase.Closing) return false;
+                    OpenNightCards();
+                    return RestaurantPreview == RestaurantScreen.NightCards && NightCardOffer.Count == 3;
                 case "day-sleep":
                     if (RestaurantPhase != DayPhase.Closing) return false;
                     RestaurantPreview = RestaurantScreen.Sleep;

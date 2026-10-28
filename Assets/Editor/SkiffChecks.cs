@@ -118,26 +118,20 @@ namespace Catchline.EditorTools
             var fisher = new CrewMember { Name = "Test fisherman", Role = CrewRole.Fisherman, Grade = Grade.Veteran, VoyagesLeft = 5 };
             var secondHand = new CrewMember { Name = "Test second hand", Role = CrewRole.Deckhand, Grade = Grade.Experienced, VoyagesLeft = 3 };
             s.Board.AddRange(new[] { deckhand, fisher, secondHand });
-            Check(s.Hire(deckhand) && s.Hire(fisher) && s.Hire(secondHand), "three role-aware hires");
-            var fourth = new CrewMember { Name = "Fourth", Grade = Grade.Hand, VoyagesLeft = 2 };
-            s.Board.Add(fourth);
-            Check(!s.Hire(fourth) && s.CrewCount == 3, "crew cap enforced");
+            // The skiff has two berths (deck berths, 48671cf1): a deckhand and a fisherman; the second hand finds it full.
+            Check(s.Hire(deckhand) && s.Hire(fisher), "two role-aware hires");
+            Check(!s.Hire(secondHand) && s.CrewCount == 2, "crew cap enforced");
             game.SyncCrew();
-            Check(game.ExtraPeople.Count == 2 && game.Hand != null, "all hired crew built");
-            string save = Path.GetFullPath("Logs/crew-check-" + Guid.NewGuid().ToString("N") + ".json");
-            try
-            {
-                s.Save(save);
-                var loaded = GameState.Load(save);
-                Check(loaded.CrewCount == 3 && loaded.Crew.Count(c => c.Role == CrewRole.Fisherman) == 1, "crew roles save round trip");
-            }
-            finally { if (File.Exists(save)) File.Delete(save); }
+            Check(game.ExtraPeople.Count == 1 && game.Hand != null, "all hired crew built");
+            // No save round trip here: hires off the board are legacy fixtures and session-only; the crew a save keeps are
+            // cards (Deployment), covered by the card checks.
             s.FoodMinutes = 48f; s.Bait = 200;
             game.SelectedSpot = 4;
             game.SetSail();
             game.AutoPlay = false;
-            game.Tick(11f);
-            Check(game.SetNet(), "captain can set net");
+            // Sail out until the captain can work the net: travel time follows the day's route (Day v2), not a fixed 11 s.
+            for (int i = 0; i < 400 && !game.CanWorkNet; i++) game.Tick(.25f);
+            Check(game.SetNet(), $"captain can set net (mode {game.CurrentMode}, net {game.Net}, can work {game.CanWorkNet})");
             NetHaulChecks.FinishCaptainSet(game);
             Check(game.Net == VoyageGame.NetState.Soaking, "set action reaches soaking");
             PrototypeTools.Render(game.Cam, Path.GetFullPath("Logs/skiff-net-soaking.png"), 1440, 900);
