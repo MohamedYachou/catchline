@@ -34,25 +34,28 @@ namespace Catchline.Game
                 var group = t.GetComponent<CanvasGroup>();
                 if (group != null) { group.alpha = 1; group.interactable = group.blocksRaycasts = true; }
             }
-            if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); coastalUi.End(); return; }
-            if (IntroActive && !MenuOpen) { InterfaceIntro(); coastalUi.End(); return; }
-            InterfaceCastFx(); if (RodViewActive) { InterfaceRodView(); coastalUi.End(); return; }
-            if (CageViewActive) { InterfaceCageView(); coastalUi.End(); return; }
-            if (GutViewActive) { InterfaceGutView(); coastalUi.End(); return; }
-            if (RepairViewActive) { InterfaceRepairView(); coastalUi.End(); return; }
-            if (NetViewActive) { InterfaceNetView(); coastalUi.End(); return; }
-            if (DayCardsOpen) { InterfaceV3(InterfaceDayCards); coastalUi.End(); return; }
-            if (ArrivalActive) { InterfaceV3(InterfaceArrival); coastalUi.End(); return; }
-            if (InterfaceRestaurant()) { coastalUi.End(); return; }
+            // Mo 10-28: every screen in the v3 kit (the restaurant's rx screens set the same kit themselves).
+            InterfaceV3(InterfaceScreens);
+            coastalUi.End();
+        }
+        void InterfaceScreens()
+        {
+            if (MenuOpen || confirmHeadHome || SimTime < refitUntil) { InterfaceMenus(); return; }
+            if (IntroActive && !MenuOpen) { InterfaceIntro(); return; }
+            InterfaceCastFx(); if (RodViewActive) { InterfaceRodView(); return; }
+            if (CageViewActive) { InterfaceCageView(); return; }
+            if (GutViewActive) { InterfaceGutView(); return; }
+            if (RepairViewActive) { InterfaceRepairView(); return; }
+            if (NetViewActive) { InterfaceNetView(); return; }
+            if (DayCardsOpen) { InterfaceV3(InterfaceDayCards); return; }
+            if (ArrivalActive) { InterfaceV3(InterfaceArrival); return; }
+            if (InterfaceRestaurant()) return;
             if (departureReady && CurrentMode == Mode.Harbour) InterfaceDeparture();
             else if (CurrentMode == Mode.Harbour) InterfaceHarbour();
             else if (CurrentMode == Mode.Fishing && ManagementOpen) InterfaceManagementPages();
             else if (CurrentMode == Mode.Fishing) InterfaceFishing();
             else { InterfaceTravel(); if (UsesDeckGraph) InterfaceDeckBubbles(); InterfaceTripChart(); }
-            if (CurrentMode == Mode.Fishing && !ManagementOpen || CurrentMode == Mode.Harbour && !panelOpen && !departureReady)
-                InterfaceV3(InterfaceHudOverlays);
-            else InterfaceHudOverlays();
-            coastalUi.End();
+            InterfaceHudOverlays();
         }
         void InterfaceHudOverlays()
         {

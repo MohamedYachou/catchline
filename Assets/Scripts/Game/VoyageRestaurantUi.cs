@@ -973,7 +973,7 @@ namespace Catchline.Game
         {
             if (transitionCard != null && SimTime >= transitionUntil && !captureFreeze) transitionCard = null;
             if (RestaurantPreview == RestaurantScreen.None && transitionCard == null) return false;
-            // The restaurant draws in the mockups' kit and rounded face; the rest of the game keeps v2 for now (TODO.md).
+            // The restaurant draws in the mockups' kit and rounded face, as the whole game now does (Mo 10-28).
             coastalUi.Kit = "v3-";
             coastalUi.DisplayOverride = restaurantDisplay ??= Resources.Load<Font>("Fonts/Fredoka-Bold");
             coastalUi.BodyOverride = restaurantBody ??= Resources.Load<Font>("Fonts/Fredoka-SemiBold");
